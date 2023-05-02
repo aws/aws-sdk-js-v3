@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.325.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.324.0...v3.325.0) (2023-05-02)
+
+
+### Features
+
+* **client-appflow:** This release adds new API to cancel flow executions. ([e139022](https://github.com/aws/aws-sdk-js-v3/commit/e139022e91872bd549d743cc0c943b975a584e7b))
+
+
+
+
+
 # [3.323.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.322.0...v3.323.0) (2023-04-28)
 
 

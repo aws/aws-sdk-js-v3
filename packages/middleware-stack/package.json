@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-stack",
-  "version": "3.310.0",
+  "version": "3.325.0",
   "description": "Provides a means for composing multiple middleware functions into a single handler",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",

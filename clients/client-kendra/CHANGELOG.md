@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.325.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.324.0...v3.325.0) (2023-05-02)
+
+
+### Features
+
+* **client-kendra:** AWS Kendra now supports configuring document fields/attributes via the GetQuerySuggestions API. You can now base query suggestions on the contents of document fields. ([4e715d7](https://github.com/aws/aws-sdk-js-v3/commit/4e715d7951b0d6d4e9f892d26f60333360402c97))
+
+
+
+
+
 ## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
 
 **Note:** Version bump only for package @aws-sdk/client-kendra

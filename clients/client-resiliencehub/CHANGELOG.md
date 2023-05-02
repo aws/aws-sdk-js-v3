@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.325.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.324.0...v3.325.0) (2023-05-02)
+
+
+### Features
+
+* **client-resiliencehub:** This release will improve resource level transparency in applications by discovering previously hidden resources. ([91006ef](https://github.com/aws/aws-sdk-js-v3/commit/91006efc4fb124896956e26eb10db6837b81a568))
+
+
+
+
+
 ## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
 
 **Note:** Version bump only for package @aws-sdk/client-resiliencehub

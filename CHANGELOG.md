@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.325.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.324.0...v3.325.0) (2023-05-02)
+
+
+### Features
+
+* **client-appflow:** This release adds new API to cancel flow executions. ([e139022](https://github.com/aws/aws-sdk-js-v3/commit/e139022e91872bd549d743cc0c943b975a584e7b))
+* **client-connect:** Amazon Connect Service Rules API update: Added OnContactEvaluationSubmit event source to support user configuring evaluation form rules. ([be236b1](https://github.com/aws/aws-sdk-js-v3/commit/be236b181494043a10e05e22870e95f5df8a3337))
+* **client-kendra:** AWS Kendra now supports configuring document fields/attributes via the GetQuerySuggestions API. You can now base query suggestions on the contents of document fields. ([4e715d7](https://github.com/aws/aws-sdk-js-v3/commit/4e715d7951b0d6d4e9f892d26f60333360402c97))
+* **client-resiliencehub:** This release will improve resource level transparency in applications by discovering previously hidden resources. ([91006ef](https://github.com/aws/aws-sdk-js-v3/commit/91006efc4fb124896956e26eb10db6837b81a568))
+* **client-sagemaker:** Amazon Sagemaker Autopilot supports training models with sample weights and additional objective metrics. ([52e716a](https://github.com/aws/aws-sdk-js-v3/commit/52e716ada4db660cafcf17206f0a27c99d122899))
+* **clients:** update client endpoints as of 2023-05-02 ([109fa1c](https://github.com/aws/aws-sdk-js-v3/commit/109fa1cf6098536acb95092d359aedc3caad7f2e))
+* **codegen:** bump codegen version to 0.15.0 ([#4678](https://github.com/aws/aws-sdk-js-v3/issues/4678)) ([83421a1](https://github.com/aws/aws-sdk-js-v3/commit/83421a1d562d79cb49a534543532674ffb822f8b))
+
+
+### Reverts
+
+* Revert "feat(codegen): bump codegen version to 0.15.0 (#4678)" (#4689) ([f75bf2c](https://github.com/aws/aws-sdk-js-v3/commit/f75bf2c64e8a9522ad05fad0d8fe7bf88a3bca2b)), closes [#4678](https://github.com/aws/aws-sdk-js-v3/issues/4678) [#4689](https://github.com/aws/aws-sdk-js-v3/issues/4689)
+
+
+
+
+
 # [3.324.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.323.0...v3.324.0) (2023-05-01)
 
 

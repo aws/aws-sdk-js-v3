@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.325.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.324.0...v3.325.0) (2023-05-02)
+
+
+### Features
+
+* **client-sagemaker:** Amazon Sagemaker Autopilot supports training models with sample weights and additional objective metrics. ([52e716a](https://github.com/aws/aws-sdk-js-v3/commit/52e716ada4db660cafcf17206f0a27c99d122899))
+
+
+
+
+
 # [3.322.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.1...v3.322.0) (2023-04-27)
 
 
