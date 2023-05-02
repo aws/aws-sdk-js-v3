@@ -59,7 +59,7 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  * const client = new ResiliencehubClient(config);
  * const input = { // CreateAppVersionResourceRequest
  *   appArn: "STRING_VALUE", // required
- *   resourceName: "STRING_VALUE", // required
+ *   resourceName: "STRING_VALUE",
  *   logicalResourceId: { // LogicalResourceId
  *     identifier: "STRING_VALUE", // required
  *     logicalStackName: "STRING_VALUE",
