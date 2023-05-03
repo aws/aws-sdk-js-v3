@@ -13,6 +13,10 @@ describe("middleware-endpoint-discovery", () => {
         endpointDiscoveryEnabled: true,
       });
 
+      requireRequestsFrom(client).toMatch({
+        hostname: /https\:\/\/my-endpoint.amazonaws.com$/,
+      });
+
       client.config.endpointCache = new EndpointCache(1000);
       const cacheKey = await getCacheKey("DescribeScheduledQueryCommand", client.config, {});
       client.config.endpointCache.set(cacheKey, [
@@ -21,10 +25,6 @@ describe("middleware-endpoint-discovery", () => {
           CachePeriodInMinutes: 1,
         },
       ]);
-
-      requireRequestsFrom(client).toMatch({
-        hostname: /https\:\/\/my-endpoint.amazonaws.com$/,
-      });
 
       await client.describeScheduledQuery({
         ScheduledQueryArn: "arn:aws:timestream:us-west-2:1234567890:scheduled-query/1",
@@ -41,6 +41,10 @@ describe("middleware-endpoint-discovery", () => {
         endpointDiscoveryEnabled: true,
       });
 
+      requireRequestsFrom(client).toMatch({
+        hostname: /https\:\/\/my-endpoint.amazonaws.com$/,
+      });
+
       client.config.endpointCache = new EndpointCache(1000);
       const cacheKey = await getCacheKey("DescribeBatchLoadTaskCommand", client.config, {});
       client.config.endpointCache.set(cacheKey, [
@@ -49,10 +53,6 @@ describe("middleware-endpoint-discovery", () => {
           CachePeriodInMinutes: 1,
         },
       ]);
-
-      requireRequestsFrom(client).toMatch({
-        hostname: /https\:\/\/my-endpoint.amazonaws.com$/,
-      });
 
       await client.describeBatchLoadTask({
         TaskId: "task-id",
