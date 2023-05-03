@@ -14,46 +14,70 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { AssociateMemberRequest, AssociateMemberResponse } from "../models/models_0";
-import { de_AssociateMemberCommand, se_AssociateMemberCommand } from "../protocols/Aws_restJson1";
+import {
+  BatchGetMemberEc2DeepInspectionStatusRequest,
+  BatchGetMemberEc2DeepInspectionStatusResponse,
+} from "../models/models_0";
+import {
+  de_BatchGetMemberEc2DeepInspectionStatusCommand,
+  se_BatchGetMemberEc2DeepInspectionStatusCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link AssociateMemberCommand}.
+ * The input for {@link BatchGetMemberEc2DeepInspectionStatusCommand}.
  */
-export interface AssociateMemberCommandInput extends AssociateMemberRequest {}
+export interface BatchGetMemberEc2DeepInspectionStatusCommandInput
+  extends BatchGetMemberEc2DeepInspectionStatusRequest {}
 /**
  * @public
  *
- * The output of {@link AssociateMemberCommand}.
+ * The output of {@link BatchGetMemberEc2DeepInspectionStatusCommand}.
  */
-export interface AssociateMemberCommandOutput extends AssociateMemberResponse, __MetadataBearer {}
+export interface BatchGetMemberEc2DeepInspectionStatusCommandOutput
+  extends BatchGetMemberEc2DeepInspectionStatusResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Associates an Amazon Web Services account with an Amazon Inspector delegated administrator.   An HTTP 200 response indicates the association was successfully started, but doesn’t indicate whether it was completed. You can check if the association completed by using <a href="https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListMembers.html">ListMembers</a> for multiple accounts or <a href="https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetMember.html">GetMembers</a> for a single account.</p>
+ * <p>Retrieves Amazon Inspector deep inspection activation status of multiple member accounts within your organization. You must be the delegated administrator of an organization in Amazon Inspector to use this API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, AssociateMemberCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, AssociateMemberCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, BatchGetMemberEc2DeepInspectionStatusCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
+ * // const { Inspector2Client, BatchGetMemberEc2DeepInspectionStatusCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = { // AssociateMemberRequest
- *   accountId: "STRING_VALUE", // required
+ * const input = { // BatchGetMemberEc2DeepInspectionStatusRequest
+ *   accountIds: [ // AccountIdSet
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new AssociateMemberCommand(input);
+ * const command = new BatchGetMemberEc2DeepInspectionStatusCommand(input);
  * const response = await client.send(command);
- * // { // AssociateMemberResponse
- * //   accountId: "STRING_VALUE", // required
+ * // { // BatchGetMemberEc2DeepInspectionStatusResponse
+ * //   accountIds: [ // MemberAccountEc2DeepInspectionStatusStateList
+ * //     { // MemberAccountEc2DeepInspectionStatusState
+ * //       accountId: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   failedAccountIds: [ // FailedMemberAccountEc2DeepInspectionStatusStateList
+ * //     { // FailedMemberAccountEc2DeepInspectionStatusState
+ * //       accountId: "STRING_VALUE", // required
+ * //       ec2ScanStatus: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param AssociateMemberCommandInput - {@link AssociateMemberCommandInput}
- * @returns {@link AssociateMemberCommandOutput}
- * @see {@link AssociateMemberCommandInput} for command's `input` shape.
- * @see {@link AssociateMemberCommandOutput} for command's `response` shape.
+ * @param BatchGetMemberEc2DeepInspectionStatusCommandInput - {@link BatchGetMemberEc2DeepInspectionStatusCommandInput}
+ * @returns {@link BatchGetMemberEc2DeepInspectionStatusCommandOutput}
+ * @see {@link BatchGetMemberEc2DeepInspectionStatusCommandInput} for command's `input` shape.
+ * @see {@link BatchGetMemberEc2DeepInspectionStatusCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -73,9 +97,9 @@ export interface AssociateMemberCommandOutput extends AssociateMemberResponse, _
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
-export class AssociateMemberCommand extends $Command<
-  AssociateMemberCommandInput,
-  AssociateMemberCommandOutput,
+export class BatchGetMemberEc2DeepInspectionStatusCommand extends $Command<
+  BatchGetMemberEc2DeepInspectionStatusCommandInput,
+  BatchGetMemberEc2DeepInspectionStatusCommandOutput,
   Inspector2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -93,7 +117,7 @@ export class AssociateMemberCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: AssociateMemberCommandInput) {
+  constructor(readonly input: BatchGetMemberEc2DeepInspectionStatusCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -106,17 +130,17 @@ export class AssociateMemberCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Inspector2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<AssociateMemberCommandInput, AssociateMemberCommandOutput> {
+  ): Handler<BatchGetMemberEc2DeepInspectionStatusCommandInput, BatchGetMemberEc2DeepInspectionStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, AssociateMemberCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, BatchGetMemberEc2DeepInspectionStatusCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "Inspector2Client";
-    const commandName = "AssociateMemberCommand";
+    const commandName = "BatchGetMemberEc2DeepInspectionStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -135,15 +159,21 @@ export class AssociateMemberCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: AssociateMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_AssociateMemberCommand(input, context);
+  private serialize(
+    input: BatchGetMemberEc2DeepInspectionStatusCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_BatchGetMemberEc2DeepInspectionStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateMemberCommandOutput> {
-    return de_AssociateMemberCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<BatchGetMemberEc2DeepInspectionStatusCommandOutput> {
+    return de_BatchGetMemberEc2DeepInspectionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

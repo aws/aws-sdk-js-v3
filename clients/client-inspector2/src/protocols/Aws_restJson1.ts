@@ -37,6 +37,14 @@ import {
   BatchGetFreeTrialInfoCommandOutput,
 } from "../commands/BatchGetFreeTrialInfoCommand";
 import {
+  BatchGetMemberEc2DeepInspectionStatusCommandInput,
+  BatchGetMemberEc2DeepInspectionStatusCommandOutput,
+} from "../commands/BatchGetMemberEc2DeepInspectionStatusCommand";
+import {
+  BatchUpdateMemberEc2DeepInspectionStatusCommandInput,
+  BatchUpdateMemberEc2DeepInspectionStatusCommandOutput,
+} from "../commands/BatchUpdateMemberEc2DeepInspectionStatusCommand";
+import {
   CancelFindingsReportCommandInput,
   CancelFindingsReportCommandOutput,
 } from "../commands/CancelFindingsReportCommand";
@@ -66,6 +74,10 @@ import {
   GetDelegatedAdminAccountCommandInput,
   GetDelegatedAdminAccountCommandOutput,
 } from "../commands/GetDelegatedAdminAccountCommand";
+import {
+  GetEc2DeepInspectionConfigurationCommandInput,
+  GetEc2DeepInspectionConfigurationCommandOutput,
+} from "../commands/GetEc2DeepInspectionConfigurationCommand";
 import {
   GetFindingsReportStatusCommandInput,
   GetFindingsReportStatusCommandOutput,
@@ -102,11 +114,19 @@ import {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
 } from "../commands/UpdateConfigurationCommand";
+import {
+  UpdateEc2DeepInspectionConfigurationCommandInput,
+  UpdateEc2DeepInspectionConfigurationCommandOutput,
+} from "../commands/UpdateEc2DeepInspectionConfigurationCommand";
 import { UpdateFilterCommandInput, UpdateFilterCommandOutput } from "../commands/UpdateFilterCommand";
 import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "../commands/UpdateOrganizationConfigurationCommand";
+import {
+  UpdateOrgEc2DeepInspectionConfigurationCommandInput,
+  UpdateOrgEc2DeepInspectionConfigurationCommandOutput,
+} from "../commands/UpdateOrgEc2DeepInspectionConfigurationCommand";
 import { Inspector2ServiceException as __BaseException } from "../models/Inspector2ServiceException";
 import {
   AccessDeniedException,
@@ -147,6 +167,7 @@ import {
   LambdaLayerAggregation,
   MapFilter,
   Member,
+  MemberAccountEc2DeepInspectionStatus,
   NumberFilter,
   PackageAggregation,
   PackageFilter,
@@ -238,6 +259,67 @@ export const se_BatchGetFreeTrialInfoCommand = async (
   };
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/freetrialinfo/batchget";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountIds: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1BatchGetMemberEc2DeepInspectionStatusCommand
+ */
+export const se_BatchGetMemberEc2DeepInspectionStatusCommand = async (
+  input: BatchGetMemberEc2DeepInspectionStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ec2deepinspectionstatus/member/batch/get";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountIds: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1BatchUpdateMemberEc2DeepInspectionStatusCommand
+ */
+export const se_BatchUpdateMemberEc2DeepInspectionStatusCommand = async (
+  input: BatchUpdateMemberEc2DeepInspectionStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/ec2deepinspectionstatus/member/batch/update";
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -590,6 +672,32 @@ export const se_GetDelegatedAdminAccountCommand = async (
   };
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delegatedadminaccounts/get";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetEc2DeepInspectionConfigurationCommand
+ */
+export const se_GetEc2DeepInspectionConfigurationCommand = async (
+  input: GetEc2DeepInspectionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ec2deepinspectionconfiguration/get";
   let body: any;
   body = "";
   return new __HttpRequest({
@@ -1060,6 +1168,37 @@ export const se_UpdateConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateEc2DeepInspectionConfigurationCommand
+ */
+export const se_UpdateEc2DeepInspectionConfigurationCommand = async (
+  input: UpdateEc2DeepInspectionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ec2deepinspectionconfiguration/update";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      activateDeepInspection: [],
+      packagePaths: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateFilterCommand
  */
 export const se_UpdateFilterCommand = async (
@@ -1110,6 +1249,37 @@ export const se_UpdateOrganizationConfigurationCommand = async (
   body = JSON.stringify(
     take(input, {
       autoEnable: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateOrgEc2DeepInspectionConfigurationCommand
+ */
+export const se_UpdateOrgEc2DeepInspectionConfigurationCommand = async (
+  input: UpdateOrgEc2DeepInspectionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/ec2deepinspectionconfiguration/org/update";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      orgPackagePaths: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -1268,6 +1438,120 @@ const de_BatchGetFreeTrialInfoCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetFreeTrialInfoCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1BatchGetMemberEc2DeepInspectionStatusCommand
+ */
+export const de_BatchGetMemberEc2DeepInspectionStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetMemberEc2DeepInspectionStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchGetMemberEc2DeepInspectionStatusCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accountIds: _json,
+    failedAccountIds: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchGetMemberEc2DeepInspectionStatusCommandError
+ */
+const de_BatchGetMemberEc2DeepInspectionStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetMemberEc2DeepInspectionStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1BatchUpdateMemberEc2DeepInspectionStatusCommand
+ */
+export const de_BatchUpdateMemberEc2DeepInspectionStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateMemberEc2DeepInspectionStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchUpdateMemberEc2DeepInspectionStatusCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accountIds: _json,
+    failedAccountIds: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchUpdateMemberEc2DeepInspectionStatusCommandError
+ */
+const de_BatchUpdateMemberEc2DeepInspectionStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateMemberEc2DeepInspectionStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1991,6 +2275,65 @@ const de_GetDelegatedAdminAccountCommandError = async (
     case "ValidationException":
     case "com.amazonaws.inspector2#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetEc2DeepInspectionConfigurationCommand
+ */
+export const de_GetEc2DeepInspectionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEc2DeepInspectionConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetEc2DeepInspectionConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    errorMessage: __expectString,
+    orgPackagePaths: _json,
+    packagePaths: _json,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetEc2DeepInspectionConfigurationCommandError
+ */
+const de_GetEc2DeepInspectionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEc2DeepInspectionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.inspector2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2843,6 +3186,65 @@ const de_UpdateConfigurationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateEc2DeepInspectionConfigurationCommand
+ */
+export const de_UpdateEc2DeepInspectionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEc2DeepInspectionConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateEc2DeepInspectionConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    errorMessage: __expectString,
+    orgPackagePaths: _json,
+    packagePaths: _json,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateEc2DeepInspectionConfigurationCommandError
+ */
+const de_UpdateEc2DeepInspectionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEc2DeepInspectionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateFilterCommand
  */
 export const de_UpdateFilterCommand = async (
@@ -2929,6 +3331,58 @@ const de_UpdateOrganizationConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateOrganizationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateOrgEc2DeepInspectionConfigurationCommand
+ */
+export const de_UpdateOrgEc2DeepInspectionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateOrgEc2DeepInspectionConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateOrgEc2DeepInspectionConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateOrgEc2DeepInspectionConfigurationCommandError
+ */
+const de_UpdateOrgEc2DeepInspectionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateOrgEc2DeepInspectionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3234,6 +3688,10 @@ const se_FilterCriteria = (input: FilterCriteria, context: __SerdeContext): any 
 
 // se_MapFilterList omitted.
 
+// se_MemberAccountEc2DeepInspectionStatus omitted.
+
+// se_MemberAccountEc2DeepInspectionStatusList omitted.
+
 // se_MeteringAccountIdList omitted.
 
 /**
@@ -3284,6 +3742,8 @@ const se_PackageFilterList = (input: PackageFilter[], context: __SerdeContext): 
       return se_PackageFilter(entry, context);
     });
 };
+
+// se_PathList omitted.
 
 // se_PortRangeFilter omitted.
 
@@ -3568,6 +4028,10 @@ const de_ExploitabilityDetails = (output: any, context: __SerdeContext): Exploit
 
 // de_FailedAccountList omitted.
 
+// de_FailedMemberAccountEc2DeepInspectionStatusState omitted.
+
+// de_FailedMemberAccountEc2DeepInspectionStatusStateList omitted.
+
 /**
  * deserializeAws_restJson1Filter
  */
@@ -3796,6 +4260,10 @@ const de_Member = (output: any, context: __SerdeContext): Member => {
   }) as any;
 };
 
+// de_MemberAccountEc2DeepInspectionStatusState omitted.
+
+// de_MemberAccountEc2DeepInspectionStatusStateList omitted.
+
 /**
  * deserializeAws_restJson1MemberList
  */
@@ -3882,6 +4350,8 @@ const de_PackageVulnerabilityDetails = (output: any, context: __SerdeContext): P
     vulnerablePackages: _json,
   }) as any;
 };
+
+// de_PathList omitted.
 
 // de_Permission omitted.
 
