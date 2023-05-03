@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.326.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.325.0...v3.326.0) (2023-05-03)
+
+
+### Features
+
+* **client-network-firewall:** AWS Network Firewall now supports policy level HOME_NET variable overrides. ([aef051a](https://github.com/aws/aws-sdk-js-v3/commit/aef051afc96434eed02ca3a577a5b08805e5f0e7))
+
+
+
+
+
 # [3.325.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.324.0...v3.325.0) (2023-05-02)
 
 **Note:** Version bump only for package @aws-sdk/client-network-firewall

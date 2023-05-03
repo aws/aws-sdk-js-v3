@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.326.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.325.0...v3.326.0) (2023-05-03)
+
+
+### Features
+
+* **client-appsync:** Private API support for AWS AppSync. With Private APIs, you can now create GraphQL APIs that can only be accessed from your Amazon Virtual Private Cloud ("VPC"). ([c28aac2](https://github.com/aws/aws-sdk-js-v3/commit/c28aac2d49a48095078fa283b6f52acc3fd537c7))
+* **client-ec2:** Adds an SDK paginator for GetNetworkInsightsAccessScopeAnalysisFindings ([ed4b264](https://github.com/aws/aws-sdk-js-v3/commit/ed4b26446960bb721350031cfaa6aa794b673bb7))
+* **client-inspector2:** This feature provides deep inspection for linux based instance ([0fa21fd](https://github.com/aws/aws-sdk-js-v3/commit/0fa21fd2d25fd8fc11a57359aeb2f9f83ec9e463))
+* **client-iottwinmaker:** This release adds a field for GetScene API to return error code and message from dependency services. ([653fc59](https://github.com/aws/aws-sdk-js-v3/commit/653fc591c8cca23ca23682dd8f0242489ff9a64b))
+* **client-network-firewall:** AWS Network Firewall now supports policy level HOME_NET variable overrides. ([aef051a](https://github.com/aws/aws-sdk-js-v3/commit/aef051afc96434eed02ca3a577a5b08805e5f0e7))
+* **client-opensearch:** Amazon OpenSearch Service adds the option to deploy a domain across multiple Availability Zones, with each AZ containing a complete copy of data and with nodes in one AZ acting as a standby. This option provides 99.99% availability and consistent performance in the event of infrastructure failure. ([bd6c71a](https://github.com/aws/aws-sdk-js-v3/commit/bd6c71a898ce79383e0be842b58718ddf48888a2))
+* **client-wellarchitected:** This release deepens integration with AWS Service Catalog AppRegistry to improve workload resource discovery. ([560a299](https://github.com/aws/aws-sdk-js-v3/commit/560a29964b8c186a6ae853361308760d4d908edf))
+
+
+
+
+
 # [3.325.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.324.0...v3.325.0) (2023-05-02)
 
 

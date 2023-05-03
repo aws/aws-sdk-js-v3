@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.326.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.325.0...v3.326.0) (2023-05-03)
+
+
+### Features
+
+* **client-ec2:** Adds an SDK paginator for GetNetworkInsightsAccessScopeAnalysisFindings ([ed4b264](https://github.com/aws/aws-sdk-js-v3/commit/ed4b26446960bb721350031cfaa6aa794b673bb7))
+
+
+
+
+
 # [3.325.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.324.0...v3.325.0) (2023-05-02)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2
