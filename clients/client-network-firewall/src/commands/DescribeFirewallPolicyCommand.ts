@@ -112,6 +112,15 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * //       StreamExceptionPolicy: "DROP" || "CONTINUE",
  * //     },
  * //     TLSInspectionConfigurationArn: "STRING_VALUE",
+ * //     PolicyVariables: { // PolicyVariables
+ * //       RuleVariables: { // IPSets
+ * //         "<keys>": { // IPSet
+ * //           Definition: [ // VariableDefinitionList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *

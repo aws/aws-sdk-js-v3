@@ -88,6 +88,15 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  *       StreamExceptionPolicy: "DROP" || "CONTINUE",
  *     },
  *     TLSInspectionConfigurationArn: "STRING_VALUE",
+ *     PolicyVariables: { // PolicyVariables
+ *       RuleVariables: { // IPSets
+ *         "<keys>": { // IPSet
+ *           Definition: [ // VariableDefinitionList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     },
  *   },
  *   Description: "STRING_VALUE",
  *   Tags: [ // TagList

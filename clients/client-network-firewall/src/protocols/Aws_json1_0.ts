@@ -179,6 +179,7 @@ import {
   LogDestinationPermissionException,
   LoggingConfiguration,
   MatchAttributes,
+  PolicyVariables,
   PortRange,
   PortSet,
   PublishMetricAction,
@@ -3058,6 +3059,8 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
 
 // se_MatchAttributes omitted.
 
+// se_PolicyVariables omitted.
+
 // se_PortRange omitted.
 
 // se_PortRanges omitted.
@@ -3439,6 +3442,8 @@ const de_FirewallPolicyResponse = (output: any, context: __SerdeContext): Firewa
 // de_MatchAttributes omitted.
 
 // de_PerObjectStatus omitted.
+
+// de_PolicyVariables omitted.
 
 // de_PortRange omitted.
 
