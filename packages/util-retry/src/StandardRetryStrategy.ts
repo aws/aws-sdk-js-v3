@@ -5,7 +5,7 @@ import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS } from "./constants";
 import { getDefaultRetryToken } from "./defaultRetryToken";
 
 /**
- * @internal
+ * @public
  */
 export class StandardRetryStrategy implements RetryStrategyV2 {
   private retryToken: StandardRetryToken;

@@ -11,7 +11,7 @@ import {
 import { getDefaultRetryBackoffStrategy } from "./defaultRetryBackoffStrategy";
 
 /**
- * @internal
+ * @public
  */
 export interface DefaultRetryTokenOptions {
   /**
