@@ -131,6 +131,7 @@ export * from "./GetIpamPoolCidrsPaginator";
 export * from "./GetIpamResourceCidrsPaginator";
 export * from "./GetManagedPrefixListAssociationsPaginator";
 export * from "./GetManagedPrefixListEntriesPaginator";
+export * from "./GetNetworkInsightsAccessScopeAnalysisFindingsPaginator";
 export * from "./GetSpotPlacementScoresPaginator";
 export * from "./GetTransitGatewayAttachmentPropagationsPaginator";
 export * from "./GetTransitGatewayMulticastDomainAssociationsPaginator";
