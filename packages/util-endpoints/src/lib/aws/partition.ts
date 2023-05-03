@@ -51,7 +51,10 @@ export const partition = (value: string): EndpointPartition => {
       if (region === value) {
         return {
           ...outputs,
-          ...regionData,
+          ...(regionData as {
+            description?: string;
+          }
+        | undefined),
         };
       }
     }
@@ -67,7 +70,7 @@ export const partition = (value: string): EndpointPartition => {
     }
   }
 
-  const DEFAULT_PARTITION = partitions.find((partition) => partition.id === "aws");
+  const DEFAULT_PARTITION = (partitions as any[]).find((partition) => partition.id === "aws");
 
   if (!DEFAULT_PARTITION) {
     throw new Error(
