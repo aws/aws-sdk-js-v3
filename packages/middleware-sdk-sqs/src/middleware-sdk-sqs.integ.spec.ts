@@ -101,6 +101,11 @@ const handlerResponse = (body: string) => {
   };
 };
 
+const credentials = {
+  accessKeyId: "a",
+  secretAccessKey: "s",
+};
+
 describe("middleware-sdk-sqs", () => {
   describe(SQS.name + ` w/ useAwsQuery: ${useAwsQuery}`, () => {
     describe("correct md5 hashes", () => {
@@ -111,6 +116,7 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on received messages", async () => {
         const client = new SQS({
           region: "us-west-2",
+          credentials,
           requestHandler: new (class {
             async handle(): Promise<any> {
               const r = responses();
@@ -129,6 +135,7 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on sent messages", async () => {
         const client = new SQS({
           region: "us-west-2",
+          credentials,
           requestHandler: new (class {
             async handle(): Promise<any> {
               const r = responses();
@@ -148,6 +155,7 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on batch sent messages", async () => {
         const client = new SQS({
           region: "us-west-2",
+          credentials,
           requestHandler: new (class {
             async handle(): Promise<any> {
               const r = responses();
@@ -186,6 +194,7 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on received messages", async () => {
         const client = new SQS({
           region: "us-west-2",
+          credentials,
           requestHandler: new (class {
             async handle(): Promise<any> {
               const r = responses();
@@ -231,6 +240,7 @@ describe("middleware-sdk-sqs", () => {
       it("runs md5 checksums on batch sent messages", async () => {
         const client = new SQS({
           region: "us-west-2",
+          credentials,
           requestHandler: new (class {
             async handle(): Promise<any> {
               const r = responses();
