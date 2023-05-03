@@ -61,6 +61,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *     ColdStorageOptions: { // ColdStorageOptions
  *       Enabled: true || false, // required
  *     },
+ *     MultiAZWithStandbyEnabled: true || false,
  *   },
  *   EBSOptions: { // EBSOptions
  *     EBSEnabled: true || false,
@@ -193,6 +194,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //         ColdStorageOptions: { // ColdStorageOptions
  * //           Enabled: true || false, // required
  * //         },
+ * //         MultiAZWithStandbyEnabled: true || false,
  * //       },
  * //       Status: {
  * //         CreationDate: new Date("TIMESTAMP"), // required
@@ -408,7 +410,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *  <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>

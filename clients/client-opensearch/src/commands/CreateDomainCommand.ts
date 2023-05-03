@@ -58,6 +58,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *     ColdStorageOptions: { // ColdStorageOptions
  *       Enabled: true || false, // required
  *     },
+ *     MultiAZWithStandbyEnabled: true || false,
  *   },
  *   EBSOptions: { // EBSOptions
  *     EBSEnabled: true || false,
@@ -194,6 +195,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //       ColdStorageOptions: { // ColdStorageOptions
  * //         Enabled: true || false, // required
  * //       },
+ * //       MultiAZWithStandbyEnabled: true || false,
  * //     },
  * //     EBSOptions: { // EBSOptions
  * //       EBSEnabled: true || false,
@@ -309,7 +311,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *  <p>An error occurred while processing the request.</p>
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>

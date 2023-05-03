@@ -32,8 +32,8 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
 
 /**
  * @public
- * <p>Returns a list of Amazon OpenSearch Service package versions, along with their creation time
- *    and commit message. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
+ * <p>Returns a list of Amazon OpenSearch Service package versions, along with their creation time, commit message, and plugin properties (if the
+ *    package is a zip plugin package). For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
  *     OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,7 +78,7 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>

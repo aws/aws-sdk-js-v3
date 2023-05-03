@@ -89,6 +89,7 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * //       ColdStorageOptions: { // ColdStorageOptions
  * //         Enabled: true || false, // required
  * //       },
+ * //       MultiAZWithStandbyEnabled: true || false,
  * //     },
  * //     EBSOptions: { // EBSOptions
  * //       EBSEnabled: true || false,
@@ -208,13 +209,13 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  *  <p>An error occurred while processing the request.</p>
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>

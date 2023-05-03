@@ -78,6 +78,7 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * //         ColdStorageOptions: { // ColdStorageOptions
  * //           Enabled: true || false, // required
  * //         },
+ * //         MultiAZWithStandbyEnabled: true || false,
  * //       },
  * //       EBSOptions: { // EBSOptions
  * //         EBSEnabled: true || false,

@@ -92,10 +92,10 @@ export interface DescribeInboundConnectionsCommandOutput extends DescribeInbound
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
  *
  * @throws {@link InvalidPaginationTokenException} (client fault)
- *  <p>The request processing has failed because you provided an invalid pagination token.</p>
+ *  <p>Request processing failed because you provided an invalid pagination token.</p>
  *
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>

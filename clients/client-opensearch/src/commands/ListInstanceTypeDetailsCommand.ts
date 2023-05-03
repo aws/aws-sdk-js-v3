@@ -45,6 +45,8 @@ export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDe
  *   DomainName: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   RetrieveAZs: true || false,
+ *   InstanceType: "STRING_VALUE",
  * };
  * const command = new ListInstanceTypeDetailsCommand(input);
  * const response = await client.send(command);
@@ -58,6 +60,9 @@ export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDe
  * //       AdvancedSecurityEnabled: true || false,
  * //       WarmEnabled: true || false,
  * //       InstanceRole: [ // InstanceRoleList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AvailabilityZones: [ // AvailabilityZoneList
  * //         "STRING_VALUE",
  * //       ],
  * //     },
@@ -80,7 +85,7 @@ export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDe
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>

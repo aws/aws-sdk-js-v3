@@ -13,77 +13,79 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeDomainChangeProgressRequest, DescribeDomainChangeProgressResponse } from "../models/models_0";
+import { DescribeDomainHealthRequest, DescribeDomainHealthResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  de_DescribeDomainChangeProgressCommand,
-  se_DescribeDomainChangeProgressCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDomainHealthCommand, se_DescribeDomainHealthCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link DescribeDomainChangeProgressCommand}.
+ * The input for {@link DescribeDomainHealthCommand}.
  */
-export interface DescribeDomainChangeProgressCommandInput extends DescribeDomainChangeProgressRequest {}
+export interface DescribeDomainHealthCommandInput extends DescribeDomainHealthRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeDomainChangeProgressCommand}.
+ * The output of {@link DescribeDomainHealthCommand}.
  */
-export interface DescribeDomainChangeProgressCommandOutput
-  extends DescribeDomainChangeProgressResponse,
-    __MetadataBearer {}
+export interface DescribeDomainHealthCommandOutput extends DescribeDomainHealthResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns information about the current blue/green deployment happening on an Amazon
- *    OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html">Making configuration changes in Amazon OpenSearch Service</a>.</p>
+ * <p>Returns information about domain and node health, the standby Availability Zone, number of nodes per Availability Zone, and shard count per node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, DescribeDomainChangeProgressCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, DescribeDomainChangeProgressCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, DescribeDomainHealthCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
+ * // const { OpenSearchClient, DescribeDomainHealthCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const input = { // DescribeDomainChangeProgressRequest
+ * const input = { // DescribeDomainHealthRequest
  *   DomainName: "STRING_VALUE", // required
- *   ChangeId: "STRING_VALUE",
  * };
- * const command = new DescribeDomainChangeProgressCommand(input);
+ * const command = new DescribeDomainHealthCommand(input);
  * const response = await client.send(command);
- * // { // DescribeDomainChangeProgressResponse
- * //   ChangeProgressStatus: { // ChangeProgressStatusDetails
- * //     ChangeId: "STRING_VALUE",
- * //     StartTime: new Date("TIMESTAMP"),
- * //     Status: "PENDING" || "PROCESSING" || "COMPLETED" || "FAILED",
- * //     PendingProperties: [ // StringList
- * //       "STRING_VALUE",
- * //     ],
- * //     CompletedProperties: [
- * //       "STRING_VALUE",
- * //     ],
- * //     TotalNumberOfStages: Number("int"),
- * //     ChangeProgressStages: [ // ChangeProgressStageList
- * //       { // ChangeProgressStage
- * //         Name: "STRING_VALUE",
- * //         Status: "STRING_VALUE",
- * //         Description: "STRING_VALUE",
- * //         LastUpdated: new Date("TIMESTAMP"),
- * //       },
- * //     ],
- * //   },
+ * // { // DescribeDomainHealthResponse
+ * //   DomainState: "Active" || "Processing" || "NotAvailable",
+ * //   AvailabilityZoneCount: "STRING_VALUE",
+ * //   ActiveAvailabilityZoneCount: "STRING_VALUE",
+ * //   StandByAvailabilityZoneCount: "STRING_VALUE",
+ * //   DataNodeCount: "STRING_VALUE",
+ * //   DedicatedMaster: true || false,
+ * //   MasterEligibleNodeCount: "STRING_VALUE",
+ * //   WarmNodeCount: "STRING_VALUE",
+ * //   MasterNode: "Available" || "UnAvailable",
+ * //   ClusterHealth: "Red" || "Yellow" || "Green" || "NotAvailable",
+ * //   TotalShards: "STRING_VALUE",
+ * //   TotalUnAssignedShards: "STRING_VALUE",
+ * //   EnvironmentInformation: [ // EnvironmentInfoList
+ * //     { // EnvironmentInfo
+ * //       AvailabilityZoneInformation: [ // AvailabilityZoneInfoList
+ * //         { // AvailabilityZoneInfo
+ * //           AvailabilityZoneName: "STRING_VALUE",
+ * //           ZoneStatus: "Active" || "StandBy" || "NotAvailable",
+ * //           ConfiguredDataNodeCount: "STRING_VALUE",
+ * //           AvailableDataNodeCount: "STRING_VALUE",
+ * //           TotalShards: "STRING_VALUE",
+ * //           TotalUnAssignedShards: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
  * // };
  *
  * ```
  *
- * @param DescribeDomainChangeProgressCommandInput - {@link DescribeDomainChangeProgressCommandInput}
- * @returns {@link DescribeDomainChangeProgressCommandOutput}
- * @see {@link DescribeDomainChangeProgressCommandInput} for command's `input` shape.
- * @see {@link DescribeDomainChangeProgressCommandOutput} for command's `response` shape.
+ * @param DescribeDomainHealthCommandInput - {@link DescribeDomainHealthCommandInput}
+ * @returns {@link DescribeDomainHealthCommandOutput}
+ * @see {@link DescribeDomainHealthCommandInput} for command's `input` shape.
+ * @see {@link DescribeDomainHealthCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link BaseException} (client fault)
  *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
@@ -98,9 +100,9 @@ export interface DescribeDomainChangeProgressCommandOutput
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
-export class DescribeDomainChangeProgressCommand extends $Command<
-  DescribeDomainChangeProgressCommandInput,
-  DescribeDomainChangeProgressCommandOutput,
+export class DescribeDomainHealthCommand extends $Command<
+  DescribeDomainHealthCommandInput,
+  DescribeDomainHealthCommandOutput,
   OpenSearchClientResolvedConfig
 > {
   // Start section: command_properties
@@ -118,7 +120,7 @@ export class DescribeDomainChangeProgressCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeDomainChangeProgressCommandInput) {
+  constructor(readonly input: DescribeDomainHealthCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -131,17 +133,17 @@ export class DescribeDomainChangeProgressCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpenSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeDomainChangeProgressCommandInput, DescribeDomainChangeProgressCommandOutput> {
+  ): Handler<DescribeDomainHealthCommandInput, DescribeDomainHealthCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeDomainChangeProgressCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeDomainHealthCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "OpenSearchClient";
-    const commandName = "DescribeDomainChangeProgressCommand";
+    const commandName = "DescribeDomainHealthCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -160,18 +162,15 @@ export class DescribeDomainChangeProgressCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeDomainChangeProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeDomainChangeProgressCommand(input, context);
+  private serialize(input: DescribeDomainHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DescribeDomainHealthCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDomainChangeProgressCommandOutput> {
-    return de_DescribeDomainChangeProgressCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainHealthCommandOutput> {
+    return de_DescribeDomainHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

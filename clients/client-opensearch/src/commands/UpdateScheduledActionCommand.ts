@@ -86,7 +86,7 @@ export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActio
  *  <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
  * @throws {@link SlotNotAvailableException} (client fault)
  *  <p>An exception for attempting to schedule a domain action during an unavailable time slot.</p>

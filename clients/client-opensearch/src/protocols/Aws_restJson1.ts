@@ -69,6 +69,10 @@ import {
   DescribeDomainConfigCommandInput,
   DescribeDomainConfigCommandOutput,
 } from "../commands/DescribeDomainConfigCommand";
+import {
+  DescribeDomainHealthCommandInput,
+  DescribeDomainHealthCommandOutput,
+} from "../commands/DescribeDomainHealthCommand";
 import { DescribeDomainsCommandInput, DescribeDomainsCommandOutput } from "../commands/DescribeDomainsCommand";
 import {
   DescribeDryRunProgressCommandInput,
@@ -797,6 +801,31 @@ export const se_DescribeDomainConfigCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeDomainHealthCommand
+ */
+export const se_DescribeDomainHealthCommand = async (
+  input: DescribeDomainHealthCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/health";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DescribeDomainsCommand
  */
 export const se_DescribeDomainsCommand = async (
@@ -1304,6 +1333,8 @@ export const se_ListInstanceTypeDetailsCommand = async (
     domainName: [, input.DomainName!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     nextToken: [, input.NextToken!],
+    retrieveAZs: [() => input.RetrieveAZs !== void 0, () => input.RetrieveAZs!.toString()],
+    instanceType: [, input.InstanceType!],
   });
   let body: any;
   return new __HttpRequest({
@@ -2877,6 +2908,77 @@ const de_DescribeDomainConfigCommandError = async (
     case "BaseException":
     case "com.amazonaws.opensearch#BaseException":
       throw await de_BaseExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeDomainHealthCommand
+ */
+export const de_DescribeDomainHealthCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDomainHealthCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeDomainHealthCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ActiveAvailabilityZoneCount: __expectString,
+    AvailabilityZoneCount: __expectString,
+    ClusterHealth: __expectString,
+    DataNodeCount: __expectString,
+    DedicatedMaster: __expectBoolean,
+    DomainState: __expectString,
+    EnvironmentInformation: _json,
+    MasterEligibleNodeCount: __expectString,
+    MasterNode: __expectString,
+    StandByAvailabilityZoneCount: __expectString,
+    TotalShards: __expectString,
+    TotalUnAssignedShards: __expectString,
+    WarmNodeCount: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeDomainHealthCommandError
+ */
+const de_DescribeDomainHealthCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDomainHealthCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await de_BaseExceptionRes(parsedOutput, context);
+    case "DisabledOperationException":
+    case "com.amazonaws.opensearch#DisabledOperationException":
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.opensearch#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -5361,6 +5463,12 @@ const de_AutoTuneStatus = (output: any, context: __SerdeContext): AutoTuneStatus
   }) as any;
 };
 
+// de_AvailabilityZoneInfo omitted.
+
+// de_AvailabilityZoneInfoList omitted.
+
+// de_AvailabilityZoneList omitted.
+
 // de_AWSDomainInformation omitted.
 
 // de_ChangeProgressDetails omitted.
@@ -5586,6 +5694,10 @@ const de_EncryptionAtRestOptionsStatus = (output: any, context: __SerdeContext):
 };
 
 // de_EndpointsMap omitted.
+
+// de_EnvironmentInfo omitted.
+
+// de_EnvironmentInfoList omitted.
 
 // de_ErrorDetails omitted.
 
