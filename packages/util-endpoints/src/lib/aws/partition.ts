@@ -51,10 +51,7 @@ export const partition = (value: string): EndpointPartition => {
       if (region === value) {
         return {
           ...outputs,
-          ...(regionData as {
-            description?: string;
-          }
-        | undefined),
+          ...(regionData as any),
         };
       }
     }
