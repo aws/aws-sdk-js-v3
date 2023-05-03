@@ -1,5 +1,5 @@
 import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
-import { Message, MessageHeaders } from "@aws-sdk/types";
+import { Message, MessageHeaders, SignedMessage } from "@aws-sdk/types";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 
 import { EventSigningStream } from "./EventSigningStream";
@@ -13,18 +13,17 @@ describe("EventSigningStream", () => {
 
   it("should sign a eventstream payload properly", (done) => {
     const eventStreamCodec = new EventStreamCodec(toUtf8, fromUtf8);
-    const inputChunks: Array<Uint8Array> = (
-      [
-        {
-          headers: {},
-          body: fromUtf8("foo"),
-        },
-        {
-          headers: {},
-          body: fromUtf8("bar"),
-        },
-      ] as Array<Message>
-    ).map((event) => eventStreamCodec.encode(event));
+    const message1: Message = {
+      headers: {},
+      body: fromUtf8("foo"),
+    };
+    const message2: Message = {
+      headers: {},
+      body: fromUtf8("bar"),
+    };
+    const inputChunks: Array<Uint8Array> = ([message1, message2] as Array<Message>).map((event) =>
+      eventStreamCodec.encode(event)
+    );
     const expected: Array<MessageHeaders> = [
       {
         ":date": { type: "timestamp", value: new Date(1546045446000) },
@@ -41,10 +40,10 @@ describe("EventSigningStream", () => {
         },
       },
     ];
-    const mockEventSigner = jest
+    const mockMessageSigner = jest
       .fn()
-      .mockReturnValueOnce("7369676e617475726531") //'signature1'
-      .mockReturnValueOnce("7369676e617475726532"); //'signature2'
+      .mockReturnValueOnce({ message: message1, signature: "7369676e617475726531" } as SignedMessage) //'signature1'
+      .mockReturnValueOnce({ message: message2, signature: "7369676e617475726532" } as SignedMessage); //'signature2'
     // mock 'new Date()'
     let mockDateCount = 0;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -58,7 +57,10 @@ describe("EventSigningStream", () => {
       });
     const signingStream = new EventSigningStream({
       priorSignature: "initial",
-      eventSigner: { sign: mockEventSigner },
+      messageSigner: {
+        sign: mockMessageSigner,
+        signMessage: mockMessageSigner,
+      },
       eventStreamCodec,
     });
     const output: Array<MessageHeaders> = [];
@@ -67,12 +69,12 @@ describe("EventSigningStream", () => {
     });
     signingStream.on("end", () => {
       expect(output).toEqual(expected);
-      expect(mockEventSigner.mock.calls[0][1].priorSignature).toBe("initial");
-      expect(mockEventSigner.mock.calls[0][1].signingDate.getTime()).toBe(
+      expect(mockMessageSigner.mock.calls[0][0].priorSignature).toBe("initial");
+      expect(mockMessageSigner.mock.calls[0][1].signingDate.getTime()).toBe(
         (expected[0][":date"].value as Date).getTime()
       );
-      expect(mockEventSigner.mock.calls[1][1].priorSignature).toBe("7369676e617475726531");
-      expect(mockEventSigner.mock.calls[1][1].signingDate.getTime()).toBe(
+      expect(mockMessageSigner.mock.calls[1][0].priorSignature).toBe("7369676e617475726531");
+      expect(mockMessageSigner.mock.calls[1][1].signingDate.getTime()).toBe(
         (expected[1][":date"].value as Date).getTime()
       );
       done();

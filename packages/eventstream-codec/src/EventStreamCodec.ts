@@ -1,5 +1,12 @@
 import { Crc32 } from "@aws-crypto/crc32";
-import { Message, MessageHeaders } from "@aws-sdk/types";
+import {
+  AvailableMessage,
+  AvailableMessages,
+  Message,
+  MessageDecoder,
+  MessageEncoder,
+  MessageHeaders,
+} from "@aws-sdk/types";
 import { Decoder, Encoder } from "@aws-sdk/types";
 
 import { HeaderMarshaller } from "./HeaderMarshaller";
@@ -9,11 +16,53 @@ import { splitMessage } from "./splitMessage";
  * A Codec that can convert binary-packed event stream messages into
  * JavaScript objects and back again into their binary format.
  */
-export class EventStreamCodec {
+export class EventStreamCodec implements MessageEncoder, MessageDecoder {
   private readonly headerMarshaller: HeaderMarshaller;
+  private messageBuffer: Message[];
+
+  private isEndOfStream: boolean;
 
   constructor(toUtf8: Encoder, fromUtf8: Decoder) {
     this.headerMarshaller = new HeaderMarshaller(toUtf8, fromUtf8);
+    this.messageBuffer = [];
+    this.isEndOfStream = false;
+  }
+
+  feed(message: ArrayBufferView): void {
+    this.messageBuffer.push(this.decode(message));
+  }
+
+  endOfStream(): void {
+    this.isEndOfStream = true;
+  }
+
+  getMessage(): AvailableMessage {
+    const message = this.messageBuffer.pop();
+    const isEndOfStream = this.isEndOfStream;
+
+    return {
+      getMessage(): Message | undefined {
+        return message;
+      },
+      isEndOfStream(): boolean {
+        return isEndOfStream;
+      },
+    };
+  }
+
+  getAvailableMessages(): AvailableMessages {
+    const messages = this.messageBuffer;
+    this.messageBuffer = [];
+    const isEndOfStream = this.isEndOfStream;
+
+    return {
+      getMessages(): Message[] {
+        return messages;
+      },
+      isEndOfStream(): boolean {
+        return isEndOfStream;
+      },
+    };
   }
 
   /**

@@ -7,6 +7,7 @@ export * from "./connection";
 export * from "./credentials";
 export * from "./crypto";
 export * from "./dns";
+export * from "./encode";
 export * from "./endpoint";
 export * from "./eventStream";
 export * from "./http";

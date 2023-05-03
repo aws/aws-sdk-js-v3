@@ -1,8 +1,14 @@
-import { EventStreamCodec } from "@aws-sdk/eventstream-codec";
+import {
+  EventStreamCodec,
+  MessageDecoderStream,
+  MessageEncoderStream,
+  SmithyMessageDecoderStream,
+  SmithyMessageEncoderStream,
+} from "@aws-sdk/eventstream-codec";
 import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller, Message } from "@aws-sdk/types";
 
 import { getChunkedStream } from "./getChunkedStream";
-import { getUnmarshalledStream } from "./getUnmarshalledStream";
+import { getMessageUnmarshaller } from "./getUnmarshalledStream";
 
 /**
  * @internal
@@ -33,30 +39,20 @@ export class EventStreamMarshaller {
     body: AsyncIterable<Uint8Array>,
     deserializer: (input: Record<string, Message>) => Promise<T>
   ): AsyncIterable<T> {
-    const chunkedStream = getChunkedStream(body);
-    const unmarshalledStream = getUnmarshalledStream(chunkedStream, {
-      eventStreamCodec: this.eventStreamCodec,
+    const inputStream = getChunkedStream(body);
+    // @ts-expect-error Type 'SmithyMessageDecoderStream<Record<string, any>>' is not assignable to type 'AsyncIterable<T>'
+    return new SmithyMessageDecoderStream({
+      messageStream: new MessageDecoderStream({ inputStream, decoder: this.eventStreamCodec }),
       // @ts-expect-error Type 'T' is not assignable to type 'Record<string, any>'
-      deserializer,
-      toUtf8: this.utfEncoder,
+      deserializer: getMessageUnmarshaller(deserializer, this.utfEncoder),
     });
-    // @ts-expect-error 'T' could be instantiated with an arbitrary type which could be unrelated to 'Record<string, any>'.
-    return unmarshalledStream;
   }
 
-  serialize<T>(input: AsyncIterable<T>, serializer: (event: T) => Message): AsyncIterable<Uint8Array> {
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
-    const self = this;
-    const serializedIterator = async function* () {
-      for await (const chunk of input) {
-        const payloadBuf = self.eventStreamCodec.encode(serializer(chunk));
-        yield payloadBuf;
-      }
-      // Ending frame
-      yield new Uint8Array(0);
-    };
-    return {
-      [Symbol.asyncIterator]: serializedIterator,
-    };
+  serialize<T>(inputStream: AsyncIterable<T>, serializer: (event: T) => Message): AsyncIterable<Uint8Array> {
+    return new MessageEncoderStream({
+      messageStream: new SmithyMessageEncoderStream({ inputStream, serializer }),
+      encoder: this.eventStreamCodec,
+      includeEndFrame: true,
+    });
   }
 }
