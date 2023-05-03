@@ -62,6 +62,10 @@ export interface GetSceneCommandOutput extends GetSceneResponse, __MetadataBeare
  * //   generatedSceneMetadata: { // GeneratedSceneMetadataMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   error: { // SceneError
+ * //     code: "STRING_VALUE",
+ * //     message: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
