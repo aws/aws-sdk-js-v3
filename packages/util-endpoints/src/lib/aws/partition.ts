@@ -2,26 +2,28 @@ import { EndpointPartition } from "@aws-sdk/types";
 
 import partitionsInfo from "./partitions.json";
 
-export type PartitionsInfo = {
-  partitions: Array<{
-    id: string;
-    outputs: {
-      dnsSuffix: string;
-      dualStackDnsSuffix: string;
-      name: string;
-      supportsDualStack: boolean;
-      supportsFIPS: boolean;
-    };
-    regionRegex: string;
-    regions: Record<
-      string,
-      | {
-          description?: string;
-        }
-      | undefined
-    >;
-  }>;
-};
+export type PartitionsInfo =
+  | {
+      partitions: Array<{
+        id: string;
+        outputs: {
+          dnsSuffix: string;
+          dualStackDnsSuffix: string;
+          name: string;
+          supportsDualStack: boolean;
+          supportsFIPS: boolean;
+        };
+        regionRegex: string;
+        regions: Record<
+          string,
+          | {
+              description?: string;
+            }
+          | undefined
+        >;
+      }>;
+    }
+  | any;
 
 /**
  * The partitions.json data to be used in resolving endpoints.
