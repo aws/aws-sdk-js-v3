@@ -81,6 +81,9 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  *   },
  *   DiscoveryConfig: { // WorkloadDiscoveryConfig
  *     TrustedAdvisorIntegrationStatus: "ENABLED" || "DISABLED",
+ *     WorkloadResourceDefinition: [ // WorkloadResourceDefinition
+ *       "WORKLOAD_METADATA" || "APP_REGISTRY",
+ *     ],
  *   },
  *   Applications: [ // WorkloadApplications
  *     "STRING_VALUE",

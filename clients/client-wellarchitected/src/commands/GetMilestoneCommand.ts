@@ -91,6 +91,9 @@ export interface GetMilestoneCommandOutput extends GetMilestoneOutput, __Metadat
  * //       },
  * //       DiscoveryConfig: { // WorkloadDiscoveryConfig
  * //         TrustedAdvisorIntegrationStatus: "ENABLED" || "DISABLED",
+ * //         WorkloadResourceDefinition: [ // WorkloadResourceDefinition
+ * //           "WORKLOAD_METADATA" || "APP_REGISTRY",
+ * //         ],
  * //       },
  * //       Applications: [ // WorkloadApplications
  * //         "STRING_VALUE",

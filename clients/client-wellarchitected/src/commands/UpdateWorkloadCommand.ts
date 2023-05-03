@@ -65,6 +65,9 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  *   ImprovementStatus: "NOT_APPLICABLE" || "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "RISK_ACKNOWLEDGED",
  *   DiscoveryConfig: { // WorkloadDiscoveryConfig
  *     TrustedAdvisorIntegrationStatus: "ENABLED" || "DISABLED",
+ *     WorkloadResourceDefinition: [ // WorkloadResourceDefinition
+ *       "WORKLOAD_METADATA" || "APP_REGISTRY",
+ *     ],
  *   },
  *   Applications: [ // WorkloadApplications
  *     "STRING_VALUE",
@@ -113,6 +116,9 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  * //     },
  * //     DiscoveryConfig: { // WorkloadDiscoveryConfig
  * //       TrustedAdvisorIntegrationStatus: "ENABLED" || "DISABLED",
+ * //       WorkloadResourceDefinition: [ // WorkloadResourceDefinition
+ * //         "WORKLOAD_METADATA" || "APP_REGISTRY",
+ * //       ],
  * //     },
  * //     Applications: [ // WorkloadApplications
  * //       "STRING_VALUE",
