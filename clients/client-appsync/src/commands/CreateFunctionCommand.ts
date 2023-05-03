@@ -33,7 +33,8 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResponse, __M
 /**
  * @public
  * <p>Creates a <code>Function</code> object.</p>
- *          <p>A function is a reusable entity. You can use multiple functions to compose the resolver logic.</p>
+ *          <p>A function is a reusable entity. You can use multiple functions to compose the resolver
+ *          logic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,14 +100,15 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResponse, __M
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Another modification is in progress at this time and it must complete before you can make your
- *          change.</p>
+ *  <p>Another modification is in progress at this time and it must complete before you can
+ *          make your change.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *  <p>The resource specified in the request was not found. Check the resource, and then try
+ *          again.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>

@@ -99,14 +99,15 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResponse, __M
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Another modification is in progress at this time and it must complete before you can make your
- *          change.</p>
+ *  <p>Another modification is in progress at this time and it must complete before you can
+ *          make your change.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *  <p>The resource specified in the request was not found. Check the resource, and then try
+ *          again.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
