@@ -44,6 +44,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceServiceException}
+ * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
 export class DeleteEnvironmentCommand extends $Command<

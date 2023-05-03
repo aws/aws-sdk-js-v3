@@ -66,6 +66,20 @@ export interface DescribeRuntimeConfigurationCommandOutput
  * };
  * const command = new DescribeRuntimeConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRuntimeConfigurationOutput
+ * //   RuntimeConfiguration: { // RuntimeConfiguration
+ * //     ServerProcesses: [ // ServerProcessList
+ * //       { // ServerProcess
+ * //         LaunchPath: "STRING_VALUE", // required
+ * //         Parameters: "STRING_VALUE",
+ * //         ConcurrentExecutions: Number("int"), // required
+ * //       },
+ * //     ],
+ * //     MaxConcurrentGameSessionActivations: Number("int"),
+ * //     GameSessionActivationTimeoutSeconds: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeRuntimeConfigurationCommandInput - {@link DescribeRuntimeConfigurationCommandInput}
@@ -88,6 +102,8 @@ export interface DescribeRuntimeConfigurationCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeRuntimeConfigurationCommand extends $Command<

@@ -44,6 +44,10 @@ export interface GetCampaignStateCommandOutput extends GetCampaignStateResponse,
  * };
  * const command = new GetCampaignStateCommand(input);
  * const response = await client.send(command);
+ * // { // GetCampaignStateResponse
+ * //   state: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetCampaignStateCommandInput - {@link GetCampaignStateCommandInput}
@@ -67,6 +71,8 @@ export interface GetCampaignStateCommandOutput extends GetCampaignStateResponse,
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class GetCampaignStateCommand extends $Command<

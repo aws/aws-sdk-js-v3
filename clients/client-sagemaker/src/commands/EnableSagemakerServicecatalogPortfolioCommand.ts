@@ -52,6 +52,8 @@ export interface EnableSagemakerServicecatalogPortfolioCommandOutput
  * const input = {};
  * const command = new EnableSagemakerServicecatalogPortfolioCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param EnableSagemakerServicecatalogPortfolioCommandInput - {@link EnableSagemakerServicecatalogPortfolioCommandInput}
@@ -60,6 +62,8 @@ export interface EnableSagemakerServicecatalogPortfolioCommandOutput
  * @see {@link EnableSagemakerServicecatalogPortfolioCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<

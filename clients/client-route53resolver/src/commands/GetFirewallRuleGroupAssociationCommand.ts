@@ -49,6 +49,24 @@ export interface GetFirewallRuleGroupAssociationCommandOutput
  * };
  * const command = new GetFirewallRuleGroupAssociationCommand(input);
  * const response = await client.send(command);
+ * // { // GetFirewallRuleGroupAssociationResponse
+ * //   FirewallRuleGroupAssociation: { // FirewallRuleGroupAssociation
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     FirewallRuleGroupId: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Priority: Number("int"),
+ * //     MutationProtection: "ENABLED" || "DISABLED",
+ * //     ManagedOwnerName: "STRING_VALUE",
+ * //     Status: "COMPLETE" || "DELETING" || "UPDATING",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //     CreationTime: "STRING_VALUE",
+ * //     ModificationTime: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetFirewallRuleGroupAssociationCommandInput - {@link GetFirewallRuleGroupAssociationCommandInput}
@@ -69,6 +87,8 @@ export interface GetFirewallRuleGroupAssociationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class GetFirewallRuleGroupAssociationCommand extends $Command<

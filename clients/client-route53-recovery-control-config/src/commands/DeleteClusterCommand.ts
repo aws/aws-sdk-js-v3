@@ -48,6 +48,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * };
  * const command = new DeleteClusterCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class DeleteClusterCommand extends $Command<

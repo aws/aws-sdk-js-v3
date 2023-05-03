@@ -86,6 +86,10 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * };
  * const command = new GetShardIteratorCommand(input);
  * const response = await client.send(command);
+ * // { // GetShardIteratorOutput
+ * //   ShardIterator: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetShardIteratorCommandInput - {@link GetShardIteratorCommandInput}
@@ -113,6 +117,8 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class GetShardIteratorCommand extends $Command<

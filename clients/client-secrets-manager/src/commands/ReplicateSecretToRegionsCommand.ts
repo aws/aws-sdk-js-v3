@@ -58,6 +58,19 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  * };
  * const command = new ReplicateSecretToRegionsCommand(input);
  * const response = await client.send(command);
+ * // { // ReplicateSecretToRegionsResponse
+ * //   ARN: "STRING_VALUE",
+ * //   ReplicationStatus: [ // ReplicationStatusListType
+ * //     { // ReplicationStatusType
+ * //       Region: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       Status: "InSync" || "Failed" || "InProgress",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       LastAccessedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ReplicateSecretToRegionsCommandInput - {@link ReplicateSecretToRegionsCommandInput}
@@ -93,6 +106,8 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example Example
  * ```javascript

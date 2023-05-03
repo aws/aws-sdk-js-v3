@@ -67,6 +67,25 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
  * };
  * const command = new UpdateApplicationResourceLifecycleCommand(input);
  * const response = await client.send(command);
+ * // { // ApplicationResourceLifecycleDescriptionMessage
+ * //   ApplicationName: "STRING_VALUE",
+ * //   ResourceLifecycleConfig: { // ApplicationResourceLifecycleConfig
+ * //     ServiceRole: "STRING_VALUE",
+ * //     VersionLifecycleConfig: { // ApplicationVersionLifecycleConfig
+ * //       MaxCountRule: { // MaxCountRule
+ * //         Enabled: true || false, // required
+ * //         MaxCount: Number("int"),
+ * //         DeleteSourceFromS3: true || false,
+ * //       },
+ * //       MaxAgeRule: { // MaxAgeRule
+ * //         Enabled: true || false, // required
+ * //         MaxAgeInDays: Number("int"),
+ * //         DeleteSourceFromS3: true || false,
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateApplicationResourceLifecycleCommandInput - {@link UpdateApplicationResourceLifecycleCommandInput}
@@ -79,6 +98,8 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
  *  <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class UpdateApplicationResourceLifecycleCommand extends $Command<

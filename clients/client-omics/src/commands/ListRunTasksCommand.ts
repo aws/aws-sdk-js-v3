@@ -47,6 +47,22 @@ export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __Metad
  * };
  * const command = new ListRunTasksCommand(input);
  * const response = await client.send(command);
+ * // { // ListRunTasksResponse
+ * //   items: [ // TaskList
+ * //     { // TaskListItem
+ * //       taskId: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       cpus: Number("int"),
+ * //       memory: Number("int"),
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       stopTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListRunTasksCommandInput - {@link ListRunTasksCommandInput}
@@ -79,6 +95,8 @@ export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListRunTasksCommand extends $Command<

@@ -69,6 +69,10 @@ export interface UpdateTrainingJobCommandOutput extends UpdateTrainingJobRespons
  * };
  * const command = new UpdateTrainingJobCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateTrainingJobResponse
+ * //   TrainingJobArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateTrainingJobCommandInput - {@link UpdateTrainingJobCommandInput}
@@ -80,6 +84,8 @@ export interface UpdateTrainingJobCommandOutput extends UpdateTrainingJobRespons
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateTrainingJobCommand extends $Command<

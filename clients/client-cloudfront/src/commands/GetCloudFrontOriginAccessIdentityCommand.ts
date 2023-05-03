@@ -49,6 +49,18 @@ export interface GetCloudFrontOriginAccessIdentityCommandOutput
  * };
  * const command = new GetCloudFrontOriginAccessIdentityCommand(input);
  * const response = await client.send(command);
+ * // { // GetCloudFrontOriginAccessIdentityResult
+ * //   CloudFrontOriginAccessIdentity: { // CloudFrontOriginAccessIdentity
+ * //     Id: "STRING_VALUE", // required
+ * //     S3CanonicalUserId: "STRING_VALUE", // required
+ * //     CloudFrontOriginAccessIdentityConfig: { // CloudFrontOriginAccessIdentityConfig
+ * //       CallerReference: "STRING_VALUE", // required
+ * //       Comment: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetCloudFrontOriginAccessIdentityCommandInput - {@link GetCloudFrontOriginAccessIdentityCommandInput}
@@ -63,6 +75,8 @@ export interface GetCloudFrontOriginAccessIdentityCommandOutput
  * @throws {@link NoSuchCloudFrontOriginAccessIdentity} (client fault)
  *  <p>The specified origin access identity does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetCloudFrontOriginAccessIdentityCommand extends $Command<

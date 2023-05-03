@@ -63,6 +63,15 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
+ * // { // CreateChannelResponse
+ * //   channelName: "STRING_VALUE",
+ * //   channelArn: "STRING_VALUE",
+ * //   retentionPeriod: { // RetentionPeriod
+ * //     unlimited: true || false,
+ * //     numberOfDays: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateChannelCommandInput - {@link CreateChannelCommandInput}
@@ -89,6 +98,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class CreateChannelCommand extends $Command<

@@ -45,6 +45,20 @@ export interface GetMailDomainCommandOutput extends GetMailDomainResponse, __Met
  * };
  * const command = new GetMailDomainCommand(input);
  * const response = await client.send(command);
+ * // { // GetMailDomainResponse
+ * //   Records: [ // DnsRecords
+ * //     { // DnsRecord
+ * //       Type: "STRING_VALUE",
+ * //       Hostname: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   IsTestDomain: true || false,
+ * //   IsDefault: true || false,
+ * //   OwnershipVerificationStatus: "PENDING" || "VERIFIED" || "FAILED",
+ * //   DkimVerificationStatus: "PENDING" || "VERIFIED" || "FAILED",
+ * // };
+ *
  * ```
  *
  * @param GetMailDomainCommandInput - {@link GetMailDomainCommandInput}
@@ -67,6 +81,8 @@ export interface GetMailDomainCommandOutput extends GetMailDomainResponse, __Met
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class GetMailDomainCommand extends $Command<

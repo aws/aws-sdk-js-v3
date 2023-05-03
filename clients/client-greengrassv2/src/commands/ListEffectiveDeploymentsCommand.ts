@@ -46,6 +46,32 @@ export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDepl
  * };
  * const command = new ListEffectiveDeploymentsCommand(input);
  * const response = await client.send(command);
+ * // { // ListEffectiveDeploymentsResponse
+ * //   effectiveDeployments: [ // EffectiveDeploymentsList
+ * //     { // EffectiveDeployment
+ * //       deploymentId: "STRING_VALUE", // required
+ * //       deploymentName: "STRING_VALUE", // required
+ * //       iotJobId: "STRING_VALUE",
+ * //       iotJobArn: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       targetArn: "STRING_VALUE", // required
+ * //       coreDeviceExecutionStatus: "IN_PROGRESS" || "QUEUED" || "FAILED" || "COMPLETED" || "TIMED_OUT" || "CANCELED" || "REJECTED" || "SUCCEEDED", // required
+ * //       reason: "STRING_VALUE",
+ * //       creationTimestamp: new Date("TIMESTAMP"), // required
+ * //       modifiedTimestamp: new Date("TIMESTAMP"), // required
+ * //       statusDetails: { // EffectiveDeploymentStatusDetails
+ * //         errorStack: [ // EffectiveDeploymentErrorStack
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         errorTypes: [ // EffectiveDeploymentErrorTypeList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEffectiveDeploymentsCommandInput - {@link ListEffectiveDeploymentsCommandInput}
@@ -71,6 +97,8 @@ export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDepl
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class ListEffectiveDeploymentsCommand extends $Command<

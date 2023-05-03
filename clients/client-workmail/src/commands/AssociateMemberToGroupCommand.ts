@@ -46,6 +46,8 @@ export interface AssociateMemberToGroupCommandOutput extends AssociateMemberToGr
  * };
  * const command = new AssociateMemberToGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AssociateMemberToGroupCommandInput - {@link AssociateMemberToGroupCommandInput}
@@ -82,6 +84,8 @@ export interface AssociateMemberToGroupCommandOutput extends AssociateMemberToGr
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>You can't perform a write operation against a read-only directory.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class AssociateMemberToGroupCommand extends $Command<

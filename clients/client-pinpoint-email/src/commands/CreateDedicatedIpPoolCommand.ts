@@ -53,6 +53,8 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  * };
  * const command = new CreateDedicatedIpPoolCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateDedicatedIpPoolCommandInput - {@link CreateDedicatedIpPoolCommandInput}
@@ -76,6 +78,8 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class CreateDedicatedIpPoolCommand extends $Command<

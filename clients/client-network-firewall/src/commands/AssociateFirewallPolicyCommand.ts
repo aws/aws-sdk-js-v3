@@ -51,6 +51,13 @@ export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallP
  * };
  * const command = new AssociateFirewallPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateFirewallPolicyResponse
+ * //   FirewallArn: "STRING_VALUE",
+ * //   FirewallName: "STRING_VALUE",
+ * //   FirewallPolicyArn: "STRING_VALUE",
+ * //   UpdateToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AssociateFirewallPolicyCommandInput - {@link AssociateFirewallPolicyCommandInput}
@@ -92,6 +99,8 @@ export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallP
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class AssociateFirewallPolicyCommand extends $Command<

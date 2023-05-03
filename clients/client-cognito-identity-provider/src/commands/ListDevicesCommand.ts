@@ -56,6 +56,24 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
+ * // { // ListDevicesResponse
+ * //   Devices: [ // DeviceListType
+ * //     { // DeviceType
+ * //       DeviceKey: "STRING_VALUE",
+ * //       DeviceAttributes: [ // AttributeListType
+ * //         { // AttributeType
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DeviceCreateDate: new Date("TIMESTAMP"),
+ * //       DeviceLastModifiedDate: new Date("TIMESTAMP"),
+ * //       DeviceLastAuthenticatedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   PaginationToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
@@ -97,6 +115,8 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ListDevicesCommand extends $Command<

@@ -60,6 +60,93 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * };
  * const command = new CreateDBInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDBInstanceResult
+ * //   DBInstance: { // DBInstance
+ * //     DBInstanceIdentifier: "STRING_VALUE",
+ * //     DBInstanceClass: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
+ * //     DBInstanceStatus: "STRING_VALUE",
+ * //     Endpoint: { // Endpoint
+ * //       Address: "STRING_VALUE",
+ * //       Port: Number("int"),
+ * //       HostedZoneId: "STRING_VALUE",
+ * //     },
+ * //     InstanceCreateTime: new Date("TIMESTAMP"),
+ * //     PreferredBackupWindow: "STRING_VALUE",
+ * //     BackupRetentionPeriod: Number("int"),
+ * //     VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ * //       { // VpcSecurityGroupMembership
+ * //         VpcSecurityGroupId: "STRING_VALUE",
+ * //         Status: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     DBSubnetGroup: { // DBSubnetGroup
+ * //       DBSubnetGroupName: "STRING_VALUE",
+ * //       DBSubnetGroupDescription: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       SubnetGroupStatus: "STRING_VALUE",
+ * //       Subnets: [ // SubnetList
+ * //         { // Subnet
+ * //           SubnetIdentifier: "STRING_VALUE",
+ * //           SubnetAvailabilityZone: { // AvailabilityZone
+ * //             Name: "STRING_VALUE",
+ * //           },
+ * //           SubnetStatus: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DBSubnetGroupArn: "STRING_VALUE",
+ * //     },
+ * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     PendingModifiedValues: { // PendingModifiedValues
+ * //       DBInstanceClass: "STRING_VALUE",
+ * //       AllocatedStorage: Number("int"),
+ * //       MasterUserPassword: "STRING_VALUE",
+ * //       Port: Number("int"),
+ * //       BackupRetentionPeriod: Number("int"),
+ * //       MultiAZ: true || false,
+ * //       EngineVersion: "STRING_VALUE",
+ * //       LicenseModel: "STRING_VALUE",
+ * //       Iops: Number("int"),
+ * //       DBInstanceIdentifier: "STRING_VALUE",
+ * //       StorageType: "STRING_VALUE",
+ * //       CACertificateIdentifier: "STRING_VALUE",
+ * //       DBSubnetGroupName: "STRING_VALUE",
+ * //       PendingCloudwatchLogsExports: { // PendingCloudwatchLogsExports
+ * //         LogTypesToEnable: [ // LogTypeList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         LogTypesToDisable: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //     LatestRestorableTime: new Date("TIMESTAMP"),
+ * //     EngineVersion: "STRING_VALUE",
+ * //     AutoMinorVersionUpgrade: true || false,
+ * //     PubliclyAccessible: true || false,
+ * //     StatusInfos: [ // DBInstanceStatusInfoList
+ * //       { // DBInstanceStatusInfo
+ * //         StatusType: "STRING_VALUE",
+ * //         Normal: true || false,
+ * //         Status: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     DBClusterIdentifier: "STRING_VALUE",
+ * //     StorageEncrypted: true || false,
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     DbiResourceId: "STRING_VALUE",
+ * //     CACertificateIdentifier: "STRING_VALUE",
+ * //     CopyTagsToSnapshot: true || false,
+ * //     PromotionTier: Number("int"),
+ * //     DBInstanceArn: "STRING_VALUE",
+ * //     EnabledCloudwatchLogsExports: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateDBInstanceCommandInput - {@link CreateDBInstanceCommandInput}
@@ -122,6 +209,8 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *  <p>Storage of the specified <code>StorageType</code> can't be associated with the DB
  *             instance. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class CreateDBInstanceCommand extends $Command<

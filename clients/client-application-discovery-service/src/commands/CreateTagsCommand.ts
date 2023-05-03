@@ -60,6 +60,8 @@ export interface CreateTagsCommandOutput extends CreateTagsResponse, __MetadataB
  * };
  * const command = new CreateTagsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateTagsCommandInput - {@link CreateTagsCommandInput}
@@ -89,6 +91,8 @@ export interface CreateTagsCommandOutput extends CreateTagsResponse, __MetadataB
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class CreateTagsCommand extends $Command<

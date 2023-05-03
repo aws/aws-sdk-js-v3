@@ -57,6 +57,8 @@ export interface StopSolutionVersionCreationCommandOutput extends __MetadataBear
  * };
  * const command = new StopSolutionVersionCreationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopSolutionVersionCreationCommandInput - {@link StopSolutionVersionCreationCommandInput}
@@ -74,6 +76,8 @@ export interface StopSolutionVersionCreationCommandOutput extends __MetadataBear
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class StopSolutionVersionCreationCommand extends $Command<

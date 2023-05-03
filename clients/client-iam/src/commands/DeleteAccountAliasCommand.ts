@@ -46,6 +46,8 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAccountAliasCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAccountAliasCommandInput - {@link DeleteAccountAliasCommandInput}
@@ -66,6 +68,8 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To delete an account alias
  * ```javascript

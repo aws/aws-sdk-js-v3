@@ -47,6 +47,19 @@ export interface ViewBillingCommandOutput extends ViewBillingResponse, __Metadat
  * };
  * const command = new ViewBillingCommand(input);
  * const response = await client.send(command);
+ * // { // ViewBillingResponse
+ * //   NextPageMarker: "STRING_VALUE",
+ * //   BillingRecords: [ // BillingRecords
+ * //     { // BillingRecord
+ * //       DomainName: "STRING_VALUE",
+ * //       Operation: "REGISTER_DOMAIN" || "DELETE_DOMAIN" || "TRANSFER_IN_DOMAIN" || "UPDATE_DOMAIN_CONTACT" || "UPDATE_NAMESERVER" || "CHANGE_PRIVACY_PROTECTION" || "DOMAIN_LOCK" || "ENABLE_AUTORENEW" || "DISABLE_AUTORENEW" || "ADD_DNSSEC" || "REMOVE_DNSSEC" || "EXPIRE_DOMAIN" || "TRANSFER_OUT_DOMAIN" || "CHANGE_DOMAIN_OWNER" || "RENEW_DOMAIN" || "PUSH_DOMAIN" || "INTERNAL_TRANSFER_OUT_DOMAIN" || "INTERNAL_TRANSFER_IN_DOMAIN",
+ * //       InvoiceId: "STRING_VALUE",
+ * //       BillDate: new Date("TIMESTAMP"),
+ * //       Price: Number("double"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ViewBillingCommandInput - {@link ViewBillingCommandInput}
@@ -61,6 +74,8 @@ export interface ViewBillingCommandOutput extends ViewBillingResponse, __Metadat
  * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
  * 			password might be invalid.</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class ViewBillingCommand extends $Command<

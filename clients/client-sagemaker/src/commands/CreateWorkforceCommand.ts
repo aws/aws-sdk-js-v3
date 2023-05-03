@@ -99,6 +99,10 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  * };
  * const command = new CreateWorkforceCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWorkforceResponse
+ * //   WorkforceArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateWorkforceCommandInput - {@link CreateWorkforceCommandInput}
@@ -107,6 +111,8 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  * @see {@link CreateWorkforceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateWorkforceCommand extends $Command<

@@ -66,6 +66,10 @@ export interface UpdateRulesetCommandOutput extends UpdateRulesetResponse, __Met
  * };
  * const command = new UpdateRulesetCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateRulesetResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateRulesetCommandInput - {@link UpdateRulesetCommandInput}
@@ -80,6 +84,8 @@ export interface UpdateRulesetCommandOutput extends UpdateRulesetResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class UpdateRulesetCommand extends $Command<

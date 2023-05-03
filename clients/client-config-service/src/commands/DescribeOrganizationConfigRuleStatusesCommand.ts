@@ -64,6 +64,19 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  * };
  * const command = new DescribeOrganizationConfigRuleStatusesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeOrganizationConfigRuleStatusesResponse
+ * //   OrganizationConfigRuleStatuses: [ // OrganizationConfigRuleStatuses
+ * //     { // OrganizationConfigRuleStatus
+ * //       OrganizationConfigRuleName: "STRING_VALUE", // required
+ * //       OrganizationRuleStatus: "CREATE_SUCCESSFUL" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_SUCCESSFUL" || "DELETE_FAILED" || "DELETE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED", // required
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       LastUpdateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeOrganizationConfigRuleStatusesCommandInput - {@link DescribeOrganizationConfigRuleStatusesCommandInput}
@@ -104,6 +117,8 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  *          </ul>
  *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<

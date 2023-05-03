@@ -48,6 +48,8 @@ export interface DeleteVectorEnrichmentJobCommandOutput extends DeleteVectorEnri
  * };
  * const command = new DeleteVectorEnrichmentJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteVectorEnrichmentJobCommandInput - {@link DeleteVectorEnrichmentJobCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteVectorEnrichmentJobCommandOutput extends DeleteVectorEnri
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class DeleteVectorEnrichmentJobCommand extends $Command<

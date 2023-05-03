@@ -55,6 +55,8 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
  * };
  * const command = new CreateVariableCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateVariableCommandInput - {@link CreateVariableCommandInput}
@@ -75,6 +77,8 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class CreateVariableCommand extends $Command<

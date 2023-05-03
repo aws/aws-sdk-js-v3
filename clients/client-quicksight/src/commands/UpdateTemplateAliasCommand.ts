@@ -47,6 +47,16 @@ export interface UpdateTemplateAliasCommandOutput extends UpdateTemplateAliasRes
  * };
  * const command = new UpdateTemplateAliasCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateTemplateAliasResponse
+ * //   TemplateAlias: { // TemplateAlias
+ * //     AliasName: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     TemplateVersionNumber: Number("long"),
+ * //   },
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateTemplateAliasCommandInput - {@link UpdateTemplateAliasCommandInput}
@@ -73,6 +83,8 @@ export interface UpdateTemplateAliasCommandOutput extends UpdateTemplateAliasRes
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateTemplateAliasCommand extends $Command<

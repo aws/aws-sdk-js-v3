@@ -49,6 +49,16 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  * };
  * const command = new ListReceiptRuleSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListReceiptRuleSetsResponse
+ * //   RuleSets: [ // ReceiptRuleSetsLists
+ * //     { // ReceiptRuleSetMetadata
+ * //       Name: "STRING_VALUE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListReceiptRuleSetsCommandInput - {@link ListReceiptRuleSetsCommandInput}
@@ -57,6 +67,8 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  * @see {@link ListReceiptRuleSetsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example ListReceiptRuleSets
  * ```javascript

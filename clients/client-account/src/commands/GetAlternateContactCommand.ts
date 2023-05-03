@@ -57,6 +57,16 @@ export interface GetAlternateContactCommandOutput extends GetAlternateContactRes
  * };
  * const command = new GetAlternateContactCommand(input);
  * const response = await client.send(command);
+ * // { // GetAlternateContactResponse
+ * //   AlternateContact: { // AlternateContact
+ * //     Name: "STRING_VALUE",
+ * //     Title: "STRING_VALUE",
+ * //     EmailAddress: "STRING_VALUE",
+ * //     PhoneNumber: "STRING_VALUE",
+ * //     AlternateContactType: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetAlternateContactCommandInput - {@link GetAlternateContactCommandInput}
@@ -83,6 +93,8 @@ export interface GetAlternateContactCommandOutput extends GetAlternateContactRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>
  *
+ * @throws {@link AccountServiceException}
+ * <p>Base exception class for all service exceptions from Account service.</p>
  *
  */
 export class GetAlternateContactCommand extends $Command<

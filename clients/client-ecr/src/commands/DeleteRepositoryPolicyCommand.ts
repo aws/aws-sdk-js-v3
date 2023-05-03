@@ -45,6 +45,12 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * };
  * const command = new DeleteRepositoryPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteRepositoryPolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   policyText: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteRepositoryPolicyCommandInput - {@link DeleteRepositoryPolicyCommandInput}
@@ -68,6 +74,8 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  * @example To delete the policy associated with a repository
  * ```javascript

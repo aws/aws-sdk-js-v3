@@ -50,6 +50,8 @@ export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRolePolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteRolePolicyCommandInput - {@link DeleteRolePolicyCommandInput}
@@ -76,6 +78,8 @@ export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To remove a policy from an IAM role
  * ```javascript

@@ -48,6 +48,16 @@ export interface DescribeAppInstanceUserCommandOutput extends DescribeAppInstanc
  * };
  * const command = new DescribeAppInstanceUserCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAppInstanceUserResponse
+ * //   AppInstanceUser: { // AppInstanceUser
+ * //     AppInstanceUserArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     Metadata: "STRING_VALUE",
+ * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeAppInstanceUserCommandInput - {@link DescribeAppInstanceUserCommandInput}
@@ -74,6 +84,8 @@ export interface DescribeAppInstanceUserCommandOutput extends DescribeAppInstanc
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DescribeAppInstanceUserCommand extends $Command<

@@ -52,6 +52,17 @@ export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse,
  * };
  * const command = new DeleteAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteAttributesResponse
+ * //   attributes: [ // Attributes
+ * //     { // Attribute
+ * //       name: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE",
+ * //       targetType: "container-instance",
+ * //       targetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DeleteAttributesCommandInput - {@link DeleteAttributesCommandInput}
@@ -72,6 +83,8 @@ export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse,
  * 			with <a>ListContainerInstances</a>. Amazon ECS container instances are
  * 			cluster-specific and Region-specific.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class DeleteAttributesCommand extends $Command<

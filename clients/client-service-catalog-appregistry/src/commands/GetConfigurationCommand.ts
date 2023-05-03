@@ -49,6 +49,14 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * const input = {};
  * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // GetConfigurationResponse
+ * //   configuration: { // AppRegistryConfiguration
+ * //     tagQueryConfiguration: { // TagQueryConfiguration
+ * //       tagKey: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetConfigurationCommandInput - {@link GetConfigurationCommandInput}
@@ -60,6 +68,8 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service is experiencing internal problems.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class GetConfigurationCommand extends $Command<

@@ -66,6 +66,10 @@ export interface CreateBusinessReportScheduleCommandOutput
  * };
  * const command = new CreateBusinessReportScheduleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateBusinessReportScheduleResponse
+ * //   ScheduleArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateBusinessReportScheduleCommandInput - {@link CreateBusinessReportScheduleCommandInput}
@@ -77,6 +81,8 @@ export interface CreateBusinessReportScheduleCommandOutput
  * @throws {@link AlreadyExistsException} (client fault)
  *  <p>The resource being created already exists.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateBusinessReportScheduleCommand extends $Command<

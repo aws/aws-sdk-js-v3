@@ -51,6 +51,13 @@ export interface CreateAlertManagerDefinitionCommandOutput
  * };
  * const command = new CreateAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAlertManagerDefinitionResponse
+ * //   status: { // AlertManagerDefinitionStatus
+ * //     statusCode: "STRING_VALUE", // required
+ * //     statusReason: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateAlertManagerDefinitionCommandInput - {@link CreateAlertManagerDefinitionCommandInput}
@@ -80,6 +87,8 @@ export interface CreateAlertManagerDefinitionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class CreateAlertManagerDefinitionCommand extends $Command<

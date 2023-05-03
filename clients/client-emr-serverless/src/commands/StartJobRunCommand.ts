@@ -94,6 +94,12 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * };
  * const command = new StartJobRunCommand(input);
  * const response = await client.send(command);
+ * // { // StartJobRunResponse
+ * //   applicationId: "STRING_VALUE", // required
+ * //   jobRunId: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param StartJobRunCommandInput - {@link StartJobRunCommandInput}
@@ -116,6 +122,8 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class StartJobRunCommand extends $Command<

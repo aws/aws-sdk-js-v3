@@ -69,6 +69,15 @@ export interface GetIdentityVerificationAttributesCommandOutput
  * };
  * const command = new GetIdentityVerificationAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // GetIdentityVerificationAttributesResponse
+ * //   VerificationAttributes: { // VerificationAttributes // required
+ * //     "<keys>": { // IdentityVerificationAttributes
+ * //       VerificationStatus: "STRING_VALUE", // required
+ * //       VerificationToken: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetIdentityVerificationAttributesCommandInput - {@link GetIdentityVerificationAttributesCommandInput}
@@ -77,6 +86,8 @@ export interface GetIdentityVerificationAttributesCommandOutput
  * @see {@link GetIdentityVerificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example GetIdentityVerificationAttributes
  * ```javascript

@@ -49,6 +49,39 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * };
  * const command = new ListSessionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSessionsResponse
+ * //   Ids: [ // SessionIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Sessions: [ // SessionList
+ * //     { // Session
+ * //       Id: "STRING_VALUE",
+ * //       CreatedOn: new Date("TIMESTAMP"),
+ * //       Status: "PROVISIONING" || "READY" || "FAILED" || "TIMEOUT" || "STOPPING" || "STOPPED",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Role: "STRING_VALUE",
+ * //       Command: { // SessionCommand
+ * //         Name: "STRING_VALUE",
+ * //         PythonVersion: "STRING_VALUE",
+ * //       },
+ * //       DefaultArguments: { // OrchestrationArgumentsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       Connections: { // ConnectionsList
+ * //         Connections: [ // OrchestrationStringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Progress: Number("double"),
+ * //       MaxCapacity: Number("double"),
+ * //       SecurityConfiguration: "STRING_VALUE",
+ * //       GlueVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSessionsCommandInput - {@link ListSessionsCommandInput}
@@ -69,6 +102,8 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListSessionsCommand extends $Command<

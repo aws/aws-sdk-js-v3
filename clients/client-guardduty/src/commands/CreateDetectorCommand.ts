@@ -82,6 +82,21 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  * };
  * const command = new CreateDetectorCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDetectorResponse
+ * //   DetectorId: "STRING_VALUE",
+ * //   UnprocessedDataSources: { // UnprocessedDataSourcesResult
+ * //     MalwareProtection: { // MalwareProtectionConfigurationResult
+ * //       ScanEc2InstanceWithFindings: { // ScanEc2InstanceWithFindingsResult
+ * //         EbsVolumes: { // EbsVolumesResult
+ * //           Status: "ENABLED" || "DISABLED",
+ * //           Reason: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       ServiceRole: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateDetectorCommandInput - {@link CreateDetectorCommandInput}
@@ -96,6 +111,8 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class CreateDetectorCommand extends $Command<

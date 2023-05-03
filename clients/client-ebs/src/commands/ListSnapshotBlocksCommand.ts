@@ -51,6 +51,19 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
  * };
  * const command = new ListSnapshotBlocksCommand(input);
  * const response = await client.send(command);
+ * // { // ListSnapshotBlocksResponse
+ * //   Blocks: [ // Blocks
+ * //     { // Block
+ * //       BlockIndex: Number("int"),
+ * //       BlockToken: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ExpiryTime: new Date("TIMESTAMP"),
+ * //   VolumeSize: Number("long"),
+ * //   BlockSize: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSnapshotBlocksCommandInput - {@link ListSnapshotBlocksCommandInput}
@@ -78,6 +91,8 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  *
+ * @throws {@link EBSServiceException}
+ * <p>Base exception class for all service exceptions from EBS service.</p>
  *
  */
 export class ListSnapshotBlocksCommand extends $Command<

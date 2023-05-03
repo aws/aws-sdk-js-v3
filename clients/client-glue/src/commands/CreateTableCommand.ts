@@ -137,6 +137,8 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateTableCommandInput - {@link CreateTableCommandInput}
@@ -172,6 +174,8 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateTableCommand extends $Command<

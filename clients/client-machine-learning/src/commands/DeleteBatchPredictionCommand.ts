@@ -49,6 +49,10 @@ export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictio
  * };
  * const command = new DeleteBatchPredictionCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteBatchPredictionOutput
+ * //   BatchPredictionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteBatchPredictionCommandInput - {@link DeleteBatchPredictionCommandInput}
@@ -66,6 +70,8 @@ export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictio
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DeleteBatchPredictionCommand extends $Command<

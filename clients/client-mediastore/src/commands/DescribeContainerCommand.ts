@@ -50,6 +50,17 @@ export interface DescribeContainerCommandOutput extends DescribeContainerOutput,
  * };
  * const command = new DescribeContainerCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeContainerOutput
+ * //   Container: { // Container
+ * //     Endpoint: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     ARN: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     AccessLoggingEnabled: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeContainerCommandInput - {@link DescribeContainerCommandInput}
@@ -64,6 +75,8 @@ export interface DescribeContainerCommandOutput extends DescribeContainerOutput,
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class DescribeContainerCommand extends $Command<

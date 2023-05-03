@@ -64,6 +64,28 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * };
  * const command = new DescribeAvailabilityZonesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAvailabilityZonesResult
+ * //   AvailabilityZones: [ // AvailabilityZoneList
+ * //     { // AvailabilityZone
+ * //       State: "available" || "information" || "impaired" || "unavailable",
+ * //       OptInStatus: "opt-in-not-required" || "opted-in" || "not-opted-in",
+ * //       Messages: [ // AvailabilityZoneMessageList
+ * //         { // AvailabilityZoneMessage
+ * //           Message: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       RegionName: "STRING_VALUE",
+ * //       ZoneName: "STRING_VALUE",
+ * //       ZoneId: "STRING_VALUE",
+ * //       GroupName: "STRING_VALUE",
+ * //       NetworkBorderGroup: "STRING_VALUE",
+ * //       ZoneType: "STRING_VALUE",
+ * //       ParentZoneName: "STRING_VALUE",
+ * //       ParentZoneId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeAvailabilityZonesCommandInput - {@link DescribeAvailabilityZonesCommandInput}
@@ -72,6 +94,8 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * @see {@link DescribeAvailabilityZonesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe your Availability Zones
  * ```javascript

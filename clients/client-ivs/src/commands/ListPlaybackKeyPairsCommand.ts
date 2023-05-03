@@ -46,6 +46,19 @@ export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsR
  * };
  * const command = new ListPlaybackKeyPairsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPlaybackKeyPairsResponse
+ * //   keyPairs: [ // PlaybackKeyPairList // required
+ * //     { // PlaybackKeyPairSummary
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPlaybackKeyPairsCommandInput - {@link ListPlaybackKeyPairsCommandInput}
@@ -60,6 +73,8 @@ export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsR
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class ListPlaybackKeyPairsCommand extends $Command<

@@ -121,6 +121,10 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * };
  * const command = new SendEmailCommand(input);
  * const response = await client.send(command);
+ * // { // SendEmailResponse
+ * //   MessageId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param SendEmailCommandInput - {@link SendEmailCommandInput}
@@ -155,6 +159,8 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class SendEmailCommand extends $Command<

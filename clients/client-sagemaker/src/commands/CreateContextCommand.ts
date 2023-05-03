@@ -64,6 +64,10 @@ export interface CreateContextCommandOutput extends CreateContextResponse, __Met
  * };
  * const command = new CreateContextCommand(input);
  * const response = await client.send(command);
+ * // { // CreateContextResponse
+ * //   ContextArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateContextCommandInput - {@link CreateContextCommandInput}
@@ -76,6 +80,8 @@ export interface CreateContextCommandOutput extends CreateContextResponse, __Met
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateContextCommand extends $Command<

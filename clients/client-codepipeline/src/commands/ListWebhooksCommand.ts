@@ -47,6 +47,41 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
  * };
  * const command = new ListWebhooksCommand(input);
  * const response = await client.send(command);
+ * // { // ListWebhooksOutput
+ * //   webhooks: [ // WebhookList
+ * //     { // ListWebhookItem
+ * //       definition: { // WebhookDefinition
+ * //         name: "STRING_VALUE", // required
+ * //         targetPipeline: "STRING_VALUE", // required
+ * //         targetAction: "STRING_VALUE", // required
+ * //         filters: [ // WebhookFilters // required
+ * //           { // WebhookFilterRule
+ * //             jsonPath: "STRING_VALUE", // required
+ * //             matchEquals: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         authentication: "STRING_VALUE", // required
+ * //         authenticationConfiguration: { // WebhookAuthConfiguration
+ * //           AllowedIPRange: "STRING_VALUE",
+ * //           SecretToken: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       url: "STRING_VALUE", // required
+ * //       errorMessage: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       lastTriggered: new Date("TIMESTAMP"),
+ * //       arn: "STRING_VALUE",
+ * //       tags: [ // TagList
+ * //         { // Tag
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListWebhooksCommandInput - {@link ListWebhooksCommandInput}
@@ -62,6 +97,8 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class ListWebhooksCommand extends $Command<

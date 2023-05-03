@@ -47,6 +47,13 @@ export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForD
  * };
  * const command = new ListKeywordsForDataSourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListKeywordsForDataSourceResponse
+ * //   keywords: [ // Keywords
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListKeywordsForDataSourceCommandInput - {@link ListKeywordsForDataSourceCommandInput}
@@ -66,6 +73,8 @@ export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForD
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ListKeywordsForDataSourceCommand extends $Command<

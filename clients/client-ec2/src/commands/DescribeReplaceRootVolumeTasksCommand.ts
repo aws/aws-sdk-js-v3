@@ -63,6 +63,28 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput
  * };
  * const command = new DescribeReplaceRootVolumeTasksCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeReplaceRootVolumeTasksResult
+ * //   ReplaceRootVolumeTasks: [ // ReplaceRootVolumeTasks
+ * //     { // ReplaceRootVolumeTask
+ * //       ReplaceRootVolumeTaskId: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       TaskState: "pending" || "in-progress" || "failing" || "succeeded" || "failed" || "failed-detached",
+ * //       StartTime: "STRING_VALUE",
+ * //       CompleteTime: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ImageId: "STRING_VALUE",
+ * //       SnapshotId: "STRING_VALUE",
+ * //       DeleteReplacedRootVolume: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeReplaceRootVolumeTasksCommandInput - {@link DescribeReplaceRootVolumeTasksCommandInput}
@@ -71,6 +93,8 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput
  * @see {@link DescribeReplaceRootVolumeTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeReplaceRootVolumeTasksCommand extends $Command<

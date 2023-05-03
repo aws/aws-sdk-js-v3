@@ -45,6 +45,29 @@ export interface GetBatchJobExecutionCommandOutput extends GetBatchJobExecutionR
  * };
  * const command = new GetBatchJobExecutionCommand(input);
  * const response = await client.send(command);
+ * // { // GetBatchJobExecutionResponse
+ * //   executionId: "STRING_VALUE", // required
+ * //   applicationId: "STRING_VALUE", // required
+ * //   jobId: "STRING_VALUE",
+ * //   jobName: "STRING_VALUE",
+ * //   jobUser: "STRING_VALUE",
+ * //   jobType: "STRING_VALUE",
+ * //   status: "STRING_VALUE", // required
+ * //   startTime: new Date("TIMESTAMP"), // required
+ * //   endTime: new Date("TIMESTAMP"),
+ * //   statusReason: "STRING_VALUE",
+ * //   returnCode: "STRING_VALUE",
+ * //   batchJobIdentifier: { // BatchJobIdentifier Union: only one key present
+ * //     fileBatchJobIdentifier: { // FileBatchJobIdentifier
+ * //       fileName: "STRING_VALUE", // required
+ * //       folderPath: "STRING_VALUE",
+ * //     },
+ * //     scriptBatchJobIdentifier: { // ScriptBatchJobIdentifier
+ * //       scriptName: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetBatchJobExecutionCommandInput - {@link GetBatchJobExecutionCommandInput}
@@ -68,6 +91,8 @@ export interface GetBatchJobExecutionCommandOutput extends GetBatchJobExecutionR
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class GetBatchJobExecutionCommand extends $Command<

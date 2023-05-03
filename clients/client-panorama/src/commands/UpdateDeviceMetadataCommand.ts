@@ -45,6 +45,10 @@ export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataR
  * };
  * const command = new UpdateDeviceMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateDeviceMetadataResponse
+ * //   DeviceId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateDeviceMetadataCommandInput - {@link UpdateDeviceMetadataCommandInput}
@@ -68,6 +72,8 @@ export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataR
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class UpdateDeviceMetadataCommand extends $Command<

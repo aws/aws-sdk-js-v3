@@ -49,6 +49,13 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
+ * // { // ListClustersResponse
+ * //   clusters: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListClustersCommandInput - {@link ListClustersCommandInput}
@@ -72,6 +79,8 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unavailable. Back off and retry the operation.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  * @example To list your available clusters
  * ```javascript

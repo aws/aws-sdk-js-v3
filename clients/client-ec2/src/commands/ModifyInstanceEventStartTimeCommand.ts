@@ -49,6 +49,17 @@ export interface ModifyInstanceEventStartTimeCommandOutput
  * };
  * const command = new ModifyInstanceEventStartTimeCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyInstanceEventStartTimeResult
+ * //   Event: { // InstanceStatusEvent
+ * //     InstanceEventId: "STRING_VALUE",
+ * //     Code: "instance-reboot" || "system-reboot" || "system-maintenance" || "instance-retirement" || "instance-stop",
+ * //     Description: "STRING_VALUE",
+ * //     NotAfter: new Date("TIMESTAMP"),
+ * //     NotBefore: new Date("TIMESTAMP"),
+ * //     NotBeforeDeadline: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ModifyInstanceEventStartTimeCommandInput - {@link ModifyInstanceEventStartTimeCommandInput}
@@ -57,6 +68,8 @@ export interface ModifyInstanceEventStartTimeCommandOutput
  * @see {@link ModifyInstanceEventStartTimeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyInstanceEventStartTimeCommand extends $Command<

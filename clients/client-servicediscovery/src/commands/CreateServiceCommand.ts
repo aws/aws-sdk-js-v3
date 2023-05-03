@@ -113,6 +113,38 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
+ * // { // CreateServiceResponse
+ * //   Service: { // Service
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     NamespaceId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     InstanceCount: Number("int"),
+ * //     DnsConfig: { // DnsConfig
+ * //       NamespaceId: "STRING_VALUE",
+ * //       RoutingPolicy: "MULTIVALUE" || "WEIGHTED",
+ * //       DnsRecords: [ // DnsRecordList // required
+ * //         { // DnsRecord
+ * //           Type: "SRV" || "A" || "AAAA" || "CNAME", // required
+ * //           TTL: Number("long"), // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     Type: "HTTP" || "DNS_HTTP" || "DNS",
+ * //     HealthCheckConfig: { // HealthCheckConfig
+ * //       Type: "HTTP" || "HTTPS" || "TCP", // required
+ * //       ResourcePath: "STRING_VALUE",
+ * //       FailureThreshold: Number("int"),
+ * //     },
+ * //     HealthCheckCustomConfig: { // HealthCheckCustomConfig
+ * //       FailureThreshold: Number("int"),
+ * //     },
+ * //     CreateDate: new Date("TIMESTAMP"),
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateServiceCommandInput - {@link CreateServiceCommandInput}
@@ -140,6 +172,8 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
  *    applied to a resource is 50.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example Example: Create service
  * ```javascript

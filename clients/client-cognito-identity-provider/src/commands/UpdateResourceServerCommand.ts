@@ -61,6 +61,20 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
  * };
  * const command = new UpdateResourceServerCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateResourceServerResponse
+ * //   ResourceServer: { // ResourceServerType
+ * //     UserPoolId: "STRING_VALUE",
+ * //     Identifier: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Scopes: [ // ResourceServerScopeListType
+ * //       { // ResourceServerScopeType
+ * //         ScopeName: "STRING_VALUE", // required
+ * //         ScopeDescription: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateResourceServerCommandInput - {@link UpdateResourceServerCommandInput}
@@ -87,6 +101,8 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class UpdateResourceServerCommand extends $Command<

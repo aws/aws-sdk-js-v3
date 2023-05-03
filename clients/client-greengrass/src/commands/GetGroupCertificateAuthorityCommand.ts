@@ -50,6 +50,12 @@ export interface GetGroupCertificateAuthorityCommandOutput
  * };
  * const command = new GetGroupCertificateAuthorityCommand(input);
  * const response = await client.send(command);
+ * // { // GetGroupCertificateAuthorityResponse
+ * //   GroupCertificateAuthorityArn: "STRING_VALUE",
+ * //   GroupCertificateAuthorityId: "STRING_VALUE",
+ * //   PemEncodedCertificate: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetGroupCertificateAuthorityCommandInput - {@link GetGroupCertificateAuthorityCommandInput}
@@ -64,6 +70,8 @@ export interface GetGroupCertificateAuthorityCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetGroupCertificateAuthorityCommand extends $Command<

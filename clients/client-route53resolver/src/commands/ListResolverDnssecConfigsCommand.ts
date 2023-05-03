@@ -53,6 +53,18 @@ export interface ListResolverDnssecConfigsCommandOutput extends ListResolverDnss
  * };
  * const command = new ListResolverDnssecConfigsCommand(input);
  * const response = await client.send(command);
+ * // { // ListResolverDnssecConfigsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ResolverDnssecConfigs: [ // ResolverDnssecConfigList
+ * //     { // ResolverDnssecConfig
+ * //       Id: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       ValidationStatus: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING" || "USE_LOCAL_RESOURCE_SETTING",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListResolverDnssecConfigsCommandInput - {@link ListResolverDnssecConfigsCommandInput}
@@ -79,6 +91,8 @@ export interface ListResolverDnssecConfigsCommandOutput extends ListResolverDnss
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class ListResolverDnssecConfigsCommand extends $Command<

@@ -50,6 +50,8 @@ export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentCla
  * };
  * const command = new DeleteDocumentClassifierCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDocumentClassifierCommandInput - {@link DeleteDocumentClassifierCommandInput}
@@ -78,6 +80,8 @@ export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentCla
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DeleteDocumentClassifierCommand extends $Command<

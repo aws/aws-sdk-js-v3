@@ -75,6 +75,8 @@ export interface RegisterDomainCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RegisterDomainCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RegisterDomainCommandInput - {@link RegisterDomainCommandInput}
@@ -95,6 +97,8 @@ export interface RegisterDomainCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyTagsFault} (client fault)
  *  <p>You've exceeded the number of tags allowed for a domain.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class RegisterDomainCommand extends $Command<

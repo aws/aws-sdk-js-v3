@@ -56,6 +56,22 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * };
  * const command = new ListExecutionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListExecutionsOutput
+ * //   executions: [ // ExecutionList // required
+ * //     { // ExecutionListItem
+ * //       executionArn: "STRING_VALUE", // required
+ * //       stateMachineArn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED", // required
+ * //       startDate: new Date("TIMESTAMP"), // required
+ * //       stopDate: new Date("TIMESTAMP"),
+ * //       mapRunArn: "STRING_VALUE",
+ * //       itemCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListExecutionsCommandInput - {@link ListExecutionsCommandInput}
@@ -83,6 +99,8 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class ListExecutionsCommand extends $Command<

@@ -45,6 +45,11 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
  * };
  * const command = new GetDeviceRegistrationCommand(input);
  * const response = await client.send(command);
+ * // { // GetDeviceRegistrationResult
+ * //   DeviceRegistration: "STRING_VALUE",
+ * //   CacheTTL: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetDeviceRegistrationCommandInput - {@link GetDeviceRegistrationCommandInput}
@@ -57,6 +62,8 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
  *  <p>An internal failure occurred. Try your request again. If the problem
  *       persists, contact Amazon Web Services customer support.</p>
  *
+ * @throws {@link SagemakerEdgeServiceException}
+ * <p>Base exception class for all service exceptions from SagemakerEdge service.</p>
  *
  */
 export class GetDeviceRegistrationCommand extends $Command<

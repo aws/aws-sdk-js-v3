@@ -45,6 +45,16 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * };
  * const command = new GetDatabaseCommand(input);
  * const response = await client.send(command);
+ * // { // GetDatabaseOutput
+ * //   Database: { // Database
+ * //     Name: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     Parameters: { // ParametersMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetDatabaseCommandInput - {@link GetDatabaseCommandInput}
@@ -69,6 +79,8 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  *                 Lambda
  *             <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetDatabaseCommand extends $Command<

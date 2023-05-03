@@ -46,6 +46,8 @@ export interface DisassociateApprovedOriginCommandOutput extends __MetadataBeare
  * };
  * const command = new DisassociateApprovedOriginCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateApprovedOriginCommandInput - {@link DisassociateApprovedOriginCommandInput}
@@ -69,6 +71,8 @@ export interface DisassociateApprovedOriginCommandOutput extends __MetadataBeare
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DisassociateApprovedOriginCommand extends $Command<

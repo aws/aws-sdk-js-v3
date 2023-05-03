@@ -91,6 +91,10 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  * };
  * const command = new StartDocumentAnalysisCommand(input);
  * const response = await client.send(command);
+ * // { // StartDocumentAnalysisResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartDocumentAnalysisCommandInput - {@link StartDocumentAnalysisCommandInput}
@@ -155,6 +159,8 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  *  <p>The format of the input document isn't supported. Documents for operations can be in
  *          PNG, JPEG, PDF, or TIFF format.</p>
  *
+ * @throws {@link TextractServiceException}
+ * <p>Base exception class for all service exceptions from Textract service.</p>
  *
  */
 export class StartDocumentAnalysisCommand extends $Command<

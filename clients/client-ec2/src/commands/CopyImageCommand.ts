@@ -71,6 +71,10 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  * };
  * const command = new CopyImageCommand(input);
  * const response = await client.send(command);
+ * // { // CopyImageResult
+ * //   ImageId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CopyImageCommandInput - {@link CopyImageCommandInput}
@@ -79,6 +83,8 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  * @see {@link CopyImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To copy an AMI to another region
  * ```javascript

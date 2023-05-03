@@ -52,6 +52,11 @@ export interface GetSolFunctionPackageDescriptorCommandOutput
  * };
  * const command = new GetSolFunctionPackageDescriptorCommand(input);
  * const response = await client.send(command);
+ * // { // GetSolFunctionPackageDescriptorOutput
+ * //   contentType: "text/plain",
+ * //   vnfd: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetSolFunctionPackageDescriptorCommandInput - {@link GetSolFunctionPackageDescriptorCommandInput}
@@ -75,6 +80,8 @@ export interface GetSolFunctionPackageDescriptorCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class GetSolFunctionPackageDescriptorCommand extends $Command<

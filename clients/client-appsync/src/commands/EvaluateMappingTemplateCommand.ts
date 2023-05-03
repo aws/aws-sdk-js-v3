@@ -50,6 +50,16 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  * };
  * const command = new EvaluateMappingTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // EvaluateMappingTemplateResponse
+ * //   evaluationResult: "STRING_VALUE",
+ * //   error: { // ErrorDetail
+ * //     message: "STRING_VALUE",
+ * //   },
+ * //   logs: [ // Logs
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param EvaluateMappingTemplateCommandInput - {@link EvaluateMappingTemplateCommandInput}
@@ -68,6 +78,8 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class EvaluateMappingTemplateCommand extends $Command<

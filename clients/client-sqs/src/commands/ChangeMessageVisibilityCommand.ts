@@ -79,6 +79,8 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
  * };
  * const command = new ChangeMessageVisibilityCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ChangeMessageVisibilityCommandInput - {@link ChangeMessageVisibilityCommandInput}
@@ -93,6 +95,8 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
  * @throws {@link ReceiptHandleIsInvalid} (client fault)
  *  <p>The specified receipt handle isn't valid.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class ChangeMessageVisibilityCommand extends $Command<

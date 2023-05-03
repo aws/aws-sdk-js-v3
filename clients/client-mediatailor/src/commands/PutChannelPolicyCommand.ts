@@ -45,6 +45,8 @@ export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse,
  * };
  * const command = new PutChannelPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutChannelPolicyCommandInput - {@link PutChannelPolicyCommandInput}
@@ -53,6 +55,8 @@ export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse,
  * @see {@link PutChannelPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class PutChannelPolicyCommand extends $Command<

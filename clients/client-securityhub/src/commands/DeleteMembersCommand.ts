@@ -48,6 +48,15 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * };
  * const command = new DeleteMembersCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteMembersResponse
+ * //   UnprocessedAccounts: [ // ResultList
+ * //     { // Result
+ * //       AccountId: "STRING_VALUE",
+ * //       ProcessingResult: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DeleteMembersCommandInput - {@link DeleteMembersCommandInput}
@@ -73,6 +82,8 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To delete a member account
  * ```javascript

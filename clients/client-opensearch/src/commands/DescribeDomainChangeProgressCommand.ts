@@ -51,6 +51,29 @@ export interface DescribeDomainChangeProgressCommandOutput
  * };
  * const command = new DescribeDomainChangeProgressCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDomainChangeProgressResponse
+ * //   ChangeProgressStatus: { // ChangeProgressStatusDetails
+ * //     ChangeId: "STRING_VALUE",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     Status: "PENDING" || "PROCESSING" || "COMPLETED" || "FAILED",
+ * //     PendingProperties: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     CompletedProperties: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     TotalNumberOfStages: Number("int"),
+ * //     ChangeProgressStages: [ // ChangeProgressStageList
+ * //       { // ChangeProgressStage
+ * //         Name: "STRING_VALUE",
+ * //         Status: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         LastUpdated: new Date("TIMESTAMP"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeDomainChangeProgressCommandInput - {@link DescribeDomainChangeProgressCommandInput}
@@ -71,6 +94,8 @@ export interface DescribeDomainChangeProgressCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DescribeDomainChangeProgressCommand extends $Command<

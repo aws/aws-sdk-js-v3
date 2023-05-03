@@ -63,6 +63,8 @@ export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCol
  * };
  * const command = new UpdateResourceCollectionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateResourceCollectionCommandInput - {@link UpdateResourceCollectionCommandInput}
@@ -90,6 +92,8 @@ export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCol
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class UpdateResourceCollectionCommand extends $Command<

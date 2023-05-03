@@ -47,6 +47,25 @@ export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, _
  * };
  * const command = new BatchStopJobRunCommand(input);
  * const response = await client.send(command);
+ * // { // BatchStopJobRunResponse
+ * //   SuccessfulSubmissions: [ // BatchStopJobRunSuccessfulSubmissionList
+ * //     { // BatchStopJobRunSuccessfulSubmission
+ * //       JobName: "STRING_VALUE",
+ * //       JobRunId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Errors: [ // BatchStopJobRunErrorList
+ * //     { // BatchStopJobRunError
+ * //       JobName: "STRING_VALUE",
+ * //       JobRunId: "STRING_VALUE",
+ * //       ErrorDetail: { // ErrorDetail
+ * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchStopJobRunCommandInput - {@link BatchStopJobRunCommandInput}
@@ -64,6 +83,8 @@ export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, _
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchStopJobRunCommand extends $Command<

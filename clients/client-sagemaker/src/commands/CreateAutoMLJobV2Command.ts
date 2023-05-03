@@ -115,6 +115,10 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  * };
  * const command = new CreateAutoMLJobV2Command(input);
  * const response = await client.send(command);
+ * // { // CreateAutoMLJobV2Response
+ * //   AutoMLJobArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateAutoMLJobV2CommandInput - {@link CreateAutoMLJobV2CommandInput}
@@ -130,6 +134,8 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateAutoMLJobV2Command extends $Command<

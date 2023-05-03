@@ -81,6 +81,15 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  * };
  * const command = new GetPublicAccessBlockCommand(input);
  * const response = await client.send(command);
+ * // { // GetPublicAccessBlockOutput
+ * //   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
+ * //     BlockPublicAcls: true || false,
+ * //     IgnorePublicAcls: true || false,
+ * //     BlockPublicPolicy: true || false,
+ * //     RestrictPublicBuckets: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetPublicAccessBlockCommandInput - {@link GetPublicAccessBlockCommandInput}
@@ -89,6 +98,8 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  * @see {@link GetPublicAccessBlockCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class GetPublicAccessBlockCommand extends $Command<

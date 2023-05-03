@@ -53,6 +53,8 @@ export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {
  * };
  * const command = new EnableMetricsCollectionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param EnableMetricsCollectionCommandInput - {@link EnableMetricsCollectionCommandInput}
@@ -65,6 +67,8 @@ export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To enable metrics collection for an Auto Scaling group
  * ```javascript

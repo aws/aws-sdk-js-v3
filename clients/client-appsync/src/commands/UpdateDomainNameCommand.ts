@@ -45,6 +45,16 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  * };
  * const command = new UpdateDomainNameCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateDomainNameResponse
+ * //   domainNameConfig: { // DomainNameConfig
+ * //     domainName: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     certificateArn: "STRING_VALUE",
+ * //     appsyncDomainName: "STRING_VALUE",
+ * //     hostedZoneId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateDomainNameCommandInput - {@link UpdateDomainNameCommandInput}
@@ -70,6 +80,8 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class UpdateDomainNameCommand extends $Command<

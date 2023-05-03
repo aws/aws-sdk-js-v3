@@ -63,6 +63,29 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  * };
  * const command = new CreateWorkspaceBundleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWorkspaceBundleResult
+ * //   WorkspaceBundle: { // WorkspaceBundle
+ * //     BundleId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     ImageId: "STRING_VALUE",
+ * //     RootStorage: { // RootStorage
+ * //       Capacity: "STRING_VALUE",
+ * //     },
+ * //     UserStorage: { // UserStorage
+ * //       Capacity: "STRING_VALUE",
+ * //     },
+ * //     ComputeType: { // ComputeType
+ * //       Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ * //     },
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     State: "AVAILABLE" || "PENDING" || "ERROR",
+ * //     BundleType: "REGULAR" || "STANDBY",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateWorkspaceBundleCommandInput - {@link CreateWorkspaceBundleCommandInput}
@@ -89,6 +112,8 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The specified resource is not available.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CreateWorkspaceBundleCommand extends $Command<

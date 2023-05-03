@@ -67,6 +67,10 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  * };
  * const command = new ShutdownGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // ShutdownGatewayOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ShutdownGatewayCommandInput - {@link ShutdownGatewayCommandInput}
@@ -83,6 +87,8 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To shut down a gateway service
  * ```javascript

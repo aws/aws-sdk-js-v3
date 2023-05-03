@@ -48,6 +48,16 @@ export interface UpdateServiceSyncConfigCommandOutput extends UpdateServiceSyncC
  * };
  * const command = new UpdateServiceSyncConfigCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateServiceSyncConfigOutput
+ * //   serviceSyncConfig: { // ServiceSyncConfig
+ * //     serviceName: "STRING_VALUE", // required
+ * //     repositoryProvider: "STRING_VALUE", // required
+ * //     repositoryName: "STRING_VALUE", // required
+ * //     branch: "STRING_VALUE", // required
+ * //     filePath: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateServiceSyncConfigCommandInput - {@link UpdateServiceSyncConfigCommandInput}
@@ -74,6 +84,8 @@ export interface UpdateServiceSyncConfigCommandOutput extends UpdateServiceSyncC
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class UpdateServiceSyncConfigCommand extends $Command<

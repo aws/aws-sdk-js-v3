@@ -46,6 +46,17 @@ export interface ListDetectorModelsCommandOutput extends ListDetectorModelsRespo
  * };
  * const command = new ListDetectorModelsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDetectorModelsResponse
+ * //   detectorModelSummaries: [ // DetectorModelSummaries
+ * //     { // DetectorModelSummary
+ * //       detectorModelName: "STRING_VALUE",
+ * //       detectorModelDescription: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDetectorModelsCommandInput - {@link ListDetectorModelsCommandInput}
@@ -66,6 +77,8 @@ export interface ListDetectorModelsCommandOutput extends ListDetectorModelsRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class ListDetectorModelsCommand extends $Command<

@@ -82,6 +82,15 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingResult, _
  * };
  * const command = new GetBucketTaggingCommand(input);
  * const response = await client.send(command);
+ * // { // GetBucketTaggingResult
+ * //   TagSet: [ // S3TagSet // required
+ * //     { // S3Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetBucketTaggingCommandInput - {@link GetBucketTaggingCommandInput}
@@ -90,6 +99,8 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingResult, _
  * @see {@link GetBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class GetBucketTaggingCommand extends $Command<

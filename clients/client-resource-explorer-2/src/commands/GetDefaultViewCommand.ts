@@ -47,6 +47,10 @@ export interface GetDefaultViewCommandOutput extends GetDefaultViewOutput, __Met
  * const input = {};
  * const command = new GetDefaultViewCommand(input);
  * const response = await client.send(command);
+ * // { // GetDefaultViewOutput
+ * //   ViewArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetDefaultViewCommandInput - {@link GetDefaultViewCommandInput}
@@ -76,6 +80,8 @@ export interface GetDefaultViewCommandOutput extends GetDefaultViewOutput, __Met
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class GetDefaultViewCommand extends $Command<

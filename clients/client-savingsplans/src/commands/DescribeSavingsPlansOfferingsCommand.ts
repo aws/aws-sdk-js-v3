@@ -86,6 +86,32 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  * };
  * const command = new DescribeSavingsPlansOfferingsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSavingsPlansOfferingsResponse
+ * //   searchResults: [ // SavingsPlanOfferingsList
+ * //     { // SavingsPlanOffering
+ * //       offeringId: "STRING_VALUE",
+ * //       productTypes: [ // SavingsPlanProductTypeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       planType: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       paymentOption: "STRING_VALUE",
+ * //       durationSeconds: Number("long"),
+ * //       currency: "STRING_VALUE",
+ * //       serviceCode: "STRING_VALUE",
+ * //       usageType: "STRING_VALUE",
+ * //       operation: "STRING_VALUE",
+ * //       properties: [ // SavingsPlanOfferingPropertyList
+ * //         { // SavingsPlanOfferingProperty
+ * //           name: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeSavingsPlansOfferingsCommandInput - {@link DescribeSavingsPlansOfferingsCommandInput}
@@ -100,6 +126,8 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the input parameters is not valid.</p>
  *
+ * @throws {@link SavingsplansServiceException}
+ * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
  */
 export class DescribeSavingsPlansOfferingsCommand extends $Command<

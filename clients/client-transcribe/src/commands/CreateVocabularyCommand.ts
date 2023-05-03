@@ -66,6 +66,14 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  * };
  * const command = new CreateVocabularyCommand(input);
  * const response = await client.send(command);
+ * // { // CreateVocabularyResponse
+ * //   VocabularyName: "STRING_VALUE",
+ * //   LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
+ * //   VocabularyState: "PENDING" || "READY" || "FAILED",
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   FailureReason: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateVocabularyCommandInput - {@link CreateVocabularyCommandInput}
@@ -92,6 +100,8 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  *  <p>You've either sent too many requests or your input file is too long. Wait before
  *             retrying your request, or use a smaller file and try your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class CreateVocabularyCommand extends $Command<

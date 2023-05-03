@@ -68,6 +68,8 @@ export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachTypedLinkCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DetachTypedLinkCommandInput - {@link DetachTypedLinkCommandInput}
@@ -105,6 +107,8 @@ export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DetachTypedLinkCommand extends $Command<

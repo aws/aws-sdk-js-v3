@@ -51,6 +51,10 @@ export interface StartOnDemandReplicationRunCommandOutput
  * };
  * const command = new StartOnDemandReplicationRunCommand(input);
  * const response = await client.send(command);
+ * // { // StartOnDemandReplicationRunResponse
+ * //   replicationRunId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartOnDemandReplicationRunCommandInput - {@link StartOnDemandReplicationRunCommandInput}
@@ -80,6 +84,8 @@ export interface StartOnDemandReplicationRunCommandOutput
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class StartOnDemandReplicationRunCommand extends $Command<

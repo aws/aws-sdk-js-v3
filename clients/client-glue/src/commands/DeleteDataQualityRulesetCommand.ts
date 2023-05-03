@@ -44,6 +44,8 @@ export interface DeleteDataQualityRulesetCommandOutput extends DeleteDataQuality
  * };
  * const command = new DeleteDataQualityRulesetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDataQualityRulesetCommandInput - {@link DeleteDataQualityRulesetCommandInput}
@@ -64,6 +66,8 @@ export interface DeleteDataQualityRulesetCommandOutput extends DeleteDataQuality
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteDataQualityRulesetCommand extends $Command<

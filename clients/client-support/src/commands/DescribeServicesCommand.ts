@@ -69,6 +69,21 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * };
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeServicesResponse
+ * //   services: [ // ServiceList
+ * //     { // Service
+ * //       code: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       categories: [ // CategoryList
+ * //         { // Category
+ * //           code: "STRING_VALUE",
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeServicesCommandInput - {@link DescribeServicesCommandInput}
@@ -80,6 +95,8 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class DescribeServicesCommand extends $Command<

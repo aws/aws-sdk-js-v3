@@ -59,6 +59,33 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  * };
  * const command = new UpdateSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateSettingsResponse
+ * //   settings: { // Settings
+ * //     isAwsOrgEnabled: true || false,
+ * //     snsTopic: "STRING_VALUE",
+ * //     defaultAssessmentReportsDestination: { // AssessmentReportsDestination
+ * //       destinationType: "S3",
+ * //       destination: "STRING_VALUE",
+ * //     },
+ * //     defaultProcessOwners: [ // Roles
+ * //       { // Role
+ * //         roleType: "PROCESS_OWNER" || "RESOURCE_OWNER", // required
+ * //         roleArn: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     kmsKey: "STRING_VALUE",
+ * //     evidenceFinderEnablement: { // EvidenceFinderEnablement
+ * //       eventDataStoreArn: "STRING_VALUE",
+ * //       enablementStatus: "ENABLED" || "DISABLED" || "ENABLE_IN_PROGRESS" || "DISABLE_IN_PROGRESS",
+ * //       backfillStatus: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETED",
+ * //       error: "STRING_VALUE",
+ * //     },
+ * //     deregistrationPolicy: { // DeregistrationPolicy
+ * //       deleteResources: "ALL" || "DEFAULT",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateSettingsCommandInput - {@link UpdateSettingsCommandInput}
@@ -78,6 +105,8 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class UpdateSettingsCommand extends $Command<

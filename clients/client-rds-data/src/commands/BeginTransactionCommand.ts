@@ -55,6 +55,10 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  * };
  * const command = new BeginTransactionCommand(input);
  * const response = await client.send(command);
+ * // { // BeginTransactionResponse
+ * //   transactionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param BeginTransactionCommandInput - {@link BeginTransactionCommandInput}
@@ -82,6 +86,8 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  * @throws {@link StatementTimeoutException} (client fault)
  *  <p>The execution of the SQL statement timed out.</p>
  *
+ * @throws {@link RDSDataServiceException}
+ * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
  */
 export class BeginTransactionCommand extends $Command<

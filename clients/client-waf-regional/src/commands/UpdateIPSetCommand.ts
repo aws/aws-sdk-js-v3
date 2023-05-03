@@ -127,6 +127,10 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * };
  * const command = new UpdateIPSetCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateIPSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateIPSetCommandInput - {@link UpdateIPSetCommandInput}
@@ -244,6 +248,8 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To update an IP set
  * ```javascript

@@ -54,6 +54,30 @@ export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBea
  * };
  * const command = new GetBundlesCommand(input);
  * const response = await client.send(command);
+ * // { // GetBundlesResult
+ * //   bundles: [ // BundleList
+ * //     { // Bundle
+ * //       price: Number("float"),
+ * //       cpuCount: Number("int"),
+ * //       diskSizeInGb: Number("int"),
+ * //       bundleId: "STRING_VALUE",
+ * //       instanceType: "STRING_VALUE",
+ * //       isActive: true || false,
+ * //       name: "STRING_VALUE",
+ * //       power: Number("int"),
+ * //       ramSizeInGb: Number("float"),
+ * //       transferPerMonthInGb: Number("int"),
+ * //       supportedPlatforms: [ // InstancePlatformList
+ * //         "LINUX_UNIX" || "WINDOWS",
+ * //       ],
+ * //       supportedAppCategories: [ // AppCategoryList
+ * //         "LfR",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetBundlesCommandInput - {@link GetBundlesCommandInput}
@@ -92,6 +116,8 @@ export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBea
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetBundlesCommand extends $Command<

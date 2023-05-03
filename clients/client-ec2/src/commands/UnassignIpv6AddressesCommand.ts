@@ -50,6 +50,16 @@ export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6Addresse
  * };
  * const command = new UnassignIpv6AddressesCommand(input);
  * const response = await client.send(command);
+ * // { // UnassignIpv6AddressesResult
+ * //   NetworkInterfaceId: "STRING_VALUE",
+ * //   UnassignedIpv6Addresses: [ // Ipv6AddressList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   UnassignedIpv6Prefixes: [ // IpPrefixList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UnassignIpv6AddressesCommandInput - {@link UnassignIpv6AddressesCommandInput}
@@ -58,6 +68,8 @@ export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6Addresse
  * @see {@link UnassignIpv6AddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class UnassignIpv6AddressesCommand extends $Command<

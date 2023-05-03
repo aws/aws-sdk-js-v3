@@ -45,6 +45,8 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
@@ -63,6 +65,8 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class DeleteApplicationCommand extends $Command<

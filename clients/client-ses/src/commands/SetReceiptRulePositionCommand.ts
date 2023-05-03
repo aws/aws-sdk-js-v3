@@ -49,6 +49,8 @@ export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePosit
  * };
  * const command = new SetReceiptRulePositionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SetReceiptRulePositionCommandInput - {@link SetReceiptRulePositionCommandInput}
@@ -63,6 +65,8 @@ export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePosit
  * @throws {@link RuleSetDoesNotExistException} (client fault)
  *  <p>Indicates that the provided receipt rule set does not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example SetReceiptRulePosition
  * ```javascript

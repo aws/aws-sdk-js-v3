@@ -46,6 +46,8 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutpu
  * };
  * const command = new PutLifecyclePolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutLifecyclePolicyCommandInput - {@link PutLifecyclePolicyCommandInput}
@@ -64,6 +66,8 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutpu
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class PutLifecyclePolicyCommand extends $Command<

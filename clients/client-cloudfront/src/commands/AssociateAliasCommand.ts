@@ -55,6 +55,8 @@ export interface AssociateAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateAliasCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AssociateAliasCommandInput - {@link AssociateAliasCommandInput}
@@ -78,6 +80,8 @@ export interface AssociateAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyDistributionCNAMEs} (client fault)
  *  <p>Your request contains more CNAMEs than are allowed per distribution.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class AssociateAliasCommand extends $Command<

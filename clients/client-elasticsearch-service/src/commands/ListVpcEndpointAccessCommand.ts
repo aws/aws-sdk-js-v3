@@ -50,6 +50,16 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * };
  * const command = new ListVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * // { // ListVpcEndpointAccessResponse
+ * //   AuthorizedPrincipalList: [ // AuthorizedPrincipalList // required
+ * //     { // AuthorizedPrincipal
+ * //       PrincipalType: "AWS_ACCOUNT" || "AWS_SERVICE",
+ * //       Principal: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param ListVpcEndpointAccessCommandInput - {@link ListVpcEndpointAccessCommandInput}
@@ -70,6 +80,8 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class ListVpcEndpointAccessCommand extends $Command<

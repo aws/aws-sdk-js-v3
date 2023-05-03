@@ -54,6 +54,8 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteEndpointCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteEndpointCommandInput - {@link DeleteEndpointCommandInput}
@@ -62,6 +64,8 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteEndpointCommand extends $Command<

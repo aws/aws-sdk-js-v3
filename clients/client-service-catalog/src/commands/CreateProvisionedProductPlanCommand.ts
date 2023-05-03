@@ -79,6 +79,14 @@ export interface CreateProvisionedProductPlanCommandOutput
  * };
  * const command = new CreateProvisionedProductPlanCommand(input);
  * const response = await client.send(command);
+ * // { // CreateProvisionedProductPlanOutput
+ * //   PlanName: "STRING_VALUE",
+ * //   PlanId: "STRING_VALUE",
+ * //   ProvisionProductId: "STRING_VALUE",
+ * //   ProvisionedProductName: "STRING_VALUE",
+ * //   ProvisioningArtifactId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateProvisionedProductPlanCommandInput - {@link CreateProvisionedProductPlanCommandInput}
@@ -97,6 +105,8 @@ export interface CreateProvisionedProductPlanCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class CreateProvisionedProductPlanCommand extends $Command<

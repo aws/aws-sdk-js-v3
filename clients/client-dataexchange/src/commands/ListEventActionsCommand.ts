@@ -46,6 +46,35 @@ export interface ListEventActionsCommandOutput extends ListEventActionsResponse,
  * };
  * const command = new ListEventActionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListEventActionsResponse
+ * //   EventActions: [ // ListOfEventActionEntry
+ * //     { // EventActionEntry
+ * //       Action: { // Action
+ * //         ExportRevisionToS3: { // AutoExportRevisionToS3RequestDetails
+ * //           Encryption: { // ExportServerSideEncryption
+ * //             KmsKeyArn: "STRING_VALUE",
+ * //             Type: "STRING_VALUE", // required
+ * //           },
+ * //           RevisionDestination: { // AutoExportRevisionDestinationEntry
+ * //             Bucket: "STRING_VALUE", // required
+ * //             KeyPattern: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       Arn: "STRING_VALUE", // required
+ * //       CreatedAt: new Date("TIMESTAMP"), // required
+ * //       Event: { // Event
+ * //         RevisionPublished: { // RevisionPublished
+ * //           DataSetId: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       Id: "STRING_VALUE", // required
+ * //       UpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEventActionsCommandInput - {@link ListEventActionsCommandInput}
@@ -66,6 +95,8 @@ export interface ListEventActionsCommandOutput extends ListEventActionsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class ListEventActionsCommand extends $Command<

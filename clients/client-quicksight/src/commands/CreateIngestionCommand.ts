@@ -53,6 +53,14 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  * };
  * const command = new CreateIngestionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateIngestionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   IngestionId: "STRING_VALUE",
+ * //   IngestionStatus: "INITIALIZED" || "QUEUED" || "RUNNING" || "FAILED" || "COMPLETED" || "CANCELLED",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param CreateIngestionCommandInput - {@link CreateIngestionCommandInput}
@@ -85,6 +93,8 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateIngestionCommand extends $Command<

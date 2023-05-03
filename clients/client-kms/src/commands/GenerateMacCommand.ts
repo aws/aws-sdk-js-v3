@@ -76,6 +76,12 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  * };
  * const command = new GenerateMacCommand(input);
  * const response = await client.send(command);
+ * // { // GenerateMacResponse
+ * //   Mac: "BLOB_VALUE",
+ * //   MacAlgorithm: "HMAC_SHA_224" || "HMAC_SHA_256" || "HMAC_SHA_384" || "HMAC_SHA_512",
+ * //   KeyId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GenerateMacCommandInput - {@link GenerateMacCommandInput}
@@ -141,6 +147,8 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To generate an HMAC for a message
  * ```javascript

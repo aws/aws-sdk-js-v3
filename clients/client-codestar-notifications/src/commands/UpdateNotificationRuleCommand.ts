@@ -69,6 +69,8 @@ export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationR
  * };
  * const command = new UpdateNotificationRuleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateNotificationRuleCommandInput - {@link UpdateNotificationRuleCommandInput}
@@ -86,6 +88,8 @@ export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationR
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class UpdateNotificationRuleCommand extends $Command<

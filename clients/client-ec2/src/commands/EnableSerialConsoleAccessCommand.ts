@@ -46,6 +46,10 @@ export interface EnableSerialConsoleAccessCommandOutput extends EnableSerialCons
  * };
  * const command = new EnableSerialConsoleAccessCommand(input);
  * const response = await client.send(command);
+ * // { // EnableSerialConsoleAccessResult
+ * //   SerialConsoleAccessEnabled: true || false,
+ * // };
+ *
  * ```
  *
  * @param EnableSerialConsoleAccessCommandInput - {@link EnableSerialConsoleAccessCommandInput}
@@ -54,6 +58,8 @@ export interface EnableSerialConsoleAccessCommandOutput extends EnableSerialCons
  * @see {@link EnableSerialConsoleAccessCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class EnableSerialConsoleAccessCommand extends $Command<

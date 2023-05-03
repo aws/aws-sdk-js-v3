@@ -55,6 +55,41 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  * };
  * const command = new ListPhoneNumbersCommand(input);
  * const response = await client.send(command);
+ * // { // ListPhoneNumbersResponse
+ * //   PhoneNumbers: [ // PhoneNumberList
+ * //     { // PhoneNumber
+ * //       PhoneNumberId: "STRING_VALUE",
+ * //       E164PhoneNumber: "STRING_VALUE",
+ * //       Country: "STRING_VALUE",
+ * //       Type: "Local" || "TollFree",
+ * //       ProductType: "VoiceConnector" || "SipMediaApplicationDialIn",
+ * //       Status: "Cancelled" || "PortinCancelRequested" || "PortinInProgress" || "AcquireInProgress" || "AcquireFailed" || "Unassigned" || "Assigned" || "ReleaseInProgress" || "DeleteInProgress" || "ReleaseFailed" || "DeleteFailed",
+ * //       Capabilities: { // PhoneNumberCapabilities
+ * //         InboundCall: true || false,
+ * //         OutboundCall: true || false,
+ * //         InboundSMS: true || false,
+ * //         OutboundSMS: true || false,
+ * //         InboundMMS: true || false,
+ * //         OutboundMMS: true || false,
+ * //       },
+ * //       Associations: [ // PhoneNumberAssociationList
+ * //         { // PhoneNumberAssociation
+ * //           Value: "STRING_VALUE",
+ * //           Name: "VoiceConnectorId" || "VoiceConnectorGroupId" || "SipRuleId",
+ * //           AssociatedTimestamp: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //       CallingName: "STRING_VALUE",
+ * //       CallingNameStatus: "Unassigned" || "UpdateInProgress" || "UpdateSucceeded" || "UpdateFailed",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       DeletionTimestamp: new Date("TIMESTAMP"),
+ * //       OrderId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPhoneNumbersCommandInput - {@link ListPhoneNumbersCommandInput}
@@ -84,6 +119,8 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class ListPhoneNumbersCommand extends $Command<

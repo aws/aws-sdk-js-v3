@@ -45,6 +45,24 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * };
  * const command = new ListExperimentsCommand(input);
  * const response = await client.send(command);
+ * // { // ListExperimentsResponse
+ * //   experiments: [ // ExperimentSummaryList
+ * //     { // ExperimentSummary
+ * //       id: "STRING_VALUE",
+ * //       experimentTemplateId: "STRING_VALUE",
+ * //       state: { // ExperimentState
+ * //         status: "pending" || "initiating" || "running" || "completed" || "stopping" || "stopped" || "failed",
+ * //         reason: "STRING_VALUE",
+ * //       },
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListExperimentsCommandInput - {@link ListExperimentsCommandInput}
@@ -56,6 +74,8 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
  *
+ * @throws {@link FisServiceException}
+ * <p>Base exception class for all service exceptions from Fis service.</p>
  *
  */
 export class ListExperimentsCommand extends $Command<

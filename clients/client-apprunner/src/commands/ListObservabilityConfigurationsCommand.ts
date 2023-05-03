@@ -56,6 +56,17 @@ export interface ListObservabilityConfigurationsCommandOutput
  * };
  * const command = new ListObservabilityConfigurationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListObservabilityConfigurationsResponse
+ * //   ObservabilityConfigurationSummaryList: [ // ObservabilityConfigurationSummaryList // required
+ * //     { // ObservabilityConfigurationSummary
+ * //       ObservabilityConfigurationArn: "STRING_VALUE",
+ * //       ObservabilityConfigurationName: "STRING_VALUE",
+ * //       ObservabilityConfigurationRevision: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListObservabilityConfigurationsCommandInput - {@link ListObservabilityConfigurationsCommandInput}
@@ -70,6 +81,8 @@ export interface ListObservabilityConfigurationsCommandOutput
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class ListObservabilityConfigurationsCommand extends $Command<

@@ -49,6 +49,16 @@ export interface ListSupportedResourceTypesCommandOutput extends ListSupportedRe
  * };
  * const command = new ListSupportedResourceTypesCommand(input);
  * const response = await client.send(command);
+ * // { // ListSupportedResourceTypesOutput
+ * //   ResourceTypes: [ // ResourceTypeList
+ * //     { // SupportedResourceType
+ * //       Service: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSupportedResourceTypesCommandInput - {@link ListSupportedResourceTypesCommandInput}
@@ -74,6 +84,8 @@ export interface ListSupportedResourceTypesCommandOutput extends ListSupportedRe
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class ListSupportedResourceTypesCommand extends $Command<

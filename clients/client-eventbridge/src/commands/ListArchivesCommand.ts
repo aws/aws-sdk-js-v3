@@ -49,6 +49,22 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * };
  * const command = new ListArchivesCommand(input);
  * const response = await client.send(command);
+ * // { // ListArchivesResponse
+ * //   Archives: [ // ArchiveResponseList
+ * //     { // Archive
+ * //       ArchiveName: "STRING_VALUE",
+ * //       EventSourceArn: "STRING_VALUE",
+ * //       State: "ENABLED" || "DISABLED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED",
+ * //       StateReason: "STRING_VALUE",
+ * //       RetentionDays: Number("int"),
+ * //       SizeBytes: Number("long"),
+ * //       EventCount: Number("long"),
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListArchivesCommandInput - {@link ListArchivesCommandInput}
@@ -63,6 +79,8 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class ListArchivesCommand extends $Command<

@@ -48,6 +48,17 @@ export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersi
  * };
  * const command = new DescribeEngineVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEngineVersionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   EngineVersions: [ // EngineVersionInfoList
+ * //     { // EngineVersionInfo
+ * //       EngineVersion: "STRING_VALUE",
+ * //       EnginePatchVersion: "STRING_VALUE",
+ * //       ParameterGroupFamily: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeEngineVersionsCommandInput - {@link DescribeEngineVersionsCommandInput}
@@ -65,6 +76,8 @@ export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersi
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeEngineVersionsCommand extends $Command<

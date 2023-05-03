@@ -168,6 +168,10 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  * };
  * const command = new SendRawEmailCommand(input);
  * const response = await client.send(command);
+ * // { // SendRawEmailResponse
+ * //   MessageId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param SendRawEmailCommandInput - {@link SendRawEmailCommandInput}
@@ -197,6 +201,8 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  *  <p>Indicates that the action failed, and the message could not be sent. Check the error
  *             stack for more information about what caused the error.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example SendRawEmail
  * ```javascript

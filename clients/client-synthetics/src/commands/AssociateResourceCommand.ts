@@ -48,6 +48,8 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * };
  * const command = new AssociateResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AssociateResourceCommandInput - {@link AssociateResourceCommandInput}
@@ -71,6 +73,8 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class AssociateResourceCommand extends $Command<

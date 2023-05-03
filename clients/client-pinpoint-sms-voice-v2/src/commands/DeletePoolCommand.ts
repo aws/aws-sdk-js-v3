@@ -54,6 +54,19 @@ export interface DeletePoolCommandOutput extends DeletePoolResult, __MetadataBea
  * };
  * const command = new DeletePoolCommand(input);
  * const response = await client.send(command);
+ * // { // DeletePoolResult
+ * //   PoolArn: "STRING_VALUE",
+ * //   PoolId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   MessageType: "STRING_VALUE",
+ * //   TwoWayEnabled: true || false,
+ * //   TwoWayChannelArn: "STRING_VALUE",
+ * //   SelfManagedOptOutsEnabled: true || false,
+ * //   OptOutListName: "STRING_VALUE",
+ * //   SharedRoutesEnabled: true || false,
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DeletePoolCommandInput - {@link DeletePoolCommandInput}
@@ -86,6 +99,8 @@ export interface DeletePoolCommandOutput extends DeletePoolResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DeletePoolCommand extends $Command<

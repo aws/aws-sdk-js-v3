@@ -55,6 +55,25 @@ export interface ListAvailableResourceDimensionsCommandOutput
  * };
  * const command = new ListAvailableResourceDimensionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAvailableResourceDimensionsResponse
+ * //   MetricDimensions: [ // MetricDimensionsList
+ * //     { // MetricDimensionGroups
+ * //       Metric: "STRING_VALUE",
+ * //       Groups: [ // DimensionGroupDetailList
+ * //         { // DimensionGroupDetail
+ * //           Group: "STRING_VALUE",
+ * //           Dimensions: [ // DimensionDetailList
+ * //             { // DimensionDetail
+ * //               Identifier: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAvailableResourceDimensionsCommandInput - {@link ListAvailableResourceDimensionsCommandInput}
@@ -72,6 +91,8 @@ export interface ListAvailableResourceDimensionsCommandOutput
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>The user is not authorized to perform this request.</p>
  *
+ * @throws {@link PIServiceException}
+ * <p>Base exception class for all service exceptions from PI service.</p>
  *
  */
 export class ListAvailableResourceDimensionsCommand extends $Command<

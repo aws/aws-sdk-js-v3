@@ -51,6 +51,10 @@ export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminat
  * };
  * const command = new UpdateTerminationProtectionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateTerminationProtectionOutput
+ * //   StackId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateTerminationProtectionCommandInput - {@link UpdateTerminationProtectionCommandInput}
@@ -59,6 +63,8 @@ export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminat
  * @see {@link UpdateTerminationProtectionCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class UpdateTerminationProtectionCommand extends $Command<

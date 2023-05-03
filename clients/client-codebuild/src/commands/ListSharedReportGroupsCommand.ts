@@ -48,6 +48,13 @@ export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGro
  * };
  * const command = new ListSharedReportGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSharedReportGroupsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   reportGroups: [ // ReportGroupArns
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListSharedReportGroupsCommandInput - {@link ListSharedReportGroupsCommandInput}
@@ -59,6 +66,8 @@ export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGro
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListSharedReportGroupsCommand extends $Command<

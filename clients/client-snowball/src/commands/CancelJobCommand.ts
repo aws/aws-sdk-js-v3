@@ -47,6 +47,8 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelJobCommandInput - {@link CancelJobCommandInput}
@@ -67,6 +69,8 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  *  <p>The provided Key Management Service key lacks the permissions to perform the specified
  *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To cancel a job for a Snowball device
  * ```javascript

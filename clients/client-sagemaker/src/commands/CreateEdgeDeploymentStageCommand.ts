@@ -60,6 +60,8 @@ export interface CreateEdgeDeploymentStageCommandOutput extends __MetadataBearer
  * };
  * const command = new CreateEdgeDeploymentStageCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateEdgeDeploymentStageCommandInput - {@link CreateEdgeDeploymentStageCommandInput}
@@ -72,6 +74,8 @@ export interface CreateEdgeDeploymentStageCommandOutput extends __MetadataBearer
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateEdgeDeploymentStageCommand extends $Command<

@@ -64,6 +64,12 @@ export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
  * };
  * const command = new UpdateManagedRuleSetVersionExpiryDateCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateManagedRuleSetVersionExpiryDateResponse
+ * //   ExpiringVersion: "STRING_VALUE",
+ * //   ExpiryTimestamp: new Date("TIMESTAMP"),
+ * //   NextLockToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateManagedRuleSetVersionExpiryDateCommandInput - {@link UpdateManagedRuleSetVersionExpiryDateCommandInput}
@@ -111,6 +117,8 @@ export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
  *          that has changed since you last retrieved it. Get the resource again, make any changes you
  *          need to make to the new copy, and retry your operation. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<

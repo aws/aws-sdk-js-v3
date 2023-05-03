@@ -60,6 +60,26 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * };
  * const command = new DescribePlacementGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribePlacementGroupsResult
+ * //   PlacementGroups: [ // PlacementGroupList
+ * //     { // PlacementGroup
+ * //       GroupName: "STRING_VALUE",
+ * //       State: "pending" || "available" || "deleting" || "deleted",
+ * //       Strategy: "cluster" || "spread" || "partition",
+ * //       PartitionCount: Number("int"),
+ * //       GroupId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       GroupArn: "STRING_VALUE",
+ * //       SpreadLevel: "host" || "rack",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribePlacementGroupsCommandInput - {@link DescribePlacementGroupsCommandInput}
@@ -68,6 +88,8 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * @see {@link DescribePlacementGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribePlacementGroupsCommand extends $Command<

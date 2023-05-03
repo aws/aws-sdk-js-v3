@@ -52,6 +52,8 @@ export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AdminAddUserToGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AdminAddUserToGroupCommandInput - {@link AdminAddUserToGroupCommandInput}
@@ -81,6 +83,8 @@ export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminAddUserToGroupCommand extends $Command<

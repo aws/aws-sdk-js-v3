@@ -74,6 +74,17 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * };
  * const command = new ListKeysCommand(input);
  * const response = await client.send(command);
+ * // { // ListKeysResponse
+ * //   Keys: [ // KeyList
+ * //     { // KeyListEntry
+ * //       KeyId: "STRING_VALUE",
+ * //       KeyArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * //   Truncated: true || false,
+ * // };
+ *
  * ```
  *
  * @param ListKeysCommandInput - {@link ListKeysCommandInput}
@@ -94,6 +105,8 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  *  <p>The request was rejected because an internal exception occurred. The request can be
  *       retried.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To list KMS keys
  * ```javascript

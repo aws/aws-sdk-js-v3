@@ -61,6 +61,41 @@ export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __Met
  * };
  * const command = new GetMLTaskRunsCommand(input);
  * const response = await client.send(command);
+ * // { // GetMLTaskRunsResponse
+ * //   TaskRuns: [ // TaskRunList
+ * //     { // TaskRun
+ * //       TransformId: "STRING_VALUE",
+ * //       TaskRunId: "STRING_VALUE",
+ * //       Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
+ * //       LogGroupName: "STRING_VALUE",
+ * //       Properties: { // TaskRunProperties
+ * //         TaskType: "EVALUATION" || "LABELING_SET_GENERATION" || "IMPORT_LABELS" || "EXPORT_LABELS" || "FIND_MATCHES",
+ * //         ImportLabelsTaskRunProperties: { // ImportLabelsTaskRunProperties
+ * //           InputS3Path: "STRING_VALUE",
+ * //           Replace: true || false,
+ * //         },
+ * //         ExportLabelsTaskRunProperties: { // ExportLabelsTaskRunProperties
+ * //           OutputS3Path: "STRING_VALUE",
+ * //         },
+ * //         LabelingSetGenerationTaskRunProperties: { // LabelingSetGenerationTaskRunProperties
+ * //           OutputS3Path: "STRING_VALUE",
+ * //         },
+ * //         FindMatchesTaskRunProperties: { // FindMatchesTaskRunProperties
+ * //           JobId: "STRING_VALUE",
+ * //           JobName: "STRING_VALUE",
+ * //           JobRunId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       ErrorString: "STRING_VALUE",
+ * //       StartedOn: new Date("TIMESTAMP"),
+ * //       LastModifiedOn: new Date("TIMESTAMP"),
+ * //       CompletedOn: new Date("TIMESTAMP"),
+ * //       ExecutionTime: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetMLTaskRunsCommandInput - {@link GetMLTaskRunsCommandInput}
@@ -81,6 +116,8 @@ export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __Met
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetMLTaskRunsCommand extends $Command<

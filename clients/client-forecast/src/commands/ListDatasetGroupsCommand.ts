@@ -49,6 +49,18 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * };
  * const command = new ListDatasetGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDatasetGroupsResponse
+ * //   DatasetGroups: [ // DatasetGroups
+ * //     { // DatasetGroupSummary
+ * //       DatasetGroupArn: "STRING_VALUE",
+ * //       DatasetGroupName: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModificationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDatasetGroupsCommandInput - {@link ListDatasetGroupsCommandInput}
@@ -60,6 +72,8 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid. Tokens expire after 24 hours.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListDatasetGroupsCommand extends $Command<

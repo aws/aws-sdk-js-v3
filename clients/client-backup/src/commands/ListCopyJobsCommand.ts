@@ -55,6 +55,42 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
  * };
  * const command = new ListCopyJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCopyJobsOutput
+ * //   CopyJobs: [ // CopyJobsList
+ * //     { // CopyJob
+ * //       AccountId: "STRING_VALUE",
+ * //       CopyJobId: "STRING_VALUE",
+ * //       SourceBackupVaultArn: "STRING_VALUE",
+ * //       SourceRecoveryPointArn: "STRING_VALUE",
+ * //       DestinationBackupVaultArn: "STRING_VALUE",
+ * //       DestinationRecoveryPointArn: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       CompletionDate: new Date("TIMESTAMP"),
+ * //       State: "CREATED" || "RUNNING" || "COMPLETED" || "FAILED" || "PARTIAL",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       BackupSizeInBytes: Number("long"),
+ * //       IamRoleArn: "STRING_VALUE",
+ * //       CreatedBy: { // RecoveryPointCreator
+ * //         BackupPlanId: "STRING_VALUE",
+ * //         BackupPlanArn: "STRING_VALUE",
+ * //         BackupPlanVersion: "STRING_VALUE",
+ * //         BackupRuleId: "STRING_VALUE",
+ * //       },
+ * //       ResourceType: "STRING_VALUE",
+ * //       ParentJobId: "STRING_VALUE",
+ * //       IsParent: true || false,
+ * //       CompositeMemberIdentifier: "STRING_VALUE",
+ * //       NumberOfChildJobs: Number("long"),
+ * //       ChildJobsInState: { // CopyJobChildJobsInState
+ * //         "<keys>": Number("long"),
+ * //       },
+ * //       ResourceName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCopyJobsCommandInput - {@link ListCopyJobsCommandInput}
@@ -70,6 +106,8 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListCopyJobsCommand extends $Command<

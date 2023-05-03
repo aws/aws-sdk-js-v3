@@ -49,6 +49,13 @@ export interface ListVehiclesInFleetCommandOutput extends ListVehiclesInFleetRes
  * };
  * const command = new ListVehiclesInFleetCommand(input);
  * const response = await client.send(command);
+ * // { // ListVehiclesInFleetResponse
+ * //   vehicles: [ // vehicles
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListVehiclesInFleetCommandInput - {@link ListVehiclesInFleetCommandInput}
@@ -72,6 +79,8 @@ export interface ListVehiclesInFleetCommandOutput extends ListVehiclesInFleetRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ListVehiclesInFleetCommand extends $Command<

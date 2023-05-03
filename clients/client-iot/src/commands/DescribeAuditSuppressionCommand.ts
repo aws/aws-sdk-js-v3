@@ -65,6 +65,32 @@ export interface DescribeAuditSuppressionCommandOutput extends DescribeAuditSupp
  * };
  * const command = new DescribeAuditSuppressionCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAuditSuppressionResponse
+ * //   checkName: "STRING_VALUE",
+ * //   resourceIdentifier: { // ResourceIdentifier
+ * //     deviceCertificateId: "STRING_VALUE",
+ * //     caCertificateId: "STRING_VALUE",
+ * //     cognitoIdentityPoolId: "STRING_VALUE",
+ * //     clientId: "STRING_VALUE",
+ * //     policyVersionIdentifier: { // PolicyVersionIdentifier
+ * //       policyName: "STRING_VALUE",
+ * //       policyVersionId: "STRING_VALUE",
+ * //     },
+ * //     account: "STRING_VALUE",
+ * //     iamRoleArn: "STRING_VALUE",
+ * //     roleAliasArn: "STRING_VALUE",
+ * //     issuerCertificateIdentifier: { // IssuerCertificateIdentifier
+ * //       issuerCertificateSubject: "STRING_VALUE",
+ * //       issuerId: "STRING_VALUE",
+ * //       issuerCertificateSerialNumber: "STRING_VALUE",
+ * //     },
+ * //     deviceCertificateArn: "STRING_VALUE",
+ * //   },
+ * //   expirationDate: new Date("TIMESTAMP"),
+ * //   suppressIndefinitely: true || false,
+ * //   description: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeAuditSuppressionCommandInput - {@link DescribeAuditSuppressionCommandInput}
@@ -85,6 +111,8 @@ export interface DescribeAuditSuppressionCommandOutput extends DescribeAuditSupp
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeAuditSuppressionCommand extends $Command<

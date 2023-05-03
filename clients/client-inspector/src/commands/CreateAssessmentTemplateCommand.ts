@@ -58,6 +58,10 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  * };
  * const command = new CreateAssessmentTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAssessmentTemplateResponse
+ * //   assessmentTemplateArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateAssessmentTemplateCommandInput - {@link CreateAssessmentTemplateCommandInput}
@@ -87,6 +91,8 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Create assessment template
  * ```javascript

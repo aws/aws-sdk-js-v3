@@ -46,6 +46,22 @@ export interface ListServersCommandOutput extends ListServersResponse, __Metadat
  * };
  * const command = new ListServersCommand(input);
  * const response = await client.send(command);
+ * // { // ListServersResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Servers: [ // ListedServers // required
+ * //     { // ListedServer
+ * //       Arn: "STRING_VALUE", // required
+ * //       Domain: "S3" || "EFS",
+ * //       IdentityProviderType: "SERVICE_MANAGED" || "API_GATEWAY" || "AWS_DIRECTORY_SERVICE" || "AWS_LAMBDA",
+ * //       EndpointType: "PUBLIC" || "VPC" || "VPC_ENDPOINT",
+ * //       LoggingRole: "STRING_VALUE",
+ * //       ServerId: "STRING_VALUE",
+ * //       State: "OFFLINE" || "ONLINE" || "STARTING" || "STOPPING" || "START_FAILED" || "STOP_FAILED",
+ * //       UserCount: Number("int"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListServersCommandInput - {@link ListServersCommandInput}
@@ -66,6 +82,8 @@ export interface ListServersCommandOutput extends ListServersResponse, __Metadat
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ListServersCommand extends $Command<

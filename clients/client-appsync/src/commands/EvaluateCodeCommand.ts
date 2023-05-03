@@ -54,6 +54,27 @@ export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __Metad
  * };
  * const command = new EvaluateCodeCommand(input);
  * const response = await client.send(command);
+ * // { // EvaluateCodeResponse
+ * //   evaluationResult: "STRING_VALUE",
+ * //   error: { // EvaluateCodeErrorDetail
+ * //     message: "STRING_VALUE",
+ * //     codeErrors: [ // CodeErrors
+ * //       { // CodeError
+ * //         errorType: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //         location: { // CodeErrorLocation
+ * //           line: Number("int"),
+ * //           column: Number("int"),
+ * //           span: Number("int"),
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   logs: [ // Logs
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param EvaluateCodeCommandInput - {@link EvaluateCodeCommandInput}
@@ -72,6 +93,8 @@ export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __Metad
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class EvaluateCodeCommand extends $Command<

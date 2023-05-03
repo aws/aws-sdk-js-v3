@@ -52,6 +52,41 @@ export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataB
  * };
  * const command = new CreateOrderCommand(input);
  * const response = await client.send(command);
+ * // { // CreateOrderOutput
+ * //   Order: { // Order
+ * //     OutpostId: "STRING_VALUE",
+ * //     OrderId: "STRING_VALUE",
+ * //     Status: "RECEIVED" || "PENDING" || "PROCESSING" || "INSTALLING" || "FULFILLED" || "CANCELLED" || "PREPARING" || "IN_PROGRESS" || "COMPLETED" || "ERROR",
+ * //     LineItems: [ // LineItemListDefinition
+ * //       { // LineItem
+ * //         CatalogItemId: "STRING_VALUE",
+ * //         LineItemId: "STRING_VALUE",
+ * //         Quantity: Number("int"),
+ * //         Status: "PREPARING" || "BUILDING" || "SHIPPED" || "DELIVERED" || "INSTALLING" || "INSTALLED" || "ERROR" || "CANCELLED" || "REPLACED",
+ * //         ShipmentInformation: { // ShipmentInformation
+ * //           ShipmentTrackingNumber: "STRING_VALUE",
+ * //           ShipmentCarrier: "DHL" || "DBS" || "FEDEX" || "UPS",
+ * //         },
+ * //         AssetInformationList: [ // LineItemAssetInformationList
+ * //           { // LineItemAssetInformation
+ * //             AssetId: "STRING_VALUE",
+ * //             MacAddressList: [ // MacAddressList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         PreviousLineItemId: "STRING_VALUE",
+ * //         PreviousOrderId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     PaymentOption: "ALL_UPFRONT" || "NO_UPFRONT" || "PARTIAL_UPFRONT",
+ * //     OrderSubmissionDate: new Date("TIMESTAMP"),
+ * //     OrderFulfilledDate: new Date("TIMESTAMP"),
+ * //     PaymentTerm: "THREE_YEARS" || "ONE_YEAR",
+ * //     OrderType: "OUTPOST" || "REPLACEMENT",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateOrderCommandInput - {@link CreateOrderCommandInput}
@@ -78,6 +113,8 @@ export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class CreateOrderCommand extends $Command<

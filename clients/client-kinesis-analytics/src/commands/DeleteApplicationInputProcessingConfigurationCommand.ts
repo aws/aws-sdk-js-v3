@@ -58,6 +58,8 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput
  * };
  * const command = new DeleteApplicationInputProcessingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteApplicationInputProcessingConfigurationCommandInput - {@link DeleteApplicationInputProcessingConfigurationCommandInput}
@@ -81,6 +83,8 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class DeleteApplicationInputProcessingConfigurationCommand extends $Command<

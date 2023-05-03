@@ -43,6 +43,10 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  * const input = {};
  * const command = new GetAccountSendingEnabledCommand(input);
  * const response = await client.send(command);
+ * // { // GetAccountSendingEnabledResponse
+ * //   Enabled: true || false,
+ * // };
+ *
  * ```
  *
  * @param GetAccountSendingEnabledCommandInput - {@link GetAccountSendingEnabledCommandInput}
@@ -51,6 +55,8 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  * @see {@link GetAccountSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example GetAccountSendingEnabled
  * ```javascript

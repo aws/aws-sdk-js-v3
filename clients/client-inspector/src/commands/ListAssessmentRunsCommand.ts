@@ -74,6 +74,13 @@ export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsRespo
  * };
  * const command = new ListAssessmentRunsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAssessmentRunsResponse
+ * //   assessmentRunArns: [ // ListReturnedArnList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAssessmentRunsCommandInput - {@link ListAssessmentRunsCommandInput}
@@ -96,6 +103,8 @@ export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsRespo
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example List assessment runs
  * ```javascript

@@ -48,6 +48,17 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * };
  * const command = new ListAccountsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAccountsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   accountList: [ // AccountListType
+ * //     { // AccountInfo
+ * //       accountId: "STRING_VALUE",
+ * //       accountName: "STRING_VALUE",
+ * //       emailAddress: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListAccountsCommandInput - {@link ListAccountsCommandInput}
@@ -71,6 +82,8 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *  <p>Indicates that the request is not authorized. This can happen due to an invalid access
  *       token in the request.</p>
  *
+ * @throws {@link SSOServiceException}
+ * <p>Base exception class for all service exceptions from SSO service.</p>
  *
  */
 export class ListAccountsCommand extends $Command<

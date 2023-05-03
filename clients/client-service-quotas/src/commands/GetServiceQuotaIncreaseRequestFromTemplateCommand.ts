@@ -56,6 +56,19 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
  * };
  * const command = new GetServiceQuotaIncreaseRequestFromTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // GetServiceQuotaIncreaseRequestFromTemplateResponse
+ * //   ServiceQuotaIncreaseRequestInTemplate: { // ServiceQuotaIncreaseRequestInTemplate
+ * //     ServiceCode: "STRING_VALUE",
+ * //     ServiceName: "STRING_VALUE",
+ * //     QuotaCode: "STRING_VALUE",
+ * //     QuotaName: "STRING_VALUE",
+ * //     DesiredValue: Number("double"),
+ * //     AwsRegion: "STRING_VALUE",
+ * //     Unit: "STRING_VALUE",
+ * //     GlobalQuota: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetServiceQuotaIncreaseRequestFromTemplateCommandInput - {@link GetServiceQuotaIncreaseRequestFromTemplateCommandInput}
@@ -93,6 +106,8 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
  *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
  *       an increase for this quota.</p>
  *
+ * @throws {@link ServiceQuotasServiceException}
+ * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
  */
 export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<

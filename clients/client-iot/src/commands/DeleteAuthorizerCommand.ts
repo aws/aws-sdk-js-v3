@@ -45,6 +45,8 @@ export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse,
  * };
  * const command = new DeleteAuthorizerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAuthorizerCommandInput - {@link DeleteAuthorizerCommandInput}
@@ -75,6 +77,8 @@ export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteAuthorizerCommand extends $Command<

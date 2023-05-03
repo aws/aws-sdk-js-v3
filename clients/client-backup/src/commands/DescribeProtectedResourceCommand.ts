@@ -46,6 +46,13 @@ export interface DescribeProtectedResourceCommandOutput extends DescribeProtecte
  * };
  * const command = new DescribeProtectedResourceCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeProtectedResourceOutput
+ * //   ResourceArn: "STRING_VALUE",
+ * //   ResourceType: "STRING_VALUE",
+ * //   LastBackupTime: new Date("TIMESTAMP"),
+ * //   ResourceName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeProtectedResourceCommandInput - {@link DescribeProtectedResourceCommandInput}
@@ -67,6 +74,8 @@ export interface DescribeProtectedResourceCommandOutput extends DescribeProtecte
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DescribeProtectedResourceCommand extends $Command<

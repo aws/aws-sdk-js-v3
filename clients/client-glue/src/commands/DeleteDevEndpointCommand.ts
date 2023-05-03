@@ -44,6 +44,8 @@ export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointRespons
  * };
  * const command = new DeleteDevEndpointCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDevEndpointCommandInput - {@link DeleteDevEndpointCommandInput}
@@ -64,6 +66,8 @@ export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointRespons
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteDevEndpointCommand extends $Command<

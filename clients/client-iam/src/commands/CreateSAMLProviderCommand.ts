@@ -68,6 +68,16 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  * };
  * const command = new CreateSAMLProviderCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSAMLProviderResponse
+ * //   SAMLProviderArn: "STRING_VALUE",
+ * //   Tags: [ // tagListType
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param CreateSAMLProviderCommandInput - {@link CreateSAMLProviderCommandInput}
@@ -96,6 +106,8 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class CreateSAMLProviderCommand extends $Command<

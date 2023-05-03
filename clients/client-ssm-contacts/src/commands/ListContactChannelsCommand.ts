@@ -46,6 +46,22 @@ export interface ListContactChannelsCommandOutput extends ListContactChannelsRes
  * };
  * const command = new ListContactChannelsCommand(input);
  * const response = await client.send(command);
+ * // { // ListContactChannelsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   ContactChannels: [ // ContactChannelList // required
+ * //     { // ContactChannel
+ * //       ContactChannelArn: "STRING_VALUE", // required
+ * //       ContactArn: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       Type: "SMS" || "VOICE" || "EMAIL",
+ * //       DeliveryAddress: { // ContactChannelAddress
+ * //         SimpleAddress: "STRING_VALUE",
+ * //       },
+ * //       ActivationStatus: "ACTIVATED" || "NOT_ACTIVATED", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListContactChannelsCommandInput - {@link ListContactChannelsCommandInput}
@@ -73,6 +89,8 @@ export interface ListContactChannelsCommandOutput extends ListContactChannelsRes
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListContactChannelsCommand extends $Command<

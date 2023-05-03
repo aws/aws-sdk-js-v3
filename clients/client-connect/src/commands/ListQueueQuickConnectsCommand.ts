@@ -48,6 +48,18 @@ export interface ListQueueQuickConnectsCommandOutput extends ListQueueQuickConne
  * };
  * const command = new ListQueueQuickConnectsCommand(input);
  * const response = await client.send(command);
+ * // { // ListQueueQuickConnectsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   QuickConnectSummaryList: [ // QuickConnectSummaryList
+ * //     { // QuickConnectSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListQueueQuickConnectsCommandInput - {@link ListQueueQuickConnectsCommandInput}
@@ -71,6 +83,8 @@ export interface ListQueueQuickConnectsCommandOutput extends ListQueueQuickConne
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListQueueQuickConnectsCommand extends $Command<

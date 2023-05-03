@@ -48,6 +48,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * };
  * const command = new AcceptInvitationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AcceptInvitationCommandInput - {@link AcceptInvitationCommandInput}
@@ -62,6 +64,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class AcceptInvitationCommand extends $Command<

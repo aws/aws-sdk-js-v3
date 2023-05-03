@@ -49,6 +49,8 @@ export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput,
  * };
  * const command = new UpdateDataCatalogCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateDataCatalogCommandInput - {@link UpdateDataCatalogCommandInput}
@@ -65,6 +67,8 @@ export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput,
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class UpdateDataCatalogCommand extends $Command<

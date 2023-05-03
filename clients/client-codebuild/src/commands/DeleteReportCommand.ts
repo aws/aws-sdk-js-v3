@@ -46,6 +46,8 @@ export interface DeleteReportCommandOutput extends DeleteReportOutput, __Metadat
  * };
  * const command = new DeleteReportCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteReportCommandInput - {@link DeleteReportCommandInput}
@@ -57,6 +59,8 @@ export interface DeleteReportCommandOutput extends DeleteReportOutput, __Metadat
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class DeleteReportCommand extends $Command<

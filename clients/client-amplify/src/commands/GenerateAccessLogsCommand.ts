@@ -48,6 +48,10 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
  * };
  * const command = new GenerateAccessLogsCommand(input);
  * const response = await client.send(command);
+ * // { // GenerateAccessLogsResult
+ * //   logUrl: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GenerateAccessLogsCommandInput - {@link GenerateAccessLogsCommandInput}
@@ -68,6 +72,8 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class GenerateAccessLogsCommand extends $Command<

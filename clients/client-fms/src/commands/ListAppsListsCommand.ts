@@ -46,6 +46,24 @@ export interface ListAppsListsCommandOutput extends ListAppsListsResponse, __Met
  * };
  * const command = new ListAppsListsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAppsListsResponse
+ * //   AppsLists: [ // AppsListsData
+ * //     { // AppsListDataSummary
+ * //       ListArn: "STRING_VALUE",
+ * //       ListId: "STRING_VALUE",
+ * //       ListName: "STRING_VALUE",
+ * //       AppsList: [ // AppsList
+ * //         { // App
+ * //           AppName: "STRING_VALUE", // required
+ * //           Protocol: "STRING_VALUE", // required
+ * //           Port: Number("long"), // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAppsListsCommandInput - {@link ListAppsListsCommandInput}
@@ -74,6 +92,8 @@ export interface ListAppsListsCommandOutput extends ListAppsListsResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListAppsListsCommand extends $Command<

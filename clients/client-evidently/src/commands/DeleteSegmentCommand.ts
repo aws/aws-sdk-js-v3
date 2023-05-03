@@ -45,6 +45,8 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
  * };
  * const command = new DeleteSegmentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSegmentCommandInput - {@link DeleteSegmentCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class DeleteSegmentCommand extends $Command<

@@ -48,6 +48,19 @@ export interface ListFeaturedResultsSetsCommandOutput extends ListFeaturedResult
  * };
  * const command = new ListFeaturedResultsSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListFeaturedResultsSetsResponse
+ * //   FeaturedResultsSetSummaryItems: [ // FeaturedResultsSetSummaryItems
+ * //     { // FeaturedResultsSetSummary
+ * //       FeaturedResultsSetId: "STRING_VALUE",
+ * //       FeaturedResultsSetName: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "INACTIVE",
+ * //       LastUpdatedTimestamp: Number("long"),
+ * //       CreationTimestamp: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFeaturedResultsSetsCommandInput - {@link ListFeaturedResultsSetsCommandInput}
@@ -76,6 +89,8 @@ export interface ListFeaturedResultsSetsCommandOutput extends ListFeaturedResult
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ListFeaturedResultsSetsCommand extends $Command<

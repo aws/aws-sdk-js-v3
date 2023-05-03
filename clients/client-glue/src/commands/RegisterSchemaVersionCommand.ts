@@ -51,6 +51,12 @@ export interface RegisterSchemaVersionCommandOutput extends RegisterSchemaVersio
  * };
  * const command = new RegisterSchemaVersionCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterSchemaVersionResponse
+ * //   SchemaVersionId: "STRING_VALUE",
+ * //   VersionNumber: Number("long"),
+ * //   Status: "AVAILABLE" || "PENDING" || "FAILURE" || "DELETING",
+ * // };
+ *
  * ```
  *
  * @param RegisterSchemaVersionCommandInput - {@link RegisterSchemaVersionCommandInput}
@@ -77,6 +83,8 @@ export interface RegisterSchemaVersionCommandOutput extends RegisterSchemaVersio
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class RegisterSchemaVersionCommand extends $Command<

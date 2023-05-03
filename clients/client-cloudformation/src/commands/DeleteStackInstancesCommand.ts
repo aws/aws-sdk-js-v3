@@ -73,6 +73,10 @@ export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesO
  * };
  * const command = new DeleteStackInstancesCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteStackInstancesOutput
+ * //   OperationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteStackInstancesCommandInput - {@link DeleteStackInstancesCommandInput}
@@ -98,6 +102,8 @@ export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesO
  *  <p>Another operation has been performed on this stack set since the specified operation was
  *          performed.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DeleteStackInstancesCommand extends $Command<

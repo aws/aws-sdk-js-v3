@@ -46,6 +46,21 @@ export interface ListProfileObjectTypesCommandOutput extends ListProfileObjectTy
  * };
  * const command = new ListProfileObjectTypesCommand(input);
  * const response = await client.send(command);
+ * // { // ListProfileObjectTypesResponse
+ * //   Items: [ // ProfileObjectTypeList
+ * //     { // ListProfileObjectTypeItem
+ * //       ObjectTypeName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE", // required
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       LastUpdatedAt: new Date("TIMESTAMP"),
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListProfileObjectTypesCommandInput - {@link ListProfileObjectTypesCommandInput}
@@ -69,6 +84,8 @@ export interface ListProfileObjectTypesCommandOutput extends ListProfileObjectTy
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class ListProfileObjectTypesCommand extends $Command<

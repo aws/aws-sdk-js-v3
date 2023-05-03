@@ -56,6 +56,16 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * };
  * const command = new ListApplicationVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListApplicationVersionsResponse
+ * //   ApplicationVersionSummaries: [ // ApplicationVersionSummaries
+ * //     { // ApplicationVersionSummary
+ * //       ApplicationVersionId: Number("long"), // required
+ * //       ApplicationStatus: "DELETING" || "STARTING" || "STOPPING" || "READY" || "RUNNING" || "UPDATING" || "AUTOSCALING" || "FORCE_STOPPING" || "ROLLING_BACK" || "MAINTENANCE" || "ROLLED_BACK", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListApplicationVersionsCommandInput - {@link ListApplicationVersionsCommandInput}
@@ -74,6 +84,8 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
  *       operation. </p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class ListApplicationVersionsCommand extends $Command<

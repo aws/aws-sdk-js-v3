@@ -46,6 +46,19 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
  * };
  * const command = new ListConfigurationRevisionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListConfigurationRevisionsResponse
+ * //   ConfigurationId: "STRING_VALUE",
+ * //   MaxResults: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * //   Revisions: [ // __listOfConfigurationRevision
+ * //     { // ConfigurationRevision
+ * //       Created: new Date("TIMESTAMP"), // required
+ * //       Description: "STRING_VALUE",
+ * //       Revision: Number("int"), // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListConfigurationRevisionsCommandInput - {@link ListConfigurationRevisionsCommandInput}
@@ -66,6 +79,8 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class ListConfigurationRevisionsCommand extends $Command<

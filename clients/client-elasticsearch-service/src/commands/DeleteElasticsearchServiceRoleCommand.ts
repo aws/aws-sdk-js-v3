@@ -48,6 +48,8 @@ export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataB
  * const input = {};
  * const command = new DeleteElasticsearchServiceRoleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteElasticsearchServiceRoleCommandInput - {@link DeleteElasticsearchServiceRoleCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class DeleteElasticsearchServiceRoleCommand extends $Command<

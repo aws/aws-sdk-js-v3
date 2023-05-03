@@ -56,6 +56,37 @@ export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluati
  * };
  * const command = new ListMonitorEvaluationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMonitorEvaluationsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   PredictorMonitorEvaluations: [ // PredictorMonitorEvaluations
+ * //     { // PredictorMonitorEvaluation
+ * //       ResourceArn: "STRING_VALUE",
+ * //       MonitorArn: "STRING_VALUE",
+ * //       EvaluationTime: new Date("TIMESTAMP"),
+ * //       EvaluationState: "STRING_VALUE",
+ * //       WindowStartDatetime: new Date("TIMESTAMP"),
+ * //       WindowEndDatetime: new Date("TIMESTAMP"),
+ * //       PredictorEvent: { // PredictorEvent
+ * //         Detail: "STRING_VALUE",
+ * //         Datetime: new Date("TIMESTAMP"),
+ * //       },
+ * //       MonitorDataSource: { // MonitorDataSource
+ * //         DatasetImportJobArn: "STRING_VALUE",
+ * //         ForecastArn: "STRING_VALUE",
+ * //         PredictorArn: "STRING_VALUE",
+ * //       },
+ * //       MetricResults: [ // MetricResults
+ * //         { // MetricResult
+ * //           MetricName: "STRING_VALUE",
+ * //           MetricValue: Number("double"),
+ * //         },
+ * //       ],
+ * //       NumItemsEvaluated: Number("long"),
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListMonitorEvaluationsCommandInput - {@link ListMonitorEvaluationsCommandInput}
@@ -75,6 +106,8 @@ export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluati
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListMonitorEvaluationsCommand extends $Command<

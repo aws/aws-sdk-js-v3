@@ -55,6 +55,24 @@ export interface CreateTestGridProjectCommandOutput extends CreateTestGridProjec
  * };
  * const command = new CreateTestGridProjectCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTestGridProjectResult
+ * //   testGridProject: { // TestGridProject
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     vpcConfig: { // TestGridVpcConfig
+ * //       securityGroupIds: [ // SecurityGroupIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       subnetIds: [ // SubnetIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       vpcId: "STRING_VALUE", // required
+ * //     },
+ * //     created: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateTestGridProjectCommandInput - {@link CreateTestGridProjectCommandInput}
@@ -73,6 +91,8 @@ export interface CreateTestGridProjectCommandOutput extends CreateTestGridProjec
  * @throws {@link LimitExceededException} (client fault)
  *  <p>A limit was exceeded.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class CreateTestGridProjectCommand extends $Command<

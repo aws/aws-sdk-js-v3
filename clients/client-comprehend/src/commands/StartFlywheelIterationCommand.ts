@@ -47,6 +47,11 @@ export interface StartFlywheelIterationCommandOutput extends StartFlywheelIterat
  * };
  * const command = new StartFlywheelIterationCommand(input);
  * const response = await client.send(command);
+ * // { // StartFlywheelIterationResponse
+ * //   FlywheelArn: "STRING_VALUE",
+ * //   FlywheelIterationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartFlywheelIterationCommandInput - {@link StartFlywheelIterationCommandInput}
@@ -71,6 +76,8 @@ export interface StartFlywheelIterationCommandOutput extends StartFlywheelIterat
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StartFlywheelIterationCommand extends $Command<

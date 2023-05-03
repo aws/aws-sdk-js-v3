@@ -46,6 +46,41 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  * };
  * const command = new ListNodesCommand(input);
  * const response = await client.send(command);
+ * // { // ListNodesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   NodeInfoList: [ // __listOfNodeInfo
+ * //     { // NodeInfo
+ * //       AddedToClusterTime: "STRING_VALUE",
+ * //       BrokerNodeInfo: { // BrokerNodeInfo
+ * //         AttachedENIId: "STRING_VALUE",
+ * //         BrokerId: Number("double"),
+ * //         ClientSubnet: "STRING_VALUE",
+ * //         ClientVpcIpAddress: "STRING_VALUE",
+ * //         CurrentBrokerSoftwareInfo: { // BrokerSoftwareInfo
+ * //           ConfigurationArn: "STRING_VALUE",
+ * //           ConfigurationRevision: Number("long"),
+ * //           KafkaVersion: "STRING_VALUE",
+ * //         },
+ * //         Endpoints: [ // __listOf__string
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       InstanceType: "STRING_VALUE",
+ * //       NodeARN: "STRING_VALUE",
+ * //       NodeType: "BROKER",
+ * //       ZookeeperNodeInfo: { // ZookeeperNodeInfo
+ * //         AttachedENIId: "STRING_VALUE",
+ * //         ClientVpcIpAddress: "STRING_VALUE",
+ * //         Endpoints: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ZookeeperId: Number("double"),
+ * //         ZookeeperVersion: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListNodesCommandInput - {@link ListNodesCommandInput}
@@ -66,6 +101,8 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class ListNodesCommand extends $Command<

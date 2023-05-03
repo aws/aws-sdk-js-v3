@@ -51,6 +51,77 @@ export interface ListActiveViolationsCommandOutput extends ListActiveViolationsR
  * };
  * const command = new ListActiveViolationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListActiveViolationsResponse
+ * //   activeViolations: [ // ActiveViolations
+ * //     { // ActiveViolation
+ * //       violationId: "STRING_VALUE",
+ * //       thingName: "STRING_VALUE",
+ * //       securityProfileName: "STRING_VALUE",
+ * //       behavior: { // Behavior
+ * //         name: "STRING_VALUE", // required
+ * //         metric: "STRING_VALUE",
+ * //         metricDimension: { // MetricDimension
+ * //           dimensionName: "STRING_VALUE", // required
+ * //           operator: "IN" || "NOT_IN",
+ * //         },
+ * //         criteria: { // BehaviorCriteria
+ * //           comparisonOperator: "less-than" || "less-than-equals" || "greater-than" || "greater-than-equals" || "in-cidr-set" || "not-in-cidr-set" || "in-port-set" || "not-in-port-set" || "in-set" || "not-in-set",
+ * //           value: { // MetricValue
+ * //             count: Number("long"),
+ * //             cidrs: [ // Cidrs
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             ports: [ // Ports
+ * //               Number("int"),
+ * //             ],
+ * //             number: Number("double"),
+ * //             numbers: [ // NumberList
+ * //               Number("double"),
+ * //             ],
+ * //             strings: [ // StringList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           durationSeconds: Number("int"),
+ * //           consecutiveDatapointsToAlarm: Number("int"),
+ * //           consecutiveDatapointsToClear: Number("int"),
+ * //           statisticalThreshold: { // StatisticalThreshold
+ * //             statistic: "STRING_VALUE",
+ * //           },
+ * //           mlDetectionConfig: { // MachineLearningDetectionConfig
+ * //             confidenceLevel: "LOW" || "MEDIUM" || "HIGH", // required
+ * //           },
+ * //         },
+ * //         suppressAlerts: true || false,
+ * //       },
+ * //       lastViolationValue: {
+ * //         count: Number("long"),
+ * //         cidrs: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ports: [
+ * //           Number("int"),
+ * //         ],
+ * //         number: Number("double"),
+ * //         numbers: [
+ * //           Number("double"),
+ * //         ],
+ * //         strings: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       violationEventAdditionalInfo: { // ViolationEventAdditionalInfo
+ * //         confidenceLevel: "LOW" || "MEDIUM" || "HIGH",
+ * //       },
+ * //       verificationState: "FALSE_POSITIVE" || "BENIGN_POSITIVE" || "TRUE_POSITIVE" || "UNKNOWN",
+ * //       verificationStateDescription: "STRING_VALUE",
+ * //       lastViolationTime: new Date("TIMESTAMP"),
+ * //       violationStartTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListActiveViolationsCommandInput - {@link ListActiveViolationsCommandInput}
@@ -71,6 +142,8 @@ export interface ListActiveViolationsCommandOutput extends ListActiveViolationsR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListActiveViolationsCommand extends $Command<

@@ -47,6 +47,8 @@ export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __Metad
  * };
  * const command = new DeleteLexiconCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteLexiconCommandInput - {@link DeleteLexiconCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __Metad
  * @throws {@link ServiceFailureException} (server fault)
  *  <p>An unknown condition has caused a service failure.</p>
  *
+ * @throws {@link PollyServiceException}
+ * <p>Base exception class for all service exceptions from Polly service.</p>
  *
  * @example To delete a lexicon
  * ```javascript

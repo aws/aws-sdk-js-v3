@@ -56,6 +56,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -74,6 +76,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>Can occur if you specify a number of tags for a resource greater than the maximum 50
  *             user tags per resource.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

@@ -69,6 +69,29 @@ export interface UpdateEventDestinationCommandOutput extends UpdateEventDestinat
  * };
  * const command = new UpdateEventDestinationCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateEventDestinationResult
+ * //   ConfigurationSetArn: "STRING_VALUE",
+ * //   ConfigurationSetName: "STRING_VALUE",
+ * //   EventDestination: { // EventDestination
+ * //     EventDestinationName: "STRING_VALUE", // required
+ * //     Enabled: true || false, // required
+ * //     MatchingEventTypes: [ // EventTypeList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     CloudWatchLogsDestination: { // CloudWatchLogsDestination
+ * //       IamRoleArn: "STRING_VALUE", // required
+ * //       LogGroupArn: "STRING_VALUE", // required
+ * //     },
+ * //     KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ * //       IamRoleArn: "STRING_VALUE", // required
+ * //       DeliveryStreamArn: "STRING_VALUE", // required
+ * //     },
+ * //     SnsDestination: { // SnsDestination
+ * //       TopicArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateEventDestinationCommandInput - {@link UpdateEventDestinationCommandInput}
@@ -101,6 +124,8 @@ export interface UpdateEventDestinationCommandOutput extends UpdateEventDestinat
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class UpdateEventDestinationCommand extends $Command<

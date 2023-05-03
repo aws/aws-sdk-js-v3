@@ -67,6 +67,34 @@ export interface CreateRecommendationTemplateCommandOutput
  * };
  * const command = new CreateRecommendationTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRecommendationTemplateResponse
+ * //   recommendationTemplate: { // RecommendationTemplate
+ * //     templatesLocation: { // S3Location
+ * //       bucket: "STRING_VALUE",
+ * //       prefix: "STRING_VALUE",
+ * //     },
+ * //     assessmentArn: "STRING_VALUE", // required
+ * //     appArn: "STRING_VALUE",
+ * //     recommendationIds: [ // RecommendationIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     recommendationTypes: [ // RenderRecommendationTypeList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     format: "STRING_VALUE", // required
+ * //     recommendationTemplateArn: "STRING_VALUE", // required
+ * //     message: "STRING_VALUE",
+ * //     status: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     startTime: new Date("TIMESTAMP"),
+ * //     endTime: new Date("TIMESTAMP"),
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     needsReplacements: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateRecommendationTemplateCommandInput - {@link CreateRecommendationTemplateCommandInput}
@@ -103,6 +131,8 @@ export interface CreateRecommendationTemplateCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class CreateRecommendationTemplateCommand extends $Command<

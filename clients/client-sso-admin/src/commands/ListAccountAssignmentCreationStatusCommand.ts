@@ -58,6 +58,17 @@ export interface ListAccountAssignmentCreationStatusCommandOutput
  * };
  * const command = new ListAccountAssignmentCreationStatusCommand(input);
  * const response = await client.send(command);
+ * // { // ListAccountAssignmentCreationStatusResponse
+ * //   AccountAssignmentsCreationStatus: [ // AccountAssignmentOperationStatusList
+ * //     { // AccountAssignmentOperationStatusMetadata
+ * //       Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ * //       RequestId: "STRING_VALUE",
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAccountAssignmentCreationStatusCommandInput - {@link ListAccountAssignmentCreationStatusCommandInput}
@@ -83,6 +94,8 @@ export interface ListAccountAssignmentCreationStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ListAccountAssignmentCreationStatusCommand extends $Command<

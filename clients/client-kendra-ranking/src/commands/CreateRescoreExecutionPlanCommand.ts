@@ -64,6 +64,11 @@ export interface CreateRescoreExecutionPlanCommandOutput extends CreateRescoreEx
  * };
  * const command = new CreateRescoreExecutionPlanCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRescoreExecutionPlanResponse
+ * //   Id: "STRING_VALUE", // required
+ * //   Arn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateRescoreExecutionPlanCommandInput - {@link CreateRescoreExecutionPlanCommandInput}
@@ -104,6 +109,8 @@ export interface CreateRescoreExecutionPlanCommandOutput extends CreateRescoreEx
  *             the Amazon Kendra Intelligent Ranking service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraRankingServiceException}
+ * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
  */
 export class CreateRescoreExecutionPlanCommand extends $Command<

@@ -53,6 +53,8 @@ export interface DeleteAlternateContactCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAlternateContactCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAlternateContactCommandInput - {@link DeleteAlternateContactCommandInput}
@@ -79,6 +81,8 @@ export interface DeleteAlternateContactCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>
  *
+ * @throws {@link AccountServiceException}
+ * <p>Base exception class for all service exceptions from Account service.</p>
  *
  */
 export class DeleteAlternateContactCommand extends $Command<

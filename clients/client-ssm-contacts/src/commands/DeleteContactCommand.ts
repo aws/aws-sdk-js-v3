@@ -47,6 +47,8 @@ export interface DeleteContactCommandOutput extends DeleteContactResult, __Metad
  * };
  * const command = new DeleteContactCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteContactCommandInput - {@link DeleteContactCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteContactCommandOutput extends DeleteContactResult, __Metad
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class DeleteContactCommand extends $Command<

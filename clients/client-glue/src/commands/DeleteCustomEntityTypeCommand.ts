@@ -44,6 +44,10 @@ export interface DeleteCustomEntityTypeCommandOutput extends DeleteCustomEntityT
  * };
  * const command = new DeleteCustomEntityTypeCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteCustomEntityTypeResponse
+ * //   Name: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteCustomEntityTypeCommandInput - {@link DeleteCustomEntityTypeCommandInput}
@@ -67,6 +71,8 @@ export interface DeleteCustomEntityTypeCommandOutput extends DeleteCustomEntityT
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteCustomEntityTypeCommand extends $Command<

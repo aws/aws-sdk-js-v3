@@ -60,6 +60,8 @@ export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateArchiveRuleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateArchiveRuleCommandInput - {@link UpdateArchiveRuleCommandInput}
@@ -83,6 +85,8 @@ export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class UpdateArchiveRuleCommand extends $Command<

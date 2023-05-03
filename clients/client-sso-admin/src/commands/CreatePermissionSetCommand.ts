@@ -59,6 +59,17 @@ export interface CreatePermissionSetCommandOutput extends CreatePermissionSetRes
  * };
  * const command = new CreatePermissionSetCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePermissionSetResponse
+ * //   PermissionSet: { // PermissionSet
+ * //     Name: "STRING_VALUE",
+ * //     PermissionSetArn: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     CreatedDate: new Date("TIMESTAMP"),
+ * //     SessionDuration: "STRING_VALUE",
+ * //     RelayState: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreatePermissionSetCommandInput - {@link CreatePermissionSetCommandInput}
@@ -94,6 +105,8 @@ export interface CreatePermissionSetCommandOutput extends CreatePermissionSetRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class CreatePermissionSetCommand extends $Command<

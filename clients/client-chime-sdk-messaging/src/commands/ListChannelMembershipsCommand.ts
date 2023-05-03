@@ -65,6 +65,19 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
  * };
  * const command = new ListChannelMembershipsCommand(input);
  * const response = await client.send(command);
+ * // { // ListChannelMembershipsResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   ChannelMemberships: [ // ChannelMembershipSummaryList
+ * //     { // ChannelMembershipSummary
+ * //       Member: { // Identity
+ * //         Arn: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListChannelMembershipsCommandInput - {@link ListChannelMembershipsCommandInput}
@@ -91,6 +104,8 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class ListChannelMembershipsCommand extends $Command<

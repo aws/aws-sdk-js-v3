@@ -48,6 +48,13 @@ export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsRes
  * };
  * const command = new ListLambdaFunctionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListLambdaFunctionsResponse
+ * //   LambdaFunctions: [ // FunctionArnsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListLambdaFunctionsCommandInput - {@link ListLambdaFunctionsCommandInput}
@@ -71,6 +78,8 @@ export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListLambdaFunctionsCommand extends $Command<

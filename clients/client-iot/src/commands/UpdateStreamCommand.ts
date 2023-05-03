@@ -57,6 +57,13 @@ export interface UpdateStreamCommandOutput extends UpdateStreamResponse, __Metad
  * };
  * const command = new UpdateStreamCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateStreamResponse
+ * //   streamId: "STRING_VALUE",
+ * //   streamArn: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   streamVersion: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param UpdateStreamCommandInput - {@link UpdateStreamCommandInput}
@@ -83,6 +90,8 @@ export interface UpdateStreamCommandOutput extends UpdateStreamResponse, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateStreamCommand extends $Command<

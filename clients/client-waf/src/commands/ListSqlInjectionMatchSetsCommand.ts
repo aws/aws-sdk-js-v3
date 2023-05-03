@@ -53,6 +53,16 @@ export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjection
  * };
  * const command = new ListSqlInjectionMatchSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSqlInjectionMatchSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   SqlInjectionMatchSets: [ // SqlInjectionMatchSetSummaries
+ * //     { // SqlInjectionMatchSetSummary
+ * //       SqlInjectionMatchSetId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListSqlInjectionMatchSetsCommandInput - {@link ListSqlInjectionMatchSetsCommandInput}
@@ -67,6 +77,8 @@ export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjection
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To list SQL injection match sets
  * ```javascript

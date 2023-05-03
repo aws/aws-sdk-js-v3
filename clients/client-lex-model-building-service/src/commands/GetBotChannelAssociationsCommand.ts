@@ -60,6 +60,25 @@ export interface GetBotChannelAssociationsCommandOutput extends GetBotChannelAss
  * };
  * const command = new GetBotChannelAssociationsCommand(input);
  * const response = await client.send(command);
+ * // { // GetBotChannelAssociationsResponse
+ * //   botChannelAssociations: [ // BotChannelAssociationList
+ * //     { // BotChannelAssociation
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       botAlias: "STRING_VALUE",
+ * //       botName: "STRING_VALUE",
+ * //       createdDate: new Date("TIMESTAMP"),
+ * //       type: "STRING_VALUE",
+ * //       botConfiguration: { // ChannelConfigurationMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       status: "STRING_VALUE",
+ * //       failureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetBotChannelAssociationsCommandInput - {@link GetBotChannelAssociationsCommandInput}
@@ -79,6 +98,8 @@ export interface GetBotChannelAssociationsCommandOutput extends GetBotChannelAss
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The request exceeded a limit. Try your request again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetBotChannelAssociationsCommand extends $Command<

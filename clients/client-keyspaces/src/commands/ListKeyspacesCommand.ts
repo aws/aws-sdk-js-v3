@@ -45,6 +45,16 @@ export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __Met
  * };
  * const command = new ListKeyspacesCommand(input);
  * const response = await client.send(command);
+ * // { // ListKeyspacesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   keyspaces: [ // KeyspaceSummaryList // required
+ * //     { // KeyspaceSummary
+ * //       keyspaceName: "STRING_VALUE", // required
+ * //       resourceArn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListKeyspacesCommandInput - {@link ListKeyspacesCommandInput}
@@ -69,6 +79,8 @@ export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class ListKeyspacesCommand extends $Command<

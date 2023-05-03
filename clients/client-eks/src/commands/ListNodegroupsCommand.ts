@@ -48,6 +48,13 @@ export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __M
  * };
  * const command = new ListNodegroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListNodegroupsResponse
+ * //   nodegroups: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListNodegroupsCommandInput - {@link ListNodegroupsCommandInput}
@@ -77,6 +84,8 @@ export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unavailable. Back off and retry the operation.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class ListNodegroupsCommand extends $Command<

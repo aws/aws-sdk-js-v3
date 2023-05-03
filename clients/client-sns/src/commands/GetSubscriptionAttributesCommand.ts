@@ -44,6 +44,12 @@ export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionA
  * };
  * const command = new GetSubscriptionAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // GetSubscriptionAttributesResponse
+ * //   Attributes: { // SubscriptionAttributesMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSubscriptionAttributesCommandInput - {@link GetSubscriptionAttributesCommandInput}
@@ -65,6 +71,8 @@ export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionA
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class GetSubscriptionAttributesCommand extends $Command<

@@ -50,6 +50,21 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * };
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);
+ * // { // ListSchemasResponse
+ * //   Schemas: [ // SchemaListDefinition
+ * //     { // SchemaListItem
+ * //       RegistryName: "STRING_VALUE",
+ * //       SchemaName: "STRING_VALUE",
+ * //       SchemaArn: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       SchemaStatus: "AVAILABLE" || "PENDING" || "DELETING",
+ * //       CreatedTime: "STRING_VALUE",
+ * //       UpdatedTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
@@ -70,6 +85,8 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListSchemasCommand extends $Command<

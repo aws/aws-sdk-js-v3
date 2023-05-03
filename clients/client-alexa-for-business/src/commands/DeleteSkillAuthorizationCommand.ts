@@ -45,6 +45,8 @@ export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthor
  * };
  * const command = new DeleteSkillAuthorizationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSkillAuthorizationCommandInput - {@link DeleteSkillAuthorizationCommandInput}
@@ -59,6 +61,8 @@ export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthor
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteSkillAuthorizationCommand extends $Command<

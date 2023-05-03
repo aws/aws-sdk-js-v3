@@ -68,6 +68,8 @@ export interface UpdateAuditSuppressionCommandOutput extends UpdateAuditSuppress
  * };
  * const command = new UpdateAuditSuppressionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateAuditSuppressionCommandInput - {@link UpdateAuditSuppressionCommandInput}
@@ -88,6 +90,8 @@ export interface UpdateAuditSuppressionCommandOutput extends UpdateAuditSuppress
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateAuditSuppressionCommand extends $Command<

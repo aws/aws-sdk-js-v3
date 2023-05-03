@@ -112,6 +112,10 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutScalingPolicyOutput
+ * //   Name: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutScalingPolicyCommandInput - {@link PutScalingPolicyCommandInput}
@@ -134,6 +138,8 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class PutScalingPolicyCommand extends $Command<

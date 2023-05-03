@@ -47,6 +47,8 @@ export interface SetCognitoEventsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetCognitoEventsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SetCognitoEventsCommandInput - {@link SetCognitoEventsCommandInput}
@@ -75,6 +77,8 @@ export interface SetCognitoEventsCommandOutput extends __MetadataBearer {}
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class SetCognitoEventsCommand extends $Command<

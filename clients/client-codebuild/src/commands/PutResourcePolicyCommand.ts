@@ -46,6 +46,10 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutResourcePolicyOutput
+ * //   resourceArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -60,6 +64,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

@@ -45,6 +45,17 @@ export interface ListFuotaTasksCommandOutput extends ListFuotaTasksResponse, __M
  * };
  * const command = new ListFuotaTasksCommand(input);
  * const response = await client.send(command);
+ * // { // ListFuotaTasksResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   FuotaTaskList: [ // FuotaTaskList
+ * //     { // FuotaTask
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListFuotaTasksCommandInput - {@link ListFuotaTasksCommandInput}
@@ -65,6 +76,8 @@ export interface ListFuotaTasksCommandOutput extends ListFuotaTasksResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListFuotaTasksCommand extends $Command<

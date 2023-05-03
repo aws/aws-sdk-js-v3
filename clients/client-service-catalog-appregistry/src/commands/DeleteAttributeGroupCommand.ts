@@ -48,6 +48,18 @@ export interface DeleteAttributeGroupCommandOutput extends DeleteAttributeGroupR
  * };
  * const command = new DeleteAttributeGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteAttributeGroupResponse
+ * //   attributeGroup: { // AttributeGroupSummary
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdateTime: new Date("TIMESTAMP"),
+ * //     createdBy: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteAttributeGroupCommandInput - {@link DeleteAttributeGroupCommandInput}
@@ -65,6 +77,8 @@ export interface DeleteAttributeGroupCommandOutput extends DeleteAttributeGroupR
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class DeleteAttributeGroupCommand extends $Command<

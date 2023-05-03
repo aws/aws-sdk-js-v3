@@ -48,6 +48,15 @@ export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVe
  * };
  * const command = new UnlabelParameterVersionCommand(input);
  * const response = await client.send(command);
+ * // { // UnlabelParameterVersionResult
+ * //   RemovedLabels: [ // ParameterLabelList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   InvalidLabels: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UnlabelParameterVersionCommandInput - {@link UnlabelParameterVersionCommandInput}
@@ -69,6 +78,8 @@ export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVe
  * @throws {@link TooManyUpdates} (client fault)
  *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UnlabelParameterVersionCommand extends $Command<

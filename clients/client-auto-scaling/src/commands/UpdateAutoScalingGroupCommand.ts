@@ -206,6 +206,8 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAutoScalingGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateAutoScalingGroupCommandInput - {@link UpdateAutoScalingGroupCommandInput}
@@ -225,6 +227,8 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
  *  <p>The service-linked role is not yet ready for use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To update an Auto Scaling group
  * ```javascript

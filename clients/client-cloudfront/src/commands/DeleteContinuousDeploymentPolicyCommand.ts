@@ -51,6 +51,8 @@ export interface DeleteContinuousDeploymentPolicyCommandOutput extends __Metadat
  * };
  * const command = new DeleteContinuousDeploymentPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteContinuousDeploymentPolicyCommandInput - {@link DeleteContinuousDeploymentPolicyCommandInput}
@@ -79,6 +81,8 @@ export interface DeleteContinuousDeploymentPolicyCommandOutput extends __Metadat
  *  <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteContinuousDeploymentPolicyCommand extends $Command<

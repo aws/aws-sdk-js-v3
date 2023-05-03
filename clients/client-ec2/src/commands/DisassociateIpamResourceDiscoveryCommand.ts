@@ -50,6 +50,27 @@ export interface DisassociateIpamResourceDiscoveryCommandOutput
  * };
  * const command = new DisassociateIpamResourceDiscoveryCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateIpamResourceDiscoveryResult
+ * //   IpamResourceDiscoveryAssociation: { // IpamResourceDiscoveryAssociation
+ * //     OwnerId: "STRING_VALUE",
+ * //     IpamResourceDiscoveryAssociationId: "STRING_VALUE",
+ * //     IpamResourceDiscoveryAssociationArn: "STRING_VALUE",
+ * //     IpamResourceDiscoveryId: "STRING_VALUE",
+ * //     IpamId: "STRING_VALUE",
+ * //     IpamArn: "STRING_VALUE",
+ * //     IpamRegion: "STRING_VALUE",
+ * //     IsDefault: true || false,
+ * //     ResourceDiscoveryStatus: "active" || "not-found",
+ * //     State: "associate-in-progress" || "associate-complete" || "associate-failed" || "disassociate-in-progress" || "disassociate-complete" || "disassociate-failed" || "isolate-in-progress" || "isolate-complete" || "restore-in-progress",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DisassociateIpamResourceDiscoveryCommandInput - {@link DisassociateIpamResourceDiscoveryCommandInput}
@@ -58,6 +79,8 @@ export interface DisassociateIpamResourceDiscoveryCommandOutput
  * @see {@link DisassociateIpamResourceDiscoveryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DisassociateIpamResourceDiscoveryCommand extends $Command<

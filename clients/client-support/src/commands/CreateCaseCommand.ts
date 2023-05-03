@@ -86,6 +86,10 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * };
  * const command = new CreateCaseCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCaseResponse
+ * //   caseId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateCaseCommandInput - {@link CreateCaseCommandInput}
@@ -107,6 +111,8 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class CreateCaseCommand extends $Command<

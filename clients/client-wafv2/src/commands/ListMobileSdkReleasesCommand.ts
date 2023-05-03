@@ -49,6 +49,16 @@ export interface ListMobileSdkReleasesCommandOutput extends ListMobileSdkRelease
  * };
  * const command = new ListMobileSdkReleasesCommand(input);
  * const response = await client.send(command);
+ * // { // ListMobileSdkReleasesResponse
+ * //   ReleaseSummaries: [ // ReleaseSummaries
+ * //     { // ReleaseSummary
+ * //       ReleaseVersion: "STRING_VALUE",
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListMobileSdkReleasesCommandInput - {@link ListMobileSdkReleasesCommandInput}
@@ -85,6 +95,8 @@ export interface ListMobileSdkReleasesCommandOutput extends ListMobileSdkRelease
  *             </li>
  *          </ul>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListMobileSdkReleasesCommand extends $Command<

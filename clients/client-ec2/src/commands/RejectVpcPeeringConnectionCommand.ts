@@ -48,6 +48,10 @@ export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeerin
  * };
  * const command = new RejectVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // RejectVpcPeeringConnectionResult
+ * //   Return: true || false,
+ * // };
+ *
  * ```
  *
  * @param RejectVpcPeeringConnectionCommandInput - {@link RejectVpcPeeringConnectionCommandInput}
@@ -56,6 +60,8 @@ export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeerin
  * @see {@link RejectVpcPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class RejectVpcPeeringConnectionCommand extends $Command<

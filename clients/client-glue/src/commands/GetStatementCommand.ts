@@ -46,6 +46,29 @@ export interface GetStatementCommandOutput extends GetStatementResponse, __Metad
  * };
  * const command = new GetStatementCommand(input);
  * const response = await client.send(command);
+ * // { // GetStatementResponse
+ * //   Statement: { // Statement
+ * //     Id: Number("int"),
+ * //     Code: "STRING_VALUE",
+ * //     State: "WAITING" || "RUNNING" || "AVAILABLE" || "CANCELLING" || "CANCELLED" || "ERROR",
+ * //     Output: { // StatementOutput
+ * //       Data: { // StatementOutputData
+ * //         TextPlain: "STRING_VALUE",
+ * //       },
+ * //       ExecutionCount: Number("int"),
+ * //       Status: "WAITING" || "RUNNING" || "AVAILABLE" || "CANCELLING" || "CANCELLED" || "ERROR",
+ * //       ErrorName: "STRING_VALUE",
+ * //       ErrorValue: "STRING_VALUE",
+ * //       Traceback: [ // OrchestrationStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     Progress: Number("double"),
+ * //     StartedOn: Number("long"),
+ * //     CompletedOn: Number("long"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetStatementCommandInput - {@link GetStatementCommandInput}
@@ -72,6 +95,8 @@ export interface GetStatementCommandOutput extends GetStatementResponse, __Metad
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetStatementCommand extends $Command<

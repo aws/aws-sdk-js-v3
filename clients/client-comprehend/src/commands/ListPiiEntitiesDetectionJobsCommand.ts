@@ -56,6 +56,46 @@ export interface ListPiiEntitiesDetectionJobsCommandOutput
  * };
  * const command = new ListPiiEntitiesDetectionJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPiiEntitiesDetectionJobsResponse
+ * //   PiiEntitiesDetectionJobPropertiesList: [ // PiiEntitiesDetectionJobPropertiesList
+ * //     { // PiiEntitiesDetectionJobProperties
+ * //       JobId: "STRING_VALUE",
+ * //       JobArn: "STRING_VALUE",
+ * //       JobName: "STRING_VALUE",
+ * //       JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * //       Message: "STRING_VALUE",
+ * //       SubmitTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       InputDataConfig: { // InputDataConfig
+ * //         S3Uri: "STRING_VALUE", // required
+ * //         InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ * //         DocumentReaderConfig: { // DocumentReaderConfig
+ * //           DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
+ * //           DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
+ * //           FeatureTypes: [ // ListOfDocumentReadFeatureTypes
+ * //             "TABLES" || "FORMS",
+ * //           ],
+ * //         },
+ * //       },
+ * //       OutputDataConfig: { // PiiOutputDataConfig
+ * //         S3Uri: "STRING_VALUE", // required
+ * //         KmsKeyId: "STRING_VALUE",
+ * //       },
+ * //       RedactionConfig: { // RedactionConfig
+ * //         PiiEntityTypes: [ // ListOfPiiEntityTypes
+ * //           "BANK_ACCOUNT_NUMBER" || "BANK_ROUTING" || "CREDIT_DEBIT_NUMBER" || "CREDIT_DEBIT_CVV" || "CREDIT_DEBIT_EXPIRY" || "PIN" || "EMAIL" || "ADDRESS" || "NAME" || "PHONE" || "SSN" || "DATE_TIME" || "PASSPORT_NUMBER" || "DRIVER_ID" || "URL" || "AGE" || "USERNAME" || "PASSWORD" || "AWS_ACCESS_KEY" || "AWS_SECRET_KEY" || "IP_ADDRESS" || "MAC_ADDRESS" || "ALL" || "LICENSE_PLATE" || "VEHICLE_IDENTIFICATION_NUMBER" || "UK_NATIONAL_INSURANCE_NUMBER" || "CA_SOCIAL_INSURANCE_NUMBER" || "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER" || "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER" || "IN_PERMANENT_ACCOUNT_NUMBER" || "IN_NREGA" || "INTERNATIONAL_BANK_ACCOUNT_NUMBER" || "SWIFT_CODE" || "UK_NATIONAL_HEALTH_SERVICE_NUMBER" || "CA_HEALTH_NUMBER" || "IN_AADHAAR" || "IN_VOTER_NUMBER",
+ * //         ],
+ * //         MaskMode: "MASK" || "REPLACE_WITH_PII_ENTITY_TYPE",
+ * //         MaskCharacter: "STRING_VALUE",
+ * //       },
+ * //       LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW",
+ * //       DataAccessRoleArn: "STRING_VALUE",
+ * //       Mode: "ONLY_REDACTION" || "ONLY_OFFSETS",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPiiEntitiesDetectionJobsCommandInput - {@link ListPiiEntitiesDetectionJobsCommandInput}
@@ -77,6 +117,8 @@ export interface ListPiiEntitiesDetectionJobsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class ListPiiEntitiesDetectionJobsCommand extends $Command<

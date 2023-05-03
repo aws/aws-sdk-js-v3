@@ -44,6 +44,8 @@ export interface StopConfigurationRecorderCommandOutput extends __MetadataBearer
  * };
  * const command = new StopConfigurationRecorderCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopConfigurationRecorderCommandInput - {@link StopConfigurationRecorderCommandInput}
@@ -56,6 +58,8 @@ export interface StopConfigurationRecorderCommandOutput extends __MetadataBearer
  *  <p>You have specified a configuration recorder that does not
  * 			exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class StopConfigurationRecorderCommand extends $Command<

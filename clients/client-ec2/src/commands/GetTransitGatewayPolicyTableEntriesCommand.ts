@@ -63,6 +63,26 @@ export interface GetTransitGatewayPolicyTableEntriesCommandOutput
  * };
  * const command = new GetTransitGatewayPolicyTableEntriesCommand(input);
  * const response = await client.send(command);
+ * // { // GetTransitGatewayPolicyTableEntriesResult
+ * //   TransitGatewayPolicyTableEntries: [ // TransitGatewayPolicyTableEntryList
+ * //     { // TransitGatewayPolicyTableEntry
+ * //       PolicyRuleNumber: "STRING_VALUE",
+ * //       PolicyRule: { // TransitGatewayPolicyRule
+ * //         SourceCidrBlock: "STRING_VALUE",
+ * //         SourcePortRange: "STRING_VALUE",
+ * //         DestinationCidrBlock: "STRING_VALUE",
+ * //         DestinationPortRange: "STRING_VALUE",
+ * //         Protocol: "STRING_VALUE",
+ * //         MetaData: { // TransitGatewayPolicyRuleMetaData
+ * //           MetaDataKey: "STRING_VALUE",
+ * //           MetaDataValue: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       TargetRouteTableId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetTransitGatewayPolicyTableEntriesCommandInput - {@link GetTransitGatewayPolicyTableEntriesCommandInput}
@@ -71,6 +91,8 @@ export interface GetTransitGatewayPolicyTableEntriesCommandOutput
  * @see {@link GetTransitGatewayPolicyTableEntriesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetTransitGatewayPolicyTableEntriesCommand extends $Command<

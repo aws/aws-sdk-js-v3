@@ -46,6 +46,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * };
  * const command = new AcceptInvitationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AcceptInvitationCommandInput - {@link AcceptInvitationCommandInput}
@@ -75,6 +77,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class AcceptInvitationCommand extends $Command<

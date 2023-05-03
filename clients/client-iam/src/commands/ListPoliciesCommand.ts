@@ -64,6 +64,32 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * };
  * const command = new ListPoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // ListPoliciesResponse
+ * //   Policies: [ // policyListType
+ * //     { // Policy
+ * //       PolicyName: "STRING_VALUE",
+ * //       PolicyId: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Path: "STRING_VALUE",
+ * //       DefaultVersionId: "STRING_VALUE",
+ * //       AttachmentCount: Number("int"),
+ * //       PermissionsBoundaryUsageCount: Number("int"),
+ * //       IsAttachable: true || false,
+ * //       Description: "STRING_VALUE",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       UpdateDate: new Date("TIMESTAMP"),
+ * //       Tags: [ // tagListType
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPoliciesCommandInput - {@link ListPoliciesCommandInput}
@@ -76,6 +102,8 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListPoliciesCommand extends $Command<

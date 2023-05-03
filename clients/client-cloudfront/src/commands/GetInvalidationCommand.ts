@@ -45,6 +45,23 @@ export interface GetInvalidationCommandOutput extends GetInvalidationResult, __M
  * };
  * const command = new GetInvalidationCommand(input);
  * const response = await client.send(command);
+ * // { // GetInvalidationResult
+ * //   Invalidation: { // Invalidation
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "STRING_VALUE", // required
+ * //     CreateTime: new Date("TIMESTAMP"), // required
+ * //     InvalidationBatch: { // InvalidationBatch
+ * //       Paths: { // Paths
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // PathList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       CallerReference: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetInvalidationCommandInput - {@link GetInvalidationCommandInput}
@@ -62,6 +79,8 @@ export interface GetInvalidationCommandOutput extends GetInvalidationResult, __M
  * @throws {@link NoSuchInvalidation} (client fault)
  *  <p>The specified invalidation does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetInvalidationCommand extends $Command<

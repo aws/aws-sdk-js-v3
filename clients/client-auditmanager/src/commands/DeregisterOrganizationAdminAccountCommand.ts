@@ -111,6 +111,8 @@ export interface DeregisterOrganizationAdminAccountCommandOutput
  * };
  * const command = new DeregisterOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeregisterOrganizationAdminAccountCommandInput - {@link DeregisterOrganizationAdminAccountCommandInput}
@@ -133,6 +135,8 @@ export interface DeregisterOrganizationAdminAccountCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class DeregisterOrganizationAdminAccountCommand extends $Command<

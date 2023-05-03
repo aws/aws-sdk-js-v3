@@ -62,6 +62,23 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * };
  * const command = new ListRootsCommand(input);
  * const response = await client.send(command);
+ * // { // ListRootsResponse
+ * //   Roots: [ // Roots
+ * //     { // Root
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       PolicyTypes: [ // PolicyTypes
+ * //         { // PolicyTypeSummary
+ * //           Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ * //           Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListRootsCommandInput - {@link ListRootsCommandInput}
@@ -196,6 +213,8 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list of roots in the organization
  * ```javascript

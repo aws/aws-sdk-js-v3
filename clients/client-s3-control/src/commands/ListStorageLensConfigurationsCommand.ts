@@ -60,6 +60,18 @@ export interface ListStorageLensConfigurationsCommandOutput
  * };
  * const command = new ListStorageLensConfigurationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListStorageLensConfigurationsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   StorageLensConfigurationList: [ // StorageLensConfigurationList
+ * //     { // ListStorageLensConfigurationEntry
+ * //       Id: "STRING_VALUE", // required
+ * //       StorageLensArn: "STRING_VALUE", // required
+ * //       HomeRegion: "STRING_VALUE", // required
+ * //       IsEnabled: true || false,
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListStorageLensConfigurationsCommandInput - {@link ListStorageLensConfigurationsCommandInput}
@@ -68,6 +80,8 @@ export interface ListStorageLensConfigurationsCommandOutput
  * @see {@link ListStorageLensConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class ListStorageLensConfigurationsCommand extends $Command<

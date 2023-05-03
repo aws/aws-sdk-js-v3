@@ -50,6 +50,13 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
+ * // { // ListImportsOutput
+ * //   Imports: [ // Imports
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListImportsCommandInput - {@link ListImportsCommandInput}
@@ -58,6 +65,8 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * @see {@link ListImportsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListImportsCommand extends $Command<

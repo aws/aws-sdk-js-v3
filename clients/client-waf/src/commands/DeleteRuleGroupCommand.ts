@@ -68,6 +68,10 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * };
  * const command = new DeleteRuleGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteRuleGroupResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteRuleGroupCommandInput - {@link DeleteRuleGroupCommandInput}
@@ -143,6 +147,8 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class DeleteRuleGroupCommand extends $Command<

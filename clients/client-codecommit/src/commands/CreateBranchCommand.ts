@@ -49,6 +49,8 @@ export interface CreateBranchCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateBranchCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateBranchCommandInput - {@link CreateBranchCommandInput}
@@ -106,6 +108,8 @@ export interface CreateBranchCommandOutput extends __MetadataBearer {}
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class CreateBranchCommand extends $Command<

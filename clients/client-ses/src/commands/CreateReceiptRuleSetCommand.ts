@@ -47,6 +47,8 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  * };
  * const command = new CreateReceiptRuleSetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateReceiptRuleSetCommandInput - {@link CreateReceiptRuleSetCommandInput}
@@ -63,6 +65,8 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
  *             Guide</a>.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example CreateReceiptRuleSet
  * ```javascript

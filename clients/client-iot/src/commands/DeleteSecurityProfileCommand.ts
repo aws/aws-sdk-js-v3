@@ -46,6 +46,8 @@ export interface DeleteSecurityProfileCommandOutput extends DeleteSecurityProfil
  * };
  * const command = new DeleteSecurityProfileCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSecurityProfileCommandInput - {@link DeleteSecurityProfileCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteSecurityProfileCommandOutput extends DeleteSecurityProfil
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteSecurityProfileCommand extends $Command<

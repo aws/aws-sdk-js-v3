@@ -65,6 +65,11 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * };
  * const command = new UpdateMonitorCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateMonitorOutput
+ * //   MonitorArn: "STRING_VALUE", // required
+ * //   Status: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateMonitorCommandInput - {@link UpdateMonitorCommandInput}
@@ -91,6 +96,8 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Invalid request.</p>
  *
+ * @throws {@link InternetMonitorServiceException}
+ * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
  */
 export class UpdateMonitorCommand extends $Command<

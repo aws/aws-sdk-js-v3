@@ -103,6 +103,53 @@ export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult,
  * };
  * const command = new CreateCachePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCachePolicyResult
+ * //   CachePolicy: { // CachePolicy
+ * //     Id: "STRING_VALUE", // required
+ * //     LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     CachePolicyConfig: { // CachePolicyConfig
+ * //       Comment: "STRING_VALUE",
+ * //       Name: "STRING_VALUE", // required
+ * //       DefaultTTL: Number("long"),
+ * //       MaxTTL: Number("long"),
+ * //       MinTTL: Number("long"), // required
+ * //       ParametersInCacheKeyAndForwardedToOrigin: { // ParametersInCacheKeyAndForwardedToOrigin
+ * //         EnableAcceptEncodingGzip: true || false, // required
+ * //         EnableAcceptEncodingBrotli: true || false,
+ * //         HeadersConfig: { // CachePolicyHeadersConfig
+ * //           HeaderBehavior: "none" || "whitelist", // required
+ * //           Headers: { // Headers
+ * //             Quantity: Number("int"), // required
+ * //             Items: [ // HeaderList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //         CookiesConfig: { // CachePolicyCookiesConfig
+ * //           CookieBehavior: "none" || "whitelist" || "allExcept" || "all", // required
+ * //           Cookies: { // CookieNames
+ * //             Quantity: Number("int"), // required
+ * //             Items: [ // CookieNameList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //         QueryStringsConfig: { // CachePolicyQueryStringsConfig
+ * //           QueryStringBehavior: "none" || "whitelist" || "allExcept" || "all", // required
+ * //           QueryStrings: { // QueryStringNames
+ * //             Quantity: Number("int"), // required
+ * //             Items: [ // QueryStringNamesList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * //   Location: "STRING_VALUE",
+ * //   ETag: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateCachePolicyCommandInput - {@link CreateCachePolicyCommandInput}
@@ -145,6 +192,8 @@ export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult,
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class CreateCachePolicyCommand extends $Command<

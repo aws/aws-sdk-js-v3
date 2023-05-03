@@ -44,6 +44,10 @@ export interface DisassociateRoleFromGroupCommandOutput extends DisassociateRole
  * };
  * const command = new DisassociateRoleFromGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateRoleFromGroupResponse
+ * //   DisassociatedAt: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DisassociateRoleFromGroupCommandInput - {@link DisassociateRoleFromGroupCommandInput}
@@ -58,6 +62,8 @@ export interface DisassociateRoleFromGroupCommandOutput extends DisassociateRole
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DisassociateRoleFromGroupCommand extends $Command<

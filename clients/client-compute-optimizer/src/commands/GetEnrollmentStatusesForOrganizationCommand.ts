@@ -63,6 +63,18 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
  * };
  * const command = new GetEnrollmentStatusesForOrganizationCommand(input);
  * const response = await client.send(command);
+ * // { // GetEnrollmentStatusesForOrganizationResponse
+ * //   accountEnrollmentStatuses: [ // AccountEnrollmentStatuses
+ * //     { // AccountEnrollmentStatus
+ * //       accountId: "STRING_VALUE",
+ * //       status: "Active" || "Inactive" || "Pending" || "Failed",
+ * //       statusReason: "STRING_VALUE",
+ * //       lastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetEnrollmentStatusesForOrganizationCommandInput - {@link GetEnrollmentStatusesForOrganizationCommandInput}
@@ -90,6 +102,8 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class GetEnrollmentStatusesForOrganizationCommand extends $Command<

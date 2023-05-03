@@ -48,6 +48,12 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * };
  * const command = new ListTagsForResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourcesResponse
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourcesCommandInput - {@link ListTagsForResourcesCommandInput}
@@ -65,6 +71,8 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class ListTagsForResourcesCommand extends $Command<

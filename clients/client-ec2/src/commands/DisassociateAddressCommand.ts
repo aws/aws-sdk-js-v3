@@ -53,6 +53,8 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateAddressCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateAddressCommandInput - {@link DisassociateAddressCommandInput}
@@ -61,6 +63,8 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * @see {@link DisassociateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To disassociate an Elastic IP address in EC2-VPC
  * ```javascript

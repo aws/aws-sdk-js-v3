@@ -46,6 +46,17 @@ export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPol
  * };
  * const command = new GetDataRetrievalPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetDataRetrievalPolicyOutput
+ * //   Policy: { // DataRetrievalPolicy
+ * //     Rules: [ // DataRetrievalRulesList
+ * //       { // DataRetrievalRule
+ * //         Strategy: "STRING_VALUE",
+ * //         BytesPerHour: Number("long"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetDataRetrievalPolicyCommandInput - {@link GetDataRetrievalPolicyCommandInput}
@@ -63,6 +74,8 @@ export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPol
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To get the current data retrieval policy for an account
  * ```javascript

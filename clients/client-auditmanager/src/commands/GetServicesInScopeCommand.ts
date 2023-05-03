@@ -44,6 +44,17 @@ export interface GetServicesInScopeCommandOutput extends GetServicesInScopeRespo
  * const input = {};
  * const command = new GetServicesInScopeCommand(input);
  * const response = await client.send(command);
+ * // { // GetServicesInScopeResponse
+ * //   serviceMetadata: [ // ServiceMetadataList
+ * //     { // ServiceMetadata
+ * //       name: "STRING_VALUE",
+ * //       displayName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       category: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetServicesInScopeCommandInput - {@link GetServicesInScopeCommandInput}
@@ -63,6 +74,8 @@ export interface GetServicesInScopeCommandOutput extends GetServicesInScopeRespo
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetServicesInScopeCommand extends $Command<

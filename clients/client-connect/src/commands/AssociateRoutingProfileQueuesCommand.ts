@@ -58,6 +58,8 @@ export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBe
  * };
  * const command = new AssociateRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AssociateRoutingProfileQueuesCommandInput - {@link AssociateRoutingProfileQueuesCommandInput}
@@ -81,6 +83,8 @@ export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBe
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class AssociateRoutingProfileQueuesCommand extends $Command<

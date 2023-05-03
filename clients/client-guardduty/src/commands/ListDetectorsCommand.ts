@@ -45,6 +45,13 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  * };
  * const command = new ListDetectorsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDetectorsResponse
+ * //   DetectorIds: [ // DetectorIds // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDetectorsCommandInput - {@link ListDetectorsCommandInput}
@@ -59,6 +66,8 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListDetectorsCommand extends $Command<

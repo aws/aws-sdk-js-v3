@@ -46,6 +46,26 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * };
  * const command = new ListDataSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDataSetsResponse
+ * //   DataSets: [ // ListOfDataSetEntry
+ * //     { // DataSetEntry
+ * //       Arn: "STRING_VALUE", // required
+ * //       AssetType: "STRING_VALUE", // required
+ * //       CreatedAt: new Date("TIMESTAMP"), // required
+ * //       Description: "STRING_VALUE", // required
+ * //       Id: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       Origin: "STRING_VALUE", // required
+ * //       OriginDetails: { // OriginDetails
+ * //         ProductId: "STRING_VALUE", // required
+ * //       },
+ * //       SourceId: "STRING_VALUE",
+ * //       UpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDataSetsCommandInput - {@link ListDataSetsCommandInput}
@@ -66,6 +86,8 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class ListDataSetsCommand extends $Command<

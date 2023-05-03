@@ -186,6 +186,24 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  * };
  * const command = new AssumeRoleWithWebIdentityCommand(input);
  * const response = await client.send(command);
+ * // { // AssumeRoleWithWebIdentityResponse
+ * //   Credentials: { // Credentials
+ * //     AccessKeyId: "STRING_VALUE", // required
+ * //     SecretAccessKey: "STRING_VALUE", // required
+ * //     SessionToken: "STRING_VALUE", // required
+ * //     Expiration: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   SubjectFromWebIdentityToken: "STRING_VALUE",
+ * //   AssumedRoleUser: { // AssumedRoleUser
+ * //     AssumedRoleId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //   },
+ * //   PackedPolicySize: Number("int"),
+ * //   Provider: "STRING_VALUE",
+ * //   Audience: "STRING_VALUE",
+ * //   SourceIdentity: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AssumeRoleWithWebIdentityCommandInput - {@link AssumeRoleWithWebIdentityCommandInput}
@@ -237,6 +255,8 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
  *                     Guide</i>.</p>
  *
+ * @throws {@link STSServiceException}
+ * <p>Base exception class for all service exceptions from STS service.</p>
  *
  * @example To assume a role as an OpenID Connect-federated user
  * ```javascript

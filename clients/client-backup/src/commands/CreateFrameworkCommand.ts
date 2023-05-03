@@ -74,6 +74,11 @@ export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __M
  * };
  * const command = new CreateFrameworkCommand(input);
  * const response = await client.send(command);
+ * // { // CreateFrameworkOutput
+ * //   FrameworkName: "STRING_VALUE",
+ * //   FrameworkArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateFrameworkCommandInput - {@link CreateFrameworkCommandInput}
@@ -99,6 +104,8 @@ export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class CreateFrameworkCommand extends $Command<

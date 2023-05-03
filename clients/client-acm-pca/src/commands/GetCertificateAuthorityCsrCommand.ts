@@ -48,6 +48,10 @@ export interface GetCertificateAuthorityCsrCommandOutput extends GetCertificateA
  * };
  * const command = new GetCertificateAuthorityCsrCommand(input);
  * const response = await client.send(command);
+ * // { // GetCertificateAuthorityCsrResponse
+ * //   Csr: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetCertificateAuthorityCsrCommandInput - {@link GetCertificateAuthorityCsrCommandInput}
@@ -73,6 +77,8 @@ export interface GetCertificateAuthorityCsrCommandOutput extends GetCertificateA
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class GetCertificateAuthorityCsrCommand extends $Command<

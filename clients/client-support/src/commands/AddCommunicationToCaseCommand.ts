@@ -67,6 +67,10 @@ export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToC
  * };
  * const command = new AddCommunicationToCaseCommand(input);
  * const response = await client.send(command);
+ * // { // AddCommunicationToCaseResponse
+ * //   result: true || false,
+ * // };
+ *
  * ```
  *
  * @param AddCommunicationToCaseCommandInput - {@link AddCommunicationToCaseCommandInput}
@@ -88,6 +92,8 @@ export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToC
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class AddCommunicationToCaseCommand extends $Command<

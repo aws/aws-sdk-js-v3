@@ -45,6 +45,16 @@ export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreC
  * };
  * const command = new ListSkillsStoreCategoriesCommand(input);
  * const response = await client.send(command);
+ * // { // ListSkillsStoreCategoriesResponse
+ * //   CategoryList: [ // CategoryList
+ * //     { // Category
+ * //       CategoryId: Number("long"),
+ * //       CategoryName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSkillsStoreCategoriesCommandInput - {@link ListSkillsStoreCategoriesCommandInput}
@@ -53,6 +63,8 @@ export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreC
  * @see {@link ListSkillsStoreCategoriesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ListSkillsStoreCategoriesCommand extends $Command<

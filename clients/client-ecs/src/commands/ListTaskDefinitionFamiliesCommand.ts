@@ -53,6 +53,13 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * };
  * const command = new ListTaskDefinitionFamiliesCommand(input);
  * const response = await client.send(command);
+ * // { // ListTaskDefinitionFamiliesResponse
+ * //   families: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTaskDefinitionFamiliesCommandInput - {@link ListTaskDefinitionFamiliesCommandInput}
@@ -73,6 +80,8 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To list your registered task definition families
  * ```javascript

@@ -83,6 +83,15 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
  * };
  * const command = new AssociateVPCWithHostedZoneCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateVPCWithHostedZoneResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param AssociateVPCWithHostedZoneCommandInput - {@link AssociateVPCWithHostedZoneCommandInput}
@@ -148,6 +157,8 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
  *  <p>You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't
  * 			support associating a VPC with a public hosted zone.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  * @example To associate a VPC with a hosted zone
  * ```javascript

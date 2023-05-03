@@ -62,6 +62,8 @@ export interface UpdateDevEndpointCommandOutput extends UpdateDevEndpointRespons
  * };
  * const command = new UpdateDevEndpointCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateDevEndpointCommandInput - {@link UpdateDevEndpointCommandInput}
@@ -85,6 +87,8 @@ export interface UpdateDevEndpointCommandOutput extends UpdateDevEndpointRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>A value could not be validated.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateDevEndpointCommand extends $Command<

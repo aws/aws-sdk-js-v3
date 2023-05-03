@@ -64,6 +64,12 @@ export interface GetConfigurationCommandOutput extends Configuration, __Metadata
  * };
  * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // Configuration
+ * //   Content: "BLOB_VALUE",
+ * //   ConfigurationVersion: "STRING_VALUE",
+ * //   ContentType: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetConfigurationCommandInput - {@link GetConfigurationCommandInput}
@@ -81,6 +87,8 @@ export interface GetConfigurationCommandOutput extends Configuration, __Metadata
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To retrieve configuration details
  * ```javascript

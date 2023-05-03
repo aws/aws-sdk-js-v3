@@ -52,6 +52,13 @@ export interface ListFunctionsByCodeSigningConfigCommandOutput
  * };
  * const command = new ListFunctionsByCodeSigningConfigCommand(input);
  * const response = await client.send(command);
+ * // { // ListFunctionsByCodeSigningConfigResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   FunctionArns: [ // FunctionArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListFunctionsByCodeSigningConfigCommandInput - {@link ListFunctionsByCodeSigningConfigCommandInput}
@@ -69,6 +76,8 @@ export interface ListFunctionsByCodeSigningConfigCommandOutput
  * @throws {@link ServiceException} (server fault)
  *  <p>The Lambda service encountered an internal error.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class ListFunctionsByCodeSigningConfigCommand extends $Command<

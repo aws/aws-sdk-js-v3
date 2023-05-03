@@ -131,6 +131,8 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  * };
  * const command = new UpdateCrawlerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateCrawlerCommandInput - {@link UpdateCrawlerCommandInput}
@@ -154,6 +156,8 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  * @throws {@link VersionMismatchException} (client fault)
  *  <p>There was a version conflict.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateCrawlerCommand extends $Command<

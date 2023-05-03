@@ -49,6 +49,22 @@ export interface BatchDisableStandardsCommandOutput extends BatchDisableStandard
  * };
  * const command = new BatchDisableStandardsCommand(input);
  * const response = await client.send(command);
+ * // { // BatchDisableStandardsResponse
+ * //   StandardsSubscriptions: [ // StandardsSubscriptions
+ * //     { // StandardsSubscription
+ * //       StandardsSubscriptionArn: "STRING_VALUE", // required
+ * //       StandardsArn: "STRING_VALUE", // required
+ * //       StandardsInput: { // StandardsInputParameterMap // required
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       StandardsStatus: "PENDING" || "READY" || "FAILED" || "DELETING" || "INCOMPLETE", // required
+ * //       StandardsStatusReason: { // StandardsStatusReason
+ * //         StatusReasonCode: "NO_AVAILABLE_CONFIGURATION_RECORDER" || "INTERNAL_ERROR", // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchDisableStandardsCommandInput - {@link BatchDisableStandardsCommandInput}
@@ -71,6 +87,8 @@ export interface BatchDisableStandardsCommandOutput extends BatchDisableStandard
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To disable one or more security standards
  * ```javascript

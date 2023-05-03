@@ -73,6 +73,10 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * };
  * const command = new GenerateRandomCommand(input);
  * const response = await client.send(command);
+ * // { // GenerateRandomResponse
+ * //   Plaintext: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GenerateRandomCommandInput - {@link GenerateRandomCommandInput}
@@ -133,6 +137,8 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To generate random data
  * ```javascript
@@ -147,7 +153,28 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  *   "Plaintext": "<binary data>"
  * }
  * *\/
- * // example id: to-generate-random-data-1479163645600
+ * // example id: to-generate-random-data-1
+ * ```
+ *
+ * @example To generate random data
+ * ```javascript
+ * // The following example includes the Recipient parameter with a signed attestation document from an AWS Nitro enclave. Instead of returning a plaintext (unencrypted) byte string, GenerateRandom returns the byte string encrypted by the public key from the enclave's attestation document.
+ * const input = {
+ *   "NumberOfBytes": 1024,
+ *   "Recipient": {
+ *     "AttestationDocument": "<attestation document>",
+ *     "KeyEncryptionAlgorithm": "RSAES_OAEP_SHA_256"
+ *   }
+ * };
+ * const command = new GenerateRandomCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CiphertextForRecipient": "<binary data>",
+ *   "Plaintext": ""
+ * }
+ * *\/
+ * // example id: to-generate-random-data-2
  * ```
  *
  * @example To generate random data

@@ -47,6 +47,13 @@ export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingRes
  * };
  * const command = new DescribeCodeBindingCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeCodeBindingResponse
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   LastModified: new Date("TIMESTAMP"),
+ * //   SchemaVersion: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeCodeBindingCommandInput - {@link DescribeCodeBindingCommandInput}
@@ -67,6 +74,8 @@ export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingRes
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class DescribeCodeBindingCommand extends $Command<

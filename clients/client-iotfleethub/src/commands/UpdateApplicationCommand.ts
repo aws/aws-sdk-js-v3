@@ -50,6 +50,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
@@ -73,6 +75,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTFleetHubServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetHub service.</p>
  *
  */
 export class UpdateApplicationCommand extends $Command<

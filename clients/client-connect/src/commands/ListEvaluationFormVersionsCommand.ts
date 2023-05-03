@@ -47,6 +47,23 @@ export interface ListEvaluationFormVersionsCommandOutput extends ListEvaluationF
  * };
  * const command = new ListEvaluationFormVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListEvaluationFormVersionsResponse
+ * //   EvaluationFormVersionSummaryList: [ // EvaluationFormVersionSummaryList // required
+ * //     { // EvaluationFormVersionSummary
+ * //       EvaluationFormArn: "STRING_VALUE", // required
+ * //       EvaluationFormId: "STRING_VALUE", // required
+ * //       EvaluationFormVersion: Number("int"), // required
+ * //       Locked: true || false, // required
+ * //       Status: "DRAFT" || "ACTIVE", // required
+ * //       CreatedTime: new Date("TIMESTAMP"), // required
+ * //       CreatedBy: "STRING_VALUE", // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       LastModifiedBy: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEvaluationFormVersionsCommandInput - {@link ListEvaluationFormVersionsCommandInput}
@@ -67,6 +84,8 @@ export interface ListEvaluationFormVersionsCommandOutput extends ListEvaluationF
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListEvaluationFormVersionsCommand extends $Command<

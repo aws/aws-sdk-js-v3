@@ -48,6 +48,8 @@ export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataB
  * };
  * const command = new DeleteNotificationSubscriptionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteNotificationSubscriptionCommandInput - {@link DeleteNotificationSubscriptionCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataB
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DeleteNotificationSubscriptionCommand extends $Command<

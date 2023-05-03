@@ -88,6 +88,8 @@ export interface StartDeliveryStreamEncryptionCommandOutput
  * };
  * const command = new StartDeliveryStreamEncryptionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartDeliveryStreamEncryptionCommandInput - {@link StartDeliveryStreamEncryptionCommandInput}
@@ -115,6 +117,8 @@ export interface StartDeliveryStreamEncryptionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class StartDeliveryStreamEncryptionCommand extends $Command<

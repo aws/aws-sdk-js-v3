@@ -47,6 +47,16 @@ export interface GetMethodResponseCommandOutput extends MethodResponse, __Metada
  * };
  * const command = new GetMethodResponseCommand(input);
  * const response = await client.send(command);
+ * // { // MethodResponse
+ * //   statusCode: "STRING_VALUE",
+ * //   responseParameters: { // MapOfStringToBoolean
+ * //     "<keys>": true || false,
+ * //   },
+ * //   responseModels: { // MapOfStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetMethodResponseCommandInput - {@link GetMethodResponseCommandInput}
@@ -64,6 +74,8 @@ export interface GetMethodResponseCommandOutput extends MethodResponse, __Metada
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetMethodResponseCommand extends $Command<

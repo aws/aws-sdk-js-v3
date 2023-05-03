@@ -53,6 +53,19 @@ export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse,
  * };
  * const command = new ListContactFlowsCommand(input);
  * const response = await client.send(command);
+ * // { // ListContactFlowsResponse
+ * //   ContactFlowSummaryList: [ // ContactFlowSummaryList
+ * //     { // ContactFlowSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       ContactFlowType: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER",
+ * //       ContactFlowState: "ACTIVE" || "ARCHIVED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListContactFlowsCommandInput - {@link ListContactFlowsCommandInput}
@@ -76,6 +89,8 @@ export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListContactFlowsCommand extends $Command<

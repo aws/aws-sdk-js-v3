@@ -151,6 +151,14 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  * };
  * const command = new ReEncryptCommand(input);
  * const response = await client.send(command);
+ * // { // ReEncryptResponse
+ * //   CiphertextBlob: "BLOB_VALUE",
+ * //   SourceKeyId: "STRING_VALUE",
+ * //   KeyId: "STRING_VALUE",
+ * //   SourceEncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ * //   DestinationEncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ * // };
+ *
  * ```
  *
  * @param ReEncryptCommandInput - {@link ReEncryptCommandInput}
@@ -234,6 +242,8 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To reencrypt data
  * ```javascript

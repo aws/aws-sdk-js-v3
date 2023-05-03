@@ -45,6 +45,15 @@ export interface AssociateApiCommandOutput extends AssociateApiResponse, __Metad
  * };
  * const command = new AssociateApiCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateApiResponse
+ * //   apiAssociation: { // ApiAssociation
+ * //     domainName: "STRING_VALUE",
+ * //     apiId: "STRING_VALUE",
+ * //     associationStatus: "PROCESSING" || "FAILED" || "SUCCESS",
+ * //     deploymentDetail: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param AssociateApiCommandInput - {@link AssociateApiCommandInput}
@@ -66,6 +75,8 @@ export interface AssociateApiCommandOutput extends AssociateApiResponse, __Metad
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class AssociateApiCommand extends $Command<

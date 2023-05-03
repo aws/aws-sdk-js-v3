@@ -44,6 +44,8 @@ export interface StopEdgePackagingJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopEdgePackagingJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopEdgePackagingJobCommandInput - {@link StopEdgePackagingJobCommandInput}
@@ -52,6 +54,8 @@ export interface StopEdgePackagingJobCommandOutput extends __MetadataBearer {}
  * @see {@link StopEdgePackagingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StopEdgePackagingJobCommand extends $Command<

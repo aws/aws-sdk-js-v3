@@ -49,6 +49,10 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * };
  * const command = new DeleteReportDefinitionCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteReportDefinitionResult
+ * //   reportId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteReportDefinitionCommandInput - {@link DeleteReportDefinitionCommandInput}
@@ -69,6 +73,8 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints for the API.</p>
  *
+ * @throws {@link ApplicationCostProfilerServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
  */
 export class DeleteReportDefinitionCommand extends $Command<

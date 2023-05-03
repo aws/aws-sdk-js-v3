@@ -45,6 +45,35 @@ export interface GetAnomalyGroupCommandOutput extends GetAnomalyGroupResponse, _
  * };
  * const command = new GetAnomalyGroupCommand(input);
  * const response = await client.send(command);
+ * // { // GetAnomalyGroupResponse
+ * //   AnomalyGroup: { // AnomalyGroup
+ * //     StartTime: "STRING_VALUE",
+ * //     EndTime: "STRING_VALUE",
+ * //     AnomalyGroupId: "STRING_VALUE",
+ * //     AnomalyGroupScore: Number("double"),
+ * //     PrimaryMetricName: "STRING_VALUE",
+ * //     MetricLevelImpactList: [ // MetricLevelImpactList
+ * //       { // MetricLevelImpact
+ * //         MetricName: "STRING_VALUE",
+ * //         NumTimeSeries: Number("int"),
+ * //         ContributionMatrix: { // ContributionMatrix
+ * //           DimensionContributionList: [ // DimensionContributionList
+ * //             { // DimensionContribution
+ * //               DimensionName: "STRING_VALUE",
+ * //               DimensionValueContributionList: [ // DimensionValueContributionList
+ * //                 { // DimensionValueContribution
+ * //                   DimensionValue: "STRING_VALUE",
+ * //                   ContributionScore: Number("double"),
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetAnomalyGroupCommandInput - {@link GetAnomalyGroupCommandInput}
@@ -69,6 +98,8 @@ export interface GetAnomalyGroupCommandOutput extends GetAnomalyGroupResponse, _
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class GetAnomalyGroupCommand extends $Command<

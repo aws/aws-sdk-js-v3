@@ -47,6 +47,12 @@ export interface UpdateGeofenceCollectionCommandOutput extends UpdateGeofenceCol
  * };
  * const command = new UpdateGeofenceCollectionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateGeofenceCollectionResponse
+ * //   CollectionName: "STRING_VALUE", // required
+ * //   CollectionArn: "STRING_VALUE", // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param UpdateGeofenceCollectionCommandInput - {@link UpdateGeofenceCollectionCommandInput}
@@ -71,6 +77,8 @@ export interface UpdateGeofenceCollectionCommandOutput extends UpdateGeofenceCol
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class UpdateGeofenceCollectionCommand extends $Command<

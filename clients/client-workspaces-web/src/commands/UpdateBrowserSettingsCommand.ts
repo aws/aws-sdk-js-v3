@@ -51,6 +51,16 @@ export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSetting
  * };
  * const command = new UpdateBrowserSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateBrowserSettingsResponse
+ * //   browserSettings: { // BrowserSettings
+ * //     browserSettingsArn: "STRING_VALUE", // required
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     browserPolicy: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateBrowserSettingsCommandInput - {@link UpdateBrowserSettingsCommandInput}
@@ -74,6 +84,8 @@ export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSetting
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class UpdateBrowserSettingsCommand extends $Command<

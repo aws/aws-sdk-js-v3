@@ -46,6 +46,15 @@ export interface UpdateDeploymentCommandOutput extends UpdateDeploymentResponse,
  * };
  * const command = new UpdateDeploymentCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateDeploymentResponse
+ * //   AutoDeployed: true || false,
+ * //   CreatedDate: new Date("TIMESTAMP"),
+ * //   DeploymentId: "STRING_VALUE",
+ * //   DeploymentStatus: "STRING_VALUE",
+ * //   DeploymentStatusMessage: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateDeploymentCommandInput - {@link UpdateDeploymentCommandInput}
@@ -66,6 +75,8 @@ export interface UpdateDeploymentCommandOutput extends UpdateDeploymentResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class UpdateDeploymentCommand extends $Command<

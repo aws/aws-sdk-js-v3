@@ -66,6 +66,8 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  * };
  * const command = new PutDeliverabilityDashboardOptionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutDeliverabilityDashboardOptionCommandInput - {@link PutDeliverabilityDashboardOptionCommandInput}
@@ -89,6 +91,8 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutDeliverabilityDashboardOptionCommand extends $Command<

@@ -78,6 +78,12 @@ export interface GetRoutingControlStateCommandOutput extends GetRoutingControlSt
  * };
  * const command = new GetRoutingControlStateCommand(input);
  * const response = await client.send(command);
+ * // { // GetRoutingControlStateResponse
+ * //   RoutingControlArn: "STRING_VALUE", // required
+ * //   RoutingControlState: "STRING_VALUE", // required
+ * //   RoutingControlName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetRoutingControlStateCommandInput - {@link GetRoutingControlStateCommandInput}
@@ -104,6 +110,8 @@ export interface GetRoutingControlStateCommandOutput extends GetRoutingControlSt
  * @throws {@link ValidationException} (client fault)
  *  <p>There was a validation error on the request.</p>
  *
+ * @throws {@link Route53RecoveryClusterServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryCluster service.</p>
  *
  */
 export class GetRoutingControlStateCommand extends $Command<

@@ -57,6 +57,191 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * };
  * const command = new GetExecutionHistoryCommand(input);
  * const response = await client.send(command);
+ * // { // GetExecutionHistoryOutput
+ * //   events: [ // HistoryEventList // required
+ * //     { // HistoryEvent
+ * //       timestamp: new Date("TIMESTAMP"), // required
+ * //       type: "ActivityFailed" || "ActivityScheduled" || "ActivityScheduleFailed" || "ActivityStarted" || "ActivitySucceeded" || "ActivityTimedOut" || "ChoiceStateEntered" || "ChoiceStateExited" || "ExecutionAborted" || "ExecutionFailed" || "ExecutionStarted" || "ExecutionSucceeded" || "ExecutionTimedOut" || "FailStateEntered" || "LambdaFunctionFailed" || "LambdaFunctionScheduled" || "LambdaFunctionScheduleFailed" || "LambdaFunctionStarted" || "LambdaFunctionStartFailed" || "LambdaFunctionSucceeded" || "LambdaFunctionTimedOut" || "MapIterationAborted" || "MapIterationFailed" || "MapIterationStarted" || "MapIterationSucceeded" || "MapStateAborted" || "MapStateEntered" || "MapStateExited" || "MapStateFailed" || "MapStateStarted" || "MapStateSucceeded" || "ParallelStateAborted" || "ParallelStateEntered" || "ParallelStateExited" || "ParallelStateFailed" || "ParallelStateStarted" || "ParallelStateSucceeded" || "PassStateEntered" || "PassStateExited" || "SucceedStateEntered" || "SucceedStateExited" || "TaskFailed" || "TaskScheduled" || "TaskStarted" || "TaskStartFailed" || "TaskStateAborted" || "TaskStateEntered" || "TaskStateExited" || "TaskSubmitFailed" || "TaskSubmitted" || "TaskSucceeded" || "TaskTimedOut" || "WaitStateAborted" || "WaitStateEntered" || "WaitStateExited" || "MapRunAborted" || "MapRunFailed" || "MapRunStarted" || "MapRunSucceeded", // required
+ * //       id: Number("long"), // required
+ * //       previousEventId: Number("long"),
+ * //       activityFailedEventDetails: { // ActivityFailedEventDetails
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //       activityScheduleFailedEventDetails: { // ActivityScheduleFailedEventDetails
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //       activityScheduledEventDetails: { // ActivityScheduledEventDetails
+ * //         resource: "STRING_VALUE", // required
+ * //         input: "STRING_VALUE",
+ * //         inputDetails: { // HistoryEventExecutionDataDetails
+ * //           truncated: true || false,
+ * //         },
+ * //         timeoutInSeconds: Number("long"),
+ * //         heartbeatInSeconds: Number("long"),
+ * //       },
+ * //       activityStartedEventDetails: { // ActivityStartedEventDetails
+ * //         workerName: "STRING_VALUE",
+ * //       },
+ * //       activitySucceededEventDetails: { // ActivitySucceededEventDetails
+ * //         output: "STRING_VALUE",
+ * //         outputDetails: {
+ * //           truncated: true || false,
+ * //         },
+ * //       },
+ * //       activityTimedOutEventDetails: { // ActivityTimedOutEventDetails
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //       taskFailedEventDetails: { // TaskFailedEventDetails
+ * //         resourceType: "STRING_VALUE", // required
+ * //         resource: "STRING_VALUE", // required
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //       taskScheduledEventDetails: { // TaskScheduledEventDetails
+ * //         resourceType: "STRING_VALUE", // required
+ * //         resource: "STRING_VALUE", // required
+ * //         region: "STRING_VALUE", // required
+ * //         parameters: "STRING_VALUE", // required
+ * //         timeoutInSeconds: Number("long"),
+ * //         heartbeatInSeconds: Number("long"),
+ * //         taskCredentials: { // TaskCredentials
+ * //           roleArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       taskStartFailedEventDetails: { // TaskStartFailedEventDetails
+ * //         resourceType: "STRING_VALUE", // required
+ * //         resource: "STRING_VALUE", // required
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //       taskStartedEventDetails: { // TaskStartedEventDetails
+ * //         resourceType: "STRING_VALUE", // required
+ * //         resource: "STRING_VALUE", // required
+ * //       },
+ * //       taskSubmitFailedEventDetails: { // TaskSubmitFailedEventDetails
+ * //         resourceType: "STRING_VALUE", // required
+ * //         resource: "STRING_VALUE", // required
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //       taskSubmittedEventDetails: { // TaskSubmittedEventDetails
+ * //         resourceType: "STRING_VALUE", // required
+ * //         resource: "STRING_VALUE", // required
+ * //         output: "STRING_VALUE",
+ * //         outputDetails: {
+ * //           truncated: true || false,
+ * //         },
+ * //       },
+ * //       taskSucceededEventDetails: { // TaskSucceededEventDetails
+ * //         resourceType: "STRING_VALUE", // required
+ * //         resource: "STRING_VALUE", // required
+ * //         output: "STRING_VALUE",
+ * //         outputDetails: {
+ * //           truncated: true || false,
+ * //         },
+ * //       },
+ * //       taskTimedOutEventDetails: { // TaskTimedOutEventDetails
+ * //         resourceType: "STRING_VALUE", // required
+ * //         resource: "STRING_VALUE", // required
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //       executionFailedEventDetails: { // ExecutionFailedEventDetails
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //       executionStartedEventDetails: { // ExecutionStartedEventDetails
+ * //         input: "STRING_VALUE",
+ * //         inputDetails: {
+ * //           truncated: true || false,
+ * //         },
+ * //         roleArn: "STRING_VALUE",
+ * //       },
+ * //       executionSucceededEventDetails: { // ExecutionSucceededEventDetails
+ * //         output: "STRING_VALUE",
+ * //         outputDetails: "<HistoryEventExecutionDataDetails>",
+ * //       },
+ * //       executionAbortedEventDetails: { // ExecutionAbortedEventDetails
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //       executionTimedOutEventDetails: { // ExecutionTimedOutEventDetails
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //       mapStateStartedEventDetails: { // MapStateStartedEventDetails
+ * //         length: Number("int"),
+ * //       },
+ * //       mapIterationStartedEventDetails: { // MapIterationEventDetails
+ * //         name: "STRING_VALUE",
+ * //         index: Number("int"),
+ * //       },
+ * //       mapIterationSucceededEventDetails: {
+ * //         name: "STRING_VALUE",
+ * //         index: Number("int"),
+ * //       },
+ * //       mapIterationFailedEventDetails: {
+ * //         name: "STRING_VALUE",
+ * //         index: Number("int"),
+ * //       },
+ * //       mapIterationAbortedEventDetails: {
+ * //         name: "STRING_VALUE",
+ * //         index: Number("int"),
+ * //       },
+ * //       lambdaFunctionFailedEventDetails: { // LambdaFunctionFailedEventDetails
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //       lambdaFunctionScheduleFailedEventDetails: { // LambdaFunctionScheduleFailedEventDetails
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //       lambdaFunctionScheduledEventDetails: { // LambdaFunctionScheduledEventDetails
+ * //         resource: "STRING_VALUE", // required
+ * //         input: "STRING_VALUE",
+ * //         inputDetails: "<HistoryEventExecutionDataDetails>",
+ * //         timeoutInSeconds: Number("long"),
+ * //         taskCredentials: {
+ * //           roleArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       lambdaFunctionStartFailedEventDetails: { // LambdaFunctionStartFailedEventDetails
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //       lambdaFunctionSucceededEventDetails: { // LambdaFunctionSucceededEventDetails
+ * //         output: "STRING_VALUE",
+ * //         outputDetails: "<HistoryEventExecutionDataDetails>",
+ * //       },
+ * //       lambdaFunctionTimedOutEventDetails: { // LambdaFunctionTimedOutEventDetails
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //       stateEnteredEventDetails: { // StateEnteredEventDetails
+ * //         name: "STRING_VALUE", // required
+ * //         input: "STRING_VALUE",
+ * //         inputDetails: "<HistoryEventExecutionDataDetails>",
+ * //       },
+ * //       stateExitedEventDetails: { // StateExitedEventDetails
+ * //         name: "STRING_VALUE", // required
+ * //         output: "STRING_VALUE",
+ * //         outputDetails: "<HistoryEventExecutionDataDetails>",
+ * //       },
+ * //       mapRunStartedEventDetails: { // MapRunStartedEventDetails
+ * //         mapRunArn: "STRING_VALUE",
+ * //       },
+ * //       mapRunFailedEventDetails: { // MapRunFailedEventDetails
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetExecutionHistoryCommandInput - {@link GetExecutionHistoryCommandInput}
@@ -74,6 +259,8 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * @throws {@link InvalidToken} (client fault)
  *  <p>The provided token is not valid.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class GetExecutionHistoryCommand extends $Command<

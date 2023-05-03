@@ -76,6 +76,8 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
  * };
  * const command = new UpdateDetectorCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateDetectorCommandInput - {@link UpdateDetectorCommandInput}
@@ -90,6 +92,8 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class UpdateDetectorCommand extends $Command<

@@ -52,6 +52,8 @@ export interface CreatePlacementCommandOutput extends CreatePlacementResponse, _
  * };
  * const command = new CreatePlacementCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreatePlacementCommandInput - {@link CreatePlacementCommandInput}
@@ -72,6 +74,8 @@ export interface CreatePlacementCommandOutput extends CreatePlacementResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class CreatePlacementCommand extends $Command<

@@ -70,6 +70,8 @@ export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataS
  * };
  * const command = new UpdateResourceDataSyncCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateResourceDataSyncCommandInput - {@link UpdateResourceDataSyncCommandInput}
@@ -91,6 +93,8 @@ export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataS
  * @throws {@link ResourceDataSyncNotFoundException} (client fault)
  *  <p>The specified sync name wasn't found.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateResourceDataSyncCommand extends $Command<

@@ -46,6 +46,8 @@ export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteRuleGroupsNamespaceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteRuleGroupsNamespaceCommandInput - {@link DeleteRuleGroupsNamespaceCommandInput}
@@ -72,6 +74,8 @@ export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class DeleteRuleGroupsNamespaceCommand extends $Command<

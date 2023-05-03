@@ -58,6 +58,17 @@ export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __Met
  * };
  * const command = new GetFolderPathCommand(input);
  * const response = await client.send(command);
+ * // { // GetFolderPathResponse
+ * //   Path: { // ResourcePath
+ * //     Components: [ // ResourcePathComponentList
+ * //       { // ResourcePathComponent
+ * //         Id: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetFolderPathCommandInput - {@link GetFolderPathCommandInput}
@@ -83,6 +94,8 @@ export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __Met
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class GetFolderPathCommand extends $Command<

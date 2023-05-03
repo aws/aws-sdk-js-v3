@@ -105,6 +105,10 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  * };
  * const command = new UpdateByteMatchSetCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateByteMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateByteMatchSetCommandInput - {@link UpdateByteMatchSetCommandInput}
@@ -211,6 +215,8 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To update a byte match set
  * ```javascript

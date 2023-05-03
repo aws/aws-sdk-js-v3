@@ -63,6 +63,10 @@ export interface CreateRestoreImageTaskCommandOutput extends CreateRestoreImageT
  * };
  * const command = new CreateRestoreImageTaskCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRestoreImageTaskResult
+ * //   ImageId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateRestoreImageTaskCommandInput - {@link CreateRestoreImageTaskCommandInput}
@@ -71,6 +75,8 @@ export interface CreateRestoreImageTaskCommandOutput extends CreateRestoreImageT
  * @see {@link CreateRestoreImageTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateRestoreImageTaskCommand extends $Command<

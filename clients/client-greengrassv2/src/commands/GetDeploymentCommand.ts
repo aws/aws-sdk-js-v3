@@ -44,6 +44,77 @@ export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __Met
  * };
  * const command = new GetDeploymentCommand(input);
  * const response = await client.send(command);
+ * // { // GetDeploymentResponse
+ * //   targetArn: "STRING_VALUE",
+ * //   revisionId: "STRING_VALUE",
+ * //   deploymentId: "STRING_VALUE",
+ * //   deploymentName: "STRING_VALUE",
+ * //   deploymentStatus: "ACTIVE" || "COMPLETED" || "CANCELED" || "FAILED" || "INACTIVE",
+ * //   iotJobId: "STRING_VALUE",
+ * //   iotJobArn: "STRING_VALUE",
+ * //   components: { // ComponentDeploymentSpecifications
+ * //     "<keys>": { // ComponentDeploymentSpecification
+ * //       componentVersion: "STRING_VALUE",
+ * //       configurationUpdate: { // ComponentConfigurationUpdate
+ * //         merge: "STRING_VALUE",
+ * //         reset: [ // ComponentConfigurationPathList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       runWith: { // ComponentRunWith
+ * //         posixUser: "STRING_VALUE",
+ * //         systemResourceLimits: { // SystemResourceLimits
+ * //           memory: Number("long"),
+ * //           cpus: Number("double"),
+ * //         },
+ * //         windowsUser: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   deploymentPolicies: { // DeploymentPolicies
+ * //     failureHandlingPolicy: "ROLLBACK" || "DO_NOTHING",
+ * //     componentUpdatePolicy: { // DeploymentComponentUpdatePolicy
+ * //       timeoutInSeconds: Number("int"),
+ * //       action: "NOTIFY_COMPONENTS" || "SKIP_NOTIFY_COMPONENTS",
+ * //     },
+ * //     configurationValidationPolicy: { // DeploymentConfigurationValidationPolicy
+ * //       timeoutInSeconds: Number("int"),
+ * //     },
+ * //   },
+ * //   iotJobConfiguration: { // DeploymentIoTJobConfiguration
+ * //     jobExecutionsRolloutConfig: { // IoTJobExecutionsRolloutConfig
+ * //       exponentialRate: { // IoTJobExponentialRolloutRate
+ * //         baseRatePerMinute: Number("int"), // required
+ * //         incrementFactor: Number("double"), // required
+ * //         rateIncreaseCriteria: { // IoTJobRateIncreaseCriteria
+ * //           numberOfNotifiedThings: Number("int"),
+ * //           numberOfSucceededThings: Number("int"),
+ * //         },
+ * //       },
+ * //       maximumPerMinute: Number("int"),
+ * //     },
+ * //     abortConfig: { // IoTJobAbortConfig
+ * //       criteriaList: [ // IoTJobAbortCriteriaList // required
+ * //         { // IoTJobAbortCriteria
+ * //           failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
+ * //           action: "CANCEL", // required
+ * //           thresholdPercentage: Number("double"), // required
+ * //           minNumberOfExecutedThings: Number("int"), // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     timeoutConfig: { // IoTJobTimeoutConfig
+ * //       inProgressTimeoutInMinutes: Number("long"),
+ * //     },
+ * //   },
+ * //   creationTimestamp: new Date("TIMESTAMP"),
+ * //   isLatestForTarget: true || false,
+ * //   parentTargetArn: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetDeploymentCommandInput - {@link GetDeploymentCommandInput}
@@ -69,6 +140,8 @@ export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __Met
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class GetDeploymentCommand extends $Command<

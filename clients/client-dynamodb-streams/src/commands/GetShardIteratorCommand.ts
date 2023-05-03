@@ -54,6 +54,10 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * };
  * const command = new GetShardIteratorCommand(input);
  * const response = await client.send(command);
+ * // { // GetShardIteratorOutput
+ * //   ShardIterator: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetShardIteratorCommandInput - {@link GetShardIteratorCommandInput}
@@ -84,6 +88,8 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *             </li>
  *          </ul>
  *
+ * @throws {@link DynamoDBStreamsServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
  * @example To obtain a shard iterator for the provided stream ARN and shard ID
  * ```javascript

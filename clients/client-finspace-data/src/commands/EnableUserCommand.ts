@@ -45,6 +45,10 @@ export interface EnableUserCommandOutput extends EnableUserResponse, __MetadataB
  * };
  * const command = new EnableUserCommand(input);
  * const response = await client.send(command);
+ * // { // EnableUserResponse
+ * //   userId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param EnableUserCommandInput - {@link EnableUserCommandInput}
@@ -75,6 +79,8 @@ export interface EnableUserCommandOutput extends EnableUserResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class EnableUserCommand extends $Command<

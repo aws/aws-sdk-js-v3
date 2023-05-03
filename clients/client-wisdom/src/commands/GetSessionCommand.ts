@@ -45,6 +45,18 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * };
  * const command = new GetSessionCommand(input);
  * const response = await client.send(command);
+ * // { // GetSessionResponse
+ * //   session: { // SessionData
+ * //     sessionArn: "STRING_VALUE", // required
+ * //     sessionId: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSessionCommandInput - {@link GetSessionCommandInput}
@@ -62,6 +74,8 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class GetSessionCommand extends $Command<

@@ -46,6 +46,68 @@ export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput,
  * };
  * const command = new GetQueryExecutionCommand(input);
  * const response = await client.send(command);
+ * // { // GetQueryExecutionOutput
+ * //   QueryExecution: { // QueryExecution
+ * //     QueryExecutionId: "STRING_VALUE",
+ * //     Query: "STRING_VALUE",
+ * //     StatementType: "DDL" || "DML" || "UTILITY",
+ * //     ResultConfiguration: { // ResultConfiguration
+ * //       OutputLocation: "STRING_VALUE",
+ * //       EncryptionConfiguration: { // EncryptionConfiguration
+ * //         EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
+ * //         KmsKey: "STRING_VALUE",
+ * //       },
+ * //       ExpectedBucketOwner: "STRING_VALUE",
+ * //       AclConfiguration: { // AclConfiguration
+ * //         S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
+ * //       },
+ * //     },
+ * //     ResultReuseConfiguration: { // ResultReuseConfiguration
+ * //       ResultReuseByAgeConfiguration: { // ResultReuseByAgeConfiguration
+ * //         Enabled: true || false, // required
+ * //         MaxAgeInMinutes: Number("int"),
+ * //       },
+ * //     },
+ * //     QueryExecutionContext: { // QueryExecutionContext
+ * //       Database: "STRING_VALUE",
+ * //       Catalog: "STRING_VALUE",
+ * //     },
+ * //     Status: { // QueryExecutionStatus
+ * //       State: "QUEUED" || "RUNNING" || "SUCCEEDED" || "FAILED" || "CANCELLED",
+ * //       StateChangeReason: "STRING_VALUE",
+ * //       SubmissionDateTime: new Date("TIMESTAMP"),
+ * //       CompletionDateTime: new Date("TIMESTAMP"),
+ * //       AthenaError: { // AthenaError
+ * //         ErrorCategory: Number("int"),
+ * //         ErrorType: Number("int"),
+ * //         Retryable: true || false,
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     Statistics: { // QueryExecutionStatistics
+ * //       EngineExecutionTimeInMillis: Number("long"),
+ * //       DataScannedInBytes: Number("long"),
+ * //       DataManifestLocation: "STRING_VALUE",
+ * //       TotalExecutionTimeInMillis: Number("long"),
+ * //       QueryQueueTimeInMillis: Number("long"),
+ * //       QueryPlanningTimeInMillis: Number("long"),
+ * //       ServiceProcessingTimeInMillis: Number("long"),
+ * //       ResultReuseInformation: { // ResultReuseInformation
+ * //         ReusedPreviousResult: true || false, // required
+ * //       },
+ * //     },
+ * //     WorkGroup: "STRING_VALUE",
+ * //     EngineVersion: { // EngineVersion
+ * //       SelectedEngineVersion: "STRING_VALUE",
+ * //       EffectiveEngineVersion: "STRING_VALUE",
+ * //     },
+ * //     ExecutionParameters: [ // ExecutionParameters
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SubstatementType: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetQueryExecutionCommandInput - {@link GetQueryExecutionCommandInput}
@@ -62,6 +124,8 @@ export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput,
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetQueryExecutionCommand extends $Command<

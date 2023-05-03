@@ -50,6 +50,8 @@ export interface DeleteConfiguredTableAssociationCommandOutput
  * };
  * const command = new DeleteConfiguredTableAssociationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteConfiguredTableAssociationCommandInput - {@link DeleteConfiguredTableAssociationCommandInput}
@@ -76,6 +78,8 @@ export interface DeleteConfiguredTableAssociationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class DeleteConfiguredTableAssociationCommand extends $Command<

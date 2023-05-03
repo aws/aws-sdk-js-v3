@@ -50,6 +50,13 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  * };
  * const command = new ListAssessmentTargetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAssessmentTargetsResponse
+ * //   assessmentTargetArns: [ // ListReturnedArnList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAssessmentTargetsCommandInput - {@link ListAssessmentTargetsCommandInput}
@@ -68,6 +75,8 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example List assessment targets
  * ```javascript

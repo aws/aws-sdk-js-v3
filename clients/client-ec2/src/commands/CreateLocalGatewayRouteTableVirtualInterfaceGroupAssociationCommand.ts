@@ -68,6 +68,24 @@ export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
  * };
  * const command = new CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
+ * //   LocalGatewayRouteTableVirtualInterfaceGroupAssociation: { // LocalGatewayRouteTableVirtualInterfaceGroupAssociation
+ * //     LocalGatewayRouteTableVirtualInterfaceGroupAssociationId: "STRING_VALUE",
+ * //     LocalGatewayVirtualInterfaceGroupId: "STRING_VALUE",
+ * //     LocalGatewayId: "STRING_VALUE",
+ * //     LocalGatewayRouteTableId: "STRING_VALUE",
+ * //     LocalGatewayRouteTableArn: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     State: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput - {@link CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput}
@@ -76,6 +94,8 @@ export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
  * @see {@link CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand extends $Command<

@@ -49,6 +49,15 @@ export interface GetThingRuntimeConfigurationCommandOutput
  * };
  * const command = new GetThingRuntimeConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // GetThingRuntimeConfigurationResponse
+ * //   RuntimeConfiguration: { // RuntimeConfiguration
+ * //     TelemetryConfiguration: { // TelemetryConfiguration
+ * //       ConfigurationSyncStatus: "InSync" || "OutOfSync",
+ * //       Telemetry: "On" || "Off", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetThingRuntimeConfigurationCommandInput - {@link GetThingRuntimeConfigurationCommandInput}
@@ -63,6 +72,8 @@ export interface GetThingRuntimeConfigurationCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetThingRuntimeConfigurationCommand extends $Command<

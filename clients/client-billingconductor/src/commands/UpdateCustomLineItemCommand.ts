@@ -65,6 +65,24 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  * };
  * const command = new UpdateCustomLineItemCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateCustomLineItemOutput
+ * //   Arn: "STRING_VALUE",
+ * //   BillingGroupArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   ChargeDetails: { // ListCustomLineItemChargeDetails
+ * //     Flat: { // ListCustomLineItemFlatChargeDetails
+ * //       ChargeValue: Number("double"), // required
+ * //     },
+ * //     Percentage: { // ListCustomLineItemPercentageChargeDetails
+ * //       PercentageValue: Number("double"), // required
+ * //     },
+ * //     Type: "STRING_VALUE", // required
+ * //   },
+ * //   LastModifiedTime: Number("long"),
+ * //   AssociationSize: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param UpdateCustomLineItemCommandInput - {@link UpdateCustomLineItemCommandInput}
@@ -92,6 +110,8 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class UpdateCustomLineItemCommand extends $Command<

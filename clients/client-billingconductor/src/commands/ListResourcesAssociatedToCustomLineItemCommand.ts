@@ -61,6 +61,18 @@ export interface ListResourcesAssociatedToCustomLineItemCommandOutput
  * };
  * const command = new ListResourcesAssociatedToCustomLineItemCommand(input);
  * const response = await client.send(command);
+ * // { // ListResourcesAssociatedToCustomLineItemOutput
+ * //   Arn: "STRING_VALUE",
+ * //   AssociatedResources: [ // ListResourcesAssociatedToCustomLineItemResponseList
+ * //     { // ListResourcesAssociatedToCustomLineItemResponseElement
+ * //       Arn: "STRING_VALUE",
+ * //       Relationship: "STRING_VALUE",
+ * //       EndBillingPeriod: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListResourcesAssociatedToCustomLineItemCommandInput - {@link ListResourcesAssociatedToCustomLineItemCommandInput}
@@ -88,6 +100,8 @@ export interface ListResourcesAssociatedToCustomLineItemCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class ListResourcesAssociatedToCustomLineItemCommand extends $Command<

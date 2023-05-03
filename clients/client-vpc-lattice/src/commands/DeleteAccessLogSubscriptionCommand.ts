@@ -49,6 +49,8 @@ export interface DeleteAccessLogSubscriptionCommandOutput
  * };
  * const command = new DeleteAccessLogSubscriptionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAccessLogSubscriptionCommandInput - {@link DeleteAccessLogSubscriptionCommandInput}
@@ -73,6 +75,8 @@ export interface DeleteAccessLogSubscriptionCommandOutput
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class DeleteAccessLogSubscriptionCommand extends $Command<

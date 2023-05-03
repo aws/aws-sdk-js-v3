@@ -49,6 +49,17 @@ export interface DisassociateResolverRuleCommandOutput extends DisassociateResol
  * };
  * const command = new DisassociateResolverRuleCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateResolverRuleResponse
+ * //   ResolverRuleAssociation: { // ResolverRuleAssociation
+ * //     Id: "STRING_VALUE",
+ * //     ResolverRuleId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     VPCId: "STRING_VALUE",
+ * //     Status: "CREATING" || "COMPLETE" || "DELETING" || "FAILED" || "OVERRIDDEN",
+ * //     StatusMessage: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DisassociateResolverRuleCommandInput - {@link DisassociateResolverRuleCommandInput}
@@ -69,6 +80,8 @@ export interface DisassociateResolverRuleCommandOutput extends DisassociateResol
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class DisassociateResolverRuleCommand extends $Command<

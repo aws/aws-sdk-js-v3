@@ -44,6 +44,14 @@ export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportSta
  * };
  * const command = new GetCatalogImportStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetCatalogImportStatusResponse
+ * //   ImportStatus: { // CatalogImportStatus
+ * //     ImportCompleted: true || false,
+ * //     ImportTime: new Date("TIMESTAMP"),
+ * //     ImportedBy: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetCatalogImportStatusCommandInput - {@link GetCatalogImportStatusCommandInput}
@@ -58,6 +66,8 @@ export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportSta
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetCatalogImportStatusCommand extends $Command<

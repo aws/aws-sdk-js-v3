@@ -86,6 +86,15 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
  * };
  * const command = new DeleteHostedZoneCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteHostedZoneResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteHostedZoneCommandInput - {@link DeleteHostedZoneCommandInput}
@@ -113,6 +122,8 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
  * 			for the same request, we recommend that you wait, in intervals of increasing duration,
  * 			before you try the request again.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeleteHostedZoneCommand extends $Command<

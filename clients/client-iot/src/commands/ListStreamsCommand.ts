@@ -47,6 +47,18 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
+ * // { // ListStreamsResponse
+ * //   streams: [ // StreamsSummary
+ * //     { // StreamSummary
+ * //       streamId: "STRING_VALUE",
+ * //       streamArn: "STRING_VALUE",
+ * //       streamVersion: Number("int"),
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
@@ -70,6 +82,8 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListStreamsCommand extends $Command<

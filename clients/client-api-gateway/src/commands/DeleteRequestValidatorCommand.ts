@@ -45,6 +45,8 @@ export interface DeleteRequestValidatorCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRequestValidatorCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteRequestValidatorCommandInput - {@link DeleteRequestValidatorCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteRequestValidatorCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class DeleteRequestValidatorCommand extends $Command<

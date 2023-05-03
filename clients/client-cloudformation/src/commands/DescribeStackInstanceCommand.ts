@@ -48,6 +48,32 @@ export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanc
  * };
  * const command = new DescribeStackInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeStackInstanceOutput
+ * //   StackInstance: { // StackInstance
+ * //     StackSetId: "STRING_VALUE",
+ * //     Region: "STRING_VALUE",
+ * //     Account: "STRING_VALUE",
+ * //     StackId: "STRING_VALUE",
+ * //     ParameterOverrides: [ // Parameters
+ * //       { // Parameter
+ * //         ParameterKey: "STRING_VALUE",
+ * //         ParameterValue: "STRING_VALUE",
+ * //         UsePreviousValue: true || false,
+ * //         ResolvedValue: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Status: "CURRENT" || "OUTDATED" || "INOPERABLE",
+ * //     StackInstanceStatus: { // StackInstanceComprehensiveStatus
+ * //       DetailedStatus: "PENDING" || "RUNNING" || "SUCCEEDED" || "FAILED" || "CANCELLED" || "INOPERABLE",
+ * //     },
+ * //     StatusReason: "STRING_VALUE",
+ * //     OrganizationalUnitId: "STRING_VALUE",
+ * //     DriftStatus: "DRIFTED" || "IN_SYNC" || "UNKNOWN" || "NOT_CHECKED",
+ * //     LastDriftCheckTimestamp: new Date("TIMESTAMP"),
+ * //     LastOperationId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeStackInstanceCommandInput - {@link DescribeStackInstanceCommandInput}
@@ -62,6 +88,8 @@ export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanc
  * @throws {@link StackSetNotFoundException} (client fault)
  *  <p>The specified stack set doesn't exist.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DescribeStackInstanceCommand extends $Command<

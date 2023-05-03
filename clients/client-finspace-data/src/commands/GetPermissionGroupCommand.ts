@@ -48,6 +48,20 @@ export interface GetPermissionGroupCommandOutput extends GetPermissionGroupRespo
  * };
  * const command = new GetPermissionGroupCommand(input);
  * const response = await client.send(command);
+ * // { // GetPermissionGroupResponse
+ * //   permissionGroup: { // PermissionGroup
+ * //     permissionGroupId: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     applicationPermissions: [ // ApplicationPermissionList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     createTime: Number("long"),
+ * //     lastModifiedTime: Number("long"),
+ * //     membershipStatus: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetPermissionGroupCommandInput - {@link GetPermissionGroupCommandInput}
@@ -72,6 +86,8 @@ export interface GetPermissionGroupCommandOutput extends GetPermissionGroupRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class GetPermissionGroupCommand extends $Command<

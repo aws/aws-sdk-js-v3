@@ -48,6 +48,8 @@ export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteMediaPipelineCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteMediaPipelineCommandInput - {@link DeleteMediaPipelineCommandInput}
@@ -77,6 +79,8 @@ export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMediaPipelinesServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
 export class DeleteMediaPipelineCommand extends $Command<

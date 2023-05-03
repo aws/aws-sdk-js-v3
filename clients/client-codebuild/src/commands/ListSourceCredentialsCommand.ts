@@ -42,6 +42,16 @@ export interface ListSourceCredentialsCommandOutput extends ListSourceCredential
  * const input = {};
  * const command = new ListSourceCredentialsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSourceCredentialsOutput
+ * //   sourceCredentialsInfos: [ // SourceCredentialsInfos
+ * //     { // SourceCredentialsInfo
+ * //       arn: "STRING_VALUE",
+ * //       serverType: "STRING_VALUE",
+ * //       authType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListSourceCredentialsCommandInput - {@link ListSourceCredentialsCommandInput}
@@ -53,6 +63,8 @@ export interface ListSourceCredentialsCommandOutput extends ListSourceCredential
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListSourceCredentialsCommand extends $Command<

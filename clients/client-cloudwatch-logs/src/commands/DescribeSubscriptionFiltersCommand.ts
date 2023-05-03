@@ -50,6 +50,21 @@ export interface DescribeSubscriptionFiltersCommandOutput
  * };
  * const command = new DescribeSubscriptionFiltersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSubscriptionFiltersResponse
+ * //   subscriptionFilters: [ // SubscriptionFilters
+ * //     { // SubscriptionFilter
+ * //       filterName: "STRING_VALUE",
+ * //       logGroupName: "STRING_VALUE",
+ * //       filterPattern: "STRING_VALUE",
+ * //       destinationArn: "STRING_VALUE",
+ * //       roleArn: "STRING_VALUE",
+ * //       distribution: "Random" || "ByLogStream",
+ * //       creationTime: Number("long"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeSubscriptionFiltersCommandInput - {@link DescribeSubscriptionFiltersCommandInput}
@@ -67,6 +82,8 @@ export interface DescribeSubscriptionFiltersCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeSubscriptionFiltersCommand extends $Command<

@@ -48,6 +48,8 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * };
  * const command = new DeleteDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDBClusterParameterGroupCommandInput - {@link DeleteDBClusterParameterGroupCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  *  <p>The DB parameter group is in use or is in an invalid state. If you are attempting to
  *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DeleteDBClusterParameterGroupCommand extends $Command<

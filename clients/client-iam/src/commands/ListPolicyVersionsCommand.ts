@@ -49,6 +49,19 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  * };
  * const command = new ListPolicyVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPolicyVersionsResponse
+ * //   Versions: [ // policyDocumentVersionListType
+ * //     { // PolicyVersion
+ * //       Document: "STRING_VALUE",
+ * //       VersionId: "STRING_VALUE",
+ * //       IsDefaultVersion: true || false,
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPolicyVersionsCommandInput - {@link ListPolicyVersionsCommandInput}
@@ -69,6 +82,8 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListPolicyVersionsCommand extends $Command<

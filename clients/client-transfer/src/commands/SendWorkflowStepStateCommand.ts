@@ -51,6 +51,8 @@ export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStat
  * };
  * const command = new SendWorkflowStepStateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SendWorkflowStepStateCommandInput - {@link SendWorkflowStepStateCommandInput}
@@ -78,6 +80,8 @@ export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class SendWorkflowStepStateCommand extends $Command<

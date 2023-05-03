@@ -55,6 +55,25 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  * };
  * const command = new GetChannelMessageCommand(input);
  * const response = await client.send(command);
+ * // { // GetChannelMessageResponse
+ * //   ChannelMessage: { // ChannelMessage
+ * //     ChannelArn: "STRING_VALUE",
+ * //     MessageId: "STRING_VALUE",
+ * //     Content: "STRING_VALUE",
+ * //     Metadata: "STRING_VALUE",
+ * //     Type: "STANDARD" || "CONTROL",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     LastEditedTimestamp: new Date("TIMESTAMP"),
+ * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     Sender: { // Identity
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     Redacted: true || false,
+ * //     Persistence: "PERSISTENT" || "NON_PERSISTENT",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetChannelMessageCommandInput - {@link GetChannelMessageCommandInput}
@@ -84,6 +103,8 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetChannelMessageCommand extends $Command<

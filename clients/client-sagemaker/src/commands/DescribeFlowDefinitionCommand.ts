@@ -44,6 +44,46 @@ export interface DescribeFlowDefinitionCommandOutput extends DescribeFlowDefinit
  * };
  * const command = new DescribeFlowDefinitionCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFlowDefinitionResponse
+ * //   FlowDefinitionArn: "STRING_VALUE", // required
+ * //   FlowDefinitionName: "STRING_VALUE", // required
+ * //   FlowDefinitionStatus: "Initializing" || "Active" || "Failed" || "Deleting", // required
+ * //   CreationTime: new Date("TIMESTAMP"), // required
+ * //   HumanLoopRequestSource: { // HumanLoopRequestSource
+ * //     AwsManagedHumanLoopRequestSource: "AWS/Rekognition/DetectModerationLabels/Image/V3" || "AWS/Textract/AnalyzeDocument/Forms/V1", // required
+ * //   },
+ * //   HumanLoopActivationConfig: { // HumanLoopActivationConfig
+ * //     HumanLoopActivationConditionsConfig: { // HumanLoopActivationConditionsConfig
+ * //       HumanLoopActivationConditions: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   HumanLoopConfig: { // HumanLoopConfig
+ * //     WorkteamArn: "STRING_VALUE", // required
+ * //     HumanTaskUiArn: "STRING_VALUE", // required
+ * //     TaskTitle: "STRING_VALUE", // required
+ * //     TaskDescription: "STRING_VALUE", // required
+ * //     TaskCount: Number("int"), // required
+ * //     TaskAvailabilityLifetimeInSeconds: Number("int"),
+ * //     TaskTimeLimitInSeconds: Number("int"),
+ * //     TaskKeywords: [ // FlowDefinitionTaskKeywords
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     PublicWorkforceTaskPrice: { // PublicWorkforceTaskPrice
+ * //       AmountInUsd: { // USD
+ * //         Dollars: Number("int"),
+ * //         Cents: Number("int"),
+ * //         TenthFractionsOfACent: Number("int"),
+ * //       },
+ * //     },
+ * //   },
+ * //   OutputConfig: { // FlowDefinitionOutputConfig
+ * //     S3OutputPath: "STRING_VALUE", // required
+ * //     KmsKeyId: "STRING_VALUE",
+ * //   },
+ * //   RoleArn: "STRING_VALUE", // required
+ * //   FailureReason: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeFlowDefinitionCommandInput - {@link DescribeFlowDefinitionCommandInput}
@@ -55,6 +95,8 @@ export interface DescribeFlowDefinitionCommandOutput extends DescribeFlowDefinit
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeFlowDefinitionCommand extends $Command<

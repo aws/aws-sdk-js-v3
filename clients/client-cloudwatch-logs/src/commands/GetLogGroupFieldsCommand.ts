@@ -60,6 +60,15 @@ export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsRespons
  * };
  * const command = new GetLogGroupFieldsCommand(input);
  * const response = await client.send(command);
+ * // { // GetLogGroupFieldsResponse
+ * //   logGroupFields: [ // LogGroupFieldList
+ * //     { // LogGroupField
+ * //       name: "STRING_VALUE",
+ * //       percent: Number("int"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetLogGroupFieldsCommandInput - {@link GetLogGroupFieldsCommandInput}
@@ -80,6 +89,8 @@ export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class GetLogGroupFieldsCommand extends $Command<

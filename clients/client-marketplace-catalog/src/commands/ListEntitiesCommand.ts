@@ -64,6 +64,20 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * };
  * const command = new ListEntitiesCommand(input);
  * const response = await client.send(command);
+ * // { // ListEntitiesResponse
+ * //   EntitySummaryList: [ // EntitySummaryList
+ * //     { // EntitySummary
+ * //       Name: "STRING_VALUE",
+ * //       EntityType: "STRING_VALUE",
+ * //       EntityId: "STRING_VALUE",
+ * //       EntityArn: "STRING_VALUE",
+ * //       LastModifiedDate: "STRING_VALUE",
+ * //       Visibility: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEntitiesCommandInput - {@link ListEntitiesCommandInput}
@@ -92,6 +106,8 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *  <p>An error occurred during validation.</p>
  *          <p>HTTP status code: 422</p>
  *
+ * @throws {@link MarketplaceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
  */
 export class ListEntitiesCommand extends $Command<

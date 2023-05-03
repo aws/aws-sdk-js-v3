@@ -47,6 +47,35 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  * };
  * const command = new DescribeExclusionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeExclusionsResponse
+ * //   exclusions: { // ExclusionMap // required
+ * //     "<keys>": { // Exclusion
+ * //       arn: "STRING_VALUE", // required
+ * //       title: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE", // required
+ * //       recommendation: "STRING_VALUE", // required
+ * //       scopes: [ // ScopeList // required
+ * //         { // Scope
+ * //           key: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       attributes: [ // AttributeList
+ * //         { // Attribute
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   failedItems: { // FailedItems // required
+ * //     "<keys>": { // FailedItemDetails
+ * //       failureCode: "STRING_VALUE", // required
+ * //       retryable: true || false, // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeExclusionsCommandInput - {@link DescribeExclusionsCommandInput}
@@ -62,6 +91,8 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  */
 export class DescribeExclusionsCommand extends $Command<

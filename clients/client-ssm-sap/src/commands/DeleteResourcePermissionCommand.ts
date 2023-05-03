@@ -46,6 +46,10 @@ export interface DeleteResourcePermissionCommandOutput extends DeleteResourcePer
  * };
  * const command = new DeleteResourcePermissionCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteResourcePermissionOutput
+ * //   Policy: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteResourcePermissionCommandInput - {@link DeleteResourcePermissionCommandInput}
@@ -63,6 +67,8 @@ export interface DeleteResourcePermissionCommandOutput extends DeleteResourcePer
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class DeleteResourcePermissionCommand extends $Command<

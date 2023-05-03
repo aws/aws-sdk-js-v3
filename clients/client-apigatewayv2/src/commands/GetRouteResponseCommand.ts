@@ -46,6 +46,20 @@ export interface GetRouteResponseCommandOutput extends GetRouteResponseResponse,
  * };
  * const command = new GetRouteResponseCommand(input);
  * const response = await client.send(command);
+ * // { // GetRouteResponseResponse
+ * //   ModelSelectionExpression: "STRING_VALUE",
+ * //   ResponseModels: { // RouteModels
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   ResponseParameters: { // RouteParameters
+ * //     "<keys>": { // ParameterConstraints
+ * //       Required: true || false,
+ * //     },
+ * //   },
+ * //   RouteResponseId: "STRING_VALUE",
+ * //   RouteResponseKey: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetRouteResponseCommandInput - {@link GetRouteResponseCommandInput}
@@ -60,6 +74,8 @@ export interface GetRouteResponseCommandOutput extends GetRouteResponseResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetRouteResponseCommand extends $Command<

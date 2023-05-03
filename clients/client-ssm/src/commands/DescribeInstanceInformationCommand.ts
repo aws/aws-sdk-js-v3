@@ -71,6 +71,40 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * };
  * const command = new DescribeInstanceInformationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeInstanceInformationResult
+ * //   InstanceInformationList: [ // InstanceInformationList
+ * //     { // InstanceInformation
+ * //       InstanceId: "STRING_VALUE",
+ * //       PingStatus: "Online" || "ConnectionLost" || "Inactive",
+ * //       LastPingDateTime: new Date("TIMESTAMP"),
+ * //       AgentVersion: "STRING_VALUE",
+ * //       IsLatestVersion: true || false,
+ * //       PlatformType: "Windows" || "Linux" || "MacOS",
+ * //       PlatformName: "STRING_VALUE",
+ * //       PlatformVersion: "STRING_VALUE",
+ * //       ActivationId: "STRING_VALUE",
+ * //       IamRole: "STRING_VALUE",
+ * //       RegistrationDate: new Date("TIMESTAMP"),
+ * //       ResourceType: "ManagedInstance" || "Document" || "EC2Instance",
+ * //       Name: "STRING_VALUE",
+ * //       IPAddress: "STRING_VALUE",
+ * //       ComputerName: "STRING_VALUE",
+ * //       AssociationStatus: "STRING_VALUE",
+ * //       LastAssociationExecutionDate: new Date("TIMESTAMP"),
+ * //       LastSuccessfulAssociationExecutionDate: new Date("TIMESTAMP"),
+ * //       AssociationOverview: { // InstanceAggregatedAssociationOverview
+ * //         DetailedStatus: "STRING_VALUE",
+ * //         InstanceAssociationStatusAggregatedCount: { // InstanceAssociationStatusAggregatedCount
+ * //           "<keys>": Number("int"),
+ * //         },
+ * //       },
+ * //       SourceId: "STRING_VALUE",
+ * //       SourceType: "AWS::EC2::Instance" || "AWS::IoT::Thing" || "AWS::SSM::ManagedInstance",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeInstanceInformationCommandInput - {@link DescribeInstanceInformationCommandInput}
@@ -111,6 +145,8 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeInstanceInformationCommand extends $Command<

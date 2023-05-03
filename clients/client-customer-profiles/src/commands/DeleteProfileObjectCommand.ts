@@ -47,6 +47,10 @@ export interface DeleteProfileObjectCommandOutput extends DeleteProfileObjectRes
  * };
  * const command = new DeleteProfileObjectCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteProfileObjectResponse
+ * //   Message: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteProfileObjectCommandInput - {@link DeleteProfileObjectCommandInput}
@@ -70,6 +74,8 @@ export interface DeleteProfileObjectCommandOutput extends DeleteProfileObjectRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class DeleteProfileObjectCommand extends $Command<

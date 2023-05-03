@@ -47,6 +47,8 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AttachPolicyCommandInput - {@link AttachPolicyCommandInput}
@@ -76,6 +78,8 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class AttachPolicyCommand extends $Command<

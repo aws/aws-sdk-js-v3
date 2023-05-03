@@ -45,6 +45,33 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * // { // ListProjectsResponse
+ * //   Projects: [ // ProjectList // required
+ * //     { // Project
+ * //       AccountId: "STRING_VALUE",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       CreatedBy: "STRING_VALUE",
+ * //       DatasetName: "STRING_VALUE",
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       LastModifiedBy: "STRING_VALUE",
+ * //       Name: "STRING_VALUE", // required
+ * //       RecipeName: "STRING_VALUE", // required
+ * //       ResourceArn: "STRING_VALUE",
+ * //       Sample: { // Sample
+ * //         Size: Number("int"),
+ * //         Type: "FIRST_N" || "LAST_N" || "RANDOM", // required
+ * //       },
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       RoleArn: "STRING_VALUE",
+ * //       OpenedBy: "STRING_VALUE",
+ * //       OpenDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
@@ -56,6 +83,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class ListProjectsCommand extends $Command<

@@ -44,6 +44,15 @@ export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBea
  * };
  * const command = new GetMemberCommand(input);
  * const response = await client.send(command);
+ * // { // GetMemberResponse
+ * //   member: { // Member
+ * //     accountId: "STRING_VALUE",
+ * //     relationshipStatus: "STRING_VALUE",
+ * //     delegatedAdminAccountId: "STRING_VALUE",
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetMemberCommandInput - {@link GetMemberCommandInput}
@@ -68,6 +77,8 @@ export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBea
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class GetMemberCommand extends $Command<

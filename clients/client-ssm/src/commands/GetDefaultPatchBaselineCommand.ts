@@ -47,6 +47,11 @@ export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBas
  * };
  * const command = new GetDefaultPatchBaselineCommand(input);
  * const response = await client.send(command);
+ * // { // GetDefaultPatchBaselineResult
+ * //   BaselineId: "STRING_VALUE",
+ * //   OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023",
+ * // };
+ *
  * ```
  *
  * @param GetDefaultPatchBaselineCommandInput - {@link GetDefaultPatchBaselineCommandInput}
@@ -58,6 +63,8 @@ export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBas
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetDefaultPatchBaselineCommand extends $Command<

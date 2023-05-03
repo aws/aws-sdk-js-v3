@@ -44,6 +44,22 @@ export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsRespo
  * };
  * const command = new GetNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // GetNetworkSettingsResponse
+ * //   networkSettings: { // NetworkSettings
+ * //     networkSettingsArn: "STRING_VALUE", // required
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     vpcId: "STRING_VALUE",
+ * //     subnetIds: [ // SubnetIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     securityGroupIds: [ // SecurityGroupIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetNetworkSettingsCommandInput - {@link GetNetworkSettingsCommandInput}
@@ -67,6 +83,8 @@ export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetNetworkSettingsCommand extends $Command<

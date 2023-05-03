@@ -134,6 +134,107 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  * };
  * const command = new CreateAssociationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAssociationResult
+ * //   AssociationDescription: { // AssociationDescription
+ * //     Name: "STRING_VALUE",
+ * //     InstanceId: "STRING_VALUE",
+ * //     AssociationVersion: "STRING_VALUE",
+ * //     Date: new Date("TIMESTAMP"),
+ * //     LastUpdateAssociationDate: new Date("TIMESTAMP"),
+ * //     Status: { // AssociationStatus
+ * //       Date: new Date("TIMESTAMP"), // required
+ * //       Name: "Pending" || "Success" || "Failed", // required
+ * //       Message: "STRING_VALUE", // required
+ * //       AdditionalInfo: "STRING_VALUE",
+ * //     },
+ * //     Overview: { // AssociationOverview
+ * //       Status: "STRING_VALUE",
+ * //       DetailedStatus: "STRING_VALUE",
+ * //       AssociationStatusAggregatedCount: { // AssociationStatusAggregatedCount
+ * //         "<keys>": Number("int"),
+ * //       },
+ * //     },
+ * //     DocumentVersion: "STRING_VALUE",
+ * //     AutomationTargetParameterName: "STRING_VALUE",
+ * //     Parameters: { // Parameters
+ * //       "<keys>": [ // ParameterValueList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     AssociationId: "STRING_VALUE",
+ * //     Targets: [ // Targets
+ * //       { // Target
+ * //         Key: "STRING_VALUE",
+ * //         Values: [ // TargetValues
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     ScheduleExpression: "STRING_VALUE",
+ * //     OutputLocation: { // InstanceAssociationOutputLocation
+ * //       S3Location: { // S3OutputLocation
+ * //         OutputS3Region: "STRING_VALUE",
+ * //         OutputS3BucketName: "STRING_VALUE",
+ * //         OutputS3KeyPrefix: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     LastExecutionDate: new Date("TIMESTAMP"),
+ * //     LastSuccessfulExecutionDate: new Date("TIMESTAMP"),
+ * //     AssociationName: "STRING_VALUE",
+ * //     MaxErrors: "STRING_VALUE",
+ * //     MaxConcurrency: "STRING_VALUE",
+ * //     ComplianceSeverity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "UNSPECIFIED",
+ * //     SyncCompliance: "AUTO" || "MANUAL",
+ * //     ApplyOnlyAtCronInterval: true || false,
+ * //     CalendarNames: [ // CalendarNameOrARNList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     TargetLocations: [ // TargetLocations
+ * //       { // TargetLocation
+ * //         Accounts: [ // Accounts
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Regions: [ // Regions
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         TargetLocationMaxConcurrency: "STRING_VALUE",
+ * //         TargetLocationMaxErrors: "STRING_VALUE",
+ * //         ExecutionRoleName: "STRING_VALUE",
+ * //         TargetLocationAlarmConfiguration: { // AlarmConfiguration
+ * //           IgnorePollAlarmFailure: true || false,
+ * //           Alarms: [ // AlarmList // required
+ * //             { // Alarm
+ * //               Name: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     ],
+ * //     ScheduleOffset: Number("int"),
+ * //     TargetMaps: [ // TargetMaps
+ * //       { // TargetMap
+ * //         "<keys>": [ // TargetMapValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     AlarmConfiguration: {
+ * //       IgnorePollAlarmFailure: true || false,
+ * //       Alarms: [ // required
+ * //         {
+ * //           Name: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     TriggeredAlarms: [ // AlarmStateInformationList
+ * //       { // AlarmStateInformation
+ * //         Name: "STRING_VALUE", // required
+ * //         State: "UNKNOWN" || "ALARM", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateAssociationCommandInput - {@link CreateAssociationCommandInput}
@@ -201,6 +302,8 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  *  <p>The document doesn't support the platform type of the given managed node ID(s). For example,
  *    you sent an document for a Windows managed node to a Linux node.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CreateAssociationCommand extends $Command<

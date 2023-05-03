@@ -61,6 +61,24 @@ export interface ListControlDomainInsightsByAssessmentCommandOutput
  * };
  * const command = new ListControlDomainInsightsByAssessmentCommand(input);
  * const response = await client.send(command);
+ * // { // ListControlDomainInsightsByAssessmentResponse
+ * //   controlDomainInsights: [ // ControlDomainInsightsList
+ * //     { // ControlDomainInsights
+ * //       name: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       controlsCountByNoncompliantEvidence: Number("int"),
+ * //       totalControlsCount: Number("int"),
+ * //       evidenceInsights: { // EvidenceInsights
+ * //         noncompliantEvidenceCount: Number("int"),
+ * //         compliantEvidenceCount: Number("int"),
+ * //         inconclusiveEvidenceCount: Number("int"),
+ * //       },
+ * //       lastUpdated: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListControlDomainInsightsByAssessmentCommandInput - {@link ListControlDomainInsightsByAssessmentCommandInput}
@@ -83,6 +101,8 @@ export interface ListControlDomainInsightsByAssessmentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ListControlDomainInsightsByAssessmentCommand extends $Command<

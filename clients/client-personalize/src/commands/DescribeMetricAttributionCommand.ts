@@ -44,6 +44,25 @@ export interface DescribeMetricAttributionCommandOutput extends DescribeMetricAt
  * };
  * const command = new DescribeMetricAttributionCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeMetricAttributionResponse
+ * //   metricAttribution: { // MetricAttribution
+ * //     name: "STRING_VALUE",
+ * //     metricAttributionArn: "STRING_VALUE",
+ * //     datasetGroupArn: "STRING_VALUE",
+ * //     metricsOutputConfig: { // MetricAttributionOutput
+ * //       s3DataDestination: { // S3DataConfig
+ * //         path: "STRING_VALUE", // required
+ * //         kmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //       roleArn: "STRING_VALUE", // required
+ * //     },
+ * //     status: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     failureReason: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeMetricAttributionCommandInput - {@link DescribeMetricAttributionCommandInput}
@@ -58,6 +77,8 @@ export interface DescribeMetricAttributionCommandOutput extends DescribeMetricAt
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeMetricAttributionCommand extends $Command<

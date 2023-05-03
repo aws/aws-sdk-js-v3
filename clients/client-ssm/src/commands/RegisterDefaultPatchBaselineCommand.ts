@@ -53,6 +53,10 @@ export interface RegisterDefaultPatchBaselineCommandOutput
  * };
  * const command = new RegisterDefaultPatchBaselineCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterDefaultPatchBaselineResult
+ * //   BaselineId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RegisterDefaultPatchBaselineCommandInput - {@link RegisterDefaultPatchBaselineCommandInput}
@@ -73,6 +77,8 @@ export interface RegisterDefaultPatchBaselineCommandOutput
  * @throws {@link InvalidResourceId} (client fault)
  *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class RegisterDefaultPatchBaselineCommand extends $Command<

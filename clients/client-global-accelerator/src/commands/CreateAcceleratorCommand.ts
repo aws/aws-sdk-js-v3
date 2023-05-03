@@ -66,6 +66,35 @@ export interface CreateAcceleratorCommandOutput extends CreateAcceleratorRespons
  * };
  * const command = new CreateAcceleratorCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAcceleratorResponse
+ * //   Accelerator: { // Accelerator
+ * //     AcceleratorArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     IpAddressType: "IPV4" || "DUAL_STACK",
+ * //     Enabled: true || false,
+ * //     IpSets: [ // IpSets
+ * //       { // IpSet
+ * //         IpFamily: "STRING_VALUE",
+ * //         IpAddresses: [ // IpAddresses
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         IpAddressFamily: "IPv4" || "IPv6",
+ * //       },
+ * //     ],
+ * //     DnsName: "STRING_VALUE",
+ * //     Status: "DEPLOYED" || "IN_PROGRESS",
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     DualStackDnsName: "STRING_VALUE",
+ * //     Events: [ // AcceleratorEvents
+ * //       { // AcceleratorEvent
+ * //         Message: "STRING_VALUE",
+ * //         Timestamp: new Date("TIMESTAMP"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateAcceleratorCommandInput - {@link CreateAcceleratorCommandInput}
@@ -83,6 +112,8 @@ export interface CreateAcceleratorCommandOutput extends CreateAcceleratorRespons
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class CreateAcceleratorCommand extends $Command<

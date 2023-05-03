@@ -50,6 +50,28 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * };
  * const command = new ModifyGlobalClusterCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyGlobalClusterResult
+ * //   GlobalCluster: { // GlobalCluster
+ * //     GlobalClusterIdentifier: "STRING_VALUE",
+ * //     GlobalClusterResourceId: "STRING_VALUE",
+ * //     GlobalClusterArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
+ * //     EngineVersion: "STRING_VALUE",
+ * //     StorageEncrypted: true || false,
+ * //     DeletionProtection: true || false,
+ * //     GlobalClusterMembers: [ // GlobalClusterMemberList
+ * //       { // GlobalClusterMember
+ * //         DBClusterArn: "STRING_VALUE",
+ * //         Readers: [ // ReadersArnList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         IsWriter: true || false,
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ModifyGlobalClusterCommandInput - {@link ModifyGlobalClusterCommandInput}
@@ -64,6 +86,8 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
  *  <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class ModifyGlobalClusterCommand extends $Command<

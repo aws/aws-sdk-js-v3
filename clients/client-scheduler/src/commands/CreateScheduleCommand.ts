@@ -133,6 +133,10 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  * };
  * const command = new CreateScheduleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateScheduleOutput
+ * //   ScheduleArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateScheduleCommandInput - {@link CreateScheduleCommandInput}
@@ -159,6 +163,8 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link SchedulerServiceException}
+ * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
  */
 export class CreateScheduleCommand extends $Command<

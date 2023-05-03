@@ -48,6 +48,8 @@ export interface DeleteEarthObservationJobCommandOutput extends DeleteEarthObser
  * };
  * const command = new DeleteEarthObservationJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteEarthObservationJobCommandInput - {@link DeleteEarthObservationJobCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteEarthObservationJobCommandOutput extends DeleteEarthObser
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class DeleteEarthObservationJobCommand extends $Command<

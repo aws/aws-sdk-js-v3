@@ -45,6 +45,8 @@ export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPol
  * };
  * const command = new DeleteSchedulingPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSchedulingPolicyCommandInput - {@link DeleteSchedulingPolicyCommandInput}
@@ -61,6 +63,8 @@ export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPol
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  */
 export class DeleteSchedulingPolicyCommand extends $Command<

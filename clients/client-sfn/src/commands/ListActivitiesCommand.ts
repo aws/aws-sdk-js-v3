@@ -50,6 +50,17 @@ export interface ListActivitiesCommandOutput extends ListActivitiesOutput, __Met
  * };
  * const command = new ListActivitiesCommand(input);
  * const response = await client.send(command);
+ * // { // ListActivitiesOutput
+ * //   activities: [ // ActivityList // required
+ * //     { // ActivityListItem
+ * //       activityArn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       creationDate: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListActivitiesCommandInput - {@link ListActivitiesCommandInput}
@@ -61,6 +72,8 @@ export interface ListActivitiesCommandOutput extends ListActivitiesOutput, __Met
  * @throws {@link InvalidToken} (client fault)
  *  <p>The provided token is not valid.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class ListActivitiesCommand extends $Command<

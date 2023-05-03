@@ -45,6 +45,19 @@ export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsO
  * };
  * const command = new ListBootstrapActionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListBootstrapActionsOutput
+ * //   BootstrapActions: [ // CommandList
+ * //     { // Command
+ * //       Name: "STRING_VALUE",
+ * //       ScriptPath: "STRING_VALUE",
+ * //       Args: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListBootstrapActionsCommandInput - {@link ListBootstrapActionsCommandInput}
@@ -60,6 +73,8 @@ export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsO
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ListBootstrapActionsCommand extends $Command<

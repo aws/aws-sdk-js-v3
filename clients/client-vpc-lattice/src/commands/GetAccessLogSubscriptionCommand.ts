@@ -44,6 +44,16 @@ export interface GetAccessLogSubscriptionCommandOutput extends GetAccessLogSubsc
  * };
  * const command = new GetAccessLogSubscriptionCommand(input);
  * const response = await client.send(command);
+ * // { // GetAccessLogSubscriptionResponse
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   resourceId: "STRING_VALUE", // required
+ * //   resourceArn: "STRING_VALUE", // required
+ * //   destinationArn: "STRING_VALUE", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param GetAccessLogSubscriptionCommandInput - {@link GetAccessLogSubscriptionCommandInput}
@@ -68,6 +78,8 @@ export interface GetAccessLogSubscriptionCommandOutput extends GetAccessLogSubsc
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class GetAccessLogSubscriptionCommand extends $Command<

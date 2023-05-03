@@ -71,6 +71,17 @@ export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __M
  * };
  * const command = new GetGeoLocationCommand(input);
  * const response = await client.send(command);
+ * // { // GetGeoLocationResponse
+ * //   GeoLocationDetails: { // GeoLocationDetails
+ * //     ContinentCode: "STRING_VALUE",
+ * //     ContinentName: "STRING_VALUE",
+ * //     CountryCode: "STRING_VALUE",
+ * //     CountryName: "STRING_VALUE",
+ * //     SubdivisionCode: "STRING_VALUE",
+ * //     SubdivisionName: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetGeoLocationCommandInput - {@link GetGeoLocationCommandInput}
@@ -87,6 +98,8 @@ export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __M
  * 			supported geolocation codes, see the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html">GeoLocation</a> data
  * 			type.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetGeoLocationCommand extends $Command<

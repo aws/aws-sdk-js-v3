@@ -42,6 +42,11 @@ export interface DescribeStorageCommandOutput extends CustomerStorageMessage, __
  * const input = {};
  * const command = new DescribeStorageCommand(input);
  * const response = await client.send(command);
+ * // { // CustomerStorageMessage
+ * //   TotalBackupSizeInMegaBytes: Number("double"),
+ * //   TotalProvisionedStorageInMegaBytes: Number("double"),
+ * // };
+ *
  * ```
  *
  * @param DescribeStorageCommandInput - {@link DescribeStorageCommandInput}
@@ -50,6 +55,8 @@ export interface DescribeStorageCommandOutput extends CustomerStorageMessage, __
  * @see {@link DescribeStorageCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeStorageCommand extends $Command<

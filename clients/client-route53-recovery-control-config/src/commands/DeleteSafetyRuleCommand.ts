@@ -48,6 +48,8 @@ export interface DeleteSafetyRuleCommandOutput extends DeleteSafetyRuleResponse,
  * };
  * const command = new DeleteSafetyRuleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSafetyRuleCommandInput - {@link DeleteSafetyRuleCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteSafetyRuleCommandOutput extends DeleteSafetyRuleResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class DeleteSafetyRuleCommand extends $Command<

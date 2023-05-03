@@ -59,6 +59,10 @@ export interface SignalApplicationInstanceNodeInstancesCommandOutput
  * };
  * const command = new SignalApplicationInstanceNodeInstancesCommand(input);
  * const response = await client.send(command);
+ * // { // SignalApplicationInstanceNodeInstancesResponse
+ * //   ApplicationInstanceId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param SignalApplicationInstanceNodeInstancesCommandInput - {@link SignalApplicationInstanceNodeInstancesCommandInput}
@@ -79,6 +83,8 @@ export interface SignalApplicationInstanceNodeInstancesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class SignalApplicationInstanceNodeInstancesCommand extends $Command<

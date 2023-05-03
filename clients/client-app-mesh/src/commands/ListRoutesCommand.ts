@@ -48,6 +48,23 @@ export interface ListRoutesCommandOutput extends ListRoutesOutput, __MetadataBea
  * };
  * const command = new ListRoutesCommand(input);
  * const response = await client.send(command);
+ * // { // ListRoutesOutput
+ * //   routes: [ // RouteList // required
+ * //     { // RouteRef
+ * //       meshName: "STRING_VALUE", // required
+ * //       virtualRouterName: "STRING_VALUE", // required
+ * //       routeName: "STRING_VALUE", // required
+ * //       meshOwner: "STRING_VALUE", // required
+ * //       resourceOwner: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       version: Number("long"), // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListRoutesCommandInput - {@link ListRoutesCommandInput}
@@ -77,6 +94,8 @@ export interface ListRoutesCommandOutput extends ListRoutesOutput, __MetadataBea
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class ListRoutesCommand extends $Command<

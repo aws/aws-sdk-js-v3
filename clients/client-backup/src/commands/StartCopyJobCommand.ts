@@ -53,6 +53,12 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  * };
  * const command = new StartCopyJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartCopyJobOutput
+ * //   CopyJobId: "STRING_VALUE",
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   IsParent: true || false,
+ * // };
+ *
  * ```
  *
  * @param StartCopyJobCommandInput - {@link StartCopyJobCommandInput}
@@ -82,6 +88,8 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class StartCopyJobCommand extends $Command<

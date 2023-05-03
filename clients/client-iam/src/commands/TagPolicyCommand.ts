@@ -85,6 +85,8 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagPolicyCommandInput - {@link TagPolicyCommandInput}
@@ -113,6 +115,8 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class TagPolicyCommand extends $Command<TagPolicyCommandInput, TagPolicyCommandOutput, IAMClientResolvedConfig> {

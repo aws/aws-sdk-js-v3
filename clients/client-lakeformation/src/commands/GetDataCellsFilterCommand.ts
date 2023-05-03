@@ -47,6 +47,28 @@ export interface GetDataCellsFilterCommandOutput extends GetDataCellsFilterRespo
  * };
  * const command = new GetDataCellsFilterCommand(input);
  * const response = await client.send(command);
+ * // { // GetDataCellsFilterResponse
+ * //   DataCellsFilter: { // DataCellsFilter
+ * //     TableCatalogId: "STRING_VALUE", // required
+ * //     DatabaseName: "STRING_VALUE", // required
+ * //     TableName: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     RowFilter: { // RowFilter
+ * //       FilterExpression: "STRING_VALUE",
+ * //       AllRowsWildcard: {},
+ * //     },
+ * //     ColumnNames: [ // ColumnNames
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ColumnWildcard: { // ColumnWildcard
+ * //       ExcludedColumnNames: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     VersionId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetDataCellsFilterCommandInput - {@link GetDataCellsFilterCommandInput}
@@ -70,6 +92,8 @@ export interface GetDataCellsFilterCommandOutput extends GetDataCellsFilterRespo
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetDataCellsFilterCommand extends $Command<

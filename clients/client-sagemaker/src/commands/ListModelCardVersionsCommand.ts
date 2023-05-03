@@ -51,6 +51,20 @@ export interface ListModelCardVersionsCommandOutput extends ListModelCardVersion
  * };
  * const command = new ListModelCardVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListModelCardVersionsResponse
+ * //   ModelCardVersionSummaryList: [ // ModelCardVersionSummaryList // required
+ * //     { // ModelCardVersionSummary
+ * //       ModelCardName: "STRING_VALUE", // required
+ * //       ModelCardArn: "STRING_VALUE", // required
+ * //       ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived", // required
+ * //       ModelCardVersion: Number("int"), // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListModelCardVersionsCommandInput - {@link ListModelCardVersionsCommandInput}
@@ -62,6 +76,8 @@ export interface ListModelCardVersionsCommandOutput extends ListModelCardVersion
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListModelCardVersionsCommand extends $Command<

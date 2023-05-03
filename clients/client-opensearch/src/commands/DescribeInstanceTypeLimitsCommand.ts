@@ -47,6 +47,41 @@ export interface DescribeInstanceTypeLimitsCommandOutput extends DescribeInstanc
  * };
  * const command = new DescribeInstanceTypeLimitsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeInstanceTypeLimitsResponse
+ * //   LimitsByRole: { // LimitsByRole
+ * //     "<keys>": { // Limits
+ * //       StorageTypes: [ // StorageTypeList
+ * //         { // StorageType
+ * //           StorageTypeName: "STRING_VALUE",
+ * //           StorageSubTypeName: "STRING_VALUE",
+ * //           StorageTypeLimits: [ // StorageTypeLimitList
+ * //             { // StorageTypeLimit
+ * //               LimitName: "STRING_VALUE",
+ * //               LimitValues: [ // LimitValueList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       InstanceLimits: { // InstanceLimits
+ * //         InstanceCountLimits: { // InstanceCountLimits
+ * //           MinimumInstanceCount: Number("int"),
+ * //           MaximumInstanceCount: Number("int"),
+ * //         },
+ * //       },
+ * //       AdditionalLimits: [ // AdditionalLimitList
+ * //         { // AdditionalLimit
+ * //           LimitName: "STRING_VALUE",
+ * //           LimitValues: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeInstanceTypeLimitsCommandInput - {@link DescribeInstanceTypeLimitsCommandInput}
@@ -73,6 +108,8 @@ export interface DescribeInstanceTypeLimitsCommandOutput extends DescribeInstanc
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DescribeInstanceTypeLimitsCommand extends $Command<

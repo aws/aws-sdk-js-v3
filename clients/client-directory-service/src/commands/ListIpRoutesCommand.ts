@@ -46,6 +46,20 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * };
  * const command = new ListIpRoutesCommand(input);
  * const response = await client.send(command);
+ * // { // ListIpRoutesResult
+ * //   IpRoutesInfo: [ // IpRoutesInfo
+ * //     { // IpRouteInfo
+ * //       DirectoryId: "STRING_VALUE",
+ * //       CidrIp: "STRING_VALUE",
+ * //       IpRouteStatusMsg: "Adding" || "Added" || "Removing" || "Removed" || "AddFailed" || "RemoveFailed",
+ * //       AddedDateTime: new Date("TIMESTAMP"),
+ * //       IpRouteStatusReason: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListIpRoutesCommandInput - {@link ListIpRoutesCommandInput}
@@ -69,6 +83,8 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class ListIpRoutesCommand extends $Command<

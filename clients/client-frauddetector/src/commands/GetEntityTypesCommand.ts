@@ -51,6 +51,19 @@ export interface GetEntityTypesCommandOutput extends GetEntityTypesResult, __Met
  * };
  * const command = new GetEntityTypesCommand(input);
  * const response = await client.send(command);
+ * // { // GetEntityTypesResult
+ * //   entityTypes: [ // entityTypeList
+ * //     { // EntityType
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       lastUpdatedTime: "STRING_VALUE",
+ * //       createdTime: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetEntityTypesCommandInput - {@link GetEntityTypesCommandInput}
@@ -74,6 +87,8 @@ export interface GetEntityTypesCommandOutput extends GetEntityTypesResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetEntityTypesCommand extends $Command<

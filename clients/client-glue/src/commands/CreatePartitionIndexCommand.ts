@@ -52,6 +52,8 @@ export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexR
  * };
  * const command = new CreatePartitionIndexCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreatePartitionIndexCommandInput - {@link CreatePartitionIndexCommandInput}
@@ -81,6 +83,8 @@ export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexR
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreatePartitionIndexCommand extends $Command<

@@ -44,6 +44,8 @@ export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteWorkflowCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteWorkflowCommandInput - {@link DeleteWorkflowCommandInput}
@@ -76,6 +78,8 @@ export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class DeleteWorkflowCommand extends $Command<

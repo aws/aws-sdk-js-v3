@@ -51,6 +51,13 @@ export interface ListEnabledProductsForImportCommandOutput
  * };
  * const command = new ListEnabledProductsForImportCommand(input);
  * const response = await client.send(command);
+ * // { // ListEnabledProductsForImportResponse
+ * //   ProductSubscriptions: [ // ProductSubscriptionArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEnabledProductsForImportCommandInput - {@link ListEnabledProductsForImportCommandInput}
@@ -69,6 +76,8 @@ export interface ListEnabledProductsForImportCommandOutput
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To list ARNs for enabled integrations
  * ```javascript

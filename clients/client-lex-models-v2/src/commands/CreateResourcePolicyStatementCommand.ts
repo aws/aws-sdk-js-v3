@@ -70,6 +70,11 @@ export interface CreateResourcePolicyStatementCommandOutput
  * };
  * const command = new CreateResourcePolicyStatementCommand(input);
  * const response = await client.send(command);
+ * // { // CreateResourcePolicyStatementResponse
+ * //   resourceArn: "STRING_VALUE",
+ * //   revisionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateResourcePolicyStatementCommandInput - {@link CreateResourcePolicyStatementCommandInput}
@@ -107,6 +112,8 @@ export interface CreateResourcePolicyStatementCommandOutput
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class CreateResourcePolicyStatementCommand extends $Command<

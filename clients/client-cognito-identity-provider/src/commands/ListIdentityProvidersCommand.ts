@@ -51,6 +51,18 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * };
  * const command = new ListIdentityProvidersCommand(input);
  * const response = await client.send(command);
+ * // { // ListIdentityProvidersResponse
+ * //   Providers: [ // ProvidersListType // required
+ * //     { // ProviderDescription
+ * //       ProviderName: "STRING_VALUE",
+ * //       ProviderType: "SAML" || "Facebook" || "Google" || "LoginWithAmazon" || "SignInWithApple" || "OIDC",
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListIdentityProvidersCommandInput - {@link ListIdentityProvidersCommandInput}
@@ -77,6 +89,8 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ListIdentityProvidersCommand extends $Command<

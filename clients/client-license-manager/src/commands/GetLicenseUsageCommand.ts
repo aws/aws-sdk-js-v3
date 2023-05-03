@@ -44,6 +44,19 @@ export interface GetLicenseUsageCommandOutput extends GetLicenseUsageResponse, _
  * };
  * const command = new GetLicenseUsageCommand(input);
  * const response = await client.send(command);
+ * // { // GetLicenseUsageResponse
+ * //   LicenseUsage: { // LicenseUsage
+ * //     EntitlementUsages: [ // EntitlementUsageList
+ * //       { // EntitlementUsage
+ * //         Name: "STRING_VALUE", // required
+ * //         ConsumedValue: "STRING_VALUE", // required
+ * //         MaxCount: "STRING_VALUE",
+ * //         Unit: "Count" || "None" || "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetLicenseUsageCommandInput - {@link GetLicenseUsageCommandInput}
@@ -71,6 +84,8 @@ export interface GetLicenseUsageCommandOutput extends GetLicenseUsageResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class GetLicenseUsageCommand extends $Command<

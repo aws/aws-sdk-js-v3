@@ -50,6 +50,14 @@ export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataB
  * };
  * const command = new GetResourceCommand(input);
  * const response = await client.send(command);
+ * // { // GetResourceOutput
+ * //   TypeName: "STRING_VALUE",
+ * //   ResourceDescription: { // ResourceDescription
+ * //     Identifier: "STRING_VALUE",
+ * //     Properties: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetResourceCommandInput - {@link GetResourceCommandInput}
@@ -123,6 +131,8 @@ export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataB
  * @throws {@link UnsupportedActionException} (client fault)
  *  <p>The specified resource doesn't support this resource operation.</p>
  *
+ * @throws {@link CloudControlServiceException}
+ * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
  */
 export class GetResourceCommand extends $Command<

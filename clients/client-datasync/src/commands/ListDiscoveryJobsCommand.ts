@@ -47,6 +47,16 @@ export interface ListDiscoveryJobsCommandOutput extends ListDiscoveryJobsRespons
  * };
  * const command = new ListDiscoveryJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDiscoveryJobsResponse
+ * //   DiscoveryJobs: [ // DiscoveryJobList
+ * //     { // DiscoveryJobListEntry
+ * //       DiscoveryJobArn: "STRING_VALUE",
+ * //       Status: "RUNNING" || "WARNING" || "TERMINATED" || "FAILED" || "STOPPED" || "COMPLETED" || "COMPLETED_WITH_ISSUES",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDiscoveryJobsCommandInput - {@link ListDiscoveryJobsCommandInput}
@@ -62,6 +72,8 @@ export interface ListDiscoveryJobsCommandOutput extends ListDiscoveryJobsRespons
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class ListDiscoveryJobsCommand extends $Command<

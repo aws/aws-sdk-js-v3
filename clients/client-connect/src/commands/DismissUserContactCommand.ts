@@ -50,6 +50,8 @@ export interface DismissUserContactCommandOutput extends DismissUserContactRespo
  * };
  * const command = new DismissUserContactCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DismissUserContactCommandInput - {@link DismissUserContactCommandInput}
@@ -76,6 +78,8 @@ export interface DismissUserContactCommandOutput extends DismissUserContactRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DismissUserContactCommand extends $Command<

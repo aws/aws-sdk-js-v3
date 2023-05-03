@@ -53,6 +53,15 @@ export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBea
  * };
  * const command = new CreateSinkCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSinkOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Tags: { // TagMapOutput
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateSinkCommandInput - {@link CreateSinkCommandInput}
@@ -76,6 +85,8 @@ export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBea
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request would cause a service quota to be exceeded.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class CreateSinkCommand extends $Command<

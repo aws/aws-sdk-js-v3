@@ -47,6 +47,48 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  * };
  * const command = new DescribeDashboardCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDashboardResponse
+ * //   Dashboard: { // Dashboard
+ * //     DashboardId: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Version: { // DashboardVersion
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       Errors: [ // DashboardErrorList
+ * //         { // DashboardError
+ * //           Type: "ACCESS_DENIED" || "SOURCE_NOT_FOUND" || "DATA_SET_NOT_FOUND" || "INTERNAL_FAILURE" || "PARAMETER_VALUE_INCOMPATIBLE" || "PARAMETER_TYPE_INVALID" || "PARAMETER_NOT_FOUND" || "COLUMN_TYPE_MISMATCH" || "COLUMN_GEOGRAPHIC_ROLE_MISMATCH" || "COLUMN_REPLACEMENT_MISSING",
+ * //           Message: "STRING_VALUE",
+ * //           ViolatedEntities: [ // EntityList
+ * //             { // Entity
+ * //               Path: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       VersionNumber: Number("long"),
+ * //       Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ * //       Arn: "STRING_VALUE",
+ * //       SourceEntityArn: "STRING_VALUE",
+ * //       DataSetArns: [ // DataSetArnsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Description: "STRING_VALUE",
+ * //       ThemeArn: "STRING_VALUE",
+ * //       Sheets: [ // SheetList
+ * //         { // Sheet
+ * //           SheetId: "STRING_VALUE",
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     LastPublishedTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   },
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeDashboardCommandInput - {@link DescribeDashboardCommandInput}
@@ -79,6 +121,8 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeDashboardCommand extends $Command<

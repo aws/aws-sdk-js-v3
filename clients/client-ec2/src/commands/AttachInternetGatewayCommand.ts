@@ -47,6 +47,8 @@ export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachInternetGatewayCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AttachInternetGatewayCommandInput - {@link AttachInternetGatewayCommandInput}
@@ -55,6 +57,8 @@ export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
  * @see {@link AttachInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To attach an Internet gateway to a VPC
  * ```javascript

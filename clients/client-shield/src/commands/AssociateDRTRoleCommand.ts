@@ -51,6 +51,8 @@ export interface AssociateDRTRoleCommandOutput extends AssociateDRTRoleResponse,
  * };
  * const command = new AssociateDRTRoleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AssociateDRTRoleCommandInput - {@link AssociateDRTRoleCommandInput}
@@ -78,6 +80,8 @@ export interface AssociateDRTRoleCommandOutput extends AssociateDRTRoleResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class AssociateDRTRoleCommand extends $Command<

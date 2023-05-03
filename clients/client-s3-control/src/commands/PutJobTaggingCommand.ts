@@ -118,6 +118,8 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  * };
  * const command = new PutJobTaggingCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutJobTaggingCommandInput - {@link PutJobTaggingCommandInput}
@@ -138,6 +140,8 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>Amazon S3 throws this exception if you have too many tags in your tag set.</p>
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class PutJobTaggingCommand extends $Command<

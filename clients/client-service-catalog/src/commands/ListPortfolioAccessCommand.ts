@@ -49,6 +49,13 @@ export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOut
  * };
  * const command = new ListPortfolioAccessCommand(input);
  * const response = await client.send(command);
+ * // { // ListPortfolioAccessOutput
+ * //   AccountIds: [ // AccountIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPortfolioAccessCommandInput - {@link ListPortfolioAccessCommandInput}
@@ -63,6 +70,8 @@ export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListPortfolioAccessCommand extends $Command<

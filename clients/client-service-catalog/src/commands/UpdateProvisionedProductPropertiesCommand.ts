@@ -54,6 +54,15 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
  * };
  * const command = new UpdateProvisionedProductPropertiesCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateProvisionedProductPropertiesOutput
+ * //   ProvisionedProductId: "STRING_VALUE",
+ * //   ProvisionedProductProperties: { // ProvisionedProductProperties
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   RecordId: "STRING_VALUE",
+ * //   Status: "CREATED" || "IN_PROGRESS" || "IN_PROGRESS_IN_ERROR" || "SUCCEEDED" || "FAILED",
+ * // };
+ *
  * ```
  *
  * @param UpdateProvisionedProductPropertiesCommandInput - {@link UpdateProvisionedProductPropertiesCommandInput}
@@ -72,6 +81,8 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class UpdateProvisionedProductPropertiesCommand extends $Command<

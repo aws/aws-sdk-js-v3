@@ -51,6 +51,8 @@ export interface StopContactRecordingCommandOutput extends StopContactRecordingR
  * };
  * const command = new StopContactRecordingCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopContactRecordingCommandInput - {@link StopContactRecordingCommandInput}
@@ -68,6 +70,8 @@ export interface StopContactRecordingCommandOutput extends StopContactRecordingR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class StopContactRecordingCommand extends $Command<

@@ -47,6 +47,10 @@ export interface CheckDomainAvailabilityCommandOutput extends CheckDomainAvailab
  * };
  * const command = new CheckDomainAvailabilityCommand(input);
  * const response = await client.send(command);
+ * // { // CheckDomainAvailabilityResponse
+ * //   Availability: "AVAILABLE" || "AVAILABLE_RESERVED" || "AVAILABLE_PREORDER" || "UNAVAILABLE" || "UNAVAILABLE_PREMIUM" || "UNAVAILABLE_RESTRICTED" || "RESERVED" || "DONT_KNOW",
+ * // };
+ *
  * ```
  *
  * @param CheckDomainAvailabilityCommandInput - {@link CheckDomainAvailabilityCommandInput}
@@ -64,6 +68,8 @@ export interface CheckDomainAvailabilityCommandOutput extends CheckDomainAvailab
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class CheckDomainAvailabilityCommand extends $Command<

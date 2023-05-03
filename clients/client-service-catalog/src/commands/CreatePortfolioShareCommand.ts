@@ -70,6 +70,10 @@ export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareO
  * };
  * const command = new CreatePortfolioShareCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePortfolioShareOutput
+ * //   PortfolioShareToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreatePortfolioShareCommandInput - {@link CreatePortfolioShareCommandInput}
@@ -95,6 +99,8 @@ export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class CreatePortfolioShareCommand extends $Command<

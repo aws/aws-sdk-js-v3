@@ -56,6 +56,14 @@ export interface StartReferenceImportJobCommandOutput extends StartReferenceImpo
  * };
  * const command = new StartReferenceImportJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartReferenceImportJobResponse
+ * //   id: "STRING_VALUE", // required
+ * //   referenceStoreId: "STRING_VALUE", // required
+ * //   roleArn: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param StartReferenceImportJobCommandInput - {@link StartReferenceImportJobCommandInput}
@@ -85,6 +93,8 @@ export interface StartReferenceImportJobCommandOutput extends StartReferenceImpo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class StartReferenceImportJobCommand extends $Command<

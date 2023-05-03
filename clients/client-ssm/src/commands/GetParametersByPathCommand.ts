@@ -67,6 +67,23 @@ export interface GetParametersByPathCommandOutput extends GetParametersByPathRes
  * };
  * const command = new GetParametersByPathCommand(input);
  * const response = await client.send(command);
+ * // { // GetParametersByPathResult
+ * //   Parameters: [ // ParameterList
+ * //     { // Parameter
+ * //       Name: "STRING_VALUE",
+ * //       Type: "String" || "StringList" || "SecureString",
+ * //       Value: "STRING_VALUE",
+ * //       Version: Number("long"),
+ * //       Selector: "STRING_VALUE",
+ * //       SourceResult: "STRING_VALUE",
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       ARN: "STRING_VALUE",
+ * //       DataType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetParametersByPathCommandInput - {@link GetParametersByPathCommandInput}
@@ -94,6 +111,8 @@ export interface GetParametersByPathCommandOutput extends GetParametersByPathRes
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetParametersByPathCommand extends $Command<

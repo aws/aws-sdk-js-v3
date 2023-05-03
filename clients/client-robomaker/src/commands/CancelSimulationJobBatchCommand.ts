@@ -45,6 +45,8 @@ export interface CancelSimulationJobBatchCommandOutput extends CancelSimulationJ
  * };
  * const command = new CancelSimulationJobBatchCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelSimulationJobBatchCommandInput - {@link CancelSimulationJobBatchCommandInput}
@@ -66,6 +68,8 @@ export interface CancelSimulationJobBatchCommandOutput extends CancelSimulationJ
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CancelSimulationJobBatchCommand extends $Command<

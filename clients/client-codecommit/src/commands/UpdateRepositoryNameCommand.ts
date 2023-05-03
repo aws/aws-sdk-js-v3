@@ -49,6 +49,8 @@ export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateRepositoryNameCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateRepositoryNameCommandInput - {@link UpdateRepositoryNameCommandInput}
@@ -75,6 +77,8 @@ export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class UpdateRepositoryNameCommand extends $Command<

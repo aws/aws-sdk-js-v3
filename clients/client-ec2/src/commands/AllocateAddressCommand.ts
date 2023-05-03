@@ -75,6 +75,17 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  * };
  * const command = new AllocateAddressCommand(input);
  * const response = await client.send(command);
+ * // { // AllocateAddressResult
+ * //   PublicIp: "STRING_VALUE",
+ * //   AllocationId: "STRING_VALUE",
+ * //   PublicIpv4Pool: "STRING_VALUE",
+ * //   NetworkBorderGroup: "STRING_VALUE",
+ * //   Domain: "vpc" || "standard",
+ * //   CustomerOwnedIp: "STRING_VALUE",
+ * //   CustomerOwnedIpv4Pool: "STRING_VALUE",
+ * //   CarrierIp: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AllocateAddressCommandInput - {@link AllocateAddressCommandInput}
@@ -83,6 +94,8 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  * @see {@link AllocateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To allocate an Elastic IP address for EC2-VPC
  * ```javascript

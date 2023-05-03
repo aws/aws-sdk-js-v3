@@ -50,6 +50,33 @@ export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __Met
  * };
  * const command = new ListGeofencesCommand(input);
  * const response = await client.send(command);
+ * // { // ListGeofencesResponse
+ * //   Entries: [ // ListGeofenceResponseEntryList // required
+ * //     { // ListGeofenceResponseEntry
+ * //       GeofenceId: "STRING_VALUE", // required
+ * //       Geometry: { // GeofenceGeometry
+ * //         Polygon: [ // LinearRings
+ * //           [ // LinearRing
+ * //             [ // Position
+ * //               Number("double"),
+ * //             ],
+ * //           ],
+ * //         ],
+ * //         Circle: { // Circle
+ * //           Center: [ // required
+ * //             Number("double"),
+ * //           ],
+ * //           Radius: Number("double"), // required
+ * //         },
+ * //       },
+ * //       Status: "STRING_VALUE", // required
+ * //       CreateTime: new Date("TIMESTAMP"), // required
+ * //       UpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListGeofencesCommandInput - {@link ListGeofencesCommandInput}
@@ -74,6 +101,8 @@ export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class ListGeofencesCommand extends $Command<

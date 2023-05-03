@@ -60,6 +60,11 @@ export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse,
  * };
  * const command = new ClaimPhoneNumberCommand(input);
  * const response = await client.send(command);
+ * // { // ClaimPhoneNumberResponse
+ * //   PhoneNumberId: "STRING_VALUE",
+ * //   PhoneNumberArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ClaimPhoneNumberCommandInput - {@link ClaimPhoneNumberCommandInput}
@@ -86,6 +91,8 @@ export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ClaimPhoneNumberCommand extends $Command<

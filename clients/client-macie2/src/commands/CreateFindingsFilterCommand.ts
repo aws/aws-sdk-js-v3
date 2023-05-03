@@ -70,6 +70,11 @@ export interface CreateFindingsFilterCommandOutput extends CreateFindingsFilterR
  * };
  * const command = new CreateFindingsFilterCommand(input);
  * const response = await client.send(command);
+ * // { // CreateFindingsFilterResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateFindingsFilterCommandInput - {@link CreateFindingsFilterCommandInput}
@@ -99,6 +104,8 @@ export interface CreateFindingsFilterCommandOutput extends CreateFindingsFilterR
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class CreateFindingsFilterCommand extends $Command<

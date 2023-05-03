@@ -45,6 +45,10 @@ export interface DeleteVariantStoreCommandOutput extends DeleteVariantStoreRespo
  * };
  * const command = new DeleteVariantStoreCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteVariantStoreResponse
+ * //   status: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteVariantStoreCommandInput - {@link DeleteVariantStoreCommandInput}
@@ -71,6 +75,8 @@ export interface DeleteVariantStoreCommandOutput extends DeleteVariantStoreRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class DeleteVariantStoreCommand extends $Command<

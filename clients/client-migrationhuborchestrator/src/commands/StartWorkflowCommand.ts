@@ -48,6 +48,14 @@ export interface StartWorkflowCommandOutput extends StartMigrationWorkflowRespon
  * };
  * const command = new StartWorkflowCommand(input);
  * const response = await client.send(command);
+ * // { // StartMigrationWorkflowResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   statusMessage: "STRING_VALUE",
+ * //   lastStartTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param StartWorkflowCommandInput - {@link StartWorkflowCommandInput}
@@ -71,6 +79,8 @@ export interface StartWorkflowCommandOutput extends StartMigrationWorkflowRespon
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class StartWorkflowCommand extends $Command<

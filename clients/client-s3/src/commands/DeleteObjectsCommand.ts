@@ -110,6 +110,26 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  * };
  * const command = new DeleteObjectsCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteObjectsOutput
+ * //   Deleted: [ // DeletedObjects
+ * //     { // DeletedObject
+ * //       Key: "STRING_VALUE",
+ * //       VersionId: "STRING_VALUE",
+ * //       DeleteMarker: true || false,
+ * //       DeleteMarkerVersionId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   RequestCharged: "requester",
+ * //   Errors: [ // Errors
+ * //     { // Error
+ * //       Key: "STRING_VALUE",
+ * //       VersionId: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DeleteObjectsCommandInput - {@link DeleteObjectsCommandInput}
@@ -118,6 +138,8 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  * @see {@link DeleteObjectsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To delete multiple objects from a versioned bucket
  * ```javascript

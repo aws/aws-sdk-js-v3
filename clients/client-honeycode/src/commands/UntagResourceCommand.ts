@@ -50,6 +50,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -84,6 +86,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

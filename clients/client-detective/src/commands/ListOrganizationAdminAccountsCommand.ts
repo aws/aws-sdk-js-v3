@@ -51,6 +51,17 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * };
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
+ * // { // ListOrganizationAdminAccountsResponse
+ * //   Administrators: [ // AdministratorList
+ * //     { // Administrator
+ * //       AccountId: "STRING_VALUE",
+ * //       GraphArn: "STRING_VALUE",
+ * //       DelegationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListOrganizationAdminAccountsCommandInput - {@link ListOrganizationAdminAccountsCommandInput}
@@ -73,6 +84,8 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class ListOrganizationAdminAccountsCommand extends $Command<

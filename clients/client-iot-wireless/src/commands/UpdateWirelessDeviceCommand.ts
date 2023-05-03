@@ -72,6 +72,8 @@ export interface UpdateWirelessDeviceCommandOutput extends UpdateWirelessDeviceR
  * };
  * const command = new UpdateWirelessDeviceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateWirelessDeviceCommandInput - {@link UpdateWirelessDeviceCommandInput}
@@ -95,6 +97,8 @@ export interface UpdateWirelessDeviceCommandOutput extends UpdateWirelessDeviceR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class UpdateWirelessDeviceCommand extends $Command<

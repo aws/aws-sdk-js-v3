@@ -58,6 +58,11 @@ export interface CreateIntegrationAssociationCommandOutput
  * };
  * const command = new CreateIntegrationAssociationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateIntegrationAssociationResponse
+ * //   IntegrationAssociationId: "STRING_VALUE",
+ * //   IntegrationAssociationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateIntegrationAssociationCommandInput - {@link CreateIntegrationAssociationCommandInput}
@@ -81,6 +86,8 @@ export interface CreateIntegrationAssociationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateIntegrationAssociationCommand extends $Command<

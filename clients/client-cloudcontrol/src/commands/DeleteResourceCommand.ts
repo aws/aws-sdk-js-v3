@@ -52,6 +52,21 @@ export interface DeleteResourceCommandOutput extends DeleteResourceOutput, __Met
  * };
  * const command = new DeleteResourceCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteResourceOutput
+ * //   ProgressEvent: { // ProgressEvent
+ * //     TypeName: "STRING_VALUE",
+ * //     Identifier: "STRING_VALUE",
+ * //     RequestToken: "STRING_VALUE",
+ * //     Operation: "STRING_VALUE",
+ * //     OperationStatus: "STRING_VALUE",
+ * //     EventTime: new Date("TIMESTAMP"),
+ * //     ResourceModel: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     ErrorCode: "STRING_VALUE",
+ * //     RetryAfter: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteResourceCommandInput - {@link DeleteResourceCommandInput}
@@ -133,6 +148,8 @@ export interface DeleteResourceCommandOutput extends DeleteResourceOutput, __Met
  * @throws {@link UnsupportedActionException} (client fault)
  *  <p>The specified resource doesn't support this resource operation.</p>
  *
+ * @throws {@link CloudControlServiceException}
+ * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
  */
 export class DeleteResourceCommand extends $Command<

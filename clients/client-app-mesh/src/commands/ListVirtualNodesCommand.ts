@@ -47,6 +47,22 @@ export interface ListVirtualNodesCommandOutput extends ListVirtualNodesOutput, _
  * };
  * const command = new ListVirtualNodesCommand(input);
  * const response = await client.send(command);
+ * // { // ListVirtualNodesOutput
+ * //   virtualNodes: [ // VirtualNodeList // required
+ * //     { // VirtualNodeRef
+ * //       meshName: "STRING_VALUE", // required
+ * //       virtualNodeName: "STRING_VALUE", // required
+ * //       meshOwner: "STRING_VALUE", // required
+ * //       resourceOwner: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       version: Number("long"), // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListVirtualNodesCommandInput - {@link ListVirtualNodesCommandInput}
@@ -76,6 +92,8 @@ export interface ListVirtualNodesCommandOutput extends ListVirtualNodesOutput, _
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class ListVirtualNodesCommand extends $Command<

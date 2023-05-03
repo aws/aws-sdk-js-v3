@@ -58,6 +58,24 @@ export interface AdminListDevicesCommandOutput extends AdminListDevicesResponse,
  * };
  * const command = new AdminListDevicesCommand(input);
  * const response = await client.send(command);
+ * // { // AdminListDevicesResponse
+ * //   Devices: [ // DeviceListType
+ * //     { // DeviceType
+ * //       DeviceKey: "STRING_VALUE",
+ * //       DeviceAttributes: [ // AttributeListType
+ * //         { // AttributeType
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DeviceCreateDate: new Date("TIMESTAMP"),
+ * //       DeviceLastModifiedDate: new Date("TIMESTAMP"),
+ * //       DeviceLastAuthenticatedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   PaginationToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AdminListDevicesCommandInput - {@link AdminListDevicesCommandInput}
@@ -87,6 +105,8 @@ export interface AdminListDevicesCommandOutput extends AdminListDevicesResponse,
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminListDevicesCommand extends $Command<

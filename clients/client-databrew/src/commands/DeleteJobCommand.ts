@@ -44,6 +44,10 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * };
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteJobResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteJobCommandInput - {@link DeleteJobCommandInput}
@@ -61,6 +65,8 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class DeleteJobCommand extends $Command<

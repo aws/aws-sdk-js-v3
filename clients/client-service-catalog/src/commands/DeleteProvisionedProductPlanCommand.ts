@@ -51,6 +51,8 @@ export interface DeleteProvisionedProductPlanCommandOutput
  * };
  * const command = new DeleteProvisionedProductPlanCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteProvisionedProductPlanCommandInput - {@link DeleteProvisionedProductPlanCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteProvisionedProductPlanCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DeleteProvisionedProductPlanCommand extends $Command<

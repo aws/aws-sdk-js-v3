@@ -50,6 +50,20 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * };
  * const command = new UpdatePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePolicyResponse
+ * //   Policy: { // Policy
+ * //     PolicySummary: { // PolicySummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ * //       AwsManaged: true || false,
+ * //     },
+ * //     Content: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdatePolicyCommandInput - {@link UpdatePolicyCommandInput}
@@ -405,6 +419,8 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To update the details of a policy
  * ```javascript

@@ -51,6 +51,8 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetDesiredCapacityCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SetDesiredCapacityCommandInput - {@link SetDesiredCapacityCommandInput}
@@ -67,6 +69,8 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  *  <p>The operation can't be performed because there are scaling activities in
  *             progress.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To set the desired capacity for an Auto Scaling group
  * ```javascript

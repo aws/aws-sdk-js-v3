@@ -55,6 +55,18 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
  * };
  * const command = new ListIAMPolicyAssignmentsForUserCommand(input);
  * const response = await client.send(command);
+ * // { // ListIAMPolicyAssignmentsForUserResponse
+ * //   ActiveAssignments: [ // ActiveIAMPolicyAssignmentList
+ * //     { // ActiveIAMPolicyAssignment
+ * //       AssignmentName: "STRING_VALUE",
+ * //       PolicyArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   RequestId: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param ListIAMPolicyAssignmentsForUserCommandInput - {@link ListIAMPolicyAssignmentsForUserCommandInput}
@@ -88,6 +100,8 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListIAMPolicyAssignmentsForUserCommand extends $Command<

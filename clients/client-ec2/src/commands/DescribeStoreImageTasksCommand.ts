@@ -68,6 +68,21 @@ export interface DescribeStoreImageTasksCommandOutput extends DescribeStoreImage
  * };
  * const command = new DescribeStoreImageTasksCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeStoreImageTasksResult
+ * //   StoreImageTaskResults: [ // StoreImageTaskResultSet
+ * //     { // StoreImageTaskResult
+ * //       AmiId: "STRING_VALUE",
+ * //       TaskStartTime: new Date("TIMESTAMP"),
+ * //       Bucket: "STRING_VALUE",
+ * //       S3objectKey: "STRING_VALUE",
+ * //       ProgressPercentage: Number("int"),
+ * //       StoreTaskState: "STRING_VALUE",
+ * //       StoreTaskFailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeStoreImageTasksCommandInput - {@link DescribeStoreImageTasksCommandInput}
@@ -76,6 +91,8 @@ export interface DescribeStoreImageTasksCommandOutput extends DescribeStoreImage
  * @see {@link DescribeStoreImageTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeStoreImageTasksCommand extends $Command<

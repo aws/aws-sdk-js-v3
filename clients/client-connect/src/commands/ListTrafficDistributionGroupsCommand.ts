@@ -51,6 +51,19 @@ export interface ListTrafficDistributionGroupsCommandOutput
  * };
  * const command = new ListTrafficDistributionGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTrafficDistributionGroupsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   TrafficDistributionGroupSummaryList: [ // TrafficDistributionGroupSummaryList
+ * //     { // TrafficDistributionGroupSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       InstanceArn: "STRING_VALUE",
+ * //       Status: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED" || "PENDING_DELETION" || "DELETION_FAILED" || "UPDATE_IN_PROGRESS",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListTrafficDistributionGroupsCommandInput - {@link ListTrafficDistributionGroupsCommandInput}
@@ -71,6 +84,8 @@ export interface ListTrafficDistributionGroupsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListTrafficDistributionGroupsCommand extends $Command<

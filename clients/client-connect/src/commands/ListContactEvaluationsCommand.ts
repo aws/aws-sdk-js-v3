@@ -46,6 +46,27 @@ export interface ListContactEvaluationsCommandOutput extends ListContactEvaluati
  * };
  * const command = new ListContactEvaluationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListContactEvaluationsResponse
+ * //   EvaluationSummaryList: [ // EvaluationSummaryList // required
+ * //     { // EvaluationSummary
+ * //       EvaluationId: "STRING_VALUE", // required
+ * //       EvaluationArn: "STRING_VALUE", // required
+ * //       EvaluationFormTitle: "STRING_VALUE", // required
+ * //       EvaluationFormId: "STRING_VALUE", // required
+ * //       Status: "DRAFT" || "SUBMITTED", // required
+ * //       EvaluatorArn: "STRING_VALUE", // required
+ * //       Score: { // EvaluationScore
+ * //         Percentage: Number("double"),
+ * //         NotApplicable: true || false,
+ * //         AutomaticFail: true || false,
+ * //       },
+ * //       CreatedTime: new Date("TIMESTAMP"), // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListContactEvaluationsCommandInput - {@link ListContactEvaluationsCommandInput}
@@ -66,6 +87,8 @@ export interface ListContactEvaluationsCommandOutput extends ListContactEvaluati
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListContactEvaluationsCommand extends $Command<

@@ -49,6 +49,8 @@ export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBe
  * };
  * const command = new ModifyClusterSnapshotScheduleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ModifyClusterSnapshotScheduleCommandInput - {@link ModifyClusterSnapshotScheduleCommandInput}
@@ -67,6 +69,8 @@ export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBe
  * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
  *  <p>We could not find the specified snapshot schedule. </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ModifyClusterSnapshotScheduleCommand extends $Command<

@@ -46,6 +46,19 @@ export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorR
  * };
  * const command = new UpdateVoiceConnectorCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateVoiceConnectorResponse
+ * //   VoiceConnector: { // VoiceConnector
+ * //     VoiceConnectorId: "STRING_VALUE",
+ * //     AwsRegion: "us-east-1" || "us-west-2",
+ * //     Name: "STRING_VALUE",
+ * //     OutboundHostName: "STRING_VALUE",
+ * //     RequireEncryption: true || false,
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     VoiceConnectorArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateVoiceConnectorCommandInput - {@link UpdateVoiceConnectorCommandInput}
@@ -75,6 +88,8 @@ export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UpdateVoiceConnectorCommand extends $Command<

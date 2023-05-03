@@ -46,6 +46,17 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesOut
  * };
  * const command = new GetResourcePoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // GetResourcePoliciesOutput
+ * //   resourcePolicies: [ // ResourcePolicyList // required
+ * //     { // ResourcePolicy
+ * //       policyDocument: "STRING_VALUE", // required
+ * //       policyId: "STRING_VALUE", // required
+ * //       ramResourceShareRegion: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetResourcePoliciesCommandInput - {@link GetResourcePoliciesCommandInput}
@@ -71,6 +82,8 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesOut
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class GetResourcePoliciesCommand extends $Command<

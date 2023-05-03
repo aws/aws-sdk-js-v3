@@ -53,6 +53,21 @@ export interface ListTransformJobsCommandOutput extends ListTransformJobsRespons
  * };
  * const command = new ListTransformJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTransformJobsResponse
+ * //   TransformJobSummaries: [ // TransformJobSummaries // required
+ * //     { // TransformJobSummary
+ * //       TransformJobName: "STRING_VALUE", // required
+ * //       TransformJobArn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       TransformEndTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       TransformJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //       FailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTransformJobsCommandInput - {@link ListTransformJobsCommandInput}
@@ -61,6 +76,8 @@ export interface ListTransformJobsCommandOutput extends ListTransformJobsRespons
  * @see {@link ListTransformJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListTransformJobsCommand extends $Command<

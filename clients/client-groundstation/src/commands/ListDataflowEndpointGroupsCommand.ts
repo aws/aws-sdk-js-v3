@@ -45,6 +45,16 @@ export interface ListDataflowEndpointGroupsCommandOutput extends ListDataflowEnd
  * };
  * const command = new ListDataflowEndpointGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDataflowEndpointGroupsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   dataflowEndpointGroupList: [ // DataflowEndpointGroupList
+ * //     { // DataflowEndpointListItem
+ * //       dataflowEndpointGroupId: "STRING_VALUE",
+ * //       dataflowEndpointGroupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListDataflowEndpointGroupsCommandInput - {@link ListDataflowEndpointGroupsCommandInput}
@@ -62,6 +72,8 @@ export interface ListDataflowEndpointGroupsCommandOutput extends ListDataflowEnd
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class ListDataflowEndpointGroupsCommand extends $Command<

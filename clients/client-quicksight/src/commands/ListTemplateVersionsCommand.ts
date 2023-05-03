@@ -47,6 +47,21 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * };
  * const command = new ListTemplateVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTemplateVersionsResponse
+ * //   TemplateVersionSummaryList: [ // TemplateVersionSummaryList
+ * //     { // TemplateVersionSummary
+ * //       Arn: "STRING_VALUE",
+ * //       VersionNumber: Number("long"),
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTemplateVersionsCommandInput - {@link ListTemplateVersionsCommandInput}
@@ -76,6 +91,8 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListTemplateVersionsCommand extends $Command<

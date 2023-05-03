@@ -42,6 +42,8 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * const input = {};
  * const command = new InitializeServiceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param InitializeServiceCommandInput - {@link InitializeServiceCommandInput}
@@ -62,6 +64,8 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class InitializeServiceCommand extends $Command<

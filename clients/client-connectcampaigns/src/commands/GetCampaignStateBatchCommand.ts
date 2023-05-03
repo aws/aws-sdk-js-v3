@@ -46,6 +46,21 @@ export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatc
  * };
  * const command = new GetCampaignStateBatchCommand(input);
  * const response = await client.send(command);
+ * // { // GetCampaignStateBatchResponse
+ * //   successfulRequests: [ // SuccessfulCampaignStateResponseList
+ * //     { // SuccessfulCampaignStateResponse
+ * //       campaignId: "STRING_VALUE",
+ * //       state: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   failedRequests: [ // FailedCampaignStateResponseList
+ * //     { // FailedCampaignStateResponse
+ * //       campaignId: "STRING_VALUE",
+ * //       failureCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetCampaignStateBatchCommandInput - {@link GetCampaignStateBatchCommandInput}
@@ -66,6 +81,8 @@ export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatc
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class GetCampaignStateBatchCommand extends $Command<

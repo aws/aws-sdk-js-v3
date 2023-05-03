@@ -45,6 +45,17 @@ export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataB
  * };
  * const command = new ListSamplesCommand(input);
  * const response = await client.send(command);
+ * // { // ListSamplesResult
+ * //   samples: [ // Samples
+ * //     { // Sample
+ * //       arn: "STRING_VALUE",
+ * //       type: "CPU" || "MEMORY" || "THREADS" || "RX_RATE" || "TX_RATE" || "RX" || "TX" || "NATIVE_FRAMES" || "NATIVE_FPS" || "NATIVE_MIN_DRAWTIME" || "NATIVE_AVG_DRAWTIME" || "NATIVE_MAX_DRAWTIME" || "OPENGL_FRAMES" || "OPENGL_FPS" || "OPENGL_MIN_DRAWTIME" || "OPENGL_AVG_DRAWTIME" || "OPENGL_MAX_DRAWTIME",
+ * //       url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSamplesCommandInput - {@link ListSamplesCommandInput}
@@ -65,6 +76,8 @@ export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataB
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To get information about samples
  * ```javascript

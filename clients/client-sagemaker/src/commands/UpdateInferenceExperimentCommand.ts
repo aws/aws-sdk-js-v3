@@ -87,6 +87,10 @@ export interface UpdateInferenceExperimentCommandOutput extends UpdateInferenceE
  * };
  * const command = new UpdateInferenceExperimentCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateInferenceExperimentResponse
+ * //   InferenceExperimentArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateInferenceExperimentCommandInput - {@link UpdateInferenceExperimentCommandInput}
@@ -102,6 +106,8 @@ export interface UpdateInferenceExperimentCommandOutput extends UpdateInferenceE
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateInferenceExperimentCommand extends $Command<

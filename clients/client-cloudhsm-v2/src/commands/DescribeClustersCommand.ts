@@ -55,6 +55,56 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * };
  * const command = new DescribeClustersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeClustersResponse
+ * //   Clusters: [ // Clusters
+ * //     { // Cluster
+ * //       BackupPolicy: "STRING_VALUE",
+ * //       BackupRetentionPolicy: { // BackupRetentionPolicy
+ * //         Type: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //       ClusterId: "STRING_VALUE",
+ * //       CreateTimestamp: new Date("TIMESTAMP"),
+ * //       Hsms: [ // Hsms
+ * //         { // Hsm
+ * //           AvailabilityZone: "STRING_VALUE",
+ * //           ClusterId: "STRING_VALUE",
+ * //           SubnetId: "STRING_VALUE",
+ * //           EniId: "STRING_VALUE",
+ * //           EniIp: "STRING_VALUE",
+ * //           HsmId: "STRING_VALUE", // required
+ * //           State: "STRING_VALUE",
+ * //           StateMessage: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       HsmType: "STRING_VALUE",
+ * //       PreCoPassword: "STRING_VALUE",
+ * //       SecurityGroup: "STRING_VALUE",
+ * //       SourceBackupId: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       StateMessage: "STRING_VALUE",
+ * //       SubnetMapping: { // ExternalSubnetMapping
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       VpcId: "STRING_VALUE",
+ * //       Certificates: { // Certificates
+ * //         ClusterCsr: "STRING_VALUE",
+ * //         HsmCertificate: "STRING_VALUE",
+ * //         AwsHardwareCertificate: "STRING_VALUE",
+ * //         ManufacturerHardwareCertificate: "STRING_VALUE",
+ * //         ClusterCertificate: "STRING_VALUE",
+ * //       },
+ * //       TagList: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeClustersCommandInput - {@link DescribeClustersCommandInput}
@@ -80,6 +130,8 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @throws {@link CloudHsmTagException} (client fault)
  *  <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class DescribeClustersCommand extends $Command<

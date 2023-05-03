@@ -45,6 +45,26 @@ export interface ListLongTermPricingCommandOutput extends ListLongTermPricingRes
  * };
  * const command = new ListLongTermPricingCommand(input);
  * const response = await client.send(command);
+ * // { // ListLongTermPricingResult
+ * //   LongTermPricingEntries: [ // LongTermPricingEntryList
+ * //     { // LongTermPricingListEntry
+ * //       LongTermPricingId: "STRING_VALUE",
+ * //       LongTermPricingEndDate: new Date("TIMESTAMP"),
+ * //       LongTermPricingStartDate: new Date("TIMESTAMP"),
+ * //       LongTermPricingType: "OneYear" || "ThreeYear" || "OneMonth",
+ * //       CurrentActiveJob: "STRING_VALUE",
+ * //       ReplacementJob: "STRING_VALUE",
+ * //       IsLongTermPricingAutoRenew: true || false,
+ * //       LongTermPricingStatus: "STRING_VALUE",
+ * //       SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S",
+ * //       JobIds: [ // LongTermPricingAssociatedJobIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListLongTermPricingCommandInput - {@link ListLongTermPricingCommandInput}
@@ -62,6 +82,8 @@ export interface ListLongTermPricingCommandOutput extends ListLongTermPricingRes
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
 export class ListLongTermPricingCommand extends $Command<

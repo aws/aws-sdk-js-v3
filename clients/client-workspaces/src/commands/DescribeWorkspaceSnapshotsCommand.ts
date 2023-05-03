@@ -44,6 +44,19 @@ export interface DescribeWorkspaceSnapshotsCommandOutput extends DescribeWorkspa
  * };
  * const command = new DescribeWorkspaceSnapshotsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeWorkspaceSnapshotsResult
+ * //   RebuildSnapshots: [ // SnapshotList
+ * //     { // Snapshot
+ * //       SnapshotTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   RestoreSnapshots: [
+ * //     {
+ * //       SnapshotTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeWorkspaceSnapshotsCommandInput - {@link DescribeWorkspaceSnapshotsCommandInput}
@@ -61,6 +74,8 @@ export interface DescribeWorkspaceSnapshotsCommandOutput extends DescribeWorkspa
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeWorkspaceSnapshotsCommand extends $Command<

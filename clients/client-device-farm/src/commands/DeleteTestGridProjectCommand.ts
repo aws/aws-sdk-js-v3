@@ -50,6 +50,8 @@ export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjec
  * };
  * const command = new DeleteTestGridProjectCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTestGridProjectCommandInput - {@link DeleteTestGridProjectCommandInput}
@@ -71,6 +73,8 @@ export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjec
  * @throws {@link NotFoundException} (client fault)
  *  <p>The specified entity was not found.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class DeleteTestGridProjectCommand extends $Command<

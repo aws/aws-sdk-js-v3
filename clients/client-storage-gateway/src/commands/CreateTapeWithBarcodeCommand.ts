@@ -64,6 +64,10 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  * };
  * const command = new CreateTapeWithBarcodeCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTapeWithBarcodeOutput
+ * //   TapeARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateTapeWithBarcodeCommandInput - {@link CreateTapeWithBarcodeCommandInput}
@@ -80,6 +84,8 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To create a virtual tape using a barcode
  * ```javascript

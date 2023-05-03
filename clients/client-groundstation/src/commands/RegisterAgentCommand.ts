@@ -76,6 +76,10 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
  * };
  * const command = new RegisterAgentCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterAgentResponse
+ * //   agentId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RegisterAgentCommandInput - {@link RegisterAgentCommandInput}
@@ -93,6 +97,8 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class RegisterAgentCommand extends $Command<

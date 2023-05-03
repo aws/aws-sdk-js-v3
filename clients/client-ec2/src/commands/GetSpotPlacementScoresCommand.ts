@@ -138,6 +138,17 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  * };
  * const command = new GetSpotPlacementScoresCommand(input);
  * const response = await client.send(command);
+ * // { // GetSpotPlacementScoresResult
+ * //   SpotPlacementScores: [ // SpotPlacementScores
+ * //     { // SpotPlacementScore
+ * //       Region: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
+ * //       Score: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetSpotPlacementScoresCommandInput - {@link GetSpotPlacementScoresCommandInput}
@@ -146,6 +157,8 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  * @see {@link GetSpotPlacementScoresCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetSpotPlacementScoresCommand extends $Command<

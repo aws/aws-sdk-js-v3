@@ -48,6 +48,11 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  * };
  * const command = new CreateGroupMembershipCommand(input);
  * const response = await client.send(command);
+ * // { // CreateGroupMembershipResponse
+ * //   MembershipId: "STRING_VALUE", // required
+ * //   IdentityStoreId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateGroupMembershipCommandInput - {@link CreateGroupMembershipCommandInput}
@@ -85,6 +90,8 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class CreateGroupMembershipCommand extends $Command<

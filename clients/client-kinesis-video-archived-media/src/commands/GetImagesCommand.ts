@@ -61,6 +61,17 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  * };
  * const command = new GetImagesCommand(input);
  * const response = await client.send(command);
+ * // { // GetImagesOutput
+ * //   Images: [ // Images
+ * //     { // Image
+ * //       TimeStamp: new Date("TIMESTAMP"),
+ * //       Error: "STRING_VALUE",
+ * //       ImageContent: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetImagesCommandInput - {@link GetImagesCommandInput}
@@ -92,6 +103,8 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
  *             seconds.</p>
  *
+ * @throws {@link KinesisVideoArchivedMediaServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
  */
 export class GetImagesCommand extends $Command<

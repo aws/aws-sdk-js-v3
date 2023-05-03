@@ -68,6 +68,8 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
  * };
  * const command = new UpdateLicenseSpecificationsForResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateLicenseSpecificationsForResourceCommandInput - {@link UpdateLicenseSpecificationsForResourceCommandInput}
@@ -100,6 +102,8 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class UpdateLicenseSpecificationsForResourceCommand extends $Command<

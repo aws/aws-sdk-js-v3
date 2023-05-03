@@ -50,6 +50,21 @@ export interface DescribeAnalysisPermissionsCommandOutput
  * };
  * const command = new DescribeAnalysisPermissionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAnalysisPermissionsResponse
+ * //   AnalysisId: "STRING_VALUE",
+ * //   AnalysisArn: "STRING_VALUE",
+ * //   Permissions: [ // ResourcePermissionList
+ * //     { // ResourcePermission
+ * //       Principal: "STRING_VALUE", // required
+ * //       Actions: [ // ActionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeAnalysisPermissionsCommandInput - {@link DescribeAnalysisPermissionsCommandInput}
@@ -76,6 +91,8 @@ export interface DescribeAnalysisPermissionsCommandOutput
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeAnalysisPermissionsCommand extends $Command<

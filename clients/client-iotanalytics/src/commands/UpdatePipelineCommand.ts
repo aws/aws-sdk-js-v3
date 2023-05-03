@@ -111,6 +111,8 @@ export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdatePipelineCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdatePipelineCommandInput - {@link UpdatePipelineCommandInput}
@@ -137,6 +139,8 @@ export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class UpdatePipelineCommand extends $Command<

@@ -44,6 +44,13 @@ export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __Met
  * };
  * const command = new GetActiveNamesCommand(input);
  * const response = await client.send(command);
+ * // { // GetActiveNamesResult
+ * //   activeNames: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetActiveNamesCommandInput - {@link GetActiveNamesCommandInput}
@@ -82,6 +89,8 @@ export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __Met
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetActiveNamesCommand extends $Command<

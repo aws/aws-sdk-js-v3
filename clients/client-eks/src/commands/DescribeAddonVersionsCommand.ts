@@ -58,6 +58,40 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
  * };
  * const command = new DescribeAddonVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAddonVersionsResponse
+ * //   addons: [ // Addons
+ * //     { // AddonInfo
+ * //       addonName: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       addonVersions: [ // AddonVersionInfoList
+ * //         { // AddonVersionInfo
+ * //           addonVersion: "STRING_VALUE",
+ * //           architecture: [ // StringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           compatibilities: [ // Compatibilities
+ * //             { // Compatibility
+ * //               clusterVersion: "STRING_VALUE",
+ * //               platformVersions: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               defaultVersion: true || false,
+ * //             },
+ * //           ],
+ * //           requiresConfiguration: true || false,
+ * //         },
+ * //       ],
+ * //       publisher: "STRING_VALUE",
+ * //       owner: "STRING_VALUE",
+ * //       marketplaceInformation: { // MarketplaceInformation
+ * //         productId: "STRING_VALUE",
+ * //         productUrl: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeAddonVersionsCommandInput - {@link DescribeAddonVersionsCommandInput}
@@ -79,6 +113,8 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class DescribeAddonVersionsCommand extends $Command<

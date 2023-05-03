@@ -65,6 +65,12 @@ export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse,
  * };
  * const command = new CreateThingGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateThingGroupResponse
+ * //   thingGroupName: "STRING_VALUE",
+ * //   thingGroupArn: "STRING_VALUE",
+ * //   thingGroupId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateThingGroupCommandInput - {@link CreateThingGroupCommandInput}
@@ -85,6 +91,8 @@ export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateThingGroupCommand extends $Command<

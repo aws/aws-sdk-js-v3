@@ -45,6 +45,8 @@ export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataB
  * };
  * const command = new DeleteTypeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTypeCommandInput - {@link DeleteTypeCommandInput}
@@ -70,6 +72,8 @@ export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataB
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class DeleteTypeCommand extends $Command<

@@ -77,6 +77,8 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  * };
  * const command = new PutResourceAttributesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutResourceAttributesCommandInput - {@link PutResourceAttributesCommandInput}
@@ -119,6 +121,8 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class PutResourceAttributesCommand extends $Command<

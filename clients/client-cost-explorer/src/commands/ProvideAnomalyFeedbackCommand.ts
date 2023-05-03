@@ -45,6 +45,10 @@ export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedb
  * };
  * const command = new ProvideAnomalyFeedbackCommand(input);
  * const response = await client.send(command);
+ * // { // ProvideAnomalyFeedbackResponse
+ * //   AnomalyId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param ProvideAnomalyFeedbackCommandInput - {@link ProvideAnomalyFeedbackCommandInput}
@@ -56,6 +60,8 @@ export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedb
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class ProvideAnomalyFeedbackCommand extends $Command<

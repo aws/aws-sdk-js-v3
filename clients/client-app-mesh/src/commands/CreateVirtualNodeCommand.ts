@@ -301,6 +301,250 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  * };
  * const command = new CreateVirtualNodeCommand(input);
  * const response = await client.send(command);
+ * // { // CreateVirtualNodeOutput
+ * //   virtualNode: { // VirtualNodeData
+ * //     meshName: "STRING_VALUE", // required
+ * //     virtualNodeName: "STRING_VALUE", // required
+ * //     spec: { // VirtualNodeSpec
+ * //       serviceDiscovery: { // ServiceDiscovery Union: only one key present
+ * //         dns: { // DnsServiceDiscovery
+ * //           hostname: "STRING_VALUE", // required
+ * //           responseType: "STRING_VALUE",
+ * //           ipPreference: "STRING_VALUE",
+ * //         },
+ * //         awsCloudMap: { // AwsCloudMapServiceDiscovery
+ * //           namespaceName: "STRING_VALUE", // required
+ * //           serviceName: "STRING_VALUE", // required
+ * //           attributes: [ // AwsCloudMapInstanceAttributes
+ * //             { // AwsCloudMapInstanceAttribute
+ * //               key: "STRING_VALUE", // required
+ * //               value: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           ipPreference: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       listeners: [ // Listeners
+ * //         { // Listener
+ * //           portMapping: { // PortMapping
+ * //             port: Number("int"), // required
+ * //             protocol: "STRING_VALUE", // required
+ * //           },
+ * //           tls: { // ListenerTls
+ * //             mode: "STRING_VALUE", // required
+ * //             certificate: { // ListenerTlsCertificate Union: only one key present
+ * //               acm: { // ListenerTlsAcmCertificate
+ * //                 certificateArn: "STRING_VALUE", // required
+ * //               },
+ * //               file: { // ListenerTlsFileCertificate
+ * //                 certificateChain: "STRING_VALUE", // required
+ * //                 privateKey: "STRING_VALUE", // required
+ * //               },
+ * //               sds: { // ListenerTlsSdsCertificate
+ * //                 secretName: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //             validation: { // ListenerTlsValidationContext
+ * //               trust: { // ListenerTlsValidationContextTrust Union: only one key present
+ * //                 file: { // TlsValidationContextFileTrust
+ * //                   certificateChain: "STRING_VALUE", // required
+ * //                 },
+ * //                 sds: { // TlsValidationContextSdsTrust
+ * //                   secretName: "STRING_VALUE", // required
+ * //                 },
+ * //               },
+ * //               subjectAlternativeNames: { // SubjectAlternativeNames
+ * //                 match: { // SubjectAlternativeNameMatchers
+ * //                   exact: [ // SubjectAlternativeNameList // required
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //             },
+ * //           },
+ * //           healthCheck: { // HealthCheckPolicy
+ * //             timeoutMillis: Number("long"), // required
+ * //             intervalMillis: Number("long"), // required
+ * //             protocol: "STRING_VALUE", // required
+ * //             port: Number("int"),
+ * //             path: "STRING_VALUE",
+ * //             healthyThreshold: Number("int"), // required
+ * //             unhealthyThreshold: Number("int"), // required
+ * //           },
+ * //           timeout: { // ListenerTimeout Union: only one key present
+ * //             tcp: { // TcpTimeout
+ * //               idle: { // Duration
+ * //                 value: Number("long"),
+ * //                 unit: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             http: { // HttpTimeout
+ * //               perRequest: {
+ * //                 value: Number("long"),
+ * //                 unit: "STRING_VALUE",
+ * //               },
+ * //               idle: {
+ * //                 value: Number("long"),
+ * //                 unit: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             http2: {
+ * //               perRequest: {
+ * //                 value: Number("long"),
+ * //                 unit: "STRING_VALUE",
+ * //               },
+ * //               idle: {
+ * //                 value: Number("long"),
+ * //                 unit: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             grpc: { // GrpcTimeout
+ * //               perRequest: "<Duration>",
+ * //               idle: "<Duration>",
+ * //             },
+ * //           },
+ * //           outlierDetection: { // OutlierDetection
+ * //             maxServerErrors: Number("long"), // required
+ * //             interval: "<Duration>", // required
+ * //             baseEjectionDuration: "<Duration>", // required
+ * //             maxEjectionPercent: Number("int"), // required
+ * //           },
+ * //           connectionPool: { // VirtualNodeConnectionPool Union: only one key present
+ * //             tcp: { // VirtualNodeTcpConnectionPool
+ * //               maxConnections: Number("int"), // required
+ * //             },
+ * //             http: { // VirtualNodeHttpConnectionPool
+ * //               maxConnections: Number("int"), // required
+ * //               maxPendingRequests: Number("int"),
+ * //             },
+ * //             http2: { // VirtualNodeHttp2ConnectionPool
+ * //               maxRequests: Number("int"), // required
+ * //             },
+ * //             grpc: { // VirtualNodeGrpcConnectionPool
+ * //               maxRequests: Number("int"), // required
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       backends: [ // Backends
+ * //         { // Backend Union: only one key present
+ * //           virtualService: { // VirtualServiceBackend
+ * //             virtualServiceName: "STRING_VALUE", // required
+ * //             clientPolicy: { // ClientPolicy
+ * //               tls: { // ClientPolicyTls
+ * //                 enforce: true || false,
+ * //                 ports: [ // PortSet
+ * //                   Number("int"),
+ * //                 ],
+ * //                 certificate: { // ClientTlsCertificate Union: only one key present
+ * //                   file: {
+ * //                     certificateChain: "STRING_VALUE", // required
+ * //                     privateKey: "STRING_VALUE", // required
+ * //                   },
+ * //                   sds: {
+ * //                     secretName: "STRING_VALUE", // required
+ * //                   },
+ * //                 },
+ * //                 validation: { // TlsValidationContext
+ * //                   trust: { // TlsValidationContextTrust Union: only one key present
+ * //                     acm: { // TlsValidationContextAcmTrust
+ * //                       certificateAuthorityArns: [ // CertificateAuthorityArns // required
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                     file: {
+ * //                       certificateChain: "STRING_VALUE", // required
+ * //                     },
+ * //                     sds: {
+ * //                       secretName: "STRING_VALUE", // required
+ * //                     },
+ * //                   },
+ * //                   subjectAlternativeNames: {
+ * //                     match: {
+ * //                       exact: [ // required
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                 },
+ * //               },
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       backendDefaults: { // BackendDefaults
+ * //         clientPolicy: {
+ * //           tls: {
+ * //             enforce: true || false,
+ * //             ports: [
+ * //               Number("int"),
+ * //             ],
+ * //             certificate: {//  Union: only one key present
+ * //               file: {
+ * //                 certificateChain: "STRING_VALUE", // required
+ * //                 privateKey: "STRING_VALUE", // required
+ * //               },
+ * //               sds: {
+ * //                 secretName: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //             validation: {
+ * //               trust: {//  Union: only one key present
+ * //                 acm: {
+ * //                   certificateAuthorityArns: [ // required
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //                 file: {
+ * //                   certificateChain: "STRING_VALUE", // required
+ * //                 },
+ * //                 sds: {
+ * //                   secretName: "STRING_VALUE", // required
+ * //                 },
+ * //               },
+ * //               subjectAlternativeNames: {
+ * //                 match: {
+ * //                   exact: [ // required
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //       logging: { // Logging
+ * //         accessLog: { // AccessLog Union: only one key present
+ * //           file: { // FileAccessLog
+ * //             path: "STRING_VALUE", // required
+ * //             format: { // LoggingFormat Union: only one key present
+ * //               text: "STRING_VALUE",
+ * //               json: [ // JsonFormat
+ * //                 { // JsonFormatRef
+ * //                   key: "STRING_VALUE", // required
+ * //                   value: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //     metadata: { // ResourceMetadata
+ * //       arn: "STRING_VALUE", // required
+ * //       version: Number("long"), // required
+ * //       uid: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //       meshOwner: "STRING_VALUE", // required
+ * //       resourceOwner: "STRING_VALUE", // required
+ * //     },
+ * //     status: { // VirtualNodeStatus
+ * //       status: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateVirtualNodeCommandInput - {@link CreateVirtualNodeCommandInput}
@@ -338,6 +582,8 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class CreateVirtualNodeCommand extends $Command<

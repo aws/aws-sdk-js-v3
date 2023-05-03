@@ -50,6 +50,10 @@ export interface StartConfigurationSessionCommandOutput extends StartConfigurati
  * };
  * const command = new StartConfigurationSessionCommand(input);
  * const response = await client.send(command);
+ * // { // StartConfigurationSessionResponse
+ * //   InitialConfigurationToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartConfigurationSessionCommandInput - {@link StartConfigurationSessionCommandInput}
@@ -70,6 +74,8 @@ export interface StartConfigurationSessionCommandOutput extends StartConfigurati
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link AppConfigDataServiceException}
+ * <p>Base exception class for all service exceptions from AppConfigData service.</p>
  *
  */
 export class StartConfigurationSessionCommand extends $Command<

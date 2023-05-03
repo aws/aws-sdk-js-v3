@@ -52,6 +52,8 @@ export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBe
  * };
  * const command = new DeleteUserPermissionsBoundaryCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteUserPermissionsBoundaryCommandInput - {@link DeleteUserPermissionsBoundaryCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBe
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DeleteUserPermissionsBoundaryCommand extends $Command<

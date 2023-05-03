@@ -51,6 +51,10 @@ export interface UpdateContextCommandOutput extends UpdateContextResponse, __Met
  * };
  * const command = new UpdateContextCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateContextResponse
+ * //   ContextArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateContextCommandInput - {@link UpdateContextCommandInput}
@@ -66,6 +70,8 @@ export interface UpdateContextCommandOutput extends UpdateContextResponse, __Met
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateContextCommand extends $Command<

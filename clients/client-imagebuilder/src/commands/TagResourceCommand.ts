@@ -47,6 +47,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -66,6 +68,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>This exception is thrown when the service encounters an unrecoverable
  * 			exception.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

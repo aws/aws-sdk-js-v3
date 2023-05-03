@@ -52,6 +52,8 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
  * };
  * const command = new DeleteWirelessGatewayTaskDefinitionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteWirelessGatewayTaskDefinitionCommandInput - {@link DeleteWirelessGatewayTaskDefinitionCommandInput}
@@ -75,6 +77,8 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command<

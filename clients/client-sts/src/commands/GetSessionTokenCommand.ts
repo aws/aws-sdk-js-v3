@@ -105,6 +105,15 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  * };
  * const command = new GetSessionTokenCommand(input);
  * const response = await client.send(command);
+ * // { // GetSessionTokenResponse
+ * //   Credentials: { // Credentials
+ * //     AccessKeyId: "STRING_VALUE", // required
+ * //     SecretAccessKey: "STRING_VALUE", // required
+ * //     SessionToken: "STRING_VALUE", // required
+ * //     Expiration: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSessionTokenCommandInput - {@link GetSessionTokenCommandInput}
@@ -120,6 +129,8 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
  *                     Guide</i>.</p>
  *
+ * @throws {@link STSServiceException}
+ * <p>Base exception class for all service exceptions from STS service.</p>
  *
  * @example To get temporary credentials for an IAM user or an AWS account
  * ```javascript

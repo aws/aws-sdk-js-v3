@@ -52,6 +52,23 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
  * };
  * const command = new DisassociateResourceShareCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateResourceShareResponse
+ * //   resourceShareAssociations: [ // ResourceShareAssociationList
+ * //     { // ResourceShareAssociation
+ * //       resourceShareArn: "STRING_VALUE",
+ * //       resourceShareName: "STRING_VALUE",
+ * //       associatedEntity: "STRING_VALUE",
+ * //       associationType: "PRINCIPAL" || "RESOURCE",
+ * //       status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
+ * //       statusMessage: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedTime: new Date("TIMESTAMP"),
+ * //       external: true || false,
+ * //     },
+ * //   ],
+ * //   clientToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DisassociateResourceShareCommandInput - {@link DisassociateResourceShareCommandInput}
@@ -97,6 +114,8 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class DisassociateResourceShareCommand extends $Command<

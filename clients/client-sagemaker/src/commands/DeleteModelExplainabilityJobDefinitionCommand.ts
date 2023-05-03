@@ -48,6 +48,8 @@ export interface DeleteModelExplainabilityJobDefinitionCommandOutput extends __M
  * };
  * const command = new DeleteModelExplainabilityJobDefinitionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteModelExplainabilityJobDefinitionCommandInput - {@link DeleteModelExplainabilityJobDefinitionCommandInput}
@@ -59,6 +61,8 @@ export interface DeleteModelExplainabilityJobDefinitionCommandOutput extends __M
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteModelExplainabilityJobDefinitionCommand extends $Command<

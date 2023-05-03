@@ -44,6 +44,22 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * };
  * const command = new GetUserSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // GetUserSettingsResponse
+ * //   userSettings: { // UserSettings
+ * //     userSettingsArn: "STRING_VALUE", // required
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     copyAllowed: "STRING_VALUE",
+ * //     pasteAllowed: "STRING_VALUE",
+ * //     downloadAllowed: "STRING_VALUE",
+ * //     uploadAllowed: "STRING_VALUE",
+ * //     printAllowed: "STRING_VALUE",
+ * //     disconnectTimeoutInMinutes: Number("int"),
+ * //     idleDisconnectTimeoutInMinutes: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetUserSettingsCommandInput - {@link GetUserSettingsCommandInput}
@@ -67,6 +83,8 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetUserSettingsCommand extends $Command<

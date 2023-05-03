@@ -92,6 +92,10 @@ export interface CreateRotationCommandOutput extends CreateRotationResult, __Met
  * };
  * const command = new CreateRotationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRotationResult
+ * //   RotationArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateRotationCommandInput - {@link CreateRotationCommandInput}
@@ -119,6 +123,8 @@ export interface CreateRotationCommandOutput extends CreateRotationResult, __Met
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class CreateRotationCommand extends $Command<

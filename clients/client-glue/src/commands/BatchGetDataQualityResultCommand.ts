@@ -46,6 +46,44 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * };
  * const command = new BatchGetDataQualityResultCommand(input);
  * const response = await client.send(command);
+ * // { // BatchGetDataQualityResultResponse
+ * //   Results: [ // DataQualityResultsList // required
+ * //     { // DataQualityResult
+ * //       ResultId: "STRING_VALUE",
+ * //       Score: Number("double"),
+ * //       DataSource: { // DataSource
+ * //         GlueTable: { // GlueTable
+ * //           DatabaseName: "STRING_VALUE", // required
+ * //           TableName: "STRING_VALUE", // required
+ * //           CatalogId: "STRING_VALUE",
+ * //           ConnectionName: "STRING_VALUE",
+ * //           AdditionalOptions: { // GlueTableAdditionalOptions
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       RulesetName: "STRING_VALUE",
+ * //       EvaluationContext: "STRING_VALUE",
+ * //       StartedOn: new Date("TIMESTAMP"),
+ * //       CompletedOn: new Date("TIMESTAMP"),
+ * //       JobName: "STRING_VALUE",
+ * //       JobRunId: "STRING_VALUE",
+ * //       RulesetEvaluationRunId: "STRING_VALUE",
+ * //       RuleResults: [ // DataQualityRuleResults
+ * //         { // DataQualityRuleResult
+ * //           Name: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //           EvaluationMessage: "STRING_VALUE",
+ * //           Result: "PASS" || "FAIL" || "ERROR",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   ResultsNotFound: [ // DataQualityResultIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchGetDataQualityResultCommandInput - {@link BatchGetDataQualityResultCommandInput}
@@ -63,6 +101,8 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchGetDataQualityResultCommand extends $Command<

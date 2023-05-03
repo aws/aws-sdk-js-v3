@@ -48,6 +48,8 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  * };
  * const command = new DisassociateWebACLCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateWebACLCommandInput - {@link DisassociateWebACLCommandInput}
@@ -90,6 +92,8 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class DisassociateWebACLCommand extends $Command<

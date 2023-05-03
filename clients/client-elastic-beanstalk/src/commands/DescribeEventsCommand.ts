@@ -59,6 +59,23 @@ export interface DescribeEventsCommandOutput extends EventDescriptionsMessage, _
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
+ * // { // EventDescriptionsMessage
+ * //   Events: [ // EventDescriptionList
+ * //     { // EventDescription
+ * //       EventDate: new Date("TIMESTAMP"),
+ * //       Message: "STRING_VALUE",
+ * //       ApplicationName: "STRING_VALUE",
+ * //       VersionLabel: "STRING_VALUE",
+ * //       TemplateName: "STRING_VALUE",
+ * //       EnvironmentName: "STRING_VALUE",
+ * //       PlatformArn: "STRING_VALUE",
+ * //       RequestId: "STRING_VALUE",
+ * //       Severity: "TRACE" || "DEBUG" || "INFO" || "WARN" || "ERROR" || "FATAL",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
@@ -67,6 +84,8 @@ export interface DescribeEventsCommandOutput extends EventDescriptionsMessage, _
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To view events for an environment
  * ```javascript

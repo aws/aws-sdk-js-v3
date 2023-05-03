@@ -56,6 +56,20 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * };
  * const command = new UpdateListenerCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateListenerResponse
+ * //   Listener: { // Listener
+ * //     ListenerArn: "STRING_VALUE",
+ * //     PortRanges: [ // PortRanges
+ * //       { // PortRange
+ * //         FromPort: Number("int"),
+ * //         ToPort: Number("int"),
+ * //       },
+ * //     ],
+ * //     Protocol: "TCP" || "UDP",
+ * //     ClientAffinity: "NONE" || "SOURCE_IP",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateListenerCommandInput - {@link UpdateListenerCommandInput}
@@ -79,6 +93,8 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * @throws {@link ListenerNotFoundException} (client fault)
  *  <p>The listener that you specified doesn't exist.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class UpdateListenerCommand extends $Command<

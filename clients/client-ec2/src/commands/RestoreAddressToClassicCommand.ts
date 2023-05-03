@@ -48,6 +48,11 @@ export interface RestoreAddressToClassicCommandOutput extends RestoreAddressToCl
  * };
  * const command = new RestoreAddressToClassicCommand(input);
  * const response = await client.send(command);
+ * // { // RestoreAddressToClassicResult
+ * //   PublicIp: "STRING_VALUE",
+ * //   Status: "MoveInProgress" || "InVpc" || "InClassic",
+ * // };
+ *
  * ```
  *
  * @param RestoreAddressToClassicCommandInput - {@link RestoreAddressToClassicCommandInput}
@@ -56,6 +61,8 @@ export interface RestoreAddressToClassicCommandOutput extends RestoreAddressToCl
  * @see {@link RestoreAddressToClassicCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To restore an address to EC2-Classic
  * ```javascript

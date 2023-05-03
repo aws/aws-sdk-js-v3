@@ -53,6 +53,8 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  * };
  * const command = new DeleteReplicationSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteReplicationSubnetGroupCommandInput - {@link DeleteReplicationSubnetGroupCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Delete Replication Subnet Group
  * ```javascript

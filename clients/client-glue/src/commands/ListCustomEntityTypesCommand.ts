@@ -45,6 +45,19 @@ export interface ListCustomEntityTypesCommandOutput extends ListCustomEntityType
  * };
  * const command = new ListCustomEntityTypesCommand(input);
  * const response = await client.send(command);
+ * // { // ListCustomEntityTypesResponse
+ * //   CustomEntityTypes: [ // CustomEntityTypes
+ * //     { // CustomEntityType
+ * //       Name: "STRING_VALUE", // required
+ * //       RegexString: "STRING_VALUE", // required
+ * //       ContextWords: [ // ContextWords
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCustomEntityTypesCommandInput - {@link ListCustomEntityTypesCommandInput}
@@ -62,6 +75,8 @@ export interface ListCustomEntityTypesCommandOutput extends ListCustomEntityType
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListCustomEntityTypesCommand extends $Command<

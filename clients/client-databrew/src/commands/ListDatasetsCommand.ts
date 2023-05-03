@@ -45,6 +45,105 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDatasetsResponse
+ * //   Datasets: [ // DatasetList // required
+ * //     { // Dataset
+ * //       AccountId: "STRING_VALUE",
+ * //       CreatedBy: "STRING_VALUE",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       Name: "STRING_VALUE", // required
+ * //       Format: "CSV" || "JSON" || "PARQUET" || "EXCEL" || "ORC",
+ * //       FormatOptions: { // FormatOptions
+ * //         Json: { // JsonOptions
+ * //           MultiLine: true || false,
+ * //         },
+ * //         Excel: { // ExcelOptions
+ * //           SheetNames: [ // SheetNameList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           SheetIndexes: [ // SheetIndexList
+ * //             Number("int"),
+ * //           ],
+ * //           HeaderRow: true || false,
+ * //         },
+ * //         Csv: { // CsvOptions
+ * //           Delimiter: "STRING_VALUE",
+ * //           HeaderRow: true || false,
+ * //         },
+ * //       },
+ * //       Input: { // Input
+ * //         S3InputDefinition: { // S3Location
+ * //           Bucket: "STRING_VALUE", // required
+ * //           Key: "STRING_VALUE",
+ * //           BucketOwner: "STRING_VALUE",
+ * //         },
+ * //         DataCatalogInputDefinition: { // DataCatalogInputDefinition
+ * //           CatalogId: "STRING_VALUE",
+ * //           DatabaseName: "STRING_VALUE", // required
+ * //           TableName: "STRING_VALUE", // required
+ * //           TempDirectory: {
+ * //             Bucket: "STRING_VALUE", // required
+ * //             Key: "STRING_VALUE",
+ * //             BucketOwner: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         DatabaseInputDefinition: { // DatabaseInputDefinition
+ * //           GlueConnectionName: "STRING_VALUE", // required
+ * //           DatabaseTableName: "STRING_VALUE",
+ * //           TempDirectory: {
+ * //             Bucket: "STRING_VALUE", // required
+ * //             Key: "STRING_VALUE",
+ * //             BucketOwner: "STRING_VALUE",
+ * //           },
+ * //           QueryString: "STRING_VALUE",
+ * //         },
+ * //         Metadata: { // Metadata
+ * //           SourceArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       LastModifiedBy: "STRING_VALUE",
+ * //       Source: "S3" || "DATA-CATALOG" || "DATABASE",
+ * //       PathOptions: { // PathOptions
+ * //         LastModifiedDateCondition: { // FilterExpression
+ * //           Expression: "STRING_VALUE", // required
+ * //           ValuesMap: { // ValuesMap // required
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         FilesLimit: { // FilesLimit
+ * //           MaxFiles: Number("int"), // required
+ * //           OrderedBy: "LAST_MODIFIED_DATE",
+ * //           Order: "DESCENDING" || "ASCENDING",
+ * //         },
+ * //         Parameters: { // PathParametersMap
+ * //           "<keys>": { // DatasetParameter
+ * //             Name: "STRING_VALUE", // required
+ * //             Type: "Datetime" || "Number" || "String", // required
+ * //             DatetimeOptions: { // DatetimeOptions
+ * //               Format: "STRING_VALUE", // required
+ * //               TimezoneOffset: "STRING_VALUE",
+ * //               LocaleCode: "STRING_VALUE",
+ * //             },
+ * //             CreateColumn: true || false,
+ * //             Filter: {
+ * //               Expression: "STRING_VALUE", // required
+ * //               ValuesMap: { // required
+ * //                 "<keys>": "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       ResourceArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
@@ -56,6 +155,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class ListDatasetsCommand extends $Command<

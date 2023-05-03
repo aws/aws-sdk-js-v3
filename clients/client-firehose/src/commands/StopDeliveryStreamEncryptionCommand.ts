@@ -68,6 +68,8 @@ export interface StopDeliveryStreamEncryptionCommandOutput
  * };
  * const command = new StopDeliveryStreamEncryptionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopDeliveryStreamEncryptionCommandInput - {@link StopDeliveryStreamEncryptionCommandInput}
@@ -88,6 +90,8 @@ export interface StopDeliveryStreamEncryptionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class StopDeliveryStreamEncryptionCommand extends $Command<

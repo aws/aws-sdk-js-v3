@@ -65,6 +65,17 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  * };
  * const command = new UploadDocumentsCommand(input);
  * const response = await client.send(command);
+ * // { // UploadDocumentsResponse
+ * //   status: "STRING_VALUE",
+ * //   adds: Number("long"),
+ * //   deletes: Number("long"),
+ * //   warnings: [ // DocumentServiceWarnings
+ * //     { // DocumentServiceWarning
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UploadDocumentsCommandInput - {@link UploadDocumentsCommandInput}
@@ -76,6 +87,8 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  * @throws {@link DocumentServiceException} (client fault)
  *  <p>Information about any problems encountered while processing an upload request.</p>
  *
+ * @throws {@link CloudSearchDomainServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
  */
 export class UploadDocumentsCommand extends $Command<

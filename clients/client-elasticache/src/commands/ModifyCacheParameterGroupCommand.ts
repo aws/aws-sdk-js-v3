@@ -52,6 +52,10 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * };
  * const command = new ModifyCacheParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CacheParameterGroupNameMessage
+ * //   CacheParameterGroupName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ModifyCacheParameterGroupCommandInput - {@link ModifyCacheParameterGroupCommandInput}
@@ -75,6 +79,8 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value for a parameter is invalid.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example ModifyCacheParameterGroup
  * ```javascript

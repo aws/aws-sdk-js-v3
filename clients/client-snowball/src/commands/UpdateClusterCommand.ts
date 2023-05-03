@@ -112,6 +112,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
@@ -139,6 +141,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  *  <p>The provided Key Management Service key lacks the permissions to perform the specified
  *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To update a cluster
  * ```javascript

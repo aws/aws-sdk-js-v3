@@ -45,6 +45,76 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * };
  * const command = new DescribeFirewallPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFirewallPolicyResponse
+ * //   UpdateToken: "STRING_VALUE", // required
+ * //   FirewallPolicyResponse: { // FirewallPolicyResponse
+ * //     FirewallPolicyName: "STRING_VALUE", // required
+ * //     FirewallPolicyArn: "STRING_VALUE", // required
+ * //     FirewallPolicyId: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     FirewallPolicyStatus: "ACTIVE" || "DELETING",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     ConsumedStatelessRuleCapacity: Number("int"),
+ * //     ConsumedStatefulRuleCapacity: Number("int"),
+ * //     NumberOfAssociations: Number("int"),
+ * //     EncryptionConfiguration: { // EncryptionConfiguration
+ * //       KeyId: "STRING_VALUE",
+ * //       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ * //     },
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //   },
+ * //   FirewallPolicy: { // FirewallPolicy
+ * //     StatelessRuleGroupReferences: [ // StatelessRuleGroupReferences
+ * //       { // StatelessRuleGroupReference
+ * //         ResourceArn: "STRING_VALUE", // required
+ * //         Priority: Number("int"), // required
+ * //       },
+ * //     ],
+ * //     StatelessDefaultActions: [ // StatelessActions // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     StatelessFragmentDefaultActions: [ // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     StatelessCustomActions: [ // CustomActions
+ * //       { // CustomAction
+ * //         ActionName: "STRING_VALUE", // required
+ * //         ActionDefinition: { // ActionDefinition
+ * //           PublishMetricAction: { // PublishMetricAction
+ * //             Dimensions: [ // Dimensions // required
+ * //               { // Dimension
+ * //                 Value: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //     StatefulRuleGroupReferences: [ // StatefulRuleGroupReferences
+ * //       { // StatefulRuleGroupReference
+ * //         ResourceArn: "STRING_VALUE", // required
+ * //         Priority: Number("int"),
+ * //         Override: { // StatefulRuleGroupOverride
+ * //           Action: "DROP_TO_ALERT",
+ * //         },
+ * //       },
+ * //     ],
+ * //     StatefulDefaultActions: [ // StatefulActions
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     StatefulEngineOptions: { // StatefulEngineOptions
+ * //       RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
+ * //       StreamExceptionPolicy: "DROP" || "CONTINUE",
+ * //     },
+ * //     TLSInspectionConfigurationArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeFirewallPolicyCommandInput - {@link DescribeFirewallPolicyCommandInput}
@@ -79,6 +149,8 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class DescribeFirewallPolicyCommand extends $Command<

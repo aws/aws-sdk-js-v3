@@ -49,6 +49,21 @@ export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsRes
  * };
  * const command = new ListAttributeGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAttributeGroupsResponse
+ * //   attributeGroups: [ // AttributeGroupSummaries
+ * //     { // AttributeGroupSummary
+ * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdateTime: new Date("TIMESTAMP"),
+ * //       createdBy: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAttributeGroupsCommandInput - {@link ListAttributeGroupsCommandInput}
@@ -63,6 +78,8 @@ export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class ListAttributeGroupsCommand extends $Command<

@@ -46,6 +46,13 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesRespo
  * };
  * const command = new ListGroupResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // ListGroupResourcesResponse
+ * //   Resources: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListGroupResourcesCommandInput - {@link ListGroupResourcesCommandInput}
@@ -66,6 +73,8 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class ListGroupResourcesCommand extends $Command<

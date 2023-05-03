@@ -44,6 +44,24 @@ export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetIm
  * };
  * const command = new DescribeDatasetImportJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDatasetImportJobResponse
+ * //   datasetImportJob: { // DatasetImportJob
+ * //     jobName: "STRING_VALUE",
+ * //     datasetImportJobArn: "STRING_VALUE",
+ * //     datasetArn: "STRING_VALUE",
+ * //     dataSource: { // DataSource
+ * //       dataLocation: "STRING_VALUE",
+ * //     },
+ * //     roleArn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     failureReason: "STRING_VALUE",
+ * //     importMode: "FULL" || "INCREMENTAL",
+ * //     publishAttributionMetricsToS3: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeDatasetImportJobCommandInput - {@link DescribeDatasetImportJobCommandInput}
@@ -58,6 +76,8 @@ export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetIm
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeDatasetImportJobCommand extends $Command<

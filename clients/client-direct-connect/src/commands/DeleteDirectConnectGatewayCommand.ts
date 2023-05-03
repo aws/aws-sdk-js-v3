@@ -46,6 +46,17 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  * };
  * const command = new DeleteDirectConnectGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDirectConnectGatewayResult
+ * //   directConnectGateway: { // DirectConnectGateway
+ * //     directConnectGatewayId: "STRING_VALUE",
+ * //     directConnectGatewayName: "STRING_VALUE",
+ * //     amazonSideAsn: Number("long"),
+ * //     ownerAccount: "STRING_VALUE",
+ * //     directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
+ * //     stateChangeError: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteDirectConnectGatewayCommandInput - {@link DeleteDirectConnectGatewayCommandInput}
@@ -60,6 +71,8 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DeleteDirectConnectGatewayCommand extends $Command<

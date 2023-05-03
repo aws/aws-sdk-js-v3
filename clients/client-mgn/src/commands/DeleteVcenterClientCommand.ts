@@ -44,6 +44,8 @@ export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVcenterClientCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteVcenterClientCommandInput - {@link DeleteVcenterClientCommandInput}
@@ -61,6 +63,8 @@ export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DeleteVcenterClientCommand extends $Command<

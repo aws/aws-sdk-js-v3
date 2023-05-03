@@ -47,6 +47,13 @@ export interface DeleteBackendStorageCommandOutput extends DeleteBackendStorageR
  * };
  * const command = new DeleteBackendStorageCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteBackendStorageResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteBackendStorageCommandInput - {@link DeleteBackendStorageCommandInput}
@@ -67,6 +74,8 @@ export interface DeleteBackendStorageCommandOutput extends DeleteBackendStorageR
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class DeleteBackendStorageCommand extends $Command<

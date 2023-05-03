@@ -54,6 +54,8 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -77,6 +79,8 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  *             Raised when the requested resource cannot be found.
  *         </p>
  *
+ * @throws {@link ElasticInferenceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

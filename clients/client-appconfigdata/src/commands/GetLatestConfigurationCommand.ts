@@ -68,6 +68,14 @@ export interface GetLatestConfigurationCommandOutput extends GetLatestConfigurat
  * };
  * const command = new GetLatestConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // GetLatestConfigurationResponse
+ * //   NextPollConfigurationToken: "STRING_VALUE",
+ * //   NextPollIntervalInSeconds: Number("int"),
+ * //   ContentType: "STRING_VALUE",
+ * //   Configuration: "BLOB_VALUE",
+ * //   VersionLabel: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetLatestConfigurationCommandInput - {@link GetLatestConfigurationCommandInput}
@@ -88,6 +96,8 @@ export interface GetLatestConfigurationCommandOutput extends GetLatestConfigurat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link AppConfigDataServiceException}
+ * <p>Base exception class for all service exceptions from AppConfigData service.</p>
  *
  */
 export class GetLatestConfigurationCommand extends $Command<

@@ -55,6 +55,15 @@ export interface RemoveAttributesFromFindingsCommandOutput
  * };
  * const command = new RemoveAttributesFromFindingsCommand(input);
  * const response = await client.send(command);
+ * // { // RemoveAttributesFromFindingsResponse
+ * //   failedItems: { // FailedItems // required
+ * //     "<keys>": { // FailedItemDetails
+ * //       failureCode: "STRING_VALUE", // required
+ * //       retryable: true || false, // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param RemoveAttributesFromFindingsCommandInput - {@link RemoveAttributesFromFindingsCommandInput}
@@ -80,6 +89,8 @@ export interface RemoveAttributesFromFindingsCommandOutput
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Remove attributes from findings
  * ```javascript

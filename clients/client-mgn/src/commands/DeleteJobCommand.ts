@@ -44,6 +44,8 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * };
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteJobCommandInput - {@link DeleteJobCommandInput}
@@ -61,6 +63,8 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobCommandOutput, MgnClientResolvedConfig> {

@@ -59,6 +59,29 @@ export interface GetECSServiceRecommendationProjectedMetricsCommandOutput
  * };
  * const command = new GetECSServiceRecommendationProjectedMetricsCommand(input);
  * const response = await client.send(command);
+ * // { // GetECSServiceRecommendationProjectedMetricsResponse
+ * //   recommendedOptionProjectedMetrics: [ // ECSServiceRecommendedOptionProjectedMetrics
+ * //     { // ECSServiceRecommendedOptionProjectedMetric
+ * //       recommendedCpuUnits: Number("int"),
+ * //       recommendedMemorySize: Number("int"),
+ * //       projectedMetrics: [ // ECSServiceProjectedMetrics
+ * //         { // ECSServiceProjectedMetric
+ * //           name: "Cpu" || "Memory",
+ * //           timestamps: [ // Timestamps
+ * //             new Date("TIMESTAMP"),
+ * //           ],
+ * //           upperBoundValues: [ // MetricValues
+ * //             Number("double"),
+ * //           ],
+ * //           lowerBoundValues: [
+ * //             Number("double"),
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetECSServiceRecommendationProjectedMetricsCommandInput - {@link GetECSServiceRecommendationProjectedMetricsCommandInput}
@@ -92,6 +115,8 @@ export interface GetECSServiceRecommendationProjectedMetricsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command<

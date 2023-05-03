@@ -47,6 +47,8 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCacheSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteCacheSubnetGroupCommandInput - {@link DeleteCacheSubnetGroupCommandInput}
@@ -61,6 +63,8 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
  *  <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example DeleteCacheSubnetGroup
  * ```javascript

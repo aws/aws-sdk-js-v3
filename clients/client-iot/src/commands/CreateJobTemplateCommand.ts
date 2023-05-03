@@ -97,6 +97,11 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * };
  * const command = new CreateJobTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // CreateJobTemplateResponse
+ * //   jobTemplateArn: "STRING_VALUE",
+ * //   jobTemplateId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateJobTemplateCommandInput - {@link CreateJobTemplateCommandInput}
@@ -123,6 +128,8 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateJobTemplateCommand extends $Command<

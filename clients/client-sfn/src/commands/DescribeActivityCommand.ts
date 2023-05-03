@@ -47,6 +47,12 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  * };
  * const command = new DescribeActivityCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeActivityOutput
+ * //   activityArn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   creationDate: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param DescribeActivityCommandInput - {@link DescribeActivityCommandInput}
@@ -61,6 +67,8 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  * @throws {@link InvalidArn} (client fault)
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class DescribeActivityCommand extends $Command<

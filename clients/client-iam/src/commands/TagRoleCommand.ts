@@ -94,6 +94,8 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagRoleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagRoleCommandInput - {@link TagRoleCommandInput}
@@ -122,6 +124,8 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To add a tag key and value to an IAM role
  * ```javascript

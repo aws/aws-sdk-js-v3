@@ -52,6 +52,55 @@ export interface GetMediaCapturePipelineCommandOutput extends GetMediaCapturePip
  * };
  * const command = new GetMediaCapturePipelineCommand(input);
  * const response = await client.send(command);
+ * // { // GetMediaCapturePipelineResponse
+ * //   MediaCapturePipeline: { // MediaCapturePipeline
+ * //     MediaPipelineId: "STRING_VALUE",
+ * //     MediaPipelineArn: "STRING_VALUE",
+ * //     SourceType: "ChimeSdkMeeting",
+ * //     SourceArn: "STRING_VALUE",
+ * //     Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //     SinkType: "S3Bucket",
+ * //     SinkArn: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConfiguration
+ * //       SourceConfiguration: { // SourceConfiguration
+ * //         SelectedVideoStreams: { // SelectedVideoStreams
+ * //           AttendeeIds: [ // AttendeeIdList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ExternalUserIds: [ // ExternalUserIdList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       ArtifactsConfiguration: { // ArtifactsConfiguration
+ * //         Audio: { // AudioArtifactsConfiguration
+ * //           MuxType: "AudioOnly" || "AudioWithActiveSpeakerVideo" || "AudioWithCompositedVideo", // required
+ * //         },
+ * //         Video: { // VideoArtifactsConfiguration
+ * //           State: "Enabled" || "Disabled", // required
+ * //           MuxType: "VideoOnly",
+ * //         },
+ * //         Content: { // ContentArtifactsConfiguration
+ * //           State: "Enabled" || "Disabled", // required
+ * //           MuxType: "ContentOnly",
+ * //         },
+ * //         CompositedVideo: { // CompositedVideoArtifactsConfiguration
+ * //           Layout: "GridView",
+ * //           Resolution: "HD" || "FHD",
+ * //           GridViewConfiguration: { // GridViewConfiguration
+ * //             ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
+ * //             PresenterOnlyConfiguration: { // PresenterOnlyConfiguration
+ * //               PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetMediaCapturePipelineCommandInput - {@link GetMediaCapturePipelineCommandInput}
@@ -81,6 +130,8 @@ export interface GetMediaCapturePipelineCommandOutput extends GetMediaCapturePip
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMediaPipelinesServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
 export class GetMediaCapturePipelineCommand extends $Command<

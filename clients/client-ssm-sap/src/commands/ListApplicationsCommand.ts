@@ -45,6 +45,20 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListApplicationsOutput
+ * //   Applications: [ // ApplicationSummaryList
+ * //     { // ApplicationSummary
+ * //       Id: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
@@ -62,6 +76,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class ListApplicationsCommand extends $Command<

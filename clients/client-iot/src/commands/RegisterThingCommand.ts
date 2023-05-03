@@ -51,6 +51,13 @@ export interface RegisterThingCommandOutput extends RegisterThingResponse, __Met
  * };
  * const command = new RegisterThingCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterThingResponse
+ * //   certificatePem: "STRING_VALUE",
+ * //   resourceArns: { // ResourceArns
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param RegisterThingCommandInput - {@link RegisterThingCommandInput}
@@ -81,6 +88,8 @@ export interface RegisterThingCommandOutput extends RegisterThingResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class RegisterThingCommand extends $Command<

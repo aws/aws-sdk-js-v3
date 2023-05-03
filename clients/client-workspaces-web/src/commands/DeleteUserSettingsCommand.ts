@@ -44,6 +44,8 @@ export interface DeleteUserSettingsCommandOutput extends DeleteUserSettingsRespo
  * };
  * const command = new DeleteUserSettingsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteUserSettingsCommandInput - {@link DeleteUserSettingsCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteUserSettingsCommandOutput extends DeleteUserSettingsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DeleteUserSettingsCommand extends $Command<

@@ -199,6 +199,76 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * };
  * const command = new UpdateEventSourceMappingCommand(input);
  * const response = await client.send(command);
+ * // { // EventSourceMappingConfiguration
+ * //   UUID: "STRING_VALUE",
+ * //   StartingPosition: "TRIM_HORIZON" || "LATEST" || "AT_TIMESTAMP",
+ * //   StartingPositionTimestamp: new Date("TIMESTAMP"),
+ * //   BatchSize: Number("int"),
+ * //   MaximumBatchingWindowInSeconds: Number("int"),
+ * //   ParallelizationFactor: Number("int"),
+ * //   EventSourceArn: "STRING_VALUE",
+ * //   FilterCriteria: { // FilterCriteria
+ * //     Filters: [ // FilterList
+ * //       { // Filter
+ * //         Pattern: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   FunctionArn: "STRING_VALUE",
+ * //   LastModified: new Date("TIMESTAMP"),
+ * //   LastProcessingResult: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   StateTransitionReason: "STRING_VALUE",
+ * //   DestinationConfig: { // DestinationConfig
+ * //     OnSuccess: { // OnSuccess
+ * //       Destination: "STRING_VALUE",
+ * //     },
+ * //     OnFailure: { // OnFailure
+ * //       Destination: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   Topics: [ // Topics
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Queues: [ // Queues
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SourceAccessConfigurations: [ // SourceAccessConfigurations
+ * //     { // SourceAccessConfiguration
+ * //       Type: "BASIC_AUTH" || "VPC_SUBNET" || "VPC_SECURITY_GROUP" || "SASL_SCRAM_512_AUTH" || "SASL_SCRAM_256_AUTH" || "VIRTUAL_HOST" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //       URI: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   SelfManagedEventSource: { // SelfManagedEventSource
+ * //     Endpoints: { // Endpoints
+ * //       "<keys>": [ // EndpointLists
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * //   MaximumRecordAgeInSeconds: Number("int"),
+ * //   BisectBatchOnFunctionError: true || false,
+ * //   MaximumRetryAttempts: Number("int"),
+ * //   TumblingWindowInSeconds: Number("int"),
+ * //   FunctionResponseTypes: [ // FunctionResponseTypeList
+ * //     "ReportBatchItemFailures",
+ * //   ],
+ * //   AmazonManagedKafkaEventSourceConfig: { // AmazonManagedKafkaEventSourceConfig
+ * //     ConsumerGroupId: "STRING_VALUE",
+ * //   },
+ * //   SelfManagedKafkaEventSourceConfig: { // SelfManagedKafkaEventSourceConfig
+ * //     ConsumerGroupId: "STRING_VALUE",
+ * //   },
+ * //   ScalingConfig: { // ScalingConfig
+ * //     MaximumConcurrency: Number("int"),
+ * //   },
+ * //   DocumentDBEventSourceConfig: { // DocumentDBEventSourceConfig
+ * //     DatabaseName: "STRING_VALUE",
+ * //     CollectionName: "STRING_VALUE",
+ * //     FullDocument: "UpdateLookup" || "Default",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateEventSourceMappingCommandInput - {@link UpdateEventSourceMappingCommandInput}
@@ -226,6 +296,8 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class UpdateEventSourceMappingCommand extends $Command<

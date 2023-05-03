@@ -54,6 +54,8 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AddTagsCommandInput - {@link AddTagsCommandInput}
@@ -69,6 +71,8 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommandOutput, EMRClientResolvedConfig> {

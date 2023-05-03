@@ -55,6 +55,18 @@ export interface OptOutSpeakerCommandOutput extends OptOutSpeakerResponse, __Met
  * };
  * const command = new OptOutSpeakerCommand(input);
  * const response = await client.send(command);
+ * // { // OptOutSpeakerResponse
+ * //   Speaker: { // Speaker
+ * //     DomainId: "STRING_VALUE",
+ * //     CustomerSpeakerId: "STRING_VALUE",
+ * //     GeneratedSpeakerId: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     UpdatedAt: new Date("TIMESTAMP"),
+ * //     LastAccessedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param OptOutSpeakerCommandInput - {@link OptOutSpeakerCommandInput}
@@ -91,6 +103,8 @@ export interface OptOutSpeakerCommandOutput extends OptOutSpeakerResponse, __Met
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class OptOutSpeakerCommand extends $Command<

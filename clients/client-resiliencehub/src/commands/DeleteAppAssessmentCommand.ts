@@ -46,6 +46,11 @@ export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentRes
  * };
  * const command = new DeleteAppAssessmentCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteAppAssessmentResponse
+ * //   assessmentArn: "STRING_VALUE", // required
+ * //   assessmentStatus: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteAppAssessmentCommandInput - {@link DeleteAppAssessmentCommandInput}
@@ -78,6 +83,8 @@ export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentRes
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DeleteAppAssessmentCommand extends $Command<

@@ -57,6 +57,22 @@ export interface CreateConfiguredTableAssociationCommandOutput
  * };
  * const command = new CreateConfiguredTableAssociationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateConfiguredTableAssociationOutput
+ * //   configuredTableAssociation: { // ConfiguredTableAssociation
+ * //     arn: "STRING_VALUE", // required
+ * //     id: "STRING_VALUE", // required
+ * //     configuredTableId: "STRING_VALUE", // required
+ * //     configuredTableArn: "STRING_VALUE", // required
+ * //     membershipId: "STRING_VALUE", // required
+ * //     membershipArn: "STRING_VALUE", // required
+ * //     roleArn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     updateTime: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateConfiguredTableAssociationCommandInput - {@link CreateConfiguredTableAssociationCommandInput}
@@ -86,6 +102,8 @@ export interface CreateConfiguredTableAssociationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class CreateConfiguredTableAssociationCommand extends $Command<

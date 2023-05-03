@@ -284,6 +284,10 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  * };
  * const command = new CreateConnectorProfileCommand(input);
  * const response = await client.send(command);
+ * // { // CreateConnectorProfileResponse
+ * //   connectorProfileArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateConnectorProfileCommandInput - {@link CreateConnectorProfileCommandInput}
@@ -310,6 +314,8 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class CreateConnectorProfileCommand extends $Command<

@@ -49,6 +49,23 @@ export interface DescribeVpcIngressConnectionCommandOutput
  * };
  * const command = new DescribeVpcIngressConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeVpcIngressConnectionResponse
+ * //   VpcIngressConnection: { // VpcIngressConnection
+ * //     VpcIngressConnectionArn: "STRING_VALUE",
+ * //     VpcIngressConnectionName: "STRING_VALUE",
+ * //     ServiceArn: "STRING_VALUE",
+ * //     Status: "AVAILABLE" || "PENDING_CREATION" || "PENDING_UPDATE" || "PENDING_DELETION" || "FAILED_CREATION" || "FAILED_UPDATE" || "FAILED_DELETION" || "DELETED",
+ * //     AccountId: "STRING_VALUE",
+ * //     DomainName: "STRING_VALUE",
+ * //     IngressVpcConfiguration: { // IngressVpcConfiguration
+ * //       VpcId: "STRING_VALUE",
+ * //       VpcEndpointId: "STRING_VALUE",
+ * //     },
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     DeletedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeVpcIngressConnectionCommandInput - {@link DescribeVpcIngressConnectionCommandInput}
@@ -66,6 +83,8 @@ export interface DescribeVpcIngressConnectionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DescribeVpcIngressConnectionCommand extends $Command<

@@ -50,6 +50,23 @@ export interface ListSequenceStoresCommandOutput extends ListSequenceStoresRespo
  * };
  * const command = new ListSequenceStoresCommand(input);
  * const response = await client.send(command);
+ * // { // ListSequenceStoresResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   sequenceStores: [ // SequenceStoreDetailList // required
+ * //     { // SequenceStoreDetail
+ * //       arn: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       sseConfig: { // SseConfig
+ * //         type: "STRING_VALUE", // required
+ * //         keyArn: "STRING_VALUE",
+ * //       },
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListSequenceStoresCommandInput - {@link ListSequenceStoresCommandInput}
@@ -73,6 +90,8 @@ export interface ListSequenceStoresCommandOutput extends ListSequenceStoresRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListSequenceStoresCommand extends $Command<

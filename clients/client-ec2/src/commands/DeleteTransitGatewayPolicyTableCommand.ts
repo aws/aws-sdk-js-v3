@@ -50,6 +50,21 @@ export interface DeleteTransitGatewayPolicyTableCommandOutput
  * };
  * const command = new DeleteTransitGatewayPolicyTableCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteTransitGatewayPolicyTableResult
+ * //   TransitGatewayPolicyTable: { // TransitGatewayPolicyTable
+ * //     TransitGatewayPolicyTableId: "STRING_VALUE",
+ * //     TransitGatewayId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteTransitGatewayPolicyTableCommandInput - {@link DeleteTransitGatewayPolicyTableCommandInput}
@@ -58,6 +73,8 @@ export interface DeleteTransitGatewayPolicyTableCommandOutput
  * @see {@link DeleteTransitGatewayPolicyTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteTransitGatewayPolicyTableCommand extends $Command<

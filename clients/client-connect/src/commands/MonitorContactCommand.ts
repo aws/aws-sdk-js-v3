@@ -52,6 +52,11 @@ export interface MonitorContactCommandOutput extends MonitorContactResponse, __M
  * };
  * const command = new MonitorContactCommand(input);
  * const response = await client.send(command);
+ * // { // MonitorContactResponse
+ * //   ContactId: "STRING_VALUE",
+ * //   ContactArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param MonitorContactCommandInput - {@link MonitorContactCommandInput}
@@ -81,6 +86,8 @@ export interface MonitorContactCommandOutput extends MonitorContactResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class MonitorContactCommand extends $Command<

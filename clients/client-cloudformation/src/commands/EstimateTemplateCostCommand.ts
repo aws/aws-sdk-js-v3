@@ -54,6 +54,10 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  * };
  * const command = new EstimateTemplateCostCommand(input);
  * const response = await client.send(command);
+ * // { // EstimateTemplateCostOutput
+ * //   Url: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param EstimateTemplateCostCommandInput - {@link EstimateTemplateCostCommandInput}
@@ -62,6 +66,8 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  * @see {@link EstimateTemplateCostCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class EstimateTemplateCostCommand extends $Command<

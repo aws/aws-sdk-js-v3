@@ -47,6 +47,8 @@ export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsRespons
  * };
  * const command = new UnarchiveFindingsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UnarchiveFindingsCommandInput - {@link UnarchiveFindingsCommandInput}
@@ -61,6 +63,8 @@ export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsRespons
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class UnarchiveFindingsCommand extends $Command<

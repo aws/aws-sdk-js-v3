@@ -66,6 +66,27 @@ export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
  * };
  * const command = new DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult
+ * //   LocalGatewayRouteTableVirtualInterfaceGroupAssociations: [ // LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet
+ * //     { // LocalGatewayRouteTableVirtualInterfaceGroupAssociation
+ * //       LocalGatewayRouteTableVirtualInterfaceGroupAssociationId: "STRING_VALUE",
+ * //       LocalGatewayVirtualInterfaceGroupId: "STRING_VALUE",
+ * //       LocalGatewayId: "STRING_VALUE",
+ * //       LocalGatewayRouteTableId: "STRING_VALUE",
+ * //       LocalGatewayRouteTableArn: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput - {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput}
@@ -74,6 +95,8 @@ export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
  * @see {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand extends $Command<

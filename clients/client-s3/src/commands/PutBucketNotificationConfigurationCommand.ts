@@ -163,6 +163,8 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * };
  * const command = new PutBucketNotificationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutBucketNotificationConfigurationCommandInput - {@link PutBucketNotificationConfigurationCommandInput}
@@ -171,6 +173,8 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * @see {@link PutBucketNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example Set notification configuration for a bucket
  * ```javascript

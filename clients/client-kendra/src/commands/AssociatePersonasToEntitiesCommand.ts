@@ -57,6 +57,15 @@ export interface AssociatePersonasToEntitiesCommandOutput
  * };
  * const command = new AssociatePersonasToEntitiesCommand(input);
  * const response = await client.send(command);
+ * // { // AssociatePersonasToEntitiesResponse
+ * //   FailedEntityList: [ // FailedEntityList
+ * //     { // FailedEntity
+ * //       EntityId: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param AssociatePersonasToEntitiesCommandInput - {@link AssociatePersonasToEntitiesCommandInput}
@@ -89,6 +98,8 @@ export interface AssociatePersonasToEntitiesCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class AssociatePersonasToEntitiesCommand extends $Command<

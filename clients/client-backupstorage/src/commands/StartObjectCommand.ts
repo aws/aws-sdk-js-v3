@@ -46,6 +46,10 @@ export interface StartObjectCommandOutput extends StartObjectOutput, __MetadataB
  * };
  * const command = new StartObjectCommand(input);
  * const response = await client.send(command);
+ * // { // StartObjectOutput
+ * //   UploadId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param StartObjectCommandInput - {@link StartObjectCommandInput}
@@ -79,6 +83,8 @@ export interface StartObjectCommandOutput extends StartObjectOutput, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  Increased rate over throttling limits. Can be retried with exponential backoff.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class StartObjectCommand extends $Command<

@@ -49,6 +49,44 @@ export interface StopStreamingSessionCommandOutput extends StopStreamingSessionR
  * };
  * const command = new StopStreamingSessionCommand(input);
  * const response = await client.send(command);
+ * // { // StopStreamingSessionResponse
+ * //   session: { // StreamingSession
+ * //     arn: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     createdBy: "STRING_VALUE",
+ * //     ec2InstanceType: "STRING_VALUE",
+ * //     launchProfileId: "STRING_VALUE",
+ * //     ownedBy: "STRING_VALUE",
+ * //     sessionId: "STRING_VALUE",
+ * //     state: "CREATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "READY" || "DELETED" || "CREATE_FAILED" || "DELETE_FAILED" || "STOP_IN_PROGRESS" || "START_IN_PROGRESS" || "STOPPED" || "STOP_FAILED" || "START_FAILED",
+ * //     statusCode: "STREAMING_SESSION_READY" || "STREAMING_SESSION_DELETED" || "STREAMING_SESSION_CREATE_IN_PROGRESS" || "STREAMING_SESSION_DELETE_IN_PROGRESS" || "INTERNAL_ERROR" || "INSUFFICIENT_CAPACITY" || "ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR" || "NETWORK_CONNECTION_ERROR" || "INITIALIZATION_SCRIPT_ERROR" || "DECRYPT_STREAMING_IMAGE_ERROR" || "NETWORK_INTERFACE_ERROR" || "STREAMING_SESSION_STOPPED" || "STREAMING_SESSION_STARTED" || "STREAMING_SESSION_STOP_IN_PROGRESS" || "STREAMING_SESSION_START_IN_PROGRESS" || "AMI_VALIDATION_ERROR",
+ * //     statusMessage: "STRING_VALUE",
+ * //     streamingImageId: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     terminateAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //     updatedBy: "STRING_VALUE",
+ * //     stoppedAt: new Date("TIMESTAMP"),
+ * //     stoppedBy: "STRING_VALUE",
+ * //     startedAt: new Date("TIMESTAMP"),
+ * //     startedBy: "STRING_VALUE",
+ * //     stopAt: new Date("TIMESTAMP"),
+ * //     startedFromBackupId: "STRING_VALUE",
+ * //     backupMode: "AUTOMATIC" || "DEACTIVATED",
+ * //     maxBackupsToRetain: Number("int"),
+ * //     volumeRetentionMode: "RETAIN" || "DELETE",
+ * //     sessionPersistenceMode: "DEACTIVATED" || "ACTIVATED",
+ * //     volumeConfiguration: { // VolumeConfiguration
+ * //       size: Number("int"),
+ * //       throughput: Number("int"),
+ * //       iops: Number("int"),
+ * //     },
+ * //     automaticTerminationMode: "DEACTIVATED" || "ACTIVATED",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StopStreamingSessionCommandInput - {@link StopStreamingSessionCommandInput}
@@ -81,6 +119,8 @@ export interface StopStreamingSessionCommandOutput extends StopStreamingSessionR
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class StopStreamingSessionCommand extends $Command<

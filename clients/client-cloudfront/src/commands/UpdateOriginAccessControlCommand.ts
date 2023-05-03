@@ -52,6 +52,20 @@ export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAcce
  * };
  * const command = new UpdateOriginAccessControlCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateOriginAccessControlResult
+ * //   OriginAccessControl: { // OriginAccessControl
+ * //     Id: "STRING_VALUE", // required
+ * //     OriginAccessControlConfig: { // OriginAccessControlConfig
+ * //       Name: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //       SigningProtocol: "sigv4", // required
+ * //       SigningBehavior: "never" || "always" || "no-override", // required
+ * //       OriginAccessControlOriginType: "s3" || "mediastore", // required
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateOriginAccessControlCommandInput - {@link UpdateOriginAccessControlCommandInput}
@@ -82,6 +96,8 @@ export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAcce
  *  <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class UpdateOriginAccessControlCommand extends $Command<

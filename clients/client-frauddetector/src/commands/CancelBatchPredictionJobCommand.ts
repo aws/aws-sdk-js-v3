@@ -44,6 +44,8 @@ export interface CancelBatchPredictionJobCommandOutput extends CancelBatchPredic
  * };
  * const command = new CancelBatchPredictionJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelBatchPredictionJobCommandInput - {@link CancelBatchPredictionJobCommandInput}
@@ -67,6 +69,8 @@ export interface CancelBatchPredictionJobCommandOutput extends CancelBatchPredic
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class CancelBatchPredictionJobCommand extends $Command<

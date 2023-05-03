@@ -48,6 +48,10 @@ export interface GetTrafficPolicyInstanceCountCommandOutput
  * const input = {};
  * const command = new GetTrafficPolicyInstanceCountCommand(input);
  * const response = await client.send(command);
+ * // { // GetTrafficPolicyInstanceCountResponse
+ * //   TrafficPolicyInstanceCount: Number("int"), // required
+ * // };
+ *
  * ```
  *
  * @param GetTrafficPolicyInstanceCountCommandInput - {@link GetTrafficPolicyInstanceCountCommandInput}
@@ -56,6 +60,8 @@ export interface GetTrafficPolicyInstanceCountCommandOutput
  * @see {@link GetTrafficPolicyInstanceCountCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetTrafficPolicyInstanceCountCommand extends $Command<

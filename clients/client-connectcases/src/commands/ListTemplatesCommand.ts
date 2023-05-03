@@ -50,6 +50,18 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
+ * // { // ListTemplatesResponse
+ * //   templates: [ // TemplateSummaryList // required
+ * //     { // TemplateSummary
+ * //       templateId: "STRING_VALUE", // required
+ * //       templateArn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTemplatesCommandInput - {@link ListTemplatesCommandInput}
@@ -75,6 +87,8 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class ListTemplatesCommand extends $Command<

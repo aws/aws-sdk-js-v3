@@ -43,6 +43,14 @@ export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMet
  * const input = {};
  * const command = new GetContainerAPIMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // GetContainerAPIMetadataResult
+ * //   metadata: [ // ContainerServiceMetadataEntryList
+ * //     { // ContainerServiceMetadataEntry
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetContainerAPIMetadataCommandInput - {@link GetContainerAPIMetadataCommandInput}
@@ -61,6 +69,8 @@ export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMet
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetContainerAPIMetadataCommand extends $Command<

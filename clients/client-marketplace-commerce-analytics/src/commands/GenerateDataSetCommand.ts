@@ -63,6 +63,10 @@ export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __M
  * };
  * const command = new GenerateDataSetCommand(input);
  * const response = await client.send(command);
+ * // { // GenerateDataSetResult
+ * //   dataSetRequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GenerateDataSetCommandInput - {@link GenerateDataSetCommandInput}
@@ -74,6 +78,8 @@ export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __M
  * @throws {@link MarketplaceCommerceAnalyticsException} (server fault)
  *  This exception is thrown when an internal service error occurs.
  *
+ * @throws {@link MarketplaceCommerceAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceCommerceAnalytics service.</p>
  *
  */
 export class GenerateDataSetCommand extends $Command<

@@ -61,6 +61,12 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
  * };
  * const command = new EnableAvailabilityZonesForLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * // { // AddAvailabilityZonesOutput
+ * //   AvailabilityZones: [ // AvailabilityZones
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param EnableAvailabilityZonesForLoadBalancerCommandInput - {@link EnableAvailabilityZonesForLoadBalancerCommandInput}
@@ -72,6 +78,8 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
  * @throws {@link AccessPointNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To enable an Availability Zone for a load balancer
  * ```javascript

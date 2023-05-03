@@ -111,6 +111,13 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * const input = {};
  * const command = new DescribeLimitsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeLimitsOutput
+ * //   AccountMaxReadCapacityUnits: Number("long"),
+ * //   AccountMaxWriteCapacityUnits: Number("long"),
+ * //   TableMaxReadCapacityUnits: Number("long"),
+ * //   TableMaxWriteCapacityUnits: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param DescribeLimitsCommandInput - {@link DescribeLimitsCommandInput}
@@ -124,6 +131,8 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @example To determine capacity limits per table and account, in the current AWS region
  * ```javascript

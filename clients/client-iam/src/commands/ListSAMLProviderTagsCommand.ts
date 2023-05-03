@@ -50,6 +50,17 @@ export interface ListSAMLProviderTagsCommandOutput extends ListSAMLProviderTagsR
  * };
  * const command = new ListSAMLProviderTagsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSAMLProviderTagsResponse
+ * //   Tags: [ // tagListType // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSAMLProviderTagsCommandInput - {@link ListSAMLProviderTagsCommandInput}
@@ -70,6 +81,8 @@ export interface ListSAMLProviderTagsCommandOutput extends ListSAMLProviderTagsR
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListSAMLProviderTagsCommand extends $Command<

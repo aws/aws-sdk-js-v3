@@ -58,6 +58,17 @@ export interface PutDestinationCommandOutput extends PutDestinationResponse, __M
  * };
  * const command = new PutDestinationCommand(input);
  * const response = await client.send(command);
+ * // { // PutDestinationResponse
+ * //   destination: { // Destination
+ * //     destinationName: "STRING_VALUE",
+ * //     targetArn: "STRING_VALUE",
+ * //     roleArn: "STRING_VALUE",
+ * //     accessPolicy: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     creationTime: Number("long"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutDestinationCommandInput - {@link PutDestinationCommandInput}
@@ -75,6 +86,8 @@ export interface PutDestinationCommandOutput extends PutDestinationResponse, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class PutDestinationCommand extends $Command<

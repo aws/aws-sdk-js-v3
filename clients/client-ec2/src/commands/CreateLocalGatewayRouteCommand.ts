@@ -62,6 +62,22 @@ export interface CreateLocalGatewayRouteCommandOutput extends CreateLocalGateway
  * };
  * const command = new CreateLocalGatewayRouteCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLocalGatewayRouteResult
+ * //   Route: { // LocalGatewayRoute
+ * //     DestinationCidrBlock: "STRING_VALUE",
+ * //     LocalGatewayVirtualInterfaceGroupId: "STRING_VALUE",
+ * //     Type: "static" || "propagated",
+ * //     State: "pending" || "active" || "blackhole" || "deleting" || "deleted",
+ * //     LocalGatewayRouteTableId: "STRING_VALUE",
+ * //     LocalGatewayRouteTableArn: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     SubnetId: "STRING_VALUE",
+ * //     CoipPoolId: "STRING_VALUE",
+ * //     NetworkInterfaceId: "STRING_VALUE",
+ * //     DestinationPrefixListId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateLocalGatewayRouteCommandInput - {@link CreateLocalGatewayRouteCommandInput}
@@ -70,6 +86,8 @@ export interface CreateLocalGatewayRouteCommandOutput extends CreateLocalGateway
  * @see {@link CreateLocalGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateLocalGatewayRouteCommand extends $Command<

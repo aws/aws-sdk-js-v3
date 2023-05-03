@@ -63,6 +63,25 @@ export interface SearchTransitGatewayMulticastGroupsCommandOutput
  * };
  * const command = new SearchTransitGatewayMulticastGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // SearchTransitGatewayMulticastGroupsResult
+ * //   MulticastGroups: [ // TransitGatewayMulticastGroupList
+ * //     { // TransitGatewayMulticastGroup
+ * //       GroupIpAddress: "STRING_VALUE",
+ * //       TransitGatewayAttachmentId: "STRING_VALUE",
+ * //       SubnetId: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //       ResourceOwnerId: "STRING_VALUE",
+ * //       NetworkInterfaceId: "STRING_VALUE",
+ * //       GroupMember: true || false,
+ * //       GroupSource: true || false,
+ * //       MemberType: "static" || "igmp",
+ * //       SourceType: "static" || "igmp",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param SearchTransitGatewayMulticastGroupsCommandInput - {@link SearchTransitGatewayMulticastGroupsCommandInput}
@@ -71,6 +90,8 @@ export interface SearchTransitGatewayMulticastGroupsCommandOutput
  * @see {@link SearchTransitGatewayMulticastGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class SearchTransitGatewayMulticastGroupsCommand extends $Command<

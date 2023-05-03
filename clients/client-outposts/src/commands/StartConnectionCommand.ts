@@ -57,6 +57,11 @@ export interface StartConnectionCommandOutput extends StartConnectionResponse, _
  * };
  * const command = new StartConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // StartConnectionResponse
+ * //   ConnectionId: "STRING_VALUE",
+ * //   UnderlayIpAddress: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartConnectionCommandInput - {@link StartConnectionCommandInput}
@@ -77,6 +82,8 @@ export interface StartConnectionCommandOutput extends StartConnectionResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class StartConnectionCommand extends $Command<

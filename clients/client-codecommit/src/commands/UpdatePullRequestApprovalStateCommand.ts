@@ -49,6 +49,8 @@ export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataB
  * };
  * const command = new UpdatePullRequestApprovalStateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdatePullRequestApprovalStateCommandInput - {@link UpdatePullRequestApprovalStateCommandInput}
@@ -106,6 +108,8 @@ export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataB
  * @throws {@link RevisionNotCurrentException} (client fault)
  *  <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class UpdatePullRequestApprovalStateCommand extends $Command<

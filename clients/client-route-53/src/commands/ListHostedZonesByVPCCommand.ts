@@ -86,6 +86,21 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  * };
  * const command = new ListHostedZonesByVPCCommand(input);
  * const response = await client.send(command);
+ * // { // ListHostedZonesByVPCResponse
+ * //   HostedZoneSummaries: [ // HostedZoneSummaries // required
+ * //     { // HostedZoneSummary
+ * //       HostedZoneId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       Owner: { // HostedZoneOwner
+ * //         OwningAccount: "STRING_VALUE",
+ * //         OwningService: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   MaxItems: Number("int"), // required
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListHostedZonesByVPCCommandInput - {@link ListHostedZonesByVPCCommandInput}
@@ -101,6 +116,8 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  *  <p>The value that you specified to get the second or subsequent page of results is
  * 			invalid.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListHostedZonesByVPCCommand extends $Command<

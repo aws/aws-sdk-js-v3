@@ -51,6 +51,19 @@ export interface ListLogPatternsCommandOutput extends ListLogPatternsResponse, _
  * };
  * const command = new ListLogPatternsCommand(input);
  * const response = await client.send(command);
+ * // { // ListLogPatternsResponse
+ * //   ResourceGroupName: "STRING_VALUE",
+ * //   LogPatterns: [ // LogPatternList
+ * //     { // LogPattern
+ * //       PatternSetName: "STRING_VALUE",
+ * //       PatternName: "STRING_VALUE",
+ * //       Pattern: "STRING_VALUE",
+ * //       Rank: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListLogPatternsCommandInput - {@link ListLogPatternsCommandInput}
@@ -68,6 +81,8 @@ export interface ListLogPatternsCommandOutput extends ListLogPatternsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class ListLogPatternsCommand extends $Command<

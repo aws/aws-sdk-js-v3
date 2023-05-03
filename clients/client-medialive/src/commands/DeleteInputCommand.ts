@@ -44,6 +44,8 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * };
  * const command = new DeleteInputCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteInputCommandInput - {@link DeleteInputCommandInput}
@@ -76,6 +78,8 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DeleteInputCommand extends $Command<

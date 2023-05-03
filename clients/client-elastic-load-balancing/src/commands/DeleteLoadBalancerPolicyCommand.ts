@@ -49,6 +49,8 @@ export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalance
  * };
  * const command = new DeleteLoadBalancerPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteLoadBalancerPolicyCommandInput - {@link DeleteLoadBalancerPolicyCommandInput}
@@ -63,6 +65,8 @@ export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalance
  * @throws {@link InvalidConfigurationRequestException} (client fault)
  *  <p>The requested configuration change is not valid.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To delete a policy from your load balancer
  * ```javascript

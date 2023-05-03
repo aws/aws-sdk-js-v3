@@ -54,6 +54,8 @@ export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __Met
  * };
  * const command = new DeleteAccessorCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAccessorCommandInput - {@link DeleteAccessorCommandInput}
@@ -80,6 +82,8 @@ export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __Met
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class DeleteAccessorCommand extends $Command<

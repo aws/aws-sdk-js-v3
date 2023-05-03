@@ -62,6 +62,8 @@ export interface UpdateLocationObjectStorageCommandOutput
  * };
  * const command = new UpdateLocationObjectStorageCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateLocationObjectStorageCommandInput - {@link UpdateLocationObjectStorageCommandInput}
@@ -77,6 +79,8 @@ export interface UpdateLocationObjectStorageCommandOutput
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class UpdateLocationObjectStorageCommand extends $Command<

@@ -46,6 +46,23 @@ export interface DeleteTransitGatewayRouteCommandOutput extends DeleteTransitGat
  * };
  * const command = new DeleteTransitGatewayRouteCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteTransitGatewayRouteResult
+ * //   Route: { // TransitGatewayRoute
+ * //     DestinationCidrBlock: "STRING_VALUE",
+ * //     PrefixListId: "STRING_VALUE",
+ * //     TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
+ * //     TransitGatewayAttachments: [ // TransitGatewayRouteAttachmentList
+ * //       { // TransitGatewayRouteAttachment
+ * //         ResourceId: "STRING_VALUE",
+ * //         TransitGatewayAttachmentId: "STRING_VALUE",
+ * //         ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //       },
+ * //     ],
+ * //     Type: "static" || "propagated",
+ * //     State: "pending" || "active" || "blackhole" || "deleting" || "deleted",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteTransitGatewayRouteCommandInput - {@link DeleteTransitGatewayRouteCommandInput}
@@ -54,6 +71,8 @@ export interface DeleteTransitGatewayRouteCommandOutput extends DeleteTransitGat
  * @see {@link DeleteTransitGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteTransitGatewayRouteCommand extends $Command<

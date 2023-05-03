@@ -50,6 +50,47 @@ export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, _
  * };
  * const command = new EvaluateSessionCommand(input);
  * const response = await client.send(command);
+ * // { // EvaluateSessionResponse
+ * //   DomainId: "STRING_VALUE",
+ * //   SessionId: "STRING_VALUE",
+ * //   SessionName: "STRING_VALUE",
+ * //   StreamingStatus: "STRING_VALUE",
+ * //   AuthenticationResult: { // AuthenticationResult
+ * //     AuthenticationResultId: "STRING_VALUE",
+ * //     AudioAggregationStartedAt: new Date("TIMESTAMP"),
+ * //     AudioAggregationEndedAt: new Date("TIMESTAMP"),
+ * //     CustomerSpeakerId: "STRING_VALUE",
+ * //     GeneratedSpeakerId: "STRING_VALUE",
+ * //     Decision: "STRING_VALUE",
+ * //     Score: Number("int"),
+ * //     Configuration: { // AuthenticationConfiguration
+ * //       AcceptanceThreshold: Number("int"), // required
+ * //     },
+ * //   },
+ * //   FraudDetectionResult: { // FraudDetectionResult
+ * //     FraudDetectionResultId: "STRING_VALUE",
+ * //     AudioAggregationStartedAt: new Date("TIMESTAMP"),
+ * //     AudioAggregationEndedAt: new Date("TIMESTAMP"),
+ * //     Configuration: { // FraudDetectionConfiguration
+ * //       RiskThreshold: Number("int"),
+ * //       WatchlistId: "STRING_VALUE",
+ * //     },
+ * //     Decision: "STRING_VALUE",
+ * //     Reasons: [ // FraudDetectionReasons
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     RiskDetails: { // FraudRiskDetails
+ * //       KnownFraudsterRisk: { // KnownFraudsterRisk
+ * //         RiskScore: Number("int"), // required
+ * //         GeneratedFraudsterId: "STRING_VALUE",
+ * //       },
+ * //       VoiceSpoofingRisk: { // VoiceSpoofingRisk
+ * //         RiskScore: Number("int"), // required
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param EvaluateSessionCommandInput - {@link EvaluateSessionCommandInput}
@@ -83,6 +124,8 @@ export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, _
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class EvaluateSessionCommand extends $Command<

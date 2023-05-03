@@ -55,6 +55,8 @@ export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __Metada
  * };
  * const command = new RemoveTagsFromOnPremisesInstancesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RemoveTagsFromOnPremisesInstancesCommandInput - {@link RemoveTagsFromOnPremisesInstancesCommandInput}
@@ -85,6 +87,8 @@ export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __Metada
  * @throws {@link TagRequiredException} (client fault)
  *  <p>A tag was not specified.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<

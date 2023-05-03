@@ -46,6 +46,8 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * };
  * const command = new CancelStatementCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelStatementCommandInput - {@link CancelStatementCommandInput}
@@ -72,6 +74,8 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CancelStatementCommand extends $Command<

@@ -44,6 +44,8 @@ export interface CancelOrderCommandOutput extends CancelOrderOutput, __MetadataB
  * };
  * const command = new CancelOrderCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelOrderCommandInput - {@link CancelOrderCommandInput}
@@ -67,6 +69,8 @@ export interface CancelOrderCommandOutput extends CancelOrderOutput, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class CancelOrderCommand extends $Command<

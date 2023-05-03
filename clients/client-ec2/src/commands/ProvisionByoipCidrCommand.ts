@@ -74,6 +74,15 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResul
  * };
  * const command = new ProvisionByoipCidrCommand(input);
  * const response = await client.send(command);
+ * // { // ProvisionByoipCidrResult
+ * //   ByoipCidr: { // ByoipCidr
+ * //     Cidr: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ProvisionByoipCidrCommandInput - {@link ProvisionByoipCidrCommandInput}
@@ -82,6 +91,8 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResul
  * @see {@link ProvisionByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ProvisionByoipCidrCommand extends $Command<

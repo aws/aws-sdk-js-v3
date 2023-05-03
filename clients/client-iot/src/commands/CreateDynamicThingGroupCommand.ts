@@ -63,6 +63,15 @@ export interface CreateDynamicThingGroupCommandOutput extends CreateDynamicThing
  * };
  * const command = new CreateDynamicThingGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDynamicThingGroupResponse
+ * //   thingGroupName: "STRING_VALUE",
+ * //   thingGroupArn: "STRING_VALUE",
+ * //   thingGroupId: "STRING_VALUE",
+ * //   indexName: "STRING_VALUE",
+ * //   queryString: "STRING_VALUE",
+ * //   queryVersion: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateDynamicThingGroupCommandInput - {@link CreateDynamicThingGroupCommandInput}
@@ -92,6 +101,8 @@ export interface CreateDynamicThingGroupCommandOutput extends CreateDynamicThing
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateDynamicThingGroupCommand extends $Command<

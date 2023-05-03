@@ -51,6 +51,49 @@ export interface ListSkillsStoreSkillsByCategoryCommandOutput
  * };
  * const command = new ListSkillsStoreSkillsByCategoryCommand(input);
  * const response = await client.send(command);
+ * // { // ListSkillsStoreSkillsByCategoryResponse
+ * //   SkillsStoreSkills: [ // SkillsStoreSkillList
+ * //     { // SkillsStoreSkill
+ * //       SkillId: "STRING_VALUE",
+ * //       SkillName: "STRING_VALUE",
+ * //       ShortDescription: "STRING_VALUE",
+ * //       IconUrl: "STRING_VALUE",
+ * //       SampleUtterances: [ // SampleUtterances
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SkillDetails: { // SkillDetails
+ * //         ProductDescription: "STRING_VALUE",
+ * //         InvocationPhrase: "STRING_VALUE",
+ * //         ReleaseDate: "STRING_VALUE",
+ * //         EndUserLicenseAgreement: "STRING_VALUE",
+ * //         GenericKeywords: [ // GenericKeywords
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         BulletPoints: [ // BulletPoints
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         NewInThisVersionBulletPoints: [ // NewInThisVersionBulletPoints
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SkillTypes: [ // SkillTypes
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Reviews: { // Reviews
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         DeveloperInfo: { // DeveloperInfo
+ * //           DeveloperName: "STRING_VALUE",
+ * //           PrivacyPolicy: "STRING_VALUE",
+ * //           Email: "STRING_VALUE",
+ * //           Url: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       SupportsLinking: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSkillsStoreSkillsByCategoryCommandInput - {@link ListSkillsStoreSkillsByCategoryCommandInput}
@@ -59,6 +102,8 @@ export interface ListSkillsStoreSkillsByCategoryCommandOutput
  * @see {@link ListSkillsStoreSkillsByCategoryCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ListSkillsStoreSkillsByCategoryCommand extends $Command<

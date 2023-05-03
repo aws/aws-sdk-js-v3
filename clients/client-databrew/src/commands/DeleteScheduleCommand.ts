@@ -44,6 +44,10 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  * };
  * const command = new DeleteScheduleCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteScheduleResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteScheduleCommandInput - {@link DeleteScheduleCommandInput}
@@ -58,6 +62,8 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class DeleteScheduleCommand extends $Command<

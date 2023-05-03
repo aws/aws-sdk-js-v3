@@ -63,6 +63,28 @@ export interface DescribeMaintenanceWindowTargetsCommandOutput
  * };
  * const command = new DescribeMaintenanceWindowTargetsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeMaintenanceWindowTargetsResult
+ * //   Targets: [ // MaintenanceWindowTargetList
+ * //     { // MaintenanceWindowTarget
+ * //       WindowId: "STRING_VALUE",
+ * //       WindowTargetId: "STRING_VALUE",
+ * //       ResourceType: "INSTANCE" || "RESOURCE_GROUP",
+ * //       Targets: [ // Targets
+ * //         { // Target
+ * //           Key: "STRING_VALUE",
+ * //           Values: [ // TargetValues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       OwnerInformation: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeMaintenanceWindowTargetsCommandInput - {@link DescribeMaintenanceWindowTargetsCommandInput}
@@ -80,6 +102,8 @@ export interface DescribeMaintenanceWindowTargetsCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeMaintenanceWindowTargetsCommand extends $Command<

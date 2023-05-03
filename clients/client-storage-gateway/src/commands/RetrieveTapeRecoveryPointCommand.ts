@@ -56,6 +56,10 @@ export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeReco
  * };
  * const command = new RetrieveTapeRecoveryPointCommand(input);
  * const response = await client.send(command);
+ * // { // RetrieveTapeRecoveryPointOutput
+ * //   TapeARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RetrieveTapeRecoveryPointCommandInput - {@link RetrieveTapeRecoveryPointCommandInput}
@@ -72,6 +76,8 @@ export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeReco
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To retrieve the recovery point of a virtual tape
  * ```javascript

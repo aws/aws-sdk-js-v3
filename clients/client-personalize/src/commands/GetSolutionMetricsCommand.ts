@@ -44,6 +44,13 @@ export interface GetSolutionMetricsCommandOutput extends GetSolutionMetricsRespo
  * };
  * const command = new GetSolutionMetricsCommand(input);
  * const response = await client.send(command);
+ * // { // GetSolutionMetricsResponse
+ * //   solutionVersionArn: "STRING_VALUE",
+ * //   metrics: { // Metrics
+ * //     "<keys>": Number("double"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSolutionMetricsCommandInput - {@link GetSolutionMetricsCommandInput}
@@ -61,6 +68,8 @@ export interface GetSolutionMetricsCommandOutput extends GetSolutionMetricsRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class GetSolutionMetricsCommand extends $Command<

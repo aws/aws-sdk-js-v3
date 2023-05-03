@@ -53,6 +53,8 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  * };
  * const command = new UpdateSigningCertificateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateSigningCertificateCommandInput - {@link UpdateSigningCertificateCommandInput}
@@ -73,6 +75,8 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To change the active status of a signing certificate for an IAM user
  * ```javascript

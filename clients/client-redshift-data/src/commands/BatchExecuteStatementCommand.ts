@@ -90,6 +90,16 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * };
  * const command = new BatchExecuteStatementCommand(input);
  * const response = await client.send(command);
+ * // { // BatchExecuteStatementOutput
+ * //   Id: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   ClusterIdentifier: "STRING_VALUE",
+ * //   DbUser: "STRING_VALUE",
+ * //   Database: "STRING_VALUE",
+ * //   SecretArn: "STRING_VALUE",
+ * //   WorkgroupName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param BatchExecuteStatementCommandInput - {@link BatchExecuteStatementCommandInput}
@@ -107,6 +117,8 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
+ * @throws {@link RedshiftDataServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
  */
 export class BatchExecuteStatementCommand extends $Command<

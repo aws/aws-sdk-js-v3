@@ -50,6 +50,15 @@ export interface GetAutomatedDiscoveryConfigurationCommandOutput
  * const input = {};
  * const command = new GetAutomatedDiscoveryConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // GetAutomatedDiscoveryConfigurationResponse
+ * //   classificationScopeId: "STRING_VALUE",
+ * //   disabledAt: new Date("TIMESTAMP"),
+ * //   firstEnabledAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   sensitivityInspectionTemplateId: "STRING_VALUE",
+ * //   status: "ENABLED" || "DISABLED",
+ * // };
+ *
  * ```
  *
  * @param GetAutomatedDiscoveryConfigurationCommandInput - {@link GetAutomatedDiscoveryConfigurationCommandInput}
@@ -70,6 +79,8 @@ export interface GetAutomatedDiscoveryConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetAutomatedDiscoveryConfigurationCommand extends $Command<

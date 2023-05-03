@@ -52,6 +52,8 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  * };
  * const command = new PutAccountConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutAccountConfigurationCommandInput - {@link PutAccountConfigurationCommandInput}
@@ -73,6 +75,8 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  * @throws {@link ValidationException} (client fault)
  *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class PutAccountConfigurationCommand extends $Command<

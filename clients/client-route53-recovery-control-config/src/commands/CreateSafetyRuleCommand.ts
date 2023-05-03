@@ -80,6 +80,42 @@ export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse,
  * };
  * const command = new CreateSafetyRuleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSafetyRuleResponse
+ * //   AssertionRule: { // AssertionRule
+ * //     AssertedControls: [ // __listOf__stringMin1Max256PatternAZaZ09 // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ControlPanelArn: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     RuleConfig: { // RuleConfig
+ * //       Inverted: true || false, // required
+ * //       Threshold: Number("int"), // required
+ * //       Type: "ATLEAST" || "AND" || "OR", // required
+ * //     },
+ * //     SafetyRuleArn: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION", // required
+ * //     WaitPeriodMs: Number("int"), // required
+ * //   },
+ * //   GatingRule: { // GatingRule
+ * //     ControlPanelArn: "STRING_VALUE", // required
+ * //     GatingControls: [ // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Name: "STRING_VALUE", // required
+ * //     RuleConfig: {
+ * //       Inverted: true || false, // required
+ * //       Threshold: Number("int"), // required
+ * //       Type: "ATLEAST" || "AND" || "OR", // required
+ * //     },
+ * //     SafetyRuleArn: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION", // required
+ * //     TargetControls: [ // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     WaitPeriodMs: Number("int"), // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateSafetyRuleCommandInput - {@link CreateSafetyRuleCommandInput}
@@ -94,6 +130,8 @@ export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class CreateSafetyRuleCommand extends $Command<

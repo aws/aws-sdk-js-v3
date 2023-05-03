@@ -47,6 +47,8 @@ export interface DeleteDataQualityJobDefinitionCommandOutput extends __MetadataB
  * };
  * const command = new DeleteDataQualityJobDefinitionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDataQualityJobDefinitionCommandInput - {@link DeleteDataQualityJobDefinitionCommandInput}
@@ -58,6 +60,8 @@ export interface DeleteDataQualityJobDefinitionCommandOutput extends __MetadataB
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteDataQualityJobDefinitionCommand extends $Command<

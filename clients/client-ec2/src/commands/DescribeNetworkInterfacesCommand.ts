@@ -57,6 +57,100 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * };
  * const command = new DescribeNetworkInterfacesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeNetworkInterfacesResult
+ * //   NetworkInterfaces: [ // NetworkInterfaceList
+ * //     { // NetworkInterface
+ * //       Association: { // NetworkInterfaceAssociation
+ * //         AllocationId: "STRING_VALUE",
+ * //         AssociationId: "STRING_VALUE",
+ * //         IpOwnerId: "STRING_VALUE",
+ * //         PublicDnsName: "STRING_VALUE",
+ * //         PublicIp: "STRING_VALUE",
+ * //         CustomerOwnedIp: "STRING_VALUE",
+ * //         CarrierIp: "STRING_VALUE",
+ * //       },
+ * //       Attachment: { // NetworkInterfaceAttachment
+ * //         AttachTime: new Date("TIMESTAMP"),
+ * //         AttachmentId: "STRING_VALUE",
+ * //         DeleteOnTermination: true || false,
+ * //         DeviceIndex: Number("int"),
+ * //         NetworkCardIndex: Number("int"),
+ * //         InstanceId: "STRING_VALUE",
+ * //         InstanceOwnerId: "STRING_VALUE",
+ * //         Status: "attaching" || "attached" || "detaching" || "detached",
+ * //         EnaSrdSpecification: { // AttachmentEnaSrdSpecification
+ * //           EnaSrdEnabled: true || false,
+ * //           EnaSrdUdpSpecification: { // AttachmentEnaSrdUdpSpecification
+ * //             EnaSrdUdpEnabled: true || false,
+ * //           },
+ * //         },
+ * //       },
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Groups: [ // GroupIdentifierList
+ * //         { // GroupIdentifier
+ * //           GroupName: "STRING_VALUE",
+ * //           GroupId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       InterfaceType: "interface" || "natGateway" || "efa" || "trunk" || "load_balancer" || "network_load_balancer" || "vpc_endpoint" || "branch" || "transit_gateway" || "lambda" || "quicksight" || "global_accelerator_managed" || "api_gateway_managed" || "gateway_load_balancer" || "gateway_load_balancer_endpoint" || "iot_rules_managed" || "aws_codestar_connections_managed",
+ * //       Ipv6Addresses: [ // NetworkInterfaceIpv6AddressesList
+ * //         { // NetworkInterfaceIpv6Address
+ * //           Ipv6Address: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       MacAddress: "STRING_VALUE",
+ * //       NetworkInterfaceId: "STRING_VALUE",
+ * //       OutpostArn: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       PrivateDnsName: "STRING_VALUE",
+ * //       PrivateIpAddress: "STRING_VALUE",
+ * //       PrivateIpAddresses: [ // NetworkInterfacePrivateIpAddressList
+ * //         { // NetworkInterfacePrivateIpAddress
+ * //           Association: {
+ * //             AllocationId: "STRING_VALUE",
+ * //             AssociationId: "STRING_VALUE",
+ * //             IpOwnerId: "STRING_VALUE",
+ * //             PublicDnsName: "STRING_VALUE",
+ * //             PublicIp: "STRING_VALUE",
+ * //             CustomerOwnedIp: "STRING_VALUE",
+ * //             CarrierIp: "STRING_VALUE",
+ * //           },
+ * //           Primary: true || false,
+ * //           PrivateDnsName: "STRING_VALUE",
+ * //           PrivateIpAddress: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Ipv4Prefixes: [ // Ipv4PrefixesList
+ * //         { // Ipv4PrefixSpecification
+ * //           Ipv4Prefix: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Ipv6Prefixes: [ // Ipv6PrefixesList
+ * //         { // Ipv6PrefixSpecification
+ * //           Ipv6Prefix: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       RequesterId: "STRING_VALUE",
+ * //       RequesterManaged: true || false,
+ * //       SourceDestCheck: true || false,
+ * //       Status: "available" || "associated" || "attaching" || "in-use" || "detaching",
+ * //       SubnetId: "STRING_VALUE",
+ * //       TagSet: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       VpcId: "STRING_VALUE",
+ * //       DenyAllIgwTraffic: true || false,
+ * //       Ipv6Native: true || false,
+ * //       Ipv6Address: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeNetworkInterfacesCommandInput - {@link DescribeNetworkInterfacesCommandInput}
@@ -65,6 +159,8 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * @see {@link DescribeNetworkInterfacesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe a network interface
  * ```javascript

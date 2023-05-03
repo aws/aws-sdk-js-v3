@@ -44,6 +44,132 @@ export interface DescribeWorkflowCommandOutput extends DescribeWorkflowResponse,
  * };
  * const command = new DescribeWorkflowCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeWorkflowResponse
+ * //   Workflow: { // DescribedWorkflow
+ * //     Arn: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     Steps: [ // WorkflowSteps
+ * //       { // WorkflowStep
+ * //         Type: "COPY" || "CUSTOM" || "TAG" || "DELETE" || "DECRYPT",
+ * //         CopyStepDetails: { // CopyStepDetails
+ * //           Name: "STRING_VALUE",
+ * //           DestinationFileLocation: { // InputFileLocation
+ * //             S3FileLocation: { // S3InputFileLocation
+ * //               Bucket: "STRING_VALUE",
+ * //               Key: "STRING_VALUE",
+ * //             },
+ * //             EfsFileLocation: { // EfsFileLocation
+ * //               FileSystemId: "STRING_VALUE",
+ * //               Path: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           OverwriteExisting: "TRUE" || "FALSE",
+ * //           SourceFileLocation: "STRING_VALUE",
+ * //         },
+ * //         CustomStepDetails: { // CustomStepDetails
+ * //           Name: "STRING_VALUE",
+ * //           Target: "STRING_VALUE",
+ * //           TimeoutSeconds: Number("int"),
+ * //           SourceFileLocation: "STRING_VALUE",
+ * //         },
+ * //         DeleteStepDetails: { // DeleteStepDetails
+ * //           Name: "STRING_VALUE",
+ * //           SourceFileLocation: "STRING_VALUE",
+ * //         },
+ * //         TagStepDetails: { // TagStepDetails
+ * //           Name: "STRING_VALUE",
+ * //           Tags: [ // S3Tags
+ * //             { // S3Tag
+ * //               Key: "STRING_VALUE", // required
+ * //               Value: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           SourceFileLocation: "STRING_VALUE",
+ * //         },
+ * //         DecryptStepDetails: { // DecryptStepDetails
+ * //           Name: "STRING_VALUE",
+ * //           Type: "PGP", // required
+ * //           SourceFileLocation: "STRING_VALUE",
+ * //           OverwriteExisting: "TRUE" || "FALSE",
+ * //           DestinationFileLocation: {
+ * //             S3FileLocation: {
+ * //               Bucket: "STRING_VALUE",
+ * //               Key: "STRING_VALUE",
+ * //             },
+ * //             EfsFileLocation: {
+ * //               FileSystemId: "STRING_VALUE",
+ * //               Path: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //     OnExceptionSteps: [
+ * //       {
+ * //         Type: "COPY" || "CUSTOM" || "TAG" || "DELETE" || "DECRYPT",
+ * //         CopyStepDetails: {
+ * //           Name: "STRING_VALUE",
+ * //           DestinationFileLocation: {
+ * //             S3FileLocation: {
+ * //               Bucket: "STRING_VALUE",
+ * //               Key: "STRING_VALUE",
+ * //             },
+ * //             EfsFileLocation: {
+ * //               FileSystemId: "STRING_VALUE",
+ * //               Path: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           OverwriteExisting: "TRUE" || "FALSE",
+ * //           SourceFileLocation: "STRING_VALUE",
+ * //         },
+ * //         CustomStepDetails: {
+ * //           Name: "STRING_VALUE",
+ * //           Target: "STRING_VALUE",
+ * //           TimeoutSeconds: Number("int"),
+ * //           SourceFileLocation: "STRING_VALUE",
+ * //         },
+ * //         DeleteStepDetails: {
+ * //           Name: "STRING_VALUE",
+ * //           SourceFileLocation: "STRING_VALUE",
+ * //         },
+ * //         TagStepDetails: {
+ * //           Name: "STRING_VALUE",
+ * //           Tags: [
+ * //             {
+ * //               Key: "STRING_VALUE", // required
+ * //               Value: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           SourceFileLocation: "STRING_VALUE",
+ * //         },
+ * //         DecryptStepDetails: {
+ * //           Name: "STRING_VALUE",
+ * //           Type: "PGP", // required
+ * //           SourceFileLocation: "STRING_VALUE",
+ * //           OverwriteExisting: "TRUE" || "FALSE",
+ * //           DestinationFileLocation: {
+ * //             S3FileLocation: {
+ * //               Bucket: "STRING_VALUE",
+ * //               Key: "STRING_VALUE",
+ * //             },
+ * //             EfsFileLocation: {
+ * //               FileSystemId: "STRING_VALUE",
+ * //               Path: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //     WorkflowId: "STRING_VALUE",
+ * //     Tags: [ // Tags
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeWorkflowCommandInput - {@link DescribeWorkflowCommandInput}
@@ -65,6 +191,8 @@ export interface DescribeWorkflowCommandOutput extends DescribeWorkflowResponse,
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DescribeWorkflowCommand extends $Command<

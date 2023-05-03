@@ -47,6 +47,10 @@ export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackage
  * };
  * const command = new PutModelPackageGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutModelPackageGroupPolicyOutput
+ * //   ModelPackageGroupArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param PutModelPackageGroupPolicyCommandInput - {@link PutModelPackageGroupPolicyCommandInput}
@@ -55,6 +59,8 @@ export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackage
  * @see {@link PutModelPackageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class PutModelPackageGroupPolicyCommand extends $Command<

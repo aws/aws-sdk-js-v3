@@ -53,6 +53,18 @@ export interface DescribeDefaultEncryptionConfigurationCommandOutput
  * const input = {};
  * const command = new DescribeDefaultEncryptionConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDefaultEncryptionConfigurationResponse
+ * //   encryptionType: "SITEWISE_DEFAULT_ENCRYPTION" || "KMS_BASED_ENCRYPTION", // required
+ * //   kmsKeyArn: "STRING_VALUE",
+ * //   configurationStatus: { // ConfigurationStatus
+ * //     state: "ACTIVE" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED", // required
+ * //     error: { // ConfigurationErrorDetails
+ * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //       message: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeDefaultEncryptionConfigurationCommandInput - {@link DescribeDefaultEncryptionConfigurationCommandInput}
@@ -74,6 +86,8 @@ export interface DescribeDefaultEncryptionConfigurationCommandOutput
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class DescribeDefaultEncryptionConfigurationCommand extends $Command<

@@ -56,6 +56,10 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  * };
  * const command = new GetJobUnlockCodeCommand(input);
  * const response = await client.send(command);
+ * // { // GetJobUnlockCodeResult
+ * //   UnlockCode: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetJobUnlockCodeCommandInput - {@link GetJobUnlockCodeCommandInput}
@@ -72,6 +76,8 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To get the unlock code for a job you've created for AWS Snowball
  * ```javascript

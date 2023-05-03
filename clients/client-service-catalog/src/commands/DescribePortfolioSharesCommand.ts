@@ -51,6 +51,19 @@ export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioS
  * };
  * const command = new DescribePortfolioSharesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribePortfolioSharesOutput
+ * //   NextPageToken: "STRING_VALUE",
+ * //   PortfolioShareDetails: [ // PortfolioShareDetails
+ * //     { // PortfolioShareDetail
+ * //       PrincipalId: "STRING_VALUE",
+ * //       Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ORGANIZATION_MEMBER_ACCOUNT",
+ * //       Accepted: true || false,
+ * //       ShareTagOptions: true || false,
+ * //       SharePrincipals: true || false,
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribePortfolioSharesCommandInput - {@link DescribePortfolioSharesCommandInput}
@@ -65,6 +78,8 @@ export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioS
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribePortfolioSharesCommand extends $Command<

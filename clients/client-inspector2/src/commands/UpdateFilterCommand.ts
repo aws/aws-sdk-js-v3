@@ -167,6 +167,10 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  * };
  * const command = new UpdateFilterCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateFilterResponse
+ * //   arn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateFilterCommandInput - {@link UpdateFilterCommandInput}
@@ -191,6 +195,8 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class UpdateFilterCommand extends $Command<

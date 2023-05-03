@@ -111,6 +111,37 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
  * };
  * const command = new DescribeTrustedAdvisorCheckResultCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeTrustedAdvisorCheckResultResponse
+ * //   result: { // TrustedAdvisorCheckResult
+ * //     checkId: "STRING_VALUE", // required
+ * //     timestamp: "STRING_VALUE", // required
+ * //     status: "STRING_VALUE", // required
+ * //     resourcesSummary: { // TrustedAdvisorResourcesSummary
+ * //       resourcesProcessed: Number("long"), // required
+ * //       resourcesFlagged: Number("long"), // required
+ * //       resourcesIgnored: Number("long"), // required
+ * //       resourcesSuppressed: Number("long"), // required
+ * //     },
+ * //     categorySpecificSummary: { // TrustedAdvisorCategorySpecificSummary
+ * //       costOptimizing: { // TrustedAdvisorCostOptimizingSummary
+ * //         estimatedMonthlySavings: Number("double"), // required
+ * //         estimatedPercentMonthlySavings: Number("double"), // required
+ * //       },
+ * //     },
+ * //     flaggedResources: [ // TrustedAdvisorResourceDetailList // required
+ * //       { // TrustedAdvisorResourceDetail
+ * //         status: "STRING_VALUE", // required
+ * //         region: "STRING_VALUE",
+ * //         resourceId: "STRING_VALUE", // required
+ * //         isSuppressed: true || false,
+ * //         metadata: [ // StringList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeTrustedAdvisorCheckResultCommandInput - {@link DescribeTrustedAdvisorCheckResultCommandInput}
@@ -122,6 +153,8 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class DescribeTrustedAdvisorCheckResultCommand extends $Command<

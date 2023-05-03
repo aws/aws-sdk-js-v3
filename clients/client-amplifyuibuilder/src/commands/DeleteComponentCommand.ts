@@ -46,6 +46,8 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
@@ -63,6 +65,8 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource does not exist, or access was denied.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class DeleteComponentCommand extends $Command<

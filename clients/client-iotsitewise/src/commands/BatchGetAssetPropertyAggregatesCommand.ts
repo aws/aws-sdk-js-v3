@@ -70,6 +70,46 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
  * };
  * const command = new BatchGetAssetPropertyAggregatesCommand(input);
  * const response = await client.send(command);
+ * // { // BatchGetAssetPropertyAggregatesResponse
+ * //   errorEntries: [ // BatchGetAssetPropertyAggregatesErrorEntries // required
+ * //     { // BatchGetAssetPropertyAggregatesErrorEntry
+ * //       errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "AccessDeniedException", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //       entryId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   successEntries: [ // BatchGetAssetPropertyAggregatesSuccessEntries // required
+ * //     { // BatchGetAssetPropertyAggregatesSuccessEntry
+ * //       entryId: "STRING_VALUE", // required
+ * //       aggregatedValues: [ // AggregatedValues // required
+ * //         { // AggregatedValue
+ * //           timestamp: new Date("TIMESTAMP"), // required
+ * //           quality: "GOOD" || "BAD" || "UNCERTAIN",
+ * //           value: { // Aggregates
+ * //             average: Number("double"),
+ * //             count: Number("double"),
+ * //             maximum: Number("double"),
+ * //             minimum: Number("double"),
+ * //             sum: Number("double"),
+ * //             standardDeviation: Number("double"),
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   skippedEntries: [ // BatchGetAssetPropertyAggregatesSkippedEntries // required
+ * //     { // BatchGetAssetPropertyAggregatesSkippedEntry
+ * //       entryId: "STRING_VALUE", // required
+ * //       completionStatus: "SUCCESS" || "ERROR", // required
+ * //       errorInfo: { // BatchGetAssetPropertyAggregatesErrorInfo
+ * //         errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "AccessDeniedException", // required
+ * //         errorTimestamp: new Date("TIMESTAMP"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param BatchGetAssetPropertyAggregatesCommandInput - {@link BatchGetAssetPropertyAggregatesCommandInput}
@@ -94,6 +134,8 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class BatchGetAssetPropertyAggregatesCommand extends $Command<

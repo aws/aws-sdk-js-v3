@@ -46,6 +46,23 @@ export interface ListNotificationsCommandOutput extends ListNotificationsOutput,
  * };
  * const command = new ListNotificationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListNotificationsOutput
+ * //   NotificationSummaries: [ // NotificationSummaries
+ * //     { // NotificationSummary
+ * //       Type: "LENS_VERSION_UPGRADED" || "LENS_VERSION_DEPRECATED",
+ * //       LensUpgradeSummary: { // LensUpgradeSummary
+ * //         WorkloadId: "STRING_VALUE",
+ * //         WorkloadName: "STRING_VALUE",
+ * //         LensAlias: "STRING_VALUE",
+ * //         LensArn: "STRING_VALUE",
+ * //         CurrentLensVersion: "STRING_VALUE",
+ * //         LatestLensVersion: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListNotificationsCommandInput - {@link ListNotificationsCommandInput}
@@ -66,6 +83,8 @@ export interface ListNotificationsCommandOutput extends ListNotificationsOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListNotificationsCommand extends $Command<

@@ -53,6 +53,11 @@ export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, _
  * };
  * const command = new MoveAddressToVpcCommand(input);
  * const response = await client.send(command);
+ * // { // MoveAddressToVpcResult
+ * //   AllocationId: "STRING_VALUE",
+ * //   Status: "MoveInProgress" || "InVpc" || "InClassic",
+ * // };
+ *
  * ```
  *
  * @param MoveAddressToVpcCommandInput - {@link MoveAddressToVpcCommandInput}
@@ -61,6 +66,8 @@ export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, _
  * @see {@link MoveAddressToVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To move an address to EC2-VPC
  * ```javascript

@@ -61,6 +61,25 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * };
  * const command = new DescribeKeyPairsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeKeyPairsResult
+ * //   KeyPairs: [ // KeyPairList
+ * //     { // KeyPairInfo
+ * //       KeyPairId: "STRING_VALUE",
+ * //       KeyFingerprint: "STRING_VALUE",
+ * //       KeyName: "STRING_VALUE",
+ * //       KeyType: "rsa" || "ed25519",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       PublicKey: "STRING_VALUE",
+ * //       CreateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeKeyPairsCommandInput - {@link DescribeKeyPairsCommandInput}
@@ -69,6 +88,8 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * @see {@link DescribeKeyPairsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To display a key pair
  * ```javascript

@@ -78,6 +78,41 @@ export interface CreateDataIntegrationCommandOutput extends CreateDataIntegratio
  * };
  * const command = new CreateDataIntegrationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDataIntegrationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   KmsKey: "STRING_VALUE",
+ * //   SourceURI: "STRING_VALUE",
+ * //   ScheduleConfiguration: { // ScheduleConfiguration
+ * //     FirstExecutionFrom: "STRING_VALUE",
+ * //     Object: "STRING_VALUE",
+ * //     ScheduleExpression: "STRING_VALUE", // required
+ * //   },
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   ClientToken: "STRING_VALUE",
+ * //   FileConfiguration: { // FileConfiguration
+ * //     Folders: [ // FolderList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Filters: { // FieldsMap
+ * //       "<keys>": [ // FieldsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * //   ObjectConfiguration: { // ObjectConfiguration
+ * //     "<keys>": {
+ * //       "<keys>": [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateDataIntegrationCommandInput - {@link CreateDataIntegrationCommandInput}
@@ -104,6 +139,8 @@ export interface CreateDataIntegrationCommandOutput extends CreateDataIntegratio
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class CreateDataIntegrationCommand extends $Command<

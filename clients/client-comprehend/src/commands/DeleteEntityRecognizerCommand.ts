@@ -50,6 +50,8 @@ export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecogni
  * };
  * const command = new DeleteEntityRecognizerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteEntityRecognizerCommandInput - {@link DeleteEntityRecognizerCommandInput}
@@ -78,6 +80,8 @@ export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecogni
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DeleteEntityRecognizerCommand extends $Command<

@@ -46,6 +46,22 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * };
  * const command = new DescribeUsersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeUsersResult
+ * //   Users: [ // UserList
+ * //     { // User
+ * //       Arn: "STRING_VALUE",
+ * //       UserName: "STRING_VALUE",
+ * //       Enabled: true || false,
+ * //       Status: "STRING_VALUE",
+ * //       FirstName: "STRING_VALUE",
+ * //       LastName: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeUsersCommandInput - {@link DescribeUsersCommandInput}
@@ -63,6 +79,8 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DescribeUsersCommand extends $Command<

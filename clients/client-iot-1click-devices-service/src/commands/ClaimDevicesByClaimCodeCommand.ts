@@ -49,6 +49,11 @@ export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClai
  * };
  * const command = new ClaimDevicesByClaimCodeCommand(input);
  * const response = await client.send(command);
+ * // { // ClaimDevicesByClaimCodeResponse
+ * //   ClaimCode: "STRING_VALUE",
+ * //   Total: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param ClaimDevicesByClaimCodeCommandInput - {@link ClaimDevicesByClaimCodeCommandInput}
@@ -63,6 +68,8 @@ export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClai
  *
  * @throws {@link InvalidRequestException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class ClaimDevicesByClaimCodeCommand extends $Command<

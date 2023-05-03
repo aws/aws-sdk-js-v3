@@ -48,6 +48,17 @@ export interface ListRoleTagsCommandOutput extends ListRoleTagsResponse, __Metad
  * };
  * const command = new ListRoleTagsCommand(input);
  * const response = await client.send(command);
+ * // { // ListRoleTagsResponse
+ * //   Tags: [ // tagListType // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListRoleTagsCommandInput - {@link ListRoleTagsCommandInput}
@@ -64,6 +75,8 @@ export interface ListRoleTagsCommandOutput extends ListRoleTagsResponse, __Metad
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To list the tags attached to an IAM role
  * ```javascript

@@ -60,6 +60,17 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  * };
  * const command = new StartAttachmentUploadCommand(input);
  * const response = await client.send(command);
+ * // { // StartAttachmentUploadResponse
+ * //   AttachmentId: "STRING_VALUE",
+ * //   UploadMetadata: { // UploadMetadata
+ * //     Url: "STRING_VALUE",
+ * //     UrlExpiry: "STRING_VALUE",
+ * //     HeadersToInclude: { // UploadMetadataSignedHeaders
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StartAttachmentUploadCommandInput - {@link StartAttachmentUploadCommandInput}
@@ -83,6 +94,8 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
+ * @throws {@link ConnectParticipantServiceException}
+ * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
  */
 export class StartAttachmentUploadCommand extends $Command<

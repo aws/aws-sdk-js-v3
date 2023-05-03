@@ -45,6 +45,27 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  * };
  * const command = new GetContactCommand(input);
  * const response = await client.send(command);
+ * // { // GetContactResponse
+ * //   ContactListName: "STRING_VALUE",
+ * //   EmailAddress: "STRING_VALUE",
+ * //   TopicPreferences: [ // TopicPreferenceList
+ * //     { // TopicPreference
+ * //       TopicName: "STRING_VALUE", // required
+ * //       SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
+ * //     },
+ * //   ],
+ * //   TopicDefaultPreferences: [
+ * //     {
+ * //       TopicName: "STRING_VALUE", // required
+ * //       SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
+ * //     },
+ * //   ],
+ * //   UnsubscribeAll: true || false,
+ * //   AttributesData: "STRING_VALUE",
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * //   LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param GetContactCommandInput - {@link GetContactCommandInput}
@@ -62,6 +83,8 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class GetContactCommand extends $Command<

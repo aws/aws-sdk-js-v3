@@ -60,6 +60,24 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * };
  * const command = new SearchProfilesCommand(input);
  * const response = await client.send(command);
+ * // { // SearchProfilesResponse
+ * //   Profiles: [ // ProfileDataList
+ * //     { // ProfileData
+ * //       ProfileArn: "STRING_VALUE",
+ * //       ProfileName: "STRING_VALUE",
+ * //       IsDefault: true || false,
+ * //       Address: "STRING_VALUE",
+ * //       Timezone: "STRING_VALUE",
+ * //       DistanceUnit: "STRING_VALUE",
+ * //       TemperatureUnit: "STRING_VALUE",
+ * //       WakeWord: "STRING_VALUE",
+ * //       Locale: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TotalCount: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param SearchProfilesCommandInput - {@link SearchProfilesCommandInput}
@@ -68,6 +86,8 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * @see {@link SearchProfilesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class SearchProfilesCommand extends $Command<

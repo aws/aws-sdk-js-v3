@@ -50,6 +50,10 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __Met
  * };
  * const command = new UpdateSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateSettingsResult
+ * //   DirectoryId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateSettingsCommandInput - {@link UpdateSettingsCommandInput}
@@ -82,6 +86,8 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __Met
  * @throws {@link UnsupportedSettingsException} (client fault)
  *  <p>The specified directory setting is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class UpdateSettingsCommand extends $Command<

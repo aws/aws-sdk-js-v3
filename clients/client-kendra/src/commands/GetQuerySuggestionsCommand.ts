@@ -155,6 +155,26 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
  * };
  * const command = new GetQuerySuggestionsCommand(input);
  * const response = await client.send(command);
+ * // { // GetQuerySuggestionsResponse
+ * //   QuerySuggestionsId: "STRING_VALUE",
+ * //   Suggestions: [ // SuggestionList
+ * //     { // Suggestion
+ * //       Id: "STRING_VALUE",
+ * //       Value: { // SuggestionValue
+ * //         Text: { // SuggestionTextWithHighlights
+ * //           Text: "STRING_VALUE",
+ * //           Highlights: [ // SuggestionHighlightList
+ * //             { // SuggestionHighlight
+ * //               BeginOffset: Number("int"),
+ * //               EndOffset: Number("int"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetQuerySuggestionsCommandInput - {@link GetQuerySuggestionsCommandInput}
@@ -193,6 +213,8 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class GetQuerySuggestionsCommand extends $Command<

@@ -61,6 +61,11 @@ export interface PutDataSetRefreshPropertiesCommandOutput
  * };
  * const command = new PutDataSetRefreshPropertiesCommand(input);
  * const response = await client.send(command);
+ * // { // PutDataSetRefreshPropertiesResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param PutDataSetRefreshPropertiesCommandInput - {@link PutDataSetRefreshPropertiesCommandInput}
@@ -96,6 +101,8 @@ export interface PutDataSetRefreshPropertiesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class PutDataSetRefreshPropertiesCommand extends $Command<

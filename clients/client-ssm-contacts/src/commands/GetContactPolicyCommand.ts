@@ -45,6 +45,11 @@ export interface GetContactPolicyCommandOutput extends GetContactPolicyResult, _
  * };
  * const command = new GetContactPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetContactPolicyResult
+ * //   ContactArn: "STRING_VALUE",
+ * //   Policy: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetContactPolicyCommandInput - {@link GetContactPolicyCommandInput}
@@ -69,6 +74,8 @@ export interface GetContactPolicyCommandOutput extends GetContactPolicyResult, _
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class GetContactPolicyCommand extends $Command<

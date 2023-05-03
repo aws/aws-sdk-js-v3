@@ -46,6 +46,20 @@ export interface ListProtocolsListsCommandOutput extends ListProtocolsListsRespo
  * };
  * const command = new ListProtocolsListsCommand(input);
  * const response = await client.send(command);
+ * // { // ListProtocolsListsResponse
+ * //   ProtocolsLists: [ // ProtocolsListsData
+ * //     { // ProtocolsListDataSummary
+ * //       ListArn: "STRING_VALUE",
+ * //       ListId: "STRING_VALUE",
+ * //       ListName: "STRING_VALUE",
+ * //       ProtocolsList: [ // ProtocolsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListProtocolsListsCommandInput - {@link ListProtocolsListsCommandInput}
@@ -68,6 +82,8 @@ export interface ListProtocolsListsCommandOutput extends ListProtocolsListsRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListProtocolsListsCommand extends $Command<

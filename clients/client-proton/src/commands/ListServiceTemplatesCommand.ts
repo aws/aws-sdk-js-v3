@@ -49,6 +49,22 @@ export interface ListServiceTemplatesCommandOutput extends ListServiceTemplatesO
  * };
  * const command = new ListServiceTemplatesCommand(input);
  * const response = await client.send(command);
+ * // { // ListServiceTemplatesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   templates: [ // ServiceTemplateSummaryList // required
+ * //     { // ServiceTemplateSummary
+ * //       name: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //       displayName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       recommendedVersion: "STRING_VALUE",
+ * //       pipelineProvisioning: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListServiceTemplatesCommandInput - {@link ListServiceTemplatesCommandInput}
@@ -69,6 +85,8 @@ export interface ListServiceTemplatesCommandOutput extends ListServiceTemplatesO
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class ListServiceTemplatesCommand extends $Command<

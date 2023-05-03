@@ -65,6 +65,10 @@ export interface CreateRecipeCommandOutput extends CreateRecipeResponse, __Metad
  * };
  * const command = new CreateRecipeCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRecipeResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateRecipeCommandInput - {@link CreateRecipeCommandInput}
@@ -82,6 +86,8 @@ export interface CreateRecipeCommandOutput extends CreateRecipeResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class CreateRecipeCommand extends $Command<

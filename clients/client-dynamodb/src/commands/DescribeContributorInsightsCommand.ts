@@ -46,6 +46,20 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
  * };
  * const command = new DescribeContributorInsightsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeContributorInsightsOutput
+ * //   TableName: "STRING_VALUE",
+ * //   IndexName: "STRING_VALUE",
+ * //   ContributorInsightsRuleList: [ // ContributorInsightsRuleList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ContributorInsightsStatus: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "FAILED",
+ * //   LastUpdateDateTime: new Date("TIMESTAMP"),
+ * //   FailureException: { // FailureException
+ * //     ExceptionName: "STRING_VALUE",
+ * //     ExceptionDescription: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeContributorInsightsCommandInput - {@link DescribeContributorInsightsCommandInput}
@@ -61,6 +75,8 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class DescribeContributorInsightsCommand extends $Command<

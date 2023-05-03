@@ -46,6 +46,19 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDeploymentsResponse
+ * //   Deployments: [ // Deployments
+ * //     { // Deployment
+ * //       CreatedAt: "STRING_VALUE",
+ * //       DeploymentArn: "STRING_VALUE",
+ * //       DeploymentId: "STRING_VALUE",
+ * //       DeploymentType: "NewDeployment" || "Redeployment" || "ResetDeployment" || "ForceResetDeployment",
+ * //       GroupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
@@ -57,6 +70,8 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListDeploymentsCommand extends $Command<

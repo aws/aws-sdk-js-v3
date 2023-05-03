@@ -82,6 +82,11 @@ export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __Met
  * };
  * const command = new CreateOpsItemCommand(input);
  * const response = await client.send(command);
+ * // { // CreateOpsItemResponse
+ * //   OpsItemId: "STRING_VALUE",
+ * //   OpsItemArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateOpsItemCommandInput - {@link CreateOpsItemCommandInput}
@@ -109,6 +114,8 @@ export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __Met
  *  <p>The request caused OpsItems to exceed one or more quotas. For information about OpsItem
  *    quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What are the resource limits for OpsCenter?</a>.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CreateOpsItemCommand extends $Command<

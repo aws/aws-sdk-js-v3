@@ -58,6 +58,13 @@ export interface CreateBackendStorageCommandOutput extends CreateBackendStorageR
  * };
  * const command = new CreateBackendStorageCommand(input);
  * const response = await client.send(command);
+ * // { // CreateBackendStorageResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateBackendStorageCommandInput - {@link CreateBackendStorageCommandInput}
@@ -78,6 +85,8 @@ export interface CreateBackendStorageCommandOutput extends CreateBackendStorageR
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class CreateBackendStorageCommand extends $Command<

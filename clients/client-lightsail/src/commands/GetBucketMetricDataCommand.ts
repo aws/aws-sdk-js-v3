@@ -55,6 +55,21 @@ export interface GetBucketMetricDataCommandOutput extends GetBucketMetricDataRes
  * };
  * const command = new GetBucketMetricDataCommand(input);
  * const response = await client.send(command);
+ * // { // GetBucketMetricDataResult
+ * //   metricName: "BucketSizeBytes" || "NumberOfObjects",
+ * //   metricData: [ // MetricDatapointList
+ * //     { // MetricDatapoint
+ * //       average: Number("double"),
+ * //       maximum: Number("double"),
+ * //       minimum: Number("double"),
+ * //       sampleCount: Number("double"),
+ * //       sum: Number("double"),
+ * //       timestamp: new Date("TIMESTAMP"),
+ * //       unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetBucketMetricDataCommandInput - {@link GetBucketMetricDataCommandInput}
@@ -86,6 +101,8 @@ export interface GetBucketMetricDataCommandOutput extends GetBucketMetricDataRes
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetBucketMetricDataCommand extends $Command<

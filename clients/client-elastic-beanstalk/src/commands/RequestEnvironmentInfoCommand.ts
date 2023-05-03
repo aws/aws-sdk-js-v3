@@ -61,6 +61,8 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RequestEnvironmentInfoCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RequestEnvironmentInfoCommandInput - {@link RequestEnvironmentInfoCommandInput}
@@ -69,6 +71,8 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  * @see {@link RequestEnvironmentInfoCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To request tailed logs
  * ```javascript

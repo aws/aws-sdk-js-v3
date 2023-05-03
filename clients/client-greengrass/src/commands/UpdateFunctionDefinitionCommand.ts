@@ -45,6 +45,8 @@ export interface UpdateFunctionDefinitionCommandOutput extends UpdateFunctionDef
  * };
  * const command = new UpdateFunctionDefinitionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateFunctionDefinitionCommandInput - {@link UpdateFunctionDefinitionCommandInput}
@@ -56,6 +58,8 @@ export interface UpdateFunctionDefinitionCommandOutput extends UpdateFunctionDef
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UpdateFunctionDefinitionCommand extends $Command<

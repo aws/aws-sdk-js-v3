@@ -118,6 +118,12 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  * };
  * const command = new AddInstanceFleetCommand(input);
  * const response = await client.send(command);
+ * // { // AddInstanceFleetOutput
+ * //   ClusterId: "STRING_VALUE",
+ * //   InstanceFleetId: "STRING_VALUE",
+ * //   ClusterArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AddInstanceFleetCommandInput - {@link AddInstanceFleetCommandInput}
@@ -133,6 +139,8 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class AddInstanceFleetCommand extends $Command<

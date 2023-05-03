@@ -48,6 +48,13 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
  * };
  * const command = new ListRuleNamesByTargetCommand(input);
  * const response = await client.send(command);
+ * // { // ListRuleNamesByTargetResponse
+ * //   RuleNames: [ // RuleNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListRuleNamesByTargetCommandInput - {@link ListRuleNamesByTargetCommandInput}
@@ -62,6 +69,8 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class ListRuleNamesByTargetCommand extends $Command<

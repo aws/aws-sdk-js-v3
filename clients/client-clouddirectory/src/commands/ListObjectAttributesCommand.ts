@@ -55,6 +55,26 @@ export interface ListObjectAttributesCommandOutput extends ListObjectAttributesR
  * };
  * const command = new ListObjectAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // ListObjectAttributesResponse
+ * //   Attributes: [ // AttributeKeyAndValueList
+ * //     { // AttributeKeyAndValue
+ * //       Key: { // AttributeKey
+ * //         SchemaArn: "STRING_VALUE", // required
+ * //         FacetName: "STRING_VALUE", // required
+ * //         Name: "STRING_VALUE", // required
+ * //       },
+ * //       Value: { // TypedAttributeValue Union: only one key present
+ * //         StringValue: "STRING_VALUE",
+ * //         BinaryValue: "BLOB_VALUE",
+ * //         BooleanValue: true || false,
+ * //         NumberValue: "STRING_VALUE",
+ * //         DatetimeValue: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListObjectAttributesCommandInput - {@link ListObjectAttributesCommandInput}
@@ -95,6 +115,8 @@ export interface ListObjectAttributesCommandOutput extends ListObjectAttributesR
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListObjectAttributesCommand extends $Command<

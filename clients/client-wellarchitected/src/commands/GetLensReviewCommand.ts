@@ -46,6 +46,34 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
  * };
  * const command = new GetLensReviewCommand(input);
  * const response = await client.send(command);
+ * // { // GetLensReviewOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   MilestoneNumber: Number("int"),
+ * //   LensReview: { // LensReview
+ * //     LensAlias: "STRING_VALUE",
+ * //     LensArn: "STRING_VALUE",
+ * //     LensVersion: "STRING_VALUE",
+ * //     LensName: "STRING_VALUE",
+ * //     LensStatus: "CURRENT" || "NOT_CURRENT" || "DEPRECATED" || "DELETED" || "UNSHARED",
+ * //     PillarReviewSummaries: [ // PillarReviewSummaries
+ * //       { // PillarReviewSummary
+ * //         PillarId: "STRING_VALUE",
+ * //         PillarName: "STRING_VALUE",
+ * //         Notes: "STRING_VALUE",
+ * //         RiskCounts: { // RiskCounts
+ * //           "<keys>": Number("int"),
+ * //         },
+ * //       },
+ * //     ],
+ * //     UpdatedAt: new Date("TIMESTAMP"),
+ * //     Notes: "STRING_VALUE",
+ * //     RiskCounts: {
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //     NextToken: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetLensReviewCommandInput - {@link GetLensReviewCommandInput}
@@ -69,6 +97,8 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class GetLensReviewCommand extends $Command<

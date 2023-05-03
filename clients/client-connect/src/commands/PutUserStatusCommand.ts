@@ -49,6 +49,8 @@ export interface PutUserStatusCommandOutput extends PutUserStatusResponse, __Met
  * };
  * const command = new PutUserStatusCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutUserStatusCommandInput - {@link PutUserStatusCommandInput}
@@ -75,6 +77,8 @@ export interface PutUserStatusCommandOutput extends PutUserStatusResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class PutUserStatusCommand extends $Command<

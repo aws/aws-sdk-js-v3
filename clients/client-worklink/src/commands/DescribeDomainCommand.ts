@@ -47,6 +47,14 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * };
  * const command = new DescribeDomainCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDomainResponse
+ * //   DomainName: "STRING_VALUE",
+ * //   DisplayName: "STRING_VALUE",
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * //   DomainStatus: "STRING_VALUE",
+ * //   AcmCertificateArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeDomainCommandInput - {@link DescribeDomainCommandInput}
@@ -70,6 +78,8 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DescribeDomainCommand extends $Command<

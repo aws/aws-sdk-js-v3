@@ -58,6 +58,22 @@ export interface PutDialRequestBatchCommandOutput extends PutDialRequestBatchRes
  * };
  * const command = new PutDialRequestBatchCommand(input);
  * const response = await client.send(command);
+ * // { // PutDialRequestBatchResponse
+ * //   successfulRequests: [ // SuccessfulRequestList
+ * //     { // SuccessfulRequest
+ * //       clientToken: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   failedRequests: [ // FailedRequestList
+ * //     { // FailedRequest
+ * //       clientToken: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       failureCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param PutDialRequestBatchCommandInput - {@link PutDialRequestBatchCommandInput}
@@ -87,6 +103,8 @@ export interface PutDialRequestBatchCommandOutput extends PutDialRequestBatchRes
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class PutDialRequestBatchCommand extends $Command<

@@ -54,6 +54,25 @@ export interface SearchQuantumTasksCommandOutput extends SearchQuantumTasksRespo
  * };
  * const command = new SearchQuantumTasksCommand(input);
  * const response = await client.send(command);
+ * // { // SearchQuantumTasksResponse
+ * //   quantumTasks: [ // QuantumTaskSummaryList // required
+ * //     { // QuantumTaskSummary
+ * //       quantumTaskArn: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       deviceArn: "STRING_VALUE", // required
+ * //       shots: Number("long"), // required
+ * //       outputS3Bucket: "STRING_VALUE", // required
+ * //       outputS3Directory: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       endedAt: new Date("TIMESTAMP"),
+ * //       tags: { // TagsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param SearchQuantumTasksCommandInput - {@link SearchQuantumTasksCommandInput}
@@ -75,6 +94,8 @@ export interface SearchQuantumTasksCommandOutput extends SearchQuantumTasksRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class SearchQuantumTasksCommand extends $Command<

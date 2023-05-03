@@ -46,6 +46,32 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * };
  * const command = new BatchGetChannelCommand(input);
  * const response = await client.send(command);
+ * // { // BatchGetChannelResponse
+ * //   channels: [ // Channels
+ * //     { // Channel
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       latencyMode: "STRING_VALUE",
+ * //       type: "BASIC" || "STANDARD",
+ * //       recordingConfigurationArn: "STRING_VALUE",
+ * //       ingestEndpoint: "STRING_VALUE",
+ * //       playbackUrl: "STRING_VALUE",
+ * //       authorized: true || false,
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       insecureIngest: true || false,
+ * //     },
+ * //   ],
+ * //   errors: [ // BatchErrors
+ * //     { // BatchError
+ * //       arn: "STRING_VALUE",
+ * //       code: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchGetChannelCommandInput - {@link BatchGetChannelCommandInput}
@@ -54,6 +80,8 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * @see {@link BatchGetChannelCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class BatchGetChannelCommand extends $Command<

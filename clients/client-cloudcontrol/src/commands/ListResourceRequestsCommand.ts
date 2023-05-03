@@ -62,6 +62,24 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  * };
  * const command = new ListResourceRequestsCommand(input);
  * const response = await client.send(command);
+ * // { // ListResourceRequestsOutput
+ * //   ResourceRequestStatusSummaries: [ // ResourceRequestStatusSummaries
+ * //     { // ProgressEvent
+ * //       TypeName: "STRING_VALUE",
+ * //       Identifier: "STRING_VALUE",
+ * //       RequestToken: "STRING_VALUE",
+ * //       Operation: "STRING_VALUE",
+ * //       OperationStatus: "STRING_VALUE",
+ * //       EventTime: new Date("TIMESTAMP"),
+ * //       ResourceModel: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       RetryAfter: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListResourceRequestsCommandInput - {@link ListResourceRequestsCommandInput}
@@ -70,6 +88,8 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  * @see {@link ListResourceRequestsCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
  *
+ * @throws {@link CloudControlServiceException}
+ * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
  */
 export class ListResourceRequestsCommand extends $Command<

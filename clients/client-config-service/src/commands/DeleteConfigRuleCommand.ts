@@ -52,6 +52,8 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteConfigRuleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteConfigRuleCommandInput - {@link DeleteConfigRuleCommandInput}
@@ -89,6 +91,8 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  *             </li>
  *          </ul>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteConfigRuleCommand extends $Command<

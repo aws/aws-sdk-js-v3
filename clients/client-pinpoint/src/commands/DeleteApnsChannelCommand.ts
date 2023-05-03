@@ -44,6 +44,23 @@ export interface DeleteApnsChannelCommandOutput extends DeleteApnsChannelRespons
  * };
  * const command = new DeleteApnsChannelCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteApnsChannelResponse
+ * //   APNSChannelResponse: { // APNSChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     DefaultAuthenticationMethod: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     HasTokenKey: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     Version: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteApnsChannelCommandInput - {@link DeleteApnsChannelCommandInput}
@@ -73,6 +90,8 @@ export interface DeleteApnsChannelCommandOutput extends DeleteApnsChannelRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class DeleteApnsChannelCommand extends $Command<

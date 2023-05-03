@@ -47,6 +47,15 @@ export interface GetResourceMetadataCommandOutput extends GetResourceMetadataRes
  * };
  * const command = new GetResourceMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // GetResourceMetadataResponse
+ * //   Identifier: "STRING_VALUE",
+ * //   Features: { // FeatureMetadataMap
+ * //     "<keys>": { // FeatureMetadata
+ * //       Status: "ENABLED" || "DISABLED" || "UNSUPPORTED" || "ENABLED_PENDING_REBOOT" || "DISABLED_PENDING_REBOOT" || "UNKNOWN",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetResourceMetadataCommandInput - {@link GetResourceMetadataCommandInput}
@@ -64,6 +73,8 @@ export interface GetResourceMetadataCommandOutput extends GetResourceMetadataRes
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>The user is not authorized to perform this request.</p>
  *
+ * @throws {@link PIServiceException}
+ * <p>Base exception class for all service exceptions from PI service.</p>
  *
  */
 export class GetResourceMetadataCommand extends $Command<

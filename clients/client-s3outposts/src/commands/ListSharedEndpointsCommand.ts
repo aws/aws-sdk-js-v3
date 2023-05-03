@@ -59,6 +59,33 @@ export interface ListSharedEndpointsCommandOutput extends ListSharedEndpointsRes
  * };
  * const command = new ListSharedEndpointsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSharedEndpointsResult
+ * //   Endpoints: [ // Endpoints
+ * //     { // Endpoint
+ * //       EndpointArn: "STRING_VALUE",
+ * //       OutpostsId: "STRING_VALUE",
+ * //       CidrBlock: "STRING_VALUE",
+ * //       Status: "Pending" || "Available" || "Deleting" || "Create_Failed" || "Delete_Failed",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       NetworkInterfaces: [ // NetworkInterfaces
+ * //         { // NetworkInterface
+ * //           NetworkInterfaceId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       VpcId: "STRING_VALUE",
+ * //       SubnetId: "STRING_VALUE",
+ * //       SecurityGroupId: "STRING_VALUE",
+ * //       AccessType: "Private" || "CustomerOwnedIp",
+ * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
+ * //       FailedReason: { // FailedReason
+ * //         ErrorCode: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSharedEndpointsCommandInput - {@link ListSharedEndpointsCommandInput}
@@ -82,6 +109,8 @@ export interface ListSharedEndpointsCommandOutput extends ListSharedEndpointsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this data.</p>
  *
+ * @throws {@link S3OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
  */
 export class ListSharedEndpointsCommand extends $Command<

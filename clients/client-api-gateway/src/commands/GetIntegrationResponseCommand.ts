@@ -47,6 +47,18 @@ export interface GetIntegrationResponseCommandOutput extends IntegrationResponse
  * };
  * const command = new GetIntegrationResponseCommand(input);
  * const response = await client.send(command);
+ * // { // IntegrationResponse
+ * //   statusCode: "STRING_VALUE",
+ * //   selectionPattern: "STRING_VALUE",
+ * //   responseParameters: { // MapOfStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   responseTemplates: {
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   contentHandling: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
+ * // };
+ *
  * ```
  *
  * @param GetIntegrationResponseCommandInput - {@link GetIntegrationResponseCommandInput}
@@ -67,6 +79,8 @@ export interface GetIntegrationResponseCommandOutput extends IntegrationResponse
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetIntegrationResponseCommand extends $Command<

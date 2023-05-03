@@ -78,6 +78,11 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * };
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);
+ * // { // PutRecordOutput
+ * //   RecordId: "STRING_VALUE", // required
+ * //   Encrypted: true || false,
+ * // };
+ *
  * ```
  *
  * @param PutRecordCommandInput - {@link PutRecordCommandInput}
@@ -105,6 +110,8 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *          information about limits and how to request an increase, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Kinesis Data Firehose
  *          Limits</a>.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class PutRecordCommand extends $Command<

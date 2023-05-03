@@ -82,6 +82,10 @@ export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFro
  * };
  * const command = new CreateDataSourceFromS3Command(input);
  * const response = await client.send(command);
+ * // { // CreateDataSourceFromS3Output
+ * //   DataSourceId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateDataSourceFromS3CommandInput - {@link CreateDataSourceFromS3CommandInput}
@@ -99,6 +103,8 @@ export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFro
  * @throws {@link InvalidInputException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class CreateDataSourceFromS3Command extends $Command<

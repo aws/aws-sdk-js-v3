@@ -57,6 +57,11 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * };
  * const command = new AssociateResourceCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateResourceResponse
+ * //   applicationArn: "STRING_VALUE",
+ * //   resourceArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AssociateResourceCommandInput - {@link AssociateResourceCommandInput}
@@ -91,6 +96,8 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class AssociateResourceCommand extends $Command<

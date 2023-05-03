@@ -44,6 +44,10 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * };
  * const command = new DescribeResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeResourcePolicyResponse
+ * //   Policy: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
@@ -78,6 +82,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class DescribeResourcePolicyCommand extends $Command<

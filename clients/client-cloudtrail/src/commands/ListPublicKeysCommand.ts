@@ -54,6 +54,18 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  * };
  * const command = new ListPublicKeysCommand(input);
  * const response = await client.send(command);
+ * // { // ListPublicKeysResponse
+ * //   PublicKeyList: [ // PublicKeyList
+ * //     { // PublicKey
+ * //       Value: "BLOB_VALUE",
+ * //       ValidityStartTime: new Date("TIMESTAMP"),
+ * //       ValidityEndTime: new Date("TIMESTAMP"),
+ * //       Fingerprint: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPublicKeysCommandInput - {@link ListPublicKeysCommandInput}
@@ -75,6 +87,8 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class ListPublicKeysCommand extends $Command<

@@ -57,6 +57,8 @@ export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __M
  * };
  * const command = new DeleteDatabaseCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDatabaseCommandInput - {@link DeleteDatabaseCommandInput}
@@ -80,6 +82,8 @@ export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __M
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteDatabaseCommand extends $Command<

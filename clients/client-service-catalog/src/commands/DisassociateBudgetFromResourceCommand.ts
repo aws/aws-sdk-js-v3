@@ -50,6 +50,8 @@ export interface DisassociateBudgetFromResourceCommandOutput
  * };
  * const command = new DisassociateBudgetFromResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateBudgetFromResourceCommandInput - {@link DisassociateBudgetFromResourceCommandInput}
@@ -61,6 +63,8 @@ export interface DisassociateBudgetFromResourceCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DisassociateBudgetFromResourceCommand extends $Command<

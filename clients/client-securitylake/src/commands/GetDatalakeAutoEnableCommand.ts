@@ -44,6 +44,17 @@ export interface GetDatalakeAutoEnableCommandOutput extends GetDatalakeAutoEnabl
  * const input = {};
  * const command = new GetDatalakeAutoEnableCommand(input);
  * const response = await client.send(command);
+ * // { // GetDatalakeAutoEnableResponse
+ * //   autoEnableNewAccounts: [ // AutoEnableNewRegionConfigurationList // required
+ * //     { // AutoEnableNewRegionConfiguration
+ * //       region: "STRING_VALUE", // required
+ * //       sources: [ // AwsSourceTypeList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetDatalakeAutoEnableCommandInput - {@link GetDatalakeAutoEnableCommandInput}
@@ -70,6 +81,8 @@ export interface GetDatalakeAutoEnableCommandOutput extends GetDatalakeAutoEnabl
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class GetDatalakeAutoEnableCommand extends $Command<

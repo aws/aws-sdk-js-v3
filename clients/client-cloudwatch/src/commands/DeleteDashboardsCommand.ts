@@ -48,6 +48,8 @@ export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, _
  * };
  * const command = new DeleteDashboardsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDashboardsCommandInput - {@link DeleteDashboardsCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, _
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value of an input parameter is bad or out-of-range.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DeleteDashboardsCommand extends $Command<

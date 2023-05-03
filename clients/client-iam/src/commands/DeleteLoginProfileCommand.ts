@@ -56,6 +56,8 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteLoginProfileCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteLoginProfileCommandInput - {@link DeleteLoginProfileCommandInput}
@@ -82,6 +84,8 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To delete a password for an IAM user
  * ```javascript

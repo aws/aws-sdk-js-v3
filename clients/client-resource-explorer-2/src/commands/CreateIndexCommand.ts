@@ -101,6 +101,12 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  * };
  * const command = new CreateIndexCommand(input);
  * const response = await client.send(command);
+ * // { // CreateIndexOutput
+ * //   Arn: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param CreateIndexCommandInput - {@link CreateIndexCommandInput}
@@ -131,6 +137,8 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class CreateIndexCommand extends $Command<

@@ -60,6 +60,15 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  * };
  * const command = new AddListenerCertificatesCommand(input);
  * const response = await client.send(command);
+ * // { // AddListenerCertificatesOutput
+ * //   Certificates: [ // CertificateList
+ * //     { // Certificate
+ * //       CertificateArn: "STRING_VALUE",
+ * //       IsDefault: true || false,
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param AddListenerCertificatesCommandInput - {@link AddListenerCertificatesCommandInput}
@@ -77,6 +86,8 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  * @throws {@link TooManyCertificatesException} (client fault)
  *  <p>You've reached the limit on the number of certificates per load balancer.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  */
 export class AddListenerCertificatesCommand extends $Command<

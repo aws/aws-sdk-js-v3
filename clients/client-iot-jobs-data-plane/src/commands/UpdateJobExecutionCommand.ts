@@ -54,6 +54,17 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * };
  * const command = new UpdateJobExecutionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateJobExecutionResponse
+ * //   executionState: { // JobExecutionState
+ * //     status: "STRING_VALUE",
+ * //     statusDetails: { // DetailsMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     versionNumber: Number("long"),
+ * //   },
+ * //   jobDocument: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateJobExecutionCommandInput - {@link UpdateJobExecutionCommandInput}
@@ -82,6 +93,8 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTJobsDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
  */
 export class UpdateJobExecutionCommand extends $Command<

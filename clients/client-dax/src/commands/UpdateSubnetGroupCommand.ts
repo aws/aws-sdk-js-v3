@@ -48,6 +48,20 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * };
  * const command = new UpdateSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateSubnetGroupResponse
+ * //   SubnetGroup: { // SubnetGroup
+ * //     SubnetGroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     Subnets: [ // SubnetList
+ * //       { // Subnet
+ * //         SubnetIdentifier: "STRING_VALUE",
+ * //         SubnetAvailabilityZone: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateSubnetGroupCommandInput - {@link UpdateSubnetGroupCommandInput}
@@ -73,6 +87,8 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  *  <p>The request cannot be processed because it would exceed the allowed number of
  *             subnets in a subnet group.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class UpdateSubnetGroupCommand extends $Command<

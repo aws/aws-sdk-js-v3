@@ -44,6 +44,8 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * };
  * const command = new DeleteTokenCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTokenCommandInput - {@link DeleteTokenCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class DeleteTokenCommand extends $Command<

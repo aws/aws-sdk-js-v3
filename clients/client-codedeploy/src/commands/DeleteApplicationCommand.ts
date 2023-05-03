@@ -44,6 +44,8 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
@@ -63,6 +65,8 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  *             group was specified, the specified service role does not grant the appropriate
  *             permissions to Amazon EC2 Auto Scaling.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class DeleteApplicationCommand extends $Command<

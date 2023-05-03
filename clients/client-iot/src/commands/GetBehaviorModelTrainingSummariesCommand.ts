@@ -57,6 +57,20 @@ export interface GetBehaviorModelTrainingSummariesCommandOutput
  * };
  * const command = new GetBehaviorModelTrainingSummariesCommand(input);
  * const response = await client.send(command);
+ * // { // GetBehaviorModelTrainingSummariesResponse
+ * //   summaries: [ // BehaviorModelTrainingSummaries
+ * //     { // BehaviorModelTrainingSummary
+ * //       securityProfileName: "STRING_VALUE",
+ * //       behaviorName: "STRING_VALUE",
+ * //       trainingDataCollectionStartDate: new Date("TIMESTAMP"),
+ * //       modelStatus: "PENDING_BUILD" || "ACTIVE" || "EXPIRED",
+ * //       datapointsCollectionPercentage: Number("double"),
+ * //       lastModelRefreshDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetBehaviorModelTrainingSummariesCommandInput - {@link GetBehaviorModelTrainingSummariesCommandInput}
@@ -77,6 +91,8 @@ export interface GetBehaviorModelTrainingSummariesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetBehaviorModelTrainingSummariesCommand extends $Command<

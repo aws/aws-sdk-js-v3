@@ -77,6 +77,8 @@ export interface UpdateMobileDeviceAccessRuleCommandOutput
  * };
  * const command = new UpdateMobileDeviceAccessRuleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateMobileDeviceAccessRuleCommandInput - {@link UpdateMobileDeviceAccessRuleCommandInput}
@@ -100,6 +102,8 @@ export interface UpdateMobileDeviceAccessRuleCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class UpdateMobileDeviceAccessRuleCommand extends $Command<

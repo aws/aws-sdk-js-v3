@@ -44,6 +44,121 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * };
  * const command = new RetryDataReplicationCommand(input);
  * const response = await client.send(command);
+ * // { // SourceServer
+ * //   sourceServerID: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   isArchived: true || false,
+ * //   tags: { // TagsMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   launchedInstance: { // LaunchedInstance
+ * //     ec2InstanceID: "STRING_VALUE",
+ * //     jobID: "STRING_VALUE",
+ * //     firstBoot: "STRING_VALUE",
+ * //   },
+ * //   dataReplicationInfo: { // DataReplicationInfo
+ * //     lagDuration: "STRING_VALUE",
+ * //     etaDateTime: "STRING_VALUE",
+ * //     replicatedDisks: [ // DataReplicationInfoReplicatedDisks
+ * //       { // DataReplicationInfoReplicatedDisk
+ * //         deviceName: "STRING_VALUE",
+ * //         totalStorageBytes: Number("long"),
+ * //         replicatedStorageBytes: Number("long"),
+ * //         rescannedStorageBytes: Number("long"),
+ * //         backloggedStorageBytes: Number("long"),
+ * //       },
+ * //     ],
+ * //     dataReplicationState: "STRING_VALUE",
+ * //     dataReplicationInitiation: { // DataReplicationInitiation
+ * //       startDateTime: "STRING_VALUE",
+ * //       nextAttemptDateTime: "STRING_VALUE",
+ * //       steps: [ // DataReplicationInitiationSteps
+ * //         { // DataReplicationInitiationStep
+ * //           name: "STRING_VALUE",
+ * //           status: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     dataReplicationError: { // DataReplicationError
+ * //       error: "STRING_VALUE",
+ * //       rawError: "STRING_VALUE",
+ * //     },
+ * //     lastSnapshotDateTime: "STRING_VALUE",
+ * //   },
+ * //   lifeCycle: { // LifeCycle
+ * //     addedToServiceDateTime: "STRING_VALUE",
+ * //     firstByteDateTime: "STRING_VALUE",
+ * //     elapsedReplicationDuration: "STRING_VALUE",
+ * //     lastSeenByServiceDateTime: "STRING_VALUE",
+ * //     lastTest: { // LifeCycleLastTest
+ * //       initiated: { // LifeCycleLastTestInitiated
+ * //         apiCallDateTime: "STRING_VALUE",
+ * //         jobID: "STRING_VALUE",
+ * //       },
+ * //       reverted: { // LifeCycleLastTestReverted
+ * //         apiCallDateTime: "STRING_VALUE",
+ * //       },
+ * //       finalized: { // LifeCycleLastTestFinalized
+ * //         apiCallDateTime: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     lastCutover: { // LifeCycleLastCutover
+ * //       initiated: { // LifeCycleLastCutoverInitiated
+ * //         apiCallDateTime: "STRING_VALUE",
+ * //         jobID: "STRING_VALUE",
+ * //       },
+ * //       reverted: { // LifeCycleLastCutoverReverted
+ * //         apiCallDateTime: "STRING_VALUE",
+ * //       },
+ * //       finalized: { // LifeCycleLastCutoverFinalized
+ * //         apiCallDateTime: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     state: "STRING_VALUE",
+ * //   },
+ * //   sourceProperties: { // SourceProperties
+ * //     lastUpdatedDateTime: "STRING_VALUE",
+ * //     recommendedInstanceType: "STRING_VALUE",
+ * //     identificationHints: { // IdentificationHints
+ * //       fqdn: "STRING_VALUE",
+ * //       hostname: "STRING_VALUE",
+ * //       vmWareUuid: "STRING_VALUE",
+ * //       awsInstanceID: "STRING_VALUE",
+ * //       vmPath: "STRING_VALUE",
+ * //     },
+ * //     networkInterfaces: [ // NetworkInterfaces
+ * //       { // NetworkInterface
+ * //         macAddress: "STRING_VALUE",
+ * //         ips: [ // IPsList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         isPrimary: true || false,
+ * //       },
+ * //     ],
+ * //     disks: [ // Disks
+ * //       { // Disk
+ * //         deviceName: "STRING_VALUE",
+ * //         bytes: Number("long"),
+ * //       },
+ * //     ],
+ * //     cpus: [ // Cpus
+ * //       { // CPU
+ * //         cores: Number("long"),
+ * //         modelName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ramBytes: Number("long"),
+ * //     os: { // OS
+ * //       fullString: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   replicationType: "STRING_VALUE",
+ * //   vcenterClientID: "STRING_VALUE",
+ * //   applicationID: "STRING_VALUE",
+ * //   userProvidedID: "STRING_VALUE",
+ * //   fqdnForActionFramework: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RetryDataReplicationCommandInput - {@link RetryDataReplicationCommandInput}
@@ -61,6 +176,8 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class RetryDataReplicationCommand extends $Command<

@@ -90,6 +90,34 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  * };
  * const command = new ReceiveMessageCommand(input);
  * const response = await client.send(command);
+ * // { // ReceiveMessageResult
+ * //   Messages: [ // MessageList
+ * //     { // Message
+ * //       MessageId: "STRING_VALUE",
+ * //       ReceiptHandle: "STRING_VALUE",
+ * //       MD5OfBody: "STRING_VALUE",
+ * //       Body: "STRING_VALUE",
+ * //       Attributes: { // MessageSystemAttributeMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       MD5OfMessageAttributes: "STRING_VALUE",
+ * //       MessageAttributes: { // MessageBodyAttributeMap
+ * //         "<keys>": { // MessageAttributeValue
+ * //           StringValue: "STRING_VALUE",
+ * //           BinaryValue: "BLOB_VALUE",
+ * //           StringListValues: [ // StringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           BinaryListValues: [ // BinaryList
+ * //             "BLOB_VALUE",
+ * //           ],
+ * //           DataType: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ReceiveMessageCommandInput - {@link ReceiveMessageCommandInput}
@@ -104,6 +132,8 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  *                 <code>AddPermission</code> returns this error if the maximum number of permissions
  *             for the queue is reached.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class ReceiveMessageCommand extends $Command<

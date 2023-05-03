@@ -46,6 +46,53 @@ export interface DescribeSigningJobCommandOutput extends DescribeSigningJobRespo
  * };
  * const command = new DescribeSigningJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSigningJobResponse
+ * //   jobId: "STRING_VALUE",
+ * //   source: { // Source
+ * //     s3: { // S3Source
+ * //       bucketName: "STRING_VALUE", // required
+ * //       key: "STRING_VALUE", // required
+ * //       version: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   signingMaterial: { // SigningMaterial
+ * //     certificateArn: "STRING_VALUE", // required
+ * //   },
+ * //   platformId: "STRING_VALUE",
+ * //   platformDisplayName: "STRING_VALUE",
+ * //   profileName: "STRING_VALUE",
+ * //   profileVersion: "STRING_VALUE",
+ * //   overrides: { // SigningPlatformOverrides
+ * //     signingConfiguration: { // SigningConfigurationOverrides
+ * //       encryptionAlgorithm: "STRING_VALUE",
+ * //       hashAlgorithm: "STRING_VALUE",
+ * //     },
+ * //     signingImageFormat: "STRING_VALUE",
+ * //   },
+ * //   signingParameters: { // SigningParameters
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   completedAt: new Date("TIMESTAMP"),
+ * //   signatureExpiresAt: new Date("TIMESTAMP"),
+ * //   requestedBy: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   statusReason: "STRING_VALUE",
+ * //   revocationRecord: { // SigningJobRevocationRecord
+ * //     reason: "STRING_VALUE",
+ * //     revokedAt: new Date("TIMESTAMP"),
+ * //     revokedBy: "STRING_VALUE",
+ * //   },
+ * //   signedObject: { // SignedObject
+ * //     s3: { // S3SignedObject
+ * //       bucketName: "STRING_VALUE",
+ * //       key: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   jobOwner: "STRING_VALUE",
+ * //   jobInvoker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeSigningJobCommandInput - {@link DescribeSigningJobCommandInput}
@@ -67,6 +114,8 @@ export interface DescribeSigningJobCommandOutput extends DescribeSigningJobRespo
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
  * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class DescribeSigningJobCommand extends $Command<

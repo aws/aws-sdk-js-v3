@@ -43,6 +43,8 @@ export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResul
  * const input = {};
  * const command = new DeleteAccountAliasCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAccountAliasCommandInput - {@link DeleteAccountAliasCommandInput}
@@ -61,6 +63,8 @@ export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResul
  *  <p>The specified resource is missing or doesn't exist, such as an account alias, Slack
  *       channel configuration, or Slack workspace configuration.</p>
  *
+ * @throws {@link SupportAppServiceException}
+ * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
  */
 export class DeleteAccountAliasCommand extends $Command<

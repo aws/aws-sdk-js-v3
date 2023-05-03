@@ -45,6 +45,8 @@ export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __Metad
  * };
  * const command = new DeleteIpGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteIpGroupCommandInput - {@link DeleteIpGroupCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DeleteIpGroupCommand extends $Command<

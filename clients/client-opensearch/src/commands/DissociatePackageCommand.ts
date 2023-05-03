@@ -48,6 +48,23 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  * };
  * const command = new DissociatePackageCommand(input);
  * const response = await client.send(command);
+ * // { // DissociatePackageResponse
+ * //   DomainPackageDetails: { // DomainPackageDetails
+ * //     PackageID: "STRING_VALUE",
+ * //     PackageName: "STRING_VALUE",
+ * //     PackageType: "TXT-DICTIONARY",
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     DomainName: "STRING_VALUE",
+ * //     DomainPackageStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ACTIVE" || "DISSOCIATING" || "DISSOCIATION_FAILED",
+ * //     PackageVersion: "STRING_VALUE",
+ * //     ReferencePath: "STRING_VALUE",
+ * //     ErrorDetails: { // ErrorDetails
+ * //       ErrorType: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DissociatePackageCommandInput - {@link DissociatePackageCommandInput}
@@ -74,6 +91,8 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DissociatePackageCommand extends $Command<

@@ -67,6 +67,8 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  * };
  * const command = new UpdateLicenseConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateLicenseConfigurationCommandInput - {@link UpdateLicenseConfigurationCommandInput}
@@ -94,6 +96,8 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class UpdateLicenseConfigurationCommand extends $Command<

@@ -82,6 +82,10 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResult, __Met
  * };
  * const command = new CreateInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // CreateInstanceResult
+ * //   InstanceId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateInstanceCommandInput - {@link CreateInstanceCommandInput}
@@ -96,6 +100,8 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class CreateInstanceCommand extends $Command<

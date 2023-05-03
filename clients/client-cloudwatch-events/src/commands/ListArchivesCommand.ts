@@ -49,6 +49,22 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * };
  * const command = new ListArchivesCommand(input);
  * const response = await client.send(command);
+ * // { // ListArchivesResponse
+ * //   Archives: [ // ArchiveResponseList
+ * //     { // Archive
+ * //       ArchiveName: "STRING_VALUE",
+ * //       EventSourceArn: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       StateReason: "STRING_VALUE",
+ * //       RetentionDays: Number("int"),
+ * //       SizeBytes: Number("long"),
+ * //       EventCount: Number("long"),
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListArchivesCommandInput - {@link ListArchivesCommandInput}
@@ -63,6 +79,8 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class ListArchivesCommand extends $Command<

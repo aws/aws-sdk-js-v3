@@ -86,6 +86,29 @@ export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, _
  * };
  * const command = new DescribeActivityTypeCommand(input);
  * const response = await client.send(command);
+ * // { // ActivityTypeDetail
+ * //   typeInfo: { // ActivityTypeInfo
+ * //     activityType: { // ActivityType
+ * //       name: "STRING_VALUE", // required
+ * //       version: "STRING_VALUE", // required
+ * //     },
+ * //     status: "REGISTERED" || "DEPRECATED", // required
+ * //     description: "STRING_VALUE",
+ * //     creationDate: new Date("TIMESTAMP"), // required
+ * //     deprecationDate: new Date("TIMESTAMP"),
+ * //   },
+ * //   configuration: { // ActivityTypeConfiguration
+ * //     defaultTaskStartToCloseTimeout: "STRING_VALUE",
+ * //     defaultTaskHeartbeatTimeout: "STRING_VALUE",
+ * //     defaultTaskList: { // TaskList
+ * //       name: "STRING_VALUE", // required
+ * //     },
+ * //     defaultTaskPriority: "STRING_VALUE",
+ * //     defaultTaskScheduleToStartTimeout: "STRING_VALUE",
+ * //     defaultTaskScheduleToCloseTimeout: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeActivityTypeCommandInput - {@link DescribeActivityTypeCommandInput}
@@ -100,6 +123,8 @@ export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, _
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class DescribeActivityTypeCommand extends $Command<

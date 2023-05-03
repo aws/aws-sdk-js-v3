@@ -56,6 +56,17 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
+ * // { // PutEventsResponse
+ * //   FailedEntryCount: Number("int"),
+ * //   Entries: [ // PutEventsResultEntryList
+ * //     { // PutEventsResultEntry
+ * //       EventId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param PutEventsCommandInput - {@link PutEventsCommandInput}
@@ -67,6 +78,8 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class PutEventsCommand extends $Command<

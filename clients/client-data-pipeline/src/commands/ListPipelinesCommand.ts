@@ -75,6 +75,17 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * };
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);
+ * // { // ListPipelinesOutput
+ * //   pipelineIdList: [ // pipelineList // required
+ * //     { // PipelineIdName
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   marker: "STRING_VALUE",
+ * //   hasMoreResults: true || false,
+ * // };
+ *
  * ```
  *
  * @param ListPipelinesCommandInput - {@link ListPipelinesCommandInput}
@@ -89,6 +100,8 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class ListPipelinesCommand extends $Command<

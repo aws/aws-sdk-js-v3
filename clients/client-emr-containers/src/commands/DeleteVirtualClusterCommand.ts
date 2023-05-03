@@ -47,6 +47,10 @@ export interface DeleteVirtualClusterCommandOutput extends DeleteVirtualClusterR
  * };
  * const command = new DeleteVirtualClusterCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteVirtualClusterResponse
+ * //   id: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteVirtualClusterCommandInput - {@link DeleteVirtualClusterCommandInput}
@@ -61,6 +65,8 @@ export interface DeleteVirtualClusterCommandOutput extends DeleteVirtualClusterR
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class DeleteVirtualClusterCommand extends $Command<

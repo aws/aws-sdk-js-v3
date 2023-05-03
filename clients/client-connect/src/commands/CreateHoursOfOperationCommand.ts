@@ -64,6 +64,11 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  * };
  * const command = new CreateHoursOfOperationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateHoursOfOperationResponse
+ * //   HoursOfOperationId: "STRING_VALUE",
+ * //   HoursOfOperationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateHoursOfOperationCommandInput - {@link CreateHoursOfOperationCommandInput}
@@ -93,6 +98,8 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateHoursOfOperationCommand extends $Command<

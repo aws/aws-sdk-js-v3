@@ -46,6 +46,34 @@ export interface ListChangesetsCommandOutput extends ListChangesetsResponse, __M
  * };
  * const command = new ListChangesetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListChangesetsResponse
+ * //   changesets: [ // ChangesetList
+ * //     { // ChangesetSummary
+ * //       changesetId: "STRING_VALUE",
+ * //       changesetArn: "STRING_VALUE",
+ * //       datasetId: "STRING_VALUE",
+ * //       changeType: "STRING_VALUE",
+ * //       sourceParams: { // SourceParams
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       formatParams: { // FormatParams
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       createTime: Number("long"),
+ * //       status: "STRING_VALUE",
+ * //       errorInfo: { // ChangesetErrorInfo
+ * //         errorMessage: "STRING_VALUE",
+ * //         errorCategory: "STRING_VALUE",
+ * //       },
+ * //       activeUntilTimestamp: Number("long"),
+ * //       activeFromTimestamp: Number("long"),
+ * //       updatesChangesetId: "STRING_VALUE",
+ * //       updatedByChangesetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListChangesetsCommandInput - {@link ListChangesetsCommandInput}
@@ -73,6 +101,8 @@ export interface ListChangesetsCommandOutput extends ListChangesetsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class ListChangesetsCommand extends $Command<

@@ -50,6 +50,11 @@ export interface StartProjectSessionCommandOutput extends StartProjectSessionRes
  * };
  * const command = new StartProjectSessionCommand(input);
  * const response = await client.send(command);
+ * // { // StartProjectSessionResponse
+ * //   Name: "STRING_VALUE", // required
+ * //   ClientSessionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartProjectSessionCommandInput - {@link StartProjectSessionCommandInput}
@@ -70,6 +75,8 @@ export interface StartProjectSessionCommandOutput extends StartProjectSessionRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class StartProjectSessionCommand extends $Command<

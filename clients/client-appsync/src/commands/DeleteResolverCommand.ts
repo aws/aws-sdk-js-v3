@@ -46,6 +46,8 @@ export interface DeleteResolverCommandOutput extends DeleteResolverResponse, __M
  * };
  * const command = new DeleteResolverCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteResolverCommandInput - {@link DeleteResolverCommandInput}
@@ -71,6 +73,8 @@ export interface DeleteResolverCommandOutput extends DeleteResolverResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class DeleteResolverCommand extends $Command<

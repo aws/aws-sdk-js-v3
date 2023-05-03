@@ -60,6 +60,15 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWorkflowResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
@@ -92,6 +101,8 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class CreateWorkflowCommand extends $Command<

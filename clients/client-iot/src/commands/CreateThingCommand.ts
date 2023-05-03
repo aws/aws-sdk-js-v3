@@ -60,6 +60,12 @@ export interface CreateThingCommandOutput extends CreateThingResponse, __Metadat
  * };
  * const command = new CreateThingCommand(input);
  * const response = await client.send(command);
+ * // { // CreateThingResponse
+ * //   thingName: "STRING_VALUE",
+ * //   thingArn: "STRING_VALUE",
+ * //   thingId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateThingCommandInput - {@link CreateThingCommandInput}
@@ -89,6 +95,8 @@ export interface CreateThingCommandOutput extends CreateThingResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateThingCommand extends $Command<

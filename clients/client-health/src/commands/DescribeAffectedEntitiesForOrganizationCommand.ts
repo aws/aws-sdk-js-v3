@@ -80,6 +80,32 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  * };
  * const command = new DescribeAffectedEntitiesForOrganizationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAffectedEntitiesForOrganizationResponse
+ * //   entities: [ // EntityList
+ * //     { // AffectedEntity
+ * //       entityArn: "STRING_VALUE",
+ * //       eventArn: "STRING_VALUE",
+ * //       entityValue: "STRING_VALUE",
+ * //       entityUrl: "STRING_VALUE",
+ * //       awsAccountId: "STRING_VALUE",
+ * //       lastUpdatedTime: new Date("TIMESTAMP"),
+ * //       statusCode: "STRING_VALUE",
+ * //       tags: { // tagSet
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   failedSet: [ // DescribeAffectedEntitiesForOrganizationFailedSet
+ * //     { // OrganizationAffectedEntitiesErrorItem
+ * //       awsAccountId: "STRING_VALUE",
+ * //       eventArn: "STRING_VALUE",
+ * //       errorName: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeAffectedEntitiesForOrganizationCommandInput - {@link DescribeAffectedEntitiesForOrganizationCommandInput}
@@ -94,6 +120,8 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  * @throws {@link UnsupportedLocale} (client fault)
  *  <p>The specified locale is not supported.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<

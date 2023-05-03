@@ -46,6 +46,8 @@ export interface DeleteUserDefinedFunctionCommandOutput extends DeleteUserDefine
  * };
  * const command = new DeleteUserDefinedFunctionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteUserDefinedFunctionCommandInput - {@link DeleteUserDefinedFunctionCommandInput}
@@ -66,6 +68,8 @@ export interface DeleteUserDefinedFunctionCommandOutput extends DeleteUserDefine
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteUserDefinedFunctionCommand extends $Command<

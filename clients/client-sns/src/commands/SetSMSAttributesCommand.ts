@@ -56,6 +56,8 @@ export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse,
  * };
  * const command = new SetSMSAttributesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SetSMSAttributesCommandInput - {@link SetSMSAttributesCommandInput}
@@ -77,6 +79,8 @@ export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse,
  * @throws {@link ThrottledException} (client fault)
  *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class SetSMSAttributesCommand extends $Command<

@@ -49,6 +49,13 @@ export interface ListPrincipalThingsCommandOutput extends ListPrincipalThingsRes
  * };
  * const command = new ListPrincipalThingsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPrincipalThingsResponse
+ * //   things: [ // ThingNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPrincipalThingsCommandInput - {@link ListPrincipalThingsCommandInput}
@@ -75,6 +82,8 @@ export interface ListPrincipalThingsCommandOutput extends ListPrincipalThingsRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListPrincipalThingsCommand extends $Command<

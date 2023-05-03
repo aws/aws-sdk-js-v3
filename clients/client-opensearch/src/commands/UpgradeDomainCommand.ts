@@ -50,6 +50,20 @@ export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __Met
  * };
  * const command = new UpgradeDomainCommand(input);
  * const response = await client.send(command);
+ * // { // UpgradeDomainResponse
+ * //   UpgradeId: "STRING_VALUE",
+ * //   DomainName: "STRING_VALUE",
+ * //   TargetVersion: "STRING_VALUE",
+ * //   PerformCheckOnly: true || false,
+ * //   AdvancedOptions: { // AdvancedOptions
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   ChangeProgressDetails: { // ChangeProgressDetails
+ * //     ChangeId: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpgradeDomainCommandInput - {@link UpgradeDomainCommandInput}
@@ -76,6 +90,8 @@ export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class UpgradeDomainCommand extends $Command<

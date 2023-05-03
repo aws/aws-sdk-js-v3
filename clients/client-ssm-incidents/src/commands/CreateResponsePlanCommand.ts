@@ -105,6 +105,10 @@ export interface CreateResponsePlanCommandOutput extends CreateResponsePlanOutpu
  * };
  * const command = new CreateResponsePlanCommand(input);
  * const response = await client.send(command);
+ * // { // CreateResponsePlanOutput
+ * //   arn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateResponsePlanCommandInput - {@link CreateResponsePlanCommandInput}
@@ -133,6 +137,8 @@ export interface CreateResponsePlanCommandOutput extends CreateResponsePlanOutpu
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class CreateResponsePlanCommand extends $Command<

@@ -52,6 +52,8 @@ export interface UpdateThingGroupsForThingCommandOutput extends UpdateThingGroup
  * };
  * const command = new UpdateThingGroupsForThingCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateThingGroupsForThingCommandInput - {@link UpdateThingGroupsForThingCommandInput}
@@ -72,6 +74,8 @@ export interface UpdateThingGroupsForThingCommandOutput extends UpdateThingGroup
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateThingGroupsForThingCommand extends $Command<

@@ -46,6 +46,13 @@ export interface ListDedicatedIpPoolsCommandOutput extends ListDedicatedIpPoolsR
  * };
  * const command = new ListDedicatedIpPoolsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDedicatedIpPoolsResponse
+ * //   DedicatedIpPools: [ // ListOfDedicatedIpPools
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDedicatedIpPoolsCommandInput - {@link ListDedicatedIpPoolsCommandInput}
@@ -60,6 +67,8 @@ export interface ListDedicatedIpPoolsCommandOutput extends ListDedicatedIpPoolsR
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class ListDedicatedIpPoolsCommand extends $Command<

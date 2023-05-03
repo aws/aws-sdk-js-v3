@@ -55,6 +55,23 @@ export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * };
  * const command = new ModifyDBClusterEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // DBClusterEndpoint
+ * //   DBClusterEndpointIdentifier: "STRING_VALUE",
+ * //   DBClusterIdentifier: "STRING_VALUE",
+ * //   DBClusterEndpointResourceIdentifier: "STRING_VALUE",
+ * //   Endpoint: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   EndpointType: "STRING_VALUE",
+ * //   CustomEndpointType: "STRING_VALUE",
+ * //   StaticMembers: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ExcludedMembers: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   DBClusterEndpointArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ModifyDBClusterEndpointCommandInput - {@link ModifyDBClusterEndpointCommandInput}
@@ -79,6 +96,8 @@ export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To modify a custom DB cluster endpoint
  * ```javascript

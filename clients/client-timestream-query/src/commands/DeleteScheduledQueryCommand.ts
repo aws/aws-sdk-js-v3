@@ -45,6 +45,8 @@ export interface DeleteScheduledQueryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteScheduledQueryCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteScheduledQueryCommandInput - {@link DeleteScheduledQueryCommandInput}
@@ -73,6 +75,8 @@ export interface DeleteScheduledQueryCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
+ * @throws {@link TimestreamQueryServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
 export class DeleteScheduledQueryCommand extends $Command<

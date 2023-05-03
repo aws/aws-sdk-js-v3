@@ -92,6 +92,10 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  * };
  * const command = new CreatePlatformApplicationCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePlatformApplicationResponse
+ * //   PlatformApplicationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreatePlatformApplicationCommandInput - {@link CreatePlatformApplicationCommandInput}
@@ -110,6 +114,8 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  *  <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class CreatePlatformApplicationCommand extends $Command<

@@ -46,6 +46,8 @@ export interface DeleteAppCommandOutput extends DeleteAppOutput, __MetadataBeare
  * };
  * const command = new DeleteAppCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
@@ -69,6 +71,8 @@ export interface DeleteAppCommandOutput extends DeleteAppOutput, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class DeleteAppCommand extends $Command<

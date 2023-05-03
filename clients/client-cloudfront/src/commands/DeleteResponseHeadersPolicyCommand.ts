@@ -51,6 +51,8 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteResponseHeadersPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteResponseHeadersPolicyCommandInput - {@link DeleteResponseHeadersPolicyCommandInput}
@@ -79,6 +81,8 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
  *  <p>Cannot delete the response headers policy because it is attached to one or more cache
  * 			behaviors in a CloudFront distribution.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteResponseHeadersPolicyCommand extends $Command<

@@ -44,6 +44,10 @@ export interface StartTransactionCommandOutput extends StartTransactionResponse,
  * };
  * const command = new StartTransactionCommand(input);
  * const response = await client.send(command);
+ * // { // StartTransactionResponse
+ * //   TransactionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartTransactionCommandInput - {@link StartTransactionCommandInput}
@@ -58,6 +62,8 @@ export interface StartTransactionCommandOutput extends StartTransactionResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class StartTransactionCommand extends $Command<

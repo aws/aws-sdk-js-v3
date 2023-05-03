@@ -47,6 +47,8 @@ export interface DeleteProductCommandOutput extends DeleteProductOutput, __Metad
  * };
  * const command = new DeleteProductCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteProductCommandInput - {@link DeleteProductCommandInput}
@@ -69,6 +71,8 @@ export interface DeleteProductCommandOutput extends DeleteProductOutput, __Metad
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DeleteProductCommand extends $Command<

@@ -52,6 +52,15 @@ export interface ListTargetsForSecurityProfileCommandOutput
  * };
  * const command = new ListTargetsForSecurityProfileCommand(input);
  * const response = await client.send(command);
+ * // { // ListTargetsForSecurityProfileResponse
+ * //   securityProfileTargets: [ // SecurityProfileTargets
+ * //     { // SecurityProfileTarget
+ * //       arn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTargetsForSecurityProfileCommandInput - {@link ListTargetsForSecurityProfileCommandInput}
@@ -72,6 +81,8 @@ export interface ListTargetsForSecurityProfileCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListTargetsForSecurityProfileCommand extends $Command<

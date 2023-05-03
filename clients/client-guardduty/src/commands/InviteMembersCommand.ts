@@ -51,6 +51,15 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * };
  * const command = new InviteMembersCommand(input);
  * const response = await client.send(command);
+ * // { // InviteMembersResponse
+ * //   UnprocessedAccounts: [ // UnprocessedAccounts // required
+ * //     { // UnprocessedAccount
+ * //       AccountId: "STRING_VALUE", // required
+ * //       Result: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param InviteMembersCommandInput - {@link InviteMembersCommandInput}
@@ -65,6 +74,8 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class InviteMembersCommand extends $Command<

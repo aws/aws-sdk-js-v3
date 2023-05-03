@@ -59,6 +59,18 @@ export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse,
  * };
  * const command = new BatchDeleteTableCommand(input);
  * const response = await client.send(command);
+ * // { // BatchDeleteTableResponse
+ * //   Errors: [ // TableErrors
+ * //     { // TableError
+ * //       TableName: "STRING_VALUE",
+ * //       ErrorDetail: { // ErrorDetail
+ * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchDeleteTableCommandInput - {@link BatchDeleteTableCommandInput}
@@ -85,6 +97,8 @@ export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse,
  * @throws {@link ResourceNotReadyException} (client fault)
  *  <p>A resource was not ready for a transaction.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchDeleteTableCommand extends $Command<

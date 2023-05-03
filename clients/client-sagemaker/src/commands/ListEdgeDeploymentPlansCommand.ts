@@ -53,6 +53,22 @@ export interface ListEdgeDeploymentPlansCommandOutput extends ListEdgeDeployment
  * };
  * const command = new ListEdgeDeploymentPlansCommand(input);
  * const response = await client.send(command);
+ * // { // ListEdgeDeploymentPlansResponse
+ * //   EdgeDeploymentPlanSummaries: [ // EdgeDeploymentPlanSummaries // required
+ * //     { // EdgeDeploymentPlanSummary
+ * //       EdgeDeploymentPlanArn: "STRING_VALUE", // required
+ * //       EdgeDeploymentPlanName: "STRING_VALUE", // required
+ * //       DeviceFleetName: "STRING_VALUE", // required
+ * //       EdgeDeploymentSuccess: Number("int"), // required
+ * //       EdgeDeploymentPending: Number("int"), // required
+ * //       EdgeDeploymentFailed: Number("int"), // required
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEdgeDeploymentPlansCommandInput - {@link ListEdgeDeploymentPlansCommandInput}
@@ -61,6 +77,8 @@ export interface ListEdgeDeploymentPlansCommandOutput extends ListEdgeDeployment
  * @see {@link ListEdgeDeploymentPlansCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListEdgeDeploymentPlansCommand extends $Command<

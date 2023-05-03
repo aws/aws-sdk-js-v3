@@ -44,6 +44,8 @@ export interface DisassociateTrustStoreCommandOutput extends DisassociateTrustSt
  * };
  * const command = new DisassociateTrustStoreCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateTrustStoreCommandInput - {@link DisassociateTrustStoreCommandInput}
@@ -67,6 +69,8 @@ export interface DisassociateTrustStoreCommandOutput extends DisassociateTrustSt
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DisassociateTrustStoreCommand extends $Command<

@@ -104,6 +104,10 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  * };
  * const command = new CreateDatasetImportJobCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDatasetImportJobResponse
+ * //   datasetImportJobArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateDatasetImportJobCommandInput - {@link CreateDatasetImportJobCommandInput}
@@ -130,6 +134,8 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateDatasetImportJobCommand extends $Command<

@@ -48,6 +48,8 @@ export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataRes
  * };
  * const command = new UpdateFleetMetadataCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateFleetMetadataCommandInput - {@link UpdateFleetMetadataCommandInput}
@@ -71,6 +73,8 @@ export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class UpdateFleetMetadataCommand extends $Command<

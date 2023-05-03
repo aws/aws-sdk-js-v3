@@ -67,6 +67,10 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  * };
  * const command = new StartContentModerationCommand(input);
  * const response = await client.send(command);
+ * // { // StartContentModerationResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartContentModerationCommandInput - {@link StartContentModerationCommandInput}
@@ -108,6 +112,8 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  *  <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB.
  *         The maximum duration is 6 hours. </p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class StartContentModerationCommand extends $Command<

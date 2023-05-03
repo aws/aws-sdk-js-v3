@@ -47,6 +47,10 @@ export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvis
  * };
  * const command = new PurchaseProvisionedCapacityCommand(input);
  * const response = await client.send(command);
+ * // { // PurchaseProvisionedCapacityOutput
+ * //   capacityId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PurchaseProvisionedCapacityCommandInput - {@link PurchaseProvisionedCapacityCommandInput}
@@ -67,6 +71,8 @@ export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvis
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To purchases a provisioned capacity unit for an AWS account
  * ```javascript

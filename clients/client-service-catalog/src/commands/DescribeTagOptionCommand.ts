@@ -44,6 +44,16 @@ export interface DescribeTagOptionCommandOutput extends DescribeTagOptionOutput,
  * };
  * const command = new DescribeTagOptionCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeTagOptionOutput
+ * //   TagOptionDetail: { // TagOptionDetail
+ * //     Key: "STRING_VALUE",
+ * //     Value: "STRING_VALUE",
+ * //     Active: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeTagOptionCommandInput - {@link DescribeTagOptionCommandInput}
@@ -60,6 +70,8 @@ export interface DescribeTagOptionCommandOutput extends DescribeTagOptionOutput,
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeTagOptionCommand extends $Command<

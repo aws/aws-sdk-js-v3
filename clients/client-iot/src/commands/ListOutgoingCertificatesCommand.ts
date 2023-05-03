@@ -47,6 +47,20 @@ export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCerti
  * };
  * const command = new ListOutgoingCertificatesCommand(input);
  * const response = await client.send(command);
+ * // { // ListOutgoingCertificatesResponse
+ * //   outgoingCertificates: [ // OutgoingCertificates
+ * //     { // OutgoingCertificate
+ * //       certificateArn: "STRING_VALUE",
+ * //       certificateId: "STRING_VALUE",
+ * //       transferredTo: "STRING_VALUE",
+ * //       transferDate: new Date("TIMESTAMP"),
+ * //       transferMessage: "STRING_VALUE",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextMarker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListOutgoingCertificatesCommandInput - {@link ListOutgoingCertificatesCommandInput}
@@ -70,6 +84,8 @@ export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCerti
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListOutgoingCertificatesCommand extends $Command<

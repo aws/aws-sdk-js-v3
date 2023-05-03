@@ -52,6 +52,8 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
  * };
  * const command = new DeleteLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteLaunchConfigurationTemplateCommandInput - {@link DeleteLaunchConfigurationTemplateCommandInput}
@@ -75,6 +77,8 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class DeleteLaunchConfigurationTemplateCommand extends $Command<

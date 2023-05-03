@@ -60,6 +60,20 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  * };
  * const command = new DeleteVolumeCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteVolumeResponse
+ * //   VolumeId: "STRING_VALUE",
+ * //   Lifecycle: "CREATING" || "CREATED" || "DELETING" || "FAILED" || "MISCONFIGURED" || "PENDING" || "AVAILABLE",
+ * //   OntapResponse: { // DeleteVolumeOntapResponse
+ * //     FinalBackupId: "STRING_VALUE",
+ * //     FinalBackupTags: [ // Tags
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteVolumeCommandInput - {@link DeleteVolumeCommandInput}
@@ -82,6 +96,8 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  * @throws {@link VolumeNotFound} (client fault)
  *  <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DeleteVolumeCommand extends $Command<

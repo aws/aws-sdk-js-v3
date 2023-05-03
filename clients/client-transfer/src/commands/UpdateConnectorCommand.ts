@@ -59,6 +59,10 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * };
  * const command = new UpdateConnectorCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateConnectorResponse
+ * //   ConnectorId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateConnectorCommandInput - {@link UpdateConnectorCommandInput}
@@ -86,6 +90,8 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class UpdateConnectorCommand extends $Command<

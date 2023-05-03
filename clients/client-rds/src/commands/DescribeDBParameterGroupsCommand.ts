@@ -55,6 +55,18 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  * };
  * const command = new DescribeDBParameterGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // DBParameterGroupsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   DBParameterGroups: [ // DBParameterGroupList
+ * //     { // DBParameterGroup
+ * //       DBParameterGroupName: "STRING_VALUE",
+ * //       DBParameterGroupFamily: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       DBParameterGroupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeDBParameterGroupsCommandInput - {@link DescribeDBParameterGroupsCommandInput}
@@ -68,6 +80,8 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  *             <code>DBParameterGroupName</code> doesn't refer to an
  *         existing DB parameter group.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe your DB parameter groups
  * ```javascript

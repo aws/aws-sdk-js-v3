@@ -90,6 +90,51 @@ export interface CreateProgramCommandOutput extends CreateProgramResponse, __Met
  * };
  * const command = new CreateProgramCommand(input);
  * const response = await client.send(command);
+ * // { // CreateProgramResponse
+ * //   AdBreaks: [ // __listOfAdBreak
+ * //     { // AdBreak
+ * //       MessageType: "SPLICE_INSERT" || "TIME_SIGNAL",
+ * //       OffsetMillis: Number("long"),
+ * //       Slate: { // SlateSource
+ * //         SourceLocationName: "STRING_VALUE",
+ * //         VodSourceName: "STRING_VALUE",
+ * //       },
+ * //       SpliceInsertMessage: { // SpliceInsertMessage
+ * //         AvailNum: Number("int"),
+ * //         AvailsExpected: Number("int"),
+ * //         SpliceEventId: Number("int"),
+ * //         UniqueProgramId: Number("int"),
+ * //       },
+ * //       TimeSignalMessage: { // TimeSignalMessage
+ * //         SegmentationDescriptors: [ // SegmentationDescriptorList
+ * //           { // SegmentationDescriptor
+ * //             SegmentationEventId: Number("int"),
+ * //             SegmentationUpidType: Number("int"),
+ * //             SegmentationUpid: "STRING_VALUE",
+ * //             SegmentationTypeId: Number("int"),
+ * //             SegmentNum: Number("int"),
+ * //             SegmentsExpected: Number("int"),
+ * //             SubSegmentNum: Number("int"),
+ * //             SubSegmentsExpected: Number("int"),
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   Arn: "STRING_VALUE",
+ * //   ChannelName: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LiveSourceName: "STRING_VALUE",
+ * //   ProgramName: "STRING_VALUE",
+ * //   ScheduledStartTime: new Date("TIMESTAMP"),
+ * //   SourceLocationName: "STRING_VALUE",
+ * //   VodSourceName: "STRING_VALUE",
+ * //   ClipRange: { // ClipRange
+ * //     EndOffsetMillis: Number("long"), // required
+ * //   },
+ * //   DurationMillis: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param CreateProgramCommandInput - {@link CreateProgramCommandInput}
@@ -98,6 +143,8 @@ export interface CreateProgramCommandOutput extends CreateProgramResponse, __Met
  * @see {@link CreateProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class CreateProgramCommand extends $Command<

@@ -55,6 +55,24 @@ export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjec
  * };
  * const command = new UpdateTestGridProjectCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateTestGridProjectResult
+ * //   testGridProject: { // TestGridProject
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     vpcConfig: { // TestGridVpcConfig
+ * //       securityGroupIds: [ // SecurityGroupIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       subnetIds: [ // SubnetIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       vpcId: "STRING_VALUE", // required
+ * //     },
+ * //     created: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateTestGridProjectCommandInput - {@link UpdateTestGridProjectCommandInput}
@@ -76,6 +94,8 @@ export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjec
  * @throws {@link NotFoundException} (client fault)
  *  <p>The specified entity was not found.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class UpdateTestGridProjectCommand extends $Command<

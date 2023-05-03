@@ -53,6 +53,10 @@ export interface StopCalculationExecutionCommandOutput extends StopCalculationEx
  * };
  * const command = new StopCalculationExecutionCommand(input);
  * const response = await client.send(command);
+ * // { // StopCalculationExecutionResponse
+ * //   State: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
+ * // };
+ *
  * ```
  *
  * @param StopCalculationExecutionCommandInput - {@link StopCalculationExecutionCommandInput}
@@ -72,6 +76,8 @@ export interface StopCalculationExecutionCommandOutput extends StopCalculationEx
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class StopCalculationExecutionCommand extends $Command<

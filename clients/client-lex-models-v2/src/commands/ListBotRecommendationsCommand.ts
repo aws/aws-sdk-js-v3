@@ -49,6 +49,21 @@ export interface ListBotRecommendationsCommandOutput extends ListBotRecommendati
  * };
  * const command = new ListBotRecommendationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListBotRecommendationsResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   botRecommendationSummaries: [ // BotRecommendationSummaryList
+ * //     { // BotRecommendationSummary
+ * //       botRecommendationStatus: "Processing" || "Deleting" || "Deleted" || "Downloading" || "Updating" || "Available" || "Failed" || "Stopping" || "Stopped", // required
+ * //       botRecommendationId: "STRING_VALUE", // required
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListBotRecommendationsCommandInput - {@link ListBotRecommendationsCommandInput}
@@ -73,6 +88,8 @@ export interface ListBotRecommendationsCommandOutput extends ListBotRecommendati
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListBotRecommendationsCommand extends $Command<

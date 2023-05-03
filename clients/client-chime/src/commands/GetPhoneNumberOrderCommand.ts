@@ -49,6 +49,22 @@ export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderRes
  * };
  * const command = new GetPhoneNumberOrderCommand(input);
  * const response = await client.send(command);
+ * // { // GetPhoneNumberOrderResponse
+ * //   PhoneNumberOrder: { // PhoneNumberOrder
+ * //     PhoneNumberOrderId: "STRING_VALUE",
+ * //     ProductType: "BusinessCalling" || "VoiceConnector" || "SipMediaApplicationDialIn",
+ * //     Status: "Processing" || "Successful" || "Failed" || "Partial",
+ * //     OrderedPhoneNumbers: [ // OrderedPhoneNumberList
+ * //       { // OrderedPhoneNumber
+ * //         E164PhoneNumber: "STRING_VALUE",
+ * //         Status: "Processing" || "Acquired" || "Failed",
+ * //       },
+ * //     ],
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetPhoneNumberOrderCommandInput - {@link GetPhoneNumberOrderCommandInput}
@@ -78,6 +94,8 @@ export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderRes
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetPhoneNumberOrderCommand extends $Command<

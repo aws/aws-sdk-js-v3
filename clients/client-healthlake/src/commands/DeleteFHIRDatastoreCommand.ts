@@ -44,6 +44,13 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
  * };
  * const command = new DeleteFHIRDatastoreCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteFHIRDatastoreResponse
+ * //   DatastoreId: "STRING_VALUE", // required
+ * //   DatastoreArn: "STRING_VALUE", // required
+ * //   DatastoreStatus: "STRING_VALUE", // required
+ * //   DatastoreEndpoint: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteFHIRDatastoreCommandInput - {@link DeleteFHIRDatastoreCommandInput}
@@ -70,6 +77,8 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>
  *
+ * @throws {@link HealthLakeServiceException}
+ * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
  */
 export class DeleteFHIRDatastoreCommand extends $Command<

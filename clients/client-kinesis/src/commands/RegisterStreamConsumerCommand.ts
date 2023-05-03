@@ -58,6 +58,15 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  * };
  * const command = new RegisterStreamConsumerCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterStreamConsumerOutput
+ * //   Consumer: { // Consumer
+ * //     ConsumerName: "STRING_VALUE", // required
+ * //     ConsumerARN: "STRING_VALUE", // required
+ * //     ConsumerStatus: "CREATING" || "DELETING" || "ACTIVE", // required
+ * //     ConsumerCreationTimestamp: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param RegisterStreamConsumerCommandInput - {@link RegisterStreamConsumerCommandInput}
@@ -82,6 +91,8 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class RegisterStreamConsumerCommand extends $Command<

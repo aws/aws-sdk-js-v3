@@ -67,6 +67,25 @@ export interface CreateOutboundCrossClusterSearchConnectionCommandOutput
  * };
  * const command = new CreateOutboundCrossClusterSearchConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateOutboundCrossClusterSearchConnectionResponse
+ * //   SourceDomainInfo: { // DomainInformation
+ * //     OwnerId: "STRING_VALUE",
+ * //     DomainName: "STRING_VALUE", // required
+ * //     Region: "STRING_VALUE",
+ * //   },
+ * //   DestinationDomainInfo: {
+ * //     OwnerId: "STRING_VALUE",
+ * //     DomainName: "STRING_VALUE", // required
+ * //     Region: "STRING_VALUE",
+ * //   },
+ * //   ConnectionAlias: "STRING_VALUE",
+ * //   ConnectionStatus: { // OutboundCrossClusterSearchConnectionStatus
+ * //     StatusCode: "PENDING_ACCEPTANCE" || "VALIDATING" || "VALIDATION_FAILED" || "PROVISIONING" || "ACTIVE" || "REJECTED" || "DELETING" || "DELETED",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * //   CrossClusterSearchConnectionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateOutboundCrossClusterSearchConnectionCommandInput - {@link CreateOutboundCrossClusterSearchConnectionCommandInput}
@@ -87,6 +106,8 @@ export interface CreateOutboundCrossClusterSearchConnectionCommandOutput
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class CreateOutboundCrossClusterSearchConnectionCommand extends $Command<

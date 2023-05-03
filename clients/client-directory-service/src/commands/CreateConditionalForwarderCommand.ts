@@ -50,6 +50,8 @@ export interface CreateConditionalForwarderCommandOutput extends CreateCondition
  * };
  * const command = new CreateConditionalForwarderCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateConditionalForwarderCommandInput - {@link CreateConditionalForwarderCommandInput}
@@ -79,6 +81,8 @@ export interface CreateConditionalForwarderCommandOutput extends CreateCondition
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateConditionalForwarderCommand extends $Command<

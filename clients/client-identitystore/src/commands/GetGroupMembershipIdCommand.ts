@@ -48,6 +48,11 @@ export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdR
  * };
  * const command = new GetGroupMembershipIdCommand(input);
  * const response = await client.send(command);
+ * // { // GetGroupMembershipIdResponse
+ * //   MembershipId: "STRING_VALUE", // required
+ * //   IdentityStoreId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param GetGroupMembershipIdCommandInput - {@link GetGroupMembershipIdCommandInput}
@@ -71,6 +76,8 @@ export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class GetGroupMembershipIdCommand extends $Command<

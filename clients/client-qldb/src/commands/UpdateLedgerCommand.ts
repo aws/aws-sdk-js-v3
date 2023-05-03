@@ -46,6 +46,19 @@ export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __Metad
  * };
  * const command = new UpdateLedgerCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateLedgerResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   State: "CREATING" || "ACTIVE" || "DELETING" || "DELETED",
+ * //   CreationDateTime: new Date("TIMESTAMP"),
+ * //   DeletionProtection: true || false,
+ * //   EncryptionDescription: { // LedgerEncryptionDescription
+ * //     KmsKeyArn: "STRING_VALUE", // required
+ * //     EncryptionStatus: "ENABLED" || "UPDATING" || "KMS_KEY_INACCESSIBLE", // required
+ * //     InaccessibleKmsKeyDateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateLedgerCommandInput - {@link UpdateLedgerCommandInput}
@@ -60,6 +73,8 @@ export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource doesn't exist.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class UpdateLedgerCommand extends $Command<

@@ -48,6 +48,19 @@ export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, _
  * };
  * const command = new GetBucketBundlesCommand(input);
  * const response = await client.send(command);
+ * // { // GetBucketBundlesResult
+ * //   bundles: [ // BucketBundleList
+ * //     { // BucketBundle
+ * //       bundleId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       price: Number("float"),
+ * //       storagePerMonthInGb: Number("int"),
+ * //       transferPerMonthInGb: Number("int"),
+ * //       isActive: true || false,
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetBucketBundlesCommandInput - {@link GetBucketBundlesCommandInput}
@@ -76,6 +89,8 @@ export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, _
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetBucketBundlesCommand extends $Command<

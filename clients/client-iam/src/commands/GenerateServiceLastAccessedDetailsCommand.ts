@@ -106,6 +106,10 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  * };
  * const command = new GenerateServiceLastAccessedDetailsCommand(input);
  * const response = await client.send(command);
+ * // { // GenerateServiceLastAccessedDetailsResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GenerateServiceLastAccessedDetailsCommandInput - {@link GenerateServiceLastAccessedDetailsCommandInput}
@@ -122,6 +126,8 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To generate a service last accessed data report for a policy
  * ```javascript

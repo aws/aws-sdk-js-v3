@@ -48,6 +48,96 @@ export interface DescribeServiceCommandOutput extends DescribeServiceResponse, _
  * };
  * const command = new DescribeServiceCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeServiceResponse
+ * //   Service: { // Service
+ * //     ServiceName: "STRING_VALUE", // required
+ * //     ServiceId: "STRING_VALUE", // required
+ * //     ServiceArn: "STRING_VALUE", // required
+ * //     ServiceUrl: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"), // required
+ * //     UpdatedAt: new Date("TIMESTAMP"), // required
+ * //     DeletedAt: new Date("TIMESTAMP"),
+ * //     Status: "CREATE_FAILED" || "RUNNING" || "DELETED" || "DELETE_FAILED" || "PAUSED" || "OPERATION_IN_PROGRESS", // required
+ * //     SourceConfiguration: { // SourceConfiguration
+ * //       CodeRepository: { // CodeRepository
+ * //         RepositoryUrl: "STRING_VALUE", // required
+ * //         SourceCodeVersion: { // SourceCodeVersion
+ * //           Type: "BRANCH", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //         CodeConfiguration: { // CodeConfiguration
+ * //           ConfigurationSource: "REPOSITORY" || "API", // required
+ * //           CodeConfigurationValues: { // CodeConfigurationValues
+ * //             Runtime: "PYTHON_3" || "NODEJS_12" || "NODEJS_14" || "CORRETTO_8" || "CORRETTO_11" || "NODEJS_16" || "GO_1" || "DOTNET_6" || "PHP_81" || "RUBY_31", // required
+ * //             BuildCommand: "STRING_VALUE",
+ * //             StartCommand: "STRING_VALUE",
+ * //             Port: "STRING_VALUE",
+ * //             RuntimeEnvironmentVariables: { // RuntimeEnvironmentVariables
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             RuntimeEnvironmentSecrets: { // RuntimeEnvironmentSecrets
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //       ImageRepository: { // ImageRepository
+ * //         ImageIdentifier: "STRING_VALUE", // required
+ * //         ImageConfiguration: { // ImageConfiguration
+ * //           RuntimeEnvironmentVariables: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           StartCommand: "STRING_VALUE",
+ * //           Port: "STRING_VALUE",
+ * //           RuntimeEnvironmentSecrets: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         ImageRepositoryType: "ECR" || "ECR_PUBLIC", // required
+ * //       },
+ * //       AutoDeploymentsEnabled: true || false,
+ * //       AuthenticationConfiguration: { // AuthenticationConfiguration
+ * //         ConnectionArn: "STRING_VALUE",
+ * //         AccessRoleArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     InstanceConfiguration: { // InstanceConfiguration
+ * //       Cpu: "STRING_VALUE",
+ * //       Memory: "STRING_VALUE",
+ * //       InstanceRoleArn: "STRING_VALUE",
+ * //     },
+ * //     EncryptionConfiguration: { // EncryptionConfiguration
+ * //       KmsKey: "STRING_VALUE", // required
+ * //     },
+ * //     HealthCheckConfiguration: { // HealthCheckConfiguration
+ * //       Protocol: "TCP" || "HTTP",
+ * //       Path: "STRING_VALUE",
+ * //       Interval: Number("int"),
+ * //       Timeout: Number("int"),
+ * //       HealthyThreshold: Number("int"),
+ * //       UnhealthyThreshold: Number("int"),
+ * //     },
+ * //     AutoScalingConfigurationSummary: { // AutoScalingConfigurationSummary
+ * //       AutoScalingConfigurationArn: "STRING_VALUE",
+ * //       AutoScalingConfigurationName: "STRING_VALUE",
+ * //       AutoScalingConfigurationRevision: Number("int"),
+ * //     },
+ * //     NetworkConfiguration: { // NetworkConfiguration
+ * //       EgressConfiguration: { // EgressConfiguration
+ * //         EgressType: "DEFAULT" || "VPC",
+ * //         VpcConnectorArn: "STRING_VALUE",
+ * //       },
+ * //       IngressConfiguration: { // IngressConfiguration
+ * //         IsPubliclyAccessible: true || false,
+ * //       },
+ * //     },
+ * //     ObservabilityConfiguration: { // ServiceObservabilityConfiguration
+ * //       ObservabilityEnabled: true || false, // required
+ * //       ObservabilityConfigurationArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeServiceCommandInput - {@link DescribeServiceCommandInput}
@@ -65,6 +155,8 @@ export interface DescribeServiceCommandOutput extends DescribeServiceResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DescribeServiceCommand extends $Command<

@@ -45,6 +45,8 @@ export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinit
  * };
  * const command = new UpdateLoggerDefinitionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateLoggerDefinitionCommandInput - {@link UpdateLoggerDefinitionCommandInput}
@@ -56,6 +58,8 @@ export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinit
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class UpdateLoggerDefinitionCommand extends $Command<

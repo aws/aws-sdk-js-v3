@@ -48,6 +48,22 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDeploymentsResponse
+ * //   deployments: [ // DeploymentList
+ * //     { // Deployment
+ * //       targetArn: "STRING_VALUE",
+ * //       revisionId: "STRING_VALUE",
+ * //       deploymentId: "STRING_VALUE",
+ * //       deploymentName: "STRING_VALUE",
+ * //       creationTimestamp: new Date("TIMESTAMP"),
+ * //       deploymentStatus: "ACTIVE" || "COMPLETED" || "CANCELED" || "FAILED" || "INACTIVE",
+ * //       isLatestForTarget: true || false,
+ * //       parentTargetArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
@@ -70,6 +86,8 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class ListDeploymentsCommand extends $Command<

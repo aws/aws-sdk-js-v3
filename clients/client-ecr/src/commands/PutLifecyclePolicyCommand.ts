@@ -48,6 +48,12 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyRespo
  * };
  * const command = new PutLifecyclePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutLifecyclePolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   lifecyclePolicyText: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutLifecyclePolicyCommandInput - {@link PutLifecyclePolicyCommandInput}
@@ -67,6 +73,8 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyRespo
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class PutLifecyclePolicyCommand extends $Command<

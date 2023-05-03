@@ -62,6 +62,8 @@ export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetAlarmStateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SetAlarmStateCommandInput - {@link SetAlarmStateCommandInput}
@@ -76,6 +78,8 @@ export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>The named resource does not exist.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class SetAlarmStateCommand extends $Command<

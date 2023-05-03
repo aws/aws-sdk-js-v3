@@ -53,6 +53,8 @@ export interface SetVaultAccessPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SetVaultAccessPolicyCommandInput - {@link SetVaultAccessPolicyCommandInput}
@@ -74,6 +76,8 @@ export interface SetVaultAccessPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To set the access-policy on a vault
  * ```javascript

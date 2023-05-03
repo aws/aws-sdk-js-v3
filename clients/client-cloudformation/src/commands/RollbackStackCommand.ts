@@ -80,6 +80,10 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  * };
  * const command = new RollbackStackCommand(input);
  * const response = await client.send(command);
+ * // { // RollbackStackOutput
+ * //   StackId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RollbackStackCommandInput - {@link RollbackStackCommandInput}
@@ -91,6 +95,8 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  * @throws {@link TokenAlreadyExistsException} (client fault)
  *  <p>A client request token already exists.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class RollbackStackCommand extends $Command<

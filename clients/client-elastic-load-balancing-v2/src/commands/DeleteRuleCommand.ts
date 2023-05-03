@@ -49,6 +49,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
@@ -63,6 +65,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  * @throws {@link RuleNotFoundException} (client fault)
  *  <p>The specified rule does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To delete a rule
  * ```javascript

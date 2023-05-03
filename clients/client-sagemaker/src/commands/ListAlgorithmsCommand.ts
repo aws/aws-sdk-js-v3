@@ -50,6 +50,19 @@ export interface ListAlgorithmsCommandOutput extends ListAlgorithmsOutput, __Met
  * };
  * const command = new ListAlgorithmsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAlgorithmsOutput
+ * //   AlgorithmSummaryList: [ // AlgorithmSummaryList // required
+ * //     { // AlgorithmSummary
+ * //       AlgorithmName: "STRING_VALUE", // required
+ * //       AlgorithmArn: "STRING_VALUE", // required
+ * //       AlgorithmDescription: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       AlgorithmStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAlgorithmsCommandInput - {@link ListAlgorithmsCommandInput}
@@ -58,6 +71,8 @@ export interface ListAlgorithmsCommandOutput extends ListAlgorithmsOutput, __Met
  * @see {@link ListAlgorithmsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListAlgorithmsCommand extends $Command<

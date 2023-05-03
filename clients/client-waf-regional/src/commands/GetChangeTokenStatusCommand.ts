@@ -68,6 +68,10 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  * };
  * const command = new GetChangeTokenStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetChangeTokenStatusResponse
+ * //   ChangeTokenStatus: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetChangeTokenStatusCommandInput - {@link GetChangeTokenStatusCommandInput}
@@ -82,6 +86,8 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To get the change token status
  * ```javascript

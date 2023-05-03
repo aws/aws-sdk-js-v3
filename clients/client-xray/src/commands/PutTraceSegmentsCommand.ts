@@ -108,6 +108,16 @@ export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, _
  * };
  * const command = new PutTraceSegmentsCommand(input);
  * const response = await client.send(command);
+ * // { // PutTraceSegmentsResult
+ * //   UnprocessedTraceSegments: [ // UnprocessedTraceSegmentList
+ * //     { // UnprocessedTraceSegment
+ * //       Id: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param PutTraceSegmentsCommandInput - {@link PutTraceSegmentsCommandInput}
@@ -122,6 +132,8 @@ export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, _
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class PutTraceSegmentsCommand extends $Command<

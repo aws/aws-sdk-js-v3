@@ -47,6 +47,10 @@ export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditT
  * };
  * const command = new StartOnDemandAuditTaskCommand(input);
  * const response = await client.send(command);
+ * // { // StartOnDemandAuditTaskResponse
+ * //   taskId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartOnDemandAuditTaskCommandInput - {@link StartOnDemandAuditTaskCommandInput}
@@ -67,6 +71,8 @@ export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditT
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class StartOnDemandAuditTaskCommand extends $Command<

@@ -53,6 +53,33 @@ export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __Met
  * };
  * const command = new GetBotAliasesCommand(input);
  * const response = await client.send(command);
+ * // { // GetBotAliasesResponse
+ * //   BotAliases: [ // BotAliasMetadataList
+ * //     { // BotAliasMetadata
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       botVersion: "STRING_VALUE",
+ * //       botName: "STRING_VALUE",
+ * //       lastUpdatedDate: new Date("TIMESTAMP"),
+ * //       createdDate: new Date("TIMESTAMP"),
+ * //       checksum: "STRING_VALUE",
+ * //       conversationLogs: { // ConversationLogsResponse
+ * //         logSettings: [ // LogSettingsResponseList
+ * //           { // LogSettingsResponse
+ * //             logType: "STRING_VALUE",
+ * //             destination: "STRING_VALUE",
+ * //             kmsKeyArn: "STRING_VALUE",
+ * //             resourceArn: "STRING_VALUE",
+ * //             resourcePrefix: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         iamRoleArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetBotAliasesCommandInput - {@link GetBotAliasesCommandInput}
@@ -72,6 +99,8 @@ export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __Met
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The request exceeded a limit. Try your request again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetBotAliasesCommand extends $Command<

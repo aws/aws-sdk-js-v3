@@ -52,6 +52,17 @@ export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitorin
  * };
  * const command = new EnableEnhancedMonitoringCommand(input);
  * const response = await client.send(command);
+ * // { // EnhancedMonitoringOutput
+ * //   StreamName: "STRING_VALUE",
+ * //   CurrentShardLevelMetrics: [ // MetricsNameList
+ * //     "IncomingBytes" || "IncomingRecords" || "OutgoingBytes" || "OutgoingRecords" || "WriteProvisionedThroughputExceeded" || "ReadProvisionedThroughputExceeded" || "IteratorAgeMilliseconds" || "ALL",
+ * //   ],
+ * //   DesiredShardLevelMetrics: [
+ * //     "IncomingBytes" || "IncomingRecords" || "OutgoingBytes" || "OutgoingRecords" || "WriteProvisionedThroughputExceeded" || "ReadProvisionedThroughputExceeded" || "IteratorAgeMilliseconds" || "ALL",
+ * //   ],
+ * //   StreamARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param EnableEnhancedMonitoringCommandInput - {@link EnableEnhancedMonitoringCommandInput}
@@ -80,6 +91,8 @@ export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitorin
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class EnableEnhancedMonitoringCommand extends $Command<

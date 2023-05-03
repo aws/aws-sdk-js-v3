@@ -49,6 +49,8 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteIntentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteIntentCommandInput - {@link DeleteIntentCommandInput}
@@ -82,6 +84,8 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteIntentCommand extends $Command<

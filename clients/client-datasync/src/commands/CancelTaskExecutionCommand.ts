@@ -50,6 +50,8 @@ export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionRes
  * };
  * const command = new CancelTaskExecutionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelTaskExecutionCommandInput - {@link CancelTaskExecutionCommandInput}
@@ -65,6 +67,8 @@ export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionRes
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CancelTaskExecutionCommand extends $Command<

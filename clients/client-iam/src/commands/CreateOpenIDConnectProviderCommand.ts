@@ -99,6 +99,16 @@ export interface CreateOpenIDConnectProviderCommandOutput
  * };
  * const command = new CreateOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
+ * // { // CreateOpenIDConnectProviderResponse
+ * //   OpenIDConnectProviderArn: "STRING_VALUE",
+ * //   Tags: [ // tagListType
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param CreateOpenIDConnectProviderCommandInput - {@link CreateOpenIDConnectProviderCommandInput}
@@ -127,6 +137,8 @@ export interface CreateOpenIDConnectProviderCommandOutput
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To create an instance profile
  * ```javascript

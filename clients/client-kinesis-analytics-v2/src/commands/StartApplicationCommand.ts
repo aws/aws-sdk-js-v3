@@ -66,6 +66,8 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * };
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartApplicationCommandInput - {@link StartApplicationCommandInput}
@@ -89,6 +91,8 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class StartApplicationCommand extends $Command<

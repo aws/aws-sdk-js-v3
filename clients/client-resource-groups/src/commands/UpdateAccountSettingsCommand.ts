@@ -48,6 +48,14 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateAccountSettingsOutput
+ * //   AccountSettings: { // AccountSettings
+ * //     GroupLifecycleEventsDesiredStatus: "ACTIVE" || "INACTIVE",
+ * //     GroupLifecycleEventsStatus: "ACTIVE" || "INACTIVE" || "IN_PROGRESS" || "ERROR",
+ * //     GroupLifecycleEventsStatusMessage: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateAccountSettingsCommandInput - {@link UpdateAccountSettingsCommandInput}
@@ -72,6 +80,8 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class UpdateAccountSettingsCommand extends $Command<

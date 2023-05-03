@@ -46,6 +46,18 @@ export interface GetRequestValidatorsCommandOutput extends RequestValidators, __
  * };
  * const command = new GetRequestValidatorsCommand(input);
  * const response = await client.send(command);
+ * // { // RequestValidators
+ * //   items: [ // ListOfRequestValidator
+ * //     { // RequestValidator
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       validateRequestBody: true || false,
+ * //       validateRequestParameters: true || false,
+ * //     },
+ * //   ],
+ * //   position: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetRequestValidatorsCommandInput - {@link GetRequestValidatorsCommandInput}
@@ -66,6 +78,8 @@ export interface GetRequestValidatorsCommandOutput extends RequestValidators, __
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetRequestValidatorsCommand extends $Command<

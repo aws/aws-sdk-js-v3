@@ -54,6 +54,12 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  * };
  * const command = new ExchangeCodeForTokenCommand(input);
  * const response = await client.send(command);
+ * // { // ExchangeCodeForTokenResponse
+ * //   accessToken: "STRING_VALUE", // required
+ * //   expiresIn: Number("int"), // required
+ * //   refreshToken: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param ExchangeCodeForTokenCommandInput - {@link ExchangeCodeForTokenCommandInput}
@@ -65,6 +71,8 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class ExchangeCodeForTokenCommand extends $Command<

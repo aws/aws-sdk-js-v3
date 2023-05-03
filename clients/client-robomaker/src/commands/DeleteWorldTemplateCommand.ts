@@ -44,6 +44,8 @@ export interface DeleteWorldTemplateCommandOutput extends DeleteWorldTemplateRes
  * };
  * const command = new DeleteWorldTemplateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteWorldTemplateCommandInput - {@link DeleteWorldTemplateCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteWorldTemplateCommandOutput extends DeleteWorldTemplateRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class DeleteWorldTemplateCommand extends $Command<

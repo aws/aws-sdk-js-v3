@@ -48,6 +48,10 @@ export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricin
  * };
  * const command = new CreateLongTermPricingCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLongTermPricingResult
+ * //   LongTermPricingId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateLongTermPricingCommandInput - {@link CreateLongTermPricingCommandInput}
@@ -60,6 +64,8 @@ export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricin
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
 export class CreateLongTermPricingCommand extends $Command<

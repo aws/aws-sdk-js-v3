@@ -44,6 +44,20 @@ export interface GetNetworkCommandOutput extends GetNetworkResponse, __MetadataB
  * };
  * const command = new GetNetworkCommand(input);
  * const response = await client.send(command);
+ * // { // GetNetworkResponse
+ * //   network: { // Network
+ * //     networkArn: "STRING_VALUE", // required
+ * //     networkName: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     status: "STRING_VALUE", // required
+ * //     statusReason: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetNetworkCommandInput - {@link GetNetworkCommandInput}
@@ -61,6 +75,8 @@ export interface GetNetworkCommandOutput extends GetNetworkResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class GetNetworkCommand extends $Command<

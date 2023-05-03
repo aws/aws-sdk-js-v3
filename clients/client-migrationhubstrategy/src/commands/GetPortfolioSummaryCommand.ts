@@ -47,6 +47,60 @@ export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryRes
  * const input = {};
  * const command = new GetPortfolioSummaryCommand(input);
  * const response = await client.send(command);
+ * // { // GetPortfolioSummaryResponse
+ * //   assessmentSummary: { // AssessmentSummary
+ * //     listServerStrategySummary: [ // ListStrategySummary
+ * //       { // StrategySummary
+ * //         strategy: "STRING_VALUE",
+ * //         count: Number("int"),
+ * //       },
+ * //     ],
+ * //     listApplicationComponentStrategySummary: [
+ * //       {
+ * //         strategy: "STRING_VALUE",
+ * //         count: Number("int"),
+ * //       },
+ * //     ],
+ * //     listAntipatternSeveritySummary: [ // ListAntipatternSeveritySummary
+ * //       { // AntipatternSeveritySummary
+ * //         severity: "STRING_VALUE",
+ * //         count: Number("int"),
+ * //       },
+ * //     ],
+ * //     listApplicationComponentSummary: [ // ListApplicationComponentSummary
+ * //       { // ApplicationComponentSummary
+ * //         appType: "STRING_VALUE",
+ * //         count: Number("int"),
+ * //       },
+ * //     ],
+ * //     listServerSummary: [ // ListServerSummary
+ * //       { // ServerSummary
+ * //         ServerOsType: "STRING_VALUE",
+ * //         count: Number("int"),
+ * //       },
+ * //     ],
+ * //     antipatternReportS3Object: { // S3Object
+ * //       s3Bucket: "STRING_VALUE",
+ * //       s3key: "STRING_VALUE",
+ * //     },
+ * //     antipatternReportStatus: "STRING_VALUE",
+ * //     antipatternReportStatusMessage: "STRING_VALUE",
+ * //     lastAnalyzedTimestamp: new Date("TIMESTAMP"),
+ * //     listApplicationComponentStatusSummary: [ // ListApplicationComponentStatusSummary
+ * //       { // ApplicationComponentStatusSummary
+ * //         srcCodeOrDbAnalysisStatus: "STRING_VALUE",
+ * //         count: Number("int"),
+ * //       },
+ * //     ],
+ * //     listServerStatusSummary: [ // ListServerStatusSummary
+ * //       { // ServerStatusSummary
+ * //         runTimeAssessmentStatus: "STRING_VALUE",
+ * //         count: Number("int"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetPortfolioSummaryCommandInput - {@link GetPortfolioSummaryCommandInput}
@@ -65,6 +119,8 @@ export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p> The request was denied due to request throttling. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class GetPortfolioSummaryCommand extends $Command<

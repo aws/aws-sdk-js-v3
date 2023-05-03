@@ -58,6 +58,8 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
@@ -66,6 +68,8 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteTagsCommand extends $Command<

@@ -45,6 +45,8 @@ export interface DeleteScheduledAuditCommandOutput extends DeleteScheduledAuditR
  * };
  * const command = new DeleteScheduledAuditCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteScheduledAuditCommandInput - {@link DeleteScheduledAuditCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteScheduledAuditCommandOutput extends DeleteScheduledAuditR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteScheduledAuditCommand extends $Command<

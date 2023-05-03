@@ -47,6 +47,16 @@ export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteSche
  * };
  * const command = new BatchDeleteScheduledActionCommand(input);
  * const response = await client.send(command);
+ * // { // BatchDeleteScheduledActionAnswer
+ * //   FailedScheduledActions: [ // FailedScheduledUpdateGroupActionRequests
+ * //     { // FailedScheduledUpdateGroupActionRequest
+ * //       ScheduledActionName: "STRING_VALUE", // required
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchDeleteScheduledActionCommandInput - {@link BatchDeleteScheduledActionCommandInput}
@@ -59,6 +69,8 @@ export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteSche
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  */
 export class BatchDeleteScheduledActionCommand extends $Command<

@@ -65,6 +65,10 @@ export interface StartResourceEvaluationCommandOutput extends StartResourceEvalu
  * };
  * const command = new StartResourceEvaluationCommand(input);
  * const response = await client.send(command);
+ * // { // StartResourceEvaluationResponse
+ * //   ResourceEvaluationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartResourceEvaluationCommandInput - {@link StartResourceEvaluationCommandInput}
@@ -80,6 +84,8 @@ export interface StartResourceEvaluationCommandOutput extends StartResourceEvalu
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class StartResourceEvaluationCommand extends $Command<

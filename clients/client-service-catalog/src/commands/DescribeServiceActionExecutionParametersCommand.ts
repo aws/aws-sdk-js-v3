@@ -55,6 +55,18 @@ export interface DescribeServiceActionExecutionParametersCommandOutput
  * };
  * const command = new DescribeServiceActionExecutionParametersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeServiceActionExecutionParametersOutput
+ * //   ServiceActionParameters: [ // ExecutionParameters
+ * //     { // ExecutionParameter
+ * //       Name: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       DefaultValues: [ // ExecutionParameterValueList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeServiceActionExecutionParametersCommandInput - {@link DescribeServiceActionExecutionParametersCommandInput}
@@ -69,6 +81,8 @@ export interface DescribeServiceActionExecutionParametersCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeServiceActionExecutionParametersCommand extends $Command<

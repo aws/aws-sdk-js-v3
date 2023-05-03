@@ -53,6 +53,21 @@ export interface DescribePrincipalMappingCommandOutput extends DescribePrincipal
  * };
  * const command = new DescribePrincipalMappingCommand(input);
  * const response = await client.send(command);
+ * // { // DescribePrincipalMappingResponse
+ * //   IndexId: "STRING_VALUE",
+ * //   DataSourceId: "STRING_VALUE",
+ * //   GroupId: "STRING_VALUE",
+ * //   GroupOrderingIdSummaries: [ // GroupOrderingIdSummaries
+ * //     { // GroupOrderingIdSummary
+ * //       Status: "FAILED" || "SUCCEEDED" || "PROCESSING" || "DELETING" || "DELETED",
+ * //       LastUpdatedAt: new Date("TIMESTAMP"),
+ * //       ReceivedAt: new Date("TIMESTAMP"),
+ * //       OrderingId: Number("long"),
+ * //       FailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribePrincipalMappingCommandInput - {@link DescribePrincipalMappingCommandInput}
@@ -81,6 +96,8 @@ export interface DescribePrincipalMappingCommandOutput extends DescribePrincipal
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DescribePrincipalMappingCommand extends $Command<

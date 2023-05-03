@@ -74,6 +74,11 @@ export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquas
  * };
  * const command = new MergeBranchesBySquashCommand(input);
  * const response = await client.send(command);
+ * // { // MergeBranchesBySquashOutput
+ * //   commitId: "STRING_VALUE",
+ * //   treeId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param MergeBranchesBySquashCommandInput - {@link MergeBranchesBySquashCommandInput}
@@ -213,6 +218,8 @@ export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquas
  *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class MergeBranchesBySquashCommand extends $Command<

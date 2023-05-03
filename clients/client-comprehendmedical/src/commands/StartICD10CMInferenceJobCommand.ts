@@ -62,6 +62,10 @@ export interface StartICD10CMInferenceJobCommandOutput extends StartICD10CMInfer
  * };
  * const command = new StartICD10CMInferenceJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartICD10CMInferenceJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartICD10CMInferenceJobCommandInput - {@link StartICD10CMInferenceJobCommandInput}
@@ -86,6 +90,8 @@ export interface StartICD10CMInferenceJobCommandOutput extends StartICD10CMInfer
  *       then try your request again. Contact customer support for more information about a service
  *       limit increase. </p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class StartICD10CMInferenceJobCommand extends $Command<

@@ -45,6 +45,27 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
+ * // { // ListChannelsResponse
+ * //   channelSummaries: [ // ChannelSummaries
+ * //     { // ChannelSummary
+ * //       channelName: "STRING_VALUE",
+ * //       channelStorage: { // ChannelStorageSummary
+ * //         serviceManagedS3: {},
+ * //         customerManagedS3: { // CustomerManagedChannelS3StorageSummary
+ * //           bucket: "STRING_VALUE",
+ * //           keyPrefix: "STRING_VALUE",
+ * //           roleArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       status: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdateTime: new Date("TIMESTAMP"),
+ * //       lastMessageArrivalTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListChannelsCommandInput - {@link ListChannelsCommandInput}
@@ -65,6 +86,8 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class ListChannelsCommand extends $Command<

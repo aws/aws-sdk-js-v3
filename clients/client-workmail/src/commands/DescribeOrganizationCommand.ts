@@ -45,6 +45,18 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * };
  * const command = new DescribeOrganizationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeOrganizationResponse
+ * //   OrganizationId: "STRING_VALUE",
+ * //   Alias: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   DirectoryId: "STRING_VALUE",
+ * //   DirectoryType: "STRING_VALUE",
+ * //   DefaultMailDomain: "STRING_VALUE",
+ * //   CompletedDate: new Date("TIMESTAMP"),
+ * //   ErrorMessage: "STRING_VALUE",
+ * //   ARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeOrganizationCommandInput - {@link DescribeOrganizationCommandInput}
@@ -60,6 +72,8 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  *  <p>An operation received a valid organization identifier that either doesn't belong or
  *          exist in the system.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DescribeOrganizationCommand extends $Command<

@@ -45,6 +45,8 @@ export interface DeleteFolderContentsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFolderContentsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteFolderContentsCommandInput - {@link DeleteFolderContentsCommandInput}
@@ -76,6 +78,8 @@ export interface DeleteFolderContentsCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DeleteFolderContentsCommand extends $Command<

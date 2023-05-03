@@ -110,6 +110,11 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * };
  * const command = new CreateBucketCommand(input);
  * const response = await client.send(command);
+ * // { // CreateBucketResult
+ * //   Location: "STRING_VALUE",
+ * //   BucketArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateBucketCommandInput - {@link CreateBucketCommandInput}
@@ -126,6 +131,8 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * @throws {@link BucketAlreadyOwnedByYou} (client fault)
  *  <p>The Outposts bucket you tried to create already exists, and you own it. </p>
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class CreateBucketCommand extends $Command<

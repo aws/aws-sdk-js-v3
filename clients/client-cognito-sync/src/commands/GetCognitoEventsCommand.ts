@@ -44,6 +44,12 @@ export interface GetCognitoEventsCommandOutput extends GetCognitoEventsResponse,
  * };
  * const command = new GetCognitoEventsCommand(input);
  * const response = await client.send(command);
+ * // { // GetCognitoEventsResponse
+ * //   Events: { // Events
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetCognitoEventsCommandInput - {@link GetCognitoEventsCommandInput}
@@ -72,6 +78,8 @@ export interface GetCognitoEventsCommandOutput extends GetCognitoEventsResponse,
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class GetCognitoEventsCommand extends $Command<

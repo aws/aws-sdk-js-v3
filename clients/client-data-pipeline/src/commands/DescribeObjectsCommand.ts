@@ -107,6 +107,24 @@ export interface DescribeObjectsCommandOutput extends DescribeObjectsOutput, __M
  * };
  * const command = new DescribeObjectsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeObjectsOutput
+ * //   pipelineObjects: [ // PipelineObjectList // required
+ * //     { // PipelineObject
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       fields: [ // fieldList // required
+ * //         { // Field
+ * //           key: "STRING_VALUE", // required
+ * //           stringValue: "STRING_VALUE",
+ * //           refValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   marker: "STRING_VALUE",
+ * //   hasMoreResults: true || false,
+ * // };
+ *
  * ```
  *
  * @param DescribeObjectsCommandInput - {@link DescribeObjectsCommandInput}
@@ -127,6 +145,8 @@ export interface DescribeObjectsCommandOutput extends DescribeObjectsOutput, __M
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class DescribeObjectsCommand extends $Command<

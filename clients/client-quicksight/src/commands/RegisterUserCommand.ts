@@ -55,6 +55,25 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * };
  * const command = new RegisterUserCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterUserResponse
+ * //   User: { // User
+ * //     Arn: "STRING_VALUE",
+ * //     UserName: "STRING_VALUE",
+ * //     Email: "STRING_VALUE",
+ * //     Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER",
+ * //     IdentityType: "IAM" || "QUICKSIGHT",
+ * //     Active: true || false,
+ * //     PrincipalId: "STRING_VALUE",
+ * //     CustomPermissionsName: "STRING_VALUE",
+ * //     ExternalLoginFederationProviderType: "STRING_VALUE",
+ * //     ExternalLoginFederationProviderUrl: "STRING_VALUE",
+ * //     ExternalLoginId: "STRING_VALUE",
+ * //   },
+ * //   UserInvitationUrl: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param RegisterUserCommandInput - {@link RegisterUserCommandInput}
@@ -93,6 +112,8 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class RegisterUserCommand extends $Command<

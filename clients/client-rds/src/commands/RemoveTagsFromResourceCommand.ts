@@ -51,6 +51,8 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RemoveTagsFromResourceCommandInput - {@link RemoveTagsFromResourceCommandInput}
@@ -81,6 +83,8 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To remove tags from a resource
  * ```javascript

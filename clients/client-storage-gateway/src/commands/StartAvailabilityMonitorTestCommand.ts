@@ -56,6 +56,10 @@ export interface StartAvailabilityMonitorTestCommandOutput
  * };
  * const command = new StartAvailabilityMonitorTestCommand(input);
  * const response = await client.send(command);
+ * // { // StartAvailabilityMonitorTestOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartAvailabilityMonitorTestCommandInput - {@link StartAvailabilityMonitorTestCommandInput}
@@ -72,6 +76,8 @@ export interface StartAvailabilityMonitorTestCommandOutput
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class StartAvailabilityMonitorTestCommand extends $Command<

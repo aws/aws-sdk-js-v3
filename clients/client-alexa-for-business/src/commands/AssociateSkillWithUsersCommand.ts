@@ -44,6 +44,8 @@ export interface AssociateSkillWithUsersCommandOutput extends AssociateSkillWith
  * };
  * const command = new AssociateSkillWithUsersCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AssociateSkillWithUsersCommandInput - {@link AssociateSkillWithUsersCommandInput}
@@ -58,6 +60,8 @@ export interface AssociateSkillWithUsersCommandOutput extends AssociateSkillWith
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class AssociateSkillWithUsersCommand extends $Command<

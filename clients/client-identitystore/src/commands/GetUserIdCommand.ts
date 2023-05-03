@@ -54,6 +54,11 @@ export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBea
  * };
  * const command = new GetUserIdCommand(input);
  * const response = await client.send(command);
+ * // { // GetUserIdResponse
+ * //   UserId: "STRING_VALUE", // required
+ * //   IdentityStoreId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param GetUserIdCommandInput - {@link GetUserIdCommandInput}
@@ -77,6 +82,8 @@ export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBea
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class GetUserIdCommand extends $Command<

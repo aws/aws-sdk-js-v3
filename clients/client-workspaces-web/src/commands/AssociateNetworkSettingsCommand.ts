@@ -45,6 +45,11 @@ export interface AssociateNetworkSettingsCommandOutput extends AssociateNetworkS
  * };
  * const command = new AssociateNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateNetworkSettingsResponse
+ * //   portalArn: "STRING_VALUE", // required
+ * //   networkSettingsArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param AssociateNetworkSettingsCommandInput - {@link AssociateNetworkSettingsCommandInput}
@@ -71,6 +76,8 @@ export interface AssociateNetworkSettingsCommandOutput extends AssociateNetworkS
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class AssociateNetworkSettingsCommand extends $Command<

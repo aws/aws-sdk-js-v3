@@ -47,6 +47,11 @@ export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __Met
  * };
  * const command = new UpdateHostKeyCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateHostKeyResponse
+ * //   ServerId: "STRING_VALUE", // required
+ * //   HostKeyId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateHostKeyCommandInput - {@link UpdateHostKeyCommandInput}
@@ -71,6 +76,8 @@ export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class UpdateHostKeyCommand extends $Command<

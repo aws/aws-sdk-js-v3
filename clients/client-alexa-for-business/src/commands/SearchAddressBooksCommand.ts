@@ -60,6 +60,18 @@ export interface SearchAddressBooksCommandOutput extends SearchAddressBooksRespo
  * };
  * const command = new SearchAddressBooksCommand(input);
  * const response = await client.send(command);
+ * // { // SearchAddressBooksResponse
+ * //   AddressBooks: [ // AddressBookDataList
+ * //     { // AddressBookData
+ * //       AddressBookArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TotalCount: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param SearchAddressBooksCommandInput - {@link SearchAddressBooksCommandInput}
@@ -68,6 +80,8 @@ export interface SearchAddressBooksCommandOutput extends SearchAddressBooksRespo
  * @see {@link SearchAddressBooksCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class SearchAddressBooksCommand extends $Command<

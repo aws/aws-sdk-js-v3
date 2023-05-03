@@ -52,6 +52,15 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateAccountSettingsResponse
+ * //   accountSettingsDetail: { // AccountSettingsDetail
+ * //     capacityLimits: { // CapacityLimits
+ * //       maxIndexingCapacityInOCU: Number("int"),
+ * //       maxSearchCapacityInOCU: Number("int"),
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateAccountSettingsCommandInput - {@link UpdateAccountSettingsCommandInput}
@@ -67,6 +76,8 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class UpdateAccountSettingsCommand extends $Command<

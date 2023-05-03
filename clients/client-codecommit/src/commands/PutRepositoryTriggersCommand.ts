@@ -57,6 +57,10 @@ export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTrigger
  * };
  * const command = new PutRepositoryTriggersCommand(input);
  * const response = await client.send(command);
+ * // { // PutRepositoryTriggersOutput
+ * //   configurationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutRepositoryTriggersCommandInput - {@link PutRepositoryTriggersCommandInput}
@@ -138,6 +142,8 @@ export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTrigger
  * @throws {@link RepositoryTriggersListRequiredException} (client fault)
  *  <p>The list of triggers for the repository is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class PutRepositoryTriggersCommand extends $Command<

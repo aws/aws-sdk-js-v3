@@ -46,6 +46,8 @@ export interface StopAppCommandOutput extends StopAppOutput, __MetadataBearer {}
  * };
  * const command = new StopAppCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopAppCommandInput - {@link StopAppCommandInput}
@@ -69,6 +71,8 @@ export interface StopAppCommandOutput extends StopAppOutput, __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class StopAppCommand extends $Command<

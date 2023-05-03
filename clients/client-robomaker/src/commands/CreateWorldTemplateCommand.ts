@@ -53,6 +53,16 @@ export interface CreateWorldTemplateCommandOutput extends CreateWorldTemplateRes
  * };
  * const command = new CreateWorldTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWorldTemplateResponse
+ * //   arn: "STRING_VALUE",
+ * //   clientRequestToken: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   name: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateWorldTemplateCommandInput - {@link CreateWorldTemplateCommandInput}
@@ -81,6 +91,8 @@ export interface CreateWorldTemplateCommandOutput extends CreateWorldTemplateRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CreateWorldTemplateCommand extends $Command<

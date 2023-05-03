@@ -44,6 +44,8 @@ export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutpu
  * };
  * const command = new DeleteMetricPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteMetricPolicyCommandInput - {@link DeleteMetricPolicyCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutpu
  * @throws {@link PolicyNotFoundException} (client fault)
  *  <p>The policy that you specified in the request does not exist.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class DeleteMetricPolicyCommand extends $Command<

@@ -44,6 +44,8 @@ export interface DeleteAssistantCommandOutput extends DeleteAssistantResponse, _
  * };
  * const command = new DeleteAssistantCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAssistantCommandInput - {@link DeleteAssistantCommandInput}
@@ -61,6 +63,8 @@ export interface DeleteAssistantCommandOutput extends DeleteAssistantResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class DeleteAssistantCommand extends $Command<

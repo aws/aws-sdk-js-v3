@@ -54,6 +54,8 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
  * };
  * const command = new ChangePasswordCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ChangePasswordCommandInput - {@link ChangePasswordCommandInput}
@@ -99,6 +101,8 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ChangePasswordCommand extends $Command<

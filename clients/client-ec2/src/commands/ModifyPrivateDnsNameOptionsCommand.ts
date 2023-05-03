@@ -48,6 +48,10 @@ export interface ModifyPrivateDnsNameOptionsCommandOutput extends ModifyPrivateD
  * };
  * const command = new ModifyPrivateDnsNameOptionsCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyPrivateDnsNameOptionsResult
+ * //   Return: true || false,
+ * // };
+ *
  * ```
  *
  * @param ModifyPrivateDnsNameOptionsCommandInput - {@link ModifyPrivateDnsNameOptionsCommandInput}
@@ -56,6 +60,8 @@ export interface ModifyPrivateDnsNameOptionsCommandOutput extends ModifyPrivateD
  * @see {@link ModifyPrivateDnsNameOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyPrivateDnsNameOptionsCommand extends $Command<

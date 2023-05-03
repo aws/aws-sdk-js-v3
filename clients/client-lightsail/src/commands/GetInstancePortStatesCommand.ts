@@ -45,6 +45,26 @@ export interface GetInstancePortStatesCommandOutput extends GetInstancePortState
  * };
  * const command = new GetInstancePortStatesCommand(input);
  * const response = await client.send(command);
+ * // { // GetInstancePortStatesResult
+ * //   portStates: [ // InstancePortStateList
+ * //     { // InstancePortState
+ * //       fromPort: Number("int"),
+ * //       toPort: Number("int"),
+ * //       protocol: "tcp" || "all" || "udp" || "icmp",
+ * //       state: "open" || "closed",
+ * //       cidrs: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ipv6Cidrs: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       cidrListAliases: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetInstancePortStatesCommandInput - {@link GetInstancePortStatesCommandInput}
@@ -83,6 +103,8 @@ export interface GetInstancePortStatesCommandOutput extends GetInstancePortState
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetInstancePortStatesCommand extends $Command<

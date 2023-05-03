@@ -46,6 +46,19 @@ export interface ListPolicyGenerationsCommandOutput extends ListPolicyGeneration
  * };
  * const command = new ListPolicyGenerationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPolicyGenerationsResponse
+ * //   policyGenerations: [ // PolicyGenerationList // required
+ * //     { // PolicyGeneration
+ * //       jobId: "STRING_VALUE", // required
+ * //       principalArn: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       startedOn: new Date("TIMESTAMP"), // required
+ * //       completedOn: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPolicyGenerationsCommandInput - {@link ListPolicyGenerationsCommandInput}
@@ -66,6 +79,8 @@ export interface ListPolicyGenerationsCommandOutput extends ListPolicyGeneration
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class ListPolicyGenerationsCommand extends $Command<

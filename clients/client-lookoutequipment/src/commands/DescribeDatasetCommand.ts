@@ -45,6 +45,60 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDatasetResponse
+ * //   DatasetName: "STRING_VALUE",
+ * //   DatasetArn: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   LastUpdatedAt: new Date("TIMESTAMP"),
+ * //   Status: "CREATED" || "INGESTION_IN_PROGRESS" || "ACTIVE",
+ * //   Schema: "STRING_VALUE",
+ * //   ServerSideKmsKeyId: "STRING_VALUE",
+ * //   IngestionInputConfiguration: { // IngestionInputConfiguration
+ * //     S3InputConfiguration: { // IngestionS3InputConfiguration
+ * //       Bucket: "STRING_VALUE", // required
+ * //       Prefix: "STRING_VALUE",
+ * //       KeyPattern: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   DataQualitySummary: { // DataQualitySummary
+ * //     InsufficientSensorData: { // InsufficientSensorData
+ * //       MissingCompleteSensorData: { // MissingCompleteSensorData
+ * //         AffectedSensorCount: Number("int"), // required
+ * //       },
+ * //       SensorsWithShortDateRange: { // SensorsWithShortDateRange
+ * //         AffectedSensorCount: Number("int"), // required
+ * //       },
+ * //     },
+ * //     MissingSensorData: { // MissingSensorData
+ * //       AffectedSensorCount: Number("int"), // required
+ * //       TotalNumberOfMissingValues: Number("int"), // required
+ * //     },
+ * //     InvalidSensorData: { // InvalidSensorData
+ * //       AffectedSensorCount: Number("int"), // required
+ * //       TotalNumberOfInvalidValues: Number("int"), // required
+ * //     },
+ * //     UnsupportedTimestamps: { // UnsupportedTimestamps
+ * //       TotalNumberOfUnsupportedTimestamps: Number("int"), // required
+ * //     },
+ * //     DuplicateTimestamps: { // DuplicateTimestamps
+ * //       TotalNumberOfDuplicateTimestamps: Number("int"), // required
+ * //     },
+ * //   },
+ * //   IngestedFilesSummary: { // IngestedFilesSummary
+ * //     TotalNumberOfFiles: Number("int"), // required
+ * //     IngestedNumberOfFiles: Number("int"), // required
+ * //     DiscardedFiles: [ // ListOfDiscardedFiles
+ * //       { // S3Object
+ * //         Bucket: "STRING_VALUE", // required
+ * //         Key: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   RoleArn: "STRING_VALUE",
+ * //   DataStartTime: new Date("TIMESTAMP"),
+ * //   DataEndTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
@@ -72,6 +126,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class DescribeDatasetCommand extends $Command<

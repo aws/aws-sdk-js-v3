@@ -44,6 +44,8 @@ export interface DeleteWorkerFleetCommandOutput extends DeleteWorkerFleetRespons
  * };
  * const command = new DeleteWorkerFleetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteWorkerFleetCommandInput - {@link DeleteWorkerFleetCommandInput}
@@ -70,6 +72,8 @@ export interface DeleteWorkerFleetCommandOutput extends DeleteWorkerFleetRespons
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class DeleteWorkerFleetCommand extends $Command<

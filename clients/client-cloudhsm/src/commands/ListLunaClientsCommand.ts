@@ -58,6 +58,13 @@ export interface ListLunaClientsCommandOutput extends ListLunaClientsResponse, _
  * };
  * const command = new ListLunaClientsCommand(input);
  * const response = await client.send(command);
+ * // { // ListLunaClientsResponse
+ * //   ClientList: [ // ClientList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListLunaClientsCommandInput - {@link ListLunaClientsCommandInput}
@@ -75,6 +82,8 @@ export interface ListLunaClientsCommandOutput extends ListLunaClientsResponse, _
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class ListLunaClientsCommand extends $Command<

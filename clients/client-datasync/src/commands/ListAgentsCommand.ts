@@ -55,6 +55,17 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  * };
  * const command = new ListAgentsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAgentsResponse
+ * //   Agents: [ // AgentList
+ * //     { // AgentListEntry
+ * //       AgentArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "ONLINE" || "OFFLINE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAgentsCommandInput - {@link ListAgentsCommandInput}
@@ -70,6 +81,8 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class ListAgentsCommand extends $Command<

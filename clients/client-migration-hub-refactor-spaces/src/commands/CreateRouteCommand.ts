@@ -142,6 +142,30 @@ export interface CreateRouteCommandOutput extends CreateRouteResponse, __Metadat
  * };
  * const command = new CreateRouteCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRouteResponse
+ * //   RouteId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   OwnerAccountId: "STRING_VALUE",
+ * //   CreatedByAccountId: "STRING_VALUE",
+ * //   RouteType: "STRING_VALUE",
+ * //   ServiceId: "STRING_VALUE",
+ * //   ApplicationId: "STRING_VALUE",
+ * //   UriPathRoute: { // UriPathRouteInput
+ * //     SourcePath: "STRING_VALUE", // required
+ * //     ActivationState: "STRING_VALUE", // required
+ * //     Methods: [ // HttpMethods
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     IncludeChildPaths: true || false,
+ * //   },
+ * //   State: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param CreateRouteCommandInput - {@link CreateRouteCommandInput}
@@ -172,6 +196,8 @@ export interface CreateRouteCommandOutput extends CreateRouteResponse, __Metadat
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class CreateRouteCommand extends $Command<

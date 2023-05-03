@@ -58,6 +58,16 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * };
  * const command = new CreateRegexPatternSetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRegexPatternSetResponse
+ * //   Summary: { // RegexPatternSetSummary
+ * //     Name: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     LockToken: "STRING_VALUE",
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateRegexPatternSetCommandInput - {@link CreateRegexPatternSetCommandInput}
@@ -116,6 +126,8 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  *  <p>WAF couldn’t perform your tagging operation because of an internal error. Retry
  *          your request.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class CreateRegexPatternSetCommand extends $Command<

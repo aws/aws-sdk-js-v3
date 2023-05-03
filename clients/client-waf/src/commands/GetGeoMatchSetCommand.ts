@@ -52,6 +52,19 @@ export interface GetGeoMatchSetCommandOutput extends GetGeoMatchSetResponse, __M
  * };
  * const command = new GetGeoMatchSetCommand(input);
  * const response = await client.send(command);
+ * // { // GetGeoMatchSetResponse
+ * //   GeoMatchSet: { // GeoMatchSet
+ * //     GeoMatchSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     GeoMatchConstraints: [ // GeoMatchConstraints // required
+ * //       { // GeoMatchConstraint
+ * //         Type: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetGeoMatchSetCommandInput - {@link GetGeoMatchSetCommandInput}
@@ -69,6 +82,8 @@ export interface GetGeoMatchSetCommandOutput extends GetGeoMatchSetResponse, __M
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class GetGeoMatchSetCommand extends $Command<

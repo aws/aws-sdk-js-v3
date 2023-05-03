@@ -55,6 +55,8 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  * };
  * const command = new DeleteStateMachineCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteStateMachineCommandInput - {@link DeleteStateMachineCommandInput}
@@ -69,6 +71,8 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class DeleteStateMachineCommand extends $Command<

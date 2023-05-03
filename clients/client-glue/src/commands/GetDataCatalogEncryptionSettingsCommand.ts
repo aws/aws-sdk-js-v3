@@ -49,6 +49,19 @@ export interface GetDataCatalogEncryptionSettingsCommandOutput
  * };
  * const command = new GetDataCatalogEncryptionSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // GetDataCatalogEncryptionSettingsResponse
+ * //   DataCatalogEncryptionSettings: { // DataCatalogEncryptionSettings
+ * //     EncryptionAtRest: { // EncryptionAtRest
+ * //       CatalogEncryptionMode: "DISABLED" || "SSE-KMS", // required
+ * //       SseAwsKmsKeyId: "STRING_VALUE",
+ * //     },
+ * //     ConnectionPasswordEncryption: { // ConnectionPasswordEncryption
+ * //       ReturnConnectionPasswordEncrypted: true || false, // required
+ * //       AwsKmsKeyId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetDataCatalogEncryptionSettingsCommandInput - {@link GetDataCatalogEncryptionSettingsCommandInput}
@@ -66,6 +79,8 @@ export interface GetDataCatalogEncryptionSettingsCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetDataCatalogEncryptionSettingsCommand extends $Command<

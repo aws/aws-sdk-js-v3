@@ -73,6 +73,27 @@ export interface PutReplicationConfigurationCommandOutput
  * };
  * const command = new PutReplicationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // PutReplicationConfigurationResponse
+ * //   replicationConfiguration: { // ReplicationConfiguration
+ * //     rules: [ // ReplicationRuleList // required
+ * //       { // ReplicationRule
+ * //         destinations: [ // ReplicationDestinationList // required
+ * //           { // ReplicationDestination
+ * //             region: "STRING_VALUE", // required
+ * //             registryId: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         repositoryFilters: [ // RepositoryFilterList
+ * //           { // RepositoryFilter
+ * //             filter: "STRING_VALUE", // required
+ * //             filterType: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutReplicationConfigurationCommandInput - {@link PutReplicationConfigurationCommandInput}
@@ -91,6 +112,8 @@ export interface PutReplicationConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class PutReplicationConfigurationCommand extends $Command<

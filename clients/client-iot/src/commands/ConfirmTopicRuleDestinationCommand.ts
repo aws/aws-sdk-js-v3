@@ -53,6 +53,8 @@ export interface ConfirmTopicRuleDestinationCommandOutput
  * };
  * const command = new ConfirmTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ConfirmTopicRuleDestinationCommandInput - {@link ConfirmTopicRuleDestinationCommandInput}
@@ -77,6 +79,8 @@ export interface ConfirmTopicRuleDestinationCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ConfirmTopicRuleDestinationCommand extends $Command<

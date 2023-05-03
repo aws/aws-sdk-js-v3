@@ -44,6 +44,15 @@ export interface GetDirectoryCommandOutput extends GetDirectoryResponse, __Metad
  * };
  * const command = new GetDirectoryCommand(input);
  * const response = await client.send(command);
+ * // { // GetDirectoryResponse
+ * //   Directory: { // Directory
+ * //     Name: "STRING_VALUE",
+ * //     DirectoryArn: "STRING_VALUE",
+ * //     State: "ENABLED" || "DISABLED" || "DELETED",
+ * //     CreationDateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetDirectoryCommandInput - {@link GetDirectoryCommandInput}
@@ -71,6 +80,8 @@ export interface GetDirectoryCommandOutput extends GetDirectoryResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class GetDirectoryCommand extends $Command<

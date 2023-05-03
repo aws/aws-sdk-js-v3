@@ -54,6 +54,16 @@ export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse,
  * };
  * const command = new UpdateAppVersionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateAppVersionResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   additionalInfo: { // AdditionalInfoMap
+ * //     "<keys>": [ // AdditionalInfoValueList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateAppVersionCommandInput - {@link UpdateAppVersionCommandInput}
@@ -86,6 +96,8 @@ export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class UpdateAppVersionCommand extends $Command<

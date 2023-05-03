@@ -53,6 +53,8 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
@@ -73,6 +75,8 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing snapshot. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class AddTagsToResourceCommand extends $Command<

@@ -58,6 +58,46 @@ export interface CreateNetworkAclCommandOutput extends CreateNetworkAclResult, _
  * };
  * const command = new CreateNetworkAclCommand(input);
  * const response = await client.send(command);
+ * // { // CreateNetworkAclResult
+ * //   NetworkAcl: { // NetworkAcl
+ * //     Associations: [ // NetworkAclAssociationList
+ * //       { // NetworkAclAssociation
+ * //         NetworkAclAssociationId: "STRING_VALUE",
+ * //         NetworkAclId: "STRING_VALUE",
+ * //         SubnetId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Entries: [ // NetworkAclEntryList
+ * //       { // NetworkAclEntry
+ * //         CidrBlock: "STRING_VALUE",
+ * //         Egress: true || false,
+ * //         IcmpTypeCode: { // IcmpTypeCode
+ * //           Code: Number("int"),
+ * //           Type: Number("int"),
+ * //         },
+ * //         Ipv6CidrBlock: "STRING_VALUE",
+ * //         PortRange: { // PortRange
+ * //           From: Number("int"),
+ * //           To: Number("int"),
+ * //         },
+ * //         Protocol: "STRING_VALUE",
+ * //         RuleAction: "allow" || "deny",
+ * //         RuleNumber: Number("int"),
+ * //       },
+ * //     ],
+ * //     IsDefault: true || false,
+ * //     NetworkAclId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     VpcId: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateNetworkAclCommandInput - {@link CreateNetworkAclCommandInput}
@@ -66,6 +106,8 @@ export interface CreateNetworkAclCommandOutput extends CreateNetworkAclResult, _
  * @see {@link CreateNetworkAclCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To create a network ACL
  * ```javascript

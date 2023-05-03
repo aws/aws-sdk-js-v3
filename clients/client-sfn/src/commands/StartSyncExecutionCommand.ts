@@ -64,6 +64,30 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  * };
  * const command = new StartSyncExecutionCommand(input);
  * const response = await client.send(command);
+ * // { // StartSyncExecutionOutput
+ * //   executionArn: "STRING_VALUE", // required
+ * //   stateMachineArn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   startDate: new Date("TIMESTAMP"), // required
+ * //   stopDate: new Date("TIMESTAMP"), // required
+ * //   status: "SUCCEEDED" || "FAILED" || "TIMED_OUT", // required
+ * //   error: "STRING_VALUE",
+ * //   cause: "STRING_VALUE",
+ * //   input: "STRING_VALUE",
+ * //   inputDetails: { // CloudWatchEventsExecutionDataDetails
+ * //     included: true || false,
+ * //   },
+ * //   output: "STRING_VALUE",
+ * //   outputDetails: {
+ * //     included: true || false,
+ * //   },
+ * //   traceHeader: "STRING_VALUE",
+ * //   billingDetails: { // BillingDetails
+ * //     billedMemoryUsedInMB: Number("long"),
+ * //     billedDurationInMilliseconds: Number("long"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StartSyncExecutionCommandInput - {@link StartSyncExecutionCommandInput}
@@ -90,6 +114,8 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  * @throws {@link StateMachineTypeNotSupported} (client fault)
  *  <p></p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class StartSyncExecutionCommand extends $Command<

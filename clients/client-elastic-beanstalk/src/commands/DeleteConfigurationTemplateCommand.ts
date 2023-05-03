@@ -50,6 +50,8 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteConfigurationTemplateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteConfigurationTemplateCommandInput - {@link DeleteConfigurationTemplateCommandInput}
@@ -62,6 +64,8 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  *  <p>Unable to perform the specified operation because another operation that effects an
  *       element in this activity is already in progress.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To delete a configuration template
  * ```javascript

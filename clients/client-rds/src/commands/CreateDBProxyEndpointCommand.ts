@@ -60,6 +60,26 @@ export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpoin
  * };
  * const command = new CreateDBProxyEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDBProxyEndpointResponse
+ * //   DBProxyEndpoint: { // DBProxyEndpoint
+ * //     DBProxyEndpointName: "STRING_VALUE",
+ * //     DBProxyEndpointArn: "STRING_VALUE",
+ * //     DBProxyName: "STRING_VALUE",
+ * //     Status: "available" || "modifying" || "incompatible-network" || "insufficient-resource-limits" || "creating" || "deleting",
+ * //     VpcId: "STRING_VALUE",
+ * //     VpcSecurityGroupIds: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     VpcSubnetIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Endpoint: "STRING_VALUE",
+ * //     CreatedDate: new Date("TIMESTAMP"),
+ * //     TargetRole: "READ_WRITE" || "READ_ONLY",
+ * //     IsDefault: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateDBProxyEndpointCommandInput - {@link CreateDBProxyEndpointCommandInput}
@@ -83,6 +103,8 @@ export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpoin
  * @throws {@link InvalidSubnet} (client fault)
  *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class CreateDBProxyEndpointCommand extends $Command<

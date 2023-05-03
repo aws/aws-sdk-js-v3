@@ -56,6 +56,10 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
  * };
  * const command = new CreateImportJobCommand(input);
  * const response = await client.send(command);
+ * // { // CreateImportJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateImportJobCommandInput - {@link CreateImportJobCommandInput}
@@ -73,6 +77,8 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class CreateImportJobCommand extends $Command<

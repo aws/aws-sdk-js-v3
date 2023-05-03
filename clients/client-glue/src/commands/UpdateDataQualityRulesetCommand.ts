@@ -46,6 +46,12 @@ export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQuality
  * };
  * const command = new UpdateDataQualityRulesetCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateDataQualityRulesetResponse
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Ruleset: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateDataQualityRulesetCommandInput - {@link UpdateDataQualityRulesetCommandInput}
@@ -75,6 +81,8 @@ export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQuality
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateDataQualityRulesetCommand extends $Command<

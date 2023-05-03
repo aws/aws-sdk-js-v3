@@ -46,6 +46,8 @@ export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleR
  * };
  * const command = new StartCrawlerScheduleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartCrawlerScheduleCommandInput - {@link StartCrawlerScheduleCommandInput}
@@ -69,6 +71,8 @@ export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleR
  * @throws {@link SchedulerTransitioningException} (client fault)
  *  <p>The specified scheduler is transitioning.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartCrawlerScheduleCommand extends $Command<

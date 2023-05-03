@@ -56,6 +56,74 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  * };
  * const command = new GetThirdPartyJobDetailsCommand(input);
  * const response = await client.send(command);
+ * // { // GetThirdPartyJobDetailsOutput
+ * //   jobDetails: { // ThirdPartyJobDetails
+ * //     id: "STRING_VALUE",
+ * //     data: { // ThirdPartyJobData
+ * //       actionTypeId: { // ActionTypeId
+ * //         category: "STRING_VALUE", // required
+ * //         owner: "STRING_VALUE", // required
+ * //         provider: "STRING_VALUE", // required
+ * //         version: "STRING_VALUE", // required
+ * //       },
+ * //       actionConfiguration: { // ActionConfiguration
+ * //         configuration: { // ActionConfigurationMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       pipelineContext: { // PipelineContext
+ * //         pipelineName: "STRING_VALUE",
+ * //         stage: { // StageContext
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //         action: { // ActionContext
+ * //           name: "STRING_VALUE",
+ * //           actionExecutionId: "STRING_VALUE",
+ * //         },
+ * //         pipelineArn: "STRING_VALUE",
+ * //         pipelineExecutionId: "STRING_VALUE",
+ * //       },
+ * //       inputArtifacts: [ // ArtifactList
+ * //         { // Artifact
+ * //           name: "STRING_VALUE",
+ * //           revision: "STRING_VALUE",
+ * //           location: { // ArtifactLocation
+ * //             type: "STRING_VALUE",
+ * //             s3Location: { // S3ArtifactLocation
+ * //               bucketName: "STRING_VALUE", // required
+ * //               objectKey: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       outputArtifacts: [
+ * //         {
+ * //           name: "STRING_VALUE",
+ * //           revision: "STRING_VALUE",
+ * //           location: {
+ * //             type: "STRING_VALUE",
+ * //             s3Location: {
+ * //               bucketName: "STRING_VALUE", // required
+ * //               objectKey: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       artifactCredentials: { // AWSSessionCredentials
+ * //         accessKeyId: "STRING_VALUE", // required
+ * //         secretAccessKey: "STRING_VALUE", // required
+ * //         sessionToken: "STRING_VALUE", // required
+ * //       },
+ * //       continuationToken: "STRING_VALUE",
+ * //       encryptionKey: { // EncryptionKey
+ * //         id: "STRING_VALUE", // required
+ * //         type: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     nonce: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetThirdPartyJobDetailsCommandInput - {@link GetThirdPartyJobDetailsCommandInput}
@@ -76,6 +144,8 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class GetThirdPartyJobDetailsCommand extends $Command<

@@ -45,6 +45,8 @@ export interface DeleteObjectCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteObjectCommandInput - {@link DeleteObjectCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteObjectCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  Increased rate over throttling limits. Can be retried with exponential backoff.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class DeleteObjectCommand extends $Command<

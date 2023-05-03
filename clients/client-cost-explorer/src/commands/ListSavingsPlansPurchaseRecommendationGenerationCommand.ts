@@ -59,6 +59,19 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * };
  * const command = new ListSavingsPlansPurchaseRecommendationGenerationCommand(input);
  * const response = await client.send(command);
+ * // { // ListSavingsPlansPurchaseRecommendationGenerationResponse
+ * //   GenerationSummaryList: [ // GenerationSummaryList
+ * //     { // GenerationSummary
+ * //       RecommendationId: "STRING_VALUE",
+ * //       GenerationStatus: "SUCCEEDED" || "PROCESSING" || "FAILED",
+ * //       GenerationStartedTime: "STRING_VALUE",
+ * //       GenerationCompletionTime: "STRING_VALUE",
+ * //       EstimatedCompletionTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSavingsPlansPurchaseRecommendationGenerationCommandInput - {@link ListSavingsPlansPurchaseRecommendationGenerationCommandInput}
@@ -73,6 +86,8 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Command<

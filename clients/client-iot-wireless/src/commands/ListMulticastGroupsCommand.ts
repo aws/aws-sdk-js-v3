@@ -45,6 +45,17 @@ export interface ListMulticastGroupsCommandOutput extends ListMulticastGroupsRes
  * };
  * const command = new ListMulticastGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMulticastGroupsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   MulticastGroupList: [ // MulticastGroupList
+ * //     { // MulticastGroup
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListMulticastGroupsCommandInput - {@link ListMulticastGroupsCommandInput}
@@ -65,6 +76,8 @@ export interface ListMulticastGroupsCommandOutput extends ListMulticastGroupsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListMulticastGroupsCommand extends $Command<

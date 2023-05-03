@@ -52,6 +52,8 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateSSHPublicKeyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateSSHPublicKeyCommandInput - {@link UpdateSSHPublicKeyCommandInput}
@@ -64,6 +66,8 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class UpdateSSHPublicKeyCommand extends $Command<

@@ -64,6 +64,59 @@ export interface DescribeUpdateActionsCommandOutput extends UpdateActionsMessage
  * };
  * const command = new DescribeUpdateActionsCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateActionsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   UpdateActions: [ // UpdateActionList
+ * //     { // UpdateAction
+ * //       ReplicationGroupId: "STRING_VALUE",
+ * //       CacheClusterId: "STRING_VALUE",
+ * //       ServiceUpdateName: "STRING_VALUE",
+ * //       ServiceUpdateReleaseDate: new Date("TIMESTAMP"),
+ * //       ServiceUpdateSeverity: "critical" || "important" || "medium" || "low",
+ * //       ServiceUpdateStatus: "available" || "cancelled" || "expired",
+ * //       ServiceUpdateRecommendedApplyByDate: new Date("TIMESTAMP"),
+ * //       ServiceUpdateType: "security-update",
+ * //       UpdateActionAvailableDate: new Date("TIMESTAMP"),
+ * //       UpdateActionStatus: "not-applied" || "waiting-to-start" || "in-progress" || "stopping" || "stopped" || "complete" || "scheduling" || "scheduled" || "not-applicable",
+ * //       NodesUpdated: "STRING_VALUE",
+ * //       UpdateActionStatusModifiedDate: new Date("TIMESTAMP"),
+ * //       SlaMet: "yes" || "no" || "n/a",
+ * //       NodeGroupUpdateStatus: [ // NodeGroupUpdateStatusList
+ * //         { // NodeGroupUpdateStatus
+ * //           NodeGroupId: "STRING_VALUE",
+ * //           NodeGroupMemberUpdateStatus: [ // NodeGroupMemberUpdateStatusList
+ * //             { // NodeGroupMemberUpdateStatus
+ * //               CacheClusterId: "STRING_VALUE",
+ * //               CacheNodeId: "STRING_VALUE",
+ * //               NodeUpdateStatus: "not-applied" || "waiting-to-start" || "in-progress" || "stopping" || "stopped" || "complete",
+ * //               NodeDeletionDate: new Date("TIMESTAMP"),
+ * //               NodeUpdateStartDate: new Date("TIMESTAMP"),
+ * //               NodeUpdateEndDate: new Date("TIMESTAMP"),
+ * //               NodeUpdateInitiatedBy: "system" || "customer",
+ * //               NodeUpdateInitiatedDate: new Date("TIMESTAMP"),
+ * //               NodeUpdateStatusModifiedDate: new Date("TIMESTAMP"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       CacheNodeUpdateStatus: [ // CacheNodeUpdateStatusList
+ * //         { // CacheNodeUpdateStatus
+ * //           CacheNodeId: "STRING_VALUE",
+ * //           NodeUpdateStatus: "not-applied" || "waiting-to-start" || "in-progress" || "stopping" || "stopped" || "complete",
+ * //           NodeDeletionDate: new Date("TIMESTAMP"),
+ * //           NodeUpdateStartDate: new Date("TIMESTAMP"),
+ * //           NodeUpdateEndDate: new Date("TIMESTAMP"),
+ * //           NodeUpdateInitiatedBy: "system" || "customer",
+ * //           NodeUpdateInitiatedDate: new Date("TIMESTAMP"),
+ * //           NodeUpdateStatusModifiedDate: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //       EstimatedUpdateTime: "STRING_VALUE",
+ * //       Engine: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeUpdateActionsCommandInput - {@link DescribeUpdateActionsCommandInput}
@@ -78,6 +131,8 @@ export interface DescribeUpdateActionsCommandOutput extends UpdateActionsMessage
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value for a parameter is invalid.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class DescribeUpdateActionsCommand extends $Command<

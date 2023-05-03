@@ -46,6 +46,8 @@ export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResetImageAttributeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ResetImageAttributeCommandInput - {@link ResetImageAttributeCommandInput}
@@ -54,6 +56,8 @@ export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link ResetImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To reset the launchPermission attribute
  * ```javascript

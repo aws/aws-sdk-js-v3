@@ -45,6 +45,36 @@ export interface ListCustomPluginsCommandOutput extends ListCustomPluginsRespons
  * };
  * const command = new ListCustomPluginsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCustomPluginsResponse
+ * //   customPlugins: [ // __listOfCustomPluginSummary
+ * //     { // CustomPluginSummary
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       customPluginArn: "STRING_VALUE",
+ * //       customPluginState: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       latestRevision: { // CustomPluginRevisionSummary
+ * //         contentType: "STRING_VALUE",
+ * //         creationTime: new Date("TIMESTAMP"),
+ * //         description: "STRING_VALUE",
+ * //         fileDescription: { // CustomPluginFileDescription
+ * //           fileMd5: "STRING_VALUE",
+ * //           fileSize: Number("long"),
+ * //         },
+ * //         location: { // CustomPluginLocationDescription
+ * //           s3Location: { // S3LocationDescription
+ * //             bucketArn: "STRING_VALUE",
+ * //             fileKey: "STRING_VALUE",
+ * //             objectVersion: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         revision: Number("long"),
+ * //       },
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCustomPluginsCommandInput - {@link ListCustomPluginsCommandInput}
@@ -80,6 +110,8 @@ export interface ListCustomPluginsCommandOutput extends ListCustomPluginsRespons
  *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  *
+ * @throws {@link KafkaConnectServiceException}
+ * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
 export class ListCustomPluginsCommand extends $Command<

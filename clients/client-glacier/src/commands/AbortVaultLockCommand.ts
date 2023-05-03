@@ -58,6 +58,8 @@ export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AbortVaultLockCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AbortVaultLockCommandInput - {@link AbortVaultLockCommandInput}
@@ -79,6 +81,8 @@ export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To abort a vault lock
  * ```javascript

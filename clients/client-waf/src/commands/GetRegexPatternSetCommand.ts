@@ -52,6 +52,16 @@ export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetRespo
  * };
  * const command = new GetRegexPatternSetCommand(input);
  * const response = await client.send(command);
+ * // { // GetRegexPatternSetResponse
+ * //   RegexPatternSet: { // RegexPatternSet
+ * //     RegexPatternSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     RegexPatternStrings: [ // RegexPatternStrings // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetRegexPatternSetCommandInput - {@link GetRegexPatternSetCommandInput}
@@ -69,6 +79,8 @@ export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetRespo
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class GetRegexPatternSetCommand extends $Command<

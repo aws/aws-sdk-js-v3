@@ -108,6 +108,10 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  * };
  * const command = new UpdateXssMatchSetCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateXssMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateXssMatchSetCommandInput - {@link UpdateXssMatchSetCommandInput}
@@ -214,6 +218,8 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To update an XSS match set
  * ```javascript

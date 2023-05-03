@@ -52,6 +52,15 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * };
  * const command = new StartContentUploadCommand(input);
  * const response = await client.send(command);
+ * // { // StartContentUploadResponse
+ * //   uploadId: "STRING_VALUE", // required
+ * //   url: "STRING_VALUE", // required
+ * //   urlExpiry: new Date("TIMESTAMP"), // required
+ * //   headersToInclude: { // Headers // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StartContentUploadCommandInput - {@link StartContentUploadCommandInput}
@@ -69,6 +78,8 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class StartContentUploadCommand extends $Command<

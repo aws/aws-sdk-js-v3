@@ -51,6 +51,45 @@ export interface DescribeFlowExecutionRecordsCommandOutput
  * };
  * const command = new DescribeFlowExecutionRecordsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFlowExecutionRecordsResponse
+ * //   flowExecutions: [ // FlowExecutionList
+ * //     { // ExecutionRecord
+ * //       executionId: "STRING_VALUE",
+ * //       executionStatus: "InProgress" || "Successful" || "Error",
+ * //       executionResult: { // ExecutionResult
+ * //         errorInfo: { // ErrorInfo
+ * //           putFailuresCount: Number("long"),
+ * //           executionMessage: "STRING_VALUE",
+ * //         },
+ * //         bytesProcessed: Number("long"),
+ * //         bytesWritten: Number("long"),
+ * //         recordsProcessed: Number("long"),
+ * //       },
+ * //       startedAt: new Date("TIMESTAMP"),
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       dataPullStartTime: new Date("TIMESTAMP"),
+ * //       dataPullEndTime: new Date("TIMESTAMP"),
+ * //       metadataCatalogDetails: [ // MetadataCatalogDetails
+ * //         { // MetadataCatalogDetail
+ * //           catalogType: "GLUE",
+ * //           tableName: "STRING_VALUE",
+ * //           tableRegistrationOutput: { // RegistrationOutput
+ * //             message: "STRING_VALUE",
+ * //             result: "STRING_VALUE",
+ * //             status: "InProgress" || "Successful" || "Error",
+ * //           },
+ * //           partitionRegistrationOutput: {
+ * //             message: "STRING_VALUE",
+ * //             result: "STRING_VALUE",
+ * //             status: "InProgress" || "Successful" || "Error",
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeFlowExecutionRecordsCommandInput - {@link DescribeFlowExecutionRecordsCommandInput}
@@ -70,6 +109,8 @@ export interface DescribeFlowExecutionRecordsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class DescribeFlowExecutionRecordsCommand extends $Command<

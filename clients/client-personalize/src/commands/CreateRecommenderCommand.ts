@@ -133,6 +133,10 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  * };
  * const command = new CreateRecommenderCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRecommenderResponse
+ * //   recommenderArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateRecommenderCommandInput - {@link CreateRecommenderCommandInput}
@@ -159,6 +163,8 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateRecommenderCommand extends $Command<

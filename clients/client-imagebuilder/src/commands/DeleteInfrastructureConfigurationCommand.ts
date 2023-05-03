@@ -52,6 +52,11 @@ export interface DeleteInfrastructureConfigurationCommandOutput
  * };
  * const command = new DeleteInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteInfrastructureConfigurationResponse
+ * //   requestId: "STRING_VALUE",
+ * //   infrastructureConfigurationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteInfrastructureConfigurationCommandInput - {@link DeleteInfrastructureConfigurationCommandInput}
@@ -85,6 +90,8 @@ export interface DeleteInfrastructureConfigurationCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class DeleteInfrastructureConfigurationCommand extends $Command<

@@ -44,6 +44,8 @@ export interface DisconnectRecoveryInstanceCommandOutput extends __MetadataBeare
  * };
  * const command = new DisconnectRecoveryInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisconnectRecoveryInstanceCommandInput - {@link DisconnectRecoveryInstanceCommandInput}
@@ -70,6 +72,8 @@ export interface DisconnectRecoveryInstanceCommandOutput extends __MetadataBeare
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class DisconnectRecoveryInstanceCommand extends $Command<

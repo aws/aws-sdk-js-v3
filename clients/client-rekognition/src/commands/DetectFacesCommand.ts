@@ -72,6 +72,79 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  * };
  * const command = new DetectFacesCommand(input);
  * const response = await client.send(command);
+ * // { // DetectFacesResponse
+ * //   FaceDetails: [ // FaceDetailList
+ * //     { // FaceDetail
+ * //       BoundingBox: { // BoundingBox
+ * //         Width: Number("float"),
+ * //         Height: Number("float"),
+ * //         Left: Number("float"),
+ * //         Top: Number("float"),
+ * //       },
+ * //       AgeRange: { // AgeRange
+ * //         Low: Number("int"),
+ * //         High: Number("int"),
+ * //       },
+ * //       Smile: { // Smile
+ * //         Value: true || false,
+ * //         Confidence: Number("float"),
+ * //       },
+ * //       Eyeglasses: { // Eyeglasses
+ * //         Value: true || false,
+ * //         Confidence: Number("float"),
+ * //       },
+ * //       Sunglasses: { // Sunglasses
+ * //         Value: true || false,
+ * //         Confidence: Number("float"),
+ * //       },
+ * //       Gender: { // Gender
+ * //         Value: "Male" || "Female",
+ * //         Confidence: Number("float"),
+ * //       },
+ * //       Beard: { // Beard
+ * //         Value: true || false,
+ * //         Confidence: Number("float"),
+ * //       },
+ * //       Mustache: { // Mustache
+ * //         Value: true || false,
+ * //         Confidence: Number("float"),
+ * //       },
+ * //       EyesOpen: { // EyeOpen
+ * //         Value: true || false,
+ * //         Confidence: Number("float"),
+ * //       },
+ * //       MouthOpen: { // MouthOpen
+ * //         Value: true || false,
+ * //         Confidence: Number("float"),
+ * //       },
+ * //       Emotions: [ // Emotions
+ * //         { // Emotion
+ * //           Type: "HAPPY" || "SAD" || "ANGRY" || "CONFUSED" || "DISGUSTED" || "SURPRISED" || "CALM" || "UNKNOWN" || "FEAR",
+ * //           Confidence: Number("float"),
+ * //         },
+ * //       ],
+ * //       Landmarks: [ // Landmarks
+ * //         { // Landmark
+ * //           Type: "eyeLeft" || "eyeRight" || "nose" || "mouthLeft" || "mouthRight" || "leftEyeBrowLeft" || "leftEyeBrowRight" || "leftEyeBrowUp" || "rightEyeBrowLeft" || "rightEyeBrowRight" || "rightEyeBrowUp" || "leftEyeLeft" || "leftEyeRight" || "leftEyeUp" || "leftEyeDown" || "rightEyeLeft" || "rightEyeRight" || "rightEyeUp" || "rightEyeDown" || "noseLeft" || "noseRight" || "mouthUp" || "mouthDown" || "leftPupil" || "rightPupil" || "upperJawlineLeft" || "midJawlineLeft" || "chinBottom" || "midJawlineRight" || "upperJawlineRight",
+ * //           X: Number("float"),
+ * //           Y: Number("float"),
+ * //         },
+ * //       ],
+ * //       Pose: { // Pose
+ * //         Roll: Number("float"),
+ * //         Yaw: Number("float"),
+ * //         Pitch: Number("float"),
+ * //       },
+ * //       Quality: { // ImageQuality
+ * //         Brightness: Number("float"),
+ * //         Sharpness: Number("float"),
+ * //       },
+ * //       Confidence: Number("float"),
+ * //     },
+ * //   ],
+ * //   OrientationCorrection: "ROTATE_0" || "ROTATE_90" || "ROTATE_180" || "ROTATE_270",
+ * // };
+ *
  * ```
  *
  * @param DetectFacesCommandInput - {@link DetectFacesCommandInput}
@@ -109,6 +182,8 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To detect faces in an image
  * ```javascript

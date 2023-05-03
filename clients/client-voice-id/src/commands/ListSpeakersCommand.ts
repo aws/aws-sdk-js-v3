@@ -46,6 +46,21 @@ export interface ListSpeakersCommandOutput extends ListSpeakersResponse, __Metad
  * };
  * const command = new ListSpeakersCommand(input);
  * const response = await client.send(command);
+ * // { // ListSpeakersResponse
+ * //   SpeakerSummaries: [ // SpeakerSummaries
+ * //     { // SpeakerSummary
+ * //       DomainId: "STRING_VALUE",
+ * //       CustomerSpeakerId: "STRING_VALUE",
+ * //       GeneratedSpeakerId: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       LastAccessedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSpeakersCommandInput - {@link ListSpeakersCommandInput}
@@ -75,6 +90,8 @@ export interface ListSpeakersCommandOutput extends ListSpeakersResponse, __Metad
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class ListSpeakersCommand extends $Command<

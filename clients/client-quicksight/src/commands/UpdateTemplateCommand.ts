@@ -4300,6 +4300,15 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * };
  * const command = new UpdateTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateTemplateResponse
+ * //   TemplateId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   VersionArn: "STRING_VALUE",
+ * //   CreationStatus: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateTemplateCommandInput - {@link UpdateTemplateCommandInput}
@@ -4335,6 +4344,8 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateTemplateCommand extends $Command<

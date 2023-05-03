@@ -44,6 +44,8 @@ export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutpu
  * };
  * const command = new DeleteMetricStreamCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteMetricStreamCommandInput - {@link DeleteMetricStreamCommandInput}
@@ -61,6 +63,8 @@ export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutpu
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DeleteMetricStreamCommand extends $Command<

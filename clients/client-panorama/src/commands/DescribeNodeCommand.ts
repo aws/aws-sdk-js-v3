@@ -45,6 +45,40 @@ export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __Metad
  * };
  * const command = new DescribeNodeCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeNodeResponse
+ * //   NodeId: "STRING_VALUE", // required
+ * //   Name: "STRING_VALUE", // required
+ * //   Category: "STRING_VALUE", // required
+ * //   OwnerAccount: "STRING_VALUE", // required
+ * //   PackageName: "STRING_VALUE", // required
+ * //   PackageId: "STRING_VALUE", // required
+ * //   PackageArn: "STRING_VALUE",
+ * //   PackageVersion: "STRING_VALUE", // required
+ * //   PatchVersion: "STRING_VALUE", // required
+ * //   NodeInterface: { // NodeInterface
+ * //     Inputs: [ // InputPortList // required
+ * //       { // NodeInputPort
+ * //         Name: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         Type: "STRING_VALUE",
+ * //         DefaultValue: "STRING_VALUE",
+ * //         MaxConnections: Number("int"),
+ * //       },
+ * //     ],
+ * //     Outputs: [ // OutputPortList // required
+ * //       { // NodeOutputPort
+ * //         Name: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         Type: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   AssetName: "STRING_VALUE",
+ * //   Description: "STRING_VALUE", // required
+ * //   CreatedTime: new Date("TIMESTAMP"), // required
+ * //   LastUpdatedTime: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param DescribeNodeCommandInput - {@link DescribeNodeCommandInput}
@@ -68,6 +102,8 @@ export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DescribeNodeCommand extends $Command<

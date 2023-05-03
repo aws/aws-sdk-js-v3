@@ -127,6 +127,27 @@ export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataB
  * };
  * const command = new PollForTaskCommand(input);
  * const response = await client.send(command);
+ * // { // PollForTaskOutput
+ * //   taskObject: { // TaskObject
+ * //     taskId: "STRING_VALUE",
+ * //     pipelineId: "STRING_VALUE",
+ * //     attemptId: "STRING_VALUE",
+ * //     objects: { // PipelineObjectMap
+ * //       "<keys>": { // PipelineObject
+ * //         id: "STRING_VALUE", // required
+ * //         name: "STRING_VALUE", // required
+ * //         fields: [ // fieldList // required
+ * //           { // Field
+ * //             key: "STRING_VALUE", // required
+ * //             stringValue: "STRING_VALUE",
+ * //             refValue: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PollForTaskCommandInput - {@link PollForTaskCommandInput}
@@ -144,6 +165,8 @@ export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataB
  * @throws {@link TaskNotFoundException} (client fault)
  *  <p>The specified task was not found. </p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class PollForTaskCommand extends $Command<

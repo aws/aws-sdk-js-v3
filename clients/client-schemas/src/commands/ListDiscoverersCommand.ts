@@ -47,6 +47,22 @@ export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, _
  * };
  * const command = new ListDiscoverersCommand(input);
  * const response = await client.send(command);
+ * // { // ListDiscoverersResponse
+ * //   Discoverers: [ // __listOfDiscovererSummary
+ * //     { // DiscovererSummary
+ * //       DiscovererArn: "STRING_VALUE",
+ * //       DiscovererId: "STRING_VALUE",
+ * //       SourceArn: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       CrossAccount: true || false,
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDiscoverersCommandInput - {@link ListDiscoverersCommandInput}
@@ -65,6 +81,8 @@ export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, _
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class ListDiscoverersCommand extends $Command<

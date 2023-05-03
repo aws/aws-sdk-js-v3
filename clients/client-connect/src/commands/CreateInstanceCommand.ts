@@ -59,6 +59,11 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * };
  * const command = new CreateInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // CreateInstanceResponse
+ * //   Id: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateInstanceCommandInput - {@link CreateInstanceCommandInput}
@@ -82,6 +87,8 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateInstanceCommand extends $Command<

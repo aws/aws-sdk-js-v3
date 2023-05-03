@@ -55,6 +55,39 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
+ * // { // ListServicesResponse
+ * //   Services: [ // ServiceSummariesList
+ * //     { // ServiceSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Type: "HTTP" || "DNS_HTTP" || "DNS",
+ * //       Description: "STRING_VALUE",
+ * //       InstanceCount: Number("int"),
+ * //       DnsConfig: { // DnsConfig
+ * //         NamespaceId: "STRING_VALUE",
+ * //         RoutingPolicy: "MULTIVALUE" || "WEIGHTED",
+ * //         DnsRecords: [ // DnsRecordList // required
+ * //           { // DnsRecord
+ * //             Type: "SRV" || "A" || "AAAA" || "CNAME", // required
+ * //             TTL: Number("long"), // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       HealthCheckConfig: { // HealthCheckConfig
+ * //         Type: "HTTP" || "HTTPS" || "TCP", // required
+ * //         ResourcePath: "STRING_VALUE",
+ * //         FailureThreshold: Number("int"),
+ * //       },
+ * //       HealthCheckCustomConfig: { // HealthCheckCustomConfig
+ * //         FailureThreshold: Number("int"),
+ * //       },
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListServicesCommandInput - {@link ListServicesCommandInput}
@@ -68,6 +101,8 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *    numeric value might be outside the allowed range, or a string value might exceed length
  *    constraints.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example Example: List services
  * ```javascript

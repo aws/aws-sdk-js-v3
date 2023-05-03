@@ -46,6 +46,25 @@ export interface DescribeImageVersionCommandOutput extends DescribeImageVersionR
  * };
  * const command = new DescribeImageVersionCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeImageVersionResponse
+ * //   BaseImage: "STRING_VALUE",
+ * //   ContainerImage: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   FailureReason: "STRING_VALUE",
+ * //   ImageArn: "STRING_VALUE",
+ * //   ImageVersionArn: "STRING_VALUE",
+ * //   ImageVersionStatus: "CREATING" || "CREATED" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED",
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   Version: Number("int"),
+ * //   VendorGuidance: "NOT_PROVIDED" || "STABLE" || "TO_BE_ARCHIVED" || "ARCHIVED",
+ * //   JobType: "TRAINING" || "INFERENCE" || "NOTEBOOK_KERNEL",
+ * //   MLFramework: "STRING_VALUE",
+ * //   ProgrammingLang: "STRING_VALUE",
+ * //   Processor: "CPU" || "GPU",
+ * //   Horovod: true || false,
+ * //   ReleaseNotes: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeImageVersionCommandInput - {@link DescribeImageVersionCommandInput}
@@ -57,6 +76,8 @@ export interface DescribeImageVersionCommandOutput extends DescribeImageVersionR
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeImageVersionCommand extends $Command<

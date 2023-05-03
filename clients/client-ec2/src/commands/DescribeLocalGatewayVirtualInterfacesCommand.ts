@@ -66,6 +66,28 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
  * };
  * const command = new DescribeLocalGatewayVirtualInterfacesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeLocalGatewayVirtualInterfacesResult
+ * //   LocalGatewayVirtualInterfaces: [ // LocalGatewayVirtualInterfaceSet
+ * //     { // LocalGatewayVirtualInterface
+ * //       LocalGatewayVirtualInterfaceId: "STRING_VALUE",
+ * //       LocalGatewayId: "STRING_VALUE",
+ * //       Vlan: Number("int"),
+ * //       LocalAddress: "STRING_VALUE",
+ * //       PeerAddress: "STRING_VALUE",
+ * //       LocalBgpAsn: Number("int"),
+ * //       PeerBgpAsn: Number("int"),
+ * //       OwnerId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeLocalGatewayVirtualInterfacesCommandInput - {@link DescribeLocalGatewayVirtualInterfacesCommandInput}
@@ -74,6 +96,8 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
  * @see {@link DescribeLocalGatewayVirtualInterfacesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<

@@ -60,6 +60,13 @@ export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBeare
  * };
  * const command = new TestRoleCommand(input);
  * const response = await client.send(command);
+ * // { // TestRoleResponse
+ * //   Success: "STRING_VALUE",
+ * //   Messages: [ // ExceptionMessages
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param TestRoleCommandInput - {@link TestRoleCommandInput}
@@ -83,6 +90,8 @@ export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more required parameter values were not provided in the request.</p>
  *
+ * @throws {@link ElasticTranscoderServiceException}
+ * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
  */
 export class TestRoleCommand extends $Command<

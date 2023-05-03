@@ -44,6 +44,8 @@ export interface DeleteDestinationCommandOutput extends DeleteDestinationRespons
  * };
  * const command = new DeleteDestinationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDestinationCommandInput - {@link DeleteDestinationCommandInput}
@@ -70,6 +72,8 @@ export interface DeleteDestinationCommandOutput extends DeleteDestinationRespons
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class DeleteDestinationCommand extends $Command<

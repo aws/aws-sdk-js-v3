@@ -44,6 +44,8 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
  * };
  * const command = new RebootBrokerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RebootBrokerCommandInput - {@link RebootBrokerCommandInput}
@@ -64,6 +66,8 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class RebootBrokerCommand extends $Command<

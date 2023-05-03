@@ -44,6 +44,23 @@ export interface DescribeModelCardExportJobCommandOutput extends DescribeModelCa
  * };
  * const command = new DescribeModelCardExportJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeModelCardExportJobResponse
+ * //   ModelCardExportJobName: "STRING_VALUE", // required
+ * //   ModelCardExportJobArn: "STRING_VALUE", // required
+ * //   Status: "InProgress" || "Completed" || "Failed", // required
+ * //   ModelCardName: "STRING_VALUE", // required
+ * //   ModelCardVersion: Number("int"), // required
+ * //   OutputConfig: { // ModelCardExportOutputConfig
+ * //     S3OutputPath: "STRING_VALUE", // required
+ * //   },
+ * //   CreatedAt: new Date("TIMESTAMP"), // required
+ * //   LastModifiedAt: new Date("TIMESTAMP"), // required
+ * //   FailureReason: "STRING_VALUE",
+ * //   ExportArtifacts: { // ModelCardExportArtifacts
+ * //     S3ExportArtifacts: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeModelCardExportJobCommandInput - {@link DescribeModelCardExportJobCommandInput}
@@ -55,6 +72,8 @@ export interface DescribeModelCardExportJobCommandOutput extends DescribeModelCa
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeModelCardExportJobCommand extends $Command<

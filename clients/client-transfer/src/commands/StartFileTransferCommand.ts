@@ -48,6 +48,10 @@ export interface StartFileTransferCommandOutput extends StartFileTransferRespons
  * };
  * const command = new StartFileTransferCommand(input);
  * const response = await client.send(command);
+ * // { // StartFileTransferResponse
+ * //   TransferId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param StartFileTransferCommandInput - {@link StartFileTransferCommandInput}
@@ -72,6 +76,8 @@ export interface StartFileTransferCommandOutput extends StartFileTransferRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class StartFileTransferCommand extends $Command<

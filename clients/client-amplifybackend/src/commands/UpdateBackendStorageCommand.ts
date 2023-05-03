@@ -57,6 +57,13 @@ export interface UpdateBackendStorageCommandOutput extends UpdateBackendStorageR
  * };
  * const command = new UpdateBackendStorageCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateBackendStorageResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateBackendStorageCommandInput - {@link UpdateBackendStorageCommandInput}
@@ -77,6 +84,8 @@ export interface UpdateBackendStorageCommandOutput extends UpdateBackendStorageR
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class UpdateBackendStorageCommand extends $Command<

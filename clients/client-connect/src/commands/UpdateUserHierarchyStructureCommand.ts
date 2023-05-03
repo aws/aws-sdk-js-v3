@@ -64,6 +64,8 @@ export interface UpdateUserHierarchyStructureCommandOutput extends __MetadataBea
  * };
  * const command = new UpdateUserHierarchyStructureCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateUserHierarchyStructureCommandInput - {@link UpdateUserHierarchyStructureCommandInput}
@@ -90,6 +92,8 @@ export interface UpdateUserHierarchyStructureCommandOutput extends __MetadataBea
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateUserHierarchyStructureCommand extends $Command<

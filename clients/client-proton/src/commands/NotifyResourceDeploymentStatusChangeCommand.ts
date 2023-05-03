@@ -65,6 +65,8 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
  * };
  * const command = new NotifyResourceDeploymentStatusChangeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param NotifyResourceDeploymentStatusChangeCommandInput - {@link NotifyResourceDeploymentStatusChangeCommandInput}
@@ -95,6 +97,8 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class NotifyResourceDeploymentStatusChangeCommand extends $Command<

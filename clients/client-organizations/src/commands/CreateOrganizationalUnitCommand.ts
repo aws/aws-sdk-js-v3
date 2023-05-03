@@ -61,6 +61,14 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  * };
  * const command = new CreateOrganizationalUnitCommand(input);
  * const response = await client.send(command);
+ * // { // CreateOrganizationalUnitResponse
+ * //   OrganizationalUnit: { // OrganizationalUnit
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateOrganizationalUnitCommandInput - {@link CreateOrganizationalUnitCommandInput}
@@ -402,6 +410,8 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To create a new organization unit
  * ```javascript

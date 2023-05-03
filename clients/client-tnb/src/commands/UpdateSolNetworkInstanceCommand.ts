@@ -58,6 +58,13 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  * };
  * const command = new UpdateSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateSolNetworkInstanceOutput
+ * //   nsLcmOpOccId: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateSolNetworkInstanceCommandInput - {@link UpdateSolNetworkInstanceCommandInput}
@@ -84,6 +91,8 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class UpdateSolNetworkInstanceCommand extends $Command<

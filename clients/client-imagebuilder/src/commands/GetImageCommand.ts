@@ -44,6 +44,287 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * };
  * const command = new GetImageCommand(input);
  * const response = await client.send(command);
+ * // { // GetImageResponse
+ * //   requestId: "STRING_VALUE",
+ * //   image: { // Image
+ * //     arn: "STRING_VALUE",
+ * //     type: "AMI" || "DOCKER",
+ * //     name: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //     platform: "Windows" || "Linux",
+ * //     enhancedImageMetadataEnabled: true || false,
+ * //     osVersion: "STRING_VALUE",
+ * //     state: { // ImageState
+ * //       status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED",
+ * //       reason: "STRING_VALUE",
+ * //     },
+ * //     imageRecipe: { // ImageRecipe
+ * //       arn: "STRING_VALUE",
+ * //       type: "AMI" || "DOCKER",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       platform: "Windows" || "Linux",
+ * //       owner: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //       components: [ // ComponentConfigurationList
+ * //         { // ComponentConfiguration
+ * //           componentArn: "STRING_VALUE", // required
+ * //           parameters: [ // ComponentParameterList
+ * //             { // ComponentParameter
+ * //               name: "STRING_VALUE", // required
+ * //               value: [ // ComponentParameterValueList // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       parentImage: "STRING_VALUE",
+ * //       blockDeviceMappings: [ // InstanceBlockDeviceMappings
+ * //         { // InstanceBlockDeviceMapping
+ * //           deviceName: "STRING_VALUE",
+ * //           ebs: { // EbsInstanceBlockDeviceSpecification
+ * //             encrypted: true || false,
+ * //             deleteOnTermination: true || false,
+ * //             iops: Number("int"),
+ * //             kmsKeyId: "STRING_VALUE",
+ * //             snapshotId: "STRING_VALUE",
+ * //             volumeSize: Number("int"),
+ * //             volumeType: "standard" || "io1" || "io2" || "gp2" || "gp3" || "sc1" || "st1",
+ * //             throughput: Number("int"),
+ * //           },
+ * //           virtualName: "STRING_VALUE",
+ * //           noDevice: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       dateCreated: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       workingDirectory: "STRING_VALUE",
+ * //       additionalInstanceConfiguration: { // AdditionalInstanceConfiguration
+ * //         systemsManagerAgent: { // SystemsManagerAgent
+ * //           uninstallAfterBuild: true || false,
+ * //         },
+ * //         userDataOverride: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     containerRecipe: { // ContainerRecipe
+ * //       arn: "STRING_VALUE",
+ * //       containerType: "DOCKER",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       platform: "Windows" || "Linux",
+ * //       owner: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //       components: [
+ * //         {
+ * //           componentArn: "STRING_VALUE", // required
+ * //           parameters: [
+ * //             {
+ * //               name: "STRING_VALUE", // required
+ * //               value: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       instanceConfiguration: { // InstanceConfiguration
+ * //         image: "STRING_VALUE",
+ * //         blockDeviceMappings: [
+ * //           {
+ * //             deviceName: "STRING_VALUE",
+ * //             ebs: {
+ * //               encrypted: true || false,
+ * //               deleteOnTermination: true || false,
+ * //               iops: Number("int"),
+ * //               kmsKeyId: "STRING_VALUE",
+ * //               snapshotId: "STRING_VALUE",
+ * //               volumeSize: Number("int"),
+ * //               volumeType: "standard" || "io1" || "io2" || "gp2" || "gp3" || "sc1" || "st1",
+ * //               throughput: Number("int"),
+ * //             },
+ * //             virtualName: "STRING_VALUE",
+ * //             noDevice: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       dockerfileTemplateData: "STRING_VALUE",
+ * //       kmsKeyId: "STRING_VALUE",
+ * //       encrypted: true || false,
+ * //       parentImage: "STRING_VALUE",
+ * //       dateCreated: "STRING_VALUE",
+ * //       tags: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       workingDirectory: "STRING_VALUE",
+ * //       targetRepository: { // TargetContainerRepository
+ * //         service: "ECR", // required
+ * //         repositoryName: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     sourcePipelineName: "STRING_VALUE",
+ * //     sourcePipelineArn: "STRING_VALUE",
+ * //     infrastructureConfiguration: { // InfrastructureConfiguration
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       instanceTypes: [ // InstanceTypeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       instanceProfileName: "STRING_VALUE",
+ * //       securityGroupIds: [ // SecurityGroupIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       subnetId: "STRING_VALUE",
+ * //       logging: { // Logging
+ * //         s3Logs: { // S3Logs
+ * //           s3BucketName: "STRING_VALUE",
+ * //           s3KeyPrefix: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       keyPair: "STRING_VALUE",
+ * //       terminateInstanceOnFailure: true || false,
+ * //       snsTopicArn: "STRING_VALUE",
+ * //       dateCreated: "STRING_VALUE",
+ * //       dateUpdated: "STRING_VALUE",
+ * //       resourceTags: { // ResourceTagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       instanceMetadataOptions: { // InstanceMetadataOptions
+ * //         httpTokens: "STRING_VALUE",
+ * //         httpPutResponseHopLimit: Number("int"),
+ * //       },
+ * //       tags: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     distributionConfiguration: { // DistributionConfiguration
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       distributions: [ // DistributionList
+ * //         { // Distribution
+ * //           region: "STRING_VALUE", // required
+ * //           amiDistributionConfiguration: { // AmiDistributionConfiguration
+ * //             name: "STRING_VALUE",
+ * //             description: "STRING_VALUE",
+ * //             targetAccountIds: [ // AccountList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             amiTags: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             kmsKeyId: "STRING_VALUE",
+ * //             launchPermission: { // LaunchPermissionConfiguration
+ * //               userIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               userGroups: [ // StringList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               organizationArns: [ // OrganizationArnList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               organizationalUnitArns: [ // OrganizationalUnitArnList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //           containerDistributionConfiguration: { // ContainerDistributionConfiguration
+ * //             description: "STRING_VALUE",
+ * //             containerTags: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             targetRepository: {
+ * //               service: "ECR", // required
+ * //               repositoryName: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //           licenseConfigurationArns: [ // LicenseConfigurationArnList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           launchTemplateConfigurations: [ // LaunchTemplateConfigurationList
+ * //             { // LaunchTemplateConfiguration
+ * //               launchTemplateId: "STRING_VALUE", // required
+ * //               accountId: "STRING_VALUE",
+ * //               setDefaultVersion: true || false,
+ * //             },
+ * //           ],
+ * //           s3ExportConfiguration: { // S3ExportConfiguration
+ * //             roleName: "STRING_VALUE", // required
+ * //             diskImageFormat: "VMDK" || "RAW" || "VHD", // required
+ * //             s3Bucket: "STRING_VALUE", // required
+ * //             s3Prefix: "STRING_VALUE",
+ * //           },
+ * //           fastLaunchConfigurations: [ // FastLaunchConfigurationList
+ * //             { // FastLaunchConfiguration
+ * //               enabled: true || false, // required
+ * //               snapshotConfiguration: { // FastLaunchSnapshotConfiguration
+ * //                 targetResourceCount: Number("int"),
+ * //               },
+ * //               maxParallelLaunches: Number("int"),
+ * //               launchTemplate: { // FastLaunchLaunchTemplateSpecification
+ * //                 launchTemplateId: "STRING_VALUE",
+ * //                 launchTemplateName: "STRING_VALUE",
+ * //                 launchTemplateVersion: "STRING_VALUE",
+ * //               },
+ * //               accountId: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       timeoutMinutes: Number("int"), // required
+ * //       dateCreated: "STRING_VALUE",
+ * //       dateUpdated: "STRING_VALUE",
+ * //       tags: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     imageTestsConfiguration: { // ImageTestsConfiguration
+ * //       imageTestsEnabled: true || false,
+ * //       timeoutMinutes: Number("int"),
+ * //     },
+ * //     dateCreated: "STRING_VALUE",
+ * //     outputResources: { // OutputResources
+ * //       amis: [ // AmiList
+ * //         { // Ami
+ * //           region: "STRING_VALUE",
+ * //           image: "STRING_VALUE",
+ * //           name: "STRING_VALUE",
+ * //           description: "STRING_VALUE",
+ * //           state: {
+ * //             status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED",
+ * //             reason: "STRING_VALUE",
+ * //           },
+ * //           accountId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       containers: [ // ContainerList
+ * //         { // Container
+ * //           region: "STRING_VALUE",
+ * //           imageUris: "<StringList>",
+ * //         },
+ * //       ],
+ * //     },
+ * //     tags: "<TagMap>",
+ * //     buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT",
+ * //     imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
+ * //     scanState: { // ImageScanState
+ * //       status: "PENDING" || "SCANNING" || "COLLECTING" || "COMPLETED" || "ABANDONED" || "FAILED" || "TIMED_OUT",
+ * //       reason: "STRING_VALUE",
+ * //     },
+ * //     imageScanningConfiguration: { // ImageScanningConfiguration
+ * //       imageScanningEnabled: true || false,
+ * //       ecrConfiguration: { // EcrConfiguration
+ * //         repositoryName: "STRING_VALUE",
+ * //         containerTags: "<StringList>",
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetImageCommandInput - {@link GetImageCommandInput}
@@ -73,6 +354,8 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class GetImageCommand extends $Command<

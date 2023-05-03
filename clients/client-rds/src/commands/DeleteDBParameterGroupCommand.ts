@@ -44,6 +44,8 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDBParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDBParameterGroupCommandInput - {@link DeleteDBParameterGroupCommandInput}
@@ -62,6 +64,8 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  *             to delete the parameter group, you can't delete it when the parameter group is in
  *             this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To delete a DB parameter group
  * ```javascript

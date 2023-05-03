@@ -66,6 +66,8 @@ export interface DeleteAuditSuppressionCommandOutput extends DeleteAuditSuppress
  * };
  * const command = new DeleteAuditSuppressionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAuditSuppressionCommandInput - {@link DeleteAuditSuppressionCommandInput}
@@ -83,6 +85,8 @@ export interface DeleteAuditSuppressionCommandOutput extends DeleteAuditSuppress
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteAuditSuppressionCommand extends $Command<

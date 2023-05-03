@@ -50,6 +50,8 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -84,6 +86,8 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

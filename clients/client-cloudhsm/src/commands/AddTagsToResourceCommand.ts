@@ -62,6 +62,10 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
+ * // { // AddTagsToResourceResponse
+ * //   Status: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
@@ -79,6 +83,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class AddTagsToResourceCommand extends $Command<

@@ -57,6 +57,17 @@ export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput
  * };
  * const command = new GetAssociatedEnclaveCertificateIamRolesCommand(input);
  * const response = await client.send(command);
+ * // { // GetAssociatedEnclaveCertificateIamRolesResult
+ * //   AssociatedRoles: [ // AssociatedRolesList
+ * //     { // AssociatedRole
+ * //       AssociatedRoleArn: "STRING_VALUE",
+ * //       CertificateS3BucketName: "STRING_VALUE",
+ * //       CertificateS3ObjectKey: "STRING_VALUE",
+ * //       EncryptionKmsKeyId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetAssociatedEnclaveCertificateIamRolesCommandInput - {@link GetAssociatedEnclaveCertificateIamRolesCommandInput}
@@ -65,6 +76,8 @@ export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput
  * @see {@link GetAssociatedEnclaveCertificateIamRolesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetAssociatedEnclaveCertificateIamRolesCommand extends $Command<

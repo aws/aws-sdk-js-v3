@@ -50,6 +50,8 @@ export interface EnableOrganizationAdminAccountCommandOutput
  * };
  * const command = new EnableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param EnableOrganizationAdminAccountCommandInput - {@link EnableOrganizationAdminAccountCommandInput}
@@ -64,6 +66,8 @@ export interface EnableOrganizationAdminAccountCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class EnableOrganizationAdminAccountCommand extends $Command<

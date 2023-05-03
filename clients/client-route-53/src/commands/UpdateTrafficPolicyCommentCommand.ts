@@ -47,6 +47,17 @@ export interface UpdateTrafficPolicyCommentCommandOutput extends UpdateTrafficPo
  * };
  * const command = new UpdateTrafficPolicyCommentCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateTrafficPolicyCommentResponse
+ * //   TrafficPolicy: { // TrafficPolicy
+ * //     Id: "STRING_VALUE", // required
+ * //     Version: Number("int"), // required
+ * //     Name: "STRING_VALUE", // required
+ * //     Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //     Document: "STRING_VALUE", // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateTrafficPolicyCommentCommandInput - {@link UpdateTrafficPolicyCommentCommandInput}
@@ -65,6 +76,8 @@ export interface UpdateTrafficPolicyCommentCommandOutput extends UpdateTrafficPo
  * @throws {@link NoSuchTrafficPolicy} (client fault)
  *  <p>No traffic policy exists with the specified ID.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class UpdateTrafficPolicyCommentCommand extends $Command<

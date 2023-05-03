@@ -57,6 +57,11 @@ export interface CreateDimensionCommandOutput extends CreateDimensionResponse, _
  * };
  * const command = new CreateDimensionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDimensionResponse
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateDimensionCommandInput - {@link CreateDimensionCommandInput}
@@ -80,6 +85,8 @@ export interface CreateDimensionCommandOutput extends CreateDimensionResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateDimensionCommand extends $Command<

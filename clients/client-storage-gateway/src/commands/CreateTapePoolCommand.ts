@@ -54,6 +54,10 @@ export interface CreateTapePoolCommandOutput extends CreateTapePoolOutput, __Met
  * };
  * const command = new CreateTapePoolCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTapePoolOutput
+ * //   PoolARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateTapePoolCommandInput - {@link CreateTapePoolCommandInput}
@@ -70,6 +74,8 @@ export interface CreateTapePoolCommandOutput extends CreateTapePoolOutput, __Met
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class CreateTapePoolCommand extends $Command<

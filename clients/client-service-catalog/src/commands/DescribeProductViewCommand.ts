@@ -45,6 +45,31 @@ export interface DescribeProductViewCommandOutput extends DescribeProductViewOut
  * };
  * const command = new DescribeProductViewCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeProductViewOutput
+ * //   ProductViewSummary: { // ProductViewSummary
+ * //     Id: "STRING_VALUE",
+ * //     ProductId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //     ShortDescription: "STRING_VALUE",
+ * //     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE",
+ * //     Distributor: "STRING_VALUE",
+ * //     HasDefaultPath: true || false,
+ * //     SupportEmail: "STRING_VALUE",
+ * //     SupportDescription: "STRING_VALUE",
+ * //     SupportUrl: "STRING_VALUE",
+ * //   },
+ * //   ProvisioningArtifacts: [ // ProvisioningArtifacts
+ * //     { // ProvisioningArtifact
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       Guidance: "DEFAULT" || "DEPRECATED",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeProductViewCommandInput - {@link DescribeProductViewCommandInput}
@@ -59,6 +84,8 @@ export interface DescribeProductViewCommandOutput extends DescribeProductViewOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeProductViewCommand extends $Command<

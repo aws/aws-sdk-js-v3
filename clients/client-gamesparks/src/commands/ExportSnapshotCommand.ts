@@ -45,6 +45,10 @@ export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __Met
  * };
  * const command = new ExportSnapshotCommand(input);
  * const response = await client.send(command);
+ * // { // ExportSnapshotResult
+ * //   S3Url: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ExportSnapshotCommandInput - {@link ExportSnapshotCommandInput}
@@ -68,6 +72,8 @@ export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class ExportSnapshotCommand extends $Command<

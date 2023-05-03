@@ -45,6 +45,13 @@ export interface ResolveAppVersionResourcesCommandOutput extends ResolveAppVersi
  * };
  * const command = new ResolveAppVersionResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // ResolveAppVersionResourcesResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   resolutionId: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param ResolveAppVersionResourcesCommandInput - {@link ResolveAppVersionResourcesCommandInput}
@@ -77,6 +84,8 @@ export interface ResolveAppVersionResourcesCommandOutput extends ResolveAppVersi
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ResolveAppVersionResourcesCommand extends $Command<

@@ -49,6 +49,8 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCertificateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteCertificateCommandInput - {@link DeleteCertificateCommandInput}
@@ -82,6 +84,8 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteCertificateCommand extends $Command<

@@ -50,6 +50,8 @@ export interface UpdateWorkspaceConfigurationCommandOutput
  * };
  * const command = new UpdateWorkspaceConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateWorkspaceConfigurationCommandInput - {@link UpdateWorkspaceConfigurationCommandInput}
@@ -76,6 +78,8 @@ export interface UpdateWorkspaceConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class UpdateWorkspaceConfigurationCommand extends $Command<

@@ -59,6 +59,13 @@ export interface CreateConnectorDefinitionVersionCommandOutput
  * };
  * const command = new CreateConnectorDefinitionVersionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateConnectorDefinitionVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateConnectorDefinitionVersionCommandInput - {@link CreateConnectorDefinitionVersionCommandInput}
@@ -70,6 +77,8 @@ export interface CreateConnectorDefinitionVersionCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateConnectorDefinitionVersionCommand extends $Command<

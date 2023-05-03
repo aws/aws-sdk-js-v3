@@ -54,6 +54,18 @@ export interface DescribeAggregationAuthorizationsCommandOutput
  * };
  * const command = new DescribeAggregationAuthorizationsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAggregationAuthorizationsResponse
+ * //   AggregationAuthorizations: [ // AggregationAuthorizationList
+ * //     { // AggregationAuthorization
+ * //       AggregationAuthorizationArn: "STRING_VALUE",
+ * //       AuthorizedAccountId: "STRING_VALUE",
+ * //       AuthorizedAwsRegion: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeAggregationAuthorizationsCommandInput - {@link DescribeAggregationAuthorizationsCommandInput}
@@ -74,6 +86,8 @@ export interface DescribeAggregationAuthorizationsCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeAggregationAuthorizationsCommand extends $Command<

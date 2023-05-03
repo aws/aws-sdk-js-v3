@@ -51,6 +51,28 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResponse, __Met
  * };
  * const command = new ListArtifactsCommand(input);
  * const response = await client.send(command);
+ * // { // ListArtifactsResponse
+ * //   ArtifactSummaries: [ // ArtifactSummaries
+ * //     { // ArtifactSummary
+ * //       ArtifactArn: "STRING_VALUE",
+ * //       ArtifactName: "STRING_VALUE",
+ * //       Source: { // ArtifactSource
+ * //         SourceUri: "STRING_VALUE", // required
+ * //         SourceTypes: [ // ArtifactSourceTypes
+ * //           { // ArtifactSourceType
+ * //             SourceIdType: "MD5Hash" || "S3ETag" || "S3Version" || "Custom", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       ArtifactType: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListArtifactsCommandInput - {@link ListArtifactsCommandInput}
@@ -62,6 +84,8 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResponse, __Met
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListArtifactsCommand extends $Command<

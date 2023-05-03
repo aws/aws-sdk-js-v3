@@ -46,6 +46,10 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  * };
  * const command = new DeregisterInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // DeregisterInstanceResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeregisterInstanceCommandInput - {@link DeregisterInstanceCommandInput}
@@ -73,6 +77,8 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example Example: Deregister a service instance
  * ```javascript

@@ -53,6 +53,21 @@ export interface ListOrganizationServiceAccessStatusCommandOutput
  * };
  * const command = new ListOrganizationServiceAccessStatusCommand(input);
  * const response = await client.send(command);
+ * // { // ListOrganizationServiceAccessStatusResponse
+ * //   OrganizationStatus: { // OrganizationStatus
+ * //     OrganizationId: "STRING_VALUE",
+ * //     OrganizationAwsServiceAccessStatus: "STRING_VALUE",
+ * //     SLRDeploymentStatus: "STRING_VALUE",
+ * //     AccountStatusList: [ // AccountStatusList
+ * //       { // AccountStatus
+ * //         AccountId: "STRING_VALUE",
+ * //         SLRDeploymentStatus: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListOrganizationServiceAccessStatusCommandInput - {@link ListOrganizationServiceAccessStatusCommandInput}
@@ -61,6 +76,8 @@ export interface ListOrganizationServiceAccessStatusCommandOutput
  * @see {@link ListOrganizationServiceAccessStatusCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class ListOrganizationServiceAccessStatusCommand extends $Command<

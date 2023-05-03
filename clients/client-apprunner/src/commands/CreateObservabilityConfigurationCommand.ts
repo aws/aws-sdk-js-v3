@@ -66,6 +66,21 @@ export interface CreateObservabilityConfigurationCommandOutput
  * };
  * const command = new CreateObservabilityConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateObservabilityConfigurationResponse
+ * //   ObservabilityConfiguration: { // ObservabilityConfiguration
+ * //     ObservabilityConfigurationArn: "STRING_VALUE",
+ * //     ObservabilityConfigurationName: "STRING_VALUE",
+ * //     TraceConfiguration: { // TraceConfiguration
+ * //       Vendor: "AWSXRAY", // required
+ * //     },
+ * //     ObservabilityConfigurationRevision: Number("int"),
+ * //     Latest: true || false,
+ * //     Status: "ACTIVE" || "INACTIVE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     DeletedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateObservabilityConfigurationCommandInput - {@link CreateObservabilityConfigurationCommandInput}
@@ -85,6 +100,8 @@ export interface CreateObservabilityConfigurationCommandOutput
  *          <p>For App Runner per-resource quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/apprunner.html">App Runner endpoints and quotas</a> in the
  *         <i>Amazon Web Services General Reference</i>.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class CreateObservabilityConfigurationCommand extends $Command<

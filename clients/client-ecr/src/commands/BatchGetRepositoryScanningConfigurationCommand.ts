@@ -55,6 +55,30 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
  * };
  * const command = new BatchGetRepositoryScanningConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // BatchGetRepositoryScanningConfigurationResponse
+ * //   scanningConfigurations: [ // RepositoryScanningConfigurationList
+ * //     { // RepositoryScanningConfiguration
+ * //       repositoryArn: "STRING_VALUE",
+ * //       repositoryName: "STRING_VALUE",
+ * //       scanOnPush: true || false,
+ * //       scanFrequency: "STRING_VALUE",
+ * //       appliedScanFilters: [ // ScanningRepositoryFilterList
+ * //         { // ScanningRepositoryFilter
+ * //           filter: "STRING_VALUE", // required
+ * //           filterType: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   failures: [ // RepositoryScanningConfigurationFailureList
+ * //     { // RepositoryScanningConfigurationFailure
+ * //       repositoryName: "STRING_VALUE",
+ * //       failureCode: "STRING_VALUE",
+ * //       failureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchGetRepositoryScanningConfigurationCommandInput - {@link BatchGetRepositoryScanningConfigurationCommandInput}
@@ -77,6 +101,8 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class BatchGetRepositoryScanningConfigurationCommand extends $Command<

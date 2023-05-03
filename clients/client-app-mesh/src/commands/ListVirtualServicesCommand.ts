@@ -47,6 +47,22 @@ export interface ListVirtualServicesCommandOutput extends ListVirtualServicesOut
  * };
  * const command = new ListVirtualServicesCommand(input);
  * const response = await client.send(command);
+ * // { // ListVirtualServicesOutput
+ * //   virtualServices: [ // VirtualServiceList // required
+ * //     { // VirtualServiceRef
+ * //       meshName: "STRING_VALUE", // required
+ * //       virtualServiceName: "STRING_VALUE", // required
+ * //       meshOwner: "STRING_VALUE", // required
+ * //       resourceOwner: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       version: Number("long"), // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListVirtualServicesCommandInput - {@link ListVirtualServicesCommandInput}
@@ -76,6 +92,8 @@ export interface ListVirtualServicesCommandOutput extends ListVirtualServicesOut
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class ListVirtualServicesCommand extends $Command<

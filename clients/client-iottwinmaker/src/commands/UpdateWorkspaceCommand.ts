@@ -46,6 +46,10 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * };
  * const command = new UpdateWorkspaceCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateWorkspaceResponse
+ * //   updateDateTime: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param UpdateWorkspaceCommandInput - {@link UpdateWorkspaceCommandInput}
@@ -72,6 +76,8 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class UpdateWorkspaceCommand extends $Command<

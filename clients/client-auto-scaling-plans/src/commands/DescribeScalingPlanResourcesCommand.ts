@@ -52,6 +52,50 @@ export interface DescribeScalingPlanResourcesCommandOutput
  * };
  * const command = new DescribeScalingPlanResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeScalingPlanResourcesResponse
+ * //   ScalingPlanResources: [ // ScalingPlanResources
+ * //     { // ScalingPlanResource
+ * //       ScalingPlanName: "STRING_VALUE", // required
+ * //       ScalingPlanVersion: Number("long"), // required
+ * //       ServiceNamespace: "STRING_VALUE", // required
+ * //       ResourceId: "STRING_VALUE", // required
+ * //       ScalableDimension: "STRING_VALUE", // required
+ * //       ScalingPolicies: [ // ScalingPolicies
+ * //         { // ScalingPolicy
+ * //           PolicyName: "STRING_VALUE", // required
+ * //           PolicyType: "STRING_VALUE", // required
+ * //           TargetTrackingConfiguration: { // TargetTrackingConfiguration
+ * //             PredefinedScalingMetricSpecification: { // PredefinedScalingMetricSpecification
+ * //               PredefinedScalingMetricType: "STRING_VALUE", // required
+ * //               ResourceLabel: "STRING_VALUE",
+ * //             },
+ * //             CustomizedScalingMetricSpecification: { // CustomizedScalingMetricSpecification
+ * //               MetricName: "STRING_VALUE", // required
+ * //               Namespace: "STRING_VALUE", // required
+ * //               Dimensions: [ // MetricDimensions
+ * //                 { // MetricDimension
+ * //                   Name: "STRING_VALUE", // required
+ * //                   Value: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //               Statistic: "STRING_VALUE", // required
+ * //               Unit: "STRING_VALUE",
+ * //             },
+ * //             TargetValue: Number("double"), // required
+ * //             DisableScaleIn: true || false,
+ * //             ScaleOutCooldown: Number("int"),
+ * //             ScaleInCooldown: Number("int"),
+ * //             EstimatedInstanceWarmup: Number("int"),
+ * //           },
+ * //         },
+ * //       ],
+ * //       ScalingStatusCode: "STRING_VALUE", // required
+ * //       ScalingStatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeScalingPlanResourcesCommandInput - {@link DescribeScalingPlanResourcesCommandInput}
@@ -73,6 +117,8 @@ export interface DescribeScalingPlanResourcesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
  *
+ * @throws {@link AutoScalingPlansServiceException}
+ * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
  */
 export class DescribeScalingPlanResourcesCommand extends $Command<

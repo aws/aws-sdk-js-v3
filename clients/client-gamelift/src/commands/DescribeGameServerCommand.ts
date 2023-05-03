@@ -59,6 +59,22 @@ export interface DescribeGameServerCommandOutput extends DescribeGameServerOutpu
  * };
  * const command = new DescribeGameServerCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeGameServerOutput
+ * //   GameServer: { // GameServer
+ * //     GameServerGroupName: "STRING_VALUE",
+ * //     GameServerGroupArn: "STRING_VALUE",
+ * //     GameServerId: "STRING_VALUE",
+ * //     InstanceId: "STRING_VALUE",
+ * //     ConnectionInfo: "STRING_VALUE",
+ * //     GameServerData: "STRING_VALUE",
+ * //     ClaimStatus: "CLAIMED",
+ * //     UtilizationStatus: "AVAILABLE" || "UTILIZED",
+ * //     RegistrationTime: new Date("TIMESTAMP"),
+ * //     LastClaimTime: new Date("TIMESTAMP"),
+ * //     LastHealthCheckTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeGameServerCommandInput - {@link DescribeGameServerCommandInput}
@@ -81,6 +97,8 @@ export interface DescribeGameServerCommandOutput extends DescribeGameServerOutpu
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeGameServerCommand extends $Command<

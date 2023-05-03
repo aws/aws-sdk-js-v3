@@ -45,6 +45,13 @@ export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBeare
  * };
  * const command = new GetBranchCommand(input);
  * const response = await client.send(command);
+ * // { // GetBranchOutput
+ * //   branch: { // BranchInfo
+ * //     branchName: "STRING_VALUE",
+ * //     commitId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetBranchCommandInput - {@link GetBranchCommandInput}
@@ -92,6 +99,8 @@ export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBeare
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetBranchCommand extends $Command<

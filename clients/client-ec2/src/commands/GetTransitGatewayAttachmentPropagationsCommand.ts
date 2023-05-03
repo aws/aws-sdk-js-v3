@@ -64,6 +64,16 @@ export interface GetTransitGatewayAttachmentPropagationsCommandOutput
  * };
  * const command = new GetTransitGatewayAttachmentPropagationsCommand(input);
  * const response = await client.send(command);
+ * // { // GetTransitGatewayAttachmentPropagationsResult
+ * //   TransitGatewayAttachmentPropagations: [ // TransitGatewayAttachmentPropagationList
+ * //     { // TransitGatewayAttachmentPropagation
+ * //       TransitGatewayRouteTableId: "STRING_VALUE",
+ * //       State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetTransitGatewayAttachmentPropagationsCommandInput - {@link GetTransitGatewayAttachmentPropagationsCommandInput}
@@ -72,6 +82,8 @@ export interface GetTransitGatewayAttachmentPropagationsCommandOutput
  * @see {@link GetTransitGatewayAttachmentPropagationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetTransitGatewayAttachmentPropagationsCommand extends $Command<

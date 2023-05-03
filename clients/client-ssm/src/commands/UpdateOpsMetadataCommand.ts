@@ -52,6 +52,10 @@ export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult,
  * };
  * const command = new UpdateOpsMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateOpsMetadataResult
+ * //   OpsMetadataArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateOpsMetadataCommandInput - {@link UpdateOpsMetadataCommandInput}
@@ -77,6 +81,8 @@ export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult,
  *  <p>The system is processing too many concurrent updates. Wait a few moments and try
  *    again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateOpsMetadataCommand extends $Command<

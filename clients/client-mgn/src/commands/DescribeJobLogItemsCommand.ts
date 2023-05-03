@@ -46,6 +46,22 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * };
  * const command = new DescribeJobLogItemsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeJobLogItemsResponse
+ * //   items: [ // JobLogs
+ * //     { // JobLog
+ * //       logDateTime: "STRING_VALUE",
+ * //       event: "STRING_VALUE",
+ * //       eventData: { // JobLogEventData
+ * //         sourceServerID: "STRING_VALUE",
+ * //         conversionServerID: "STRING_VALUE",
+ * //         targetInstanceID: "STRING_VALUE",
+ * //         rawError: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeJobLogItemsCommandInput - {@link DescribeJobLogItemsCommandInput}
@@ -60,6 +76,8 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DescribeJobLogItemsCommand extends $Command<

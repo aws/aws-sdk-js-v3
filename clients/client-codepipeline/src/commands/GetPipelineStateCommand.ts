@@ -50,6 +50,59 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * };
  * const command = new GetPipelineStateCommand(input);
  * const response = await client.send(command);
+ * // { // GetPipelineStateOutput
+ * //   pipelineName: "STRING_VALUE",
+ * //   pipelineVersion: Number("int"),
+ * //   stageStates: [ // StageStateList
+ * //     { // StageState
+ * //       stageName: "STRING_VALUE",
+ * //       inboundExecution: { // StageExecution
+ * //         pipelineExecutionId: "STRING_VALUE", // required
+ * //         status: "STRING_VALUE", // required
+ * //       },
+ * //       inboundTransitionState: { // TransitionState
+ * //         enabled: true || false,
+ * //         lastChangedBy: "STRING_VALUE",
+ * //         lastChangedAt: new Date("TIMESTAMP"),
+ * //         disabledReason: "STRING_VALUE",
+ * //       },
+ * //       actionStates: [ // ActionStateList
+ * //         { // ActionState
+ * //           actionName: "STRING_VALUE",
+ * //           currentRevision: { // ActionRevision
+ * //             revisionId: "STRING_VALUE", // required
+ * //             revisionChangeId: "STRING_VALUE", // required
+ * //             created: new Date("TIMESTAMP"), // required
+ * //           },
+ * //           latestExecution: { // ActionExecution
+ * //             actionExecutionId: "STRING_VALUE",
+ * //             status: "STRING_VALUE",
+ * //             summary: "STRING_VALUE",
+ * //             lastStatusChange: new Date("TIMESTAMP"),
+ * //             token: "STRING_VALUE",
+ * //             lastUpdatedBy: "STRING_VALUE",
+ * //             externalExecutionId: "STRING_VALUE",
+ * //             externalExecutionUrl: "STRING_VALUE",
+ * //             percentComplete: Number("int"),
+ * //             errorDetails: { // ErrorDetails
+ * //               code: "STRING_VALUE",
+ * //               message: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           entityUrl: "STRING_VALUE",
+ * //           revisionUrl: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       latestExecution: {
+ * //         pipelineExecutionId: "STRING_VALUE", // required
+ * //         status: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   created: new Date("TIMESTAMP"),
+ * //   updated: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param GetPipelineStateCommandInput - {@link GetPipelineStateCommandInput}
@@ -64,6 +117,8 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class GetPipelineStateCommand extends $Command<

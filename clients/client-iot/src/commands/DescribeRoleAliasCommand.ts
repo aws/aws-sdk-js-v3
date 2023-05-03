@@ -45,6 +45,18 @@ export interface DescribeRoleAliasCommandOutput extends DescribeRoleAliasRespons
  * };
  * const command = new DescribeRoleAliasCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRoleAliasResponse
+ * //   roleAliasDescription: { // RoleAliasDescription
+ * //     roleAlias: "STRING_VALUE",
+ * //     roleAliasArn: "STRING_VALUE",
+ * //     roleArn: "STRING_VALUE",
+ * //     owner: "STRING_VALUE",
+ * //     credentialDurationSeconds: Number("int"),
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     lastModifiedDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeRoleAliasCommandInput - {@link DescribeRoleAliasCommandInput}
@@ -71,6 +83,8 @@ export interface DescribeRoleAliasCommandOutput extends DescribeRoleAliasRespons
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeRoleAliasCommand extends $Command<

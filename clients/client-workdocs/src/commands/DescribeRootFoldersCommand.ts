@@ -59,6 +59,27 @@ export interface DescribeRootFoldersCommandOutput extends DescribeRootFoldersRes
  * };
  * const command = new DescribeRootFoldersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRootFoldersResponse
+ * //   Folders: [ // FolderMetadataList
+ * //     { // FolderMetadata
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       CreatorId: "STRING_VALUE",
+ * //       ParentFolderId: "STRING_VALUE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       ModifiedTimestamp: new Date("TIMESTAMP"),
+ * //       ResourceState: "ACTIVE" || "RESTORING" || "RECYCLING" || "RECYCLED",
+ * //       Signature: "STRING_VALUE",
+ * //       Labels: [ // SharedLabels
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Size: Number("long"),
+ * //       LatestVersionSize: Number("long"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeRootFoldersCommandInput - {@link DescribeRootFoldersCommandInput}
@@ -84,6 +105,8 @@ export interface DescribeRootFoldersCommandOutput extends DescribeRootFoldersRes
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DescribeRootFoldersCommand extends $Command<

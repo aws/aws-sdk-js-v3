@@ -79,6 +79,8 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  * };
  * const command = new UpdateOpsItemCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateOpsItemCommandInput - {@link UpdateOpsItemCommandInput}
@@ -109,6 +111,8 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  * @throws {@link OpsItemNotFoundException} (client fault)
  *  <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateOpsItemCommand extends $Command<

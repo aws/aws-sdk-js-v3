@@ -57,6 +57,11 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  * };
  * const command = new GetAttachmentCommand(input);
  * const response = await client.send(command);
+ * // { // GetAttachmentResponse
+ * //   Url: "STRING_VALUE",
+ * //   UrlExpiry: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetAttachmentCommandInput - {@link GetAttachmentCommandInput}
@@ -77,6 +82,8 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
+ * @throws {@link ConnectParticipantServiceException}
+ * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
  */
 export class GetAttachmentCommand extends $Command<

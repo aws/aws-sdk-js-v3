@@ -49,6 +49,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -73,6 +75,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *       for and see if a different resource will accomplish your needs before retrying the revised
  *       request.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

@@ -53,6 +53,19 @@ export interface ListEndpointsCommandOutput extends ListEndpointsOutput, __Metad
  * };
  * const command = new ListEndpointsCommand(input);
  * const response = await client.send(command);
+ * // { // ListEndpointsOutput
+ * //   Endpoints: [ // EndpointSummaryList // required
+ * //     { // EndpointSummary
+ * //       EndpointName: "STRING_VALUE", // required
+ * //       EndpointArn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       EndpointStatus: "OutOfService" || "Creating" || "Updating" || "SystemUpdating" || "RollingBack" || "InService" || "Deleting" || "Failed", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEndpointsCommandInput - {@link ListEndpointsCommandInput}
@@ -61,6 +74,8 @@ export interface ListEndpointsCommandOutput extends ListEndpointsOutput, __Metad
  * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListEndpointsCommand extends $Command<

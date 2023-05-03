@@ -58,6 +58,19 @@ export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
  * };
  * const command = new GetTransitGatewayConnectPeerAssociationsCommand(input);
  * const response = await client.send(command);
+ * // { // GetTransitGatewayConnectPeerAssociationsResponse
+ * //   TransitGatewayConnectPeerAssociations: [ // TransitGatewayConnectPeerAssociationList
+ * //     { // TransitGatewayConnectPeerAssociation
+ * //       TransitGatewayConnectPeerArn: "STRING_VALUE",
+ * //       GlobalNetworkId: "STRING_VALUE",
+ * //       DeviceId: "STRING_VALUE",
+ * //       LinkId: "STRING_VALUE",
+ * //       State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetTransitGatewayConnectPeerAssociationsCommandInput - {@link GetTransitGatewayConnectPeerAssociationsCommandInput}
@@ -85,6 +98,8 @@ export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command<

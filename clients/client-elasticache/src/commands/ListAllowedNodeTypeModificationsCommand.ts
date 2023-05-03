@@ -54,6 +54,15 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * };
  * const command = new ListAllowedNodeTypeModificationsCommand(input);
  * const response = await client.send(command);
+ * // { // AllowedNodeTypeModificationsMessage
+ * //   ScaleUpModifications: [ // NodeTypeList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ScaleDownModifications: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListAllowedNodeTypeModificationsCommandInput - {@link ListAllowedNodeTypeModificationsCommandInput}
@@ -74,6 +83,8 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * @throws {@link ReplicationGroupNotFoundFault} (client fault)
  *  <p>The specified replication group does not exist.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example ListAllowedNodeTypeModifications
  * ```javascript

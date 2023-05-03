@@ -123,6 +123,102 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  * };
  * const command = new UpdateGlobalTableSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateGlobalTableSettingsOutput
+ * //   GlobalTableName: "STRING_VALUE",
+ * //   ReplicaSettings: [ // ReplicaSettingsDescriptionList
+ * //     { // ReplicaSettingsDescription
+ * //       RegionName: "STRING_VALUE", // required
+ * //       ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+ * //       ReplicaBillingModeSummary: { // BillingModeSummary
+ * //         BillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
+ * //         LastUpdateToPayPerRequestDateTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       ReplicaProvisionedReadCapacityUnits: Number("long"),
+ * //       ReplicaProvisionedReadCapacityAutoScalingSettings: { // AutoScalingSettingsDescription
+ * //         MinimumUnits: Number("long"),
+ * //         MaximumUnits: Number("long"),
+ * //         AutoScalingDisabled: true || false,
+ * //         AutoScalingRoleArn: "STRING_VALUE",
+ * //         ScalingPolicies: [ // AutoScalingPolicyDescriptionList
+ * //           { // AutoScalingPolicyDescription
+ * //             PolicyName: "STRING_VALUE",
+ * //             TargetTrackingScalingPolicyConfiguration: { // AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+ * //               DisableScaleIn: true || false,
+ * //               ScaleInCooldown: Number("int"),
+ * //               ScaleOutCooldown: Number("int"),
+ * //               TargetValue: Number("double"), // required
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //       ReplicaProvisionedWriteCapacityUnits: Number("long"),
+ * //       ReplicaProvisionedWriteCapacityAutoScalingSettings: {
+ * //         MinimumUnits: Number("long"),
+ * //         MaximumUnits: Number("long"),
+ * //         AutoScalingDisabled: true || false,
+ * //         AutoScalingRoleArn: "STRING_VALUE",
+ * //         ScalingPolicies: [
+ * //           {
+ * //             PolicyName: "STRING_VALUE",
+ * //             TargetTrackingScalingPolicyConfiguration: {
+ * //               DisableScaleIn: true || false,
+ * //               ScaleInCooldown: Number("int"),
+ * //               ScaleOutCooldown: Number("int"),
+ * //               TargetValue: Number("double"), // required
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //       ReplicaGlobalSecondaryIndexSettings: [ // ReplicaGlobalSecondaryIndexSettingsDescriptionList
+ * //         { // ReplicaGlobalSecondaryIndexSettingsDescription
+ * //           IndexName: "STRING_VALUE", // required
+ * //           IndexStatus: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
+ * //           ProvisionedReadCapacityUnits: Number("long"),
+ * //           ProvisionedReadCapacityAutoScalingSettings: {
+ * //             MinimumUnits: Number("long"),
+ * //             MaximumUnits: Number("long"),
+ * //             AutoScalingDisabled: true || false,
+ * //             AutoScalingRoleArn: "STRING_VALUE",
+ * //             ScalingPolicies: [
+ * //               {
+ * //                 PolicyName: "STRING_VALUE",
+ * //                 TargetTrackingScalingPolicyConfiguration: {
+ * //                   DisableScaleIn: true || false,
+ * //                   ScaleInCooldown: Number("int"),
+ * //                   ScaleOutCooldown: Number("int"),
+ * //                   TargetValue: Number("double"), // required
+ * //                 },
+ * //               },
+ * //             ],
+ * //           },
+ * //           ProvisionedWriteCapacityUnits: Number("long"),
+ * //           ProvisionedWriteCapacityAutoScalingSettings: {
+ * //             MinimumUnits: Number("long"),
+ * //             MaximumUnits: Number("long"),
+ * //             AutoScalingDisabled: true || false,
+ * //             AutoScalingRoleArn: "STRING_VALUE",
+ * //             ScalingPolicies: [
+ * //               {
+ * //                 PolicyName: "STRING_VALUE",
+ * //                 TargetTrackingScalingPolicyConfiguration: {
+ * //                   DisableScaleIn: true || false,
+ * //                   ScaleInCooldown: Number("int"),
+ * //                   ScaleOutCooldown: Number("int"),
+ * //                   TargetValue: Number("double"), // required
+ * //                 },
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       ],
+ * //       ReplicaTableClassSummary: { // TableClassSummary
+ * //         TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
+ * //         LastUpdateDateTime: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UpdateGlobalTableSettingsCommandInput - {@link UpdateGlobalTableSettingsCommandInput}
@@ -163,6 +259,8 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  *             attempted to recreate an existing table, or tried to delete a table currently in the
  *                 <code>CREATING</code> state.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class UpdateGlobalTableSettingsCommand extends $Command<

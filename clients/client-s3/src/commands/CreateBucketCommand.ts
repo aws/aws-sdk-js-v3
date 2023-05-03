@@ -201,6 +201,10 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * };
  * const command = new CreateBucketCommand(input);
  * const response = await client.send(command);
+ * // { // CreateBucketOutput
+ * //   Location: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateBucketCommandInput - {@link CreateBucketCommandInput}
@@ -219,6 +223,8 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *          re-create an existing bucket that you already own in the North Virginia Region, Amazon S3
  *          returns 200 OK and resets the bucket access control lists (ACLs).</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To create a bucket in a specific region
  * ```javascript

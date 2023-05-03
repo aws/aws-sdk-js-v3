@@ -51,6 +51,8 @@ export interface UpdateFailbackReplicationConfigurationCommandOutput extends __M
  * };
  * const command = new UpdateFailbackReplicationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateFailbackReplicationConfigurationCommandInput - {@link UpdateFailbackReplicationConfigurationCommandInput}
@@ -74,6 +76,8 @@ export interface UpdateFailbackReplicationConfigurationCommandOutput extends __M
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class UpdateFailbackReplicationConfigurationCommand extends $Command<

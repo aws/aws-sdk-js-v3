@@ -50,6 +50,10 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * };
  * const command = new CancelQueryCommand(input);
  * const response = await client.send(command);
+ * // { // CancelQueryResponse
+ * //   CancellationMessage: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CancelQueryCommandInput - {@link CancelQueryCommandInput}
@@ -75,6 +79,8 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
+ * @throws {@link TimestreamQueryServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
 export class CancelQueryCommand extends $Command<

@@ -44,6 +44,24 @@ export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBea
  * };
  * const command = new GetProjectCommand(input);
  * const response = await client.send(command);
+ * // { // GetProjectResult
+ * //   project: { // Project
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     defaultJobTimeoutMinutes: Number("int"),
+ * //     created: new Date("TIMESTAMP"),
+ * //     vpcConfig: { // VpcConfig
+ * //       securityGroupIds: [ // VpcSecurityGroupIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       subnetIds: [ // VpcSubnetIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       vpcId: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetProjectCommandInput - {@link GetProjectCommandInput}
@@ -64,6 +82,8 @@ export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBea
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To get information about a project
  * ```javascript

@@ -51,6 +51,8 @@ export interface DisassociateSkillGroupFromRoomCommandOutput
  * };
  * const command = new DisassociateSkillGroupFromRoomCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateSkillGroupFromRoomCommandInput - {@link DisassociateSkillGroupFromRoomCommandInput}
@@ -62,6 +64,8 @@ export interface DisassociateSkillGroupFromRoomCommandOutput
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>There is a concurrent modification of resources.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DisassociateSkillGroupFromRoomCommand extends $Command<

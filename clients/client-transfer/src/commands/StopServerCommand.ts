@@ -55,6 +55,8 @@ export interface StopServerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopServerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopServerCommandInput - {@link StopServerCommandInput}
@@ -79,6 +81,8 @@ export interface StopServerCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class StopServerCommand extends $Command<

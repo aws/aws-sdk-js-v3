@@ -43,6 +43,14 @@ export interface ListPipelineBlueprintsCommandOutput extends ListPipelineBluepri
  * const input = {};
  * const command = new ListPipelineBlueprintsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPipelineBlueprintsResponse
+ * //   Blueprints: [ // PipelineBlueprintsSummaryList
+ * //     { // PipelineBlueprintSummary
+ * //       BlueprintName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListPipelineBlueprintsCommandInput - {@link ListPipelineBlueprintsCommandInput}
@@ -64,6 +72,8 @@ export interface ListPipelineBlueprintsCommandOutput extends ListPipelineBluepri
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing or invalid input fields.</p>
  *
+ * @throws {@link OSISServiceException}
+ * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
  */
 export class ListPipelineBlueprintsCommand extends $Command<

@@ -66,6 +66,32 @@ export interface CreateDevEndpointCommandOutput extends CreateDevEndpointRespons
  * };
  * const command = new CreateDevEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDevEndpointResponse
+ * //   EndpointName: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   SecurityGroupIds: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SubnetId: "STRING_VALUE",
+ * //   RoleArn: "STRING_VALUE",
+ * //   YarnEndpointAddress: "STRING_VALUE",
+ * //   ZeppelinRemoteSparkInterpreterPort: Number("int"),
+ * //   NumberOfNodes: Number("int"),
+ * //   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
+ * //   GlueVersion: "STRING_VALUE",
+ * //   NumberOfWorkers: Number("int"),
+ * //   AvailabilityZone: "STRING_VALUE",
+ * //   VpcId: "STRING_VALUE",
+ * //   ExtraPythonLibsS3Path: "STRING_VALUE",
+ * //   ExtraJarsS3Path: "STRING_VALUE",
+ * //   FailureReason: "STRING_VALUE",
+ * //   SecurityConfiguration: "STRING_VALUE",
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * //   Arguments: { // MapValue
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateDevEndpointCommandInput - {@link CreateDevEndpointCommandInput}
@@ -98,6 +124,8 @@ export interface CreateDevEndpointCommandOutput extends CreateDevEndpointRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>A value could not be validated.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateDevEndpointCommand extends $Command<

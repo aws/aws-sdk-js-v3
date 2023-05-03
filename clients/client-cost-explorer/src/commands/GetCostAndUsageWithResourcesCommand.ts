@@ -141,6 +141,52 @@ export interface GetCostAndUsageWithResourcesCommandOutput
  * };
  * const command = new GetCostAndUsageWithResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // GetCostAndUsageWithResourcesResponse
+ * //   NextPageToken: "STRING_VALUE",
+ * //   GroupDefinitions: [ // GroupDefinitions
+ * //     { // GroupDefinition
+ * //       Type: "DIMENSION" || "TAG" || "COST_CATEGORY",
+ * //       Key: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ResultsByTime: [ // ResultsByTime
+ * //     { // ResultByTime
+ * //       TimePeriod: { // DateInterval
+ * //         Start: "STRING_VALUE", // required
+ * //         End: "STRING_VALUE", // required
+ * //       },
+ * //       Total: { // Metrics
+ * //         "<keys>": { // MetricValue
+ * //           Amount: "STRING_VALUE",
+ * //           Unit: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Groups: [ // Groups
+ * //         { // Group
+ * //           Keys: [ // Keys
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Metrics: {
+ * //             "<keys>": {
+ * //               Amount: "STRING_VALUE",
+ * //               Unit: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       Estimated: true || false,
+ * //     },
+ * //   ],
+ * //   DimensionValueAttributes: [ // DimensionValuesWithAttributesList
+ * //     { // DimensionValuesWithAttributes
+ * //       Value: "STRING_VALUE",
+ * //       Attributes: { // Attributes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetCostAndUsageWithResourcesCommandInput - {@link GetCostAndUsageWithResourcesCommandInput}
@@ -165,6 +211,8 @@ export interface GetCostAndUsageWithResourcesCommandOutput
  *  <p>Your request parameters changed between pages. Try again with the old parameters or
  *             without a pagination token.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetCostAndUsageWithResourcesCommand extends $Command<

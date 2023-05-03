@@ -76,6 +76,16 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * };
  * const command = new DescribeLoadBalancersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeLoadBalancersResponse
+ * //   LoadBalancers: [ // LoadBalancerStates
+ * //     { // LoadBalancerState
+ * //       LoadBalancerName: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeLoadBalancersCommandInput - {@link DescribeLoadBalancersCommandInput}
@@ -91,6 +101,8 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To describe the load balancers for an Auto Scaling group
  * ```javascript

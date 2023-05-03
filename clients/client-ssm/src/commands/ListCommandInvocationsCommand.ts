@@ -58,6 +58,54 @@ export interface ListCommandInvocationsCommandOutput extends ListCommandInvocati
  * };
  * const command = new ListCommandInvocationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCommandInvocationsResult
+ * //   CommandInvocations: [ // CommandInvocationList
+ * //     { // CommandInvocation
+ * //       CommandId: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       InstanceName: "STRING_VALUE",
+ * //       Comment: "STRING_VALUE",
+ * //       DocumentName: "STRING_VALUE",
+ * //       DocumentVersion: "STRING_VALUE",
+ * //       RequestedDateTime: new Date("TIMESTAMP"),
+ * //       Status: "Pending" || "InProgress" || "Delayed" || "Success" || "Cancelled" || "TimedOut" || "Failed" || "Cancelling",
+ * //       StatusDetails: "STRING_VALUE",
+ * //       TraceOutput: "STRING_VALUE",
+ * //       StandardOutputUrl: "STRING_VALUE",
+ * //       StandardErrorUrl: "STRING_VALUE",
+ * //       CommandPlugins: [ // CommandPluginList
+ * //         { // CommandPlugin
+ * //           Name: "STRING_VALUE",
+ * //           Status: "Pending" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
+ * //           StatusDetails: "STRING_VALUE",
+ * //           ResponseCode: Number("int"),
+ * //           ResponseStartDateTime: new Date("TIMESTAMP"),
+ * //           ResponseFinishDateTime: new Date("TIMESTAMP"),
+ * //           Output: "STRING_VALUE",
+ * //           StandardOutputUrl: "STRING_VALUE",
+ * //           StandardErrorUrl: "STRING_VALUE",
+ * //           OutputS3Region: "STRING_VALUE",
+ * //           OutputS3BucketName: "STRING_VALUE",
+ * //           OutputS3KeyPrefix: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ServiceRole: "STRING_VALUE",
+ * //       NotificationConfig: { // NotificationConfig
+ * //         NotificationArn: "STRING_VALUE",
+ * //         NotificationEvents: [ // NotificationEventList
+ * //           "All" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
+ * //         ],
+ * //         NotificationType: "Command" || "Invocation",
+ * //       },
+ * //       CloudWatchOutputConfig: { // CloudWatchOutputConfig
+ * //         CloudWatchLogGroupName: "STRING_VALUE",
+ * //         CloudWatchOutputEnabled: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCommandInvocationsCommandInput - {@link ListCommandInvocationsCommandInput}
@@ -98,6 +146,8 @@ export interface ListCommandInvocationsCommandOutput extends ListCommandInvocati
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListCommandInvocationsCommand extends $Command<

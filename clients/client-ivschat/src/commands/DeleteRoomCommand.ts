@@ -44,6 +44,8 @@ export interface DeleteRoomCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRoomCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteRoomCommandInput - {@link DeleteRoomCommandInput}
@@ -64,6 +66,8 @@ export interface DeleteRoomCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class DeleteRoomCommand extends $Command<

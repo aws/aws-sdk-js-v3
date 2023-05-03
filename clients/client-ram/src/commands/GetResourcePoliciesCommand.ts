@@ -50,6 +50,13 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * };
  * const command = new GetResourcePoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // GetResourcePoliciesResponse
+ * //   policies: [ // PolicyList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetResourcePoliciesCommandInput - {@link GetResourcePoliciesCommandInput}
@@ -80,6 +87,8 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class GetResourcePoliciesCommand extends $Command<

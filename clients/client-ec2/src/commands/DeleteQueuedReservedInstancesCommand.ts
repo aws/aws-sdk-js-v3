@@ -49,6 +49,23 @@ export interface DeleteQueuedReservedInstancesCommandOutput
  * };
  * const command = new DeleteQueuedReservedInstancesCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteQueuedReservedInstancesResult
+ * //   SuccessfulQueuedPurchaseDeletions: [ // SuccessfulQueuedPurchaseDeletionSet
+ * //     { // SuccessfulQueuedPurchaseDeletion
+ * //       ReservedInstancesId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   FailedQueuedPurchaseDeletions: [ // FailedQueuedPurchaseDeletionSet
+ * //     { // FailedQueuedPurchaseDeletion
+ * //       Error: { // DeleteQueuedReservedInstancesError
+ * //         Code: "reserved-instances-id-invalid" || "reserved-instances-not-in-queued-state" || "unexpected-error",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       ReservedInstancesId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DeleteQueuedReservedInstancesCommandInput - {@link DeleteQueuedReservedInstancesCommandInput}
@@ -57,6 +74,8 @@ export interface DeleteQueuedReservedInstancesCommandOutput
  * @see {@link DeleteQueuedReservedInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteQueuedReservedInstancesCommand extends $Command<

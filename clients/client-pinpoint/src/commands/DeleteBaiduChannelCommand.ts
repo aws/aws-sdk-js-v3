@@ -44,6 +44,22 @@ export interface DeleteBaiduChannelCommandOutput extends DeleteBaiduChannelRespo
  * };
  * const command = new DeleteBaiduChannelCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteBaiduChannelResponse
+ * //   BaiduChannelResponse: { // BaiduChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     Credential: "STRING_VALUE", // required
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     Version: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteBaiduChannelCommandInput - {@link DeleteBaiduChannelCommandInput}
@@ -73,6 +89,8 @@ export interface DeleteBaiduChannelCommandOutput extends DeleteBaiduChannelRespo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class DeleteBaiduChannelCommand extends $Command<

@@ -50,6 +50,16 @@ export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse,
  * };
  * const command = new GetCelebrityInfoCommand(input);
  * const response = await client.send(command);
+ * // { // GetCelebrityInfoResponse
+ * //   Urls: [ // Urls
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Name: "STRING_VALUE",
+ * //   KnownGender: { // KnownGender
+ * //     Type: "Male" || "Female" || "Nonbinary" || "Unlisted",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetCelebrityInfoCommandInput - {@link GetCelebrityInfoCommandInput}
@@ -78,6 +88,8 @@ export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse,
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class GetCelebrityInfoCommand extends $Command<

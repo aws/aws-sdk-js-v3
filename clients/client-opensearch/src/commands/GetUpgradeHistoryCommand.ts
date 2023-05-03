@@ -47,6 +47,27 @@ export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryRespons
  * };
  * const command = new GetUpgradeHistoryCommand(input);
  * const response = await client.send(command);
+ * // { // GetUpgradeHistoryResponse
+ * //   UpgradeHistories: [ // UpgradeHistoryList
+ * //     { // UpgradeHistory
+ * //       UpgradeName: "STRING_VALUE",
+ * //       StartTimestamp: new Date("TIMESTAMP"),
+ * //       UpgradeStatus: "IN_PROGRESS" || "SUCCEEDED" || "SUCCEEDED_WITH_ISSUES" || "FAILED",
+ * //       StepsList: [ // UpgradeStepsList
+ * //         { // UpgradeStepItem
+ * //           UpgradeStep: "PRE_UPGRADE_CHECK" || "SNAPSHOT" || "UPGRADE",
+ * //           UpgradeStepStatus: "IN_PROGRESS" || "SUCCEEDED" || "SUCCEEDED_WITH_ISSUES" || "FAILED",
+ * //           Issues: [ // Issues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ProgressPercent: Number("double"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetUpgradeHistoryCommandInput - {@link GetUpgradeHistoryCommandInput}
@@ -70,6 +91,8 @@ export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class GetUpgradeHistoryCommand extends $Command<

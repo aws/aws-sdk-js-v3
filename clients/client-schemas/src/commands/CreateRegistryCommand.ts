@@ -48,6 +48,15 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * };
  * const command = new CreateRegistryCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRegistryResponse
+ * //   Description: "STRING_VALUE",
+ * //   RegistryArn: "STRING_VALUE",
+ * //   RegistryName: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateRegistryCommandInput - {@link CreateRegistryCommandInput}
@@ -68,6 +77,8 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class CreateRegistryCommand extends $Command<

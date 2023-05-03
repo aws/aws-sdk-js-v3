@@ -56,6 +56,21 @@ export interface GetServiceLinkedRoleDeletionStatusCommandOutput
  * };
  * const command = new GetServiceLinkedRoleDeletionStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetServiceLinkedRoleDeletionStatusResponse
+ * //   Status: "SUCCEEDED" || "IN_PROGRESS" || "FAILED" || "NOT_STARTED", // required
+ * //   Reason: { // DeletionTaskFailureReasonType
+ * //     Reason: "STRING_VALUE",
+ * //     RoleUsageList: [ // RoleUsageListType
+ * //       { // RoleUsageType
+ * //         Region: "STRING_VALUE",
+ * //         Resources: [ // ArnListType
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetServiceLinkedRoleDeletionStatusCommandInput - {@link GetServiceLinkedRoleDeletionStatusCommandInput}
@@ -76,6 +91,8 @@ export interface GetServiceLinkedRoleDeletionStatusCommandOutput
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<

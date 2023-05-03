@@ -59,6 +59,18 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDomainsResponse
+ * //   Domains: [ // DomainSummaryList
+ * //     { // DomainSummary
+ * //       DomainName: "STRING_VALUE",
+ * //       AutoRenew: true || false,
+ * //       TransferLock: true || false,
+ * //       Expiry: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextPageMarker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
@@ -73,6 +85,8 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
  * 			password might be invalid.</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class ListDomainsCommand extends $Command<

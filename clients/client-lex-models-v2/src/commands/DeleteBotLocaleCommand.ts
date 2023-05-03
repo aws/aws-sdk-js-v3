@@ -48,6 +48,13 @@ export interface DeleteBotLocaleCommandOutput extends DeleteBotLocaleResponse, _
  * };
  * const command = new DeleteBotLocaleCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteBotLocaleResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
+ * // };
+ *
  * ```
  *
  * @param DeleteBotLocaleCommandInput - {@link DeleteBotLocaleCommandInput}
@@ -81,6 +88,8 @@ export interface DeleteBotLocaleCommandOutput extends DeleteBotLocaleResponse, _
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteBotLocaleCommand extends $Command<

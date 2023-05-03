@@ -46,6 +46,20 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * };
  * const command = new DescribeStreamCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeStreamOutput
+ * //   StreamInfo: { // StreamInfo
+ * //     DeviceName: "STRING_VALUE",
+ * //     StreamName: "STRING_VALUE",
+ * //     StreamARN: "STRING_VALUE",
+ * //     MediaType: "STRING_VALUE",
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     Version: "STRING_VALUE",
+ * //     Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     DataRetentionInHours: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeStreamCommandInput - {@link DescribeStreamCommandInput}
@@ -67,6 +81,8 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class DescribeStreamCommand extends $Command<

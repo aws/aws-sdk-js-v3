@@ -57,6 +57,29 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput
  * };
  * const command = new DescribeConfigRuleEvaluationStatusCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeConfigRuleEvaluationStatusResponse
+ * //   ConfigRulesEvaluationStatus: [ // ConfigRuleEvaluationStatusList
+ * //     { // ConfigRuleEvaluationStatus
+ * //       ConfigRuleName: "STRING_VALUE",
+ * //       ConfigRuleArn: "STRING_VALUE",
+ * //       ConfigRuleId: "STRING_VALUE",
+ * //       LastSuccessfulInvocationTime: new Date("TIMESTAMP"),
+ * //       LastFailedInvocationTime: new Date("TIMESTAMP"),
+ * //       LastSuccessfulEvaluationTime: new Date("TIMESTAMP"),
+ * //       LastFailedEvaluationTime: new Date("TIMESTAMP"),
+ * //       FirstActivatedTime: new Date("TIMESTAMP"),
+ * //       LastDeactivatedTime: new Date("TIMESTAMP"),
+ * //       LastErrorCode: "STRING_VALUE",
+ * //       LastErrorMessage: "STRING_VALUE",
+ * //       FirstEvaluationStarted: true || false,
+ * //       LastDebugLogDeliveryStatus: "STRING_VALUE",
+ * //       LastDebugLogDeliveryStatusReason: "STRING_VALUE",
+ * //       LastDebugLogDeliveryTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeConfigRuleEvaluationStatusCommandInput - {@link DescribeConfigRuleEvaluationStatusCommandInput}
@@ -77,6 +100,8 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput
  * @throws {@link NoSuchConfigRuleException} (client fault)
  *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeConfigRuleEvaluationStatusCommand extends $Command<

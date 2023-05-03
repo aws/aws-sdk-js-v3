@@ -44,6 +44,26 @@ export interface DeleteEmailChannelCommandOutput extends DeleteEmailChannelRespo
  * };
  * const command = new DeleteEmailChannelCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteEmailChannelResponse
+ * //   EmailChannelResponse: { // EmailChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     ConfigurationSet: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     FromAddress: "STRING_VALUE",
+ * //     HasCredential: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     Identity: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     MessagesPerSecond: Number("int"),
+ * //     Platform: "STRING_VALUE", // required
+ * //     RoleArn: "STRING_VALUE",
+ * //     Version: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteEmailChannelCommandInput - {@link DeleteEmailChannelCommandInput}
@@ -73,6 +93,8 @@ export interface DeleteEmailChannelCommandOutput extends DeleteEmailChannelRespo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class DeleteEmailChannelCommand extends $Command<

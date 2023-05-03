@@ -50,6 +50,18 @@ export interface ListTemplatesCommandOutput extends ListMigrationWorkflowTemplat
  * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
+ * // { // ListMigrationWorkflowTemplatesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   templateSummary: [ // TemplateSummaryList // required
+ * //     { // TemplateSummary
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListTemplatesCommandInput - {@link ListTemplatesCommandInput}
@@ -67,6 +79,8 @@ export interface ListTemplatesCommandOutput extends ListMigrationWorkflowTemplat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class ListTemplatesCommand extends $Command<

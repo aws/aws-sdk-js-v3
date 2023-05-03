@@ -55,6 +55,38 @@ export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnaps
  * };
  * const command = new EnableFastSnapshotRestoresCommand(input);
  * const response = await client.send(command);
+ * // { // EnableFastSnapshotRestoresResult
+ * //   Successful: [ // EnableFastSnapshotRestoreSuccessSet
+ * //     { // EnableFastSnapshotRestoreSuccessItem
+ * //       SnapshotId: "STRING_VALUE",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       State: "enabling" || "optimizing" || "enabled" || "disabling" || "disabled",
+ * //       StateTransitionReason: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       OwnerAlias: "STRING_VALUE",
+ * //       EnablingTime: new Date("TIMESTAMP"),
+ * //       OptimizingTime: new Date("TIMESTAMP"),
+ * //       EnabledTime: new Date("TIMESTAMP"),
+ * //       DisablingTime: new Date("TIMESTAMP"),
+ * //       DisabledTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Unsuccessful: [ // EnableFastSnapshotRestoreErrorSet
+ * //     { // EnableFastSnapshotRestoreErrorItem
+ * //       SnapshotId: "STRING_VALUE",
+ * //       FastSnapshotRestoreStateErrors: [ // EnableFastSnapshotRestoreStateErrorSet
+ * //         { // EnableFastSnapshotRestoreStateErrorItem
+ * //           AvailabilityZone: "STRING_VALUE",
+ * //           Error: { // EnableFastSnapshotRestoreStateError
+ * //             Code: "STRING_VALUE",
+ * //             Message: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param EnableFastSnapshotRestoresCommandInput - {@link EnableFastSnapshotRestoresCommandInput}
@@ -63,6 +95,8 @@ export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnaps
  * @see {@link EnableFastSnapshotRestoresCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class EnableFastSnapshotRestoresCommand extends $Command<

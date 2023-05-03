@@ -53,6 +53,20 @@ export interface GetRecommendationReportDetailsCommandOutput
  * };
  * const command = new GetRecommendationReportDetailsCommand(input);
  * const response = await client.send(command);
+ * // { // GetRecommendationReportDetailsResponse
+ * //   id: "STRING_VALUE",
+ * //   recommendationReportDetails: { // RecommendationReportDetails
+ * //     status: "STRING_VALUE",
+ * //     statusMessage: "STRING_VALUE",
+ * //     startTime: new Date("TIMESTAMP"),
+ * //     completionTime: new Date("TIMESTAMP"),
+ * //     s3Bucket: "STRING_VALUE",
+ * //     s3Keys: [ // S3Keys
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetRecommendationReportDetailsCommandInput - {@link GetRecommendationReportDetailsCommandInput}
@@ -77,6 +91,8 @@ export interface GetRecommendationReportDetailsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class GetRecommendationReportDetailsCommand extends $Command<

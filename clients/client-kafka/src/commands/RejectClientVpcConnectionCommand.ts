@@ -45,6 +45,8 @@ export interface RejectClientVpcConnectionCommandOutput extends RejectClientVpcC
  * };
  * const command = new RejectClientVpcConnectionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RejectClientVpcConnectionCommandInput - {@link RejectClientVpcConnectionCommandInput}
@@ -68,6 +70,8 @@ export interface RejectClientVpcConnectionCommandOutput extends RejectClientVpcC
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class RejectClientVpcConnectionCommand extends $Command<

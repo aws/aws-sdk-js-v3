@@ -44,6 +44,8 @@ export interface DeleteDeviceDefinitionCommandOutput extends DeleteDeviceDefinit
  * };
  * const command = new DeleteDeviceDefinitionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDeviceDefinitionCommandInput - {@link DeleteDeviceDefinitionCommandInput}
@@ -55,6 +57,8 @@ export interface DeleteDeviceDefinitionCommandOutput extends DeleteDeviceDefinit
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteDeviceDefinitionCommand extends $Command<

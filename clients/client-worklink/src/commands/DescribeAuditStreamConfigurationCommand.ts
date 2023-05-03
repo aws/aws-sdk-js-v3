@@ -51,6 +51,10 @@ export interface DescribeAuditStreamConfigurationCommandOutput
  * };
  * const command = new DescribeAuditStreamConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAuditStreamConfigurationResponse
+ * //   AuditStreamArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeAuditStreamConfigurationCommandInput - {@link DescribeAuditStreamConfigurationCommandInput}
@@ -74,6 +78,8 @@ export interface DescribeAuditStreamConfigurationCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DescribeAuditStreamConfigurationCommand extends $Command<

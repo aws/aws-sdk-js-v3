@@ -53,6 +53,31 @@ export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
  * };
  * const command = new DeleteDirectConnectGatewayAssociationProposalCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDirectConnectGatewayAssociationProposalResult
+ * //   directConnectGatewayAssociationProposal: { // DirectConnectGatewayAssociationProposal
+ * //     proposalId: "STRING_VALUE",
+ * //     directConnectGatewayId: "STRING_VALUE",
+ * //     directConnectGatewayOwnerAccount: "STRING_VALUE",
+ * //     proposalState: "requested" || "accepted" || "deleted",
+ * //     associatedGateway: { // AssociatedGateway
+ * //       id: "STRING_VALUE",
+ * //       type: "virtualPrivateGateway" || "transitGateway",
+ * //       ownerAccount: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //     },
+ * //     existingAllowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
+ * //       { // RouteFilterPrefix
+ * //         cidr: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     requestedAllowedPrefixesToDirectConnectGateway: [
+ * //       {
+ * //         cidr: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteDirectConnectGatewayAssociationProposalCommandInput - {@link DeleteDirectConnectGatewayAssociationProposalCommandInput}
@@ -67,6 +92,8 @@ export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Command<

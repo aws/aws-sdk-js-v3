@@ -51,6 +51,15 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * };
  * const command = new DeleteMembersCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteMembersResponse
+ * //   UnprocessedAccounts: [ // UnprocessedAccounts // required
+ * //     { // UnprocessedAccount
+ * //       AccountId: "STRING_VALUE", // required
+ * //       Result: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DeleteMembersCommandInput - {@link DeleteMembersCommandInput}
@@ -65,6 +74,8 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class DeleteMembersCommand extends $Command<

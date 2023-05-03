@@ -46,6 +46,10 @@ export interface UpdateBlueprintCommandOutput extends UpdateBlueprintResponse, _
  * };
  * const command = new UpdateBlueprintCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateBlueprintResponse
+ * //   Name: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateBlueprintCommandInput - {@link UpdateBlueprintCommandInput}
@@ -72,6 +76,8 @@ export interface UpdateBlueprintCommandOutput extends UpdateBlueprintResponse, _
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateBlueprintCommand extends $Command<

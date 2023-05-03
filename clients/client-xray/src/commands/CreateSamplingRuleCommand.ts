@@ -72,6 +72,30 @@ export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResul
  * };
  * const command = new CreateSamplingRuleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSamplingRuleResult
+ * //   SamplingRuleRecord: { // SamplingRuleRecord
+ * //     SamplingRule: { // SamplingRule
+ * //       RuleName: "STRING_VALUE",
+ * //       RuleARN: "STRING_VALUE",
+ * //       ResourceARN: "STRING_VALUE", // required
+ * //       Priority: Number("int"), // required
+ * //       FixedRate: Number("double"), // required
+ * //       ReservoirSize: Number("int"), // required
+ * //       ServiceName: "STRING_VALUE", // required
+ * //       ServiceType: "STRING_VALUE", // required
+ * //       Host: "STRING_VALUE", // required
+ * //       HTTPMethod: "STRING_VALUE", // required
+ * //       URLPath: "STRING_VALUE", // required
+ * //       Version: Number("int"), // required
+ * //       Attributes: { // AttributeMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     ModifiedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateSamplingRuleCommandInput - {@link CreateSamplingRuleCommandInput}
@@ -89,6 +113,8 @@ export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResul
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class CreateSamplingRuleCommand extends $Command<

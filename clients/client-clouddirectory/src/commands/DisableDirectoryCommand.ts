@@ -45,6 +45,10 @@ export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse,
  * };
  * const command = new DisableDirectoryCommand(input);
  * const response = await client.send(command);
+ * // { // DisableDirectoryResponse
+ * //   DirectoryArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DisableDirectoryCommandInput - {@link DisableDirectoryCommandInput}
@@ -79,6 +83,8 @@ export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse,
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DisableDirectoryCommand extends $Command<

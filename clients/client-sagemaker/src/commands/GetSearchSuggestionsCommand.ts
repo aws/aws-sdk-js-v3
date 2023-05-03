@@ -52,6 +52,14 @@ export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsR
  * };
  * const command = new GetSearchSuggestionsCommand(input);
  * const response = await client.send(command);
+ * // { // GetSearchSuggestionsResponse
+ * //   PropertyNameSuggestions: [ // PropertyNameSuggestionList
+ * //     { // PropertyNameSuggestion
+ * //       PropertyName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetSearchSuggestionsCommandInput - {@link GetSearchSuggestionsCommandInput}
@@ -60,6 +68,8 @@ export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsR
  * @see {@link GetSearchSuggestionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class GetSearchSuggestionsCommand extends $Command<

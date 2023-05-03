@@ -49,6 +49,95 @@ export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutpu
  * };
  * const command = new ListInstanceFleetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListInstanceFleetsOutput
+ * //   InstanceFleets: [ // InstanceFleetList
+ * //     { // InstanceFleet
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: { // InstanceFleetStatus
+ * //         State: "PROVISIONING" || "BOOTSTRAPPING" || "RUNNING" || "RESIZING" || "SUSPENDED" || "TERMINATING" || "TERMINATED",
+ * //         StateChangeReason: { // InstanceFleetStateChangeReason
+ * //           Code: "INTERNAL_ERROR" || "VALIDATION_ERROR" || "INSTANCE_FAILURE" || "CLUSTER_TERMINATED",
+ * //           Message: "STRING_VALUE",
+ * //         },
+ * //         Timeline: { // InstanceFleetTimeline
+ * //           CreationDateTime: new Date("TIMESTAMP"),
+ * //           ReadyDateTime: new Date("TIMESTAMP"),
+ * //           EndDateTime: new Date("TIMESTAMP"),
+ * //         },
+ * //       },
+ * //       InstanceFleetType: "MASTER" || "CORE" || "TASK",
+ * //       TargetOnDemandCapacity: Number("int"),
+ * //       TargetSpotCapacity: Number("int"),
+ * //       ProvisionedOnDemandCapacity: Number("int"),
+ * //       ProvisionedSpotCapacity: Number("int"),
+ * //       InstanceTypeSpecifications: [ // InstanceTypeSpecificationList
+ * //         { // InstanceTypeSpecification
+ * //           InstanceType: "STRING_VALUE",
+ * //           WeightedCapacity: Number("int"),
+ * //           BidPrice: "STRING_VALUE",
+ * //           BidPriceAsPercentageOfOnDemandPrice: Number("double"),
+ * //           Configurations: [ // ConfigurationList
+ * //             { // Configuration
+ * //               Classification: "STRING_VALUE",
+ * //               Configurations: [
+ * //                 {
+ * //                   Classification: "STRING_VALUE",
+ * //                   Configurations: "<ConfigurationList>",
+ * //                   Properties: { // StringMap
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //               ],
+ * //               Properties: {
+ * //                 "<keys>": "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           ],
+ * //           EbsBlockDevices: [ // EbsBlockDeviceList
+ * //             { // EbsBlockDevice
+ * //               VolumeSpecification: { // VolumeSpecification
+ * //                 VolumeType: "STRING_VALUE", // required
+ * //                 Iops: Number("int"),
+ * //                 SizeInGB: Number("int"), // required
+ * //                 Throughput: Number("int"),
+ * //               },
+ * //               Device: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           EbsOptimized: true || false,
+ * //           CustomAmiId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       LaunchSpecifications: { // InstanceFleetProvisioningSpecifications
+ * //         SpotSpecification: { // SpotProvisioningSpecification
+ * //           TimeoutDurationMinutes: Number("int"), // required
+ * //           TimeoutAction: "SWITCH_TO_ON_DEMAND" || "TERMINATE_CLUSTER", // required
+ * //           BlockDurationMinutes: Number("int"),
+ * //           AllocationStrategy: "capacity-optimized",
+ * //         },
+ * //         OnDemandSpecification: { // OnDemandProvisioningSpecification
+ * //           AllocationStrategy: "lowest-price", // required
+ * //           CapacityReservationOptions: { // OnDemandCapacityReservationOptions
+ * //             UsageStrategy: "use-capacity-reservations-first",
+ * //             CapacityReservationPreference: "open" || "none",
+ * //             CapacityReservationResourceGroupArn: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       ResizeSpecifications: { // InstanceFleetResizingSpecifications
+ * //         SpotResizeSpecification: { // SpotResizingSpecification
+ * //           TimeoutDurationMinutes: Number("int"), // required
+ * //         },
+ * //         OnDemandResizeSpecification: { // OnDemandResizingSpecification
+ * //           TimeoutDurationMinutes: Number("int"), // required
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListInstanceFleetsCommandInput - {@link ListInstanceFleetsCommandInput}
@@ -64,6 +153,8 @@ export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutpu
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ListInstanceFleetsCommand extends $Command<

@@ -50,6 +50,15 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  * };
  * const command = new GetInsightSelectorsCommand(input);
  * const response = await client.send(command);
+ * // { // GetInsightSelectorsResponse
+ * //   TrailARN: "STRING_VALUE",
+ * //   InsightSelectors: [ // InsightSelectors
+ * //     { // InsightSelector
+ * //       InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetInsightSelectorsCommandInput - {@link GetInsightSelectorsCommandInput}
@@ -113,6 +122,8 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class GetInsightSelectorsCommand extends $Command<

@@ -46,6 +46,8 @@ export interface DeleteMedicalVocabularyCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteMedicalVocabularyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteMedicalVocabularyCommandInput - {@link DeleteMedicalVocabularyCommandInput}
@@ -72,6 +74,8 @@ export interface DeleteMedicalVocabularyCommandOutput extends __MetadataBearer {
  *  <p>We can't find the requested resource. Check that the specified name is correct and try
  *             your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class DeleteMedicalVocabularyCommand extends $Command<

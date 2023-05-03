@@ -68,6 +68,10 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  * };
  * const command = new CreateAnalyzerCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAnalyzerResponse
+ * //   arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateAnalyzerCommandInput - {@link CreateAnalyzerCommandInput}
@@ -94,6 +98,8 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class CreateAnalyzerCommand extends $Command<

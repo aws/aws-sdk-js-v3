@@ -54,6 +54,23 @@ export interface UpdateApnsVoipChannelCommandOutput extends UpdateApnsVoipChanne
  * };
  * const command = new UpdateApnsVoipChannelCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateApnsVoipChannelResponse
+ * //   APNSVoipChannelResponse: { // APNSVoipChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     DefaultAuthenticationMethod: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     HasTokenKey: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     Version: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateApnsVoipChannelCommandInput - {@link UpdateApnsVoipChannelCommandInput}
@@ -83,6 +100,8 @@ export interface UpdateApnsVoipChannelCommandOutput extends UpdateApnsVoipChanne
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateApnsVoipChannelCommand extends $Command<

@@ -50,6 +50,13 @@ export interface CreateLocationCommandOutput extends CreateLocationOutput, __Met
  * };
  * const command = new CreateLocationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLocationOutput
+ * //   Location: { // LocationModel
+ * //     LocationName: "STRING_VALUE",
+ * //     LocationArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateLocationCommandInput - {@link CreateLocationCommandInput}
@@ -84,6 +91,8 @@ export interface CreateLocationCommandOutput extends CreateLocationOutput, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class CreateLocationCommand extends $Command<

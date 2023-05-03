@@ -44,6 +44,8 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * };
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartApplicationCommandInput - {@link StartApplicationCommandInput}
@@ -70,6 +72,8 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class StartApplicationCommand extends $Command<

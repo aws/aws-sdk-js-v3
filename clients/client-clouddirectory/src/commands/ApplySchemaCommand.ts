@@ -46,6 +46,11 @@ export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __Metadat
  * };
  * const command = new ApplySchemaCommand(input);
  * const response = await client.send(command);
+ * // { // ApplySchemaResponse
+ * //   AppliedSchemaArn: "STRING_VALUE",
+ * //   DirectoryArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ApplySchemaCommandInput - {@link ApplySchemaCommandInput}
@@ -84,6 +89,8 @@ export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __Metadat
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ApplySchemaCommand extends $Command<

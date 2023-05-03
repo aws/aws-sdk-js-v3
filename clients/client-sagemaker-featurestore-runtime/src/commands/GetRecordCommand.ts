@@ -54,6 +54,15 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  * };
  * const command = new GetRecordCommand(input);
  * const response = await client.send(command);
+ * // { // GetRecordResponse
+ * //   Record: [ // Record
+ * //     { // FeatureValue
+ * //       FeatureName: "STRING_VALUE", // required
+ * //       ValueAsString: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetRecordCommandInput - {@link GetRecordCommandInput}
@@ -78,6 +87,8 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  * @throws {@link ValidationError} (client fault)
  *  <p>There was an error validating your request.</p>
  *
+ * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
  */
 export class GetRecordCommand extends $Command<

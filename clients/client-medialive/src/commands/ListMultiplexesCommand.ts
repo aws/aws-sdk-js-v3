@@ -45,6 +45,29 @@ export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, _
  * };
  * const command = new ListMultiplexesCommand(input);
  * const response = await client.send(command);
+ * // { // ListMultiplexesResponse
+ * //   Multiplexes: [ // __listOfMultiplexSummary
+ * //     { // MultiplexSummary
+ * //       Arn: "STRING_VALUE",
+ * //       AvailabilityZones: [ // __listOf__string
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Id: "STRING_VALUE",
+ * //       MultiplexSettings: { // MultiplexSettingsSummary
+ * //         TransportStreamBitrate: Number("int"),
+ * //       },
+ * //       Name: "STRING_VALUE",
+ * //       PipelinesRunningCount: Number("int"),
+ * //       ProgramCount: Number("int"),
+ * //       State: "CREATING" || "CREATE_FAILED" || "IDLE" || "STARTING" || "RUNNING" || "RECOVERING" || "STOPPING" || "DELETING" || "DELETED",
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListMultiplexesCommandInput - {@link ListMultiplexesCommandInput}
@@ -71,6 +94,8 @@ export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class ListMultiplexesCommand extends $Command<

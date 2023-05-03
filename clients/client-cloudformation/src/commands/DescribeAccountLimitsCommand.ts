@@ -46,6 +46,16 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * };
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAccountLimitsOutput
+ * //   AccountLimits: [ // AccountLimitList
+ * //     { // AccountLimit
+ * //       Name: "STRING_VALUE",
+ * //       Value: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeAccountLimitsCommandInput - {@link DescribeAccountLimitsCommandInput}
@@ -54,6 +64,8 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DescribeAccountLimitsCommand extends $Command<

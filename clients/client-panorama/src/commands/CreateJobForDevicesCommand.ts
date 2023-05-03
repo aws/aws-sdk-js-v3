@@ -53,6 +53,15 @@ export interface CreateJobForDevicesCommandOutput extends CreateJobForDevicesRes
  * };
  * const command = new CreateJobForDevicesCommand(input);
  * const response = await client.send(command);
+ * // { // CreateJobForDevicesResponse
+ * //   Jobs: [ // JobList // required
+ * //     { // Job
+ * //       JobId: "STRING_VALUE",
+ * //       DeviceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param CreateJobForDevicesCommandInput - {@link CreateJobForDevicesCommandInput}
@@ -76,6 +85,8 @@ export interface CreateJobForDevicesCommandOutput extends CreateJobForDevicesRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class CreateJobForDevicesCommand extends $Command<

@@ -76,6 +76,11 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * };
  * const command = new CreateCaseCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCaseResponse
+ * //   caseId: "STRING_VALUE", // required
+ * //   caseArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateCaseCommandInput - {@link CreateCaseCommandInput}
@@ -106,6 +111,8 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class CreateCaseCommand extends $Command<

@@ -47,6 +47,18 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * };
  * const command = new DescribeDeviceCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDeviceResponse
+ * //   Status: "STRING_VALUE",
+ * //   Model: "STRING_VALUE",
+ * //   Manufacturer: "STRING_VALUE",
+ * //   OperatingSystem: "STRING_VALUE",
+ * //   OperatingSystemVersion: "STRING_VALUE",
+ * //   PatchLevel: "STRING_VALUE",
+ * //   FirstAccessedTime: new Date("TIMESTAMP"),
+ * //   LastAccessedTime: new Date("TIMESTAMP"),
+ * //   Username: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeDeviceCommandInput - {@link DescribeDeviceCommandInput}
@@ -70,6 +82,8 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DescribeDeviceCommand extends $Command<

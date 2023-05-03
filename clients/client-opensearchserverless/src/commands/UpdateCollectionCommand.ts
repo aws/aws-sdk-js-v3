@@ -50,6 +50,19 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * };
  * const command = new UpdateCollectionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateCollectionResponse
+ * //   updateCollectionDetail: { // UpdateCollectionDetail
+ * //     id: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     type: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     createdDate: Number("long"),
+ * //     lastModifiedDate: Number("long"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateCollectionCommandInput - {@link UpdateCollectionCommandInput}
@@ -70,6 +83,8 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class UpdateCollectionCommand extends $Command<

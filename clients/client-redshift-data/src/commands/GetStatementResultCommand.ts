@@ -49,6 +49,40 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
  * };
  * const command = new GetStatementResultCommand(input);
  * const response = await client.send(command);
+ * // { // GetStatementResultResponse
+ * //   Records: [ // SqlRecords // required
+ * //     [ // FieldList
+ * //       { // Field Union: only one key present
+ * //         isNull: true || false,
+ * //         booleanValue: true || false,
+ * //         longValue: Number("long"),
+ * //         doubleValue: Number("double"),
+ * //         stringValue: "STRING_VALUE",
+ * //         blobValue: "BLOB_VALUE",
+ * //       },
+ * //     ],
+ * //   ],
+ * //   ColumnMetadata: [ // ColumnMetadataList
+ * //     { // ColumnMetadata
+ * //       isCaseSensitive: true || false,
+ * //       isCurrency: true || false,
+ * //       isSigned: true || false,
+ * //       label: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       nullable: Number("int"),
+ * //       precision: Number("int"),
+ * //       scale: Number("int"),
+ * //       schemaName: "STRING_VALUE",
+ * //       tableName: "STRING_VALUE",
+ * //       typeName: "STRING_VALUE",
+ * //       length: Number("int"),
+ * //       columnDefault: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   TotalNumRows: Number("long"),
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetStatementResultCommandInput - {@link GetStatementResultCommandInput}
@@ -66,6 +100,8 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  *
+ * @throws {@link RedshiftDataServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
  */
 export class GetStatementResultCommand extends $Command<

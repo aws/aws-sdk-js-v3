@@ -50,6 +50,11 @@ export interface DeregisterRobotCommandOutput extends DeregisterRobotResponse, _
  * };
  * const command = new DeregisterRobotCommand(input);
  * const response = await client.send(command);
+ * // { // DeregisterRobotResponse
+ * //   fleet: "STRING_VALUE",
+ * //   robot: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeregisterRobotCommandInput - {@link DeregisterRobotCommandInput}
@@ -71,6 +76,8 @@ export interface DeregisterRobotCommandOutput extends DeregisterRobotResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class DeregisterRobotCommand extends $Command<

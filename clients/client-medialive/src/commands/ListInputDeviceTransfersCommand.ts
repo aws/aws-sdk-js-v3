@@ -46,6 +46,18 @@ export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTr
  * };
  * const command = new ListInputDeviceTransfersCommand(input);
  * const response = await client.send(command);
+ * // { // ListInputDeviceTransfersResponse
+ * //   InputDeviceTransfers: [ // __listOfTransferringInputDeviceSummary
+ * //     { // TransferringInputDeviceSummary
+ * //       Id: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       TargetCustomerId: "STRING_VALUE",
+ * //       TransferType: "OUTGOING" || "INCOMING",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListInputDeviceTransfersCommandInput - {@link ListInputDeviceTransfersCommandInput}
@@ -75,6 +87,8 @@ export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTr
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class ListInputDeviceTransfersCommand extends $Command<

@@ -44,6 +44,16 @@ export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __Met
  * };
  * const command = new ListS3BucketsCommand(input);
  * const response = await client.send(command);
+ * // { // ListS3BucketsResponse
+ * //   Buckets: [ // ListOfS3BucketInfo
+ * //     { // S3BucketInfo
+ * //       CreationDate: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListS3BucketsCommandInput - {@link ListS3BucketsCommandInput}
@@ -64,6 +74,8 @@ export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class ListS3BucketsCommand extends $Command<

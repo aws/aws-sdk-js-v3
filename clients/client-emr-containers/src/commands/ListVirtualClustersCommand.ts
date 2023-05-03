@@ -57,6 +57,31 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * };
  * const command = new ListVirtualClustersCommand(input);
  * const response = await client.send(command);
+ * // { // ListVirtualClustersResponse
+ * //   virtualClusters: [ // VirtualClusters
+ * //     { // VirtualCluster
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       state: "RUNNING" || "TERMINATING" || "TERMINATED" || "ARRESTED",
+ * //       containerProvider: { // ContainerProvider
+ * //         type: "EKS", // required
+ * //         id: "STRING_VALUE", // required
+ * //         info: { // ContainerInfo Union: only one key present
+ * //           eksInfo: { // EksInfo
+ * //             namespace: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListVirtualClustersCommandInput - {@link ListVirtualClustersCommandInput}
@@ -71,6 +96,8 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class ListVirtualClustersCommand extends $Command<

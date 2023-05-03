@@ -45,6 +45,10 @@ export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __Met
  * };
  * const command = new DeleteTriggerCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteTriggerResponse
+ * //   Name: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteTriggerCommandInput - {@link DeleteTriggerCommandInput}
@@ -65,6 +69,8 @@ export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __Met
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteTriggerCommand extends $Command<

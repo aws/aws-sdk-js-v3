@@ -64,6 +64,16 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  * };
  * const command = new UploadSigningCertificateCommand(input);
  * const response = await client.send(command);
+ * // { // UploadSigningCertificateResponse
+ * //   Certificate: { // SigningCertificate
+ * //     UserName: "STRING_VALUE", // required
+ * //     CertificateId: "STRING_VALUE", // required
+ * //     CertificateBody: "STRING_VALUE", // required
+ * //     Status: "Active" || "Inactive", // required
+ * //     UploadDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UploadSigningCertificateCommandInput - {@link UploadSigningCertificateCommandInput}
@@ -99,6 +109,8 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To upload a signing certificate for an IAM user
  * ```javascript

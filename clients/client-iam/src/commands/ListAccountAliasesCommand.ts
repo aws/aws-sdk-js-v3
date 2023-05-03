@@ -47,6 +47,14 @@ export interface ListAccountAliasesCommandOutput extends ListAccountAliasesRespo
  * };
  * const command = new ListAccountAliasesCommand(input);
  * const response = await client.send(command);
+ * // { // ListAccountAliasesResponse
+ * //   AccountAliases: [ // accountAliasListType // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAccountAliasesCommandInput - {@link ListAccountAliasesCommandInput}
@@ -59,6 +67,8 @@ export interface ListAccountAliasesCommandOutput extends ListAccountAliasesRespo
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To list account aliases
  * ```javascript

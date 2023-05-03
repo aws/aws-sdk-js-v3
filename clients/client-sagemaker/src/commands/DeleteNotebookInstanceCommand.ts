@@ -50,6 +50,8 @@ export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteNotebookInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteNotebookInstanceCommandInput - {@link DeleteNotebookInstanceCommandInput}
@@ -58,6 +60,8 @@ export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteNotebookInstanceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteNotebookInstanceCommand extends $Command<

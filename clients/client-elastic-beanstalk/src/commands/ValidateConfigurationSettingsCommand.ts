@@ -62,6 +62,17 @@ export interface ValidateConfigurationSettingsCommandOutput
  * };
  * const command = new ValidateConfigurationSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // ConfigurationSettingsValidationMessages
+ * //   Messages: [ // ValidationMessagesList
+ * //     { // ValidationMessage
+ * //       Message: "STRING_VALUE",
+ * //       Severity: "error" || "warning",
+ * //       Namespace: "STRING_VALUE",
+ * //       OptionName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ValidateConfigurationSettingsCommandInput - {@link ValidateConfigurationSettingsCommandInput}
@@ -77,6 +88,8 @@ export interface ValidateConfigurationSettingsCommandOutput
  * @throws {@link TooManyBucketsException} (client fault)
  *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To validate configuration settings
  * ```javascript

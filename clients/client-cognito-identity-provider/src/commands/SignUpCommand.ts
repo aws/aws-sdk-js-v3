@@ -92,6 +92,16 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  * };
  * const command = new SignUpCommand(input);
  * const response = await client.send(command);
+ * // { // SignUpResponse
+ * //   UserConfirmed: true || false, // required
+ * //   CodeDeliveryDetails: { // CodeDeliveryDetailsType
+ * //     Destination: "STRING_VALUE",
+ * //     DeliveryMedium: "SMS" || "EMAIL",
+ * //     AttributeName: "STRING_VALUE",
+ * //   },
+ * //   UserSub: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param SignUpCommandInput - {@link SignUpCommandInput}
@@ -157,6 +167,8 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  *  <p>This exception is thrown when Amazon Cognito encounters a user name that already
  *             exists in the user pool.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class SignUpCommand extends $Command<

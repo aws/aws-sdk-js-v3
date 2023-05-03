@@ -65,6 +65,23 @@ export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
  * };
  * const command = new DescribeVpcEndpointConnectionNotificationsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeVpcEndpointConnectionNotificationsResult
+ * //   ConnectionNotificationSet: [ // ConnectionNotificationSet
+ * //     { // ConnectionNotification
+ * //       ConnectionNotificationId: "STRING_VALUE",
+ * //       ServiceId: "STRING_VALUE",
+ * //       VpcEndpointId: "STRING_VALUE",
+ * //       ConnectionNotificationType: "Topic",
+ * //       ConnectionNotificationArn: "STRING_VALUE",
+ * //       ConnectionEvents: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ConnectionNotificationState: "Enabled" || "Disabled",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeVpcEndpointConnectionNotificationsCommandInput - {@link DescribeVpcEndpointConnectionNotificationsCommandInput}
@@ -73,6 +90,8 @@ export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
  * @see {@link DescribeVpcEndpointConnectionNotificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command<

@@ -58,6 +58,18 @@ export interface CreateCustomRoutingListenerCommandOutput
  * };
  * const command = new CreateCustomRoutingListenerCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCustomRoutingListenerResponse
+ * //   Listener: { // CustomRoutingListener
+ * //     ListenerArn: "STRING_VALUE",
+ * //     PortRanges: [ // PortRanges
+ * //       { // PortRange
+ * //         FromPort: Number("int"),
+ * //         ToPort: Number("int"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateCustomRoutingListenerCommandInput - {@link CreateCustomRoutingListenerCommandInput}
@@ -81,6 +93,8 @@ export interface CreateCustomRoutingListenerCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class CreateCustomRoutingListenerCommand extends $Command<

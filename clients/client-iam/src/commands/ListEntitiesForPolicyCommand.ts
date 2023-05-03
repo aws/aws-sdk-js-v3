@@ -56,6 +56,29 @@ export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolic
  * };
  * const command = new ListEntitiesForPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // ListEntitiesForPolicyResponse
+ * //   PolicyGroups: [ // PolicyGroupListType
+ * //     { // PolicyGroup
+ * //       GroupName: "STRING_VALUE",
+ * //       GroupId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   PolicyUsers: [ // PolicyUserListType
+ * //     { // PolicyUser
+ * //       UserName: "STRING_VALUE",
+ * //       UserId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   PolicyRoles: [ // PolicyRoleListType
+ * //     { // PolicyRole
+ * //       RoleName: "STRING_VALUE",
+ * //       RoleId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEntitiesForPolicyCommandInput - {@link ListEntitiesForPolicyCommandInput}
@@ -76,6 +99,8 @@ export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolic
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListEntitiesForPolicyCommand extends $Command<

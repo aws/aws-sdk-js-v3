@@ -53,6 +53,8 @@ export interface AssociateBotCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateBotCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AssociateBotCommandInput - {@link AssociateBotCommandInput}
@@ -82,6 +84,8 @@ export interface AssociateBotCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class AssociateBotCommand extends $Command<

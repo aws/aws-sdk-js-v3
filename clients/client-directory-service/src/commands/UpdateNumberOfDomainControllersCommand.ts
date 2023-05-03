@@ -54,6 +54,8 @@ export interface UpdateNumberOfDomainControllersCommandOutput
  * };
  * const command = new UpdateNumberOfDomainControllersCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateNumberOfDomainControllersCommandInput - {@link UpdateNumberOfDomainControllersCommandInput}
@@ -84,6 +86,8 @@ export interface UpdateNumberOfDomainControllersCommandOutput
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class UpdateNumberOfDomainControllersCommand extends $Command<

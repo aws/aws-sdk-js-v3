@@ -55,6 +55,10 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
  * };
  * const command = new CreateReplicationJobCommand(input);
  * const response = await client.send(command);
+ * // { // CreateReplicationJobResponse
+ * //   replicationJobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateReplicationJobCommandInput - {@link CreateReplicationJobCommandInput}
@@ -91,6 +95,8 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class CreateReplicationJobCommand extends $Command<

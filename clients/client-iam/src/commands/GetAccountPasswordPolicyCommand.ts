@@ -45,6 +45,21 @@ export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswor
  * const input = {};
  * const command = new GetAccountPasswordPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetAccountPasswordPolicyResponse
+ * //   PasswordPolicy: { // PasswordPolicy
+ * //     MinimumPasswordLength: Number("int"),
+ * //     RequireSymbols: true || false,
+ * //     RequireNumbers: true || false,
+ * //     RequireUppercaseCharacters: true || false,
+ * //     RequireLowercaseCharacters: true || false,
+ * //     AllowUsersToChangePassword: true || false,
+ * //     ExpirePasswords: true || false,
+ * //     MaxPasswordAge: Number("int"),
+ * //     PasswordReusePrevention: Number("int"),
+ * //     HardExpiry: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetAccountPasswordPolicyCommandInput - {@link GetAccountPasswordPolicyCommandInput}
@@ -61,6 +76,8 @@ export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswor
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To see the current account password policy
  * ```javascript

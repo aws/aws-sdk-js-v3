@@ -105,6 +105,110 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * };
  * const command = new SearchResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // SearchResourcesResponse
+ * //   Items: [ // ResponseItemsList
+ * //     { // ResponseItem
+ * //       ResourceType: "DOCUMENT" || "FOLDER" || "COMMENT" || "DOCUMENT_VERSION",
+ * //       WebUrl: "STRING_VALUE",
+ * //       DocumentMetadata: { // DocumentMetadata
+ * //         Id: "STRING_VALUE",
+ * //         CreatorId: "STRING_VALUE",
+ * //         ParentFolderId: "STRING_VALUE",
+ * //         CreatedTimestamp: new Date("TIMESTAMP"),
+ * //         ModifiedTimestamp: new Date("TIMESTAMP"),
+ * //         LatestVersionMetadata: { // DocumentVersionMetadata
+ * //           Id: "STRING_VALUE",
+ * //           Name: "STRING_VALUE",
+ * //           ContentType: "STRING_VALUE",
+ * //           Size: Number("long"),
+ * //           Signature: "STRING_VALUE",
+ * //           Status: "INITIALIZED" || "ACTIVE",
+ * //           CreatedTimestamp: new Date("TIMESTAMP"),
+ * //           ModifiedTimestamp: new Date("TIMESTAMP"),
+ * //           ContentCreatedTimestamp: new Date("TIMESTAMP"),
+ * //           ContentModifiedTimestamp: new Date("TIMESTAMP"),
+ * //           CreatorId: "STRING_VALUE",
+ * //           Thumbnail: { // DocumentThumbnailUrlMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           Source: { // DocumentSourceUrlMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         ResourceState: "ACTIVE" || "RESTORING" || "RECYCLING" || "RECYCLED",
+ * //         Labels: [ // SharedLabels
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       FolderMetadata: { // FolderMetadata
+ * //         Id: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //         CreatorId: "STRING_VALUE",
+ * //         ParentFolderId: "STRING_VALUE",
+ * //         CreatedTimestamp: new Date("TIMESTAMP"),
+ * //         ModifiedTimestamp: new Date("TIMESTAMP"),
+ * //         ResourceState: "ACTIVE" || "RESTORING" || "RECYCLING" || "RECYCLED",
+ * //         Signature: "STRING_VALUE",
+ * //         Labels: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Size: Number("long"),
+ * //         LatestVersionSize: Number("long"),
+ * //       },
+ * //       CommentMetadata: { // CommentMetadata
+ * //         CommentId: "STRING_VALUE",
+ * //         Contributor: { // User
+ * //           Id: "STRING_VALUE",
+ * //           Username: "STRING_VALUE",
+ * //           EmailAddress: "STRING_VALUE",
+ * //           GivenName: "STRING_VALUE",
+ * //           Surname: "STRING_VALUE",
+ * //           OrganizationId: "STRING_VALUE",
+ * //           RootFolderId: "STRING_VALUE",
+ * //           RecycleBinFolderId: "STRING_VALUE",
+ * //           Status: "ACTIVE" || "INACTIVE" || "PENDING",
+ * //           Type: "USER" || "ADMIN" || "POWERUSER" || "MINIMALUSER" || "WORKSPACESUSER",
+ * //           CreatedTimestamp: new Date("TIMESTAMP"),
+ * //           ModifiedTimestamp: new Date("TIMESTAMP"),
+ * //           TimeZoneId: "STRING_VALUE",
+ * //           Locale: "en" || "fr" || "ko" || "de" || "es" || "ja" || "ru" || "zh_CN" || "zh_TW" || "pt_BR" || "default",
+ * //           Storage: { // UserStorageMetadata
+ * //             StorageUtilizedInBytes: Number("long"),
+ * //             StorageRule: { // StorageRuleType
+ * //               StorageAllocatedInBytes: Number("long"),
+ * //               StorageType: "UNLIMITED" || "QUOTA",
+ * //             },
+ * //           },
+ * //         },
+ * //         CreatedTimestamp: new Date("TIMESTAMP"),
+ * //         CommentStatus: "DRAFT" || "PUBLISHED" || "DELETED",
+ * //         RecipientId: "STRING_VALUE",
+ * //         ContributorId: "STRING_VALUE",
+ * //       },
+ * //       DocumentVersionMetadata: {
+ * //         Id: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //         ContentType: "STRING_VALUE",
+ * //         Size: Number("long"),
+ * //         Signature: "STRING_VALUE",
+ * //         Status: "INITIALIZED" || "ACTIVE",
+ * //         CreatedTimestamp: new Date("TIMESTAMP"),
+ * //         ModifiedTimestamp: new Date("TIMESTAMP"),
+ * //         ContentCreatedTimestamp: new Date("TIMESTAMP"),
+ * //         ContentModifiedTimestamp: new Date("TIMESTAMP"),
+ * //         CreatorId: "STRING_VALUE",
+ * //         Thumbnail: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         Source: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param SearchResourcesCommandInput - {@link SearchResourcesCommandInput}
@@ -125,6 +229,8 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class SearchResourcesCommand extends $Command<

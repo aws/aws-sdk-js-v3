@@ -44,6 +44,16 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeProjectResponse
+ * //   projectId: "STRING_VALUE", // required
+ * //   projectArn: "STRING_VALUE", // required
+ * //   projectName: "STRING_VALUE", // required
+ * //   portalId: "STRING_VALUE", // required
+ * //   projectDescription: "STRING_VALUE",
+ * //   projectCreationDate: new Date("TIMESTAMP"), // required
+ * //   projectLastUpdateDate: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param DescribeProjectCommandInput - {@link DescribeProjectCommandInput}
@@ -68,6 +78,8 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class DescribeProjectCommand extends $Command<

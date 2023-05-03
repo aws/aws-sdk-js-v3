@@ -57,6 +57,31 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * };
  * const command = new BatchGetImageCommand(input);
  * const response = await client.send(command);
+ * // { // BatchGetImageResponse
+ * //   images: [ // ImageList
+ * //     { // Image
+ * //       registryId: "STRING_VALUE",
+ * //       repositoryName: "STRING_VALUE",
+ * //       imageId: { // ImageIdentifier
+ * //         imageDigest: "STRING_VALUE",
+ * //         imageTag: "STRING_VALUE",
+ * //       },
+ * //       imageManifest: "STRING_VALUE",
+ * //       imageManifestMediaType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   failures: [ // ImageFailureList
+ * //     { // ImageFailure
+ * //       imageId: {
+ * //         imageDigest: "STRING_VALUE",
+ * //         imageTag: "STRING_VALUE",
+ * //       },
+ * //       failureCode: "STRING_VALUE",
+ * //       failureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchGetImageCommandInput - {@link BatchGetImageCommandInput}
@@ -76,6 +101,8 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  * @example To obtain multiple images in a single request
  * ```javascript

@@ -46,6 +46,8 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteUserProfileCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteUserProfileCommandInput - {@link DeleteUserProfileCommandInput}
@@ -60,6 +62,8 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteUserProfileCommand extends $Command<

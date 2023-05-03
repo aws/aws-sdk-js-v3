@@ -48,6 +48,10 @@ export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobRes
  * };
  * const command = new StopPHIDetectionJobCommand(input);
  * const response = await client.send(command);
+ * // { // StopPHIDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StopPHIDetectionJobCommandInput - {@link StopPHIDetectionJobCommandInput}
@@ -67,6 +71,8 @@ export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobRes
  *  <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check
  *       the ARN and try your request again.</p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class StopPHIDetectionJobCommand extends $Command<

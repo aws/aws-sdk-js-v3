@@ -52,6 +52,8 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * };
  * const command = new UpdateTemplateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateTemplateCommandInput - {@link UpdateTemplateCommandInput}
@@ -68,6 +70,8 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
  *             account.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class UpdateTemplateCommand extends $Command<

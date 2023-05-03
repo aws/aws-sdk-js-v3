@@ -44,6 +44,52 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  * };
  * const command = new GetDomainCommand(input);
  * const response = await client.send(command);
+ * // { // GetDomainResponse
+ * //   DomainName: "STRING_VALUE", // required
+ * //   DefaultExpirationDays: Number("int"),
+ * //   DefaultEncryptionKey: "STRING_VALUE",
+ * //   DeadLetterQueueUrl: "STRING_VALUE",
+ * //   Stats: { // DomainStats
+ * //     ProfileCount: Number("long"),
+ * //     MeteringProfileCount: Number("long"),
+ * //     ObjectCount: Number("long"),
+ * //     TotalSize: Number("long"),
+ * //   },
+ * //   Matching: { // MatchingResponse
+ * //     Enabled: true || false,
+ * //     JobSchedule: { // JobSchedule
+ * //       DayOfTheWeek: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY", // required
+ * //       Time: "STRING_VALUE", // required
+ * //     },
+ * //     AutoMerging: { // AutoMerging
+ * //       Enabled: true || false, // required
+ * //       Consolidation: { // Consolidation
+ * //         MatchingAttributesList: [ // MatchingAttributesList // required
+ * //           [ // MatchingAttributes
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         ],
+ * //       },
+ * //       ConflictResolution: { // ConflictResolution
+ * //         ConflictResolvingModel: "RECENCY" || "SOURCE", // required
+ * //         SourceName: "STRING_VALUE",
+ * //       },
+ * //       MinAllowedConfidenceScoreForMerging: Number("double"),
+ * //     },
+ * //     ExportingConfig: { // ExportingConfig
+ * //       S3Exporting: { // S3ExportingConfig
+ * //         S3BucketName: "STRING_VALUE", // required
+ * //         S3KeyName: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   CreatedAt: new Date("TIMESTAMP"), // required
+ * //   LastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetDomainCommandInput - {@link GetDomainCommandInput}
@@ -67,6 +113,8 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class GetDomainCommand extends $Command<

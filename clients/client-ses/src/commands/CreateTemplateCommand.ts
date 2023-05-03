@@ -52,6 +52,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * };
  * const command = new CreateTemplateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateTemplateCommandInput - {@link CreateTemplateCommandInput}
@@ -72,6 +74,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
  *             Guide</a>.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class CreateTemplateCommand extends $Command<

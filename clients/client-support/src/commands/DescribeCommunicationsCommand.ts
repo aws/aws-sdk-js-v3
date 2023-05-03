@@ -71,6 +71,24 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  * };
  * const command = new DescribeCommunicationsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeCommunicationsResponse
+ * //   communications: [ // CommunicationList
+ * //     { // Communication
+ * //       caseId: "STRING_VALUE",
+ * //       body: "STRING_VALUE",
+ * //       submittedBy: "STRING_VALUE",
+ * //       timeCreated: "STRING_VALUE",
+ * //       attachmentSet: [ // AttachmentSet
+ * //         { // AttachmentDetails
+ * //           attachmentId: "STRING_VALUE",
+ * //           fileName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeCommunicationsCommandInput - {@link DescribeCommunicationsCommandInput}
@@ -85,6 +103,8 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class DescribeCommunicationsCommand extends $Command<

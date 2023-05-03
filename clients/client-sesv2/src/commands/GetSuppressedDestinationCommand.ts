@@ -45,6 +45,18 @@ export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDest
  * };
  * const command = new GetSuppressedDestinationCommand(input);
  * const response = await client.send(command);
+ * // { // GetSuppressedDestinationResponse
+ * //   SuppressedDestination: { // SuppressedDestination
+ * //     EmailAddress: "STRING_VALUE", // required
+ * //     Reason: "BOUNCE" || "COMPLAINT", // required
+ * //     LastUpdateTime: new Date("TIMESTAMP"), // required
+ * //     Attributes: { // SuppressedDestinationAttributes
+ * //       MessageId: "STRING_VALUE",
+ * //       FeedbackId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSuppressedDestinationCommandInput - {@link GetSuppressedDestinationCommandInput}
@@ -62,6 +74,8 @@ export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDest
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class GetSuppressedDestinationCommand extends $Command<

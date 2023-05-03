@@ -44,6 +44,8 @@ export interface StopClockCommandOutput extends StopClockOutput, __MetadataBeare
  * };
  * const command = new StopClockCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopClockCommandInput - {@link StopClockCommandInput}
@@ -67,6 +69,8 @@ export interface StopClockCommandOutput extends StopClockOutput, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link SimSpaceWeaverServiceException}
+ * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
 export class StopClockCommand extends $Command<

@@ -52,6 +52,18 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * };
  * const command = new CreateSessionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSessionResponse
+ * //   session: { // SessionData
+ * //     sessionArn: "STRING_VALUE", // required
+ * //     sessionId: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateSessionCommandInput - {@link CreateSessionCommandInput}
@@ -72,6 +84,8 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class CreateSessionCommand extends $Command<

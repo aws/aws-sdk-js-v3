@@ -46,6 +46,19 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  * };
  * const command = new DescribeVpcAttributeCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeVpcAttributeResult
+ * //   VpcId: "STRING_VALUE",
+ * //   EnableDnsHostnames: { // AttributeBooleanValue
+ * //     Value: true || false,
+ * //   },
+ * //   EnableDnsSupport: {
+ * //     Value: true || false,
+ * //   },
+ * //   EnableNetworkAddressUsageMetrics: {
+ * //     Value: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeVpcAttributeCommandInput - {@link DescribeVpcAttributeCommandInput}
@@ -54,6 +67,8 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  * @see {@link DescribeVpcAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe the enableDnsSupport attribute
  * ```javascript

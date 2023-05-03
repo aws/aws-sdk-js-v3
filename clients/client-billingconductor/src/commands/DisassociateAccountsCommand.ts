@@ -47,6 +47,10 @@ export interface DisassociateAccountsCommandOutput extends DisassociateAccountsO
  * };
  * const command = new DisassociateAccountsCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateAccountsOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DisassociateAccountsCommandInput - {@link DisassociateAccountsCommandInput}
@@ -78,6 +82,8 @@ export interface DisassociateAccountsCommandOutput extends DisassociateAccountsO
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class DisassociateAccountsCommand extends $Command<

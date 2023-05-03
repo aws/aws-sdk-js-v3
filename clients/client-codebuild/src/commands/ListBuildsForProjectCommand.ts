@@ -47,6 +47,13 @@ export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectO
  * };
  * const command = new ListBuildsForProjectCommand(input);
  * const response = await client.send(command);
+ * // { // ListBuildsForProjectOutput
+ * //   ids: [ // BuildIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListBuildsForProjectCommandInput - {@link ListBuildsForProjectCommandInput}
@@ -61,6 +68,8 @@ export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListBuildsForProjectCommand extends $Command<

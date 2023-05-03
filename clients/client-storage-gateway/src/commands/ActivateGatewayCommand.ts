@@ -63,6 +63,10 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  * };
  * const command = new ActivateGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // ActivateGatewayOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ActivateGatewayCommandInput - {@link ActivateGatewayCommandInput}
@@ -79,6 +83,8 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To activate the gateway
  * ```javascript

@@ -152,6 +152,10 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  * };
  * const command = new CreateAccessPreviewCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAccessPreviewResponse
+ * //   id: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateAccessPreviewCommandInput - {@link CreateAccessPreviewCommandInput}
@@ -181,6 +185,8 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class CreateAccessPreviewCommand extends $Command<

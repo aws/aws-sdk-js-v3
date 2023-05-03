@@ -54,6 +54,14 @@ export interface ListRolePoliciesCommandOutput extends ListRolePoliciesResponse,
  * };
  * const command = new ListRolePoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // ListRolePoliciesResponse
+ * //   PolicyNames: [ // policyNameListType // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListRolePoliciesCommandInput - {@link ListRolePoliciesCommandInput}
@@ -70,6 +78,8 @@ export interface ListRolePoliciesCommandOutput extends ListRolePoliciesResponse,
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListRolePoliciesCommand extends $Command<

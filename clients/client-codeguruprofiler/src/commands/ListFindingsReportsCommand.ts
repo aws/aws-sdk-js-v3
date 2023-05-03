@@ -49,6 +49,19 @@ export interface ListFindingsReportsCommandOutput extends ListFindingsReportsRes
  * };
  * const command = new ListFindingsReportsCommand(input);
  * const response = await client.send(command);
+ * // { // ListFindingsReportsResponse
+ * //   findingsReportSummaries: [ // FindingsReportSummaries // required
+ * //     { // FindingsReportSummary
+ * //       id: "STRING_VALUE",
+ * //       profilingGroupName: "STRING_VALUE",
+ * //       profileStartTime: new Date("TIMESTAMP"),
+ * //       profileEndTime: new Date("TIMESTAMP"),
+ * //       totalNumberOfFindings: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFindingsReportsCommandInput - {@link ListFindingsReportsCommandInput}
@@ -69,6 +82,8 @@ export interface ListFindingsReportsCommandOutput extends ListFindingsReportsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class ListFindingsReportsCommand extends $Command<

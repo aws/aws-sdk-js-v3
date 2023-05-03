@@ -64,6 +64,18 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
  * };
  * const command = new ModifyVpcEndpointServicePermissionsCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyVpcEndpointServicePermissionsResult
+ * //   AddedPrincipals: [ // AddedPrincipalSet
+ * //     { // AddedPrincipal
+ * //       PrincipalType: "All" || "Service" || "OrganizationUnit" || "Account" || "User" || "Role",
+ * //       Principal: "STRING_VALUE",
+ * //       ServicePermissionId: "STRING_VALUE",
+ * //       ServiceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ReturnValue: true || false,
+ * // };
+ *
  * ```
  *
  * @param ModifyVpcEndpointServicePermissionsCommandInput - {@link ModifyVpcEndpointServicePermissionsCommandInput}
@@ -72,6 +84,8 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
  * @see {@link ModifyVpcEndpointServicePermissionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyVpcEndpointServicePermissionsCommand extends $Command<

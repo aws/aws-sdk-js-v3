@@ -150,6 +150,10 @@ export interface CreateDataQualityJobDefinitionCommandOutput
  * };
  * const command = new CreateDataQualityJobDefinitionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDataQualityJobDefinitionResponse
+ * //   JobDefinitionArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateDataQualityJobDefinitionCommandInput - {@link CreateDataQualityJobDefinitionCommandInput}
@@ -165,6 +169,8 @@ export interface CreateDataQualityJobDefinitionCommandOutput
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateDataQualityJobDefinitionCommand extends $Command<

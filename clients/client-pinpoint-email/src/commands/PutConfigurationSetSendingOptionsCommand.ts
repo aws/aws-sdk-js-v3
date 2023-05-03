@@ -54,6 +54,8 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
  * };
  * const command = new PutConfigurationSetSendingOptionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutConfigurationSetSendingOptionsCommandInput - {@link PutConfigurationSetSendingOptionsCommandInput}
@@ -71,6 +73,8 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class PutConfigurationSetSendingOptionsCommand extends $Command<

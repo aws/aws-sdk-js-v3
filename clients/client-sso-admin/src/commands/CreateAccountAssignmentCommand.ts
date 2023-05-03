@@ -68,6 +68,20 @@ export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssig
  * };
  * const command = new CreateAccountAssignmentCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAccountAssignmentResponse
+ * //   AccountAssignmentCreationStatus: { // AccountAssignmentOperationStatus
+ * //     Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ * //     RequestId: "STRING_VALUE",
+ * //     FailureReason: "STRING_VALUE",
+ * //     TargetId: "STRING_VALUE",
+ * //     TargetType: "AWS_ACCOUNT",
+ * //     PermissionSetArn: "STRING_VALUE",
+ * //     PrincipalType: "USER" || "GROUP",
+ * //     PrincipalId: "STRING_VALUE",
+ * //     CreatedDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateAccountAssignmentCommandInput - {@link CreateAccountAssignmentCommandInput}
@@ -103,6 +117,8 @@ export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssig
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class CreateAccountAssignmentCommand extends $Command<

@@ -44,6 +44,8 @@ export interface DeleteClusterPolicyCommandOutput extends DeleteClusterPolicyRes
  * };
  * const command = new DeleteClusterPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteClusterPolicyCommandInput - {@link DeleteClusterPolicyCommandInput}
@@ -64,6 +66,8 @@ export interface DeleteClusterPolicyCommandOutput extends DeleteClusterPolicyRes
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class DeleteClusterPolicyCommand extends $Command<

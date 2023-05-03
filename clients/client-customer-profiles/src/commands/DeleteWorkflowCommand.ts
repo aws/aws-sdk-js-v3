@@ -45,6 +45,8 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  * };
  * const command = new DeleteWorkflowCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteWorkflowCommandInput - {@link DeleteWorkflowCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class DeleteWorkflowCommand extends $Command<

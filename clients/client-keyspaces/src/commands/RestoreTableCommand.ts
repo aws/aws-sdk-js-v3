@@ -112,6 +112,10 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  * };
  * const command = new RestoreTableCommand(input);
  * const response = await client.send(command);
+ * // { // RestoreTableResponse
+ * //   restoredTableARN: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param RestoreTableCommandInput - {@link RestoreTableCommandInput}
@@ -141,6 +145,8 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class RestoreTableCommand extends $Command<

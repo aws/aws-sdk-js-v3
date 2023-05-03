@@ -86,6 +86,12 @@ export interface StartDominantLanguageDetectionJobCommandOutput
  * };
  * const command = new StartDominantLanguageDetectionJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartDominantLanguageDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobArn: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
+ *
  * ```
  *
  * @param StartDominantLanguageDetectionJobCommandInput - {@link StartDominantLanguageDetectionJobCommandInput}
@@ -116,6 +122,8 @@ export interface StartDominantLanguageDetectionJobCommandOutput
  *       resource). The maximum number of tags includes both existing tags and those included in your
  *       current request. </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StartDominantLanguageDetectionJobCommand extends $Command<

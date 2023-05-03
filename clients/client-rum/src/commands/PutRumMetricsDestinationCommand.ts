@@ -49,6 +49,8 @@ export interface PutRumMetricsDestinationCommandOutput extends PutRumMetricsDest
  * };
  * const command = new PutRumMetricsDestinationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutRumMetricsDestinationCommandInput - {@link PutRumMetricsDestinationCommandInput}
@@ -75,6 +77,8 @@ export interface PutRumMetricsDestinationCommandOutput extends PutRumMetricsDest
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class PutRumMetricsDestinationCommand extends $Command<

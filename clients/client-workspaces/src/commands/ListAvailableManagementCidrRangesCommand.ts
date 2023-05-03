@@ -58,6 +58,13 @@ export interface ListAvailableManagementCidrRangesCommandOutput
  * };
  * const command = new ListAvailableManagementCidrRangesCommand(input);
  * const response = await client.send(command);
+ * // { // ListAvailableManagementCidrRangesResult
+ * //   ManagementCidrRanges: [ // DedicatedTenancyCidrRangeList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAvailableManagementCidrRangesCommandInput - {@link ListAvailableManagementCidrRangesCommandInput}
@@ -72,6 +79,8 @@ export interface ListAvailableManagementCidrRangesCommandOutput
  * @throws {@link InvalidParameterValuesException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ListAvailableManagementCidrRangesCommand extends $Command<

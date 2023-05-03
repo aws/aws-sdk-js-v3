@@ -48,6 +48,17 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  * };
  * const command = new ListSecurityProfilesCommand(input);
  * const response = await client.send(command);
+ * // { // ListSecurityProfilesResponse
+ * //   SecurityProfileSummaryList: [ // SecurityProfileSummaryList
+ * //     { // SecurityProfileSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSecurityProfilesCommandInput - {@link ListSecurityProfilesCommandInput}
@@ -71,6 +82,8 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListSecurityProfilesCommand extends $Command<

@@ -45,6 +45,8 @@ export interface DeleteServerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteServerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteServerCommandInput - {@link DeleteServerCommandInput}
@@ -69,6 +71,8 @@ export interface DeleteServerCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DeleteServerCommand extends $Command<

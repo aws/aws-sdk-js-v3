@@ -44,6 +44,8 @@ export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteUsageLimitCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteUsageLimitCommandInput - {@link DeleteUsageLimitCommandInput}
@@ -58,6 +60,8 @@ export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
  * @throws {@link UsageLimitNotFoundFault} (client fault)
  *  <p>The usage limit identifier can't be found.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteUsageLimitCommand extends $Command<

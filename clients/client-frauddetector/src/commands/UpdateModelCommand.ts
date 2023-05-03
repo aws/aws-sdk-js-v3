@@ -46,6 +46,8 @@ export interface UpdateModelCommandOutput extends UpdateModelResult, __MetadataB
  * };
  * const command = new UpdateModelCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateModelCommandInput - {@link UpdateModelCommandInput}
@@ -72,6 +74,8 @@ export interface UpdateModelCommandOutput extends UpdateModelResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateModelCommand extends $Command<

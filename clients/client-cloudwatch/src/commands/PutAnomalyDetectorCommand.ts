@@ -96,6 +96,8 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutpu
  * };
  * const command = new PutAnomalyDetectorCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutAnomalyDetectorCommandInput - {@link PutAnomalyDetectorCommandInput}
@@ -119,6 +121,8 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutpu
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class PutAnomalyDetectorCommand extends $Command<

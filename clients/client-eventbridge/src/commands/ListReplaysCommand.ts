@@ -49,6 +49,23 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * };
  * const command = new ListReplaysCommand(input);
  * const response = await client.send(command);
+ * // { // ListReplaysResponse
+ * //   Replays: [ // ReplayList
+ * //     { // Replay
+ * //       ReplayName: "STRING_VALUE",
+ * //       EventSourceArn: "STRING_VALUE",
+ * //       State: "STARTING" || "RUNNING" || "CANCELLING" || "COMPLETED" || "CANCELLED" || "FAILED",
+ * //       StateReason: "STRING_VALUE",
+ * //       EventStartTime: new Date("TIMESTAMP"),
+ * //       EventEndTime: new Date("TIMESTAMP"),
+ * //       EventLastReplayedTime: new Date("TIMESTAMP"),
+ * //       ReplayStartTime: new Date("TIMESTAMP"),
+ * //       ReplayEndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListReplaysCommandInput - {@link ListReplaysCommandInput}
@@ -60,6 +77,8 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class ListReplaysCommand extends $Command<

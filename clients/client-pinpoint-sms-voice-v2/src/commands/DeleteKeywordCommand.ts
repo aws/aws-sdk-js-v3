@@ -55,6 +55,14 @@ export interface DeleteKeywordCommandOutput extends DeleteKeywordResult, __Metad
  * };
  * const command = new DeleteKeywordCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteKeywordResult
+ * //   OriginationIdentityArn: "STRING_VALUE",
+ * //   OriginationIdentity: "STRING_VALUE",
+ * //   Keyword: "STRING_VALUE",
+ * //   KeywordMessage: "STRING_VALUE",
+ * //   KeywordAction: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteKeywordCommandInput - {@link DeleteKeywordCommandInput}
@@ -87,6 +95,8 @@ export interface DeleteKeywordCommandOutput extends DeleteKeywordResult, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DeleteKeywordCommand extends $Command<

@@ -60,6 +60,22 @@ export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfile
  * };
  * const command = new SearchNetworkProfilesCommand(input);
  * const response = await client.send(command);
+ * // { // SearchNetworkProfilesResponse
+ * //   NetworkProfiles: [ // NetworkProfileDataList
+ * //     { // NetworkProfileData
+ * //       NetworkProfileArn: "STRING_VALUE",
+ * //       NetworkProfileName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Ssid: "STRING_VALUE",
+ * //       SecurityType: "STRING_VALUE",
+ * //       EapMethod: "STRING_VALUE",
+ * //       CertificateAuthorityArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TotalCount: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param SearchNetworkProfilesCommandInput - {@link SearchNetworkProfilesCommandInput}
@@ -68,6 +84,8 @@ export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfile
  * @see {@link SearchNetworkProfilesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class SearchNetworkProfilesCommand extends $Command<

@@ -54,6 +54,8 @@ export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandb
  * };
  * const command = new CreateSMSSandboxPhoneNumberCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateSMSSandboxPhoneNumberCommandInput - {@link CreateSMSSandboxPhoneNumberCommandInput}
@@ -83,6 +85,8 @@ export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandb
  *  <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class CreateSMSSandboxPhoneNumberCommand extends $Command<

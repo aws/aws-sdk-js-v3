@@ -47,6 +47,10 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  * };
  * const command = new GetEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // GetEndpointResponse
+ * //   endpoint: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetEndpointCommandInput - {@link GetEndpointCommandInput}
@@ -64,6 +68,8 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Sends a validation exception.</p>
  *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class GetEndpointCommand extends $Command<

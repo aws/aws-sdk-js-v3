@@ -55,6 +55,10 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  * };
  * const command = new ImportApplicationUsageCommand(input);
  * const response = await client.send(command);
+ * // { // ImportApplicationUsageResult
+ * //   importId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param ImportApplicationUsageCommandInput - {@link ImportApplicationUsageCommandInput}
@@ -75,6 +79,8 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints for the API.</p>
  *
+ * @throws {@link ApplicationCostProfilerServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
  */
 export class ImportApplicationUsageCommand extends $Command<

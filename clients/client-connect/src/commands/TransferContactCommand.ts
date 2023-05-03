@@ -72,6 +72,11 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  * };
  * const command = new TransferContactCommand(input);
  * const response = await client.send(command);
+ * // { // TransferContactResponse
+ * //   ContactId: "STRING_VALUE",
+ * //   ContactArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param TransferContactCommandInput - {@link TransferContactCommandInput}
@@ -101,6 +106,8 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class TransferContactCommand extends $Command<

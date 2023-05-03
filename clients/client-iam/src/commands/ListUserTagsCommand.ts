@@ -47,6 +47,17 @@ export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __Metad
  * };
  * const command = new ListUserTagsCommand(input);
  * const response = await client.send(command);
+ * // { // ListUserTagsResponse
+ * //   Tags: [ // tagListType // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListUserTagsCommandInput - {@link ListUserTagsCommandInput}
@@ -63,6 +74,8 @@ export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __Metad
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To list the tags attached to an IAM user
  * ```javascript

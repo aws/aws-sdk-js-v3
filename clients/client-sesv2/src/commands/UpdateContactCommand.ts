@@ -55,6 +55,8 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * };
  * const command = new UpdateContactCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateContactCommandInput - {@link UpdateContactCommandInput}
@@ -75,6 +77,8 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class UpdateContactCommand extends $Command<

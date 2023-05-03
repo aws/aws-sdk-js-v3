@@ -122,6 +122,12 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * };
  * const command = new RunScheduledInstancesCommand(input);
  * const response = await client.send(command);
+ * // { // RunScheduledInstancesResult
+ * //   InstanceIdSet: [ // InstanceIdSet
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param RunScheduledInstancesCommandInput - {@link RunScheduledInstancesCommandInput}
@@ -130,6 +136,8 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * @see {@link RunScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To launch a Scheduled Instance in a VPC
  * ```javascript

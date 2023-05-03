@@ -88,6 +88,15 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
  * };
  * const command = new ValidateSecurityProfileBehaviorsCommand(input);
  * const response = await client.send(command);
+ * // { // ValidateSecurityProfileBehaviorsResponse
+ * //   valid: true || false,
+ * //   validationErrors: [ // ValidationErrors
+ * //     { // ValidationError
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ValidateSecurityProfileBehaviorsCommandInput - {@link ValidateSecurityProfileBehaviorsCommandInput}
@@ -105,6 +114,8 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ValidateSecurityProfileBehaviorsCommand extends $Command<

@@ -84,6 +84,19 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAccountAttributesResult
+ * //   AccountAttributes: [ // AccountAttributeList
+ * //     { // AccountAttribute
+ * //       AttributeName: "STRING_VALUE",
+ * //       AttributeValues: [ // AccountAttributeValueList
+ * //         { // AccountAttributeValue
+ * //           AttributeValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
@@ -92,6 +105,8 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe a single attribute for your AWS account
  * ```javascript

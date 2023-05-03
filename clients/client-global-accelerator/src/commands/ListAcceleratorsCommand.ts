@@ -49,6 +49,38 @@ export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse,
  * };
  * const command = new ListAcceleratorsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAcceleratorsResponse
+ * //   Accelerators: [ // Accelerators
+ * //     { // Accelerator
+ * //       AcceleratorArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       IpAddressType: "IPV4" || "DUAL_STACK",
+ * //       Enabled: true || false,
+ * //       IpSets: [ // IpSets
+ * //         { // IpSet
+ * //           IpFamily: "STRING_VALUE",
+ * //           IpAddresses: [ // IpAddresses
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           IpAddressFamily: "IPv4" || "IPv6",
+ * //         },
+ * //       ],
+ * //       DnsName: "STRING_VALUE",
+ * //       Status: "DEPLOYED" || "IN_PROGRESS",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       DualStackDnsName: "STRING_VALUE",
+ * //       Events: [ // AcceleratorEvents
+ * //         { // AcceleratorEvent
+ * //           Message: "STRING_VALUE",
+ * //           Timestamp: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAcceleratorsCommandInput - {@link ListAcceleratorsCommandInput}
@@ -66,6 +98,8 @@ export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse,
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>There isn't another item to return.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class ListAcceleratorsCommand extends $Command<

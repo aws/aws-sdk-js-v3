@@ -72,6 +72,10 @@ export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemO
  * };
  * const command = new CreateCustomLineItemCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCustomLineItemOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateCustomLineItemCommandInput - {@link CreateCustomLineItemCommandInput}
@@ -103,6 +107,8 @@ export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemO
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class CreateCustomLineItemCommand extends $Command<

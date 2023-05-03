@@ -71,6 +71,11 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * };
  * const command = new CreateQueueCommand(input);
  * const response = await client.send(command);
+ * // { // CreateQueueResponse
+ * //   QueueArn: "STRING_VALUE",
+ * //   QueueId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateQueueCommandInput - {@link CreateQueueCommandInput}
@@ -100,6 +105,8 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateQueueCommand extends $Command<

@@ -70,6 +70,14 @@ export interface DisassociateClientVpnTargetNetworkCommandOutput
  * };
  * const command = new DisassociateClientVpnTargetNetworkCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateClientVpnTargetNetworkResult
+ * //   AssociationId: "STRING_VALUE",
+ * //   Status: { // AssociationStatus
+ * //     Code: "associating" || "associated" || "association-failed" || "disassociating" || "disassociated",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DisassociateClientVpnTargetNetworkCommandInput - {@link DisassociateClientVpnTargetNetworkCommandInput}
@@ -78,6 +86,8 @@ export interface DisassociateClientVpnTargetNetworkCommandOutput
  * @see {@link DisassociateClientVpnTargetNetworkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DisassociateClientVpnTargetNetworkCommand extends $Command<

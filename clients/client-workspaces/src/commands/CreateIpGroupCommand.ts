@@ -65,6 +65,10 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  * };
  * const command = new CreateIpGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateIpGroupResult
+ * //   GroupId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateIpGroupCommandInput - {@link CreateIpGroupCommandInput}
@@ -88,6 +92,8 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  * @throws {@link ResourceLimitExceededException} (client fault)
  *  <p>Your resource limits have been exceeded.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CreateIpGroupCommand extends $Command<

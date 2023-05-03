@@ -45,6 +45,8 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeletePolicyCommandInput - {@link DeletePolicyCommandInput}
@@ -76,6 +78,8 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class DeletePolicyCommand extends $Command<

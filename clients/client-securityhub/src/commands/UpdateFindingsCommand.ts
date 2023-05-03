@@ -304,6 +304,8 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  * };
  * const command = new UpdateFindingsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateFindingsCommandInput - {@link UpdateFindingsCommandInput}
@@ -329,6 +331,8 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  */
 export class UpdateFindingsCommand extends $Command<

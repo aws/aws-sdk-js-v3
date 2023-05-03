@@ -47,6 +47,33 @@ export interface ListStackSetOperationsCommandOutput extends ListStackSetOperati
  * };
  * const command = new ListStackSetOperationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListStackSetOperationsOutput
+ * //   Summaries: [ // StackSetOperationSummaries
+ * //     { // StackSetOperationSummary
+ * //       OperationId: "STRING_VALUE",
+ * //       Action: "CREATE" || "UPDATE" || "DELETE" || "DETECT_DRIFT",
+ * //       Status: "RUNNING" || "SUCCEEDED" || "FAILED" || "STOPPING" || "STOPPED" || "QUEUED",
+ * //       CreationTimestamp: new Date("TIMESTAMP"),
+ * //       EndTimestamp: new Date("TIMESTAMP"),
+ * //       StatusReason: "STRING_VALUE",
+ * //       StatusDetails: { // StackSetOperationStatusDetails
+ * //         FailedStackInstancesCount: Number("int"),
+ * //       },
+ * //       OperationPreferences: { // StackSetOperationPreferences
+ * //         RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
+ * //         RegionOrder: [ // RegionList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         FailureToleranceCount: Number("int"),
+ * //         FailureTolerancePercentage: Number("int"),
+ * //         MaxConcurrentCount: Number("int"),
+ * //         MaxConcurrentPercentage: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListStackSetOperationsCommandInput - {@link ListStackSetOperationsCommandInput}
@@ -58,6 +85,8 @@ export interface ListStackSetOperationsCommandOutput extends ListStackSetOperati
  * @throws {@link StackSetNotFoundException} (client fault)
  *  <p>The specified stack set doesn't exist.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListStackSetOperationsCommand extends $Command<

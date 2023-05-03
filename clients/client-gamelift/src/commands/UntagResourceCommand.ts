@@ -69,6 +69,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -93,6 +95,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *             or the maximum tag limit may have been exceeded. Resolve the issue before
  *             retrying.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

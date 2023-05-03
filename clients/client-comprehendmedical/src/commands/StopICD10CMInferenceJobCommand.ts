@@ -48,6 +48,10 @@ export interface StopICD10CMInferenceJobCommandOutput extends StopICD10CMInferen
  * };
  * const command = new StopICD10CMInferenceJobCommand(input);
  * const response = await client.send(command);
+ * // { // StopICD10CMInferenceJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StopICD10CMInferenceJobCommandInput - {@link StopICD10CMInferenceJobCommandInput}
@@ -67,6 +71,8 @@ export interface StopICD10CMInferenceJobCommandOutput extends StopICD10CMInferen
  *  <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check
  *       the ARN and try your request again.</p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class StopICD10CMInferenceJobCommand extends $Command<

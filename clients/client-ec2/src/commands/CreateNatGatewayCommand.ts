@@ -76,6 +76,46 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  * };
  * const command = new CreateNatGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // CreateNatGatewayResult
+ * //   ClientToken: "STRING_VALUE",
+ * //   NatGateway: { // NatGateway
+ * //     CreateTime: new Date("TIMESTAMP"),
+ * //     DeleteTime: new Date("TIMESTAMP"),
+ * //     FailureCode: "STRING_VALUE",
+ * //     FailureMessage: "STRING_VALUE",
+ * //     NatGatewayAddresses: [ // NatGatewayAddressList
+ * //       { // NatGatewayAddress
+ * //         AllocationId: "STRING_VALUE",
+ * //         NetworkInterfaceId: "STRING_VALUE",
+ * //         PrivateIp: "STRING_VALUE",
+ * //         PublicIp: "STRING_VALUE",
+ * //         AssociationId: "STRING_VALUE",
+ * //         IsPrimary: true || false,
+ * //         FailureMessage: "STRING_VALUE",
+ * //         Status: "assigning" || "unassigning" || "associating" || "disassociating" || "succeeded" || "failed",
+ * //       },
+ * //     ],
+ * //     NatGatewayId: "STRING_VALUE",
+ * //     ProvisionedBandwidth: { // ProvisionedBandwidth
+ * //       ProvisionTime: new Date("TIMESTAMP"),
+ * //       Provisioned: "STRING_VALUE",
+ * //       RequestTime: new Date("TIMESTAMP"),
+ * //       Requested: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //     },
+ * //     State: "pending" || "failed" || "available" || "deleting" || "deleted",
+ * //     SubnetId: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ConnectivityType: "private" || "public",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateNatGatewayCommandInput - {@link CreateNatGatewayCommandInput}
@@ -84,6 +124,8 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  * @see {@link CreateNatGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To create a NAT gateway
  * ```javascript

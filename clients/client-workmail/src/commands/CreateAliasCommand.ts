@@ -46,6 +46,8 @@ export interface CreateAliasCommandOutput extends CreateAliasResponse, __Metadat
  * };
  * const command = new CreateAliasCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateAliasCommandInput - {@link CreateAliasCommandInput}
@@ -87,6 +89,8 @@ export interface CreateAliasCommandOutput extends CreateAliasResponse, __Metadat
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class CreateAliasCommand extends $Command<

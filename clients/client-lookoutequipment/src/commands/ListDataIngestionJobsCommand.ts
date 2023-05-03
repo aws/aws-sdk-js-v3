@@ -48,6 +48,25 @@ export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJob
  * };
  * const command = new ListDataIngestionJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDataIngestionJobsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   DataIngestionJobSummaries: [ // DataIngestionJobSummaries
+ * //     { // DataIngestionJobSummary
+ * //       JobId: "STRING_VALUE",
+ * //       DatasetName: "STRING_VALUE",
+ * //       DatasetArn: "STRING_VALUE",
+ * //       IngestionInputConfiguration: { // IngestionInputConfiguration
+ * //         S3InputConfiguration: { // IngestionS3InputConfiguration
+ * //           Bucket: "STRING_VALUE", // required
+ * //           Prefix: "STRING_VALUE",
+ * //           KeyPattern: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListDataIngestionJobsCommandInput - {@link ListDataIngestionJobsCommandInput}
@@ -71,6 +90,8 @@ export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJob
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class ListDataIngestionJobsCommand extends $Command<

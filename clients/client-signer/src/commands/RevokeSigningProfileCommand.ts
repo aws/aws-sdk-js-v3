@@ -49,6 +49,8 @@ export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RevokeSigningProfileCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RevokeSigningProfileCommandInput - {@link RevokeSigningProfileCommandInput}
@@ -73,6 +75,8 @@ export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class RevokeSigningProfileCommand extends $Command<

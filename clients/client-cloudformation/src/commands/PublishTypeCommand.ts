@@ -50,6 +50,10 @@ export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataB
  * };
  * const command = new PublishTypeCommand(input);
  * const response = await client.send(command);
+ * // { // PublishTypeOutput
+ * //   PublicTypeArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PublishTypeCommandInput - {@link PublishTypeCommandInput}
@@ -64,6 +68,8 @@ export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataB
  * @throws {@link TypeNotFoundException} (client fault)
  *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class PublishTypeCommand extends $Command<

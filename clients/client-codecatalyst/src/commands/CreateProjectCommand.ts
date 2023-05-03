@@ -46,6 +46,13 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
+ * // { // CreateProjectResponse
+ * //   spaceName: "STRING_VALUE",
+ * //   name: "STRING_VALUE", // required
+ * //   displayName: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
@@ -74,6 +81,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class CreateProjectCommand extends $Command<

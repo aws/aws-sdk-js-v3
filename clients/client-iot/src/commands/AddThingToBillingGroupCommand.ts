@@ -48,6 +48,8 @@ export interface AddThingToBillingGroupCommandOutput extends AddThingToBillingGr
  * };
  * const command = new AddThingToBillingGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AddThingToBillingGroupCommandInput - {@link AddThingToBillingGroupCommandInput}
@@ -68,6 +70,8 @@ export interface AddThingToBillingGroupCommandOutput extends AddThingToBillingGr
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class AddThingToBillingGroupCommand extends $Command<

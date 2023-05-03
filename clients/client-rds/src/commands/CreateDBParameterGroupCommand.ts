@@ -71,6 +71,15 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * };
  * const command = new CreateDBParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDBParameterGroupResult
+ * //   DBParameterGroup: { // DBParameterGroup
+ * //     DBParameterGroupName: "STRING_VALUE",
+ * //     DBParameterGroupFamily: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     DBParameterGroupArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateDBParameterGroupCommandInput - {@link CreateDBParameterGroupCommandInput}
@@ -86,6 +95,8 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  *  <p>The request would result in the user exceeding the allowed number of DB parameter
  *             groups.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To create a DB parameter group
  * ```javascript

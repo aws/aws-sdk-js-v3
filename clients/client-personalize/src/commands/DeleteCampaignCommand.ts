@@ -49,6 +49,8 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCampaignCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteCampaignCommandInput - {@link DeleteCampaignCommandInput}
@@ -66,6 +68,8 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DeleteCampaignCommand extends $Command<

@@ -47,6 +47,10 @@ export interface UpdateCertificateCommandOutput extends UpdateCertificateRespons
  * };
  * const command = new UpdateCertificateCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateCertificateResponse
+ * //   CertificateId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateCertificateCommandInput - {@link UpdateCertificateCommandInput}
@@ -71,6 +75,8 @@ export interface UpdateCertificateCommandOutput extends UpdateCertificateRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class UpdateCertificateCommand extends $Command<

@@ -54,6 +54,17 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * };
  * const command = new ListVpcEndpointsCommand(input);
  * const response = await client.send(command);
+ * // { // ListVpcEndpointsResponse
+ * //   vpcEndpointSummaries: [ // VpcEndpointSummaries
+ * //     { // VpcEndpointSummary
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListVpcEndpointsCommandInput - {@link ListVpcEndpointsCommandInput}
@@ -69,6 +80,8 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class ListVpcEndpointsCommand extends $Command<

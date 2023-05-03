@@ -58,6 +58,28 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * };
  * const command = new FailoverGlobalClusterCommand(input);
  * const response = await client.send(command);
+ * // { // FailoverGlobalClusterResult
+ * //   GlobalCluster: { // GlobalCluster
+ * //     GlobalClusterIdentifier: "STRING_VALUE",
+ * //     GlobalClusterResourceId: "STRING_VALUE",
+ * //     GlobalClusterArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
+ * //     EngineVersion: "STRING_VALUE",
+ * //     StorageEncrypted: true || false,
+ * //     DeletionProtection: true || false,
+ * //     GlobalClusterMembers: [ // GlobalClusterMemberList
+ * //       { // GlobalClusterMember
+ * //         DBClusterArn: "STRING_VALUE",
+ * //         Readers: [ // ReadersArnList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         IsWriter: true || false,
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param FailoverGlobalClusterCommandInput - {@link FailoverGlobalClusterCommandInput}
@@ -79,6 +101,8 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
  *  <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class FailoverGlobalClusterCommand extends $Command<

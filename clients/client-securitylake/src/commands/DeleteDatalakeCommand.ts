@@ -49,6 +49,8 @@ export interface DeleteDatalakeCommandOutput extends DeleteDatalakeResponse, __M
  * const input = {};
  * const command = new DeleteDatalakeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDatalakeCommandInput - {@link DeleteDatalakeCommandInput}
@@ -86,6 +88,8 @@ export interface DeleteDatalakeCommandOutput extends DeleteDatalakeResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class DeleteDatalakeCommand extends $Command<

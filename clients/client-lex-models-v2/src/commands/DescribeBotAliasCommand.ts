@@ -45,6 +45,69 @@ export interface DescribeBotAliasCommandOutput extends DescribeBotAliasResponse,
  * };
  * const command = new DescribeBotAliasCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeBotAliasResponse
+ * //   botAliasId: "STRING_VALUE",
+ * //   botAliasName: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   botAliasLocaleSettings: { // BotAliasLocaleSettingsMap
+ * //     "<keys>": { // BotAliasLocaleSettings
+ * //       enabled: true || false, // required
+ * //       codeHookSpecification: { // CodeHookSpecification
+ * //         lambdaCodeHook: { // LambdaCodeHook
+ * //           lambdaARN: "STRING_VALUE", // required
+ * //           codeHookInterfaceVersion: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * //   conversationLogSettings: { // ConversationLogSettings
+ * //     textLogSettings: [ // TextLogSettingsList
+ * //       { // TextLogSetting
+ * //         enabled: true || false, // required
+ * //         destination: { // TextLogDestination
+ * //           cloudWatch: { // CloudWatchLogGroupLogDestination
+ * //             cloudWatchLogGroupArn: "STRING_VALUE", // required
+ * //             logPrefix: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //     audioLogSettings: [ // AudioLogSettingsList
+ * //       { // AudioLogSetting
+ * //         enabled: true || false, // required
+ * //         destination: { // AudioLogDestination
+ * //           s3Bucket: { // S3BucketLogDestination
+ * //             kmsKeyArn: "STRING_VALUE",
+ * //             s3BucketArn: "STRING_VALUE", // required
+ * //             logPrefix: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   sentimentAnalysisSettings: { // SentimentAnalysisSettings
+ * //     detectSentiment: true || false, // required
+ * //   },
+ * //   botAliasHistoryEvents: [ // BotAliasHistoryEventsList
+ * //     { // BotAliasHistoryEvent
+ * //       botVersion: "STRING_VALUE",
+ * //       startDate: new Date("TIMESTAMP"),
+ * //       endDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   botAliasStatus: "Creating" || "Available" || "Deleting" || "Failed",
+ * //   botId: "STRING_VALUE",
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //   parentBotNetworks: [ // ParentBotNetworks
+ * //     { // ParentBotNetwork
+ * //       botId: "STRING_VALUE", // required
+ * //       botVersion: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeBotAliasCommandInput - {@link DescribeBotAliasCommandInput}
@@ -72,6 +135,8 @@ export interface DescribeBotAliasCommandOutput extends DescribeBotAliasResponse,
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DescribeBotAliasCommand extends $Command<

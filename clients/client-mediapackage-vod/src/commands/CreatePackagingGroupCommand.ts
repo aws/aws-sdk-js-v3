@@ -54,6 +54,23 @@ export interface CreatePackagingGroupCommandOutput extends CreatePackagingGroupR
  * };
  * const command = new CreatePackagingGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePackagingGroupResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Authorization: { // Authorization
+ * //     CdnIdentifierSecret: "STRING_VALUE", // required
+ * //     SecretsRoleArn: "STRING_VALUE", // required
+ * //   },
+ * //   CreatedAt: "STRING_VALUE",
+ * //   DomainName: "STRING_VALUE",
+ * //   EgressAccessLogs: { // EgressAccessLogs
+ * //     LogGroupName: "STRING_VALUE",
+ * //   },
+ * //   Id: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreatePackagingGroupCommandInput - {@link CreatePackagingGroupCommandInput}
@@ -80,6 +97,8 @@ export interface CreatePackagingGroupCommandOutput extends CreatePackagingGroupR
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageVodServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
  */
 export class CreatePackagingGroupCommand extends $Command<

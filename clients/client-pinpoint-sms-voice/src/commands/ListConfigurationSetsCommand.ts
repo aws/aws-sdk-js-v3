@@ -45,6 +45,13 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * };
  * const command = new ListConfigurationSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListConfigurationSetsResponse
+ * //   ConfigurationSets: [ // ConfigurationSets
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListConfigurationSetsCommandInput - {@link ListConfigurationSetsCommandInput}
@@ -62,6 +69,8 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * @throws {@link TooManyRequestsException} (client fault)
  *  You've issued too many requests to the resource. Wait a few minutes, and then try again.
  *
+ * @throws {@link PinpointSMSVoiceServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
  */
 export class ListConfigurationSetsCommand extends $Command<

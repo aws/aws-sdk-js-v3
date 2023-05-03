@@ -50,6 +50,11 @@ export interface DisassociateTrialComponentCommandOutput extends DisassociateTri
  * };
  * const command = new DisassociateTrialComponentCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateTrialComponentResponse
+ * //   TrialComponentArn: "STRING_VALUE",
+ * //   TrialArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DisassociateTrialComponentCommandInput - {@link DisassociateTrialComponentCommandInput}
@@ -61,6 +66,8 @@ export interface DisassociateTrialComponentCommandOutput extends DisassociateTri
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DisassociateTrialComponentCommand extends $Command<

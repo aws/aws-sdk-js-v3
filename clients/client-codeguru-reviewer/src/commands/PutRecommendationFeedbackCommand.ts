@@ -49,6 +49,8 @@ export interface PutRecommendationFeedbackCommandOutput extends PutRecommendatio
  * };
  * const command = new PutRecommendationFeedbackCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutRecommendationFeedbackCommandInput - {@link PutRecommendationFeedbackCommandInput}
@@ -72,6 +74,8 @@ export interface PutRecommendationFeedbackCommandOutput extends PutRecommendatio
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CodeGuruReviewerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
  */
 export class PutRecommendationFeedbackCommand extends $Command<

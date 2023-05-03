@@ -45,6 +45,8 @@ export interface StopEdgeDeploymentStageCommandOutput extends __MetadataBearer {
  * };
  * const command = new StopEdgeDeploymentStageCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopEdgeDeploymentStageCommandInput - {@link StopEdgeDeploymentStageCommandInput}
@@ -53,6 +55,8 @@ export interface StopEdgeDeploymentStageCommandOutput extends __MetadataBearer {
  * @see {@link StopEdgeDeploymentStageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StopEdgeDeploymentStageCommand extends $Command<

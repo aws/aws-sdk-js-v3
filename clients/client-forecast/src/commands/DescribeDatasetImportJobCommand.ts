@@ -78,6 +78,47 @@ export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetIm
  * };
  * const command = new DescribeDatasetImportJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDatasetImportJobResponse
+ * //   DatasetImportJobName: "STRING_VALUE",
+ * //   DatasetImportJobArn: "STRING_VALUE",
+ * //   DatasetArn: "STRING_VALUE",
+ * //   TimestampFormat: "STRING_VALUE",
+ * //   TimeZone: "STRING_VALUE",
+ * //   UseGeolocationForTimeZone: true || false,
+ * //   GeolocationFormat: "STRING_VALUE",
+ * //   DataSource: { // DataSource
+ * //     S3Config: { // S3Config
+ * //       Path: "STRING_VALUE", // required
+ * //       RoleArn: "STRING_VALUE", // required
+ * //       KMSKeyArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   EstimatedTimeRemainingInMinutes: Number("long"),
+ * //   FieldStatistics: { // FieldStatistics
+ * //     "<keys>": { // Statistics
+ * //       Count: Number("int"),
+ * //       CountDistinct: Number("int"),
+ * //       CountNull: Number("int"),
+ * //       CountNan: Number("int"),
+ * //       Min: "STRING_VALUE",
+ * //       Max: "STRING_VALUE",
+ * //       Avg: Number("double"),
+ * //       Stddev: Number("double"),
+ * //       CountLong: Number("long"),
+ * //       CountDistinctLong: Number("long"),
+ * //       CountNullLong: Number("long"),
+ * //       CountNanLong: Number("long"),
+ * //     },
+ * //   },
+ * //   DataSize: Number("double"),
+ * //   Status: "STRING_VALUE",
+ * //   Message: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModificationTime: new Date("TIMESTAMP"),
+ * //   Format: "STRING_VALUE",
+ * //   ImportMode: "FULL" || "INCREMENTAL",
+ * // };
+ *
  * ```
  *
  * @param DescribeDatasetImportJobCommandInput - {@link DescribeDatasetImportJobCommandInput}
@@ -94,6 +135,8 @@ export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetIm
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DescribeDatasetImportJobCommand extends $Command<

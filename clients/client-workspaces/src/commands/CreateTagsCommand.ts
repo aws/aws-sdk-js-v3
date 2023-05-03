@@ -50,6 +50,8 @@ export interface CreateTagsCommandOutput extends CreateTagsResult, __MetadataBea
  * };
  * const command = new CreateTagsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateTagsCommandInput - {@link CreateTagsCommandInput}
@@ -67,6 +69,8 @@ export interface CreateTagsCommandOutput extends CreateTagsResult, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CreateTagsCommand extends $Command<

@@ -54,6 +54,16 @@ export interface ListLicenseSpecificationsForResourceCommandOutput
  * };
  * const command = new ListLicenseSpecificationsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListLicenseSpecificationsForResourceResponse
+ * //   LicenseSpecifications: [ // LicenseSpecifications
+ * //     { // LicenseSpecification
+ * //       LicenseConfigurationArn: "STRING_VALUE", // required
+ * //       AmiAssociationScope: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListLicenseSpecificationsForResourceCommandInput - {@link ListLicenseSpecificationsForResourceCommandInput}
@@ -78,6 +88,8 @@ export interface ListLicenseSpecificationsForResourceCommandOutput
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListLicenseSpecificationsForResourceCommand extends $Command<

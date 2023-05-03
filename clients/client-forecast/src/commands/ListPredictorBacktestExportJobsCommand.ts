@@ -60,6 +60,27 @@ export interface ListPredictorBacktestExportJobsCommandOutput
  * };
  * const command = new ListPredictorBacktestExportJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPredictorBacktestExportJobsResponse
+ * //   PredictorBacktestExportJobs: [ // PredictorBacktestExportJobs
+ * //     { // PredictorBacktestExportJobSummary
+ * //       PredictorBacktestExportJobArn: "STRING_VALUE",
+ * //       PredictorBacktestExportJobName: "STRING_VALUE",
+ * //       Destination: { // DataDestination
+ * //         S3Config: { // S3Config
+ * //           Path: "STRING_VALUE", // required
+ * //           RoleArn: "STRING_VALUE", // required
+ * //           KMSKeyArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Status: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModificationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPredictorBacktestExportJobsCommandInput - {@link ListPredictorBacktestExportJobsCommandInput}
@@ -75,6 +96,8 @@ export interface ListPredictorBacktestExportJobsCommandOutput
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid. Tokens expire after 24 hours.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListPredictorBacktestExportJobsCommand extends $Command<

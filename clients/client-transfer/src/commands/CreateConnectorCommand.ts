@@ -64,6 +64,10 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * };
  * const command = new CreateConnectorCommand(input);
  * const response = await client.send(command);
+ * // { // CreateConnectorResponse
+ * //   ConnectorId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateConnectorCommandInput - {@link CreateConnectorCommandInput}
@@ -91,6 +95,8 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class CreateConnectorCommand extends $Command<

@@ -45,6 +45,10 @@ export interface DeletePricingPlanCommandOutput extends DeletePricingPlanOutput,
  * };
  * const command = new DeletePricingPlanCommand(input);
  * const response = await client.send(command);
+ * // { // DeletePricingPlanOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeletePricingPlanCommandInput - {@link DeletePricingPlanCommandInput}
@@ -72,6 +76,8 @@ export interface DeletePricingPlanCommandOutput extends DeletePricingPlanOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class DeletePricingPlanCommand extends $Command<

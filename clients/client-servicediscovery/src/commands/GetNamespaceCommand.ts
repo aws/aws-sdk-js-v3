@@ -44,6 +44,30 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  * };
  * const command = new GetNamespaceCommand(input);
  * const response = await client.send(command);
+ * // { // GetNamespaceResponse
+ * //   Namespace: { // Namespace
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Type: "DNS_PUBLIC" || "DNS_PRIVATE" || "HTTP",
+ * //     Description: "STRING_VALUE",
+ * //     ServiceCount: Number("int"),
+ * //     Properties: { // NamespaceProperties
+ * //       DnsProperties: { // DnsProperties
+ * //         HostedZoneId: "STRING_VALUE",
+ * //         SOA: { // SOA
+ * //           TTL: Number("long"), // required
+ * //         },
+ * //       },
+ * //       HttpProperties: { // HttpProperties
+ * //         HttpName: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     CreateDate: new Date("TIMESTAMP"),
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetNamespaceCommandInput - {@link GetNamespaceCommandInput}
@@ -60,6 +84,8 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  * @throws {@link NamespaceNotFound} (client fault)
  *  <p>No namespace exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example GetNamespace example
  * ```javascript

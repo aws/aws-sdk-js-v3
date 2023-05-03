@@ -47,6 +47,8 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UnsubscribeFromEventCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UnsubscribeFromEventCommandInput - {@link UnsubscribeFromEventCommandInput}
@@ -72,6 +74,8 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Unsubscribe from event
  * ```javascript

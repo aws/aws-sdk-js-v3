@@ -49,6 +49,12 @@ export interface GetRelationalDatabaseLogStreamsCommandOutput
  * };
  * const command = new GetRelationalDatabaseLogStreamsCommand(input);
  * const response = await client.send(command);
+ * // { // GetRelationalDatabaseLogStreamsResult
+ * //   logStreams: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetRelationalDatabaseLogStreamsCommandInput - {@link GetRelationalDatabaseLogStreamsCommandInput}
@@ -87,6 +93,8 @@ export interface GetRelationalDatabaseLogStreamsCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetRelationalDatabaseLogStreamsCommand extends $Command<

@@ -64,6 +64,35 @@ export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __Metad
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateServiceOutput
+ * //   service: { // Service
+ * //     name: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     arn: "STRING_VALUE", // required
+ * //     templateName: "STRING_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //     status: "STRING_VALUE", // required
+ * //     statusMessage: "STRING_VALUE",
+ * //     spec: "STRING_VALUE", // required
+ * //     pipeline: { // ServicePipeline
+ * //       arn: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastDeploymentAttemptedAt: new Date("TIMESTAMP"), // required
+ * //       lastDeploymentSucceededAt: new Date("TIMESTAMP"), // required
+ * //       templateName: "STRING_VALUE", // required
+ * //       templateMajorVersion: "STRING_VALUE", // required
+ * //       templateMinorVersion: "STRING_VALUE", // required
+ * //       deploymentStatus: "STRING_VALUE", // required
+ * //       deploymentStatusMessage: "STRING_VALUE",
+ * //       spec: "STRING_VALUE",
+ * //     },
+ * //     repositoryConnectionArn: "STRING_VALUE",
+ * //     repositoryId: "STRING_VALUE",
+ * //     branchName: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateServiceCommandInput - {@link UpdateServiceCommandInput}
@@ -94,6 +123,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class UpdateServiceCommand extends $Command<

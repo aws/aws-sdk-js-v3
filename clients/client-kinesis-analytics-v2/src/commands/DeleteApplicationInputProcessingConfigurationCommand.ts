@@ -59,6 +59,11 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput
  * };
  * const command = new DeleteApplicationInputProcessingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteApplicationInputProcessingConfigurationResponse
+ * //   ApplicationARN: "STRING_VALUE",
+ * //   ApplicationVersionId: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param DeleteApplicationInputProcessingConfigurationCommandInput - {@link DeleteApplicationInputProcessingConfigurationCommandInput}
@@ -84,6 +89,8 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class DeleteApplicationInputProcessingConfigurationCommand extends $Command<

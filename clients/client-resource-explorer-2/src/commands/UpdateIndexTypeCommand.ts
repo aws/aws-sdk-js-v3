@@ -105,6 +105,13 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  * };
  * const command = new UpdateIndexTypeCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateIndexTypeOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Type: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   LastUpdatedAt: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param UpdateIndexTypeCommandInput - {@link UpdateIndexTypeCommandInput}
@@ -142,6 +149,8 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class UpdateIndexTypeCommand extends $Command<

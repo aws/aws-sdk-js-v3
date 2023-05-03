@@ -55,6 +55,17 @@ export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorPr
  * };
  * const command = new PutVoiceConnectorProxyCommand(input);
  * const response = await client.send(command);
+ * // { // PutVoiceConnectorProxyResponse
+ * //   Proxy: { // Proxy
+ * //     DefaultSessionExpiryMinutes: Number("int"),
+ * //     Disabled: true || false,
+ * //     FallBackPhoneNumber: "STRING_VALUE",
+ * //     PhoneNumberCountries: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutVoiceConnectorProxyCommandInput - {@link PutVoiceConnectorProxyCommandInput}
@@ -87,6 +98,8 @@ export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorPr
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class PutVoiceConnectorProxyCommand extends $Command<

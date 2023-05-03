@@ -53,6 +53,13 @@ export interface UpdateTemplateActiveVersionCommandOutput
  * };
  * const command = new UpdateTemplateActiveVersionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateTemplateActiveVersionResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateTemplateActiveVersionCommandInput - {@link UpdateTemplateActiveVersionCommandInput}
@@ -82,6 +89,8 @@ export interface UpdateTemplateActiveVersionCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateTemplateActiveVersionCommand extends $Command<

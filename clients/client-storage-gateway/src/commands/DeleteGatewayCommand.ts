@@ -61,6 +61,10 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  * };
  * const command = new DeleteGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteGatewayOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteGatewayCommandInput - {@link DeleteGatewayCommandInput}
@@ -77,6 +81,8 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To delete a gatgeway
  * ```javascript

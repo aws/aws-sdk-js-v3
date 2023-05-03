@@ -52,6 +52,55 @@ export interface GetInsightSummariesCommandOutput extends GetInsightSummariesRes
  * };
  * const command = new GetInsightSummariesCommand(input);
  * const response = await client.send(command);
+ * // { // GetInsightSummariesResult
+ * //   InsightSummaries: [ // InsightSummaryList
+ * //     { // InsightSummary
+ * //       InsightId: "STRING_VALUE",
+ * //       GroupARN: "STRING_VALUE",
+ * //       GroupName: "STRING_VALUE",
+ * //       RootCauseServiceId: { // ServiceId
+ * //         Name: "STRING_VALUE",
+ * //         Names: [ // ServiceNames
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AccountId: "STRING_VALUE",
+ * //         Type: "STRING_VALUE",
+ * //       },
+ * //       Categories: [ // InsightCategoryList
+ * //         "FAULT",
+ * //       ],
+ * //       State: "ACTIVE" || "CLOSED",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       Summary: "STRING_VALUE",
+ * //       ClientRequestImpactStatistics: { // RequestImpactStatistics
+ * //         FaultCount: Number("long"),
+ * //         OkCount: Number("long"),
+ * //         TotalCount: Number("long"),
+ * //       },
+ * //       RootCauseServiceRequestImpactStatistics: {
+ * //         FaultCount: Number("long"),
+ * //         OkCount: Number("long"),
+ * //         TotalCount: Number("long"),
+ * //       },
+ * //       TopAnomalousServices: [ // AnomalousServiceList
+ * //         { // AnomalousService
+ * //           ServiceId: {
+ * //             Name: "STRING_VALUE",
+ * //             Names: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             AccountId: "STRING_VALUE",
+ * //             Type: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //       LastUpdateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetInsightSummariesCommandInput - {@link GetInsightSummariesCommandInput}
@@ -66,6 +115,8 @@ export interface GetInsightSummariesCommandOutput extends GetInsightSummariesRes
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetInsightSummariesCommand extends $Command<

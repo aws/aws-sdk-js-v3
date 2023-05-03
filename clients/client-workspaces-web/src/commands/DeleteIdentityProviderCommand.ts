@@ -44,6 +44,8 @@ export interface DeleteIdentityProviderCommandOutput extends DeleteIdentityProvi
  * };
  * const command = new DeleteIdentityProviderCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteIdentityProviderCommandInput - {@link DeleteIdentityProviderCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteIdentityProviderCommandOutput extends DeleteIdentityProvi
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DeleteIdentityProviderCommand extends $Command<

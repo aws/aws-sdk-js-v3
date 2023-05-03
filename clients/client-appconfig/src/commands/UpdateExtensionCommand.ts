@@ -65,6 +65,30 @@ export interface UpdateExtensionCommandOutput extends Extension, __MetadataBeare
  * };
  * const command = new UpdateExtensionCommand(input);
  * const response = await client.send(command);
+ * // { // Extension
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   VersionNumber: Number("int"),
+ * //   Arn: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Actions: { // ActionsMap
+ * //     "<keys>": [ // ActionList
+ * //       { // Action
+ * //         Name: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         Uri: "STRING_VALUE",
+ * //         RoleArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   Parameters: { // ParameterMap
+ * //     "<keys>": { // Parameter
+ * //       Description: "STRING_VALUE",
+ * //       Required: true || false,
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateExtensionCommandInput - {@link UpdateExtensionCommandInput}
@@ -86,6 +110,8 @@ export interface UpdateExtensionCommandOutput extends Extension, __MetadataBeare
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class UpdateExtensionCommand extends $Command<

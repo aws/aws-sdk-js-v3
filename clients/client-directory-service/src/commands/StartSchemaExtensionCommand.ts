@@ -47,6 +47,10 @@ export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionR
  * };
  * const command = new StartSchemaExtensionCommand(input);
  * const response = await client.send(command);
+ * // { // StartSchemaExtensionResult
+ * //   SchemaExtensionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartSchemaExtensionCommandInput - {@link StartSchemaExtensionCommandInput}
@@ -75,6 +79,8 @@ export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionR
  *             use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits
  *             for a directory.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class StartSchemaExtensionCommand extends $Command<

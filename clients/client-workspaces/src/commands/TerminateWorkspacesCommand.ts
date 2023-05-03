@@ -72,6 +72,16 @@ export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesRes
  * };
  * const command = new TerminateWorkspacesCommand(input);
  * const response = await client.send(command);
+ * // { // TerminateWorkspacesResult
+ * //   FailedRequests: [ // FailedTerminateWorkspaceRequests
+ * //     { // FailedWorkspaceChangeRequest
+ * //       WorkspaceId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param TerminateWorkspacesCommandInput - {@link TerminateWorkspacesCommandInput}
@@ -80,6 +90,8 @@ export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesRes
  * @see {@link TerminateWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class TerminateWorkspacesCommand extends $Command<

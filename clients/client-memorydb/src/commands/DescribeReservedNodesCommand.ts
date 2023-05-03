@@ -50,6 +50,30 @@ export interface DescribeReservedNodesCommandOutput extends DescribeReservedNode
  * };
  * const command = new DescribeReservedNodesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeReservedNodesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ReservedNodes: [ // ReservedNodeList
+ * //     { // ReservedNode
+ * //       ReservationId: "STRING_VALUE",
+ * //       ReservedNodesOfferingId: "STRING_VALUE",
+ * //       NodeType: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       Duration: Number("int"),
+ * //       FixedPrice: Number("double"),
+ * //       NodeCount: Number("int"),
+ * //       OfferingType: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       RecurringCharges: [ // RecurringChargeList
+ * //         { // RecurringCharge
+ * //           RecurringChargeAmount: Number("double"),
+ * //           RecurringChargeFrequency: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeReservedNodesCommandInput - {@link DescribeReservedNodesCommandInput}
@@ -70,6 +94,8 @@ export interface DescribeReservedNodesCommandOutput extends DescribeReservedNode
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class DescribeReservedNodesCommand extends $Command<

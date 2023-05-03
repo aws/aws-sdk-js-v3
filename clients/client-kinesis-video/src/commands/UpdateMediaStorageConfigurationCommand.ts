@@ -64,6 +64,8 @@ export interface UpdateMediaStorageConfigurationCommandOutput
  * };
  * const command = new UpdateMediaStorageConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateMediaStorageConfigurationCommandInput - {@link UpdateMediaStorageConfigurationCommandInput}
@@ -108,6 +110,8 @@ export interface UpdateMediaStorageConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class UpdateMediaStorageConfigurationCommand extends $Command<

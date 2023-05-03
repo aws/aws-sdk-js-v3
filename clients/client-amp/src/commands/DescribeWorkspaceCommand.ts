@@ -44,6 +44,22 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  * };
  * const command = new DescribeWorkspaceCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeWorkspaceResponse
+ * //   workspace: { // WorkspaceDescription
+ * //     workspaceId: "STRING_VALUE", // required
+ * //     alias: "STRING_VALUE",
+ * //     arn: "STRING_VALUE", // required
+ * //     status: { // WorkspaceStatus
+ * //       statusCode: "STRING_VALUE", // required
+ * //     },
+ * //     prometheusEndpoint: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeWorkspaceCommandInput - {@link DescribeWorkspaceCommandInput}
@@ -67,6 +83,8 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class DescribeWorkspaceCommand extends $Command<

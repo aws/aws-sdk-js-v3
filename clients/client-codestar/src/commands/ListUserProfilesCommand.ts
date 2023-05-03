@@ -49,6 +49,18 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, _
  * };
  * const command = new ListUserProfilesCommand(input);
  * const response = await client.send(command);
+ * // { // ListUserProfilesResult
+ * //   userProfiles: [ // UserProfilesList // required
+ * //     { // UserProfileSummary
+ * //       userArn: "STRING_VALUE",
+ * //       displayName: "STRING_VALUE",
+ * //       emailAddress: "STRING_VALUE",
+ * //       sshPublicKey: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListUserProfilesCommandInput - {@link ListUserProfilesCommandInput}
@@ -63,6 +75,8 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class ListUserProfilesCommand extends $Command<

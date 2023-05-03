@@ -63,6 +63,11 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  * };
  * const command = new CreateParallelDataCommand(input);
  * const response = await client.send(command);
+ * // { // CreateParallelDataResponse
+ * //   Name: "STRING_VALUE",
+ * //   Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * // };
+ *
  * ```
  *
  * @param CreateParallelDataCommandInput - {@link CreateParallelDataCommandInput}
@@ -100,6 +105,8 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have added too many tags to this resource. The maximum is 50 tags.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class CreateParallelDataCommand extends $Command<

@@ -67,6 +67,10 @@ export interface CreateImpersonationRoleCommandOutput extends CreateImpersonatio
  * };
  * const command = new CreateImpersonationRoleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateImpersonationRoleResponse
+ * //   ImpersonationRoleId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateImpersonationRoleCommandInput - {@link CreateImpersonationRoleCommandInput}
@@ -97,6 +101,8 @@ export interface CreateImpersonationRoleCommandOutput extends CreateImpersonatio
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class CreateImpersonationRoleCommand extends $Command<

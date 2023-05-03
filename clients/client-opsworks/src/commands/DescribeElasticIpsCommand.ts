@@ -56,6 +56,18 @@ export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResul
  * };
  * const command = new DescribeElasticIpsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeElasticIpsResult
+ * //   ElasticIps: [ // ElasticIps
+ * //     { // ElasticIp
+ * //       Ip: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Domain: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeElasticIpsCommandInput - {@link DescribeElasticIpsCommandInput}
@@ -70,6 +82,8 @@ export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResul
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeElasticIpsCommand extends $Command<

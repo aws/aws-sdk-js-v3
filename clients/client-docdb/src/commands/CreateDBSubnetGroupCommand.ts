@@ -55,6 +55,25 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * };
  * const command = new CreateDBSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDBSubnetGroupResult
+ * //   DBSubnetGroup: { // DBSubnetGroup
+ * //     DBSubnetGroupName: "STRING_VALUE",
+ * //     DBSubnetGroupDescription: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     SubnetGroupStatus: "STRING_VALUE",
+ * //     Subnets: [ // SubnetList
+ * //       { // Subnet
+ * //         SubnetIdentifier: "STRING_VALUE",
+ * //         SubnetAvailabilityZone: { // AvailabilityZone
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //         SubnetStatus: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     DBSubnetGroupArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateDBSubnetGroupCommandInput - {@link CreateDBSubnetGroupCommandInput}
@@ -80,6 +99,8 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  *  <p>The requested subnet is not valid, or multiple subnets were requested that are not all
  *             in a common virtual private cloud (VPC).</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class CreateDBSubnetGroupCommand extends $Command<

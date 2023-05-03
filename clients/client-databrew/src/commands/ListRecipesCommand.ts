@@ -46,6 +46,45 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * };
  * const command = new ListRecipesCommand(input);
  * const response = await client.send(command);
+ * // { // ListRecipesResponse
+ * //   Recipes: [ // RecipeList // required
+ * //     { // Recipe
+ * //       CreatedBy: "STRING_VALUE",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       LastModifiedBy: "STRING_VALUE",
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       ProjectName: "STRING_VALUE",
+ * //       PublishedBy: "STRING_VALUE",
+ * //       PublishedDate: new Date("TIMESTAMP"),
+ * //       Description: "STRING_VALUE",
+ * //       Name: "STRING_VALUE", // required
+ * //       ResourceArn: "STRING_VALUE",
+ * //       Steps: [ // RecipeStepList
+ * //         { // RecipeStep
+ * //           Action: { // RecipeAction
+ * //             Operation: "STRING_VALUE", // required
+ * //             Parameters: { // ParameterMap
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           ConditionExpressions: [ // ConditionExpressionList
+ * //             { // ConditionExpression
+ * //               Condition: "STRING_VALUE", // required
+ * //               Value: "STRING_VALUE",
+ * //               TargetColumn: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       RecipeVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListRecipesCommandInput - {@link ListRecipesCommandInput}
@@ -57,6 +96,8 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class ListRecipesCommand extends $Command<

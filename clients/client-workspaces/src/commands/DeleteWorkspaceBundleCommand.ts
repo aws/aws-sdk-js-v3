@@ -46,6 +46,8 @@ export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundl
  * };
  * const command = new DeleteWorkspaceBundleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteWorkspaceBundleCommandInput - {@link DeleteWorkspaceBundleCommandInput}
@@ -66,6 +68,8 @@ export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundl
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DeleteWorkspaceBundleCommand extends $Command<

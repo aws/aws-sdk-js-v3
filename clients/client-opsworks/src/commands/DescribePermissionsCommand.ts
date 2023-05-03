@@ -50,6 +50,18 @@ export interface DescribePermissionsCommandOutput extends DescribePermissionsRes
  * };
  * const command = new DescribePermissionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribePermissionsResult
+ * //   Permissions: [ // Permissions
+ * //     { // Permission
+ * //       StackId: "STRING_VALUE",
+ * //       IamUserArn: "STRING_VALUE",
+ * //       AllowSsh: true || false,
+ * //       AllowSudo: true || false,
+ * //       Level: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribePermissionsCommandInput - {@link DescribePermissionsCommandInput}
@@ -64,6 +76,8 @@ export interface DescribePermissionsCommandOutput extends DescribePermissionsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribePermissionsCommand extends $Command<

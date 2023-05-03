@@ -42,6 +42,12 @@ export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsRespons
  * const input = {};
  * const command = new GetGlobalSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // GetGlobalSettingsResponse
+ * //   VoiceConnector: { // VoiceConnectorSettings
+ * //     CdrBucket: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetGlobalSettingsCommandInput - {@link GetGlobalSettingsCommandInput}
@@ -68,6 +74,8 @@ export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsRespons
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetGlobalSettingsCommand extends $Command<

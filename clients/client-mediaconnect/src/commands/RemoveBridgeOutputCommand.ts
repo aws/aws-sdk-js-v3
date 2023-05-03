@@ -45,6 +45,11 @@ export interface RemoveBridgeOutputCommandOutput extends RemoveBridgeOutputRespo
  * };
  * const command = new RemoveBridgeOutputCommand(input);
  * const response = await client.send(command);
+ * // { // RemoveBridgeOutputResponse
+ * //   BridgeArn: "STRING_VALUE",
+ * //   OutputName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RemoveBridgeOutputCommandInput - {@link RemoveBridgeOutputCommandInput}
@@ -74,6 +79,8 @@ export interface RemoveBridgeOutputCommandOutput extends RemoveBridgeOutputRespo
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class RemoveBridgeOutputCommand extends $Command<

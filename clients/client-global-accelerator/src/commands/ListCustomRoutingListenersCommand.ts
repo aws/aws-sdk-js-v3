@@ -50,6 +50,21 @@ export interface ListCustomRoutingListenersCommandOutput extends ListCustomRouti
  * };
  * const command = new ListCustomRoutingListenersCommand(input);
  * const response = await client.send(command);
+ * // { // ListCustomRoutingListenersResponse
+ * //   Listeners: [ // CustomRoutingListeners
+ * //     { // CustomRoutingListener
+ * //       ListenerArn: "STRING_VALUE",
+ * //       PortRanges: [ // PortRanges
+ * //         { // PortRange
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCustomRoutingListenersCommandInput - {@link ListCustomRoutingListenersCommandInput}
@@ -70,6 +85,8 @@ export interface ListCustomRoutingListenersCommandOutput extends ListCustomRouti
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>There isn't another item to return.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class ListCustomRoutingListenersCommand extends $Command<

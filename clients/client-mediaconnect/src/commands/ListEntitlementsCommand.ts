@@ -45,6 +45,17 @@ export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse,
  * };
  * const command = new ListEntitlementsCommand(input);
  * const response = await client.send(command);
+ * // { // ListEntitlementsResponse
+ * //   Entitlements: [ // __listOfListedEntitlement
+ * //     { // ListedEntitlement
+ * //       DataTransferSubscriberFeePercent: Number("int"),
+ * //       EntitlementArn: "STRING_VALUE", // required
+ * //       EntitlementName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEntitlementsCommandInput - {@link ListEntitlementsCommandInput}
@@ -65,6 +76,8 @@ export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class ListEntitlementsCommand extends $Command<

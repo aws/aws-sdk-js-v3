@@ -63,6 +63,16 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * };
  * const command = new TestInvokeAuthorizerCommand(input);
  * const response = await client.send(command);
+ * // { // TestInvokeAuthorizerResponse
+ * //   isAuthenticated: true || false,
+ * //   principalId: "STRING_VALUE",
+ * //   policyDocuments: [ // PolicyDocuments
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   refreshAfterInSeconds: Number("int"),
+ * //   disconnectAfterInSeconds: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param TestInvokeAuthorizerCommandInput - {@link TestInvokeAuthorizerCommandInput}
@@ -92,6 +102,8 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class TestInvokeAuthorizerCommand extends $Command<

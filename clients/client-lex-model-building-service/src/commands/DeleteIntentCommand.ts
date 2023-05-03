@@ -65,6 +65,8 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteIntentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteIntentCommandInput - {@link DeleteIntentCommandInput}
@@ -110,6 +112,8 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  *           <i>string</i> } }</code>
  *          </p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class DeleteIntentCommand extends $Command<

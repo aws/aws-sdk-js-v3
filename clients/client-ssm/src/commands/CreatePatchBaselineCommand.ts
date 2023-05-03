@@ -109,6 +109,10 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  * };
  * const command = new CreatePatchBaselineCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePatchBaselineResult
+ * //   BaselineId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreatePatchBaselineCommandInput - {@link CreatePatchBaselineCommandInput}
@@ -130,6 +134,8 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
  *     <i>Amazon Web Services General Reference</i>.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CreatePatchBaselineCommand extends $Command<

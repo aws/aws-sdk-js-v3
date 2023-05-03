@@ -86,6 +86,74 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationR
  * };
  * const command = new GetBucketReplicationCommand(input);
  * const response = await client.send(command);
+ * // { // GetBucketReplicationResult
+ * //   ReplicationConfiguration: { // ReplicationConfiguration
+ * //     Role: "STRING_VALUE", // required
+ * //     Rules: [ // ReplicationRules // required
+ * //       { // ReplicationRule
+ * //         ID: "STRING_VALUE",
+ * //         Priority: Number("int"),
+ * //         Prefix: "STRING_VALUE",
+ * //         Filter: { // ReplicationRuleFilter
+ * //           Prefix: "STRING_VALUE",
+ * //           Tag: { // S3Tag
+ * //             Key: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //           And: { // ReplicationRuleAndOperator
+ * //             Prefix: "STRING_VALUE",
+ * //             Tags: [ // S3TagSet
+ * //               {
+ * //                 Key: "STRING_VALUE", // required
+ * //                 Value: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //         Status: "Enabled" || "Disabled", // required
+ * //         SourceSelectionCriteria: { // SourceSelectionCriteria
+ * //           SseKmsEncryptedObjects: { // SseKmsEncryptedObjects
+ * //             Status: "Enabled" || "Disabled", // required
+ * //           },
+ * //           ReplicaModifications: { // ReplicaModifications
+ * //             Status: "Enabled" || "Disabled", // required
+ * //           },
+ * //         },
+ * //         ExistingObjectReplication: { // ExistingObjectReplication
+ * //           Status: "Enabled" || "Disabled", // required
+ * //         },
+ * //         Destination: { // Destination
+ * //           Account: "STRING_VALUE",
+ * //           Bucket: "STRING_VALUE", // required
+ * //           ReplicationTime: { // ReplicationTime
+ * //             Status: "Enabled" || "Disabled", // required
+ * //             Time: { // ReplicationTimeValue
+ * //               Minutes: Number("int"),
+ * //             },
+ * //           },
+ * //           AccessControlTranslation: { // AccessControlTranslation
+ * //             Owner: "Destination", // required
+ * //           },
+ * //           EncryptionConfiguration: { // EncryptionConfiguration
+ * //             ReplicaKmsKeyID: "STRING_VALUE",
+ * //           },
+ * //           Metrics: { // Metrics
+ * //             Status: "Enabled" || "Disabled", // required
+ * //             EventThreshold: {
+ * //               Minutes: Number("int"),
+ * //             },
+ * //           },
+ * //           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR",
+ * //         },
+ * //         DeleteMarkerReplication: { // DeleteMarkerReplication
+ * //           Status: "Enabled" || "Disabled", // required
+ * //         },
+ * //         Bucket: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetBucketReplicationCommandInput - {@link GetBucketReplicationCommandInput}
@@ -94,6 +162,8 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationR
  * @see {@link GetBucketReplicationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class GetBucketReplicationCommand extends $Command<

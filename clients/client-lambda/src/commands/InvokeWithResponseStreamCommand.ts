@@ -58,6 +58,22 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  * };
  * const command = new InvokeWithResponseStreamCommand(input);
  * const response = await client.send(command);
+ * // { // InvokeWithResponseStreamResponse
+ * //   StatusCode: Number("int"),
+ * //   ExecutedVersion: "STRING_VALUE",
+ * //   EventStream: { // InvokeWithResponseStreamResponseEvent Union: only one key present
+ * //     PayloadChunk: { // InvokeResponseStreamUpdate
+ * //       Payload: "BLOB_VALUE",
+ * //     },
+ * //     InvokeComplete: { // InvokeWithResponseStreamCompleteEvent
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorDetails: "STRING_VALUE",
+ * //       LogResult: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ResponseStreamContentType: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param InvokeWithResponseStreamCommandInput - {@link InvokeWithResponseStreamCommandInput}
@@ -166,6 +182,8 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  * @throws {@link UnsupportedMediaTypeException} (client fault)
  *  <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class InvokeWithResponseStreamCommand extends $Command<

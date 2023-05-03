@@ -45,6 +45,17 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * };
  * const command = new DescribeSchemaCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSchemaResponse
+ * //   schema: { // DatasetSchema
+ * //     name: "STRING_VALUE",
+ * //     schemaArn: "STRING_VALUE",
+ * //     schema: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeSchemaCommandInput - {@link DescribeSchemaCommandInput}
@@ -59,6 +70,8 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeSchemaCommand extends $Command<

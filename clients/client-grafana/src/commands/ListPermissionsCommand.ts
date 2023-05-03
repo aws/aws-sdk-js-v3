@@ -54,6 +54,19 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * };
  * const command = new ListPermissionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPermissionsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   permissions: [ // PermissionEntryList // required
+ * //     { // PermissionEntry
+ * //       user: { // User
+ * //         id: "STRING_VALUE", // required
+ * //         type: "STRING_VALUE", // required
+ * //       },
+ * //       role: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListPermissionsCommandInput - {@link ListPermissionsCommandInput}
@@ -77,6 +90,8 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class ListPermissionsCommand extends $Command<

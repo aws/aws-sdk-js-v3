@@ -59,6 +59,33 @@ export interface DescribeTimeBasedAutoScalingCommandOutput
  * };
  * const command = new DescribeTimeBasedAutoScalingCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeTimeBasedAutoScalingResult
+ * //   TimeBasedAutoScalingConfigurations: [ // TimeBasedAutoScalingConfigurations
+ * //     { // TimeBasedAutoScalingConfiguration
+ * //       InstanceId: "STRING_VALUE",
+ * //       AutoScalingSchedule: { // WeeklyAutoScalingSchedule
+ * //         Monday: { // DailyAutoScalingSchedule
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         Tuesday: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         Wednesday: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         Thursday: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         Friday: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         Saturday: "<DailyAutoScalingSchedule>",
+ * //         Sunday: "<DailyAutoScalingSchedule>",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeTimeBasedAutoScalingCommandInput - {@link DescribeTimeBasedAutoScalingCommandInput}
@@ -73,6 +100,8 @@ export interface DescribeTimeBasedAutoScalingCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeTimeBasedAutoScalingCommand extends $Command<

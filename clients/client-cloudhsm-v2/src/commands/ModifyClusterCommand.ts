@@ -48,6 +48,53 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  * };
  * const command = new ModifyClusterCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyClusterResponse
+ * //   Cluster: { // Cluster
+ * //     BackupPolicy: "STRING_VALUE",
+ * //     BackupRetentionPolicy: { // BackupRetentionPolicy
+ * //       Type: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //     ClusterId: "STRING_VALUE",
+ * //     CreateTimestamp: new Date("TIMESTAMP"),
+ * //     Hsms: [ // Hsms
+ * //       { // Hsm
+ * //         AvailabilityZone: "STRING_VALUE",
+ * //         ClusterId: "STRING_VALUE",
+ * //         SubnetId: "STRING_VALUE",
+ * //         EniId: "STRING_VALUE",
+ * //         EniIp: "STRING_VALUE",
+ * //         HsmId: "STRING_VALUE", // required
+ * //         State: "STRING_VALUE",
+ * //         StateMessage: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     HsmType: "STRING_VALUE",
+ * //     PreCoPassword: "STRING_VALUE",
+ * //     SecurityGroup: "STRING_VALUE",
+ * //     SourceBackupId: "STRING_VALUE",
+ * //     State: "STRING_VALUE",
+ * //     StateMessage: "STRING_VALUE",
+ * //     SubnetMapping: { // ExternalSubnetMapping
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     VpcId: "STRING_VALUE",
+ * //     Certificates: { // Certificates
+ * //       ClusterCsr: "STRING_VALUE",
+ * //       HsmCertificate: "STRING_VALUE",
+ * //       AwsHardwareCertificate: "STRING_VALUE",
+ * //       ManufacturerHardwareCertificate: "STRING_VALUE",
+ * //       ClusterCertificate: "STRING_VALUE",
+ * //     },
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ModifyClusterCommandInput - {@link ModifyClusterCommandInput}
@@ -74,6 +121,8 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  * @throws {@link CloudHsmServiceException} (client fault)
  *  <p>The request was rejected because an error occurred.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class ModifyClusterCommand extends $Command<

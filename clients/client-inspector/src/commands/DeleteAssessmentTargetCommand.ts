@@ -45,6 +45,8 @@ export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAssessmentTargetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAssessmentTargetCommandInput - {@link DeleteAssessmentTargetCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Delete assessment target
  * ```javascript

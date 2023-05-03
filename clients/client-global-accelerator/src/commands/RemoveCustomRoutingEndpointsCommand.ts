@@ -54,6 +54,8 @@ export interface RemoveCustomRoutingEndpointsCommandOutput extends __MetadataBea
  * };
  * const command = new RemoveCustomRoutingEndpointsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RemoveCustomRoutingEndpointsCommandInput - {@link RemoveCustomRoutingEndpointsCommandInput}
@@ -80,6 +82,8 @@ export interface RemoveCustomRoutingEndpointsCommandOutput extends __MetadataBea
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class RemoveCustomRoutingEndpointsCommand extends $Command<

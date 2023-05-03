@@ -52,6 +52,8 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDBSecurityGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDBSecurityGroupCommandInput - {@link DeleteDBSecurityGroupCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
  *  <p>The state of the DB security group doesn't allow deletion.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To delete a DB security group
  * ```javascript

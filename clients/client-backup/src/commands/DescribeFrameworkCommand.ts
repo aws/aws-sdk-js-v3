@@ -44,6 +44,38 @@ export interface DescribeFrameworkCommandOutput extends DescribeFrameworkOutput,
  * };
  * const command = new DescribeFrameworkCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFrameworkOutput
+ * //   FrameworkName: "STRING_VALUE",
+ * //   FrameworkArn: "STRING_VALUE",
+ * //   FrameworkDescription: "STRING_VALUE",
+ * //   FrameworkControls: [ // FrameworkControls
+ * //     { // FrameworkControl
+ * //       ControlName: "STRING_VALUE", // required
+ * //       ControlInputParameters: [ // ControlInputParameters
+ * //         { // ControlInputParameter
+ * //           ParameterName: "STRING_VALUE",
+ * //           ParameterValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ControlScope: { // ControlScope
+ * //         ComplianceResourceIds: [ // ComplianceResourceIdList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ComplianceResourceTypes: [ // ResourceTypeList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Tags: { // stringMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   DeploymentStatus: "STRING_VALUE",
+ * //   FrameworkStatus: "STRING_VALUE",
+ * //   IdempotencyToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeFrameworkCommandInput - {@link DescribeFrameworkCommandInput}
@@ -65,6 +97,8 @@ export interface DescribeFrameworkCommandOutput extends DescribeFrameworkOutput,
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DescribeFrameworkCommand extends $Command<

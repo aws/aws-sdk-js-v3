@@ -44,6 +44,11 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
+ * // { // CancelJobResponse
+ * //   jobArn: "STRING_VALUE", // required
+ * //   cancellationStatus: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CancelJobCommandInput - {@link CancelJobCommandInput}
@@ -71,6 +76,8 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class CancelJobCommand extends $Command<

@@ -46,6 +46,24 @@ export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisi
  * };
  * const command = new DescribeClusterDbRevisionsCommand(input);
  * const response = await client.send(command);
+ * // { // ClusterDbRevisionsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ClusterDbRevisions: [ // ClusterDbRevisionsList
+ * //     { // ClusterDbRevision
+ * //       ClusterIdentifier: "STRING_VALUE",
+ * //       CurrentDatabaseRevision: "STRING_VALUE",
+ * //       DatabaseRevisionReleaseDate: new Date("TIMESTAMP"),
+ * //       RevisionTargets: [ // RevisionTargetsList
+ * //         { // RevisionTarget
+ * //           DatabaseRevision: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //           DatabaseRevisionReleaseDate: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeClusterDbRevisionsCommandInput - {@link DescribeClusterDbRevisionsCommandInput}
@@ -61,6 +79,8 @@ export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisi
  * @throws {@link InvalidClusterStateFault} (client fault)
  *  <p>The specified cluster is not in the <code>available</code> state. </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeClusterDbRevisionsCommand extends $Command<

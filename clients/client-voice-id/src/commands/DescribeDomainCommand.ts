@@ -48,6 +48,29 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * };
  * const command = new DescribeDomainCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDomainResponse
+ * //   Domain: { // Domain
+ * //     DomainId: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     DomainStatus: "STRING_VALUE",
+ * //     ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ * //       KmsKeyId: "STRING_VALUE", // required
+ * //     },
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     UpdatedAt: new Date("TIMESTAMP"),
+ * //     ServerSideEncryptionUpdateDetails: { // ServerSideEncryptionUpdateDetails
+ * //       OldKmsKeyId: "STRING_VALUE",
+ * //       UpdateStatus: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     WatchlistDetails: { // WatchlistDetails
+ * //       DefaultWatchlistId: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeDomainCommandInput - {@link DescribeDomainCommandInput}
@@ -77,6 +100,8 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DescribeDomainCommand extends $Command<

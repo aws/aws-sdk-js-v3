@@ -814,6 +814,10 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * };
  * const command = new UpdateRuleGroupCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateRuleGroupResponse
+ * //   NextLockToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateRuleGroupCommandInput - {@link UpdateRuleGroupCommandInput}
@@ -895,6 +899,8 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *        for changes to propagate. Verify the resources that you are specifying in your request
  *        parameters and then retry the operation.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class UpdateRuleGroupCommand extends $Command<

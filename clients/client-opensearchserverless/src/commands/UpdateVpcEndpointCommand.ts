@@ -62,6 +62,21 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * };
  * const command = new UpdateVpcEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateVpcEndpointResponse
+ * //   UpdateVpcEndpointDetail: { // UpdateVpcEndpointDetail
+ * //     id: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     subnetIds: [ // SubnetIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     securityGroupIds: [ // SecurityGroupIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     lastModifiedDate: Number("long"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateVpcEndpointCommandInput - {@link UpdateVpcEndpointCommandInput}
@@ -82,6 +97,8 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class UpdateVpcEndpointCommand extends $Command<

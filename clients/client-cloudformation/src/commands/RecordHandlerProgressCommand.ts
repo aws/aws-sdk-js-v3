@@ -51,6 +51,8 @@ export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgres
  * };
  * const command = new RecordHandlerProgressCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RecordHandlerProgressCommandInput - {@link RecordHandlerProgressCommandInput}
@@ -67,6 +69,8 @@ export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgres
  *  <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation doesn't return this error to
  *          users.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class RecordHandlerProgressCommand extends $Command<

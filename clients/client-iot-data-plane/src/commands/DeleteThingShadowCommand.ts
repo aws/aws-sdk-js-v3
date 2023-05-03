@@ -47,6 +47,10 @@ export interface DeleteThingShadowCommandOutput extends DeleteThingShadowRespons
  * };
  * const command = new DeleteThingShadowCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteThingShadowResponse
+ * //   payload: "BLOB_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteThingShadowCommandInput - {@link DeleteThingShadowCommandInput}
@@ -79,6 +83,8 @@ export interface DeleteThingShadowCommandOutput extends DeleteThingShadowRespons
  * @throws {@link UnsupportedDocumentEncodingException} (client fault)
  *  <p>The document encoding is not supported.</p>
  *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class DeleteThingShadowCommand extends $Command<

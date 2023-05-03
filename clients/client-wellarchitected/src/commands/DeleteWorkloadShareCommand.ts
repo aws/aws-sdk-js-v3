@@ -46,6 +46,8 @@ export interface DeleteWorkloadShareCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteWorkloadShareCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteWorkloadShareCommandInput - {@link DeleteWorkloadShareCommandInput}
@@ -72,6 +74,8 @@ export interface DeleteWorkloadShareCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class DeleteWorkloadShareCommand extends $Command<

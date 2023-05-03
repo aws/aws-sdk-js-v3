@@ -45,6 +45,37 @@ export interface GetDatabaseCommandOutput extends GetDatabaseResponse, __Metadat
  * };
  * const command = new GetDatabaseCommand(input);
  * const response = await client.send(command);
+ * // { // GetDatabaseResponse
+ * //   Database: { // Database
+ * //     Name: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     LocationUri: "STRING_VALUE",
+ * //     Parameters: { // ParametersMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     CreateTime: new Date("TIMESTAMP"),
+ * //     CreateTableDefaultPermissions: [ // PrincipalPermissionsList
+ * //       { // PrincipalPermissions
+ * //         Principal: { // DataLakePrincipal
+ * //           DataLakePrincipalIdentifier: "STRING_VALUE",
+ * //         },
+ * //         Permissions: [ // PermissionList
+ * //           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     TargetDatabase: { // DatabaseIdentifier
+ * //       CatalogId: "STRING_VALUE",
+ * //       DatabaseName: "STRING_VALUE",
+ * //     },
+ * //     CatalogId: "STRING_VALUE",
+ * //     FederatedDatabase: { // FederatedDatabase
+ * //       Identifier: "STRING_VALUE",
+ * //       ConnectionName: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetDatabaseCommandInput - {@link GetDatabaseCommandInput}
@@ -71,6 +102,8 @@ export interface GetDatabaseCommandOutput extends GetDatabaseResponse, __Metadat
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetDatabaseCommand extends $Command<

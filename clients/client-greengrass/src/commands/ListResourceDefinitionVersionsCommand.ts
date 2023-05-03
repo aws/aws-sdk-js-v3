@@ -51,6 +51,18 @@ export interface ListResourceDefinitionVersionsCommandOutput
  * };
  * const command = new ListResourceDefinitionVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListResourceDefinitionVersionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Versions: [ // __listOfVersionInformation
+ * //     { // VersionInformation
+ * //       Arn: "STRING_VALUE",
+ * //       CreationTimestamp: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListResourceDefinitionVersionsCommandInput - {@link ListResourceDefinitionVersionsCommandInput}
@@ -62,6 +74,8 @@ export interface ListResourceDefinitionVersionsCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListResourceDefinitionVersionsCommand extends $Command<

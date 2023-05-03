@@ -60,6 +60,10 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
  * };
  * const command = new CreateDeploymentConfigCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDeploymentConfigOutput
+ * //   deploymentConfigId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateDeploymentConfigCommandInput - {@link CreateDeploymentConfigCommandInput}
@@ -91,6 +95,8 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
  *  <p> The configuration that specifies how traffic is routed during a deployment is
  *             invalid.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class CreateDeploymentConfigCommand extends $Command<

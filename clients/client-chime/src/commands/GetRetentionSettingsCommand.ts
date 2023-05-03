@@ -48,6 +48,18 @@ export interface GetRetentionSettingsCommandOutput extends GetRetentionSettingsR
  * };
  * const command = new GetRetentionSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // GetRetentionSettingsResponse
+ * //   RetentionSettings: { // RetentionSettings
+ * //     RoomRetentionSettings: { // RoomRetentionSettings
+ * //       RetentionDays: Number("int"),
+ * //     },
+ * //     ConversationRetentionSettings: { // ConversationRetentionSettings
+ * //       RetentionDays: Number("int"),
+ * //     },
+ * //   },
+ * //   InitiateDeletionTimestamp: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param GetRetentionSettingsCommandInput - {@link GetRetentionSettingsCommandInput}
@@ -77,6 +89,8 @@ export interface GetRetentionSettingsCommandOutput extends GetRetentionSettingsR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetRetentionSettingsCommand extends $Command<

@@ -64,6 +64,10 @@ export interface CreateMissionProfileCommandOutput extends MissionProfileIdRespo
  * };
  * const command = new CreateMissionProfileCommand(input);
  * const response = await client.send(command);
+ * // { // MissionProfileIdResponse
+ * //   missionProfileId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateMissionProfileCommandInput - {@link CreateMissionProfileCommandInput}
@@ -81,6 +85,8 @@ export interface CreateMissionProfileCommandOutput extends MissionProfileIdRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class CreateMissionProfileCommand extends $Command<

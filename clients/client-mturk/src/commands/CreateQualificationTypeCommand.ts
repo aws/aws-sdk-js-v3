@@ -59,6 +59,24 @@ export interface CreateQualificationTypeCommandOutput extends CreateQualificatio
  * };
  * const command = new CreateQualificationTypeCommand(input);
  * const response = await client.send(command);
+ * // { // CreateQualificationTypeResponse
+ * //   QualificationType: { // QualificationType
+ * //     QualificationTypeId: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Keywords: "STRING_VALUE",
+ * //     QualificationTypeStatus: "STRING_VALUE",
+ * //     Test: "STRING_VALUE",
+ * //     TestDurationInSeconds: Number("long"),
+ * //     AnswerKey: "STRING_VALUE",
+ * //     RetryDelayInSeconds: Number("long"),
+ * //     IsRequestable: true || false,
+ * //     AutoGranted: true || false,
+ * //     AutoGrantedValue: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateQualificationTypeCommandInput - {@link CreateQualificationTypeCommandInput}
@@ -73,6 +91,8 @@ export interface CreateQualificationTypeCommandOutput extends CreateQualificatio
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class CreateQualificationTypeCommand extends $Command<

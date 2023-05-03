@@ -67,6 +67,37 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * // { // ApplicationDescriptionMessage
+ * //   Application: { // ApplicationDescription
+ * //     ApplicationArn: "STRING_VALUE",
+ * //     ApplicationName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     DateCreated: new Date("TIMESTAMP"),
+ * //     DateUpdated: new Date("TIMESTAMP"),
+ * //     Versions: [ // VersionLabelsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ConfigurationTemplates: [ // ConfigurationTemplateNamesList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ResourceLifecycleConfig: { // ApplicationResourceLifecycleConfig
+ * //       ServiceRole: "STRING_VALUE",
+ * //       VersionLifecycleConfig: { // ApplicationVersionLifecycleConfig
+ * //         MaxCountRule: { // MaxCountRule
+ * //           Enabled: true || false, // required
+ * //           MaxCount: Number("int"),
+ * //           DeleteSourceFromS3: true || false,
+ * //         },
+ * //         MaxAgeRule: { // MaxAgeRule
+ * //           Enabled: true || false, // required
+ * //           MaxAgeInDays: Number("int"),
+ * //           DeleteSourceFromS3: true || false,
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -78,6 +109,8 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  * @throws {@link TooManyApplicationsException} (client fault)
  *  <p>The specified account has reached its limit of applications.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To create a new application
  * ```javascript

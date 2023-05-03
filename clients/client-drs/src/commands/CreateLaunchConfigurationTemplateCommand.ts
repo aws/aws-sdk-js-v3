@@ -63,6 +63,23 @@ export interface CreateLaunchConfigurationTemplateCommandOutput
  * };
  * const command = new CreateLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLaunchConfigurationTemplateResponse
+ * //   launchConfigurationTemplate: { // LaunchConfigurationTemplate
+ * //     launchConfigurationTemplateID: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     tags: { // TagsMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     launchDisposition: "STRING_VALUE",
+ * //     targetInstanceTypeRightSizingMethod: "STRING_VALUE",
+ * //     copyPrivateIp: true || false,
+ * //     copyTags: true || false,
+ * //     licensing: { // Licensing
+ * //       osByol: true || false,
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateLaunchConfigurationTemplateCommandInput - {@link CreateLaunchConfigurationTemplateCommandInput}
@@ -89,6 +106,8 @@ export interface CreateLaunchConfigurationTemplateCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class CreateLaunchConfigurationTemplateCommand extends $Command<

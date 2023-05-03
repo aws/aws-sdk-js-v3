@@ -44,6 +44,8 @@ export interface DeleteInputSecurityGroupCommandOutput extends DeleteInputSecuri
  * };
  * const command = new DeleteInputSecurityGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteInputSecurityGroupCommandInput - {@link DeleteInputSecurityGroupCommandInput}
@@ -73,6 +75,8 @@ export interface DeleteInputSecurityGroupCommandOutput extends DeleteInputSecuri
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class DeleteInputSecurityGroupCommand extends $Command<

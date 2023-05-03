@@ -46,6 +46,19 @@ export interface ListDevicesJobsCommandOutput extends ListDevicesJobsResponse, _
  * };
  * const command = new ListDevicesJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDevicesJobsResponse
+ * //   DeviceJobs: [ // DeviceJobList
+ * //     { // DeviceJob
+ * //       DeviceName: "STRING_VALUE",
+ * //       DeviceId: "STRING_VALUE",
+ * //       JobId: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       JobType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDevicesJobsCommandInput - {@link ListDevicesJobsCommandInput}
@@ -69,6 +82,8 @@ export interface ListDevicesJobsCommandOutput extends ListDevicesJobsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class ListDevicesJobsCommand extends $Command<

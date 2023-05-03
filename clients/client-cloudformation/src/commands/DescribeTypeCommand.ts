@@ -52,6 +52,48 @@ export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __Metadat
  * };
  * const command = new DescribeTypeCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeTypeOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Type: "RESOURCE" || "MODULE" || "HOOK",
+ * //   TypeName: "STRING_VALUE",
+ * //   DefaultVersionId: "STRING_VALUE",
+ * //   IsDefaultVersion: true || false,
+ * //   TypeTestsStatus: "PASSED" || "FAILED" || "IN_PROGRESS" || "NOT_TESTED",
+ * //   TypeTestsStatusDescription: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Schema: "STRING_VALUE",
+ * //   ProvisioningType: "NON_PROVISIONABLE" || "IMMUTABLE" || "FULLY_MUTABLE",
+ * //   DeprecatedStatus: "LIVE" || "DEPRECATED",
+ * //   LoggingConfig: { // LoggingConfig
+ * //     LogRoleArn: "STRING_VALUE", // required
+ * //     LogGroupName: "STRING_VALUE", // required
+ * //   },
+ * //   RequiredActivatedTypes: [ // RequiredActivatedTypes
+ * //     { // RequiredActivatedType
+ * //       TypeNameAlias: "STRING_VALUE",
+ * //       OriginalTypeName: "STRING_VALUE",
+ * //       PublisherId: "STRING_VALUE",
+ * //       SupportedMajorVersions: [ // SupportedMajorVersions
+ * //         Number("int"),
+ * //       ],
+ * //     },
+ * //   ],
+ * //   ExecutionRoleArn: "STRING_VALUE",
+ * //   Visibility: "PUBLIC" || "PRIVATE",
+ * //   SourceUrl: "STRING_VALUE",
+ * //   DocumentationUrl: "STRING_VALUE",
+ * //   LastUpdated: new Date("TIMESTAMP"),
+ * //   TimeCreated: new Date("TIMESTAMP"),
+ * //   ConfigurationSchema: "STRING_VALUE",
+ * //   PublisherId: "STRING_VALUE",
+ * //   OriginalTypeName: "STRING_VALUE",
+ * //   OriginalTypeArn: "STRING_VALUE",
+ * //   PublicVersionNumber: "STRING_VALUE",
+ * //   LatestPublicVersion: "STRING_VALUE",
+ * //   IsActivated: true || false,
+ * //   AutoUpdate: true || false,
+ * // };
+ *
  * ```
  *
  * @param DescribeTypeCommandInput - {@link DescribeTypeCommandInput}
@@ -66,6 +108,8 @@ export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __Metadat
  * @throws {@link TypeNotFoundException} (client fault)
  *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DescribeTypeCommand extends $Command<

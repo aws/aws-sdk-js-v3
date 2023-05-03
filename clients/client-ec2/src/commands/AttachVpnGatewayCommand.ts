@@ -49,6 +49,13 @@ export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, _
  * };
  * const command = new AttachVpnGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // AttachVpnGatewayResult
+ * //   VpcAttachment: { // VpcAttachment
+ * //     State: "attaching" || "attached" || "detaching" || "detached",
+ * //     VpcId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param AttachVpnGatewayCommandInput - {@link AttachVpnGatewayCommandInput}
@@ -57,6 +64,8 @@ export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, _
  * @see {@link AttachVpnGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AttachVpnGatewayCommand extends $Command<

@@ -109,6 +109,8 @@ export interface GrantPermissionsCommandOutput extends GrantPermissionsResponse,
  * };
  * const command = new GrantPermissionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param GrantPermissionsCommandInput - {@link GrantPermissionsCommandInput}
@@ -126,6 +128,8 @@ export interface GrantPermissionsCommandOutput extends GrantPermissionsResponse,
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GrantPermissionsCommand extends $Command<

@@ -93,6 +93,42 @@ export interface StartEdgeConfigurationUpdateCommandOutput
  * };
  * const command = new StartEdgeConfigurationUpdateCommand(input);
  * const response = await client.send(command);
+ * // { // StartEdgeConfigurationUpdateOutput
+ * //   StreamName: "STRING_VALUE",
+ * //   StreamARN: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   SyncStatus: "SYNCING" || "ACKNOWLEDGED" || "IN_SYNC" || "SYNC_FAILED" || "DELETING" || "DELETE_FAILED",
+ * //   FailedStatusDetails: "STRING_VALUE",
+ * //   EdgeConfig: { // EdgeConfig
+ * //     HubDeviceArn: "STRING_VALUE", // required
+ * //     RecorderConfig: { // RecorderConfig
+ * //       MediaSourceConfig: { // MediaSourceConfig
+ * //         MediaUriSecretArn: "STRING_VALUE", // required
+ * //         MediaUriType: "RTSP_URI" || "FILE_URI", // required
+ * //       },
+ * //       ScheduleConfig: { // ScheduleConfig
+ * //         ScheduleExpression: "STRING_VALUE", // required
+ * //         DurationInSeconds: Number("int"), // required
+ * //       },
+ * //     },
+ * //     UploaderConfig: { // UploaderConfig
+ * //       ScheduleConfig: {
+ * //         ScheduleExpression: "STRING_VALUE", // required
+ * //         DurationInSeconds: Number("int"), // required
+ * //       },
+ * //     },
+ * //     DeletionConfig: { // DeletionConfig
+ * //       EdgeRetentionInHours: Number("int"),
+ * //       LocalSizeConfig: { // LocalSizeConfig
+ * //         MaxLocalMediaSizeInMB: Number("int"),
+ * //         StrategyOnFullSize: "DELETE_OLDEST_MEDIA" || "DENY_NEW_MEDIA",
+ * //       },
+ * //       DeleteAfterUpload: true || false,
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StartEdgeConfigurationUpdateCommandInput - {@link StartEdgeConfigurationUpdateCommandInput}
@@ -137,6 +173,8 @@ export interface StartEdgeConfigurationUpdateCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class StartEdgeConfigurationUpdateCommand extends $Command<

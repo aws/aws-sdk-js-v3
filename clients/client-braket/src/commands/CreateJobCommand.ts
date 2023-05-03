@@ -92,6 +92,10 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
+ * // { // CreateJobResponse
+ * //   jobArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateJobCommandInput - {@link CreateJobCommandInput}
@@ -122,6 +126,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link BraketServiceException}
+ * <p>Base exception class for all service exceptions from Braket service.</p>
  *
  */
 export class CreateJobCommand extends $Command<

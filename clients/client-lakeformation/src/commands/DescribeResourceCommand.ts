@@ -44,6 +44,15 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * };
  * const command = new DescribeResourceCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeResourceResponse
+ * //   ResourceInfo: { // ResourceInfo
+ * //     ResourceArn: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE",
+ * //     LastModified: new Date("TIMESTAMP"),
+ * //     WithFederation: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeResourceCommandInput - {@link DescribeResourceCommandInput}
@@ -64,6 +73,8 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class DescribeResourceCommand extends $Command<

@@ -54,6 +54,25 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * };
  * const command = new RemoveSourceIdentifierFromSubscriptionCommand(input);
  * const response = await client.send(command);
+ * // { // RemoveSourceIdentifierFromSubscriptionResult
+ * //   EventSubscription: { // EventSubscription
+ * //     CustomerAwsId: "STRING_VALUE",
+ * //     CustSubscriptionId: "STRING_VALUE",
+ * //     SnsTopicArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     SubscriptionCreationTime: "STRING_VALUE",
+ * //     SourceType: "STRING_VALUE",
+ * //     SourceIdsList: [ // SourceIdsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     EventCategoriesList: [ // EventCategoriesList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Enabled: true || false,
+ * //     EventSubscriptionArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param RemoveSourceIdentifierFromSubscriptionCommandInput - {@link RemoveSourceIdentifierFromSubscriptionCommandInput}
@@ -68,6 +87,8 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * @throws {@link SubscriptionNotFoundFault} (client fault)
  *  <p>The subscription name does not exist.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To remove a source identifier from a subscription
  * ```javascript

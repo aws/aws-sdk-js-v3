@@ -59,6 +59,28 @@ export interface ListActivatedRulesInRuleGroupCommandOutput
  * };
  * const command = new ListActivatedRulesInRuleGroupCommand(input);
  * const response = await client.send(command);
+ * // { // ListActivatedRulesInRuleGroupResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   ActivatedRules: [ // ActivatedRules
+ * //     { // ActivatedRule
+ * //       Priority: Number("int"), // required
+ * //       RuleId: "STRING_VALUE", // required
+ * //       Action: { // WafAction
+ * //         Type: "STRING_VALUE", // required
+ * //       },
+ * //       OverrideAction: { // WafOverrideAction
+ * //         Type: "STRING_VALUE", // required
+ * //       },
+ * //       Type: "STRING_VALUE",
+ * //       ExcludedRules: [ // ExcludedRules
+ * //         { // ExcludedRule
+ * //           RuleId: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListActivatedRulesInRuleGroupCommandInput - {@link ListActivatedRulesInRuleGroupCommandInput}
@@ -113,6 +135,8 @@ export interface ListActivatedRulesInRuleGroupCommandOutput
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class ListActivatedRulesInRuleGroupCommand extends $Command<

@@ -44,6 +44,42 @@ export interface DescribeWorldGenerationJobCommandOutput extends DescribeWorldGe
  * };
  * const command = new DescribeWorldGenerationJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeWorldGenerationJobResponse
+ * //   arn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   failureCode: "STRING_VALUE",
+ * //   failureReason: "STRING_VALUE",
+ * //   clientRequestToken: "STRING_VALUE",
+ * //   template: "STRING_VALUE",
+ * //   worldCount: { // WorldCount
+ * //     floorplanCount: Number("int"),
+ * //     interiorCountPerFloorplan: Number("int"),
+ * //   },
+ * //   finishedWorldsSummary: { // FinishedWorldsSummary
+ * //     finishedCount: Number("int"),
+ * //     succeededWorlds: [ // Arns
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     failureSummary: { // FailureSummary
+ * //       totalFailureCount: Number("int"),
+ * //       failures: [ // WorldFailures
+ * //         { // WorldFailure
+ * //           failureCode: "STRING_VALUE",
+ * //           sampleFailureReason: "STRING_VALUE",
+ * //           failureCount: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   worldTags: {
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeWorldGenerationJobCommandInput - {@link DescribeWorldGenerationJobCommandInput}
@@ -65,6 +101,8 @@ export interface DescribeWorldGenerationJobCommandOutput extends DescribeWorldGe
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class DescribeWorldGenerationJobCommand extends $Command<

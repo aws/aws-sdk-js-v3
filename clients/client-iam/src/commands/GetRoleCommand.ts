@@ -53,6 +53,33 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  * };
  * const command = new GetRoleCommand(input);
  * const response = await client.send(command);
+ * // { // GetRoleResponse
+ * //   Role: { // Role
+ * //     Path: "STRING_VALUE", // required
+ * //     RoleName: "STRING_VALUE", // required
+ * //     RoleId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //     CreateDate: new Date("TIMESTAMP"), // required
+ * //     AssumeRolePolicyDocument: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     MaxSessionDuration: Number("int"),
+ * //     PermissionsBoundary: { // AttachedPermissionsBoundary
+ * //       PermissionsBoundaryType: "PermissionsBoundaryPolicy",
+ * //       PermissionsBoundaryArn: "STRING_VALUE",
+ * //     },
+ * //     Tags: [ // tagListType
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     RoleLastUsed: { // RoleLastUsed
+ * //       LastUsedDate: new Date("TIMESTAMP"),
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetRoleCommandInput - {@link GetRoleCommandInput}
@@ -69,6 +96,8 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To get information about an IAM role
  * ```javascript

@@ -53,6 +53,19 @@ export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysRespons
  * };
  * const command = new ListSSHPublicKeysCommand(input);
  * const response = await client.send(command);
+ * // { // ListSSHPublicKeysResponse
+ * //   SSHPublicKeys: [ // SSHPublicKeyListType
+ * //     { // SSHPublicKeyMetadata
+ * //       UserName: "STRING_VALUE", // required
+ * //       SSHPublicKeyId: "STRING_VALUE", // required
+ * //       Status: "Active" || "Inactive", // required
+ * //       UploadDate: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSSHPublicKeysCommandInput - {@link ListSSHPublicKeysCommandInput}
@@ -65,6 +78,8 @@ export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysRespons
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListSSHPublicKeysCommand extends $Command<

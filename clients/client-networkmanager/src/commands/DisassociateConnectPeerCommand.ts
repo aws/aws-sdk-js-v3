@@ -45,6 +45,16 @@ export interface DisassociateConnectPeerCommandOutput extends DisassociateConnec
  * };
  * const command = new DisassociateConnectPeerCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateConnectPeerResponse
+ * //   ConnectPeerAssociation: { // ConnectPeerAssociation
+ * //     ConnectPeerId: "STRING_VALUE",
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     DeviceId: "STRING_VALUE",
+ * //     LinkId: "STRING_VALUE",
+ * //     State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DisassociateConnectPeerCommandInput - {@link DisassociateConnectPeerCommandInput}
@@ -72,6 +82,8 @@ export interface DisassociateConnectPeerCommandOutput extends DisassociateConnec
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DisassociateConnectPeerCommand extends $Command<

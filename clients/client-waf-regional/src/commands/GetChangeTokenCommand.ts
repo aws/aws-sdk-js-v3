@@ -56,6 +56,10 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * const input = {};
  * const command = new GetChangeTokenCommand(input);
  * const response = await client.send(command);
+ * // { // GetChangeTokenResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetChangeTokenCommandInput - {@link GetChangeTokenCommandInput}
@@ -67,6 +71,8 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * @throws {@link WAFInternalErrorException} (server fault)
  *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To get a change token
  * ```javascript

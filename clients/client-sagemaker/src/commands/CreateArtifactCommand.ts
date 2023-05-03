@@ -73,6 +73,10 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  * };
  * const command = new CreateArtifactCommand(input);
  * const response = await client.send(command);
+ * // { // CreateArtifactResponse
+ * //   ArtifactArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateArtifactCommandInput - {@link CreateArtifactCommandInput}
@@ -85,6 +89,8 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateArtifactCommand extends $Command<

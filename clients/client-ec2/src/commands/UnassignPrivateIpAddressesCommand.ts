@@ -51,6 +51,8 @@ export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBeare
  * };
  * const command = new UnassignPrivateIpAddressesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UnassignPrivateIpAddressesCommandInput - {@link UnassignPrivateIpAddressesCommandInput}
@@ -59,6 +61,8 @@ export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBeare
  * @see {@link UnassignPrivateIpAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To unassign a secondary private IP address from a network interface
  * ```javascript

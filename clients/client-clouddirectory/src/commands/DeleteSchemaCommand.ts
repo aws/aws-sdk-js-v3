@@ -44,6 +44,10 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  * };
  * const command = new DeleteSchemaCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteSchemaResponse
+ * //   SchemaArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteSchemaCommandInput - {@link DeleteSchemaCommandInput}
@@ -78,6 +82,8 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DeleteSchemaCommand extends $Command<

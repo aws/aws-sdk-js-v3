@@ -50,6 +50,8 @@ export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainR
  * };
  * const command = new DeleteUserPoolDomainCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteUserPoolDomainCommandInput - {@link DeleteUserPoolDomainCommandInput}
@@ -72,6 +74,8 @@ export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainR
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class DeleteUserPoolDomainCommand extends $Command<

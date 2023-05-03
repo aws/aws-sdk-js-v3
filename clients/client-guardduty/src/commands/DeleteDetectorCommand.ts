@@ -44,6 +44,8 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __M
  * };
  * const command = new DeleteDetectorCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDetectorCommandInput - {@link DeleteDetectorCommandInput}
@@ -58,6 +60,8 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __M
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class DeleteDetectorCommand extends $Command<

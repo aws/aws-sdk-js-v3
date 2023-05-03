@@ -47,6 +47,13 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsRespo
  * };
  * const command = new ListMemberAccountsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMemberAccountsResponse
+ * //   MemberAccounts: [ // MemberAccounts
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListMemberAccountsCommandInput - {@link ListMemberAccountsCommandInput}
@@ -62,6 +69,8 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListMemberAccountsCommand extends $Command<

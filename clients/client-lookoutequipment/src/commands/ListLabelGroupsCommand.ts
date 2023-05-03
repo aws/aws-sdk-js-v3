@@ -48,6 +48,18 @@ export interface ListLabelGroupsCommandOutput extends ListLabelGroupsResponse, _
  * };
  * const command = new ListLabelGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListLabelGroupsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   LabelGroupSummaries: [ // LabelGroupSummaries
+ * //     { // LabelGroupSummary
+ * //       LabelGroupName: "STRING_VALUE",
+ * //       LabelGroupArn: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListLabelGroupsCommandInput - {@link ListLabelGroupsCommandInput}
@@ -71,6 +83,8 @@ export interface ListLabelGroupsCommandOutput extends ListLabelGroupsResponse, _
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class ListLabelGroupsCommand extends $Command<

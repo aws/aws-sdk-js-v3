@@ -47,6 +47,8 @@ export interface DeleteAliasCommandOutput extends DeleteAliasResponse, __Metadat
  * };
  * const command = new DeleteAliasCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAliasCommandInput - {@link DeleteAliasCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteAliasCommandOutput extends DeleteAliasResponse, __Metadat
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DeleteAliasCommand extends $Command<

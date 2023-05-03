@@ -121,6 +121,13 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  * };
  * const command = new GenerateDataKeyPairWithoutPlaintextCommand(input);
  * const response = await client.send(command);
+ * // { // GenerateDataKeyPairWithoutPlaintextResponse
+ * //   PrivateKeyCiphertextBlob: "BLOB_VALUE",
+ * //   PublicKey: "BLOB_VALUE",
+ * //   KeyId: "STRING_VALUE",
+ * //   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2",
+ * // };
+ *
  * ```
  *
  * @param GenerateDataKeyPairWithoutPlaintextCommandInput - {@link GenerateDataKeyPairWithoutPlaintextCommandInput}
@@ -194,6 +201,8 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To generate an asymmetric data key pair without a plaintext key
  * ```javascript

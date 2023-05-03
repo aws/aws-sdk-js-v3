@@ -64,6 +64,20 @@ export interface SearchAssociatedTranscriptsCommandOutput
  * };
  * const command = new SearchAssociatedTranscriptsCommand(input);
  * const response = await client.send(command);
+ * // { // SearchAssociatedTranscriptsResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   botRecommendationId: "STRING_VALUE",
+ * //   nextIndex: Number("int"),
+ * //   associatedTranscripts: [ // AssociatedTranscriptList
+ * //     { // AssociatedTranscript
+ * //       transcript: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   totalResults: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param SearchAssociatedTranscriptsCommandInput - {@link SearchAssociatedTranscriptsCommandInput}
@@ -91,6 +105,8 @@ export interface SearchAssociatedTranscriptsCommandOutput
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class SearchAssociatedTranscriptsCommand extends $Command<

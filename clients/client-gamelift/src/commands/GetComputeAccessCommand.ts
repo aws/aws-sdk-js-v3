@@ -71,6 +71,18 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
  * };
  * const command = new GetComputeAccessCommand(input);
  * const response = await client.send(command);
+ * // { // GetComputeAccessOutput
+ * //   FleetId: "STRING_VALUE",
+ * //   FleetArn: "STRING_VALUE",
+ * //   ComputeName: "STRING_VALUE",
+ * //   ComputeArn: "STRING_VALUE",
+ * //   Credentials: { // AwsCredentials
+ * //     AccessKeyId: "STRING_VALUE",
+ * //     SecretAccessKey: "STRING_VALUE",
+ * //     SessionToken: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetComputeAccessCommandInput - {@link GetComputeAccessCommandInput}
@@ -93,6 +105,8 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class GetComputeAccessCommand extends $Command<

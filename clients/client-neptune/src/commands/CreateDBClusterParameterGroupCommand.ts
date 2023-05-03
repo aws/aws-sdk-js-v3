@@ -81,6 +81,15 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * };
  * const command = new CreateDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDBClusterParameterGroupResult
+ * //   DBClusterParameterGroup: { // DBClusterParameterGroup
+ * //     DBClusterParameterGroupName: "STRING_VALUE",
+ * //     DBParameterGroupFamily: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     DBClusterParameterGroupArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateDBClusterParameterGroupCommandInput - {@link CreateDBClusterParameterGroupCommandInput}
@@ -95,6 +104,8 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
  *  <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class CreateDBClusterParameterGroupCommand extends $Command<

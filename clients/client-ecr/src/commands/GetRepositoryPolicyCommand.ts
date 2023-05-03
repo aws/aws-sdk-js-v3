@@ -45,6 +45,12 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  * };
  * const command = new GetRepositoryPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetRepositoryPolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   policyText: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetRepositoryPolicyCommandInput - {@link GetRepositoryPolicyCommandInput}
@@ -68,6 +74,8 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  * @example To get the current policy for a repository
  * ```javascript

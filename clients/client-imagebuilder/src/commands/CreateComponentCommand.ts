@@ -69,6 +69,12 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * };
  * const command = new CreateComponentCommand(input);
  * const response = await client.send(command);
+ * // { // CreateComponentResponse
+ * //   requestId: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * //   componentBuildVersionArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateComponentCommandInput - {@link CreateComponentCommandInput}
@@ -118,6 +124,8 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class CreateComponentCommand extends $Command<

@@ -58,6 +58,8 @@ export interface PutInlinePolicyToPermissionSetCommandOutput
  * };
  * const command = new PutInlinePolicyToPermissionSetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutInlinePolicyToPermissionSetCommandInput - {@link PutInlinePolicyToPermissionSetCommandInput}
@@ -93,6 +95,8 @@ export interface PutInlinePolicyToPermissionSetCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class PutInlinePolicyToPermissionSetCommand extends $Command<

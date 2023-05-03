@@ -45,6 +45,25 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, _
  * };
  * const command = new UpdateMembershipCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateMembershipOutput
+ * //   membership: { // Membership
+ * //     id: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE", // required
+ * //     collaborationArn: "STRING_VALUE", // required
+ * //     collaborationId: "STRING_VALUE", // required
+ * //     collaborationCreatorAccountId: "STRING_VALUE", // required
+ * //     collaborationCreatorDisplayName: "STRING_VALUE", // required
+ * //     collaborationName: "STRING_VALUE", // required
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     updateTime: new Date("TIMESTAMP"), // required
+ * //     status: "STRING_VALUE", // required
+ * //     memberAbilities: [ // MemberAbilities // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     queryLogStatus: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateMembershipCommandInput - {@link UpdateMembershipCommandInput}
@@ -71,6 +90,8 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class UpdateMembershipCommand extends $Command<

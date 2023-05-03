@@ -70,6 +70,8 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  * };
  * const command = new PutGroupConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutGroupConfigurationCommandInput - {@link PutGroupConfigurationCommandInput}
@@ -97,6 +99,8 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class PutGroupConfigurationCommand extends $Command<

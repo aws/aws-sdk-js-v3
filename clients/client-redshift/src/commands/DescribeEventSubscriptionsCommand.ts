@@ -62,6 +62,34 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * };
  * const command = new DescribeEventSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * // { // EventSubscriptionsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   EventSubscriptionsList: [ // EventSubscriptionsList
+ * //     { // EventSubscription
+ * //       CustomerAwsId: "STRING_VALUE",
+ * //       CustSubscriptionId: "STRING_VALUE",
+ * //       SnsTopicArn: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       SubscriptionCreationTime: new Date("TIMESTAMP"),
+ * //       SourceType: "STRING_VALUE",
+ * //       SourceIdsList: [ // SourceIdsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       EventCategoriesList: [ // EventCategoriesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Severity: "STRING_VALUE",
+ * //       Enabled: true || false,
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeEventSubscriptionsCommandInput - {@link DescribeEventSubscriptionsCommandInput}
@@ -77,6 +105,8 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  *  <p>An Amazon Redshift event notification subscription with the specified name does not
  *             exist.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeEventSubscriptionsCommand extends $Command<

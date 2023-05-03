@@ -47,6 +47,57 @@ export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentR
  * };
  * const command = new DescribeAssessmentRunsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAssessmentRunsResponse
+ * //   assessmentRuns: [ // AssessmentRunList // required
+ * //     { // AssessmentRun
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       assessmentTemplateArn: "STRING_VALUE", // required
+ * //       state: "STRING_VALUE", // required
+ * //       durationInSeconds: Number("int"), // required
+ * //       rulesPackageArns: [ // AssessmentRulesPackageArnList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       userAttributesForFindings: [ // UserAttributeList // required
+ * //         { // Attribute
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       startedAt: new Date("TIMESTAMP"),
+ * //       completedAt: new Date("TIMESTAMP"),
+ * //       stateChangedAt: new Date("TIMESTAMP"), // required
+ * //       dataCollected: true || false, // required
+ * //       stateChanges: [ // AssessmentRunStateChangeList // required
+ * //         { // AssessmentRunStateChange
+ * //           stateChangedAt: new Date("TIMESTAMP"), // required
+ * //           state: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       notifications: [ // AssessmentRunNotificationList // required
+ * //         { // AssessmentRunNotification
+ * //           date: new Date("TIMESTAMP"), // required
+ * //           event: "STRING_VALUE", // required
+ * //           message: "STRING_VALUE",
+ * //           error: true || false, // required
+ * //           snsTopicArn: "STRING_VALUE",
+ * //           snsPublishStatusCode: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       findingCounts: { // AssessmentRunFindingCounts // required
+ * //         "<keys>": Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   failedItems: { // FailedItems // required
+ * //     "<keys>": { // FailedItemDetails
+ * //       failureCode: "STRING_VALUE", // required
+ * //       retryable: true || false, // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeAssessmentRunsCommandInput - {@link DescribeAssessmentRunsCommandInput}
@@ -62,6 +113,8 @@ export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentR
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Describte assessment runs
  * ```javascript

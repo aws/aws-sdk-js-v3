@@ -44,6 +44,23 @@ export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTrigger
  * };
  * const command = new GetRepositoryTriggersCommand(input);
  * const response = await client.send(command);
+ * // { // GetRepositoryTriggersOutput
+ * //   configurationId: "STRING_VALUE",
+ * //   triggers: [ // RepositoryTriggersList
+ * //     { // RepositoryTrigger
+ * //       name: "STRING_VALUE", // required
+ * //       destinationArn: "STRING_VALUE", // required
+ * //       customData: "STRING_VALUE",
+ * //       branches: [ // BranchNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       events: [ // RepositoryTriggerEventList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetRepositoryTriggersCommandInput - {@link GetRepositoryTriggersCommandInput}
@@ -82,6 +99,8 @@ export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTrigger
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetRepositoryTriggersCommand extends $Command<

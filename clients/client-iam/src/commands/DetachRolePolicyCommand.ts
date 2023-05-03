@@ -49,6 +49,8 @@ export interface DetachRolePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachRolePolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DetachRolePolicyCommandInput - {@link DetachRolePolicyCommandInput}
@@ -79,6 +81,8 @@ export interface DetachRolePolicyCommandOutput extends __MetadataBearer {}
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DetachRolePolicyCommand extends $Command<

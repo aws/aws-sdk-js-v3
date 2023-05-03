@@ -53,6 +53,8 @@ export interface DeleteMobileDeviceAccessRuleCommandOutput
  * };
  * const command = new DeleteMobileDeviceAccessRuleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteMobileDeviceAccessRuleCommandInput - {@link DeleteMobileDeviceAccessRuleCommandInput}
@@ -72,6 +74,8 @@ export interface DeleteMobileDeviceAccessRuleCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DeleteMobileDeviceAccessRuleCommand extends $Command<

@@ -54,6 +54,8 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  * };
  * const command = new DeleteAccountCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAccountCommandInput - {@link DeleteAccountCommandInput}
@@ -86,6 +88,8 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  * @throws {@link UnprocessableEntityException} (client fault)
  *  <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DeleteAccountCommand extends $Command<

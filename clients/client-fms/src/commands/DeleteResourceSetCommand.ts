@@ -44,6 +44,8 @@ export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteResourceSetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteResourceSetCommandInput - {@link DeleteResourceSetCommandInput}
@@ -69,6 +71,8 @@ export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class DeleteResourceSetCommand extends $Command<

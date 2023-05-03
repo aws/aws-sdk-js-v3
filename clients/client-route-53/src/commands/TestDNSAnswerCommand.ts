@@ -53,6 +53,17 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * };
  * const command = new TestDNSAnswerCommand(input);
  * const response = await client.send(command);
+ * // { // TestDNSAnswerResponse
+ * //   Nameserver: "STRING_VALUE", // required
+ * //   RecordName: "STRING_VALUE", // required
+ * //   RecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //   RecordData: [ // RecordData // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ResponseCode: "STRING_VALUE", // required
+ * //   Protocol: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param TestDNSAnswerCommandInput - {@link TestDNSAnswerCommandInput}
@@ -67,6 +78,8 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * @throws {@link NoSuchHostedZone} (client fault)
  *  <p>No hosted zone exists with the ID that you specified.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class TestDNSAnswerCommand extends $Command<

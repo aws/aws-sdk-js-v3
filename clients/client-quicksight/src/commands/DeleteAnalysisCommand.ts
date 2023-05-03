@@ -58,6 +58,14 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  * };
  * const command = new DeleteAnalysisCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteAnalysisResponse
+ * //   Status: Number("int"),
+ * //   Arn: "STRING_VALUE",
+ * //   AnalysisId: "STRING_VALUE",
+ * //   DeletionTime: new Date("TIMESTAMP"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteAnalysisCommandInput - {@link DeleteAnalysisCommandInput}
@@ -87,6 +95,8 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteAnalysisCommand extends $Command<

@@ -96,6 +96,11 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  * };
  * const command = new CreateEventTrackerCommand(input);
  * const response = await client.send(command);
+ * // { // CreateEventTrackerResponse
+ * //   eventTrackerArn: "STRING_VALUE",
+ * //   trackingId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateEventTrackerCommandInput - {@link CreateEventTrackerCommandInput}
@@ -122,6 +127,8 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateEventTrackerCommand extends $Command<

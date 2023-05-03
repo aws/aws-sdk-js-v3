@@ -45,6 +45,8 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteLoggingConfigurationCommandInput - {@link DeleteLoggingConfigurationCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class DeleteLoggingConfigurationCommand extends $Command<

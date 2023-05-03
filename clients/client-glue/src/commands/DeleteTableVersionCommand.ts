@@ -47,6 +47,8 @@ export interface DeleteTableVersionCommandOutput extends DeleteTableVersionRespo
  * };
  * const command = new DeleteTableVersionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTableVersionCommandInput - {@link DeleteTableVersionCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteTableVersionCommandOutput extends DeleteTableVersionRespo
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteTableVersionCommand extends $Command<

@@ -82,6 +82,31 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
+ * // { // Snapshot
+ * //   DataEncryptionKeyId: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Encrypted: true || false,
+ * //   KmsKeyId: "STRING_VALUE",
+ * //   OwnerId: "STRING_VALUE",
+ * //   Progress: "STRING_VALUE",
+ * //   SnapshotId: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   State: "pending" || "completed" || "error" || "recoverable" || "recovering",
+ * //   StateMessage: "STRING_VALUE",
+ * //   VolumeId: "STRING_VALUE",
+ * //   VolumeSize: Number("int"),
+ * //   OwnerAlias: "STRING_VALUE",
+ * //   OutpostArn: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   StorageTier: "archive" || "standard",
+ * //   RestoreExpiryTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
@@ -90,6 +115,8 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To create a snapshot
  * ```javascript

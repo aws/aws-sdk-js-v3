@@ -55,6 +55,10 @@ export interface SetVoiceMessageSpendLimitOverrideCommandOutput
  * };
  * const command = new SetVoiceMessageSpendLimitOverrideCommand(input);
  * const response = await client.send(command);
+ * // { // SetVoiceMessageSpendLimitOverrideResult
+ * //   MonthlyLimit: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param SetVoiceMessageSpendLimitOverrideCommandInput - {@link SetVoiceMessageSpendLimitOverrideCommandInput}
@@ -78,6 +82,8 @@ export interface SetVoiceMessageSpendLimitOverrideCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class SetVoiceMessageSpendLimitOverrideCommand extends $Command<

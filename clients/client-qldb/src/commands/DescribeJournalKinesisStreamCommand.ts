@@ -55,6 +55,25 @@ export interface DescribeJournalKinesisStreamCommandOutput
  * };
  * const command = new DescribeJournalKinesisStreamCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeJournalKinesisStreamResponse
+ * //   Stream: { // JournalKinesisStreamDescription
+ * //     LedgerName: "STRING_VALUE", // required
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     InclusiveStartTime: new Date("TIMESTAMP"),
+ * //     ExclusiveEndTime: new Date("TIMESTAMP"),
+ * //     RoleArn: "STRING_VALUE", // required
+ * //     StreamId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE",
+ * //     Status: "ACTIVE" || "COMPLETED" || "CANCELED" || "FAILED" || "IMPAIRED", // required
+ * //     KinesisConfiguration: { // KinesisConfiguration
+ * //       StreamArn: "STRING_VALUE", // required
+ * //       AggregationEnabled: true || false,
+ * //     },
+ * //     ErrorCause: "KINESIS_STREAM_NOT_FOUND" || "IAM_PERMISSION_REVOKED",
+ * //     StreamName: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeJournalKinesisStreamCommandInput - {@link DescribeJournalKinesisStreamCommandInput}
@@ -72,6 +91,8 @@ export interface DescribeJournalKinesisStreamCommandOutput
  * @throws {@link ResourcePreconditionNotMetException} (client fault)
  *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class DescribeJournalKinesisStreamCommand extends $Command<

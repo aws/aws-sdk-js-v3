@@ -56,6 +56,16 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * };
  * const command = new ListImagesCommand(input);
  * const response = await client.send(command);
+ * // { // ListImagesResponse
+ * //   imageIds: [ // ImageIdentifierList
+ * //     { // ImageIdentifier
+ * //       imageDigest: "STRING_VALUE",
+ * //       imageTag: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListImagesCommandInput - {@link ListImagesCommandInput}
@@ -75,6 +85,8 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  * @example To list all images in a repository
  * ```javascript

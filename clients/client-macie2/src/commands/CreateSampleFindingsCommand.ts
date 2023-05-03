@@ -46,6 +46,8 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * };
  * const command = new CreateSampleFindingsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateSampleFindingsCommandInput - {@link CreateSampleFindingsCommandInput}
@@ -75,6 +77,8 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class CreateSampleFindingsCommand extends $Command<

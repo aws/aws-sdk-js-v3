@@ -75,6 +75,14 @@ export interface UpdateApplicationMaintenanceConfigurationCommandOutput
  * };
  * const command = new UpdateApplicationMaintenanceConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateApplicationMaintenanceConfigurationResponse
+ * //   ApplicationARN: "STRING_VALUE",
+ * //   ApplicationMaintenanceConfigurationDescription: { // ApplicationMaintenanceConfigurationDescription
+ * //     ApplicationMaintenanceWindowStartTime: "STRING_VALUE", // required
+ * //     ApplicationMaintenanceWindowEndTime: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateApplicationMaintenanceConfigurationCommandInput - {@link UpdateApplicationMaintenanceConfigurationCommandInput}
@@ -101,6 +109,8 @@ export interface UpdateApplicationMaintenanceConfigurationCommandOutput
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
  *       operation. </p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<

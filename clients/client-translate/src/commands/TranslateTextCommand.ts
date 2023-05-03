@@ -54,6 +54,27 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  * };
  * const command = new TranslateTextCommand(input);
  * const response = await client.send(command);
+ * // { // TranslateTextResponse
+ * //   TranslatedText: "STRING_VALUE", // required
+ * //   SourceLanguageCode: "STRING_VALUE", // required
+ * //   TargetLanguageCode: "STRING_VALUE", // required
+ * //   AppliedTerminologies: [ // AppliedTerminologyList
+ * //     { // AppliedTerminology
+ * //       Name: "STRING_VALUE",
+ * //       Terms: [ // TermList
+ * //         { // Term
+ * //           SourceText: "STRING_VALUE",
+ * //           TargetText: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   AppliedSettings: { // TranslationSettings
+ * //     Formality: "FORMAL" || "INFORMAL",
+ * //     Profanity: "MASK",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param TranslateTextCommandInput - {@link TranslateTextCommandInput}
@@ -96,6 +117,8 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  *  <p>Amazon Translate does not support translation from the language of the source text into the requested
  *       target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html">Error messages</a>. </p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class TranslateTextCommand extends $Command<

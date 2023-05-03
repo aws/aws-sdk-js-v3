@@ -56,6 +56,23 @@ export interface DescribeCommandsCommandOutput extends DescribeCommandsResult, _
  * };
  * const command = new DescribeCommandsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeCommandsResult
+ * //   Commands: [ // Commands
+ * //     { // Command
+ * //       CommandId: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       DeploymentId: "STRING_VALUE",
+ * //       CreatedAt: "STRING_VALUE",
+ * //       AcknowledgedAt: "STRING_VALUE",
+ * //       CompletedAt: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       ExitCode: Number("int"),
+ * //       LogUrl: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeCommandsCommandInput - {@link DescribeCommandsCommandInput}
@@ -70,6 +87,8 @@ export interface DescribeCommandsCommandOutput extends DescribeCommandsResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeCommandsCommand extends $Command<

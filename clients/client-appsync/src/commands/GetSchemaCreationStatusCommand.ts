@@ -44,6 +44,11 @@ export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationS
  * };
  * const command = new GetSchemaCreationStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetSchemaCreationStatusResponse
+ * //   status: "PROCESSING" || "ACTIVE" || "DELETING" || "FAILED" || "SUCCESS" || "NOT_APPLICABLE",
+ * //   details: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetSchemaCreationStatusCommandInput - {@link GetSchemaCreationStatusCommandInput}
@@ -65,6 +70,8 @@ export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationS
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class GetSchemaCreationStatusCommand extends $Command<

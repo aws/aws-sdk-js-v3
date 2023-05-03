@@ -55,6 +55,8 @@ export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricRespo
  * };
  * const command = new DeleteCustomMetricCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteCustomMetricCommandInput - {@link DeleteCustomMetricCommandInput}
@@ -72,6 +74,8 @@ export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteCustomMetricCommand extends $Command<

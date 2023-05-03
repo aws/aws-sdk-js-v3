@@ -48,6 +48,11 @@ export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenRes
  * };
  * const command = new CreateWebLoginTokenCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWebLoginTokenResponse
+ * //   WebToken: "STRING_VALUE",
+ * //   WebServerHostname: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateWebLoginTokenCommandInput - {@link CreateWebLoginTokenCommandInput}
@@ -68,6 +73,8 @@ export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenRes
  * @throws {@link ValidationException} (client fault)
  *  <p>ValidationException: The provided input is not valid.</p>
  *
+ * @throws {@link MWAAServiceException}
+ * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  */
 export class CreateWebLoginTokenCommand extends $Command<

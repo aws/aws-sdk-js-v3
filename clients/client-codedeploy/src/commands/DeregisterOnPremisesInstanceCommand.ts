@@ -47,6 +47,8 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  * };
  * const command = new DeregisterOnPremisesInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeregisterOnPremisesInstanceCommandInput - {@link DeregisterOnPremisesInstanceCommandInput}
@@ -61,6 +63,8 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  * @throws {@link InvalidInstanceNameException} (client fault)
  *  <p>The on-premises instance name was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class DeregisterOnPremisesInstanceCommand extends $Command<

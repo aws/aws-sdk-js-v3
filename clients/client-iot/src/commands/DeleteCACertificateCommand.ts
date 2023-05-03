@@ -45,6 +45,8 @@ export interface DeleteCACertificateCommandOutput extends DeleteCACertificateRes
  * };
  * const command = new DeleteCACertificateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteCACertificateCommandInput - {@link DeleteCACertificateCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteCACertificateCommandOutput extends DeleteCACertificateRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteCACertificateCommand extends $Command<

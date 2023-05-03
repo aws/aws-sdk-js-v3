@@ -45,6 +45,25 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
+ * // { // ListServicesResponse
+ * //   items: [ // ServiceList
+ * //     { // ServiceSummary
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       dnsEntry: { // DnsEntry
+ * //         domainName: "STRING_VALUE",
+ * //         hostedZoneId: "STRING_VALUE",
+ * //       },
+ * //       customDomainName: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListServicesCommandInput - {@link ListServicesCommandInput}
@@ -66,6 +85,8 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class ListServicesCommand extends $Command<

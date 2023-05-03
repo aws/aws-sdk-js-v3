@@ -62,6 +62,26 @@ export interface ListProductSubscriptionsCommandOutput extends ListProductSubscr
  * };
  * const command = new ListProductSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListProductSubscriptionsResponse
+ * //   ProductUserSummaries: [ // ProductUserSummaryList
+ * //     { // ProductUserSummary
+ * //       Username: "STRING_VALUE", // required
+ * //       Product: "STRING_VALUE", // required
+ * //       IdentityProvider: { // IdentityProvider Union: only one key present
+ * //         ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ * //           DirectoryId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Status: "STRING_VALUE", // required
+ * //       StatusMessage: "STRING_VALUE",
+ * //       Domain: "STRING_VALUE",
+ * //       SubscriptionStartDate: "STRING_VALUE",
+ * //       SubscriptionEndDate: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListProductSubscriptionsCommandInput - {@link ListProductSubscriptionsCommandInput}
@@ -92,6 +112,8 @@ export interface ListProductSubscriptionsCommandOutput extends ListProductSubscr
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link LicenseManagerUserSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
  */
 export class ListProductSubscriptionsCommand extends $Command<

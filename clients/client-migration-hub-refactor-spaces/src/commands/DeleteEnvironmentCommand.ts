@@ -49,6 +49,14 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteEnvironmentResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   EnvironmentId: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
@@ -76,6 +84,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class DeleteEnvironmentCommand extends $Command<

@@ -57,6 +57,29 @@ export interface DescribeFastLaunchImagesCommandOutput extends DescribeFastLaunc
  * };
  * const command = new DescribeFastLaunchImagesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFastLaunchImagesResult
+ * //   FastLaunchImages: [ // DescribeFastLaunchImagesSuccessSet
+ * //     { // DescribeFastLaunchImagesSuccessItem
+ * //       ImageId: "STRING_VALUE",
+ * //       ResourceType: "snapshot",
+ * //       SnapshotConfiguration: { // FastLaunchSnapshotConfigurationResponse
+ * //         TargetResourceCount: Number("int"),
+ * //       },
+ * //       LaunchTemplate: { // FastLaunchLaunchTemplateSpecificationResponse
+ * //         LaunchTemplateId: "STRING_VALUE",
+ * //         LaunchTemplateName: "STRING_VALUE",
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //       MaxParallelLaunches: Number("int"),
+ * //       OwnerId: "STRING_VALUE",
+ * //       State: "enabling" || "enabling-failed" || "enabled" || "enabled-failed" || "disabling" || "disabling-failed",
+ * //       StateTransitionReason: "STRING_VALUE",
+ * //       StateTransitionTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeFastLaunchImagesCommandInput - {@link DescribeFastLaunchImagesCommandInput}
@@ -65,6 +88,8 @@ export interface DescribeFastLaunchImagesCommandOutput extends DescribeFastLaunc
  * @see {@link DescribeFastLaunchImagesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeFastLaunchImagesCommand extends $Command<

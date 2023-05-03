@@ -57,6 +57,23 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * };
  * const command = new CreateSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSubnetGroupResponse
+ * //   SubnetGroup: { // SubnetGroup
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     Subnets: [ // SubnetList
+ * //       { // Subnet
+ * //         Identifier: "STRING_VALUE",
+ * //         AvailabilityZone: { // AvailabilityZone
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateSubnetGroupCommandInput - {@link CreateSubnetGroupCommandInput}
@@ -86,6 +103,8 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class CreateSubnetGroupCommand extends $Command<

@@ -58,6 +58,24 @@ export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGateway
  * };
  * const command = new DescribeLocalGatewaysCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeLocalGatewaysResult
+ * //   LocalGateways: [ // LocalGatewaySet
+ * //     { // LocalGateway
+ * //       LocalGatewayId: "STRING_VALUE",
+ * //       OutpostArn: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeLocalGatewaysCommandInput - {@link DescribeLocalGatewaysCommandInput}
@@ -66,6 +84,8 @@ export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGateway
  * @see {@link DescribeLocalGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeLocalGatewaysCommand extends $Command<

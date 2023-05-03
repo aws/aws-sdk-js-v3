@@ -48,6 +48,20 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
  * };
  * const command = new ListProjectPoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // ListProjectPoliciesResponse
+ * //   ProjectPolicies: [ // ProjectPolicies
+ * //     { // ProjectPolicy
+ * //       ProjectArn: "STRING_VALUE",
+ * //       PolicyName: "STRING_VALUE",
+ * //       PolicyRevisionId: "STRING_VALUE",
+ * //       PolicyDocument: "STRING_VALUE",
+ * //       CreationTimestamp: new Date("TIMESTAMP"),
+ * //       LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListProjectPoliciesCommandInput - {@link ListProjectPoliciesCommandInput}
@@ -79,6 +93,8 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example ListProjectPolicies
  * ```javascript

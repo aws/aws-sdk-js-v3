@@ -47,6 +47,11 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  * };
  * const command = new GetAssessmentReportCommand(input);
  * const response = await client.send(command);
+ * // { // GetAssessmentReportResponse
+ * //   status: "STRING_VALUE", // required
+ * //   url: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetAssessmentReportCommandInput - {@link GetAssessmentReportCommandInput}
@@ -83,6 +88,8 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  *          took place or will take place after generating reports in Amazon Inspector became
  *          available.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  */
 export class GetAssessmentReportCommand extends $Command<

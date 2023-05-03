@@ -908,6 +908,10 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
+ * // { // CreateJobResponse
+ * //   Name: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateJobCommandInput - {@link CreateJobCommandInput}
@@ -937,6 +941,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateJobCommand extends $Command<

@@ -65,6 +65,34 @@ export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, _
  * };
  * const command = new GetBucketWebsiteCommand(input);
  * const response = await client.send(command);
+ * // { // GetBucketWebsiteOutput
+ * //   RedirectAllRequestsTo: { // RedirectAllRequestsTo
+ * //     HostName: "STRING_VALUE", // required
+ * //     Protocol: "http" || "https",
+ * //   },
+ * //   IndexDocument: { // IndexDocument
+ * //     Suffix: "STRING_VALUE", // required
+ * //   },
+ * //   ErrorDocument: { // ErrorDocument
+ * //     Key: "STRING_VALUE", // required
+ * //   },
+ * //   RoutingRules: [ // RoutingRules
+ * //     { // RoutingRule
+ * //       Condition: { // Condition
+ * //         HttpErrorCodeReturnedEquals: "STRING_VALUE",
+ * //         KeyPrefixEquals: "STRING_VALUE",
+ * //       },
+ * //       Redirect: { // Redirect
+ * //         HostName: "STRING_VALUE",
+ * //         HttpRedirectCode: "STRING_VALUE",
+ * //         Protocol: "http" || "https",
+ * //         ReplaceKeyPrefixWith: "STRING_VALUE",
+ * //         ReplaceKeyWith: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetBucketWebsiteCommandInput - {@link GetBucketWebsiteCommandInput}
@@ -73,6 +101,8 @@ export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, _
  * @see {@link GetBucketWebsiteCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To get bucket website configuration
  * ```javascript

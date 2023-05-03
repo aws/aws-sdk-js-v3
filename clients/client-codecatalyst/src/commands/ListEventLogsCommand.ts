@@ -49,6 +49,43 @@ export interface ListEventLogsCommandOutput extends ListEventLogsResponse, __Met
  * };
  * const command = new ListEventLogsCommand(input);
  * const response = await client.send(command);
+ * // { // ListEventLogsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   items: [ // EventLogEntries // required
+ * //     { // EventLogEntry
+ * //       id: "STRING_VALUE", // required
+ * //       eventName: "STRING_VALUE", // required
+ * //       eventType: "STRING_VALUE", // required
+ * //       eventCategory: "STRING_VALUE", // required
+ * //       eventSource: "STRING_VALUE", // required
+ * //       eventTime: new Date("TIMESTAMP"), // required
+ * //       operationType: "STRING_VALUE", // required
+ * //       userIdentity: { // UserIdentity
+ * //         userType: "STRING_VALUE", // required
+ * //         principalId: "STRING_VALUE", // required
+ * //         userName: "STRING_VALUE",
+ * //         awsAccountId: "STRING_VALUE",
+ * //       },
+ * //       projectInformation: { // ProjectInformation
+ * //         name: "STRING_VALUE",
+ * //         projectId: "STRING_VALUE",
+ * //       },
+ * //       requestId: "STRING_VALUE",
+ * //       requestPayload: { // EventPayload
+ * //         contentType: "STRING_VALUE",
+ * //         data: "STRING_VALUE",
+ * //       },
+ * //       responsePayload: {
+ * //         contentType: "STRING_VALUE",
+ * //         data: "STRING_VALUE",
+ * //       },
+ * //       errorCode: "STRING_VALUE",
+ * //       sourceIpAddress: "STRING_VALUE",
+ * //       userAgent: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListEventLogsCommandInput - {@link ListEventLogsCommandInput}
@@ -77,6 +114,8 @@ export interface ListEventLogsCommandOutput extends ListEventLogsResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class ListEventLogsCommand extends $Command<

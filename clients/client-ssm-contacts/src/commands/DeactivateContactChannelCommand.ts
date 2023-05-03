@@ -45,6 +45,8 @@ export interface DeactivateContactChannelCommandOutput extends DeactivateContact
  * };
  * const command = new DeactivateContactChannelCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeactivateContactChannelCommandInput - {@link DeactivateContactChannelCommandInput}
@@ -69,6 +71,8 @@ export interface DeactivateContactChannelCommandOutput extends DeactivateContact
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class DeactivateContactChannelCommand extends $Command<

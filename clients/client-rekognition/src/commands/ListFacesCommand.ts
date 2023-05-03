@@ -51,6 +51,26 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  * };
  * const command = new ListFacesCommand(input);
  * const response = await client.send(command);
+ * // { // ListFacesResponse
+ * //   Faces: [ // FaceList
+ * //     { // Face
+ * //       FaceId: "STRING_VALUE",
+ * //       BoundingBox: { // BoundingBox
+ * //         Width: Number("float"),
+ * //         Height: Number("float"),
+ * //         Left: Number("float"),
+ * //         Top: Number("float"),
+ * //       },
+ * //       ImageId: "STRING_VALUE",
+ * //       ExternalImageId: "STRING_VALUE",
+ * //       Confidence: Number("float"),
+ * //       IndexFacesModelVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   FaceModelVersion: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFacesCommandInput - {@link ListFacesCommandInput}
@@ -82,6 +102,8 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To list the faces in a collection
  * ```javascript

@@ -47,6 +47,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -63,6 +65,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>A service resource associated with the request could not be found. Clients should not
  *             retry such requests.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

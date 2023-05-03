@@ -153,6 +153,10 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  * };
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // CreateEndpointOutput
+ * //   EndpointArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateEndpointCommandInput - {@link CreateEndpointCommandInput}
@@ -165,6 +169,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateEndpointCommand extends $Command<

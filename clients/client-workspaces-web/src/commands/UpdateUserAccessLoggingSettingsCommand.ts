@@ -51,6 +51,16 @@ export interface UpdateUserAccessLoggingSettingsCommandOutput
  * };
  * const command = new UpdateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateUserAccessLoggingSettingsResponse
+ * //   userAccessLoggingSettings: { // UserAccessLoggingSettings
+ * //     userAccessLoggingSettingsArn: "STRING_VALUE", // required
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     kinesisStreamArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateUserAccessLoggingSettingsCommandInput - {@link UpdateUserAccessLoggingSettingsCommandInput}
@@ -74,6 +84,8 @@ export interface UpdateUserAccessLoggingSettingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class UpdateUserAccessLoggingSettingsCommand extends $Command<

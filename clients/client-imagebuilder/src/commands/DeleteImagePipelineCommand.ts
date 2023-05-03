@@ -44,6 +44,11 @@ export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineRes
  * };
  * const command = new DeleteImagePipelineCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteImagePipelineResponse
+ * //   requestId: "STRING_VALUE",
+ * //   imagePipelineArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteImagePipelineCommandInput - {@link DeleteImagePipelineCommandInput}
@@ -77,6 +82,8 @@ export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineRes
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class DeleteImagePipelineCommand extends $Command<

@@ -45,6 +45,24 @@ export interface GetGatewayCommandOutput extends GetGatewayOutput, __MetadataBea
  * };
  * const command = new GetGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // GetGatewayOutput
+ * //   Gateway: { // GatewayDetails
+ * //     GatewayArn: "STRING_VALUE",
+ * //     GatewayDisplayName: "STRING_VALUE",
+ * //     GatewayType: "STRING_VALUE",
+ * //     HypervisorId: "STRING_VALUE",
+ * //     LastSeenTime: new Date("TIMESTAMP"),
+ * //     MaintenanceStartTime: { // MaintenanceStartTime
+ * //       DayOfMonth: Number("int"),
+ * //       DayOfWeek: Number("int"),
+ * //       HourOfDay: Number("int"), // required
+ * //       MinuteOfHour: Number("int"), // required
+ * //     },
+ * //     NextUpdateAvailabilityTime: new Date("TIMESTAMP"),
+ * //     VpcEndpoint: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetGatewayCommandInput - {@link GetGatewayCommandInput}
@@ -66,6 +84,8 @@ export interface GetGatewayCommandOutput extends GetGatewayOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class GetGatewayCommand extends $Command<

@@ -55,6 +55,56 @@ export interface DescribeBotRecommendationCommandOutput extends DescribeBotRecom
  * };
  * const command = new DescribeBotRecommendationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeBotRecommendationResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   botRecommendationStatus: "Processing" || "Deleting" || "Deleted" || "Downloading" || "Updating" || "Available" || "Failed" || "Stopping" || "Stopped",
+ * //   botRecommendationId: "STRING_VALUE",
+ * //   failureReasons: [ // FailureReasons
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //   transcriptSourceSetting: { // TranscriptSourceSetting
+ * //     s3BucketTranscriptSource: { // S3BucketTranscriptSource
+ * //       s3BucketName: "STRING_VALUE", // required
+ * //       pathFormat: { // PathFormat
+ * //         objectPrefixes: [ // ObjectPrefixes
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       transcriptFormat: "Lex", // required
+ * //       transcriptFilter: { // TranscriptFilter
+ * //         lexTranscriptFilter: { // LexTranscriptFilter
+ * //           dateRangeFilter: { // DateRangeFilter
+ * //             startDateTime: new Date("TIMESTAMP"), // required
+ * //             endDateTime: new Date("TIMESTAMP"), // required
+ * //           },
+ * //         },
+ * //       },
+ * //       kmsKeyArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   encryptionSetting: { // EncryptionSetting
+ * //     kmsKeyArn: "STRING_VALUE",
+ * //     botLocaleExportPassword: "STRING_VALUE",
+ * //     associatedTranscriptsPassword: "STRING_VALUE",
+ * //   },
+ * //   botRecommendationResults: { // BotRecommendationResults
+ * //     botLocaleExportUrl: "STRING_VALUE",
+ * //     associatedTranscriptsUrl: "STRING_VALUE",
+ * //     statistics: { // BotRecommendationResultStatistics
+ * //       intents: { // IntentStatistics
+ * //         discoveredIntentCount: Number("int"),
+ * //       },
+ * //       slotTypes: { // SlotTypeStatistics
+ * //         discoveredSlotTypeCount: Number("int"),
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeBotRecommendationCommandInput - {@link DescribeBotRecommendationCommandInput}
@@ -79,6 +129,8 @@ export interface DescribeBotRecommendationCommandOutput extends DescribeBotRecom
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DescribeBotRecommendationCommand extends $Command<

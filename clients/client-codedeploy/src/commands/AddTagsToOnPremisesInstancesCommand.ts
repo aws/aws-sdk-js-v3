@@ -55,6 +55,8 @@ export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBea
  * };
  * const command = new AddTagsToOnPremisesInstancesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AddTagsToOnPremisesInstancesCommandInput - {@link AddTagsToOnPremisesInstancesCommandInput}
@@ -85,6 +87,8 @@ export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBea
  * @throws {@link TagRequiredException} (client fault)
  *  <p>A tag was not specified.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class AddTagsToOnPremisesInstancesCommand extends $Command<

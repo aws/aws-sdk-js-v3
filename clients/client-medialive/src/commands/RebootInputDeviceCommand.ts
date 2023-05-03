@@ -45,6 +45,8 @@ export interface RebootInputDeviceCommandOutput extends RebootInputDeviceRespons
  * };
  * const command = new RebootInputDeviceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RebootInputDeviceCommandInput - {@link RebootInputDeviceCommandInput}
@@ -77,6 +79,8 @@ export interface RebootInputDeviceCommandOutput extends RebootInputDeviceRespons
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class RebootInputDeviceCommand extends $Command<

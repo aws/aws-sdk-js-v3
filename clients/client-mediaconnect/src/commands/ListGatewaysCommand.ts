@@ -45,6 +45,17 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
+ * // { // ListGatewaysResponse
+ * //   Gateways: [ // __listOfListedGateway
+ * //     { // ListedGateway
+ * //       GatewayArn: "STRING_VALUE", // required
+ * //       GatewayState: "CREATING" || "ACTIVE" || "UPDATING" || "ERROR" || "DELETING" || "DELETED", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListGatewaysCommandInput - {@link ListGatewaysCommandInput}
@@ -68,6 +79,8 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class ListGatewaysCommand extends $Command<

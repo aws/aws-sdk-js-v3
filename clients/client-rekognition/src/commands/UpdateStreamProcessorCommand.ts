@@ -76,6 +76,8 @@ export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcesso
  * };
  * const command = new UpdateStreamProcessorCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateStreamProcessorCommandInput - {@link UpdateStreamProcessorCommandInput}
@@ -107,6 +109,8 @@ export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcesso
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class UpdateStreamProcessorCommand extends $Command<

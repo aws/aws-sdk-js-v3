@@ -48,6 +48,48 @@ export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFree
  * };
  * const command = new GetRemainingFreeTrialDaysCommand(input);
  * const response = await client.send(command);
+ * // { // GetRemainingFreeTrialDaysResponse
+ * //   Accounts: [ // AccountFreeTrialInfos
+ * //     { // AccountFreeTrialInfo
+ * //       AccountId: "STRING_VALUE",
+ * //       DataSources: { // DataSourcesFreeTrial
+ * //         CloudTrail: { // DataSourceFreeTrial
+ * //           FreeTrialDaysRemaining: Number("int"),
+ * //         },
+ * //         DnsLogs: {
+ * //           FreeTrialDaysRemaining: Number("int"),
+ * //         },
+ * //         FlowLogs: {
+ * //           FreeTrialDaysRemaining: Number("int"),
+ * //         },
+ * //         S3Logs: {
+ * //           FreeTrialDaysRemaining: Number("int"),
+ * //         },
+ * //         Kubernetes: { // KubernetesDataSourceFreeTrial
+ * //           AuditLogs: {
+ * //             FreeTrialDaysRemaining: Number("int"),
+ * //           },
+ * //         },
+ * //         MalwareProtection: { // MalwareProtectionDataSourceFreeTrial
+ * //           ScanEc2InstanceWithFindings: "<DataSourceFreeTrial>",
+ * //         },
+ * //       },
+ * //       Features: [ // FreeTrialFeatureConfigurationsResults
+ * //         { // FreeTrialFeatureConfigurationResult
+ * //           Name: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
+ * //           FreeTrialDaysRemaining: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   UnprocessedAccounts: [ // UnprocessedAccounts
+ * //     { // UnprocessedAccount
+ * //       AccountId: "STRING_VALUE", // required
+ * //       Result: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetRemainingFreeTrialDaysCommandInput - {@link GetRemainingFreeTrialDaysCommandInput}
@@ -62,6 +104,8 @@ export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFree
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetRemainingFreeTrialDaysCommand extends $Command<

@@ -74,6 +74,28 @@ export interface DescribeOrganizationConformancePacksCommandOutput
  * };
  * const command = new DescribeOrganizationConformancePacksCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeOrganizationConformancePacksResponse
+ * //   OrganizationConformancePacks: [ // OrganizationConformancePacks
+ * //     { // OrganizationConformancePack
+ * //       OrganizationConformancePackName: "STRING_VALUE", // required
+ * //       OrganizationConformancePackArn: "STRING_VALUE", // required
+ * //       DeliveryS3Bucket: "STRING_VALUE",
+ * //       DeliveryS3KeyPrefix: "STRING_VALUE",
+ * //       ConformancePackInputParameters: [ // ConformancePackInputParameters
+ * //         { // ConformancePackInputParameter
+ * //           ParameterName: "STRING_VALUE", // required
+ * //           ParameterValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       ExcludedAccounts: [ // ExcludedAccounts
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       LastUpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeOrganizationConformancePacksCommandInput - {@link DescribeOrganizationConformancePacksCommandInput}
@@ -115,6 +137,8 @@ export interface DescribeOrganizationConformancePacksCommandOutput
  *          </ul>
  *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeOrganizationConformancePacksCommand extends $Command<

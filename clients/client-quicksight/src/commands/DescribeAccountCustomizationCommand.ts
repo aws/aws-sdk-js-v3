@@ -107,6 +107,18 @@ export interface DescribeAccountCustomizationCommandOutput
  * };
  * const command = new DescribeAccountCustomizationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAccountCustomizationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   AwsAccountId: "STRING_VALUE",
+ * //   Namespace: "STRING_VALUE",
+ * //   AccountCustomization: { // AccountCustomization
+ * //     DefaultTheme: "STRING_VALUE",
+ * //     DefaultEmailCustomizationTemplate: "STRING_VALUE",
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param DescribeAccountCustomizationCommandInput - {@link DescribeAccountCustomizationCommandInput}
@@ -136,6 +148,8 @@ export interface DescribeAccountCustomizationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeAccountCustomizationCommand extends $Command<

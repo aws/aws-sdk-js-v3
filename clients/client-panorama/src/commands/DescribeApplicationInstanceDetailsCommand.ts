@@ -52,6 +52,21 @@ export interface DescribeApplicationInstanceDetailsCommandOutput
  * };
  * const command = new DescribeApplicationInstanceDetailsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeApplicationInstanceDetailsResponse
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   DefaultRuntimeContextDevice: "STRING_VALUE",
+ * //   ManifestPayload: { // ManifestPayload Union: only one key present
+ * //     PayloadData: "STRING_VALUE",
+ * //   },
+ * //   ManifestOverridesPayload: { // ManifestOverridesPayload Union: only one key present
+ * //     PayloadData: "STRING_VALUE",
+ * //   },
+ * //   ApplicationInstanceIdToReplace: "STRING_VALUE",
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * //   ApplicationInstanceId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeApplicationInstanceDetailsCommandInput - {@link DescribeApplicationInstanceDetailsCommandInput}
@@ -75,6 +90,8 @@ export interface DescribeApplicationInstanceDetailsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DescribeApplicationInstanceDetailsCommand extends $Command<

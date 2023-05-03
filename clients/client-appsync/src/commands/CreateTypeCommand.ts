@@ -46,6 +46,16 @@ export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataB
  * };
  * const command = new CreateTypeCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTypeResponse
+ * //   type: { // Type
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     definition: "STRING_VALUE",
+ * //     format: "SDL" || "JSON",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateTypeCommandInput - {@link CreateTypeCommandInput}
@@ -71,6 +81,8 @@ export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataB
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class CreateTypeCommand extends $Command<

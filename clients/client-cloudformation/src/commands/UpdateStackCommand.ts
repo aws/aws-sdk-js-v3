@@ -91,6 +91,10 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  * };
  * const command = new UpdateStackCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateStackOutput
+ * //   StackId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateStackCommandInput - {@link UpdateStackCommandInput}
@@ -106,6 +110,8 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  * @throws {@link TokenAlreadyExistsException} (client fault)
  *  <p>A client request token already exists.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class UpdateStackCommand extends $Command<

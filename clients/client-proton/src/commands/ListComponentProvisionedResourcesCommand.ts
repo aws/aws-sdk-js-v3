@@ -53,6 +53,17 @@ export interface ListComponentProvisionedResourcesCommandOutput
  * };
  * const command = new ListComponentProvisionedResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // ListComponentProvisionedResourcesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   provisionedResources: [ // ProvisionedResourceList // required
+ * //     { // ProvisionedResource
+ * //       name: "STRING_VALUE",
+ * //       identifier: "STRING_VALUE",
+ * //       provisioningEngine: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListComponentProvisionedResourcesCommandInput - {@link ListComponentProvisionedResourcesCommandInput}
@@ -76,6 +87,8 @@ export interface ListComponentProvisionedResourcesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class ListComponentProvisionedResourcesCommand extends $Command<

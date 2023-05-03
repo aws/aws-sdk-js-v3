@@ -46,6 +46,8 @@ export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteThesaurusCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteThesaurusCommandInput - {@link DeleteThesaurusCommandInput}
@@ -78,6 +80,8 @@ export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DeleteThesaurusCommand extends $Command<

@@ -44,6 +44,8 @@ export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryRespons
  * };
  * const command = new DeleteStoredQueryCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteStoredQueryCommandInput - {@link DeleteStoredQueryCommandInput}
@@ -60,6 +62,8 @@ export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryRespons
  *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteStoredQueryCommand extends $Command<

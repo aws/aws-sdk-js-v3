@@ -44,6 +44,8 @@ export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataB
  * };
  * const command = new DeleteTaskCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTaskCommandInput - {@link DeleteTaskCommandInput}
@@ -59,6 +61,8 @@ export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataB
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DeleteTaskCommand extends $Command<

@@ -55,6 +55,19 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  * };
  * const command = new PutImageCommand(input);
  * const response = await client.send(command);
+ * // { // PutImageResponse
+ * //   image: { // Image
+ * //     registryId: "STRING_VALUE",
+ * //     repositoryName: "STRING_VALUE",
+ * //     imageId: { // ImageIdentifier
+ * //       imageDigest: "STRING_VALUE",
+ * //       imageTag: "STRING_VALUE",
+ * //     },
+ * //     imageManifest: "STRING_VALUE",
+ * //     imageManifestMediaType: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutImageCommandInput - {@link PutImageCommandInput}
@@ -104,6 +117,8 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class PutImageCommand extends $Command<

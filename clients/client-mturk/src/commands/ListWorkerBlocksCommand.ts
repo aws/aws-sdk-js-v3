@@ -45,6 +45,17 @@ export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse,
  * };
  * const command = new ListWorkerBlocksCommand(input);
  * const response = await client.send(command);
+ * // { // ListWorkerBlocksResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   NumResults: Number("int"),
+ * //   WorkerBlocks: [ // WorkerBlockList
+ * //     { // WorkerBlock
+ * //       WorkerId: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListWorkerBlocksCommandInput - {@link ListWorkerBlocksCommandInput}
@@ -59,6 +70,8 @@ export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse,
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class ListWorkerBlocksCommand extends $Command<

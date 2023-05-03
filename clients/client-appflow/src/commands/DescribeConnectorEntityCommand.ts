@@ -48,6 +48,59 @@ export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorE
  * };
  * const command = new DescribeConnectorEntityCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeConnectorEntityResponse
+ * //   connectorEntityFields: [ // ConnectorEntityFieldList // required
+ * //     { // ConnectorEntityField
+ * //       identifier: "STRING_VALUE", // required
+ * //       parentIdentifier: "STRING_VALUE",
+ * //       label: "STRING_VALUE",
+ * //       isPrimaryKey: true || false,
+ * //       defaultValue: "STRING_VALUE",
+ * //       isDeprecated: true || false,
+ * //       supportedFieldTypeDetails: { // SupportedFieldTypeDetails
+ * //         v1: { // FieldTypeDetails
+ * //           fieldType: "STRING_VALUE", // required
+ * //           filterOperators: [ // FilterOperatorList // required
+ * //             "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "CONTAINS" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ * //           ],
+ * //           supportedValues: [ // SupportedValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           valueRegexPattern: "STRING_VALUE",
+ * //           supportedDateFormat: "STRING_VALUE",
+ * //           fieldValueRange: { // Range
+ * //             maximum: Number("double"),
+ * //             minimum: Number("double"),
+ * //           },
+ * //           fieldLengthRange: {
+ * //             maximum: Number("double"),
+ * //             minimum: Number("double"),
+ * //           },
+ * //         },
+ * //       },
+ * //       description: "STRING_VALUE",
+ * //       sourceProperties: { // SourceFieldProperties
+ * //         isRetrievable: true || false,
+ * //         isQueryable: true || false,
+ * //         isTimestampFieldForIncrementalQueries: true || false,
+ * //       },
+ * //       destinationProperties: { // DestinationFieldProperties
+ * //         isCreatable: true || false,
+ * //         isNullable: true || false,
+ * //         isUpsertable: true || false,
+ * //         isUpdatable: true || false,
+ * //         isDefaultedOnCreate: true || false,
+ * //         supportedWriteOperations: [ // SupportedWriteOperationList
+ * //           "INSERT" || "UPSERT" || "UPDATE" || "DELETE",
+ * //         ],
+ * //       },
+ * //       customProperties: { // CustomProperties
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeConnectorEntityCommandInput - {@link DescribeConnectorEntityCommandInput}
@@ -73,6 +126,8 @@ export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorE
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class DescribeConnectorEntityCommand extends $Command<

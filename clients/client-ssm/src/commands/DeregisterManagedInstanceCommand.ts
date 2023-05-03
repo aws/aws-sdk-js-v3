@@ -46,6 +46,8 @@ export interface DeregisterManagedInstanceCommandOutput extends DeregisterManage
  * };
  * const command = new DeregisterManagedInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeregisterManagedInstanceCommandInput - {@link DeregisterManagedInstanceCommandInput}
@@ -77,6 +79,8 @@ export interface DeregisterManagedInstanceCommandOutput extends DeregisterManage
  *             </li>
  *          </ul>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeregisterManagedInstanceCommand extends $Command<

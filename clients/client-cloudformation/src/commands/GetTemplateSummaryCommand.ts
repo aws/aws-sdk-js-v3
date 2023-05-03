@@ -56,6 +56,47 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
  * };
  * const command = new GetTemplateSummaryCommand(input);
  * const response = await client.send(command);
+ * // { // GetTemplateSummaryOutput
+ * //   Parameters: [ // ParameterDeclarations
+ * //     { // ParameterDeclaration
+ * //       ParameterKey: "STRING_VALUE",
+ * //       DefaultValue: "STRING_VALUE",
+ * //       ParameterType: "STRING_VALUE",
+ * //       NoEcho: true || false,
+ * //       Description: "STRING_VALUE",
+ * //       ParameterConstraints: { // ParameterConstraints
+ * //         AllowedValues: [ // AllowedValues
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   Description: "STRING_VALUE",
+ * //   Capabilities: [ // Capabilities
+ * //     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ * //   ],
+ * //   CapabilitiesReason: "STRING_VALUE",
+ * //   ResourceTypes: [ // ResourceTypes
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Version: "STRING_VALUE",
+ * //   Metadata: "STRING_VALUE",
+ * //   DeclaredTransforms: [ // TransformsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ResourceIdentifierSummaries: [ // ResourceIdentifierSummaries
+ * //     { // ResourceIdentifierSummary
+ * //       ResourceType: "STRING_VALUE",
+ * //       LogicalResourceIds: [ // LogicalResourceIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ResourceIdentifiers: [ // ResourceIdentifiers
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetTemplateSummaryCommandInput - {@link GetTemplateSummaryCommandInput}
@@ -67,6 +108,8 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
  * @throws {@link StackSetNotFoundException} (client fault)
  *  <p>The specified stack set doesn't exist.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class GetTemplateSummaryCommand extends $Command<

@@ -60,6 +60,19 @@ export interface UpdateRecordsCommandOutput extends UpdateRecordsResponse, __Met
  * };
  * const command = new UpdateRecordsCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateRecordsResponse
+ * //   Records: [ // RecordList
+ * //     { // Record
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //       SyncCount: Number("long"),
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       LastModifiedBy: "STRING_VALUE",
+ * //       DeviceLastModifiedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UpdateRecordsCommandInput - {@link UpdateRecordsCommandInput}
@@ -102,6 +115,8 @@ export interface UpdateRecordsCommandOutput extends UpdateRecordsResponse, __Met
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class UpdateRecordsCommand extends $Command<

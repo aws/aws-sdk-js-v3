@@ -63,6 +63,29 @@ export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __M
  * };
  * const command = new DescribeAgentsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAgentsResponse
+ * //   agentsInfo: [ // AgentsInfo
+ * //     { // AgentInfo
+ * //       agentId: "STRING_VALUE",
+ * //       hostName: "STRING_VALUE",
+ * //       agentNetworkInfoList: [ // AgentNetworkInfoList
+ * //         { // AgentNetworkInfo
+ * //           ipAddress: "STRING_VALUE",
+ * //           macAddress: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       connectorId: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //       health: "HEALTHY" || "UNHEALTHY" || "RUNNING" || "UNKNOWN" || "BLACKLISTED" || "SHUTDOWN",
+ * //       lastHealthPingTime: "STRING_VALUE",
+ * //       collectionStatus: "STRING_VALUE",
+ * //       agentType: "STRING_VALUE",
+ * //       registeredTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeAgentsCommandInput - {@link DescribeAgentsCommandInput}
@@ -88,6 +111,8 @@ export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __M
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class DescribeAgentsCommand extends $Command<

@@ -68,6 +68,8 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * };
  * const command = new PutBucketRequestPaymentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutBucketRequestPaymentCommandInput - {@link PutBucketRequestPaymentCommandInput}
@@ -76,6 +78,8 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * @see {@link PutBucketRequestPaymentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example Set request payment configuration on a bucket.
  * ```javascript

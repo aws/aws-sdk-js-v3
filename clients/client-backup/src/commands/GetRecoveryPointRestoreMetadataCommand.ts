@@ -54,6 +54,14 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  * };
  * const command = new GetRecoveryPointRestoreMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // GetRecoveryPointRestoreMetadataOutput
+ * //   BackupVaultArn: "STRING_VALUE",
+ * //   RecoveryPointArn: "STRING_VALUE",
+ * //   RestoreMetadata: { // Metadata
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetRecoveryPointRestoreMetadataCommandInput - {@link GetRecoveryPointRestoreMetadataCommandInput}
@@ -75,6 +83,8 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class GetRecoveryPointRestoreMetadataCommand extends $Command<
