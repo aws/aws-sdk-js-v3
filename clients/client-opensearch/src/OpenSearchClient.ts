@@ -98,6 +98,10 @@ import {
   DescribeDomainHealthCommandInput,
   DescribeDomainHealthCommandOutput,
 } from "./commands/DescribeDomainHealthCommand";
+import {
+  DescribeDomainNodesCommandInput,
+  DescribeDomainNodesCommandOutput,
+} from "./commands/DescribeDomainNodesCommand";
 import { DescribeDomainsCommandInput, DescribeDomainsCommandOutput } from "./commands/DescribeDomainsCommand";
 import {
   DescribeDryRunProgressCommandInput,
@@ -223,6 +227,7 @@ export type ServiceInputTypes =
   | DescribeDomainCommandInput
   | DescribeDomainConfigCommandInput
   | DescribeDomainHealthCommandInput
+  | DescribeDomainNodesCommandInput
   | DescribeDomainsCommandInput
   | DescribeDryRunProgressCommandInput
   | DescribeInboundConnectionsCommandInput
@@ -281,6 +286,7 @@ export type ServiceOutputTypes =
   | DescribeDomainCommandOutput
   | DescribeDomainConfigCommandOutput
   | DescribeDomainHealthCommandOutput
+  | DescribeDomainNodesCommandOutput
   | DescribeDomainsCommandOutput
   | DescribeDryRunProgressCommandOutput
   | DescribeInboundConnectionsCommandOutput

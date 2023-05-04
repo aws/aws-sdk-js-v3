@@ -94,6 +94,11 @@ import {
   DescribeDomainHealthCommandOutput,
 } from "./commands/DescribeDomainHealthCommand";
 import {
+  DescribeDomainNodesCommand,
+  DescribeDomainNodesCommandInput,
+  DescribeDomainNodesCommandOutput,
+} from "./commands/DescribeDomainNodesCommand";
+import {
   DescribeDomainsCommand,
   DescribeDomainsCommandInput,
   DescribeDomainsCommandOutput,
@@ -277,6 +282,7 @@ const commands = {
   DescribeDomainChangeProgressCommand,
   DescribeDomainConfigCommand,
   DescribeDomainHealthCommand,
+  DescribeDomainNodesCommand,
   DescribeDomainsCommand,
   DescribeDryRunProgressCommand,
   DescribeInboundConnectionsCommand,
@@ -602,6 +608,23 @@ export interface OpenSearch {
     args: DescribeDomainHealthCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDomainHealthCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDomainNodesCommand}
+   */
+  describeDomainNodes(
+    args: DescribeDomainNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDomainNodesCommandOutput>;
+  describeDomainNodes(
+    args: DescribeDomainNodesCommandInput,
+    cb: (err: any, data?: DescribeDomainNodesCommandOutput) => void
+  ): void;
+  describeDomainNodes(
+    args: DescribeDomainNodesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDomainNodesCommandOutput) => void
   ): void;
 
   /**

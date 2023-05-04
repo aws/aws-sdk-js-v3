@@ -369,6 +369,14 @@ DescribeDomainHealth
 </details>
 <details>
 <summary>
+DescribeDomainNodes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/classes/describedomainnodescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/interfaces/describedomainnodescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/interfaces/describedomainnodescommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeDomains
 </summary>
 

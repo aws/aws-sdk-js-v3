@@ -18,6 +18,7 @@ export * from "./DescribeDomainChangeProgressCommand";
 export * from "./DescribeDomainCommand";
 export * from "./DescribeDomainConfigCommand";
 export * from "./DescribeDomainHealthCommand";
+export * from "./DescribeDomainNodesCommand";
 export * from "./DescribeDomainsCommand";
 export * from "./DescribeDryRunProgressCommand";
 export * from "./DescribeInboundConnectionsCommand";

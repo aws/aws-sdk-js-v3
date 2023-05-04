@@ -36,7 +36,8 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
 
 /**
  * @public
- * <p>Modifies the cluster configuration of the specified Amazon OpenSearch Service domain.</p>
+ * <p>Modifies the cluster configuration of the specified Amazon OpenSearch Service
+ *    domain.sl</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1773,7 +1773,7 @@ export interface CreateDomainRequest {
   AdvancedOptions?: Record<string, string>;
 
   /**
-   * <p>Key-value pairs to configure slow log publishing.</p>
+   * <p>Key-value pairs to configure log publishing.</p>
    */
   LogPublishingOptions?: Record<string, LogPublishingOption>;
 
@@ -3309,7 +3309,7 @@ export interface DomainConfig {
   AdvancedOptions?: AdvancedOptionsStatus;
 
   /**
-   * <p>Key-value pairs to configure slow log publishing.</p>
+   * <p>Key-value pairs to configure log publishing.</p>
    */
   LogPublishingOptions?: LogPublishingOptionsStatus;
 
@@ -3596,6 +3596,127 @@ export interface DescribeDomainHealthResponse {
    * <p>A list of <code>EnvironmentInfo</code> for the domain. </p>
    */
   EnvironmentInformation?: EnvironmentInfo[];
+}
+
+/**
+ * @public
+ * <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+ */
+export class DependencyFailureException extends __BaseException {
+  readonly name: "DependencyFailureException" = "DependencyFailureException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependencyFailureException, __BaseException>) {
+    super({
+      name: "DependencyFailureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependencyFailureException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>Container for the parameters to the <code>DescribeDomainNodes</code>
+ *    operation.</p>
+ */
+export interface DescribeDomainNodesRequest {
+  /**
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NodeStatus = {
+  Active: "Active",
+  NotAvailable: "NotAvailable",
+  StandBy: "StandBy",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeStatus = (typeof NodeStatus)[keyof typeof NodeStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const NodeType = {
+  Data: "Data",
+  Master: "Master",
+  Ultrawarm: "Ultrawarm",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeType = (typeof NodeType)[keyof typeof NodeType];
+
+/**
+ * @public
+ * <p>Container for information about nodes on the domain.</p>
+ */
+export interface DomainNodesStatus {
+  /**
+   * <p>The ID of the node.</p>
+   */
+  NodeId?: string;
+
+  /**
+   * <p>Indicates whether the nodes is a data, master, or ultrawarm node.</p>
+   */
+  NodeType?: NodeType | string;
+
+  /**
+   * <p>The Availability Zone of the node.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The instance type information of the node.</p>
+   */
+  InstanceType?: OpenSearchPartitionInstanceType | string;
+
+  /**
+   * <p>Indicates if the node is active or in standby.</p>
+   */
+  NodeStatus?: NodeStatus | string;
+
+  /**
+   * <p>Indicates if the node has EBS or instance storage. </p>
+   */
+  StorageType?: string;
+
+  /**
+   * <p>If the nodes has EBS storage, indicates if the volume type is GP2 or GP3. Only applicable
+   *    for data nodes. </p>
+   */
+  StorageVolumeType?: VolumeType | string;
+
+  /**
+   * <p>The storage size of the node, in GiB.</p>
+   */
+  StorageSize?: string;
+}
+
+/**
+ * @public
+ * <p>The result of a <code>DescribeDomainNodes</code> request. Contains information about the nodes on the requested domain. </p>
+ */
+export interface DescribeDomainNodesResponse {
+  /**
+   * <p>Contains nodes information list <code>DomainNodesStatusList</code> with
+   *    details about the all nodes on the requested domain.</p>
+   */
+  DomainNodesStatusList?: DomainNodesStatus[];
 }
 
 /**
@@ -4055,7 +4176,7 @@ export interface DescribePackagesFilter {
   Name?: DescribePackagesFilterName | string;
 
   /**
-   * <p>A list of values for the specified filter field.</p>
+   * <p>A non-empty list of values for the specified filter field.</p>
    */
   Value?: string[];
 }

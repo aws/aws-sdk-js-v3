@@ -73,6 +73,10 @@ import {
   DescribeDomainHealthCommandInput,
   DescribeDomainHealthCommandOutput,
 } from "../commands/DescribeDomainHealthCommand";
+import {
+  DescribeDomainNodesCommandInput,
+  DescribeDomainNodesCommandOutput,
+} from "../commands/DescribeDomainNodesCommand";
 import { DescribeDomainsCommandInput, DescribeDomainsCommandOutput } from "../commands/DescribeDomainsCommand";
 import {
   DescribeDryRunProgressCommandInput,
@@ -191,6 +195,7 @@ import {
   CognitoOptionsStatus,
   ColdStorageOptions,
   ConflictException,
+  DependencyFailureException,
   DescribePackagesFilter,
   DisabledOperationException,
   DomainConfig,
@@ -812,6 +817,31 @@ export const se_DescribeDomainHealthCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2021-01-01/opensearch/domain/{DomainName}/health";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeDomainNodesCommand
+ */
+export const se_DescribeDomainNodesCommand = async (
+  input: DescribeDomainNodesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2021-01-01/opensearch/domain/{DomainName}/nodes";
   resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   return new __HttpRequest({
@@ -2999,6 +3029,68 @@ const de_DescribeDomainHealthCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeDomainNodesCommand
+ */
+export const de_DescribeDomainNodesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDomainNodesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeDomainNodesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DomainNodesStatusList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeDomainNodesCommandError
+ */
+const de_DescribeDomainNodesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDomainNodesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await de_BaseExceptionRes(parsedOutput, context);
+    case "DependencyFailureException":
+    case "com.amazonaws.opensearch#DependencyFailureException":
+      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
+    case "DisabledOperationException":
+    case "com.amazonaws.opensearch#DisabledOperationException":
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearch#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.opensearch#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeDomainsCommand
  */
 export const de_DescribeDomainsCommand = async (
@@ -5027,6 +5119,26 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
 };
 
 /**
+ * deserializeAws_restJson1DependencyFailureExceptionRes
+ */
+const de_DependencyFailureExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DependencyFailureException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new DependencyFailureException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1DisabledOperationExceptionRes
  */
 const de_DisabledOperationExceptionRes = async (
@@ -5586,6 +5698,10 @@ const de_DomainEndpointOptionsStatus = (output: any, context: __SerdeContext): D
 // de_DomainInfoList omitted.
 
 // de_DomainInformationContainer omitted.
+
+// de_DomainNodesStatus omitted.
+
+// de_DomainNodesStatusList omitted.
 
 /**
  * deserializeAws_restJson1DomainPackageDetails
