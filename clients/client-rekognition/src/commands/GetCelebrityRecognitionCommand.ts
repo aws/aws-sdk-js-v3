@@ -180,6 +180,10 @@ export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecogn
  * //             Sharpness: Number("float"),
  * //           },
  * //           Confidence: Number("float"),
+ * //           FaceOccluded: { // FaceOccluded
+ * //             Value: true || false,
+ * //             Confidence: Number("float"),
+ * //           },
  * //         },
  * //         KnownGender: { // KnownGender
  * //           Type: "Male" || "Female" || "Nonbinary" || "Unlisted",

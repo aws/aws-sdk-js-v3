@@ -112,11 +112,13 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  *                <p>An image ID, <code>ImageId</code>, assigned by the service for the input image.</p>
  *             </li>
  *          </ul>
- *          <p>If you request all facial attributes (by using the <code>detectionAttributes</code>
- *       parameter), Amazon Rekognition returns detailed facial attributes, such as facial landmarks (for
- *       example, location of eye and mouth) and other facial attributes. If you provide the same
- *       image, specify the same collection, and use the same external ID in the
- *         <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate face metadata.</p>
+ *          <p>If you request <code>ALL</code> or specific facial attributes (e.g.,
+ *         <code>FACE_OCCLUDED</code>) by using the detectionAttributes parameter, Amazon Rekognition
+ *       returns detailed facial attributes, such as facial landmarks (for example, location of eye and
+ *       mouth), facial occlusion, and other facial attributes.</p>
+ *          <p>If you provide the same image, specify the same collection, and use the same external ID
+ *       in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate face
+ *       metadata.</p>
  *          <p></p>
  *          <p>The input image is passed either as base64-encoded image bytes, or as a reference to an
  *       image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations,
@@ -141,7 +143,7 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  *   },
  *   ExternalImageId: "STRING_VALUE",
  *   DetectionAttributes: [ // Attributes
- *     "DEFAULT" || "ALL",
+ *     "DEFAULT" || "ALL" || "AGE_RANGE" || "BEARD" || "EMOTIONS" || "EYEGLASSES" || "EYES_OPEN" || "GENDER" || "MOUTH_OPEN" || "MUSTACHE" || "FACE_OCCLUDED" || "SMILE" || "SUNGLASSES",
  *   ],
  *   MaxFaces: Number("int"),
  *   QualityFilter: "NONE" || "AUTO" || "LOW" || "MEDIUM" || "HIGH",
@@ -230,6 +232,10 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * //           Sharpness: Number("float"),
  * //         },
  * //         Confidence: Number("float"),
+ * //         FaceOccluded: { // FaceOccluded
+ * //           Value: true || false,
+ * //           Confidence: Number("float"),
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -306,6 +312,10 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * //           Sharpness: Number("float"),
  * //         },
  * //         Confidence: Number("float"),
+ * //         FaceOccluded: {
+ * //           Value: true || false,
+ * //           Confidence: Number("float"),
+ * //         },
  * //       },
  * //     },
  * //   ],

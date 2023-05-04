@@ -165,6 +165,10 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  * //             Sharpness: Number("float"),
  * //           },
  * //           Confidence: Number("float"),
+ * //           FaceOccluded: { // FaceOccluded
+ * //             Value: true || false,
+ * //             Confidence: Number("float"),
+ * //           },
  * //         },
  * //       },
  * //       FaceMatches: [ // FaceMatchList

@@ -161,6 +161,10 @@ export interface GetPersonTrackingCommandOutput extends GetPersonTrackingRespons
  * //             Sharpness: Number("float"),
  * //           },
  * //           Confidence: Number("float"),
+ * //           FaceOccluded: { // FaceOccluded
+ * //             Value: true || false,
+ * //             Confidence: Number("float"),
+ * //           },
  * //         },
  * //       },
  * //     },

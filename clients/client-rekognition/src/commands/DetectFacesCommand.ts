@@ -37,8 +37,8 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  *             <code>DetectFaces</code> detects the 100 largest faces in the image. For each face
  *       detected, the operation returns face details. These details include a bounding box of the
  *       face, a confidence value (that the bounding box contains a face), and a fixed set of
- *       attributes such as facial landmarks (for example, coordinates of eye and mouth), presence of
- *       beard, sunglasses, and so on. </p>
+ *       attributes such as facial landmarks (for example, coordinates of eye and mouth), pose,
+ *       presence of facial occlusion, and so on.</p>
  *          <p>The face-detection algorithm is most effective on frontal faces. For non-frontal or
  *       obscured faces, the algorithm might not detect the faces or might detect faces with lower
  *       confidence. </p>
@@ -67,7 +67,7 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  *     },
  *   },
  *   Attributes: [ // Attributes
- *     "DEFAULT" || "ALL",
+ *     "DEFAULT" || "ALL" || "AGE_RANGE" || "BEARD" || "EMOTIONS" || "EYEGLASSES" || "EYES_OPEN" || "GENDER" || "MOUTH_OPEN" || "MUSTACHE" || "FACE_OCCLUDED" || "SMILE" || "SUNGLASSES",
  *   ],
  * };
  * const command = new DetectFacesCommand(input);
@@ -140,6 +140,10 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  * //         Sharpness: Number("float"),
  * //       },
  * //       Confidence: Number("float"),
+ * //       FaceOccluded: { // FaceOccluded
+ * //         Value: true || false,
+ * //         Confidence: Number("float"),
+ * //       },
  * //     },
  * //   ],
  * //   OrientationCorrection: "ROTATE_0" || "ROTATE_90" || "ROTATE_180" || "ROTATE_270",

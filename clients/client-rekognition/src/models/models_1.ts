@@ -9,6 +9,11 @@ import {
 /**
  * @public
  */
+export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
 export interface UpdateDatasetEntriesRequest {
   /**
    * <p>

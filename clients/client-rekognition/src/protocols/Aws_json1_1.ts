@@ -259,6 +259,7 @@ import {
   FaceDetail,
   FaceDetection,
   FaceMatch,
+  FaceOccluded,
   FaceRecord,
   FaceSearchSettings,
   Gender,
@@ -7145,6 +7146,7 @@ const de_FaceDetail = (output: any, context: __SerdeContext): FaceDetail => {
     Emotions: (_: any) => de_Emotions(_, context),
     Eyeglasses: (_: any) => de_Eyeglasses(_, context),
     EyesOpen: (_: any) => de_EyeOpen(_, context),
+    FaceOccluded: (_: any) => de_FaceOccluded(_, context),
     Gender: (_: any) => de_Gender(_, context),
     Landmarks: (_: any) => de_Landmarks(_, context),
     MouthOpen: (_: any) => de_MouthOpen(_, context),
@@ -7227,6 +7229,16 @@ const de_FaceMatchList = (output: any, context: __SerdeContext): FaceMatch[] => 
 };
 
 // de_FaceModelVersionList omitted.
+
+/**
+ * deserializeAws_json1_1FaceOccluded
+ */
+const de_FaceOccluded = (output: any, context: __SerdeContext): FaceOccluded => {
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Value: __expectBoolean,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1FaceRecord
