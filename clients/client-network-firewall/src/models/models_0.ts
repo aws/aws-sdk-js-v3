@@ -938,6 +938,7 @@ export type RuleOrder = (typeof RuleOrder)[keyof typeof RuleOrder];
 export const StreamExceptionPolicy = {
   CONTINUE: "CONTINUE",
   DROP: "DROP",
+  REJECT: "REJECT",
 } as const;
 
 /**
@@ -969,6 +970,10 @@ export interface StatefulEngineOptions {
    *             <li>
    *                <p>
    *                   <code>CONTINUE</code> - Network Firewall continues to apply rules to the subsequent traffic without context from traffic before the break. This impacts the behavior of rules that depend on this context. For example, if you have a stateful rule to <code>drop http</code> traffic, Network Firewall won't match the traffic for this rule because the service won't have the context from session initialization defining the application layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule using a <code>flow:stateless</code> rule would still match, as would the <code>aws:drop_strict</code> default action.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECT</code> - Network Firewall fails closed and drops all subsequent traffic going to the firewall. Network Firewall also sends a TCP reject packet back to your client so that the client can immediately establish a new session. Network Firewall will have context about the new session and will apply rules to the subsequent traffic.</p>
    *             </li>
    *          </ul>
    */
@@ -1571,7 +1576,7 @@ export interface RuleOption {
  * <p>A single Suricata rules specification, for use in a stateful rule group.
  *        Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options.
  *        For information about the Suricata <code>Rules</code> format, see
- *                                         <a href="https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html">Rules Format</a>. </p>
+ *                                         <a href="https://suricata.readthedocs.iorules/intro.html#">Rules Format</a>. </p>
  */
 export interface StatefulRule {
   /**
@@ -1599,6 +1604,13 @@ export interface StatefulRule {
    *                <p>You can use this action to test a rule that you intend to use to drop traffic. You
    *                can enable the rule with <code>ALERT</code> action, verify in the logs that the rule
    *                is filtering as you want, then change the action to <code>DROP</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>REJECT</b> - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a <code>RST</code> bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the <a>Firewall</a>
+   *                   <a>LoggingConfiguration</a>.</p>
+   *                <p>
+   *                   <code>REJECT</code> isn't currently available for use with IMAP and FTP protocols.</p>
    *             </li>
    *          </ul>
    */
@@ -1856,7 +1868,7 @@ export interface RulesSource {
    * <p>An array of individual stateful rules inspection criteria to be used together in a stateful rule group.
    *        Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options.
    *        For information about the Suricata <code>Rules</code> format, see
-   *                                         <a href="https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html">Rules Format</a>. </p>
+   *                                         <a href="https://suricata.readthedocs.iorules/intro.html#">Rules Format</a>. </p>
    */
   StatefulRules?: StatefulRule[];
 

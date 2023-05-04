@@ -91,7 +91,7 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * //         Attachment: { // Attachment
  * //           SubnetId: "STRING_VALUE",
  * //           EndpointId: "STRING_VALUE",
- * //           Status: "CREATING" || "DELETING" || "SCALING" || "READY" || "FAILED" || "ERROR",
+ * //           Status: "CREATING" || "DELETING" || "FAILED" || "ERROR" || "SCALING" || "READY",
  * //           StatusMessage: "STRING_VALUE",
  * //         },
  * //         Config: { // SyncStateConfig

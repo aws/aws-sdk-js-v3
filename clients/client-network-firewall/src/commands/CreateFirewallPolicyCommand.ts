@@ -85,7 +85,7 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  *     ],
  *     StatefulEngineOptions: { // StatefulEngineOptions
  *       RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
- *       StreamExceptionPolicy: "DROP" || "CONTINUE",
+ *       StreamExceptionPolicy: "DROP" || "CONTINUE" || "REJECT",
  *     },
  *     TLSInspectionConfigurationArn: "STRING_VALUE",
  *     PolicyVariables: { // PolicyVariables
