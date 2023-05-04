@@ -33,7 +33,7 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
 /**
  * @public
  * <p>Updates details about a specific evaluation form version in the specified Amazon Connect
- *    instance. An evaluation form must have a unique title within an instance. Question and section
+ *    instance. Question and section
  *    identifiers cannot be duplicated within the same evaluation form.</p>
  *          <p>This operation does not support partial updates. Instead it does a full update of evaluation form content.</p>
  * @example

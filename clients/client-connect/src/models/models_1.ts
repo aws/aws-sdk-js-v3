@@ -1472,7 +1472,7 @@ export interface EvaluationSummary {
   EvaluationArn: string | undefined;
 
   /**
-   * <p>A unique title of the evaluation form.</p>
+   * <p>A title of the evaluation form.</p>
    */
   EvaluationFormTitle: string | undefined;
 
@@ -2075,7 +2075,7 @@ export interface EvaluationFormSummary {
   EvaluationFormArn: string | undefined;
 
   /**
-   * <p>A unique title of the evaluation form.</p>
+   * <p>A title of the evaluation form.</p>
    */
   Title: string | undefined;
 
@@ -6783,7 +6783,7 @@ export interface CreateEvaluationFormRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>A unique title of the evaluation form.</p>
+   * <p>A title of the evaluation form.</p>
    */
   Title: string | undefined;
 
@@ -6837,7 +6837,7 @@ export interface EvaluationForm {
   EvaluationFormArn: string | undefined;
 
   /**
-   * <p>A unique title of the evaluation form.</p>
+   * <p>A title of the evaluation form.</p>
    */
   Title: string | undefined;
 
@@ -6908,7 +6908,7 @@ export interface EvaluationFormContent {
   EvaluationFormArn: string | undefined;
 
   /**
-   * <p>A unique title of the evaluation form.</p>
+   * <p>A title of the evaluation form.</p>
    */
   Title: string | undefined;
 
@@ -7048,7 +7048,7 @@ export interface UpdateEvaluationFormRequest {
   CreateNewVersion?: boolean;
 
   /**
-   * <p>A unique title of the evaluation form.</p>
+   * <p>A title of the evaluation form.</p>
    */
   Title: string | undefined;
 

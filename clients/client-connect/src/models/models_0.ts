@@ -1418,12 +1418,12 @@ export type NumericQuestionPropertyAutomationLabel =
  *      of 0 and maximum value of 28800.</p>
  *             </li>
  *             <li>
- *                <p>Percantages have a minimum value of 0 and maximum value of 100. </p>
+ *                <p>Percentages have a minimum value of 0 and maximum value of 100. </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>NUMBER_OF_INTERRUPTIONS</code> has a minimum value of 0 and maximum value of
- *      100.</p>
+ *      1000.</p>
  *             </li>
  *          </ul>
  */
@@ -1558,7 +1558,7 @@ export interface SingleSelectQuestionRuleCategoryAutomation {
   Condition: SingleSelectQuestionRuleCategoryAutomationCondition | string | undefined;
 
   /**
-   * <p>The identifier of the answer option tha</p>
+   * <p>The identifier of the answer option.</p>
    */
   OptionRefId: string | undefined;
 }

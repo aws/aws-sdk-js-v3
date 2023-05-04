@@ -70,9 +70,6 @@ export interface CreateParticipantCommandOutput extends CreateParticipantRespons
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
  *
- * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
- *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
  *

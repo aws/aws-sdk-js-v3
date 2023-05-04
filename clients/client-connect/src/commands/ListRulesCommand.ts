@@ -54,7 +54,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * //       Name: "STRING_VALUE", // required
  * //       RuleId: "STRING_VALUE", // required
  * //       RuleArn: "STRING_VALUE", // required
- * //       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate", // required
+ * //       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit", // required
  * //       PublishStatus: "DRAFT" || "PUBLISHED", // required
  * //       ActionSummaries: [ // ActionSummaries // required
  * //         { // ActionSummary

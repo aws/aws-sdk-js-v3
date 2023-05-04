@@ -51,7 +51,7 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * //     RuleId: "STRING_VALUE", // required
  * //     RuleArn: "STRING_VALUE", // required
  * //     TriggerEventSource: { // RuleTriggerEventSource
- * //       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate", // required
+ * //       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit", // required
  * //       IntegrationAssociationId: "STRING_VALUE",
  * //     },
  * //     Function: "STRING_VALUE", // required

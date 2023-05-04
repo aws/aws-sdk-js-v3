@@ -8154,9 +8154,6 @@ const de_CreateParticipantCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.connect#InternalServiceException":
       throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.connect#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
