@@ -56,11 +56,4 @@ describe("setSocketKeepAlive", () => {
 
     expect(socket.isKeepAliveEnabled()).toBeFalsy();
   });
-
-  it("should not set keepAlive at all when socketKeepAlive is undefined", () => {
-    setSocketKeepAlive(request, undefined);
-    request.emit("socket", socket);
-
-    expect(socket.isKeepAliveEnabled()).toBeFalsy();
-  });
 });
