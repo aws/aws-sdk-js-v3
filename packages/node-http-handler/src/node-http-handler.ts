@@ -9,11 +9,7 @@ import { getTransformedHeaders } from "./get-transformed-headers";
 import { setConnectionTimeout } from "./set-connection-timeout";
 import { setSocketTimeout } from "./set-socket-timeout";
 import { writeRequestBody } from "./write-request-body";
-import {
-  setSocketKeepAlive,
-  SocketKeepAliveOptions,
-} from "./set-socket-keep-alive";
-
+import { setSocketKeepAlive, SocketKeepAliveOptions } from "./set-socket-keep-alive";
 
 /**
  * Represents the http options that can be passed to a node http client.
@@ -76,7 +72,7 @@ export class NodeHttpHandler implements HttpHandler {
   }
 
   private resolveDefaultConfig(options?: NodeHttpHandlerOptions | void): ResolvedNodeHttpHandlerConfig {
-    const { requestTimeout, connectionTimeout, socketTimeout, httpAgent, httpsAgent} = options || {};
+    const { requestTimeout, connectionTimeout, socketTimeout, httpAgent, httpsAgent } = options || {};
     const keepAlive = true;
     const maxSockets = 50;
 
@@ -156,12 +152,12 @@ export class NodeHttpHandler implements HttpHandler {
         };
       }
 
-      if (typeof nodeHttpsOptions.agent !== "boolean") {
-        // @ts-ignore
-        const keepAliveOptions: SocketKeepAliveOptions = nodeHttpsOptions.agent;
+      // @ts-ignore
+      const httpAgent: SocketKeepAliveOptions = nodeHttpsOptions.agent;
+      if (typeof httpAgent === "object" && "keepAlive" in httpAgent) {
         setSocketKeepAlive(req, {
-          keepAlive: keepAliveOptions.keepAlive,
-          keepAliveMsecs: keepAliveOptions.keepAliveMsecs
+          keepAlive: httpAgent.keepAlive,
+          keepAliveMsecs: httpAgent.keepAliveMsecs,
         });
       }
 
