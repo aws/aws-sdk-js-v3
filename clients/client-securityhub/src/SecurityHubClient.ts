@@ -155,6 +155,7 @@ import {
   GetFindingAggregatorCommandInput,
   GetFindingAggregatorCommandOutput,
 } from "./commands/GetFindingAggregatorCommand";
+import { GetFindingHistoryCommandInput, GetFindingHistoryCommandOutput } from "./commands/GetFindingHistoryCommand";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
 import { GetInsightResultsCommandInput, GetInsightResultsCommandOutput } from "./commands/GetInsightResultsCommand";
 import { GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand";
@@ -261,6 +262,7 @@ export type ServiceInputTypes =
   | GetAdministratorAccountCommandInput
   | GetEnabledStandardsCommandInput
   | GetFindingAggregatorCommandInput
+  | GetFindingHistoryCommandInput
   | GetFindingsCommandInput
   | GetInsightResultsCommandInput
   | GetInsightsCommandInput
@@ -327,6 +329,7 @@ export type ServiceOutputTypes =
   | GetAdministratorAccountCommandOutput
   | GetEnabledStandardsCommandOutput
   | GetFindingAggregatorCommandOutput
+  | GetFindingHistoryCommandOutput
   | GetFindingsCommandOutput
   | GetInsightResultsCommandOutput
   | GetInsightsCommandOutput

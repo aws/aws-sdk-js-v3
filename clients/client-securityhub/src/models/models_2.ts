@@ -3,6 +3,7 @@ import { AccountDetails, ActionTarget, AdminAccount, AssociationStatus, AutoEnab
 import {
   AwsSecurityFinding,
   AwsSecurityFindingFilters,
+  AwsSecurityFindingIdentifier,
   ControlFindingGenerator,
   ControlStatus,
   NoteUpdate,
@@ -797,6 +798,140 @@ export interface FindingAggregator {
 
 /**
  * @public
+ * <p> An array of objects that provides details about a change to a finding, including the
+ *                 Amazon Web Services Security Finding Format (ASFF) field that changed, the value of
+ *             the field before the change, and the value of the field after the change. </p>
+ */
+export interface FindingHistoryUpdate {
+  /**
+   * <p>
+   *          The ASFF field that changed during the finding change event.
+   *       </p>
+   */
+  UpdatedField?: string;
+
+  /**
+   * <p>
+   *          The value of the ASFF field before the finding change event.
+   *       </p>
+   */
+  OldValue?: string;
+
+  /**
+   * <p>
+   *          The value of the ASFF field after the finding change event. To preserve storage and readability, Security Hub omits this value
+   *           if <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_FindingHistoryRecord.html">
+   *                <code>FindingHistoryRecord</code>
+   *             </a> exceeds database limits.
+   *       </p>
+   */
+  NewValue?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingHistoryUpdateSourceType = {
+  BATCH_IMPORT_FINDINGS: "BATCH_IMPORT_FINDINGS",
+  BATCH_UPDATE_FINDINGS: "BATCH_UPDATE_FINDINGS",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingHistoryUpdateSourceType =
+  (typeof FindingHistoryUpdateSourceType)[keyof typeof FindingHistoryUpdateSourceType];
+
+/**
+ * @public
+ * <p>
+ *          Identifies the source of the finding change event.
+ *       </p>
+ */
+export interface FindingHistoryUpdateSource {
+  /**
+   * <p>
+   *          Describes the type of finding change event, such as a call to <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html">
+   *                <code>BatchImportFindings</code>
+   *             </a> (by an integrated Amazon Web Service or third party partner integration) or <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html">
+   *                <code>BatchUpdateFindings</code>
+   *             </a> (by a Security Hub customer).
+   *       </p>
+   */
+  Type?: FindingHistoryUpdateSourceType | string;
+
+  /**
+   * <p>
+   *          The identity of the source that initiated the finding change event. For example, the Amazon Resource Name (ARN) of a partner that calls BatchImportFindings or of a customer that calls BatchUpdateFindings.
+   *       </p>
+   */
+  Identity?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *          A list of events that changed the specified finding during the specified time period. Each record represents a single
+ *          finding change event.
+ *       </p>
+ */
+export interface FindingHistoryRecord {
+  /**
+   * <p>Identifies which finding to get the finding history for.</p>
+   */
+  FindingIdentifier?: AwsSecurityFindingIdentifier;
+
+  /**
+   * <p> An ISO 8601-formatted timestamp that indicates when the security findings provider last
+   *             updated the finding record. A correctly formatted example is
+   *                 <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and
+   *             time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6,
+   *                 Internet Date/Time Format</a>. </p>
+   */
+  UpdateTime?: Date;
+
+  /**
+   * <p>
+   *          Identifies whether the event marks the creation of a new finding. A value of <code>True</code> means that the finding is
+   *          newly created. A value of <code>False</code> means that the finding isn’t newly created.
+   *       </p>
+   */
+  FindingCreated?: boolean;
+
+  /**
+   * <p> Identifies the source of the event that changed the finding. For example, an integrated
+   *                 Amazon Web Service or third-party partner integration may call <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html">
+   *                <code>BatchImportFindings</code>
+   *             </a>, or an Security Hub customer
+   *             may call <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html">
+   *                <code>BatchUpdateFindings</code>
+   *             </a>. </p>
+   */
+  UpdateSource?: FindingHistoryUpdateSource;
+
+  /**
+   * <p>
+   *          An array of objects that provides details about the finding change event, including the Amazon Web Services Security
+   *          Finding Format (ASFF) field that changed, the value of the field before the change, and the value of the field after
+   *          the change.
+   *       </p>
+   */
+  Updates?: FindingHistoryUpdate[];
+
+  /**
+   * <p>
+   *          A token for pagination purposes. Provide this token in the subsequent request to <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindingsHistory.html">
+   *                <code>GetFindingsHistory</code>
+   *             </a> to get
+   *          up to an additional 100 results of history for the same finding that you specified in your initial request.
+   *       </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
  */
 export interface GetAdministratorAccountRequest {}
 
@@ -909,6 +1044,88 @@ export interface GetFindingAggregatorResponse {
    * <p>The list of excluded Regions or included Regions.</p>
    */
   Regions?: string[];
+}
+
+/**
+ * @public
+ */
+export interface GetFindingHistoryRequest {
+  /**
+   * <p>Identifies which finding to get the finding history for.</p>
+   */
+  FindingIdentifier: AwsSecurityFindingIdentifier | undefined;
+
+  /**
+   * <p>
+   *          An ISO 8601-formatted timestamp that indicates the start time of the requested finding history. A correctly formatted
+   *          example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated
+   *          by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339
+   *             section 5.6, Internet Date/Time Format</a>.</p>
+   *          <p>If you provide values for both <code>StartTime</code> and <code>EndTime</code>,
+   *                 Security Hub returns finding history for the specified time period. If you
+   *             provide a value for <code>StartTime</code> but not for <code>EndTime</code>, Security Hub returns finding history from the <code>StartTime</code> to the time at
+   *             which the API is called. If you provide a value for <code>EndTime</code> but not for
+   *                 <code>StartTime</code>, Security Hub returns finding history from the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt">CreatedAt</a> timestamp of the finding to the <code>EndTime</code>. If you
+   *             provide neither <code>StartTime</code> nor <code>EndTime</code>, Security Hub
+   *             returns finding history from the CreatedAt timestamp of the finding to the time at which
+   *             the API is called. In all of these scenarios, the response is limited to 100 results, and the maximum time period is
+   *             limited to 90 days. </p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>
+   *          An ISO 8601-formatted timestamp that indicates the end time of the requested finding history. A correctly formatted
+   *          example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated
+   *          by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339
+   *             section 5.6, Internet Date/Time Format</a>.</p>
+   *          <p>If you provide values for both <code>StartTime</code> and <code>EndTime</code>,
+   *                 Security Hub returns finding history for the specified time period. If you
+   *             provide a value for <code>StartTime</code> but not for <code>EndTime</code>, Security Hub returns finding history from the <code>StartTime</code> to the time at
+   *             which the API is called. If you provide a value for <code>EndTime</code> but not for
+   *                 <code>StartTime</code>, Security Hub returns finding history from the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFindingFilters.html#securityhub-Type-AwsSecurityFindingFilters-CreatedAt">CreatedAt</a> timestamp of the finding to the <code>EndTime</code>. If you
+   *             provide neither <code>StartTime</code> nor <code>EndTime</code>, Security Hub
+   *             returns finding history from the CreatedAt timestamp of the finding to the time at which
+   *             the API is called. In all of these scenarios, the response is limited to 100 results, and the maximum time period is
+   *             limited to 90 days.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>
+   *          A token for pagination purposes. Provide <code>NULL</code> as the initial value. In subsequent requests, provide the
+   *          token included in the response to get up to an additional 100 results of finding history. If you don’t provide
+   *          <code>NextToken</code>, Security Hub returns up to 100 results of finding history for each request.
+   *       </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   *          The maximum number of results to be returned. If you don’t provide it, Security Hub returns up to 100 results of finding history.
+   *       </p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetFindingHistoryResponse {
+  /**
+   * <p>
+   *          A list of events that altered the specified finding during the specified time period.
+   *       </p>
+   */
+  Records?: FindingHistoryRecord[];
+
+  /**
+   * <p>
+   *          A token for pagination purposes. Provide this token in the subsequent request to <code>GetFindingsHistory</code> to
+   *          get up to an additional 100 results of history for the same finding that you specified in your initial request.
+   *       </p>
+   */
+  NextToken?: string;
 }
 
 /**

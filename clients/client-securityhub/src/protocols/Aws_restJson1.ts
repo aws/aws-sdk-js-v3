@@ -130,6 +130,7 @@ import {
   GetFindingAggregatorCommandInput,
   GetFindingAggregatorCommandOutput,
 } from "../commands/GetFindingAggregatorCommand";
+import { GetFindingHistoryCommandInput, GetFindingHistoryCommandOutput } from "../commands/GetFindingHistoryCommand";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "../commands/GetFindingsCommand";
 import { GetInsightResultsCommandInput, GetInsightResultsCommandOutput } from "../commands/GetInsightResultsCommand";
 import { GetInsightsCommandInput, GetInsightsCommandOutput } from "../commands/GetInsightsCommand";
@@ -733,6 +734,7 @@ import {
   WorkflowUpdate,
 } from "../models/models_1";
 import {
+  FindingHistoryRecord,
   Insight,
   Invitation,
   Member,
@@ -1824,6 +1826,39 @@ export const se_GetFindingAggregatorCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetFindingHistoryCommand
+ */
+export const se_GetFindingHistoryCommand = async (
+  input: GetFindingHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findingHistory/get";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      EndTime: (_) => _.toISOString().split(".")[0] + "Z",
+      FindingIdentifier: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      StartTime: (_) => _.toISOString().split(".")[0] + "Z",
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -4635,6 +4670,63 @@ const de_GetFindingAggregatorCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetFindingHistoryCommand
+ */
+export const de_GetFindingHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFindingHistoryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetFindingHistoryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Records: (_) => de_FindingHistoryRecordList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetFindingHistoryCommandError
+ */
+const de_GetFindingHistoryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFindingHistoryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -10105,6 +10197,38 @@ const de_CvssList = (output: any, context: __SerdeContext): Cvss[] => {
 // de_FindingAggregator omitted.
 
 // de_FindingAggregatorList omitted.
+
+/**
+ * deserializeAws_restJson1FindingHistoryRecord
+ */
+const de_FindingHistoryRecord = (output: any, context: __SerdeContext): FindingHistoryRecord => {
+  return take(output, {
+    FindingCreated: __expectBoolean,
+    FindingIdentifier: _json,
+    NextToken: __expectString,
+    UpdateSource: _json,
+    UpdateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Updates: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FindingHistoryRecordList
+ */
+const de_FindingHistoryRecordList = (output: any, context: __SerdeContext): FindingHistoryRecord[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FindingHistoryRecord(entry, context);
+    });
+  return retVal;
+};
+
+// de_FindingHistoryUpdate omitted.
+
+// de_FindingHistoryUpdatesList omitted.
+
+// de_FindingHistoryUpdateSource omitted.
 
 // de_FindingProviderFields omitted.
 

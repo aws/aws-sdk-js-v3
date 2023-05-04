@@ -8732,7 +8732,7 @@ export interface AwsSecurityFinding {
 
   /**
    * <p>The identifier for the solution-specific component (a discrete unit of logic) that
-   *          generated a finding. In various security-findings providers' solutions, this generator can
+   *          generated a finding. In various security findings providers' solutions, this generator can
    *          be called a rule, a check, a detector, a plugin, etc. </p>
    */
   GeneratorId: string | undefined;
@@ -8751,7 +8751,7 @@ export interface AwsSecurityFinding {
   Types?: string[];
 
   /**
-   * <p>Indicates when the security-findings provider first observed the potential security
+   * <p>Indicates when the security findings provider first observed the potential security
    *          issue that a finding captured.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
@@ -8760,7 +8760,7 @@ export interface AwsSecurityFinding {
   FirstObservedAt?: string;
 
   /**
-   * <p>Indicates when the security-findings provider most recently observed the potential
+   * <p>Indicates when the security findings provider most recently observed the potential
    *          security issue that a finding captured.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
@@ -8769,7 +8769,7 @@ export interface AwsSecurityFinding {
   LastObservedAt?: string;
 
   /**
-   * <p>Indicates when the security-findings provider created the potential security issue that
+   * <p>Indicates when the security findings provider created the potential security issue that
    *          a finding captured.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
@@ -8778,7 +8778,7 @@ export interface AwsSecurityFinding {
   CreatedAt: string | undefined;
 
   /**
-   * <p>Indicates when the security-findings provider last updated the finding record.</p>
+   * <p>Indicates when the security findings provider last updated the finding record.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
@@ -8827,13 +8827,13 @@ export interface AwsSecurityFinding {
   Remediation?: Remediation;
 
   /**
-   * <p>A URL that links to a page about the current finding in the security-findings provider's
+   * <p>A URL that links to a page about the current finding in the security findings provider's
    *          solution.</p>
    */
   SourceUrl?: string;
 
   /**
-   * <p>A data type where security-findings providers can include additional solution-specific
+   * <p>A data type where security findings providers can include additional solution-specific
    *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
    *          <p>Can contain up to 50 key-value pairs. For each key-value pair, the key can contain up to 128 characters, and the value can contain up to 2048 characters.</p>
    */
@@ -9256,7 +9256,7 @@ export interface AwsSecurityFindingFilters {
 
   /**
    * <p>The identifier for the solution-specific component (a discrete unit of logic) that
-   *          generated a finding. In various security-findings providers' solutions, this generator can
+   *          generated a finding. In various security findings providers' solutions, this generator can
    *          be called a rule, a check, a detector, a plugin, etc.</p>
    */
   GeneratorId?: StringFilter[];
@@ -9273,28 +9273,28 @@ export interface AwsSecurityFindingFilters {
   Type?: StringFilter[];
 
   /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider first
+   * <p>An ISO8601-formatted timestamp that indicates when the security findings provider first
    *          observed the potential security issue that a finding captured.</p>
    *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
   FirstObservedAt?: DateFilter[];
 
   /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider most
+   * <p>An ISO8601-formatted timestamp that indicates when the security findings provider most
    *          recently observed the potential security issue that a finding captured.</p>
    *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
   LastObservedAt?: DateFilter[];
 
   /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider
+   * <p>An ISO8601-formatted timestamp that indicates when the security findings provider
    *          captured the potential security issue that a finding captured.</p>
    *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
   CreatedAt?: DateFilter[];
 
   /**
-   * <p>An ISO8601-formatted timestamp that indicates when the security-findings provider last
+   * <p>An ISO8601-formatted timestamp that indicates when the security findings provider last
    *          updated the finding record. </p>
    *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
    */
@@ -9303,7 +9303,7 @@ export interface AwsSecurityFindingFilters {
   /**
    * @deprecated
    *
-   * <p>The native severity as defined by the security-findings provider's solution that
+   * <p>The native severity as defined by the security findings provider's solution that
    *          generated the finding.</p>
    */
   SeverityProduct?: NumberFilter[];
@@ -9351,13 +9351,13 @@ export interface AwsSecurityFindingFilters {
   RecommendationText?: StringFilter[];
 
   /**
-   * <p>A URL that links to a page about the current finding in the security-findings provider's
+   * <p>A URL that links to a page about the current finding in the security findings provider's
    *          solution.</p>
    */
   SourceUrl?: StringFilter[];
 
   /**
-   * <p>A data type where security-findings providers can include additional solution-specific
+   * <p>A data type where security findings providers can include additional solution-specific
    *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
    */
   ProductFields?: MapFilter[];
@@ -9850,7 +9850,7 @@ export interface AwsSecurityFindingFilters {
 
 /**
  * @public
- * <p>Identifies a finding to update using <code>BatchUpdateFindings</code>.</p>
+ * <p>Identifies which finding to get the finding history for.</p>
  */
 export interface AwsSecurityFindingIdentifier {
   /**

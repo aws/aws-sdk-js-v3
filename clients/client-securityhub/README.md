@@ -549,6 +549,14 @@ GetFindingAggregator
 </details>
 <details>
 <summary>
+GetFindingHistory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/getfindinghistorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getfindinghistorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getfindinghistorycommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetFindings
 </summary>
 

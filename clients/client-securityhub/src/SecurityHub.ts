@@ -183,6 +183,11 @@ import {
   GetFindingAggregatorCommandInput,
   GetFindingAggregatorCommandOutput,
 } from "./commands/GetFindingAggregatorCommand";
+import {
+  GetFindingHistoryCommand,
+  GetFindingHistoryCommandInput,
+  GetFindingHistoryCommandOutput,
+} from "./commands/GetFindingHistoryCommand";
 import { GetFindingsCommand, GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
 import {
   GetInsightResultsCommand,
@@ -323,6 +328,7 @@ const commands = {
   GetAdministratorAccountCommand,
   GetEnabledStandardsCommand,
   GetFindingAggregatorCommand,
+  GetFindingHistoryCommand,
   GetFindingsCommand,
   GetInsightResultsCommand,
   GetInsightsCommand,
@@ -947,6 +953,23 @@ export interface SecurityHub {
     args: GetFindingAggregatorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetFindingAggregatorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFindingHistoryCommand}
+   */
+  getFindingHistory(
+    args: GetFindingHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingHistoryCommandOutput>;
+  getFindingHistory(
+    args: GetFindingHistoryCommandInput,
+    cb: (err: any, data?: GetFindingHistoryCommandOutput) => void
+  ): void;
+  getFindingHistory(
+    args: GetFindingHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFindingHistoryCommandOutput) => void
   ): void;
 
   /**

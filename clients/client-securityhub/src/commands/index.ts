@@ -36,6 +36,7 @@ export * from "./EnableSecurityHubCommand";
 export * from "./GetAdministratorAccountCommand";
 export * from "./GetEnabledStandardsCommand";
 export * from "./GetFindingAggregatorCommand";
+export * from "./GetFindingHistoryCommand";
 export * from "./GetFindingsCommand";
 export * from "./GetInsightResultsCommand";
 export * from "./GetInsightsCommand";

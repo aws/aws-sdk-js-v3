@@ -8,6 +8,8 @@ export * from "./DescribeStandardsPaginator";
 
 export * from "./GetEnabledStandardsPaginator";
 
+export * from "./GetFindingHistoryPaginator";
+
 export * from "./GetFindingsPaginator";
 
 export * from "./GetInsightsPaginator";
