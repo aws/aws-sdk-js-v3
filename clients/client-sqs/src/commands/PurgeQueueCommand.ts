@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PurgeQueueRequest } from "../models/models_0";
-import { de_PurgeQueueCommand, se_PurgeQueueCommand } from "../protocols/Aws_query";
+import { de_PurgeQueueCommand, se_PurgeQueueCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -34,18 +34,17 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  * @public
  * <p>Deletes the messages in a queue specified by the <code>QueueURL</code>
  *             parameter.</p>
- *
  *          <important>
  *             <p>When you use the <code>PurgeQueue</code> action, you can't retrieve any messages
  *                 deleted from a queue.</p>
- *             <p>The message deletion process takes up to 60 seconds. We recommend waiting for
- *                 60 seconds regardless of your queue's size. </p>
+ *             <p>The message deletion process takes up to 60 seconds. We recommend waiting for 60
+ *                 seconds regardless of your queue's size. </p>
  *          </important>
- *         <p>Messages sent to the queue <i>before</i> you call
+ *          <p>Messages sent to the queue <i>before</i> you call
  *                 <code>PurgeQueue</code> might be received but are deleted within the next
  *             minute.</p>
- *         <p>Messages sent to the queue <i>after</i> you call
- *                 <code>PurgeQueue</code> might be deleted while the queue is being purged.</p>
+ *          <p>Messages sent to the queue <i>after</i> you call <code>PurgeQueue</code>
+ *             might be deleted while the queue is being purged.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,11 +66,41 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  * @see {@link PurgeQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link InvalidAddress} (client fault)
+ *  <p>The <code>accountId</code> is invalid.</p>
+ *
+ * @throws {@link InvalidSecurity} (client fault)
+ *  <p>When the request to a queue is not HTTPS and SigV4.</p>
+ *
  * @throws {@link PurgeQueueInProgress} (client fault)
- *  <p>Indicates that the specified queue previously received a <code>PurgeQueue</code> request within the last 60 seconds (the time it can take to delete the messages in the queue).</p>
+ *  <p>Indicates that the specified queue previously received a <code>PurgeQueue</code>
+ *             request within the last 60 seconds (the time it can take to delete the messages in the
+ *             queue).</p>
  *
  * @throws {@link QueueDoesNotExist} (client fault)
  *  <p>The specified queue doesn't exist.</p>
+ *
+ * @throws {@link RequestThrottled} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *          <ul>
+ *             <li>
+ *                <p>The rate of requests per second exceeds the AWS KMS request quota for an
+ *                     account and Region. </p>
+ *             </li>
+ *             <li>
+ *                <p>A burst or sustained high rate of requests to change the state of the same KMS
+ *                     key. This condition is often known as a "hot key."</p>
+ *             </li>
+ *             <li>
+ *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
+ *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
+ *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
+ *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>Error code 400. Unsupported operation.</p>
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>

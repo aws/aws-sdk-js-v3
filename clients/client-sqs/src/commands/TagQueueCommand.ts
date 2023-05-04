@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TagQueueRequest } from "../models/models_0";
-import { de_TagQueueCommand, se_TagQueueCommand } from "../protocols/Aws_query";
+import { de_TagQueueCommand, se_TagQueueCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -34,7 +34,6 @@ export interface TagQueueCommandOutput extends __MetadataBearer {}
  * @public
  * <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
  * Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
- *
  *          <p>When you use queue tags, keep the following guidelines in mind:</p>
  *          <ul>
  *             <li>
@@ -53,11 +52,11 @@ export interface TagQueueCommandOutput extends __MetadataBearer {}
  *          <p>For a full list of tag restrictions, see
  * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues">Quotas related to queues</a>
  * in the <i>Amazon SQS Developer Guide</i>.</p>
- *         <note>
+ *          <note>
  *             <p>Cross-account permissions don't apply to this action. For more information,
  * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
- * cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer Guide</i>.</p>
- *         </note>
+ * cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,6 +80,37 @@ export interface TagQueueCommandOutput extends __MetadataBearer {}
  * @see {@link TagQueueCommandInput} for command's `input` shape.
  * @see {@link TagQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
+ *
+ * @throws {@link InvalidAddress} (client fault)
+ *  <p>The <code>accountId</code> is invalid.</p>
+ *
+ * @throws {@link InvalidSecurity} (client fault)
+ *  <p>When the request to a queue is not HTTPS and SigV4.</p>
+ *
+ * @throws {@link QueueDoesNotExist} (client fault)
+ *  <p>The specified queue doesn't exist.</p>
+ *
+ * @throws {@link RequestThrottled} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *          <ul>
+ *             <li>
+ *                <p>The rate of requests per second exceeds the AWS KMS request quota for an
+ *                     account and Region. </p>
+ *             </li>
+ *             <li>
+ *                <p>A burst or sustained high rate of requests to change the state of the same KMS
+ *                     key. This condition is often known as a "hot key."</p>
+ *             </li>
+ *             <li>
+ *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
+ *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
+ *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
+ *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>Error code 400. Unsupported operation.</p>
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>

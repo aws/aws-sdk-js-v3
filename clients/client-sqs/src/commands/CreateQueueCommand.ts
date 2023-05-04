@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateQueueRequest, CreateQueueResult } from "../models/models_0";
-import { de_CreateQueueCommand, se_CreateQueueCommand } from "../protocols/Aws_query";
+import { de_CreateQueueCommand, se_CreateQueueCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -36,53 +36,53 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *             the request. Keep the following in mind:</p>
  *          <ul>
  *             <li>
- *               <p>If you don't specify the <code>FifoQueue</code> attribute, Amazon SQS creates a standard queue.</p>
- *               <note>
+ *                <p>If you don't specify the <code>FifoQueue</code> attribute, Amazon SQS creates a standard queue.</p>
+ *                <note>
  *                   <p>You can't change the queue type after you create it and you can't convert
  *                         an existing standard queue into a FIFO queue. You must either create a new
  *                         FIFO queue for your application or delete your existing standard queue and
  *                         recreate it as a FIFO queue. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-moving">Moving From a Standard Queue to a FIFO Queue</a> in the
  *                             <i>Amazon SQS Developer Guide</i>. </p>
- *               </note>
+ *                </note>
  *             </li>
  *             <li>
- *               <p>If you don't provide a value for an attribute, the queue is created with the default value for the attribute.</p>
+ *                <p>If you don't provide a value for an attribute, the queue is created with the
+ *                     default value for the attribute.</p>
  *             </li>
  *             <li>
- *               <p>If you delete a queue, you must wait at least 60 seconds before creating a queue with the same name.</p>
+ *                <p>If you delete a queue, you must wait at least 60 seconds before creating a
+ *                     queue with the same name.</p>
  *             </li>
  *          </ul>
- *
- *          <p>To successfully create a new queue, you must provide a queue name that adheres to the <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/limits-queues.html">limits related to queues</a> and is unique within the scope of your queues.</p>
- *         <note>
+ *          <p>To successfully create a new queue, you must provide a queue name that adheres to the
+ *                 <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/limits-queues.html">limits
+ *                 related to queues</a> and is unique within the scope of your queues.</p>
+ *          <note>
  *             <p>After you create a queue, you must wait at least one second after the queue is
  *                 created to be able to use the queue.</p>
- *         </note>
+ *          </note>
  *          <p>To get the queue URL, use the <code>
  *                <a>GetQueueUrl</a>
- *             </code> action. <code>
+ *             </code> action.
+ *                     <code>
  *                <a>GetQueueUrl</a>
- *             </code> requires only the <code>QueueName</code> parameter.
- *           be aware of existing queue names:</p>
+ *             </code> requires only the
+ *                 <code>QueueName</code> parameter. be aware of existing queue names:</p>
  *          <ul>
  *             <li>
- *                <p>If you provide the name of an existing queue along with the exact names and values of all the queue's attributes, <code>CreateQueue</code> returns the queue URL for the existing queue.</p>
+ *                <p>If you provide the name of an existing queue along with the exact names and
+ *                     values of all the queue's attributes, <code>CreateQueue</code> returns the queue
+ *                     URL for the existing queue.</p>
  *             </li>
  *             <li>
- *                <p>If the queue name, attribute names, or attribute values don't match an existing queue, <code>CreateQueue</code> returns an error.</p>
+ *                <p>If the queue name, attribute names, or attribute values don't match an
+ *                     existing queue, <code>CreateQueue</code> returns an error.</p>
  *             </li>
  *          </ul>
- *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
- *          <p>
- *             <code>&AttributeName.1=first</code>
- *          </p>
- *          <p>
- *             <code>&AttributeName.2=second</code>
- *          </p>
  *          <note>
  *             <p>Cross-account permissions don't apply to this action. For more information,
  * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
- * cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+ * cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,10 +92,10 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * const client = new SQSClient(config);
  * const input = { // CreateQueueRequest
  *   QueueName: "STRING_VALUE", // required
- *   tags: { // TagMap
+ *   Attributes: { // QueueAttributeMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Attributes: { // QueueAttributeMap
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };
@@ -113,6 +113,18 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * @see {@link CreateQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link InvalidAddress} (client fault)
+ *  <p>The <code>accountId</code> is invalid.</p>
+ *
+ * @throws {@link InvalidAttributeName} (client fault)
+ *  <p>The specified attribute doesn't exist.</p>
+ *
+ * @throws {@link InvalidAttributeValue} (client fault)
+ *  <p>A queue attribute value is invalid.</p>
+ *
+ * @throws {@link InvalidSecurity} (client fault)
+ *  <p>When the request to a queue is not HTTPS and SigV4.</p>
+ *
  * @throws {@link QueueDeletedRecently} (client fault)
  *  <p>You must wait 60 seconds after deleting a queue before you can create another queue
  *             with the same name.</p>
@@ -120,6 +132,28 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * @throws {@link QueueNameExists} (client fault)
  *  <p>A queue with this name already exists. Amazon SQS returns this error only if the request
  *             includes attributes whose values differ from those of the existing queue.</p>
+ *
+ * @throws {@link RequestThrottled} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *          <ul>
+ *             <li>
+ *                <p>The rate of requests per second exceeds the AWS KMS request quota for an
+ *                     account and Region. </p>
+ *             </li>
+ *             <li>
+ *                <p>A burst or sustained high rate of requests to change the state of the same KMS
+ *                     key. This condition is often known as a "hot key."</p>
+ *             </li>
+ *             <li>
+ *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
+ *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
+ *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
+ *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>Error code 400. Unsupported operation.</p>
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
