@@ -5,12 +5,12 @@ export interface SocketKeepAliveOptions {
   keepAliveMsecs?: number;
 }
 
-export const setSocketKeepAlive = (request: ClientRequest, socketKeepAlive: SocketKeepAliveOptions) => {
-  if (socketKeepAlive.keepAlive !== true) {
+export const setSocketKeepAlive = (request: ClientRequest, { keepAlive, keepAliveMsecs }: SocketKeepAliveOptions) => {
+  if (keepAlive !== true) {
     return;
   }
 
   request.on("socket", (socket) => {
-    socket.setKeepAlive(socketKeepAlive.keepAlive, socketKeepAlive.keepAliveMsecs || 0);
+    socket.setKeepAlive(keepAlive, keepAliveMsecs || 0);
   });
 };
