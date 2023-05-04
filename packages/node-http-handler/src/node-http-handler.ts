@@ -9,7 +9,7 @@ import { getTransformedHeaders } from "./get-transformed-headers";
 import { setConnectionTimeout } from "./set-connection-timeout";
 import { setSocketTimeout } from "./set-socket-timeout";
 import { writeRequestBody } from "./write-request-body";
-import { setSocketKeepAlive, SocketKeepAliveOptions } from "./set-socket-keep-alive";
+import { setSocketKeepAlive } from "./set-socket-keep-alive";
 
 /**
  * Represents the http options that can be passed to a node http client.
