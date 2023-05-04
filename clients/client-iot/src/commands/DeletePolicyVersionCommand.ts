@@ -48,6 +48,8 @@ export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePolicyVersionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeletePolicyVersionCommandInput - {@link DeletePolicyVersionCommandInput}
@@ -78,6 +80,8 @@ export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeletePolicyVersionCommand extends $Command<

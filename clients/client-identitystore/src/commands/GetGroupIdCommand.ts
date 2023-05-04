@@ -54,6 +54,11 @@ export interface GetGroupIdCommandOutput extends GetGroupIdResponse, __MetadataB
  * };
  * const command = new GetGroupIdCommand(input);
  * const response = await client.send(command);
+ * // { // GetGroupIdResponse
+ * //   GroupId: "STRING_VALUE", // required
+ * //   IdentityStoreId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param GetGroupIdCommandInput - {@link GetGroupIdCommandInput}
@@ -77,6 +82,8 @@ export interface GetGroupIdCommandOutput extends GetGroupIdResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class GetGroupIdCommand extends $Command<

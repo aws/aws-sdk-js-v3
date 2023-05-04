@@ -64,6 +64,10 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  * };
  * const command = new CreateBillingGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateBillingGroupOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateBillingGroupCommandInput - {@link CreateBillingGroupCommandInput}
@@ -95,6 +99,8 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class CreateBillingGroupCommand extends $Command<

@@ -54,6 +54,10 @@ export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJo
  * };
  * const command = new StartMailboxExportJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartMailboxExportJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartMailboxExportJobCommandInput - {@link StartMailboxExportJobCommandInput}
@@ -80,6 +84,8 @@ export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJo
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class StartMailboxExportJobCommand extends $Command<

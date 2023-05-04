@@ -56,6 +56,13 @@ export interface UpdateVoiceTemplateCommandOutput extends UpdateVoiceTemplateRes
  * };
  * const command = new UpdateVoiceTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateVoiceTemplateResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateVoiceTemplateCommandInput - {@link UpdateVoiceTemplateCommandInput}
@@ -85,6 +92,8 @@ export interface UpdateVoiceTemplateCommandOutput extends UpdateVoiceTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateVoiceTemplateCommand extends $Command<

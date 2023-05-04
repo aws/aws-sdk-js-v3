@@ -60,6 +60,13 @@ export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __Met
  * };
  * const command = new StartSuiteRunCommand(input);
  * const response = await client.send(command);
+ * // { // StartSuiteRunResponse
+ * //   suiteRunId: "STRING_VALUE",
+ * //   suiteRunArn: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   endpoint: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartSuiteRunCommandInput - {@link StartSuiteRunCommandInput}
@@ -77,6 +84,8 @@ export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Sends a validation exception.</p>
  *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class StartSuiteRunCommand extends $Command<

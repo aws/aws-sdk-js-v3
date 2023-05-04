@@ -60,6 +60,26 @@ export interface UpdatePricingRuleCommandOutput extends UpdatePricingRuleOutput,
  * };
  * const command = new UpdatePricingRuleCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePricingRuleOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Scope: "STRING_VALUE",
+ * //   Type: "STRING_VALUE",
+ * //   ModifierPercentage: Number("double"),
+ * //   Service: "STRING_VALUE",
+ * //   AssociatedPricingPlanCount: Number("long"),
+ * //   LastModifiedTime: Number("long"),
+ * //   BillingEntity: "STRING_VALUE",
+ * //   Tiering: { // UpdateTieringInput
+ * //     FreeTier: { // UpdateFreeTierConfig
+ * //       Activated: true || false, // required
+ * //     },
+ * //   },
+ * //   UsageType: "STRING_VALUE",
+ * //   Operation: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdatePricingRuleCommandInput - {@link UpdatePricingRuleCommandInput}
@@ -91,6 +111,8 @@ export interface UpdatePricingRuleCommandOutput extends UpdatePricingRuleOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class UpdatePricingRuleCommand extends $Command<

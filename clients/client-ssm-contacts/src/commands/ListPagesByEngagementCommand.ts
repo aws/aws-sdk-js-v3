@@ -46,6 +46,22 @@ export interface ListPagesByEngagementCommandOutput extends ListPagesByEngagemen
  * };
  * const command = new ListPagesByEngagementCommand(input);
  * const response = await client.send(command);
+ * // { // ListPagesByEngagementResult
+ * //   NextToken: "STRING_VALUE",
+ * //   Pages: [ // PagesList // required
+ * //     { // Page
+ * //       PageArn: "STRING_VALUE", // required
+ * //       EngagementArn: "STRING_VALUE", // required
+ * //       ContactArn: "STRING_VALUE", // required
+ * //       Sender: "STRING_VALUE", // required
+ * //       IncidentId: "STRING_VALUE",
+ * //       SentTime: new Date("TIMESTAMP"),
+ * //       DeliveryTime: new Date("TIMESTAMP"),
+ * //       ReadTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListPagesByEngagementCommandInput - {@link ListPagesByEngagementCommandInput}
@@ -70,6 +86,8 @@ export interface ListPagesByEngagementCommandOutput extends ListPagesByEngagemen
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListPagesByEngagementCommand extends $Command<

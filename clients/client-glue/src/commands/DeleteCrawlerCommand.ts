@@ -45,6 +45,8 @@ export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __Met
  * };
  * const command = new DeleteCrawlerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteCrawlerCommandInput - {@link DeleteCrawlerCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __Met
  * @throws {@link SchedulerTransitioningException} (client fault)
  *  <p>The specified scheduler is transitioning.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteCrawlerCommand extends $Command<

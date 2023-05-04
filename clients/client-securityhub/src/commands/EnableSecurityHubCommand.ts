@@ -67,6 +67,8 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  * };
  * const command = new EnableSecurityHubCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param EnableSecurityHubCommandInput - {@link EnableSecurityHubCommandInput}
@@ -91,6 +93,8 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To activate Security Hub
  * ```javascript

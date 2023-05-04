@@ -56,6 +56,8 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * };
  * const command = new ChangeTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ChangeTagsForResourceCommandInput - {@link ChangeTagsForResourceCommandInput}
@@ -83,6 +85,8 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  * @example To add or remove tags from a hosted zone or health check
  * ```javascript

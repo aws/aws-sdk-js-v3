@@ -45,6 +45,10 @@ export interface DeletePermissionGroupCommandOutput extends DeletePermissionGrou
  * };
  * const command = new DeletePermissionGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DeletePermissionGroupResponse
+ * //   permissionGroupId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeletePermissionGroupCommandInput - {@link DeletePermissionGroupCommandInput}
@@ -75,6 +79,8 @@ export interface DeletePermissionGroupCommandOutput extends DeletePermissionGrou
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class DeletePermissionGroupCommand extends $Command<

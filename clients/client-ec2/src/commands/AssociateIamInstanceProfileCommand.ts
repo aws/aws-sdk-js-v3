@@ -49,6 +49,19 @@ export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamIn
  * };
  * const command = new AssociateIamInstanceProfileCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateIamInstanceProfileResult
+ * //   IamInstanceProfileAssociation: { // IamInstanceProfileAssociation
+ * //     AssociationId: "STRING_VALUE",
+ * //     InstanceId: "STRING_VALUE",
+ * //     IamInstanceProfile: { // IamInstanceProfile
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //     },
+ * //     State: "associating" || "associated" || "disassociating" || "disassociated",
+ * //     Timestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param AssociateIamInstanceProfileCommandInput - {@link AssociateIamInstanceProfileCommandInput}
@@ -57,6 +70,8 @@ export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamIn
  * @see {@link AssociateIamInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To associate an IAM instance profile with an instance
  * ```javascript

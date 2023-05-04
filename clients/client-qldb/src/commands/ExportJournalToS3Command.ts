@@ -65,6 +65,10 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  * };
  * const command = new ExportJournalToS3Command(input);
  * const response = await client.send(command);
+ * // { // ExportJournalToS3Response
+ * //   ExportId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param ExportJournalToS3CommandInput - {@link ExportJournalToS3CommandInput}
@@ -79,6 +83,8 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  * @throws {@link ResourcePreconditionNotMetException} (client fault)
  *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class ExportJournalToS3Command extends $Command<

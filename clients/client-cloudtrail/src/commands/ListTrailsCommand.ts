@@ -44,6 +44,17 @@ export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataB
  * };
  * const command = new ListTrailsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTrailsResponse
+ * //   Trails: [ // Trails
+ * //     { // TrailInfo
+ * //       TrailARN: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       HomeRegion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTrailsCommandInput - {@link ListTrailsCommandInput}
@@ -58,6 +69,8 @@ export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataB
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class ListTrailsCommand extends $Command<

@@ -46,6 +46,20 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListGroupsResponse
+ * //   Groups: [ // Groups
+ * //     { // Group
+ * //       Id: "STRING_VALUE",
+ * //       Email: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       State: "ENABLED" || "DISABLED" || "DELETED",
+ * //       EnabledDate: new Date("TIMESTAMP"),
+ * //       DisabledDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
@@ -69,6 +83,8 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListGroupsCommand extends $Command<

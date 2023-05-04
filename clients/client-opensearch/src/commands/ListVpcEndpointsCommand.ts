@@ -44,6 +44,18 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * };
  * const command = new ListVpcEndpointsCommand(input);
  * const response = await client.send(command);
+ * // { // ListVpcEndpointsResponse
+ * //   VpcEndpointSummaryList: [ // VpcEndpointSummaryList // required
+ * //     { // VpcEndpointSummary
+ * //       VpcEndpointId: "STRING_VALUE",
+ * //       VpcEndpointOwner: "STRING_VALUE",
+ * //       DomainArn: "STRING_VALUE",
+ * //       Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param ListVpcEndpointsCommandInput - {@link ListVpcEndpointsCommandInput}
@@ -56,11 +68,13 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  *  <p>An error occurred while processing the request.</p>
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class ListVpcEndpointsCommand extends $Command<

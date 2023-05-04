@@ -90,6 +90,40 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * };
  * const command = new ListObjectsV2Command(input);
  * const response = await client.send(command);
+ * // { // ListObjectsV2Output
+ * //   IsTruncated: true || false,
+ * //   Contents: [ // ObjectList
+ * //     { // Object
+ * //       Key: "STRING_VALUE",
+ * //       LastModified: new Date("TIMESTAMP"),
+ * //       ETag: "STRING_VALUE",
+ * //       ChecksumAlgorithm: [ // ChecksumAlgorithmList
+ * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * //       ],
+ * //       Size: Number("long"),
+ * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ * //       Owner: { // Owner
+ * //         DisplayName: "STRING_VALUE",
+ * //         ID: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   Name: "STRING_VALUE",
+ * //   Prefix: "STRING_VALUE",
+ * //   Delimiter: "STRING_VALUE",
+ * //   MaxKeys: Number("int"),
+ * //   CommonPrefixes: [ // CommonPrefixList
+ * //     { // CommonPrefix
+ * //       Prefix: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   EncodingType: "url",
+ * //   KeyCount: Number("int"),
+ * //   ContinuationToken: "STRING_VALUE",
+ * //   NextContinuationToken: "STRING_VALUE",
+ * //   StartAfter: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListObjectsV2CommandInput - {@link ListObjectsV2CommandInput}
@@ -101,12 +135,14 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * @throws {@link NoSuchBucket} (client fault)
  *  <p>The specified bucket does not exist.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To get object list
  * ```javascript
  * // The following example retrieves object list. The request specifies max keys to limit response to include only 2 object keys.
  * const input = {
- *   "Bucket": "DOC-EXAMPLE-BUCKET",
+ *   "Bucket": "examplebucket",
  *   "MaxKeys": "2"
  * };
  * const command = new ListObjectsV2Command(input);
@@ -132,7 +168,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *   "IsTruncated": true,
  *   "KeyCount": "2",
  *   "MaxKeys": "2",
- *   "Name": "DOC-EXAMPLE-BUCKET",
+ *   "Name": "examplebucket",
  *   "NextContinuationToken": "1w41l63U0xa8q7smH50vCxyTQqdxo69O3EmK28Bi5PcROI4wI/EyIJg==",
  *   "Prefix": ""
  * }

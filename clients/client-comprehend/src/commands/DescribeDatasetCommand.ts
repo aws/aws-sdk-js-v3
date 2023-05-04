@@ -46,6 +46,21 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDatasetResponse
+ * //   DatasetProperties: { // DatasetProperties
+ * //     DatasetArn: "STRING_VALUE",
+ * //     DatasetName: "STRING_VALUE",
+ * //     DatasetType: "TRAIN" || "TEST",
+ * //     DatasetS3Uri: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Status: "CREATING" || "COMPLETED" || "FAILED",
+ * //     Message: "STRING_VALUE",
+ * //     NumberOfDocuments: Number("long"),
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
@@ -66,6 +81,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DescribeDatasetCommand extends $Command<

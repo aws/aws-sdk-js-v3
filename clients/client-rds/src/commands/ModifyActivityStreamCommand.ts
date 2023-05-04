@@ -49,6 +49,15 @@ export interface ModifyActivityStreamCommandOutput extends ModifyActivityStreamR
  * };
  * const command = new ModifyActivityStreamCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyActivityStreamResponse
+ * //   KmsKeyId: "STRING_VALUE",
+ * //   KinesisStreamName: "STRING_VALUE",
+ * //   Status: "stopped" || "starting" || "started" || "stopping",
+ * //   Mode: "sync" || "async",
+ * //   EngineNativeAuditFieldsIncluded: true || false,
+ * //   PolicyStatus: "locked" || "unlocked" || "locking-policy" || "unlocking-policy",
+ * // };
+ *
  * ```
  *
  * @param ModifyActivityStreamCommandInput - {@link ModifyActivityStreamCommandInput}
@@ -67,6 +76,8 @@ export interface ModifyActivityStreamCommandOutput extends ModifyActivityStreamR
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The specified resource ID was not found.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class ModifyActivityStreamCommand extends $Command<

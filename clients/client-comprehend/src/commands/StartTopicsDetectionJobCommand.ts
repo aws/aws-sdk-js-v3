@@ -78,6 +78,12 @@ export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetecti
  * };
  * const command = new StartTopicsDetectionJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartTopicsDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobArn: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
+ *
  * ```
  *
  * @param StartTopicsDetectionJobCommandInput - {@link StartTopicsDetectionJobCommandInput}
@@ -108,6 +114,8 @@ export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetecti
  *       resource). The maximum number of tags includes both existing tags and those included in your
  *       current request. </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StartTopicsDetectionJobCommand extends $Command<

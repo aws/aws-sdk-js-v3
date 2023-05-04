@@ -54,6 +54,11 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  * };
  * const command = new SendSSHPublicKeyCommand(input);
  * const response = await client.send(command);
+ * // { // SendSSHPublicKeyResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Success: true || false,
+ * // };
+ *
  * ```
  *
  * @param SendSSHPublicKeyCommandInput - {@link SendSSHPublicKeyCommandInput}
@@ -86,6 +91,8 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  *  <p>The requests were made too frequently and have been throttled. Wait a while and try again.
  *             To increase the limit on your request frequency, contact AWS Support.</p>
  *
+ * @throws {@link EC2InstanceConnectServiceException}
+ * <p>Base exception class for all service exceptions from EC2InstanceConnect service.</p>
  *
  * @example To push an SSH key to an EC2 instance
  * ```javascript

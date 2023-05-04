@@ -61,6 +61,23 @@ export interface CreateTransitGatewayRouteTableCommandOutput
  * };
  * const command = new CreateTransitGatewayRouteTableCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTransitGatewayRouteTableResult
+ * //   TransitGatewayRouteTable: { // TransitGatewayRouteTable
+ * //     TransitGatewayRouteTableId: "STRING_VALUE",
+ * //     TransitGatewayId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     DefaultAssociationRouteTable: true || false,
+ * //     DefaultPropagationRouteTable: true || false,
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateTransitGatewayRouteTableCommandInput - {@link CreateTransitGatewayRouteTableCommandInput}
@@ -69,6 +86,8 @@ export interface CreateTransitGatewayRouteTableCommandOutput
  * @see {@link CreateTransitGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateTransitGatewayRouteTableCommand extends $Command<

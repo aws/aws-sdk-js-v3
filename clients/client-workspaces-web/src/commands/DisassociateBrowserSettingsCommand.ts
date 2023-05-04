@@ -49,6 +49,8 @@ export interface DisassociateBrowserSettingsCommandOutput
  * };
  * const command = new DisassociateBrowserSettingsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateBrowserSettingsCommandInput - {@link DisassociateBrowserSettingsCommandInput}
@@ -72,6 +74,8 @@ export interface DisassociateBrowserSettingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DisassociateBrowserSettingsCommand extends $Command<

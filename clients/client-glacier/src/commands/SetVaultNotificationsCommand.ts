@@ -88,6 +88,8 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetVaultNotificationsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SetVaultNotificationsCommandInput - {@link SetVaultNotificationsCommandInput}
@@ -109,6 +111,8 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To configure a vault to post a message to an Amazon SNS topic when jobs complete
  * ```javascript

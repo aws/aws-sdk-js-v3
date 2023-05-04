@@ -55,6 +55,24 @@ export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewa
  * };
  * const command = new AssociateFirewallRuleGroupCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateFirewallRuleGroupResponse
+ * //   FirewallRuleGroupAssociation: { // FirewallRuleGroupAssociation
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     FirewallRuleGroupId: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Priority: Number("int"),
+ * //     MutationProtection: "ENABLED" || "DISABLED",
+ * //     ManagedOwnerName: "STRING_VALUE",
+ * //     Status: "COMPLETE" || "DELETING" || "UPDATING",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //     CreationTime: "STRING_VALUE",
+ * //     ModificationTime: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param AssociateFirewallRuleGroupCommandInput - {@link AssociateFirewallRuleGroupCommandInput}
@@ -87,6 +105,8 @@ export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewa
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class AssociateFirewallRuleGroupCommand extends $Command<

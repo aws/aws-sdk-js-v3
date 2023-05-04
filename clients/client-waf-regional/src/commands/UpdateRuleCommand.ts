@@ -104,6 +104,10 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * };
  * const command = new UpdateRuleCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateRuleResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateRuleCommandInput - {@link UpdateRuleCommandInput}
@@ -221,6 +225,8 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To update a rule
  * ```javascript

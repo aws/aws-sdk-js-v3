@@ -67,6 +67,21 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  * };
  * const command = new DisposePackageVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // DisposePackageVersionsResult
+ * //   successfulVersions: { // SuccessfulPackageVersionInfoMap
+ * //     "<keys>": { // SuccessfulPackageVersionInfo
+ * //       revision: "STRING_VALUE",
+ * //       status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
+ * //     },
+ * //   },
+ * //   failedVersions: { // PackageVersionErrorMap
+ * //     "<keys>": { // PackageVersionError
+ * //       errorCode: "ALREADY_EXISTS" || "MISMATCHED_REVISION" || "MISMATCHED_STATUS" || "NOT_ALLOWED" || "NOT_FOUND" || "SKIPPED",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DisposePackageVersionsCommandInput - {@link DisposePackageVersionsCommandInput}
@@ -103,6 +118,8 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class DisposePackageVersionsCommand extends $Command<

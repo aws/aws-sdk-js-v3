@@ -48,6 +48,16 @@ export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataB
  * };
  * const command = new ListGraphsCommand(input);
  * const response = await client.send(command);
+ * // { // ListGraphsResponse
+ * //   GraphList: [ // GraphList
+ * //     { // Graph
+ * //       Arn: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListGraphsCommandInput - {@link ListGraphsCommandInput}
@@ -66,6 +76,8 @@ export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class ListGraphsCommand extends $Command<

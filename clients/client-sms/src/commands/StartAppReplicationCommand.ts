@@ -45,6 +45,8 @@ export interface StartAppReplicationCommandOutput extends StartAppReplicationRes
  * };
  * const command = new StartAppReplicationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartAppReplicationCommandInput - {@link StartAppReplicationCommandInput}
@@ -69,6 +71,8 @@ export interface StartAppReplicationCommandOutput extends StartAppReplicationRes
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class StartAppReplicationCommand extends $Command<

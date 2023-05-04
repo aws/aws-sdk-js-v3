@@ -46,6 +46,8 @@ export interface DeleteWhatIfForecastCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteWhatIfForecastCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteWhatIfForecastCommandInput - {@link DeleteWhatIfForecastCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteWhatIfForecastCommandOutput extends __MetadataBearer {}
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DeleteWhatIfForecastCommand extends $Command<

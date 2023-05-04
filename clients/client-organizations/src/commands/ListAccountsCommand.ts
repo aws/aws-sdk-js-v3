@@ -56,6 +56,21 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * };
  * const command = new ListAccountsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAccountsResponse
+ * //   Accounts: [ // Accounts
+ * //     { // Account
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Email: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
+ * //       JoinedMethod: "INVITED" || "CREATED",
+ * //       JoinedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAccountsCommandInput - {@link ListAccountsCommandInput}
@@ -190,6 +205,8 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list of all of the accounts in an organization
  * ```javascript

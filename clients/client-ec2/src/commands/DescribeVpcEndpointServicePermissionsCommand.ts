@@ -65,6 +65,24 @@ export interface DescribeVpcEndpointServicePermissionsCommandOutput
  * };
  * const command = new DescribeVpcEndpointServicePermissionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeVpcEndpointServicePermissionsResult
+ * //   AllowedPrincipals: [ // AllowedPrincipalSet
+ * //     { // AllowedPrincipal
+ * //       PrincipalType: "All" || "Service" || "OrganizationUnit" || "Account" || "User" || "Role",
+ * //       Principal: "STRING_VALUE",
+ * //       ServicePermissionId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ServiceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeVpcEndpointServicePermissionsCommandInput - {@link DescribeVpcEndpointServicePermissionsCommandInput}
@@ -73,6 +91,8 @@ export interface DescribeVpcEndpointServicePermissionsCommandOutput
  * @see {@link DescribeVpcEndpointServicePermissionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeVpcEndpointServicePermissionsCommand extends $Command<

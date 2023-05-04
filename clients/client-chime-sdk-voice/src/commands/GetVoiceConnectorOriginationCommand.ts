@@ -49,6 +49,21 @@ export interface GetVoiceConnectorOriginationCommandOutput
  * };
  * const command = new GetVoiceConnectorOriginationCommand(input);
  * const response = await client.send(command);
+ * // { // GetVoiceConnectorOriginationResponse
+ * //   Origination: { // Origination
+ * //     Routes: [ // OriginationRouteList
+ * //       { // OriginationRoute
+ * //         Host: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         Protocol: "TCP" || "UDP",
+ * //         Priority: Number("int"),
+ * //         Weight: Number("int"),
+ * //       },
+ * //     ],
+ * //     Disabled: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetVoiceConnectorOriginationCommandInput - {@link GetVoiceConnectorOriginationCommandInput}
@@ -78,6 +93,8 @@ export interface GetVoiceConnectorOriginationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class GetVoiceConnectorOriginationCommand extends $Command<

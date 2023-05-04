@@ -81,6 +81,9 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  *   },
  *   DiscoveryConfig: { // WorkloadDiscoveryConfig
  *     TrustedAdvisorIntegrationStatus: "ENABLED" || "DISABLED",
+ *     WorkloadResourceDefinition: [ // WorkloadResourceDefinition
+ *       "WORKLOAD_METADATA" || "APP_REGISTRY",
+ *     ],
  *   },
  *   Applications: [ // WorkloadApplications
  *     "STRING_VALUE",
@@ -88,6 +91,11 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  * };
  * const command = new CreateWorkloadCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWorkloadOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   WorkloadArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateWorkloadCommandInput - {@link CreateWorkloadCommandInput}
@@ -117,6 +125,8 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class CreateWorkloadCommand extends $Command<

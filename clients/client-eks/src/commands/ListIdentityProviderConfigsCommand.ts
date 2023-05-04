@@ -51,6 +51,16 @@ export interface ListIdentityProviderConfigsCommandOutput
  * };
  * const command = new ListIdentityProviderConfigsCommand(input);
  * const response = await client.send(command);
+ * // { // ListIdentityProviderConfigsResponse
+ * //   identityProviderConfigs: [ // IdentityProviderConfigs
+ * //     { // IdentityProviderConfig
+ * //       type: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListIdentityProviderConfigsCommandInput - {@link ListIdentityProviderConfigsCommandInput}
@@ -80,6 +90,8 @@ export interface ListIdentityProviderConfigsCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unavailable. Back off and retry the operation.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class ListIdentityProviderConfigsCommand extends $Command<

@@ -49,6 +49,12 @@ export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacemen
  * };
  * const command = new GetDevicesInPlacementCommand(input);
  * const response = await client.send(command);
+ * // { // GetDevicesInPlacementResponse
+ * //   devices: { // DeviceMap // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetDevicesInPlacementCommandInput - {@link GetDevicesInPlacementCommandInput}
@@ -66,6 +72,8 @@ export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacemen
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class GetDevicesInPlacementCommand extends $Command<

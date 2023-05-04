@@ -44,6 +44,8 @@ export interface DeleteVoiceConnectorProxyCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteVoiceConnectorProxyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteVoiceConnectorProxyCommandInput - {@link DeleteVoiceConnectorProxyCommandInput}
@@ -73,6 +75,8 @@ export interface DeleteVoiceConnectorProxyCommandOutput extends __MetadataBearer
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class DeleteVoiceConnectorProxyCommand extends $Command<

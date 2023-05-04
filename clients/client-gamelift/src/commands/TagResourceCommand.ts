@@ -73,6 +73,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -97,6 +99,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *             or the maximum tag limit may have been exceeded. Resolve the issue before
  *             retrying.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

@@ -50,6 +50,8 @@ export interface DetachElasticLoadBalancerCommandOutput extends __MetadataBearer
  * };
  * const command = new DetachElasticLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DetachElasticLoadBalancerCommandInput - {@link DetachElasticLoadBalancerCommandInput}
@@ -61,6 +63,8 @@ export interface DetachElasticLoadBalancerCommandOutput extends __MetadataBearer
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Indicates that a resource was not found.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DetachElasticLoadBalancerCommand extends $Command<

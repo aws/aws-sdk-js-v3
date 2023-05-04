@@ -81,6 +81,29 @@ export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, _
  * };
  * const command = new DescribeMonitorCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeMonitorResponse
+ * //   MonitorName: "STRING_VALUE",
+ * //   MonitorArn: "STRING_VALUE",
+ * //   ResourceArn: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   LastEvaluationTime: new Date("TIMESTAMP"),
+ * //   LastEvaluationState: "STRING_VALUE",
+ * //   Baseline: { // Baseline
+ * //     PredictorBaseline: { // PredictorBaseline
+ * //       BaselineMetrics: [ // BaselineMetrics
+ * //         { // BaselineMetric
+ * //           Name: "STRING_VALUE",
+ * //           Value: Number("double"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   Message: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModificationTime: new Date("TIMESTAMP"),
+ * //   EstimatedEvaluationTimeRemainingInMinutes: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param DescribeMonitorCommandInput - {@link DescribeMonitorCommandInput}
@@ -97,6 +120,8 @@ export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, _
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DescribeMonitorCommand extends $Command<

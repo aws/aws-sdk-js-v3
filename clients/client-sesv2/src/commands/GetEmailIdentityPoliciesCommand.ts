@@ -55,6 +55,12 @@ export interface GetEmailIdentityPoliciesCommandOutput extends GetEmailIdentityP
  * };
  * const command = new GetEmailIdentityPoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // GetEmailIdentityPoliciesResponse
+ * //   Policies: { // PolicyMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetEmailIdentityPoliciesCommandInput - {@link GetEmailIdentityPoliciesCommandInput}
@@ -72,6 +78,8 @@ export interface GetEmailIdentityPoliciesCommandOutput extends GetEmailIdentityP
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class GetEmailIdentityPoliciesCommand extends $Command<

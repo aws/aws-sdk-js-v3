@@ -46,6 +46,10 @@ export interface CreateResourceCommandOutput extends CreateResourceResponse, __M
  * };
  * const command = new CreateResourceCommand(input);
  * const response = await client.send(command);
+ * // { // CreateResourceResponse
+ * //   ResourceId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateResourceCommandInput - {@link CreateResourceCommandInput}
@@ -77,6 +81,8 @@ export interface CreateResourceCommandOutput extends CreateResourceResponse, __M
  * @throws {@link ReservedNameException} (client fault)
  *  <p>This user, group, or resource name is not allowed in WorkMail.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class CreateResourceCommand extends $Command<

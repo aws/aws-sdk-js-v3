@@ -67,6 +67,10 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateProjectOutput
+ * //   ProjectArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
@@ -75,6 +79,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateProjectCommand extends $Command<

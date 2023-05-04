@@ -48,6 +48,16 @@ export interface DescribeEventConfigurationsCommandOutput
  * const input = {};
  * const command = new DescribeEventConfigurationsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEventConfigurationsResponse
+ * //   eventConfigurations: { // EventConfigurations
+ * //     "<keys>": { // Configuration
+ * //       Enabled: true || false,
+ * //     },
+ * //   },
+ * //   creationDate: new Date("TIMESTAMP"),
+ * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeEventConfigurationsCommandInput - {@link DescribeEventConfigurationsCommandInput}
@@ -62,6 +72,8 @@ export interface DescribeEventConfigurationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeEventConfigurationsCommand extends $Command<

@@ -45,6 +45,8 @@ export interface DeleteUserCommandOutput extends DeleteUserResult, __MetadataBea
  * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
@@ -56,6 +58,8 @@ export interface DeleteUserCommandOutput extends DeleteUserResult, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DeleteUserCommand extends $Command<

@@ -50,6 +50,70 @@ export interface GetServiceInstanceSyncStatusCommandOutput
  * };
  * const command = new GetServiceInstanceSyncStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetServiceInstanceSyncStatusOutput
+ * //   latestSync: { // ResourceSyncAttempt
+ * //     initialRevision: { // Revision
+ * //       repositoryName: "STRING_VALUE", // required
+ * //       repositoryProvider: "STRING_VALUE", // required
+ * //       sha: "STRING_VALUE", // required
+ * //       directory: "STRING_VALUE", // required
+ * //       branch: "STRING_VALUE", // required
+ * //     },
+ * //     targetRevision: {
+ * //       repositoryName: "STRING_VALUE", // required
+ * //       repositoryProvider: "STRING_VALUE", // required
+ * //       sha: "STRING_VALUE", // required
+ * //       directory: "STRING_VALUE", // required
+ * //       branch: "STRING_VALUE", // required
+ * //     },
+ * //     target: "STRING_VALUE", // required
+ * //     startedAt: new Date("TIMESTAMP"), // required
+ * //     status: "STRING_VALUE", // required
+ * //     events: [ // ResourceSyncEvents // required
+ * //       { // ResourceSyncEvent
+ * //         type: "STRING_VALUE", // required
+ * //         externalId: "STRING_VALUE",
+ * //         time: new Date("TIMESTAMP"), // required
+ * //         event: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   latestSuccessfulSync: {
+ * //     initialRevision: {
+ * //       repositoryName: "STRING_VALUE", // required
+ * //       repositoryProvider: "STRING_VALUE", // required
+ * //       sha: "STRING_VALUE", // required
+ * //       directory: "STRING_VALUE", // required
+ * //       branch: "STRING_VALUE", // required
+ * //     },
+ * //     targetRevision: {
+ * //       repositoryName: "STRING_VALUE", // required
+ * //       repositoryProvider: "STRING_VALUE", // required
+ * //       sha: "STRING_VALUE", // required
+ * //       directory: "STRING_VALUE", // required
+ * //       branch: "STRING_VALUE", // required
+ * //     },
+ * //     target: "STRING_VALUE", // required
+ * //     startedAt: new Date("TIMESTAMP"), // required
+ * //     status: "STRING_VALUE", // required
+ * //     events: [ // required
+ * //       {
+ * //         type: "STRING_VALUE", // required
+ * //         externalId: "STRING_VALUE",
+ * //         time: new Date("TIMESTAMP"), // required
+ * //         event: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   desiredState: {
+ * //     repositoryName: "STRING_VALUE", // required
+ * //     repositoryProvider: "STRING_VALUE", // required
+ * //     sha: "STRING_VALUE", // required
+ * //     directory: "STRING_VALUE", // required
+ * //     branch: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetServiceInstanceSyncStatusCommandInput - {@link GetServiceInstanceSyncStatusCommandInput}
@@ -73,6 +137,8 @@ export interface GetServiceInstanceSyncStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class GetServiceInstanceSyncStatusCommand extends $Command<

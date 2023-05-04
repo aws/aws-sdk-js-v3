@@ -64,6 +64,11 @@ export interface CreateDomainConfigurationCommandOutput extends CreateDomainConf
  * };
  * const command = new CreateDomainConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDomainConfigurationResponse
+ * //   domainConfigurationName: "STRING_VALUE",
+ * //   domainConfigurationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateDomainConfigurationCommandInput - {@link CreateDomainConfigurationCommandInput}
@@ -96,6 +101,8 @@ export interface CreateDomainConfigurationCommandOutput extends CreateDomainConf
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateDomainConfigurationCommand extends $Command<

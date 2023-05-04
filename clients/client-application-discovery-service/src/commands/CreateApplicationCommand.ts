@@ -49,6 +49,10 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateApplicationResponse
+ * //   configurationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -74,6 +78,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

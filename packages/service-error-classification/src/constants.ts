@@ -49,4 +49,4 @@ export const TRANSIENT_ERROR_STATUS_CODES = [500, 502, 503, 504];
 /**
  * Node.js system error codes that indicate timeout.
  */
-export const NODEJS_TIMEOUT_ERROR_CODES = ["ECONNRESET", "EPIPE", "ETIMEDOUT"];
+export const NODEJS_TIMEOUT_ERROR_CODES = ["ECONNRESET", "ECONNREFUSED", "EPIPE", "ETIMEDOUT"];

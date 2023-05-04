@@ -50,6 +50,11 @@ export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResul
  * };
  * const command = new ModifySnapshotTierCommand(input);
  * const response = await client.send(command);
+ * // { // ModifySnapshotTierResult
+ * //   SnapshotId: "STRING_VALUE",
+ * //   TieringStartTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param ModifySnapshotTierCommandInput - {@link ModifySnapshotTierCommandInput}
@@ -58,6 +63,8 @@ export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResul
  * @see {@link ModifySnapshotTierCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifySnapshotTierCommand extends $Command<

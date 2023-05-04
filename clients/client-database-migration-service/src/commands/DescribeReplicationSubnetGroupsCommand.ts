@@ -62,6 +62,30 @@ export interface DescribeReplicationSubnetGroupsCommandOutput
  * };
  * const command = new DescribeReplicationSubnetGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeReplicationSubnetGroupsResponse
+ * //   Marker: "STRING_VALUE",
+ * //   ReplicationSubnetGroups: [ // ReplicationSubnetGroups
+ * //     { // ReplicationSubnetGroup
+ * //       ReplicationSubnetGroupIdentifier: "STRING_VALUE",
+ * //       ReplicationSubnetGroupDescription: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       SubnetGroupStatus: "STRING_VALUE",
+ * //       Subnets: [ // SubnetList
+ * //         { // Subnet
+ * //           SubnetIdentifier: "STRING_VALUE",
+ * //           SubnetAvailabilityZone: { // AvailabilityZone
+ * //             Name: "STRING_VALUE",
+ * //           },
+ * //           SubnetStatus: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       SupportedNetworkTypes: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeReplicationSubnetGroupsCommandInput - {@link DescribeReplicationSubnetGroupsCommandInput}
@@ -73,6 +97,8 @@ export interface DescribeReplicationSubnetGroupsCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Describe replication subnet groups
  * ```javascript

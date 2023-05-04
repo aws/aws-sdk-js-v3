@@ -45,6 +45,8 @@ export interface StartEdgeDeploymentStageCommandOutput extends __MetadataBearer 
  * };
  * const command = new StartEdgeDeploymentStageCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartEdgeDeploymentStageCommandInput - {@link StartEdgeDeploymentStageCommandInput}
@@ -53,6 +55,8 @@ export interface StartEdgeDeploymentStageCommandOutput extends __MetadataBearer 
  * @see {@link StartEdgeDeploymentStageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StartEdgeDeploymentStageCommand extends $Command<

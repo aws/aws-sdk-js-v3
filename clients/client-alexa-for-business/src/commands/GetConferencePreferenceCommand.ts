@@ -42,6 +42,12 @@ export interface GetConferencePreferenceCommandOutput extends GetConferencePrefe
  * const input = {};
  * const command = new GetConferencePreferenceCommand(input);
  * const response = await client.send(command);
+ * // { // GetConferencePreferenceResponse
+ * //   Preference: { // ConferencePreference
+ * //     DefaultConferenceProviderArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetConferencePreferenceCommandInput - {@link GetConferencePreferenceCommandInput}
@@ -53,6 +59,8 @@ export interface GetConferencePreferenceCommandOutput extends GetConferencePrefe
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetConferencePreferenceCommand extends $Command<

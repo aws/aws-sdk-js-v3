@@ -69,6 +69,11 @@ export interface TestAvailabilityConfigurationCommandOutput
  * };
  * const command = new TestAvailabilityConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // TestAvailabilityConfigurationResponse
+ * //   TestPassed: true || false,
+ * //   FailureReason: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param TestAvailabilityConfigurationCommandInput - {@link TestAvailabilityConfigurationCommandInput}
@@ -91,6 +96,8 @@ export interface TestAvailabilityConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class TestAvailabilityConfigurationCommand extends $Command<

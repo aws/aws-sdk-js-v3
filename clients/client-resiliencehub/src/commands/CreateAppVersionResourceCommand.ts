@@ -59,7 +59,7 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  * const client = new ResiliencehubClient(config);
  * const input = { // CreateAppVersionResourceRequest
  *   appArn: "STRING_VALUE", // required
- *   resourceName: "STRING_VALUE", // required
+ *   resourceName: "STRING_VALUE",
  *   logicalResourceId: { // LogicalResourceId
  *     identifier: "STRING_VALUE", // required
  *     logicalStackName: "STRING_VALUE",
@@ -83,6 +83,46 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  * };
  * const command = new CreateAppVersionResourceCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAppVersionResourceResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   physicalResource: { // PhysicalResource
+ * //     resourceName: "STRING_VALUE",
+ * //     logicalResourceId: { // LogicalResourceId
+ * //       identifier: "STRING_VALUE", // required
+ * //       logicalStackName: "STRING_VALUE",
+ * //       resourceGroupName: "STRING_VALUE",
+ * //       terraformSourceName: "STRING_VALUE",
+ * //       eksSourceName: "STRING_VALUE",
+ * //     },
+ * //     physicalResourceId: { // PhysicalResourceId
+ * //       identifier: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //       awsRegion: "STRING_VALUE",
+ * //       awsAccountId: "STRING_VALUE",
+ * //     },
+ * //     resourceType: "STRING_VALUE", // required
+ * //     appComponents: [ // AppComponentList
+ * //       { // AppComponent
+ * //         name: "STRING_VALUE", // required
+ * //         type: "STRING_VALUE", // required
+ * //         id: "STRING_VALUE",
+ * //         additionalInfo: { // AdditionalInfoMap
+ * //           "<keys>": [ // AdditionalInfoValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     ],
+ * //     additionalInfo: {
+ * //       "<keys>": [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     excluded: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateAppVersionResourceCommandInput - {@link CreateAppVersionResourceCommandInput}
@@ -119,6 +159,8 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class CreateAppVersionResourceCommand extends $Command<

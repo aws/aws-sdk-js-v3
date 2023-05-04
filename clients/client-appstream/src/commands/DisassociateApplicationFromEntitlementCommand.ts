@@ -55,6 +55,8 @@ export interface DisassociateApplicationFromEntitlementCommandOutput
  * };
  * const command = new DisassociateApplicationFromEntitlementCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateApplicationFromEntitlementCommandInput - {@link DisassociateApplicationFromEntitlementCommandInput}
@@ -72,6 +74,8 @@ export interface DisassociateApplicationFromEntitlementCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DisassociateApplicationFromEntitlementCommand extends $Command<

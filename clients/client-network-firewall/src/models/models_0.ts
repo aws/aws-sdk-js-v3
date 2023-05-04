@@ -401,6 +401,8 @@ export class InsufficientCapacityException extends __BaseException {
 export const AttachmentStatus = {
   CREATING: "CREATING",
   DELETING: "DELETING",
+  ERROR: "ERROR",
+  FAILED: "FAILED",
   READY: "READY",
   SCALING: "SCALING",
 } as const;
@@ -440,7 +442,7 @@ export interface Attachment {
   Status?: AttachmentStatus | string;
 
   /**
-   * <p>If Network Firewall fails to create or delete the firewall endpoint in the subnet, it populates this with the reason for the failure and how to resolve it. Depending on the error, it can take as many as 15 minutes to populate this field. For more information about the errors and solutions available for this field, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html">Troubleshooting firewall endpoint failures</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   * <p>If Network Firewall fails to create or delete the firewall endpoint in the subnet, it populates this with the reason for the error or failure and how to resolve it. A <code>FAILED</code> status indicates a non-recoverable state, and a <code>ERROR</code> status indicates an issue that you can fix. Depending on the error, it can take as many as 15 minutes to populate this field. For more information about the causes for failiure or errors and solutions available for this field, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html">Troubleshooting firewall endpoint failures</a> in the <i>Network Firewall Developer Guide</i>.</p>
    */
   StatusMessage?: string;
 }
@@ -893,6 +895,30 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
+ * <p>A list of IP addresses and address ranges, in CIDR notation. This is part of a <a>RuleVariables</a>. </p>
+ */
+export interface IPSet {
+  /**
+   * <p>The list of IP addresses and address ranges, in CIDR notation.
+   *
+   *       </p>
+   */
+  Definition: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains variables that you can use to override default Suricata settings in your firewall policy.</p>
+ */
+export interface PolicyVariables {
+  /**
+   * <p>The IPv4 or IPv6 addresses in CIDR notation to use for the Suricata <code>HOME_NET</code> variable. If your firewall uses an inspection VPC, you might want to override the <code>HOME_NET</code> variable with the CIDRs of your home networks. If you don't override <code>HOME_NET</code> with your own CIDRs, Network Firewall by default uses the CIDR of your inspection VPC.</p>
+   */
+  RuleVariables?: Record<string, IPSet>;
+}
+
+/**
+ * @public
  * @enum
  */
 export const RuleOrder = {
@@ -1149,6 +1175,11 @@ export interface FirewallPolicy {
    * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p>
    */
   TLSInspectionConfigurationArn?: string;
+
+  /**
+   * <p>Contains variables that you can use to override default Suricata settings in your firewall policy.</p>
+   */
+  PolicyVariables?: PolicyVariables;
 }
 
 /**
@@ -1540,7 +1571,7 @@ export interface RuleOption {
  * <p>A single Suricata rules specification, for use in a stateful rule group.
  *        Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options.
  *        For information about the Suricata <code>Rules</code> format, see
- *                                         <a href="https://suricata.readthedocs.iorules/intro.html#">Rules Format</a>. </p>
+ *                                         <a href="https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html">Rules Format</a>. </p>
  */
 export interface StatefulRule {
   /**
@@ -1568,13 +1599,6 @@ export interface StatefulRule {
    *                <p>You can use this action to test a rule that you intend to use to drop traffic. You
    *                can enable the rule with <code>ALERT</code> action, verify in the logs that the rule
    *                is filtering as you want, then change the action to <code>DROP</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>REJECT</b> - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a <code>RST</code> bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the <a>Firewall</a>
-   *                   <a>LoggingConfiguration</a>.</p>
-   *                <p>
-   *                   <code>REJECT</code> isn't currently available for use with IMAP and FTP protocols.</p>
    *             </li>
    *          </ul>
    */
@@ -1832,7 +1856,7 @@ export interface RulesSource {
    * <p>An array of individual stateful rules inspection criteria to be used together in a stateful rule group.
    *        Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options.
    *        For information about the Suricata <code>Rules</code> format, see
-   *                                         <a href="https://suricata.readthedocs.iorules/intro.html#">Rules Format</a>. </p>
+   *                                         <a href="https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html">Rules Format</a>. </p>
    */
   StatefulRules?: StatefulRule[];
 
@@ -1840,19 +1864,6 @@ export interface RulesSource {
    * <p>Stateless inspection criteria to be used in a stateless rule group. </p>
    */
   StatelessRulesAndCustomActions?: StatelessRulesAndCustomActions;
-}
-
-/**
- * @public
- * <p>A list of IP addresses and address ranges, in CIDR notation. This is part of a <a>RuleVariables</a>. </p>
- */
-export interface IPSet {
-  /**
-   * <p>The list of IP addresses and address ranges, in CIDR notation.
-   *
-   *       </p>
-   */
-  Definition: string[] | undefined;
 }
 
 /**
@@ -3359,12 +3370,6 @@ export interface PutResourcePolicyRequest {
    *          </ul>
    *          <p>For a firewall policy resource, you can specify the following operations in the Actions section of the statement:</p>
    *          <ul>
-   *             <li>
-   *                <p>network-firewall:CreateFirewall</p>
-   *             </li>
-   *             <li>
-   *                <p>network-firewall:UpdateFirewall</p>
-   *             </li>
    *             <li>
    *                <p>network-firewall:AssociateFirewallPolicy</p>
    *             </li>

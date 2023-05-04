@@ -63,6 +63,26 @@ export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefi
  * };
  * const command = new ModifyManagedPrefixListCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyManagedPrefixListResult
+ * //   PrefixList: { // ManagedPrefixList
+ * //     PrefixListId: "STRING_VALUE",
+ * //     AddressFamily: "STRING_VALUE",
+ * //     State: "create-in-progress" || "create-complete" || "create-failed" || "modify-in-progress" || "modify-complete" || "modify-failed" || "restore-in-progress" || "restore-complete" || "restore-failed" || "delete-in-progress" || "delete-complete" || "delete-failed",
+ * //     StateMessage: "STRING_VALUE",
+ * //     PrefixListArn: "STRING_VALUE",
+ * //     PrefixListName: "STRING_VALUE",
+ * //     MaxEntries: Number("int"),
+ * //     Version: Number("long"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     OwnerId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ModifyManagedPrefixListCommandInput - {@link ModifyManagedPrefixListCommandInput}
@@ -71,6 +91,8 @@ export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefi
  * @see {@link ModifyManagedPrefixListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyManagedPrefixListCommand extends $Command<

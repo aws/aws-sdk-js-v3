@@ -79,6 +79,12 @@ export interface UpdateInfrastructureConfigurationCommandOutput
  * };
  * const command = new UpdateInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateInfrastructureConfigurationResponse
+ * //   requestId: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * //   infrastructureConfigurationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateInfrastructureConfigurationCommandInput - {@link UpdateInfrastructureConfigurationCommandInput}
@@ -116,6 +122,8 @@ export interface UpdateInfrastructureConfigurationCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class UpdateInfrastructureConfigurationCommand extends $Command<

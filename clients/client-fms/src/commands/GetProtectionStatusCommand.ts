@@ -50,6 +50,13 @@ export interface GetProtectionStatusCommandOutput extends GetProtectionStatusRes
  * };
  * const command = new GetProtectionStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetProtectionStatusResponse
+ * //   AdminAccountId: "STRING_VALUE",
+ * //   ServiceType: "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL",
+ * //   Data: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetProtectionStatusCommandInput - {@link GetProtectionStatusCommandInput}
@@ -68,6 +75,8 @@ export interface GetProtectionStatusCommandOutput extends GetProtectionStatusRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class GetProtectionStatusCommand extends $Command<

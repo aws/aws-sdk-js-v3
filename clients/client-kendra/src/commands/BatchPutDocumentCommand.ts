@@ -166,6 +166,16 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  * };
  * const command = new BatchPutDocumentCommand(input);
  * const response = await client.send(command);
+ * // { // BatchPutDocumentResponse
+ * //   FailedDocuments: [ // BatchPutDocumentResponseFailedDocuments
+ * //     { // BatchPutDocumentResponseFailedDocument
+ * //       Id: "STRING_VALUE",
+ * //       ErrorCode: "InternalError" || "InvalidRequest",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchPutDocumentCommandInput - {@link BatchPutDocumentCommandInput}
@@ -204,6 +214,8 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class BatchPutDocumentCommand extends $Command<

@@ -61,6 +61,10 @@ export interface StartPHIDetectionJobCommandOutput extends StartPHIDetectionJobR
  * };
  * const command = new StartPHIDetectionJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartPHIDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartPHIDetectionJobCommandInput - {@link StartPHIDetectionJobCommandInput}
@@ -85,6 +89,8 @@ export interface StartPHIDetectionJobCommandOutput extends StartPHIDetectionJobR
  *       then try your request again. Contact customer support for more information about a service
  *       limit increase. </p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class StartPHIDetectionJobCommand extends $Command<

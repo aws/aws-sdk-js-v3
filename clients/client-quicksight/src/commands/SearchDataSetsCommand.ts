@@ -53,6 +53,31 @@ export interface SearchDataSetsCommandOutput extends SearchDataSetsResponse, __M
  * };
  * const command = new SearchDataSetsCommand(input);
  * const response = await client.send(command);
+ * // { // SearchDataSetsResponse
+ * //   DataSetSummaries: [ // DataSetSummaryList
+ * //     { // DataSetSummary
+ * //       Arn: "STRING_VALUE",
+ * //       DataSetId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //       ImportMode: "SPICE" || "DIRECT_QUERY",
+ * //       RowLevelPermissionDataSet: { // RowLevelPermissionDataSet
+ * //         Namespace: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
+ * //         PermissionPolicy: "GRANT_ACCESS" || "DENY_ACCESS", // required
+ * //         FormatVersion: "VERSION_1" || "VERSION_2",
+ * //         Status: "ENABLED" || "DISABLED",
+ * //       },
+ * //       RowLevelPermissionTagConfigurationApplied: true || false,
+ * //       ColumnLevelPermissionRulesApplied: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param SearchDataSetsCommandInput - {@link SearchDataSetsCommandInput}
@@ -82,6 +107,8 @@ export interface SearchDataSetsCommandOutput extends SearchDataSetsResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class SearchDataSetsCommand extends $Command<

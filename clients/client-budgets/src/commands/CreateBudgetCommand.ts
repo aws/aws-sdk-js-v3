@@ -120,6 +120,8 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  * };
  * const command = new CreateBudgetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateBudgetCommandInput - {@link CreateBudgetCommandInput}
@@ -148,6 +150,8 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class CreateBudgetCommand extends $Command<

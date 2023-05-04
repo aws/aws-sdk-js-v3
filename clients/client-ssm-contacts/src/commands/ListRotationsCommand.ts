@@ -46,6 +46,57 @@ export interface ListRotationsCommandOutput extends ListRotationsResult, __Metad
  * };
  * const command = new ListRotationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListRotationsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   Rotations: [ // Rotations // required
+ * //     { // Rotation
+ * //       RotationArn: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       ContactIds: [ // SsmContactsArnList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       TimeZoneId: "STRING_VALUE",
+ * //       Recurrence: { // RecurrenceSettings
+ * //         MonthlySettings: [ // MonthlySettings
+ * //           { // MonthlySetting
+ * //             DayOfMonth: Number("int"), // required
+ * //             HandOffTime: { // HandOffTime
+ * //               HourOfDay: Number("int"), // required
+ * //               MinuteOfHour: Number("int"), // required
+ * //             },
+ * //           },
+ * //         ],
+ * //         WeeklySettings: [ // WeeklySettings
+ * //           { // WeeklySetting
+ * //             DayOfWeek: "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT" || "SUN", // required
+ * //             HandOffTime: {
+ * //               HourOfDay: Number("int"), // required
+ * //               MinuteOfHour: Number("int"), // required
+ * //             },
+ * //           },
+ * //         ],
+ * //         DailySettings: [ // DailySettings
+ * //           {
+ * //             HourOfDay: Number("int"), // required
+ * //             MinuteOfHour: Number("int"), // required
+ * //           },
+ * //         ],
+ * //         NumberOfOnCalls: Number("int"), // required
+ * //         ShiftCoverages: { // ShiftCoveragesMap
+ * //           "<keys>": [ // CoverageTimes
+ * //             { // CoverageTime
+ * //               Start: "<HandOffTime>",
+ * //               End: "<HandOffTime>",
+ * //             },
+ * //           ],
+ * //         },
+ * //         RecurrenceMultiplier: Number("int"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListRotationsCommandInput - {@link ListRotationsCommandInput}
@@ -70,6 +121,8 @@ export interface ListRotationsCommandOutput extends ListRotationsResult, __Metad
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListRotationsCommand extends $Command<

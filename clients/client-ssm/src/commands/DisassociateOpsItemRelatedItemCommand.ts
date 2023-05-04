@@ -52,6 +52,8 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
  * };
  * const command = new DisassociateOpsItemRelatedItemCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateOpsItemRelatedItemCommandInput - {@link DisassociateOpsItemRelatedItemCommandInput}
@@ -74,6 +76,8 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
  *  <p>The association wasn't found using the parameters you specified in the call. Verify the
  *    information and try again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DisassociateOpsItemRelatedItemCommand extends $Command<

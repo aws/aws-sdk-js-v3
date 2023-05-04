@@ -60,6 +60,12 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  * };
  * const command = new ImportVmImageCommand(input);
  * const response = await client.send(command);
+ * // { // ImportVmImageResponse
+ * //   requestId: "STRING_VALUE",
+ * //   imageArn: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ImportVmImageCommandInput - {@link ImportVmImageCommandInput}
@@ -80,6 +86,8 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ImportVmImageCommand extends $Command<

@@ -50,6 +50,17 @@ export interface ListResourceProfileArtifactsCommandOutput
  * };
  * const command = new ListResourceProfileArtifactsCommand(input);
  * const response = await client.send(command);
+ * // { // ListResourceProfileArtifactsResponse
+ * //   artifacts: [ // __listOfResourceProfileArtifact
+ * //     { // ResourceProfileArtifact
+ * //       arn: "STRING_VALUE", // required
+ * //       classificationResultStatus: "STRING_VALUE", // required
+ * //       sensitive: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListResourceProfileArtifactsCommandInput - {@link ListResourceProfileArtifactsCommandInput}
@@ -73,6 +84,8 @@ export interface ListResourceProfileArtifactsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListResourceProfileArtifactsCommand extends $Command<

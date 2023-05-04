@@ -44,6 +44,8 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  * };
  * const command = new DeleteRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteRemoteAccessSessionCommandInput - {@link DeleteRemoteAccessSessionCommandInput}
@@ -64,6 +66,8 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To delete a specific remote access session
  * ```javascript

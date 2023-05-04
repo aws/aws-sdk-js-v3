@@ -60,6 +60,91 @@ export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizer
  * };
  * const command = new ListEntityRecognizersCommand(input);
  * const response = await client.send(command);
+ * // { // ListEntityRecognizersResponse
+ * //   EntityRecognizerPropertiesList: [ // EntityRecognizerPropertiesList
+ * //     { // EntityRecognizerProperties
+ * //       EntityRecognizerArn: "STRING_VALUE",
+ * //       LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW",
+ * //       Status: "SUBMITTED" || "TRAINING" || "DELETING" || "STOP_REQUESTED" || "STOPPED" || "IN_ERROR" || "TRAINED" || "TRAINED_WITH_WARNING",
+ * //       Message: "STRING_VALUE",
+ * //       SubmitTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       TrainingStartTime: new Date("TIMESTAMP"),
+ * //       TrainingEndTime: new Date("TIMESTAMP"),
+ * //       InputDataConfig: { // EntityRecognizerInputDataConfig
+ * //         DataFormat: "COMPREHEND_CSV" || "AUGMENTED_MANIFEST",
+ * //         EntityTypes: [ // EntityTypesList // required
+ * //           { // EntityTypesListItem
+ * //             Type: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         Documents: { // EntityRecognizerDocuments
+ * //           S3Uri: "STRING_VALUE", // required
+ * //           TestS3Uri: "STRING_VALUE",
+ * //           InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ * //         },
+ * //         Annotations: { // EntityRecognizerAnnotations
+ * //           S3Uri: "STRING_VALUE", // required
+ * //           TestS3Uri: "STRING_VALUE",
+ * //         },
+ * //         EntityList: { // EntityRecognizerEntityList
+ * //           S3Uri: "STRING_VALUE", // required
+ * //         },
+ * //         AugmentedManifests: [ // EntityRecognizerAugmentedManifestsList
+ * //           { // AugmentedManifestsListItem
+ * //             S3Uri: "STRING_VALUE", // required
+ * //             Split: "TRAIN" || "TEST",
+ * //             AttributeNames: [ // AttributeNamesList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             AnnotationDataS3Uri: "STRING_VALUE",
+ * //             SourceDocumentsS3Uri: "STRING_VALUE",
+ * //             DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
+ * //           },
+ * //         ],
+ * //       },
+ * //       RecognizerMetadata: { // EntityRecognizerMetadata
+ * //         NumberOfTrainedDocuments: Number("int"),
+ * //         NumberOfTestDocuments: Number("int"),
+ * //         EvaluationMetrics: { // EntityRecognizerEvaluationMetrics
+ * //           Precision: Number("double"),
+ * //           Recall: Number("double"),
+ * //           F1Score: Number("double"),
+ * //         },
+ * //         EntityTypes: [ // EntityRecognizerMetadataEntityTypesList
+ * //           { // EntityRecognizerMetadataEntityTypesListItem
+ * //             Type: "STRING_VALUE",
+ * //             EvaluationMetrics: { // EntityTypesEvaluationMetrics
+ * //               Precision: Number("double"),
+ * //               Recall: Number("double"),
+ * //               F1Score: Number("double"),
+ * //             },
+ * //             NumberOfTrainMentions: Number("int"),
+ * //           },
+ * //         ],
+ * //       },
+ * //       DataAccessRoleArn: "STRING_VALUE",
+ * //       VolumeKmsKeyId: "STRING_VALUE",
+ * //       VpcConfig: { // VpcConfig
+ * //         SecurityGroupIds: [ // SecurityGroupIds // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Subnets: [ // Subnets // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       ModelKmsKeyId: "STRING_VALUE",
+ * //       VersionName: "STRING_VALUE",
+ * //       SourceModelArn: "STRING_VALUE",
+ * //       FlywheelArn: "STRING_VALUE",
+ * //       OutputDataConfig: { // EntityRecognizerOutputDataConfig
+ * //         FlywheelStatsS3Prefix: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEntityRecognizersCommandInput - {@link ListEntityRecognizersCommandInput}
@@ -81,6 +166,8 @@ export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizer
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class ListEntityRecognizersCommand extends $Command<

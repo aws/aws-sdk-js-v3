@@ -48,6 +48,17 @@ export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsD
  * };
  * const command = new ListRumMetricsDestinationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListRumMetricsDestinationsResponse
+ * //   Destinations: [ // MetricDestinationSummaryList
+ * //     { // MetricDestinationSummary
+ * //       Destination: "STRING_VALUE",
+ * //       DestinationArn: "STRING_VALUE",
+ * //       IamRoleArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListRumMetricsDestinationsCommandInput - {@link ListRumMetricsDestinationsCommandInput}
@@ -68,6 +79,8 @@ export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsD
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class ListRumMetricsDestinationsCommand extends $Command<

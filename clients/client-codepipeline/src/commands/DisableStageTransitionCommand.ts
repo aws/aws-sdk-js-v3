@@ -48,6 +48,8 @@ export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisableStageTransitionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisableStageTransitionCommandInput - {@link DisableStageTransitionCommandInput}
@@ -65,6 +67,8 @@ export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class DisableStageTransitionCommand extends $Command<

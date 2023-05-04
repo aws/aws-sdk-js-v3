@@ -53,6 +53,30 @@ export interface ListResolverEndpointsCommandOutput extends ListResolverEndpoint
  * };
  * const command = new ListResolverEndpointsCommand(input);
  * const response = await client.send(command);
+ * // { // ListResolverEndpointsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   MaxResults: Number("int"),
+ * //   ResolverEndpoints: [ // ResolverEndpoints
+ * //     { // ResolverEndpoint
+ * //       Id: "STRING_VALUE",
+ * //       CreatorRequestId: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       SecurityGroupIds: [ // SecurityGroupIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Direction: "INBOUND" || "OUTBOUND",
+ * //       IpAddressCount: Number("int"),
+ * //       HostVPCId: "STRING_VALUE",
+ * //       Status: "CREATING" || "OPERATIONAL" || "UPDATING" || "AUTO_RECOVERING" || "ACTION_NEEDED" || "DELETING",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       CreationTime: "STRING_VALUE",
+ * //       ModificationTime: "STRING_VALUE",
+ * //       ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListResolverEndpointsCommandInput - {@link ListResolverEndpointsCommandInput}
@@ -76,6 +100,8 @@ export interface ListResolverEndpointsCommandOutput extends ListResolverEndpoint
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class ListResolverEndpointsCommand extends $Command<

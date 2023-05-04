@@ -44,6 +44,8 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
  * };
  * const command = new DeleteActivityCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteActivityCommandInput - {@link DeleteActivityCommandInput}
@@ -55,6 +57,8 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
  * @throws {@link InvalidArn} (client fault)
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class DeleteActivityCommand extends $Command<

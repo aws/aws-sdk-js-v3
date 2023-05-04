@@ -48,6 +48,8 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteUserProfileCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteUserProfileCommandInput - {@link DeleteUserProfileCommandInput}
@@ -62,6 +64,8 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DeleteUserProfileCommand extends $Command<

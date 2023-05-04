@@ -43,6 +43,12 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  * const input = {};
  * const command = new ListVerifiedEmailAddressesCommand(input);
  * const response = await client.send(command);
+ * // { // ListVerifiedEmailAddressesResponse
+ * //   VerifiedEmailAddresses: [ // AddressList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListVerifiedEmailAddressesCommandInput - {@link ListVerifiedEmailAddressesCommandInput}
@@ -51,6 +57,8 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  * @see {@link ListVerifiedEmailAddressesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example ListVerifiedEmailAddresses
  * ```javascript

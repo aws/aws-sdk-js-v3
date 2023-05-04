@@ -51,6 +51,13 @@ export interface UpdateDashboardPublishedVersionCommandOutput
  * };
  * const command = new UpdateDashboardPublishedVersionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateDashboardPublishedVersionResponse
+ * //   DashboardId: "STRING_VALUE",
+ * //   DashboardArn: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateDashboardPublishedVersionCommandInput - {@link UpdateDashboardPublishedVersionCommandInput}
@@ -80,6 +87,8 @@ export interface UpdateDashboardPublishedVersionCommandOutput
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateDashboardPublishedVersionCommand extends $Command<

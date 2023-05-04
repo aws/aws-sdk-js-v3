@@ -46,6 +46,25 @@ export interface GetCoreNetworkPolicyCommandOutput extends GetCoreNetworkPolicyR
  * };
  * const command = new GetCoreNetworkPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetCoreNetworkPolicyResponse
+ * //   CoreNetworkPolicy: { // CoreNetworkPolicy
+ * //     CoreNetworkId: "STRING_VALUE",
+ * //     PolicyVersionId: Number("int"),
+ * //     Alias: "LIVE" || "LATEST",
+ * //     Description: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     ChangeSetState: "PENDING_GENERATION" || "FAILED_GENERATION" || "READY_TO_EXECUTE" || "EXECUTING" || "EXECUTION_SUCCEEDED" || "OUT_OF_DATE",
+ * //     PolicyErrors: [ // CoreNetworkPolicyErrorList
+ * //       { // CoreNetworkPolicyError
+ * //         ErrorCode: "STRING_VALUE", // required
+ * //         Message: "STRING_VALUE", // required
+ * //         Path: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     PolicyDocument: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetCoreNetworkPolicyCommandInput - {@link GetCoreNetworkPolicyCommandInput}
@@ -69,6 +88,8 @@ export interface GetCoreNetworkPolicyCommandOutput extends GetCoreNetworkPolicyR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetCoreNetworkPolicyCommand extends $Command<

@@ -48,6 +48,15 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * };
  * const command = new CreateRegistryCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRegistryResponse
+ * //   RegistryArn: "STRING_VALUE",
+ * //   RegistryName: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Tags: { // TagsMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateRegistryCommandInput - {@link CreateRegistryCommandInput}
@@ -74,6 +83,8 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateRegistryCommand extends $Command<

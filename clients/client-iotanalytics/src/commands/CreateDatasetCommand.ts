@@ -139,6 +139,15 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDatasetResponse
+ * //   datasetName: "STRING_VALUE",
+ * //   datasetArn: "STRING_VALUE",
+ * //   retentionPeriod: { // RetentionPeriod
+ * //     unlimited: true || false,
+ * //     numberOfDays: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
@@ -165,6 +174,8 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class CreateDatasetCommand extends $Command<

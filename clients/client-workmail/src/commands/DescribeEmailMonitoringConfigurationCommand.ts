@@ -52,6 +52,11 @@ export interface DescribeEmailMonitoringConfigurationCommandOutput
  * };
  * const command = new DescribeEmailMonitoringConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEmailMonitoringConfigurationResponse
+ * //   RoleArn: "STRING_VALUE",
+ * //   LogGroupArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeEmailMonitoringConfigurationCommandInput - {@link DescribeEmailMonitoringConfigurationCommandInput}
@@ -74,6 +79,8 @@ export interface DescribeEmailMonitoringConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DescribeEmailMonitoringConfigurationCommand extends $Command<

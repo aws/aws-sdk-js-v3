@@ -95,6 +95,21 @@ export interface GetIdentityPoolConfigurationCommandOutput
  * };
  * const command = new GetIdentityPoolConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // GetIdentityPoolConfigurationResponse
+ * //   IdentityPoolId: "STRING_VALUE",
+ * //   PushSync: { // PushSync
+ * //     ApplicationArns: [ // ApplicationArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     RoleArn: "STRING_VALUE",
+ * //   },
+ * //   CognitoStreams: { // CognitoStreams
+ * //     StreamName: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE",
+ * //     StreamingStatus: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetIdentityPoolConfigurationCommandInput - {@link GetIdentityPoolConfigurationCommandInput}
@@ -123,6 +138,8 @@ export interface GetIdentityPoolConfigurationCommandOutput
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class GetIdentityPoolConfigurationCommand extends $Command<

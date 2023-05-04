@@ -52,6 +52,28 @@ export interface ListFHIRExportJobsCommandOutput extends ListFHIRExportJobsRespo
  * };
  * const command = new ListFHIRExportJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListFHIRExportJobsResponse
+ * //   ExportJobPropertiesList: [ // ExportJobPropertiesList // required
+ * //     { // ExportJobProperties
+ * //       JobId: "STRING_VALUE", // required
+ * //       JobName: "STRING_VALUE",
+ * //       JobStatus: "STRING_VALUE", // required
+ * //       SubmitTime: new Date("TIMESTAMP"), // required
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       DatastoreId: "STRING_VALUE", // required
+ * //       OutputDataConfig: { // OutputDataConfig Union: only one key present
+ * //         S3Configuration: { // S3Configuration
+ * //           S3Uri: "STRING_VALUE", // required
+ * //           KmsKeyId: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       DataAccessRoleArn: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFHIRExportJobsCommandInput - {@link ListFHIRExportJobsCommandInput}
@@ -75,6 +97,8 @@ export interface ListFHIRExportJobsCommandOutput extends ListFHIRExportJobsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>
  *
+ * @throws {@link HealthLakeServiceException}
+ * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
  */
 export class ListFHIRExportJobsCommand extends $Command<

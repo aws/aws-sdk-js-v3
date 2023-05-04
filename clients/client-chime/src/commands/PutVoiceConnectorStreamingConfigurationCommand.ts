@@ -64,6 +64,18 @@ export interface PutVoiceConnectorStreamingConfigurationCommandOutput
  * };
  * const command = new PutVoiceConnectorStreamingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // PutVoiceConnectorStreamingConfigurationResponse
+ * //   StreamingConfiguration: { // StreamingConfiguration
+ * //     DataRetentionInHours: Number("int"), // required
+ * //     Disabled: true || false,
+ * //     StreamingNotificationTargets: [ // StreamingNotificationTargetList
+ * //       { // StreamingNotificationTarget
+ * //         NotificationTarget: "EventBridge" || "SNS" || "SQS", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutVoiceConnectorStreamingConfigurationCommandInput - {@link PutVoiceConnectorStreamingConfigurationCommandInput}
@@ -93,6 +105,8 @@ export interface PutVoiceConnectorStreamingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<

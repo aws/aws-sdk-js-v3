@@ -51,6 +51,25 @@ export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointS
  * };
  * const command = new DescribeEndpointSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEndpointSettingsResponse
+ * //   Marker: "STRING_VALUE",
+ * //   EndpointSettings: [ // EndpointSettingsList
+ * //     { // EndpointSetting
+ * //       Name: "STRING_VALUE",
+ * //       Type: "string" || "boolean" || "integer" || "enum",
+ * //       EnumValues: [ // EndpointSettingEnumValues
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Sensitive: true || false,
+ * //       Units: "STRING_VALUE",
+ * //       Applicability: "STRING_VALUE",
+ * //       IntValueMin: Number("int"),
+ * //       IntValueMax: Number("int"),
+ * //       DefaultValue: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeEndpointSettingsCommandInput - {@link DescribeEndpointSettingsCommandInput}
@@ -59,6 +78,8 @@ export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointS
  * @see {@link DescribeEndpointSettingsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeEndpointSettingsCommand extends $Command<

@@ -74,6 +74,20 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
  * };
  * const command = new DescribeTrustedAdvisorChecksCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeTrustedAdvisorChecksResponse
+ * //   checks: [ // TrustedAdvisorCheckList // required
+ * //     { // TrustedAdvisorCheckDescription
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE", // required
+ * //       category: "STRING_VALUE", // required
+ * //       metadata: [ // StringList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeTrustedAdvisorChecksCommandInput - {@link DescribeTrustedAdvisorChecksCommandInput}
@@ -85,6 +99,8 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class DescribeTrustedAdvisorChecksCommand extends $Command<

@@ -46,6 +46,8 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutCommentReactionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutCommentReactionCommandInput - {@link PutCommentReactionCommandInput}
@@ -76,6 +78,8 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  * @throws {@link ReactionValueRequiredException} (client fault)
  *  <p>A reaction value is required. </p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class PutCommentReactionCommand extends $Command<

@@ -49,6 +49,38 @@ export interface ListInstanceStorageConfigsCommandOutput extends ListInstanceSto
  * };
  * const command = new ListInstanceStorageConfigsCommand(input);
  * const response = await client.send(command);
+ * // { // ListInstanceStorageConfigsResponse
+ * //   StorageConfigs: [ // InstanceStorageConfigs
+ * //     { // InstanceStorageConfig
+ * //       AssociationId: "STRING_VALUE",
+ * //       StorageType: "S3" || "KINESIS_VIDEO_STREAM" || "KINESIS_STREAM" || "KINESIS_FIREHOSE", // required
+ * //       S3Config: { // S3Config
+ * //         BucketName: "STRING_VALUE", // required
+ * //         BucketPrefix: "STRING_VALUE", // required
+ * //         EncryptionConfig: { // EncryptionConfig
+ * //           EncryptionType: "KMS", // required
+ * //           KeyId: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       KinesisVideoStreamConfig: { // KinesisVideoStreamConfig
+ * //         Prefix: "STRING_VALUE", // required
+ * //         RetentionPeriodHours: Number("int"), // required
+ * //         EncryptionConfig: {
+ * //           EncryptionType: "KMS", // required
+ * //           KeyId: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       KinesisStreamConfig: { // KinesisStreamConfig
+ * //         StreamArn: "STRING_VALUE", // required
+ * //       },
+ * //       KinesisFirehoseConfig: { // KinesisFirehoseConfig
+ * //         FirehoseArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListInstanceStorageConfigsCommandInput - {@link ListInstanceStorageConfigsCommandInput}
@@ -72,6 +104,8 @@ export interface ListInstanceStorageConfigsCommandOutput extends ListInstanceSto
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListInstanceStorageConfigsCommand extends $Command<

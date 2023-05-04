@@ -50,6 +50,8 @@ export interface DisassociateTagOptionFromResourceCommandOutput
  * };
  * const command = new DisassociateTagOptionFromResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateTagOptionFromResourceCommandInput - {@link DisassociateTagOptionFromResourceCommandInput}
@@ -66,6 +68,8 @@ export interface DisassociateTagOptionFromResourceCommandOutput
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DisassociateTagOptionFromResourceCommand extends $Command<

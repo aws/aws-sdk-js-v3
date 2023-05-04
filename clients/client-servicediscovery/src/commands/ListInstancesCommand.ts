@@ -47,6 +47,18 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
+ * // { // ListInstancesResponse
+ * //   Instances: [ // InstanceSummaryList
+ * //     { // InstanceSummary
+ * //       Id: "STRING_VALUE",
+ * //       Attributes: { // Attributes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListInstancesCommandInput - {@link ListInstancesCommandInput}
@@ -63,6 +75,8 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example Example: List service instances
  * ```javascript

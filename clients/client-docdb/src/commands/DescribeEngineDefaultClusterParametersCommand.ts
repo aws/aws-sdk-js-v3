@@ -64,6 +64,27 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * };
  * const command = new DescribeEngineDefaultClusterParametersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEngineDefaultClusterParametersResult
+ * //   EngineDefaults: { // EngineDefaults
+ * //     DBParameterGroupFamily: "STRING_VALUE",
+ * //     Marker: "STRING_VALUE",
+ * //     Parameters: [ // ParametersList
+ * //       { // Parameter
+ * //         ParameterName: "STRING_VALUE",
+ * //         ParameterValue: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         Source: "STRING_VALUE",
+ * //         ApplyType: "STRING_VALUE",
+ * //         DataType: "STRING_VALUE",
+ * //         AllowedValues: "STRING_VALUE",
+ * //         IsModifiable: true || false,
+ * //         MinimumEngineVersion: "STRING_VALUE",
+ * //         ApplyMethod: "immediate" || "pending-reboot",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeEngineDefaultClusterParametersCommandInput - {@link DescribeEngineDefaultClusterParametersCommandInput}
@@ -72,6 +93,8 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * @see {@link DescribeEngineDefaultClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeEngineDefaultClusterParametersCommand extends $Command<

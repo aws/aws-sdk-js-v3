@@ -225,6 +225,230 @@ export interface BatchReadCommandOutput extends BatchReadResponse, __MetadataBea
  * };
  * const command = new BatchReadCommand(input);
  * const response = await client.send(command);
+ * // { // BatchReadResponse
+ * //   Responses: [ // BatchReadOperationResponseList
+ * //     { // BatchReadOperationResponse
+ * //       SuccessfulResponse: { // BatchReadSuccessfulResponse
+ * //         ListObjectAttributes: { // BatchListObjectAttributesResponse
+ * //           Attributes: [ // AttributeKeyAndValueList
+ * //             { // AttributeKeyAndValue
+ * //               Key: { // AttributeKey
+ * //                 SchemaArn: "STRING_VALUE", // required
+ * //                 FacetName: "STRING_VALUE", // required
+ * //                 Name: "STRING_VALUE", // required
+ * //               },
+ * //               Value: { // TypedAttributeValue Union: only one key present
+ * //                 StringValue: "STRING_VALUE",
+ * //                 BinaryValue: "BLOB_VALUE",
+ * //                 BooleanValue: true || false,
+ * //                 NumberValue: "STRING_VALUE",
+ * //                 DatetimeValue: new Date("TIMESTAMP"),
+ * //               },
+ * //             },
+ * //           ],
+ * //           NextToken: "STRING_VALUE",
+ * //         },
+ * //         ListObjectChildren: { // BatchListObjectChildrenResponse
+ * //           Children: { // LinkNameToObjectIdentifierMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           NextToken: "STRING_VALUE",
+ * //         },
+ * //         GetObjectInformation: { // BatchGetObjectInformationResponse
+ * //           SchemaFacets: [ // SchemaFacetList
+ * //             { // SchemaFacet
+ * //               SchemaArn: "STRING_VALUE",
+ * //               FacetName: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           ObjectIdentifier: "STRING_VALUE",
+ * //         },
+ * //         GetObjectAttributes: { // BatchGetObjectAttributesResponse
+ * //           Attributes: [
+ * //             {
+ * //               Key: {
+ * //                 SchemaArn: "STRING_VALUE", // required
+ * //                 FacetName: "STRING_VALUE", // required
+ * //                 Name: "STRING_VALUE", // required
+ * //               },
+ * //               Value: {//  Union: only one key present
+ * //                 StringValue: "STRING_VALUE",
+ * //                 BinaryValue: "BLOB_VALUE",
+ * //                 BooleanValue: true || false,
+ * //                 NumberValue: "STRING_VALUE",
+ * //                 DatetimeValue: new Date("TIMESTAMP"),
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //         ListAttachedIndices: { // BatchListAttachedIndicesResponse
+ * //           IndexAttachments: [ // IndexAttachmentList
+ * //             { // IndexAttachment
+ * //               IndexedAttributes: [
+ * //                 {
+ * //                   Key: {
+ * //                     SchemaArn: "STRING_VALUE", // required
+ * //                     FacetName: "STRING_VALUE", // required
+ * //                     Name: "STRING_VALUE", // required
+ * //                   },
+ * //                   Value: {//  Union: only one key present
+ * //                     StringValue: "STRING_VALUE",
+ * //                     BinaryValue: "BLOB_VALUE",
+ * //                     BooleanValue: true || false,
+ * //                     NumberValue: "STRING_VALUE",
+ * //                     DatetimeValue: new Date("TIMESTAMP"),
+ * //                   },
+ * //                 },
+ * //               ],
+ * //               ObjectIdentifier: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           NextToken: "STRING_VALUE",
+ * //         },
+ * //         ListObjectParentPaths: { // BatchListObjectParentPathsResponse
+ * //           PathToObjectIdentifiersList: [ // PathToObjectIdentifiersList
+ * //             { // PathToObjectIdentifiers
+ * //               Path: "STRING_VALUE",
+ * //               ObjectIdentifiers: [ // ObjectIdentifierList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //           NextToken: "STRING_VALUE",
+ * //         },
+ * //         ListObjectPolicies: { // BatchListObjectPoliciesResponse
+ * //           AttachedPolicyIds: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           NextToken: "STRING_VALUE",
+ * //         },
+ * //         ListPolicyAttachments: { // BatchListPolicyAttachmentsResponse
+ * //           ObjectIdentifiers: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           NextToken: "STRING_VALUE",
+ * //         },
+ * //         LookupPolicy: { // BatchLookupPolicyResponse
+ * //           PolicyToPathList: [ // PolicyToPathList
+ * //             { // PolicyToPath
+ * //               Path: "STRING_VALUE",
+ * //               Policies: [ // PolicyAttachmentList
+ * //                 { // PolicyAttachment
+ * //                   PolicyId: "STRING_VALUE",
+ * //                   ObjectIdentifier: "STRING_VALUE",
+ * //                   PolicyType: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //           NextToken: "STRING_VALUE",
+ * //         },
+ * //         ListIndex: { // BatchListIndexResponse
+ * //           IndexAttachments: [
+ * //             {
+ * //               IndexedAttributes: [
+ * //                 {
+ * //                   Key: {
+ * //                     SchemaArn: "STRING_VALUE", // required
+ * //                     FacetName: "STRING_VALUE", // required
+ * //                     Name: "STRING_VALUE", // required
+ * //                   },
+ * //                   Value: {//  Union: only one key present
+ * //                     StringValue: "STRING_VALUE",
+ * //                     BinaryValue: "BLOB_VALUE",
+ * //                     BooleanValue: true || false,
+ * //                     NumberValue: "STRING_VALUE",
+ * //                     DatetimeValue: new Date("TIMESTAMP"),
+ * //                   },
+ * //                 },
+ * //               ],
+ * //               ObjectIdentifier: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           NextToken: "STRING_VALUE",
+ * //         },
+ * //         ListOutgoingTypedLinks: { // BatchListOutgoingTypedLinksResponse
+ * //           TypedLinkSpecifiers: [ // TypedLinkSpecifierList
+ * //             { // TypedLinkSpecifier
+ * //               TypedLinkFacet: { // TypedLinkSchemaAndFacetName
+ * //                 SchemaArn: "STRING_VALUE", // required
+ * //                 TypedLinkName: "STRING_VALUE", // required
+ * //               },
+ * //               SourceObjectReference: { // ObjectReference
+ * //                 Selector: "STRING_VALUE",
+ * //               },
+ * //               TargetObjectReference: {
+ * //                 Selector: "STRING_VALUE",
+ * //               },
+ * //               IdentityAttributeValues: [ // AttributeNameAndValueList // required
+ * //                 { // AttributeNameAndValue
+ * //                   AttributeName: "STRING_VALUE", // required
+ * //                   Value: {//  Union: only one key present
+ * //                     StringValue: "STRING_VALUE",
+ * //                     BinaryValue: "BLOB_VALUE",
+ * //                     BooleanValue: true || false,
+ * //                     NumberValue: "STRING_VALUE",
+ * //                     DatetimeValue: new Date("TIMESTAMP"),
+ * //                   },
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //           NextToken: "STRING_VALUE",
+ * //         },
+ * //         ListIncomingTypedLinks: { // BatchListIncomingTypedLinksResponse
+ * //           LinkSpecifiers: [
+ * //             {
+ * //               TypedLinkFacet: {
+ * //                 SchemaArn: "STRING_VALUE", // required
+ * //                 TypedLinkName: "STRING_VALUE", // required
+ * //               },
+ * //               SourceObjectReference: {
+ * //                 Selector: "STRING_VALUE",
+ * //               },
+ * //               TargetObjectReference: {
+ * //                 Selector: "STRING_VALUE",
+ * //               },
+ * //               IdentityAttributeValues: [ // required
+ * //                 {
+ * //                   AttributeName: "STRING_VALUE", // required
+ * //                   Value: "<TypedAttributeValue>", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //           NextToken: "STRING_VALUE",
+ * //         },
+ * //         GetLinkAttributes: { // BatchGetLinkAttributesResponse
+ * //           Attributes: [
+ * //             {
+ * //               Key: {
+ * //                 SchemaArn: "STRING_VALUE", // required
+ * //                 FacetName: "STRING_VALUE", // required
+ * //                 Name: "STRING_VALUE", // required
+ * //               },
+ * //               Value: "<TypedAttributeValue>", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //         ListObjectParents: { // BatchListObjectParentsResponse
+ * //           ParentLinks: [ // ObjectIdentifierAndLinkNameList
+ * //             { // ObjectIdentifierAndLinkNameTuple
+ * //               ObjectIdentifier: "STRING_VALUE",
+ * //               LinkName: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           NextToken: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       ExceptionResponse: { // BatchReadException
+ * //         Type: "ValidationException" || "InvalidArnException" || "ResourceNotFoundException" || "InvalidNextTokenException" || "AccessDeniedException" || "NotNodeException" || "FacetValidationException" || "CannotListParentOfRootException" || "NotIndexException" || "NotPolicyException" || "DirectoryNotEnabledException" || "LimitExceededException" || "InternalServiceException",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchReadCommandInput - {@link BatchReadCommandInput}
@@ -255,6 +479,8 @@ export interface BatchReadCommandOutput extends BatchReadResponse, __MetadataBea
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class BatchReadCommand extends $Command<

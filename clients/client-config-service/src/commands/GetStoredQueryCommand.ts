@@ -44,6 +44,16 @@ export interface GetStoredQueryCommandOutput extends GetStoredQueryResponse, __M
  * };
  * const command = new GetStoredQueryCommand(input);
  * const response = await client.send(command);
+ * // { // GetStoredQueryResponse
+ * //   StoredQuery: { // StoredQuery
+ * //     QueryId: "STRING_VALUE",
+ * //     QueryArn: "STRING_VALUE",
+ * //     QueryName: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     Expression: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetStoredQueryCommandInput - {@link GetStoredQueryCommandInput}
@@ -60,6 +70,8 @@ export interface GetStoredQueryCommandOutput extends GetStoredQueryResponse, __M
  *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetStoredQueryCommand extends $Command<

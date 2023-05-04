@@ -46,6 +46,8 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteCacheParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteCacheParameterGroupCommandInput - {@link DeleteCacheParameterGroupCommandInput}
@@ -66,6 +68,8 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value for a parameter is invalid.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example DeleteCacheParameterGroup
  * ```javascript

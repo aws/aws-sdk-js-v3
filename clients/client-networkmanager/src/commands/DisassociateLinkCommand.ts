@@ -47,6 +47,15 @@ export interface DisassociateLinkCommandOutput extends DisassociateLinkResponse,
  * };
  * const command = new DisassociateLinkCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateLinkResponse
+ * //   LinkAssociation: { // LinkAssociation
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     DeviceId: "STRING_VALUE",
+ * //     LinkId: "STRING_VALUE",
+ * //     LinkAssociationState: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DisassociateLinkCommandInput - {@link DisassociateLinkCommandInput}
@@ -74,6 +83,8 @@ export interface DisassociateLinkCommandOutput extends DisassociateLinkResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DisassociateLinkCommand extends $Command<

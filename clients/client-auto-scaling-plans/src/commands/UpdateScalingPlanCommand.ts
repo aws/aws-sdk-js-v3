@@ -114,6 +114,8 @@ export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanRespons
  * };
  * const command = new UpdateScalingPlanCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateScalingPlanCommandInput - {@link UpdateScalingPlanCommandInput}
@@ -135,6 +137,8 @@ export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
  *
+ * @throws {@link AutoScalingPlansServiceException}
+ * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
  */
 export class UpdateScalingPlanCommand extends $Command<

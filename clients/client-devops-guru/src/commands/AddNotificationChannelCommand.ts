@@ -65,6 +65,10 @@ export interface AddNotificationChannelCommandOutput extends AddNotificationChan
  * };
  * const command = new AddNotificationChannelCommand(input);
  * const response = await client.send(command);
+ * // { // AddNotificationChannelResponse
+ * //   Id: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param AddNotificationChannelCommandInput - {@link AddNotificationChannelCommandInput}
@@ -98,6 +102,8 @@ export interface AddNotificationChannelCommandOutput extends AddNotificationChan
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class AddNotificationChannelCommand extends $Command<

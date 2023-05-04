@@ -55,6 +55,24 @@ export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBea
  * };
  * const command = new ListPipesCommand(input);
  * const response = await client.send(command);
+ * // { // ListPipesResponse
+ * //   Pipes: [ // PipeList
+ * //     { // Pipe
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       DesiredState: "STRING_VALUE",
+ * //       CurrentState: "STRING_VALUE",
+ * //       StateReason: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       Source: "STRING_VALUE",
+ * //       Target: "STRING_VALUE",
+ * //       Enrichment: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPipesCommandInput - {@link ListPipesCommandInput}
@@ -72,6 +90,8 @@ export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that an error has occurred while performing a validate operation.</p>
  *
+ * @throws {@link PipesServiceException}
+ * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
  */
 export class ListPipesCommand extends $Command<

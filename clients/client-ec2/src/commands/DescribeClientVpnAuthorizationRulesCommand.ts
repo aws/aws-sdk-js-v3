@@ -63,6 +63,23 @@ export interface DescribeClientVpnAuthorizationRulesCommandOutput
  * };
  * const command = new DescribeClientVpnAuthorizationRulesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeClientVpnAuthorizationRulesResult
+ * //   AuthorizationRules: [ // AuthorizationRuleSet
+ * //     { // AuthorizationRule
+ * //       ClientVpnEndpointId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       GroupId: "STRING_VALUE",
+ * //       AccessAll: true || false,
+ * //       DestinationCidr: "STRING_VALUE",
+ * //       Status: { // ClientVpnAuthorizationRuleStatus
+ * //         Code: "authorizing" || "active" || "failed" || "revoking",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeClientVpnAuthorizationRulesCommandInput - {@link DescribeClientVpnAuthorizationRulesCommandInput}
@@ -71,6 +88,8 @@ export interface DescribeClientVpnAuthorizationRulesCommandOutput
  * @see {@link DescribeClientVpnAuthorizationRulesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeClientVpnAuthorizationRulesCommand extends $Command<

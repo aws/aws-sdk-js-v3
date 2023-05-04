@@ -42,6 +42,8 @@ export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogRes
  * const input = {};
  * const command = new DeleteServerCatalogCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteServerCatalogCommandInput - {@link DeleteServerCatalogCommandInput}
@@ -63,6 +65,8 @@ export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogRes
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class DeleteServerCatalogCommand extends $Command<

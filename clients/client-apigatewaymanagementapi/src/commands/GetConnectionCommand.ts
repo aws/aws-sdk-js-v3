@@ -48,6 +48,15 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * };
  * const command = new GetConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // GetConnectionResponse
+ * //   ConnectedAt: new Date("TIMESTAMP"),
+ * //   Identity: { // Identity
+ * //     SourceIp: "STRING_VALUE", // required
+ * //     UserAgent: "STRING_VALUE", // required
+ * //   },
+ * //   LastActiveAt: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param GetConnectionCommandInput - {@link GetConnectionCommandInput}
@@ -65,6 +74,8 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
  *
+ * @throws {@link ApiGatewayManagementApiServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayManagementApi service.</p>
  *
  */
 export class GetConnectionCommand extends $Command<

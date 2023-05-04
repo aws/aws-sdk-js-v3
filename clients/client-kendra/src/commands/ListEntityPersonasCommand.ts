@@ -48,6 +48,18 @@ export interface ListEntityPersonasCommandOutput extends ListEntityPersonasRespo
  * };
  * const command = new ListEntityPersonasCommand(input);
  * const response = await client.send(command);
+ * // { // ListEntityPersonasResponse
+ * //   SummaryItems: [ // PersonasSummaryList
+ * //     { // PersonasSummary
+ * //       EntityId: "STRING_VALUE",
+ * //       Persona: "OWNER" || "VIEWER",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEntityPersonasCommandInput - {@link ListEntityPersonasCommandInput}
@@ -76,6 +88,8 @@ export interface ListEntityPersonasCommandOutput extends ListEntityPersonasRespo
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ListEntityPersonasCommand extends $Command<

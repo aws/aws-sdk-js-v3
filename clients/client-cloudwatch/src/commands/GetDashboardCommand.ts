@@ -47,6 +47,12 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
  * };
  * const command = new GetDashboardCommand(input);
  * const response = await client.send(command);
+ * // { // GetDashboardOutput
+ * //   DashboardArn: "STRING_VALUE",
+ * //   DashboardBody: "STRING_VALUE",
+ * //   DashboardName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetDashboardCommandInput - {@link GetDashboardCommandInput}
@@ -64,6 +70,8 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value of an input parameter is bad or out-of-range.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class GetDashboardCommand extends $Command<

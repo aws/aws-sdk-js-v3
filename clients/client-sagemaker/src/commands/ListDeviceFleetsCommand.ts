@@ -52,6 +52,18 @@ export interface ListDeviceFleetsCommandOutput extends ListDeviceFleetsResponse,
  * };
  * const command = new ListDeviceFleetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDeviceFleetsResponse
+ * //   DeviceFleetSummaries: [ // DeviceFleetSummaries // required
+ * //     { // DeviceFleetSummary
+ * //       DeviceFleetArn: "STRING_VALUE", // required
+ * //       DeviceFleetName: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDeviceFleetsCommandInput - {@link ListDeviceFleetsCommandInput}
@@ -60,6 +72,8 @@ export interface ListDeviceFleetsCommandOutput extends ListDeviceFleetsResponse,
  * @see {@link ListDeviceFleetsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListDeviceFleetsCommand extends $Command<

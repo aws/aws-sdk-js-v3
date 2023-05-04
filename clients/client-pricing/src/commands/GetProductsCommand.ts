@@ -54,6 +54,14 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  * };
  * const command = new GetProductsCommand(input);
  * const response = await client.send(command);
+ * // { // GetProductsResponse
+ * //   FormatVersion: "STRING_VALUE",
+ * //   PriceList: [ // PriceListJsonItems
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetProductsCommandInput - {@link GetProductsCommandInput}
@@ -77,6 +85,8 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  * @throws {@link NotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
  *
+ * @throws {@link PricingServiceException}
+ * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
  */
 export class GetProductsCommand extends $Command<

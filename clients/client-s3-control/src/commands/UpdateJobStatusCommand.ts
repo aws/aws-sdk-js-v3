@@ -73,6 +73,12 @@ export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __M
  * };
  * const command = new UpdateJobStatusCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateJobStatusResult
+ * //   JobId: "STRING_VALUE",
+ * //   Status: "Active" || "Cancelled" || "Cancelling" || "Complete" || "Completing" || "Failed" || "Failing" || "New" || "Paused" || "Pausing" || "Preparing" || "Ready" || "Suspended",
+ * //   StatusUpdateReason: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateJobStatusCommandInput - {@link UpdateJobStatusCommandInput}
@@ -96,6 +102,8 @@ export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class UpdateJobStatusCommand extends $Command<

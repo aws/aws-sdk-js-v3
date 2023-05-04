@@ -48,6 +48,17 @@ export interface GetRecoveryPointCommandOutput extends GetRecoveryPointResponse,
  * };
  * const command = new GetRecoveryPointCommand(input);
  * const response = await client.send(command);
+ * // { // GetRecoveryPointResponse
+ * //   recoveryPoint: { // RecoveryPoint
+ * //     recoveryPointId: "STRING_VALUE",
+ * //     recoveryPointCreateTime: new Date("TIMESTAMP"),
+ * //     totalSizeInMegaBytes: Number("double"),
+ * //     namespaceName: "STRING_VALUE",
+ * //     workgroupName: "STRING_VALUE",
+ * //     namespaceArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetRecoveryPointCommandInput - {@link GetRecoveryPointCommandInput}
@@ -68,6 +79,8 @@ export interface GetRecoveryPointCommandOutput extends GetRecoveryPointResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class GetRecoveryPointCommand extends $Command<

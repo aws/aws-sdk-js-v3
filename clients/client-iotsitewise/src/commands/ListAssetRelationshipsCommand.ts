@@ -49,6 +49,19 @@ export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationsh
  * };
  * const command = new ListAssetRelationshipsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAssetRelationshipsResponse
+ * //   assetRelationshipSummaries: [ // AssetRelationshipSummaries // required
+ * //     { // AssetRelationshipSummary
+ * //       hierarchyInfo: { // AssetHierarchyInfo
+ * //         parentAssetId: "STRING_VALUE",
+ * //         childAssetId: "STRING_VALUE",
+ * //       },
+ * //       relationshipType: "HIERARCHY", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAssetRelationshipsCommandInput - {@link ListAssetRelationshipsCommandInput}
@@ -73,6 +86,8 @@ export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationsh
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class ListAssetRelationshipsCommand extends $Command<

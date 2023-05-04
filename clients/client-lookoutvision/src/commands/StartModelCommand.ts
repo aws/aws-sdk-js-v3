@@ -58,6 +58,10 @@ export interface StartModelCommandOutput extends StartModelResponse, __MetadataB
  * };
  * const command = new StartModelCommand(input);
  * const response = await client.send(command);
+ * // { // StartModelResponse
+ * //   Status: "STARTING_HOSTING" || "HOSTED" || "HOSTING_FAILED" || "STOPPING_HOSTING" || "SYSTEM_UPDATING",
+ * // };
+ *
  * ```
  *
  * @param StartModelCommandInput - {@link StartModelCommandInput}
@@ -89,6 +93,8 @@ export interface StartModelCommandOutput extends StartModelResponse, __MetadataB
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class StartModelCommand extends $Command<

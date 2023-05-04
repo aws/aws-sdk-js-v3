@@ -47,6 +47,16 @@ export interface ListTagsForResourceCommandOutput extends ResourceTagsDescriptio
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ResourceTagsDescriptionMessage
+ * //   ResourceArn: "STRING_VALUE",
+ * //   ResourceTags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -65,6 +75,8 @@ export interface ListTagsForResourceCommandOutput extends ResourceTagsDescriptio
  * @throws {@link ResourceTypeNotSupportedException} (client fault)
  *  <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

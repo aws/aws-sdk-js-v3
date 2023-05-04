@@ -101,6 +101,31 @@ export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataB
  * };
  * const command = new CreateBuildCommand(input);
  * const response = await client.send(command);
+ * // { // CreateBuildOutput
+ * //   Build: { // Build
+ * //     BuildId: "STRING_VALUE",
+ * //     BuildArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Version: "STRING_VALUE",
+ * //     Status: "INITIALIZED" || "READY" || "FAILED",
+ * //     SizeOnDisk: Number("long"),
+ * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     ServerSdkVersion: "STRING_VALUE",
+ * //   },
+ * //   UploadCredentials: { // AwsCredentials
+ * //     AccessKeyId: "STRING_VALUE",
+ * //     SecretAccessKey: "STRING_VALUE",
+ * //     SessionToken: "STRING_VALUE",
+ * //   },
+ * //   StorageLocation: { // S3Location
+ * //     Bucket: "STRING_VALUE",
+ * //     Key: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE",
+ * //     ObjectVersion: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateBuildCommandInput - {@link CreateBuildCommandInput}
@@ -131,6 +156,8 @@ export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataB
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class CreateBuildCommand extends $Command<

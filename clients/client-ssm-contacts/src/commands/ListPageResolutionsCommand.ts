@@ -49,6 +49,17 @@ export interface ListPageResolutionsCommandOutput extends ListPageResolutionsRes
  * };
  * const command = new ListPageResolutionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPageResolutionsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   PageResolutions: [ // ResolutionList // required
+ * //     { // ResolutionContact
+ * //       ContactArn: "STRING_VALUE", // required
+ * //       Type: "PERSONAL" || "ESCALATION" || "ONCALL_SCHEDULE", // required
+ * //       StageIndex: Number("int"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListPageResolutionsCommandInput - {@link ListPageResolutionsCommandInput}
@@ -73,6 +84,8 @@ export interface ListPageResolutionsCommandOutput extends ListPageResolutionsRes
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ListPageResolutionsCommand extends $Command<

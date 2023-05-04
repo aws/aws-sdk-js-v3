@@ -46,6 +46,17 @@ export interface ListResourceTypesCommandOutput extends ListResourceTypesRespons
  * };
  * const command = new ListResourceTypesCommand(input);
  * const response = await client.send(command);
+ * // { // ListResourceTypesResponse
+ * //   resourceTypes: [ // ServiceNameAndResourceTypeList
+ * //     { // ServiceNameAndResourceType
+ * //       resourceType: "STRING_VALUE",
+ * //       serviceName: "STRING_VALUE",
+ * //       resourceRegionScope: "REGIONAL" || "GLOBAL",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListResourceTypesCommandInput - {@link ListResourceTypesCommandInput}
@@ -69,6 +80,8 @@ export interface ListResourceTypesCommandOutput extends ListResourceTypesRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class ListResourceTypesCommand extends $Command<

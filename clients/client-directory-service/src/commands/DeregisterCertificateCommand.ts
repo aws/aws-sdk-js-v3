@@ -45,6 +45,8 @@ export interface DeregisterCertificateCommandOutput extends DeregisterCertificat
  * };
  * const command = new DeregisterCertificateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeregisterCertificateCommandInput - {@link DeregisterCertificateCommandInput}
@@ -78,6 +80,8 @@ export interface DeregisterCertificateCommandOutput extends DeregisterCertificat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DeregisterCertificateCommand extends $Command<

@@ -50,6 +50,15 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * };
  * const command = new UpdateParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateParameterGroupResponse
+ * //   ParameterGroup: { // ParameterGroup
+ * //     Name: "STRING_VALUE",
+ * //     Family: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateParameterGroupCommandInput - {@link UpdateParameterGroupCommandInput}
@@ -73,6 +82,8 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class UpdateParameterGroupCommand extends $Command<

@@ -60,6 +60,13 @@ export interface CreateRefreshScheduleCommandOutput extends CreateRefreshSchedul
  * };
  * const command = new CreateRefreshScheduleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRefreshScheduleResponse
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * //   ScheduleId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateRefreshScheduleCommandInput - {@link CreateRefreshScheduleCommandInput}
@@ -95,6 +102,8 @@ export interface CreateRefreshScheduleCommandOutput extends CreateRefreshSchedul
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateRefreshScheduleCommand extends $Command<

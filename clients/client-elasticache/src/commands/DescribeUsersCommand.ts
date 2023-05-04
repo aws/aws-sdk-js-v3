@@ -55,6 +55,28 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * };
  * const command = new DescribeUsersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeUsersResult
+ * //   Users: [ // UserList
+ * //     { // User
+ * //       UserId: "STRING_VALUE",
+ * //       UserName: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Engine: "STRING_VALUE",
+ * //       MinimumEngineVersion: "STRING_VALUE",
+ * //       AccessString: "STRING_VALUE",
+ * //       UserGroupIds: [ // UserGroupIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Authentication: { // Authentication
+ * //         Type: "password" || "no-password" || "iam",
+ * //         PasswordCount: Number("int"),
+ * //       },
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeUsersCommandInput - {@link DescribeUsersCommandInput}
@@ -72,6 +94,8 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * @throws {@link UserNotFoundFault} (client fault)
  *  <p>The user does not exist or could not be found.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class DescribeUsersCommand extends $Command<

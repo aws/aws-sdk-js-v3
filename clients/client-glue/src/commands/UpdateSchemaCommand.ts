@@ -57,6 +57,12 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * };
  * const command = new UpdateSchemaCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateSchemaResponse
+ * //   SchemaArn: "STRING_VALUE",
+ * //   SchemaName: "STRING_VALUE",
+ * //   RegistryName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateSchemaCommandInput - {@link UpdateSchemaCommandInput}
@@ -80,6 +86,8 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateSchemaCommand extends $Command<

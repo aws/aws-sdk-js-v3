@@ -46,6 +46,25 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * };
  * const command = new DescribeSecurityProfileCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSecurityProfileResponse
+ * //   SecurityProfile: { // SecurityProfile
+ * //     Id: "STRING_VALUE",
+ * //     OrganizationResourceId: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     SecurityProfileName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     AllowedAccessControlTags: { // AllowedAccessControlTags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     TagRestrictedResources: [ // TagRestrictedResourceList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeSecurityProfileCommandInput - {@link DescribeSecurityProfileCommandInput}
@@ -69,6 +88,8 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeSecurityProfileCommand extends $Command<

@@ -62,6 +62,10 @@ export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse,
  * };
  * const command = new GetFileUploadURLCommand(input);
  * const response = await client.send(command);
+ * // { // GetFileUploadURLResponse
+ * //   FileUploadURL: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetFileUploadURLCommandInput - {@link GetFileUploadURLCommandInput}
@@ -76,6 +80,8 @@ export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse,
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class GetFileUploadURLCommand extends $Command<

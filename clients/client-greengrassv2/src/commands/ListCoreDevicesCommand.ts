@@ -74,6 +74,17 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  * };
  * const command = new ListCoreDevicesCommand(input);
  * const response = await client.send(command);
+ * // { // ListCoreDevicesResponse
+ * //   coreDevices: [ // CoreDevicesList
+ * //     { // CoreDevice
+ * //       coreDeviceThingName: "STRING_VALUE",
+ * //       status: "HEALTHY" || "UNHEALTHY",
+ * //       lastStatusUpdateTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCoreDevicesCommandInput - {@link ListCoreDevicesCommandInput}
@@ -96,6 +107,8 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class ListCoreDevicesCommand extends $Command<

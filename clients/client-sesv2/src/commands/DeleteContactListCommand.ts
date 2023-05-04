@@ -44,6 +44,8 @@ export interface DeleteContactListCommandOutput extends DeleteContactListRespons
  * };
  * const command = new DeleteContactListCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteContactListCommandInput - {@link DeleteContactListCommandInput}
@@ -64,6 +66,8 @@ export interface DeleteContactListCommandOutput extends DeleteContactListRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class DeleteContactListCommand extends $Command<

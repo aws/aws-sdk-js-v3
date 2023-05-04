@@ -57,6 +57,23 @@ export interface ListAttacksCommandOutput extends ListAttacksResponse, __Metadat
  * };
  * const command = new ListAttacksCommand(input);
  * const response = await client.send(command);
+ * // { // ListAttacksResponse
+ * //   AttackSummaries: [ // AttackSummaries
+ * //     { // AttackSummary
+ * //       AttackId: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       AttackVectors: [ // AttackVectorDescriptionList
+ * //         { // AttackVectorDescription
+ * //           VectorType: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAttacksCommandInput - {@link ListAttacksCommandInput}
@@ -74,6 +91,8 @@ export interface ListAttacksCommandOutput extends ListAttacksResponse, __Metadat
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class ListAttacksCommand extends $Command<

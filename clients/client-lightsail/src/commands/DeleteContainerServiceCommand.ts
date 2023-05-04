@@ -44,6 +44,8 @@ export interface DeleteContainerServiceCommandOutput extends DeleteContainerServ
  * };
  * const command = new DeleteContainerServiceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteContainerServiceCommandInput - {@link DeleteContainerServiceCommandInput}
@@ -75,6 +77,8 @@ export interface DeleteContainerServiceCommandOutput extends DeleteContainerServ
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class DeleteContainerServiceCommand extends $Command<

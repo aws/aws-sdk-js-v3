@@ -44,6 +44,32 @@ export interface StopImportCommandOutput extends StopImportResponse, __MetadataB
  * };
  * const command = new StopImportCommand(input);
  * const response = await client.send(command);
+ * // { // StopImportResponse
+ * //   ImportId: "STRING_VALUE",
+ * //   ImportSource: { // ImportSource
+ * //     S3: { // S3ImportSource
+ * //       S3LocationUri: "STRING_VALUE", // required
+ * //       S3BucketRegion: "STRING_VALUE", // required
+ * //       S3BucketAccessRoleArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   Destinations: [ // ImportDestinations
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ImportStatus: "INITIALIZING" || "IN_PROGRESS" || "FAILED" || "STOPPED" || "COMPLETED",
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * //   UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   StartEventTime: new Date("TIMESTAMP"),
+ * //   EndEventTime: new Date("TIMESTAMP"),
+ * //   ImportStatistics: { // ImportStatistics
+ * //     PrefixesFound: Number("long"),
+ * //     PrefixesCompleted: Number("long"),
+ * //     FilesCompleted: Number("long"),
+ * //     EventsCompleted: Number("long"),
+ * //     FailedEntries: Number("long"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StopImportCommandInput - {@link StopImportCommandInput}
@@ -64,6 +90,8 @@ export interface StopImportCommandOutput extends StopImportResponse, __MetadataB
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class StopImportCommand extends $Command<

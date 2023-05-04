@@ -48,6 +48,14 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  * };
  * const command = new UpdateOrganizationalUnitCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateOrganizationalUnitResponse
+ * //   OrganizationalUnit: { // OrganizationalUnit
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateOrganizationalUnitCommandInput - {@link UpdateOrganizationalUnitCommandInput}
@@ -193,6 +201,8 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To rename an organizational unit
  * ```javascript

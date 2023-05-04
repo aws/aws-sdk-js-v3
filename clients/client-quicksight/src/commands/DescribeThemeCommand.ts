@@ -47,6 +47,84 @@ export interface DescribeThemeCommandOutput extends DescribeThemeResponse, __Met
  * };
  * const command = new DescribeThemeCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeThemeResponse
+ * //   Theme: { // Theme
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     ThemeId: "STRING_VALUE",
+ * //     Version: { // ThemeVersion
+ * //       VersionNumber: Number("long"),
+ * //       Arn: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       BaseThemeId: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       Configuration: { // ThemeConfiguration
+ * //         DataColorPalette: { // DataColorPalette
+ * //           Colors: [ // ColorList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           MinMaxGradient: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           EmptyFillColor: "STRING_VALUE",
+ * //         },
+ * //         UIColorPalette: { // UIColorPalette
+ * //           PrimaryForeground: "STRING_VALUE",
+ * //           PrimaryBackground: "STRING_VALUE",
+ * //           SecondaryForeground: "STRING_VALUE",
+ * //           SecondaryBackground: "STRING_VALUE",
+ * //           Accent: "STRING_VALUE",
+ * //           AccentForeground: "STRING_VALUE",
+ * //           Danger: "STRING_VALUE",
+ * //           DangerForeground: "STRING_VALUE",
+ * //           Warning: "STRING_VALUE",
+ * //           WarningForeground: "STRING_VALUE",
+ * //           Success: "STRING_VALUE",
+ * //           SuccessForeground: "STRING_VALUE",
+ * //           Dimension: "STRING_VALUE",
+ * //           DimensionForeground: "STRING_VALUE",
+ * //           Measure: "STRING_VALUE",
+ * //           MeasureForeground: "STRING_VALUE",
+ * //         },
+ * //         Sheet: { // SheetStyle
+ * //           Tile: { // TileStyle
+ * //             Border: { // BorderStyle
+ * //               Show: true || false,
+ * //             },
+ * //           },
+ * //           TileLayout: { // TileLayoutStyle
+ * //             Gutter: { // GutterStyle
+ * //               Show: true || false,
+ * //             },
+ * //             Margin: { // MarginStyle
+ * //               Show: true || false,
+ * //             },
+ * //           },
+ * //         },
+ * //         Typography: { // Typography
+ * //           FontFamilies: [ // FontList
+ * //             { // Font
+ * //               FontFamily: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       Errors: [ // ThemeErrorList
+ * //         { // ThemeError
+ * //           Type: "INTERNAL_FAILURE",
+ * //           Message: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ * //     },
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     Type: "QUICKSIGHT" || "CUSTOM" || "ALL",
+ * //   },
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeThemeCommandInput - {@link DescribeThemeCommandInput}
@@ -82,6 +160,8 @@ export interface DescribeThemeCommandOutput extends DescribeThemeResponse, __Met
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeThemeCommand extends $Command<

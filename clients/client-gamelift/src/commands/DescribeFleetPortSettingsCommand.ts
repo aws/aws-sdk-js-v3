@@ -70,6 +70,21 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  * };
  * const command = new DescribeFleetPortSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFleetPortSettingsOutput
+ * //   FleetId: "STRING_VALUE",
+ * //   FleetArn: "STRING_VALUE",
+ * //   InboundPermissions: [ // IpPermissionsList
+ * //     { // IpPermission
+ * //       FromPort: Number("int"), // required
+ * //       ToPort: Number("int"), // required
+ * //       IpRange: "STRING_VALUE", // required
+ * //       Protocol: "TCP" || "UDP", // required
+ * //     },
+ * //   ],
+ * //   UpdateStatus: "PENDING_UPDATE",
+ * //   Location: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeFleetPortSettingsCommandInput - {@link DescribeFleetPortSettingsCommandInput}
@@ -95,6 +110,8 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeFleetPortSettingsCommand extends $Command<

@@ -44,6 +44,10 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  * };
  * const command = new DeleteInsightCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteInsightResponse
+ * //   InsightArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteInsightCommandInput - {@link DeleteInsightCommandInput}
@@ -69,6 +73,8 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To delete a custom insight
  * ```javascript

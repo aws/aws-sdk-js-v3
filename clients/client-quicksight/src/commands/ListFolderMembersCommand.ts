@@ -47,6 +47,18 @@ export interface ListFolderMembersCommandOutput extends ListFolderMembersRespons
  * };
  * const command = new ListFolderMembersCommand(input);
  * const response = await client.send(command);
+ * // { // ListFolderMembersResponse
+ * //   Status: Number("int"),
+ * //   FolderMemberList: [ // FolderMemberList
+ * //     { // MemberIdArnPair
+ * //       MemberId: "STRING_VALUE",
+ * //       MemberArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFolderMembersCommandInput - {@link ListFolderMembersCommandInput}
@@ -82,6 +94,8 @@ export interface ListFolderMembersCommandOutput extends ListFolderMembersRespons
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class ListFolderMembersCommand extends $Command<

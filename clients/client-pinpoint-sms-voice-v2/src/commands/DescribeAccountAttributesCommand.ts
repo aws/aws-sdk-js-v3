@@ -55,6 +55,16 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAccountAttributesResult
+ * //   AccountAttributes: [ // AccountAttributeList
+ * //     { // AccountAttribute
+ * //       Name: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
@@ -78,6 +88,8 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DescribeAccountAttributesCommand extends $Command<

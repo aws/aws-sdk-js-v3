@@ -73,6 +73,10 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  * };
  * const command = new CreateUpdatedWorkspaceImageCommand(input);
  * const response = await client.send(command);
+ * // { // CreateUpdatedWorkspaceImageResult
+ * //   ImageId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateUpdatedWorkspaceImageCommandInput - {@link CreateUpdatedWorkspaceImageCommandInput}
@@ -102,6 +106,8 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CreateUpdatedWorkspaceImageCommand extends $Command<

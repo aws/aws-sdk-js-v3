@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-content-length",
-  "version": "3.310.0",
+  "version": "3.325.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -9,7 +9,8 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "exit 0"
+    "test": "exit 0",
+    "test:integration": "jest --config jest.config.integ.js"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

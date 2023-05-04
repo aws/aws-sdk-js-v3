@@ -44,6 +44,10 @@ export interface DeleteMissionProfileCommandOutput extends MissionProfileIdRespo
  * };
  * const command = new DeleteMissionProfileCommand(input);
  * const response = await client.send(command);
+ * // { // MissionProfileIdResponse
+ * //   missionProfileId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteMissionProfileCommandInput - {@link DeleteMissionProfileCommandInput}
@@ -61,6 +65,8 @@ export interface DeleteMissionProfileCommandOutput extends MissionProfileIdRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class DeleteMissionProfileCommand extends $Command<

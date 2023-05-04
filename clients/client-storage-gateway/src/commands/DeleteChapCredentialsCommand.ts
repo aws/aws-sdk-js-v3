@@ -47,6 +47,11 @@ export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredential
  * };
  * const command = new DeleteChapCredentialsCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteChapCredentialsOutput
+ * //   TargetARN: "STRING_VALUE",
+ * //   InitiatorName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteChapCredentialsCommandInput - {@link DeleteChapCredentialsCommandInput}
@@ -63,6 +68,8 @@ export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredential
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To delete CHAP credentials
  * ```javascript

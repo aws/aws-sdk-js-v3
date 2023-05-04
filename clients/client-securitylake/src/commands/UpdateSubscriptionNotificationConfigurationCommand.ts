@@ -60,6 +60,10 @@ export interface UpdateSubscriptionNotificationConfigurationCommandOutput
  * };
  * const command = new UpdateSubscriptionNotificationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateSubscriptionNotificationConfigurationResponse
+ * //   queueArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateSubscriptionNotificationConfigurationCommandInput - {@link UpdateSubscriptionNotificationConfigurationCommandInput}
@@ -96,6 +100,8 @@ export interface UpdateSubscriptionNotificationConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class UpdateSubscriptionNotificationConfigurationCommand extends $Command<

@@ -47,6 +47,25 @@ export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFra
  * };
  * const command = new ListAssessmentFrameworksCommand(input);
  * const response = await client.send(command);
+ * // { // ListAssessmentFrameworksResponse
+ * //   frameworkMetadataList: [ // FrameworkMetadataList
+ * //     { // AssessmentFrameworkMetadata
+ * //       arn: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       type: "Standard" || "Custom",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       logo: "STRING_VALUE",
+ * //       complianceType: "STRING_VALUE",
+ * //       controlsCount: Number("int"),
+ * //       controlSetsCount: Number("int"),
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAssessmentFrameworksCommandInput - {@link ListAssessmentFrameworksCommandInput}
@@ -66,6 +85,8 @@ export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFra
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ListAssessmentFrameworksCommand extends $Command<

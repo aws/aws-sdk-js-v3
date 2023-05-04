@@ -50,6 +50,31 @@ export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __Metadat
  * };
  * const command = new BatchGetViewCommand(input);
  * const response = await client.send(command);
+ * // { // BatchGetViewOutput
+ * //   Views: [ // ViewList
+ * //     { // View
+ * //       ViewArn: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //       LastUpdatedAt: new Date("TIMESTAMP"),
+ * //       Scope: "STRING_VALUE",
+ * //       IncludedProperties: [ // IncludedPropertyList
+ * //         { // IncludedProperty
+ * //           Name: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       Filters: { // SearchFilter
+ * //         FilterString: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   Errors: [ // BatchGetViewErrors
+ * //     { // BatchGetViewError
+ * //       ViewArn: "STRING_VALUE", // required
+ * //       ErrorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchGetViewCommandInput - {@link BatchGetViewCommandInput}
@@ -78,6 +103,8 @@ export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __Metadat
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class BatchGetViewCommand extends $Command<

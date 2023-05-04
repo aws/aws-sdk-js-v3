@@ -44,6 +44,21 @@ export interface GetMulticastGroupCommandOutput extends GetMulticastGroupRespons
  * };
  * const command = new GetMulticastGroupCommand(input);
  * const response = await client.send(command);
+ * // { // GetMulticastGroupResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   LoRaWAN: { // LoRaWANMulticastGet
+ * //     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1" || "AS923-2" || "AS923-3" || "AS923-4" || "EU433" || "CN470" || "CN779" || "RU864" || "KR920" || "IN865",
+ * //     DlClass: "ClassB" || "ClassC",
+ * //     NumberOfDevicesRequested: Number("int"),
+ * //     NumberOfDevicesInGroup: Number("int"),
+ * //   },
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param GetMulticastGroupCommandInput - {@link GetMulticastGroupCommandInput}
@@ -67,6 +82,8 @@ export interface GetMulticastGroupCommandOutput extends GetMulticastGroupRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetMulticastGroupCommand extends $Command<

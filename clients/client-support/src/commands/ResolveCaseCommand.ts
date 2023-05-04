@@ -59,6 +59,11 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  * };
  * const command = new ResolveCaseCommand(input);
  * const response = await client.send(command);
+ * // { // ResolveCaseResponse
+ * //   initialCaseStatus: "STRING_VALUE",
+ * //   finalCaseStatus: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ResolveCaseCommandInput - {@link ResolveCaseCommandInput}
@@ -73,6 +78,8 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link SupportServiceException}
+ * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
 export class ResolveCaseCommand extends $Command<

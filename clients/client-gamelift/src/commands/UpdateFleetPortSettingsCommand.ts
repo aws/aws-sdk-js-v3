@@ -78,6 +78,11 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  * };
  * const command = new UpdateFleetPortSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateFleetPortSettingsOutput
+ * //   FleetId: "STRING_VALUE",
+ * //   FleetArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateFleetPortSettingsCommandInput - {@link UpdateFleetPortSettingsCommandInput}
@@ -115,6 +120,8 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class UpdateFleetPortSettingsCommand extends $Command<

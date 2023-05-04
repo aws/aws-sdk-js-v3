@@ -46,6 +46,20 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * };
  * const command = new StopJobCommand(input);
  * const response = await client.send(command);
+ * // { // StopJobResult
+ * //   jobSummary: { // JobSummary
+ * //     jobArn: "STRING_VALUE", // required
+ * //     jobId: "STRING_VALUE", // required
+ * //     commitId: "STRING_VALUE", // required
+ * //     commitMessage: "STRING_VALUE", // required
+ * //     commitTime: new Date("TIMESTAMP"), // required
+ * //     startTime: new Date("TIMESTAMP"), // required
+ * //     status: "PENDING" || "PROVISIONING" || "RUNNING" || "FAILED" || "SUCCEED" || "CANCELLING" || "CANCELLED", // required
+ * //     endTime: new Date("TIMESTAMP"),
+ * //     jobType: "RELEASE" || "RETRY" || "MANUAL" || "WEB_HOOK", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StopJobCommandInput - {@link StopJobCommandInput}
@@ -69,6 +83,8 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class StopJobCommand extends $Command<StopJobCommandInput, StopJobCommandOutput, AmplifyClientResolvedConfig> {

@@ -73,6 +73,42 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  * };
  * const command = new DiscoverInputSchemaCommand(input);
  * const response = await client.send(command);
+ * // { // DiscoverInputSchemaResponse
+ * //   InputSchema: { // SourceSchema
+ * //     RecordFormat: { // RecordFormat
+ * //       RecordFormatType: "STRING_VALUE", // required
+ * //       MappingParameters: { // MappingParameters
+ * //         JSONMappingParameters: { // JSONMappingParameters
+ * //           RecordRowPath: "STRING_VALUE", // required
+ * //         },
+ * //         CSVMappingParameters: { // CSVMappingParameters
+ * //           RecordRowDelimiter: "STRING_VALUE", // required
+ * //           RecordColumnDelimiter: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //     RecordEncoding: "STRING_VALUE",
+ * //     RecordColumns: [ // RecordColumns // required
+ * //       { // RecordColumn
+ * //         Name: "STRING_VALUE", // required
+ * //         Mapping: "STRING_VALUE",
+ * //         SqlType: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   ParsedInputRecords: [ // ParsedInputRecords
+ * //     [ // ParsedInputRecord
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   ],
+ * //   ProcessedInputRecords: [ // ProcessedInputRecords
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   RawInputRecords: [ // RawInputRecords
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DiscoverInputSchemaCommandInput - {@link DiscoverInputSchemaCommandInput}
@@ -98,6 +134,8 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  *  <p>Data format is not valid. Amazon Kinesis Analytics is not able to detect schema for
  *             the given streaming source.</p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class DiscoverInputSchemaCommand extends $Command<

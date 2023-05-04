@@ -45,6 +45,13 @@ export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMe
  * };
  * const command = new ModifyAquaConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyAquaOutputMessage
+ * //   AquaConfiguration: { // AquaConfiguration
+ * //     AquaStatus: "enabled" || "disabled" || "applying",
+ * //     AquaConfigurationStatus: "enabled" || "disabled" || "auto",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ModifyAquaConfigurationCommandInput - {@link ModifyAquaConfigurationCommandInput}
@@ -63,6 +70,8 @@ export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMe
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ModifyAquaConfigurationCommand extends $Command<

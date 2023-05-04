@@ -45,6 +45,13 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * };
  * const command = new DescribeResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeResourcePolicyResponse
+ * //   ResourcePolicy: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   PolicyRevisionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
@@ -62,6 +69,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DescribeResourcePolicyCommand extends $Command<

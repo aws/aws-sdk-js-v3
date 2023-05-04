@@ -54,6 +54,18 @@ export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse,
  * };
  * const command = new IsMemberInGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // IsMemberInGroupsResponse
+ * //   Results: [ // GroupMembershipExistenceResults // required
+ * //     { // GroupMembershipExistenceResult
+ * //       GroupId: "STRING_VALUE",
+ * //       MemberId: { // MemberId Union: only one key present
+ * //         UserId: "STRING_VALUE",
+ * //       },
+ * //       MembershipExists: true || false,
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param IsMemberInGroupsCommandInput - {@link IsMemberInGroupsCommandInput}
@@ -77,6 +89,8 @@ export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
  *
+ * @throws {@link IdentitystoreServiceException}
+ * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
  */
 export class IsMemberInGroupsCommand extends $Command<

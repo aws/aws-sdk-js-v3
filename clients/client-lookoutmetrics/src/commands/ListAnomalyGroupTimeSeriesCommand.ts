@@ -48,6 +48,29 @@ export interface ListAnomalyGroupTimeSeriesCommandOutput extends ListAnomalyGrou
  * };
  * const command = new ListAnomalyGroupTimeSeriesCommand(input);
  * const response = await client.send(command);
+ * // { // ListAnomalyGroupTimeSeriesResponse
+ * //   AnomalyGroupId: "STRING_VALUE",
+ * //   MetricName: "STRING_VALUE",
+ * //   TimestampList: [ // TimestampList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TimeSeriesList: [ // TimeSeriesList
+ * //     { // TimeSeries
+ * //       TimeSeriesId: "STRING_VALUE", // required
+ * //       DimensionList: [ // DimensionNameValueList // required
+ * //         { // DimensionNameValue
+ * //           DimensionName: "STRING_VALUE", // required
+ * //           DimensionValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       MetricValueList: [ // MetricValueList // required
+ * //         Number("double"),
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListAnomalyGroupTimeSeriesCommandInput - {@link ListAnomalyGroupTimeSeriesCommandInput}
@@ -72,6 +95,8 @@ export interface ListAnomalyGroupTimeSeriesCommandOutput extends ListAnomalyGrou
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class ListAnomalyGroupTimeSeriesCommand extends $Command<

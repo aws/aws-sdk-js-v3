@@ -50,6 +50,15 @@ export interface GetMergeOptionsCommandOutput extends GetMergeOptionsOutput, __M
  * };
  * const command = new GetMergeOptionsCommand(input);
  * const response = await client.send(command);
+ * // { // GetMergeOptionsOutput
+ * //   mergeOptions: [ // MergeOptions // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   sourceCommitId: "STRING_VALUE", // required
+ * //   destinationCommitId: "STRING_VALUE", // required
+ * //   baseCommitId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param GetMergeOptionsCommandInput - {@link GetMergeOptionsCommandInput}
@@ -113,6 +122,8 @@ export interface GetMergeOptionsCommandOutput extends GetMergeOptionsOutput, __M
  *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetMergeOptionsCommand extends $Command<

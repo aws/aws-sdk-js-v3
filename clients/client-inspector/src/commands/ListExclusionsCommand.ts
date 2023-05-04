@@ -46,6 +46,13 @@ export interface ListExclusionsCommandOutput extends ListExclusionsResponse, __M
  * };
  * const command = new ListExclusionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListExclusionsResponse
+ * //   exclusionArns: [ // ListReturnedArnList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListExclusionsCommandInput - {@link ListExclusionsCommandInput}
@@ -68,6 +75,8 @@ export interface ListExclusionsCommandOutput extends ListExclusionsResponse, __M
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  */
 export class ListExclusionsCommand extends $Command<

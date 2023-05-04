@@ -44,6 +44,8 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  * };
  * const command = new DeleteLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteLoggingConfigurationCommandInput - {@link DeleteLoggingConfigurationCommandInput}
@@ -91,6 +93,8 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  *          that has changed since you last retrieved it. Get the resource again, make any changes you
  *          need to make to the new copy, and retry your operation. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class DeleteLoggingConfigurationCommand extends $Command<

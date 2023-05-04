@@ -49,6 +49,15 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  * };
  * const command = new DescribeExecutionCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeExecutionOutput
+ * //   taskId: "STRING_VALUE",
+ * //   executionId: "STRING_VALUE",
+ * //   managedDeviceId: "STRING_VALUE",
+ * //   state: "STRING_VALUE",
+ * //   startedAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeExecutionCommandInput - {@link DescribeExecutionCommandInput}
@@ -72,6 +81,8 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SnowDeviceManagementServiceException}
+ * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
  */
 export class DescribeExecutionCommand extends $Command<

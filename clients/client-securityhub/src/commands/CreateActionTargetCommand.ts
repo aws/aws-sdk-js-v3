@@ -48,6 +48,10 @@ export interface CreateActionTargetCommandOutput extends CreateActionTargetRespo
  * };
  * const command = new CreateActionTargetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateActionTargetResponse
+ * //   ActionTargetArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateActionTargetCommandInput - {@link CreateActionTargetCommandInput}
@@ -73,6 +77,8 @@ export interface CreateActionTargetCommandOutput extends CreateActionTargetRespo
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To create a custom action target
  * ```javascript

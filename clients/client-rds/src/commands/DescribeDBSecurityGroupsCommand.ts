@@ -62,6 +62,33 @@ export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMe
  * };
  * const command = new DescribeDBSecurityGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // DBSecurityGroupMessage
+ * //   Marker: "STRING_VALUE",
+ * //   DBSecurityGroups: [ // DBSecurityGroups
+ * //     { // DBSecurityGroup
+ * //       OwnerId: "STRING_VALUE",
+ * //       DBSecurityGroupName: "STRING_VALUE",
+ * //       DBSecurityGroupDescription: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       EC2SecurityGroups: [ // EC2SecurityGroupList
+ * //         { // EC2SecurityGroup
+ * //           Status: "STRING_VALUE",
+ * //           EC2SecurityGroupName: "STRING_VALUE",
+ * //           EC2SecurityGroupId: "STRING_VALUE",
+ * //           EC2SecurityGroupOwnerId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       IPRanges: [ // IPRangeList
+ * //         { // IPRange
+ * //           Status: "STRING_VALUE",
+ * //           CIDRIP: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DBSecurityGroupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeDBSecurityGroupsCommandInput - {@link DescribeDBSecurityGroupsCommandInput}
@@ -74,6 +101,8 @@ export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMe
  *  <p>
  *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To list DB security group settings
  * ```javascript

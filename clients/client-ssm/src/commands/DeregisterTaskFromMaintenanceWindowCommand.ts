@@ -53,6 +53,11 @@ export interface DeregisterTaskFromMaintenanceWindowCommandOutput
  * };
  * const command = new DeregisterTaskFromMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * // { // DeregisterTaskFromMaintenanceWindowResult
+ * //   WindowId: "STRING_VALUE",
+ * //   WindowTaskId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeregisterTaskFromMaintenanceWindowCommandInput - {@link DeregisterTaskFromMaintenanceWindowCommandInput}
@@ -70,6 +75,8 @@ export interface DeregisterTaskFromMaintenanceWindowCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<

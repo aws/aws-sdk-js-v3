@@ -44,6 +44,19 @@ export interface GetInsightResultsCommandOutput extends GetInsightResultsRespons
  * };
  * const command = new GetInsightResultsCommand(input);
  * const response = await client.send(command);
+ * // { // GetInsightResultsResponse
+ * //   InsightResults: { // InsightResults
+ * //     InsightArn: "STRING_VALUE", // required
+ * //     GroupByAttribute: "STRING_VALUE", // required
+ * //     ResultValues: [ // InsightResultValueList // required
+ * //       { // InsightResultValue
+ * //         GroupByAttributeValue: "STRING_VALUE", // required
+ * //         Count: Number("int"), // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetInsightResultsCommandInput - {@link GetInsightResultsCommandInput}
@@ -69,6 +82,8 @@ export interface GetInsightResultsCommandOutput extends GetInsightResultsRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To get the results of a Security Hub insight
  * ```javascript

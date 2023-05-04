@@ -125,6 +125,73 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  * };
  * const command = new CreateExperimentTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // CreateExperimentTemplateResponse
+ * //   experimentTemplate: { // ExperimentTemplate
+ * //     id: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     targets: { // ExperimentTemplateTargetMap
+ * //       "<keys>": { // ExperimentTemplateTarget
+ * //         resourceType: "STRING_VALUE",
+ * //         resourceArns: [ // ResourceArnList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         resourceTags: { // TagMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         filters: [ // ExperimentTemplateTargetFilterList
+ * //           { // ExperimentTemplateTargetFilter
+ * //             path: "STRING_VALUE",
+ * //             values: [ // ExperimentTemplateTargetFilterValues
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         selectionMode: "STRING_VALUE",
+ * //         parameters: { // ExperimentTemplateTargetParameterMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //     actions: { // ExperimentTemplateActionMap
+ * //       "<keys>": { // ExperimentTemplateAction
+ * //         actionId: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //         parameters: { // ExperimentTemplateActionParameterMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         targets: { // ExperimentTemplateActionTargetMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         startAfter: [ // ExperimentTemplateActionStartAfterList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //     stopConditions: [ // ExperimentTemplateStopConditionList
+ * //       { // ExperimentTemplateStopCondition
+ * //         source: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdateTime: new Date("TIMESTAMP"),
+ * //     roleArn: "STRING_VALUE",
+ * //     tags: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     logConfiguration: { // ExperimentTemplateLogConfiguration
+ * //       cloudWatchLogsConfiguration: { // ExperimentTemplateCloudWatchLogsLogConfiguration
+ * //         logGroupArn: "STRING_VALUE",
+ * //       },
+ * //       s3Configuration: { // ExperimentTemplateS3LogConfiguration
+ * //         bucketName: "STRING_VALUE",
+ * //         prefix: "STRING_VALUE",
+ * //       },
+ * //       logSchemaVersion: Number("int"),
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateExperimentTemplateCommandInput - {@link CreateExperimentTemplateCommandInput}
@@ -145,6 +212,8 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
  *
+ * @throws {@link FisServiceException}
+ * <p>Base exception class for all service exceptions from Fis service.</p>
  *
  */
 export class CreateExperimentTemplateCommand extends $Command<

@@ -55,6 +55,25 @@ export interface ListSyncResourcesCommandOutput extends ListSyncResourcesRespons
  * };
  * const command = new ListSyncResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // ListSyncResourcesResponse
+ * //   syncResources: [ // SyncResourceSummaries
+ * //     { // SyncResourceSummary
+ * //       resourceType: "STRING_VALUE",
+ * //       externalId: "STRING_VALUE",
+ * //       resourceId: "STRING_VALUE",
+ * //       status: { // SyncResourceStatus
+ * //         state: "STRING_VALUE",
+ * //         error: { // ErrorDetails
+ * //           code: "STRING_VALUE",
+ * //           message: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       updateDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSyncResourcesCommandInput - {@link ListSyncResourcesCommandInput}
@@ -78,6 +97,8 @@ export interface ListSyncResourcesCommandOutput extends ListSyncResourcesRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class ListSyncResourcesCommand extends $Command<

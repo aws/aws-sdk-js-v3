@@ -61,6 +61,8 @@ export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  * };
  * const command = new IncreaseStreamRetentionPeriodCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param IncreaseStreamRetentionPeriodCommandInput - {@link IncreaseStreamRetentionPeriodCommandInput}
@@ -89,6 +91,8 @@ export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class IncreaseStreamRetentionPeriodCommand extends $Command<

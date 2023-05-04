@@ -53,6 +53,74 @@ export interface ListCommandsCommandOutput extends ListCommandsResult, __Metadat
  * };
  * const command = new ListCommandsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCommandsResult
+ * //   Commands: [ // CommandList
+ * //     { // Command
+ * //       CommandId: "STRING_VALUE",
+ * //       DocumentName: "STRING_VALUE",
+ * //       DocumentVersion: "STRING_VALUE",
+ * //       Comment: "STRING_VALUE",
+ * //       ExpiresAfter: new Date("TIMESTAMP"),
+ * //       Parameters: { // Parameters
+ * //         "<keys>": [ // ParameterValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       InstanceIds: [ // InstanceIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Targets: [ // Targets
+ * //         { // Target
+ * //           Key: "STRING_VALUE",
+ * //           Values: [ // TargetValues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       RequestedDateTime: new Date("TIMESTAMP"),
+ * //       Status: "Pending" || "InProgress" || "Success" || "Cancelled" || "Failed" || "TimedOut" || "Cancelling",
+ * //       StatusDetails: "STRING_VALUE",
+ * //       OutputS3Region: "STRING_VALUE",
+ * //       OutputS3BucketName: "STRING_VALUE",
+ * //       OutputS3KeyPrefix: "STRING_VALUE",
+ * //       MaxConcurrency: "STRING_VALUE",
+ * //       MaxErrors: "STRING_VALUE",
+ * //       TargetCount: Number("int"),
+ * //       CompletedCount: Number("int"),
+ * //       ErrorCount: Number("int"),
+ * //       DeliveryTimedOutCount: Number("int"),
+ * //       ServiceRole: "STRING_VALUE",
+ * //       NotificationConfig: { // NotificationConfig
+ * //         NotificationArn: "STRING_VALUE",
+ * //         NotificationEvents: [ // NotificationEventList
+ * //           "All" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
+ * //         ],
+ * //         NotificationType: "Command" || "Invocation",
+ * //       },
+ * //       CloudWatchOutputConfig: { // CloudWatchOutputConfig
+ * //         CloudWatchLogGroupName: "STRING_VALUE",
+ * //         CloudWatchOutputEnabled: true || false,
+ * //       },
+ * //       TimeoutSeconds: Number("int"),
+ * //       AlarmConfiguration: { // AlarmConfiguration
+ * //         IgnorePollAlarmFailure: true || false,
+ * //         Alarms: [ // AlarmList // required
+ * //           { // Alarm
+ * //             Name: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       TriggeredAlarms: [ // AlarmStateInformationList
+ * //         { // AlarmStateInformation
+ * //           Name: "STRING_VALUE", // required
+ * //           State: "UNKNOWN" || "ALARM", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCommandsCommandInput - {@link ListCommandsCommandInput}
@@ -93,6 +161,8 @@ export interface ListCommandsCommandOutput extends ListCommandsResult, __Metadat
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListCommandsCommand extends $Command<

@@ -54,6 +54,10 @@ export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGrou
  * };
  * const command = new UpdatePermissionGroupCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePermissionGroupResponse
+ * //   permissionGroupId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdatePermissionGroupCommandInput - {@link UpdatePermissionGroupCommandInput}
@@ -81,6 +85,8 @@ export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGrou
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class UpdatePermissionGroupCommand extends $Command<

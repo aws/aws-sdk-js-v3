@@ -55,6 +55,14 @@ export interface CreateNotificationSubscriptionCommandOutput
  * };
  * const command = new CreateNotificationSubscriptionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateNotificationSubscriptionResponse
+ * //   Subscription: { // Subscription
+ * //     SubscriptionId: "STRING_VALUE",
+ * //     EndPoint: "STRING_VALUE",
+ * //     Protocol: "HTTPS" || "SQS",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateNotificationSubscriptionCommandInput - {@link CreateNotificationSubscriptionCommandInput}
@@ -76,6 +84,8 @@ export interface CreateNotificationSubscriptionCommandOutput
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class CreateNotificationSubscriptionCommand extends $Command<

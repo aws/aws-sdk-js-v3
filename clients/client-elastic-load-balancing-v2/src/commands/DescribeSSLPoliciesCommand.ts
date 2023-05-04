@@ -55,6 +55,27 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  * };
  * const command = new DescribeSSLPoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSSLPoliciesOutput
+ * //   SslPolicies: [ // SslPolicies
+ * //     { // SslPolicy
+ * //       SslProtocols: [ // SslProtocols
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Ciphers: [ // Ciphers
+ * //         { // Cipher
+ * //           Name: "STRING_VALUE",
+ * //           Priority: Number("int"),
+ * //         },
+ * //       ],
+ * //       Name: "STRING_VALUE",
+ * //       SupportedLoadBalancerTypes: [ // ListOfString
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeSSLPoliciesCommandInput - {@link DescribeSSLPoliciesCommandInput}
@@ -66,6 +87,8 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  * @throws {@link SSLPolicyNotFoundException} (client fault)
  *  <p>The specified SSL policy does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To describe a policy used for SSL negotiation
  * ```javascript

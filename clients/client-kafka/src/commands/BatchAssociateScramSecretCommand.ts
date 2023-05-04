@@ -47,6 +47,17 @@ export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateSc
  * };
  * const command = new BatchAssociateScramSecretCommand(input);
  * const response = await client.send(command);
+ * // { // BatchAssociateScramSecretResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   UnprocessedScramSecrets: [ // __listOfUnprocessedScramSecret
+ * //     { // UnprocessedScramSecret
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       SecretArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchAssociateScramSecretCommandInput - {@link BatchAssociateScramSecretCommandInput}
@@ -76,6 +87,8 @@ export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateSc
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class BatchAssociateScramSecretCommand extends $Command<

@@ -57,6 +57,13 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
  * };
  * const command = new UpdateFirewallPolicyChangeProtectionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateFirewallPolicyChangeProtectionResponse
+ * //   UpdateToken: "STRING_VALUE",
+ * //   FirewallArn: "STRING_VALUE",
+ * //   FirewallName: "STRING_VALUE",
+ * //   FirewallPolicyChangeProtection: true || false,
+ * // };
+ *
  * ```
  *
  * @param UpdateFirewallPolicyChangeProtectionCommandInput - {@link UpdateFirewallPolicyChangeProtectionCommandInput}
@@ -97,6 +104,8 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<

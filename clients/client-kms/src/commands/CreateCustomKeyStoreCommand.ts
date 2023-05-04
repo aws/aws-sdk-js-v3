@@ -147,6 +147,10 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * };
  * const command = new CreateCustomKeyStoreCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCustomKeyStoreResponse
+ * //   CustomKeyStoreId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateCustomKeyStoreCommandInput - {@link CreateCustomKeyStoreCommandInput}
@@ -279,12 +283,14 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *       endpoint service includes the KMS service principal for the Region, such as
  *         <code>cks.kms.us-east-1.amazonaws.com</code>.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To create an AWS CloudHSM key store
  * ```javascript
  * // This example creates a custom key store that is associated with an AWS CloudHSM cluster.
  * const input = {
- *   "CloudHsmClusterId": "cluster-1a23b4cdefg",
+ *   "CloudHsmClusterId": "cluster-234abcdefABC",
  *   "CustomKeyStoreName": "ExampleKeyStore",
  *   "KeyStorePassword": "kmsPswd",
  *   "TrustAnchorCertificate": "<certificate-goes-here>"

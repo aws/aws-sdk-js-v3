@@ -50,6 +50,13 @@ export interface CreateClientVpnRouteCommandOutput extends CreateClientVpnRouteR
  * };
  * const command = new CreateClientVpnRouteCommand(input);
  * const response = await client.send(command);
+ * // { // CreateClientVpnRouteResult
+ * //   Status: { // ClientVpnRouteStatus
+ * //     Code: "creating" || "active" || "failed" || "deleting",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateClientVpnRouteCommandInput - {@link CreateClientVpnRouteCommandInput}
@@ -58,6 +65,8 @@ export interface CreateClientVpnRouteCommandOutput extends CreateClientVpnRouteR
  * @see {@link CreateClientVpnRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateClientVpnRouteCommand extends $Command<

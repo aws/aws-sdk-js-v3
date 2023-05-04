@@ -44,6 +44,10 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  * };
  * const command = new DeleteWorkflowCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteWorkflowResponse
+ * //   Name: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteWorkflowCommandInput - {@link DeleteWorkflowCommandInput}
@@ -64,6 +68,8 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteWorkflowCommand extends $Command<

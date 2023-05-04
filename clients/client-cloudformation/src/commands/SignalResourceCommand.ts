@@ -52,6 +52,8 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SignalResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SignalResourceCommandInput - {@link SignalResourceCommandInput}
@@ -60,6 +62,8 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
  * @see {@link SignalResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class SignalResourceCommand extends $Command<

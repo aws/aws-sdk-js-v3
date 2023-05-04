@@ -58,6 +58,35 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
  * };
  * const command = new DescribeReplicationConfigurationTemplatesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeReplicationConfigurationTemplatesResponse
+ * //   items: [ // ReplicationConfigurationTemplates
+ * //     { // ReplicationConfigurationTemplate
+ * //       replicationConfigurationTemplateID: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE",
+ * //       stagingAreaSubnetId: "STRING_VALUE",
+ * //       associateDefaultSecurityGroup: true || false,
+ * //       replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       replicationServerInstanceType: "STRING_VALUE",
+ * //       useDedicatedReplicationServer: true || false,
+ * //       defaultLargeStagingDiskType: "STRING_VALUE",
+ * //       ebsEncryption: "STRING_VALUE",
+ * //       ebsEncryptionKeyArn: "STRING_VALUE",
+ * //       bandwidthThrottling: Number("long"),
+ * //       dataPlaneRouting: "STRING_VALUE",
+ * //       createPublicIP: true || false,
+ * //       stagingAreaTags: { // TagsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       tags: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeReplicationConfigurationTemplatesCommandInput - {@link DescribeReplicationConfigurationTemplatesCommandInput}
@@ -75,6 +104,8 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DescribeReplicationConfigurationTemplatesCommand extends $Command<

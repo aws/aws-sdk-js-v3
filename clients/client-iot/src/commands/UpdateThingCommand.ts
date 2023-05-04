@@ -54,6 +54,8 @@ export interface UpdateThingCommandOutput extends UpdateThingResponse, __Metadat
  * };
  * const command = new UpdateThingCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateThingCommandInput - {@link UpdateThingCommandInput}
@@ -85,6 +87,8 @@ export interface UpdateThingCommandOutput extends UpdateThingResponse, __Metadat
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateThingCommand extends $Command<

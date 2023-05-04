@@ -69,6 +69,10 @@ export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInject
  * };
  * const command = new DeleteSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteSqlInjectionMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteSqlInjectionMatchSetCommandInput - {@link DeleteSqlInjectionMatchSetCommandInput}
@@ -118,6 +122,8 @@ export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInject
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To delete a SQL injection match set
  * ```javascript

@@ -60,6 +60,14 @@ export interface UpdateCustomRoutingAcceleratorAttributesCommandOutput
  * };
  * const command = new UpdateCustomRoutingAcceleratorAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateCustomRoutingAcceleratorAttributesResponse
+ * //   AcceleratorAttributes: { // CustomRoutingAcceleratorAttributes
+ * //     FlowLogsEnabled: true || false,
+ * //     FlowLogsS3Bucket: "STRING_VALUE",
+ * //     FlowLogsS3Prefix: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateCustomRoutingAcceleratorAttributesCommandInput - {@link UpdateCustomRoutingAcceleratorAttributesCommandInput}
@@ -80,6 +88,8 @@ export interface UpdateCustomRoutingAcceleratorAttributesCommandOutput
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class UpdateCustomRoutingAcceleratorAttributesCommand extends $Command<

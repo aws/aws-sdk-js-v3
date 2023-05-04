@@ -51,6 +51,10 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
  * };
  * const command = new ConfirmTransitVirtualInterfaceCommand(input);
  * const response = await client.send(command);
+ * // { // ConfirmTransitVirtualInterfaceResponse
+ * //   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
+ * // };
+ *
  * ```
  *
  * @param ConfirmTransitVirtualInterfaceCommandInput - {@link ConfirmTransitVirtualInterfaceCommandInput}
@@ -65,6 +69,8 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class ConfirmTransitVirtualInterfaceCommand extends $Command<

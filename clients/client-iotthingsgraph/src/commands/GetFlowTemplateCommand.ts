@@ -47,6 +47,22 @@ export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, _
  * };
  * const command = new GetFlowTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // GetFlowTemplateResponse
+ * //   description: { // FlowTemplateDescription
+ * //     summary: { // FlowTemplateSummary
+ * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       revisionNumber: Number("long"),
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //     },
+ * //     definition: { // DefinitionDocument
+ * //       language: "STRING_VALUE", // required
+ * //       text: "STRING_VALUE", // required
+ * //     },
+ * //     validatedNamespaceVersion: Number("long"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetFlowTemplateCommandInput - {@link GetFlowTemplateCommandInput}
@@ -67,6 +83,8 @@ export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class GetFlowTemplateCommand extends $Command<

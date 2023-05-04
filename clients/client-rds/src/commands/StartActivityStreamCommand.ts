@@ -55,6 +55,15 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
  * };
  * const command = new StartActivityStreamCommand(input);
  * const response = await client.send(command);
+ * // { // StartActivityStreamResponse
+ * //   KmsKeyId: "STRING_VALUE",
+ * //   KinesisStreamName: "STRING_VALUE",
+ * //   Status: "stopped" || "starting" || "started" || "stopping",
+ * //   Mode: "sync" || "async",
+ * //   ApplyImmediately: true || false,
+ * //   EngineNativeAuditFieldsIncluded: true || false,
+ * // };
+ *
  * ```
  *
  * @param StartActivityStreamCommandInput - {@link StartActivityStreamCommandInput}
@@ -83,6 +92,8 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The specified resource ID was not found.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To start a database activity stream
  * ```javascript

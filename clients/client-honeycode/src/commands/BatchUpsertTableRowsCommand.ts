@@ -79,6 +79,24 @@ export interface BatchUpsertTableRowsCommandOutput extends BatchUpsertTableRowsR
  * };
  * const command = new BatchUpsertTableRowsCommand(input);
  * const response = await client.send(command);
+ * // { // BatchUpsertTableRowsResult
+ * //   rows: { // UpsertRowsResultMap // required
+ * //     "<keys>": { // UpsertRowsResult
+ * //       rowIds: [ // RowIdList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       upsertAction: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   workbookCursor: Number("long"), // required
+ * //   failedBatchItems: [ // FailedBatchItems
+ * //     { // FailedBatchItem
+ * //       id: "STRING_VALUE", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchUpsertTableRowsCommandInput - {@link BatchUpsertTableRowsCommandInput}
@@ -118,6 +136,8 @@ export interface BatchUpsertTableRowsCommandOutput extends BatchUpsertTableRowsR
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class BatchUpsertTableRowsCommand extends $Command<

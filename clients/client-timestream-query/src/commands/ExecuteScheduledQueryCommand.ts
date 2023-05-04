@@ -47,6 +47,8 @@ export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ExecuteScheduledQueryCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ExecuteScheduledQueryCommandInput - {@link ExecuteScheduledQueryCommandInput}
@@ -75,6 +77,8 @@ export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
+ * @throws {@link TimestreamQueryServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
 export class ExecuteScheduledQueryCommand extends $Command<

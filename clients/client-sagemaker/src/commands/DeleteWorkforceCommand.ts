@@ -55,6 +55,8 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
  * };
  * const command = new DeleteWorkforceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteWorkforceCommandInput - {@link DeleteWorkforceCommandInput}
@@ -63,6 +65,8 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
  * @see {@link DeleteWorkforceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteWorkforceCommand extends $Command<

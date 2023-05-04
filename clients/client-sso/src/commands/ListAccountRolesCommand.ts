@@ -51,6 +51,16 @@ export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse,
  * };
  * const command = new ListAccountRolesCommand(input);
  * const response = await client.send(command);
+ * // { // ListAccountRolesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   roleList: [ // RoleListType
+ * //     { // RoleInfo
+ * //       roleName: "STRING_VALUE",
+ * //       accountId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListAccountRolesCommandInput - {@link ListAccountRolesCommandInput}
@@ -74,6 +84,8 @@ export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse,
  *  <p>Indicates that the request is not authorized. This can happen due to an invalid access
  *       token in the request.</p>
  *
+ * @throws {@link SSOServiceException}
+ * <p>Base exception class for all service exceptions from SSO service.</p>
  *
  */
 export class ListAccountRolesCommand extends $Command<

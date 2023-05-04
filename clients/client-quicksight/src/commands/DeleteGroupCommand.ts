@@ -46,6 +46,11 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteGroupResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param DeleteGroupCommandInput - {@link DeleteGroupCommandInput}
@@ -78,6 +83,8 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteGroupCommand extends $Command<

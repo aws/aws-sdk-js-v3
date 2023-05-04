@@ -59,6 +59,11 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * };
  * const command = new CreateAuthorizerCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAuthorizerResponse
+ * //   authorizerName: "STRING_VALUE",
+ * //   authorizerArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateAuthorizerCommandInput - {@link CreateAuthorizerCommandInput}
@@ -88,6 +93,8 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateAuthorizerCommand extends $Command<

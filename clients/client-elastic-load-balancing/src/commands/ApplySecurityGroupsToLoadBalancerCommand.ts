@@ -58,6 +58,12 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
  * };
  * const command = new ApplySecurityGroupsToLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * // { // ApplySecurityGroupsToLoadBalancerOutput
+ * //   SecurityGroups: [ // SecurityGroups
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ApplySecurityGroupsToLoadBalancerCommandInput - {@link ApplySecurityGroupsToLoadBalancerCommandInput}
@@ -75,6 +81,8 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
  * @throws {@link InvalidSecurityGroupException} (client fault)
  *  <p>One or more of the specified security groups do not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To associate a security group with a load balancer in a VPC
  * ```javascript

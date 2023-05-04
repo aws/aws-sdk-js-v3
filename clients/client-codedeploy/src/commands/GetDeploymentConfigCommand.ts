@@ -44,6 +44,30 @@ export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOut
  * };
  * const command = new GetDeploymentConfigCommand(input);
  * const response = await client.send(command);
+ * // { // GetDeploymentConfigOutput
+ * //   deploymentConfigInfo: { // DeploymentConfigInfo
+ * //     deploymentConfigId: "STRING_VALUE",
+ * //     deploymentConfigName: "STRING_VALUE",
+ * //     minimumHealthyHosts: { // MinimumHealthyHosts
+ * //       type: "HOST_COUNT" || "FLEET_PERCENT",
+ * //       value: Number("int"),
+ * //     },
+ * //     createTime: new Date("TIMESTAMP"),
+ * //     computePlatform: "Server" || "Lambda" || "ECS",
+ * //     trafficRoutingConfig: { // TrafficRoutingConfig
+ * //       type: "TimeBasedCanary" || "TimeBasedLinear" || "AllAtOnce",
+ * //       timeBasedCanary: { // TimeBasedCanary
+ * //         canaryPercentage: Number("int"),
+ * //         canaryInterval: Number("int"),
+ * //       },
+ * //       timeBasedLinear: { // TimeBasedLinear
+ * //         linearPercentage: Number("int"),
+ * //         linearInterval: Number("int"),
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetDeploymentConfigCommandInput - {@link GetDeploymentConfigCommandInput}
@@ -65,6 +89,8 @@ export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOut
  * @throws {@link InvalidDeploymentConfigNameException} (client fault)
  *  <p>The deployment configuration name was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class GetDeploymentConfigCommand extends $Command<

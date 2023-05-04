@@ -65,6 +65,10 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  * };
  * const command = new CreateAppImageConfigCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAppImageConfigResponse
+ * //   AppImageConfigArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateAppImageConfigCommandInput - {@link CreateAppImageConfigCommandInput}
@@ -76,6 +80,8 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  * @throws {@link ResourceInUse} (client fault)
  *  <p>Resource being accessed is in use.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateAppImageConfigCommand extends $Command<

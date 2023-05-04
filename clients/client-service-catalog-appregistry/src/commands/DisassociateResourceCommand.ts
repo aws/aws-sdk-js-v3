@@ -50,6 +50,11 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * };
  * const command = new DisassociateResourceCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateResourceResponse
+ * //   applicationArn: "STRING_VALUE",
+ * //   resourceArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DisassociateResourceCommandInput - {@link DisassociateResourceCommandInput}
@@ -74,6 +79,8 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class DisassociateResourceCommand extends $Command<

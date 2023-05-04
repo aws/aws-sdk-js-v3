@@ -55,6 +55,12 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
  * };
  * const command = new ListIdentityPoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // ListIdentityPoliciesResponse
+ * //   PolicyNames: [ // PolicyNameList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListIdentityPoliciesCommandInput - {@link ListIdentityPoliciesCommandInput}
@@ -63,6 +69,8 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
  * @see {@link ListIdentityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example ListIdentityPolicies
  * ```javascript

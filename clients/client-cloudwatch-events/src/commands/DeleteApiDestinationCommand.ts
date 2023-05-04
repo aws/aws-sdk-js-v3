@@ -44,6 +44,8 @@ export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationR
  * };
  * const command = new DeleteApiDestinationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteApiDestinationCommandInput - {@link DeleteApiDestinationCommandInput}
@@ -61,6 +63,8 @@ export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class DeleteApiDestinationCommand extends $Command<

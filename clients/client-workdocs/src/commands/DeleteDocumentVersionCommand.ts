@@ -47,6 +47,8 @@ export interface DeleteDocumentVersionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDocumentVersionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDocumentVersionCommandInput - {@link DeleteDocumentVersionCommandInput}
@@ -81,6 +83,8 @@ export interface DeleteDocumentVersionCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DeleteDocumentVersionCommand extends $Command<

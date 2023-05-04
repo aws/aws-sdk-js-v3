@@ -46,6 +46,32 @@ export interface GetTableMetadataCommandOutput extends GetTableMetadataOutput, _
  * };
  * const command = new GetTableMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // GetTableMetadataOutput
+ * //   TableMetadata: { // TableMetadata
+ * //     Name: "STRING_VALUE", // required
+ * //     CreateTime: new Date("TIMESTAMP"),
+ * //     LastAccessTime: new Date("TIMESTAMP"),
+ * //     TableType: "STRING_VALUE",
+ * //     Columns: [ // ColumnList
+ * //       { // Column
+ * //         Name: "STRING_VALUE", // required
+ * //         Type: "STRING_VALUE",
+ * //         Comment: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     PartitionKeys: [
+ * //       {
+ * //         Name: "STRING_VALUE", // required
+ * //         Type: "STRING_VALUE",
+ * //         Comment: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Parameters: { // ParametersMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetTableMetadataCommandInput - {@link GetTableMetadataCommandInput}
@@ -70,6 +96,8 @@ export interface GetTableMetadataCommandOutput extends GetTableMetadataOutput, _
  *                 Lambda
  *             <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetTableMetadataCommand extends $Command<

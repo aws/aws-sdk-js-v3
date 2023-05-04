@@ -60,6 +60,19 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * };
  * const command = new RegisterAccountCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterAccountResponse
+ * //   registerAccountStatus: "STRING_VALUE", // required
+ * //   timestreamResources: { // TimestreamResources
+ * //     timestreamDatabaseName: "STRING_VALUE", // required
+ * //     timestreamTableName: "STRING_VALUE", // required
+ * //   },
+ * //   iamResources: { // IamResources
+ * //     roleArn: "STRING_VALUE", // required
+ * //   },
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   lastModificationTime: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param RegisterAccountCommandInput - {@link RegisterAccountCommandInput}
@@ -87,6 +100,8 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class RegisterAccountCommand extends $Command<

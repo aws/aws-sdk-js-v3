@@ -69,6 +69,30 @@ export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStor
  * };
  * const command = new CreateAnnotationStoreCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAnnotationStoreResponse
+ * //   id: "STRING_VALUE", // required
+ * //   reference: { // ReferenceItem Union: only one key present
+ * //     referenceArn: "STRING_VALUE",
+ * //   },
+ * //   storeFormat: "STRING_VALUE",
+ * //   storeOptions: { // StoreOptions Union: only one key present
+ * //     tsvStoreOptions: { // TsvStoreOptions
+ * //       annotationType: "STRING_VALUE",
+ * //       formatToHeader: { // FormatToHeader
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       schema: [ // Schema
+ * //         { // SchemaItem
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   status: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param CreateAnnotationStoreCommandInput - {@link CreateAnnotationStoreCommandInput}
@@ -98,6 +122,8 @@ export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStor
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class CreateAnnotationStoreCommand extends $Command<

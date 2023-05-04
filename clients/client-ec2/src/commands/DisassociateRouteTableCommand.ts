@@ -49,6 +49,8 @@ export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateRouteTableCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateRouteTableCommandInput - {@link DisassociateRouteTableCommandInput}
@@ -57,6 +59,8 @@ export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
  * @see {@link DisassociateRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To disassociate a route table
  * ```javascript

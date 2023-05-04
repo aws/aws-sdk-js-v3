@@ -74,6 +74,24 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  * };
  * const command = new CreateCustomerGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCustomerGatewayResult
+ * //   CustomerGateway: { // CustomerGateway
+ * //     BgpAsn: "STRING_VALUE",
+ * //     CustomerGatewayId: "STRING_VALUE",
+ * //     IpAddress: "STRING_VALUE",
+ * //     CertificateArn: "STRING_VALUE",
+ * //     State: "STRING_VALUE",
+ * //     Type: "STRING_VALUE",
+ * //     DeviceName: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateCustomerGatewayCommandInput - {@link CreateCustomerGatewayCommandInput}
@@ -82,6 +100,8 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  * @see {@link CreateCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To create a customer gateway
  * ```javascript

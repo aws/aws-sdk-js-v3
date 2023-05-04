@@ -47,6 +47,10 @@ export interface ReverseReplicationCommandOutput extends ReverseReplicationRespo
  * };
  * const command = new ReverseReplicationCommand(input);
  * const response = await client.send(command);
+ * // { // ReverseReplicationResponse
+ * //   reversedDirectionSourceServerArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ReverseReplicationCommandInput - {@link ReverseReplicationCommandInput}
@@ -76,6 +80,8 @@ export interface ReverseReplicationCommandOutput extends ReverseReplicationRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class ReverseReplicationCommand extends $Command<

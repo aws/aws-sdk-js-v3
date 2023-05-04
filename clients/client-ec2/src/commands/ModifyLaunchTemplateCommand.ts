@@ -50,6 +50,23 @@ export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateR
  * };
  * const command = new ModifyLaunchTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyLaunchTemplateResult
+ * //   LaunchTemplate: { // LaunchTemplate
+ * //     LaunchTemplateId: "STRING_VALUE",
+ * //     LaunchTemplateName: "STRING_VALUE",
+ * //     CreateTime: new Date("TIMESTAMP"),
+ * //     CreatedBy: "STRING_VALUE",
+ * //     DefaultVersionNumber: Number("long"),
+ * //     LatestVersionNumber: Number("long"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ModifyLaunchTemplateCommandInput - {@link ModifyLaunchTemplateCommandInput}
@@ -58,6 +75,8 @@ export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateR
  * @see {@link ModifyLaunchTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To change the default version of a launch template
  * ```javascript

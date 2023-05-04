@@ -49,6 +49,13 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
  * };
  * const command = new ListUpdatesCommand(input);
  * const response = await client.send(command);
+ * // { // ListUpdatesResponse
+ * //   updateIds: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListUpdatesCommandInput - {@link ListUpdatesCommandInput}
@@ -75,6 +82,8 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
 export class ListUpdatesCommand extends $Command<

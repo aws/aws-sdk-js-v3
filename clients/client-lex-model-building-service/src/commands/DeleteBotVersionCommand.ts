@@ -52,6 +52,8 @@ export interface DeleteBotVersionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBotVersionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteBotVersionCommandInput - {@link DeleteBotVersionCommandInput}
@@ -97,6 +99,8 @@ export interface DeleteBotVersionCommandOutput extends __MetadataBearer {}
  *           <i>string</i> } }</code>
  *          </p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class DeleteBotVersionCommand extends $Command<

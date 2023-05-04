@@ -112,6 +112,10 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  * };
  * const command = new CreateCompilationJobCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCompilationJobResponse
+ * //   CompilationJobArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateCompilationJobCommandInput - {@link CreateCompilationJobCommandInput}
@@ -127,6 +131,8 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateCompilationJobCommand extends $Command<

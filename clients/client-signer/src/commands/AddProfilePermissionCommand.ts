@@ -49,6 +49,10 @@ export interface AddProfilePermissionCommandOutput extends AddProfilePermissionR
  * };
  * const command = new AddProfilePermissionCommand(input);
  * const response = await client.send(command);
+ * // { // AddProfilePermissionResponse
+ * //   revisionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AddProfilePermissionCommandInput - {@link AddProfilePermissionCommandInput}
@@ -79,6 +83,8 @@ export interface AddProfilePermissionCommandOutput extends AddProfilePermissionR
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class AddProfilePermissionCommand extends $Command<

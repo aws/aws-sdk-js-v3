@@ -68,6 +68,35 @@ export interface CreateFieldLevelEncryptionProfileCommandOutput
  * };
  * const command = new CreateFieldLevelEncryptionProfileCommand(input);
  * const response = await client.send(command);
+ * // { // CreateFieldLevelEncryptionProfileResult
+ * //   FieldLevelEncryptionProfile: { // FieldLevelEncryptionProfile
+ * //     Id: "STRING_VALUE", // required
+ * //     LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     FieldLevelEncryptionProfileConfig: { // FieldLevelEncryptionProfileConfig
+ * //       Name: "STRING_VALUE", // required
+ * //       CallerReference: "STRING_VALUE", // required
+ * //       Comment: "STRING_VALUE",
+ * //       EncryptionEntities: { // EncryptionEntities
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // EncryptionEntityList
+ * //           { // EncryptionEntity
+ * //             PublicKeyId: "STRING_VALUE", // required
+ * //             ProviderId: "STRING_VALUE", // required
+ * //             FieldPatterns: { // FieldPatterns
+ * //               Quantity: Number("int"), // required
+ * //               Items: [ // FieldPatternList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
+ * //   Location: "STRING_VALUE",
+ * //   ETag: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateFieldLevelEncryptionProfileCommandInput - {@link CreateFieldLevelEncryptionProfileCommandInput}
@@ -103,6 +132,8 @@ export interface CreateFieldLevelEncryptionProfileCommandOutput
  * @throws {@link TooManyFieldLevelEncryptionProfiles} (client fault)
  *  <p>The maximum number of profiles for field-level encryption have been created.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class CreateFieldLevelEncryptionProfileCommand extends $Command<

@@ -45,6 +45,11 @@ export interface CreateWirelessGatewayTaskCommandOutput extends CreateWirelessGa
  * };
  * const command = new CreateWirelessGatewayTaskCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWirelessGatewayTaskResponse
+ * //   WirelessGatewayTaskDefinitionId: "STRING_VALUE",
+ * //   Status: "PENDING" || "IN_PROGRESS" || "FIRST_RETRY" || "SECOND_RETRY" || "COMPLETED" || "FAILED",
+ * // };
+ *
  * ```
  *
  * @param CreateWirelessGatewayTaskCommandInput - {@link CreateWirelessGatewayTaskCommandInput}
@@ -71,6 +76,8 @@ export interface CreateWirelessGatewayTaskCommandOutput extends CreateWirelessGa
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class CreateWirelessGatewayTaskCommand extends $Command<

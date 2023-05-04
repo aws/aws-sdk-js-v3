@@ -65,6 +65,28 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  * };
  * const command = new ListStackSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListStackSetsOutput
+ * //   Summaries: [ // StackSetSummaries
+ * //     { // StackSetSummary
+ * //       StackSetName: "STRING_VALUE",
+ * //       StackSetId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "DELETED",
+ * //       AutoDeployment: { // AutoDeployment
+ * //         Enabled: true || false,
+ * //         RetainStacksOnAccountRemoval: true || false,
+ * //       },
+ * //       PermissionModel: "SERVICE_MANAGED" || "SELF_MANAGED",
+ * //       DriftStatus: "DRIFTED" || "IN_SYNC" || "UNKNOWN" || "NOT_CHECKED",
+ * //       LastDriftCheckTimestamp: new Date("TIMESTAMP"),
+ * //       ManagedExecution: { // ManagedExecution
+ * //         Active: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListStackSetsCommandInput - {@link ListStackSetsCommandInput}
@@ -73,6 +95,8 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  * @see {@link ListStackSetsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListStackSetsCommand extends $Command<

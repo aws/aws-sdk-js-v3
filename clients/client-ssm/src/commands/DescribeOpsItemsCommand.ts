@@ -59,6 +59,36 @@ export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse,
  * };
  * const command = new DescribeOpsItemsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeOpsItemsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   OpsItemSummaries: [ // OpsItemSummaries
+ * //     { // OpsItemSummary
+ * //       CreatedBy: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedBy: "STRING_VALUE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       Priority: Number("int"),
+ * //       Source: "STRING_VALUE",
+ * //       Status: "Open" || "InProgress" || "Resolved" || "Pending" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "CompletedWithSuccess" || "CompletedWithFailure" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "PendingApproval" || "Approved" || "Rejected" || "Closed",
+ * //       OpsItemId: "STRING_VALUE",
+ * //       Title: "STRING_VALUE",
+ * //       OperationalData: { // OpsItemOperationalData
+ * //         "<keys>": { // OpsItemDataValue
+ * //           Value: "STRING_VALUE",
+ * //           Type: "SearchableString" || "String",
+ * //         },
+ * //       },
+ * //       Category: "STRING_VALUE",
+ * //       Severity: "STRING_VALUE",
+ * //       OpsItemType: "STRING_VALUE",
+ * //       ActualStartTime: new Date("TIMESTAMP"),
+ * //       ActualEndTime: new Date("TIMESTAMP"),
+ * //       PlannedStartTime: new Date("TIMESTAMP"),
+ * //       PlannedEndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeOpsItemsCommandInput - {@link DescribeOpsItemsCommandInput}
@@ -70,6 +100,8 @@ export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse,
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeOpsItemsCommand extends $Command<

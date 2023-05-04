@@ -67,6 +67,29 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * };
  * const command = new CreateListenerCommand(input);
  * const response = await client.send(command);
+ * // { // CreateListenerResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   protocol: "STRING_VALUE",
+ * //   port: Number("int"),
+ * //   serviceArn: "STRING_VALUE",
+ * //   serviceId: "STRING_VALUE",
+ * //   defaultAction: { // RuleAction Union: only one key present
+ * //     forward: { // ForwardAction
+ * //       targetGroups: [ // WeightedTargetGroupList // required
+ * //         { // WeightedTargetGroup
+ * //           targetGroupIdentifier: "STRING_VALUE", // required
+ * //           weight: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //     fixedResponse: { // FixedResponseAction
+ * //       statusCode: Number("int"), // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateListenerCommandInput - {@link CreateListenerCommandInput}
@@ -98,6 +121,8 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class CreateListenerCommand extends $Command<

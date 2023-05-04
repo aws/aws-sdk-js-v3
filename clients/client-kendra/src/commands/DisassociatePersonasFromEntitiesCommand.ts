@@ -57,6 +57,15 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
  * };
  * const command = new DisassociatePersonasFromEntitiesCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociatePersonasFromEntitiesResponse
+ * //   FailedEntityList: [ // FailedEntityList
+ * //     { // FailedEntity
+ * //       EntityId: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DisassociatePersonasFromEntitiesCommandInput - {@link DisassociatePersonasFromEntitiesCommandInput}
@@ -85,6 +94,8 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DisassociatePersonasFromEntitiesCommand extends $Command<

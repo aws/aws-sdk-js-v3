@@ -49,6 +49,11 @@ export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __Met
  * };
  * const command = new CreateUseCaseCommand(input);
  * const response = await client.send(command);
+ * // { // CreateUseCaseResponse
+ * //   UseCaseId: "STRING_VALUE",
+ * //   UseCaseArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateUseCaseCommandInput - {@link CreateUseCaseCommandInput}
@@ -72,6 +77,8 @@ export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateUseCaseCommand extends $Command<

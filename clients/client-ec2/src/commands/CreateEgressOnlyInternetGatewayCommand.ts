@@ -65,6 +65,25 @@ export interface CreateEgressOnlyInternetGatewayCommandOutput
  * };
  * const command = new CreateEgressOnlyInternetGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // CreateEgressOnlyInternetGatewayResult
+ * //   ClientToken: "STRING_VALUE",
+ * //   EgressOnlyInternetGateway: { // EgressOnlyInternetGateway
+ * //     Attachments: [ // InternetGatewayAttachmentList
+ * //       { // InternetGatewayAttachment
+ * //         State: "attaching" || "attached" || "detaching" || "detached",
+ * //         VpcId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     EgressOnlyInternetGatewayId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateEgressOnlyInternetGatewayCommandInput - {@link CreateEgressOnlyInternetGatewayCommandInput}
@@ -73,6 +92,8 @@ export interface CreateEgressOnlyInternetGatewayCommandOutput
  * @see {@link CreateEgressOnlyInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateEgressOnlyInternetGatewayCommand extends $Command<

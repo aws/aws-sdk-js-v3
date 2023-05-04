@@ -54,6 +54,22 @@ export interface DescribeImageReplicationStatusCommandOutput
  * };
  * const command = new DescribeImageReplicationStatusCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeImageReplicationStatusResponse
+ * //   repositoryName: "STRING_VALUE",
+ * //   imageId: { // ImageIdentifier
+ * //     imageDigest: "STRING_VALUE",
+ * //     imageTag: "STRING_VALUE",
+ * //   },
+ * //   replicationStatuses: [ // ImageReplicationStatusList
+ * //     { // ImageReplicationStatus
+ * //       region: "STRING_VALUE",
+ * //       registryId: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       failureCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeImageReplicationStatusCommandInput - {@link DescribeImageReplicationStatusCommandInput}
@@ -79,6 +95,8 @@ export interface DescribeImageReplicationStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class DescribeImageReplicationStatusCommand extends $Command<

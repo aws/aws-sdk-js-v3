@@ -67,6 +67,10 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
  * };
  * const command = new CreatePresignedNotebookInstanceUrlCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePresignedNotebookInstanceUrlOutput
+ * //   AuthorizedUrl: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreatePresignedNotebookInstanceUrlCommandInput - {@link CreatePresignedNotebookInstanceUrlCommandInput}
@@ -75,6 +79,8 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
  * @see {@link CreatePresignedNotebookInstanceUrlCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreatePresignedNotebookInstanceUrlCommand extends $Command<

@@ -101,6 +101,14 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  * };
  * const command = new CreatePushTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePushTemplateResponse
+ * //   CreateTemplateMessageBody: { // CreateTemplateMessageBody
+ * //     Arn: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreatePushTemplateCommandInput - {@link CreatePushTemplateCommandInput}
@@ -124,6 +132,8 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class CreatePushTemplateCommand extends $Command<

@@ -38,9 +38,10 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
 /**
  * @public
  * <p>Creates an Resilience Hub application. An Resilience Hub application is a
- *       collection of Amazon Web Services resources structured to prevent and recover Amazon Web Services application disruptions. To describe a Resilience Hub application, you provide an
- *       application name, resources from one or more–up to 20–CloudFormation stacks, and an appropriate
- *       resiliency policy.</p>
+ *       collection of Amazon Web Services resources structured to prevent and recover Amazon Web Services application disruptions. To describe an Resilience Hub application, you provide an
+ *       application name, resources from one or more CloudFormation stacks, Resource Groups,
+ *       Terraform state files, AppRegistry applications, and an appropriate resiliency policy. For
+ *       more information about the number of resources supported per application, see <a href="https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub">Service Quotas</a>.</p>
  *          <p>After you create an Resilience Hub application, you publish it so that you can run a resiliency
  *       assessment on it. You can then use recommendations from the assessment to improve resiliency
  *       by running another assessment, comparing results, and then iterating the process until you
@@ -64,6 +65,25 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAppResponse
+ * //   app: { // App
+ * //     appArn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     policyArn: "STRING_VALUE",
+ * //     creationTime: new Date("TIMESTAMP"), // required
+ * //     status: "STRING_VALUE",
+ * //     complianceStatus: "STRING_VALUE",
+ * //     lastAppComplianceEvaluationTime: new Date("TIMESTAMP"),
+ * //     resiliencyScore: Number("double"),
+ * //     lastResiliencyScoreEvaluationTime: new Date("TIMESTAMP"),
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     assessmentSchedule: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateAppCommandInput - {@link CreateAppCommandInput}
@@ -100,6 +120,8 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class CreateAppCommand extends $Command<

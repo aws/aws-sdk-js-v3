@@ -47,6 +47,19 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * };
  * const command = new DescribeRuleCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRuleResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   EventPattern: "STRING_VALUE",
+ * //   ScheduleExpression: "STRING_VALUE",
+ * //   State: "ENABLED" || "DISABLED",
+ * //   Description: "STRING_VALUE",
+ * //   RoleArn: "STRING_VALUE",
+ * //   ManagedBy: "STRING_VALUE",
+ * //   EventBusName: "STRING_VALUE",
+ * //   CreatedBy: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeRuleCommandInput - {@link DescribeRuleCommandInput}
@@ -61,6 +74,8 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class DescribeRuleCommand extends $Command<

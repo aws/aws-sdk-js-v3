@@ -48,6 +48,8 @@ export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __Metadat
  * };
  * const command = new CreateLFTagCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateLFTagCommandInput - {@link CreateLFTagCommandInput}
@@ -74,6 +76,8 @@ export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __Metadat
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class CreateLFTagCommand extends $Command<

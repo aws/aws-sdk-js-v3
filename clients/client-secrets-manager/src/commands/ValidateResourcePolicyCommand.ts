@@ -66,6 +66,16 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  * };
  * const command = new ValidateResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // ValidateResourcePolicyResponse
+ * //   PolicyValidationPassed: true || false,
+ * //   ValidationErrors: [ // ValidationErrorsType
+ * //     { // ValidationErrorsEntry
+ * //       CheckName: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ValidateResourcePolicyCommandInput - {@link ValidateResourcePolicyCommandInput}
@@ -104,6 +114,8 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To validate a resource-based policy to a secret
  * ```javascript

@@ -48,6 +48,8 @@ export interface DeleteAlertManagerDefinitionCommandOutput extends __MetadataBea
  * };
  * const command = new DeleteAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAlertManagerDefinitionCommandInput - {@link DeleteAlertManagerDefinitionCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteAlertManagerDefinitionCommandOutput extends __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class DeleteAlertManagerDefinitionCommand extends $Command<

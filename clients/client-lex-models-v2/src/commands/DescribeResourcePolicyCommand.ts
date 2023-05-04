@@ -45,6 +45,12 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * };
  * const command = new DescribeResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeResourcePolicyResponse
+ * //   resourceArn: "STRING_VALUE",
+ * //   policy: "STRING_VALUE",
+ * //   revisionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
@@ -65,6 +71,8 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  *  <p>Your request rate is too high. Reduce the frequency of
  *          requests.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DescribeResourcePolicyCommand extends $Command<

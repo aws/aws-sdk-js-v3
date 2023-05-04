@@ -53,6 +53,16 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  * };
  * const command = new GetSchemaVersionCommand(input);
  * const response = await client.send(command);
+ * // { // GetSchemaVersionResponse
+ * //   SchemaVersionId: "STRING_VALUE",
+ * //   SchemaDefinition: "STRING_VALUE",
+ * //   DataFormat: "AVRO" || "JSON" || "PROTOBUF",
+ * //   SchemaArn: "STRING_VALUE",
+ * //   VersionNumber: Number("long"),
+ * //   Status: "AVAILABLE" || "PENDING" || "FAILURE" || "DELETING",
+ * //   CreatedTime: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetSchemaVersionCommandInput - {@link GetSchemaVersionCommandInput}
@@ -73,6 +83,8 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetSchemaVersionCommand extends $Command<

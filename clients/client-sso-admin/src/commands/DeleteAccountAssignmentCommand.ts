@@ -53,6 +53,20 @@ export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssig
  * };
  * const command = new DeleteAccountAssignmentCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteAccountAssignmentResponse
+ * //   AccountAssignmentDeletionStatus: { // AccountAssignmentOperationStatus
+ * //     Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ * //     RequestId: "STRING_VALUE",
+ * //     FailureReason: "STRING_VALUE",
+ * //     TargetId: "STRING_VALUE",
+ * //     TargetType: "AWS_ACCOUNT",
+ * //     PermissionSetArn: "STRING_VALUE",
+ * //     PrincipalType: "USER" || "GROUP",
+ * //     PrincipalId: "STRING_VALUE",
+ * //     CreatedDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteAccountAssignmentCommandInput - {@link DeleteAccountAssignmentCommandInput}
@@ -84,6 +98,8 @@ export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssig
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class DeleteAccountAssignmentCommand extends $Command<

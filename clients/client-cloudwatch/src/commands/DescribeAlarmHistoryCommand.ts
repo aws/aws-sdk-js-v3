@@ -58,6 +58,20 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * };
  * const command = new DescribeAlarmHistoryCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAlarmHistoryOutput
+ * //   AlarmHistoryItems: [ // AlarmHistoryItems
+ * //     { // AlarmHistoryItem
+ * //       AlarmName: "STRING_VALUE",
+ * //       AlarmType: "CompositeAlarm" || "MetricAlarm",
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //       HistoryItemType: "ConfigurationUpdate" || "StateUpdate" || "Action",
+ * //       HistorySummary: "STRING_VALUE",
+ * //       HistoryData: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeAlarmHistoryCommandInput - {@link DescribeAlarmHistoryCommandInput}
@@ -69,6 +83,8 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The next token specified is invalid.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DescribeAlarmHistoryCommand extends $Command<

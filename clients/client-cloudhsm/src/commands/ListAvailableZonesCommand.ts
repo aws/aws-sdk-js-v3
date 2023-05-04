@@ -52,6 +52,12 @@ export interface ListAvailableZonesCommandOutput extends ListAvailableZonesRespo
  * const input = {};
  * const command = new ListAvailableZonesCommand(input);
  * const response = await client.send(command);
+ * // { // ListAvailableZonesResponse
+ * //   AZList: [ // AZList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListAvailableZonesCommandInput - {@link ListAvailableZonesCommandInput}
@@ -69,6 +75,8 @@ export interface ListAvailableZonesCommandOutput extends ListAvailableZonesRespo
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class ListAvailableZonesCommand extends $Command<

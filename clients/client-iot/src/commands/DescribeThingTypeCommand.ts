@@ -45,6 +45,23 @@ export interface DescribeThingTypeCommandOutput extends DescribeThingTypeRespons
  * };
  * const command = new DescribeThingTypeCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeThingTypeResponse
+ * //   thingTypeName: "STRING_VALUE",
+ * //   thingTypeId: "STRING_VALUE",
+ * //   thingTypeArn: "STRING_VALUE",
+ * //   thingTypeProperties: { // ThingTypeProperties
+ * //     thingTypeDescription: "STRING_VALUE",
+ * //     searchableAttributes: [ // SearchableAttributes
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   thingTypeMetadata: { // ThingTypeMetadata
+ * //     deprecated: true || false,
+ * //     deprecationDate: new Date("TIMESTAMP"),
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeThingTypeCommandInput - {@link DescribeThingTypeCommandInput}
@@ -71,6 +88,8 @@ export interface DescribeThingTypeCommandOutput extends DescribeThingTypeRespons
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeThingTypeCommand extends $Command<

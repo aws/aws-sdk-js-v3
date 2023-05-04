@@ -62,6 +62,8 @@ export interface DeleteApplicationReferenceDataSourceCommandOutput
  * };
  * const command = new DeleteApplicationReferenceDataSourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteApplicationReferenceDataSourceCommandInput - {@link DeleteApplicationReferenceDataSourceCommandInput}
@@ -85,6 +87,8 @@ export interface DeleteApplicationReferenceDataSourceCommandOutput
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class DeleteApplicationReferenceDataSourceCommand extends $Command<

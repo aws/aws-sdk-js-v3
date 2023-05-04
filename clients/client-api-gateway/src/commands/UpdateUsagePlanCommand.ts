@@ -52,6 +52,37 @@ export interface UpdateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
  * };
  * const command = new UpdateUsagePlanCommand(input);
  * const response = await client.send(command);
+ * // { // UsagePlan
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   apiStages: [ // ListOfApiStage
+ * //     { // ApiStage
+ * //       apiId: "STRING_VALUE",
+ * //       stage: "STRING_VALUE",
+ * //       throttle: { // MapOfApiStageThrottleSettings
+ * //         "<keys>": { // ThrottleSettings
+ * //           burstLimit: Number("int"),
+ * //           rateLimit: Number("double"),
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   throttle: {
+ * //     burstLimit: Number("int"),
+ * //     rateLimit: Number("double"),
+ * //   },
+ * //   quota: { // QuotaSettings
+ * //     limit: Number("int"),
+ * //     offset: Number("int"),
+ * //     period: "DAY" || "WEEK" || "MONTH",
+ * //   },
+ * //   productCode: "STRING_VALUE",
+ * //   tags: { // MapOfStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateUsagePlanCommandInput - {@link UpdateUsagePlanCommandInput}
@@ -78,6 +109,8 @@ export interface UpdateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class UpdateUsagePlanCommand extends $Command<

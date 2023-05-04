@@ -46,6 +46,15 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  * const input = {};
  * const command = new DescribeRegionSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRegionSettingsOutput
+ * //   ResourceTypeOptInPreference: { // ResourceTypeOptInPreference
+ * //     "<keys>": true || false,
+ * //   },
+ * //   ResourceTypeManagementPreference: { // ResourceTypeManagementPreference
+ * //     "<keys>": true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeRegionSettingsCommandInput - {@link DescribeRegionSettingsCommandInput}
@@ -57,6 +66,8 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DescribeRegionSettingsCommand extends $Command<

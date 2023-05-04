@@ -59,6 +59,21 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
  * };
  * const command = new DescribeConfigurationAggregatorSourcesStatusCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeConfigurationAggregatorSourcesStatusResponse
+ * //   AggregatedSourceStatusList: [ // AggregatedSourceStatusList
+ * //     { // AggregatedSourceStatus
+ * //       SourceId: "STRING_VALUE",
+ * //       SourceType: "ACCOUNT" || "ORGANIZATION",
+ * //       AwsRegion: "STRING_VALUE",
+ * //       LastUpdateStatus: "FAILED" || "SUCCEEDED" || "OUTDATED",
+ * //       LastUpdateTime: new Date("TIMESTAMP"),
+ * //       LastErrorCode: "STRING_VALUE",
+ * //       LastErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeConfigurationAggregatorSourcesStatusCommandInput - {@link DescribeConfigurationAggregatorSourcesStatusCommandInput}
@@ -82,6 +97,8 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
  * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
  *  <p>You have specified a configuration aggregator that does not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Command<

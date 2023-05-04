@@ -44,6 +44,8 @@ export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteHsmClientCertificateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteHsmClientCertificateCommandInput - {@link DeleteHsmClientCertificateCommandInput}
@@ -60,6 +62,8 @@ export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBeare
  *  <p>The specified HSM client certificate is not in the <code>available</code> state, or
  *             it is still in use by one or more Amazon Redshift clusters.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteHsmClientCertificateCommand extends $Command<

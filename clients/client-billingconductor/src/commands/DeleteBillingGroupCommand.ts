@@ -46,6 +46,10 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupOutpu
  * };
  * const command = new DeleteBillingGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteBillingGroupOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteBillingGroupCommandInput - {@link DeleteBillingGroupCommandInput}
@@ -69,6 +73,8 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class DeleteBillingGroupCommand extends $Command<

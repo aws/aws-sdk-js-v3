@@ -47,6 +47,8 @@ export interface DeleteThingTypeCommandOutput extends DeleteThingTypeResponse, _
  * };
  * const command = new DeleteThingTypeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteThingTypeCommandInput - {@link DeleteThingTypeCommandInput}
@@ -73,6 +75,8 @@ export interface DeleteThingTypeCommandOutput extends DeleteThingTypeResponse, _
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteThingTypeCommand extends $Command<

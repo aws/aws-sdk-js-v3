@@ -52,6 +52,95 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * };
  * const command = new DescribeClusterCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeClusterResponse
+ * //   cluster: { // Cluster
+ * //     name: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     version: "STRING_VALUE",
+ * //     endpoint: "STRING_VALUE",
+ * //     roleArn: "STRING_VALUE",
+ * //     resourcesVpcConfig: { // VpcConfigResponse
+ * //       subnetIds: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       securityGroupIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       clusterSecurityGroupId: "STRING_VALUE",
+ * //       vpcId: "STRING_VALUE",
+ * //       endpointPublicAccess: true || false,
+ * //       endpointPrivateAccess: true || false,
+ * //       publicAccessCidrs: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     kubernetesNetworkConfig: { // KubernetesNetworkConfigResponse
+ * //       serviceIpv4Cidr: "STRING_VALUE",
+ * //       serviceIpv6Cidr: "STRING_VALUE",
+ * //       ipFamily: "ipv4" || "ipv6",
+ * //     },
+ * //     logging: { // Logging
+ * //       clusterLogging: [ // LogSetups
+ * //         { // LogSetup
+ * //           types: [ // LogTypes
+ * //             "api" || "audit" || "authenticator" || "controllerManager" || "scheduler",
+ * //           ],
+ * //           enabled: true || false,
+ * //         },
+ * //       ],
+ * //     },
+ * //     identity: { // Identity
+ * //       oidc: { // OIDC
+ * //         issuer: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING" || "PENDING",
+ * //     certificateAuthority: { // Certificate
+ * //       data: "STRING_VALUE",
+ * //     },
+ * //     clientRequestToken: "STRING_VALUE",
+ * //     platformVersion: "STRING_VALUE",
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     encryptionConfig: [ // EncryptionConfigList
+ * //       { // EncryptionConfig
+ * //         resources: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         provider: { // Provider
+ * //           keyArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     connectorConfig: { // ConnectorConfigResponse
+ * //       activationId: "STRING_VALUE",
+ * //       activationCode: "STRING_VALUE",
+ * //       activationExpiry: new Date("TIMESTAMP"),
+ * //       provider: "STRING_VALUE",
+ * //       roleArn: "STRING_VALUE",
+ * //     },
+ * //     id: "STRING_VALUE",
+ * //     health: { // ClusterHealth
+ * //       issues: [ // ClusterIssueList
+ * //         { // ClusterIssue
+ * //           code: "AccessDenied" || "ClusterUnreachable" || "ConfigurationConflict" || "InternalFailure" || "ResourceLimitExceeded" || "ResourceNotFound",
+ * //           message: "STRING_VALUE",
+ * //           resourceIds: "<StringList>",
+ * //         },
+ * //       ],
+ * //     },
+ * //     outpostConfig: { // OutpostConfigResponse
+ * //       outpostArns: "<StringList>", // required
+ * //       controlPlaneInstanceType: "STRING_VALUE", // required
+ * //       controlPlanePlacement: { // ControlPlanePlacementResponse
+ * //         groupName: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeClusterCommandInput - {@link DescribeClusterCommandInput}
@@ -77,6 +166,8 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unavailable. Back off and retry the operation.</p>
  *
+ * @throws {@link EKSServiceException}
+ * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  * @example To describe a cluster
  * ```javascript

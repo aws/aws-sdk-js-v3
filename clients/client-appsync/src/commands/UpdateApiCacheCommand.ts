@@ -47,6 +47,17 @@ export interface UpdateApiCacheCommandOutput extends UpdateApiCacheResponse, __M
  * };
  * const command = new UpdateApiCacheCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateApiCacheResponse
+ * //   apiCache: { // ApiCache
+ * //     ttl: Number("long"),
+ * //     apiCachingBehavior: "FULL_REQUEST_CACHING" || "PER_RESOLVER_CACHING",
+ * //     transitEncryptionEnabled: true || false,
+ * //     atRestEncryptionEnabled: true || false,
+ * //     type: "T2_SMALL" || "T2_MEDIUM" || "R4_LARGE" || "R4_XLARGE" || "R4_2XLARGE" || "R4_4XLARGE" || "R4_8XLARGE" || "SMALL" || "MEDIUM" || "LARGE" || "XLARGE" || "LARGE_2X" || "LARGE_4X" || "LARGE_8X" || "LARGE_12X",
+ * //     status: "AVAILABLE" || "CREATING" || "DELETING" || "MODIFYING" || "FAILED",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateApiCacheCommandInput - {@link UpdateApiCacheCommandInput}
@@ -56,22 +67,25 @@ export interface UpdateApiCacheCommandOutput extends UpdateApiCacheResponse, __M
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
- *          field values, and then try again.</p>
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is
+ *          missing. Check the field values, and then try again.</p>
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Another modification is in progress at this time and it must complete before you can make your
- *          change.</p>
+ *  <p>Another modification is in progress at this time and it must complete before you can
+ *          make your change.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *  <p>The resource specified in the request was not found. Check the resource, and then try
+ *          again.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class UpdateApiCacheCommand extends $Command<

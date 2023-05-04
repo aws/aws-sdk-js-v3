@@ -47,6 +47,21 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
+ * // { // ListUsersResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ServerId: "STRING_VALUE", // required
+ * //   Users: [ // ListedUsers // required
+ * //     { // ListedUser
+ * //       Arn: "STRING_VALUE", // required
+ * //       HomeDirectory: "STRING_VALUE",
+ * //       HomeDirectoryType: "PATH" || "LOGICAL",
+ * //       Role: "STRING_VALUE",
+ * //       SshPublicKeyCount: Number("int"),
+ * //       UserName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListUsersCommandInput - {@link ListUsersCommandInput}
@@ -71,6 +86,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ListUsersCommand extends $Command<

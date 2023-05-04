@@ -50,6 +50,34 @@ export interface ListApplicationRevisionsCommandOutput extends ListApplicationRe
  * };
  * const command = new ListApplicationRevisionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListApplicationRevisionsOutput
+ * //   revisions: [ // RevisionLocationList
+ * //     { // RevisionLocation
+ * //       revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
+ * //       s3Location: { // S3Location
+ * //         bucket: "STRING_VALUE",
+ * //         key: "STRING_VALUE",
+ * //         bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
+ * //         version: "STRING_VALUE",
+ * //         eTag: "STRING_VALUE",
+ * //       },
+ * //       gitHubLocation: { // GitHubLocation
+ * //         repository: "STRING_VALUE",
+ * //         commitId: "STRING_VALUE",
+ * //       },
+ * //       string: { // RawString
+ * //         content: "STRING_VALUE",
+ * //         sha256: "STRING_VALUE",
+ * //       },
+ * //       appSpecContent: { // AppSpecContent
+ * //         content: "STRING_VALUE",
+ * //         sha256: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListApplicationRevisionsCommandInput - {@link ListApplicationRevisionsCommandInput}
@@ -89,6 +117,8 @@ export interface ListApplicationRevisionsCommandOutput extends ListApplicationRe
  * @throws {@link InvalidSortOrderException} (client fault)
  *  <p>The sort order was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListApplicationRevisionsCommand extends $Command<

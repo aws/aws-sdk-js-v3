@@ -54,6 +54,8 @@ export interface StartRecommendationsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StartRecommendationsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartRecommendationsCommandInput - {@link StartRecommendationsCommandInput}
@@ -72,6 +74,8 @@ export interface StartRecommendationsCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class StartRecommendationsCommand extends $Command<

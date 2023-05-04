@@ -49,6 +49,34 @@ export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccess
  * };
  * const command = new GetInstanceAccessDetailsCommand(input);
  * const response = await client.send(command);
+ * // { // GetInstanceAccessDetailsResult
+ * //   accessDetails: { // InstanceAccessDetails
+ * //     certKey: "STRING_VALUE",
+ * //     expiresAt: new Date("TIMESTAMP"),
+ * //     ipAddress: "STRING_VALUE",
+ * //     password: "STRING_VALUE",
+ * //     passwordData: { // PasswordData
+ * //       ciphertext: "STRING_VALUE",
+ * //       keyPairName: "STRING_VALUE",
+ * //     },
+ * //     privateKey: "STRING_VALUE",
+ * //     protocol: "ssh" || "rdp",
+ * //     instanceName: "STRING_VALUE",
+ * //     username: "STRING_VALUE",
+ * //     hostKeys: [ // HostKeysList
+ * //       { // HostKeyAttributes
+ * //         algorithm: "STRING_VALUE",
+ * //         publicKey: "STRING_VALUE",
+ * //         witnessedAt: new Date("TIMESTAMP"),
+ * //         fingerprintSHA1: "STRING_VALUE",
+ * //         fingerprintSHA256: "STRING_VALUE",
+ * //         notValidBefore: new Date("TIMESTAMP"),
+ * //         notValidAfter: new Date("TIMESTAMP"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetInstanceAccessDetailsCommandInput - {@link GetInstanceAccessDetailsCommandInput}
@@ -87,6 +115,8 @@ export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccess
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetInstanceAccessDetailsCommand extends $Command<

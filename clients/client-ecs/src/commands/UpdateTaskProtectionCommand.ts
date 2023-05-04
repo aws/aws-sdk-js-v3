@@ -75,6 +75,23 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * };
  * const command = new UpdateTaskProtectionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateTaskProtectionResponse
+ * //   protectedTasks: [ // ProtectedTasks
+ * //     { // ProtectedTask
+ * //       taskArn: "STRING_VALUE",
+ * //       protectionEnabled: true || false,
+ * //       expirationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   failures: [ // Failures
+ * //     { // Failure
+ * //       arn: "STRING_VALUE",
+ * //       reason: "STRING_VALUE",
+ * //       detail: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UpdateTaskProtectionCommandInput - {@link UpdateTaskProtectionCommandInput}
@@ -107,6 +124,8 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * @throws {@link UnsupportedFeatureException} (client fault)
  *  <p>The specified task isn't supported in this Region.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To set task scale-in protection for a task for 60 minutes
  * ```javascript

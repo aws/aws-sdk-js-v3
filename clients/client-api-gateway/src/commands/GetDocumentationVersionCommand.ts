@@ -45,6 +45,12 @@ export interface GetDocumentationVersionCommandOutput extends DocumentationVersi
  * };
  * const command = new GetDocumentationVersionCommand(input);
  * const response = await client.send(command);
+ * // { // DocumentationVersion
+ * //   version: "STRING_VALUE",
+ * //   createdDate: new Date("TIMESTAMP"),
+ * //   description: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetDocumentationVersionCommandInput - {@link GetDocumentationVersionCommandInput}
@@ -62,6 +68,8 @@ export interface GetDocumentationVersionCommandOutput extends DocumentationVersi
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetDocumentationVersionCommand extends $Command<

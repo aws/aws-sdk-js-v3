@@ -55,6 +55,16 @@ export interface CreateVariantStoreCommandOutput extends CreateVariantStoreRespo
  * };
  * const command = new CreateVariantStoreCommand(input);
  * const response = await client.send(command);
+ * // { // CreateVariantStoreResponse
+ * //   id: "STRING_VALUE", // required
+ * //   reference: { // ReferenceItem Union: only one key present
+ * //     referenceArn: "STRING_VALUE",
+ * //   },
+ * //   status: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param CreateVariantStoreCommandInput - {@link CreateVariantStoreCommandInput}
@@ -84,6 +94,8 @@ export interface CreateVariantStoreCommandOutput extends CreateVariantStoreRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class CreateVariantStoreCommand extends $Command<

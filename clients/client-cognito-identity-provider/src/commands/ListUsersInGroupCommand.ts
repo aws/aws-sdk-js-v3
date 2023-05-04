@@ -57,6 +57,31 @@ export interface ListUsersInGroupCommandOutput extends ListUsersInGroupResponse,
  * };
  * const command = new ListUsersInGroupCommand(input);
  * const response = await client.send(command);
+ * // { // ListUsersInGroupResponse
+ * //   Users: [ // UsersListType
+ * //     { // UserType
+ * //       Username: "STRING_VALUE",
+ * //       Attributes: [ // AttributeListType
+ * //         { // AttributeType
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       UserCreateDate: new Date("TIMESTAMP"),
+ * //       UserLastModifiedDate: new Date("TIMESTAMP"),
+ * //       Enabled: true || false,
+ * //       UserStatus: "UNCONFIRMED" || "CONFIRMED" || "ARCHIVED" || "COMPROMISED" || "UNKNOWN" || "RESET_REQUIRED" || "FORCE_CHANGE_PASSWORD",
+ * //       MFAOptions: [ // MFAOptionListType
+ * //         { // MFAOptionType
+ * //           DeliveryMedium: "SMS" || "EMAIL",
+ * //           AttributeName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListUsersInGroupCommandInput - {@link ListUsersInGroupCommandInput}
@@ -83,6 +108,8 @@ export interface ListUsersInGroupCommandOutput extends ListUsersInGroupResponse,
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ListUsersInGroupCommand extends $Command<

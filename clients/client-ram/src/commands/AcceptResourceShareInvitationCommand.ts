@@ -52,6 +52,33 @@ export interface AcceptResourceShareInvitationCommandOutput
  * };
  * const command = new AcceptResourceShareInvitationCommand(input);
  * const response = await client.send(command);
+ * // { // AcceptResourceShareInvitationResponse
+ * //   resourceShareInvitation: { // ResourceShareInvitation
+ * //     resourceShareInvitationArn: "STRING_VALUE",
+ * //     resourceShareName: "STRING_VALUE",
+ * //     resourceShareArn: "STRING_VALUE",
+ * //     senderAccountId: "STRING_VALUE",
+ * //     receiverAccountId: "STRING_VALUE",
+ * //     invitationTimestamp: new Date("TIMESTAMP"),
+ * //     status: "PENDING" || "ACCEPTED" || "REJECTED" || "EXPIRED",
+ * //     resourceShareAssociations: [ // ResourceShareAssociationList
+ * //       { // ResourceShareAssociation
+ * //         resourceShareArn: "STRING_VALUE",
+ * //         resourceShareName: "STRING_VALUE",
+ * //         associatedEntity: "STRING_VALUE",
+ * //         associationType: "PRINCIPAL" || "RESOURCE",
+ * //         status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
+ * //         statusMessage: "STRING_VALUE",
+ * //         creationTime: new Date("TIMESTAMP"),
+ * //         lastUpdatedTime: new Date("TIMESTAMP"),
+ * //         external: true || false,
+ * //       },
+ * //     ],
+ * //     receiverArn: "STRING_VALUE",
+ * //   },
+ * //   clientToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AcceptResourceShareInvitationCommandInput - {@link AcceptResourceShareInvitationCommandInput}
@@ -96,6 +123,8 @@ export interface AcceptResourceShareInvitationCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class AcceptResourceShareInvitationCommand extends $Command<

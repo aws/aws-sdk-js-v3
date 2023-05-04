@@ -56,6 +56,36 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
  * const input = {};
  * const command = new GetDeliverabilityDashboardOptionsCommand(input);
  * const response = await client.send(command);
+ * // { // GetDeliverabilityDashboardOptionsResponse
+ * //   DashboardEnabled: true || false, // required
+ * //   SubscriptionExpiryDate: new Date("TIMESTAMP"),
+ * //   AccountStatus: "STRING_VALUE",
+ * //   ActiveSubscribedDomains: [ // DomainDeliverabilityTrackingOptions
+ * //     { // DomainDeliverabilityTrackingOption
+ * //       Domain: "STRING_VALUE",
+ * //       SubscriptionStartDate: new Date("TIMESTAMP"),
+ * //       InboxPlacementTrackingOption: { // InboxPlacementTrackingOption
+ * //         Global: true || false,
+ * //         TrackedIsps: [ // IspNameList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   PendingExpirationSubscribedDomains: [
+ * //     {
+ * //       Domain: "STRING_VALUE",
+ * //       SubscriptionStartDate: new Date("TIMESTAMP"),
+ * //       InboxPlacementTrackingOption: {
+ * //         Global: true || false,
+ * //         TrackedIsps: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetDeliverabilityDashboardOptionsCommandInput - {@link GetDeliverabilityDashboardOptionsCommandInput}
@@ -73,6 +103,8 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class GetDeliverabilityDashboardOptionsCommand extends $Command<

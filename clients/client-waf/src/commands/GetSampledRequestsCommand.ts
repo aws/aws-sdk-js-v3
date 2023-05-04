@@ -62,6 +62,35 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  * };
  * const command = new GetSampledRequestsCommand(input);
  * const response = await client.send(command);
+ * // { // GetSampledRequestsResponse
+ * //   SampledRequests: [ // SampledHTTPRequests
+ * //     { // SampledHTTPRequest
+ * //       Request: { // HTTPRequest
+ * //         ClientIP: "STRING_VALUE",
+ * //         Country: "STRING_VALUE",
+ * //         URI: "STRING_VALUE",
+ * //         Method: "STRING_VALUE",
+ * //         HTTPVersion: "STRING_VALUE",
+ * //         Headers: [ // HTTPHeaders
+ * //           { // HTTPHeader
+ * //             Name: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       Weight: Number("long"), // required
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //       Action: "STRING_VALUE",
+ * //       RuleWithinRuleGroup: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   PopulationSize: Number("long"),
+ * //   TimeWindow: { // TimeWindow
+ * //     StartTime: new Date("TIMESTAMP"), // required
+ * //     EndTime: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSampledRequestsCommandInput - {@link GetSampledRequestsCommandInput}
@@ -76,6 +105,8 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To get a sampled requests
  * ```javascript

@@ -45,6 +45,20 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  * };
  * const command = new ListRegistriesCommand(input);
  * const response = await client.send(command);
+ * // { // ListRegistriesResponse
+ * //   Registries: [ // RegistryListDefinition
+ * //     { // RegistryListItem
+ * //       RegistryName: "STRING_VALUE",
+ * //       RegistryArn: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: "AVAILABLE" || "DELETING",
+ * //       CreatedTime: "STRING_VALUE",
+ * //       UpdatedTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListRegistriesCommandInput - {@link ListRegistriesCommandInput}
@@ -62,6 +76,8 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListRegistriesCommand extends $Command<

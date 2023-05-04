@@ -46,6 +46,8 @@ export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricin
  * };
  * const command = new UpdateLongTermPricingCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateLongTermPricingCommandInput - {@link UpdateLongTermPricingCommandInput}
@@ -58,6 +60,8 @@ export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricin
  *  <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
 export class UpdateLongTermPricingCommand extends $Command<

@@ -50,6 +50,46 @@ export interface DescribeWorkspaceAuthenticationCommandOutput
  * };
  * const command = new DescribeWorkspaceAuthenticationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeWorkspaceAuthenticationResponse
+ * //   authentication: { // AuthenticationDescription
+ * //     providers: [ // AuthenticationProviders // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     saml: { // SamlAuthentication
+ * //       status: "STRING_VALUE", // required
+ * //       configuration: { // SamlConfiguration
+ * //         idpMetadata: { // IdpMetadata Union: only one key present
+ * //           url: "STRING_VALUE",
+ * //           xml: "STRING_VALUE",
+ * //         },
+ * //         assertionAttributes: { // AssertionAttributes
+ * //           name: "STRING_VALUE",
+ * //           login: "STRING_VALUE",
+ * //           email: "STRING_VALUE",
+ * //           groups: "STRING_VALUE",
+ * //           role: "STRING_VALUE",
+ * //           org: "STRING_VALUE",
+ * //         },
+ * //         roleValues: { // RoleValues
+ * //           editor: [ // RoleValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           admin: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         allowedOrganizations: [ // AllowedOrganizations
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         loginValidityDuration: Number("int"),
+ * //       },
+ * //     },
+ * //     awsSso: { // AwsSsoAuthentication
+ * //       ssoClientId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeWorkspaceAuthenticationCommandInput - {@link DescribeWorkspaceAuthenticationCommandInput}
@@ -73,6 +113,8 @@ export interface DescribeWorkspaceAuthenticationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link GrafanaServiceException}
+ * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
 export class DescribeWorkspaceAuthenticationCommand extends $Command<

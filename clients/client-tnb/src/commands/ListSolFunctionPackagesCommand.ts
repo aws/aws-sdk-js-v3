@@ -46,6 +46,27 @@ export interface ListSolFunctionPackagesCommandOutput extends ListSolFunctionPac
  * };
  * const command = new ListSolFunctionPackagesCommand(input);
  * const response = await client.send(command);
+ * // { // ListSolFunctionPackagesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   functionPackages: [ // ListSolFunctionPackageResources // required
+ * //     { // ListSolFunctionPackageInfo
+ * //       id: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       onboardingState: "CREATED" || "ONBOARDED" || "ERROR", // required
+ * //       operationalState: "ENABLED" || "DISABLED", // required
+ * //       usageState: "IN_USE" || "NOT_IN_USE", // required
+ * //       vnfdId: "STRING_VALUE",
+ * //       vnfProvider: "STRING_VALUE",
+ * //       vnfProductName: "STRING_VALUE",
+ * //       vnfdVersion: "STRING_VALUE",
+ * //       metadata: { // ListSolFunctionPackageMetadata
+ * //         createdAt: new Date("TIMESTAMP"), // required
+ * //         lastModified: new Date("TIMESTAMP"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListSolFunctionPackagesCommandInput - {@link ListSolFunctionPackagesCommandInput}
@@ -66,6 +87,8 @@ export interface ListSolFunctionPackagesCommandOutput extends ListSolFunctionPac
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class ListSolFunctionPackagesCommand extends $Command<

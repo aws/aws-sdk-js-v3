@@ -102,6 +102,38 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
  * };
  * const command = new BatchCreateRumMetricDefinitionsCommand(input);
  * const response = await client.send(command);
+ * // { // BatchCreateRumMetricDefinitionsResponse
+ * //   Errors: [ // BatchCreateRumMetricDefinitionsErrors // required
+ * //     { // BatchCreateRumMetricDefinitionsError
+ * //       MetricDefinition: { // MetricDefinitionRequest
+ * //         Name: "STRING_VALUE", // required
+ * //         ValueKey: "STRING_VALUE",
+ * //         UnitLabel: "STRING_VALUE",
+ * //         DimensionKeys: { // DimensionKeysMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         EventPattern: "STRING_VALUE",
+ * //         Namespace: "STRING_VALUE",
+ * //       },
+ * //       ErrorCode: "STRING_VALUE", // required
+ * //       ErrorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   MetricDefinitions: [ // MetricDefinitions
+ * //     { // MetricDefinition
+ * //       MetricDefinitionId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       ValueKey: "STRING_VALUE",
+ * //       UnitLabel: "STRING_VALUE",
+ * //       DimensionKeys: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       EventPattern: "STRING_VALUE",
+ * //       Namespace: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchCreateRumMetricDefinitionsCommandInput - {@link BatchCreateRumMetricDefinitionsCommandInput}
@@ -131,6 +163,8 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class BatchCreateRumMetricDefinitionsCommand extends $Command<

@@ -50,6 +50,8 @@ export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateMembershipCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateMembershipCommandInput - {@link DisassociateMembershipCommandInput}
@@ -74,6 +76,8 @@ export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class DisassociateMembershipCommand extends $Command<

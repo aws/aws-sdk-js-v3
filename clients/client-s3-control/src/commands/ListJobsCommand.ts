@@ -76,6 +76,29 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListJobsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   Jobs: [ // JobListDescriptorList
+ * //     { // JobListDescriptor
+ * //       JobId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Operation: "LambdaInvoke" || "S3PutObjectCopy" || "S3PutObjectAcl" || "S3PutObjectTagging" || "S3DeleteObjectTagging" || "S3InitiateRestoreObject" || "S3PutObjectLegalHold" || "S3PutObjectRetention" || "S3ReplicateObject",
+ * //       Priority: Number("int"),
+ * //       Status: "Active" || "Cancelled" || "Cancelling" || "Complete" || "Completing" || "Failed" || "Failing" || "New" || "Paused" || "Pausing" || "Preparing" || "Ready" || "Suspended",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       TerminationDate: new Date("TIMESTAMP"),
+ * //       ProgressSummary: { // JobProgressSummary
+ * //         TotalNumberOfTasks: Number("long"),
+ * //         NumberOfTasksSucceeded: Number("long"),
+ * //         NumberOfTasksFailed: Number("long"),
+ * //         Timers: { // JobTimers
+ * //           ElapsedTimeInActiveSeconds: Number("long"),
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListJobsCommandInput - {@link ListJobsCommandInput}
@@ -93,6 +116,8 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * @throws {@link InvalidRequestException} (client fault)
  *  <p></p>
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class ListJobsCommand extends $Command<

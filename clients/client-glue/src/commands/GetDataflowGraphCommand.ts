@@ -44,6 +44,30 @@ export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse,
  * };
  * const command = new GetDataflowGraphCommand(input);
  * const response = await client.send(command);
+ * // { // GetDataflowGraphResponse
+ * //   DagNodes: [ // DagNodes
+ * //     { // CodeGenNode
+ * //       Id: "STRING_VALUE", // required
+ * //       NodeType: "STRING_VALUE", // required
+ * //       Args: [ // CodeGenNodeArgs // required
+ * //         { // CodeGenNodeArg
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //           Param: true || false,
+ * //         },
+ * //       ],
+ * //       LineNumber: Number("int"),
+ * //     },
+ * //   ],
+ * //   DagEdges: [ // DagEdges
+ * //     { // CodeGenEdge
+ * //       Source: "STRING_VALUE", // required
+ * //       Target: "STRING_VALUE", // required
+ * //       TargetParameter: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetDataflowGraphCommandInput - {@link GetDataflowGraphCommandInput}
@@ -61,6 +85,8 @@ export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetDataflowGraphCommand extends $Command<

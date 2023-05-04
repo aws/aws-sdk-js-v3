@@ -75,6 +75,24 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  * };
  * const command = new GetUtterancesViewCommand(input);
  * const response = await client.send(command);
+ * // { // GetUtterancesViewResponse
+ * //   botName: "STRING_VALUE",
+ * //   utterances: [ // ListsOfUtterances
+ * //     { // UtteranceList
+ * //       botVersion: "STRING_VALUE",
+ * //       utterances: [ // ListOfUtterance
+ * //         { // UtteranceData
+ * //           utteranceString: "STRING_VALUE",
+ * //           count: Number("int"),
+ * //           distinctUsers: Number("int"),
+ * //           firstUtteredDate: new Date("TIMESTAMP"),
+ * //           lastUtteredDate: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetUtterancesViewCommandInput - {@link GetUtterancesViewCommandInput}
@@ -94,6 +112,8 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The request exceeded a limit. Try your request again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetUtterancesViewCommand extends $Command<

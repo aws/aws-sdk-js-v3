@@ -44,6 +44,11 @@ export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, _
  * };
  * const command = new GetSchemaAsJsonCommand(input);
  * const response = await client.send(command);
+ * // { // GetSchemaAsJsonResponse
+ * //   Name: "STRING_VALUE",
+ * //   Document: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetSchemaAsJsonCommandInput - {@link GetSchemaAsJsonCommandInput}
@@ -74,6 +79,8 @@ export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, _
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class GetSchemaAsJsonCommand extends $Command<

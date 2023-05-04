@@ -62,6 +62,19 @@ export interface GetExternalDataViewAccessDetailsCommandOutput
  * };
  * const command = new GetExternalDataViewAccessDetailsCommand(input);
  * const response = await client.send(command);
+ * // { // GetExternalDataViewAccessDetailsResponse
+ * //   credentials: { // AwsCredentials
+ * //     accessKeyId: "STRING_VALUE",
+ * //     secretAccessKey: "STRING_VALUE",
+ * //     sessionToken: "STRING_VALUE",
+ * //     expiration: Number("long"),
+ * //   },
+ * //   s3Location: { // S3Location
+ * //     bucket: "STRING_VALUE", // required
+ * //     key: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetExternalDataViewAccessDetailsCommandInput - {@link GetExternalDataViewAccessDetailsCommandInput}
@@ -86,6 +99,8 @@ export interface GetExternalDataViewAccessDetailsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class GetExternalDataViewAccessDetailsCommand extends $Command<

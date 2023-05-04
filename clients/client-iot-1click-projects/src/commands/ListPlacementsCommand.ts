@@ -50,6 +50,18 @@ export interface ListPlacementsCommandOutput extends ListPlacementsResponse, __M
  * };
  * const command = new ListPlacementsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPlacementsResponse
+ * //   placements: [ // PlacementSummaryList // required
+ * //     { // PlacementSummary
+ * //       projectName: "STRING_VALUE", // required
+ * //       placementName: "STRING_VALUE", // required
+ * //       createdDate: new Date("TIMESTAMP"), // required
+ * //       updatedDate: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPlacementsCommandInput - {@link ListPlacementsCommandInput}
@@ -67,6 +79,8 @@ export interface ListPlacementsCommandOutput extends ListPlacementsResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class ListPlacementsCommand extends $Command<

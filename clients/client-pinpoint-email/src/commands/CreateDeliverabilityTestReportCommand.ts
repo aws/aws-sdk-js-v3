@@ -87,6 +87,11 @@ export interface CreateDeliverabilityTestReportCommandOutput
  * };
  * const command = new CreateDeliverabilityTestReportCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDeliverabilityTestReportResponse
+ * //   ReportId: "STRING_VALUE", // required
+ * //   DeliverabilityTestStatus: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateDeliverabilityTestReportCommandInput - {@link CreateDeliverabilityTestReportCommandInput}
@@ -124,6 +129,8 @@ export interface CreateDeliverabilityTestReportCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class CreateDeliverabilityTestReportCommand extends $Command<

@@ -47,6 +47,8 @@ export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupRespo
  * };
  * const command = new UpdateGatewayGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateGatewayGroupCommandInput - {@link UpdateGatewayGroupCommandInput}
@@ -61,6 +63,8 @@ export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupRespo
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class UpdateGatewayGroupCommand extends $Command<

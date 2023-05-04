@@ -51,6 +51,26 @@ export interface DescribeConnectionAliasesCommandOutput extends DescribeConnecti
  * };
  * const command = new DescribeConnectionAliasesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeConnectionAliasesResult
+ * //   ConnectionAliases: [ // ConnectionAliasList
+ * //     { // ConnectionAlias
+ * //       ConnectionString: "STRING_VALUE",
+ * //       AliasId: "STRING_VALUE",
+ * //       State: "CREATING" || "CREATED" || "DELETING",
+ * //       OwnerAccountId: "STRING_VALUE",
+ * //       Associations: [ // ConnectionAliasAssociationList
+ * //         { // ConnectionAliasAssociation
+ * //           AssociationStatus: "NOT_ASSOCIATED" || "ASSOCIATED_WITH_OWNER_ACCOUNT" || "ASSOCIATED_WITH_SHARED_ACCOUNT" || "PENDING_ASSOCIATION" || "PENDING_DISASSOCIATION",
+ * //           AssociatedAccountId: "STRING_VALUE",
+ * //           ResourceId: "STRING_VALUE",
+ * //           ConnectionIdentifier: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeConnectionAliasesCommandInput - {@link DescribeConnectionAliasesCommandInput}
@@ -68,6 +88,8 @@ export interface DescribeConnectionAliasesCommandOutput extends DescribeConnecti
  * @throws {@link OperationNotSupportedException} (client fault)
  *  <p>This operation is not supported.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeConnectionAliasesCommand extends $Command<

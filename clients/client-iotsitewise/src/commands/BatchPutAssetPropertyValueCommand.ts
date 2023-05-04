@@ -90,6 +90,26 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  * };
  * const command = new BatchPutAssetPropertyValueCommand(input);
  * const response = await client.send(command);
+ * // { // BatchPutAssetPropertyValueResponse
+ * //   errorEntries: [ // BatchPutAssetPropertyErrorEntries // required
+ * //     { // BatchPutAssetPropertyErrorEntry
+ * //       entryId: "STRING_VALUE", // required
+ * //       errors: [ // BatchPutAssetPropertyErrors // required
+ * //         { // BatchPutAssetPropertyError
+ * //           errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "InternalFailureException" || "ServiceUnavailableException" || "ThrottlingException" || "LimitExceededException" || "ConflictingOperationException" || "TimestampOutOfRangeException" || "AccessDeniedException", // required
+ * //           errorMessage: "STRING_VALUE", // required
+ * //           timestamps: [ // Timestamps // required
+ * //             { // TimeInNanos
+ * //               timeInSeconds: Number("long"), // required
+ * //               offsetInNanos: Number("int"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchPutAssetPropertyValueCommandInput - {@link BatchPutAssetPropertyValueCommandInput}
@@ -127,6 +147,8 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class BatchPutAssetPropertyValueCommand extends $Command<

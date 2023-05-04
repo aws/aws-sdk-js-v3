@@ -67,6 +67,10 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDeploymentResult
+ * //   DeploymentId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
@@ -81,6 +85,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class CreateDeploymentCommand extends $Command<

@@ -60,6 +60,22 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  * };
  * const command = new BatchUpdateVehicleCommand(input);
  * const response = await client.send(command);
+ * // { // BatchUpdateVehicleResponse
+ * //   vehicles: [ // updateVehicleResponseItems
+ * //     { // UpdateVehicleResponseItem
+ * //       vehicleName: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   errors: [ // updateVehicleErrors
+ * //     { // UpdateVehicleError
+ * //       vehicleName: "STRING_VALUE",
+ * //       code: Number("int"),
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchUpdateVehicleCommandInput - {@link BatchUpdateVehicleCommandInput}
@@ -80,6 +96,8 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class BatchUpdateVehicleCommand extends $Command<

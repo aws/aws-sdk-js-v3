@@ -53,6 +53,11 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
  * };
  * const command = new CreateAccessorCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAccessorOutput
+ * //   AccessorId: "STRING_VALUE",
+ * //   BillingToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateAccessorCommandInput - {@link CreateAccessorCommandInput}
@@ -86,6 +91,8 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
  * @throws {@link TooManyTagsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class CreateAccessorCommand extends $Command<

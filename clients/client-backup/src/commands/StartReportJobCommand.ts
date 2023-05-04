@@ -45,6 +45,10 @@ export interface StartReportJobCommandOutput extends StartReportJobOutput, __Met
  * };
  * const command = new StartReportJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartReportJobOutput
+ * //   ReportJobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartReportJobCommandInput - {@link StartReportJobCommandInput}
@@ -66,6 +70,8 @@ export interface StartReportJobCommandOutput extends StartReportJobOutput, __Met
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class StartReportJobCommand extends $Command<

@@ -51,6 +51,20 @@ export interface DescribeRescoreExecutionPlanCommandOutput
  * };
  * const command = new DescribeRescoreExecutionPlanCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRescoreExecutionPlanResponse
+ * //   Id: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   CapacityUnits: { // CapacityUnitsConfiguration
+ * //     RescoreCapacityUnits: Number("int"), // required
+ * //   },
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * //   Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * //   ErrorMessage: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeRescoreExecutionPlanCommandInput - {@link DescribeRescoreExecutionPlanCommandInput}
@@ -85,6 +99,8 @@ export interface DescribeRescoreExecutionPlanCommandOutput
  *             the Amazon Kendra Intelligent Ranking service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraRankingServiceException}
+ * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
  */
 export class DescribeRescoreExecutionPlanCommand extends $Command<

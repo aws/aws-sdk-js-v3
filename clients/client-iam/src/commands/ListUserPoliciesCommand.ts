@@ -53,6 +53,14 @@ export interface ListUserPoliciesCommandOutput extends ListUserPoliciesResponse,
  * };
  * const command = new ListUserPoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // ListUserPoliciesResponse
+ * //   PolicyNames: [ // policyNameListType // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListUserPoliciesCommandInput - {@link ListUserPoliciesCommandInput}
@@ -69,6 +77,8 @@ export interface ListUserPoliciesCommandOutput extends ListUserPoliciesResponse,
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListUserPoliciesCommand extends $Command<

@@ -75,6 +75,8 @@ export interface UpdateApplicationComponentConfigCommandOutput
  * };
  * const command = new UpdateApplicationComponentConfigCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateApplicationComponentConfigCommandInput - {@link UpdateApplicationComponentConfigCommandInput}
@@ -95,6 +97,8 @@ export interface UpdateApplicationComponentConfigCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class UpdateApplicationComponentConfigCommand extends $Command<

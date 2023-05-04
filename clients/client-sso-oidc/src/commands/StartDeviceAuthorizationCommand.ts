@@ -47,6 +47,15 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  * };
  * const command = new StartDeviceAuthorizationCommand(input);
  * const response = await client.send(command);
+ * // { // StartDeviceAuthorizationResponse
+ * //   deviceCode: "STRING_VALUE",
+ * //   userCode: "STRING_VALUE",
+ * //   verificationUri: "STRING_VALUE",
+ * //   verificationUriComplete: "STRING_VALUE",
+ * //   expiresIn: Number("int"),
+ * //   interval: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param StartDeviceAuthorizationCommandInput - {@link StartDeviceAuthorizationCommandInput}
@@ -76,6 +85,8 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  *  <p>Indicates that the client is not currently authorized to make the request. This can happen
  *       when a <code>clientId</code> is not issued for a public client.</p>
  *
+ * @throws {@link SSOOIDCServiceException}
+ * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
  */
 export class StartDeviceAuthorizationCommand extends $Command<

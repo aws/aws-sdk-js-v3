@@ -62,6 +62,8 @@ export interface DeleteScriptCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteScriptCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteScriptCommandInput - {@link DeleteScriptCommandInput}
@@ -89,6 +91,8 @@ export interface DeleteScriptCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DeleteScriptCommand extends $Command<

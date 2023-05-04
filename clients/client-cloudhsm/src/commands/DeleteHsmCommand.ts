@@ -55,6 +55,10 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * };
  * const command = new DeleteHsmCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteHsmResponse
+ * //   Status: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteHsmCommandInput - {@link DeleteHsmCommandInput}
@@ -72,6 +76,8 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class DeleteHsmCommand extends $Command<

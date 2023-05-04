@@ -47,6 +47,19 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  * };
  * const command = new ListManagedResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // ListManagedResourcesResponse
+ * //   items: [ // ManagedResourceSummaries // required
+ * //     { // ManagedResourceSummary
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       availabilityZones: [ // AvailabilityZones // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListManagedResourcesCommandInput - {@link ListManagedResourcesCommandInput}
@@ -67,6 +80,8 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ARCZonalShiftServiceException}
+ * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
 export class ListManagedResourcesCommand extends $Command<

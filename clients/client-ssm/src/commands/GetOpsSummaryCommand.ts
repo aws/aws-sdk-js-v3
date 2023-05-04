@@ -95,6 +95,25 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
  * };
  * const command = new GetOpsSummaryCommand(input);
  * const response = await client.send(command);
+ * // { // GetOpsSummaryResult
+ * //   Entities: [ // OpsEntityList
+ * //     { // OpsEntity
+ * //       Id: "STRING_VALUE",
+ * //       Data: { // OpsEntityItemMap
+ * //         "<keys>": { // OpsEntityItem
+ * //           CaptureTime: "STRING_VALUE",
+ * //           Content: [ // OpsEntityItemEntryList
+ * //             { // OpsEntityItemEntry
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetOpsSummaryCommandInput - {@link GetOpsSummaryCommandInput}
@@ -123,6 +142,8 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
  * @throws {@link ResourceDataSyncNotFoundException} (client fault)
  *  <p>The specified sync name wasn't found.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetOpsSummaryCommand extends $Command<

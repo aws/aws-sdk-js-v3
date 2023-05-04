@@ -48,6 +48,23 @@ export interface ListMetricSetsCommandOutput extends ListMetricSetsResponse, __M
  * };
  * const command = new ListMetricSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMetricSetsResponse
+ * //   MetricSetSummaryList: [ // MetricSetSummaryList
+ * //     { // MetricSetSummary
+ * //       MetricSetArn: "STRING_VALUE",
+ * //       AnomalyDetectorArn: "STRING_VALUE",
+ * //       MetricSetDescription: "STRING_VALUE",
+ * //       MetricSetName: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModificationTime: new Date("TIMESTAMP"),
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListMetricSetsCommandInput - {@link ListMetricSetsCommandInput}
@@ -72,6 +89,8 @@ export interface ListMetricSetsCommandOutput extends ListMetricSetsResponse, __M
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class ListMetricSetsCommand extends $Command<

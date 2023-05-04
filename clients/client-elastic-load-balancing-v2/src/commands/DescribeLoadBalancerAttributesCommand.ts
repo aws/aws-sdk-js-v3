@@ -75,6 +75,15 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * };
  * const command = new DescribeLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeLoadBalancerAttributesOutput
+ * //   Attributes: [ // LoadBalancerAttributes
+ * //     { // LoadBalancerAttribute
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeLoadBalancerAttributesCommandInput - {@link DescribeLoadBalancerAttributesCommandInput}
@@ -86,6 +95,8 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * @throws {@link LoadBalancerNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To describe load balancer attributes
  * ```javascript

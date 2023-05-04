@@ -49,6 +49,33 @@ export interface GetSolFunctionPackageCommandOutput extends GetSolFunctionPackag
  * };
  * const command = new GetSolFunctionPackageCommand(input);
  * const response = await client.send(command);
+ * // { // GetSolFunctionPackageOutput
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   onboardingState: "CREATED" || "ONBOARDED" || "ERROR", // required
+ * //   operationalState: "ENABLED" || "DISABLED", // required
+ * //   usageState: "IN_USE" || "NOT_IN_USE", // required
+ * //   vnfdId: "STRING_VALUE",
+ * //   vnfProvider: "STRING_VALUE",
+ * //   vnfProductName: "STRING_VALUE",
+ * //   vnfdVersion: "STRING_VALUE",
+ * //   metadata: { // GetSolFunctionPackageMetadata
+ * //     vnfd: { // FunctionArtifactMeta
+ * //       overrides: [ // OverrideList
+ * //         { // ToscaOverride
+ * //           name: "STRING_VALUE",
+ * //           defaultValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastModified: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSolFunctionPackageCommandInput - {@link GetSolFunctionPackageCommandInput}
@@ -72,6 +99,8 @@ export interface GetSolFunctionPackageCommandOutput extends GetSolFunctionPackag
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class GetSolFunctionPackageCommand extends $Command<

@@ -48,6 +48,18 @@ export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, _
  * };
  * const command = new ListTableColumnsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTableColumnsResult
+ * //   tableColumns: [ // TableColumns // required
+ * //     { // TableColumn
+ * //       tableColumnId: "STRING_VALUE",
+ * //       tableColumnName: "STRING_VALUE",
+ * //       format: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   workbookCursor: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param ListTableColumnsCommandInput - {@link ListTableColumnsCommandInput}
@@ -82,6 +94,8 @@ export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, _
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class ListTableColumnsCommand extends $Command<

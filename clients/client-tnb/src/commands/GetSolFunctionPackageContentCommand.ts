@@ -51,6 +51,11 @@ export interface GetSolFunctionPackageContentCommandOutput
  * };
  * const command = new GetSolFunctionPackageContentCommand(input);
  * const response = await client.send(command);
+ * // { // GetSolFunctionPackageContentOutput
+ * //   contentType: "application/zip",
+ * //   packageContent: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetSolFunctionPackageContentCommandInput - {@link GetSolFunctionPackageContentCommandInput}
@@ -74,6 +79,8 @@ export interface GetSolFunctionPackageContentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class GetSolFunctionPackageContentCommand extends $Command<

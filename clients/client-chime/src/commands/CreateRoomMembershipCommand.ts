@@ -51,6 +51,22 @@ export interface CreateRoomMembershipCommandOutput extends CreateRoomMembershipR
  * };
  * const command = new CreateRoomMembershipCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRoomMembershipResponse
+ * //   RoomMembership: { // RoomMembership
+ * //     RoomId: "STRING_VALUE",
+ * //     Member: { // Member
+ * //       MemberId: "STRING_VALUE",
+ * //       MemberType: "User" || "Bot" || "Webhook",
+ * //       Email: "STRING_VALUE",
+ * //       FullName: "STRING_VALUE",
+ * //       AccountId: "STRING_VALUE",
+ * //     },
+ * //     Role: "Administrator" || "Member",
+ * //     InvitedBy: "STRING_VALUE",
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateRoomMembershipCommandInput - {@link CreateRoomMembershipCommandInput}
@@ -87,6 +103,8 @@ export interface CreateRoomMembershipCommandOutput extends CreateRoomMembershipR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateRoomMembershipCommand extends $Command<

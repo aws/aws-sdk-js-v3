@@ -49,6 +49,11 @@ export interface GetWirelessGatewayCertificateCommandOutput
  * };
  * const command = new GetWirelessGatewayCertificateCommand(input);
  * const response = await client.send(command);
+ * // { // GetWirelessGatewayCertificateResponse
+ * //   IotCertificateId: "STRING_VALUE",
+ * //   LoRaWANNetworkServerCertificateId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetWirelessGatewayCertificateCommandInput - {@link GetWirelessGatewayCertificateCommandInput}
@@ -72,6 +77,8 @@ export interface GetWirelessGatewayCertificateCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetWirelessGatewayCertificateCommand extends $Command<

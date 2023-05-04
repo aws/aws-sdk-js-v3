@@ -61,6 +61,10 @@ export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryO
  * };
  * const command = new CreateCodeRepositoryCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCodeRepositoryOutput
+ * //   CodeRepositoryArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateCodeRepositoryCommandInput - {@link CreateCodeRepositoryCommandInput}
@@ -69,6 +73,8 @@ export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryO
  * @see {@link CreateCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateCodeRepositoryCommand extends $Command<

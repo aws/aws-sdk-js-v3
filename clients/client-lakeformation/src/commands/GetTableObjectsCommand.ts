@@ -51,6 +51,24 @@ export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, _
  * };
  * const command = new GetTableObjectsCommand(input);
  * const response = await client.send(command);
+ * // { // GetTableObjectsResponse
+ * //   Objects: [ // PartitionedTableObjectsList
+ * //     { // PartitionObjects
+ * //       PartitionValues: [ // PartitionValuesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Objects: [ // TableObjectList
+ * //         { // TableObject
+ * //           Uri: "STRING_VALUE",
+ * //           ETag: "STRING_VALUE",
+ * //           Size: Number("long"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetTableObjectsCommandInput - {@link GetTableObjectsCommandInput}
@@ -80,6 +98,8 @@ export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, _
  * @throws {@link TransactionCommittedException} (client fault)
  *  <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetTableObjectsCommand extends $Command<

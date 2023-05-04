@@ -97,6 +97,21 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  * };
  * const command = new CreateSecretCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSecretResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   VersionId: "STRING_VALUE",
+ * //   ReplicationStatus: [ // ReplicationStatusListType
+ * //     { // ReplicationStatusType
+ * //       Region: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       Status: "InSync" || "Failed" || "InProgress",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       LastAccessedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param CreateSecretCommandInput - {@link CreateSecretCommandInput}
@@ -152,6 +167,8 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To create a basic secret
  * ```javascript

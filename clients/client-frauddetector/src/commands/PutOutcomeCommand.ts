@@ -51,6 +51,8 @@ export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBea
  * };
  * const command = new PutOutcomeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutOutcomeCommandInput - {@link PutOutcomeCommandInput}
@@ -74,6 +76,8 @@ export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class PutOutcomeCommand extends $Command<

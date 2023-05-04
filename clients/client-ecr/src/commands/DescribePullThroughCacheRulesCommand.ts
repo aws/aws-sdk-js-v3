@@ -54,6 +54,18 @@ export interface DescribePullThroughCacheRulesCommandOutput
  * };
  * const command = new DescribePullThroughCacheRulesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribePullThroughCacheRulesResponse
+ * //   pullThroughCacheRules: [ // PullThroughCacheRuleList
+ * //     { // PullThroughCacheRule
+ * //       ecrRepositoryPrefix: "STRING_VALUE",
+ * //       upstreamRegistryUrl: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       registryId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribePullThroughCacheRulesCommandInput - {@link DescribePullThroughCacheRulesCommandInput}
@@ -76,6 +88,8 @@ export interface DescribePullThroughCacheRulesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class DescribePullThroughCacheRulesCommand extends $Command<

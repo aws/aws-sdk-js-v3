@@ -53,6 +53,8 @@ export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPol
  * };
  * const command = new DeletePermissionPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeletePermissionPolicyCommandInput - {@link DeletePermissionPolicyCommandInput}
@@ -70,6 +72,8 @@ export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPol
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class DeletePermissionPolicyCommand extends $Command<

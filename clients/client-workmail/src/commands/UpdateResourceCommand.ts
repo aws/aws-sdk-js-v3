@@ -53,6 +53,8 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * };
  * const command = new UpdateResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateResourceCommandInput - {@link UpdateResourceCommandInput}
@@ -99,6 +101,8 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class UpdateResourceCommand extends $Command<

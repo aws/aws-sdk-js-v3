@@ -47,6 +47,8 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * };
  * const command = new DeleteMemberCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteMemberCommandInput - {@link DeleteMemberCommandInput}
@@ -73,6 +75,8 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class DeleteMemberCommand extends $Command<

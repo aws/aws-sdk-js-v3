@@ -68,6 +68,24 @@ export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataB
  * };
  * const command = new ListCrawlsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCrawlsResponse
+ * //   Crawls: [ // CrawlerHistoryList
+ * //     { // CrawlerHistory
+ * //       CrawlId: "STRING_VALUE",
+ * //       State: "RUNNING" || "COMPLETED" || "FAILED" || "STOPPED",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       Summary: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       LogGroup: "STRING_VALUE",
+ * //       LogStream: "STRING_VALUE",
+ * //       MessagePrefix: "STRING_VALUE",
+ * //       DPUHour: Number("double"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCrawlsCommandInput - {@link ListCrawlsCommandInput}
@@ -85,6 +103,8 @@ export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataB
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListCrawlsCommand extends $Command<

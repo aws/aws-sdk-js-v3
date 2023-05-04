@@ -63,6 +63,19 @@ export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput
  * };
  * const command = new DescribeAwsNetworkPerformanceMetricSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAwsNetworkPerformanceMetricSubscriptionsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   Subscriptions: [ // SubscriptionList
+ * //     { // Subscription
+ * //       Source: "STRING_VALUE",
+ * //       Destination: "STRING_VALUE",
+ * //       Metric: "aggregate-latency",
+ * //       Statistic: "p50",
+ * //       Period: "five-minutes" || "fifteen-minutes" || "one-hour" || "three-hours" || "one-day" || "one-week",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput - {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput}
@@ -71,6 +84,8 @@ export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput
  * @see {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeAwsNetworkPerformanceMetricSubscriptionsCommand extends $Command<

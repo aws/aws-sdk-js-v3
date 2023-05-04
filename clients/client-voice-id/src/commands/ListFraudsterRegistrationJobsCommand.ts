@@ -58,6 +58,27 @@ export interface ListFraudsterRegistrationJobsCommandOutput
  * };
  * const command = new ListFraudsterRegistrationJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListFraudsterRegistrationJobsResponse
+ * //   JobSummaries: [ // FraudsterRegistrationJobSummaries
+ * //     { // FraudsterRegistrationJobSummary
+ * //       JobName: "STRING_VALUE",
+ * //       JobId: "STRING_VALUE",
+ * //       JobStatus: "STRING_VALUE",
+ * //       DomainId: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       EndedAt: new Date("TIMESTAMP"),
+ * //       FailureDetails: { // FailureDetails
+ * //         StatusCode: Number("int"),
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       JobProgress: { // JobProgress
+ * //         PercentComplete: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFraudsterRegistrationJobsCommandInput - {@link ListFraudsterRegistrationJobsCommandInput}
@@ -87,6 +108,8 @@ export interface ListFraudsterRegistrationJobsCommandOutput
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class ListFraudsterRegistrationJobsCommand extends $Command<

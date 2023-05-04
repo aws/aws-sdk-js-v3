@@ -58,6 +58,15 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * };
  * const command = new StartRunCommand(input);
  * const response = await client.send(command);
+ * // { // StartRunResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StartRunCommandInput - {@link StartRunCommandInput}
@@ -90,6 +99,8 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class StartRunCommand extends $Command<StartRunCommandInput, StartRunCommandOutput, OmicsClientResolvedConfig> {

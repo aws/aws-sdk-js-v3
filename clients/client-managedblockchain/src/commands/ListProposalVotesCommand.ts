@@ -52,6 +52,17 @@ export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput,
  * };
  * const command = new ListProposalVotesCommand(input);
  * const response = await client.send(command);
+ * // { // ListProposalVotesOutput
+ * //   ProposalVotes: [ // ProposalVoteList
+ * //     { // VoteSummary
+ * //       Vote: "YES" || "NO",
+ * //       MemberName: "STRING_VALUE",
+ * //       MemberId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListProposalVotesCommandInput - {@link ListProposalVotesCommandInput}
@@ -75,6 +86,8 @@ export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput,
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class ListProposalVotesCommand extends $Command<

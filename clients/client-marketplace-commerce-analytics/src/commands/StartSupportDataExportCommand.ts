@@ -63,6 +63,10 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
  * };
  * const command = new StartSupportDataExportCommand(input);
  * const response = await client.send(command);
+ * // { // StartSupportDataExportResult
+ * //   dataSetRequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartSupportDataExportCommandInput - {@link StartSupportDataExportCommandInput}
@@ -74,6 +78,8 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
  * @throws {@link MarketplaceCommerceAnalyticsException} (server fault)
  *  This exception is thrown when an internal service error occurs.
  *
+ * @throws {@link MarketplaceCommerceAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceCommerceAnalytics service.</p>
  *
  */
 export class StartSupportDataExportCommand extends $Command<

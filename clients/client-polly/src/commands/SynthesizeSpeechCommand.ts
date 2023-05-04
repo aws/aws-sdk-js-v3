@@ -69,6 +69,12 @@ export interface SynthesizeSpeechCommandOutput
  * };
  * const command = new SynthesizeSpeechCommand(input);
  * const response = await client.send(command);
+ * // { // SynthesizeSpeechOutput
+ * //   AudioStream: "STREAMING_BLOB_VALUE",
+ * //   ContentType: "STRING_VALUE",
+ * //   RequestCharacters: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param SynthesizeSpeechCommandInput - {@link SynthesizeSpeechCommandInput}
@@ -121,6 +127,8 @@ export interface SynthesizeSpeechCommandOutput
  *       billed characters. SSML tags are not counted as billed
  *       characters.</p>
  *
+ * @throws {@link PollyServiceException}
+ * <p>Base exception class for all service exceptions from Polly service.</p>
  *
  * @example To synthesize speech
  * ```javascript

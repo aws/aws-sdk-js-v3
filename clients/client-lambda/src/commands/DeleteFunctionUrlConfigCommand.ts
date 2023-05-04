@@ -46,6 +46,8 @@ export interface DeleteFunctionUrlConfigCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteFunctionUrlConfigCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteFunctionUrlConfigCommandInput - {@link DeleteFunctionUrlConfigCommandInput}
@@ -66,6 +68,8 @@ export interface DeleteFunctionUrlConfigCommandOutput extends __MetadataBearer {
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class DeleteFunctionUrlConfigCommand extends $Command<

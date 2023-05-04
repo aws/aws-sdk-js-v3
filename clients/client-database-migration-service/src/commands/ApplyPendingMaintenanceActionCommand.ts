@@ -55,6 +55,22 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * };
  * const command = new ApplyPendingMaintenanceActionCommand(input);
  * const response = await client.send(command);
+ * // { // ApplyPendingMaintenanceActionResponse
+ * //   ResourcePendingMaintenanceActions: { // ResourcePendingMaintenanceActions
+ * //     ResourceIdentifier: "STRING_VALUE",
+ * //     PendingMaintenanceActionDetails: [ // PendingMaintenanceActionDetails
+ * //       { // PendingMaintenanceAction
+ * //         Action: "STRING_VALUE",
+ * //         AutoAppliedAfterDate: new Date("TIMESTAMP"),
+ * //         ForcedApplyDate: new Date("TIMESTAMP"),
+ * //         OptInStatus: "STRING_VALUE",
+ * //         CurrentApplyDate: new Date("TIMESTAMP"),
+ * //         Description: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ApplyPendingMaintenanceActionCommandInput - {@link ApplyPendingMaintenanceActionCommandInput}
@@ -66,6 +82,8 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class ApplyPendingMaintenanceActionCommand extends $Command<

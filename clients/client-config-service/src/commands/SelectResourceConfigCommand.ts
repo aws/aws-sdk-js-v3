@@ -50,6 +50,20 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  * };
  * const command = new SelectResourceConfigCommand(input);
  * const response = await client.send(command);
+ * // { // SelectResourceConfigResponse
+ * //   Results: [ // Results
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   QueryInfo: { // QueryInfo
+ * //     SelectFields: [ // FieldInfoList
+ * //       { // FieldInfo
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param SelectResourceConfigCommandInput - {@link SelectResourceConfigCommandInput}
@@ -69,6 +83,8 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class SelectResourceConfigCommand extends $Command<

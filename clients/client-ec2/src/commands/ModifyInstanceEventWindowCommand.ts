@@ -62,6 +62,43 @@ export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEv
  * };
  * const command = new ModifyInstanceEventWindowCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyInstanceEventWindowResult
+ * //   InstanceEventWindow: { // InstanceEventWindow
+ * //     InstanceEventWindowId: "STRING_VALUE",
+ * //     TimeRanges: [ // InstanceEventWindowTimeRangeList
+ * //       { // InstanceEventWindowTimeRange
+ * //         StartWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ * //         StartHour: Number("int"),
+ * //         EndWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ * //         EndHour: Number("int"),
+ * //       },
+ * //     ],
+ * //     Name: "STRING_VALUE",
+ * //     CronExpression: "STRING_VALUE",
+ * //     AssociationTarget: { // InstanceEventWindowAssociationTarget
+ * //       InstanceIds: [ // InstanceIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DedicatedHostIds: [ // DedicatedHostIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     State: "creating" || "deleting" || "active" || "deleted",
+ * //     Tags: [
+ * //       {
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ModifyInstanceEventWindowCommandInput - {@link ModifyInstanceEventWindowCommandInput}
@@ -70,6 +107,8 @@ export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEv
  * @see {@link ModifyInstanceEventWindowCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyInstanceEventWindowCommand extends $Command<

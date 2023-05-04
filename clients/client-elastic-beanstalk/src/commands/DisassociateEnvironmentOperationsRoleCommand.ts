@@ -51,6 +51,8 @@ export interface DisassociateEnvironmentOperationsRoleCommandOutput extends __Me
  * };
  * const command = new DisassociateEnvironmentOperationsRoleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateEnvironmentOperationsRoleCommandInput - {@link DisassociateEnvironmentOperationsRoleCommandInput}
@@ -63,6 +65,8 @@ export interface DisassociateEnvironmentOperationsRoleCommandOutput extends __Me
  *  <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class DisassociateEnvironmentOperationsRoleCommand extends $Command<

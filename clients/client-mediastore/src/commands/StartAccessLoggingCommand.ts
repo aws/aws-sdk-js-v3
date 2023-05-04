@@ -44,6 +44,8 @@ export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutpu
  * };
  * const command = new StartAccessLoggingCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartAccessLoggingCommandInput - {@link StartAccessLoggingCommandInput}
@@ -62,6 +64,8 @@ export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutpu
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class StartAccessLoggingCommand extends $Command<

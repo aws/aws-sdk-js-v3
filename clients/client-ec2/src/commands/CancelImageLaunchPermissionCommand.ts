@@ -48,6 +48,10 @@ export interface CancelImageLaunchPermissionCommandOutput extends CancelImageLau
  * };
  * const command = new CancelImageLaunchPermissionCommand(input);
  * const response = await client.send(command);
+ * // { // CancelImageLaunchPermissionResult
+ * //   Return: true || false,
+ * // };
+ *
  * ```
  *
  * @param CancelImageLaunchPermissionCommandInput - {@link CancelImageLaunchPermissionCommandInput}
@@ -56,6 +60,8 @@ export interface CancelImageLaunchPermissionCommandOutput extends CancelImageLau
  * @see {@link CancelImageLaunchPermissionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CancelImageLaunchPermissionCommand extends $Command<

@@ -57,6 +57,30 @@ export interface AdminGetUserCommandOutput extends AdminGetUserResponse, __Metad
  * };
  * const command = new AdminGetUserCommand(input);
  * const response = await client.send(command);
+ * // { // AdminGetUserResponse
+ * //   Username: "STRING_VALUE", // required
+ * //   UserAttributes: [ // AttributeListType
+ * //     { // AttributeType
+ * //       Name: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   UserCreateDate: new Date("TIMESTAMP"),
+ * //   UserLastModifiedDate: new Date("TIMESTAMP"),
+ * //   Enabled: true || false,
+ * //   UserStatus: "UNCONFIRMED" || "CONFIRMED" || "ARCHIVED" || "COMPROMISED" || "UNKNOWN" || "RESET_REQUIRED" || "FORCE_CHANGE_PASSWORD",
+ * //   MFAOptions: [ // MFAOptionListType
+ * //     { // MFAOptionType
+ * //       DeliveryMedium: "SMS" || "EMAIL",
+ * //       AttributeName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   PreferredMfaSetting: "STRING_VALUE",
+ * //   UserMFASettingList: [ // UserMFASettingListType
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param AdminGetUserCommandInput - {@link AdminGetUserCommandInput}
@@ -86,6 +110,8 @@ export interface AdminGetUserCommandOutput extends AdminGetUserResponse, __Metad
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminGetUserCommand extends $Command<

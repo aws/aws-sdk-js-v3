@@ -51,6 +51,11 @@ export interface DeleteRecommendationTemplateCommandOutput
  * };
  * const command = new DeleteRecommendationTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteRecommendationTemplateResponse
+ * //   recommendationTemplateArn: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteRecommendationTemplateCommandInput - {@link DeleteRecommendationTemplateCommandInput}
@@ -77,6 +82,8 @@ export interface DeleteRecommendationTemplateCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DeleteRecommendationTemplateCommand extends $Command<

@@ -49,6 +49,19 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  * };
  * const command = new DescribeQueriesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeQueriesResponse
+ * //   queries: [ // QueryInfoList
+ * //     { // QueryInfo
+ * //       queryId: "STRING_VALUE",
+ * //       queryString: "STRING_VALUE",
+ * //       status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",
+ * //       createTime: Number("long"),
+ * //       logGroupName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeQueriesCommandInput - {@link DescribeQueriesCommandInput}
@@ -66,6 +79,8 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeQueriesCommand extends $Command<

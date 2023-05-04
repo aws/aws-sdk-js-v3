@@ -74,6 +74,56 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  * };
  * const command = new ModifyOptionGroupCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyOptionGroupResult
+ * //   OptionGroup: { // OptionGroup
+ * //     OptionGroupName: "STRING_VALUE",
+ * //     OptionGroupDescription: "STRING_VALUE",
+ * //     EngineName: "STRING_VALUE",
+ * //     MajorEngineVersion: "STRING_VALUE",
+ * //     Options: [ // OptionsList
+ * //       { // Option
+ * //         OptionName: "STRING_VALUE",
+ * //         OptionDescription: "STRING_VALUE",
+ * //         Persistent: true || false,
+ * //         Permanent: true || false,
+ * //         Port: Number("int"),
+ * //         OptionVersion: "STRING_VALUE",
+ * //         OptionSettings: [ // OptionSettingConfigurationList
+ * //           { // OptionSetting
+ * //             Name: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //             DefaultValue: "STRING_VALUE",
+ * //             Description: "STRING_VALUE",
+ * //             ApplyType: "STRING_VALUE",
+ * //             DataType: "STRING_VALUE",
+ * //             AllowedValues: "STRING_VALUE",
+ * //             IsModifiable: true || false,
+ * //             IsCollection: true || false,
+ * //           },
+ * //         ],
+ * //         DBSecurityGroupMemberships: [ // DBSecurityGroupMembershipList
+ * //           { // DBSecurityGroupMembership
+ * //             DBSecurityGroupName: "STRING_VALUE",
+ * //             Status: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         VpcSecurityGroupMemberships: [ // VpcSecurityGroupMembershipList
+ * //           { // VpcSecurityGroupMembership
+ * //             VpcSecurityGroupId: "STRING_VALUE",
+ * //             Status: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     AllowsVpcAndNonVpcInstanceMemberships: true || false,
+ * //     VpcId: "STRING_VALUE",
+ * //     OptionGroupArn: "STRING_VALUE",
+ * //     SourceOptionGroup: "STRING_VALUE",
+ * //     SourceAccountId: "STRING_VALUE",
+ * //     CopyTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ModifyOptionGroupCommandInput - {@link ModifyOptionGroupCommandInput}
@@ -88,6 +138,8 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  * @throws {@link OptionGroupNotFoundFault} (client fault)
  *  <p>The specified option group could not be found.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To modify an option group
  * ```javascript

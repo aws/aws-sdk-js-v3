@@ -113,6 +113,13 @@ export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateRes
  * };
  * const command = new UpdateInAppTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateInAppTemplateResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateInAppTemplateCommandInput - {@link UpdateInAppTemplateCommandInput}
@@ -142,6 +149,8 @@ export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class UpdateInAppTemplateCommand extends $Command<

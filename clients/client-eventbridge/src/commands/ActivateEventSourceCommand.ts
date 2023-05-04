@@ -45,6 +45,8 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ActivateEventSourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ActivateEventSourceCommandInput - {@link ActivateEventSourceCommandInput}
@@ -68,6 +70,8 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class ActivateEventSourceCommand extends $Command<

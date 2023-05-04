@@ -195,6 +195,10 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  * };
  * const command = new CreateExplainabilityCommand(input);
  * const response = await client.send(command);
+ * // { // CreateExplainabilityResponse
+ * //   ExplainabilityArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateExplainabilityCommandInput - {@link CreateExplainabilityCommandInput}
@@ -220,6 +224,8 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateExplainabilityCommand extends $Command<

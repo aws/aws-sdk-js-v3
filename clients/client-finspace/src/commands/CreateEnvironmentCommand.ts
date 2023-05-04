@@ -72,6 +72,12 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
+ * // { // CreateEnvironmentResponse
+ * //   environmentId: "STRING_VALUE",
+ * //   environmentArn: "STRING_VALUE",
+ * //   environmentUrl: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
@@ -100,6 +106,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceServiceException}
+ * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
 export class CreateEnvironmentCommand extends $Command<

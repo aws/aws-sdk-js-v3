@@ -50,6 +50,10 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  * };
  * const command = new RetryStageExecutionCommand(input);
  * const response = await client.send(command);
+ * // { // RetryStageExecutionOutput
+ * //   pipelineExecutionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RetryStageExecutionCommandInput - {@link RetryStageExecutionCommandInput}
@@ -80,6 +84,8 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class RetryStageExecutionCommand extends $Command<

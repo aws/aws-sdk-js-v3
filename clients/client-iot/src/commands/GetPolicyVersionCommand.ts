@@ -46,6 +46,17 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * };
  * const command = new GetPolicyVersionCommand(input);
  * const response = await client.send(command);
+ * // { // GetPolicyVersionResponse
+ * //   policyArn: "STRING_VALUE",
+ * //   policyName: "STRING_VALUE",
+ * //   policyDocument: "STRING_VALUE",
+ * //   policyVersionId: "STRING_VALUE",
+ * //   isDefaultVersion: true || false,
+ * //   creationDate: new Date("TIMESTAMP"),
+ * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * //   generationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetPolicyVersionCommandInput - {@link GetPolicyVersionCommandInput}
@@ -72,6 +83,8 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetPolicyVersionCommand extends $Command<

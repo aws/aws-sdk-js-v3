@@ -46,6 +46,25 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * };
  * const command = new UpdateConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateConfigurationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Created: new Date("TIMESTAMP"),
+ * //   Id: "STRING_VALUE",
+ * //   LatestRevision: { // ConfigurationRevision
+ * //     Created: new Date("TIMESTAMP"), // required
+ * //     Description: "STRING_VALUE",
+ * //     Revision: Number("int"), // required
+ * //   },
+ * //   Name: "STRING_VALUE",
+ * //   Warnings: [ // __listOfSanitizationWarning
+ * //     { // SanitizationWarning
+ * //       AttributeName: "STRING_VALUE",
+ * //       ElementName: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UpdateConfigurationCommandInput - {@link UpdateConfigurationCommandInput}
@@ -69,6 +88,8 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class UpdateConfigurationCommand extends $Command<

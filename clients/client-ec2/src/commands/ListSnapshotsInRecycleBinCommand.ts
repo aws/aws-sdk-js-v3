@@ -49,6 +49,19 @@ export interface ListSnapshotsInRecycleBinCommandOutput extends ListSnapshotsInR
  * };
  * const command = new ListSnapshotsInRecycleBinCommand(input);
  * const response = await client.send(command);
+ * // { // ListSnapshotsInRecycleBinResult
+ * //   Snapshots: [ // SnapshotRecycleBinInfoList
+ * //     { // SnapshotRecycleBinInfo
+ * //       SnapshotId: "STRING_VALUE",
+ * //       RecycleBinEnterTime: new Date("TIMESTAMP"),
+ * //       RecycleBinExitTime: new Date("TIMESTAMP"),
+ * //       Description: "STRING_VALUE",
+ * //       VolumeId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSnapshotsInRecycleBinCommandInput - {@link ListSnapshotsInRecycleBinCommandInput}
@@ -57,6 +70,8 @@ export interface ListSnapshotsInRecycleBinCommandOutput extends ListSnapshotsInR
  * @see {@link ListSnapshotsInRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ListSnapshotsInRecycleBinCommand extends $Command<

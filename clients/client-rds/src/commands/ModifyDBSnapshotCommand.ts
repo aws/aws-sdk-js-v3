@@ -51,6 +51,54 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * };
  * const command = new ModifyDBSnapshotCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyDBSnapshotResult
+ * //   DBSnapshot: { // DBSnapshot
+ * //     DBSnapshotIdentifier: "STRING_VALUE",
+ * //     DBInstanceIdentifier: "STRING_VALUE",
+ * //     SnapshotCreateTime: new Date("TIMESTAMP"),
+ * //     Engine: "STRING_VALUE",
+ * //     AllocatedStorage: Number("int"),
+ * //     Status: "STRING_VALUE",
+ * //     Port: Number("int"),
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     InstanceCreateTime: new Date("TIMESTAMP"),
+ * //     MasterUsername: "STRING_VALUE",
+ * //     EngineVersion: "STRING_VALUE",
+ * //     LicenseModel: "STRING_VALUE",
+ * //     SnapshotType: "STRING_VALUE",
+ * //     Iops: Number("int"),
+ * //     OptionGroupName: "STRING_VALUE",
+ * //     PercentProgress: Number("int"),
+ * //     SourceRegion: "STRING_VALUE",
+ * //     SourceDBSnapshotIdentifier: "STRING_VALUE",
+ * //     StorageType: "STRING_VALUE",
+ * //     TdeCredentialArn: "STRING_VALUE",
+ * //     Encrypted: true || false,
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     DBSnapshotArn: "STRING_VALUE",
+ * //     Timezone: "STRING_VALUE",
+ * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     ProcessorFeatures: [ // ProcessorFeatureList
+ * //       { // ProcessorFeature
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     DbiResourceId: "STRING_VALUE",
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     OriginalSnapshotCreateTime: new Date("TIMESTAMP"),
+ * //     SnapshotDatabaseTime: new Date("TIMESTAMP"),
+ * //     SnapshotTarget: "STRING_VALUE",
+ * //     StorageThroughput: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ModifyDBSnapshotCommandInput - {@link ModifyDBSnapshotCommandInput}
@@ -63,6 +111,8 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To modify a DB snapshot
  * ```javascript

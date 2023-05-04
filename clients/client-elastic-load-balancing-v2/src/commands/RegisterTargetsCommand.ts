@@ -64,6 +64,8 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * };
  * const command = new RegisterTargetsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RegisterTargetsCommandInput - {@link RegisterTargetsCommandInput}
@@ -86,6 +88,8 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * @throws {@link TooManyTargetsException} (client fault)
  *  <p>You've reached the limit on the number of targets.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To register targets with a target group
  * ```javascript

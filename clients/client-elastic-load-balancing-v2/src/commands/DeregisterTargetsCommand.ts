@@ -56,6 +56,8 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * };
  * const command = new DeregisterTargetsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeregisterTargetsCommandInput - {@link DeregisterTargetsCommandInput}
@@ -71,6 +73,8 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * @throws {@link TargetGroupNotFoundException} (client fault)
  *  <p>The specified target group does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To deregister a target from a target group
  * ```javascript

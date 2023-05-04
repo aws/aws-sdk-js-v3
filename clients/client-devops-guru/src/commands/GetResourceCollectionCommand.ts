@@ -48,6 +48,25 @@ export interface GetResourceCollectionCommandOutput extends GetResourceCollectio
  * };
  * const command = new GetResourceCollectionCommand(input);
  * const response = await client.send(command);
+ * // { // GetResourceCollectionResponse
+ * //   ResourceCollection: { // ResourceCollectionFilter
+ * //     CloudFormation: { // CloudFormationCollectionFilter
+ * //       StackNames: [ // StackNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     Tags: [ // TagCollectionFilters
+ * //       { // TagCollectionFilter
+ * //         AppBoundaryKey: "STRING_VALUE", // required
+ * //         TagValues: [ // TagValues // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetResourceCollectionCommandInput - {@link GetResourceCollectionCommandInput}
@@ -75,6 +94,8 @@ export interface GetResourceCollectionCommandOutput extends GetResourceCollectio
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class GetResourceCollectionCommand extends $Command<

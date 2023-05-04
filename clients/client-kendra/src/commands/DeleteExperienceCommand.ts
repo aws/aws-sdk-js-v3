@@ -47,6 +47,8 @@ export interface DeleteExperienceCommandOutput extends DeleteExperienceResponse,
  * };
  * const command = new DeleteExperienceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteExperienceCommandInput - {@link DeleteExperienceCommandInput}
@@ -79,6 +81,8 @@ export interface DeleteExperienceCommandOutput extends DeleteExperienceResponse,
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DeleteExperienceCommand extends $Command<

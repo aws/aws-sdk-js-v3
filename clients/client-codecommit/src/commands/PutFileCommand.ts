@@ -52,6 +52,12 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  * };
  * const command = new PutFileCommand(input);
  * const response = await client.send(command);
+ * // { // PutFileOutput
+ * //   commitId: "STRING_VALUE", // required
+ * //   blobId: "STRING_VALUE", // required
+ * //   treeId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param PutFileCommandInput - {@link PutFileCommandInput}
@@ -169,6 +175,8 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  *  <p>The file was not added or updated because the content of the file is exactly the same as the content of that file in the repository and branch
  *         that you specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class PutFileCommand extends $Command<

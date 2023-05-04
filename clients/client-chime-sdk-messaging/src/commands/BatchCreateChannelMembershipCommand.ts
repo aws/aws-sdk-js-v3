@@ -63,6 +63,31 @@ export interface BatchCreateChannelMembershipCommandOutput
  * };
  * const command = new BatchCreateChannelMembershipCommand(input);
  * const response = await client.send(command);
+ * // { // BatchCreateChannelMembershipResponse
+ * //   BatchChannelMemberships: { // BatchChannelMemberships
+ * //     InvitedBy: { // Identity
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     Type: "DEFAULT" || "HIDDEN",
+ * //     Members: [ // Members
+ * //       {
+ * //         Arn: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ChannelArn: "STRING_VALUE",
+ * //     SubChannelId: "STRING_VALUE",
+ * //   },
+ * //   Errors: [ // BatchCreateChannelMembershipErrors
+ * //     { // BatchCreateChannelMembershipError
+ * //       MemberArn: "STRING_VALUE",
+ * //       ErrorCode: "BadRequest" || "Conflict" || "Forbidden" || "NotFound" || "PreconditionFailed" || "ResourceLimitExceeded" || "ServiceFailure" || "AccessDenied" || "ServiceUnavailable" || "Throttled" || "Throttling" || "Unauthorized" || "Unprocessable" || "VoiceConnectorGroupAssociationsExist" || "PhoneNumberAssociationsExist",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchCreateChannelMembershipCommandInput - {@link BatchCreateChannelMembershipCommandInput}
@@ -95,6 +120,8 @@ export interface BatchCreateChannelMembershipCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class BatchCreateChannelMembershipCommand extends $Command<

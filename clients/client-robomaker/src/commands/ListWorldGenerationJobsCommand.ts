@@ -53,6 +53,24 @@ export interface ListWorldGenerationJobsCommandOutput extends ListWorldGeneratio
  * };
  * const command = new ListWorldGenerationJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListWorldGenerationJobsResponse
+ * //   worldGenerationJobSummaries: [ // WorldGenerationJobSummaries // required
+ * //     { // WorldGenerationJobSummary
+ * //       arn: "STRING_VALUE",
+ * //       template: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       status: "STRING_VALUE",
+ * //       worldCount: { // WorldCount
+ * //         floorplanCount: Number("int"),
+ * //         interiorCountPerFloorplan: Number("int"),
+ * //       },
+ * //       succeededWorldCount: Number("int"),
+ * //       failedWorldCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListWorldGenerationJobsCommandInput - {@link ListWorldGenerationJobsCommandInput}
@@ -71,6 +89,8 @@ export interface ListWorldGenerationJobsCommandOutput extends ListWorldGeneratio
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListWorldGenerationJobsCommand extends $Command<

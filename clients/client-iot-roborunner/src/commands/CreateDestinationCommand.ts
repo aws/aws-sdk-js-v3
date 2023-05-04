@@ -48,6 +48,14 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
  * };
  * const command = new CreateDestinationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDestinationResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   state: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateDestinationCommandInput - {@link CreateDestinationCommandInput}
@@ -77,6 +85,8 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class CreateDestinationCommand extends $Command<

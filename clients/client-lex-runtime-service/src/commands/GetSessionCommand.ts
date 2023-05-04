@@ -52,6 +52,47 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * };
  * const command = new GetSessionCommand(input);
  * const response = await client.send(command);
+ * // { // GetSessionResponse
+ * //   recentIntentSummaryView: [ // IntentSummaryList
+ * //     { // IntentSummary
+ * //       intentName: "STRING_VALUE",
+ * //       checkpointLabel: "STRING_VALUE",
+ * //       slots: { // StringMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       confirmationStatus: "STRING_VALUE",
+ * //       dialogActionType: "STRING_VALUE", // required
+ * //       fulfillmentState: "STRING_VALUE",
+ * //       slotToElicit: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   sessionAttributes: {
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   sessionId: "STRING_VALUE",
+ * //   dialogAction: { // DialogAction
+ * //     type: "STRING_VALUE", // required
+ * //     intentName: "STRING_VALUE",
+ * //     slots: "<StringMap>",
+ * //     slotToElicit: "STRING_VALUE",
+ * //     fulfillmentState: "STRING_VALUE",
+ * //     message: "STRING_VALUE",
+ * //     messageFormat: "STRING_VALUE",
+ * //   },
+ * //   activeContexts: [ // ActiveContextsList
+ * //     { // ActiveContext
+ * //       name: "STRING_VALUE", // required
+ * //       timeToLive: { // ActiveContextTimeToLive
+ * //         timeToLiveInSeconds: Number("int"),
+ * //         turnsToLive: Number("int"),
+ * //       },
+ * //       parameters: { // ActiveContextParametersMap // required
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetSessionCommandInput - {@link GetSessionCommandInput}
@@ -75,6 +116,8 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  *  <p>The resource (such as the Amazon Lex bot or an alias) that is referred
  *       to is not found.</p>
  *
+ * @throws {@link LexRuntimeServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
  */
 export class GetSessionCommand extends $Command<

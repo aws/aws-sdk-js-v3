@@ -63,6 +63,18 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  * };
  * const command = new PutRetentionSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // PutRetentionSettingsResponse
+ * //   RetentionSettings: { // RetentionSettings
+ * //     RoomRetentionSettings: { // RoomRetentionSettings
+ * //       RetentionDays: Number("int"),
+ * //     },
+ * //     ConversationRetentionSettings: { // ConversationRetentionSettings
+ * //       RetentionDays: Number("int"),
+ * //     },
+ * //   },
+ * //   InitiateDeletionTimestamp: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param PutRetentionSettingsCommandInput - {@link PutRetentionSettingsCommandInput}
@@ -96,6 +108,8 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class PutRetentionSettingsCommand extends $Command<

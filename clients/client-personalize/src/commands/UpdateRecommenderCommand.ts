@@ -50,6 +50,10 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  * };
  * const command = new UpdateRecommenderCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateRecommenderResponse
+ * //   recommenderArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateRecommenderCommandInput - {@link UpdateRecommenderCommandInput}
@@ -67,6 +71,8 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class UpdateRecommenderCommand extends $Command<

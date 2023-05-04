@@ -54,6 +54,14 @@ export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesRespons
  * };
  * const command = new ListGroupPoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // ListGroupPoliciesResponse
+ * //   PolicyNames: [ // policyNameListType // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListGroupPoliciesCommandInput - {@link ListGroupPoliciesCommandInput}
@@ -70,6 +78,8 @@ export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesRespons
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To list the in-line policies for an IAM group
  * ```javascript

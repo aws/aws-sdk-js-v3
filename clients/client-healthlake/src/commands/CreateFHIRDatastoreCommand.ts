@@ -61,6 +61,13 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  * };
  * const command = new CreateFHIRDatastoreCommand(input);
  * const response = await client.send(command);
+ * // { // CreateFHIRDatastoreResponse
+ * //   DatastoreId: "STRING_VALUE", // required
+ * //   DatastoreArn: "STRING_VALUE", // required
+ * //   DatastoreStatus: "STRING_VALUE", // required
+ * //   DatastoreEndpoint: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateFHIRDatastoreCommandInput - {@link CreateFHIRDatastoreCommandInput}
@@ -81,6 +88,8 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>
  *
+ * @throws {@link HealthLakeServiceException}
+ * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
  */
 export class CreateFHIRDatastoreCommand extends $Command<

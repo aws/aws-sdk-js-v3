@@ -54,6 +54,8 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  * };
  * const command = new CreateCustomMetadataCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateCustomMetadataCommandInput - {@link CreateCustomMetadataCommandInput}
@@ -86,6 +88,8 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class CreateCustomMetadataCommand extends $Command<

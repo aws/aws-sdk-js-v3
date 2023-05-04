@@ -52,6 +52,23 @@ export interface ListCodeRepositoriesCommandOutput extends ListCodeRepositoriesO
  * };
  * const command = new ListCodeRepositoriesCommand(input);
  * const response = await client.send(command);
+ * // { // ListCodeRepositoriesOutput
+ * //   CodeRepositorySummaryList: [ // CodeRepositorySummaryList // required
+ * //     { // CodeRepositorySummary
+ * //       CodeRepositoryName: "STRING_VALUE", // required
+ * //       CodeRepositoryArn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       GitConfig: { // GitConfig
+ * //         RepositoryUrl: "STRING_VALUE", // required
+ * //         Branch: "STRING_VALUE",
+ * //         SecretArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCodeRepositoriesCommandInput - {@link ListCodeRepositoriesCommandInput}
@@ -60,6 +77,8 @@ export interface ListCodeRepositoriesCommandOutput extends ListCodeRepositoriesO
  * @see {@link ListCodeRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListCodeRepositoriesCommand extends $Command<

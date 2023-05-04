@@ -49,6 +49,8 @@ export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNam
  * };
  * const command = new UpdateContactFlowNameCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateContactFlowNameCommandInput - {@link UpdateContactFlowNameCommandInput}
@@ -75,6 +77,8 @@ export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNam
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateContactFlowNameCommand extends $Command<

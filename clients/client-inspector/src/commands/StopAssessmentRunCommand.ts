@@ -46,6 +46,8 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopAssessmentRunCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopAssessmentRunCommandInput - {@link StopAssessmentRunCommandInput}
@@ -71,6 +73,8 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Stop assessment run
  * ```javascript

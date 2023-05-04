@@ -59,6 +59,12 @@ export interface DeleteIndexCommandOutput extends DeleteIndexOutput, __MetadataB
  * };
  * const command = new DeleteIndexCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteIndexOutput
+ * //   Arn: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   LastUpdatedAt: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DeleteIndexCommandInput - {@link DeleteIndexCommandInput}
@@ -88,6 +94,8 @@ export interface DeleteIndexCommandOutput extends DeleteIndexOutput, __MetadataB
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class DeleteIndexCommand extends $Command<

@@ -66,6 +66,10 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * };
  * const command = new DeleteWebACLCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteWebACLResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteWebACLCommandInput - {@link DeleteWebACLCommandInput}
@@ -121,6 +125,8 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To delete a web ACL
  * ```javascript

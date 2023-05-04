@@ -57,6 +57,16 @@ export interface GetNetworkResourceRelationshipsCommandOutput
  * };
  * const command = new GetNetworkResourceRelationshipsCommand(input);
  * const response = await client.send(command);
+ * // { // GetNetworkResourceRelationshipsResponse
+ * //   Relationships: [ // RelationshipList
+ * //     { // Relationship
+ * //       From: "STRING_VALUE",
+ * //       To: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetNetworkResourceRelationshipsCommandInput - {@link GetNetworkResourceRelationshipsCommandInput}
@@ -80,6 +90,8 @@ export interface GetNetworkResourceRelationshipsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetNetworkResourceRelationshipsCommand extends $Command<

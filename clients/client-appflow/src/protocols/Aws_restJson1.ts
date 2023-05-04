@@ -26,6 +26,10 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  CancelFlowExecutionsCommandInput,
+  CancelFlowExecutionsCommandOutput,
+} from "../commands/CancelFlowExecutionsCommand";
+import {
   CreateConnectorProfileCommandInput,
   CreateConnectorProfileCommandOutput,
 } from "../commands/CreateConnectorProfileCommand";
@@ -203,6 +207,37 @@ import {
   ZendeskDestinationProperties,
   ZendeskSourceProperties,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1CancelFlowExecutionsCommand
+ */
+export const se_CancelFlowExecutionsCommand = async (
+  input: CancelFlowExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cancel-flow-executions";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      executionIds: (_) => _json(_),
+      flowName: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 /**
  * serializeAws_restJson1CreateConnectorProfileCommand
@@ -928,6 +963,65 @@ export const se_UpdateFlowCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+/**
+ * deserializeAws_restJson1CancelFlowExecutionsCommand
+ */
+export const de_CancelFlowExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelFlowExecutionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CancelFlowExecutionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    invalidExecutions: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CancelFlowExecutionsCommandError
+ */
+const de_CancelFlowExecutionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelFlowExecutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.appflow#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.appflow#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appflow#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.appflow#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.appflow#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -2491,6 +2585,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_EventBridgeDestinationProperties omitted.
 
+// se_ExecutionIds omitted.
+
 // se_GlueDataCatalogConfig omitted.
 
 // se_GoogleAnalyticsConnectorProfileCredentials omitted.
@@ -2923,6 +3019,8 @@ const de_ExecutionDetails = (output: any, context: __SerdeContext): ExecutionDet
     mostRecentExecutionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_ExecutionIds omitted.
 
 /**
  * deserializeAws_restJson1ExecutionRecord

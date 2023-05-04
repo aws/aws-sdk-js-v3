@@ -45,6 +45,21 @@ export interface DescribeMailboxExportJobCommandOutput extends DescribeMailboxEx
  * };
  * const command = new DescribeMailboxExportJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeMailboxExportJobResponse
+ * //   EntityId: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   RoleArn: "STRING_VALUE",
+ * //   KmsKeyArn: "STRING_VALUE",
+ * //   S3BucketName: "STRING_VALUE",
+ * //   S3Prefix: "STRING_VALUE",
+ * //   S3Path: "STRING_VALUE",
+ * //   EstimatedProgress: Number("int"),
+ * //   State: "RUNNING" || "COMPLETED" || "FAILED" || "CANCELLED",
+ * //   ErrorInfo: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   EndTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeMailboxExportJobCommandInput - {@link DescribeMailboxExportJobCommandInput}
@@ -68,6 +83,8 @@ export interface DescribeMailboxExportJobCommandOutput extends DescribeMailboxEx
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DescribeMailboxExportJobCommand extends $Command<

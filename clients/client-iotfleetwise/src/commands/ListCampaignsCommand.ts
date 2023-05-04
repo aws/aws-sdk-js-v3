@@ -49,6 +49,22 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * };
  * const command = new ListCampaignsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCampaignsResponse
+ * //   campaignSummaries: [ // campaignSummaries
+ * //     { // CampaignSummary
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       signalCatalogArn: "STRING_VALUE",
+ * //       targetArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       lastModificationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCampaignsCommandInput - {@link ListCampaignsCommandInput}
@@ -69,6 +85,8 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ListCampaignsCommand extends $Command<

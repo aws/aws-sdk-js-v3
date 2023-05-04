@@ -48,6 +48,16 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * };
  * const command = new DeleteRepositoryCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteRepositoryResponse
+ * //   repository: { // Repository
+ * //     repositoryArn: "STRING_VALUE",
+ * //     registryId: "STRING_VALUE",
+ * //     repositoryName: "STRING_VALUE",
+ * //     repositoryUri: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteRepositoryCommandInput - {@link DeleteRepositoryCommandInput}
@@ -74,6 +84,8 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class DeleteRepositoryCommand extends $Command<

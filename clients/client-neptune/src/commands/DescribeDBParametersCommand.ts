@@ -55,6 +55,24 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  * };
  * const command = new DescribeDBParametersCommand(input);
  * const response = await client.send(command);
+ * // { // DBParameterGroupDetails
+ * //   Parameters: [ // ParametersList
+ * //     { // Parameter
+ * //       ParameterName: "STRING_VALUE",
+ * //       ParameterValue: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Source: "STRING_VALUE",
+ * //       ApplyType: "STRING_VALUE",
+ * //       DataType: "STRING_VALUE",
+ * //       AllowedValues: "STRING_VALUE",
+ * //       IsModifiable: true || false,
+ * //       MinimumEngineVersion: "STRING_VALUE",
+ * //       ApplyMethod: "immediate" || "pending-reboot",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeDBParametersCommandInput - {@link DescribeDBParametersCommandInput}
@@ -68,6 +86,8 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  *             <i>DBParameterGroupName</i> does not refer to an
  *       existing DB parameter group.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribeDBParametersCommand extends $Command<

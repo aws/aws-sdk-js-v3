@@ -45,6 +45,8 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResult, __Met
  * };
  * const command = new DeleteDetectorCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDetectorCommandInput - {@link DeleteDetectorCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteDetectorCommand extends $Command<

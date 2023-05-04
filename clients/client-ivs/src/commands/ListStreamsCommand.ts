@@ -49,6 +49,20 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
+ * // { // ListStreamsResponse
+ * //   streams: [ // StreamList // required
+ * //     { // StreamSummary
+ * //       channelArn: "STRING_VALUE",
+ * //       streamId: "STRING_VALUE",
+ * //       state: "STRING_VALUE",
+ * //       health: "STRING_VALUE",
+ * //       viewerCount: Number("long"),
+ * //       startTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
@@ -63,6 +77,8 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class ListStreamsCommand extends $Command<

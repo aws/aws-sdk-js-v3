@@ -45,6 +45,19 @@ export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBe
  * };
  * const command = new DisableLoggingCommand(input);
  * const response = await client.send(command);
+ * // { // LoggingStatus
+ * //   LoggingEnabled: true || false,
+ * //   BucketName: "STRING_VALUE",
+ * //   S3KeyPrefix: "STRING_VALUE",
+ * //   LastSuccessfulDeliveryTime: new Date("TIMESTAMP"),
+ * //   LastFailureTime: new Date("TIMESTAMP"),
+ * //   LastFailureMessage: "STRING_VALUE",
+ * //   LogDestinationType: "s3" || "cloudwatch",
+ * //   LogExports: [ // LogTypeList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DisableLoggingCommandInput - {@link DisableLoggingCommandInput}
@@ -60,6 +73,8 @@ export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBe
  * @throws {@link InvalidClusterStateFault} (client fault)
  *  <p>The specified cluster is not in the <code>available</code> state. </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DisableLoggingCommand extends $Command<

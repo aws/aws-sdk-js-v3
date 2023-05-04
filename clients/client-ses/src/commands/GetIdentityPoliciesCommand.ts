@@ -58,6 +58,12 @@ export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesRes
  * };
  * const command = new GetIdentityPoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // GetIdentityPoliciesResponse
+ * //   Policies: { // PolicyMap // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetIdentityPoliciesCommandInput - {@link GetIdentityPoliciesCommandInput}
@@ -66,6 +72,8 @@ export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesRes
  * @see {@link GetIdentityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example GetIdentityPolicies
  * ```javascript

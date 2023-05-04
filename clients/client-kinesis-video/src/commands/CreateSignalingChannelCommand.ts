@@ -56,6 +56,10 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
  * };
  * const command = new CreateSignalingChannelCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSignalingChannelOutput
+ * //   ChannelARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateSignalingChannelCommandInput - {@link CreateSignalingChannelCommandInput}
@@ -102,6 +106,8 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
  *  <p>You have exceeded the limit of tags that you can associate with the resource.
  *             A Kinesis video stream can support up to 50 tags. </p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class CreateSignalingChannelCommand extends $Command<

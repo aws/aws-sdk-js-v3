@@ -46,6 +46,12 @@ export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __Metadat
  * };
  * const command = new DeleteGrantCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteGrantResponse
+ * //   GrantArn: "STRING_VALUE",
+ * //   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
+ * //   Version: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteGrantCommandInput - {@link DeleteGrantCommandInput}
@@ -76,6 +82,8 @@ export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class DeleteGrantCommand extends $Command<

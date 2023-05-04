@@ -47,6 +47,14 @@ export interface DeleteTemplateAliasCommandOutput extends DeleteTemplateAliasRes
  * };
  * const command = new DeleteTemplateAliasCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteTemplateAliasResponse
+ * //   Status: Number("int"),
+ * //   TemplateId: "STRING_VALUE",
+ * //   AliasName: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteTemplateAliasCommandInput - {@link DeleteTemplateAliasCommandInput}
@@ -73,6 +81,8 @@ export interface DeleteTemplateAliasCommandOutput extends DeleteTemplateAliasRes
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteTemplateAliasCommand extends $Command<

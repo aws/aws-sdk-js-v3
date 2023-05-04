@@ -46,6 +46,16 @@ export interface ListDelegatedAdminAccountsCommandOutput extends ListDelegatedAd
  * };
  * const command = new ListDelegatedAdminAccountsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDelegatedAdminAccountsResponse
+ * //   delegatedAdminAccounts: [ // DelegatedAdminAccountList
+ * //     { // DelegatedAdminAccount
+ * //       accountId: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDelegatedAdminAccountsCommandInput - {@link ListDelegatedAdminAccountsCommandInput}
@@ -67,6 +77,8 @@ export interface ListDelegatedAdminAccountsCommandOutput extends ListDelegatedAd
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class ListDelegatedAdminAccountsCommand extends $Command<

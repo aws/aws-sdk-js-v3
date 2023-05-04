@@ -78,6 +78,8 @@ export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __Metad
  * };
  * const command = new SetTaskStatusCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SetTaskStatusCommandInput - {@link SetTaskStatusCommandInput}
@@ -101,6 +103,8 @@ export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __Metad
  * @throws {@link TaskNotFoundException} (client fault)
  *  <p>The specified task was not found. </p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class SetTaskStatusCommand extends $Command<

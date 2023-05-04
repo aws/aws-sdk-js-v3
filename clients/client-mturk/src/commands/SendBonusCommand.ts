@@ -61,6 +61,8 @@ export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBea
  * };
  * const command = new SendBonusCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SendBonusCommandInput - {@link SendBonusCommandInput}
@@ -75,6 +77,8 @@ export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBea
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class SendBonusCommand extends $Command<

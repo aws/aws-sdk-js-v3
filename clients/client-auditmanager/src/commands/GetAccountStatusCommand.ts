@@ -42,6 +42,10 @@ export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse,
  * const input = {};
  * const command = new GetAccountStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetAccountStatusResponse
+ * //   status: "ACTIVE" || "INACTIVE" || "PENDING_ACTIVATION",
+ * // };
+ *
  * ```
  *
  * @param GetAccountStatusCommandInput - {@link GetAccountStatusCommandInput}
@@ -54,6 +58,8 @@ export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse,
  *  <p> An internal service error occurred during the processing of your request. Try again
  *          later. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetAccountStatusCommand extends $Command<

@@ -58,6 +58,8 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
  * };
  * const command = new DisassociateWebsiteAuthorizationProviderCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateWebsiteAuthorizationProviderCommandInput - {@link DisassociateWebsiteAuthorizationProviderCommandInput}
@@ -84,6 +86,8 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<

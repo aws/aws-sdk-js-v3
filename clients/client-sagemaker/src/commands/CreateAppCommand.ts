@@ -62,6 +62,10 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAppResponse
+ * //   AppArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateAppCommandInput - {@link CreateAppCommandInput}
@@ -77,6 +81,8 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateAppCommand extends $Command<

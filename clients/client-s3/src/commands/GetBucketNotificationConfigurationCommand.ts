@@ -65,6 +65,67 @@ export interface GetBucketNotificationConfigurationCommandOutput extends Notific
  * };
  * const command = new GetBucketNotificationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // NotificationConfiguration
+ * //   TopicConfigurations: [ // TopicConfigurationList
+ * //     { // TopicConfiguration
+ * //       Id: "STRING_VALUE",
+ * //       TopicArn: "STRING_VALUE", // required
+ * //       Events: [ // EventList // required
+ * //         "s3:ReducedRedundancyLostObject" || "s3:ObjectCreated:*" || "s3:ObjectCreated:Put" || "s3:ObjectCreated:Post" || "s3:ObjectCreated:Copy" || "s3:ObjectCreated:CompleteMultipartUpload" || "s3:ObjectRemoved:*" || "s3:ObjectRemoved:Delete" || "s3:ObjectRemoved:DeleteMarkerCreated" || "s3:ObjectRestore:*" || "s3:ObjectRestore:Post" || "s3:ObjectRestore:Completed" || "s3:Replication:*" || "s3:Replication:OperationFailedReplication" || "s3:Replication:OperationNotTracked" || "s3:Replication:OperationMissedThreshold" || "s3:Replication:OperationReplicatedAfterThreshold" || "s3:ObjectRestore:Delete" || "s3:LifecycleTransition" || "s3:IntelligentTiering" || "s3:ObjectAcl:Put" || "s3:LifecycleExpiration:*" || "s3:LifecycleExpiration:Delete" || "s3:LifecycleExpiration:DeleteMarkerCreated" || "s3:ObjectTagging:*" || "s3:ObjectTagging:Put" || "s3:ObjectTagging:Delete",
+ * //       ],
+ * //       Filter: { // NotificationConfigurationFilter
+ * //         Key: { // S3KeyFilter
+ * //           FilterRules: [ // FilterRuleList
+ * //             { // FilterRule
+ * //               Name: "prefix" || "suffix",
+ * //               Value: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   QueueConfigurations: [ // QueueConfigurationList
+ * //     { // QueueConfiguration
+ * //       Id: "STRING_VALUE",
+ * //       QueueArn: "STRING_VALUE", // required
+ * //       Events: [ // required
+ * //         "s3:ReducedRedundancyLostObject" || "s3:ObjectCreated:*" || "s3:ObjectCreated:Put" || "s3:ObjectCreated:Post" || "s3:ObjectCreated:Copy" || "s3:ObjectCreated:CompleteMultipartUpload" || "s3:ObjectRemoved:*" || "s3:ObjectRemoved:Delete" || "s3:ObjectRemoved:DeleteMarkerCreated" || "s3:ObjectRestore:*" || "s3:ObjectRestore:Post" || "s3:ObjectRestore:Completed" || "s3:Replication:*" || "s3:Replication:OperationFailedReplication" || "s3:Replication:OperationNotTracked" || "s3:Replication:OperationMissedThreshold" || "s3:Replication:OperationReplicatedAfterThreshold" || "s3:ObjectRestore:Delete" || "s3:LifecycleTransition" || "s3:IntelligentTiering" || "s3:ObjectAcl:Put" || "s3:LifecycleExpiration:*" || "s3:LifecycleExpiration:Delete" || "s3:LifecycleExpiration:DeleteMarkerCreated" || "s3:ObjectTagging:*" || "s3:ObjectTagging:Put" || "s3:ObjectTagging:Delete",
+ * //       ],
+ * //       Filter: {
+ * //         Key: {
+ * //           FilterRules: [
+ * //             {
+ * //               Name: "prefix" || "suffix",
+ * //               Value: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   LambdaFunctionConfigurations: [ // LambdaFunctionConfigurationList
+ * //     { // LambdaFunctionConfiguration
+ * //       Id: "STRING_VALUE",
+ * //       LambdaFunctionArn: "STRING_VALUE", // required
+ * //       Events: [ // required
+ * //         "s3:ReducedRedundancyLostObject" || "s3:ObjectCreated:*" || "s3:ObjectCreated:Put" || "s3:ObjectCreated:Post" || "s3:ObjectCreated:Copy" || "s3:ObjectCreated:CompleteMultipartUpload" || "s3:ObjectRemoved:*" || "s3:ObjectRemoved:Delete" || "s3:ObjectRemoved:DeleteMarkerCreated" || "s3:ObjectRestore:*" || "s3:ObjectRestore:Post" || "s3:ObjectRestore:Completed" || "s3:Replication:*" || "s3:Replication:OperationFailedReplication" || "s3:Replication:OperationNotTracked" || "s3:Replication:OperationMissedThreshold" || "s3:Replication:OperationReplicatedAfterThreshold" || "s3:ObjectRestore:Delete" || "s3:LifecycleTransition" || "s3:IntelligentTiering" || "s3:ObjectAcl:Put" || "s3:LifecycleExpiration:*" || "s3:LifecycleExpiration:Delete" || "s3:LifecycleExpiration:DeleteMarkerCreated" || "s3:ObjectTagging:*" || "s3:ObjectTagging:Put" || "s3:ObjectTagging:Delete",
+ * //       ],
+ * //       Filter: {
+ * //         Key: {
+ * //           FilterRules: [
+ * //             {
+ * //               Name: "prefix" || "suffix",
+ * //               Value: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   EventBridgeConfiguration: {},
+ * // };
+ *
  * ```
  *
  * @param GetBucketNotificationConfigurationCommandInput - {@link GetBucketNotificationConfigurationCommandInput}
@@ -73,6 +134,8 @@ export interface GetBucketNotificationConfigurationCommandOutput extends Notific
  * @see {@link GetBucketNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class GetBucketNotificationConfigurationCommand extends $Command<

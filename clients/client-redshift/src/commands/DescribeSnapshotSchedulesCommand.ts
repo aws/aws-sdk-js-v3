@@ -55,6 +55,35 @@ export interface DescribeSnapshotSchedulesCommandOutput
  * };
  * const command = new DescribeSnapshotSchedulesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSnapshotSchedulesOutputMessage
+ * //   SnapshotSchedules: [ // SnapshotScheduleList
+ * //     { // SnapshotSchedule
+ * //       ScheduleDefinitions: [ // ScheduleDefinitionList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ScheduleIdentifier: "STRING_VALUE",
+ * //       ScheduleDescription: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       NextInvocations: [ // ScheduledSnapshotTimeList
+ * //         new Date("TIMESTAMP"),
+ * //       ],
+ * //       AssociatedClusterCount: Number("int"),
+ * //       AssociatedClusters: [ // AssociatedClusterList
+ * //         { // ClusterAssociatedToSchedule
+ * //           ClusterIdentifier: "STRING_VALUE",
+ * //           ScheduleAssociationState: "MODIFYING" || "ACTIVE" || "FAILED",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeSnapshotSchedulesCommandInput - {@link DescribeSnapshotSchedulesCommandInput}
@@ -63,6 +92,8 @@ export interface DescribeSnapshotSchedulesCommandOutput
  * @see {@link DescribeSnapshotSchedulesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeSnapshotSchedulesCommand extends $Command<

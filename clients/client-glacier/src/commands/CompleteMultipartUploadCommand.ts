@@ -85,6 +85,12 @@ export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOut
  * };
  * const command = new CompleteMultipartUploadCommand(input);
  * const response = await client.send(command);
+ * // { // ArchiveCreationOutput
+ * //   location: "STRING_VALUE",
+ * //   checksum: "STRING_VALUE",
+ * //   archiveId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CompleteMultipartUploadCommandInput - {@link CompleteMultipartUploadCommandInput}
@@ -106,6 +112,8 @@ export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOut
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To complete a multipart upload
  * ```javascript

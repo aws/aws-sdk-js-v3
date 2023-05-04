@@ -65,6 +65,8 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  * };
  * const command = new PublishMetricsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PublishMetricsCommandInput - {@link PublishMetricsCommandInput}
@@ -79,6 +81,8 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>ValidationException: The provided input is not valid.</p>
  *
+ * @throws {@link MWAAServiceException}
+ * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  */
 export class PublishMetricsCommand extends $Command<

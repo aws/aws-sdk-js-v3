@@ -48,6 +48,8 @@ export interface RegisterPackageVersionCommandOutput extends RegisterPackageVers
  * };
  * const command = new RegisterPackageVersionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RegisterPackageVersionCommandInput - {@link RegisterPackageVersionCommandInput}
@@ -68,6 +70,8 @@ export interface RegisterPackageVersionCommandOutput extends RegisterPackageVers
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class RegisterPackageVersionCommand extends $Command<

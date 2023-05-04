@@ -69,6 +69,20 @@ export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __M
  * };
  * const command = new SearchChannelsCommand(input);
  * const response = await client.send(command);
+ * // { // SearchChannelsResponse
+ * //   Channels: [ // ChannelSummaryList
+ * //     { // ChannelSummary
+ * //       Name: "STRING_VALUE",
+ * //       ChannelArn: "STRING_VALUE",
+ * //       Mode: "UNRESTRICTED" || "RESTRICTED",
+ * //       Privacy: "PUBLIC" || "PRIVATE",
+ * //       Metadata: "STRING_VALUE",
+ * //       LastMessageTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param SearchChannelsCommandInput - {@link SearchChannelsCommandInput}
@@ -95,6 +109,8 @@ export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __M
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class SearchChannelsCommand extends $Command<

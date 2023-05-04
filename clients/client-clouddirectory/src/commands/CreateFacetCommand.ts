@@ -77,6 +77,8 @@ export interface CreateFacetCommandOutput extends CreateFacetResponse, __Metadat
  * };
  * const command = new CreateFacetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateFacetCommandInput - {@link CreateFacetCommandInput}
@@ -117,6 +119,8 @@ export interface CreateFacetCommandOutput extends CreateFacetResponse, __Metadat
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class CreateFacetCommand extends $Command<

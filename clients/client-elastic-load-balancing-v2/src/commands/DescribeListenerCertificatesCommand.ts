@@ -59,6 +59,16 @@ export interface DescribeListenerCertificatesCommandOutput
  * };
  * const command = new DescribeListenerCertificatesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeListenerCertificatesOutput
+ * //   Certificates: [ // CertificateList
+ * //     { // Certificate
+ * //       CertificateArn: "STRING_VALUE",
+ * //       IsDefault: true || false,
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeListenerCertificatesCommandInput - {@link DescribeListenerCertificatesCommandInput}
@@ -70,6 +80,8 @@ export interface DescribeListenerCertificatesCommandOutput
  * @throws {@link ListenerNotFoundException} (client fault)
  *  <p>The specified listener does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  */
 export class DescribeListenerCertificatesCommand extends $Command<

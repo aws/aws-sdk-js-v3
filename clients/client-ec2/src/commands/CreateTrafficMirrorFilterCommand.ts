@@ -60,6 +60,65 @@ export interface CreateTrafficMirrorFilterCommandOutput extends CreateTrafficMir
  * };
  * const command = new CreateTrafficMirrorFilterCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTrafficMirrorFilterResult
+ * //   TrafficMirrorFilter: { // TrafficMirrorFilter
+ * //     TrafficMirrorFilterId: "STRING_VALUE",
+ * //     IngressFilterRules: [ // TrafficMirrorFilterRuleList
+ * //       { // TrafficMirrorFilterRule
+ * //         TrafficMirrorFilterRuleId: "STRING_VALUE",
+ * //         TrafficMirrorFilterId: "STRING_VALUE",
+ * //         TrafficDirection: "ingress" || "egress",
+ * //         RuleNumber: Number("int"),
+ * //         RuleAction: "accept" || "reject",
+ * //         Protocol: Number("int"),
+ * //         DestinationPortRange: { // TrafficMirrorPortRange
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //         SourcePortRange: {
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //         DestinationCidrBlock: "STRING_VALUE",
+ * //         SourceCidrBlock: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     EgressFilterRules: [
+ * //       {
+ * //         TrafficMirrorFilterRuleId: "STRING_VALUE",
+ * //         TrafficMirrorFilterId: "STRING_VALUE",
+ * //         TrafficDirection: "ingress" || "egress",
+ * //         RuleNumber: Number("int"),
+ * //         RuleAction: "accept" || "reject",
+ * //         Protocol: Number("int"),
+ * //         DestinationPortRange: {
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //         SourcePortRange: {
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //         DestinationCidrBlock: "STRING_VALUE",
+ * //         SourceCidrBlock: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     NetworkServices: [ // TrafficMirrorNetworkServiceList
+ * //       "amazon-dns",
+ * //     ],
+ * //     Description: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   ClientToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateTrafficMirrorFilterCommandInput - {@link CreateTrafficMirrorFilterCommandInput}
@@ -68,6 +127,8 @@ export interface CreateTrafficMirrorFilterCommandOutput extends CreateTrafficMir
  * @see {@link CreateTrafficMirrorFilterCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateTrafficMirrorFilterCommand extends $Command<

@@ -44,6 +44,19 @@ export interface GetDataQualityRulesetCommandOutput extends GetDataQualityRulese
  * };
  * const command = new GetDataQualityRulesetCommand(input);
  * const response = await client.send(command);
+ * // { // GetDataQualityRulesetResponse
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Ruleset: "STRING_VALUE",
+ * //   TargetTable: { // DataQualityTargetTable
+ * //     TableName: "STRING_VALUE", // required
+ * //     DatabaseName: "STRING_VALUE", // required
+ * //   },
+ * //   CreatedOn: new Date("TIMESTAMP"),
+ * //   LastModifiedOn: new Date("TIMESTAMP"),
+ * //   RecommendationRunId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetDataQualityRulesetCommandInput - {@link GetDataQualityRulesetCommandInput}
@@ -64,6 +77,8 @@ export interface GetDataQualityRulesetCommandOutput extends GetDataQualityRulese
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetDataQualityRulesetCommand extends $Command<

@@ -75,6 +75,8 @@ export interface ApproveAssignmentCommandOutput extends ApproveAssignmentRespons
  * };
  * const command = new ApproveAssignmentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ApproveAssignmentCommandInput - {@link ApproveAssignmentCommandInput}
@@ -89,6 +91,8 @@ export interface ApproveAssignmentCommandOutput extends ApproveAssignmentRespons
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class ApproveAssignmentCommand extends $Command<

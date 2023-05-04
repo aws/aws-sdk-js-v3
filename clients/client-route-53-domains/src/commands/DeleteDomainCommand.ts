@@ -65,6 +65,10 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * };
  * const command = new DeleteDomainCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDomainResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteDomainCommandInput - {@link DeleteDomainCommandInput}
@@ -88,6 +92,8 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class DeleteDomainCommand extends $Command<

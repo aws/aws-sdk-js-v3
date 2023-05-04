@@ -48,6 +48,19 @@ export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __Met
  * };
  * const command = new GetChangeLogsCommand(input);
  * const response = await client.send(command);
+ * // { // GetChangeLogsResponse
+ * //   changeLogs: [ // ChangeLogs
+ * //     { // ChangeLog
+ * //       objectType: "ASSESSMENT" || "CONTROL_SET" || "CONTROL" || "DELEGATION" || "ASSESSMENT_REPORT",
+ * //       objectName: "STRING_VALUE",
+ * //       action: "CREATE" || "UPDATE_METADATA" || "ACTIVE" || "INACTIVE" || "DELETE" || "UNDER_REVIEW" || "REVIEWED" || "IMPORT_EVIDENCE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       createdBy: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetChangeLogsCommandInput - {@link GetChangeLogsCommandInput}
@@ -70,6 +83,8 @@ export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetChangeLogsCommand extends $Command<

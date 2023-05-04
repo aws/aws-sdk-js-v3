@@ -58,6 +58,45 @@ export interface DescribeRecommendationsCommandOutput extends DescribeRecommenda
  * };
  * const command = new DescribeRecommendationsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRecommendationsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Recommendations: [ // RecommendationList
+ * //     { // Recommendation
+ * //       DatabaseId: "STRING_VALUE",
+ * //       EngineName: "STRING_VALUE",
+ * //       CreatedDate: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Preferred: true || false,
+ * //       Settings: { // RecommendationSettings
+ * //         InstanceSizingType: "STRING_VALUE", // required
+ * //         WorkloadType: "STRING_VALUE", // required
+ * //       },
+ * //       Data: { // RecommendationData
+ * //         RdsEngine: { // RdsRecommendation
+ * //           RequirementsToTarget: { // RdsRequirements
+ * //             EngineEdition: "STRING_VALUE",
+ * //             InstanceVcpu: Number("double"),
+ * //             InstanceMemory: Number("double"),
+ * //             StorageSize: Number("int"),
+ * //             StorageIops: Number("int"),
+ * //             DeploymentOption: "STRING_VALUE",
+ * //           },
+ * //           TargetConfiguration: { // RdsConfiguration
+ * //             EngineEdition: "STRING_VALUE",
+ * //             InstanceType: "STRING_VALUE",
+ * //             InstanceVcpu: Number("double"),
+ * //             InstanceMemory: Number("double"),
+ * //             StorageType: "STRING_VALUE",
+ * //             StorageSize: Number("int"),
+ * //             StorageIops: Number("int"),
+ * //             DeploymentOption: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeRecommendationsCommandInput - {@link DescribeRecommendationsCommandInput}
@@ -73,6 +112,8 @@ export interface DescribeRecommendationsCommandOutput extends DescribeRecommenda
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeRecommendationsCommand extends $Command<

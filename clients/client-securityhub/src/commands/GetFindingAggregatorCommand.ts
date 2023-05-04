@@ -44,6 +44,15 @@ export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorR
  * };
  * const command = new GetFindingAggregatorCommand(input);
  * const response = await client.send(command);
+ * // { // GetFindingAggregatorResponse
+ * //   FindingAggregatorArn: "STRING_VALUE",
+ * //   FindingAggregationRegion: "STRING_VALUE",
+ * //   RegionLinkingMode: "STRING_VALUE",
+ * //   Regions: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetFindingAggregatorCommandInput - {@link GetFindingAggregatorCommandInput}
@@ -72,6 +81,8 @@ export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To get cross-Region aggregation details
  * ```javascript

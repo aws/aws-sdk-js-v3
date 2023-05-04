@@ -122,6 +122,11 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * };
  * const command = new CreateGrantCommand(input);
  * const response = await client.send(command);
+ * // { // CreateGrantResponse
+ * //   GrantToken: "STRING_VALUE",
+ * //   GrantId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateGrantCommandInput - {@link CreateGrantCommandInput}
@@ -174,6 +179,8 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To create a grant
  * ```javascript

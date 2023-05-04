@@ -45,6 +45,8 @@ export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBasePathMappingCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteBasePathMappingCommandInput - {@link DeleteBasePathMappingCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class DeleteBasePathMappingCommand extends $Command<

@@ -68,6 +68,33 @@ export interface PutTemplateActionCommandOutput extends TemplateActionDocument, 
  * };
  * const command = new PutTemplateActionCommand(input);
  * const response = await client.send(command);
+ * // { // TemplateActionDocument
+ * //   actionID: "STRING_VALUE",
+ * //   actionName: "STRING_VALUE",
+ * //   documentIdentifier: "STRING_VALUE",
+ * //   order: Number("int"),
+ * //   documentVersion: "STRING_VALUE",
+ * //   active: true || false,
+ * //   timeoutSeconds: Number("int"),
+ * //   mustSucceedForCutover: true || false,
+ * //   parameters: { // SsmDocumentParameters
+ * //     "<keys>": [ // SsmParameterStoreParameters
+ * //       { // SsmParameterStoreParameter
+ * //         parameterType: "STRING_VALUE", // required
+ * //         parameterName: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   operatingSystem: "STRING_VALUE",
+ * //   externalParameters: { // SsmDocumentExternalParameters
+ * //     "<keys>": { // SsmExternalParameter Union: only one key present
+ * //       dynamicPath: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   description: "STRING_VALUE",
+ * //   category: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutTemplateActionCommandInput - {@link PutTemplateActionCommandInput}
@@ -88,6 +115,8 @@ export interface PutTemplateActionCommandOutput extends TemplateActionDocument, 
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class PutTemplateActionCommand extends $Command<

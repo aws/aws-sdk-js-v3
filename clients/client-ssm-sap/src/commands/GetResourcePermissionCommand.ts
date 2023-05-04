@@ -45,6 +45,10 @@ export interface GetResourcePermissionCommandOutput extends GetResourcePermissio
  * };
  * const command = new GetResourcePermissionCommand(input);
  * const response = await client.send(command);
+ * // { // GetResourcePermissionOutput
+ * //   Policy: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetResourcePermissionCommandInput - {@link GetResourcePermissionCommandInput}
@@ -62,6 +66,8 @@ export interface GetResourcePermissionCommandOutput extends GetResourcePermissio
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class GetResourcePermissionCommand extends $Command<

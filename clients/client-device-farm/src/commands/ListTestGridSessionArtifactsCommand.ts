@@ -56,6 +56,17 @@ export interface ListTestGridSessionArtifactsCommandOutput
  * };
  * const command = new ListTestGridSessionArtifactsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTestGridSessionArtifactsResult
+ * //   artifacts: [ // TestGridSessionArtifacts
+ * //     { // TestGridSessionArtifact
+ * //       filename: "STRING_VALUE",
+ * //       type: "UNKNOWN" || "VIDEO" || "SELENIUM_LOG",
+ * //       url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTestGridSessionArtifactsCommandInput - {@link ListTestGridSessionArtifactsCommandInput}
@@ -74,6 +85,8 @@ export interface ListTestGridSessionArtifactsCommandOutput
  * @throws {@link NotFoundException} (client fault)
  *  <p>The specified entity was not found.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class ListTestGridSessionArtifactsCommand extends $Command<

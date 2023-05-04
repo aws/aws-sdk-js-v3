@@ -50,6 +50,8 @@ export interface StopMeetingTranscriptionCommandOutput extends __MetadataBearer 
  * };
  * const command = new StopMeetingTranscriptionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopMeetingTranscriptionCommandInput - {@link StopMeetingTranscriptionCommandInput}
@@ -82,6 +84,8 @@ export interface StopMeetingTranscriptionCommandOutput extends __MetadataBearer 
  * @throws {@link UnprocessableEntityException} (client fault)
  *  <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class StopMeetingTranscriptionCommand extends $Command<

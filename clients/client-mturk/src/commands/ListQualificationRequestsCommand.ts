@@ -53,6 +53,21 @@ export interface ListQualificationRequestsCommandOutput extends ListQualificatio
  * };
  * const command = new ListQualificationRequestsCommand(input);
  * const response = await client.send(command);
+ * // { // ListQualificationRequestsResponse
+ * //   NumResults: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * //   QualificationRequests: [ // QualificationRequestList
+ * //     { // QualificationRequest
+ * //       QualificationRequestId: "STRING_VALUE",
+ * //       QualificationTypeId: "STRING_VALUE",
+ * //       WorkerId: "STRING_VALUE",
+ * //       Test: "STRING_VALUE",
+ * //       Answer: "STRING_VALUE",
+ * //       SubmitTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListQualificationRequestsCommandInput - {@link ListQualificationRequestsCommandInput}
@@ -67,6 +82,8 @@ export interface ListQualificationRequestsCommandOutput extends ListQualificatio
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class ListQualificationRequestsCommand extends $Command<

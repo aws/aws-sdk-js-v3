@@ -46,6 +46,20 @@ export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInsta
  * };
  * const command = new UndeploySystemInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // UndeploySystemInstanceResponse
+ * //   summary: { // SystemInstanceSummary
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     target: "STRING_VALUE",
+ * //     greengrassGroupName: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //     greengrassGroupId: "STRING_VALUE",
+ * //     greengrassGroupVersionId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UndeploySystemInstanceCommandInput - {@link UndeploySystemInstanceCommandInput}
@@ -69,6 +83,8 @@ export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInsta
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class UndeploySystemInstanceCommand extends $Command<

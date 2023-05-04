@@ -165,6 +165,10 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  * };
  * const command = new IssueCertificateCommand(input);
  * const response = await client.send(command);
+ * // { // IssueCertificateResponse
+ * //   CertificateArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param IssueCertificateCommandInput - {@link IssueCertificateCommandInput}
@@ -194,6 +198,8 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class IssueCertificateCommand extends $Command<

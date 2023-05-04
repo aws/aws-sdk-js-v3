@@ -45,6 +45,12 @@ export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultA
  * };
  * const command = new GetBackupVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetBackupVaultAccessPolicyOutput
+ * //   BackupVaultName: "STRING_VALUE",
+ * //   BackupVaultArn: "STRING_VALUE",
+ * //   Policy: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetBackupVaultAccessPolicyCommandInput - {@link GetBackupVaultAccessPolicyCommandInput}
@@ -66,6 +72,8 @@ export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultA
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class GetBackupVaultAccessPolicyCommand extends $Command<

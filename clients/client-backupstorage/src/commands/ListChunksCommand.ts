@@ -47,6 +47,19 @@ export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBea
  * };
  * const command = new ListChunksCommand(input);
  * const response = await client.send(command);
+ * // { // ListChunksOutput
+ * //   ChunkList: [ // ChunkList // required
+ * //     { // Chunk
+ * //       Index: Number("long"), // required
+ * //       Length: Number("long"), // required
+ * //       Checksum: "STRING_VALUE", // required
+ * //       ChecksumAlgorithm: "STRING_VALUE", // required
+ * //       ChunkToken: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListChunksCommandInput - {@link ListChunksCommandInput}
@@ -73,6 +86,8 @@ export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBea
  * @throws {@link ServiceUnavailableException} (server fault)
  *  Retryable exception, indicates internal server error.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class ListChunksCommand extends $Command<

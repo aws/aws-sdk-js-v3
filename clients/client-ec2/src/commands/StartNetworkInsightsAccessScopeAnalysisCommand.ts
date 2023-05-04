@@ -66,6 +66,27 @@ export interface StartNetworkInsightsAccessScopeAnalysisCommandOutput
  * };
  * const command = new StartNetworkInsightsAccessScopeAnalysisCommand(input);
  * const response = await client.send(command);
+ * // { // StartNetworkInsightsAccessScopeAnalysisResult
+ * //   NetworkInsightsAccessScopeAnalysis: { // NetworkInsightsAccessScopeAnalysis
+ * //     NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE",
+ * //     NetworkInsightsAccessScopeAnalysisArn: "STRING_VALUE",
+ * //     NetworkInsightsAccessScopeId: "STRING_VALUE",
+ * //     Status: "running" || "succeeded" || "failed",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     WarningMessage: "STRING_VALUE",
+ * //     StartDate: new Date("TIMESTAMP"),
+ * //     EndDate: new Date("TIMESTAMP"),
+ * //     FindingsFound: "true" || "false" || "unknown",
+ * //     AnalyzedEniCount: Number("int"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StartNetworkInsightsAccessScopeAnalysisCommandInput - {@link StartNetworkInsightsAccessScopeAnalysisCommandInput}
@@ -74,6 +95,8 @@ export interface StartNetworkInsightsAccessScopeAnalysisCommandOutput
  * @see {@link StartNetworkInsightsAccessScopeAnalysisCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class StartNetworkInsightsAccessScopeAnalysisCommand extends $Command<

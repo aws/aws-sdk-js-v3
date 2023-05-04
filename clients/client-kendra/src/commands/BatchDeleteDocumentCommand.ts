@@ -55,6 +55,16 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * };
  * const command = new BatchDeleteDocumentCommand(input);
  * const response = await client.send(command);
+ * // { // BatchDeleteDocumentResponse
+ * //   FailedDocuments: [ // BatchDeleteDocumentResponseFailedDocuments
+ * //     { // BatchDeleteDocumentResponseFailedDocument
+ * //       Id: "STRING_VALUE",
+ * //       ErrorCode: "InternalError" || "InvalidRequest",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchDeleteDocumentCommandInput - {@link BatchDeleteDocumentCommandInput}
@@ -87,6 +97,8 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class BatchDeleteDocumentCommand extends $Command<

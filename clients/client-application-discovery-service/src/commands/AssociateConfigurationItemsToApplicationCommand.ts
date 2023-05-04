@@ -60,6 +60,8 @@ export interface AssociateConfigurationItemsToApplicationCommandOutput
  * };
  * const command = new AssociateConfigurationItemsToApplicationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AssociateConfigurationItemsToApplicationCommandInput - {@link AssociateConfigurationItemsToApplicationCommandInput}
@@ -85,6 +87,8 @@ export interface AssociateConfigurationItemsToApplicationCommandOutput
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class AssociateConfigurationItemsToApplicationCommand extends $Command<

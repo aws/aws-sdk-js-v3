@@ -63,6 +63,39 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
+ * // { // CreateProjectResponse
+ * //   project: { // Project
+ * //     arn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     status: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     createdTime: new Date("TIMESTAMP"), // required
+ * //     lastUpdatedTime: new Date("TIMESTAMP"), // required
+ * //     featureCount: Number("long"),
+ * //     launchCount: Number("long"),
+ * //     activeLaunchCount: Number("long"),
+ * //     experimentCount: Number("long"),
+ * //     activeExperimentCount: Number("long"),
+ * //     dataDelivery: { // ProjectDataDelivery
+ * //       s3Destination: { // S3Destination
+ * //         bucket: "STRING_VALUE",
+ * //         prefix: "STRING_VALUE",
+ * //       },
+ * //       cloudWatchLogs: { // CloudWatchLogsDestination
+ * //         logGroup: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     appConfigResource: { // ProjectAppConfigResource
+ * //       applicationId: "STRING_VALUE", // required
+ * //       environmentId: "STRING_VALUE", // required
+ * //       configurationProfileId: "STRING_VALUE", // required
+ * //     },
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
@@ -83,6 +116,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class CreateProjectCommand extends $Command<

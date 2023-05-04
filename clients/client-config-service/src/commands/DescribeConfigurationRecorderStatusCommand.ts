@@ -61,6 +61,21 @@ export interface DescribeConfigurationRecorderStatusCommandOutput
  * };
  * const command = new DescribeConfigurationRecorderStatusCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeConfigurationRecorderStatusResponse
+ * //   ConfigurationRecordersStatus: [ // ConfigurationRecorderStatusList
+ * //     { // ConfigurationRecorderStatus
+ * //       name: "STRING_VALUE",
+ * //       lastStartTime: new Date("TIMESTAMP"),
+ * //       lastStopTime: new Date("TIMESTAMP"),
+ * //       recording: true || false,
+ * //       lastStatus: "Pending" || "Success" || "Failure",
+ * //       lastErrorCode: "STRING_VALUE",
+ * //       lastErrorMessage: "STRING_VALUE",
+ * //       lastStatusChangeTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeConfigurationRecorderStatusCommandInput - {@link DescribeConfigurationRecorderStatusCommandInput}
@@ -73,6 +88,8 @@ export interface DescribeConfigurationRecorderStatusCommandOutput
  *  <p>You have specified a configuration recorder that does not
  * 			exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeConfigurationRecorderStatusCommand extends $Command<

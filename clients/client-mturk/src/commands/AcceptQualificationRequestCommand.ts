@@ -54,6 +54,8 @@ export interface AcceptQualificationRequestCommandOutput extends AcceptQualifica
  * };
  * const command = new AcceptQualificationRequestCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AcceptQualificationRequestCommandInput - {@link AcceptQualificationRequestCommandInput}
@@ -68,6 +70,8 @@ export interface AcceptQualificationRequestCommandOutput extends AcceptQualifica
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class AcceptQualificationRequestCommand extends $Command<

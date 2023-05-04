@@ -45,6 +45,20 @@ export interface ListAvailableSolutionStacksCommandOutput
  * const input = {};
  * const command = new ListAvailableSolutionStacksCommand(input);
  * const response = await client.send(command);
+ * // { // ListAvailableSolutionStacksResultMessage
+ * //   SolutionStacks: [ // AvailableSolutionStackNamesList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SolutionStackDetails: [ // AvailableSolutionStackDetailsList
+ * //     { // SolutionStackDescription
+ * //       SolutionStackName: "STRING_VALUE",
+ * //       PermittedFileTypes: [ // SolutionStackFileTypeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListAvailableSolutionStacksCommandInput - {@link ListAvailableSolutionStacksCommandInput}
@@ -53,6 +67,8 @@ export interface ListAvailableSolutionStacksCommandOutput
  * @see {@link ListAvailableSolutionStacksCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To view solution stacks
  * ```javascript

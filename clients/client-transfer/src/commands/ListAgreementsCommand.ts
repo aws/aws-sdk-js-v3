@@ -50,6 +50,21 @@ export interface ListAgreementsCommandOutput extends ListAgreementsResponse, __M
  * };
  * const command = new ListAgreementsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAgreementsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Agreements: [ // ListedAgreements // required
+ * //     { // ListedAgreement
+ * //       Arn: "STRING_VALUE",
+ * //       AgreementId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "INACTIVE",
+ * //       ServerId: "STRING_VALUE",
+ * //       LocalProfileId: "STRING_VALUE",
+ * //       PartnerProfileId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListAgreementsCommandInput - {@link ListAgreementsCommandInput}
@@ -74,6 +89,8 @@ export interface ListAgreementsCommandOutput extends ListAgreementsResponse, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ListAgreementsCommand extends $Command<

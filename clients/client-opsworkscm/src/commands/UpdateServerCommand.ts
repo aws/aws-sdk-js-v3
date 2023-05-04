@@ -53,6 +53,44 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * };
  * const command = new UpdateServerCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateServerResponse
+ * //   Server: { // Server
+ * //     AssociatePublicIpAddress: true || false,
+ * //     BackupRetentionCount: Number("int"),
+ * //     ServerName: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     CloudFormationStackArn: "STRING_VALUE",
+ * //     CustomDomain: "STRING_VALUE",
+ * //     DisableAutomatedBackup: true || false,
+ * //     Endpoint: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
+ * //     EngineModel: "STRING_VALUE",
+ * //     EngineAttributes: [ // EngineAttributes
+ * //       { // EngineAttribute
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     EngineVersion: "STRING_VALUE",
+ * //     InstanceProfileArn: "STRING_VALUE",
+ * //     InstanceType: "STRING_VALUE",
+ * //     KeyPair: "STRING_VALUE",
+ * //     MaintenanceStatus: "STRING_VALUE",
+ * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     PreferredBackupWindow: "STRING_VALUE",
+ * //     SecurityGroupIds: [ // Strings
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ServiceRoleArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     StatusReason: "STRING_VALUE",
+ * //     SubnetIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ServerArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateServerCommandInput - {@link UpdateServerCommandInput}
@@ -73,6 +111,8 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class UpdateServerCommand extends $Command<

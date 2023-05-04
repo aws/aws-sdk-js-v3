@@ -46,6 +46,20 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeTagsResponse
+ * //   resourceTags: [ // ResourceTagList
+ * //     { // ResourceTag
+ * //       resourceArn: "STRING_VALUE",
+ * //       tags: [ // TagList
+ * //         { // Tag
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
@@ -60,6 +74,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DescribeTagsCommand extends $Command<

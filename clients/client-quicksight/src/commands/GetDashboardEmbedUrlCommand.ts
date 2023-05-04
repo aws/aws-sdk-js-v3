@@ -80,6 +80,12 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  * };
  * const command = new GetDashboardEmbedUrlCommand(input);
  * const response = await client.send(command);
+ * // { // GetDashboardEmbedUrlResponse
+ * //   EmbedUrl: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetDashboardEmbedUrlCommandInput - {@link GetDashboardEmbedUrlCommandInput}
@@ -143,6 +149,8 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class GetDashboardEmbedUrlCommand extends $Command<

@@ -52,6 +52,12 @@ export interface DeleteFleetAdvisorDatabasesCommandOutput
  * };
  * const command = new DeleteFleetAdvisorDatabasesCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteFleetAdvisorDatabasesResponse
+ * //   DatabaseIds: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DeleteFleetAdvisorDatabasesCommandInput - {@link DeleteFleetAdvisorDatabasesCommandInput}
@@ -66,6 +72,8 @@ export interface DeleteFleetAdvisorDatabasesCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DeleteFleetAdvisorDatabasesCommand extends $Command<

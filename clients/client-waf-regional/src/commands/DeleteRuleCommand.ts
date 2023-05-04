@@ -68,6 +68,10 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteRuleResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
@@ -123,6 +127,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To delete a rule
  * ```javascript

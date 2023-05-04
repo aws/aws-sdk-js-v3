@@ -61,6 +61,10 @@ export interface StartPolicyGenerationCommandOutput extends StartPolicyGeneratio
  * };
  * const command = new StartPolicyGenerationCommand(input);
  * const response = await client.send(command);
+ * // { // StartPolicyGenerationResponse
+ * //   jobId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param StartPolicyGenerationCommandInput - {@link StartPolicyGenerationCommandInput}
@@ -87,6 +91,8 @@ export interface StartPolicyGenerationCommandOutput extends StartPolicyGeneratio
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class StartPolicyGenerationCommand extends $Command<

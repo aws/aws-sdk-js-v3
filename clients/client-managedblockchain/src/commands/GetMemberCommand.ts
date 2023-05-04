@@ -50,6 +50,37 @@ export interface GetMemberCommandOutput extends GetMemberOutput, __MetadataBeare
  * };
  * const command = new GetMemberCommand(input);
  * const response = await client.send(command);
+ * // { // GetMemberOutput
+ * //   Member: { // Member
+ * //     NetworkId: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     FrameworkAttributes: { // MemberFrameworkAttributes
+ * //       Fabric: { // MemberFabricAttributes
+ * //         AdminUsername: "STRING_VALUE",
+ * //         CaEndpoint: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     LogPublishingConfiguration: { // MemberLogPublishingConfiguration
+ * //       Fabric: { // MemberFabricLogPublishingConfiguration
+ * //         CaLogs: { // LogConfigurations
+ * //           Cloudwatch: { // LogConfiguration
+ * //             Enabled: true || false,
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //     Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "UPDATING" || "DELETING" || "DELETED" || "INACCESSIBLE_ENCRYPTION_KEY",
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //     Tags: { // OutputTagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     Arn: "STRING_VALUE",
+ * //     KmsKeyArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetMemberCommandInput - {@link GetMemberCommandInput}
@@ -76,6 +107,8 @@ export interface GetMemberCommandOutput extends GetMemberOutput, __MetadataBeare
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class GetMemberCommand extends $Command<

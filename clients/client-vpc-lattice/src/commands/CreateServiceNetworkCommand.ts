@@ -52,6 +52,13 @@ export interface CreateServiceNetworkCommandOutput extends CreateServiceNetworkR
  * };
  * const command = new CreateServiceNetworkCommand(input);
  * const response = await client.send(command);
+ * // { // CreateServiceNetworkResponse
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   authType: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateServiceNetworkCommandInput - {@link CreateServiceNetworkCommandInput}
@@ -83,6 +90,8 @@ export interface CreateServiceNetworkCommandOutput extends CreateServiceNetworkR
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class CreateServiceNetworkCommand extends $Command<

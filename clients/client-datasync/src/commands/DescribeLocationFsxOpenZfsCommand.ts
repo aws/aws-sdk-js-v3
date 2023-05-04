@@ -52,6 +52,30 @@ export interface DescribeLocationFsxOpenZfsCommandOutput extends DescribeLocatio
  * };
  * const command = new DescribeLocationFsxOpenZfsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeLocationFsxOpenZfsResponse
+ * //   LocationArn: "STRING_VALUE",
+ * //   LocationUri: "STRING_VALUE",
+ * //   SecurityGroupArns: [ // Ec2SecurityGroupArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Protocol: { // FsxProtocol
+ * //     NFS: { // FsxProtocolNfs
+ * //       MountOptions: { // NfsMountOptions
+ * //         Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
+ * //       },
+ * //     },
+ * //     SMB: { // FsxProtocolSmb
+ * //       Domain: "STRING_VALUE",
+ * //       MountOptions: { // SmbMountOptions
+ * //         Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
+ * //       },
+ * //       Password: "STRING_VALUE", // required
+ * //       User: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeLocationFsxOpenZfsCommandInput - {@link DescribeLocationFsxOpenZfsCommandInput}
@@ -67,6 +91,8 @@ export interface DescribeLocationFsxOpenZfsCommandOutput extends DescribeLocatio
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeLocationFsxOpenZfsCommand extends $Command<

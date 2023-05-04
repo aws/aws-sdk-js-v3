@@ -53,6 +53,43 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __Metad
  * };
  * const command = new CopySnapshotCommand(input);
  * const response = await client.send(command);
+ * // { // CopySnapshotResponse
+ * //   Snapshot: { // Snapshot
+ * //     Name: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     Source: "STRING_VALUE",
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     ARN: "STRING_VALUE",
+ * //     ClusterConfiguration: { // ClusterConfiguration
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       NodeType: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       MaintenanceWindow: "STRING_VALUE",
+ * //       TopicArn: "STRING_VALUE",
+ * //       Port: Number("int"),
+ * //       ParameterGroupName: "STRING_VALUE",
+ * //       SubnetGroupName: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       SnapshotRetentionLimit: Number("int"),
+ * //       SnapshotWindow: "STRING_VALUE",
+ * //       NumShards: Number("int"),
+ * //       Shards: [ // ShardDetails
+ * //         { // ShardDetail
+ * //           Name: "STRING_VALUE",
+ * //           Configuration: { // ShardConfiguration
+ * //             Slots: "STRING_VALUE",
+ * //             ReplicaCount: Number("int"),
+ * //           },
+ * //           Size: "STRING_VALUE",
+ * //           SnapshotCreationTime: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //     },
+ * //     DataTiering: "true" || "false",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CopySnapshotCommandInput - {@link CopySnapshotCommandInput}
@@ -85,6 +122,8 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __Metad
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class CopySnapshotCommand extends $Command<

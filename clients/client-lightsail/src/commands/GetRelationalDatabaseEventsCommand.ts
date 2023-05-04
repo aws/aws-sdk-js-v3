@@ -46,6 +46,20 @@ export interface GetRelationalDatabaseEventsCommandOutput extends GetRelationalD
  * };
  * const command = new GetRelationalDatabaseEventsCommand(input);
  * const response = await client.send(command);
+ * // { // GetRelationalDatabaseEventsResult
+ * //   relationalDatabaseEvents: [ // RelationalDatabaseEventList
+ * //     { // RelationalDatabaseEvent
+ * //       resource: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       message: "STRING_VALUE",
+ * //       eventCategories: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetRelationalDatabaseEventsCommandInput - {@link GetRelationalDatabaseEventsCommandInput}
@@ -84,6 +98,8 @@ export interface GetRelationalDatabaseEventsCommandOutput extends GetRelationalD
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetRelationalDatabaseEventsCommand extends $Command<

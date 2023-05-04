@@ -45,6 +45,8 @@ export interface DeleteProgramCommandOutput extends DeleteProgramResponse, __Met
  * };
  * const command = new DeleteProgramCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteProgramCommandInput - {@link DeleteProgramCommandInput}
@@ -53,6 +55,8 @@ export interface DeleteProgramCommandOutput extends DeleteProgramResponse, __Met
  * @see {@link DeleteProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class DeleteProgramCommand extends $Command<

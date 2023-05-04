@@ -51,6 +51,28 @@ export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedPro
  * };
  * const command = new ScanProvisionedProductsCommand(input);
  * const response = await client.send(command);
+ * // { // ScanProvisionedProductsOutput
+ * //   ProvisionedProducts: [ // ProvisionedProductDetails
+ * //     { // ProvisionedProductDetail
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Status: "AVAILABLE" || "UNDER_CHANGE" || "TAINTED" || "ERROR" || "PLAN_IN_PROGRESS",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       IdempotencyToken: "STRING_VALUE",
+ * //       LastRecordId: "STRING_VALUE",
+ * //       LastProvisioningRecordId: "STRING_VALUE",
+ * //       LastSuccessfulProvisioningRecordId: "STRING_VALUE",
+ * //       ProductId: "STRING_VALUE",
+ * //       ProvisioningArtifactId: "STRING_VALUE",
+ * //       LaunchRoleArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ScanProvisionedProductsCommandInput - {@link ScanProvisionedProductsCommandInput}
@@ -62,6 +84,8 @@ export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedPro
  * @throws {@link InvalidParametersException} (client fault)
  *  <p>One or more parameters provided to the operation are not valid.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ScanProvisionedProductsCommand extends $Command<

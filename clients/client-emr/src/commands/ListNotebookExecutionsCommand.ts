@@ -51,6 +51,20 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  * };
  * const command = new ListNotebookExecutionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListNotebookExecutionsOutput
+ * //   NotebookExecutions: [ // NotebookExecutionSummaryList
+ * //     { // NotebookExecutionSummary
+ * //       NotebookExecutionId: "STRING_VALUE",
+ * //       EditorId: "STRING_VALUE",
+ * //       NotebookExecutionName: "STRING_VALUE",
+ * //       Status: "START_PENDING" || "STARTING" || "RUNNING" || "FINISHING" || "FINISHED" || "FAILING" || "FAILED" || "STOP_PENDING" || "STOPPING" || "STOPPED",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListNotebookExecutionsCommandInput - {@link ListNotebookExecutionsCommandInput}
@@ -66,6 +80,8 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ListNotebookExecutionsCommand extends $Command<

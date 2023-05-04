@@ -56,6 +56,8 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  * };
  * const command = new PutInsightRuleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutInsightRuleCommandInput - {@link PutInsightRuleCommandInput}
@@ -73,6 +75,8 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class PutInsightRuleCommand extends $Command<

@@ -53,6 +53,26 @@ export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesO
  * };
  * const command = new BatchGetRepositoriesCommand(input);
  * const response = await client.send(command);
+ * // { // BatchGetRepositoriesOutput
+ * //   repositories: [ // RepositoryMetadataList
+ * //     { // RepositoryMetadata
+ * //       accountId: "STRING_VALUE",
+ * //       repositoryId: "STRING_VALUE",
+ * //       repositoryName: "STRING_VALUE",
+ * //       repositoryDescription: "STRING_VALUE",
+ * //       defaultBranch: "STRING_VALUE",
+ * //       lastModifiedDate: new Date("TIMESTAMP"),
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //       cloneUrlHttp: "STRING_VALUE",
+ * //       cloneUrlSsh: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   repositoriesNotFound: [ // RepositoryNotFoundList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchGetRepositoriesCommandInput - {@link BatchGetRepositoriesCommandInput}
@@ -91,6 +111,8 @@ export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesO
  * @throws {@link RepositoryNamesRequiredException} (client fault)
  *  <p>At least one repository name object is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class BatchGetRepositoriesCommand extends $Command<

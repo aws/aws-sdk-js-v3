@@ -181,6 +181,10 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  * };
  * const command = new CreateSolutionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSolutionResponse
+ * //   solutionArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateSolutionCommandInput - {@link CreateSolutionCommandInput}
@@ -207,6 +211,8 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateSolutionCommand extends $Command<

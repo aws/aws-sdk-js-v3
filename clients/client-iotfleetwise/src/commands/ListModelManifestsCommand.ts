@@ -49,6 +49,21 @@ export interface ListModelManifestsCommandOutput extends ListModelManifestsRespo
  * };
  * const command = new ListModelManifestsCommand(input);
  * const response = await client.send(command);
+ * // { // ListModelManifestsResponse
+ * //   summaries: [ // modelManifestSummaries
+ * //     { // ModelManifestSummary
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       signalCatalogArn: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       lastModificationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListModelManifestsCommandInput - {@link ListModelManifestsCommandInput}
@@ -69,6 +84,8 @@ export interface ListModelManifestsCommandOutput extends ListModelManifestsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ListModelManifestsCommand extends $Command<

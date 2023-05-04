@@ -55,6 +55,17 @@ export interface ListUserPoolClientsCommandOutput extends ListUserPoolClientsRes
  * };
  * const command = new ListUserPoolClientsCommand(input);
  * const response = await client.send(command);
+ * // { // ListUserPoolClientsResponse
+ * //   UserPoolClients: [ // UserPoolClientListType
+ * //     { // UserPoolClientDescription
+ * //       ClientId: "STRING_VALUE",
+ * //       UserPoolId: "STRING_VALUE",
+ * //       ClientName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListUserPoolClientsCommandInput - {@link ListUserPoolClientsCommandInput}
@@ -81,6 +92,8 @@ export interface ListUserPoolClientsCommandOutput extends ListUserPoolClientsRes
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ListUserPoolClientsCommand extends $Command<

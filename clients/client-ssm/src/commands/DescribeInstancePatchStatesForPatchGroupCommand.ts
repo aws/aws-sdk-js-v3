@@ -66,6 +66,36 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
  * };
  * const command = new DescribeInstancePatchStatesForPatchGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeInstancePatchStatesForPatchGroupResult
+ * //   InstancePatchStates: [ // InstancePatchStatesList
+ * //     { // InstancePatchState
+ * //       InstanceId: "STRING_VALUE", // required
+ * //       PatchGroup: "STRING_VALUE", // required
+ * //       BaselineId: "STRING_VALUE", // required
+ * //       SnapshotId: "STRING_VALUE",
+ * //       InstallOverrideList: "STRING_VALUE",
+ * //       OwnerInformation: "STRING_VALUE",
+ * //       InstalledCount: Number("int"),
+ * //       InstalledOtherCount: Number("int"),
+ * //       InstalledPendingRebootCount: Number("int"),
+ * //       InstalledRejectedCount: Number("int"),
+ * //       MissingCount: Number("int"),
+ * //       FailedCount: Number("int"),
+ * //       UnreportedNotApplicableCount: Number("int"),
+ * //       NotApplicableCount: Number("int"),
+ * //       OperationStartTime: new Date("TIMESTAMP"), // required
+ * //       OperationEndTime: new Date("TIMESTAMP"), // required
+ * //       Operation: "Scan" || "Install", // required
+ * //       LastNoRebootInstallOperationTime: new Date("TIMESTAMP"),
+ * //       RebootOption: "RebootIfNeeded" || "NoReboot",
+ * //       CriticalNonCompliantCount: Number("int"),
+ * //       SecurityNonCompliantCount: Number("int"),
+ * //       OtherNonCompliantCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeInstancePatchStatesForPatchGroupCommandInput - {@link DescribeInstancePatchStatesForPatchGroupCommandInput}
@@ -83,6 +113,8 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<

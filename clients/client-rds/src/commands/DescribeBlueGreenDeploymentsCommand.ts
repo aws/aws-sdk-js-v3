@@ -61,6 +61,41 @@ export interface DescribeBlueGreenDeploymentsCommandOutput
  * };
  * const command = new DescribeBlueGreenDeploymentsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeBlueGreenDeploymentsResponse
+ * //   BlueGreenDeployments: [ // BlueGreenDeploymentList
+ * //     { // BlueGreenDeployment
+ * //       BlueGreenDeploymentIdentifier: "STRING_VALUE",
+ * //       BlueGreenDeploymentName: "STRING_VALUE",
+ * //       Source: "STRING_VALUE",
+ * //       Target: "STRING_VALUE",
+ * //       SwitchoverDetails: [ // SwitchoverDetailList
+ * //         { // SwitchoverDetail
+ * //           SourceMember: "STRING_VALUE",
+ * //           TargetMember: "STRING_VALUE",
+ * //           Status: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Tasks: [ // BlueGreenDeploymentTaskList
+ * //         { // BlueGreenDeploymentTask
+ * //           Name: "STRING_VALUE",
+ * //           Status: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Status: "STRING_VALUE",
+ * //       StatusDetails: "STRING_VALUE",
+ * //       CreateTime: new Date("TIMESTAMP"),
+ * //       DeleteTime: new Date("TIMESTAMP"),
+ * //       TagList: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeBlueGreenDeploymentsCommandInput - {@link DescribeBlueGreenDeploymentsCommandInput}
@@ -73,6 +108,8 @@ export interface DescribeBlueGreenDeploymentsCommandOutput
  *  <p>
  *             <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe a blue/green deployment of an RDS DB instance after creation completes
  * ```javascript

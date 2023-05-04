@@ -54,6 +54,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * };
  * const command = new AcceptInvitationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AcceptInvitationCommandInput - {@link AcceptInvitationCommandInput}
@@ -79,6 +81,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  */
 export class AcceptInvitationCommand extends $Command<

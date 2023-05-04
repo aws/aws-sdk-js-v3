@@ -53,6 +53,24 @@ export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsRes
  * };
  * const command = new ListWorldExportJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListWorldExportJobsResponse
+ * //   worldExportJobSummaries: [ // WorldExportJobSummaries // required
+ * //     { // WorldExportJobSummary
+ * //       arn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       worlds: [ // Arns
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       outputLocation: { // OutputLocation
+ * //         s3Bucket: "STRING_VALUE",
+ * //         s3Prefix: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListWorldExportJobsCommandInput - {@link ListWorldExportJobsCommandInput}
@@ -71,6 +89,8 @@ export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListWorldExportJobsCommand extends $Command<

@@ -184,7 +184,7 @@ export interface AcceptInboundConnectionResponse {
 
 /**
  * @public
- * <p>An error occured because the client wanted to access a not supported operation.</p>
+ * <p>An error occured because the client wanted to access an unsupported operation.</p>
  */
 export class DisabledOperationException extends __BaseException {
   readonly name: "DisabledOperationException" = "DisabledOperationException";
@@ -224,7 +224,7 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
- * <p>An exception for accessing or deleting a resource that does not exist..</p>
+ * <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -852,8 +852,8 @@ export interface DomainPackageDetails {
   PackageVersion?: string;
 
   /**
-   * <p>Denotes the location of the package on the OpenSearch Service cluster nodes. It's the same
-   *    as <code>synonym_path</code> for dictionary files.</p>
+   * <p>The relative path of the package on the OpenSearch Service cluster nodes. This is <code>synonym_path</code>
+   *    when the package is for synonym files.</p>
    */
   ReferencePath?: string;
 
@@ -1331,7 +1331,7 @@ export interface ClusterConfig {
   DedicatedMasterType?: OpenSearchPartitionInstanceType | string;
 
   /**
-   * <p>Number of dedicated master nodes in the cluster. This number must be greater than 1,
+   * <p>Number of dedicated master nodes in the cluster. This number must be greater than 2 and not 4,
    *    otherwise you receive a validation exception.</p>
    */
   DedicatedMasterCount?: number;
@@ -1355,6 +1355,11 @@ export interface ClusterConfig {
    * <p>Container for cold storage configuration options.</p>
    */
   ColdStorageOptions?: ColdStorageOptions;
+
+  /**
+   * <p>A boolean that indicates whether a multi-AZ domain is turned on with a standby AZ. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html">Configuring a multi-AZ domain in Amazon OpenSearch Service</a>. </p>
+   */
+  MultiAZWithStandbyEnabled?: boolean;
 }
 
 /**
@@ -1609,8 +1614,9 @@ export interface OffPeakWindow {
 export interface OffPeakWindowOptions {
   /**
    * <p>Whether to enable an off-peak window.</p>
-   *          <p>This option is only available when modifying a domain created prior to February 13, 2023, not when creating a new domain.
-   *    All domains created after this date have the off-peak window enabled by default. You can't disable the off-peak window after it's enabled for a domain.</p>
+   *          <p>This option is only available when modifying a domain created prior to February 16, 2023,
+   *    not when creating a new domain. All domains created after this date have the off-peak window
+   *    enabled by default. You can't disable the off-peak window after it's enabled for a domain.</p>
    */
   Enabled?: boolean;
 
@@ -2298,7 +2304,7 @@ export interface CreatePackageRequest {
   PackageName: string | undefined;
 
   /**
-   * <p>Type of package.</p>
+   * <p>The type of package.</p>
    */
   PackageType: PackageType | string | undefined;
 
@@ -2344,7 +2350,7 @@ export interface PackageDetails {
   PackageID?: string;
 
   /**
-   * <p>User-specified name of the package.</p>
+   * <p>The user-specified name of the package.</p>
    */
   PackageName?: string;
 
@@ -2359,7 +2365,7 @@ export interface PackageDetails {
   PackageDescription?: string;
 
   /**
-   * <p>Current status of the package.</p>
+   * <p>The current status of the package. The available options are <code>AVAILABLE</code>, <code>COPYING</code>, <code>COPY_FAILED</code>, <code>VALIDATNG</code>, <code>VALIDATION_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
    */
   PackageStatus?: PackageStatus | string;
 
@@ -3352,6 +3358,248 @@ export interface DescribeDomainConfigResponse {
 
 /**
  * @public
+ * <p>Container for the parameters to the <code>DescribeDomainHealth</code> operation.</p>
+ */
+export interface DescribeDomainHealthRequest {
+  /**
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DomainHealth = {
+  Green: "Green",
+  NotAvailable: "NotAvailable",
+  Red: "Red",
+  Yellow: "Yellow",
+} as const;
+
+/**
+ * @public
+ */
+export type DomainHealth = (typeof DomainHealth)[keyof typeof DomainHealth];
+
+/**
+ * @public
+ * @enum
+ */
+export const DomainState = {
+  Active: "Active",
+  NotAvailable: "NotAvailable",
+  Processing: "Processing",
+} as const;
+
+/**
+ * @public
+ */
+export type DomainState = (typeof DomainState)[keyof typeof DomainState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ZoneStatus = {
+  Active: "Active",
+  NotAvailable: "NotAvailable",
+  StandBy: "StandBy",
+} as const;
+
+/**
+ * @public
+ */
+export type ZoneStatus = (typeof ZoneStatus)[keyof typeof ZoneStatus];
+
+/**
+ * @public
+ * <p>Information about an Availability Zone on a domain.</p>
+ */
+export interface AvailabilityZoneInfo {
+  /**
+   * <p>The name of the Availability Zone.</p>
+   */
+  AvailabilityZoneName?: string;
+
+  /**
+   * <p>The current state of the Availability Zone. Current options are <code>Active</code> and <code>StandBy</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Active</code> - Data nodes in the Availability Zone are in use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StandBy</code> - Data nodes in the Availability Zone are in a standby state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NotAvailable</code> - Unable to retrieve information.</p>
+   *             </li>
+   *          </ul>
+   */
+  ZoneStatus?: ZoneStatus | string;
+
+  /**
+   * <p>The total number of data nodes configured in the Availability Zone.</p>
+   */
+  ConfiguredDataNodeCount?: string;
+
+  /**
+   * <p>The number of data nodes active in the Availability Zone.</p>
+   */
+  AvailableDataNodeCount?: string;
+
+  /**
+   * <p>The total number of primary and replica shards in the Availability Zone.</p>
+   */
+  TotalShards?: string;
+
+  /**
+   * <p>The total number of primary and replica shards that aren't allocated to any of the nodes in the Availability Zone.</p>
+   */
+  TotalUnAssignedShards?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the active domain environment.</p>
+ */
+export interface EnvironmentInfo {
+  /**
+   * <p> A list of <code>AvailabilityZoneInfo</code> for the domain.</p>
+   */
+  AvailabilityZoneInformation?: AvailabilityZoneInfo[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MasterNodeStatus = {
+  Available: "Available",
+  UnAvailable: "UnAvailable",
+} as const;
+
+/**
+ * @public
+ */
+export type MasterNodeStatus = (typeof MasterNodeStatus)[keyof typeof MasterNodeStatus];
+
+/**
+ * @public
+ * <p>The result of a <code>DescribeDomainHealth</code> request. Contains health information for the requested domain.</p>
+ */
+export interface DescribeDomainHealthResponse {
+  /**
+   * <p>The current state of the domain.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Processing</code> - The domain has updates in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Active</code> - Requested changes have been processed and deployed to the domain.</p>
+   *             </li>
+   *          </ul>
+   */
+  DomainState?: DomainState | string;
+
+  /**
+   * <p>The number of Availability Zones configured for the domain. If the service is unable to fetch this information, it will return <code>NotAvailable</code>.</p>
+   */
+  AvailabilityZoneCount?: string;
+
+  /**
+   * <p>The number of active Availability Zones configured for the domain. If the service is unable to fetch this information, it will return <code>NotAvailable</code>.</p>
+   */
+  ActiveAvailabilityZoneCount?: string;
+
+  /**
+   * <p>The number of standby Availability Zones configured for the domain. If the service is unable to fetch this information, it will return <code>NotAvailable</code>.</p>
+   */
+  StandByAvailabilityZoneCount?: string;
+
+  /**
+   * <p>The number of data nodes configured for the domain. If the service is unable to fetch this information, it will return <code>NotAvailable</code>.</p>
+   */
+  DataNodeCount?: string;
+
+  /**
+   * <p>A boolean that indicates if dedicated master nodes are activated for the domain.</p>
+   */
+  DedicatedMaster?: boolean;
+
+  /**
+   * <p>The number of nodes that can be elected as a master node. If dedicated master nodes is turned on, this value is the number of dedicated master nodes configured for the domain.
+   *    If the service is unable to fetch this information, it will return <code>NotAvailable</code>.</p>
+   */
+  MasterEligibleNodeCount?: string;
+
+  /**
+   * <p>The number of warm nodes configured for the domain.</p>
+   */
+  WarmNodeCount?: string;
+
+  /**
+   * <p>Indicates whether the domain has an elected master node.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Available</b> - The domain has an elected master node.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>UnAvailable</b> - The master node hasn't yet been elected, and a quorum to elect a new master node hasn't been reached.</p>
+   *             </li>
+   *          </ul>
+   */
+  MasterNode?: MasterNodeStatus | string;
+
+  /**
+   * <p>The current health status of your cluster.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Red</code> - At least one primary shard is not allocated to any node.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Yellow</code> - All primary shards are allocated to nodes, but some replicas aren’t.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Green</code> - All primary shards and their replicas are allocated to nodes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NotAvailable</code> - Unable to retrieve cluster health.</p>
+   *             </li>
+   *          </ul>
+   */
+  ClusterHealth?: DomainHealth | string;
+
+  /**
+   * <p>The total number of primary and replica shards for the domain.</p>
+   */
+  TotalShards?: string;
+
+  /**
+   * <p>The total number of primary and replica shards not allocated to any of the nodes for the cluster.</p>
+   */
+  TotalUnAssignedShards?: string;
+
+  /**
+   * <p>A list of <code>EnvironmentInfo</code> for the domain. </p>
+   */
+  EnvironmentInformation?: EnvironmentInfo[];
+}
+
+/**
+ * @public
  * <p>Container for the parameters to the <code>DescribeDomains</code> operation.</p>
  */
 export interface DescribeDomainsRequest {
@@ -3564,7 +3812,7 @@ export interface DescribeInboundConnectionsResponse {
 
 /**
  * @public
- * <p>The request processing has failed because you provided an invalid pagination token.</p>
+ * <p>Request processing failed because you provided an invalid pagination token.</p>
  */
 export class InvalidPaginationTokenException extends __BaseException {
   readonly name: "InvalidPaginationTokenException" = "InvalidPaginationTokenException";
@@ -4604,13 +4852,13 @@ export interface ListDomainsForPackageResponse {
  */
 export interface ListInstanceTypeDetailsRequest {
   /**
-   * <p>Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
+   * <p>The version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
    *    Defaults to the latest version of OpenSearch.</p>
    */
   EngineVersion: string | undefined;
 
   /**
-   * <p>Name of the domain to list instance type details for.</p>
+   * <p>The name of the domain.</p>
    */
   DomainName?: string;
 
@@ -4626,6 +4874,16 @@ export interface ListInstanceTypeDetailsRequest {
    *     <code>ListInstanceTypeDetails</code> operations, which returns results in the next page.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An optional parameter that specifies the Availability Zones for the domain.</p>
+   */
+  RetrieveAZs?: boolean;
+
+  /**
+   * <p>An optional parameter that lists information for a given instance type.</p>
+   */
+  InstanceType?: string;
 }
 
 /**
@@ -4670,6 +4928,11 @@ export interface InstanceTypeDetails {
    *    node.</p>
    */
   InstanceRole?: string[];
+
+  /**
+   * <p>The supported Availability Zones for the instance type.</p>
+   */
+  AvailabilityZones?: string[];
 }
 
 /**
@@ -5243,13 +5506,6 @@ export interface UpdateDomainConfigRequest {
    *      rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean
    *      query. Default is 1,024. Queries with more than the permitted number of clauses result in a
    *      <code>TooManyClauses</code> error.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"override_main_response_version": "true" | "false"</code> - Note the use of a string
-   *      rather than a boolean. Specifies whether the domain reports its version as 7.10 to allow
-   *      Elasticsearch OSS clients and plugins to continue working with it. Default is false when
-   *      creating a domain and true when upgrading a domain.</p>
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced cluster parameters</a>.</p>

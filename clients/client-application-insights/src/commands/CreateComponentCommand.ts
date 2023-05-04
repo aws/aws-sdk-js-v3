@@ -52,6 +52,8 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * };
  * const command = new CreateComponentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateComponentCommandInput - {@link CreateComponentCommandInput}
@@ -72,6 +74,8 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class CreateComponentCommand extends $Command<

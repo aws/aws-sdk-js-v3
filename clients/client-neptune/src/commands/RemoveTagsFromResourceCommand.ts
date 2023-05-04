@@ -47,6 +47,8 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RemoveTagsFromResourceCommandInput - {@link RemoveTagsFromResourceCommandInput}
@@ -67,6 +69,8 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  *  <p>
  *             <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class RemoveTagsFromResourceCommand extends $Command<

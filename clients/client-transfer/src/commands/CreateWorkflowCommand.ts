@@ -165,6 +165,10 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWorkflowResponse
+ * //   WorkflowId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
@@ -191,6 +195,8 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class CreateWorkflowCommand extends $Command<

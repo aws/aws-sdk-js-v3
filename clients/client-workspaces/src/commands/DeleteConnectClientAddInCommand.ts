@@ -46,6 +46,8 @@ export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClie
  * };
  * const command = new DeleteConnectClientAddInCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteConnectClientAddInCommandInput - {@link DeleteConnectClientAddInCommandInput}
@@ -63,6 +65,8 @@ export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClie
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DeleteConnectClientAddInCommand extends $Command<

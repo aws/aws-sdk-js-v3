@@ -48,6 +48,8 @@ export interface DeleteServiceNetworkCommandOutput extends DeleteServiceNetworkR
  * };
  * const command = new DeleteServiceNetworkCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteServiceNetworkCommandInput - {@link DeleteServiceNetworkCommandInput}
@@ -76,6 +78,8 @@ export interface DeleteServiceNetworkCommandOutput extends DeleteServiceNetworkR
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class DeleteServiceNetworkCommand extends $Command<

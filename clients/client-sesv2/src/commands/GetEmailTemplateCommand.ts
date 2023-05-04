@@ -46,6 +46,15 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * };
  * const command = new GetEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // GetEmailTemplateResponse
+ * //   TemplateName: "STRING_VALUE", // required
+ * //   TemplateContent: { // EmailTemplateContent
+ * //     Subject: "STRING_VALUE",
+ * //     Text: "STRING_VALUE",
+ * //     Html: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetEmailTemplateCommandInput - {@link GetEmailTemplateCommandInput}
@@ -63,6 +72,8 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class GetEmailTemplateCommand extends $Command<

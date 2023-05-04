@@ -59,6 +59,18 @@ export interface ListAccountAssociationsCommandOutput extends ListAccountAssocia
  * };
  * const command = new ListAccountAssociationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAccountAssociationsOutput
+ * //   LinkedAccounts: [ // AccountAssociationsList
+ * //     { // AccountAssociationsListElement
+ * //       AccountId: "STRING_VALUE",
+ * //       BillingGroupArn: "STRING_VALUE",
+ * //       AccountName: "STRING_VALUE",
+ * //       AccountEmail: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAccountAssociationsCommandInput - {@link ListAccountAssociationsCommandInput}
@@ -86,6 +98,8 @@ export interface ListAccountAssociationsCommandOutput extends ListAccountAssocia
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class ListAccountAssociationsCommand extends $Command<

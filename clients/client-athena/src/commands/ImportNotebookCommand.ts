@@ -50,6 +50,10 @@ export interface ImportNotebookCommandOutput extends ImportNotebookOutput, __Met
  * };
  * const command = new ImportNotebookCommand(input);
  * const response = await client.send(command);
+ * // { // ImportNotebookOutput
+ * //   NotebookId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ImportNotebookCommandInput - {@link ImportNotebookCommandInput}
@@ -69,6 +73,8 @@ export interface ImportNotebookCommandOutput extends ImportNotebookOutput, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ImportNotebookCommand extends $Command<

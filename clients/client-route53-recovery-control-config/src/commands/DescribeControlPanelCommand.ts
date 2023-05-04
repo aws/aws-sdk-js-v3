@@ -48,6 +48,17 @@ export interface DescribeControlPanelCommandOutput extends DescribeControlPanelR
  * };
  * const command = new DescribeControlPanelCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeControlPanelResponse
+ * //   ControlPanel: { // ControlPanel
+ * //     ClusterArn: "STRING_VALUE",
+ * //     ControlPanelArn: "STRING_VALUE",
+ * //     DefaultControlPanel: true || false,
+ * //     Name: "STRING_VALUE",
+ * //     RoutingControlCount: Number("int"),
+ * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeControlPanelCommandInput - {@link DescribeControlPanelCommandInput}
@@ -74,6 +85,8 @@ export interface DescribeControlPanelCommandOutput extends DescribeControlPanelR
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class DescribeControlPanelCommand extends $Command<

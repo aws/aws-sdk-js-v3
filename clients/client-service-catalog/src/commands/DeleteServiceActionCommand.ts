@@ -45,6 +45,8 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
  * };
  * const command = new DeleteServiceActionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteServiceActionCommandInput - {@link DeleteServiceActionCommandInput}
@@ -59,6 +61,8 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DeleteServiceActionCommand extends $Command<

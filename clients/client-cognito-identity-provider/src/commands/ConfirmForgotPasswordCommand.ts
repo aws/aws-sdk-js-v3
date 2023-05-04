@@ -66,6 +66,8 @@ export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswor
  * };
  * const command = new ConfirmForgotPasswordCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ConfirmForgotPasswordCommandInput - {@link ConfirmForgotPasswordCommandInput}
@@ -130,6 +132,8 @@ export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswor
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ConfirmForgotPasswordCommand extends $Command<

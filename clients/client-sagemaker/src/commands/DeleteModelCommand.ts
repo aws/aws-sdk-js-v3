@@ -47,6 +47,8 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteModelCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteModelCommandInput - {@link DeleteModelCommandInput}
@@ -55,6 +57,8 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteModelCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteModelCommand extends $Command<

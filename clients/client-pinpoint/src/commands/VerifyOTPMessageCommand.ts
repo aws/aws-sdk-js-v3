@@ -49,6 +49,12 @@ export interface VerifyOTPMessageCommandOutput extends VerifyOTPMessageResponse,
  * };
  * const command = new VerifyOTPMessageCommand(input);
  * const response = await client.send(command);
+ * // { // VerifyOTPMessageResponse
+ * //   VerificationResponse: { // VerificationResponse
+ * //     Valid: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param VerifyOTPMessageCommandInput - {@link VerifyOTPMessageCommandInput}
@@ -78,6 +84,8 @@ export interface VerifyOTPMessageCommandOutput extends VerifyOTPMessageResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class VerifyOTPMessageCommand extends $Command<

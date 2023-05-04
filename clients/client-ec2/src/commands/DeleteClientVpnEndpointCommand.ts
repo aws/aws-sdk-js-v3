@@ -46,6 +46,13 @@ export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEnd
  * };
  * const command = new DeleteClientVpnEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteClientVpnEndpointResult
+ * //   Status: { // ClientVpnEndpointStatus
+ * //     Code: "pending-associate" || "available" || "deleting" || "deleted",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteClientVpnEndpointCommandInput - {@link DeleteClientVpnEndpointCommandInput}
@@ -54,6 +61,8 @@ export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEnd
  * @see {@link DeleteClientVpnEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteClientVpnEndpointCommand extends $Command<

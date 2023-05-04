@@ -46,6 +46,27 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * };
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteBackupResponse
+ * //   Backup: { // Backup
+ * //     BackupId: "STRING_VALUE", // required
+ * //     BackupState: "STRING_VALUE",
+ * //     ClusterId: "STRING_VALUE",
+ * //     CreateTimestamp: new Date("TIMESTAMP"),
+ * //     CopyTimestamp: new Date("TIMESTAMP"),
+ * //     NeverExpires: true || false,
+ * //     SourceRegion: "STRING_VALUE",
+ * //     SourceBackup: "STRING_VALUE",
+ * //     SourceCluster: "STRING_VALUE",
+ * //     DeleteTimestamp: new Date("TIMESTAMP"),
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteBackupCommandInput - {@link DeleteBackupCommandInput}
@@ -72,6 +93,8 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * @throws {@link CloudHsmServiceException} (client fault)
  *  <p>The request was rejected because an error occurred.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class DeleteBackupCommand extends $Command<

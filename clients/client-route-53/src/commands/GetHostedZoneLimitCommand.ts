@@ -50,6 +50,14 @@ export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitRespo
  * };
  * const command = new GetHostedZoneLimitCommand(input);
  * const response = await client.send(command);
+ * // { // GetHostedZoneLimitResponse
+ * //   Limit: { // HostedZoneLimit
+ * //     Type: "MAX_RRSETS_BY_ZONE" || "MAX_VPCS_ASSOCIATED_BY_ZONE", // required
+ * //     Value: Number("long"), // required
+ * //   },
+ * //   Count: Number("long"), // required
+ * // };
+ *
  * ```
  *
  * @param GetHostedZoneLimitCommandInput - {@link GetHostedZoneLimitCommandInput}
@@ -67,6 +75,8 @@ export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitRespo
  * @throws {@link NoSuchHostedZone} (client fault)
  *  <p>No hosted zone exists with the ID that you specified.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetHostedZoneLimitCommand extends $Command<

@@ -69,6 +69,21 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  * };
  * const command = new UpdateKeyGroupCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateKeyGroupResult
+ * //   KeyGroup: { // KeyGroup
+ * //     Id: "STRING_VALUE", // required
+ * //     LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     KeyGroupConfig: { // KeyGroupConfig
+ * //       Name: "STRING_VALUE", // required
+ * //       Items: [ // PublicKeyIdList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Comment: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateKeyGroupCommandInput - {@link UpdateKeyGroupCommandInput}
@@ -99,6 +114,8 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class UpdateKeyGroupCommand extends $Command<

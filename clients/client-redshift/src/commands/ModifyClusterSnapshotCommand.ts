@@ -47,6 +47,57 @@ export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapsho
  * };
  * const command = new ModifyClusterSnapshotCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyClusterSnapshotResult
+ * //   Snapshot: { // Snapshot
+ * //     SnapshotIdentifier: "STRING_VALUE",
+ * //     ClusterIdentifier: "STRING_VALUE",
+ * //     SnapshotCreateTime: new Date("TIMESTAMP"),
+ * //     Status: "STRING_VALUE",
+ * //     Port: Number("int"),
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     ClusterCreateTime: new Date("TIMESTAMP"),
+ * //     MasterUsername: "STRING_VALUE",
+ * //     ClusterVersion: "STRING_VALUE",
+ * //     EngineFullVersion: "STRING_VALUE",
+ * //     SnapshotType: "STRING_VALUE",
+ * //     NodeType: "STRING_VALUE",
+ * //     NumberOfNodes: Number("int"),
+ * //     DBName: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     Encrypted: true || false,
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     EncryptedWithHSM: true || false,
+ * //     AccountsWithRestoreAccess: [ // AccountsWithRestoreAccessList
+ * //       { // AccountWithRestoreAccess
+ * //         AccountId: "STRING_VALUE",
+ * //         AccountAlias: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     OwnerAccount: "STRING_VALUE",
+ * //     TotalBackupSizeInMegaBytes: Number("double"),
+ * //     ActualIncrementalBackupSizeInMegaBytes: Number("double"),
+ * //     BackupProgressInMegaBytes: Number("double"),
+ * //     CurrentBackupRateInMegaBytesPerSecond: Number("double"),
+ * //     EstimatedSecondsToCompletion: Number("long"),
+ * //     ElapsedTimeInSeconds: Number("long"),
+ * //     SourceRegion: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     RestorableNodeTypes: [ // RestorableNodeTypeList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     EnhancedVpcRouting: true || false,
+ * //     MaintenanceTrackName: "STRING_VALUE",
+ * //     ManualSnapshotRetentionPeriod: Number("int"),
+ * //     ManualSnapshotRemainingDays: Number("int"),
+ * //     SnapshotRetentionStartTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ModifyClusterSnapshotCommandInput - {@link ModifyClusterSnapshotCommandInput}
@@ -66,6 +117,8 @@ export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapsho
  *  <p>The retention period specified is either in the past or is not a valid value.</p>
  *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ModifyClusterSnapshotCommand extends $Command<

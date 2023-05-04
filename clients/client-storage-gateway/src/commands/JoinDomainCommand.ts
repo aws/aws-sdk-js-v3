@@ -53,6 +53,11 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * };
  * const command = new JoinDomainCommand(input);
  * const response = await client.send(command);
+ * // { // JoinDomainOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   ActiveDirectoryStatus: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param JoinDomainCommandInput - {@link JoinDomainCommandInput}
@@ -69,6 +74,8 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class JoinDomainCommand extends $Command<

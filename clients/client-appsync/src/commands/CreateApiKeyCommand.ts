@@ -46,6 +46,15 @@ export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __Metad
  * };
  * const command = new CreateApiKeyCommand(input);
  * const response = await client.send(command);
+ * // { // CreateApiKeyResponse
+ * //   apiKey: { // ApiKey
+ * //     id: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     expires: Number("long"),
+ * //     deletes: Number("long"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateApiKeyCommandInput - {@link CreateApiKeyCommandInput}
@@ -62,8 +71,8 @@ export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __Metad
  *             <code>CreateApiKey</code>) or from update (for <code>UpdateApiKey</code>).</p>
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
- *          field values, and then try again.</p>
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is
+ *          missing. Check the field values, and then try again.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
@@ -72,11 +81,14 @@ export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __Metad
  *  <p>The request exceeded a limit. Try your request again.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *  <p>The resource specified in the request was not found. Check the resource, and then try
+ *          again.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class CreateApiKeyCommand extends $Command<

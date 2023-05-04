@@ -48,6 +48,10 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * };
  * const command = new DeleteSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteSubnetGroupResponse
+ * //   DeletionMessage: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteSubnetGroupCommandInput - {@link DeleteSubnetGroupCommandInput}
@@ -66,6 +70,8 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  *  <p>The requested subnet group name does not refer to an existing subnet
  *             group.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class DeleteSubnetGroupCommand extends $Command<

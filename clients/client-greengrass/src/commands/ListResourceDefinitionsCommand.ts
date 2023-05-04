@@ -45,6 +45,24 @@ export interface ListResourceDefinitionsCommandOutput extends ListResourceDefini
  * };
  * const command = new ListResourceDefinitionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListResourceDefinitionsResponse
+ * //   Definitions: [ // __listOfDefinitionInformation
+ * //     { // DefinitionInformation
+ * //       Arn: "STRING_VALUE",
+ * //       CreationTimestamp: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       LastUpdatedTimestamp: "STRING_VALUE",
+ * //       LatestVersion: "STRING_VALUE",
+ * //       LatestVersionArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListResourceDefinitionsCommandInput - {@link ListResourceDefinitionsCommandInput}
@@ -53,6 +71,8 @@ export interface ListResourceDefinitionsCommandOutput extends ListResourceDefini
  * @see {@link ListResourceDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListResourceDefinitionsCommand extends $Command<

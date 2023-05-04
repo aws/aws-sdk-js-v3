@@ -44,6 +44,20 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
  * };
  * const command = new DescribeLocationSmbCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeLocationSmbResponse
+ * //   LocationArn: "STRING_VALUE",
+ * //   LocationUri: "STRING_VALUE",
+ * //   AgentArns: [ // AgentArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   User: "STRING_VALUE",
+ * //   Domain: "STRING_VALUE",
+ * //   MountOptions: { // SmbMountOptions
+ * //     Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
+ * //   },
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeLocationSmbCommandInput - {@link DescribeLocationSmbCommandInput}
@@ -59,6 +73,8 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class DescribeLocationSmbCommand extends $Command<

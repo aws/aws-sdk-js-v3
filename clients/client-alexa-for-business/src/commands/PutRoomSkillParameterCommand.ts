@@ -50,6 +50,8 @@ export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParamete
  * };
  * const command = new PutRoomSkillParameterCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutRoomSkillParameterCommandInput - {@link PutRoomSkillParameterCommandInput}
@@ -61,6 +63,8 @@ export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParamete
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>There is a concurrent modification of resources.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class PutRoomSkillParameterCommand extends $Command<

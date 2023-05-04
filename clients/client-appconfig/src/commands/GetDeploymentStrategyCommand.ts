@@ -48,6 +48,17 @@ export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, 
  * };
  * const command = new GetDeploymentStrategyCommand(input);
  * const response = await client.send(command);
+ * // { // DeploymentStrategy
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   DeploymentDurationInMinutes: Number("int"),
+ * //   GrowthType: "LINEAR" || "EXPONENTIAL",
+ * //   GrowthFactor: Number("float"),
+ * //   FinalBakeTimeInMinutes: Number("int"),
+ * //   ReplicateTo: "NONE" || "SSM_DOCUMENT",
+ * // };
+ *
  * ```
  *
  * @param GetDeploymentStrategyCommandInput - {@link GetDeploymentStrategyCommandInput}
@@ -65,6 +76,8 @@ export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, 
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To retrieve details of a deployment strategy
  * ```javascript

@@ -47,6 +47,8 @@ export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __Metadat
  * };
  * const command = new DeleteFacetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteFacetCommandInput - {@link DeleteFacetCommandInput}
@@ -84,6 +86,8 @@ export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __Metadat
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DeleteFacetCommand extends $Command<

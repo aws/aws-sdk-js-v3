@@ -47,6 +47,92 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  * };
  * const command = new DescribeFindingsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFindingsResponse
+ * //   findings: [ // FindingList // required
+ * //     { // Finding
+ * //       arn: "STRING_VALUE", // required
+ * //       schemaVersion: Number("int"),
+ * //       service: "STRING_VALUE",
+ * //       serviceAttributes: { // InspectorServiceAttributes
+ * //         schemaVersion: Number("int"), // required
+ * //         assessmentRunArn: "STRING_VALUE",
+ * //         rulesPackageArn: "STRING_VALUE",
+ * //       },
+ * //       assetType: "STRING_VALUE",
+ * //       assetAttributes: { // AssetAttributes
+ * //         schemaVersion: Number("int"), // required
+ * //         agentId: "STRING_VALUE",
+ * //         autoScalingGroup: "STRING_VALUE",
+ * //         amiId: "STRING_VALUE",
+ * //         hostname: "STRING_VALUE",
+ * //         ipv4Addresses: [ // Ipv4AddressList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         tags: [ // Tags
+ * //           { // Tag
+ * //             key: "STRING_VALUE", // required
+ * //             value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         networkInterfaces: [ // NetworkInterfaces
+ * //           { // NetworkInterface
+ * //             networkInterfaceId: "STRING_VALUE",
+ * //             subnetId: "STRING_VALUE",
+ * //             vpcId: "STRING_VALUE",
+ * //             privateDnsName: "STRING_VALUE",
+ * //             privateIpAddress: "STRING_VALUE",
+ * //             privateIpAddresses: [ // PrivateIpAddresses
+ * //               { // PrivateIp
+ * //                 privateDnsName: "STRING_VALUE",
+ * //                 privateIpAddress: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             publicDnsName: "STRING_VALUE",
+ * //             publicIp: "STRING_VALUE",
+ * //             ipv6Addresses: [ // Ipv6Addresses
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             securityGroups: [ // SecurityGroups
+ * //               { // SecurityGroup
+ * //                 groupName: "STRING_VALUE",
+ * //                 groupId: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //       id: "STRING_VALUE",
+ * //       title: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       recommendation: "STRING_VALUE",
+ * //       severity: "STRING_VALUE",
+ * //       numericSeverity: Number("double"),
+ * //       confidence: Number("int"),
+ * //       indicatorOfCompromise: true || false,
+ * //       attributes: [ // AttributeList // required
+ * //         { // Attribute
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       userAttributes: [ // UserAttributeList // required
+ * //         {
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   failedItems: { // FailedItems // required
+ * //     "<keys>": { // FailedItemDetails
+ * //       failureCode: "STRING_VALUE", // required
+ * //       retryable: true || false, // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeFindingsCommandInput - {@link DescribeFindingsCommandInput}
@@ -62,6 +148,8 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Describe findings
  * ```javascript

@@ -48,6 +48,8 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
  * };
  * const command = new DeleteProjectPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteProjectPolicyCommandInput - {@link DeleteProjectPolicyCommandInput}
@@ -79,6 +81,8 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example DeleteProjectPolicy
  * ```javascript

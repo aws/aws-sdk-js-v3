@@ -60,6 +60,16 @@ export interface DescribeVpcClassicLinkDnsSupportCommandOutput
  * };
  * const command = new DescribeVpcClassicLinkDnsSupportCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeVpcClassicLinkDnsSupportResult
+ * //   NextToken: "STRING_VALUE",
+ * //   Vpcs: [ // ClassicLinkDnsSupportList
+ * //     { // ClassicLinkDnsSupport
+ * //       ClassicLinkDnsSupported: true || false,
+ * //       VpcId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeVpcClassicLinkDnsSupportCommandInput - {@link DescribeVpcClassicLinkDnsSupportCommandInput}
@@ -68,6 +78,8 @@ export interface DescribeVpcClassicLinkDnsSupportCommandOutput
  * @see {@link DescribeVpcClassicLinkDnsSupportCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<

@@ -50,6 +50,18 @@ export interface ListStudioMembersCommandOutput extends ListStudioMembersRespons
  * };
  * const command = new ListStudioMembersCommand(input);
  * const response = await client.send(command);
+ * // { // ListStudioMembersResponse
+ * //   members: [ // StudioMembershipList
+ * //     { // StudioMembership
+ * //       identityStoreId: "STRING_VALUE",
+ * //       persona: "ADMINISTRATOR",
+ * //       principalId: "STRING_VALUE",
+ * //       sid: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListStudioMembersCommandInput - {@link ListStudioMembersCommandInput}
@@ -82,6 +94,8 @@ export interface ListStudioMembersCommandOutput extends ListStudioMembersRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class ListStudioMembersCommand extends $Command<

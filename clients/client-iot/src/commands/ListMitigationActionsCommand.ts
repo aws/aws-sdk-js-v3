@@ -47,6 +47,17 @@ export interface ListMitigationActionsCommandOutput extends ListMitigationAction
  * };
  * const command = new ListMitigationActionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMitigationActionsResponse
+ * //   actionIdentifiers: [ // MitigationActionIdentifierList
+ * //     { // MitigationActionIdentifier
+ * //       actionName: "STRING_VALUE",
+ * //       actionArn: "STRING_VALUE",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListMitigationActionsCommandInput - {@link ListMitigationActionsCommandInput}
@@ -64,6 +75,8 @@ export interface ListMitigationActionsCommandOutput extends ListMitigationAction
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListMitigationActionsCommand extends $Command<

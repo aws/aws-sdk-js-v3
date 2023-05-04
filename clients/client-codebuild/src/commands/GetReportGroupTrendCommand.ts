@@ -46,6 +46,20 @@ export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOut
  * };
  * const command = new GetReportGroupTrendCommand(input);
  * const response = await client.send(command);
+ * // { // GetReportGroupTrendOutput
+ * //   stats: { // ReportGroupTrendStats
+ * //     average: "STRING_VALUE",
+ * //     max: "STRING_VALUE",
+ * //     min: "STRING_VALUE",
+ * //   },
+ * //   rawData: [ // ReportGroupTrendRawDataList
+ * //     { // ReportWithRawData
+ * //       reportArn: "STRING_VALUE",
+ * //       data: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetReportGroupTrendCommandInput - {@link GetReportGroupTrendCommandInput}
@@ -60,6 +74,8 @@ export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class GetReportGroupTrendCommand extends $Command<

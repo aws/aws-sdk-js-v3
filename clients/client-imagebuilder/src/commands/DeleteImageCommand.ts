@@ -65,6 +65,11 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  * };
  * const command = new DeleteImageCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteImageResponse
+ * //   requestId: "STRING_VALUE",
+ * //   imageBuildVersionArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteImageCommandInput - {@link DeleteImageCommandInput}
@@ -98,6 +103,8 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class DeleteImageCommand extends $Command<

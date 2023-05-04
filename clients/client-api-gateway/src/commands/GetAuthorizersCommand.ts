@@ -46,6 +46,26 @@ export interface GetAuthorizersCommandOutput extends Authorizers, __MetadataBear
  * };
  * const command = new GetAuthorizersCommand(input);
  * const response = await client.send(command);
+ * // { // Authorizers
+ * //   items: [ // ListOfAuthorizer
+ * //     { // Authorizer
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       type: "TOKEN" || "REQUEST" || "COGNITO_USER_POOLS",
+ * //       providerARNs: [ // ListOfARNs
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       authType: "STRING_VALUE",
+ * //       authorizerUri: "STRING_VALUE",
+ * //       authorizerCredentials: "STRING_VALUE",
+ * //       identitySource: "STRING_VALUE",
+ * //       identityValidationExpression: "STRING_VALUE",
+ * //       authorizerResultTtlInSeconds: Number("int"),
+ * //     },
+ * //   ],
+ * //   position: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetAuthorizersCommandInput - {@link GetAuthorizersCommandInput}
@@ -66,6 +86,8 @@ export interface GetAuthorizersCommandOutput extends Authorizers, __MetadataBear
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetAuthorizersCommand extends $Command<

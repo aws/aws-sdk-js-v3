@@ -156,6 +156,10 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  * };
  * const command = new CreateLabelingJobCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLabelingJobResponse
+ * //   LabelingJobArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateLabelingJobCommandInput - {@link CreateLabelingJobCommandInput}
@@ -171,6 +175,8 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateLabelingJobCommand extends $Command<

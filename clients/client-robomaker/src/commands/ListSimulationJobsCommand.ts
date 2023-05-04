@@ -54,6 +54,28 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
  * };
  * const command = new ListSimulationJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSimulationJobsResponse
+ * //   simulationJobSummaries: [ // SimulationJobSummaries // required
+ * //     { // SimulationJobSummary
+ * //       arn: "STRING_VALUE",
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       name: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       simulationApplicationNames: [ // SimulationApplicationNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       robotApplicationNames: [ // RobotApplicationNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       dataSourceNames: [ // DataSourceNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       computeType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSimulationJobsCommandInput - {@link ListSimulationJobsCommandInput}
@@ -72,6 +94,8 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListSimulationJobsCommand extends $Command<

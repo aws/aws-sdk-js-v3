@@ -46,6 +46,18 @@ export interface ListCidrCollectionsCommandOutput extends ListCidrCollectionsRes
  * };
  * const command = new ListCidrCollectionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCidrCollectionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   CidrCollections: [ // CollectionSummaries
+ * //     { // CollectionSummary
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Version: Number("long"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListCidrCollectionsCommandInput - {@link ListCidrCollectionsCommandInput}
@@ -57,6 +69,8 @@ export interface ListCidrCollectionsCommandOutput extends ListCidrCollectionsRes
  * @throws {@link InvalidInput} (client fault)
  *  <p>The input is not valid.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListCidrCollectionsCommand extends $Command<

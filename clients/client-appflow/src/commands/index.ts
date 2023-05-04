@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./CancelFlowExecutionsCommand";
 export * from "./CreateConnectorProfileCommand";
 export * from "./CreateFlowCommand";
 export * from "./DeleteConnectorProfileCommand";

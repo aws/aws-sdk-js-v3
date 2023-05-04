@@ -48,6 +48,8 @@ export interface DeleteAppInstanceStreamingConfigurationsCommandOutput extends _
  * };
  * const command = new DeleteAppInstanceStreamingConfigurationsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAppInstanceStreamingConfigurationsCommandInput - {@link DeleteAppInstanceStreamingConfigurationsCommandInput}
@@ -77,6 +79,8 @@ export interface DeleteAppInstanceStreamingConfigurationsCommandOutput extends _
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class DeleteAppInstanceStreamingConfigurationsCommand extends $Command<

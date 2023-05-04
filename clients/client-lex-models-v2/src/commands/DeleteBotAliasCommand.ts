@@ -46,6 +46,12 @@ export interface DeleteBotAliasCommandOutput extends DeleteBotAliasResponse, __M
  * };
  * const command = new DeleteBotAliasCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteBotAliasResponse
+ * //   botAliasId: "STRING_VALUE",
+ * //   botId: "STRING_VALUE",
+ * //   botAliasStatus: "Creating" || "Available" || "Deleting" || "Failed",
+ * // };
+ *
  * ```
  *
  * @param DeleteBotAliasCommandInput - {@link DeleteBotAliasCommandInput}
@@ -79,6 +85,8 @@ export interface DeleteBotAliasCommandOutput extends DeleteBotAliasResponse, __M
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteBotAliasCommand extends $Command<

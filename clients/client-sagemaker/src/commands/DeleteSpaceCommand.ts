@@ -45,6 +45,8 @@ export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSpaceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSpaceCommandInput - {@link DeleteSpaceCommandInput}
@@ -59,6 +61,8 @@ export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteSpaceCommand extends $Command<

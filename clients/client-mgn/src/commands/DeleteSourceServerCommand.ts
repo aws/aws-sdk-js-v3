@@ -44,6 +44,8 @@ export interface DeleteSourceServerCommandOutput extends DeleteSourceServerRespo
  * };
  * const command = new DeleteSourceServerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSourceServerCommandInput - {@link DeleteSourceServerCommandInput}
@@ -61,6 +63,8 @@ export interface DeleteSourceServerCommandOutput extends DeleteSourceServerRespo
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DeleteSourceServerCommand extends $Command<

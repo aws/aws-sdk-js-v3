@@ -91,6 +91,8 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateStreamCommandInput - {@link CreateStreamCommandInput}
@@ -111,6 +113,8 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  *  <p>The resource is not available for this operation. For successful operation, the
  *             resource must be in the <code>ACTIVE</code> state.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class CreateStreamCommand extends $Command<

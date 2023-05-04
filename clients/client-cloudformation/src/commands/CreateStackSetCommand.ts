@@ -77,6 +77,10 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
  * };
  * const command = new CreateStackSetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateStackSetOutput
+ * //   StackSetId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateStackSetCommandInput - {@link CreateStackSetCommandInput}
@@ -96,6 +100,8 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
  * @throws {@link NameAlreadyExistsException} (client fault)
  *  <p>The specified name is already in use.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class CreateStackSetCommand extends $Command<

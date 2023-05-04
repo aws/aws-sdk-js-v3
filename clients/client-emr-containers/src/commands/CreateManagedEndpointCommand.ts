@@ -88,6 +88,13 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
  * };
  * const command = new CreateManagedEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // CreateManagedEndpointResponse
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   virtualClusterId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateManagedEndpointCommandInput - {@link CreateManagedEndpointCommandInput}
@@ -105,6 +112,8 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class CreateManagedEndpointCommand extends $Command<

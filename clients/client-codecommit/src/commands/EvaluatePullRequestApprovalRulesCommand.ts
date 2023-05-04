@@ -50,6 +50,19 @@ export interface EvaluatePullRequestApprovalRulesCommandOutput
  * };
  * const command = new EvaluatePullRequestApprovalRulesCommand(input);
  * const response = await client.send(command);
+ * // { // EvaluatePullRequestApprovalRulesOutput
+ * //   evaluation: { // Evaluation
+ * //     approved: true || false,
+ * //     overridden: true || false,
+ * //     approvalRulesSatisfied: [ // ApprovalRulesSatisfiedList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     approvalRulesNotSatisfied: [ // ApprovalRulesNotSatisfiedList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param EvaluatePullRequestApprovalRulesCommandInput - {@link EvaluatePullRequestApprovalRulesCommandInput}
@@ -91,6 +104,8 @@ export interface EvaluatePullRequestApprovalRulesCommandOutput
  * @throws {@link RevisionNotCurrentException} (client fault)
  *  <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class EvaluatePullRequestApprovalRulesCommand extends $Command<

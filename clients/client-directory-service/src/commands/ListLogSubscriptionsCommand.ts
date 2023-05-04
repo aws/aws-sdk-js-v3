@@ -46,6 +46,17 @@ export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsR
  * };
  * const command = new ListLogSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListLogSubscriptionsResult
+ * //   LogSubscriptions: [ // LogSubscriptions
+ * //     { // LogSubscription
+ * //       DirectoryId: "STRING_VALUE",
+ * //       LogGroupName: "STRING_VALUE",
+ * //       SubscriptionCreatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListLogSubscriptionsCommandInput - {@link ListLogSubscriptionsCommandInput}
@@ -66,6 +77,8 @@ export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsR
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class ListLogSubscriptionsCommand extends $Command<

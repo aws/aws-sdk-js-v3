@@ -53,6 +53,61 @@ export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult,
  * };
  * const command = new ListCachePoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // ListCachePoliciesResult
+ * //   CachePolicyList: { // CachePolicyList
+ * //     NextMarker: "STRING_VALUE",
+ * //     MaxItems: Number("int"), // required
+ * //     Quantity: Number("int"), // required
+ * //     Items: [ // CachePolicySummaryList
+ * //       { // CachePolicySummary
+ * //         Type: "managed" || "custom", // required
+ * //         CachePolicy: { // CachePolicy
+ * //           Id: "STRING_VALUE", // required
+ * //           LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //           CachePolicyConfig: { // CachePolicyConfig
+ * //             Comment: "STRING_VALUE",
+ * //             Name: "STRING_VALUE", // required
+ * //             DefaultTTL: Number("long"),
+ * //             MaxTTL: Number("long"),
+ * //             MinTTL: Number("long"), // required
+ * //             ParametersInCacheKeyAndForwardedToOrigin: { // ParametersInCacheKeyAndForwardedToOrigin
+ * //               EnableAcceptEncodingGzip: true || false, // required
+ * //               EnableAcceptEncodingBrotli: true || false,
+ * //               HeadersConfig: { // CachePolicyHeadersConfig
+ * //                 HeaderBehavior: "none" || "whitelist", // required
+ * //                 Headers: { // Headers
+ * //                   Quantity: Number("int"), // required
+ * //                   Items: [ // HeaderList
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //               CookiesConfig: { // CachePolicyCookiesConfig
+ * //                 CookieBehavior: "none" || "whitelist" || "allExcept" || "all", // required
+ * //                 Cookies: { // CookieNames
+ * //                   Quantity: Number("int"), // required
+ * //                   Items: [ // CookieNameList
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //               QueryStringsConfig: { // CachePolicyQueryStringsConfig
+ * //                 QueryStringBehavior: "none" || "whitelist" || "allExcept" || "all", // required
+ * //                 QueryStrings: { // QueryStringNames
+ * //                   Quantity: Number("int"), // required
+ * //                   Items: [ // QueryStringNamesList
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ListCachePoliciesCommandInput - {@link ListCachePoliciesCommandInput}
@@ -70,6 +125,8 @@ export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult,
  * @throws {@link NoSuchCachePolicy} (client fault)
  *  <p>The cache policy does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListCachePoliciesCommand extends $Command<

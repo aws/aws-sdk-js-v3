@@ -47,6 +47,15 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  * };
  * const command = new DescribeIdentityCommand(input);
  * const response = await client.send(command);
+ * // { // IdentityDescription
+ * //   IdentityId: "STRING_VALUE",
+ * //   Logins: [ // LoginsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   LastModifiedDate: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeIdentityCommandInput - {@link DescribeIdentityCommandInput}
@@ -71,6 +80,8 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class DescribeIdentityCommand extends $Command<

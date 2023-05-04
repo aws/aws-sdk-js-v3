@@ -60,6 +60,8 @@ export interface UpdateComponentConfigurationCommandOutput
  * };
  * const command = new UpdateComponentConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateComponentConfigurationCommandInput - {@link UpdateComponentConfigurationCommandInput}
@@ -77,6 +79,8 @@ export interface UpdateComponentConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class UpdateComponentConfigurationCommand extends $Command<

@@ -59,6 +59,12 @@ export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionP
  * };
  * const command = new PutDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutDataProtectionPolicyResponse
+ * //   logGroupIdentifier: "STRING_VALUE",
+ * //   policyDocument: "STRING_VALUE",
+ * //   lastUpdatedTime: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param PutDataProtectionPolicyCommandInput - {@link PutDataProtectionPolicyCommandInput}
@@ -82,6 +88,8 @@ export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionP
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class PutDataProtectionPolicyCommand extends $Command<

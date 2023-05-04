@@ -63,6 +63,52 @@ export interface DescribeOrganizationResourceCollectionHealthCommandOutput
  * };
  * const command = new DescribeOrganizationResourceCollectionHealthCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeOrganizationResourceCollectionHealthResponse
+ * //   CloudFormation: [ // CloudFormationHealths
+ * //     { // CloudFormationHealth
+ * //       StackName: "STRING_VALUE",
+ * //       Insight: { // InsightHealth
+ * //         OpenProactiveInsights: Number("int"),
+ * //         OpenReactiveInsights: Number("int"),
+ * //         MeanTimeToRecoverInMilliseconds: Number("long"),
+ * //       },
+ * //       AnalyzedResourceCount: Number("long"),
+ * //     },
+ * //   ],
+ * //   Service: [ // ServiceHealths
+ * //     { // ServiceHealth
+ * //       ServiceName: "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
+ * //       Insight: { // ServiceInsightHealth
+ * //         OpenProactiveInsights: Number("int"),
+ * //         OpenReactiveInsights: Number("int"),
+ * //       },
+ * //       AnalyzedResourceCount: Number("long"),
+ * //     },
+ * //   ],
+ * //   Account: [ // AccountHealths
+ * //     { // AccountHealth
+ * //       AccountId: "STRING_VALUE",
+ * //       Insight: { // AccountInsightHealth
+ * //         OpenProactiveInsights: Number("int"),
+ * //         OpenReactiveInsights: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   Tags: [ // TagHealths
+ * //     { // TagHealth
+ * //       AppBoundaryKey: "STRING_VALUE",
+ * //       TagValue: "STRING_VALUE",
+ * //       Insight: {
+ * //         OpenProactiveInsights: Number("int"),
+ * //         OpenReactiveInsights: Number("int"),
+ * //         MeanTimeToRecoverInMilliseconds: Number("long"),
+ * //       },
+ * //       AnalyzedResourceCount: Number("long"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeOrganizationResourceCollectionHealthCommandInput - {@link DescribeOrganizationResourceCollectionHealthCommandInput}
@@ -87,6 +133,8 @@ export interface DescribeOrganizationResourceCollectionHealthCommandOutput
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class DescribeOrganizationResourceCollectionHealthCommand extends $Command<

@@ -66,6 +66,8 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateKeyDescriptionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateKeyDescriptionCommandInput - {@link UpdateKeyDescriptionCommandInput}
@@ -108,6 +110,8 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To update the description of a KMS key
  * ```javascript

@@ -53,6 +53,34 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
  * };
  * const command = new UpdateProxySessionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateProxySessionResponse
+ * //   ProxySession: { // ProxySession
+ * //     VoiceConnectorId: "STRING_VALUE",
+ * //     ProxySessionId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Status: "Open" || "InProgress" || "Closed",
+ * //     ExpiryMinutes: Number("int"),
+ * //     Capabilities: [ // CapabilityList
+ * //       "Voice" || "SMS",
+ * //     ],
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     EndedTimestamp: new Date("TIMESTAMP"),
+ * //     Participants: [ // Participants
+ * //       { // Participant
+ * //         PhoneNumber: "STRING_VALUE",
+ * //         ProxyPhoneNumber: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     NumberSelectionBehavior: "PreferSticky" || "AvoidSticky",
+ * //     GeoMatchLevel: "Country" || "AreaCode",
+ * //     GeoMatchParams: { // GeoMatchParams
+ * //       Country: "STRING_VALUE", // required
+ * //       AreaCode: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateProxySessionCommandInput - {@link UpdateProxySessionCommandInput}
@@ -82,6 +110,8 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class UpdateProxySessionCommand extends $Command<

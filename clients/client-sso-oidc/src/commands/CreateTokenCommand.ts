@@ -55,6 +55,14 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * };
  * const command = new CreateTokenCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTokenResponse
+ * //   accessToken: "STRING_VALUE",
+ * //   tokenType: "STRING_VALUE",
+ * //   expiresIn: Number("int"),
+ * //   refreshToken: "STRING_VALUE",
+ * //   idToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateTokenCommandInput - {@link CreateTokenCommandInput}
@@ -104,6 +112,8 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @throws {@link UnsupportedGrantTypeException} (client fault)
  *  <p>Indicates that the grant type in the request is not supported by the service.</p>
  *
+ * @throws {@link SSOOIDCServiceException}
+ * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
  */
 export class CreateTokenCommand extends $Command<

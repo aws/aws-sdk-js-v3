@@ -52,6 +52,24 @@ export interface UpdateLiveSourceCommandOutput extends UpdateLiveSourceResponse,
  * };
  * const command = new UpdateLiveSourceCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateLiveSourceResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   HttpPackageConfigurations: [ // HttpPackageConfigurations
+ * //     { // HttpPackageConfiguration
+ * //       Path: "STRING_VALUE", // required
+ * //       SourceGroup: "STRING_VALUE", // required
+ * //       Type: "DASH" || "HLS", // required
+ * //     },
+ * //   ],
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LiveSourceName: "STRING_VALUE",
+ * //   SourceLocationName: "STRING_VALUE",
+ * //   Tags: { // __mapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateLiveSourceCommandInput - {@link UpdateLiveSourceCommandInput}
@@ -60,6 +78,8 @@ export interface UpdateLiveSourceCommandOutput extends UpdateLiveSourceResponse,
  * @see {@link UpdateLiveSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class UpdateLiveSourceCommand extends $Command<

@@ -109,6 +109,11 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * };
  * const command = new CreateSecurityProfileCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSecurityProfileResponse
+ * //   securityProfileName: "STRING_VALUE",
+ * //   securityProfileArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateSecurityProfileCommandInput - {@link CreateSecurityProfileCommandInput}
@@ -129,6 +134,8 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateSecurityProfileCommand extends $Command<

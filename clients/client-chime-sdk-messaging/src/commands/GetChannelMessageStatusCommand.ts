@@ -86,6 +86,13 @@ export interface GetChannelMessageStatusCommandOutput extends GetChannelMessageS
  * };
  * const command = new GetChannelMessageStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetChannelMessageStatusResponse
+ * //   Status: { // ChannelMessageStatusStructure
+ * //     Value: "SENT" || "PENDING" || "FAILED" || "DENIED",
+ * //     Detail: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetChannelMessageStatusCommandInput - {@link GetChannelMessageStatusCommandInput}
@@ -112,6 +119,8 @@ export interface GetChannelMessageStatusCommandOutput extends GetChannelMessageS
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class GetChannelMessageStatusCommand extends $Command<

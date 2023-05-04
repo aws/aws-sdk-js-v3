@@ -74,6 +74,29 @@ export interface CreateSnapshotsCommandOutput extends CreateSnapshotsResult, __M
  * };
  * const command = new CreateSnapshotsCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSnapshotsResult
+ * //   Snapshots: [ // SnapshotSet
+ * //     { // SnapshotInfo
+ * //       Description: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Encrypted: true || false,
+ * //       VolumeId: "STRING_VALUE",
+ * //       State: "pending" || "completed" || "error" || "recoverable" || "recovering",
+ * //       VolumeSize: Number("int"),
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       Progress: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       SnapshotId: "STRING_VALUE",
+ * //       OutpostArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param CreateSnapshotsCommandInput - {@link CreateSnapshotsCommandInput}
@@ -82,6 +105,8 @@ export interface CreateSnapshotsCommandOutput extends CreateSnapshotsResult, __M
  * @see {@link CreateSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateSnapshotsCommand extends $Command<

@@ -59,6 +59,8 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  * };
  * const command = new LogoutCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param LogoutCommandInput - {@link LogoutCommandInput}
@@ -79,6 +81,8 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  *  <p>Indicates that the request is not authorized. This can happen due to an invalid access
  *       token in the request.</p>
  *
+ * @throws {@link SSOServiceException}
+ * <p>Base exception class for all service exceptions from SSO service.</p>
  *
  */
 export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOutput, SSOClientResolvedConfig> {

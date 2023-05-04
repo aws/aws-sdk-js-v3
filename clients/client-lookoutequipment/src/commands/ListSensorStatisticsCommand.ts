@@ -49,6 +49,51 @@ export interface ListSensorStatisticsCommandOutput extends ListSensorStatisticsR
  * };
  * const command = new ListSensorStatisticsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSensorStatisticsResponse
+ * //   SensorStatisticsSummaries: [ // SensorStatisticsSummaries
+ * //     { // SensorStatisticsSummary
+ * //       ComponentName: "STRING_VALUE",
+ * //       SensorName: "STRING_VALUE",
+ * //       DataExists: true || false,
+ * //       MissingValues: { // CountPercent
+ * //         Count: Number("int"), // required
+ * //         Percentage: Number("float"), // required
+ * //       },
+ * //       InvalidValues: {
+ * //         Count: Number("int"), // required
+ * //         Percentage: Number("float"), // required
+ * //       },
+ * //       InvalidDateEntries: {
+ * //         Count: Number("int"), // required
+ * //         Percentage: Number("float"), // required
+ * //       },
+ * //       DuplicateTimestamps: {
+ * //         Count: Number("int"), // required
+ * //         Percentage: Number("float"), // required
+ * //       },
+ * //       CategoricalValues: { // CategoricalValues
+ * //         Status: "POTENTIAL_ISSUE_DETECTED" || "NO_ISSUE_DETECTED", // required
+ * //         NumberOfCategory: Number("int"),
+ * //       },
+ * //       MultipleOperatingModes: { // MultipleOperatingModes
+ * //         Status: "POTENTIAL_ISSUE_DETECTED" || "NO_ISSUE_DETECTED", // required
+ * //       },
+ * //       LargeTimestampGaps: { // LargeTimestampGaps
+ * //         Status: "POTENTIAL_ISSUE_DETECTED" || "NO_ISSUE_DETECTED", // required
+ * //         NumberOfLargeTimestampGaps: Number("int"),
+ * //         MaxTimestampGapInDays: Number("int"),
+ * //       },
+ * //       MonotonicValues: { // MonotonicValues
+ * //         Status: "POTENTIAL_ISSUE_DETECTED" || "NO_ISSUE_DETECTED", // required
+ * //         Monotonicity: "DECREASING" || "INCREASING" || "STATIC",
+ * //       },
+ * //       DataStartTime: new Date("TIMESTAMP"),
+ * //       DataEndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSensorStatisticsCommandInput - {@link ListSensorStatisticsCommandInput}
@@ -76,6 +121,8 @@ export interface ListSensorStatisticsCommandOutput extends ListSensorStatisticsR
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class ListSensorStatisticsCommand extends $Command<

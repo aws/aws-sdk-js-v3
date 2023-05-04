@@ -82,6 +82,10 @@ export interface CreateFlowDefinitionCommandOutput extends CreateFlowDefinitionR
  * };
  * const command = new CreateFlowDefinitionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateFlowDefinitionResponse
+ * //   FlowDefinitionArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateFlowDefinitionCommandInput - {@link CreateFlowDefinitionCommandInput}
@@ -97,6 +101,8 @@ export interface CreateFlowDefinitionCommandOutput extends CreateFlowDefinitionR
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateFlowDefinitionCommand extends $Command<

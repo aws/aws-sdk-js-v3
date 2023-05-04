@@ -153,6 +153,21 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  * };
  * const command = new AssumeRoleCommand(input);
  * const response = await client.send(command);
+ * // { // AssumeRoleResponse
+ * //   Credentials: { // Credentials
+ * //     AccessKeyId: "STRING_VALUE", // required
+ * //     SecretAccessKey: "STRING_VALUE", // required
+ * //     SessionToken: "STRING_VALUE", // required
+ * //     Expiration: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   AssumedRoleUser: { // AssumedRoleUser
+ * //     AssumedRoleId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //   },
+ * //   PackedPolicySize: Number("int"),
+ * //   SourceIdentity: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AssumeRoleCommandInput - {@link AssumeRoleCommandInput}
@@ -187,6 +202,8 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
  *                     Guide</i>.</p>
  *
+ * @throws {@link STSServiceException}
+ * <p>Base exception class for all service exceptions from STS service.</p>
  *
  * @example To assume a role
  * ```javascript

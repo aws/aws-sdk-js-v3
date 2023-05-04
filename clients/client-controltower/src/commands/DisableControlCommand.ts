@@ -47,6 +47,10 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  * };
  * const command = new DisableControlCommand(input);
  * const response = await client.send(command);
+ * // { // DisableControlOutput
+ * //   operationIdentifier: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DisableControlCommandInput - {@link DisableControlCommandInput}
@@ -77,6 +81,8 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ControlTowerServiceException}
+ * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
  */
 export class DisableControlCommand extends $Command<

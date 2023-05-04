@@ -57,6 +57,10 @@ export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchma
  * };
  * const command = new ValidateMatchmakingRuleSetCommand(input);
  * const response = await client.send(command);
+ * // { // ValidateMatchmakingRuleSetOutput
+ * //   Valid: true || false,
+ * // };
+ *
  * ```
  *
  * @param ValidateMatchmakingRuleSetCommandInput - {@link ValidateMatchmakingRuleSetCommandInput}
@@ -76,6 +80,8 @@ export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchma
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class ValidateMatchmakingRuleSetCommand extends $Command<

@@ -45,6 +45,12 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  * };
  * const command = new GetRepositoryPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetRepositoryPolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   policyText: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetRepositoryPolicyCommandInput - {@link GetRepositoryPolicyCommandInput}
@@ -71,6 +77,8 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class GetRepositoryPolicyCommand extends $Command<

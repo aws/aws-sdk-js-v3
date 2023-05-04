@@ -48,6 +48,24 @@ export interface ListLensesCommandOutput extends ListLensesOutput, __MetadataBea
  * };
  * const command = new ListLensesCommand(input);
  * const response = await client.send(command);
+ * // { // ListLensesOutput
+ * //   LensSummaries: [ // LensSummaries
+ * //     { // LensSummary
+ * //       LensArn: "STRING_VALUE",
+ * //       LensAlias: "STRING_VALUE",
+ * //       LensName: "STRING_VALUE",
+ * //       LensType: "AWS_OFFICIAL" || "CUSTOM_SHARED" || "CUSTOM_SELF",
+ * //       Description: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       LensVersion: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //       LensStatus: "CURRENT" || "NOT_CURRENT" || "DEPRECATED" || "DELETED" || "UNSHARED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListLensesCommandInput - {@link ListLensesCommandInput}
@@ -68,6 +86,8 @@ export interface ListLensesCommandOutput extends ListLensesOutput, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListLensesCommand extends $Command<

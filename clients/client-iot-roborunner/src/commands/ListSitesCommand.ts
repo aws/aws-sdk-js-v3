@@ -45,6 +45,18 @@ export interface ListSitesCommandOutput extends ListSitesResponse, __MetadataBea
  * };
  * const command = new ListSitesCommand(input);
  * const response = await client.send(command);
+ * // { // ListSitesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   sites: [ // Sites
+ * //     { // Site
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       countryCode: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListSitesCommandInput - {@link ListSitesCommandInput}
@@ -65,6 +77,8 @@ export interface ListSitesCommandOutput extends ListSitesResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class ListSitesCommand extends $Command<

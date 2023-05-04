@@ -65,6 +65,8 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopStreamEncryptionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopStreamEncryptionCommandInput - {@link StopStreamEncryptionCommandInput}
@@ -93,6 +95,8 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class StopStreamEncryptionCommand extends $Command<

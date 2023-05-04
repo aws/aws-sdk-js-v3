@@ -52,6 +52,11 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  * };
  * const command = new UpdateEnrollmentStatusCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateEnrollmentStatusResponse
+ * //   status: "Active" || "Inactive" || "Pending" || "Failed",
+ * //   statusReason: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateEnrollmentStatusCommandInput - {@link UpdateEnrollmentStatusCommandInput}
@@ -79,6 +84,8 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class UpdateEnrollmentStatusCommand extends $Command<

@@ -49,6 +49,79 @@ export interface GetPartitionCommandOutput extends GetPartitionResponse, __Metad
  * };
  * const command = new GetPartitionCommand(input);
  * const response = await client.send(command);
+ * // { // GetPartitionResponse
+ * //   Partition: { // Partition
+ * //     Values: [ // ValueStringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     DatabaseName: "STRING_VALUE",
+ * //     TableName: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     LastAccessTime: new Date("TIMESTAMP"),
+ * //     StorageDescriptor: { // StorageDescriptor
+ * //       Columns: [ // ColumnList
+ * //         { // Column
+ * //           Name: "STRING_VALUE", // required
+ * //           Type: "STRING_VALUE",
+ * //           Comment: "STRING_VALUE",
+ * //           Parameters: { // ParametersMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //       Location: "STRING_VALUE",
+ * //       AdditionalLocations: [ // LocationStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       InputFormat: "STRING_VALUE",
+ * //       OutputFormat: "STRING_VALUE",
+ * //       Compressed: true || false,
+ * //       NumberOfBuckets: Number("int"),
+ * //       SerdeInfo: { // SerDeInfo
+ * //         Name: "STRING_VALUE",
+ * //         SerializationLibrary: "STRING_VALUE",
+ * //         Parameters: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       BucketColumns: [ // NameStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SortColumns: [ // OrderList
+ * //         { // Order
+ * //           Column: "STRING_VALUE", // required
+ * //           SortOrder: Number("int"), // required
+ * //         },
+ * //       ],
+ * //       Parameters: "<ParametersMap>",
+ * //       SkewedInfo: { // SkewedInfo
+ * //         SkewedColumnNames: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SkewedColumnValues: [ // ColumnValueStringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SkewedColumnValueLocationMaps: { // LocationMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       StoredAsSubDirectories: true || false,
+ * //       SchemaReference: { // SchemaReference
+ * //         SchemaId: { // SchemaId
+ * //           SchemaArn: "STRING_VALUE",
+ * //           SchemaName: "STRING_VALUE",
+ * //           RegistryName: "STRING_VALUE",
+ * //         },
+ * //         SchemaVersionId: "STRING_VALUE",
+ * //         SchemaVersionNumber: Number("long"),
+ * //       },
+ * //     },
+ * //     Parameters: "<ParametersMap>",
+ * //     LastAnalyzedTime: new Date("TIMESTAMP"),
+ * //     CatalogId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetPartitionCommandInput - {@link GetPartitionCommandInput}
@@ -77,6 +150,8 @@ export interface GetPartitionCommandOutput extends GetPartitionResponse, __Metad
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetPartitionCommand extends $Command<

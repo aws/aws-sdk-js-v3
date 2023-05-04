@@ -52,6 +52,30 @@ export interface GetServersCommandOutput extends GetServersResponse, __MetadataB
  * };
  * const command = new GetServersCommand(input);
  * const response = await client.send(command);
+ * // { // GetServersResponse
+ * //   lastModifiedOn: new Date("TIMESTAMP"),
+ * //   serverCatalogStatus: "NOT_IMPORTED" || "IMPORTING" || "AVAILABLE" || "DELETED" || "EXPIRED",
+ * //   serverList: [ // ServerList
+ * //     { // Server
+ * //       serverId: "STRING_VALUE",
+ * //       serverType: "VIRTUAL_MACHINE",
+ * //       vmServer: { // VmServer
+ * //         vmServerAddress: { // VmServerAddress
+ * //           vmManagerId: "STRING_VALUE",
+ * //           vmId: "STRING_VALUE",
+ * //         },
+ * //         vmName: "STRING_VALUE",
+ * //         vmManagerName: "STRING_VALUE",
+ * //         vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
+ * //         vmPath: "STRING_VALUE",
+ * //       },
+ * //       replicationJobId: "STRING_VALUE",
+ * //       replicationJobTerminated: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetServersCommandInput - {@link GetServersCommandInput}
@@ -73,6 +97,8 @@ export interface GetServersCommandOutput extends GetServersResponse, __MetadataB
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class GetServersCommand extends $Command<

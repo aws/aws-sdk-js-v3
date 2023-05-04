@@ -56,6 +56,8 @@ export interface UpdateReplicationSetCommandOutput extends UpdateReplicationSetO
  * };
  * const command = new UpdateReplicationSetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateReplicationSetCommandInput - {@link UpdateReplicationSetCommandInput}
@@ -84,6 +86,8 @@ export interface UpdateReplicationSetCommandOutput extends UpdateReplicationSetO
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class UpdateReplicationSetCommand extends $Command<

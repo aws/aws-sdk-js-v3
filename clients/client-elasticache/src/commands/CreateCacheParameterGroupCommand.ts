@@ -67,6 +67,16 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  * };
  * const command = new CreateCacheParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCacheParameterGroupResult
+ * //   CacheParameterGroup: { // CacheParameterGroup
+ * //     CacheParameterGroupName: "STRING_VALUE",
+ * //     CacheParameterGroupFamily: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     IsGlobal: true || false,
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateCacheParameterGroupCommandInput - {@link CreateCacheParameterGroupCommandInput}
@@ -93,6 +103,8 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
  *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example CreateCacheParameterGroup
  * ```javascript

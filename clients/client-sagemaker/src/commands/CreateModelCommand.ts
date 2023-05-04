@@ -124,6 +124,10 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
+ * // { // CreateModelOutput
+ * //   ModelArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateModelCommandInput - {@link CreateModelCommandInput}
@@ -136,6 +140,8 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateModelCommand extends $Command<

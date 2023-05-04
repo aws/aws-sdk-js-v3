@@ -45,6 +45,11 @@ export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreRes
  * };
  * const command = new AssociateTrustStoreCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateTrustStoreResponse
+ * //   portalArn: "STRING_VALUE", // required
+ * //   trustStoreArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param AssociateTrustStoreCommandInput - {@link AssociateTrustStoreCommandInput}
@@ -68,6 +73,8 @@ export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreRes
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class AssociateTrustStoreCommand extends $Command<

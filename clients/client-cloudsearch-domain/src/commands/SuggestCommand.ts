@@ -53,6 +53,24 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * };
  * const command = new SuggestCommand(input);
  * const response = await client.send(command);
+ * // { // SuggestResponse
+ * //   status: { // SuggestStatus
+ * //     timems: Number("long"),
+ * //     rid: "STRING_VALUE",
+ * //   },
+ * //   suggest: { // SuggestModel
+ * //     query: "STRING_VALUE",
+ * //     found: Number("long"),
+ * //     suggestions: [ // Suggestions
+ * //       { // SuggestionMatch
+ * //         suggestion: "STRING_VALUE",
+ * //         score: Number("long"),
+ * //         id: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param SuggestCommandInput - {@link SuggestCommandInput}
@@ -64,6 +82,8 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * @throws {@link SearchException} (client fault)
  *  <p>Information about any problems encountered while processing a search request.</p>
  *
+ * @throws {@link CloudSearchDomainServiceException}
+ * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
  */
 export class SuggestCommand extends $Command<

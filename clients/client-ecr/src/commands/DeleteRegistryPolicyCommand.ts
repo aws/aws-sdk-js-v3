@@ -42,6 +42,11 @@ export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyR
  * const input = {};
  * const command = new DeleteRegistryPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteRegistryPolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   policyText: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteRegistryPolicyCommandInput - {@link DeleteRegistryPolicyCommandInput}
@@ -63,6 +68,8 @@ export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyR
  * @throws {@link ValidationException} (client fault)
  *  <p>There was an exception validating this request.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class DeleteRegistryPolicyCommand extends $Command<

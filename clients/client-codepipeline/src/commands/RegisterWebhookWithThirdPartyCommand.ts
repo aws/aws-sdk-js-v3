@@ -50,6 +50,8 @@ export interface RegisterWebhookWithThirdPartyCommandOutput
  * };
  * const command = new RegisterWebhookWithThirdPartyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RegisterWebhookWithThirdPartyCommandInput - {@link RegisterWebhookWithThirdPartyCommandInput}
@@ -65,6 +67,8 @@ export interface RegisterWebhookWithThirdPartyCommandOutput
  *  <p>The specified webhook was entered in an invalid format or cannot be
  *             found.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class RegisterWebhookWithThirdPartyCommand extends $Command<

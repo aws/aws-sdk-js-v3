@@ -48,6 +48,10 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  * };
  * const command = new DeleteInterconnectCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteInterconnectResponse
+ * //   interconnectState: "requested" || "pending" || "available" || "down" || "deleting" || "deleted" || "unknown",
+ * // };
+ *
  * ```
  *
  * @param DeleteInterconnectCommandInput - {@link DeleteInterconnectCommandInput}
@@ -62,6 +66,8 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DeleteInterconnectCommand extends $Command<

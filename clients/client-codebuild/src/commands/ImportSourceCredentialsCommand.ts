@@ -53,6 +53,10 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  * };
  * const command = new ImportSourceCredentialsCommand(input);
  * const response = await client.send(command);
+ * // { // ImportSourceCredentialsOutput
+ * //   arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ImportSourceCredentialsCommandInput - {@link ImportSourceCredentialsCommandInput}
@@ -71,6 +75,8 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  *  <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same
  *             settings already exists.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ImportSourceCredentialsCommand extends $Command<

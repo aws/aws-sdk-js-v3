@@ -79,6 +79,10 @@ export interface CreateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * };
  * const command = new CreateEphemerisCommand(input);
  * const response = await client.send(command);
+ * // { // EphemerisIdResponse
+ * //   ephemerisId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateEphemerisCommandInput - {@link CreateEphemerisCommandInput}
@@ -96,6 +100,8 @@ export interface CreateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class CreateEphemerisCommand extends $Command<

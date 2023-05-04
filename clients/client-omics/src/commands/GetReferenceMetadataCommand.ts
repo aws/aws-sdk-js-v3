@@ -45,6 +45,30 @@ export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataR
  * };
  * const command = new GetReferenceMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // GetReferenceMetadataResponse
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   referenceStoreId: "STRING_VALUE", // required
+ * //   md5: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   updateTime: new Date("TIMESTAMP"), // required
+ * //   files: { // ReferenceFiles
+ * //     source: { // FileInformation
+ * //       totalParts: Number("int"),
+ * //       partSize: Number("long"),
+ * //       contentLength: Number("long"),
+ * //     },
+ * //     index: {
+ * //       totalParts: Number("int"),
+ * //       partSize: Number("long"),
+ * //       contentLength: Number("long"),
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetReferenceMetadataCommandInput - {@link GetReferenceMetadataCommandInput}
@@ -71,6 +95,8 @@ export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetReferenceMetadataCommand extends $Command<

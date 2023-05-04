@@ -57,7 +57,7 @@ export interface ResourceStatus {
   ecr: Status | string | undefined;
 
   /**
-   * <p>The status of Amazon Inspector scanning for AWS Lambda function resources.</p>
+   * <p>The status of Amazon Inspector scanning for AWS Lambda function.</p>
    */
   lambda?: Status | string;
 }
@@ -1860,7 +1860,7 @@ export interface AutoEnable {
   ecr: boolean | undefined;
 
   /**
-   * <p>Represents whether AWS Lambda scans are automatically enabled for new members of your Amazon Inspector organization.
+   * <p>Represents whether AWS Lambda standard scans are automatically enabled for new members of your Amazon Inspector organization.
    *       </p>
    */
   lambda?: boolean;
@@ -2318,6 +2318,138 @@ export interface BatchGetFreeTrialInfoResponse {
 /**
  * @public
  */
+export interface BatchGetMemberEc2DeepInspectionStatusRequest {
+  /**
+   * <p>The unique identifiers for the Amazon Web Services accounts to retrieve Amazon Inspector deep inspection activation status for.
+   *
+   *       </p>
+   */
+  accountIds?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Ec2DeepInspectionStatus = {
+  ACTIVATED: "ACTIVATED",
+  DEACTIVATED: "DEACTIVATED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type Ec2DeepInspectionStatus = (typeof Ec2DeepInspectionStatus)[keyof typeof Ec2DeepInspectionStatus];
+
+/**
+ * @public
+ * <p>An object that contains details about the state of Amazon Inspector deep inspection for a member account.</p>
+ */
+export interface MemberAccountEc2DeepInspectionStatusState {
+  /**
+   * <p>The unique identifier for the Amazon Web Services account of the organization member</p>
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The state of Amazon Inspector deep inspection in the member account.</p>
+   */
+  status?: Ec2DeepInspectionStatus | string;
+
+  /**
+   * <p>The error message explaining why the account failed to activate Amazon Inspector deep inspection.</p>
+   */
+  errorMessage?: string;
+}
+
+/**
+ * @public
+ * <p>An object that contains details about a member account in your organization that failed to activate Amazon Inspector deep inspection.</p>
+ */
+export interface FailedMemberAccountEc2DeepInspectionStatusState {
+  /**
+   * <p>The unique identifier for the Amazon Web Services account of the organization member that failed to activate Amazon Inspector deep inspection.</p>
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The status of EC2 scanning in the account that failed to activate Amazon Inspector deep inspection.</p>
+   */
+  ec2ScanStatus?: Status | string;
+
+  /**
+   * <p>The error message explaining why the account failed to activate Amazon Inspector deep inspection.</p>
+   */
+  errorMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetMemberEc2DeepInspectionStatusResponse {
+  /**
+   * <p>An array of objects that provide details on the activation status of Amazon Inspector deep inspection for each of the requested accounts.
+   *
+   *          </p>
+   */
+  accountIds?: MemberAccountEc2DeepInspectionStatusState[];
+
+  /**
+   * <p>An array of objects that provide details on any accounts that failed to activate Amazon Inspector deep inspection and why.
+   *
+   *       </p>
+   */
+  failedAccountIds?: FailedMemberAccountEc2DeepInspectionStatusState[];
+}
+
+/**
+ * @public
+ * <p>An object that contains details about the status of Amazon Inspector deep inspection for a member account in your organization.</p>
+ */
+export interface MemberAccountEc2DeepInspectionStatus {
+  /**
+   * <p>The unique identifier for the Amazon Web Services account of the organization member.</p>
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>Whether Amazon Inspector deep inspection is active in the account.  If <code>TRUE</code> Amazon Inspector deep inspection is active, if <code>FALSE</code> it is not active.</p>
+   */
+  activateDeepInspection: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateMemberEc2DeepInspectionStatusRequest {
+  /**
+   * <p>The unique identifiers for the Amazon Web Services accounts to change Amazon Inspector deep inspection status for.</p>
+   */
+  accountIds: MemberAccountEc2DeepInspectionStatus[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateMemberEc2DeepInspectionStatusResponse {
+  /**
+   * <p>An array of objects that provide details for each of the accounts that Amazon Inspector deep inspection status was successfully changed for.
+   *       </p>
+   */
+  accountIds?: MemberAccountEc2DeepInspectionStatusState[];
+
+  /**
+   * <p>An array of objects that provide details for each of the accounts that Amazon Inspector deep inspection status could not be successfully changed for.
+   *       </p>
+   */
+  failedAccountIds?: FailedMemberAccountEc2DeepInspectionStatusState[];
+}
+
+/**
+ * @public
+ */
 export interface CancelFindingsReportRequest {
   /**
    * <p>The ID of the report to be canceled.</p>
@@ -2682,6 +2814,10 @@ export interface ResourceScanMetadata {
  */
 export const ScanStatusReason = {
   ACCESS_DENIED: "ACCESS_DENIED",
+  DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED: "DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED",
+  DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED: "DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED",
+  DEEP_INSPECTION_NO_INVENTORY: "DEEP_INSPECTION_NO_INVENTORY",
+  DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED: "DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED",
   EC2_INSTANCE_STOPPED: "EC2_INSTANCE_STOPPED",
   EXCLUDED_BY_TAG: "EXCLUDED_BY_TAG",
   IMAGE_SIZE_EXCEEDED: "IMAGE_SIZE_EXCEEDED",
@@ -2697,6 +2833,8 @@ export const ScanStatusReason = {
   STALE_INVENTORY: "STALE_INVENTORY",
   SUCCESSFUL: "SUCCESSFUL",
   UNMANAGED_EC2_INSTANCE: "UNMANAGED_EC2_INSTANCE",
+  UNSUPPORTED_CONFIG_FILE: "UNSUPPORTED_CONFIG_FILE",
+  UNSUPPORTED_MEDIA_TYPE: "UNSUPPORTED_MEDIA_TYPE",
   UNSUPPORTED_OS: "UNSUPPORTED_OS",
   UNSUPPORTED_RUNTIME: "UNSUPPORTED_RUNTIME",
 } as const;
@@ -3186,7 +3324,7 @@ export interface Destination {
   bucketName: string | undefined;
 
   /**
-   * <p>The prefix of the KMS key used to export findings.</p>
+   * <p>The prefix of the Amazon S3 bucket used to export findings.</p>
    */
   keyPrefix?: string;
 
@@ -3858,6 +3996,7 @@ export const PackageManager = {
   BUNDLER: "BUNDLER",
   CARGO: "CARGO",
   COMPOSER: "COMPOSER",
+  GEMSPEC: "GEMSPEC",
   GOBINARY: "GOBINARY",
   GOMOD: "GOMOD",
   JAR: "JAR",
@@ -4271,6 +4410,36 @@ export interface GetDelegatedAdminAccountResponse {
    * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator.</p>
    */
   delegatedAdmin?: DelegatedAdmin;
+}
+
+/**
+ * @public
+ */
+export interface GetEc2DeepInspectionConfigurationRequest {}
+
+/**
+ * @public
+ */
+export interface GetEc2DeepInspectionConfigurationResponse {
+  /**
+   * <p>The Amazon Inspector deep inspection custom paths for your account.</p>
+   */
+  packagePaths?: string[];
+
+  /**
+   * <p>The Amazon Inspector deep inspection custom paths for your organization.</p>
+   */
+  orgPackagePaths?: string[];
+
+  /**
+   * <p>The activation status of Amazon Inspector deep inspection in your account.</p>
+   */
+  status?: Ec2DeepInspectionStatus | string;
+
+  /**
+   * <p>An error message explaining why Amazon Inspector deep inspection configurations could not be retrieved for your account.</p>
+   */
+  errorMessage?: string;
 }
 
 /**
@@ -5001,6 +5170,46 @@ export interface UpdateConfigurationResponse {}
 /**
  * @public
  */
+export interface UpdateEc2DeepInspectionConfigurationRequest {
+  /**
+   * <p>Specify <code>TRUE</code> to activate Amazon Inspector deep inspection in your account, or <code>FALSE</code> to deactivate. Member accounts in an organization cannot deactivate deep inspection, instead the delegated administrator for the organization can deactivate a member account using <a href="https://docs.aws.amazon.com/inspector/v2/APIReference/API_BatchUpdateMemberEc2DeepInspectionStatus.html">BatchUpdateMemberEc2DeepInspectionStatus</a>.</p>
+   */
+  activateDeepInspection?: boolean;
+
+  /**
+   * <p>The Amazon Inspector deep inspection custom paths you are adding for your account.</p>
+   */
+  packagePaths?: string[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateEc2DeepInspectionConfigurationResponse {
+  /**
+   * <p>The current Amazon Inspector deep inspection custom paths for your account.</p>
+   */
+  packagePaths?: string[];
+
+  /**
+   * <p>The current Amazon Inspector deep inspection custom paths for the organization.</p>
+   */
+  orgPackagePaths?: string[];
+
+  /**
+   * <p>The status of Amazon Inspector deep inspection in your account.</p>
+   */
+  status?: Ec2DeepInspectionStatus | string;
+
+  /**
+   * <p>An error message explaining why new Amazon Inspector deep inspection custom paths could not be added.</p>
+   */
+  errorMessage?: string;
+}
+
+/**
+ * @public
+ */
 export interface UpdateFilterRequest {
   /**
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
@@ -5062,3 +5271,18 @@ export interface UpdateOrganizationConfigurationResponse {
    */
   autoEnable: AutoEnable | undefined;
 }
+
+/**
+ * @public
+ */
+export interface UpdateOrgEc2DeepInspectionConfigurationRequest {
+  /**
+   * <p>The Amazon Inspector deep inspection custom paths you are adding for your organization.</p>
+   */
+  orgPackagePaths: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOrgEc2DeepInspectionConfigurationResponse {}

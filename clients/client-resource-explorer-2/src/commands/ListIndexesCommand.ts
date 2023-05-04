@@ -54,6 +54,17 @@ export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataB
  * };
  * const command = new ListIndexesCommand(input);
  * const response = await client.send(command);
+ * // { // ListIndexesOutput
+ * //   Indexes: [ // IndexList
+ * //     { // Index
+ * //       Region: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListIndexesCommandInput - {@link ListIndexesCommandInput}
@@ -79,6 +90,8 @@ export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataB
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class ListIndexesCommand extends $Command<

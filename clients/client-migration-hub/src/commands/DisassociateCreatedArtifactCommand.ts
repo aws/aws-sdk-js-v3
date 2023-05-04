@@ -63,6 +63,8 @@ export interface DisassociateCreatedArtifactCommandOutput extends DisassociateCr
  * };
  * const command = new DisassociateCreatedArtifactCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateCreatedArtifactCommandInput - {@link DisassociateCreatedArtifactCommandInput}
@@ -105,6 +107,8 @@ export interface DisassociateCreatedArtifactCommandOutput extends DisassociateCr
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class DisassociateCreatedArtifactCommand extends $Command<

@@ -53,6 +53,11 @@ export interface RegisterCertificateWithoutCACommandOutput
  * };
  * const command = new RegisterCertificateWithoutCACommand(input);
  * const response = await client.send(command);
+ * // { // RegisterCertificateWithoutCAResponse
+ * //   certificateArn: "STRING_VALUE",
+ * //   certificateId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RegisterCertificateWithoutCACommandInput - {@link RegisterCertificateWithoutCACommandInput}
@@ -85,6 +90,8 @@ export interface RegisterCertificateWithoutCACommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class RegisterCertificateWithoutCACommand extends $Command<

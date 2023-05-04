@@ -47,6 +47,15 @@ export interface DeleteParametersCommandOutput extends DeleteParametersResult, _
  * };
  * const command = new DeleteParametersCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteParametersResult
+ * //   DeletedParameters: [ // ParameterNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   InvalidParameters: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DeleteParametersCommandInput - {@link DeleteParametersCommandInput}
@@ -58,6 +67,8 @@ export interface DeleteParametersCommandOutput extends DeleteParametersResult, _
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteParametersCommand extends $Command<

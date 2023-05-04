@@ -104,6 +104,10 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTableResponse
+ * //   resourceArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateTableCommandInput - {@link CreateTableCommandInput}
@@ -133,6 +137,8 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class CreateTableCommand extends $Command<

@@ -68,6 +68,32 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * };
  * const command = new ListCoverageCommand(input);
  * const response = await client.send(command);
+ * // { // ListCoverageResponse
+ * //   Resources: [ // CoverageResources // required
+ * //     { // CoverageResource
+ * //       ResourceId: "STRING_VALUE",
+ * //       DetectorId: "STRING_VALUE",
+ * //       AccountId: "STRING_VALUE",
+ * //       ResourceDetails: { // CoverageResourceDetails
+ * //         EksClusterDetails: { // CoverageEksClusterDetails
+ * //           ClusterName: "STRING_VALUE",
+ * //           CoveredNodes: Number("long"),
+ * //           CompatibleNodes: Number("long"),
+ * //           AddonDetails: { // AddonDetails
+ * //             AddonVersion: "STRING_VALUE",
+ * //             AddonStatus: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         ResourceType: "EKS",
+ * //       },
+ * //       CoverageStatus: "HEALTHY" || "UNHEALTHY",
+ * //       Issue: "STRING_VALUE",
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCoverageCommandInput - {@link ListCoverageCommandInput}
@@ -82,6 +108,8 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListCoverageCommand extends $Command<

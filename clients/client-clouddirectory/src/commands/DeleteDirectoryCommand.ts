@@ -46,6 +46,10 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, _
  * };
  * const command = new DeleteDirectoryCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDirectoryResponse
+ * //   DirectoryArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteDirectoryCommandInput - {@link DeleteDirectoryCommandInput}
@@ -83,6 +87,8 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, _
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DeleteDirectoryCommand extends $Command<

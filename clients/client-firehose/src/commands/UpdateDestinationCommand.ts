@@ -427,6 +427,8 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  * };
  * const command = new UpdateDestinationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateDestinationCommandInput - {@link UpdateDestinationCommandInput}
@@ -448,6 +450,8 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class UpdateDestinationCommand extends $Command<

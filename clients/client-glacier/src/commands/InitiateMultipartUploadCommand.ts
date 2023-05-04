@@ -80,6 +80,11 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  * };
  * const command = new InitiateMultipartUploadCommand(input);
  * const response = await client.send(command);
+ * // { // InitiateMultipartUploadOutput
+ * //   location: "STRING_VALUE",
+ * //   uploadId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param InitiateMultipartUploadCommandInput - {@link InitiateMultipartUploadCommandInput}
@@ -101,6 +106,8 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To initiate a multipart upload
  * ```javascript

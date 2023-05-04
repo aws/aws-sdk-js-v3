@@ -81,6 +81,12 @@ export interface StartPiiEntitiesDetectionJobCommandOutput
  * };
  * const command = new StartPiiEntitiesDetectionJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartPiiEntitiesDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobArn: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
+ *
  * ```
  *
  * @param StartPiiEntitiesDetectionJobCommandInput - {@link StartPiiEntitiesDetectionJobCommandInput}
@@ -111,6 +117,8 @@ export interface StartPiiEntitiesDetectionJobCommandOutput
  *       resource). The maximum number of tags includes both existing tags and those included in your
  *       current request. </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StartPiiEntitiesDetectionJobCommand extends $Command<

@@ -51,6 +51,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResult,
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
@@ -80,6 +82,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResult,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many service requests were made over the given time period.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @example UpdateEnvironment
  * ```javascript

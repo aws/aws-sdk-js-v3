@@ -51,6 +51,20 @@ export interface ListProvisionedProductPlansCommandOutput extends ListProvisione
  * };
  * const command = new ListProvisionedProductPlansCommand(input);
  * const response = await client.send(command);
+ * // { // ListProvisionedProductPlansOutput
+ * //   ProvisionedProductPlans: [ // ProvisionedProductPlans
+ * //     { // ProvisionedProductPlanSummary
+ * //       PlanName: "STRING_VALUE",
+ * //       PlanId: "STRING_VALUE",
+ * //       ProvisionProductId: "STRING_VALUE",
+ * //       ProvisionProductName: "STRING_VALUE",
+ * //       PlanType: "CLOUDFORMATION",
+ * //       ProvisioningArtifactId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListProvisionedProductPlansCommandInput - {@link ListProvisionedProductPlansCommandInput}
@@ -65,6 +79,8 @@ export interface ListProvisionedProductPlansCommandOutput extends ListProvisione
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListProvisionedProductPlansCommand extends $Command<

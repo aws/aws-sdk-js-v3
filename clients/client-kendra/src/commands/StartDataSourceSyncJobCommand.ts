@@ -47,6 +47,10 @@ export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSync
  * };
  * const command = new StartDataSourceSyncJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartDataSourceSyncJobResponse
+ * //   ExecutionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartDataSourceSyncJobCommandInput - {@link StartDataSourceSyncJobCommandInput}
@@ -83,6 +87,8 @@ export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSync
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class StartDataSourceSyncJobCommand extends $Command<

@@ -44,6 +44,23 @@ export interface GetResourceProfileCommandOutput extends GetResourceProfileRespo
  * };
  * const command = new GetResourceProfileCommand(input);
  * const response = await client.send(command);
+ * // { // GetResourceProfileResponse
+ * //   profileUpdatedAt: new Date("TIMESTAMP"),
+ * //   sensitivityScore: Number("int"),
+ * //   sensitivityScoreOverridden: true || false,
+ * //   statistics: { // ResourceStatistics
+ * //     totalBytesClassified: Number("long"),
+ * //     totalDetections: Number("long"),
+ * //     totalDetectionsSuppressed: Number("long"),
+ * //     totalItemsClassified: Number("long"),
+ * //     totalItemsSensitive: Number("long"),
+ * //     totalItemsSkipped: Number("long"),
+ * //     totalItemsSkippedInvalidEncryption: Number("long"),
+ * //     totalItemsSkippedInvalidKms: Number("long"),
+ * //     totalItemsSkippedPermissionDenied: Number("long"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetResourceProfileCommandInput - {@link GetResourceProfileCommandInput}
@@ -70,6 +87,8 @@ export interface GetResourceProfileCommandOutput extends GetResourceProfileRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetResourceProfileCommand extends $Command<

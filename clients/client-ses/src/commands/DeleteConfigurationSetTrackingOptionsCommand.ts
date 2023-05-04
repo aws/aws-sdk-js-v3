@@ -62,6 +62,8 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput
  * };
  * const command = new DeleteConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteConfigurationSetTrackingOptionsCommandInput - {@link DeleteConfigurationSetTrackingOptionsCommandInput}
@@ -76,6 +78,8 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput
  * @throws {@link TrackingOptionsDoesNotExistException} (client fault)
  *  <p>Indicates that the TrackingOptions object you specified does not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<

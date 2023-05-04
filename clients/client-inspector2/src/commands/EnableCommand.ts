@@ -50,6 +50,33 @@ export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
  * };
  * const command = new EnableCommand(input);
  * const response = await client.send(command);
+ * // { // EnableResponse
+ * //   accounts: [ // AccountList // required
+ * //     { // Account
+ * //       accountId: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       resourceStatus: { // ResourceStatus
+ * //         ec2: "STRING_VALUE", // required
+ * //         ecr: "STRING_VALUE", // required
+ * //         lambda: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   failedAccounts: [ // FailedAccountList
+ * //     { // FailedAccount
+ * //       accountId: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE",
+ * //       resourceStatus: {
+ * //         ec2: "STRING_VALUE", // required
+ * //         ecr: "STRING_VALUE", // required
+ * //         lambda: "STRING_VALUE",
+ * //       },
+ * //       errorCode: "STRING_VALUE", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param EnableCommandInput - {@link EnableCommandInput}
@@ -74,6 +101,8 @@ export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class EnableCommand extends $Command<EnableCommandInput, EnableCommandOutput, Inspector2ClientResolvedConfig> {

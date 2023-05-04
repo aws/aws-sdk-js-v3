@@ -45,6 +45,22 @@ export interface GetSyncJobCommandOutput extends GetSyncJobResponse, __MetadataB
  * };
  * const command = new GetSyncJobCommand(input);
  * const response = await client.send(command);
+ * // { // GetSyncJobResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   workspaceId: "STRING_VALUE", // required
+ * //   syncSource: "STRING_VALUE", // required
+ * //   syncRole: "STRING_VALUE", // required
+ * //   status: { // SyncJobStatus
+ * //     state: "STRING_VALUE",
+ * //     error: { // ErrorDetails
+ * //       code: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   creationDateTime: new Date("TIMESTAMP"), // required
+ * //   updateDateTime: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param GetSyncJobCommandInput - {@link GetSyncJobCommandInput}
@@ -71,6 +87,8 @@ export interface GetSyncJobCommandOutput extends GetSyncJobResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class GetSyncJobCommand extends $Command<

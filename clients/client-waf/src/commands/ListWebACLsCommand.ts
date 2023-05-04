@@ -53,6 +53,16 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * };
  * const command = new ListWebACLsCommand(input);
  * const response = await client.send(command);
+ * // { // ListWebACLsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   WebACLs: [ // WebACLSummaries
+ * //     { // WebACLSummary
+ * //       WebACLId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListWebACLsCommandInput - {@link ListWebACLsCommandInput}
@@ -67,6 +77,8 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To list Web ACLs
  * ```javascript

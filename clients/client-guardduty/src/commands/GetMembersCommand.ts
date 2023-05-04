@@ -48,6 +48,27 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * };
  * const command = new GetMembersCommand(input);
  * const response = await client.send(command);
+ * // { // GetMembersResponse
+ * //   Members: [ // Members // required
+ * //     { // Member
+ * //       AccountId: "STRING_VALUE", // required
+ * //       DetectorId: "STRING_VALUE",
+ * //       MasterId: "STRING_VALUE", // required
+ * //       Email: "STRING_VALUE", // required
+ * //       RelationshipStatus: "STRING_VALUE", // required
+ * //       InvitedAt: "STRING_VALUE",
+ * //       UpdatedAt: "STRING_VALUE", // required
+ * //       AdministratorId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   UnprocessedAccounts: [ // UnprocessedAccounts // required
+ * //     { // UnprocessedAccount
+ * //       AccountId: "STRING_VALUE", // required
+ * //       Result: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetMembersCommandInput - {@link GetMembersCommandInput}
@@ -62,6 +83,8 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class GetMembersCommand extends $Command<

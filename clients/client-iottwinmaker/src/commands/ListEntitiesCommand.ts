@@ -53,6 +53,29 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * };
  * const command = new ListEntitiesCommand(input);
  * const response = await client.send(command);
+ * // { // ListEntitiesResponse
+ * //   entitySummaries: [ // EntitySummaries
+ * //     { // EntitySummary
+ * //       entityId: "STRING_VALUE", // required
+ * //       entityName: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       parentEntityId: "STRING_VALUE",
+ * //       status: { // Status
+ * //         state: "STRING_VALUE",
+ * //         error: { // ErrorDetails
+ * //           code: "STRING_VALUE",
+ * //           message: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       description: "STRING_VALUE",
+ * //       hasChildEntities: true || false,
+ * //       creationDateTime: new Date("TIMESTAMP"), // required
+ * //       updateDateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEntitiesCommandInput - {@link ListEntitiesCommandInput}
@@ -73,6 +96,8 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class ListEntitiesCommand extends $Command<

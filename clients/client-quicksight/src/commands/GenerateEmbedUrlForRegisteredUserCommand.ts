@@ -106,6 +106,12 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  * };
  * const command = new GenerateEmbedUrlForRegisteredUserCommand(input);
  * const response = await client.send(command);
+ * // { // GenerateEmbedUrlForRegisteredUserResponse
+ * //   EmbedUrl: "STRING_VALUE", // required
+ * //   Status: Number("int"), // required
+ * //   RequestId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param GenerateEmbedUrlForRegisteredUserCommandInput - {@link GenerateEmbedUrlForRegisteredUserCommandInput}
@@ -158,6 +164,8 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<

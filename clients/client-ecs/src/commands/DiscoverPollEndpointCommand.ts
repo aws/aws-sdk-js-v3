@@ -48,6 +48,12 @@ export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointR
  * };
  * const command = new DiscoverPollEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // DiscoverPollEndpointResponse
+ * //   endpoint: "STRING_VALUE",
+ * //   telemetryEndpoint: "STRING_VALUE",
+ * //   serviceConnectEndpoint: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DiscoverPollEndpointCommandInput - {@link DiscoverPollEndpointCommandInput}
@@ -64,6 +70,8 @@ export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointR
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class DiscoverPollEndpointCommand extends $Command<

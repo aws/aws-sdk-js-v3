@@ -51,6 +51,37 @@ export interface GetExternalModelsCommandOutput extends GetExternalModelsResult,
  * };
  * const command = new GetExternalModelsCommand(input);
  * const response = await client.send(command);
+ * // { // GetExternalModelsResult
+ * //   externalModels: [ // ExternalModelList
+ * //     { // ExternalModel
+ * //       modelEndpoint: "STRING_VALUE",
+ * //       modelSource: "SAGEMAKER",
+ * //       invokeModelEndpointRoleArn: "STRING_VALUE",
+ * //       inputConfiguration: { // ModelInputConfiguration
+ * //         eventTypeName: "STRING_VALUE",
+ * //         format: "TEXT_CSV" || "APPLICATION_JSON",
+ * //         useEventVariables: true || false, // required
+ * //         jsonInputTemplate: "STRING_VALUE",
+ * //         csvInputTemplate: "STRING_VALUE",
+ * //       },
+ * //       outputConfiguration: { // ModelOutputConfiguration
+ * //         format: "TEXT_CSV" || "APPLICATION_JSONLINES", // required
+ * //         jsonKeyToVariableMap: { // JsonKeyToVariableMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         csvIndexToVariableMap: { // CsvIndexToVariableMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       modelEndpointStatus: "ASSOCIATED" || "DISSOCIATED",
+ * //       lastUpdatedTime: "STRING_VALUE",
+ * //       createdTime: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetExternalModelsCommandInput - {@link GetExternalModelsCommandInput}
@@ -74,6 +105,8 @@ export interface GetExternalModelsCommandOutput extends GetExternalModelsResult,
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetExternalModelsCommand extends $Command<

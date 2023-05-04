@@ -55,6 +55,20 @@ export interface ListServerNeighborsCommandOutput extends ListServerNeighborsRes
  * };
  * const command = new ListServerNeighborsCommand(input);
  * const response = await client.send(command);
+ * // { // ListServerNeighborsResponse
+ * //   neighbors: [ // NeighborDetailsList // required
+ * //     { // NeighborConnectionDetail
+ * //       sourceServerId: "STRING_VALUE", // required
+ * //       destinationServerId: "STRING_VALUE", // required
+ * //       destinationPort: Number("int"),
+ * //       transportProtocol: "STRING_VALUE",
+ * //       connectionsCount: Number("long"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   knownDependencyCount: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param ListServerNeighborsCommandInput - {@link ListServerNeighborsCommandInput}
@@ -80,6 +94,8 @@ export interface ListServerNeighborsCommandOutput extends ListServerNeighborsRes
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class ListServerNeighborsCommand extends $Command<

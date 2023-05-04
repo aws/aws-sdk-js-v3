@@ -111,6 +111,56 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * };
  * const command = new BatchExecuteStatementCommand(input);
  * const response = await client.send(command);
+ * // { // BatchExecuteStatementResponse
+ * //   updateResults: [ // UpdateResults
+ * //     { // UpdateResult
+ * //       generatedFields: [ // FieldList
+ * //         { // Field Union: only one key present
+ * //           isNull: true || false,
+ * //           booleanValue: true || false,
+ * //           longValue: Number("long"),
+ * //           doubleValue: Number("double"),
+ * //           stringValue: "STRING_VALUE",
+ * //           blobValue: "BLOB_VALUE",
+ * //           arrayValue: { // ArrayValue Union: only one key present
+ * //             booleanValues: [ // BooleanArray
+ * //               true || false,
+ * //             ],
+ * //             longValues: [ // LongArray
+ * //               Number("long"),
+ * //             ],
+ * //             doubleValues: [ // DoubleArray
+ * //               Number("double"),
+ * //             ],
+ * //             stringValues: [ // StringArray
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             arrayValues: [ // ArrayOfArray
+ * //               {//  Union: only one key present
+ * //                 booleanValues: [
+ * //                   true || false,
+ * //                 ],
+ * //                 longValues: [
+ * //                   Number("long"),
+ * //                 ],
+ * //                 doubleValues: [
+ * //                   Number("double"),
+ * //                 ],
+ * //                 stringValues: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 arrayValues: [
+ * //                   "<ArrayValue>",
+ * //                 ],
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchExecuteStatementCommandInput - {@link BatchExecuteStatementCommandInput}
@@ -138,6 +188,8 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * @throws {@link StatementTimeoutException} (client fault)
  *  <p>The execution of the SQL statement timed out.</p>
  *
+ * @throws {@link RDSDataServiceException}
+ * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
  */
 export class BatchExecuteStatementCommand extends $Command<

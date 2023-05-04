@@ -53,6 +53,18 @@ export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPo
  * };
  * const command = new CreateTrafficPolicyVersionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTrafficPolicyVersionResponse
+ * //   TrafficPolicy: { // TrafficPolicy
+ * //     Id: "STRING_VALUE", // required
+ * //     Version: Number("int"), // required
+ * //     Name: "STRING_VALUE", // required
+ * //     Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //     Document: "STRING_VALUE", // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * //   Location: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateTrafficPolicyVersionCommandInput - {@link CreateTrafficPolicyVersionCommandInput}
@@ -83,6 +95,8 @@ export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPo
  * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a> to create a new traffic policy using the traffic policy
  * 			document.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class CreateTrafficPolicyVersionCommand extends $Command<

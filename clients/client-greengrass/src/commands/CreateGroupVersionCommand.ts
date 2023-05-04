@@ -52,6 +52,13 @@ export interface CreateGroupVersionCommandOutput extends CreateGroupVersionRespo
  * };
  * const command = new CreateGroupVersionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateGroupVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateGroupVersionCommandInput - {@link CreateGroupVersionCommandInput}
@@ -63,6 +70,8 @@ export interface CreateGroupVersionCommandOutput extends CreateGroupVersionRespo
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateGroupVersionCommand extends $Command<

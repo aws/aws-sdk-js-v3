@@ -55,6 +55,17 @@ export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProvi
  * };
  * const command = new UpdateIdentityProviderCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateIdentityProviderResponse
+ * //   identityProvider: { // IdentityProvider
+ * //     identityProviderArn: "STRING_VALUE", // required
+ * //     identityProviderName: "STRING_VALUE",
+ * //     identityProviderType: "STRING_VALUE",
+ * //     identityProviderDetails: { // IdentityProviderDetails
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateIdentityProviderCommandInput - {@link UpdateIdentityProviderCommandInput}
@@ -78,6 +89,8 @@ export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProvi
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class UpdateIdentityProviderCommand extends $Command<

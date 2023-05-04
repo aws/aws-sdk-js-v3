@@ -49,6 +49,35 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * };
  * const command = new UpdateSnapshotCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateSnapshotResponse
+ * //   snapshot: { // Snapshot
+ * //     namespaceName: "STRING_VALUE",
+ * //     namespaceArn: "STRING_VALUE",
+ * //     snapshotName: "STRING_VALUE",
+ * //     snapshotCreateTime: new Date("TIMESTAMP"),
+ * //     adminUsername: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     kmsKeyId: "STRING_VALUE",
+ * //     ownerAccount: "STRING_VALUE",
+ * //     totalBackupSizeInMegaBytes: Number("double"),
+ * //     actualIncrementalBackupSizeInMegaBytes: Number("double"),
+ * //     backupProgressInMegaBytes: Number("double"),
+ * //     currentBackupRateInMegaBytesPerSecond: Number("double"),
+ * //     estimatedSecondsToCompletion: Number("long"),
+ * //     elapsedTimeInSeconds: Number("long"),
+ * //     snapshotRetentionPeriod: Number("int"),
+ * //     snapshotRemainingDays: Number("int"),
+ * //     snapshotRetentionStartTime: new Date("TIMESTAMP"),
+ * //     snapshotArn: "STRING_VALUE",
+ * //     accountsWithRestoreAccess: [ // AccountIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     accountsWithProvisionedRestoreAccess: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateSnapshotCommandInput - {@link UpdateSnapshotCommandInput}
@@ -69,6 +98,8 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class UpdateSnapshotCommand extends $Command<

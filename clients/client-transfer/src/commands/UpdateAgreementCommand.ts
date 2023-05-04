@@ -53,6 +53,10 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  * };
  * const command = new UpdateAgreementCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateAgreementResponse
+ * //   AgreementId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateAgreementCommandInput - {@link UpdateAgreementCommandInput}
@@ -80,6 +84,8 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class UpdateAgreementCommand extends $Command<

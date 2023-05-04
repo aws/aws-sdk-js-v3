@@ -57,6 +57,16 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * };
  * const command = new DescribeMovingAddressesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeMovingAddressesResult
+ * //   MovingAddressStatuses: [ // MovingAddressStatusSet
+ * //     { // MovingAddressStatus
+ * //       MoveStatus: "movingToVpc" || "restoringToClassic",
+ * //       PublicIp: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeMovingAddressesCommandInput - {@link DescribeMovingAddressesCommandInput}
@@ -65,6 +75,8 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * @see {@link DescribeMovingAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe your moving addresses
  * ```javascript

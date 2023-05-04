@@ -60,6 +60,15 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  * };
  * const command = new GetVaultNotificationsCommand(input);
  * const response = await client.send(command);
+ * // { // GetVaultNotificationsOutput
+ * //   vaultNotificationConfig: { // VaultNotificationConfig
+ * //     SNSTopic: "STRING_VALUE",
+ * //     Events: [ // NotificationEventList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetVaultNotificationsCommandInput - {@link GetVaultNotificationsCommandInput}
@@ -81,6 +90,8 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To get the notification-configuration for the specified vault
  * ```javascript

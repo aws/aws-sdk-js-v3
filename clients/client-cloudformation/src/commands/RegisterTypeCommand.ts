@@ -78,6 +78,10 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  * };
  * const command = new RegisterTypeCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterTypeOutput
+ * //   RegistrationToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RegisterTypeCommandInput - {@link RegisterTypeCommandInput}
@@ -89,6 +93,8 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  * @throws {@link CFNRegistryException} (client fault)
  *  <p>An error occurred during a CloudFormation registry operation.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class RegisterTypeCommand extends $Command<

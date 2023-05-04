@@ -87,6 +87,22 @@ export interface DescribeComplianceByConfigRuleCommandOutput
  * };
  * const command = new DescribeComplianceByConfigRuleCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeComplianceByConfigRuleResponse
+ * //   ComplianceByConfigRules: [ // ComplianceByConfigRules
+ * //     { // ComplianceByConfigRule
+ * //       ConfigRuleName: "STRING_VALUE",
+ * //       Compliance: { // Compliance
+ * //         ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
+ * //         ComplianceContributorCount: { // ComplianceContributorCount
+ * //           CappedCount: Number("int"),
+ * //           CapExceeded: true || false,
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeComplianceByConfigRuleCommandInput - {@link DescribeComplianceByConfigRuleCommandInput}
@@ -107,6 +123,8 @@ export interface DescribeComplianceByConfigRuleCommandOutput
  * @throws {@link NoSuchConfigRuleException} (client fault)
  *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribeComplianceByConfigRuleCommand extends $Command<

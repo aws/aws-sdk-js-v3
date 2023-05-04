@@ -50,6 +50,24 @@ export interface ListWorkflowStepGroupsCommandOutput extends ListWorkflowStepGro
  * };
  * const command = new ListWorkflowStepGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListWorkflowStepGroupsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   workflowStepGroupsSummary: [ // WorkflowStepGroupsSummaryList // required
+ * //     { // WorkflowStepGroupSummary
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       owner: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       previous: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       next: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListWorkflowStepGroupsCommandInput - {@link ListWorkflowStepGroupsCommandInput}
@@ -73,6 +91,8 @@ export interface ListWorkflowStepGroupsCommandOutput extends ListWorkflowStepGro
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class ListWorkflowStepGroupsCommand extends $Command<

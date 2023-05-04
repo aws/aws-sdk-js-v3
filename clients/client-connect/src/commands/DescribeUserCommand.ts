@@ -46,6 +46,36 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * };
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeUserResponse
+ * //   User: { // User
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Username: "STRING_VALUE",
+ * //     IdentityInfo: { // UserIdentityInfo
+ * //       FirstName: "STRING_VALUE",
+ * //       LastName: "STRING_VALUE",
+ * //       Email: "STRING_VALUE",
+ * //       SecondaryEmail: "STRING_VALUE",
+ * //       Mobile: "STRING_VALUE",
+ * //     },
+ * //     PhoneConfig: { // UserPhoneConfig
+ * //       PhoneType: "SOFT_PHONE" || "DESK_PHONE", // required
+ * //       AutoAccept: true || false,
+ * //       AfterContactWorkTimeLimit: Number("int"),
+ * //       DeskPhoneNumber: "STRING_VALUE",
+ * //     },
+ * //     DirectoryUserId: "STRING_VALUE",
+ * //     SecurityProfileIds: [ // SecurityProfileIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     RoutingProfileId: "STRING_VALUE",
+ * //     HierarchyGroupId: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
@@ -69,6 +99,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeUserCommand extends $Command<

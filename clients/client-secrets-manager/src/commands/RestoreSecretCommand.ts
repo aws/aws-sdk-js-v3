@@ -52,6 +52,11 @@ export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __Met
  * };
  * const command = new RestoreSecretCommand(input);
  * const response = await client.send(command);
+ * // { // RestoreSecretResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RestoreSecretCommandInput - {@link RestoreSecretCommandInput}
@@ -87,6 +92,8 @@ export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To restore a previously deleted secret
  * ```javascript

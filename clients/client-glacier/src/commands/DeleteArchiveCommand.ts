@@ -72,6 +72,8 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteArchiveCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteArchiveCommandInput - {@link DeleteArchiveCommandInput}
@@ -93,6 +95,8 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To delete an archive
  * ```javascript

@@ -43,6 +43,11 @@ export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, _
  * const input = {};
  * const command = new CreateUploadUrlCommand(input);
  * const response = await client.send(command);
+ * // { // CreateUploadUrlResponse
+ * //   importId: "STRING_VALUE",
+ * //   uploadUrl: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateUploadUrlCommandInput - {@link CreateUploadUrlCommandInput}
@@ -72,6 +77,8 @@ export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, _
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class CreateUploadUrlCommand extends $Command<

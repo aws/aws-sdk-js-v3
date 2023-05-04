@@ -50,6 +50,11 @@ export interface GetSolNetworkPackageDescriptorCommandOutput
  * };
  * const command = new GetSolNetworkPackageDescriptorCommand(input);
  * const response = await client.send(command);
+ * // { // GetSolNetworkPackageDescriptorOutput
+ * //   contentType: "text/plain",
+ * //   nsd: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetSolNetworkPackageDescriptorCommandInput - {@link GetSolNetworkPackageDescriptorCommandInput}
@@ -73,6 +78,8 @@ export interface GetSolNetworkPackageDescriptorCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class GetSolNetworkPackageDescriptorCommand extends $Command<

@@ -47,6 +47,10 @@ export interface StopExecutionCommandOutput extends StopExecutionOutput, __Metad
  * };
  * const command = new StopExecutionCommand(input);
  * const response = await client.send(command);
+ * // { // StopExecutionOutput
+ * //   stopDate: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param StopExecutionCommandInput - {@link StopExecutionCommandInput}
@@ -64,6 +68,8 @@ export interface StopExecutionCommandOutput extends StopExecutionOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class StopExecutionCommand extends $Command<

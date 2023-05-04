@@ -52,6 +52,18 @@ export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersR
  * };
  * const command = new ListAppInstanceUsersCommand(input);
  * const response = await client.send(command);
+ * // { // ListAppInstanceUsersResponse
+ * //   AppInstanceArn: "STRING_VALUE",
+ * //   AppInstanceUsers: [ // AppInstanceUserList
+ * //     { // AppInstanceUserSummary
+ * //       AppInstanceUserArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Metadata: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAppInstanceUsersCommandInput - {@link ListAppInstanceUsersCommandInput}
@@ -78,6 +90,8 @@ export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class ListAppInstanceUsersCommand extends $Command<

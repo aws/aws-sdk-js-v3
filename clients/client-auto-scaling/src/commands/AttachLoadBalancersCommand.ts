@@ -63,6 +63,8 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
  * };
  * const command = new AttachLoadBalancersCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AttachLoadBalancersCommandInput - {@link AttachLoadBalancersCommandInput}
@@ -78,6 +80,8 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
  *  <p>The service-linked role is not yet ready for use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To attach a load balancer to an Auto Scaling group
  * ```javascript

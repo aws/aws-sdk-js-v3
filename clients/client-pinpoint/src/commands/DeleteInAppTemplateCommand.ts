@@ -45,6 +45,13 @@ export interface DeleteInAppTemplateCommandOutput extends DeleteInAppTemplateRes
  * };
  * const command = new DeleteInAppTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteInAppTemplateResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteInAppTemplateCommandInput - {@link DeleteInAppTemplateCommandInput}
@@ -74,6 +81,8 @@ export interface DeleteInAppTemplateCommandOutput extends DeleteInAppTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class DeleteInAppTemplateCommand extends $Command<

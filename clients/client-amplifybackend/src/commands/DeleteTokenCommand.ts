@@ -45,6 +45,10 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * };
  * const command = new DeleteTokenCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteTokenResponse
+ * //   IsSuccess: true || false,
+ * // };
+ *
  * ```
  *
  * @param DeleteTokenCommandInput - {@link DeleteTokenCommandInput}
@@ -65,6 +69,8 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class DeleteTokenCommand extends $Command<

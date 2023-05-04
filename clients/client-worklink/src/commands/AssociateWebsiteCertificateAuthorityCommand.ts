@@ -57,6 +57,10 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
  * };
  * const command = new AssociateWebsiteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateWebsiteCertificateAuthorityResponse
+ * //   WebsiteCaId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AssociateWebsiteCertificateAuthorityCommandInput - {@link AssociateWebsiteCertificateAuthorityCommandInput}
@@ -83,6 +87,8 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class AssociateWebsiteCertificateAuthorityCommand extends $Command<

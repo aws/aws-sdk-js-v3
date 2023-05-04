@@ -50,6 +50,17 @@ export interface ListModelsCommandOutput extends ListModelsOutput, __MetadataBea
  * };
  * const command = new ListModelsCommand(input);
  * const response = await client.send(command);
+ * // { // ListModelsOutput
+ * //   Models: [ // ModelSummaryList // required
+ * //     { // ModelSummary
+ * //       ModelName: "STRING_VALUE", // required
+ * //       ModelArn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListModelsCommandInput - {@link ListModelsCommandInput}
@@ -58,6 +69,8 @@ export interface ListModelsCommandOutput extends ListModelsOutput, __MetadataBea
  * @see {@link ListModelsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListModelsCommand extends $Command<

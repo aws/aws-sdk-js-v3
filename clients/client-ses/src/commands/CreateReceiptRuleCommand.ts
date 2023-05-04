@@ -95,6 +95,8 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  * };
  * const command = new CreateReceiptRuleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateReceiptRuleCommandInput - {@link CreateReceiptRuleCommandInput}
@@ -135,6 +137,8 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  * @throws {@link RuleSetDoesNotExistException} (client fault)
  *  <p>Indicates that the provided receipt rule set does not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example CreateReceiptRule
  * ```javascript

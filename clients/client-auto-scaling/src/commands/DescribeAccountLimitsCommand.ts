@@ -46,6 +46,13 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * const input = {};
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAccountLimitsAnswer
+ * //   MaxNumberOfAutoScalingGroups: Number("int"),
+ * //   MaxNumberOfLaunchConfigurations: Number("int"),
+ * //   NumberOfAutoScalingGroups: Number("int"),
+ * //   NumberOfLaunchConfigurations: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param DescribeAccountLimitsCommandInput - {@link DescribeAccountLimitsCommandInput}
@@ -58,6 +65,8 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To describe your Auto Scaling account limits
  * ```javascript

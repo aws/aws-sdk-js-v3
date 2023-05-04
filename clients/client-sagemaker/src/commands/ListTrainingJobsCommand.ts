@@ -75,6 +75,25 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  * };
  * const command = new ListTrainingJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTrainingJobsResponse
+ * //   TrainingJobSummaries: [ // TrainingJobSummaries // required
+ * //     { // TrainingJobSummary
+ * //       TrainingJobName: "STRING_VALUE", // required
+ * //       TrainingJobArn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       TrainingEndTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //       WarmPoolStatus: { // WarmPoolStatus
+ * //         Status: "Available" || "Terminated" || "Reused" || "InUse", // required
+ * //         ResourceRetainedBillableTimeInSeconds: Number("int"),
+ * //         ReusedByJob: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTrainingJobsCommandInput - {@link ListTrainingJobsCommandInput}
@@ -83,6 +102,8 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  * @see {@link ListTrainingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListTrainingJobsCommand extends $Command<

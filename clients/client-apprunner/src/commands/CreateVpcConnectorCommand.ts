@@ -57,6 +57,23 @@ export interface CreateVpcConnectorCommandOutput extends CreateVpcConnectorRespo
  * };
  * const command = new CreateVpcConnectorCommand(input);
  * const response = await client.send(command);
+ * // { // CreateVpcConnectorResponse
+ * //   VpcConnector: { // VpcConnector
+ * //     VpcConnectorName: "STRING_VALUE",
+ * //     VpcConnectorArn: "STRING_VALUE",
+ * //     VpcConnectorRevision: Number("int"),
+ * //     Subnets: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SecurityGroups: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Status: "ACTIVE" || "INACTIVE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     DeletedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateVpcConnectorCommandInput - {@link CreateVpcConnectorCommandInput}
@@ -76,6 +93,8 @@ export interface CreateVpcConnectorCommandOutput extends CreateVpcConnectorRespo
  *          <p>For App Runner per-resource quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/apprunner.html">App Runner endpoints and quotas</a> in the
  *         <i>Amazon Web Services General Reference</i>.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class CreateVpcConnectorCommand extends $Command<

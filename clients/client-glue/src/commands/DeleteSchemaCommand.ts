@@ -48,6 +48,12 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  * };
  * const command = new DeleteSchemaCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteSchemaResponse
+ * //   SchemaArn: "STRING_VALUE",
+ * //   SchemaName: "STRING_VALUE",
+ * //   Status: "AVAILABLE" || "PENDING" || "DELETING",
+ * // };
+ *
  * ```
  *
  * @param DeleteSchemaCommandInput - {@link DeleteSchemaCommandInput}
@@ -68,6 +74,8 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteSchemaCommand extends $Command<

@@ -61,6 +61,15 @@ export interface DisassociateFileSystemAliasesCommandOutput
  * };
  * const command = new DisassociateFileSystemAliasesCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateFileSystemAliasesResponse
+ * //   Aliases: [ // Aliases
+ * //     { // Alias
+ * //       Name: "STRING_VALUE",
+ * //       Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DisassociateFileSystemAliasesCommandInput - {@link DisassociateFileSystemAliasesCommandInput}
@@ -78,6 +87,8 @@ export interface DisassociateFileSystemAliasesCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>A generic error indicating a server-side failure.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DisassociateFileSystemAliasesCommand extends $Command<

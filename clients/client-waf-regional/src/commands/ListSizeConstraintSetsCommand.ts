@@ -53,6 +53,16 @@ export interface ListSizeConstraintSetsCommandOutput extends ListSizeConstraintS
  * };
  * const command = new ListSizeConstraintSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSizeConstraintSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   SizeConstraintSets: [ // SizeConstraintSetSummaries
+ * //     { // SizeConstraintSetSummary
+ * //       SizeConstraintSetId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListSizeConstraintSetsCommandInput - {@link ListSizeConstraintSetsCommandInput}
@@ -67,6 +77,8 @@ export interface ListSizeConstraintSetsCommandOutput extends ListSizeConstraintS
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To list a size constraint sets
  * ```javascript

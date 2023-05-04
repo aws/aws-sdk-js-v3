@@ -66,6 +66,20 @@ export interface DescribeRecommendationLimitationsCommandOutput
  * };
  * const command = new DescribeRecommendationLimitationsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRecommendationLimitationsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Limitations: [ // LimitationList
+ * //     { // Limitation
+ * //       DatabaseId: "STRING_VALUE",
+ * //       EngineName: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Impact: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeRecommendationLimitationsCommandInput - {@link DescribeRecommendationLimitationsCommandInput}
@@ -81,6 +95,8 @@ export interface DescribeRecommendationLimitationsCommandOutput
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeRecommendationLimitationsCommand extends $Command<

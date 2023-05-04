@@ -44,6 +44,8 @@ export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput,
  * };
  * const command = new DeleteDataCatalogCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDataCatalogCommandInput - {@link DeleteDataCatalogCommandInput}
@@ -60,6 +62,8 @@ export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput,
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class DeleteDataCatalogCommand extends $Command<

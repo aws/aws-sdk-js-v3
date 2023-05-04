@@ -59,6 +59,41 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsM
  * };
  * const command = new DescribeScheduledActionsCommand(input);
  * const response = await client.send(command);
+ * // { // ScheduledActionsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ScheduledActions: [ // ScheduledActionList
+ * //     { // ScheduledAction
+ * //       ScheduledActionName: "STRING_VALUE",
+ * //       TargetAction: { // ScheduledActionType
+ * //         ResizeCluster: { // ResizeClusterMessage
+ * //           ClusterIdentifier: "STRING_VALUE", // required
+ * //           ClusterType: "STRING_VALUE",
+ * //           NodeType: "STRING_VALUE",
+ * //           NumberOfNodes: Number("int"),
+ * //           Classic: true || false,
+ * //           ReservedNodeId: "STRING_VALUE",
+ * //           TargetReservedNodeOfferingId: "STRING_VALUE",
+ * //         },
+ * //         PauseCluster: { // PauseClusterMessage
+ * //           ClusterIdentifier: "STRING_VALUE", // required
+ * //         },
+ * //         ResumeCluster: { // ResumeClusterMessage
+ * //           ClusterIdentifier: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       Schedule: "STRING_VALUE",
+ * //       IamRole: "STRING_VALUE",
+ * //       ScheduledActionDescription: "STRING_VALUE",
+ * //       State: "ACTIVE" || "DISABLED",
+ * //       NextInvocations: [ // ScheduledActionTimeList
+ * //         new Date("TIMESTAMP"),
+ * //       ],
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeScheduledActionsCommandInput - {@link DescribeScheduledActionsCommandInput}
@@ -73,6 +108,8 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsM
  * @throws {@link UnauthorizedOperation} (client fault)
  *  <p>Your account is not authorized to perform the requested operation.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeScheduledActionsCommand extends $Command<

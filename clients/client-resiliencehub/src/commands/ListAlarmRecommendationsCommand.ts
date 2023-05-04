@@ -46,6 +46,29 @@ export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommen
  * };
  * const command = new ListAlarmRecommendationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAlarmRecommendationsResponse
+ * //   alarmRecommendations: [ // AlarmRecommendationList // required
+ * //     { // AlarmRecommendation
+ * //       recommendationId: "STRING_VALUE", // required
+ * //       referenceId: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       type: "STRING_VALUE", // required
+ * //       appComponentName: "STRING_VALUE",
+ * //       items: [ // RecommendationItemList
+ * //         { // RecommendationItem
+ * //           resourceId: "STRING_VALUE",
+ * //           targetAccountId: "STRING_VALUE",
+ * //           targetRegion: "STRING_VALUE",
+ * //           alreadyImplemented: true || false,
+ * //         },
+ * //       ],
+ * //       prerequisite: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAlarmRecommendationsCommandInput - {@link ListAlarmRecommendationsCommandInput}
@@ -72,6 +95,8 @@ export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommen
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListAlarmRecommendationsCommand extends $Command<

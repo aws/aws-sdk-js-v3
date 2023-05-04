@@ -44,6 +44,11 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  * };
  * const command = new GetKeyspaceCommand(input);
  * const response = await client.send(command);
+ * // { // GetKeyspaceResponse
+ * //   keyspaceName: "STRING_VALUE", // required
+ * //   resourceArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param GetKeyspaceCommandInput - {@link GetKeyspaceCommandInput}
@@ -68,6 +73,8 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class GetKeyspaceCommand extends $Command<

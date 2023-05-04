@@ -78,6 +78,24 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
  * };
  * const command = new GetInterpolatedAssetPropertyValuesCommand(input);
  * const response = await client.send(command);
+ * // { // GetInterpolatedAssetPropertyValuesResponse
+ * //   interpolatedAssetPropertyValues: [ // InterpolatedAssetPropertyValues // required
+ * //     { // InterpolatedAssetPropertyValue
+ * //       timestamp: { // TimeInNanos
+ * //         timeInSeconds: Number("long"), // required
+ * //         offsetInNanos: Number("int"),
+ * //       },
+ * //       value: { // Variant
+ * //         stringValue: "STRING_VALUE",
+ * //         integerValue: Number("int"),
+ * //         doubleValue: Number("double"),
+ * //         booleanValue: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetInterpolatedAssetPropertyValuesCommandInput - {@link GetInterpolatedAssetPropertyValuesCommandInput}
@@ -105,6 +123,8 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class GetInterpolatedAssetPropertyValuesCommand extends $Command<

@@ -79,6 +79,10 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * };
  * const command = new CreateFilterCommand(input);
  * const response = await client.send(command);
+ * // { // CreateFilterResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateFilterCommandInput - {@link CreateFilterCommandInput}
@@ -93,6 +97,8 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class CreateFilterCommand extends $Command<

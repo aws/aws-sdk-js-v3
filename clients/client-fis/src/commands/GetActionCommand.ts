@@ -44,6 +44,27 @@ export interface GetActionCommandOutput extends GetActionResponse, __MetadataBea
  * };
  * const command = new GetActionCommand(input);
  * const response = await client.send(command);
+ * // { // GetActionResponse
+ * //   action: { // Action
+ * //     id: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     parameters: { // ActionParameterMap
+ * //       "<keys>": { // ActionParameter
+ * //         description: "STRING_VALUE",
+ * //         required: true || false,
+ * //       },
+ * //     },
+ * //     targets: { // ActionTargetMap
+ * //       "<keys>": { // ActionTarget
+ * //         resourceType: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetActionCommandInput - {@link GetActionCommandInput}
@@ -58,6 +79,8 @@ export interface GetActionCommandOutput extends GetActionResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
  *
+ * @throws {@link FisServiceException}
+ * <p>Base exception class for all service exceptions from Fis service.</p>
  *
  */
 export class GetActionCommand extends $Command<GetActionCommandInput, GetActionCommandOutput, FisClientResolvedConfig> {

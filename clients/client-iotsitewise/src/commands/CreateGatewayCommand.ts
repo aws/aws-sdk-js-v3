@@ -57,6 +57,11 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * };
  * const command = new CreateGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // CreateGatewayResponse
+ * //   gatewayId: "STRING_VALUE", // required
+ * //   gatewayArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateGatewayCommandInput - {@link CreateGatewayCommandInput}
@@ -87,6 +92,8 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class CreateGatewayCommand extends $Command<

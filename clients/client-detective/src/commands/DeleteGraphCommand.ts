@@ -48,6 +48,8 @@ export interface DeleteGraphCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteGraphCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteGraphCommandInput - {@link DeleteGraphCommandInput}
@@ -69,6 +71,8 @@ export interface DeleteGraphCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class DeleteGraphCommand extends $Command<

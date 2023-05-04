@@ -57,6 +57,8 @@ export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse,
  * };
  * const command = new RejectAssignmentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RejectAssignmentCommandInput - {@link RejectAssignmentCommandInput}
@@ -71,6 +73,8 @@ export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse,
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class RejectAssignmentCommand extends $Command<

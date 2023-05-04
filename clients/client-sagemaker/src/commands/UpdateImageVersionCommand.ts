@@ -59,6 +59,10 @@ export interface UpdateImageVersionCommandOutput extends UpdateImageVersionRespo
  * };
  * const command = new UpdateImageVersionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateImageVersionResponse
+ * //   ImageVersionArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateImageVersionCommandInput - {@link UpdateImageVersionCommandInput}
@@ -73,6 +77,8 @@ export interface UpdateImageVersionCommandOutput extends UpdateImageVersionRespo
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateImageVersionCommand extends $Command<

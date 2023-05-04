@@ -44,6 +44,48 @@ export interface GetDomainCommandOutput extends GetDomainResult, __MetadataBeare
  * };
  * const command = new GetDomainCommand(input);
  * const response = await client.send(command);
+ * // { // GetDomainResult
+ * //   domain: { // Domain
+ * //     name: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     supportCode: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     location: { // ResourceLocation
+ * //       availabilityZone: "STRING_VALUE",
+ * //       regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
+ * //     },
+ * //     resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
+ * //     tags: [ // TagList
+ * //       { // Tag
+ * //         key: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     domainEntries: [ // DomainEntryList
+ * //       { // DomainEntry
+ * //         id: "STRING_VALUE",
+ * //         name: "STRING_VALUE",
+ * //         target: "STRING_VALUE",
+ * //         isAlias: true || false,
+ * //         type: "STRING_VALUE",
+ * //         options: { // DomainEntryOptions
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     registeredDomainDelegationInfo: { // RegisteredDomainDelegationInfo
+ * //       nameServersUpdateState: { // NameServersUpdateState
+ * //         code: "SUCCEEDED" || "PENDING" || "FAILED" || "STARTED",
+ * //         message: "STRING_VALUE",
+ * //       },
+ * //       r53HostedZoneDeletionState: { // R53HostedZoneDeletionState
+ * //         code: "SUCCEEDED" || "PENDING" || "FAILED" || "STARTED",
+ * //         message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetDomainCommandInput - {@link GetDomainCommandInput}
@@ -82,6 +124,8 @@ export interface GetDomainCommandOutput extends GetDomainResult, __MetadataBeare
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetDomainCommand extends $Command<

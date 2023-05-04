@@ -44,6 +44,48 @@ export interface GetParallelDataCommandOutput extends GetParallelDataResponse, _
  * };
  * const command = new GetParallelDataCommand(input);
  * const response = await client.send(command);
+ * // { // GetParallelDataResponse
+ * //   ParallelDataProperties: { // ParallelDataProperties
+ * //     Name: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * //     SourceLanguageCode: "STRING_VALUE",
+ * //     TargetLanguageCodes: [ // LanguageCodeStringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ParallelDataConfig: { // ParallelDataConfig
+ * //       S3Uri: "STRING_VALUE", // required
+ * //       Format: "TSV" || "CSV" || "TMX", // required
+ * //     },
+ * //     Message: "STRING_VALUE",
+ * //     ImportedDataSize: Number("long"),
+ * //     ImportedRecordCount: Number("long"),
+ * //     FailedRecordCount: Number("long"),
+ * //     SkippedRecordCount: Number("long"),
+ * //     EncryptionKey: { // EncryptionKey
+ * //       Type: "KMS", // required
+ * //       Id: "STRING_VALUE", // required
+ * //     },
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     LastUpdatedAt: new Date("TIMESTAMP"),
+ * //     LatestUpdateAttemptStatus: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * //     LatestUpdateAttemptAt: new Date("TIMESTAMP"),
+ * //   },
+ * //   DataLocation: { // ParallelDataDataLocation
+ * //     RepositoryType: "STRING_VALUE", // required
+ * //     Location: "STRING_VALUE", // required
+ * //   },
+ * //   AuxiliaryDataLocation: {
+ * //     RepositoryType: "STRING_VALUE", // required
+ * //     Location: "STRING_VALUE", // required
+ * //   },
+ * //   LatestUpdateAttemptAuxiliaryDataLocation: {
+ * //     RepositoryType: "STRING_VALUE", // required
+ * //     Location: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetParallelDataCommandInput - {@link GetParallelDataCommandInput}
@@ -68,6 +110,8 @@ export interface GetParallelDataCommandOutput extends GetParallelDataResponse, _
  *  <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class GetParallelDataCommand extends $Command<

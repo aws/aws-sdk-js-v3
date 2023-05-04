@@ -53,6 +53,33 @@ export interface GetLinksCommandOutput extends GetLinksResponse, __MetadataBeare
  * };
  * const command = new GetLinksCommand(input);
  * const response = await client.send(command);
+ * // { // GetLinksResponse
+ * //   Links: [ // LinkList
+ * //     { // Link
+ * //       LinkId: "STRING_VALUE",
+ * //       LinkArn: "STRING_VALUE",
+ * //       GlobalNetworkId: "STRING_VALUE",
+ * //       SiteId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       Bandwidth: { // Bandwidth
+ * //         UploadSpeed: Number("int"),
+ * //         DownloadSpeed: Number("int"),
+ * //       },
+ * //       Provider: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetLinksCommandInput - {@link GetLinksCommandInput}
@@ -76,6 +103,8 @@ export interface GetLinksCommandOutput extends GetLinksResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class GetLinksCommand extends $Command<

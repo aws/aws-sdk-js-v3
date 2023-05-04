@@ -51,6 +51,11 @@ export interface AssociateAttributeGroupCommandOutput extends AssociateAttribute
  * };
  * const command = new AssociateAttributeGroupCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateAttributeGroupResponse
+ * //   applicationArn: "STRING_VALUE",
+ * //   attributeGroupArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AssociateAttributeGroupCommandInput - {@link AssociateAttributeGroupCommandInput}
@@ -78,6 +83,8 @@ export interface AssociateAttributeGroupCommandOutput extends AssociateAttribute
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class AssociateAttributeGroupCommand extends $Command<

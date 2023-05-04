@@ -46,6 +46,11 @@ export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrinci
  * };
  * const command = new DeleteUserByPrincipalIdCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteUserByPrincipalIdResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param DeleteUserByPrincipalIdCommandInput - {@link DeleteUserByPrincipalIdCommandInput}
@@ -78,6 +83,8 @@ export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrinci
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteUserByPrincipalIdCommand extends $Command<

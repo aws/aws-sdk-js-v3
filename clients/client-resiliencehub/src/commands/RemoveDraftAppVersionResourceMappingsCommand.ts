@@ -71,6 +71,11 @@ export interface RemoveDraftAppVersionResourceMappingsCommandOutput
  * };
  * const command = new RemoveDraftAppVersionResourceMappingsCommand(input);
  * const response = await client.send(command);
+ * // { // RemoveDraftAppVersionResourceMappingsResponse
+ * //   appArn: "STRING_VALUE",
+ * //   appVersion: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RemoveDraftAppVersionResourceMappingsCommandInput - {@link RemoveDraftAppVersionResourceMappingsCommandInput}
@@ -103,6 +108,8 @@ export interface RemoveDraftAppVersionResourceMappingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<

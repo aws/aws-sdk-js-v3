@@ -56,6 +56,34 @@ export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsR
  * };
  * const command = new ListPHIDetectionJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPHIDetectionJobsResponse
+ * //   ComprehendMedicalAsyncJobPropertiesList: [ // ComprehendMedicalAsyncJobPropertiesList
+ * //     { // ComprehendMedicalAsyncJobProperties
+ * //       JobId: "STRING_VALUE",
+ * //       JobName: "STRING_VALUE",
+ * //       JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "PARTIAL_SUCCESS" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * //       Message: "STRING_VALUE",
+ * //       SubmitTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       ExpirationTime: new Date("TIMESTAMP"),
+ * //       InputDataConfig: { // InputDataConfig
+ * //         S3Bucket: "STRING_VALUE", // required
+ * //         S3Key: "STRING_VALUE",
+ * //       },
+ * //       OutputDataConfig: { // OutputDataConfig
+ * //         S3Bucket: "STRING_VALUE", // required
+ * //         S3Key: "STRING_VALUE",
+ * //       },
+ * //       LanguageCode: "en",
+ * //       DataAccessRoleArn: "STRING_VALUE",
+ * //       ManifestFilePath: "STRING_VALUE",
+ * //       KMSKey: "STRING_VALUE",
+ * //       ModelVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPHIDetectionJobsCommandInput - {@link ListPHIDetectionJobsCommandInput}
@@ -80,6 +108,8 @@ export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsR
  *  <p>The filter that you specified for the operation is invalid. Check the filter values that
  *       you entered and try your request again.</p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class ListPHIDetectionJobsCommand extends $Command<

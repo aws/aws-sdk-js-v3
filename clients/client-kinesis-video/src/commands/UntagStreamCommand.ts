@@ -52,6 +52,8 @@ export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataB
  * };
  * const command = new UntagStreamCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UntagStreamCommandInput - {@link UntagStreamCommandInput}
@@ -76,6 +78,8 @@ export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class UntagStreamCommand extends $Command<

@@ -53,6 +53,19 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  * };
  * const command = new ListStudioLifecycleConfigsCommand(input);
  * const response = await client.send(command);
+ * // { // ListStudioLifecycleConfigsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   StudioLifecycleConfigs: [ // StudioLifecycleConfigsList
+ * //     { // StudioLifecycleConfigDetails
+ * //       StudioLifecycleConfigArn: "STRING_VALUE",
+ * //       StudioLifecycleConfigName: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListStudioLifecycleConfigsCommandInput - {@link ListStudioLifecycleConfigsCommandInput}
@@ -64,6 +77,8 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  * @throws {@link ResourceInUse} (client fault)
  *  <p>Resource being accessed is in use.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListStudioLifecycleConfigsCommand extends $Command<

@@ -86,6 +86,8 @@ export interface UpdateAppCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAppCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateAppCommandInput - {@link UpdateAppCommandInput}
@@ -100,6 +102,8 @@ export interface UpdateAppCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class UpdateAppCommand extends $Command<

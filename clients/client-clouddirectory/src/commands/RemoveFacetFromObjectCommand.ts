@@ -51,6 +51,8 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
  * };
  * const command = new RemoveFacetFromObjectCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RemoveFacetFromObjectCommandInput - {@link RemoveFacetFromObjectCommandInput}
@@ -88,6 +90,8 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class RemoveFacetFromObjectCommand extends $Command<

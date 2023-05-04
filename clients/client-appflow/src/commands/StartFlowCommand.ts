@@ -46,6 +46,12 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  * };
  * const command = new StartFlowCommand(input);
  * const response = await client.send(command);
+ * // { // StartFlowResponse
+ * //   flowArn: "STRING_VALUE",
+ * //   flowStatus: "Active" || "Deprecated" || "Deleted" || "Draft" || "Errored" || "Suspended",
+ * //   executionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartFlowCommandInput - {@link StartFlowCommandInput}
@@ -70,6 +76,8 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  *  <p> The request would cause a service quota (such as the number of flows) to be exceeded.
  *     </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class StartFlowCommand extends $Command<

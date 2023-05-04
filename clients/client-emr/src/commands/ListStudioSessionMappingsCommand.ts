@@ -47,6 +47,20 @@ export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessio
  * };
  * const command = new ListStudioSessionMappingsCommand(input);
  * const response = await client.send(command);
+ * // { // ListStudioSessionMappingsOutput
+ * //   SessionMappings: [ // SessionMappingSummaryList
+ * //     { // SessionMappingSummary
+ * //       StudioId: "STRING_VALUE",
+ * //       IdentityId: "STRING_VALUE",
+ * //       IdentityName: "STRING_VALUE",
+ * //       IdentityType: "USER" || "GROUP",
+ * //       SessionPolicyArn: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListStudioSessionMappingsCommandInput - {@link ListStudioSessionMappingsCommandInput}
@@ -62,6 +76,8 @@ export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessio
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ListStudioSessionMappingsCommand extends $Command<

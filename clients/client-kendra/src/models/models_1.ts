@@ -3,6 +3,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { KendraServiceException as __BaseException } from "./KendraServiceException";
 import {
+  AdditionalResultAttribute,
+  AttributeSuggestionsUpdateConfig,
   CapacityUnitsConfiguration,
   CustomDocumentEnrichmentConfiguration,
   DataSourceConfiguration,
@@ -20,19 +22,180 @@ import {
   HierarchicalPrincipal,
   Mode,
   Principal,
-  QueryResultItem,
+  QueryResultFormat,
   QueryResultType,
   S3Path,
+  ScoreAttributes,
   SortingConfiguration,
-  SpellCorrectedQuery,
   SpellCorrectionConfiguration,
+  SuggestionType,
+  TableExcerpt,
   Tag,
+  TextWithHighlights,
   UserContext,
   UserContextPolicy,
   UserGroupResolutionConfiguration,
   UserTokenConfiguration,
-  Warning,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>A single query result.</p>
+ *          <p>A query result contains information about a document returned by the query. This
+ *          includes the original location of the document, a list of attributes assigned to the
+ *          document, and relevant text from the document that satisfies the query.</p>
+ */
+export interface QueryResultItem {
+  /**
+   * <p>The identifier for the query result.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The type of document within the response. For example, a response could include a
+   *          question-answer that's relevant to the query.</p>
+   */
+  Type?: QueryResultType | string;
+
+  /**
+   * <p>If the <code>Type</code> of document within the response is <code>ANSWER</code>, then it
+   *          is either a <code>TABLE</code> answer or <code>TEXT</code> answer. If it's a table answer,
+   *          a table excerpt is returned in <code>TableExcerpt</code>. If it's a text answer, a text
+   *          excerpt is returned in <code>DocumentExcerpt</code>.</p>
+   */
+  Format?: QueryResultFormat | string;
+
+  /**
+   * <p>One or more additional attributes associated with the query result.</p>
+   */
+  AdditionalAttributes?: AdditionalResultAttribute[];
+
+  /**
+   * <p>The identifier for the document.</p>
+   */
+  DocumentId?: string;
+
+  /**
+   * <p>The title of the document. Contains the text of the title and information for
+   *          highlighting the relevant terms in the title.</p>
+   */
+  DocumentTitle?: TextWithHighlights;
+
+  /**
+   * <p>An extract of the text in the document. Contains information about highlighting the
+   *          relevant terms in the excerpt.</p>
+   */
+  DocumentExcerpt?: TextWithHighlights;
+
+  /**
+   * <p>The URI of the original location of the document.</p>
+   */
+  DocumentURI?: string;
+
+  /**
+   * <p>An array of document attributes assigned to a document in the search results. For
+   *          example, the document author (<code>_author</code>) or the source URI
+   *             (<code>_source_uri</code>) of the document.</p>
+   */
+  DocumentAttributes?: DocumentAttribute[];
+
+  /**
+   * <p>Indicates the confidence that Amazon Kendra has that a result matches the query
+   *          that you provided. Each result is placed into a bin that indicates the confidence,
+   *             <code>VERY_HIGH</code>, <code>HIGH</code>, <code>MEDIUM</code> and <code>LOW</code>. You
+   *          can use the score to determine if a response meets the confidence needed for your
+   *          application.</p>
+   *          <p>The field is only set to <code>LOW</code> when the <code>Type</code> field is set to
+   *             <code>DOCUMENT</code> and Amazon Kendra is not confident that the result matches
+   *          the query.</p>
+   */
+  ScoreAttributes?: ScoreAttributes;
+
+  /**
+   * <p>A token that identifies a particular result from a particular query. Use this token to
+   *          provide click-through feedback for the result. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html">Submitting feedback
+   *          </a>.</p>
+   */
+  FeedbackToken?: string;
+
+  /**
+   * <p>An excerpt from a table within a document.</p>
+   */
+  TableExcerpt?: TableExcerpt;
+}
+
+/**
+ * @public
+ * <p>A corrected misspelled word in a query.</p>
+ */
+export interface Correction {
+  /**
+   * <p>The zero-based location in the response string or text where
+   *             the corrected word starts.</p>
+   */
+  BeginOffset?: number;
+
+  /**
+   * <p>The zero-based location in the response string or text where
+   *             the corrected word ends.</p>
+   */
+  EndOffset?: number;
+
+  /**
+   * <p>The string or text of a misspelled word in a query.</p>
+   */
+  Term?: string;
+
+  /**
+   * <p>The string or text of a corrected misspelled word in a query.</p>
+   */
+  CorrectedTerm?: string;
+}
+
+/**
+ * @public
+ * <p>A query with suggested spell corrections. </p>
+ */
+export interface SpellCorrectedQuery {
+  /**
+   * <p>The query with the suggested spell corrections.</p>
+   */
+  SuggestedQueryText?: string;
+
+  /**
+   * <p>The corrected misspelled word or words in a query.</p>
+   */
+  Corrections?: Correction[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WarningCode = {
+  QUERY_LANGUAGE_INVALID_SYNTAX: "QUERY_LANGUAGE_INVALID_SYNTAX",
+} as const;
+
+/**
+ * @public
+ */
+export type WarningCode = (typeof WarningCode)[keyof typeof WarningCode];
+
+/**
+ * @public
+ * <p>The warning code and message that explains a problem with a query.</p>
+ */
+export interface Warning {
+  /**
+   * <p>The message that explains the problem with the query.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The code used to show the type of warning for the query.</p>
+   */
+  Code?: WarningCode | string;
+}
 
 /**
  * @public
@@ -376,7 +539,7 @@ export interface UpdateFeaturedResultsSetRequest {
   IndexId: string | undefined;
 
   /**
-   * <p>The identifier of the index used for featuring results.</p>
+   * <p>The identifier of the set of featured results that you want to update.</p>
    */
   FeaturedResultsSetId: string | undefined;
 
@@ -589,6 +752,12 @@ export interface UpdateQuerySuggestionsConfigRequest {
    *          <p>How you tune this setting depends on your specific needs.</p>
    */
   MinimumQueryCount?: number;
+
+  /**
+   * <p>Configuration information for the document fields/attributes that you want to base
+   *             query suggestions on.</p>
+   */
+  AttributeSuggestionsConfig?: AttributeSuggestionsUpdateConfig;
 }
 
 /**
@@ -857,6 +1026,84 @@ export interface QueryResult {
    *          documents are featured in the search results.</p>
    */
   FeaturedResultsItems?: FeaturedResultsItem[];
+}
+
+/**
+ * @public
+ * <p>Provides the configuration information for the document fields/attributes that you want
+ *             to base query suggestions on.</p>
+ */
+export interface AttributeSuggestionsGetConfig {
+  /**
+   * <p>The list of document field/attribute keys or field names to use for query suggestions.
+   *             If the content within any of the fields match what your user starts typing as their query,
+   *             then the field content is returned as a query suggestion.</p>
+   */
+  SuggestionAttributes?: string[];
+
+  /**
+   * <p>The list of additional document field/attribute keys or field names to include in the
+   *             response. You can use additional fields to provide extra information in the response.
+   *             Additional fields are not used to based suggestions on.</p>
+   */
+  AdditionalResponseAttributes?: string[];
+
+  /**
+   * <p>Filters the search results based on document fields/attributes.</p>
+   */
+  AttributeFilter?: AttributeFilter;
+
+  /**
+   * <p>Applies user context filtering so that only users who are given access to certain
+   *             documents see these document in their search results.</p>
+   */
+  UserContext?: UserContext;
+}
+
+/**
+ * @public
+ */
+export interface GetQuerySuggestionsRequest {
+  /**
+   * <p>The identifier of the index you want to get query suggestions from.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The text of a user's query to generate query suggestions.</p>
+   *          <p>A query is suggested if the query prefix matches
+   *             what a user starts to type as their query.</p>
+   *          <p>Amazon Kendra does not show any suggestions if a user
+   *             types fewer than two characters or more than 60 characters.
+   *             A query must also have at least one search result and contain
+   *             at least one word of more than four characters.</p>
+   */
+  QueryText: string | undefined;
+
+  /**
+   * <p>The maximum number of query suggestions you want to show
+   *             to your users.</p>
+   */
+  MaxSuggestionsCount?: number;
+
+  /**
+   * <p>The suggestions type to base query suggestions on. The suggestion
+   *             types are query history or document fields/attributes. You can set
+   *             one type or the other.</p>
+   *          <p>If you set query history as your suggestions type, Amazon Kendra
+   *             suggests queries relevant to your users based on popular queries in
+   *             the query history.</p>
+   *          <p>If you set document fields/attributes as your suggestions type,
+   *             Amazon Kendra suggests queries relevant to your users based on the
+   *             contents of document fields.</p>
+   */
+  SuggestionTypes?: (SuggestionType | string)[];
+
+  /**
+   * <p>Configuration information for the document fields/attributes that you
+   *             want to base query suggestions on.</p>
+   */
+  AttributeSuggestionsConfig?: AttributeSuggestionsGetConfig;
 }
 
 /**

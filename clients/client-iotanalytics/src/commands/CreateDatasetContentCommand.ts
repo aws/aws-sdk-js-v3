@@ -46,6 +46,10 @@ export interface CreateDatasetContentCommandOutput extends CreateDatasetContentR
  * };
  * const command = new CreateDatasetContentCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDatasetContentResponse
+ * //   versionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateDatasetContentCommandInput - {@link CreateDatasetContentCommandInput}
@@ -69,6 +73,8 @@ export interface CreateDatasetContentCommandOutput extends CreateDatasetContentR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class CreateDatasetContentCommand extends $Command<

@@ -78,6 +78,8 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __Me
  * };
  * const command = new BatchUpdateAttendeeCapabilitiesExceptCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param BatchUpdateAttendeeCapabilitiesExceptCommandInput - {@link BatchUpdateAttendeeCapabilitiesExceptCommandInput}
@@ -104,6 +106,8 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __Me
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The user isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<

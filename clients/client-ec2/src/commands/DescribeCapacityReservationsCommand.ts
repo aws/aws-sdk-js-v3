@@ -60,6 +60,47 @@ export interface DescribeCapacityReservationsCommandOutput
  * };
  * const command = new DescribeCapacityReservationsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeCapacityReservationsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   CapacityReservations: [ // CapacityReservationSet
+ * //     { // CapacityReservation
+ * //       CapacityReservationId: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       CapacityReservationArn: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
+ * //       InstanceType: "STRING_VALUE",
+ * //       InstancePlatform: "Linux/UNIX" || "Red Hat Enterprise Linux" || "SUSE Linux" || "Windows" || "Windows with SQL Server" || "Windows with SQL Server Enterprise" || "Windows with SQL Server Standard" || "Windows with SQL Server Web" || "Linux with SQL Server Standard" || "Linux with SQL Server Web" || "Linux with SQL Server Enterprise" || "RHEL with SQL Server Standard" || "RHEL with SQL Server Enterprise" || "RHEL with SQL Server Web" || "RHEL with HA" || "RHEL with HA and SQL Server Standard" || "RHEL with HA and SQL Server Enterprise",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       Tenancy: "default" || "dedicated",
+ * //       TotalInstanceCount: Number("int"),
+ * //       AvailableInstanceCount: Number("int"),
+ * //       EbsOptimized: true || false,
+ * //       EphemeralStorage: true || false,
+ * //       State: "active" || "expired" || "cancelled" || "pending" || "failed",
+ * //       StartDate: new Date("TIMESTAMP"),
+ * //       EndDate: new Date("TIMESTAMP"),
+ * //       EndDateType: "unlimited" || "limited",
+ * //       InstanceMatchCriteria: "open" || "targeted",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       OutpostArn: "STRING_VALUE",
+ * //       CapacityReservationFleetId: "STRING_VALUE",
+ * //       PlacementGroupArn: "STRING_VALUE",
+ * //       CapacityAllocations: [ // CapacityAllocations
+ * //         { // CapacityAllocation
+ * //           AllocationType: "used",
+ * //           Count: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeCapacityReservationsCommandInput - {@link DescribeCapacityReservationsCommandInput}
@@ -68,6 +109,8 @@ export interface DescribeCapacityReservationsCommandOutput
  * @see {@link DescribeCapacityReservationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeCapacityReservationsCommand extends $Command<

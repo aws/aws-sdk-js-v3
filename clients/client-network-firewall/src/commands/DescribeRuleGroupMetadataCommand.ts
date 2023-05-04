@@ -49,6 +49,18 @@ export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGrou
  * };
  * const command = new DescribeRuleGroupMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRuleGroupMetadataResponse
+ * //   RuleGroupArn: "STRING_VALUE", // required
+ * //   RuleGroupName: "STRING_VALUE", // required
+ * //   Description: "STRING_VALUE",
+ * //   Type: "STATELESS" || "STATEFUL",
+ * //   Capacity: Number("int"),
+ * //   StatefulRuleOptions: { // StatefulRuleOptions
+ * //     RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
+ * //   },
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeRuleGroupMetadataCommandInput - {@link DescribeRuleGroupMetadataCommandInput}
@@ -83,6 +95,8 @@ export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGrou
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class DescribeRuleGroupMetadataCommand extends $Command<

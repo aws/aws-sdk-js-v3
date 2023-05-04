@@ -57,6 +57,26 @@ export interface DescribeCoipPoolsCommandOutput extends DescribeCoipPoolsResult,
  * };
  * const command = new DescribeCoipPoolsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeCoipPoolsResult
+ * //   CoipPools: [ // CoipPoolSet
+ * //     { // CoipPool
+ * //       PoolId: "STRING_VALUE",
+ * //       PoolCidrs: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       LocalGatewayRouteTableId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       PoolArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeCoipPoolsCommandInput - {@link DescribeCoipPoolsCommandInput}
@@ -65,6 +85,8 @@ export interface DescribeCoipPoolsCommandOutput extends DescribeCoipPoolsResult,
  * @see {@link DescribeCoipPoolsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeCoipPoolsCommand extends $Command<

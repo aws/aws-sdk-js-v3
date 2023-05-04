@@ -52,6 +52,25 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
  * };
  * const command = new DescribeVTLDevicesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeVTLDevicesOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   VTLDevices: [ // VTLDevices
+ * //     { // VTLDevice
+ * //       VTLDeviceARN: "STRING_VALUE",
+ * //       VTLDeviceType: "STRING_VALUE",
+ * //       VTLDeviceVendor: "STRING_VALUE",
+ * //       VTLDeviceProductIdentifier: "STRING_VALUE",
+ * //       DeviceiSCSIAttributes: { // DeviceiSCSIAttributes
+ * //         TargetARN: "STRING_VALUE",
+ * //         NetworkInterfaceId: "STRING_VALUE",
+ * //         NetworkInterfacePort: Number("int"),
+ * //         ChapEnabled: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeVTLDevicesCommandInput - {@link DescribeVTLDevicesCommandInput}
@@ -68,6 +87,8 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe virtual tape library (VTL) devices of a single gateway
  * ```javascript

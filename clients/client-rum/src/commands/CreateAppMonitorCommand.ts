@@ -79,6 +79,10 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  * };
  * const command = new CreateAppMonitorCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAppMonitorResponse
+ * //   Id: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateAppMonitorCommandInput - {@link CreateAppMonitorCommandInput}
@@ -108,6 +112,8 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class CreateAppMonitorCommand extends $Command<

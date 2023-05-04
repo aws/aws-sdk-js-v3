@@ -46,6 +46,10 @@ export interface PutResourcePermissionCommandOutput extends PutResourcePermissio
  * };
  * const command = new PutResourcePermissionCommand(input);
  * const response = await client.send(command);
+ * // { // PutResourcePermissionOutput
+ * //   Policy: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutResourcePermissionCommandInput - {@link PutResourcePermissionCommandInput}
@@ -63,6 +67,8 @@ export interface PutResourcePermissionCommandOutput extends PutResourcePermissio
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class PutResourcePermissionCommand extends $Command<

@@ -44,6 +44,43 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * };
  * const command = new GetProfileCommand(input);
  * const response = await client.send(command);
+ * // { // GetProfileResponse
+ * //   Profile: { // Profile
+ * //     ProfileArn: "STRING_VALUE",
+ * //     ProfileName: "STRING_VALUE",
+ * //     IsDefault: true || false,
+ * //     Address: "STRING_VALUE",
+ * //     Timezone: "STRING_VALUE",
+ * //     DistanceUnit: "STRING_VALUE",
+ * //     TemperatureUnit: "STRING_VALUE",
+ * //     WakeWord: "STRING_VALUE",
+ * //     Locale: "STRING_VALUE",
+ * //     SetupModeDisabled: true || false,
+ * //     MaxVolumeLimit: Number("int"),
+ * //     PSTNEnabled: true || false,
+ * //     DataRetentionOptIn: true || false,
+ * //     AddressBookArn: "STRING_VALUE",
+ * //     MeetingRoomConfiguration: { // MeetingRoomConfiguration
+ * //       RoomUtilizationMetricsEnabled: true || false,
+ * //       EndOfMeetingReminder: { // EndOfMeetingReminder
+ * //         ReminderAtMinutes: [ // EndOfMeetingReminderMinutesList
+ * //           Number("int"),
+ * //         ],
+ * //         ReminderType: "STRING_VALUE",
+ * //         Enabled: true || false,
+ * //       },
+ * //       InstantBooking: { // InstantBooking
+ * //         DurationInMinutes: Number("int"),
+ * //         Enabled: true || false,
+ * //       },
+ * //       RequireCheckIn: { // RequireCheckIn
+ * //         ReleaseAfterMinutes: Number("int"),
+ * //         Enabled: true || false,
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetProfileCommandInput - {@link GetProfileCommandInput}
@@ -55,6 +92,8 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetProfileCommand extends $Command<

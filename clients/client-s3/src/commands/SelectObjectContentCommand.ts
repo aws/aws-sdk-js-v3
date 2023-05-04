@@ -207,6 +207,30 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  * };
  * const command = new SelectObjectContentCommand(input);
  * const response = await client.send(command);
+ * // { // SelectObjectContentOutput
+ * //   Payload: { // SelectObjectContentEventStream Union: only one key present
+ * //     Records: { // RecordsEvent
+ * //       Payload: "BLOB_VALUE",
+ * //     },
+ * //     Stats: { // StatsEvent
+ * //       Details: { // Stats
+ * //         BytesScanned: Number("long"),
+ * //         BytesProcessed: Number("long"),
+ * //         BytesReturned: Number("long"),
+ * //       },
+ * //     },
+ * //     Progress: { // ProgressEvent
+ * //       Details: { // Progress
+ * //         BytesScanned: Number("long"),
+ * //         BytesProcessed: Number("long"),
+ * //         BytesReturned: Number("long"),
+ * //       },
+ * //     },
+ * //     Cont: {},
+ * //     End: {},
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param SelectObjectContentCommandInput - {@link SelectObjectContentCommandInput}
@@ -215,6 +239,8 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  * @see {@link SelectObjectContentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class SelectObjectContentCommand extends $Command<

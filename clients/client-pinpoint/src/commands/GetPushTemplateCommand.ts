@@ -45,6 +45,72 @@ export interface GetPushTemplateCommandOutput extends GetPushTemplateResponse, _
  * };
  * const command = new GetPushTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // GetPushTemplateResponse
+ * //   PushNotificationTemplateResponse: { // PushNotificationTemplateResponse
+ * //     ADM: { // AndroidPushNotificationTemplate
+ * //       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
+ * //       Body: "STRING_VALUE",
+ * //       ImageIconUrl: "STRING_VALUE",
+ * //       ImageUrl: "STRING_VALUE",
+ * //       RawContent: "STRING_VALUE",
+ * //       SmallImageIconUrl: "STRING_VALUE",
+ * //       Sound: "STRING_VALUE",
+ * //       Title: "STRING_VALUE",
+ * //       Url: "STRING_VALUE",
+ * //     },
+ * //     APNS: { // APNSPushNotificationTemplate
+ * //       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
+ * //       Body: "STRING_VALUE",
+ * //       MediaUrl: "STRING_VALUE",
+ * //       RawContent: "STRING_VALUE",
+ * //       Sound: "STRING_VALUE",
+ * //       Title: "STRING_VALUE",
+ * //       Url: "STRING_VALUE",
+ * //     },
+ * //     Arn: "STRING_VALUE",
+ * //     Baidu: {
+ * //       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
+ * //       Body: "STRING_VALUE",
+ * //       ImageIconUrl: "STRING_VALUE",
+ * //       ImageUrl: "STRING_VALUE",
+ * //       RawContent: "STRING_VALUE",
+ * //       SmallImageIconUrl: "STRING_VALUE",
+ * //       Sound: "STRING_VALUE",
+ * //       Title: "STRING_VALUE",
+ * //       Url: "STRING_VALUE",
+ * //     },
+ * //     CreationDate: "STRING_VALUE", // required
+ * //     Default: { // DefaultPushNotificationTemplate
+ * //       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
+ * //       Body: "STRING_VALUE",
+ * //       Sound: "STRING_VALUE",
+ * //       Title: "STRING_VALUE",
+ * //       Url: "STRING_VALUE",
+ * //     },
+ * //     DefaultSubstitutions: "STRING_VALUE",
+ * //     GCM: {
+ * //       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
+ * //       Body: "STRING_VALUE",
+ * //       ImageIconUrl: "STRING_VALUE",
+ * //       ImageUrl: "STRING_VALUE",
+ * //       RawContent: "STRING_VALUE",
+ * //       SmallImageIconUrl: "STRING_VALUE",
+ * //       Sound: "STRING_VALUE",
+ * //       Title: "STRING_VALUE",
+ * //       Url: "STRING_VALUE",
+ * //     },
+ * //     LastModifiedDate: "STRING_VALUE", // required
+ * //     RecommenderId: "STRING_VALUE",
+ * //     tags: { // MapOf__string
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     TemplateDescription: "STRING_VALUE",
+ * //     TemplateName: "STRING_VALUE", // required
+ * //     TemplateType: "EMAIL" || "SMS" || "VOICE" || "PUSH" || "INAPP", // required
+ * //     Version: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetPushTemplateCommandInput - {@link GetPushTemplateCommandInput}
@@ -74,6 +140,8 @@ export interface GetPushTemplateCommandOutput extends GetPushTemplateResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetPushTemplateCommand extends $Command<

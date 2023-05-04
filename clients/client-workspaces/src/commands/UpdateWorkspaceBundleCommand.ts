@@ -52,6 +52,8 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  * };
  * const command = new UpdateWorkspaceBundleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateWorkspaceBundleCommandInput - {@link UpdateWorkspaceBundleCommandInput}
@@ -75,6 +77,8 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The specified resource is not available.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class UpdateWorkspaceBundleCommand extends $Command<

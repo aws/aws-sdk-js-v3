@@ -47,6 +47,8 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  * };
  * const command = new TerminateJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TerminateJobCommandInput - {@link TerminateJobCommandInput}
@@ -63,6 +65,8 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To terminate a job
  * ```javascript

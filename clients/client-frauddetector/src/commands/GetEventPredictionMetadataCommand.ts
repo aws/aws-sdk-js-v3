@@ -54,6 +54,83 @@ export interface GetEventPredictionMetadataCommandOutput extends GetEventPredict
  * };
  * const command = new GetEventPredictionMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // GetEventPredictionMetadataResult
+ * //   eventId: "STRING_VALUE",
+ * //   eventTypeName: "STRING_VALUE",
+ * //   entityId: "STRING_VALUE",
+ * //   entityType: "STRING_VALUE",
+ * //   eventTimestamp: "STRING_VALUE",
+ * //   detectorId: "STRING_VALUE",
+ * //   detectorVersionId: "STRING_VALUE",
+ * //   detectorVersionStatus: "STRING_VALUE",
+ * //   eventVariables: [ // ListOfEventVariableSummaries
+ * //     { // EventVariableSummary
+ * //       name: "STRING_VALUE",
+ * //       value: "STRING_VALUE",
+ * //       source: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   rules: [ // EvaluatedRuleList
+ * //     { // EvaluatedRule
+ * //       ruleId: "STRING_VALUE",
+ * //       ruleVersion: "STRING_VALUE",
+ * //       expression: "STRING_VALUE",
+ * //       expressionWithValues: "STRING_VALUE",
+ * //       outcomes: [ // ListOfStrings
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       evaluated: true || false,
+ * //       matched: true || false,
+ * //     },
+ * //   ],
+ * //   ruleExecutionMode: "ALL_MATCHED" || "FIRST_MATCHED",
+ * //   outcomes: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   evaluatedModelVersions: [ // ListOfEvaluatedModelVersions
+ * //     { // EvaluatedModelVersion
+ * //       modelId: "STRING_VALUE",
+ * //       modelVersion: "STRING_VALUE",
+ * //       modelType: "STRING_VALUE",
+ * //       evaluations: [ // ListOfModelVersionEvaluations
+ * //         { // ModelVersionEvaluation
+ * //           outputVariableName: "STRING_VALUE",
+ * //           evaluationScore: "STRING_VALUE",
+ * //           predictionExplanations: { // PredictionExplanations
+ * //             variableImpactExplanations: [ // listOfVariableImpactExplanations
+ * //               { // VariableImpactExplanation
+ * //                 eventVariableName: "STRING_VALUE",
+ * //                 relativeImpact: "STRING_VALUE",
+ * //                 logOddsImpact: Number("float"),
+ * //               },
+ * //             ],
+ * //             aggregatedVariablesImpactExplanations: [ // ListOfAggregatedVariablesImpactExplanations
+ * //               { // AggregatedVariablesImpactExplanation
+ * //                 eventVariableNames: "<ListOfStrings>",
+ * //                 relativeImpact: "STRING_VALUE",
+ * //                 logOddsImpact: Number("float"),
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   evaluatedExternalModels: [ // ListOfEvaluatedExternalModels
+ * //     { // EvaluatedExternalModel
+ * //       modelEndpoint: "STRING_VALUE",
+ * //       useEventVariables: true || false,
+ * //       inputVariables: { // MapOfStrings
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       outputVariables: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   predictionTimestamp: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetEventPredictionMetadataCommandInput - {@link GetEventPredictionMetadataCommandInput}
@@ -77,6 +154,8 @@ export interface GetEventPredictionMetadataCommandOutput extends GetEventPredict
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetEventPredictionMetadataCommand extends $Command<

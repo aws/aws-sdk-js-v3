@@ -52,6 +52,16 @@ export interface BatchDisableAlarmCommandOutput extends BatchDisableAlarmRespons
  * };
  * const command = new BatchDisableAlarmCommand(input);
  * const response = await client.send(command);
+ * // { // BatchDisableAlarmResponse
+ * //   errorEntries: [ // BatchAlarmActionErrorEntries
+ * //     { // BatchAlarmActionErrorEntry
+ * //       requestId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchDisableAlarmCommandInput - {@link BatchDisableAlarmCommandInput}
@@ -72,6 +82,8 @@ export interface BatchDisableAlarmCommandOutput extends BatchDisableAlarmRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class BatchDisableAlarmCommand extends $Command<

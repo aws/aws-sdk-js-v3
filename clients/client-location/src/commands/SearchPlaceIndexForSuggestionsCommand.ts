@@ -77,6 +77,30 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  * };
  * const command = new SearchPlaceIndexForSuggestionsCommand(input);
  * const response = await client.send(command);
+ * // { // SearchPlaceIndexForSuggestionsResponse
+ * //   Summary: { // SearchPlaceIndexForSuggestionsSummary
+ * //     Text: "STRING_VALUE", // required
+ * //     BiasPosition: [ // Position
+ * //       Number("double"),
+ * //     ],
+ * //     FilterBBox: [ // BoundingBox
+ * //       Number("double"),
+ * //     ],
+ * //     FilterCountries: [ // CountryCodeList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     MaxResults: Number("int"),
+ * //     DataSource: "STRING_VALUE", // required
+ * //     Language: "STRING_VALUE",
+ * //   },
+ * //   Results: [ // SearchForSuggestionsResultList // required
+ * //     { // SearchForSuggestionsResult
+ * //       Text: "STRING_VALUE", // required
+ * //       PlaceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param SearchPlaceIndexForSuggestionsCommandInput - {@link SearchPlaceIndexForSuggestionsCommandInput}
@@ -101,6 +125,8 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class SearchPlaceIndexForSuggestionsCommand extends $Command<

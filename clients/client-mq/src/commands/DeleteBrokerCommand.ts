@@ -44,6 +44,10 @@ export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __Metad
  * };
  * const command = new DeleteBrokerCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteBrokerResponse
+ * //   BrokerId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteBrokerCommandInput - {@link DeleteBrokerCommandInput}
@@ -64,6 +68,8 @@ export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __Metad
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class DeleteBrokerCommand extends $Command<

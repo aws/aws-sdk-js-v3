@@ -46,6 +46,8 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
  * };
  * const command = new PutLoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutLoggingOptionsCommandInput - {@link PutLoggingOptionsCommandInput}
@@ -74,6 +76,8 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class PutLoggingOptionsCommand extends $Command<

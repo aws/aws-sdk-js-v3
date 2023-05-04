@@ -59,6 +59,8 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PublishCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PublishCommandInput - {@link PublishCommandInput}
@@ -82,6 +84,8 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class PublishCommand extends $Command<

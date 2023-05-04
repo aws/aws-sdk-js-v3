@@ -45,6 +45,10 @@ export interface DeleteResiliencyPolicyCommandOutput extends DeleteResiliencyPol
  * };
  * const command = new DeleteResiliencyPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteResiliencyPolicyResponse
+ * //   policyArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteResiliencyPolicyCommandInput - {@link DeleteResiliencyPolicyCommandInput}
@@ -77,6 +81,8 @@ export interface DeleteResiliencyPolicyCommandOutput extends DeleteResiliencyPol
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DeleteResiliencyPolicyCommand extends $Command<

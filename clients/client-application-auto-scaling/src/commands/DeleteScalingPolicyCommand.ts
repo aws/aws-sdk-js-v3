@@ -56,6 +56,8 @@ export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyRes
  * };
  * const command = new DeleteScalingPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteScalingPolicyCommandInput - {@link DeleteScalingPolicyCommandInput}
@@ -82,6 +84,8 @@ export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyRes
  *  <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  *
+ * @throws {@link ApplicationAutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
  * @example To delete a scaling policy
  * ```javascript

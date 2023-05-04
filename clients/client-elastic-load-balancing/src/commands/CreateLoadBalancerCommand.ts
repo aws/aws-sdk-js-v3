@@ -86,6 +86,10 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * };
  * const command = new CreateLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAccessPointOutput
+ * //   DNSName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateLoadBalancerCommandInput - {@link CreateLoadBalancerCommandInput}
@@ -132,6 +136,8 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * @throws {@link UnsupportedProtocolException} (client fault)
  *  <p>The specified protocol or signature version is not supported.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To create an HTTP load balancer in a VPC
  * ```javascript

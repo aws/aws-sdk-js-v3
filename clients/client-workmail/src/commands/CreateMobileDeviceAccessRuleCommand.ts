@@ -77,6 +77,10 @@ export interface CreateMobileDeviceAccessRuleCommandOutput
  * };
  * const command = new CreateMobileDeviceAccessRuleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateMobileDeviceAccessRuleResponse
+ * //   MobileDeviceAccessRuleId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateMobileDeviceAccessRuleCommandInput - {@link CreateMobileDeviceAccessRuleCommandInput}
@@ -99,6 +103,8 @@ export interface CreateMobileDeviceAccessRuleCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class CreateMobileDeviceAccessRuleCommand extends $Command<

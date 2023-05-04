@@ -66,6 +66,27 @@ export interface CreateTransitGatewayRouteTableAnnouncementCommandOutput
  * };
  * const command = new CreateTransitGatewayRouteTableAnnouncementCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTransitGatewayRouteTableAnnouncementResult
+ * //   TransitGatewayRouteTableAnnouncement: { // TransitGatewayRouteTableAnnouncement
+ * //     TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
+ * //     TransitGatewayId: "STRING_VALUE",
+ * //     CoreNetworkId: "STRING_VALUE",
+ * //     PeerTransitGatewayId: "STRING_VALUE",
+ * //     PeerCoreNetworkId: "STRING_VALUE",
+ * //     PeeringAttachmentId: "STRING_VALUE",
+ * //     AnnouncementDirection: "outgoing" || "incoming",
+ * //     TransitGatewayRouteTableId: "STRING_VALUE",
+ * //     State: "available" || "pending" || "failing" || "failed" || "deleting" || "deleted",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateTransitGatewayRouteTableAnnouncementCommandInput - {@link CreateTransitGatewayRouteTableAnnouncementCommandInput}
@@ -74,6 +95,8 @@ export interface CreateTransitGatewayRouteTableAnnouncementCommandOutput
  * @see {@link CreateTransitGatewayRouteTableAnnouncementCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateTransitGatewayRouteTableAnnouncementCommand extends $Command<

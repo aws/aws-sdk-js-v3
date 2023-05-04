@@ -46,6 +46,8 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * };
  * const command = new RemoveRoleFromDBClusterCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RemoveRoleFromDBClusterCommandInput - {@link RemoveRoleFromDBClusterCommandInput}
@@ -64,6 +66,8 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The DB cluster is not in a valid state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class RemoveRoleFromDBClusterCommand extends $Command<

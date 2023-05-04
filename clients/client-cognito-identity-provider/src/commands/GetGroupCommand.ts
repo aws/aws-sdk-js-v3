@@ -51,6 +51,18 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
+ * // { // GetGroupResponse
+ * //   Group: { // GroupType
+ * //     GroupName: "STRING_VALUE",
+ * //     UserPoolId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE",
+ * //     Precedence: Number("int"),
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetGroupCommandInput - {@link GetGroupCommandInput}
@@ -77,6 +89,8 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class GetGroupCommand extends $Command<

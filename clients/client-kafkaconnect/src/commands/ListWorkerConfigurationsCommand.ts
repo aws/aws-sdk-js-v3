@@ -45,6 +45,23 @@ export interface ListWorkerConfigurationsCommandOutput extends ListWorkerConfigu
  * };
  * const command = new ListWorkerConfigurationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListWorkerConfigurationsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   workerConfigurations: [ // __listOfWorkerConfigurationSummary
+ * //     { // WorkerConfigurationSummary
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       description: "STRING_VALUE",
+ * //       latestRevision: { // WorkerConfigurationRevisionSummary
+ * //         creationTime: new Date("TIMESTAMP"),
+ * //         description: "STRING_VALUE",
+ * //         revision: Number("long"),
+ * //       },
+ * //       name: "STRING_VALUE",
+ * //       workerConfigurationArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListWorkerConfigurationsCommandInput - {@link ListWorkerConfigurationsCommandInput}
@@ -80,6 +97,8 @@ export interface ListWorkerConfigurationsCommandOutput extends ListWorkerConfigu
  *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  *
+ * @throws {@link KafkaConnectServiceException}
+ * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
 export class ListWorkerConfigurationsCommand extends $Command<

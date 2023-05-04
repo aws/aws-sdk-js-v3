@@ -54,6 +54,10 @@ export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse,
  * };
  * const command = new DeleteLunaClientCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteLunaClientResponse
+ * //   Status: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteLunaClientCommandInput - {@link DeleteLunaClientCommandInput}
@@ -71,6 +75,8 @@ export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse,
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class DeleteLunaClientCommand extends $Command<

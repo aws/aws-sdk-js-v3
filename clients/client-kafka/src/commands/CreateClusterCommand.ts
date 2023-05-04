@@ -152,6 +152,12 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
+ * // { // CreateClusterResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterName: "STRING_VALUE",
+ * //   State: "ACTIVE" || "CREATING" || "DELETING" || "FAILED" || "HEALING" || "MAINTENANCE" || "REBOOTING_BROKER" || "UPDATING",
+ * // };
+ *
  * ```
  *
  * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
@@ -181,6 +187,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class CreateClusterCommand extends $Command<

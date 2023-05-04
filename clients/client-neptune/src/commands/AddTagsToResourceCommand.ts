@@ -52,6 +52,8 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
@@ -72,6 +74,8 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  *  <p>
  *             <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class AddTagsToResourceCommand extends $Command<

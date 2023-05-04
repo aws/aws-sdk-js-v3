@@ -361,6 +361,14 @@ DescribeDomainConfig
 </details>
 <details>
 <summary>
+DescribeDomainHealth
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/classes/describedomainhealthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/interfaces/describedomainhealthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/interfaces/describedomainhealthcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeDomains
 </summary>
 

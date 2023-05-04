@@ -51,6 +51,27 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  * };
  * const command = new DescribeSessionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSessionsResult
+ * //   Sessions: [ // SessionList
+ * //     { // Session
+ * //       Id: "STRING_VALUE", // required
+ * //       UserId: "STRING_VALUE", // required
+ * //       StackName: "STRING_VALUE", // required
+ * //       FleetName: "STRING_VALUE", // required
+ * //       State: "ACTIVE" || "PENDING" || "EXPIRED", // required
+ * //       ConnectionState: "CONNECTED" || "NOT_CONNECTED",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       MaxExpirationTime: new Date("TIMESTAMP"),
+ * //       AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD",
+ * //       NetworkAccessConfiguration: { // NetworkAccessConfiguration
+ * //         EniPrivateIpAddress: "STRING_VALUE",
+ * //         EniId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeSessionsCommandInput - {@link DescribeSessionsCommandInput}
@@ -62,6 +83,8 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DescribeSessionsCommand extends $Command<

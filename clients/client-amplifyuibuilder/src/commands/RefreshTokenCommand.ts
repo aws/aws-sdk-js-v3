@@ -53,6 +53,11 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
  * };
  * const command = new RefreshTokenCommand(input);
  * const response = await client.send(command);
+ * // { // RefreshTokenResponse
+ * //   accessToken: "STRING_VALUE", // required
+ * //   expiresIn: Number("int"), // required
+ * // };
+ *
  * ```
  *
  * @param RefreshTokenCommandInput - {@link RefreshTokenCommandInput}
@@ -64,6 +69,8 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class RefreshTokenCommand extends $Command<

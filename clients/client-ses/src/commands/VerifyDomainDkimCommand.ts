@@ -82,6 +82,12 @@ export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse,
  * };
  * const command = new VerifyDomainDkimCommand(input);
  * const response = await client.send(command);
+ * // { // VerifyDomainDkimResponse
+ * //   DkimTokens: [ // VerificationTokenList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param VerifyDomainDkimCommandInput - {@link VerifyDomainDkimCommandInput}
@@ -90,6 +96,8 @@ export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse,
  * @see {@link VerifyDomainDkimCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example VerifyDomainDkim
  * ```javascript

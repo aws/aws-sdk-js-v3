@@ -53,6 +53,22 @@ export interface DescribeRdsDbInstancesCommandOutput extends DescribeRdsDbInstan
  * };
  * const command = new DescribeRdsDbInstancesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRdsDbInstancesResult
+ * //   RdsDbInstances: [ // RdsDbInstances
+ * //     { // RdsDbInstance
+ * //       RdsDbInstanceArn: "STRING_VALUE",
+ * //       DbInstanceIdentifier: "STRING_VALUE",
+ * //       DbUser: "STRING_VALUE",
+ * //       DbPassword: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //       Address: "STRING_VALUE",
+ * //       Engine: "STRING_VALUE",
+ * //       StackId: "STRING_VALUE",
+ * //       MissingOnRds: true || false,
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeRdsDbInstancesCommandInput - {@link DescribeRdsDbInstancesCommandInput}
@@ -67,6 +83,8 @@ export interface DescribeRdsDbInstancesCommandOutput extends DescribeRdsDbInstan
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeRdsDbInstancesCommand extends $Command<

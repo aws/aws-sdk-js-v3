@@ -48,6 +48,21 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * };
  * const command = new ListBotsCommand(input);
  * const response = await client.send(command);
+ * // { // ListBotsResponse
+ * //   LexBots: [ // LexBotConfigList
+ * //     { // LexBotConfig
+ * //       LexBot: { // LexBot
+ * //         Name: "STRING_VALUE", // required
+ * //         LexRegion: "STRING_VALUE", // required
+ * //       },
+ * //       LexV2Bot: { // LexV2Bot
+ * //         AliasArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListBotsCommandInput - {@link ListBotsCommandInput}
@@ -68,6 +83,8 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListBotsCommand extends $Command<

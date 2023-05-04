@@ -50,6 +50,24 @@ export interface StartUserImportJobCommandOutput extends StartUserImportJobRespo
  * };
  * const command = new StartUserImportJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartUserImportJobResponse
+ * //   UserImportJob: { // UserImportJobType
+ * //     JobName: "STRING_VALUE",
+ * //     JobId: "STRING_VALUE",
+ * //     UserPoolId: "STRING_VALUE",
+ * //     PreSignedUrl: "STRING_VALUE",
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //     StartDate: new Date("TIMESTAMP"),
+ * //     CompletionDate: new Date("TIMESTAMP"),
+ * //     Status: "Created" || "Pending" || "InProgress" || "Stopping" || "Expired" || "Stopped" || "Failed" || "Succeeded",
+ * //     CloudWatchLogsRoleArn: "STRING_VALUE",
+ * //     ImportedUsers: Number("long"),
+ * //     SkippedUsers: Number("long"),
+ * //     FailedUsers: Number("long"),
+ * //     CompletionMessage: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StartUserImportJobCommandInput - {@link StartUserImportJobCommandInput}
@@ -79,6 +97,8 @@ export interface StartUserImportJobCommandOutput extends StartUserImportJobRespo
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class StartUserImportJobCommand extends $Command<

@@ -49,6 +49,10 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * };
  * const command = new RegisterCertificateCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterCertificateResult
+ * //   CertificateId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RegisterCertificateCommandInput - {@link RegisterCertificateCommandInput}
@@ -84,6 +88,8 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class RegisterCertificateCommand extends $Command<

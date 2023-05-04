@@ -48,6 +48,10 @@ export interface PutMaintenanceStartTimeCommandOutput extends PutMaintenanceStar
  * };
  * const command = new PutMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);
+ * // { // PutMaintenanceStartTimeOutput
+ * //   GatewayArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutMaintenanceStartTimeCommandInput - {@link PutMaintenanceStartTimeCommandInput}
@@ -72,6 +76,8 @@ export interface PutMaintenanceStartTimeCommandOutput extends PutMaintenanceStar
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class PutMaintenanceStartTimeCommand extends $Command<

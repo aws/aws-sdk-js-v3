@@ -53,6 +53,22 @@ export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __Metad
  * };
  * const command = new DescribeAliasCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAliasOutput
+ * //   Alias: { // Alias
+ * //     AliasId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     AliasArn: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     RoutingStrategy: { // RoutingStrategy
+ * //       Type: "SIMPLE" || "TERMINAL",
+ * //       FleetId: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeAliasCommandInput - {@link DescribeAliasCommandInput}
@@ -75,6 +91,8 @@ export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeAliasCommand extends $Command<

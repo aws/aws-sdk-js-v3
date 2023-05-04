@@ -48,6 +48,13 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
  * };
  * const command = new UpdateFirewallDomainsCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateFirewallDomainsResponse
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Status: "COMPLETE" || "COMPLETE_IMPORT_FAILED" || "IMPORTING" || "DELETING" || "UPDATING",
+ * //   StatusMessage: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateFirewallDomainsCommandInput - {@link UpdateFirewallDomainsCommandInput}
@@ -80,6 +87,8 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class UpdateFirewallDomainsCommand extends $Command<

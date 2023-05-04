@@ -108,6 +108,71 @@ export interface UpdateColumnStatisticsForTableCommandOutput
  * };
  * const command = new UpdateColumnStatisticsForTableCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateColumnStatisticsForTableResponse
+ * //   Errors: [ // ColumnStatisticsErrors
+ * //     { // ColumnStatisticsError
+ * //       ColumnStatistics: { // ColumnStatistics
+ * //         ColumnName: "STRING_VALUE", // required
+ * //         ColumnType: "STRING_VALUE", // required
+ * //         AnalyzedTime: new Date("TIMESTAMP"), // required
+ * //         StatisticsData: { // ColumnStatisticsData
+ * //           Type: "BOOLEAN" || "DATE" || "DECIMAL" || "DOUBLE" || "LONG" || "STRING" || "BINARY", // required
+ * //           BooleanColumnStatisticsData: { // BooleanColumnStatisticsData
+ * //             NumberOfTrues: Number("long"), // required
+ * //             NumberOfFalses: Number("long"), // required
+ * //             NumberOfNulls: Number("long"), // required
+ * //           },
+ * //           DateColumnStatisticsData: { // DateColumnStatisticsData
+ * //             MinimumValue: new Date("TIMESTAMP"),
+ * //             MaximumValue: new Date("TIMESTAMP"),
+ * //             NumberOfNulls: Number("long"), // required
+ * //             NumberOfDistinctValues: Number("long"), // required
+ * //           },
+ * //           DecimalColumnStatisticsData: { // DecimalColumnStatisticsData
+ * //             MinimumValue: { // DecimalNumber
+ * //               UnscaledValue: "BLOB_VALUE", // required
+ * //               Scale: Number("int"), // required
+ * //             },
+ * //             MaximumValue: {
+ * //               UnscaledValue: "BLOB_VALUE", // required
+ * //               Scale: Number("int"), // required
+ * //             },
+ * //             NumberOfNulls: Number("long"), // required
+ * //             NumberOfDistinctValues: Number("long"), // required
+ * //           },
+ * //           DoubleColumnStatisticsData: { // DoubleColumnStatisticsData
+ * //             MinimumValue: Number("double"),
+ * //             MaximumValue: Number("double"),
+ * //             NumberOfNulls: Number("long"), // required
+ * //             NumberOfDistinctValues: Number("long"), // required
+ * //           },
+ * //           LongColumnStatisticsData: { // LongColumnStatisticsData
+ * //             MinimumValue: Number("long"),
+ * //             MaximumValue: Number("long"),
+ * //             NumberOfNulls: Number("long"), // required
+ * //             NumberOfDistinctValues: Number("long"), // required
+ * //           },
+ * //           StringColumnStatisticsData: { // StringColumnStatisticsData
+ * //             MaximumLength: Number("long"), // required
+ * //             AverageLength: Number("double"), // required
+ * //             NumberOfNulls: Number("long"), // required
+ * //             NumberOfDistinctValues: Number("long"), // required
+ * //           },
+ * //           BinaryColumnStatisticsData: { // BinaryColumnStatisticsData
+ * //             MaximumLength: Number("long"), // required
+ * //             AverageLength: Number("double"), // required
+ * //             NumberOfNulls: Number("long"), // required
+ * //           },
+ * //         },
+ * //       },
+ * //       Error: { // ErrorDetail
+ * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UpdateColumnStatisticsForTableCommandInput - {@link UpdateColumnStatisticsForTableCommandInput}
@@ -131,6 +196,8 @@ export interface UpdateColumnStatisticsForTableCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateColumnStatisticsForTableCommand extends $Command<

@@ -87,6 +87,60 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  * };
  * const command = new CreateExperimentCommand(input);
  * const response = await client.send(command);
+ * // { // CreateExperimentResponse
+ * //   experiment: { // Experiment
+ * //     arn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     project: "STRING_VALUE",
+ * //     status: "STRING_VALUE", // required
+ * //     statusReason: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     createdTime: new Date("TIMESTAMP"), // required
+ * //     lastUpdatedTime: new Date("TIMESTAMP"), // required
+ * //     schedule: { // ExperimentSchedule
+ * //       analysisCompleteTime: new Date("TIMESTAMP"),
+ * //     },
+ * //     execution: { // ExperimentExecution
+ * //       startedTime: new Date("TIMESTAMP"),
+ * //       endedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //     treatments: [ // TreatmentList
+ * //       { // Treatment
+ * //         name: "STRING_VALUE", // required
+ * //         description: "STRING_VALUE",
+ * //         featureVariations: { // FeatureToVariationMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     metricGoals: [ // MetricGoalsList
+ * //       { // MetricGoal
+ * //         metricDefinition: { // MetricDefinition
+ * //           name: "STRING_VALUE",
+ * //           entityIdKey: "STRING_VALUE",
+ * //           valueKey: "STRING_VALUE",
+ * //           eventPattern: "STRING_VALUE",
+ * //           unitLabel: "STRING_VALUE",
+ * //         },
+ * //         desiredChange: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     randomizationSalt: "STRING_VALUE",
+ * //     samplingRate: Number("long"),
+ * //     segment: "STRING_VALUE",
+ * //     type: "STRING_VALUE", // required
+ * //     onlineAbDefinition: { // OnlineAbDefinition
+ * //       controlTreatmentName: "STRING_VALUE",
+ * //       treatmentWeights: { // TreatmentToWeightMap
+ * //         "<keys>": Number("long"),
+ * //       },
+ * //     },
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateExperimentCommandInput - {@link CreateExperimentCommandInput}
@@ -110,6 +164,8 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class CreateExperimentCommand extends $Command<

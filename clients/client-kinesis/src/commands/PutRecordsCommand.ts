@@ -111,6 +111,19 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  * };
  * const command = new PutRecordsCommand(input);
  * const response = await client.send(command);
+ * // { // PutRecordsOutput
+ * //   FailedRecordCount: Number("int"),
+ * //   Records: [ // PutRecordsResultEntryList // required
+ * //     { // PutRecordsResultEntry
+ * //       SequenceNumber: "STRING_VALUE",
+ * //       ShardId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   EncryptionType: "NONE" || "KMS",
+ * // };
+ *
  * ```
  *
  * @param PutRecordsCommandInput - {@link PutRecordsCommandInput}
@@ -165,6 +178,8 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class PutRecordsCommand extends $Command<

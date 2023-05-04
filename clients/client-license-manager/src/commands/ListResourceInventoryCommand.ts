@@ -52,6 +52,20 @@ export interface ListResourceInventoryCommandOutput extends ListResourceInventor
  * };
  * const command = new ListResourceInventoryCommand(input);
  * const response = await client.send(command);
+ * // { // ListResourceInventoryResponse
+ * //   ResourceInventoryList: [ // ResourceInventoryList
+ * //     { // ResourceInventory
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceType: "EC2_INSTANCE" || "EC2_HOST" || "EC2_AMI" || "RDS" || "SYSTEMS_MANAGER_MANAGED_INSTANCE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       Platform: "STRING_VALUE",
+ * //       PlatformVersion: "STRING_VALUE",
+ * //       ResourceOwningAccountId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListResourceInventoryCommandInput - {@link ListResourceInventoryCommandInput}
@@ -82,6 +96,8 @@ export interface ListResourceInventoryCommandOutput extends ListResourceInventor
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListResourceInventoryCommand extends $Command<

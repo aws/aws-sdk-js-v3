@@ -56,6 +56,21 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
+ * // { // ListInstancesResponse
+ * //   InstanceSummaries: [ // InstanceSummaryList
+ * //     { // InstanceSummary
+ * //       InstanceId: "STRING_VALUE", // required
+ * //       Status: "STRING_VALUE", // required
+ * //       Products: [ // StringList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       LastStatusCheckDate: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListInstancesCommandInput - {@link ListInstancesCommandInput}
@@ -86,6 +101,8 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link LicenseManagerUserSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
  */
 export class ListInstancesCommand extends $Command<

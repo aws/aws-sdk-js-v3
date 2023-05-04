@@ -57,6 +57,27 @@ export interface BatchGetMetricDataCommandOutput extends BatchGetMetricDataRespo
  * };
  * const command = new BatchGetMetricDataCommand(input);
  * const response = await client.send(command);
+ * // { // BatchGetMetricDataResponse
+ * //   Results: [ // MetricDataResultList
+ * //     { // MetricDataResult
+ * //       Id: "STRING_VALUE",
+ * //       Timestamps: [ // TimestampList
+ * //         new Date("TIMESTAMP"),
+ * //       ],
+ * //       Values: [ // MetricValueList
+ * //         Number("long"),
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Errors: [ // MetricDataErrorList
+ * //     { // MetricDataError
+ * //       Id: "STRING_VALUE",
+ * //       Code: "INTERNAL_FAILURE" || "ACCESS_DENIED",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchGetMetricDataCommandInput - {@link BatchGetMetricDataCommandInput}
@@ -77,6 +98,8 @@ export interface BatchGetMetricDataCommandOutput extends BatchGetMetricDataRespo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class BatchGetMetricDataCommand extends $Command<

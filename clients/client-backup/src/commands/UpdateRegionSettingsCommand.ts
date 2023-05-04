@@ -54,6 +54,8 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateRegionSettingsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateRegionSettingsCommandInput - {@link UpdateRegionSettingsCommandInput}
@@ -72,6 +74,8 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class UpdateRegionSettingsCommand extends $Command<

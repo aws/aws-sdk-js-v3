@@ -55,6 +55,27 @@ export interface ListAssessmentRunAgentsCommandOutput extends ListAssessmentRunA
  * };
  * const command = new ListAssessmentRunAgentsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAssessmentRunAgentsResponse
+ * //   assessmentRunAgents: [ // AssessmentRunAgentList // required
+ * //     { // AssessmentRunAgent
+ * //       agentId: "STRING_VALUE", // required
+ * //       assessmentRunArn: "STRING_VALUE", // required
+ * //       agentHealth: "STRING_VALUE", // required
+ * //       agentHealthCode: "STRING_VALUE", // required
+ * //       agentHealthDetails: "STRING_VALUE",
+ * //       autoScalingGroup: "STRING_VALUE",
+ * //       telemetryMetadata: [ // TelemetryMetadataList // required
+ * //         { // TelemetryMetadata
+ * //           messageType: "STRING_VALUE", // required
+ * //           count: Number("long"), // required
+ * //           dataSize: Number("long"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAssessmentRunAgentsCommandInput - {@link ListAssessmentRunAgentsCommandInput}
@@ -77,6 +98,8 @@ export interface ListAssessmentRunAgentsCommandOutput extends ListAssessmentRunA
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example List assessment run agents
  * ```javascript

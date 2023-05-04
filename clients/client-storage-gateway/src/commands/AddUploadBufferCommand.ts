@@ -53,6 +53,10 @@ export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __M
  * };
  * const command = new AddUploadBufferCommand(input);
  * const response = await client.send(command);
+ * // { // AddUploadBufferOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AddUploadBufferCommandInput - {@link AddUploadBufferCommandInput}
@@ -69,6 +73,8 @@ export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __M
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To add upload buffer on local disk
  * ```javascript

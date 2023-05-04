@@ -53,6 +53,8 @@ export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __M
  * };
  * const command = new PutMetricPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutMetricPolicyCommandInput - {@link PutMetricPolicyCommandInput}
@@ -71,6 +73,8 @@ export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __M
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class PutMetricPolicyCommand extends $Command<

@@ -45,6 +45,24 @@ export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __Metadat
  * };
  * const command = new DescribeFaqCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFaqResponse
+ * //   Id: "STRING_VALUE",
+ * //   IndexId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * //   S3Path: { // S3Path
+ * //     Bucket: "STRING_VALUE", // required
+ * //     Key: "STRING_VALUE", // required
+ * //   },
+ * //   Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * //   RoleArn: "STRING_VALUE",
+ * //   ErrorMessage: "STRING_VALUE",
+ * //   FileFormat: "CSV" || "CSV_WITH_HEADER" || "JSON",
+ * //   LanguageCode: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeFaqCommandInput - {@link DescribeFaqCommandInput}
@@ -73,6 +91,8 @@ export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __Metadat
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DescribeFaqCommand extends $Command<

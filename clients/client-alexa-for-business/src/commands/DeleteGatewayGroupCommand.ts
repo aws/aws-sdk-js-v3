@@ -44,6 +44,8 @@ export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupRespo
  * };
  * const command = new DeleteGatewayGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteGatewayGroupCommandInput - {@link DeleteGatewayGroupCommandInput}
@@ -55,6 +57,8 @@ export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupRespo
  * @throws {@link ResourceAssociatedException} (client fault)
  *  <p>Another resource is associated with the resource in the request.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteGatewayGroupCommand extends $Command<

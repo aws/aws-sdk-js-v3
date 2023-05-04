@@ -46,6 +46,8 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  * };
  * const command = new DeleteActivationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteActivationCommandInput - {@link DeleteActivationCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  * @throws {@link TooManyUpdates} (client fault)
  *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteActivationCommand extends $Command<

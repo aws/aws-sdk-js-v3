@@ -48,6 +48,8 @@ export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateDefaultBranchCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateDefaultBranchCommandInput - {@link UpdateDefaultBranchCommandInput}
@@ -95,6 +97,8 @@ export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class UpdateDefaultBranchCommand extends $Command<

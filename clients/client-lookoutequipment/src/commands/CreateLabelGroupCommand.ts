@@ -56,6 +56,11 @@ export interface CreateLabelGroupCommandOutput extends CreateLabelGroupResponse,
  * };
  * const command = new CreateLabelGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLabelGroupResponse
+ * //   LabelGroupName: "STRING_VALUE",
+ * //   LabelGroupArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateLabelGroupCommandInput - {@link CreateLabelGroupCommandInput}
@@ -86,6 +91,8 @@ export interface CreateLabelGroupCommandOutput extends CreateLabelGroupResponse,
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class CreateLabelGroupCommand extends $Command<

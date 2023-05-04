@@ -53,6 +53,22 @@ export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput,
  * };
  * const command = new ListModelPackagesCommand(input);
  * const response = await client.send(command);
+ * // { // ListModelPackagesOutput
+ * //   ModelPackageSummaryList: [ // ModelPackageSummaryList // required
+ * //     { // ModelPackageSummary
+ * //       ModelPackageName: "STRING_VALUE", // required
+ * //       ModelPackageGroupName: "STRING_VALUE",
+ * //       ModelPackageVersion: Number("int"),
+ * //       ModelPackageArn: "STRING_VALUE", // required
+ * //       ModelPackageDescription: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       ModelPackageStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting", // required
+ * //       ModelApprovalStatus: "Approved" || "Rejected" || "PendingManualApproval",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListModelPackagesCommandInput - {@link ListModelPackagesCommandInput}
@@ -61,6 +77,8 @@ export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput,
  * @see {@link ListModelPackagesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListModelPackagesCommand extends $Command<

@@ -44,6 +44,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput,
  * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
@@ -61,6 +63,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>ValidationException: The provided input is not valid.</p>
  *
+ * @throws {@link MWAAServiceException}
+ * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  */
 export class DeleteEnvironmentCommand extends $Command<

@@ -63,6 +63,10 @@ export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSetting
  * };
  * const command = new CreateNetworkSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // CreateNetworkSettingsResponse
+ * //   networkSettingsArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateNetworkSettingsCommandInput - {@link CreateNetworkSettingsCommandInput}
@@ -89,6 +93,8 @@ export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSetting
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class CreateNetworkSettingsCommand extends $Command<

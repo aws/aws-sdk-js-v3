@@ -67,6 +67,10 @@ export interface StartAuditMitigationActionsTaskCommandOutput
  * };
  * const command = new StartAuditMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
+ * // { // StartAuditMitigationActionsTaskResponse
+ * //   taskId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartAuditMitigationActionsTaskCommandInput - {@link StartAuditMitigationActionsTaskCommandInput}
@@ -92,6 +96,8 @@ export interface StartAuditMitigationActionsTaskCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class StartAuditMitigationActionsTaskCommand extends $Command<

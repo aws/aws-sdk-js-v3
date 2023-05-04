@@ -48,6 +48,8 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  * };
  * const command = new DeleteNotificationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteNotificationConfigurationCommandInput - {@link DeleteNotificationConfigurationCommandInput}
@@ -60,6 +62,8 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To delete an Auto Scaling notification
  * ```javascript

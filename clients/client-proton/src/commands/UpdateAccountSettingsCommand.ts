@@ -51,6 +51,19 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateAccountSettingsOutput
+ * //   accountSettings: { // AccountSettings
+ * //     pipelineServiceRoleArn: "STRING_VALUE",
+ * //     pipelineProvisioningRepository: { // RepositoryBranch
+ * //       arn: "STRING_VALUE", // required
+ * //       provider: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       branch: "STRING_VALUE", // required
+ * //     },
+ * //     pipelineCodebuildRoleArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateAccountSettingsCommandInput - {@link UpdateAccountSettingsCommandInput}
@@ -74,6 +87,8 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class UpdateAccountSettingsCommand extends $Command<

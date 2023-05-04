@@ -79,6 +79,16 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
  * };
  * const command = new UpdateUserAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateUserAttributesResponse
+ * //   CodeDeliveryDetailsList: [ // CodeDeliveryDetailsListType
+ * //     { // CodeDeliveryDetailsType
+ * //       Destination: "STRING_VALUE",
+ * //       DeliveryMedium: "SMS" || "EMAIL",
+ * //       AttributeName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UpdateUserAttributesCommandInput - {@link UpdateUserAttributesCommandInput}
@@ -160,6 +170,8 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class UpdateUserAttributesCommand extends $Command<

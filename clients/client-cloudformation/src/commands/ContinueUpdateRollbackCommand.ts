@@ -58,6 +58,8 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  * };
  * const command = new ContinueUpdateRollbackCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ContinueUpdateRollbackCommandInput - {@link ContinueUpdateRollbackCommandInput}
@@ -69,6 +71,8 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  * @throws {@link TokenAlreadyExistsException} (client fault)
  *  <p>A client request token already exists.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ContinueUpdateRollbackCommand extends $Command<

@@ -90,6 +90,21 @@ export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataB
  * };
  * const command = new GetMatchesCommand(input);
  * const response = await client.send(command);
+ * // { // GetMatchesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   MatchGenerationDate: new Date("TIMESTAMP"),
+ * //   PotentialMatches: Number("int"),
+ * //   Matches: [ // MatchesList
+ * //     { // MatchItem
+ * //       MatchId: "STRING_VALUE",
+ * //       ProfileIds: [ // ProfileIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ConfidenceScore: Number("double"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetMatchesCommandInput - {@link GetMatchesCommandInput}
@@ -113,6 +128,8 @@ export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class GetMatchesCommand extends $Command<

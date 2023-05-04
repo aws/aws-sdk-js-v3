@@ -48,6 +48,23 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  * };
  * const command = new ListShareInvitationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListShareInvitationsOutput
+ * //   ShareInvitationSummaries: [ // ShareInvitationSummaries
+ * //     { // ShareInvitationSummary
+ * //       ShareInvitationId: "STRING_VALUE",
+ * //       SharedBy: "STRING_VALUE",
+ * //       SharedWith: "STRING_VALUE",
+ * //       PermissionType: "READONLY" || "CONTRIBUTOR",
+ * //       ShareResourceType: "WORKLOAD" || "LENS",
+ * //       WorkloadName: "STRING_VALUE",
+ * //       WorkloadId: "STRING_VALUE",
+ * //       LensName: "STRING_VALUE",
+ * //       LensArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListShareInvitationsCommandInput - {@link ListShareInvitationsCommandInput}
@@ -68,6 +85,8 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListShareInvitationsCommand extends $Command<

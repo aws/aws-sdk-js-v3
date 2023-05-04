@@ -118,6 +118,10 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateProfileResponse
+ * //   ProfileId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateProfileCommandInput - {@link UpdateProfileCommandInput}
@@ -141,6 +145,8 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class UpdateProfileCommand extends $Command<

@@ -45,6 +45,8 @@ export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, _
  * };
  * const command = new DeleteReferenceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteReferenceCommandInput - {@link DeleteReferenceCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class DeleteReferenceCommand extends $Command<

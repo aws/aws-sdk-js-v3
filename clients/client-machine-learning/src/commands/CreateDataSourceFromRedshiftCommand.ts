@@ -99,6 +99,10 @@ export interface CreateDataSourceFromRedshiftCommandOutput
  * };
  * const command = new CreateDataSourceFromRedshiftCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDataSourceFromRedshiftOutput
+ * //   DataSourceId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateDataSourceFromRedshiftCommandInput - {@link CreateDataSourceFromRedshiftCommandInput}
@@ -116,6 +120,8 @@ export interface CreateDataSourceFromRedshiftCommandOutput
  * @throws {@link InvalidInputException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class CreateDataSourceFromRedshiftCommand extends $Command<

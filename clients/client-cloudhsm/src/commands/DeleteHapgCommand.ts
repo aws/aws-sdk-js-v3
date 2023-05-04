@@ -54,6 +54,10 @@ export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataB
  * };
  * const command = new DeleteHapgCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteHapgResponse
+ * //   Status: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteHapgCommandInput - {@link DeleteHapgCommandInput}
@@ -71,6 +75,8 @@ export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataB
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that one or more of the request parameters are not valid.</p>
  *
+ * @throws {@link CloudHSMServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
 export class DeleteHapgCommand extends $Command<

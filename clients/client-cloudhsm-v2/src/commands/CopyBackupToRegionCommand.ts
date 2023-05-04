@@ -51,6 +51,15 @@ export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionRespo
  * };
  * const command = new CopyBackupToRegionCommand(input);
  * const response = await client.send(command);
+ * // { // CopyBackupToRegionResponse
+ * //   DestinationBackup: { // DestinationBackup
+ * //     CreateTimestamp: new Date("TIMESTAMP"),
+ * //     SourceRegion: "STRING_VALUE",
+ * //     SourceBackup: "STRING_VALUE",
+ * //     SourceCluster: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CopyBackupToRegionCommandInput - {@link CopyBackupToRegionCommandInput}
@@ -80,6 +89,8 @@ export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionRespo
  * @throws {@link CloudHsmTagException} (client fault)
  *  <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class CopyBackupToRegionCommand extends $Command<

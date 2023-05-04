@@ -49,6 +49,17 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * };
  * const command = new UpdateDeploymentStrategyCommand(input);
  * const response = await client.send(command);
+ * // { // DeploymentStrategy
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   DeploymentDurationInMinutes: Number("int"),
+ * //   GrowthType: "LINEAR" || "EXPONENTIAL",
+ * //   GrowthFactor: Number("float"),
+ * //   FinalBakeTimeInMinutes: Number("int"),
+ * //   ReplicateTo: "NONE" || "SSM_DOCUMENT",
+ * // };
+ *
  * ```
  *
  * @param UpdateDeploymentStrategyCommandInput - {@link UpdateDeploymentStrategyCommandInput}
@@ -66,6 +77,8 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To update a deployment strategy
  * ```javascript

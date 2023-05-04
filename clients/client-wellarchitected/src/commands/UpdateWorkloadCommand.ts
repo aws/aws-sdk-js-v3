@@ -65,6 +65,9 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  *   ImprovementStatus: "NOT_APPLICABLE" || "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "RISK_ACKNOWLEDGED",
  *   DiscoveryConfig: { // WorkloadDiscoveryConfig
  *     TrustedAdvisorIntegrationStatus: "ENABLED" || "DISABLED",
+ *     WorkloadResourceDefinition: [ // WorkloadResourceDefinition
+ *       "WORKLOAD_METADATA" || "APP_REGISTRY",
+ *     ],
  *   },
  *   Applications: [ // WorkloadApplications
  *     "STRING_VALUE",
@@ -72,6 +75,57 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  * };
  * const command = new UpdateWorkloadCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateWorkloadOutput
+ * //   Workload: { // Workload
+ * //     WorkloadId: "STRING_VALUE",
+ * //     WorkloadArn: "STRING_VALUE",
+ * //     WorkloadName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Environment: "PRODUCTION" || "PREPRODUCTION",
+ * //     UpdatedAt: new Date("TIMESTAMP"),
+ * //     AccountIds: [ // WorkloadAccountIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AwsRegions: [ // WorkloadAwsRegions
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     NonAwsRegions: [ // WorkloadNonAwsRegions
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ArchitecturalDesign: "STRING_VALUE",
+ * //     ReviewOwner: "STRING_VALUE",
+ * //     ReviewRestrictionDate: new Date("TIMESTAMP"),
+ * //     IsReviewOwnerUpdateAcknowledged: true || false,
+ * //     IndustryType: "STRING_VALUE",
+ * //     Industry: "STRING_VALUE",
+ * //     Notes: "STRING_VALUE",
+ * //     ImprovementStatus: "NOT_APPLICABLE" || "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "RISK_ACKNOWLEDGED",
+ * //     RiskCounts: { // RiskCounts
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //     PillarPriorities: [ // WorkloadPillarPriorities
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Lenses: [ // WorkloadLenses
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Owner: "STRING_VALUE",
+ * //     ShareInvitationId: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     DiscoveryConfig: { // WorkloadDiscoveryConfig
+ * //       TrustedAdvisorIntegrationStatus: "ENABLED" || "DISABLED",
+ * //       WorkloadResourceDefinition: [ // WorkloadResourceDefinition
+ * //         "WORKLOAD_METADATA" || "APP_REGISTRY",
+ * //       ],
+ * //     },
+ * //     Applications: [ // WorkloadApplications
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateWorkloadCommandInput - {@link UpdateWorkloadCommandInput}
@@ -98,6 +152,8 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class UpdateWorkloadCommand extends $Command<

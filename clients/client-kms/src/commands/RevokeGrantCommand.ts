@@ -88,6 +88,8 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RevokeGrantCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RevokeGrantCommandInput - {@link RevokeGrantCommandInput}
@@ -133,6 +135,8 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To revoke a grant
  * ```javascript

@@ -52,6 +52,10 @@ export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __M
  * };
  * const command = new CreateScheduleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateScheduleResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateScheduleCommandInput - {@link CreateScheduleCommandInput}
@@ -69,6 +73,8 @@ export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class CreateScheduleCommand extends $Command<

@@ -50,6 +50,13 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  * };
  * const command = new CreateApiDestinationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateApiDestinationResponse
+ * //   ApiDestinationArn: "STRING_VALUE",
+ * //   ApiDestinationState: "ACTIVE" || "INACTIVE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param CreateApiDestinationCommandInput - {@link CreateApiDestinationCommandInput}
@@ -71,6 +78,8 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class CreateApiDestinationCommand extends $Command<

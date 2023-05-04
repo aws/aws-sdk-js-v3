@@ -50,6 +50,8 @@ export interface PutEmailIdentityDkimAttributesCommandOutput
  * };
  * const command = new PutEmailIdentityDkimAttributesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutEmailIdentityDkimAttributesCommandInput - {@link PutEmailIdentityDkimAttributesCommandInput}
@@ -67,6 +69,8 @@ export interface PutEmailIdentityDkimAttributesCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class PutEmailIdentityDkimAttributesCommand extends $Command<

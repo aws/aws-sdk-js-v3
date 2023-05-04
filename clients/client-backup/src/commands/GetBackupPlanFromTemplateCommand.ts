@@ -48,6 +48,47 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  * };
  * const command = new GetBackupPlanFromTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // GetBackupPlanFromTemplateOutput
+ * //   BackupPlanDocument: { // BackupPlan
+ * //     BackupPlanName: "STRING_VALUE", // required
+ * //     Rules: [ // BackupRules // required
+ * //       { // BackupRule
+ * //         RuleName: "STRING_VALUE", // required
+ * //         TargetBackupVaultName: "STRING_VALUE", // required
+ * //         ScheduleExpression: "STRING_VALUE",
+ * //         StartWindowMinutes: Number("long"),
+ * //         CompletionWindowMinutes: Number("long"),
+ * //         Lifecycle: { // Lifecycle
+ * //           MoveToColdStorageAfterDays: Number("long"),
+ * //           DeleteAfterDays: Number("long"),
+ * //         },
+ * //         RecoveryPointTags: { // Tags
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         RuleId: "STRING_VALUE",
+ * //         CopyActions: [ // CopyActions
+ * //           { // CopyAction
+ * //             Lifecycle: {
+ * //               MoveToColdStorageAfterDays: Number("long"),
+ * //               DeleteAfterDays: Number("long"),
+ * //             },
+ * //             DestinationBackupVaultArn: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         EnableContinuousBackup: true || false,
+ * //       },
+ * //     ],
+ * //     AdvancedBackupSettings: [ // AdvancedBackupSettings
+ * //       { // AdvancedBackupSetting
+ * //         ResourceType: "STRING_VALUE",
+ * //         BackupOptions: { // BackupOptions
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetBackupPlanFromTemplateCommandInput - {@link GetBackupPlanFromTemplateCommandInput}
@@ -69,6 +110,8 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class GetBackupPlanFromTemplateCommand extends $Command<

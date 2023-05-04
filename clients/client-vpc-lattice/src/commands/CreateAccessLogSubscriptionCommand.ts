@@ -59,6 +59,14 @@ export interface CreateAccessLogSubscriptionCommandOutput
  * };
  * const command = new CreateAccessLogSubscriptionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAccessLogSubscriptionResponse
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   resourceId: "STRING_VALUE", // required
+ * //   resourceArn: "STRING_VALUE", // required
+ * //   destinationArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateAccessLogSubscriptionCommandInput - {@link CreateAccessLogSubscriptionCommandInput}
@@ -87,6 +95,8 @@ export interface CreateAccessLogSubscriptionCommandOutput
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class CreateAccessLogSubscriptionCommand extends $Command<

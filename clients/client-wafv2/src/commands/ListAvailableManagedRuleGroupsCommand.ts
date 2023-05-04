@@ -53,6 +53,18 @@ export interface ListAvailableManagedRuleGroupsCommandOutput
  * };
  * const command = new ListAvailableManagedRuleGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAvailableManagedRuleGroupsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   ManagedRuleGroups: [ // ManagedRuleGroupSummaries
+ * //     { // ManagedRuleGroupSummary
+ * //       VendorName: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       VersioningSupported: true || false,
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListAvailableManagedRuleGroupsCommandInput - {@link ListAvailableManagedRuleGroupsCommandInput}
@@ -89,6 +101,8 @@ export interface ListAvailableManagedRuleGroupsCommandOutput
  *             </li>
  *          </ul>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListAvailableManagedRuleGroupsCommand extends $Command<

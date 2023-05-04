@@ -131,6 +131,8 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateTableCommandInput - {@link UpdateTableCommandInput}
@@ -163,6 +165,8 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateTableCommand extends $Command<

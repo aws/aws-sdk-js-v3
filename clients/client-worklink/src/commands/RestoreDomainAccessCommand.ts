@@ -47,6 +47,8 @@ export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessRes
  * };
  * const command = new RestoreDomainAccessCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RestoreDomainAccessCommandInput - {@link RestoreDomainAccessCommandInput}
@@ -70,6 +72,8 @@ export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class RestoreDomainAccessCommand extends $Command<

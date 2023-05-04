@@ -51,6 +51,16 @@ export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, _
  * };
  * const command = new RebootWorkspacesCommand(input);
  * const response = await client.send(command);
+ * // { // RebootWorkspacesResult
+ * //   FailedRequests: [ // FailedRebootWorkspaceRequests
+ * //     { // FailedWorkspaceChangeRequest
+ * //       WorkspaceId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param RebootWorkspacesCommandInput - {@link RebootWorkspacesCommandInput}
@@ -62,6 +72,8 @@ export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, _
  * @throws {@link OperationNotSupportedException} (client fault)
  *  <p>This operation is not supported.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class RebootWorkspacesCommand extends $Command<

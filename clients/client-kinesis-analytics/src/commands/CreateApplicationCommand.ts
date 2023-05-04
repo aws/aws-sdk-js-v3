@@ -148,6 +148,14 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateApplicationResponse
+ * //   ApplicationSummary: { // ApplicationSummary
+ * //     ApplicationName: "STRING_VALUE", // required
+ * //     ApplicationARN: "STRING_VALUE", // required
+ * //     ApplicationStatus: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -174,6 +182,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
  *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

@@ -64,6 +64,10 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  * };
  * const command = new CreateEnvironmentEC2Command(input);
  * const response = await client.send(command);
+ * // { // CreateEnvironmentEC2Result
+ * //   environmentId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateEnvironmentEC2CommandInput - {@link CreateEnvironmentEC2CommandInput}
@@ -93,6 +97,8 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many service requests were made over the given time period.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @example CreateEnvironmentEC2
  * ```javascript

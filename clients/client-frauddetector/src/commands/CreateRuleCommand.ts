@@ -57,6 +57,14 @@ export interface CreateRuleCommandOutput extends CreateRuleResult, __MetadataBea
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRuleResult
+ * //   rule: { // Rule
+ * //     detectorId: "STRING_VALUE", // required
+ * //     ruleId: "STRING_VALUE", // required
+ * //     ruleVersion: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
@@ -77,6 +85,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class CreateRuleCommand extends $Command<

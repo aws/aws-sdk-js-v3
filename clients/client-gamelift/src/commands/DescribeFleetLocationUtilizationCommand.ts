@@ -67,6 +67,18 @@ export interface DescribeFleetLocationUtilizationCommandOutput
  * };
  * const command = new DescribeFleetLocationUtilizationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFleetLocationUtilizationOutput
+ * //   FleetUtilization: { // FleetUtilization
+ * //     FleetId: "STRING_VALUE",
+ * //     FleetArn: "STRING_VALUE",
+ * //     ActiveServerProcessCount: Number("int"),
+ * //     ActiveGameSessionCount: Number("int"),
+ * //     CurrentPlayerSessionCount: Number("int"),
+ * //     MaximumPlayerSessionCount: Number("int"),
+ * //     Location: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeFleetLocationUtilizationCommandInput - {@link DescribeFleetLocationUtilizationCommandInput}
@@ -92,6 +104,8 @@ export interface DescribeFleetLocationUtilizationCommandOutput
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeFleetLocationUtilizationCommand extends $Command<

@@ -56,6 +56,21 @@ export interface StartStageDeploymentCommandOutput extends StartStageDeploymentR
  * };
  * const command = new StartStageDeploymentCommand(input);
  * const response = await client.send(command);
+ * // { // StartStageDeploymentResult
+ * //   StageDeployment: { // StageDeploymentDetails
+ * //     DeploymentId: "STRING_VALUE",
+ * //     SnapshotId: "STRING_VALUE",
+ * //     DeploymentAction: "STRING_VALUE",
+ * //     DeploymentState: "STRING_VALUE",
+ * //     Created: new Date("TIMESTAMP"),
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     DeploymentResult: { // DeploymentResult
+ * //       ResultCode: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StartStageDeploymentCommandInput - {@link StartStageDeploymentCommandInput}
@@ -82,6 +97,8 @@ export interface StartStageDeploymentCommandOutput extends StartStageDeploymentR
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class StartStageDeploymentCommand extends $Command<

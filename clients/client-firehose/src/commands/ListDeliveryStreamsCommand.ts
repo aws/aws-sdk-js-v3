@@ -53,6 +53,13 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * };
  * const command = new ListDeliveryStreamsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDeliveryStreamsOutput
+ * //   DeliveryStreamNames: [ // DeliveryStreamNameList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   HasMoreDeliveryStreams: true || false, // required
+ * // };
+ *
  * ```
  *
  * @param ListDeliveryStreamsCommandInput - {@link ListDeliveryStreamsCommandInput}
@@ -61,6 +68,8 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * @see {@link ListDeliveryStreamsCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class ListDeliveryStreamsCommand extends $Command<

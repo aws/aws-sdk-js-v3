@@ -61,6 +61,19 @@ export interface QueryForecastCommandOutput extends QueryForecastResponse, __Met
  * };
  * const command = new QueryForecastCommand(input);
  * const response = await client.send(command);
+ * // { // QueryForecastResponse
+ * //   Forecast: { // Forecast
+ * //     Predictions: { // Predictions
+ * //       "<keys>": [ // TimeSeries
+ * //         { // DataPoint
+ * //           Timestamp: "STRING_VALUE",
+ * //           Value: Number("double"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param QueryForecastCommandInput - {@link QueryForecastCommandInput}
@@ -85,6 +98,8 @@ export interface QueryForecastCommandOutput extends QueryForecastResponse, __Met
  *  <p>We can't find that resource. Check the information that you've provided and try
  *       again.</p>
  *
+ * @throws {@link ForecastqueryServiceException}
+ * <p>Base exception class for all service exceptions from Forecastquery service.</p>
  *
  */
 export class QueryForecastCommand extends $Command<

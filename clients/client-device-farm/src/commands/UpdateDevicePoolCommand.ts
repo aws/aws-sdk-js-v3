@@ -57,6 +57,23 @@ export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, _
  * };
  * const command = new UpdateDevicePoolCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateDevicePoolResult
+ * //   devicePool: { // DevicePool
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     type: "CURATED" || "PRIVATE",
+ * //     rules: [ // Rules
+ * //       { // Rule
+ * //         attribute: "ARN" || "PLATFORM" || "FORM_FACTOR" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "APPIUM_VERSION" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE" || "OS_VERSION" || "MODEL" || "AVAILABILITY",
+ * //         operator: "EQUALS" || "LESS_THAN" || "LESS_THAN_OR_EQUALS" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS" || "IN" || "NOT_IN" || "CONTAINS",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     maxDevices: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateDevicePoolCommandInput - {@link UpdateDevicePoolCommandInput}
@@ -77,6 +94,8 @@ export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, _
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To update a device pool
  * ```javascript

@@ -59,6 +59,11 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * };
  * const command = new CreateFleetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateFleetResponse
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateFleetCommandInput - {@link CreateFleetCommandInput}
@@ -89,6 +94,8 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class CreateFleetCommand extends $Command<

@@ -48,6 +48,8 @@ export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateLexBotCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateLexBotCommandInput - {@link DisassociateLexBotCommandInput}
@@ -71,6 +73,8 @@ export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DisassociateLexBotCommand extends $Command<

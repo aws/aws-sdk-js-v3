@@ -46,6 +46,8 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  * };
  * const command = new SendActivationCodeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SendActivationCodeCommandInput - {@link SendActivationCodeCommandInput}
@@ -76,6 +78,8 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class SendActivationCodeCommand extends $Command<

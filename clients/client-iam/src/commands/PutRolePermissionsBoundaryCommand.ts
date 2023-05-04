@@ -56,6 +56,8 @@ export interface PutRolePermissionsBoundaryCommandOutput extends __MetadataBeare
  * };
  * const command = new PutRolePermissionsBoundaryCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutRolePermissionsBoundaryCommandInput - {@link PutRolePermissionsBoundaryCommandInput}
@@ -86,6 +88,8 @@ export interface PutRolePermissionsBoundaryCommandOutput extends __MetadataBeare
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class PutRolePermissionsBoundaryCommand extends $Command<

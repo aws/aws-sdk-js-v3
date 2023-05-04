@@ -52,6 +52,10 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  * };
  * const command = new RetrieveTapeArchiveCommand(input);
  * const response = await client.send(command);
+ * // { // RetrieveTapeArchiveOutput
+ * //   TapeARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RetrieveTapeArchiveCommandInput - {@link RetrieveTapeArchiveCommandInput}
@@ -68,6 +72,8 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To retrieve an archived tape from the VTS
  * ```javascript

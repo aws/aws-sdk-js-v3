@@ -46,6 +46,8 @@ export interface StartCrawlerCommandOutput extends StartCrawlerResponse, __Metad
  * };
  * const command = new StartCrawlerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartCrawlerCommandInput - {@link StartCrawlerCommandInput}
@@ -63,6 +65,8 @@ export interface StartCrawlerCommandOutput extends StartCrawlerResponse, __Metad
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartCrawlerCommand extends $Command<

@@ -46,6 +46,17 @@ export interface ListDeviceProfilesCommandOutput extends ListDeviceProfilesRespo
  * };
  * const command = new ListDeviceProfilesCommand(input);
  * const response = await client.send(command);
+ * // { // ListDeviceProfilesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   DeviceProfileList: [ // DeviceProfileList
+ * //     { // DeviceProfile
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListDeviceProfilesCommandInput - {@link ListDeviceProfilesCommandInput}
@@ -66,6 +77,8 @@ export interface ListDeviceProfilesCommandOutput extends ListDeviceProfilesRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListDeviceProfilesCommand extends $Command<

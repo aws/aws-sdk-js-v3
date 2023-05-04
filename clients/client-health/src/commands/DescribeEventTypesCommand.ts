@@ -64,6 +64,17 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  * };
  * const command = new DescribeEventTypesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEventTypesResponse
+ * //   eventTypes: [ // EventTypeList
+ * //     { // EventType
+ * //       service: "STRING_VALUE",
+ * //       code: "STRING_VALUE",
+ * //       category: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeEventTypesCommandInput - {@link DescribeEventTypesCommandInput}
@@ -78,6 +89,8 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  * @throws {@link UnsupportedLocale} (client fault)
  *  <p>The specified locale is not supported.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeEventTypesCommand extends $Command<

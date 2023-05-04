@@ -44,6 +44,8 @@ export interface DeleteVpcLinkCommandOutput extends DeleteVpcLinkResponse, __Met
  * };
  * const command = new DeleteVpcLinkCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteVpcLinkCommandInput - {@link DeleteVpcLinkCommandInput}
@@ -58,6 +60,8 @@ export interface DeleteVpcLinkCommandOutput extends DeleteVpcLinkResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class DeleteVpcLinkCommand extends $Command<

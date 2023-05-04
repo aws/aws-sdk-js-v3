@@ -49,6 +49,8 @@ export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ContinueDeploymentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ContinueDeploymentCommandInput - {@link ContinueDeploymentCommandInput}
@@ -82,6 +84,8 @@ export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
  * @throws {@link UnsupportedActionForDeploymentTypeException} (client fault)
  *  <p>A call was submitted that is not supported for the specified deployment type.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ContinueDeploymentCommand extends $Command<

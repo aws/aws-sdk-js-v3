@@ -71,6 +71,10 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  * };
  * const command = new CreateMLModelCommand(input);
  * const response = await client.send(command);
+ * // { // CreateMLModelOutput
+ * //   MLModelId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateMLModelCommandInput - {@link CreateMLModelCommandInput}
@@ -88,6 +92,8 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  * @throws {@link InvalidInputException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class CreateMLModelCommand extends $Command<

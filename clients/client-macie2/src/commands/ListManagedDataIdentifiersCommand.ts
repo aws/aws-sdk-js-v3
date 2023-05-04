@@ -44,6 +44,16 @@ export interface ListManagedDataIdentifiersCommandOutput extends ListManagedData
  * };
  * const command = new ListManagedDataIdentifiersCommand(input);
  * const response = await client.send(command);
+ * // { // ListManagedDataIdentifiersResponse
+ * //   items: [ // __listOfManagedDataIdentifierSummary
+ * //     { // ManagedDataIdentifierSummary
+ * //       category: "FINANCIAL_INFORMATION" || "PERSONAL_INFORMATION" || "CREDENTIALS" || "CUSTOM_IDENTIFIER",
+ * //       id: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListManagedDataIdentifiersCommandInput - {@link ListManagedDataIdentifiersCommandInput}
@@ -52,6 +62,8 @@ export interface ListManagedDataIdentifiersCommandOutput extends ListManagedData
  * @see {@link ListManagedDataIdentifiersCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListManagedDataIdentifiersCommand extends $Command<

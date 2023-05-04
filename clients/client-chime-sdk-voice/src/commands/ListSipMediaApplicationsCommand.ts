@@ -49,6 +49,25 @@ export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaAppli
  * };
  * const command = new ListSipMediaApplicationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSipMediaApplicationsResponse
+ * //   SipMediaApplications: [ // SipMediaApplicationList
+ * //     { // SipMediaApplication
+ * //       SipMediaApplicationId: "STRING_VALUE",
+ * //       AwsRegion: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Endpoints: [ // SipMediaApplicationEndpointList
+ * //         { // SipMediaApplicationEndpoint
+ * //           LambdaArn: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       SipMediaApplicationArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSipMediaApplicationsCommandInput - {@link ListSipMediaApplicationsCommandInput}
@@ -75,6 +94,8 @@ export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaAppli
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class ListSipMediaApplicationsCommand extends $Command<

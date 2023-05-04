@@ -52,6 +52,14 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanOutput,
  * };
  * const command = new UpdatePricingPlanCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePricingPlanOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Size: Number("long"),
+ * //   LastModifiedTime: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param UpdatePricingPlanCommandInput - {@link UpdatePricingPlanCommandInput}
@@ -83,6 +91,8 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class UpdatePricingPlanCommand extends $Command<

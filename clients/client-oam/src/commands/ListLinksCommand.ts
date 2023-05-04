@@ -47,6 +47,21 @@ export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBeare
  * };
  * const command = new ListLinksCommand(input);
  * const response = await client.send(command);
+ * // { // ListLinksOutput
+ * //   Items: [ // ListLinksItems // required
+ * //     { // ListLinksItem
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Label: "STRING_VALUE",
+ * //       ResourceTypes: [ // ResourceTypesOutput
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SinkArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListLinksCommandInput - {@link ListLinksCommandInput}
@@ -64,6 +79,8 @@ export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBeare
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class ListLinksCommand extends $Command<ListLinksCommandInput, ListLinksCommandOutput, OAMClientResolvedConfig> {

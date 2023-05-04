@@ -46,6 +46,13 @@ export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRule
  * };
  * const command = new ListApprovalRuleTemplatesCommand(input);
  * const response = await client.send(command);
+ * // { // ListApprovalRuleTemplatesOutput
+ * //   approvalRuleTemplateNames: [ // ApprovalRuleTemplateNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListApprovalRuleTemplatesCommandInput - {@link ListApprovalRuleTemplatesCommandInput}
@@ -60,6 +67,8 @@ export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRule
  * @throws {@link InvalidMaxResultsException} (client fault)
  *  <p>The specified number of maximum results is not valid.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class ListApprovalRuleTemplatesCommand extends $Command<

@@ -59,6 +59,32 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
  * };
  * const command = new ListDomainDeliverabilityCampaignsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDomainDeliverabilityCampaignsResponse
+ * //   DomainDeliverabilityCampaigns: [ // DomainDeliverabilityCampaignList // required
+ * //     { // DomainDeliverabilityCampaign
+ * //       CampaignId: "STRING_VALUE",
+ * //       ImageUrl: "STRING_VALUE",
+ * //       Subject: "STRING_VALUE",
+ * //       FromAddress: "STRING_VALUE",
+ * //       SendingIps: [ // IpList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       FirstSeenDateTime: new Date("TIMESTAMP"),
+ * //       LastSeenDateTime: new Date("TIMESTAMP"),
+ * //       InboxCount: Number("long"),
+ * //       SpamCount: Number("long"),
+ * //       ReadRate: Number("double"),
+ * //       DeleteRate: Number("double"),
+ * //       ReadDeleteRate: Number("double"),
+ * //       ProjectedVolume: Number("long"),
+ * //       Esps: [ // Esps
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDomainDeliverabilityCampaignsCommandInput - {@link ListDomainDeliverabilityCampaignsCommandInput}
@@ -76,6 +102,8 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class ListDomainDeliverabilityCampaignsCommand extends $Command<

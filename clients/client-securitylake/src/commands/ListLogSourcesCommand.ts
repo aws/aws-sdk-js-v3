@@ -63,6 +63,19 @@ export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __M
  * };
  * const command = new ListLogSourcesCommand(input);
  * const response = await client.send(command);
+ * // { // ListLogSourcesResponse
+ * //   regionSourceTypesAccountsList: [ // RegionSourceTypesAccountsList // required
+ * //     { // AllDimensionsMap
+ * //       "<keys>": { // TwoDimensionsMap
+ * //         "<keys>": [ // ValueSet
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListLogSourcesCommandInput - {@link ListLogSourcesCommandInput}
@@ -92,6 +105,8 @@ export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class ListLogSourcesCommand extends $Command<

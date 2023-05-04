@@ -46,6 +46,8 @@ export interface PutDataProtectionPolicyCommandOutput extends __MetadataBearer {
  * };
  * const command = new PutDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutDataProtectionPolicyCommandInput - {@link PutDataProtectionPolicyCommandInput}
@@ -71,6 +73,8 @@ export interface PutDataProtectionPolicyCommandOutput extends __MetadataBearer {
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class PutDataProtectionPolicyCommand extends $Command<

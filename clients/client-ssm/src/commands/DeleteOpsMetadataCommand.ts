@@ -44,6 +44,8 @@ export interface DeleteOpsMetadataCommandOutput extends DeleteOpsMetadataResult,
  * };
  * const command = new DeleteOpsMetadataCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteOpsMetadataCommandInput - {@link DeleteOpsMetadataCommandInput}
@@ -61,6 +63,8 @@ export interface DeleteOpsMetadataCommandOutput extends DeleteOpsMetadataResult,
  * @throws {@link OpsMetadataNotFoundException} (client fault)
  *  <p>The OpsMetadata object doesn't exist. </p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteOpsMetadataCommand extends $Command<

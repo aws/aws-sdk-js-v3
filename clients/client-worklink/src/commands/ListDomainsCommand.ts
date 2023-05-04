@@ -48,6 +48,18 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDomainsResponse
+ * //   Domains: [ // DomainSummaryList
+ * //     { // DomainSummary
+ * //       DomainName: "STRING_VALUE", // required
+ * //       DisplayName: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"), // required
+ * //       DomainStatus: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
@@ -71,6 +83,8 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class ListDomainsCommand extends $Command<

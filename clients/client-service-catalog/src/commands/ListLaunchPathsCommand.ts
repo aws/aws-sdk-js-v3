@@ -72,6 +72,28 @@ export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __M
  * };
  * const command = new ListLaunchPathsCommand(input);
  * const response = await client.send(command);
+ * // { // ListLaunchPathsOutput
+ * //   LaunchPathSummaries: [ // LaunchPathSummaries
+ * //     { // LaunchPathSummary
+ * //       Id: "STRING_VALUE",
+ * //       ConstraintSummaries: [ // ConstraintSummaries
+ * //         { // ConstraintSummary
+ * //           Type: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Tags: [ // Tags
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListLaunchPathsCommandInput - {@link ListLaunchPathsCommandInput}
@@ -86,6 +108,8 @@ export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListLaunchPathsCommand extends $Command<

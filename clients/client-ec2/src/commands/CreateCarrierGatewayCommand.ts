@@ -57,6 +57,21 @@ export interface CreateCarrierGatewayCommandOutput extends CreateCarrierGatewayR
  * };
  * const command = new CreateCarrierGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCarrierGatewayResult
+ * //   CarrierGateway: { // CarrierGateway
+ * //     CarrierGatewayId: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateCarrierGatewayCommandInput - {@link CreateCarrierGatewayCommandInput}
@@ -65,6 +80,8 @@ export interface CreateCarrierGatewayCommandOutput extends CreateCarrierGatewayR
  * @see {@link CreateCarrierGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateCarrierGatewayCommand extends $Command<

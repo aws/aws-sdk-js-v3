@@ -45,6 +45,10 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetResourcePolicyResponse
+ * //   policy: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
@@ -69,6 +73,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class GetResourcePolicyCommand extends $Command<

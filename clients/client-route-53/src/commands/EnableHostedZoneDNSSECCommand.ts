@@ -45,6 +45,15 @@ export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNS
  * };
  * const command = new EnableHostedZoneDNSSECCommand(input);
  * const response = await client.send(command);
+ * // { // EnableHostedZoneDNSSECResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param EnableHostedZoneDNSSECCommandInput - {@link EnableHostedZoneDNSSECCommandInput}
@@ -84,6 +93,8 @@ export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNS
  * @throws {@link NoSuchHostedZone} (client fault)
  *  <p>No hosted zone exists with the ID that you specified.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class EnableHostedZoneDNSSECCommand extends $Command<

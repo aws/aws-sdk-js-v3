@@ -47,6 +47,8 @@ export interface TransferInputDeviceCommandOutput extends TransferInputDeviceRes
  * };
  * const command = new TransferInputDeviceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TransferInputDeviceCommandInput - {@link TransferInputDeviceCommandInput}
@@ -82,6 +84,8 @@ export interface TransferInputDeviceCommandOutput extends TransferInputDeviceRes
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class TransferInputDeviceCommand extends $Command<

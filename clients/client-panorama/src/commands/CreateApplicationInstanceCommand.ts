@@ -57,6 +57,10 @@ export interface CreateApplicationInstanceCommandOutput extends CreateApplicatio
  * };
  * const command = new CreateApplicationInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // CreateApplicationInstanceResponse
+ * //   ApplicationInstanceId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateApplicationInstanceCommandInput - {@link CreateApplicationInstanceCommandInput}
@@ -77,6 +81,8 @@ export interface CreateApplicationInstanceCommandOutput extends CreateApplicatio
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class CreateApplicationInstanceCommand extends $Command<

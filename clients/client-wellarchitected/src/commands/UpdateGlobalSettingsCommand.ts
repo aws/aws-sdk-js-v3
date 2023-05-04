@@ -32,7 +32,7 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates whether the Amazon Web Services account is opted into organization sharing features.</p>
+ * <p>Updates whether the Amazon Web Services account is opted into organization sharing and discovery integration features.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,9 +41,12 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * const client = new WellArchitectedClient(config);
  * const input = { // UpdateGlobalSettingsInput
  *   OrganizationSharingStatus: "ENABLED" || "DISABLED",
+ *   DiscoveryIntegrationStatus: "ENABLED" || "DISABLED",
  * };
  * const command = new UpdateGlobalSettingsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateGlobalSettingsCommandInput - {@link UpdateGlobalSettingsCommandInput}
@@ -67,6 +70,8 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class UpdateGlobalSettingsCommand extends $Command<

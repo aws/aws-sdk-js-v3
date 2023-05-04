@@ -55,6 +55,8 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  * };
  * const command = new UpdateTrafficDistributionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateTrafficDistributionCommandInput - {@link UpdateTrafficDistributionCommandInput}
@@ -81,6 +83,8 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateTrafficDistributionCommand extends $Command<

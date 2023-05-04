@@ -74,6 +74,35 @@ export interface CreateWorkflowCommandOutput extends CreateMigrationWorkflowResp
  * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);
+ * // { // CreateMigrationWorkflowResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   templateId: "STRING_VALUE",
+ * //   adsApplicationConfigurationId: "STRING_VALUE",
+ * //   workflowInputs: { // StepInputParameters
+ * //     "<keys>": { // StepInput Union: only one key present
+ * //       integerValue: Number("int"),
+ * //       stringValue: "STRING_VALUE",
+ * //       listOfStringsValue: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       mapOfStringValue: { // StringMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   stepTargets: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   status: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   tags: {
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateWorkflowCommandInput - {@link CreateWorkflowCommandInput}
@@ -94,6 +123,8 @@ export interface CreateWorkflowCommandOutput extends CreateMigrationWorkflowResp
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class CreateWorkflowCommand extends $Command<

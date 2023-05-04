@@ -51,6 +51,14 @@ export interface CreateParticipantCommandOutput extends CreateParticipantRespons
  * };
  * const command = new CreateParticipantCommand(input);
  * const response = await client.send(command);
+ * // { // CreateParticipantResponse
+ * //   ParticipantCredentials: { // ParticipantTokenCredentials
+ * //     ParticipantToken: "STRING_VALUE",
+ * //     Expiry: "STRING_VALUE",
+ * //   },
+ * //   ParticipantId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateParticipantCommandInput - {@link CreateParticipantCommandInput}
@@ -77,6 +85,8 @@ export interface CreateParticipantCommandOutput extends CreateParticipantRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateParticipantCommand extends $Command<

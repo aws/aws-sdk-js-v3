@@ -47,6 +47,54 @@ export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult,
  * };
  * const command = new GetOfferingStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetOfferingStatusResult
+ * //   current: { // OfferingStatusMap
+ * //     "<keys>": { // OfferingStatus
+ * //       type: "PURCHASE" || "RENEW" || "SYSTEM",
+ * //       offering: { // Offering
+ * //         id: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //         type: "RECURRING",
+ * //         platform: "ANDROID" || "IOS",
+ * //         recurringCharges: [ // RecurringCharges
+ * //           { // RecurringCharge
+ * //             cost: { // MonetaryAmount
+ * //               amount: Number("double"),
+ * //               currencyCode: "USD",
+ * //             },
+ * //             frequency: "MONTHLY",
+ * //           },
+ * //         ],
+ * //       },
+ * //       quantity: Number("int"),
+ * //       effectiveOn: new Date("TIMESTAMP"),
+ * //     },
+ * //   },
+ * //   nextPeriod: {
+ * //     "<keys>": {
+ * //       type: "PURCHASE" || "RENEW" || "SYSTEM",
+ * //       offering: {
+ * //         id: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //         type: "RECURRING",
+ * //         platform: "ANDROID" || "IOS",
+ * //         recurringCharges: [
+ * //           {
+ * //             cost: {
+ * //               amount: Number("double"),
+ * //               currencyCode: "USD",
+ * //             },
+ * //             frequency: "MONTHLY",
+ * //           },
+ * //         ],
+ * //       },
+ * //       quantity: Number("int"),
+ * //       effectiveOn: new Date("TIMESTAMP"),
+ * //     },
+ * //   },
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetOfferingStatusCommandInput - {@link GetOfferingStatusCommandInput}
@@ -71,6 +119,8 @@ export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult,
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To get status information about device offerings
  * ```javascript

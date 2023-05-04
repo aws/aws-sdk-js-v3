@@ -55,6 +55,8 @@ export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBeare
  * };
  * const command = new PutUserPermissionsBoundaryCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutUserPermissionsBoundaryCommandInput - {@link PutUserPermissionsBoundaryCommandInput}
@@ -79,6 +81,8 @@ export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBeare
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class PutUserPermissionsBoundaryCommand extends $Command<

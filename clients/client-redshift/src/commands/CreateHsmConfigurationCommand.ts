@@ -61,6 +61,21 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  * };
  * const command = new CreateHsmConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateHsmConfigurationResult
+ * //   HsmConfiguration: { // HsmConfiguration
+ * //     HsmConfigurationIdentifier: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     HsmIpAddress: "STRING_VALUE",
+ * //     HsmPartitionName: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateHsmConfigurationCommandInput - {@link CreateHsmConfigurationCommandInput}
@@ -85,6 +100,8 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  * @throws {@link TagLimitExceededFault} (client fault)
  *  <p>You have exceeded the number of tags allowed.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateHsmConfigurationCommand extends $Command<

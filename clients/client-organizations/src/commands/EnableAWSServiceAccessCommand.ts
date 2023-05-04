@@ -63,6 +63,8 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableAWSServiceAccessCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param EnableAWSServiceAccessCommandInput - {@link EnableAWSServiceAccessCommandInput}
@@ -401,6 +403,8 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class EnableAWSServiceAccessCommand extends $Command<

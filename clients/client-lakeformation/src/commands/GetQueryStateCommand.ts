@@ -44,6 +44,11 @@ export interface GetQueryStateCommandOutput extends GetQueryStateResponse, __Met
  * };
  * const command = new GetQueryStateCommand(input);
  * const response = await client.send(command);
+ * // { // GetQueryStateResponse
+ * //   Error: "STRING_VALUE",
+ * //   State: "PENDING" || "WORKUNITS_AVAILABLE" || "ERROR" || "FINISHED" || "EXPIRED", // required
+ * // };
+ *
  * ```
  *
  * @param GetQueryStateCommandInput - {@link GetQueryStateCommandInput}
@@ -61,6 +66,8 @@ export interface GetQueryStateCommandOutput extends GetQueryStateResponse, __Met
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetQueryStateCommand extends $Command<

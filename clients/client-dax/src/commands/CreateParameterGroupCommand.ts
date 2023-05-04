@@ -46,6 +46,13 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * };
  * const command = new CreateParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateParameterGroupResponse
+ * //   ParameterGroup: { // ParameterGroup
+ * //     ParameterGroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateParameterGroupCommandInput - {@link CreateParameterGroupCommandInput}
@@ -72,6 +79,8 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class CreateParameterGroupCommand extends $Command<

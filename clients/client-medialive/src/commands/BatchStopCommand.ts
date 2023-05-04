@@ -49,6 +49,24 @@ export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBea
  * };
  * const command = new BatchStopCommand(input);
  * const response = await client.send(command);
+ * // { // BatchStopResponse
+ * //   Failed: [ // __listOfBatchFailedResultModel
+ * //     { // BatchFailedResultModel
+ * //       Arn: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Successful: [ // __listOfBatchSuccessfulResultModel
+ * //     { // BatchSuccessfulResultModel
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchStopCommandInput - {@link BatchStopCommandInput}
@@ -81,6 +99,8 @@ export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class BatchStopCommand extends $Command<

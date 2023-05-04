@@ -50,6 +50,8 @@ export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __Met
  * };
  * const command = new DeleteListenerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteListenerCommandInput - {@link DeleteListenerCommandInput}
@@ -64,6 +66,8 @@ export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __Met
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>A specified resource is in use.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To delete a listener
  * ```javascript

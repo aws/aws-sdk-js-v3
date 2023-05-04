@@ -62,6 +62,23 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * };
  * const command = new ListBuildsCommand(input);
  * const response = await client.send(command);
+ * // { // ListBuildsOutput
+ * //   Builds: [ // BuildList
+ * //     { // Build
+ * //       BuildId: "STRING_VALUE",
+ * //       BuildArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //       Status: "INITIALIZED" || "READY" || "FAILED",
+ * //       SizeOnDisk: Number("long"),
+ * //       OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       ServerSdkVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListBuildsCommandInput - {@link ListBuildsCommandInput}
@@ -81,6 +98,8 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class ListBuildsCommand extends $Command<

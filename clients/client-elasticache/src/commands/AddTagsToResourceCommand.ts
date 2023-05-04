@@ -61,6 +61,15 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
+ * // { // TagListMessage
+ * //   TagList: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
@@ -105,6 +114,8 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  * @throws {@link UserNotFoundFault} (client fault)
  *  <p>The user does not exist or could not be found.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example AddTagsToResource
  * ```javascript

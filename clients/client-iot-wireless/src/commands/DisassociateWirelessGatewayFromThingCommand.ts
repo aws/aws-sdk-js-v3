@@ -52,6 +52,8 @@ export interface DisassociateWirelessGatewayFromThingCommandOutput
  * };
  * const command = new DisassociateWirelessGatewayFromThingCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateWirelessGatewayFromThingCommandInput - {@link DisassociateWirelessGatewayFromThingCommandInput}
@@ -78,6 +80,8 @@ export interface DisassociateWirelessGatewayFromThingCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class DisassociateWirelessGatewayFromThingCommand extends $Command<

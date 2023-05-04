@@ -50,6 +50,10 @@ export interface AssociateAccountsCommandOutput extends AssociateAccountsOutput,
  * };
  * const command = new AssociateAccountsCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateAccountsOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AssociateAccountsCommandInput - {@link AssociateAccountsCommandInput}
@@ -85,6 +89,8 @@ export interface AssociateAccountsCommandOutput extends AssociateAccountsOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class AssociateAccountsCommand extends $Command<

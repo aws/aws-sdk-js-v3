@@ -60,6 +60,10 @@ export interface CreateUserAccessLoggingSettingsCommandOutput
  * };
  * const command = new CreateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // CreateUserAccessLoggingSettingsResponse
+ * //   userAccessLoggingSettingsArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateUserAccessLoggingSettingsCommandInput - {@link CreateUserAccessLoggingSettingsCommandInput}
@@ -86,6 +90,8 @@ export interface CreateUserAccessLoggingSettingsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class CreateUserAccessLoggingSettingsCommand extends $Command<

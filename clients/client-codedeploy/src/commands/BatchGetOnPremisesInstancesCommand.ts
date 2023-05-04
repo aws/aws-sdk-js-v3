@@ -47,6 +47,25 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  * };
  * const command = new BatchGetOnPremisesInstancesCommand(input);
  * const response = await client.send(command);
+ * // { // BatchGetOnPremisesInstancesOutput
+ * //   instanceInfos: [ // InstanceInfoList
+ * //     { // InstanceInfo
+ * //       instanceName: "STRING_VALUE",
+ * //       iamSessionArn: "STRING_VALUE",
+ * //       iamUserArn: "STRING_VALUE",
+ * //       instanceArn: "STRING_VALUE",
+ * //       registerTime: new Date("TIMESTAMP"),
+ * //       deregisterTime: new Date("TIMESTAMP"),
+ * //       tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchGetOnPremisesInstancesCommandInput - {@link BatchGetOnPremisesInstancesCommandInput}
@@ -64,6 +83,8 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  * @throws {@link InvalidInstanceNameException} (client fault)
  *  <p>The on-premises instance name was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class BatchGetOnPremisesInstancesCommand extends $Command<

@@ -50,6 +50,12 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  * };
  * const command = new GetQueueAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // GetQueueAttributesResult
+ * //   Attributes: { // QueueAttributeMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetQueueAttributesCommandInput - {@link GetQueueAttributesCommandInput}
@@ -61,6 +67,8 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  * @throws {@link InvalidAttributeName} (client fault)
  *  <p>The specified attribute doesn't exist.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class GetQueueAttributesCommand extends $Command<

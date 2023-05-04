@@ -46,6 +46,12 @@ export interface GetTagsCommandOutput extends Tags, __MetadataBearer {}
  * };
  * const command = new GetTagsCommand(input);
  * const response = await client.send(command);
+ * // { // Tags
+ * //   tags: { // MapOfStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetTagsCommandInput - {@link GetTagsCommandInput}
@@ -66,6 +72,8 @@ export interface GetTagsCommandOutput extends Tags, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetTagsCommand extends $Command<

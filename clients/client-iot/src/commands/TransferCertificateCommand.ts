@@ -54,6 +54,10 @@ export interface TransferCertificateCommandOutput extends TransferCertificateRes
  * };
  * const command = new TransferCertificateCommand(input);
  * const response = await client.send(command);
+ * // { // TransferCertificateResponse
+ * //   transferredCertificateArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param TransferCertificateCommandInput - {@link TransferCertificateCommandInput}
@@ -87,6 +91,8 @@ export interface TransferCertificateCommandOutput extends TransferCertificateRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class TransferCertificateCommand extends $Command<

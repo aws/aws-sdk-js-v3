@@ -48,6 +48,8 @@ export interface RenewCertificateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RenewCertificateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RenewCertificateCommandInput - {@link RenewCertificateCommandInput}
@@ -63,6 +65,8 @@ export interface RenewCertificateCommandOutput extends __MetadataBearer {}
  *  <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class RenewCertificateCommand extends $Command<

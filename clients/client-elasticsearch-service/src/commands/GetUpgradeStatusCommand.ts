@@ -48,6 +48,12 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  * };
  * const command = new GetUpgradeStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetUpgradeStatusResponse
+ * //   UpgradeStep: "PRE_UPGRADE_CHECK" || "SNAPSHOT" || "UPGRADE",
+ * //   StepStatus: "IN_PROGRESS" || "SUCCEEDED" || "SUCCEEDED_WITH_ISSUES" || "FAILED",
+ * //   UpgradeName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetUpgradeStatusCommandInput - {@link GetUpgradeStatusCommandInput}
@@ -71,6 +77,8 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class GetUpgradeStatusCommand extends $Command<

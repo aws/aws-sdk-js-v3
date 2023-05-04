@@ -67,6 +67,10 @@ export interface CreateProposalCommandOutput extends CreateProposalOutput, __Met
  * };
  * const command = new CreateProposalCommand(input);
  * const response = await client.send(command);
+ * // { // CreateProposalOutput
+ * //   ProposalId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateProposalCommandInput - {@link CreateProposalCommandInput}
@@ -99,6 +103,8 @@ export interface CreateProposalCommandOutput extends CreateProposalOutput, __Met
  * @throws {@link TooManyTagsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class CreateProposalCommand extends $Command<

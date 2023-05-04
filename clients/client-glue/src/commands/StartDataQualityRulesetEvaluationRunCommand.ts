@@ -73,6 +73,10 @@ export interface StartDataQualityRulesetEvaluationRunCommandOutput
  * };
  * const command = new StartDataQualityRulesetEvaluationRunCommand(input);
  * const response = await client.send(command);
+ * // { // StartDataQualityRulesetEvaluationRunResponse
+ * //   RunId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartDataQualityRulesetEvaluationRunCommandInput - {@link StartDataQualityRulesetEvaluationRunCommandInput}
@@ -96,6 +100,8 @@ export interface StartDataQualityRulesetEvaluationRunCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartDataQualityRulesetEvaluationRunCommand extends $Command<

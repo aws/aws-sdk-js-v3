@@ -52,6 +52,8 @@ export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluatio
  * };
  * const command = new PutExternalEvaluationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutExternalEvaluationCommandInput - {@link PutExternalEvaluationCommandInput}
@@ -67,6 +69,8 @@ export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluatio
  * @throws {@link NoSuchConfigRuleException} (client fault)
  *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutExternalEvaluationCommand extends $Command<

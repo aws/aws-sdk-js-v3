@@ -70,6 +70,8 @@ export interface RemoveEndpointsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RemoveEndpointsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RemoveEndpointsCommandInput - {@link RemoveEndpointsCommandInput}
@@ -93,6 +95,8 @@ export interface RemoveEndpointsCommandOutput extends __MetadataBearer {}
  * @throws {@link TransactionInProgressException} (client fault)
  *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class RemoveEndpointsCommand extends $Command<

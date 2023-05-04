@@ -46,6 +46,13 @@ export interface ListFacetNamesCommandOutput extends ListFacetNamesResponse, __M
  * };
  * const command = new ListFacetNamesCommand(input);
  * const response = await client.send(command);
+ * // { // ListFacetNamesResponse
+ * //   FacetNames: [ // FacetNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFacetNamesCommandInput - {@link ListFacetNamesCommandInput}
@@ -79,6 +86,8 @@ export interface ListFacetNamesCommandOutput extends ListFacetNamesResponse, __M
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListFacetNamesCommand extends $Command<

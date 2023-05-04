@@ -47,6 +47,16 @@ export interface BatchAssociateResourceCommandOutput extends BatchAssociateResou
  * };
  * const command = new BatchAssociateResourceCommand(input);
  * const response = await client.send(command);
+ * // { // BatchAssociateResourceResponse
+ * //   ResourceSetIdentifier: "STRING_VALUE", // required
+ * //   FailedItems: [ // FailedItemList // required
+ * //     { // FailedItem
+ * //       URI: "STRING_VALUE",
+ * //       Reason: "NOT_VALID_ARN" || "NOT_VALID_PARTITION" || "NOT_VALID_REGION" || "NOT_VALID_SERVICE" || "NOT_VALID_RESOURCE_TYPE" || "NOT_VALID_ACCOUNT_ID",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchAssociateResourceCommandInput - {@link BatchAssociateResourceCommandInput}
@@ -78,6 +88,8 @@ export interface BatchAssociateResourceCommandOutput extends BatchAssociateResou
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class BatchAssociateResourceCommand extends $Command<

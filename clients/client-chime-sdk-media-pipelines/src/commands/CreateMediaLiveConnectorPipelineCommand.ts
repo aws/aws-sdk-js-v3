@@ -103,6 +103,55 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
  * };
  * const command = new CreateMediaLiveConnectorPipelineCommand(input);
  * const response = await client.send(command);
+ * // { // CreateMediaLiveConnectorPipelineResponse
+ * //   MediaLiveConnectorPipeline: { // MediaLiveConnectorPipeline
+ * //     Sources: [ // LiveConnectorSourceList
+ * //       { // LiveConnectorSourceConfiguration
+ * //         SourceType: "ChimeSdkMeeting", // required
+ * //         ChimeSdkMeetingLiveConnectorConfiguration: { // ChimeSdkMeetingLiveConnectorConfiguration
+ * //           Arn: "STRING_VALUE", // required
+ * //           MuxType: "AudioWithCompositedVideo" || "AudioWithActiveSpeakerVideo", // required
+ * //           CompositedVideo: { // CompositedVideoArtifactsConfiguration
+ * //             Layout: "GridView",
+ * //             Resolution: "HD" || "FHD",
+ * //             GridViewConfiguration: { // GridViewConfiguration
+ * //               ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
+ * //               PresenterOnlyConfiguration: { // PresenterOnlyConfiguration
+ * //                 PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
+ * //               },
+ * //             },
+ * //           },
+ * //           SourceConfiguration: { // SourceConfiguration
+ * //             SelectedVideoStreams: { // SelectedVideoStreams
+ * //               AttendeeIds: [ // AttendeeIdList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               ExternalUserIds: [ // ExternalUserIdList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //     Sinks: [ // LiveConnectorSinkList
+ * //       { // LiveConnectorSinkConfiguration
+ * //         SinkType: "RTMP", // required
+ * //         RTMPConfiguration: { // LiveConnectorRTMPConfiguration
+ * //           Url: "STRING_VALUE", // required
+ * //           AudioChannels: "Stereo" || "Mono",
+ * //           AudioSampleRate: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     MediaPipelineId: "STRING_VALUE",
+ * //     MediaPipelineArn: "STRING_VALUE",
+ * //     Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateMediaLiveConnectorPipelineCommandInput - {@link CreateMediaLiveConnectorPipelineCommandInput}
@@ -132,6 +181,8 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMediaPipelinesServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
 export class CreateMediaLiveConnectorPipelineCommand extends $Command<

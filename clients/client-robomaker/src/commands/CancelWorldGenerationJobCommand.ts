@@ -44,6 +44,8 @@ export interface CancelWorldGenerationJobCommandOutput extends CancelWorldGenera
  * };
  * const command = new CancelWorldGenerationJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelWorldGenerationJobCommandInput - {@link CancelWorldGenerationJobCommandInput}
@@ -65,6 +67,8 @@ export interface CancelWorldGenerationJobCommandOutput extends CancelWorldGenera
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CancelWorldGenerationJobCommand extends $Command<

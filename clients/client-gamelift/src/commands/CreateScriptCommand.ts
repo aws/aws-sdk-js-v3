@@ -96,6 +96,23 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  * };
  * const command = new CreateScriptCommand(input);
  * const response = await client.send(command);
+ * // { // CreateScriptOutput
+ * //   Script: { // Script
+ * //     ScriptId: "STRING_VALUE",
+ * //     ScriptArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Version: "STRING_VALUE",
+ * //     SizeOnDisk: Number("long"),
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     StorageLocation: { // S3Location
+ * //       Bucket: "STRING_VALUE",
+ * //       Key: "STRING_VALUE",
+ * //       RoleArn: "STRING_VALUE",
+ * //       ObjectVersion: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateScriptCommandInput - {@link CreateScriptCommandInput}
@@ -126,6 +143,8 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class CreateScriptCommand extends $Command<

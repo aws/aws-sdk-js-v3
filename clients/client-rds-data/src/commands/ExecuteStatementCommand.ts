@@ -109,6 +109,85 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  * };
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);
+ * // { // ExecuteStatementResponse
+ * //   records: [ // SqlRecords
+ * //     [ // FieldList
+ * //       { // Field Union: only one key present
+ * //         isNull: true || false,
+ * //         booleanValue: true || false,
+ * //         longValue: Number("long"),
+ * //         doubleValue: Number("double"),
+ * //         stringValue: "STRING_VALUE",
+ * //         blobValue: "BLOB_VALUE",
+ * //         arrayValue: { // ArrayValue Union: only one key present
+ * //           booleanValues: [ // BooleanArray
+ * //             true || false,
+ * //           ],
+ * //           longValues: [ // LongArray
+ * //             Number("long"),
+ * //           ],
+ * //           doubleValues: [ // DoubleArray
+ * //             Number("double"),
+ * //           ],
+ * //           stringValues: [ // StringArray
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           arrayValues: [ // ArrayOfArray
+ * //             {//  Union: only one key present
+ * //               booleanValues: [
+ * //                 true || false,
+ * //               ],
+ * //               longValues: [
+ * //                 Number("long"),
+ * //               ],
+ * //               doubleValues: [
+ * //                 Number("double"),
+ * //               ],
+ * //               stringValues: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               arrayValues: [
+ * //                 "<ArrayValue>",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     ],
+ * //   ],
+ * //   columnMetadata: [ // Metadata
+ * //     { // ColumnMetadata
+ * //       name: "STRING_VALUE",
+ * //       type: Number("int"),
+ * //       typeName: "STRING_VALUE",
+ * //       label: "STRING_VALUE",
+ * //       schemaName: "STRING_VALUE",
+ * //       tableName: "STRING_VALUE",
+ * //       isAutoIncrement: true || false,
+ * //       isSigned: true || false,
+ * //       isCurrency: true || false,
+ * //       isCaseSensitive: true || false,
+ * //       nullable: Number("int"),
+ * //       precision: Number("int"),
+ * //       scale: Number("int"),
+ * //       arrayBaseColumnType: Number("int"),
+ * //     },
+ * //   ],
+ * //   numberOfRecordsUpdated: Number("long"),
+ * //   generatedFields: [
+ * //     {//  Union: only one key present
+ * //       isNull: true || false,
+ * //       booleanValue: true || false,
+ * //       longValue: Number("long"),
+ * //       doubleValue: Number("double"),
+ * //       stringValue: "STRING_VALUE",
+ * //       blobValue: "BLOB_VALUE",
+ * //       arrayValue: "<ArrayValue>",
+ * //     },
+ * //   ],
+ * //   formattedRecords: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ExecuteStatementCommandInput - {@link ExecuteStatementCommandInput}
@@ -136,6 +215,8 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  * @throws {@link StatementTimeoutException} (client fault)
  *  <p>The execution of the SQL statement timed out.</p>
  *
+ * @throws {@link RDSDataServiceException}
+ * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
  */
 export class ExecuteStatementCommand extends $Command<

@@ -48,6 +48,8 @@ export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutpu
  * };
  * const command = new DeactivatePipelineCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeactivatePipelineCommandInput - {@link DeactivatePipelineCommandInput}
@@ -68,6 +70,8 @@ export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutpu
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class DeactivatePipelineCommand extends $Command<

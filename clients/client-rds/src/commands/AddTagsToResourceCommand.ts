@@ -52,6 +52,8 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
@@ -82,6 +84,8 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To add tags to a resource
  * ```javascript

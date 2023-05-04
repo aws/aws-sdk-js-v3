@@ -45,6 +45,11 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  * const input = {};
  * const command = new GetSnowballUsageCommand(input);
  * const response = await client.send(command);
+ * // { // GetSnowballUsageResult
+ * //   SnowballLimit: Number("int"),
+ * //   SnowballsInUse: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param GetSnowballUsageCommandInput - {@link GetSnowballUsageCommandInput}
@@ -53,6 +58,8 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  * @see {@link GetSnowballUsageCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To see your Snowball service limit and the number of Snowballs you have in use
  * ```javascript

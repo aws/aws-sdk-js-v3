@@ -54,6 +54,18 @@ export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsRespons
  * };
  * const command = new GetBuiltinIntentsCommand(input);
  * const response = await client.send(command);
+ * // { // GetBuiltinIntentsResponse
+ * //   intents: [ // BuiltinIntentMetadataList
+ * //     { // BuiltinIntentMetadata
+ * //       signature: "STRING_VALUE",
+ * //       supportedLocales: [ // LocaleList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetBuiltinIntentsCommandInput - {@link GetBuiltinIntentsCommandInput}
@@ -73,6 +85,8 @@ export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsRespons
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The request exceeded a limit. Try your request again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetBuiltinIntentsCommand extends $Command<

@@ -64,6 +64,12 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  * };
  * const command = new CreateTapesCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTapesOutput
+ * //   TapeARNs: [ // TapeARNs
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param CreateTapesCommandInput - {@link CreateTapesCommandInput}
@@ -80,6 +86,8 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To create a virtual tape
  * ```javascript

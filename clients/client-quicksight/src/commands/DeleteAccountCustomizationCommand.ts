@@ -46,6 +46,11 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  * };
  * const command = new DeleteAccountCustomizationCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteAccountCustomizationResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param DeleteAccountCustomizationCommandInput - {@link DeleteAccountCustomizationCommandInput}
@@ -78,6 +83,8 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteAccountCustomizationCommand extends $Command<

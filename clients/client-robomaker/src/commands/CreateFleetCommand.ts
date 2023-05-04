@@ -52,6 +52,15 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * };
  * const command = new CreateFleetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateFleetResponse
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateFleetCommandInput - {@link CreateFleetCommandInput}
@@ -74,6 +83,8 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CreateFleetCommand extends $Command<

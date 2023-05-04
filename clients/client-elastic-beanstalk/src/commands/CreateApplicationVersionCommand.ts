@@ -86,6 +86,28 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * };
  * const command = new CreateApplicationVersionCommand(input);
  * const response = await client.send(command);
+ * // { // ApplicationVersionDescriptionMessage
+ * //   ApplicationVersion: { // ApplicationVersionDescription
+ * //     ApplicationVersionArn: "STRING_VALUE",
+ * //     ApplicationName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     VersionLabel: "STRING_VALUE",
+ * //     SourceBuildInformation: { // SourceBuildInformation
+ * //       SourceType: "Git" || "Zip", // required
+ * //       SourceRepository: "CodeCommit" || "S3", // required
+ * //       SourceLocation: "STRING_VALUE", // required
+ * //     },
+ * //     BuildArn: "STRING_VALUE",
+ * //     SourceBundle: { // S3Location
+ * //       S3Bucket: "STRING_VALUE",
+ * //       S3Key: "STRING_VALUE",
+ * //     },
+ * //     DateCreated: new Date("TIMESTAMP"),
+ * //     DateUpdated: new Date("TIMESTAMP"),
+ * //     Status: "Processed" || "Unprocessed" || "Failed" || "Processing" || "Building",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateApplicationVersionCommandInput - {@link CreateApplicationVersionCommandInput}
@@ -122,6 +144,8 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * @throws {@link TooManyApplicationVersionsException} (client fault)
  *  <p>The specified account has reached its limit of application versions.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To create a new application
  * ```javascript

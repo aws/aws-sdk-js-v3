@@ -51,6 +51,8 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteStackCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteStackCommandInput - {@link DeleteStackCommandInput}
@@ -62,6 +64,8 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  * @throws {@link TokenAlreadyExistsException} (client fault)
  *  <p>A client request token already exists.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DeleteStackCommand extends $Command<

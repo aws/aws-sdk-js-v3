@@ -63,6 +63,8 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddTagsToCertificateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AddTagsToCertificateCommandInput - {@link AddTagsToCertificateCommandInput}
@@ -94,6 +96,8 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>The request contains too many tags. Try the request again with fewer tags.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class AddTagsToCertificateCommand extends $Command<

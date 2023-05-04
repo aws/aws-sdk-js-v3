@@ -49,6 +49,36 @@ export interface DescribeUserHierarchyStructureCommandOutput
  * };
  * const command = new DescribeUserHierarchyStructureCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeUserHierarchyStructureResponse
+ * //   HierarchyStructure: { // HierarchyStructure
+ * //     LevelOne: { // HierarchyLevel
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     LevelTwo: {
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     LevelThree: {
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     LevelFour: {
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     LevelFive: {
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeUserHierarchyStructureCommandInput - {@link DescribeUserHierarchyStructureCommandInput}
@@ -72,6 +102,8 @@ export interface DescribeUserHierarchyStructureCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeUserHierarchyStructureCommand extends $Command<

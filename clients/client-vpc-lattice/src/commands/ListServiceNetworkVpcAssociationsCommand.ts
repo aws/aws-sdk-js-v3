@@ -57,6 +57,24 @@ export interface ListServiceNetworkVpcAssociationsCommandOutput
  * };
  * const command = new ListServiceNetworkVpcAssociationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListServiceNetworkVpcAssociationsResponse
+ * //   items: [ // ServiceNetworkVpcAssociationList // required
+ * //     { // ServiceNetworkVpcAssociationSummary
+ * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       createdBy: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       serviceNetworkId: "STRING_VALUE",
+ * //       serviceNetworkName: "STRING_VALUE",
+ * //       serviceNetworkArn: "STRING_VALUE",
+ * //       vpcId: "STRING_VALUE",
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListServiceNetworkVpcAssociationsCommandInput - {@link ListServiceNetworkVpcAssociationsCommandInput}
@@ -78,6 +96,8 @@ export interface ListServiceNetworkVpcAssociationsCommandOutput
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class ListServiceNetworkVpcAssociationsCommand extends $Command<

@@ -50,6 +50,15 @@ export interface DescribeNotificationConfigurationCommandOutput
  * };
  * const command = new DescribeNotificationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeNotificationConfigurationOutput
+ * //   NotificationConfiguration: { // NotificationConfiguration
+ * //     Status: "ENABLED" || "DISABLED", // required
+ * //     DestinationConfig: { // NotificationDestinationConfig
+ * //       Uri: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeNotificationConfigurationCommandInput - {@link DescribeNotificationConfigurationCommandInput}
@@ -71,6 +80,8 @@ export interface DescribeNotificationConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class DescribeNotificationConfigurationCommand extends $Command<

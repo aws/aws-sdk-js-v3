@@ -45,6 +45,16 @@ export interface ListKafkaVersionsCommandOutput extends ListKafkaVersionsRespons
  * };
  * const command = new ListKafkaVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListKafkaVersionsResponse
+ * //   KafkaVersions: [ // __listOfKafkaVersion
+ * //     { // KafkaVersion
+ * //       Version: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "DEPRECATED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListKafkaVersionsCommandInput - {@link ListKafkaVersionsCommandInput}
@@ -65,6 +75,8 @@ export interface ListKafkaVersionsCommandOutput extends ListKafkaVersionsRespons
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class ListKafkaVersionsCommand extends $Command<

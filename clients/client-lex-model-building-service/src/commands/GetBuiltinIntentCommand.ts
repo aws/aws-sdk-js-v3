@@ -50,6 +50,18 @@ export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse,
  * };
  * const command = new GetBuiltinIntentCommand(input);
  * const response = await client.send(command);
+ * // { // GetBuiltinIntentResponse
+ * //   signature: "STRING_VALUE",
+ * //   supportedLocales: [ // LocaleList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   slots: [ // BuiltinIntentSlotList
+ * //     { // BuiltinIntentSlot
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetBuiltinIntentCommandInput - {@link GetBuiltinIntentCommandInput}
@@ -73,6 +85,8 @@ export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse,
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetBuiltinIntentCommand extends $Command<

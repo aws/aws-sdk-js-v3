@@ -51,6 +51,21 @@ export interface ListUsageLimitsCommandOutput extends ListUsageLimitsResponse, _
  * };
  * const command = new ListUsageLimitsCommand(input);
  * const response = await client.send(command);
+ * // { // ListUsageLimitsResponse
+ * //   usageLimits: [ // UsageLimits
+ * //     { // UsageLimit
+ * //       usageLimitId: "STRING_VALUE",
+ * //       usageLimitArn: "STRING_VALUE",
+ * //       resourceArn: "STRING_VALUE",
+ * //       usageType: "STRING_VALUE",
+ * //       amount: Number("long"),
+ * //       period: "STRING_VALUE",
+ * //       breachAction: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListUsageLimitsCommandInput - {@link ListUsageLimitsCommandInput}
@@ -74,6 +89,8 @@ export interface ListUsageLimitsCommandOutput extends ListUsageLimitsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class ListUsageLimitsCommand extends $Command<

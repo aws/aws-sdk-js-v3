@@ -50,6 +50,18 @@ export interface ListCACertificatesCommandOutput extends ListCACertificatesRespo
  * };
  * const command = new ListCACertificatesCommand(input);
  * const response = await client.send(command);
+ * // { // ListCACertificatesResponse
+ * //   certificates: [ // CACertificates
+ * //     { // CACertificate
+ * //       certificateArn: "STRING_VALUE",
+ * //       certificateId: "STRING_VALUE",
+ * //       status: "ACTIVE" || "INACTIVE",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextMarker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCACertificatesCommandInput - {@link ListCACertificatesCommandInput}
@@ -73,6 +85,8 @@ export interface ListCACertificatesCommandOutput extends ListCACertificatesRespo
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListCACertificatesCommand extends $Command<

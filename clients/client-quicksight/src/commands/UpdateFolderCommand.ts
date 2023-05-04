@@ -46,6 +46,13 @@ export interface UpdateFolderCommandOutput extends UpdateFolderResponse, __Metad
  * };
  * const command = new UpdateFolderCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateFolderResponse
+ * //   Status: Number("int"),
+ * //   Arn: "STRING_VALUE",
+ * //   FolderId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateFolderCommandInput - {@link UpdateFolderCommandInput}
@@ -84,6 +91,8 @@ export interface UpdateFolderCommandOutput extends UpdateFolderResponse, __Metad
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateFolderCommand extends $Command<

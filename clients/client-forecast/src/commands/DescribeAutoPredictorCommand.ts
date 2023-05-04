@@ -44,6 +44,71 @@ export interface DescribeAutoPredictorCommandOutput extends DescribeAutoPredicto
  * };
  * const command = new DescribeAutoPredictorCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAutoPredictorResponse
+ * //   PredictorArn: "STRING_VALUE",
+ * //   PredictorName: "STRING_VALUE",
+ * //   ForecastHorizon: Number("int"),
+ * //   ForecastTypes: [ // ForecastTypes
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ForecastFrequency: "STRING_VALUE",
+ * //   ForecastDimensions: [ // ForecastDimensions
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   DatasetImportJobArns: [ // ArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   DataConfig: { // DataConfig
+ * //     DatasetGroupArn: "STRING_VALUE", // required
+ * //     AttributeConfigs: [ // AttributeConfigs
+ * //       { // AttributeConfig
+ * //         AttributeName: "STRING_VALUE", // required
+ * //         Transformations: { // Transformations // required
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     AdditionalDatasets: [ // AdditionalDatasets
+ * //       { // AdditionalDataset
+ * //         Name: "STRING_VALUE", // required
+ * //         Configuration: { // Configuration
+ * //           "<keys>": [ // Values
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   EncryptionConfig: { // EncryptionConfig
+ * //     RoleArn: "STRING_VALUE", // required
+ * //     KMSKeyArn: "STRING_VALUE", // required
+ * //   },
+ * //   ReferencePredictorSummary: { // ReferencePredictorSummary
+ * //     Arn: "STRING_VALUE",
+ * //     State: "Active" || "Deleted",
+ * //   },
+ * //   EstimatedTimeRemainingInMinutes: Number("long"),
+ * //   Status: "STRING_VALUE",
+ * //   Message: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModificationTime: new Date("TIMESTAMP"),
+ * //   OptimizationMetric: "WAPE" || "RMSE" || "AverageWeightedQuantileLoss" || "MASE" || "MAPE",
+ * //   ExplainabilityInfo: { // ExplainabilityInfo
+ * //     ExplainabilityArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //   },
+ * //   MonitorInfo: { // MonitorInfo
+ * //     MonitorArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //   },
+ * //   TimeAlignmentBoundary: { // TimeAlignmentBoundary
+ * //     Month: "JANUARY" || "FEBRUARY" || "MARCH" || "APRIL" || "MAY" || "JUNE" || "JULY" || "AUGUST" || "SEPTEMBER" || "OCTOBER" || "NOVEMBER" || "DECEMBER",
+ * //     DayOfMonth: Number("int"),
+ * //     DayOfWeek: "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY" || "SUNDAY",
+ * //     Hour: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeAutoPredictorCommandInput - {@link DescribeAutoPredictorCommandInput}
@@ -60,6 +125,8 @@ export interface DescribeAutoPredictorCommandOutput extends DescribeAutoPredicto
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class DescribeAutoPredictorCommand extends $Command<

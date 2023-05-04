@@ -58,6 +58,10 @@ export interface SubmitAttachmentStateChangesCommandOutput
  * };
  * const command = new SubmitAttachmentStateChangesCommand(input);
  * const response = await client.send(command);
+ * // { // SubmitAttachmentStateChangesResponse
+ * //   acknowledgment: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param SubmitAttachmentStateChangesCommandInput - {@link SubmitAttachmentStateChangesCommandInput}
@@ -81,6 +85,8 @@ export interface SubmitAttachmentStateChangesCommandOutput
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class SubmitAttachmentStateChangesCommand extends $Command<

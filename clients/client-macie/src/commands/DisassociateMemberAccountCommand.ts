@@ -45,6 +45,8 @@ export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer
  * };
  * const command = new DisassociateMemberAccountCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateMemberAccountCommandInput - {@link DisassociateMemberAccountCommandInput}
@@ -60,6 +62,8 @@ export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer
  *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  *
+ * @throws {@link MacieServiceException}
+ * <p>Base exception class for all service exceptions from Macie service.</p>
  *
  */
 export class DisassociateMemberAccountCommand extends $Command<

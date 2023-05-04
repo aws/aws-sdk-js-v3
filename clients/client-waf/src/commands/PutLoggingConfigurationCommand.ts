@@ -80,6 +80,21 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * };
  * const command = new PutLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // PutLoggingConfigurationResponse
+ * //   LoggingConfiguration: { // LoggingConfiguration
+ * //     ResourceArn: "STRING_VALUE", // required
+ * //     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     RedactedFields: [ // RedactedFields
+ * //       { // FieldToMatch
+ * //         Type: "STRING_VALUE", // required
+ * //         Data: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutLoggingConfigurationCommandInput - {@link PutLoggingConfigurationCommandInput}
@@ -100,6 +115,8 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class PutLoggingConfigurationCommand extends $Command<

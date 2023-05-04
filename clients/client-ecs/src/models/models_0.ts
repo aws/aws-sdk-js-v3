@@ -8912,7 +8912,8 @@ export interface PutAccountSettingRequest {
 
   /**
    * <p>The account setting value for the specified principal ARN. Accepted values are
-   * 				<code>enabled</code> and <code>disabled</code>.</p>
+   * 				<code>enabled</code>, <code>disabled</code>, <code>on</code>, and
+   * 			<code>off</code>.</p>
    */
   value: string | undefined;
 
@@ -8966,7 +8967,8 @@ export interface PutAccountSettingDefaultRequest {
 
   /**
    * <p>The account setting value for the specified principal ARN. Accepted values are
-   * 				<code>enabled</code> and <code>disabled</code>.</p>
+   * 				<code>enabled</code>, <code>disabled</code>, <code>on</code>, and
+   * 			<code>off</code>.</p>
    */
   value: string | undefined;
 }

@@ -44,6 +44,8 @@ export interface DeleteAppImageConfigCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAppImageConfigCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAppImageConfigCommandInput - {@link DeleteAppImageConfigCommandInput}
@@ -55,6 +57,8 @@ export interface DeleteAppImageConfigCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteAppImageConfigCommand extends $Command<

@@ -58,6 +58,11 @@ export interface UpdatePublicSharingSettingsCommandOutput
  * };
  * const command = new UpdatePublicSharingSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePublicSharingSettingsResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param UpdatePublicSharingSettingsCommandInput - {@link UpdatePublicSharingSettingsCommandInput}
@@ -95,6 +100,8 @@ export interface UpdatePublicSharingSettingsCommandOutput
  *             </code> API operation with the
  *             <code>--identity-type ANONYMOUS</code> option.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdatePublicSharingSettingsCommand extends $Command<

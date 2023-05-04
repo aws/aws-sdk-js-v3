@@ -60,6 +60,13 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * };
  * const command = new DeleteSessionCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteSessionResponse
+ * //   botId: "STRING_VALUE",
+ * //   botAliasId: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   sessionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteSessionCommandInput - {@link DeleteSessionCommandInput}
@@ -86,6 +93,8 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p></p>
  *
+ * @throws {@link LexRuntimeV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
  */
 export class DeleteSessionCommand extends $Command<

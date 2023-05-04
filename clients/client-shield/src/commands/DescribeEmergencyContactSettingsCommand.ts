@@ -47,6 +47,16 @@ export interface DescribeEmergencyContactSettingsCommandOutput
  * const input = {};
  * const command = new DescribeEmergencyContactSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEmergencyContactSettingsResponse
+ * //   EmergencyContactList: [ // EmergencyContactList
+ * //     { // EmergencyContact
+ * //       EmailAddress: "STRING_VALUE", // required
+ * //       PhoneNumber: "STRING_VALUE",
+ * //       ContactNotes: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeEmergencyContactSettingsCommandInput - {@link DescribeEmergencyContactSettingsCommandInput}
@@ -61,6 +71,8 @@ export interface DescribeEmergencyContactSettingsCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class DescribeEmergencyContactSettingsCommand extends $Command<

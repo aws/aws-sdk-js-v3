@@ -50,6 +50,8 @@ export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOut
  * };
  * const command = new UntagDeliveryStreamCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UntagDeliveryStreamCommandInput - {@link UntagDeliveryStreamCommandInput}
@@ -70,6 +72,8 @@ export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class UntagDeliveryStreamCommand extends $Command<

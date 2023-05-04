@@ -45,6 +45,11 @@ export interface GetConnectionStatusCommandOutput extends GetConnectionStatusRes
  * };
  * const command = new GetConnectionStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetConnectionStatusResponse
+ * //   Target: "STRING_VALUE",
+ * //   Status: "Connected" || "NotConnected",
+ * // };
+ *
  * ```
  *
  * @param GetConnectionStatusCommandInput - {@link GetConnectionStatusCommandInput}
@@ -56,6 +61,8 @@ export interface GetConnectionStatusCommandOutput extends GetConnectionStatusRes
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetConnectionStatusCommand extends $Command<

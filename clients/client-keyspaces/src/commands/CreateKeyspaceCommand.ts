@@ -56,6 +56,10 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  * };
  * const command = new CreateKeyspaceCommand(input);
  * const response = await client.send(command);
+ * // { // CreateKeyspaceResponse
+ * //   resourceArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateKeyspaceCommandInput - {@link CreateKeyspaceCommandInput}
@@ -82,6 +86,8 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class CreateKeyspaceCommand extends $Command<

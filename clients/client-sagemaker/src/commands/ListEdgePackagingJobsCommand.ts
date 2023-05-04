@@ -54,6 +54,22 @@ export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJob
  * };
  * const command = new ListEdgePackagingJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListEdgePackagingJobsResponse
+ * //   EdgePackagingJobSummaries: [ // EdgePackagingJobSummaries // required
+ * //     { // EdgePackagingJobSummary
+ * //       EdgePackagingJobArn: "STRING_VALUE", // required
+ * //       EdgePackagingJobName: "STRING_VALUE", // required
+ * //       EdgePackagingJobStatus: "STARTING" || "INPROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED", // required
+ * //       CompilationJobName: "STRING_VALUE",
+ * //       ModelName: "STRING_VALUE",
+ * //       ModelVersion: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEdgePackagingJobsCommandInput - {@link ListEdgePackagingJobsCommandInput}
@@ -62,6 +78,8 @@ export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJob
  * @see {@link ListEdgePackagingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListEdgePackagingJobsCommand extends $Command<

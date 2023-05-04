@@ -77,6 +77,20 @@ export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
+ * // { // TaggedResourceListMessage
+ * //   TaggedResources: [ // TaggedResourceList
+ * //     { // TaggedResource
+ * //       Tag: { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //       ResourceName: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
@@ -91,6 +105,8 @@ export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeTagsCommand extends $Command<

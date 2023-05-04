@@ -52,6 +52,10 @@ export interface RegisterElasticIpCommandOutput extends RegisterElasticIpResult,
  * };
  * const command = new RegisterElasticIpCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterElasticIpResult
+ * //   ElasticIp: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RegisterElasticIpCommandInput - {@link RegisterElasticIpCommandInput}
@@ -66,6 +70,8 @@ export interface RegisterElasticIpCommandOutput extends RegisterElasticIpResult,
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class RegisterElasticIpCommand extends $Command<

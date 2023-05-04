@@ -51,6 +51,20 @@ export interface CreateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  * };
  * const command = new CreateVpcLinkCommand(input);
  * const response = await client.send(command);
+ * // { // VpcLink
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   targetArns: [ // ListOfString
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   status: "AVAILABLE" || "PENDING" || "DELETING" || "FAILED",
+ * //   statusMessage: "STRING_VALUE",
+ * //   tags: { // MapOfStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateVpcLinkCommandInput - {@link CreateVpcLinkCommandInput}
@@ -74,6 +88,8 @@ export interface CreateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class CreateVpcLinkCommand extends $Command<

@@ -46,6 +46,10 @@ export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictio
  * };
  * const command = new UpdateBatchPredictionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateBatchPredictionOutput
+ * //   BatchPredictionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateBatchPredictionCommandInput - {@link UpdateBatchPredictionCommandInput}
@@ -63,6 +67,8 @@ export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictio
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class UpdateBatchPredictionCommand extends $Command<

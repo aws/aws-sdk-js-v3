@@ -109,6 +109,58 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  * };
  * const command = new PutBotCommand(input);
  * const response = await client.send(command);
+ * // { // PutBotResponse
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   intents: [ // IntentList
+ * //     { // Intent
+ * //       intentName: "STRING_VALUE", // required
+ * //       intentVersion: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   enableModelImprovements: true || false,
+ * //   nluIntentConfidenceThreshold: Number("double"),
+ * //   clarificationPrompt: { // Prompt
+ * //     messages: [ // MessageList // required
+ * //       { // Message
+ * //         contentType: "STRING_VALUE", // required
+ * //         content: "STRING_VALUE", // required
+ * //         groupNumber: Number("int"),
+ * //       },
+ * //     ],
+ * //     maxAttempts: Number("int"), // required
+ * //     responseCard: "STRING_VALUE",
+ * //   },
+ * //   abortStatement: { // Statement
+ * //     messages: [ // required
+ * //       {
+ * //         contentType: "STRING_VALUE", // required
+ * //         content: "STRING_VALUE", // required
+ * //         groupNumber: Number("int"),
+ * //       },
+ * //     ],
+ * //     responseCard: "STRING_VALUE",
+ * //   },
+ * //   status: "STRING_VALUE",
+ * //   failureReason: "STRING_VALUE",
+ * //   lastUpdatedDate: new Date("TIMESTAMP"),
+ * //   createdDate: new Date("TIMESTAMP"),
+ * //   idleSessionTTLInSeconds: Number("int"),
+ * //   voiceId: "STRING_VALUE",
+ * //   checksum: "STRING_VALUE",
+ * //   version: "STRING_VALUE",
+ * //   locale: "STRING_VALUE",
+ * //   childDirected: true || false,
+ * //   createVersion: true || false,
+ * //   detectSentiment: true || false,
+ * //   tags: [ // TagList
+ * //     { // Tag
+ * //       key: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param PutBotCommandInput - {@link PutBotCommandInput}
@@ -137,6 +189,8 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  *       not match the checksum in the request. Check the resource's checksum and
  *       try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  * @example To create a bot
  * ```javascript

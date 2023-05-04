@@ -45,6 +45,15 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * };
  * const command = new DescribeGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeGroupResponse
+ * //   GroupId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Email: "STRING_VALUE",
+ * //   State: "ENABLED" || "DISABLED" || "DELETED",
+ * //   EnabledDate: new Date("TIMESTAMP"),
+ * //   DisabledDate: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeGroupCommandInput - {@link DescribeGroupCommandInput}
@@ -68,6 +77,8 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DescribeGroupCommand extends $Command<

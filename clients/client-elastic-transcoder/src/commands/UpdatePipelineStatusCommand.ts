@@ -54,6 +54,51 @@ export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusR
  * };
  * const command = new UpdatePipelineStatusCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePipelineStatusResponse
+ * //   Pipeline: { // Pipeline
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     InputBucket: "STRING_VALUE",
+ * //     OutputBucket: "STRING_VALUE",
+ * //     Role: "STRING_VALUE",
+ * //     AwsKmsKeyArn: "STRING_VALUE",
+ * //     Notifications: { // Notifications
+ * //       Progressing: "STRING_VALUE",
+ * //       Completed: "STRING_VALUE",
+ * //       Warning: "STRING_VALUE",
+ * //       Error: "STRING_VALUE",
+ * //     },
+ * //     ContentConfig: { // PipelineOutputConfig
+ * //       Bucket: "STRING_VALUE",
+ * //       StorageClass: "STRING_VALUE",
+ * //       Permissions: [ // Permissions
+ * //         { // Permission
+ * //           GranteeType: "STRING_VALUE",
+ * //           Grantee: "STRING_VALUE",
+ * //           Access: [ // AccessControls
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //     ThumbnailConfig: {
+ * //       Bucket: "STRING_VALUE",
+ * //       StorageClass: "STRING_VALUE",
+ * //       Permissions: [
+ * //         {
+ * //           GranteeType: "STRING_VALUE",
+ * //           Grantee: "STRING_VALUE",
+ * //           Access: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdatePipelineStatusCommandInput - {@link UpdatePipelineStatusCommandInput}
@@ -81,6 +126,8 @@ export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusR
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more required parameter values were not provided in the request.</p>
  *
+ * @throws {@link ElasticTranscoderServiceException}
+ * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
  */
 export class UpdatePipelineStatusCommand extends $Command<

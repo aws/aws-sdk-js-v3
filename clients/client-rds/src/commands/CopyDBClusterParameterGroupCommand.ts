@@ -52,6 +52,15 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * };
  * const command = new CopyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CopyDBClusterParameterGroupResult
+ * //   DBClusterParameterGroup: { // DBClusterParameterGroup
+ * //     DBClusterParameterGroupName: "STRING_VALUE",
+ * //     DBParameterGroupFamily: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     DBClusterParameterGroupArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CopyDBClusterParameterGroupCommandInput - {@link CopyDBClusterParameterGroupCommandInput}
@@ -72,6 +81,8 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  *  <p>The request would result in the user exceeding the allowed number of DB parameter
  *             groups.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To copy a DB cluster parameter group
  * ```javascript

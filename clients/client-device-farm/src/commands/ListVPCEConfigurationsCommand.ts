@@ -46,6 +46,19 @@ export interface ListVPCEConfigurationsCommandOutput extends ListVPCEConfigurati
  * };
  * const command = new ListVPCEConfigurationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListVPCEConfigurationsResult
+ * //   vpceConfigurations: [ // VPCEConfigurations
+ * //     { // VPCEConfiguration
+ * //       arn: "STRING_VALUE",
+ * //       vpceConfigurationName: "STRING_VALUE",
+ * //       vpceServiceName: "STRING_VALUE",
+ * //       serviceDnsName: "STRING_VALUE",
+ * //       vpceConfigurationDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListVPCEConfigurationsCommandInput - {@link ListVPCEConfigurationsCommandInput}
@@ -60,6 +73,8 @@ export interface ListVPCEConfigurationsCommandOutput extends ListVPCEConfigurati
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class ListVPCEConfigurationsCommand extends $Command<

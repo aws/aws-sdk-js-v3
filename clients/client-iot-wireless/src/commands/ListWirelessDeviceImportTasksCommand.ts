@@ -50,6 +50,30 @@ export interface ListWirelessDeviceImportTasksCommandOutput
  * };
  * const command = new ListWirelessDeviceImportTasksCommand(input);
  * const response = await client.send(command);
+ * // { // ListWirelessDeviceImportTasksResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   WirelessDeviceImportTaskList: [ // WirelessDeviceImportTaskList
+ * //     { // WirelessDeviceImportTask
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       DestinationName: "STRING_VALUE",
+ * //       Sidewalk: { // SidewalkGetStartImportInfo
+ * //         DeviceCreationFileList: [ // DeviceCreationFileList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Role: "STRING_VALUE",
+ * //       },
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       Status: "INITIALIZING" || "INITIALIZED" || "PENDING" || "COMPLETE" || "FAILED" || "DELETING",
+ * //       StatusReason: "STRING_VALUE",
+ * //       InitializedImportedDeviceCount: Number("long"),
+ * //       PendingImportedDeviceCount: Number("long"),
+ * //       OnboardedImportedDeviceCount: Number("long"),
+ * //       FailedImportedDeviceCount: Number("long"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListWirelessDeviceImportTasksCommandInput - {@link ListWirelessDeviceImportTasksCommandInput}
@@ -76,6 +100,8 @@ export interface ListWirelessDeviceImportTasksCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListWirelessDeviceImportTasksCommand extends $Command<

@@ -45,6 +45,29 @@ export interface GetVpcLinksCommandOutput extends GetVpcLinksResponse, __Metadat
  * };
  * const command = new GetVpcLinksCommand(input);
  * const response = await client.send(command);
+ * // { // GetVpcLinksResponse
+ * //   Items: [ // __listOfVpcLink
+ * //     { // VpcLink
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       Name: "STRING_VALUE", // required
+ * //       SecurityGroupIds: [ // SecurityGroupIdList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SubnetIds: [ // SubnetIdList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       VpcLinkId: "STRING_VALUE", // required
+ * //       VpcLinkStatus: "STRING_VALUE",
+ * //       VpcLinkStatusMessage: "STRING_VALUE",
+ * //       VpcLinkVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetVpcLinksCommandInput - {@link GetVpcLinksCommandInput}
@@ -59,6 +82,8 @@ export interface GetVpcLinksCommandOutput extends GetVpcLinksResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetVpcLinksCommand extends $Command<

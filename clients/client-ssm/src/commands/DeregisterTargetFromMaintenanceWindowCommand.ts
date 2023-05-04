@@ -55,6 +55,11 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput
  * };
  * const command = new DeregisterTargetFromMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * // { // DeregisterTargetFromMaintenanceWindowResult
+ * //   WindowId: "STRING_VALUE",
+ * //   WindowTargetId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeregisterTargetFromMaintenanceWindowCommandInput - {@link DeregisterTargetFromMaintenanceWindowCommandInput}
@@ -76,6 +81,8 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput
  *  <p>You specified the <code>Safe</code> option for the DeregisterTargetFromMaintenanceWindow
  *    operation, but the target is still referenced in a task.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeregisterTargetFromMaintenanceWindowCommand extends $Command<

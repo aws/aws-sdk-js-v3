@@ -50,6 +50,20 @@ export interface UpdateServiceActionCommandOutput extends UpdateServiceActionOut
  * };
  * const command = new UpdateServiceActionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateServiceActionOutput
+ * //   ServiceActionDetail: { // ServiceActionDetail
+ * //     ServiceActionSummary: { // ServiceActionSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       DefinitionType: "SSM_AUTOMATION",
+ * //     },
+ * //     Definition: { // ServiceActionDefinitionMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateServiceActionCommandInput - {@link UpdateServiceActionCommandInput}
@@ -64,6 +78,8 @@ export interface UpdateServiceActionCommandOutput extends UpdateServiceActionOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class UpdateServiceActionCommand extends $Command<

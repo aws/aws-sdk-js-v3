@@ -46,6 +46,19 @@ export interface ListFieldsCommandOutput extends ListFieldsResponse, __MetadataB
  * };
  * const command = new ListFieldsCommand(input);
  * const response = await client.send(command);
+ * // { // ListFieldsResponse
+ * //   fields: [ // FieldSummaryList // required
+ * //     { // FieldSummary
+ * //       fieldId: "STRING_VALUE", // required
+ * //       fieldArn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //       namespace: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFieldsCommandInput - {@link ListFieldsCommandInput}
@@ -71,6 +84,8 @@ export interface ListFieldsCommandOutput extends ListFieldsResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class ListFieldsCommand extends $Command<

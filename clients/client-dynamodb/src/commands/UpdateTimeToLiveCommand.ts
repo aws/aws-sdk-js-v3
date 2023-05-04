@@ -72,6 +72,13 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  * };
  * const command = new UpdateTimeToLiveCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateTimeToLiveOutput
+ * //   TimeToLiveSpecification: { // TimeToLiveSpecification
+ * //     Enabled: true || false, // required
+ * //     AttributeName: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateTimeToLiveCommandInput - {@link UpdateTimeToLiveCommandInput}
@@ -107,6 +114,8 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
 export class UpdateTimeToLiveCommand extends $Command<

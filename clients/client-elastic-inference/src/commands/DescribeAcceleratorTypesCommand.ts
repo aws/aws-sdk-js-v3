@@ -49,6 +49,23 @@ export interface DescribeAcceleratorTypesCommandOutput extends DescribeAccelerat
  * const input = {};
  * const command = new DescribeAcceleratorTypesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAcceleratorTypesResponse
+ * //   acceleratorTypes: [ // AcceleratorTypeList
+ * //     { // AcceleratorType
+ * //       acceleratorTypeName: "STRING_VALUE",
+ * //       memoryInfo: { // MemoryInfo
+ * //         sizeInMiB: Number("int"),
+ * //       },
+ * //       throughputInfo: [ // ThroughputInfoList
+ * //         { // KeyValuePair
+ * //           key: "STRING_VALUE",
+ * //           value: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeAcceleratorTypesCommandInput - {@link DescribeAcceleratorTypesCommandInput}
@@ -62,6 +79,8 @@ export interface DescribeAcceleratorTypesCommandOutput extends DescribeAccelerat
  *             Raised when an unexpected error occurred during request processing.
  *         </p>
  *
+ * @throws {@link ElasticInferenceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
  */
 export class DescribeAcceleratorTypesCommand extends $Command<

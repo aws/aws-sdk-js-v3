@@ -48,6 +48,17 @@ export interface ListLedgersCommandOutput extends ListLedgersResponse, __Metadat
  * };
  * const command = new ListLedgersCommand(input);
  * const response = await client.send(command);
+ * // { // ListLedgersResponse
+ * //   Ledgers: [ // LedgerList
+ * //     { // LedgerSummary
+ * //       Name: "STRING_VALUE",
+ * //       State: "CREATING" || "ACTIVE" || "DELETING" || "DELETED",
+ * //       CreationDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListLedgersCommandInput - {@link ListLedgersCommandInput}
@@ -56,6 +67,8 @@ export interface ListLedgersCommandOutput extends ListLedgersResponse, __Metadat
  * @see {@link ListLedgersCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class ListLedgersCommand extends $Command<

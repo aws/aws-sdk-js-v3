@@ -89,9 +89,74 @@ export interface CreateGraphqlApiCommandOutput extends CreateGraphqlApiResponse,
  *     authorizerUri: "STRING_VALUE", // required
  *     identityValidationExpression: "STRING_VALUE",
  *   },
+ *   visibility: "GLOBAL" || "PRIVATE",
  * };
  * const command = new CreateGraphqlApiCommand(input);
  * const response = await client.send(command);
+ * // { // CreateGraphqlApiResponse
+ * //   graphqlApi: { // GraphqlApi
+ * //     name: "STRING_VALUE",
+ * //     apiId: "STRING_VALUE",
+ * //     authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA",
+ * //     logConfig: { // LogConfig
+ * //       fieldLogLevel: "NONE" || "ERROR" || "ALL", // required
+ * //       cloudWatchLogsRoleArn: "STRING_VALUE", // required
+ * //       excludeVerboseContent: true || false,
+ * //     },
+ * //     userPoolConfig: { // UserPoolConfig
+ * //       userPoolId: "STRING_VALUE", // required
+ * //       awsRegion: "STRING_VALUE", // required
+ * //       defaultAction: "ALLOW" || "DENY", // required
+ * //       appIdClientRegex: "STRING_VALUE",
+ * //     },
+ * //     openIDConnectConfig: { // OpenIDConnectConfig
+ * //       issuer: "STRING_VALUE", // required
+ * //       clientId: "STRING_VALUE",
+ * //       iatTTL: Number("long"),
+ * //       authTTL: Number("long"),
+ * //     },
+ * //     arn: "STRING_VALUE",
+ * //     uris: { // MapOfStringToString
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     additionalAuthenticationProviders: [ // AdditionalAuthenticationProviders
+ * //       { // AdditionalAuthenticationProvider
+ * //         authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA",
+ * //         openIDConnectConfig: {
+ * //           issuer: "STRING_VALUE", // required
+ * //           clientId: "STRING_VALUE",
+ * //           iatTTL: Number("long"),
+ * //           authTTL: Number("long"),
+ * //         },
+ * //         userPoolConfig: { // CognitoUserPoolConfig
+ * //           userPoolId: "STRING_VALUE", // required
+ * //           awsRegion: "STRING_VALUE", // required
+ * //           appIdClientRegex: "STRING_VALUE",
+ * //         },
+ * //         lambdaAuthorizerConfig: { // LambdaAuthorizerConfig
+ * //           authorizerResultTtlInSeconds: Number("int"),
+ * //           authorizerUri: "STRING_VALUE", // required
+ * //           identityValidationExpression: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     xrayEnabled: true || false,
+ * //     wafWebAclArn: "STRING_VALUE",
+ * //     lambdaAuthorizerConfig: {
+ * //       authorizerResultTtlInSeconds: Number("int"),
+ * //       authorizerUri: "STRING_VALUE", // required
+ * //       identityValidationExpression: "STRING_VALUE",
+ * //     },
+ * //     dns: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     visibility: "GLOBAL" || "PRIVATE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateGraphqlApiCommandInput - {@link CreateGraphqlApiCommandInput}
@@ -104,12 +169,12 @@ export interface CreateGraphqlApiCommandOutput extends CreateGraphqlApiResponse,
  *  <p>The GraphQL API exceeded a limit. Try your request again.</p>
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
- *          field values, and then try again.</p>
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is
+ *          missing. Check the field values, and then try again.</p>
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Another modification is in progress at this time and it must complete before you can make your
- *          change.</p>
+ *  <p>Another modification is in progress at this time and it must complete before you can
+ *          make your change.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
@@ -120,6 +185,8 @@ export interface CreateGraphqlApiCommandOutput extends CreateGraphqlApiResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class CreateGraphqlApiCommand extends $Command<

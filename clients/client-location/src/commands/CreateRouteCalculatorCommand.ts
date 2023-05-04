@@ -59,6 +59,12 @@ export interface CreateRouteCalculatorCommandOutput extends CreateRouteCalculato
  * };
  * const command = new CreateRouteCalculatorCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRouteCalculatorResponse
+ * //   CalculatorName: "STRING_VALUE", // required
+ * //   CalculatorArn: "STRING_VALUE", // required
+ * //   CreateTime: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param CreateRouteCalculatorCommandInput - {@link CreateRouteCalculatorCommandInput}
@@ -87,6 +93,8 @@ export interface CreateRouteCalculatorCommandOutput extends CreateRouteCalculato
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class CreateRouteCalculatorCommand extends $Command<

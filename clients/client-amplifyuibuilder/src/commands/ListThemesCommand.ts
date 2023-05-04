@@ -48,6 +48,18 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * };
  * const command = new ListThemesCommand(input);
  * const response = await client.send(command);
+ * // { // ListThemesResponse
+ * //   entities: [ // ThemeSummaryList // required
+ * //     { // ThemeSummary
+ * //       appId: "STRING_VALUE", // required
+ * //       environmentName: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListThemesCommandInput - {@link ListThemesCommandInput}
@@ -62,6 +74,8 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class ListThemesCommand extends $Command<

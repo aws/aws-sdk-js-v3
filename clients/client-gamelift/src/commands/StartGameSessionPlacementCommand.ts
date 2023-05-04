@@ -106,6 +106,45 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  * };
  * const command = new StartGameSessionPlacementCommand(input);
  * const response = await client.send(command);
+ * // { // StartGameSessionPlacementOutput
+ * //   GameSessionPlacement: { // GameSessionPlacement
+ * //     PlacementId: "STRING_VALUE",
+ * //     GameSessionQueueName: "STRING_VALUE",
+ * //     Status: "PENDING" || "FULFILLED" || "CANCELLED" || "TIMED_OUT" || "FAILED",
+ * //     GameProperties: [ // GamePropertyList
+ * //       { // GameProperty
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     MaximumPlayerSessionCount: Number("int"),
+ * //     GameSessionName: "STRING_VALUE",
+ * //     GameSessionId: "STRING_VALUE",
+ * //     GameSessionArn: "STRING_VALUE",
+ * //     GameSessionRegion: "STRING_VALUE",
+ * //     PlayerLatencies: [ // PlayerLatencyList
+ * //       { // PlayerLatency
+ * //         PlayerId: "STRING_VALUE",
+ * //         RegionIdentifier: "STRING_VALUE",
+ * //         LatencyInMilliseconds: Number("float"),
+ * //       },
+ * //     ],
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //     IpAddress: "STRING_VALUE",
+ * //     DnsName: "STRING_VALUE",
+ * //     Port: Number("int"),
+ * //     PlacedPlayerSessions: [ // PlacedPlayerSessionList
+ * //       { // PlacedPlayerSession
+ * //         PlayerId: "STRING_VALUE",
+ * //         PlayerSessionId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     GameSessionData: "STRING_VALUE",
+ * //     MatchmakerData: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StartGameSessionPlacementCommandInput - {@link StartGameSessionPlacementCommandInput}
@@ -128,6 +167,8 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class StartGameSessionPlacementCommand extends $Command<

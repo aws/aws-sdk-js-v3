@@ -52,6 +52,13 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * };
  * const command = new UpdateParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateParameterGroupResponse
+ * //   ParameterGroup: { // ParameterGroup
+ * //     ParameterGroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateParameterGroupCommandInput - {@link UpdateParameterGroupCommandInput}
@@ -75,6 +82,8 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class UpdateParameterGroupCommand extends $Command<

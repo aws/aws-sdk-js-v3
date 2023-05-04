@@ -45,6 +45,17 @@ export interface ListBulkDeploymentsCommandOutput extends ListBulkDeploymentsRes
  * };
  * const command = new ListBulkDeploymentsCommand(input);
  * const response = await client.send(command);
+ * // { // ListBulkDeploymentsResponse
+ * //   BulkDeployments: [ // BulkDeployments
+ * //     { // BulkDeployment
+ * //       BulkDeploymentArn: "STRING_VALUE",
+ * //       BulkDeploymentId: "STRING_VALUE",
+ * //       CreatedAt: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListBulkDeploymentsCommandInput - {@link ListBulkDeploymentsCommandInput}
@@ -56,6 +67,8 @@ export interface ListBulkDeploymentsCommandOutput extends ListBulkDeploymentsRes
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListBulkDeploymentsCommand extends $Command<

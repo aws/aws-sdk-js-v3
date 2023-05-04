@@ -54,6 +54,31 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
+ * // { // ListUsersResponse
+ * //   Users: [ // userListType // required
+ * //     { // User
+ * //       Path: "STRING_VALUE", // required
+ * //       UserName: "STRING_VALUE", // required
+ * //       UserId: "STRING_VALUE", // required
+ * //       Arn: "STRING_VALUE", // required
+ * //       CreateDate: new Date("TIMESTAMP"), // required
+ * //       PasswordLastUsed: new Date("TIMESTAMP"),
+ * //       PermissionsBoundary: { // AttachedPermissionsBoundary
+ * //         PermissionsBoundaryType: "PermissionsBoundaryPolicy",
+ * //         PermissionsBoundaryArn: "STRING_VALUE",
+ * //       },
+ * //       Tags: [ // tagListType
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListUsersCommandInput - {@link ListUsersCommandInput}
@@ -66,6 +91,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To list IAM users
  * ```javascript

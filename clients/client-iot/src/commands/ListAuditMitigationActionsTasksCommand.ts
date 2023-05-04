@@ -56,6 +56,17 @@ export interface ListAuditMitigationActionsTasksCommandOutput
  * };
  * const command = new ListAuditMitigationActionsTasksCommand(input);
  * const response = await client.send(command);
+ * // { // ListAuditMitigationActionsTasksResponse
+ * //   tasks: [ // AuditMitigationActionsTaskMetadataList
+ * //     { // AuditMitigationActionsTaskMetadata
+ * //       taskId: "STRING_VALUE",
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       taskStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAuditMitigationActionsTasksCommandInput - {@link ListAuditMitigationActionsTasksCommandInput}
@@ -73,6 +84,8 @@ export interface ListAuditMitigationActionsTasksCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListAuditMitigationActionsTasksCommand extends $Command<

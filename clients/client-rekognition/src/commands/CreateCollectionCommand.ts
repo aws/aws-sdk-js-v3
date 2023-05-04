@@ -61,6 +61,12 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * };
  * const command = new CreateCollectionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCollectionResponse
+ * //   StatusCode: Number("int"),
+ * //   CollectionArn: "STRING_VALUE",
+ * //   FaceModelVersion: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateCollectionCommandInput - {@link CreateCollectionCommandInput}
@@ -94,6 +100,8 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @example To create a collection
  * ```javascript

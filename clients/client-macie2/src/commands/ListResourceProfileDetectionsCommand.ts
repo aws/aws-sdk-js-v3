@@ -51,6 +51,20 @@ export interface ListResourceProfileDetectionsCommandOutput
  * };
  * const command = new ListResourceProfileDetectionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListResourceProfileDetectionsResponse
+ * //   detections: [ // __listOfDetection
+ * //     { // Detection
+ * //       arn: "STRING_VALUE",
+ * //       count: Number("long"),
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       suppressed: true || false,
+ * //       type: "CUSTOM" || "MANAGED",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListResourceProfileDetectionsCommandInput - {@link ListResourceProfileDetectionsCommandInput}
@@ -77,6 +91,8 @@ export interface ListResourceProfileDetectionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListResourceProfileDetectionsCommand extends $Command<

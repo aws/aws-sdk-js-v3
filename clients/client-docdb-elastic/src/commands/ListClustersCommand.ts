@@ -45,6 +45,17 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
+ * // { // ListClustersOutput
+ * //   clusters: [ // ClusterList
+ * //     { // ClusterInList
+ * //       clusterName: "STRING_VALUE", // required
+ * //       clusterArn: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListClustersCommandInput - {@link ListClustersCommandInput}
@@ -65,6 +76,8 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>A structure defining a validation exception.</p>
  *
+ * @throws {@link DocDBElasticServiceException}
+ * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
  */
 export class ListClustersCommand extends $Command<

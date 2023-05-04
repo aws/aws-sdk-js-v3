@@ -76,6 +76,31 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * };
  * const command = new CreateEventSubscriptionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateEventSubscriptionResult
+ * //   EventSubscription: { // EventSubscription
+ * //     CustomerAwsId: "STRING_VALUE",
+ * //     CustSubscriptionId: "STRING_VALUE",
+ * //     SnsTopicArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     SubscriptionCreationTime: new Date("TIMESTAMP"),
+ * //     SourceType: "STRING_VALUE",
+ * //     SourceIdsList: [ // SourceIdsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     EventCategoriesList: [ // EventCategoriesList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Severity: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateEventSubscriptionCommandInput - {@link CreateEventSubscriptionCommandInput}
@@ -128,6 +153,8 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @throws {@link TagLimitExceededFault} (client fault)
  *  <p>You have exceeded the number of tags allowed.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateEventSubscriptionCommand extends $Command<

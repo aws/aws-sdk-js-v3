@@ -45,6 +45,8 @@ export interface UpdateApplicationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
@@ -65,6 +67,8 @@ export interface UpdateApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidApplicationNameException} (client fault)
  *  <p>The application name was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class UpdateApplicationCommand extends $Command<

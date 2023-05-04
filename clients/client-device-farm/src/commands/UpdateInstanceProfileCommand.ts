@@ -51,6 +51,19 @@ export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfil
  * };
  * const command = new UpdateInstanceProfileCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateInstanceProfileResult
+ * //   instanceProfile: { // InstanceProfile
+ * //     arn: "STRING_VALUE",
+ * //     packageCleanup: true || false,
+ * //     excludeAppPackagesFromCleanup: [ // PackageIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     rebootAfterUse: true || false,
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateInstanceProfileCommandInput - {@link UpdateInstanceProfileCommandInput}
@@ -71,6 +84,8 @@ export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfil
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class UpdateInstanceProfileCommand extends $Command<

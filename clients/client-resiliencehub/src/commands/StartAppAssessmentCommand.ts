@@ -55,6 +55,77 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * };
  * const command = new StartAppAssessmentCommand(input);
  * const response = await client.send(command);
+ * // { // StartAppAssessmentResponse
+ * //   assessment: { // AppAssessment
+ * //     appArn: "STRING_VALUE",
+ * //     appVersion: "STRING_VALUE",
+ * //     invoker: "STRING_VALUE", // required
+ * //     cost: { // Cost
+ * //       amount: Number("double"), // required
+ * //       currency: "STRING_VALUE", // required
+ * //       frequency: "STRING_VALUE", // required
+ * //     },
+ * //     resiliencyScore: { // ResiliencyScore
+ * //       score: Number("double"), // required
+ * //       disruptionScore: { // DisruptionResiliencyScore // required
+ * //         "<keys>": Number("double"),
+ * //       },
+ * //     },
+ * //     compliance: { // AssessmentCompliance
+ * //       "<keys>": { // DisruptionCompliance
+ * //         achievableRtoInSecs: Number("int"),
+ * //         currentRtoInSecs: Number("int"),
+ * //         rtoReferenceId: "STRING_VALUE",
+ * //         rtoDescription: "STRING_VALUE",
+ * //         currentRpoInSecs: Number("int"),
+ * //         rpoReferenceId: "STRING_VALUE",
+ * //         rpoDescription: "STRING_VALUE",
+ * //         complianceStatus: "STRING_VALUE", // required
+ * //         achievableRpoInSecs: Number("int"),
+ * //         message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     complianceStatus: "STRING_VALUE",
+ * //     assessmentStatus: "STRING_VALUE", // required
+ * //     startTime: new Date("TIMESTAMP"),
+ * //     endTime: new Date("TIMESTAMP"),
+ * //     message: "STRING_VALUE",
+ * //     assessmentName: "STRING_VALUE",
+ * //     assessmentArn: "STRING_VALUE", // required
+ * //     policy: { // ResiliencyPolicy
+ * //       policyArn: "STRING_VALUE",
+ * //       policyName: "STRING_VALUE",
+ * //       policyDescription: "STRING_VALUE",
+ * //       dataLocationConstraint: "STRING_VALUE",
+ * //       tier: "STRING_VALUE",
+ * //       estimatedCostTier: "STRING_VALUE",
+ * //       policy: { // DisruptionPolicy
+ * //         "<keys>": { // FailurePolicy
+ * //           rtoInSecs: Number("int"), // required
+ * //           rpoInSecs: Number("int"), // required
+ * //         },
+ * //       },
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     tags: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     resourceErrorsDetails: { // ResourceErrorsDetails
+ * //       resourceErrors: [ // ResourceErrorList
+ * //         { // ResourceError
+ * //           logicalResourceId: "STRING_VALUE",
+ * //           physicalResourceId: "STRING_VALUE",
+ * //           reason: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       hasMoreErrors: true || false,
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StartAppAssessmentCommandInput - {@link StartAppAssessmentCommandInput}
@@ -91,6 +162,8 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class StartAppAssessmentCommand extends $Command<

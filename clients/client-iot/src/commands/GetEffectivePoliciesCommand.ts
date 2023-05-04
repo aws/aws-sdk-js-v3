@@ -48,6 +48,16 @@ export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesR
  * };
  * const command = new GetEffectivePoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // GetEffectivePoliciesResponse
+ * //   effectivePolicies: [ // EffectivePolicies
+ * //     { // EffectivePolicy
+ * //       policyName: "STRING_VALUE",
+ * //       policyArn: "STRING_VALUE",
+ * //       policyDocument: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetEffectivePoliciesCommandInput - {@link GetEffectivePoliciesCommandInput}
@@ -77,6 +87,8 @@ export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesR
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetEffectivePoliciesCommand extends $Command<

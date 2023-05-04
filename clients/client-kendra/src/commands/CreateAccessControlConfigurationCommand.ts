@@ -90,6 +90,10 @@ export interface CreateAccessControlConfigurationCommandOutput
  * };
  * const command = new CreateAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAccessControlConfigurationResponse
+ * //   Id: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateAccessControlConfigurationCommandInput - {@link CreateAccessControlConfigurationCommandInput}
@@ -128,6 +132,8 @@ export interface CreateAccessControlConfigurationCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class CreateAccessControlConfigurationCommand extends $Command<

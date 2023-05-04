@@ -48,6 +48,20 @@ export interface ListConstraintsForPortfolioCommandOutput extends ListConstraint
  * };
  * const command = new ListConstraintsForPortfolioCommand(input);
  * const response = await client.send(command);
+ * // { // ListConstraintsForPortfolioOutput
+ * //   ConstraintDetails: [ // ConstraintDetails
+ * //     { // ConstraintDetail
+ * //       ConstraintId: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //       ProductId: "STRING_VALUE",
+ * //       PortfolioId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListConstraintsForPortfolioCommandInput - {@link ListConstraintsForPortfolioCommandInput}
@@ -62,6 +76,8 @@ export interface ListConstraintsForPortfolioCommandOutput extends ListConstraint
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListConstraintsForPortfolioCommand extends $Command<

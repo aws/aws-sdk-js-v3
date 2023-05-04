@@ -57,6 +57,27 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  * };
  * const command = new ModifyReplicationSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyReplicationSubnetGroupResponse
+ * //   ReplicationSubnetGroup: { // ReplicationSubnetGroup
+ * //     ReplicationSubnetGroupIdentifier: "STRING_VALUE",
+ * //     ReplicationSubnetGroupDescription: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     SubnetGroupStatus: "STRING_VALUE",
+ * //     Subnets: [ // SubnetList
+ * //       { // Subnet
+ * //         SubnetIdentifier: "STRING_VALUE",
+ * //         SubnetAvailabilityZone: { // AvailabilityZone
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //         SubnetStatus: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     SupportedNetworkTypes: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ModifyReplicationSubnetGroupCommandInput - {@link ModifyReplicationSubnetGroupCommandInput}
@@ -84,6 +105,8 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  * @throws {@link SubnetAlreadyInUse} (client fault)
  *  <p>The specified subnet is already in use.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Modify replication subnet group
  * ```javascript

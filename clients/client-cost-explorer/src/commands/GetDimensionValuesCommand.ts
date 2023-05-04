@@ -126,6 +126,20 @@ export interface GetDimensionValuesCommandOutput extends GetDimensionValuesRespo
  * };
  * const command = new GetDimensionValuesCommand(input);
  * const response = await client.send(command);
+ * // { // GetDimensionValuesResponse
+ * //   DimensionValues: [ // DimensionValuesWithAttributesList // required
+ * //     { // DimensionValuesWithAttributes
+ * //       Value: "STRING_VALUE",
+ * //       Attributes: { // Attributes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   ReturnSize: Number("int"), // required
+ * //   TotalSize: Number("int"), // required
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetDimensionValuesCommandInput - {@link GetDimensionValuesCommandInput}
@@ -150,6 +164,8 @@ export interface GetDimensionValuesCommandOutput extends GetDimensionValuesRespo
  *  <p>Your request parameters changed between pages. Try again with the old parameters or
  *             without a pagination token.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetDimensionValuesCommand extends $Command<

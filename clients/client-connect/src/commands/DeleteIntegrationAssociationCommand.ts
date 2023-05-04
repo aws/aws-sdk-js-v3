@@ -49,6 +49,8 @@ export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBea
  * };
  * const command = new DeleteIntegrationAssociationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteIntegrationAssociationCommandInput - {@link DeleteIntegrationAssociationCommandInput}
@@ -69,6 +71,8 @@ export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBea
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeleteIntegrationAssociationCommand extends $Command<

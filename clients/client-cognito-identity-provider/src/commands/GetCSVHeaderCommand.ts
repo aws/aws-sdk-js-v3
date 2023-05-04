@@ -50,6 +50,13 @@ export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __Metad
  * };
  * const command = new GetCSVHeaderCommand(input);
  * const response = await client.send(command);
+ * // { // GetCSVHeaderResponse
+ * //   UserPoolId: "STRING_VALUE",
+ * //   CSVHeader: [ // ListOfStringTypes
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetCSVHeaderCommandInput - {@link GetCSVHeaderCommandInput}
@@ -76,6 +83,8 @@ export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __Metad
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class GetCSVHeaderCommand extends $Command<

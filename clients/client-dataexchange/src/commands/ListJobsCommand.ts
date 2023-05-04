@@ -47,6 +47,170 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListJobsResponse
+ * //   Jobs: [ // ListOfJobEntry
+ * //     { // JobEntry
+ * //       Arn: "STRING_VALUE", // required
+ * //       CreatedAt: new Date("TIMESTAMP"), // required
+ * //       Details: { // ResponseDetails
+ * //         ExportAssetToSignedUrl: { // ExportAssetToSignedUrlResponseDetails
+ * //           AssetId: "STRING_VALUE", // required
+ * //           DataSetId: "STRING_VALUE", // required
+ * //           RevisionId: "STRING_VALUE", // required
+ * //           SignedUrl: "STRING_VALUE",
+ * //           SignedUrlExpiresAt: new Date("TIMESTAMP"),
+ * //         },
+ * //         ExportAssetsToS3: { // ExportAssetsToS3ResponseDetails
+ * //           AssetDestinations: [ // ListOfAssetDestinationEntry // required
+ * //             { // AssetDestinationEntry
+ * //               AssetId: "STRING_VALUE", // required
+ * //               Bucket: "STRING_VALUE", // required
+ * //               Key: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           DataSetId: "STRING_VALUE", // required
+ * //           Encryption: { // ExportServerSideEncryption
+ * //             KmsKeyArn: "STRING_VALUE",
+ * //             Type: "STRING_VALUE", // required
+ * //           },
+ * //           RevisionId: "STRING_VALUE", // required
+ * //         },
+ * //         ExportRevisionsToS3: { // ExportRevisionsToS3ResponseDetails
+ * //           DataSetId: "STRING_VALUE", // required
+ * //           Encryption: {
+ * //             KmsKeyArn: "STRING_VALUE",
+ * //             Type: "STRING_VALUE", // required
+ * //           },
+ * //           RevisionDestinations: [ // ListOfRevisionDestinationEntry // required
+ * //             { // RevisionDestinationEntry
+ * //               Bucket: "STRING_VALUE", // required
+ * //               KeyPattern: "STRING_VALUE",
+ * //               RevisionId: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           EventActionArn: "STRING_VALUE",
+ * //         },
+ * //         ImportAssetFromSignedUrl: { // ImportAssetFromSignedUrlResponseDetails
+ * //           AssetName: "STRING_VALUE", // required
+ * //           DataSetId: "STRING_VALUE", // required
+ * //           Md5Hash: "STRING_VALUE",
+ * //           RevisionId: "STRING_VALUE", // required
+ * //           SignedUrl: "STRING_VALUE",
+ * //           SignedUrlExpiresAt: new Date("TIMESTAMP"),
+ * //         },
+ * //         ImportAssetsFromS3: { // ImportAssetsFromS3ResponseDetails
+ * //           AssetSources: [ // ListOfAssetSourceEntry // required
+ * //             { // AssetSourceEntry
+ * //               Bucket: "STRING_VALUE", // required
+ * //               Key: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           DataSetId: "STRING_VALUE", // required
+ * //           RevisionId: "STRING_VALUE", // required
+ * //         },
+ * //         ImportAssetsFromRedshiftDataShares: { // ImportAssetsFromRedshiftDataSharesResponseDetails
+ * //           AssetSources: [ // ListOfRedshiftDataShareAssetSourceEntry // required
+ * //             { // RedshiftDataShareAssetSourceEntry
+ * //               DataShareArn: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           DataSetId: "STRING_VALUE", // required
+ * //           RevisionId: "STRING_VALUE", // required
+ * //         },
+ * //         ImportAssetFromApiGatewayApi: { // ImportAssetFromApiGatewayApiResponseDetails
+ * //           ApiDescription: "STRING_VALUE",
+ * //           ApiId: "STRING_VALUE", // required
+ * //           ApiKey: "STRING_VALUE",
+ * //           ApiName: "STRING_VALUE", // required
+ * //           ApiSpecificationMd5Hash: "STRING_VALUE", // required
+ * //           ApiSpecificationUploadUrl: "STRING_VALUE", // required
+ * //           ApiSpecificationUploadUrlExpiresAt: new Date("TIMESTAMP"), // required
+ * //           DataSetId: "STRING_VALUE", // required
+ * //           ProtocolType: "STRING_VALUE", // required
+ * //           RevisionId: "STRING_VALUE", // required
+ * //           Stage: "STRING_VALUE", // required
+ * //         },
+ * //         CreateS3DataAccessFromS3Bucket: { // CreateS3DataAccessFromS3BucketResponseDetails
+ * //           AssetSource: { // S3DataAccessAssetSourceEntry
+ * //             Bucket: "STRING_VALUE", // required
+ * //             KeyPrefixes: [ // ListOf__string
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             Keys: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             KmsKeysToGrant: [ // ListOfKmsKeysToGrant
+ * //               { // KmsKeyToGrant
+ * //                 KmsKeyArn: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           DataSetId: "STRING_VALUE", // required
+ * //           RevisionId: "STRING_VALUE", // required
+ * //         },
+ * //         ImportAssetsFromLakeFormationTagPolicy: { // ImportAssetsFromLakeFormationTagPolicyResponseDetails
+ * //           CatalogId: "STRING_VALUE", // required
+ * //           Database: { // DatabaseLFTagPolicyAndPermissions
+ * //             Expression: [ // ListOfLFTags // required
+ * //               { // LFTag
+ * //                 TagKey: "STRING_VALUE", // required
+ * //                 TagValues: [ // ListOfLFTagValues // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             ],
+ * //             Permissions: [ // ListOfDatabaseLFTagPolicyPermissions // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           Table: { // TableLFTagPolicyAndPermissions
+ * //             Expression: [ // required
+ * //               {
+ * //                 TagKey: "STRING_VALUE", // required
+ * //                 TagValues: [ // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             ],
+ * //             Permissions: [ // ListOfTableTagPolicyLFPermissions // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           RoleArn: "STRING_VALUE", // required
+ * //           DataSetId: "STRING_VALUE", // required
+ * //           RevisionId: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       Errors: [ // ListOfJobError
+ * //         { // JobError
+ * //           Code: "STRING_VALUE", // required
+ * //           Details: { // Details
+ * //             ImportAssetFromSignedUrlJobErrorDetails: { // ImportAssetFromSignedUrlJobErrorDetails
+ * //               AssetName: "STRING_VALUE", // required
+ * //             },
+ * //             ImportAssetsFromS3JobErrorDetails: [
+ * //               {
+ * //                 Bucket: "STRING_VALUE", // required
+ * //                 Key: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           LimitName: "STRING_VALUE",
+ * //           LimitValue: Number("double"),
+ * //           Message: "STRING_VALUE", // required
+ * //           ResourceId: "STRING_VALUE",
+ * //           ResourceType: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Id: "STRING_VALUE", // required
+ * //       State: "STRING_VALUE", // required
+ * //       Type: "STRING_VALUE", // required
+ * //       UpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListJobsCommandInput - {@link ListJobsCommandInput}
@@ -67,6 +231,8 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was invalid.</p>
  *
+ * @throws {@link DataExchangeServiceException}
+ * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
  */
 export class ListJobsCommand extends $Command<

@@ -47,6 +47,16 @@ export interface ListCidrBlocksCommandOutput extends ListCidrBlocksResponse, __M
  * };
  * const command = new ListCidrBlocksCommand(input);
  * const response = await client.send(command);
+ * // { // ListCidrBlocksResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   CidrBlocks: [ // CidrBlockSummaries
+ * //     { // CidrBlockSummary
+ * //       CidrBlock: "STRING_VALUE",
+ * //       LocationName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListCidrBlocksCommandInput - {@link ListCidrBlocksCommandInput}
@@ -64,6 +74,8 @@ export interface ListCidrBlocksCommandOutput extends ListCidrBlocksResponse, __M
  * @throws {@link NoSuchCidrLocationException} (client fault)
  *  <p>The CIDR collection location doesn't match any locations in your account.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListCidrBlocksCommand extends $Command<

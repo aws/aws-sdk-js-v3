@@ -44,6 +44,8 @@ export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDiscovererCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDiscovererCommandInput - {@link DeleteDiscovererCommandInput}
@@ -64,6 +66,8 @@ export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class DeleteDiscovererCommand extends $Command<

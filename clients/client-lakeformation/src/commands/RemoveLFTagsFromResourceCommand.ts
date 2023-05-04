@@ -108,6 +108,24 @@ export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromR
  * };
  * const command = new RemoveLFTagsFromResourceCommand(input);
  * const response = await client.send(command);
+ * // { // RemoveLFTagsFromResourceResponse
+ * //   Failures: [ // LFTagErrors
+ * //     { // LFTagError
+ * //       LFTag: { // LFTagPair
+ * //         CatalogId: "STRING_VALUE",
+ * //         TagKey: "STRING_VALUE", // required
+ * //         TagValues: [ // TagValueList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Error: { // ErrorDetail
+ * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param RemoveLFTagsFromResourceCommandInput - {@link RemoveLFTagsFromResourceCommandInput}
@@ -137,6 +155,8 @@ export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromR
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class RemoveLFTagsFromResourceCommand extends $Command<

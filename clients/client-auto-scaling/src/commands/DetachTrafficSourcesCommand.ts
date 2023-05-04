@@ -53,6 +53,8 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
  * };
  * const command = new DetachTrafficSourcesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DetachTrafficSourcesCommandInput - {@link DetachTrafficSourcesCommandInput}
@@ -65,6 +67,8 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To detach a target group from an Auto Scaling group
  * ```javascript

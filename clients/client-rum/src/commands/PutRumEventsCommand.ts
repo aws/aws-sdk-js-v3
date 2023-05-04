@@ -66,6 +66,8 @@ export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __Metad
  * };
  * const command = new PutRumEventsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutRumEventsCommandInput - {@link PutRumEventsCommandInput}
@@ -89,6 +91,8 @@ export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class PutRumEventsCommand extends $Command<

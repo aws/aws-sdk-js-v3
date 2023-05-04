@@ -73,6 +73,8 @@ export interface CreateTypedLinkFacetCommandOutput extends CreateTypedLinkFacetR
  * };
  * const command = new CreateTypedLinkFacetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateTypedLinkFacetCommandInput - {@link CreateTypedLinkFacetCommandInput}
@@ -113,6 +115,8 @@ export interface CreateTypedLinkFacetCommandOutput extends CreateTypedLinkFacetR
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class CreateTypedLinkFacetCommand extends $Command<

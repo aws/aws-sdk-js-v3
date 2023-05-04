@@ -99,6 +99,10 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  * };
  * const command = new CreateEntityRecognizerCommand(input);
  * const response = await client.send(command);
+ * // { // CreateEntityRecognizerResponse
+ * //   EntityRecognizerArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateEntityRecognizerCommandInput - {@link CreateEntityRecognizerCommandInput}
@@ -140,6 +144,8 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class CreateEntityRecognizerCommand extends $Command<

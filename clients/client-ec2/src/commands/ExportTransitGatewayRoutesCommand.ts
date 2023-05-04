@@ -58,6 +58,10 @@ export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGa
  * };
  * const command = new ExportTransitGatewayRoutesCommand(input);
  * const response = await client.send(command);
+ * // { // ExportTransitGatewayRoutesResult
+ * //   S3Location: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ExportTransitGatewayRoutesCommandInput - {@link ExportTransitGatewayRoutesCommandInput}
@@ -66,6 +70,8 @@ export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGa
  * @see {@link ExportTransitGatewayRoutesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ExportTransitGatewayRoutesCommand extends $Command<

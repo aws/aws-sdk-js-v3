@@ -51,6 +51,8 @@ export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, _
  * };
  * const command = new RestoreWorkspaceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RestoreWorkspaceCommandInput - {@link RestoreWorkspaceCommandInput}
@@ -71,6 +73,8 @@ export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class RestoreWorkspaceCommand extends $Command<

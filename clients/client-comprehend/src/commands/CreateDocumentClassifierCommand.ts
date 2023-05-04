@@ -106,6 +106,10 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  * };
  * const command = new CreateDocumentClassifierCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDocumentClassifierResponse
+ * //   DocumentClassifierArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateDocumentClassifierCommandInput - {@link CreateDocumentClassifierCommandInput}
@@ -147,6 +151,8 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class CreateDocumentClassifierCommand extends $Command<

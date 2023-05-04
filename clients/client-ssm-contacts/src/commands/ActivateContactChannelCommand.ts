@@ -46,6 +46,8 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  * };
  * const command = new ActivateContactChannelCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ActivateContactChannelCommandInput - {@link ActivateContactChannelCommandInput}
@@ -70,6 +72,8 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class ActivateContactChannelCommand extends $Command<

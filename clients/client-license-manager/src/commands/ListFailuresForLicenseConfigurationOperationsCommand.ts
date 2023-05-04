@@ -55,6 +55,27 @@ export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
  * };
  * const command = new ListFailuresForLicenseConfigurationOperationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListFailuresForLicenseConfigurationOperationsResponse
+ * //   LicenseOperationFailureList: [ // LicenseOperationFailureList
+ * //     { // LicenseOperationFailure
+ * //       ResourceArn: "STRING_VALUE",
+ * //       ResourceType: "EC2_INSTANCE" || "EC2_HOST" || "EC2_AMI" || "RDS" || "SYSTEMS_MANAGER_MANAGED_INSTANCE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       FailureTime: new Date("TIMESTAMP"),
+ * //       OperationName: "STRING_VALUE",
+ * //       ResourceOwnerId: "STRING_VALUE",
+ * //       OperationRequestedBy: "STRING_VALUE",
+ * //       MetadataList: [ // MetadataList
+ * //         { // Metadata
+ * //           Name: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFailuresForLicenseConfigurationOperationsCommandInput - {@link ListFailuresForLicenseConfigurationOperationsCommandInput}
@@ -79,6 +100,8 @@ export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListFailuresForLicenseConfigurationOperationsCommand extends $Command<

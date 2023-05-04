@@ -53,6 +53,8 @@ export interface DeletePlacementCommandOutput extends DeletePlacementResponse, _
  * };
  * const command = new DeletePlacementCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeletePlacementCommandInput - {@link DeletePlacementCommandInput}
@@ -73,6 +75,8 @@ export interface DeletePlacementCommandOutput extends DeletePlacementResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class DeletePlacementCommand extends $Command<

@@ -47,6 +47,8 @@ export interface DeleteWatchlistCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteWatchlistCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteWatchlistCommandInput - {@link DeleteWatchlistCommandInput}
@@ -80,6 +82,8 @@ export interface DeleteWatchlistCommandOutput extends __MetadataBearer {}
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DeleteWatchlistCommand extends $Command<

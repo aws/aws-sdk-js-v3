@@ -59,6 +59,8 @@ export interface DeleteRecommendationPreferencesCommandOutput
  * };
  * const command = new DeleteRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteRecommendationPreferencesCommandInput - {@link DeleteRecommendationPreferencesCommandInput}
@@ -92,6 +94,8 @@ export interface DeleteRecommendationPreferencesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class DeleteRecommendationPreferencesCommand extends $Command<

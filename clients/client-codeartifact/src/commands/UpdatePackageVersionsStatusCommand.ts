@@ -65,6 +65,21 @@ export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageV
  * };
  * const command = new UpdatePackageVersionsStatusCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePackageVersionsStatusResult
+ * //   successfulVersions: { // SuccessfulPackageVersionInfoMap
+ * //     "<keys>": { // SuccessfulPackageVersionInfo
+ * //       revision: "STRING_VALUE",
+ * //       status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
+ * //     },
+ * //   },
+ * //   failedVersions: { // PackageVersionErrorMap
+ * //     "<keys>": { // PackageVersionError
+ * //       errorCode: "ALREADY_EXISTS" || "MISMATCHED_REVISION" || "MISMATCHED_STATUS" || "NOT_ALLOWED" || "NOT_FOUND" || "SKIPPED",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdatePackageVersionsStatusCommandInput - {@link UpdatePackageVersionsStatusCommandInput}
@@ -101,6 +116,8 @@ export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageV
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class UpdatePackageVersionsStatusCommand extends $Command<

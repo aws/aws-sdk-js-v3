@@ -59,6 +59,11 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
  * };
  * const command = new DeleteApplicationVpcConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteApplicationVpcConfigurationResponse
+ * //   ApplicationARN: "STRING_VALUE",
+ * //   ApplicationVersionId: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param DeleteApplicationVpcConfigurationCommandInput - {@link DeleteApplicationVpcConfigurationCommandInput}
@@ -84,6 +89,8 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class DeleteApplicationVpcConfigurationCommand extends $Command<

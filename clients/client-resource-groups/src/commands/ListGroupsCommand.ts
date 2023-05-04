@@ -64,6 +64,23 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListGroupsOutput
+ * //   GroupIdentifiers: [ // GroupIdentifierList
+ * //     { // GroupIdentifier
+ * //       GroupName: "STRING_VALUE",
+ * //       GroupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Groups: [ // GroupList
+ * //     { // Group
+ * //       GroupArn: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
@@ -88,6 +105,8 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class ListGroupsCommand extends $Command<

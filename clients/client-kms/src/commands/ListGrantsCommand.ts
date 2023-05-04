@@ -92,6 +92,33 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  * };
  * const command = new ListGrantsCommand(input);
  * const response = await client.send(command);
+ * // { // ListGrantsResponse
+ * //   Grants: [ // GrantList
+ * //     { // GrantListEntry
+ * //       KeyId: "STRING_VALUE",
+ * //       GrantId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       GranteePrincipal: "STRING_VALUE",
+ * //       RetiringPrincipal: "STRING_VALUE",
+ * //       IssuingAccount: "STRING_VALUE",
+ * //       Operations: [ // GrantOperationList
+ * //         "Decrypt" || "Encrypt" || "GenerateDataKey" || "GenerateDataKeyWithoutPlaintext" || "ReEncryptFrom" || "ReEncryptTo" || "Sign" || "Verify" || "GetPublicKey" || "CreateGrant" || "RetireGrant" || "DescribeKey" || "GenerateDataKeyPair" || "GenerateDataKeyPairWithoutPlaintext" || "GenerateMac" || "VerifyMac",
+ * //       ],
+ * //       Constraints: { // GrantConstraints
+ * //         EncryptionContextSubset: { // EncryptionContextType
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         EncryptionContextEquals: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * //   Truncated: true || false,
+ * // };
+ *
  * ```
  *
  * @param ListGrantsCommandInput - {@link ListGrantsCommandInput}
@@ -141,6 +168,8 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To list grants for a KMS key
  * ```javascript

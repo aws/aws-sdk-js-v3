@@ -52,6 +52,13 @@ export interface ListReportsForReportGroupCommandOutput extends ListReportsForRe
  * };
  * const command = new ListReportsForReportGroupCommand(input);
  * const response = await client.send(command);
+ * // { // ListReportsForReportGroupOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   reports: [ // ReportArns
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListReportsForReportGroupCommandInput - {@link ListReportsForReportGroupCommandInput}
@@ -66,6 +73,8 @@ export interface ListReportsForReportGroupCommandOutput extends ListReportsForRe
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListReportsForReportGroupCommand extends $Command<

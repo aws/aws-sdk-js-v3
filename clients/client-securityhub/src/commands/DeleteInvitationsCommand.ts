@@ -49,6 +49,15 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * };
  * const command = new DeleteInvitationsCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteInvitationsResponse
+ * //   UnprocessedAccounts: [ // ResultList
+ * //     { // Result
+ * //       AccountId: "STRING_VALUE",
+ * //       ProcessingResult: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DeleteInvitationsCommandInput - {@link DeleteInvitationsCommandInput}
@@ -74,6 +83,8 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To delete a custom insight
  * ```javascript

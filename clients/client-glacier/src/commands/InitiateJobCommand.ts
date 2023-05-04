@@ -118,6 +118,12 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * };
  * const command = new InitiateJobCommand(input);
  * const response = await client.send(command);
+ * // { // InitiateJobOutput
+ * //   location: "STRING_VALUE",
+ * //   jobId: "STRING_VALUE",
+ * //   jobOutputPath: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param InitiateJobCommandInput - {@link InitiateJobCommandInput}
@@ -148,6 +154,8 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To initiate an inventory-retrieval job
  * ```javascript

@@ -45,6 +45,8 @@ export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteHostKeyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteHostKeyCommandInput - {@link DeleteHostKeyCommandInput}
@@ -69,6 +71,8 @@ export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DeleteHostKeyCommand extends $Command<

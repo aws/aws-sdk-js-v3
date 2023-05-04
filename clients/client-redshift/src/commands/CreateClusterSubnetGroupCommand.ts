@@ -60,6 +60,35 @@ export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubn
  * };
  * const command = new CreateClusterSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateClusterSubnetGroupResult
+ * //   ClusterSubnetGroup: { // ClusterSubnetGroup
+ * //     ClusterSubnetGroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     SubnetGroupStatus: "STRING_VALUE",
+ * //     Subnets: [ // SubnetList
+ * //       { // Subnet
+ * //         SubnetIdentifier: "STRING_VALUE",
+ * //         SubnetAvailabilityZone: { // AvailabilityZone
+ * //           Name: "STRING_VALUE",
+ * //           SupportedPlatforms: [ // SupportedPlatformsList
+ * //             { // SupportedPlatform
+ * //               Name: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //         SubnetStatus: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateClusterSubnetGroupCommandInput - {@link CreateClusterSubnetGroupCommandInput}
@@ -103,6 +132,8 @@ export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubn
  * @throws {@link UnauthorizedOperation} (client fault)
  *  <p>Your account is not authorized to perform the requested operation.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateClusterSubnetGroupCommand extends $Command<

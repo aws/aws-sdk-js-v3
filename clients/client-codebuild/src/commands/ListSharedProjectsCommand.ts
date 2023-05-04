@@ -47,6 +47,13 @@ export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutpu
  * };
  * const command = new ListSharedProjectsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSharedProjectsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   projects: [ // ProjectArns
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListSharedProjectsCommandInput - {@link ListSharedProjectsCommandInput}
@@ -58,6 +65,8 @@ export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutpu
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListSharedProjectsCommand extends $Command<

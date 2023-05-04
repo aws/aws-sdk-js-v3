@@ -53,6 +53,11 @@ export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesD
  * };
  * const command = new StopKeyPhrasesDetectionJobCommand(input);
  * const response = await client.send(command);
+ * // { // StopKeyPhrasesDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
+ *
  * ```
  *
  * @param StopKeyPhrasesDetectionJobCommandInput - {@link StopKeyPhrasesDetectionJobCommandInput}
@@ -70,6 +75,8 @@ export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesD
  * @throws {@link JobNotFoundException} (client fault)
  *  <p>The specified job was not found. Check the job ID and try again.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StopKeyPhrasesDetectionJobCommand extends $Command<

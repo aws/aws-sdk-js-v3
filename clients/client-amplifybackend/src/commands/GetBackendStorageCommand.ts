@@ -46,6 +46,25 @@ export interface GetBackendStorageCommandOutput extends GetBackendStorageRespons
  * };
  * const command = new GetBackendStorageCommand(input);
  * const response = await client.send(command);
+ * // { // GetBackendStorageResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   ResourceConfig: { // GetBackendStorageResourceConfig
+ * //     BucketName: "STRING_VALUE",
+ * //     Imported: true || false, // required
+ * //     Permissions: { // BackendStoragePermissions
+ * //       Authenticated: [ // ListOfAuthenticatedElement // required
+ * //         "READ" || "CREATE_AND_UPDATE" || "DELETE",
+ * //       ],
+ * //       UnAuthenticated: [ // ListOfUnAuthenticatedElement
+ * //         "READ" || "CREATE_AND_UPDATE" || "DELETE",
+ * //       ],
+ * //     },
+ * //     ServiceName: "S3", // required
+ * //   },
+ * //   ResourceName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetBackendStorageCommandInput - {@link GetBackendStorageCommandInput}
@@ -66,6 +85,8 @@ export interface GetBackendStorageCommandOutput extends GetBackendStorageRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class GetBackendStorageCommand extends $Command<

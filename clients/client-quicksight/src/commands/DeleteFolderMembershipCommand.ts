@@ -47,6 +47,11 @@ export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembers
  * };
  * const command = new DeleteFolderMembershipCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteFolderMembershipResponse
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteFolderMembershipCommandInput - {@link DeleteFolderMembershipCommandInput}
@@ -79,6 +84,8 @@ export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembers
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteFolderMembershipCommand extends $Command<

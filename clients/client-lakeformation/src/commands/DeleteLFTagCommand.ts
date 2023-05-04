@@ -45,6 +45,8 @@ export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __Metadat
  * };
  * const command = new DeleteLFTagCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteLFTagCommandInput - {@link DeleteLFTagCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __Metadat
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class DeleteLFTagCommand extends $Command<

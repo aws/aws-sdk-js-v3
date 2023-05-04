@@ -46,6 +46,10 @@ export interface UpdateSolFunctionPackageCommandOutput extends UpdateSolFunction
  * };
  * const command = new UpdateSolFunctionPackageCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateSolFunctionPackageOutput
+ * //   operationalState: "ENABLED" || "DISABLED", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateSolFunctionPackageCommandInput - {@link UpdateSolFunctionPackageCommandInput}
@@ -69,6 +73,8 @@ export interface UpdateSolFunctionPackageCommandOutput extends UpdateSolFunction
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class UpdateSolFunctionPackageCommand extends $Command<

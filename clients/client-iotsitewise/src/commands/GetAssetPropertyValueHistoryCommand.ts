@@ -70,6 +70,25 @@ export interface GetAssetPropertyValueHistoryCommandOutput
  * };
  * const command = new GetAssetPropertyValueHistoryCommand(input);
  * const response = await client.send(command);
+ * // { // GetAssetPropertyValueHistoryResponse
+ * //   assetPropertyValueHistory: [ // AssetPropertyValueHistory // required
+ * //     { // AssetPropertyValue
+ * //       value: { // Variant
+ * //         stringValue: "STRING_VALUE",
+ * //         integerValue: Number("int"),
+ * //         doubleValue: Number("double"),
+ * //         booleanValue: true || false,
+ * //       },
+ * //       timestamp: { // TimeInNanos
+ * //         timeInSeconds: Number("long"), // required
+ * //         offsetInNanos: Number("int"),
+ * //       },
+ * //       quality: "GOOD" || "BAD" || "UNCERTAIN",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetAssetPropertyValueHistoryCommandInput - {@link GetAssetPropertyValueHistoryCommandInput}
@@ -97,6 +116,8 @@ export interface GetAssetPropertyValueHistoryCommandOutput
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class GetAssetPropertyValueHistoryCommand extends $Command<

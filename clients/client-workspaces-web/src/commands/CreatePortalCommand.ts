@@ -56,6 +56,11 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * };
  * const command = new CreatePortalCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePortalResponse
+ * //   portalArn: "STRING_VALUE", // required
+ * //   portalEndpoint: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreatePortalCommandInput - {@link CreatePortalCommandInput}
@@ -85,6 +90,8 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class CreatePortalCommand extends $Command<

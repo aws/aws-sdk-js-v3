@@ -54,6 +54,15 @@ export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, _
  * };
  * const command = new BatchPutMetricsCommand(input);
  * const response = await client.send(command);
+ * // { // BatchPutMetricsResponse
+ * //   Errors: [ // BatchPutMetricsErrorList
+ * //     { // BatchPutMetricsError
+ * //       Code: "METRIC_LIMIT_EXCEEDED" || "INTERNAL_ERROR" || "VALIDATION_ERROR" || "CONFLICT_ERROR",
+ * //       MetricIndex: Number("int"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchPutMetricsCommandInput - {@link BatchPutMetricsCommandInput}
@@ -62,6 +71,8 @@ export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, _
  * @see {@link BatchPutMetricsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerMetricsClientResolvedConfig | config} for SageMakerMetricsClient's `config` shape.
  *
+ * @throws {@link SageMakerMetricsServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerMetrics service.</p>
  *
  */
 export class BatchPutMetricsCommand extends $Command<

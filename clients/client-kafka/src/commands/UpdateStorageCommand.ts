@@ -51,6 +51,11 @@ export interface UpdateStorageCommandOutput extends UpdateStorageResponse, __Met
  * };
  * const command = new UpdateStorageCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateStorageResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterOperationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateStorageCommandInput - {@link UpdateStorageCommandInput}
@@ -80,6 +85,8 @@ export interface UpdateStorageCommandOutput extends UpdateStorageResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class UpdateStorageCommand extends $Command<

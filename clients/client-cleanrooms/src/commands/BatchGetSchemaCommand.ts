@@ -47,6 +47,44 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  * };
  * const command = new BatchGetSchemaCommand(input);
  * const response = await client.send(command);
+ * // { // BatchGetSchemaOutput
+ * //   schemas: [ // SchemaList // required
+ * //     { // Schema
+ * //       columns: [ // ColumnList // required
+ * //         { // Column
+ * //           name: "STRING_VALUE", // required
+ * //           type: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       partitionKeys: [ // required
+ * //         {
+ * //           name: "STRING_VALUE", // required
+ * //           type: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       analysisRuleTypes: [ // AnalysisRuleTypeList // required
+ * //         "AGGREGATION" || "LIST",
+ * //       ],
+ * //       analysisMethod: "STRING_VALUE",
+ * //       creatorAccountId: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       collaborationId: "STRING_VALUE", // required
+ * //       collaborationArn: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE", // required
+ * //       createTime: new Date("TIMESTAMP"), // required
+ * //       updateTime: new Date("TIMESTAMP"), // required
+ * //       type: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   errors: [ // BatchGetSchemaErrorList // required
+ * //     { // BatchGetSchemaError
+ * //       name: "STRING_VALUE", // required
+ * //       code: "STRING_VALUE", // required
+ * //       message: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchGetSchemaCommandInput - {@link BatchGetSchemaCommandInput}
@@ -70,6 +108,8 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class BatchGetSchemaCommand extends $Command<

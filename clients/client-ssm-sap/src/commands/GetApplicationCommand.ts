@@ -47,6 +47,24 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
+ * // { // GetApplicationOutput
+ * //   Application: { // Application
+ * //     Id: "STRING_VALUE",
+ * //     Type: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     AppRegistryArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     Components: [ // ComponentIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     StatusMessage: "STRING_VALUE",
+ * //   },
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetApplicationCommandInput - {@link GetApplicationCommandInput}
@@ -61,6 +79,8 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class GetApplicationCommand extends $Command<

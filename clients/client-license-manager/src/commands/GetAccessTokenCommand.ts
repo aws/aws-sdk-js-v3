@@ -48,6 +48,10 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  * };
  * const command = new GetAccessTokenCommand(input);
  * const response = await client.send(command);
+ * // { // GetAccessTokenResponse
+ * //   AccessToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetAccessTokenCommandInput - {@link GetAccessTokenCommandInput}
@@ -72,6 +76,8 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class GetAccessTokenCommand extends $Command<

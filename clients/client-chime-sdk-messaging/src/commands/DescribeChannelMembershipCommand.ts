@@ -60,6 +60,24 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  * };
  * const command = new DescribeChannelMembershipCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeChannelMembershipResponse
+ * //   ChannelMembership: { // ChannelMembership
+ * //     InvitedBy: { // Identity
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     Type: "DEFAULT" || "HIDDEN",
+ * //     Member: {
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     ChannelArn: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     SubChannelId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeChannelMembershipCommandInput - {@link DescribeChannelMembershipCommandInput}
@@ -89,6 +107,8 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class DescribeChannelMembershipCommand extends $Command<

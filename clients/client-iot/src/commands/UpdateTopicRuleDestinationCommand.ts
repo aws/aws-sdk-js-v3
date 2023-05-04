@@ -47,6 +47,8 @@ export interface UpdateTopicRuleDestinationCommandOutput extends UpdateTopicRule
  * };
  * const command = new UpdateTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateTopicRuleDestinationCommandInput - {@link UpdateTopicRuleDestinationCommandInput}
@@ -71,6 +73,8 @@ export interface UpdateTopicRuleDestinationCommandOutput extends UpdateTopicRule
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateTopicRuleDestinationCommand extends $Command<

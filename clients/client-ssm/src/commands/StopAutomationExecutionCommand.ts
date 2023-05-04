@@ -45,6 +45,8 @@ export interface StopAutomationExecutionCommandOutput extends StopAutomationExec
  * };
  * const command = new StopAutomationExecutionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopAutomationExecutionCommandInput - {@link StopAutomationExecutionCommandInput}
@@ -63,6 +65,8 @@ export interface StopAutomationExecutionCommandOutput extends StopAutomationExec
  * @throws {@link InvalidAutomationStatusUpdateException} (client fault)
  *  <p>The specified update status operation isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class StopAutomationExecutionCommand extends $Command<

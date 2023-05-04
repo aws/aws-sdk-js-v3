@@ -47,6 +47,8 @@ export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __Me
  * };
  * const command = new DeleteNotebookInstanceLifecycleConfigCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteNotebookInstanceLifecycleConfigCommandInput - {@link DeleteNotebookInstanceLifecycleConfigCommandInput}
@@ -55,6 +57,8 @@ export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __Me
  * @see {@link DeleteNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<

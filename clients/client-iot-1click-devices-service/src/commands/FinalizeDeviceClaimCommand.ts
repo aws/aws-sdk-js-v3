@@ -55,6 +55,10 @@ export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimRes
  * };
  * const command = new FinalizeDeviceClaimCommand(input);
  * const response = await client.send(command);
+ * // { // FinalizeDeviceClaimResponse
+ * //   State: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param FinalizeDeviceClaimCommandInput - {@link FinalizeDeviceClaimCommandInput}
@@ -73,6 +77,8 @@ export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimRes
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class FinalizeDeviceClaimCommand extends $Command<

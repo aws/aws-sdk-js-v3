@@ -44,6 +44,19 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
  * };
  * const command = new DescribeBackupVaultCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeBackupVaultOutput
+ * //   BackupVaultName: "STRING_VALUE",
+ * //   BackupVaultArn: "STRING_VALUE",
+ * //   EncryptionKeyArn: "STRING_VALUE",
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   CreatorRequestId: "STRING_VALUE",
+ * //   NumberOfRecoveryPoints: Number("long"),
+ * //   Locked: true || false,
+ * //   MinRetentionDays: Number("long"),
+ * //   MaxRetentionDays: Number("long"),
+ * //   LockDate: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeBackupVaultCommandInput - {@link DescribeBackupVaultCommandInput}
@@ -65,6 +78,8 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DescribeBackupVaultCommand extends $Command<

@@ -52,6 +52,20 @@ export interface GetRelationalDatabaseBlueprintsCommandOutput
  * };
  * const command = new GetRelationalDatabaseBlueprintsCommand(input);
  * const response = await client.send(command);
+ * // { // GetRelationalDatabaseBlueprintsResult
+ * //   blueprints: [ // RelationalDatabaseBlueprintList
+ * //     { // RelationalDatabaseBlueprint
+ * //       blueprintId: "STRING_VALUE",
+ * //       engine: "mysql",
+ * //       engineVersion: "STRING_VALUE",
+ * //       engineDescription: "STRING_VALUE",
+ * //       engineVersionDescription: "STRING_VALUE",
+ * //       isEngineDefault: true || false,
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetRelationalDatabaseBlueprintsCommandInput - {@link GetRelationalDatabaseBlueprintsCommandInput}
@@ -90,6 +104,8 @@ export interface GetRelationalDatabaseBlueprintsCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetRelationalDatabaseBlueprintsCommand extends $Command<

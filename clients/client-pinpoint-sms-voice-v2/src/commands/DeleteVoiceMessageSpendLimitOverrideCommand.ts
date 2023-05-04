@@ -58,6 +58,10 @@ export interface DeleteVoiceMessageSpendLimitOverrideCommandOutput
  * const input = {};
  * const command = new DeleteVoiceMessageSpendLimitOverrideCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteVoiceMessageSpendLimitOverrideResult
+ * //   MonthlyLimit: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param DeleteVoiceMessageSpendLimitOverrideCommandInput - {@link DeleteVoiceMessageSpendLimitOverrideCommandInput}
@@ -81,6 +85,8 @@ export interface DeleteVoiceMessageSpendLimitOverrideCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DeleteVoiceMessageSpendLimitOverrideCommand extends $Command<

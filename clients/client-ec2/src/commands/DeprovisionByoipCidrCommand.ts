@@ -48,6 +48,15 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  * };
  * const command = new DeprovisionByoipCidrCommand(input);
  * const response = await client.send(command);
+ * // { // DeprovisionByoipCidrResult
+ * //   ByoipCidr: { // ByoipCidr
+ * //     Cidr: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeprovisionByoipCidrCommandInput - {@link DeprovisionByoipCidrCommandInput}
@@ -56,6 +65,8 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  * @see {@link DeprovisionByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeprovisionByoipCidrCommand extends $Command<

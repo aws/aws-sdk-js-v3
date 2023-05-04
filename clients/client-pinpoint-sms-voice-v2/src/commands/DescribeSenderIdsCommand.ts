@@ -68,6 +68,21 @@ export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult,
  * };
  * const command = new DescribeSenderIdsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSenderIdsResult
+ * //   SenderIds: [ // SenderIdInformationList
+ * //     { // SenderIdInformation
+ * //       SenderIdArn: "STRING_VALUE", // required
+ * //       SenderId: "STRING_VALUE", // required
+ * //       IsoCountryCode: "STRING_VALUE", // required
+ * //       MessageTypes: [ // MessageTypeList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       MonthlyLeasingPrice: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeSenderIdsCommandInput - {@link DescribeSenderIdsCommandInput}
@@ -94,6 +109,8 @@ export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult,
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DescribeSenderIdsCommand extends $Command<

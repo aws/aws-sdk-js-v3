@@ -51,6 +51,22 @@ export interface ListProposalsCommandOutput extends ListProposalsOutput, __Metad
  * };
  * const command = new ListProposalsCommand(input);
  * const response = await client.send(command);
+ * // { // ListProposalsOutput
+ * //   Proposals: [ // ProposalSummaryList
+ * //     { // ProposalSummary
+ * //       ProposalId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       ProposedByMemberId: "STRING_VALUE",
+ * //       ProposedByMemberName: "STRING_VALUE",
+ * //       Status: "IN_PROGRESS" || "APPROVED" || "REJECTED" || "EXPIRED" || "ACTION_FAILED",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       ExpirationDate: new Date("TIMESTAMP"),
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListProposalsCommandInput - {@link ListProposalsCommandInput}
@@ -77,6 +93,8 @@ export interface ListProposalsCommandOutput extends ListProposalsOutput, __Metad
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class ListProposalsCommand extends $Command<

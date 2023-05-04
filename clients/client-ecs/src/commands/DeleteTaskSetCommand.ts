@@ -48,6 +48,73 @@ export interface DeleteTaskSetCommandOutput extends DeleteTaskSetResponse, __Met
  * };
  * const command = new DeleteTaskSetCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteTaskSetResponse
+ * //   taskSet: { // TaskSet
+ * //     id: "STRING_VALUE",
+ * //     taskSetArn: "STRING_VALUE",
+ * //     serviceArn: "STRING_VALUE",
+ * //     clusterArn: "STRING_VALUE",
+ * //     startedBy: "STRING_VALUE",
+ * //     externalId: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     taskDefinition: "STRING_VALUE",
+ * //     computedDesiredCount: Number("int"),
+ * //     pendingCount: Number("int"),
+ * //     runningCount: Number("int"),
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //     launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //     capacityProviderStrategy: [ // CapacityProviderStrategy
+ * //       { // CapacityProviderStrategyItem
+ * //         capacityProvider: "STRING_VALUE", // required
+ * //         weight: Number("int"),
+ * //         base: Number("int"),
+ * //       },
+ * //     ],
+ * //     platformVersion: "STRING_VALUE",
+ * //     platformFamily: "STRING_VALUE",
+ * //     networkConfiguration: { // NetworkConfiguration
+ * //       awsvpcConfiguration: { // AwsVpcConfiguration
+ * //         subnets: [ // StringList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         securityGroups: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         assignPublicIp: "ENABLED" || "DISABLED",
+ * //       },
+ * //     },
+ * //     loadBalancers: [ // LoadBalancers
+ * //       { // LoadBalancer
+ * //         targetGroupArn: "STRING_VALUE",
+ * //         loadBalancerName: "STRING_VALUE",
+ * //         containerName: "STRING_VALUE",
+ * //         containerPort: Number("int"),
+ * //       },
+ * //     ],
+ * //     serviceRegistries: [ // ServiceRegistries
+ * //       { // ServiceRegistry
+ * //         registryArn: "STRING_VALUE",
+ * //         port: Number("int"),
+ * //         containerName: "STRING_VALUE",
+ * //         containerPort: Number("int"),
+ * //       },
+ * //     ],
+ * //     scale: { // Scale
+ * //       value: Number("double"),
+ * //       unit: "PERCENT",
+ * //     },
+ * //     stabilityStatus: "STEADY_STATE" || "STABILIZING",
+ * //     stabilityStatusAt: new Date("TIMESTAMP"),
+ * //     tags: [ // Tags
+ * //       { // Tag
+ * //         key: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteTaskSetCommandInput - {@link DeleteTaskSetCommandInput}
@@ -89,6 +156,8 @@ export interface DeleteTaskSetCommandOutput extends DeleteTaskSetResponse, __Met
  * @throws {@link UnsupportedFeatureException} (client fault)
  *  <p>The specified task isn't supported in this Region.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class DeleteTaskSetCommand extends $Command<

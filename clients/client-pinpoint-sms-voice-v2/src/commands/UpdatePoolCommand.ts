@@ -57,6 +57,20 @@ export interface UpdatePoolCommandOutput extends UpdatePoolResult, __MetadataBea
  * };
  * const command = new UpdatePoolCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePoolResult
+ * //   PoolArn: "STRING_VALUE",
+ * //   PoolId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   MessageType: "STRING_VALUE",
+ * //   TwoWayEnabled: true || false,
+ * //   TwoWayChannelArn: "STRING_VALUE",
+ * //   SelfManagedOptOutsEnabled: true || false,
+ * //   OptOutListName: "STRING_VALUE",
+ * //   SharedRoutesEnabled: true || false,
+ * //   DeletionProtectionEnabled: true || false,
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param UpdatePoolCommandInput - {@link UpdatePoolCommandInput}
@@ -89,6 +103,8 @@ export interface UpdatePoolCommandOutput extends UpdatePoolResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class UpdatePoolCommand extends $Command<

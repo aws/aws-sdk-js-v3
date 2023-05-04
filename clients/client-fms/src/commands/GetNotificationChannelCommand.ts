@@ -44,6 +44,11 @@ export interface GetNotificationChannelCommandOutput extends GetNotificationChan
  * const input = {};
  * const command = new GetNotificationChannelCommand(input);
  * const response = await client.send(command);
+ * // { // GetNotificationChannelResponse
+ * //   SnsTopicArn: "STRING_VALUE",
+ * //   SnsRoleName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetNotificationChannelCommandInput - {@link GetNotificationChannelCommandInput}
@@ -66,6 +71,8 @@ export interface GetNotificationChannelCommandOutput extends GetNotificationChan
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class GetNotificationChannelCommand extends $Command<

@@ -52,6 +52,8 @@ export interface DisassociateConnectionAliasCommandOutput extends DisassociateCo
  * };
  * const command = new DisassociateConnectionAliasCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateConnectionAliasCommandInput - {@link DisassociateConnectionAliasCommandInput}
@@ -75,6 +77,8 @@ export interface DisassociateConnectionAliasCommandOutput extends DisassociateCo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DisassociateConnectionAliasCommand extends $Command<

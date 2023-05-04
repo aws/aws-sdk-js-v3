@@ -60,6 +60,17 @@ export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscripti
  * };
  * const command = new ListLinuxSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListLinuxSubscriptionsResponse
+ * //   Subscriptions: [ // SubscriptionList
+ * //     { // Subscription
+ * //       Name: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       InstanceCount: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListLinuxSubscriptionsCommandInput - {@link ListLinuxSubscriptionsCommandInput}
@@ -77,6 +88,8 @@ export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscripti
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
  */
 export class ListLinuxSubscriptionsCommand extends $Command<

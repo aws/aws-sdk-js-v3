@@ -52,6 +52,8 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * };
  * const command = new CreateEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateEmailTemplateCommandInput - {@link CreateEmailTemplateCommandInput}
@@ -72,6 +74,8 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class CreateEmailTemplateCommand extends $Command<

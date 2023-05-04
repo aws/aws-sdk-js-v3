@@ -44,6 +44,8 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
@@ -64,6 +66,8 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

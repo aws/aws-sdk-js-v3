@@ -46,6 +46,8 @@ export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AbortEnvironmentUpdateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AbortEnvironmentUpdateCommandInput - {@link AbortEnvironmentUpdateCommandInput}
@@ -58,6 +60,8 @@ export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
  *  <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To abort a deployment
  * ```javascript

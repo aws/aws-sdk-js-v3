@@ -66,6 +66,16 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * };
  * const command = new BatchUpdateDetectorCommand(input);
  * const response = await client.send(command);
+ * // { // BatchUpdateDetectorResponse
+ * //   batchUpdateDetectorErrorEntries: [ // BatchUpdateDetectorErrorEntries
+ * //     { // BatchUpdateDetectorErrorEntry
+ * //       messageId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchUpdateDetectorCommandInput - {@link BatchUpdateDetectorCommandInput}
@@ -86,6 +96,8 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class BatchUpdateDetectorCommand extends $Command<

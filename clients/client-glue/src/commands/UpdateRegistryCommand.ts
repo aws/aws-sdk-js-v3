@@ -48,6 +48,11 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * };
  * const command = new UpdateRegistryCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateRegistryResponse
+ * //   RegistryName: "STRING_VALUE",
+ * //   RegistryArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateRegistryCommandInput - {@link UpdateRegistryCommandInput}
@@ -71,6 +76,8 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateRegistryCommand extends $Command<

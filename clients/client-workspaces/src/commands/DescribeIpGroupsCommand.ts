@@ -48,6 +48,23 @@ export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, _
  * };
  * const command = new DescribeIpGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeIpGroupsResult
+ * //   Result: [ // WorkspacesIpGroupsList
+ * //     { // WorkspacesIpGroup
+ * //       groupId: "STRING_VALUE",
+ * //       groupName: "STRING_VALUE",
+ * //       groupDesc: "STRING_VALUE",
+ * //       userRules: [ // IpRuleList
+ * //         { // IpRuleItem
+ * //           ipRule: "STRING_VALUE",
+ * //           ruleDesc: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeIpGroupsCommandInput - {@link DescribeIpGroupsCommandInput}
@@ -62,6 +79,8 @@ export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, _
  * @throws {@link InvalidParameterValuesException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeIpGroupsCommand extends $Command<

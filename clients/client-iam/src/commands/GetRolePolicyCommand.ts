@@ -61,6 +61,12 @@ export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __Met
  * };
  * const command = new GetRolePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetRolePolicyResponse
+ * //   RoleName: "STRING_VALUE", // required
+ * //   PolicyName: "STRING_VALUE", // required
+ * //   PolicyDocument: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param GetRolePolicyCommandInput - {@link GetRolePolicyCommandInput}
@@ -77,6 +83,8 @@ export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __Met
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetRolePolicyCommand extends $Command<

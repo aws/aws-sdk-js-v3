@@ -53,6 +53,27 @@ export interface ListOperationsCommandOutput extends ListOperationsOutput, __Met
  * };
  * const command = new ListOperationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListOperationsOutput
+ * //   Operations: [ // OperationList
+ * //     { // Operation
+ * //       Id: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       Properties: { // OperationProperties
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       ResourceType: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListOperationsCommandInput - {@link ListOperationsCommandInput}
@@ -67,6 +88,8 @@ export interface ListOperationsCommandOutput extends ListOperationsOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class ListOperationsCommand extends $Command<

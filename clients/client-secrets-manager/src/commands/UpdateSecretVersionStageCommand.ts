@@ -68,6 +68,11 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  * };
  * const command = new UpdateSecretVersionStageCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateSecretVersionStageResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateSecretVersionStageCommandInput - {@link UpdateSecretVersionStageCommandInput}
@@ -106,6 +111,8 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To add a staging label attached to a version of a secret
  * ```javascript

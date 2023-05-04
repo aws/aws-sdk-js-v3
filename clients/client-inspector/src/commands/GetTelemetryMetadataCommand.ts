@@ -45,6 +45,16 @@ export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataR
  * };
  * const command = new GetTelemetryMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // GetTelemetryMetadataResponse
+ * //   telemetryMetadata: [ // TelemetryMetadataList // required
+ * //     { // TelemetryMetadata
+ * //       messageType: "STRING_VALUE", // required
+ * //       count: Number("long"), // required
+ * //       dataSize: Number("long"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetTelemetryMetadataCommandInput - {@link GetTelemetryMetadataCommandInput}
@@ -67,6 +77,8 @@ export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataR
  *  <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Get telemetry metadata
  * ```javascript

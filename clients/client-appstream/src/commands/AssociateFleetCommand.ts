@@ -45,6 +45,8 @@ export interface AssociateFleetCommandOutput extends AssociateFleetResult, __Met
  * };
  * const command = new AssociateFleetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AssociateFleetCommandInput - {@link AssociateFleetCommandInput}
@@ -71,6 +73,8 @@ export interface AssociateFleetCommandOutput extends AssociateFleetResult, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class AssociateFleetCommand extends $Command<

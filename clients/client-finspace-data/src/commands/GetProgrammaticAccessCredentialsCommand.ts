@@ -50,6 +50,15 @@ export interface GetProgrammaticAccessCredentialsCommandOutput
  * };
  * const command = new GetProgrammaticAccessCredentialsCommand(input);
  * const response = await client.send(command);
+ * // { // GetProgrammaticAccessCredentialsResponse
+ * //   credentials: { // Credentials
+ * //     accessKeyId: "STRING_VALUE",
+ * //     secretAccessKey: "STRING_VALUE",
+ * //     sessionToken: "STRING_VALUE",
+ * //   },
+ * //   durationInMinutes: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param GetProgrammaticAccessCredentialsCommandInput - {@link GetProgrammaticAccessCredentialsCommandInput}
@@ -71,6 +80,8 @@ export interface GetProgrammaticAccessCredentialsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class GetProgrammaticAccessCredentialsCommand extends $Command<

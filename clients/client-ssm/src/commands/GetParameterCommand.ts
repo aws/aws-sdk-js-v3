@@ -48,6 +48,20 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
  * };
  * const command = new GetParameterCommand(input);
  * const response = await client.send(command);
+ * // { // GetParameterResult
+ * //   Parameter: { // Parameter
+ * //     Name: "STRING_VALUE",
+ * //     Type: "String" || "StringList" || "SecureString",
+ * //     Value: "STRING_VALUE",
+ * //     Version: Number("long"),
+ * //     Selector: "STRING_VALUE",
+ * //     SourceResult: "STRING_VALUE",
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //     ARN: "STRING_VALUE",
+ * //     DataType: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetParameterCommandInput - {@link GetParameterCommandInput}
@@ -69,6 +83,8 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
  *  <p>The specified parameter version wasn't found. Verify the parameter name and version, and try
  *    again.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetParameterCommand extends $Command<

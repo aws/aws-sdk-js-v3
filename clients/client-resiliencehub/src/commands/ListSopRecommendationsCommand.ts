@@ -47,6 +47,29 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * };
  * const command = new ListSopRecommendationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSopRecommendationsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   sopRecommendations: [ // SopRecommendationList // required
+ * //     { // SopRecommendation
+ * //       serviceType: "STRING_VALUE", // required
+ * //       appComponentName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       recommendationId: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE",
+ * //       items: [ // RecommendationItemList
+ * //         { // RecommendationItem
+ * //           resourceId: "STRING_VALUE",
+ * //           targetAccountId: "STRING_VALUE",
+ * //           targetRegion: "STRING_VALUE",
+ * //           alreadyImplemented: true || false,
+ * //         },
+ * //       ],
+ * //       referenceId: "STRING_VALUE", // required
+ * //       prerequisite: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListSopRecommendationsCommandInput - {@link ListSopRecommendationsCommandInput}
@@ -79,6 +102,8 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class ListSopRecommendationsCommand extends $Command<

@@ -46,6 +46,8 @@ export interface DeleteCallAnalyticsJobCommandOutput extends DeleteCallAnalytics
  * };
  * const command = new DeleteCallAnalyticsJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteCallAnalyticsJobCommandInput - {@link DeleteCallAnalyticsJobCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteCallAnalyticsJobCommandOutput extends DeleteCallAnalytics
  *  <p>You've either sent too many requests or your input file is too long. Wait before
  *             retrying your request, or use a smaller file and try your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class DeleteCallAnalyticsJobCommand extends $Command<

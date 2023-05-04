@@ -46,6 +46,19 @@ export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __M
  * };
  * const command = new ListStreamKeysCommand(input);
  * const response = await client.send(command);
+ * // { // ListStreamKeysResponse
+ * //   streamKeys: [ // StreamKeyList // required
+ * //     { // StreamKeySummary
+ * //       arn: "STRING_VALUE",
+ * //       channelArn: "STRING_VALUE",
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListStreamKeysCommandInput - {@link ListStreamKeysCommandInput}
@@ -63,6 +76,8 @@ export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class ListStreamKeysCommand extends $Command<

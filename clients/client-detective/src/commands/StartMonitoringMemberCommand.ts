@@ -57,6 +57,8 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StartMonitoringMemberCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartMonitoringMemberCommandInput - {@link StartMonitoringMemberCommandInput}
@@ -99,6 +101,8 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class StartMonitoringMemberCommand extends $Command<

@@ -60,6 +60,8 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  * };
  * const command = new CompleteAttachmentUploadCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CompleteAttachmentUploadCommandInput - {@link CompleteAttachmentUploadCommandInput}
@@ -86,6 +88,8 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
+ * @throws {@link ConnectParticipantServiceException}
+ * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
  */
 export class CompleteAttachmentUploadCommand extends $Command<

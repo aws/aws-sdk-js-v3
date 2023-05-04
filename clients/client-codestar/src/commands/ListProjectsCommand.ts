@@ -45,6 +45,16 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * // { // ListProjectsResult
+ * //   projects: [ // ProjectsList // required
+ * //     { // ProjectSummary
+ * //       projectId: "STRING_VALUE",
+ * //       projectArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
@@ -59,6 +69,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class ListProjectsCommand extends $Command<

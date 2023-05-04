@@ -65,6 +65,14 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
  * };
  * const command = new AssociateAwsAccountWithPartnerAccountCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateAwsAccountWithPartnerAccountResponse
+ * //   Sidewalk: { // SidewalkAccountInfo
+ * //     AmazonId: "STRING_VALUE",
+ * //     AppServerPrivateKey: "STRING_VALUE",
+ * //   },
+ * //   Arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AssociateAwsAccountWithPartnerAccountCommandInput - {@link AssociateAwsAccountWithPartnerAccountCommandInput}
@@ -91,6 +99,8 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class AssociateAwsAccountWithPartnerAccountCommand extends $Command<

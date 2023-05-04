@@ -46,6 +46,38 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * };
  * const command = new DescribeModelCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeModelResponse
+ * //   ModelName: "STRING_VALUE",
+ * //   ModelArn: "STRING_VALUE",
+ * //   DatasetName: "STRING_VALUE",
+ * //   DatasetArn: "STRING_VALUE",
+ * //   Schema: "STRING_VALUE",
+ * //   LabelsInputConfiguration: { // LabelsInputConfiguration
+ * //     S3InputConfiguration: { // LabelsS3InputConfiguration
+ * //       Bucket: "STRING_VALUE", // required
+ * //       Prefix: "STRING_VALUE",
+ * //     },
+ * //     LabelGroupName: "STRING_VALUE",
+ * //   },
+ * //   TrainingDataStartTime: new Date("TIMESTAMP"),
+ * //   TrainingDataEndTime: new Date("TIMESTAMP"),
+ * //   EvaluationDataStartTime: new Date("TIMESTAMP"),
+ * //   EvaluationDataEndTime: new Date("TIMESTAMP"),
+ * //   RoleArn: "STRING_VALUE",
+ * //   DataPreProcessingConfiguration: { // DataPreProcessingConfiguration
+ * //     TargetSamplingRate: "PT1S" || "PT5S" || "PT10S" || "PT15S" || "PT30S" || "PT1M" || "PT5M" || "PT10M" || "PT15M" || "PT30M" || "PT1H",
+ * //   },
+ * //   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ * //   TrainingExecutionStartTime: new Date("TIMESTAMP"),
+ * //   TrainingExecutionEndTime: new Date("TIMESTAMP"),
+ * //   FailedReason: "STRING_VALUE",
+ * //   ModelMetrics: "STRING_VALUE",
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   ServerSideKmsKeyId: "STRING_VALUE",
+ * //   OffCondition: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeModelCommandInput - {@link DescribeModelCommandInput}
@@ -73,6 +105,8 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class DescribeModelCommand extends $Command<

@@ -47,6 +47,8 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionRespo
  * const input = {};
  * const command = new CreateSubscriptionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateSubscriptionCommandInput - {@link CreateSubscriptionCommandInput}
@@ -61,6 +63,8 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionRespo
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>Exception indicating the specified resource already exists. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class CreateSubscriptionCommand extends $Command<

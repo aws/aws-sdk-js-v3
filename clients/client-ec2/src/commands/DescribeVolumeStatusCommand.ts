@@ -90,6 +90,50 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * };
  * const command = new DescribeVolumeStatusCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeVolumeStatusResult
+ * //   NextToken: "STRING_VALUE",
+ * //   VolumeStatuses: [ // VolumeStatusList
+ * //     { // VolumeStatusItem
+ * //       Actions: [ // VolumeStatusActionsList
+ * //         { // VolumeStatusAction
+ * //           Code: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //           EventId: "STRING_VALUE",
+ * //           EventType: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       OutpostArn: "STRING_VALUE",
+ * //       Events: [ // VolumeStatusEventsList
+ * //         { // VolumeStatusEvent
+ * //           Description: "STRING_VALUE",
+ * //           EventId: "STRING_VALUE",
+ * //           EventType: "STRING_VALUE",
+ * //           NotAfter: new Date("TIMESTAMP"),
+ * //           NotBefore: new Date("TIMESTAMP"),
+ * //           InstanceId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       VolumeId: "STRING_VALUE",
+ * //       VolumeStatus: { // VolumeStatusInfo
+ * //         Details: [ // VolumeStatusDetailsList
+ * //           { // VolumeStatusDetails
+ * //             Name: "io-enabled" || "io-performance",
+ * //             Status: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         Status: "ok" || "impaired" || "insufficient-data",
+ * //       },
+ * //       AttachmentStatuses: [ // VolumeStatusAttachmentStatusList
+ * //         { // VolumeStatusAttachmentStatus
+ * //           IoPerformance: "STRING_VALUE",
+ * //           InstanceId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeVolumeStatusCommandInput - {@link DescribeVolumeStatusCommandInput}
@@ -98,6 +142,8 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * @see {@link DescribeVolumeStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe the status of a single volume
  * ```javascript

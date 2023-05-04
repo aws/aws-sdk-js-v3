@@ -44,6 +44,11 @@ export interface DeleteConfigurationCommandOutput extends DeleteConfigurationRes
  * };
  * const command = new DeleteConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteConfigurationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   State: "ACTIVE" || "DELETING" || "DELETE_FAILED",
+ * // };
+ *
  * ```
  *
  * @param DeleteConfigurationCommandInput - {@link DeleteConfigurationCommandInput}
@@ -64,6 +69,8 @@ export interface DeleteConfigurationCommandOutput extends DeleteConfigurationRes
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class DeleteConfigurationCommand extends $Command<

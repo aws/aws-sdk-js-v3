@@ -57,6 +57,27 @@ export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult,
  * };
  * const command = new DescribeIpv6PoolsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeIpv6PoolsResult
+ * //   Ipv6Pools: [ // Ipv6PoolSet
+ * //     { // Ipv6Pool
+ * //       PoolId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       PoolCidrBlocks: [ // PoolCidrBlocksSet
+ * //         { // PoolCidrBlock
+ * //           Cidr: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeIpv6PoolsCommandInput - {@link DescribeIpv6PoolsCommandInput}
@@ -65,6 +86,8 @@ export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult,
  * @see {@link DescribeIpv6PoolsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeIpv6PoolsCommand extends $Command<

@@ -44,6 +44,10 @@ export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCreden
  * };
  * const command = new DeleteSourceCredentialsCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteSourceCredentialsOutput
+ * //   arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteSourceCredentialsCommandInput - {@link DeleteSourceCredentialsCommandInput}
@@ -58,6 +62,8 @@ export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCreden
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Web Services resource cannot be found.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class DeleteSourceCredentialsCommand extends $Command<

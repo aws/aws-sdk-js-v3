@@ -63,6 +63,25 @@ export interface DescribeClientVpnTargetNetworksCommandOutput
  * };
  * const command = new DescribeClientVpnTargetNetworksCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeClientVpnTargetNetworksResult
+ * //   ClientVpnTargetNetworks: [ // TargetNetworkSet
+ * //     { // TargetNetwork
+ * //       AssociationId: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       TargetNetworkId: "STRING_VALUE",
+ * //       ClientVpnEndpointId: "STRING_VALUE",
+ * //       Status: { // AssociationStatus
+ * //         Code: "associating" || "associated" || "association-failed" || "disassociating" || "disassociated",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       SecurityGroups: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeClientVpnTargetNetworksCommandInput - {@link DescribeClientVpnTargetNetworksCommandInput}
@@ -71,6 +90,8 @@ export interface DescribeClientVpnTargetNetworksCommandOutput
  * @see {@link DescribeClientVpnTargetNetworksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeClientVpnTargetNetworksCommand extends $Command<

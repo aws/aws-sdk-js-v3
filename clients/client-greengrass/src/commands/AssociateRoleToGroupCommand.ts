@@ -45,6 +45,10 @@ export interface AssociateRoleToGroupCommandOutput extends AssociateRoleToGroupR
  * };
  * const command = new AssociateRoleToGroupCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateRoleToGroupResponse
+ * //   AssociatedAt: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AssociateRoleToGroupCommandInput - {@link AssociateRoleToGroupCommandInput}
@@ -59,6 +63,8 @@ export interface AssociateRoleToGroupCommandOutput extends AssociateRoleToGroupR
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class AssociateRoleToGroupCommand extends $Command<

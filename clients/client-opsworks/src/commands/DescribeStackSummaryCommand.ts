@@ -50,6 +50,38 @@ export interface DescribeStackSummaryCommandOutput extends DescribeStackSummaryR
  * };
  * const command = new DescribeStackSummaryCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeStackSummaryResult
+ * //   StackSummary: { // StackSummary
+ * //     StackId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     LayersCount: Number("int"),
+ * //     AppsCount: Number("int"),
+ * //     InstancesCount: { // InstancesCount
+ * //       Assigning: Number("int"),
+ * //       Booting: Number("int"),
+ * //       ConnectionLost: Number("int"),
+ * //       Deregistering: Number("int"),
+ * //       Online: Number("int"),
+ * //       Pending: Number("int"),
+ * //       Rebooting: Number("int"),
+ * //       Registered: Number("int"),
+ * //       Registering: Number("int"),
+ * //       Requested: Number("int"),
+ * //       RunningSetup: Number("int"),
+ * //       SetupFailed: Number("int"),
+ * //       ShuttingDown: Number("int"),
+ * //       StartFailed: Number("int"),
+ * //       StopFailed: Number("int"),
+ * //       Stopped: Number("int"),
+ * //       Stopping: Number("int"),
+ * //       Terminated: Number("int"),
+ * //       Terminating: Number("int"),
+ * //       Unassigning: Number("int"),
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeStackSummaryCommandInput - {@link DescribeStackSummaryCommandInput}
@@ -64,6 +96,8 @@ export interface DescribeStackSummaryCommandOutput extends DescribeStackSummaryR
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeStackSummaryCommand extends $Command<

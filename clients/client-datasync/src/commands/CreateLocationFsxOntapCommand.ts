@@ -73,6 +73,10 @@ export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOn
  * };
  * const command = new CreateLocationFsxOntapCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLocationFsxOntapResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateLocationFsxOntapCommandInput - {@link CreateLocationFsxOntapCommandInput}
@@ -88,6 +92,8 @@ export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOn
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationFsxOntapCommand extends $Command<

@@ -49,6 +49,37 @@ export interface GetSolFunctionInstanceCommandOutput extends GetSolFunctionInsta
  * };
  * const command = new GetSolFunctionInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // GetSolFunctionInstanceOutput
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   nsInstanceId: "STRING_VALUE", // required
+ * //   vnfPkgId: "STRING_VALUE", // required
+ * //   vnfdId: "STRING_VALUE", // required
+ * //   vnfProvider: "STRING_VALUE",
+ * //   vnfProductName: "STRING_VALUE",
+ * //   vnfdVersion: "STRING_VALUE",
+ * //   instantiationState: "INSTANTIATED" || "NOT_INSTANTIATED", // required
+ * //   instantiatedVnfInfo: { // GetSolVnfInfo
+ * //     vnfState: "STARTED" || "STOPPED",
+ * //     vnfcResourceInfo: [ // GetSolVnfcResourceInfoList
+ * //       { // GetSolVnfcResourceInfo
+ * //         metadata: { // GetSolVnfcResourceInfoMetadata
+ * //           nodeGroup: "STRING_VALUE",
+ * //           cluster: "STRING_VALUE",
+ * //           helmChart: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   metadata: { // GetSolFunctionInstanceMetadata
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastModified: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSolFunctionInstanceCommandInput - {@link GetSolFunctionInstanceCommandInput}
@@ -72,6 +103,8 @@ export interface GetSolFunctionInstanceCommandOutput extends GetSolFunctionInsta
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class GetSolFunctionInstanceCommand extends $Command<

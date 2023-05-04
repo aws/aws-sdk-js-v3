@@ -3,9 +3,13 @@ import { Client, HttpHandlerOptions, RequestHandler, RequestHandlerOutput } from
 
 /**
  * Instructs {@link TestHttpHandler} how to match the handled request and the expected request.
+ * @internal
  */
 export type Matcher = string | number | boolean | RegExp | null | undefined | ((value: any) => void);
 
+/**
+ * @internal
+ */
 export type HttpRequestMatcher = {
   // endpoint
   protocol?: Matcher;
@@ -25,12 +29,14 @@ export type HttpRequestMatcher = {
 
 /**
  * Supplied to test clients to assert correct requests.
+ * @internal
  */
 export class TestHttpHandler implements HttpHandler {
   private static WATCHER = Symbol("TestHttpHandler_WATCHER");
   private originalSend?: Function;
   private originalRequestHandler?: RequestHandler<any, any, any>;
   private client?: Client<any, any, any>;
+  private assertions = 0;
 
   public constructor(public readonly matcher: HttpRequestMatcher) {}
 
@@ -43,6 +49,11 @@ export class TestHttpHandler implements HttpHandler {
   public watch(client: Client<any, any, any>, matcher: HttpRequestMatcher = this.matcher) {
     this.client = client;
     this.originalRequestHandler = client.config.originalRequestHandler;
+    // mock credentials to avoid default chain lookup.
+    client.config.credentials = async () => ({
+      accessKeyId: "MOCK_ACCESS_KEY_ID",
+      secretAccessKey: "MOCK_SECRET_ACCESS_KEY_ID",
+    });
     client.config.requestHandler = new TestHttpHandler(matcher);
     if (!(client as any)[TestHttpHandler.WATCHER]) {
       (client as any)[TestHttpHandler.WATCHER] = true;
@@ -82,6 +93,10 @@ export class TestHttpHandler implements HttpHandler {
     this.check(m.body, request.body);
     this.check(m.method, request.method);
 
+    if (this.assertions === 0) {
+      throw new Error("Request handled with no assertions, empty matcher?");
+    }
+
     throw new TestHttpHandlerSuccess();
   }
 
@@ -116,7 +131,9 @@ export class TestHttpHandler implements HttpHandler {
         matcher(observed);
         break;
       default:
+        throw new Error("Matcher did not create assertion");
     }
+    this.assertions++;
   }
 
   private checkAll(matchers?: Record<string, Matcher> | Map<RegExp | string, Matcher>, observed?: any) {
@@ -148,8 +165,21 @@ export class TestHttpHandler implements HttpHandler {
 /**
  * This is used as an interrupt signal for success.
  * It does not indicate a true error.
+ *
+ * @internal
  */
 export class TestHttpHandlerSuccess extends Error {
   public static readonly ID = Symbol("TestHttpHandlerSuccess");
   public readonly id = TestHttpHandlerSuccess.ID;
 }
+
+/**
+ * @internal
+ */
+export const requireRequestsFrom = (client: Client<any, any, any>) => {
+  return {
+    toMatch(matcher: HttpRequestMatcher) {
+      return new TestHttpHandler(matcher).watch(client);
+    },
+  };
+};

@@ -54,6 +54,14 @@ export interface DescribeAcceleratorAttributesCommandOutput
  * };
  * const command = new DescribeAcceleratorAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAcceleratorAttributesResponse
+ * //   AcceleratorAttributes: { // AcceleratorAttributes
+ * //     FlowLogsEnabled: true || false,
+ * //     FlowLogsS3Bucket: "STRING_VALUE",
+ * //     FlowLogsS3Prefix: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeAcceleratorAttributesCommandInput - {@link DescribeAcceleratorAttributesCommandInput}
@@ -71,6 +79,8 @@ export interface DescribeAcceleratorAttributesCommandOutput
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class DescribeAcceleratorAttributesCommand extends $Command<

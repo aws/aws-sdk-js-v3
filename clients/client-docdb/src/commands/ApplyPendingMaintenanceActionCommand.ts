@@ -52,6 +52,22 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * };
  * const command = new ApplyPendingMaintenanceActionCommand(input);
  * const response = await client.send(command);
+ * // { // ApplyPendingMaintenanceActionResult
+ * //   ResourcePendingMaintenanceActions: { // ResourcePendingMaintenanceActions
+ * //     ResourceIdentifier: "STRING_VALUE",
+ * //     PendingMaintenanceActionDetails: [ // PendingMaintenanceActionDetails
+ * //       { // PendingMaintenanceAction
+ * //         Action: "STRING_VALUE",
+ * //         AutoAppliedAfterDate: new Date("TIMESTAMP"),
+ * //         ForcedApplyDate: new Date("TIMESTAMP"),
+ * //         OptInStatus: "STRING_VALUE",
+ * //         CurrentApplyDate: new Date("TIMESTAMP"),
+ * //         Description: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ApplyPendingMaintenanceActionCommandInput - {@link ApplyPendingMaintenanceActionCommandInput}
@@ -70,6 +86,8 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The specified resource ID was not found.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class ApplyPendingMaintenanceActionCommand extends $Command<

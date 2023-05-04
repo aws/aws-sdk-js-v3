@@ -50,6 +50,10 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * const input = {};
  * const command = new DisassociateServiceRoleFromAccountCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateServiceRoleFromAccountResponse
+ * //   DisassociatedAt: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DisassociateServiceRoleFromAccountCommandInput - {@link DisassociateServiceRoleFromAccountCommandInput}
@@ -61,6 +65,8 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DisassociateServiceRoleFromAccountCommand extends $Command<

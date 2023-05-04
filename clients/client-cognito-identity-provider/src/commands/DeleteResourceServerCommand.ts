@@ -50,6 +50,8 @@ export interface DeleteResourceServerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteResourceServerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteResourceServerCommandInput - {@link DeleteResourceServerCommandInput}
@@ -76,6 +78,8 @@ export interface DeleteResourceServerCommandOutput extends __MetadataBearer {}
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class DeleteResourceServerCommand extends $Command<

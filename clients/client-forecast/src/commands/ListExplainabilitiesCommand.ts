@@ -56,6 +56,25 @@ export interface ListExplainabilitiesCommandOutput extends ListExplainabilitiesR
  * };
  * const command = new ListExplainabilitiesCommand(input);
  * const response = await client.send(command);
+ * // { // ListExplainabilitiesResponse
+ * //   Explainabilities: [ // Explainabilities
+ * //     { // ExplainabilitySummary
+ * //       ExplainabilityArn: "STRING_VALUE",
+ * //       ExplainabilityName: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       ExplainabilityConfig: { // ExplainabilityConfig
+ * //         TimeSeriesGranularity: "ALL" || "SPECIFIC", // required
+ * //         TimePointGranularity: "ALL" || "SPECIFIC", // required
+ * //       },
+ * //       Status: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModificationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListExplainabilitiesCommandInput - {@link ListExplainabilitiesCommandInput}
@@ -71,6 +90,8 @@ export interface ListExplainabilitiesCommandOutput extends ListExplainabilitiesR
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid. Tokens expire after 24 hours.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListExplainabilitiesCommand extends $Command<

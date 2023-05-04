@@ -56,6 +56,23 @@ export interface ListForecastsCommandOutput extends ListForecastsResponse, __Met
  * };
  * const command = new ListForecastsCommand(input);
  * const response = await client.send(command);
+ * // { // ListForecastsResponse
+ * //   Forecasts: [ // Forecasts
+ * //     { // ForecastSummary
+ * //       ForecastArn: "STRING_VALUE",
+ * //       ForecastName: "STRING_VALUE",
+ * //       PredictorArn: "STRING_VALUE",
+ * //       CreatedUsingAutoPredictor: true || false,
+ * //       DatasetGroupArn: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModificationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListForecastsCommandInput - {@link ListForecastsCommandInput}
@@ -71,6 +88,8 @@ export interface ListForecastsCommandOutput extends ListForecastsResponse, __Met
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid. Tokens expire after 24 hours.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListForecastsCommand extends $Command<

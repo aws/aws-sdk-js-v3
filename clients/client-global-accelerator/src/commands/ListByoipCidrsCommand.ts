@@ -50,6 +50,22 @@ export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __M
  * };
  * const command = new ListByoipCidrsCommand(input);
  * const response = await client.send(command);
+ * // { // ListByoipCidrsResponse
+ * //   ByoipCidrs: [ // ByoipCidrs
+ * //     { // ByoipCidr
+ * //       Cidr: "STRING_VALUE",
+ * //       State: "PENDING_PROVISIONING" || "READY" || "PENDING_ADVERTISING" || "ADVERTISING" || "PENDING_WITHDRAWING" || "PENDING_DEPROVISIONING" || "DEPROVISIONED" || "FAILED_PROVISION" || "FAILED_ADVERTISING" || "FAILED_WITHDRAW" || "FAILED_DEPROVISION",
+ * //       Events: [ // ByoipCidrEvents
+ * //         { // ByoipCidrEvent
+ * //           Message: "STRING_VALUE",
+ * //           Timestamp: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListByoipCidrsCommandInput - {@link ListByoipCidrsCommandInput}
@@ -70,6 +86,8 @@ export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __M
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>There isn't another item to return.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class ListByoipCidrsCommand extends $Command<

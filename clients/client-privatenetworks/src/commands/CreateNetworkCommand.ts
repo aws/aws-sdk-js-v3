@@ -54,6 +54,20 @@ export interface CreateNetworkCommandOutput extends CreateNetworkResponse, __Met
  * };
  * const command = new CreateNetworkCommand(input);
  * const response = await client.send(command);
+ * // { // CreateNetworkResponse
+ * //   network: { // Network
+ * //     networkArn: "STRING_VALUE", // required
+ * //     networkName: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     status: "STRING_VALUE", // required
+ * //     statusReason: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateNetworkCommandInput - {@link CreateNetworkCommandInput}
@@ -71,6 +85,8 @@ export interface CreateNetworkCommandOutput extends CreateNetworkResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class CreateNetworkCommand extends $Command<

@@ -61,6 +61,10 @@ export interface CreateHubCommandOutput extends CreateHubResponse, __MetadataBea
  * };
  * const command = new CreateHubCommand(input);
  * const response = await client.send(command);
+ * // { // CreateHubResponse
+ * //   HubArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateHubCommandInput - {@link CreateHubCommandInput}
@@ -76,6 +80,8 @@ export interface CreateHubCommandOutput extends CreateHubResponse, __MetadataBea
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateHubCommand extends $Command<

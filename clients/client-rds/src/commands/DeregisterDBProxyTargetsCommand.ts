@@ -51,6 +51,8 @@ export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxy
  * };
  * const command = new DeregisterDBProxyTargetsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeregisterDBProxyTargetsCommandInput - {@link DeregisterDBProxyTargetsCommandInput}
@@ -71,6 +73,8 @@ export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxy
  * @throws {@link InvalidDBProxyStateFault} (client fault)
  *  <p>The requested operation can't be performed while the proxy is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class DeregisterDBProxyTargetsCommand extends $Command<

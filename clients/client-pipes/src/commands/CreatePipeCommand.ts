@@ -344,6 +344,15 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  * };
  * const command = new CreatePipeCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePipeResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   DesiredState: "STRING_VALUE",
+ * //   CurrentState: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param CreatePipeCommandInput - {@link CreatePipeCommandInput}
@@ -370,6 +379,8 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that an error has occurred while performing a validate operation.</p>
  *
+ * @throws {@link PipesServiceException}
+ * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
  */
 export class CreatePipeCommand extends $Command<

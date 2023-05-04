@@ -47,6 +47,14 @@ export interface GetQueryLoggingConfigCommandOutput extends GetQueryLoggingConfi
  * };
  * const command = new GetQueryLoggingConfigCommand(input);
  * const response = await client.send(command);
+ * // { // GetQueryLoggingConfigResponse
+ * //   QueryLoggingConfig: { // QueryLoggingConfig
+ * //     Id: "STRING_VALUE", // required
+ * //     HostedZoneId: "STRING_VALUE", // required
+ * //     CloudWatchLogsLogGroupArn: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetQueryLoggingConfigCommandInput - {@link GetQueryLoggingConfigCommandInput}
@@ -61,6 +69,8 @@ export interface GetQueryLoggingConfigCommandOutput extends GetQueryLoggingConfi
  * @throws {@link NoSuchQueryLoggingConfig} (client fault)
  *  <p>There is no DNS query logging configuration with the specified ID.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetQueryLoggingConfigCommand extends $Command<

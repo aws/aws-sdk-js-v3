@@ -48,6 +48,16 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
  * };
  * const command = new UpdateShareInvitationCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateShareInvitationOutput
+ * //   ShareInvitation: { // ShareInvitation
+ * //     ShareInvitationId: "STRING_VALUE",
+ * //     ShareResourceType: "WORKLOAD" || "LENS",
+ * //     WorkloadId: "STRING_VALUE",
+ * //     LensAlias: "STRING_VALUE",
+ * //     LensArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateShareInvitationCommandInput - {@link UpdateShareInvitationCommandInput}
@@ -74,6 +84,8 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class UpdateShareInvitationCommand extends $Command<

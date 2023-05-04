@@ -51,6 +51,10 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * };
  * const command = new CreateUserProfileCommand(input);
  * const response = await client.send(command);
+ * // { // CreateUserProfileResult
+ * //   IamUserArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateUserProfileCommandInput - {@link CreateUserProfileCommandInput}
@@ -62,6 +66,8 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class CreateUserProfileCommand extends $Command<

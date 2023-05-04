@@ -45,6 +45,55 @@ export interface GetLicenseCommandOutput extends GetLicenseResponse, __MetadataB
  * };
  * const command = new GetLicenseCommand(input);
  * const response = await client.send(command);
+ * // { // GetLicenseResponse
+ * //   License: { // License
+ * //     LicenseArn: "STRING_VALUE",
+ * //     LicenseName: "STRING_VALUE",
+ * //     ProductName: "STRING_VALUE",
+ * //     ProductSKU: "STRING_VALUE",
+ * //     Issuer: { // IssuerDetails
+ * //       Name: "STRING_VALUE",
+ * //       SignKey: "STRING_VALUE",
+ * //       KeyFingerprint: "STRING_VALUE",
+ * //     },
+ * //     HomeRegion: "STRING_VALUE",
+ * //     Status: "AVAILABLE" || "PENDING_AVAILABLE" || "DEACTIVATED" || "SUSPENDED" || "EXPIRED" || "PENDING_DELETE" || "DELETED",
+ * //     Validity: { // DatetimeRange
+ * //       Begin: "STRING_VALUE", // required
+ * //       End: "STRING_VALUE",
+ * //     },
+ * //     Beneficiary: "STRING_VALUE",
+ * //     Entitlements: [ // EntitlementList
+ * //       { // Entitlement
+ * //         Name: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE",
+ * //         MaxCount: Number("long"),
+ * //         Overage: true || false,
+ * //         Unit: "Count" || "None" || "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second", // required
+ * //         AllowCheckIn: true || false,
+ * //       },
+ * //     ],
+ * //     ConsumptionConfiguration: { // ConsumptionConfiguration
+ * //       RenewType: "None" || "Weekly" || "Monthly",
+ * //       ProvisionalConfiguration: { // ProvisionalConfiguration
+ * //         MaxTimeToLiveInMinutes: Number("int"), // required
+ * //       },
+ * //       BorrowConfiguration: { // BorrowConfiguration
+ * //         AllowEarlyCheckIn: true || false, // required
+ * //         MaxTimeToLiveInMinutes: Number("int"), // required
+ * //       },
+ * //     },
+ * //     LicenseMetadata: [ // MetadataList
+ * //       { // Metadata
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     CreateTime: "STRING_VALUE",
+ * //     Version: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetLicenseCommandInput - {@link GetLicenseCommandInput}
@@ -72,6 +121,8 @@ export interface GetLicenseCommandOutput extends GetLicenseResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class GetLicenseCommand extends $Command<

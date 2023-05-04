@@ -100,6 +100,13 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  * };
  * const command = new GenerateEmbedUrlForAnonymousUserCommand(input);
  * const response = await client.send(command);
+ * // { // GenerateEmbedUrlForAnonymousUserResponse
+ * //   EmbedUrl: "STRING_VALUE", // required
+ * //   Status: Number("int"), // required
+ * //   RequestId: "STRING_VALUE", // required
+ * //   AnonymousUserArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param GenerateEmbedUrlForAnonymousUserCommandInput - {@link GenerateEmbedUrlForAnonymousUserCommandInput}
@@ -147,6 +154,8 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class GenerateEmbedUrlForAnonymousUserCommand extends $Command<

@@ -70,6 +70,82 @@ export interface ListOrganizationInsightsCommandOutput extends ListOrganizationI
  * };
  * const command = new ListOrganizationInsightsCommand(input);
  * const response = await client.send(command);
+ * // { // ListOrganizationInsightsResponse
+ * //   ProactiveInsights: [ // ProactiveOrganizationInsights
+ * //     { // ProactiveOrganizationInsightSummary
+ * //       Id: "STRING_VALUE",
+ * //       AccountId: "STRING_VALUE",
+ * //       OrganizationalUnitId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Severity: "LOW" || "MEDIUM" || "HIGH",
+ * //       Status: "ONGOING" || "CLOSED",
+ * //       InsightTimeRange: { // InsightTimeRange
+ * //         StartTime: new Date("TIMESTAMP"), // required
+ * //         EndTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       PredictionTimeRange: { // PredictionTimeRange
+ * //         StartTime: new Date("TIMESTAMP"), // required
+ * //         EndTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       ResourceCollection: { // ResourceCollection
+ * //         CloudFormation: { // CloudFormationCollection
+ * //           StackNames: [ // StackNames
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         Tags: [ // TagCollections
+ * //           { // TagCollection
+ * //             AppBoundaryKey: "STRING_VALUE", // required
+ * //             TagValues: [ // TagValues // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //       ServiceCollection: { // ServiceCollection
+ * //         ServiceNames: [ // ServiceNames
+ * //           "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   ReactiveInsights: [ // ReactiveOrganizationInsights
+ * //     { // ReactiveOrganizationInsightSummary
+ * //       Id: "STRING_VALUE",
+ * //       AccountId: "STRING_VALUE",
+ * //       OrganizationalUnitId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Severity: "LOW" || "MEDIUM" || "HIGH",
+ * //       Status: "ONGOING" || "CLOSED",
+ * //       InsightTimeRange: {
+ * //         StartTime: new Date("TIMESTAMP"), // required
+ * //         EndTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       ResourceCollection: {
+ * //         CloudFormation: {
+ * //           StackNames: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         Tags: [
+ * //           {
+ * //             AppBoundaryKey: "STRING_VALUE", // required
+ * //             TagValues: [ // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //       ServiceCollection: {
+ * //         ServiceNames: [
+ * //           "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListOrganizationInsightsCommandInput - {@link ListOrganizationInsightsCommandInput}
@@ -94,6 +170,8 @@ export interface ListOrganizationInsightsCommandOutput extends ListOrganizationI
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class ListOrganizationInsightsCommand extends $Command<

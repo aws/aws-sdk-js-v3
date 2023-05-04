@@ -45,6 +45,8 @@ export interface DeletePermissionSetCommandOutput extends DeletePermissionSetRes
  * };
  * const command = new DeletePermissionSetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeletePermissionSetCommandInput - {@link DeletePermissionSetCommandInput}
@@ -76,6 +78,8 @@ export interface DeletePermissionSetCommandOutput extends DeletePermissionSetRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class DeletePermissionSetCommand extends $Command<

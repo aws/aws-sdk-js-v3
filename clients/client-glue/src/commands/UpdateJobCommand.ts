@@ -906,6 +906,10 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  * };
  * const command = new UpdateJobCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateJobResponse
+ * //   JobName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateJobCommandInput - {@link UpdateJobCommandInput}
@@ -929,6 +933,8 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateJobCommand extends $Command<

@@ -65,6 +65,22 @@ export interface ListPoolOriginationIdentitiesCommandOutput
  * };
  * const command = new ListPoolOriginationIdentitiesCommand(input);
  * const response = await client.send(command);
+ * // { // ListPoolOriginationIdentitiesResult
+ * //   PoolArn: "STRING_VALUE",
+ * //   PoolId: "STRING_VALUE",
+ * //   OriginationIdentities: [ // OriginationIdentityMetadataList
+ * //     { // OriginationIdentityMetadata
+ * //       OriginationIdentityArn: "STRING_VALUE", // required
+ * //       OriginationIdentity: "STRING_VALUE", // required
+ * //       IsoCountryCode: "STRING_VALUE", // required
+ * //       NumberCapabilities: [ // NumberCapabilityList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPoolOriginationIdentitiesCommandInput - {@link ListPoolOriginationIdentitiesCommandInput}
@@ -91,6 +107,8 @@ export interface ListPoolOriginationIdentitiesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class ListPoolOriginationIdentitiesCommand extends $Command<

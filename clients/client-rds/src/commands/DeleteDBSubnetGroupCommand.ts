@@ -47,6 +47,8 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDBSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDBSubnetGroupCommandInput - {@link DeleteDBSubnetGroupCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidDBSubnetStateFault} (client fault)
  *  <p>The DB subnet isn't in the <i>available</i> state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To delete a DB subnet group
  * ```javascript

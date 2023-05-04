@@ -61,6 +61,8 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  * };
  * const command = new PutPermissionPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutPermissionPolicyCommandInput - {@link PutPermissionPolicyCommandInput}
@@ -126,6 +128,8 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class PutPermissionPolicyCommand extends $Command<

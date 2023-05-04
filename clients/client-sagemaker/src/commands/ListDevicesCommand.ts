@@ -48,6 +48,28 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
+ * // { // ListDevicesResponse
+ * //   DeviceSummaries: [ // DeviceSummaries // required
+ * //     { // DeviceSummary
+ * //       DeviceName: "STRING_VALUE", // required
+ * //       DeviceArn: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //       DeviceFleetName: "STRING_VALUE",
+ * //       IotThingName: "STRING_VALUE",
+ * //       RegistrationTime: new Date("TIMESTAMP"),
+ * //       LatestHeartbeat: new Date("TIMESTAMP"),
+ * //       Models: [ // EdgeModelSummaries
+ * //         { // EdgeModelSummary
+ * //           ModelName: "STRING_VALUE", // required
+ * //           ModelVersion: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       AgentVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
@@ -56,6 +78,8 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * @see {@link ListDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListDevicesCommand extends $Command<

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-ssec",
-  "version": "3.310.0",
+  "version": "3.325.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",

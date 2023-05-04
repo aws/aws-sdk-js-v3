@@ -59,6 +59,8 @@ export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpRespo
  * };
  * const command = new AdminConfirmSignUpCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AdminConfirmSignUpCommandInput - {@link AdminConfirmSignUpCommandInput}
@@ -107,6 +109,8 @@ export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpRespo
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminConfirmSignUpCommand extends $Command<

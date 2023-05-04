@@ -60,6 +60,37 @@ export interface DeleteGlobalReplicationGroupCommandOutput
  * };
  * const command = new DeleteGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteGlobalReplicationGroupResult
+ * //   GlobalReplicationGroup: { // GlobalReplicationGroup
+ * //     GlobalReplicationGroupId: "STRING_VALUE",
+ * //     GlobalReplicationGroupDescription: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     CacheNodeType: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
+ * //     EngineVersion: "STRING_VALUE",
+ * //     Members: [ // GlobalReplicationGroupMemberList
+ * //       { // GlobalReplicationGroupMember
+ * //         ReplicationGroupId: "STRING_VALUE",
+ * //         ReplicationGroupRegion: "STRING_VALUE",
+ * //         Role: "STRING_VALUE",
+ * //         AutomaticFailover: "enabled" || "disabled" || "enabling" || "disabling",
+ * //         Status: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ClusterEnabled: true || false,
+ * //     GlobalNodeGroups: [ // GlobalNodeGroupList
+ * //       { // GlobalNodeGroup
+ * //         GlobalNodeGroupId: "STRING_VALUE",
+ * //         Slots: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     AuthTokenEnabled: true || false,
+ * //     TransitEncryptionEnabled: true || false,
+ * //     AtRestEncryptionEnabled: true || false,
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteGlobalReplicationGroupCommandInput - {@link DeleteGlobalReplicationGroupCommandInput}
@@ -77,6 +108,8 @@ export interface DeleteGlobalReplicationGroupCommandOutput
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value for a parameter is invalid.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class DeleteGlobalReplicationGroupCommand extends $Command<

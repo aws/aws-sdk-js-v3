@@ -47,6 +47,66 @@ export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, _
  * };
  * const command = new GetTaskTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // GetTaskTemplateResponse
+ * //   InstanceId: "STRING_VALUE",
+ * //   Id: "STRING_VALUE", // required
+ * //   Arn: "STRING_VALUE", // required
+ * //   Name: "STRING_VALUE", // required
+ * //   Description: "STRING_VALUE",
+ * //   ContactFlowId: "STRING_VALUE",
+ * //   Constraints: { // TaskTemplateConstraints
+ * //     RequiredFields: [ // RequiredTaskTemplateFields
+ * //       { // RequiredFieldInfo
+ * //         Id: { // TaskTemplateFieldIdentifier
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     ReadOnlyFields: [ // ReadOnlyTaskTemplateFields
+ * //       { // ReadOnlyFieldInfo
+ * //         Id: {
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     InvisibleFields: [ // InvisibleTaskTemplateFields
+ * //       { // InvisibleFieldInfo
+ * //         Id: {
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   Defaults: { // TaskTemplateDefaults
+ * //     DefaultFieldValues: [ // TaskTemplateDefaultFieldValueList
+ * //       { // TaskTemplateDefaultFieldValue
+ * //         Id: {
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //         DefaultValue: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   Fields: [ // TaskTemplateFields
+ * //     { // TaskTemplateField
+ * //       Id: {
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //       Description: "STRING_VALUE",
+ * //       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL",
+ * //       SingleSelectOptions: [ // SingleSelectOptions
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Status: "ACTIVE" || "INACTIVE",
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetTaskTemplateCommandInput - {@link GetTaskTemplateCommandInput}
@@ -70,6 +130,8 @@ export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class GetTaskTemplateCommand extends $Command<

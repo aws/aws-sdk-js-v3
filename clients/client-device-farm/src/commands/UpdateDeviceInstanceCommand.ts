@@ -48,6 +48,28 @@ export interface UpdateDeviceInstanceCommandOutput extends UpdateDeviceInstanceR
  * };
  * const command = new UpdateDeviceInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateDeviceInstanceResult
+ * //   deviceInstance: { // DeviceInstance
+ * //     arn: "STRING_VALUE",
+ * //     deviceArn: "STRING_VALUE",
+ * //     labels: [ // InstanceLabels
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     status: "IN_USE" || "PREPARING" || "AVAILABLE" || "NOT_AVAILABLE",
+ * //     udid: "STRING_VALUE",
+ * //     instanceProfile: { // InstanceProfile
+ * //       arn: "STRING_VALUE",
+ * //       packageCleanup: true || false,
+ * //       excludeAppPackagesFromCleanup: [ // PackageIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       rebootAfterUse: true || false,
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateDeviceInstanceCommandInput - {@link UpdateDeviceInstanceCommandInput}
@@ -68,6 +90,8 @@ export interface UpdateDeviceInstanceCommandOutput extends UpdateDeviceInstanceR
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class UpdateDeviceInstanceCommand extends $Command<

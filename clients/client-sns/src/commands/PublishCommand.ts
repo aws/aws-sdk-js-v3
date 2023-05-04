@@ -75,6 +75,11 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  * };
  * const command = new PublishCommand(input);
  * const response = await client.send(command);
+ * // { // PublishResponse
+ * //   MessageId: "STRING_VALUE",
+ * //   SequenceNumber: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PublishCommandInput - {@link PublishCommandInput}
@@ -139,6 +144,8 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a parameter in the request is invalid.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class PublishCommand extends $Command<PublishCommandInput, PublishCommandOutput, SNSClientResolvedConfig> {

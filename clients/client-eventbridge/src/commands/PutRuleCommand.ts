@@ -95,6 +95,10 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  * };
  * const command = new PutRuleCommand(input);
  * const response = await client.send(command);
+ * // { // PutRuleResponse
+ * //   RuleArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutRuleCommandInput - {@link PutRuleCommandInput}
@@ -127,6 +131,8 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class PutRuleCommand extends $Command<

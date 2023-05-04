@@ -55,6 +55,17 @@ export interface ListQueriesCommandOutput extends ListQueriesResponse, __Metadat
  * };
  * const command = new ListQueriesCommand(input);
  * const response = await client.send(command);
+ * // { // ListQueriesResponse
+ * //   Queries: [ // Queries
+ * //     { // Query
+ * //       QueryId: "STRING_VALUE",
+ * //       QueryStatus: "QUEUED" || "RUNNING" || "FINISHED" || "FAILED" || "CANCELLED" || "TIMED_OUT",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListQueriesCommandInput - {@link ListQueriesCommandInput}
@@ -101,6 +112,8 @@ export interface ListQueriesCommandOutput extends ListQueriesResponse, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class ListQueriesCommand extends $Command<

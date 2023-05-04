@@ -59,6 +59,18 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * };
  * const command = new DeleteMembersCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteMembersResponse
+ * //   AccountIds: [ // AccountIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   UnprocessedAccounts: [ // UnprocessedAccountList
+ * //     { // UnprocessedAccount
+ * //       AccountId: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DeleteMembersCommandInput - {@link DeleteMembersCommandInput}
@@ -83,6 +95,8 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class DeleteMembersCommand extends $Command<

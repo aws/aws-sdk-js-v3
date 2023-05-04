@@ -60,6 +60,24 @@ export interface CreateDirectoryConfigCommandOutput extends CreateDirectoryConfi
  * };
  * const command = new CreateDirectoryConfigCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDirectoryConfigResult
+ * //   DirectoryConfig: { // DirectoryConfig
+ * //     DirectoryName: "STRING_VALUE", // required
+ * //     OrganizationalUnitDistinguishedNames: [ // OrganizationalUnitDistinguishedNamesList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ServiceAccountCredentials: { // ServiceAccountCredentials
+ * //       AccountName: "STRING_VALUE", // required
+ * //       AccountPassword: "STRING_VALUE", // required
+ * //     },
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
+ * //       Status: "DISABLED" || "ENABLED" || "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
+ * //       CertificateAuthorityArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateDirectoryConfigCommandInput - {@link CreateDirectoryConfigCommandInput}
@@ -86,6 +104,8 @@ export interface CreateDirectoryConfigCommandOutput extends CreateDirectoryConfi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class CreateDirectoryConfigCommand extends $Command<

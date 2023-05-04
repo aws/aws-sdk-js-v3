@@ -71,6 +71,8 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
  * };
  * const command = new SetLoadBalancerPoliciesForBackendServerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SetLoadBalancerPoliciesForBackendServerCommandInput - {@link SetLoadBalancerPoliciesForBackendServerCommandInput}
@@ -88,6 +90,8 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
  * @throws {@link PolicyNotFoundException} (client fault)
  *  <p>One or more of the specified policies do not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To replace the policies associated with a port for a backend instance
  * ```javascript

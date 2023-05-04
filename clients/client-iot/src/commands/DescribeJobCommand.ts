@@ -45,6 +45,97 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
  * };
  * const command = new DescribeJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeJobResponse
+ * //   documentSource: "STRING_VALUE",
+ * //   job: { // Job
+ * //     jobArn: "STRING_VALUE",
+ * //     jobId: "STRING_VALUE",
+ * //     targetSelection: "CONTINUOUS" || "SNAPSHOT",
+ * //     status: "IN_PROGRESS" || "CANCELED" || "COMPLETED" || "DELETION_IN_PROGRESS" || "SCHEDULED",
+ * //     forceCanceled: true || false,
+ * //     reasonCode: "STRING_VALUE",
+ * //     comment: "STRING_VALUE",
+ * //     targets: [ // JobTargets
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     description: "STRING_VALUE",
+ * //     presignedUrlConfig: { // PresignedUrlConfig
+ * //       roleArn: "STRING_VALUE",
+ * //       expiresInSec: Number("long"),
+ * //     },
+ * //     jobExecutionsRolloutConfig: { // JobExecutionsRolloutConfig
+ * //       maximumPerMinute: Number("int"),
+ * //       exponentialRate: { // ExponentialRolloutRate
+ * //         baseRatePerMinute: Number("int"), // required
+ * //         incrementFactor: Number("double"), // required
+ * //         rateIncreaseCriteria: { // RateIncreaseCriteria
+ * //           numberOfNotifiedThings: Number("int"),
+ * //           numberOfSucceededThings: Number("int"),
+ * //         },
+ * //       },
+ * //     },
+ * //     abortConfig: { // AbortConfig
+ * //       criteriaList: [ // AbortCriteriaList // required
+ * //         { // AbortCriteria
+ * //           failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
+ * //           action: "CANCEL", // required
+ * //           thresholdPercentage: Number("double"), // required
+ * //           minNumberOfExecutedThings: Number("int"), // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     lastUpdatedAt: new Date("TIMESTAMP"),
+ * //     completedAt: new Date("TIMESTAMP"),
+ * //     jobProcessDetails: { // JobProcessDetails
+ * //       processingTargets: [ // ProcessingTargetNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       numberOfCanceledThings: Number("int"),
+ * //       numberOfSucceededThings: Number("int"),
+ * //       numberOfFailedThings: Number("int"),
+ * //       numberOfRejectedThings: Number("int"),
+ * //       numberOfQueuedThings: Number("int"),
+ * //       numberOfInProgressThings: Number("int"),
+ * //       numberOfRemovedThings: Number("int"),
+ * //       numberOfTimedOutThings: Number("int"),
+ * //     },
+ * //     timeoutConfig: { // TimeoutConfig
+ * //       inProgressTimeoutInMinutes: Number("long"),
+ * //     },
+ * //     namespaceId: "STRING_VALUE",
+ * //     jobTemplateArn: "STRING_VALUE",
+ * //     jobExecutionsRetryConfig: { // JobExecutionsRetryConfig
+ * //       criteriaList: [ // RetryCriteriaList // required
+ * //         { // RetryCriteria
+ * //           failureType: "FAILED" || "TIMED_OUT" || "ALL", // required
+ * //           numberOfRetries: Number("int"), // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     documentParameters: { // ParameterMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     isConcurrent: true || false,
+ * //     schedulingConfig: { // SchedulingConfig
+ * //       startTime: "STRING_VALUE",
+ * //       endTime: "STRING_VALUE",
+ * //       endBehavior: "STOP_ROLLOUT" || "CANCEL" || "FORCE_CANCEL",
+ * //       maintenanceWindows: [ // MaintenanceWindows
+ * //         { // MaintenanceWindow
+ * //           startTime: "STRING_VALUE", // required
+ * //           durationInMinutes: Number("int"), // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     scheduledJobRollouts: [ // ScheduledJobRolloutList
+ * //       { // ScheduledJobRollout
+ * //         startTime: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeJobCommandInput - {@link DescribeJobCommandInput}
@@ -65,6 +156,8 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeJobCommand extends $Command<

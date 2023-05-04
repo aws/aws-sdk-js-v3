@@ -53,6 +53,18 @@ export interface GetJourneyRunExecutionMetricsCommandOutput
  * };
  * const command = new GetJourneyRunExecutionMetricsCommand(input);
  * const response = await client.send(command);
+ * // { // GetJourneyRunExecutionMetricsResponse
+ * //   JourneyRunExecutionMetricsResponse: { // JourneyRunExecutionMetricsResponse
+ * //     ApplicationId: "STRING_VALUE", // required
+ * //     JourneyId: "STRING_VALUE", // required
+ * //     LastEvaluatedTime: "STRING_VALUE", // required
+ * //     Metrics: { // MapOf__string // required
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     RunId: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetJourneyRunExecutionMetricsCommandInput - {@link GetJourneyRunExecutionMetricsCommandInput}
@@ -82,6 +94,8 @@ export interface GetJourneyRunExecutionMetricsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  * @example To get the execution metrics for a journey run
  * ```javascript

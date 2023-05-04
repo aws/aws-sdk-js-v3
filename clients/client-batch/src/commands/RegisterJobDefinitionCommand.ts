@@ -350,6 +350,12 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  * };
  * const command = new RegisterJobDefinitionCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterJobDefinitionResponse
+ * //   jobDefinitionName: "STRING_VALUE", // required
+ * //   jobDefinitionArn: "STRING_VALUE", // required
+ * //   revision: Number("int"), // required
+ * // };
+ *
  * ```
  *
  * @param RegisterJobDefinitionCommandInput - {@link RegisterJobDefinitionCommandInput}
@@ -366,6 +372,8 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link BatchServiceException}
+ * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @example To register a job definition
  * ```javascript

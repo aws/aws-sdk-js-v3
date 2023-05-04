@@ -81,6 +81,19 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  * };
  * const command = new BatchUpdateDevicePositionCommand(input);
  * const response = await client.send(command);
+ * // { // BatchUpdateDevicePositionResponse
+ * //   Errors: [ // BatchUpdateDevicePositionErrorList // required
+ * //     { // BatchUpdateDevicePositionError
+ * //       DeviceId: "STRING_VALUE", // required
+ * //       SampleTime: new Date("TIMESTAMP"), // required
+ * //       Error: { // BatchItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchUpdateDevicePositionCommandInput - {@link BatchUpdateDevicePositionCommandInput}
@@ -105,6 +118,8 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class BatchUpdateDevicePositionCommand extends $Command<

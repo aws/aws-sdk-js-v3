@@ -51,6 +51,25 @@ export interface ListAvailabilityConfigurationsCommandOutput
  * };
  * const command = new ListAvailabilityConfigurationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAvailabilityConfigurationsResponse
+ * //   AvailabilityConfigurations: [ // AvailabilityConfigurationList
+ * //     { // AvailabilityConfiguration
+ * //       DomainName: "STRING_VALUE",
+ * //       ProviderType: "EWS" || "LAMBDA",
+ * //       EwsProvider: { // RedactedEwsAvailabilityProvider
+ * //         EwsEndpoint: "STRING_VALUE",
+ * //         EwsUsername: "STRING_VALUE",
+ * //       },
+ * //       LambdaProvider: { // LambdaAvailabilityProvider
+ * //         LambdaArn: "STRING_VALUE", // required
+ * //       },
+ * //       DateCreated: new Date("TIMESTAMP"),
+ * //       DateModified: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAvailabilityConfigurationsCommandInput - {@link ListAvailabilityConfigurationsCommandInput}
@@ -67,6 +86,8 @@ export interface ListAvailabilityConfigurationsCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListAvailabilityConfigurationsCommand extends $Command<

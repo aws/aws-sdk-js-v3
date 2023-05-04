@@ -50,6 +50,8 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  * };
  * const command = new ModifyWorkspaceStateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ModifyWorkspaceStateCommandInput - {@link ModifyWorkspaceStateCommandInput}
@@ -70,6 +72,8 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifyWorkspaceStateCommand extends $Command<

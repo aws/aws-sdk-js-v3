@@ -49,6 +49,16 @@ export interface DescribeFileSystemAliasesCommandOutput extends DescribeFileSyst
  * };
  * const command = new DescribeFileSystemAliasesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFileSystemAliasesResponse
+ * //   Aliases: [ // Aliases
+ * //     { // Alias
+ * //       Name: "STRING_VALUE",
+ * //       Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeFileSystemAliasesCommandInput - {@link DescribeFileSystemAliasesCommandInput}
@@ -66,6 +76,8 @@ export interface DescribeFileSystemAliasesCommandOutput extends DescribeFileSyst
  * @throws {@link InternalServerError} (server fault)
  *  <p>A generic error indicating a server-side failure.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DescribeFileSystemAliasesCommand extends $Command<

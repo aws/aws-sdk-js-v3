@@ -54,6 +54,22 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  * };
  * const command = new ListAttendeesCommand(input);
  * const response = await client.send(command);
+ * // { // ListAttendeesResponse
+ * //   Attendees: [ // AttendeeList
+ * //     { // Attendee
+ * //       ExternalUserId: "STRING_VALUE",
+ * //       AttendeeId: "STRING_VALUE",
+ * //       JoinToken: "STRING_VALUE",
+ * //       Capabilities: { // AttendeeCapabilities
+ * //         Audio: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //         Video: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //         Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAttendeesCommandInput - {@link ListAttendeesCommandInput}
@@ -83,6 +99,8 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The user isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class ListAttendeesCommand extends $Command<

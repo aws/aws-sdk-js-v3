@@ -49,6 +49,17 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * };
  * const command = new ListAccountSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAccountSettingsResponse
+ * //   settings: [ // Settings
+ * //     { // Setting
+ * //       name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization",
+ * //       value: "STRING_VALUE",
+ * //       principalArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAccountSettingsCommandInput - {@link ListAccountSettingsCommandInput}
@@ -69,6 +80,8 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To view your effective account settings
  * ```javascript

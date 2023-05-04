@@ -44,6 +44,41 @@ export interface GetDomainNameCommandOutput extends DomainName, __MetadataBearer
  * };
  * const command = new GetDomainNameCommand(input);
  * const response = await client.send(command);
+ * // { // DomainName
+ * //   domainName: "STRING_VALUE",
+ * //   certificateName: "STRING_VALUE",
+ * //   certificateArn: "STRING_VALUE",
+ * //   certificateUploadDate: new Date("TIMESTAMP"),
+ * //   regionalDomainName: "STRING_VALUE",
+ * //   regionalHostedZoneId: "STRING_VALUE",
+ * //   regionalCertificateName: "STRING_VALUE",
+ * //   regionalCertificateArn: "STRING_VALUE",
+ * //   distributionDomainName: "STRING_VALUE",
+ * //   distributionHostedZoneId: "STRING_VALUE",
+ * //   endpointConfiguration: { // EndpointConfiguration
+ * //     types: [ // ListOfEndpointType
+ * //       "REGIONAL" || "EDGE" || "PRIVATE",
+ * //     ],
+ * //     vpcEndpointIds: [ // ListOfString
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   domainNameStatus: "AVAILABLE" || "UPDATING" || "PENDING" || "PENDING_CERTIFICATE_REIMPORT" || "PENDING_OWNERSHIP_VERIFICATION",
+ * //   domainNameStatusMessage: "STRING_VALUE",
+ * //   securityPolicy: "TLS_1_0" || "TLS_1_2",
+ * //   tags: { // MapOfStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   mutualTlsAuthentication: { // MutualTlsAuthentication
+ * //     truststoreUri: "STRING_VALUE",
+ * //     truststoreVersion: "STRING_VALUE",
+ * //     truststoreWarnings: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   ownershipVerificationCertificateArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetDomainNameCommandInput - {@link GetDomainNameCommandInput}
@@ -64,6 +99,8 @@ export interface GetDomainNameCommandOutput extends DomainName, __MetadataBearer
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetDomainNameCommand extends $Command<

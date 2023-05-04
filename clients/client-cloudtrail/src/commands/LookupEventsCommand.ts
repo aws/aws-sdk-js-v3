@@ -101,6 +101,28 @@ export interface LookupEventsCommandOutput extends LookupEventsResponse, __Metad
  * };
  * const command = new LookupEventsCommand(input);
  * const response = await client.send(command);
+ * // { // LookupEventsResponse
+ * //   Events: [ // EventsList
+ * //     { // Event
+ * //       EventId: "STRING_VALUE",
+ * //       EventName: "STRING_VALUE",
+ * //       ReadOnly: "STRING_VALUE",
+ * //       AccessKeyId: "STRING_VALUE",
+ * //       EventTime: new Date("TIMESTAMP"),
+ * //       EventSource: "STRING_VALUE",
+ * //       Username: "STRING_VALUE",
+ * //       Resources: [ // ResourceList
+ * //         { // Resource
+ * //           ResourceType: "STRING_VALUE",
+ * //           ResourceName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CloudTrailEvent: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param LookupEventsCommandInput - {@link LookupEventsCommandInput}
@@ -133,6 +155,8 @@ export interface LookupEventsCommandOutput extends LookupEventsResponse, __Metad
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class LookupEventsCommand extends $Command<

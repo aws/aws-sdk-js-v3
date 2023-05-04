@@ -46,6 +46,8 @@ export interface DeleteAccessCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAccessCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAccessCommandInput - {@link DeleteAccessCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteAccessCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DeleteAccessCommand extends $Command<

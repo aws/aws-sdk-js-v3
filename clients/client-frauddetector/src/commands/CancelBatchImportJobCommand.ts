@@ -44,6 +44,8 @@ export interface CancelBatchImportJobCommandOutput extends CancelBatchImportJobR
  * };
  * const command = new CancelBatchImportJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelBatchImportJobCommandInput - {@link CancelBatchImportJobCommandInput}
@@ -67,6 +69,8 @@ export interface CancelBatchImportJobCommandOutput extends CancelBatchImportJobR
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class CancelBatchImportJobCommand extends $Command<

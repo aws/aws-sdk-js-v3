@@ -54,6 +54,116 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  * };
  * const command = new DetectMetricSetConfigCommand(input);
  * const response = await client.send(command);
+ * // { // DetectMetricSetConfigResponse
+ * //   DetectedMetricSetConfig: { // DetectedMetricSetConfig
+ * //     Offset: { // DetectedField
+ * //       Value: { // AttributeValue
+ * //         S: "STRING_VALUE",
+ * //         N: "STRING_VALUE",
+ * //         B: "STRING_VALUE",
+ * //         SS: [ // StringListAttributeValue
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         NS: [ // NumberListAttributeValue
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         BS: [ // BinaryListAttributeValue
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Confidence: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     MetricSetFrequency: {
+ * //       Value: {
+ * //         S: "STRING_VALUE",
+ * //         N: "STRING_VALUE",
+ * //         B: "STRING_VALUE",
+ * //         SS: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         NS: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         BS: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Confidence: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     MetricSource: { // DetectedMetricSource
+ * //       S3SourceConfig: { // DetectedS3SourceConfig
+ * //         FileFormatDescriptor: { // DetectedFileFormatDescriptor
+ * //           CsvFormatDescriptor: { // DetectedCsvFormatDescriptor
+ * //             FileCompression: {
+ * //               Value: {
+ * //                 S: "STRING_VALUE",
+ * //                 N: "STRING_VALUE",
+ * //                 B: "STRING_VALUE",
+ * //                 SS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 NS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 BS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //               Confidence: "STRING_VALUE",
+ * //               Message: "STRING_VALUE",
+ * //             },
+ * //             Charset: {
+ * //               Value: {
+ * //                 S: "STRING_VALUE",
+ * //                 N: "STRING_VALUE",
+ * //                 B: "STRING_VALUE",
+ * //                 SS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 NS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 BS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //               Confidence: "STRING_VALUE",
+ * //               Message: "STRING_VALUE",
+ * //             },
+ * //             ContainsHeader: {
+ * //               Value: {
+ * //                 S: "STRING_VALUE",
+ * //                 N: "STRING_VALUE",
+ * //                 B: "STRING_VALUE",
+ * //                 SS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 NS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 BS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //               Confidence: "STRING_VALUE",
+ * //               Message: "STRING_VALUE",
+ * //             },
+ * //             Delimiter: "<DetectedField>",
+ * //             HeaderList: "<DetectedField>",
+ * //             QuoteSymbol: "<DetectedField>",
+ * //           },
+ * //           JsonFormatDescriptor: { // DetectedJsonFormatDescriptor
+ * //             FileCompression: "<DetectedField>",
+ * //             Charset: "<DetectedField>",
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DetectMetricSetConfigCommandInput - {@link DetectMetricSetConfigCommandInput}
@@ -78,6 +188,8 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class DetectMetricSetConfigCommand extends $Command<

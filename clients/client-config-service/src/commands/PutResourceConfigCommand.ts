@@ -60,6 +60,8 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutResourceConfigCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutResourceConfigCommandInput - {@link PutResourceConfigCommandInput}
@@ -106,6 +108,8 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutResourceConfigCommand extends $Command<

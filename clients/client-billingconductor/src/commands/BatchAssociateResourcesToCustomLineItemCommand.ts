@@ -62,6 +62,27 @@ export interface BatchAssociateResourcesToCustomLineItemCommandOutput
  * };
  * const command = new BatchAssociateResourcesToCustomLineItemCommand(input);
  * const response = await client.send(command);
+ * // { // BatchAssociateResourcesToCustomLineItemOutput
+ * //   SuccessfullyAssociatedResources: [ // AssociateResourcesResponseList
+ * //     { // AssociateResourceResponseElement
+ * //       Arn: "STRING_VALUE",
+ * //       Error: { // AssociateResourceError
+ * //         Message: "STRING_VALUE",
+ * //         Reason: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   FailedAssociatedResources: [
+ * //     {
+ * //       Arn: "STRING_VALUE",
+ * //       Error: {
+ * //         Message: "STRING_VALUE",
+ * //         Reason: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchAssociateResourcesToCustomLineItemCommandInput - {@link BatchAssociateResourcesToCustomLineItemCommandInput}
@@ -97,6 +118,8 @@ export interface BatchAssociateResourcesToCustomLineItemCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class BatchAssociateResourcesToCustomLineItemCommand extends $Command<

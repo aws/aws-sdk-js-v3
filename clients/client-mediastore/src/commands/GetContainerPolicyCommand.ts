@@ -46,6 +46,10 @@ export interface GetContainerPolicyCommandOutput extends GetContainerPolicyOutpu
  * };
  * const command = new GetContainerPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetContainerPolicyOutput
+ * //   Policy: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param GetContainerPolicyCommandInput - {@link GetContainerPolicyCommandInput}
@@ -67,6 +71,8 @@ export interface GetContainerPolicyCommandOutput extends GetContainerPolicyOutpu
  * @throws {@link PolicyNotFoundException} (client fault)
  *  <p>The policy that you specified in the request does not exist.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class GetContainerPolicyCommand extends $Command<

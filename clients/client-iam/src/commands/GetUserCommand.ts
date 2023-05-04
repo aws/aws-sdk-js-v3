@@ -47,6 +47,27 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * };
  * const command = new GetUserCommand(input);
  * const response = await client.send(command);
+ * // { // GetUserResponse
+ * //   User: { // User
+ * //     Path: "STRING_VALUE", // required
+ * //     UserName: "STRING_VALUE", // required
+ * //     UserId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //     CreateDate: new Date("TIMESTAMP"), // required
+ * //     PasswordLastUsed: new Date("TIMESTAMP"),
+ * //     PermissionsBoundary: { // AttachedPermissionsBoundary
+ * //       PermissionsBoundaryType: "PermissionsBoundaryPolicy",
+ * //       PermissionsBoundaryArn: "STRING_VALUE",
+ * //     },
+ * //     Tags: [ // tagListType
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetUserCommandInput - {@link GetUserCommandInput}
@@ -63,6 +84,8 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To get information about an IAM user
  * ```javascript

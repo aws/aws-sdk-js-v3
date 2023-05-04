@@ -253,6 +253,10 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * };
  * const command = new PutObjectAclCommand(input);
  * const response = await client.send(command);
+ * // { // PutObjectAclOutput
+ * //   RequestCharged: "requester",
+ * // };
+ *
  * ```
  *
  * @param PutObjectAclCommandInput - {@link PutObjectAclCommandInput}
@@ -264,6 +268,8 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * @throws {@link NoSuchKey} (client fault)
  *  <p>The specified key does not exist.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To grant permissions using object ACL
  * ```javascript

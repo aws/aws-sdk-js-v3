@@ -62,6 +62,10 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  * };
  * const command = new CreateAddressCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAddressResult
+ * //   AddressId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateAddressCommandInput - {@link CreateAddressCommandInput}
@@ -79,6 +83,8 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  *       occurred. Check the address with your region's carrier and try again. If the issue persists,
  *       contact Amazon Web Services Support.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To create an address for a job
  * ```javascript

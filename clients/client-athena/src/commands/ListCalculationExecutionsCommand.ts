@@ -48,6 +48,22 @@ export interface ListCalculationExecutionsCommandOutput extends ListCalculationE
  * };
  * const command = new ListCalculationExecutionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCalculationExecutionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Calculations: [ // CalculationsList
+ * //     { // CalculationSummary
+ * //       CalculationExecutionId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: { // CalculationStatus
+ * //         SubmissionDateTime: new Date("TIMESTAMP"),
+ * //         CompletionDateTime: new Date("TIMESTAMP"),
+ * //         State: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
+ * //         StateChangeReason: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListCalculationExecutionsCommandInput - {@link ListCalculationExecutionsCommandInput}
@@ -67,6 +83,8 @@ export interface ListCalculationExecutionsCommandOutput extends ListCalculationE
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListCalculationExecutionsCommand extends $Command<

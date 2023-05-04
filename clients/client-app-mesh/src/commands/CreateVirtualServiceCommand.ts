@@ -69,6 +69,35 @@ export interface CreateVirtualServiceCommandOutput extends CreateVirtualServiceO
  * };
  * const command = new CreateVirtualServiceCommand(input);
  * const response = await client.send(command);
+ * // { // CreateVirtualServiceOutput
+ * //   virtualService: { // VirtualServiceData
+ * //     meshName: "STRING_VALUE", // required
+ * //     virtualServiceName: "STRING_VALUE", // required
+ * //     spec: { // VirtualServiceSpec
+ * //       provider: { // VirtualServiceProvider Union: only one key present
+ * //         virtualNode: { // VirtualNodeServiceProvider
+ * //           virtualNodeName: "STRING_VALUE", // required
+ * //         },
+ * //         virtualRouter: { // VirtualRouterServiceProvider
+ * //           virtualRouterName: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //     metadata: { // ResourceMetadata
+ * //       arn: "STRING_VALUE", // required
+ * //       version: Number("long"), // required
+ * //       uid: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //       meshOwner: "STRING_VALUE", // required
+ * //       resourceOwner: "STRING_VALUE", // required
+ * //     },
+ * //     status: { // VirtualServiceStatus
+ * //       status: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateVirtualServiceCommandInput - {@link CreateVirtualServiceCommandInput}
@@ -106,6 +135,8 @@ export interface CreateVirtualServiceCommandOutput extends CreateVirtualServiceO
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class CreateVirtualServiceCommand extends $Command<

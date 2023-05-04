@@ -45,6 +45,15 @@ export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregat
  * };
  * const command = new ListFindingAggregatorsCommand(input);
  * const response = await client.send(command);
+ * // { // ListFindingAggregatorsResponse
+ * //   FindingAggregators: [ // FindingAggregatorList
+ * //     { // FindingAggregator
+ * //       FindingAggregatorArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFindingAggregatorsCommandInput - {@link ListFindingAggregatorsCommandInput}
@@ -70,6 +79,8 @@ export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregat
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To update the enablement status of a standard control
  * ```javascript

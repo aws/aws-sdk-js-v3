@@ -49,6 +49,8 @@ export interface DeleteUserPoolCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteUserPoolCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteUserPoolCommandInput - {@link DeleteUserPoolCommandInput}
@@ -79,6 +81,8 @@ export interface DeleteUserPoolCommandOutput extends __MetadataBearer {}
  *  <p>This exception is thrown when you're trying to modify a user pool while a user import
  *             job is in progress for that pool.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class DeleteUserPoolCommand extends $Command<

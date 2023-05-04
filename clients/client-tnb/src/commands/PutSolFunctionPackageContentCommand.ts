@@ -52,6 +52,24 @@ export interface PutSolFunctionPackageContentCommandOutput
  * };
  * const command = new PutSolFunctionPackageContentCommand(input);
  * const response = await client.send(command);
+ * // { // PutSolFunctionPackageContentOutput
+ * //   id: "STRING_VALUE", // required
+ * //   vnfdId: "STRING_VALUE", // required
+ * //   vnfProductName: "STRING_VALUE", // required
+ * //   vnfProvider: "STRING_VALUE", // required
+ * //   vnfdVersion: "STRING_VALUE", // required
+ * //   metadata: { // PutSolFunctionPackageContentMetadata
+ * //     vnfd: { // FunctionArtifactMeta
+ * //       overrides: [ // OverrideList
+ * //         { // ToscaOverride
+ * //           name: "STRING_VALUE",
+ * //           defaultValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutSolFunctionPackageContentCommandInput - {@link PutSolFunctionPackageContentCommandInput}
@@ -75,6 +93,8 @@ export interface PutSolFunctionPackageContentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class PutSolFunctionPackageContentCommand extends $Command<

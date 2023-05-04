@@ -50,6 +50,8 @@ export interface StartInputDeviceMaintenanceWindowCommandOutput
  * };
  * const command = new StartInputDeviceMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartInputDeviceMaintenanceWindowCommandInput - {@link StartInputDeviceMaintenanceWindowCommandInput}
@@ -82,6 +84,8 @@ export interface StartInputDeviceMaintenanceWindowCommandOutput
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class StartInputDeviceMaintenanceWindowCommand extends $Command<

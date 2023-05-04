@@ -42,6 +42,14 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * const input = {};
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetPolicyResponse
+ * //   Policy: { // Policy
+ * //     HttpInputs: "ALLOWED" || "DISALLOWED",
+ * //     HttpsInputs: "ALLOWED" || "DISALLOWED",
+ * //     S3Inputs: "ALLOWED" || "DISALLOWED",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetPolicyCommandInput - {@link GetPolicyCommandInput}
@@ -68,6 +76,8 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  *
+ * @throws {@link MediaConvertServiceException}
+ * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
  */
 export class GetPolicyCommand extends $Command<

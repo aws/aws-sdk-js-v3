@@ -51,6 +51,10 @@ export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUse
  * };
  * const command = new UpdateAppInstanceUserCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateAppInstanceUserResponse
+ * //   AppInstanceUserArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateAppInstanceUserCommandInput - {@link UpdateAppInstanceUserCommandInput}
@@ -84,6 +88,8 @@ export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUse
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class UpdateAppInstanceUserCommand extends $Command<

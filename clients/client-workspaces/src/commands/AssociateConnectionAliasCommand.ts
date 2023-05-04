@@ -52,6 +52,10 @@ export interface AssociateConnectionAliasCommandOutput extends AssociateConnecti
  * };
  * const command = new AssociateConnectionAliasCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateConnectionAliasResult
+ * //   ConnectionIdentifier: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AssociateConnectionAliasCommandInput - {@link AssociateConnectionAliasCommandInput}
@@ -78,6 +82,8 @@ export interface AssociateConnectionAliasCommandOutput extends AssociateConnecti
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class AssociateConnectionAliasCommand extends $Command<

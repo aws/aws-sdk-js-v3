@@ -53,6 +53,18 @@ export interface CreateUsageLimitCommandOutput extends CreateUsageLimitResponse,
  * };
  * const command = new CreateUsageLimitCommand(input);
  * const response = await client.send(command);
+ * // { // CreateUsageLimitResponse
+ * //   usageLimit: { // UsageLimit
+ * //     usageLimitId: "STRING_VALUE",
+ * //     usageLimitArn: "STRING_VALUE",
+ * //     resourceArn: "STRING_VALUE",
+ * //     usageType: "STRING_VALUE",
+ * //     amount: Number("long"),
+ * //     period: "STRING_VALUE",
+ * //     breachAction: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateUsageLimitCommandInput - {@link CreateUsageLimitCommandInput}
@@ -76,6 +88,8 @@ export interface CreateUsageLimitCommandOutput extends CreateUsageLimitResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class CreateUsageLimitCommand extends $Command<

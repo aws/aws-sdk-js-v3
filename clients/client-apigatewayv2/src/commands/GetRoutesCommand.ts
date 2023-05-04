@@ -46,6 +46,35 @@ export interface GetRoutesCommandOutput extends GetRoutesResponse, __MetadataBea
  * };
  * const command = new GetRoutesCommand(input);
  * const response = await client.send(command);
+ * // { // GetRoutesResponse
+ * //   Items: [ // __listOfRoute
+ * //     { // Route
+ * //       ApiGatewayManaged: true || false,
+ * //       ApiKeyRequired: true || false,
+ * //       AuthorizationScopes: [ // AuthorizationScopes
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AuthorizationType: "STRING_VALUE",
+ * //       AuthorizerId: "STRING_VALUE",
+ * //       ModelSelectionExpression: "STRING_VALUE",
+ * //       OperationName: "STRING_VALUE",
+ * //       RequestModels: { // RouteModels
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       RequestParameters: { // RouteParameters
+ * //         "<keys>": { // ParameterConstraints
+ * //           Required: true || false,
+ * //         },
+ * //       },
+ * //       RouteId: "STRING_VALUE",
+ * //       RouteKey: "STRING_VALUE", // required
+ * //       RouteResponseSelectionExpression: "STRING_VALUE",
+ * //       Target: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetRoutesCommandInput - {@link GetRoutesCommandInput}
@@ -63,6 +92,8 @@ export interface GetRoutesCommandOutput extends GetRoutesResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetRoutesCommand extends $Command<

@@ -51,6 +51,11 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
  * };
  * const command = new PurchaseReservedInstanceOfferingCommand(input);
  * const response = await client.send(command);
+ * // { // PurchaseReservedInstanceOfferingResponse
+ * //   ReservedInstanceId: "STRING_VALUE",
+ * //   ReservationName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PurchaseReservedInstanceOfferingCommandInput - {@link PurchaseReservedInstanceOfferingCommandInput}
@@ -60,7 +65,7 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
@@ -72,11 +77,13 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
  *  <p>An exception for creating a resource that already exists.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class PurchaseReservedInstanceOfferingCommand extends $Command<

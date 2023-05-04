@@ -46,6 +46,8 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupRespo
  * };
  * const command = new DeleteBillingGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteBillingGroupCommandInput - {@link DeleteBillingGroupCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupRespo
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteBillingGroupCommand extends $Command<

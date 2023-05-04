@@ -50,6 +50,13 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  * };
  * const command = new ListDeploymentTargetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDeploymentTargetsOutput
+ * //   targetIds: [ // TargetIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDeploymentTargetsCommandInput - {@link ListDeploymentTargetsCommandInput}
@@ -86,6 +93,8 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The next token was specified in an invalid format.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class ListDeploymentTargetsCommand extends $Command<

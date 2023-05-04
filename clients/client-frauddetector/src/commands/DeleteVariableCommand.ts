@@ -47,6 +47,8 @@ export interface DeleteVariableCommandOutput extends DeleteVariableResult, __Met
  * };
  * const command = new DeleteVariableCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteVariableCommandInput - {@link DeleteVariableCommandInput}
@@ -70,6 +72,8 @@ export interface DeleteVariableCommandOutput extends DeleteVariableResult, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteVariableCommand extends $Command<

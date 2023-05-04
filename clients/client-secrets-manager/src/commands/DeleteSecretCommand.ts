@@ -74,6 +74,12 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  * };
  * const command = new DeleteSecretCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteSecretResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   DeletionDate: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DeleteSecretCommandInput - {@link DeleteSecretCommandInput}
@@ -109,6 +115,8 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To delete a secret
  * ```javascript

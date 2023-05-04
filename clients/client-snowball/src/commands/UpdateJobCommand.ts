@@ -112,6 +112,8 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  * };
  * const command = new UpdateJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateJobCommandInput - {@link UpdateJobCommandInput}
@@ -144,6 +146,8 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  *  <p>The provided Key Management Service key lacks the permissions to perform the specified
  *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
  *
+ * @throws {@link SnowballServiceException}
+ * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  * @example To update a job
  * ```javascript

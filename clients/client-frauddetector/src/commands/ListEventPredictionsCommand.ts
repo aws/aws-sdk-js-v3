@@ -72,6 +72,20 @@ export interface ListEventPredictionsCommandOutput extends ListEventPredictionsR
  * };
  * const command = new ListEventPredictionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListEventPredictionsResult
+ * //   eventPredictionSummaries: [ // ListOfEventPredictionSummaries
+ * //     { // EventPredictionSummary
+ * //       eventId: "STRING_VALUE",
+ * //       eventTypeName: "STRING_VALUE",
+ * //       eventTimestamp: "STRING_VALUE",
+ * //       predictionTimestamp: "STRING_VALUE",
+ * //       detectorId: "STRING_VALUE",
+ * //       detectorVersionId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEventPredictionsCommandInput - {@link ListEventPredictionsCommandInput}
@@ -92,6 +106,8 @@ export interface ListEventPredictionsCommandOutput extends ListEventPredictionsR
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class ListEventPredictionsCommand extends $Command<

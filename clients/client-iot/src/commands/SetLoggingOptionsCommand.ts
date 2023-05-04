@@ -50,6 +50,8 @@ export interface SetLoggingOptionsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetLoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SetLoggingOptionsCommandInput - {@link SetLoggingOptionsCommandInput}
@@ -67,6 +69,8 @@ export interface SetLoggingOptionsCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class SetLoggingOptionsCommand extends $Command<

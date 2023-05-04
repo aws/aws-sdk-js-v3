@@ -55,6 +55,17 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * };
  * const command = new StartMigrationCommand(input);
  * const response = await client.send(command);
+ * // { // StartMigrationResponse
+ * //   v1BotName: "STRING_VALUE",
+ * //   v1BotVersion: "STRING_VALUE",
+ * //   v1BotLocale: "STRING_VALUE",
+ * //   v2BotId: "STRING_VALUE",
+ * //   v2BotRole: "STRING_VALUE",
+ * //   migrationId: "STRING_VALUE",
+ * //   migrationStrategy: "STRING_VALUE",
+ * //   migrationTimestamp: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param StartMigrationCommandInput - {@link StartMigrationCommandInput}
@@ -82,6 +93,8 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class StartMigrationCommand extends $Command<

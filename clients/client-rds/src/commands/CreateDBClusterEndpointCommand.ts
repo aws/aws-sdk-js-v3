@@ -61,6 +61,23 @@ export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * };
  * const command = new CreateDBClusterEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // DBClusterEndpoint
+ * //   DBClusterEndpointIdentifier: "STRING_VALUE",
+ * //   DBClusterIdentifier: "STRING_VALUE",
+ * //   DBClusterEndpointResourceIdentifier: "STRING_VALUE",
+ * //   Endpoint: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   EndpointType: "STRING_VALUE",
+ * //   CustomEndpointType: "STRING_VALUE",
+ * //   StaticMembers: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ExcludedMembers: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   DBClusterEndpointArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateDBClusterEndpointCommandInput - {@link CreateDBClusterEndpointCommandInput}
@@ -89,6 +106,8 @@ export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To create a custom DB cluster endpoint
  * ```javascript

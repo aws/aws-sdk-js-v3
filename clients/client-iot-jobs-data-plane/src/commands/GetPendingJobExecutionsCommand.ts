@@ -44,6 +44,29 @@ export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecu
  * };
  * const command = new GetPendingJobExecutionsCommand(input);
  * const response = await client.send(command);
+ * // { // GetPendingJobExecutionsResponse
+ * //   inProgressJobs: [ // JobExecutionSummaryList
+ * //     { // JobExecutionSummary
+ * //       jobId: "STRING_VALUE",
+ * //       queuedAt: Number("long"),
+ * //       startedAt: Number("long"),
+ * //       lastUpdatedAt: Number("long"),
+ * //       versionNumber: Number("long"),
+ * //       executionNumber: Number("long"),
+ * //     },
+ * //   ],
+ * //   queuedJobs: [
+ * //     {
+ * //       jobId: "STRING_VALUE",
+ * //       queuedAt: Number("long"),
+ * //       startedAt: Number("long"),
+ * //       lastUpdatedAt: Number("long"),
+ * //       versionNumber: Number("long"),
+ * //       executionNumber: Number("long"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetPendingJobExecutionsCommandInput - {@link GetPendingJobExecutionsCommandInput}
@@ -67,6 +90,8 @@ export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecu
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTJobsDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
  */
 export class GetPendingJobExecutionsCommand extends $Command<

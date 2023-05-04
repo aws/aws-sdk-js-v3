@@ -65,6 +65,10 @@ export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSe
  * };
  * const command = new PutManagedRuleSetVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // PutManagedRuleSetVersionsResponse
+ * //   NextLockToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutManagedRuleSetVersionsCommandInput - {@link PutManagedRuleSetVersionsCommandInput}
@@ -112,6 +116,8 @@ export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSe
  *          that has changed since you last retrieved it. Get the resource again, make any changes you
  *          need to make to the new copy, and retry your operation. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class PutManagedRuleSetVersionsCommand extends $Command<

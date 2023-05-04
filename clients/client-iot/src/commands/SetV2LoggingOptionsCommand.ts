@@ -47,6 +47,8 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetV2LoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SetV2LoggingOptionsCommandInput - {@link SetV2LoggingOptionsCommandInput}
@@ -64,6 +66,8 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class SetV2LoggingOptionsCommand extends $Command<

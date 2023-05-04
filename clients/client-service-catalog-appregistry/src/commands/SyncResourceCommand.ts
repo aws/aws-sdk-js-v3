@@ -50,6 +50,12 @@ export interface SyncResourceCommandOutput extends SyncResourceResponse, __Metad
  * };
  * const command = new SyncResourceCommand(input);
  * const response = await client.send(command);
+ * // { // SyncResourceResponse
+ * //   applicationArn: "STRING_VALUE",
+ * //   resourceArn: "STRING_VALUE",
+ * //   actionTaken: "START_SYNC" || "NO_ACTION",
+ * // };
+ *
  * ```
  *
  * @param SyncResourceCommandInput - {@link SyncResourceCommandInput}
@@ -78,6 +84,8 @@ export interface SyncResourceCommandOutput extends SyncResourceResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class SyncResourceCommand extends $Command<

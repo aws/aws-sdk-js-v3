@@ -48,6 +48,13 @@ export interface ListThreatIntelSetsCommandOutput extends ListThreatIntelSetsRes
  * };
  * const command = new ListThreatIntelSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListThreatIntelSetsResponse
+ * //   ThreatIntelSetIds: [ // ThreatIntelSetIds // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListThreatIntelSetsCommandInput - {@link ListThreatIntelSetsCommandInput}
@@ -62,6 +69,8 @@ export interface ListThreatIntelSetsCommandOutput extends ListThreatIntelSetsRes
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListThreatIntelSetsCommand extends $Command<

@@ -44,6 +44,10 @@ export interface DisassociateMemberCommandOutput extends DisassociateMemberRespo
  * };
  * const command = new DisassociateMemberCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateMemberResponse
+ * //   accountId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DisassociateMemberCommandInput - {@link DisassociateMemberCommandInput}
@@ -65,6 +69,8 @@ export interface DisassociateMemberCommandOutput extends DisassociateMemberRespo
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class DisassociateMemberCommand extends $Command<

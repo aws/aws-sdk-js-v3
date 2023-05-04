@@ -46,6 +46,16 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  * };
  * const command = new ListPolicyVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPolicyVersionsResponse
+ * //   policyVersions: [ // PolicyVersions
+ * //     { // PolicyVersion
+ * //       versionId: "STRING_VALUE",
+ * //       isDefaultVersion: true || false,
+ * //       createDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListPolicyVersionsCommandInput - {@link ListPolicyVersionsCommandInput}
@@ -72,6 +82,8 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListPolicyVersionsCommand extends $Command<

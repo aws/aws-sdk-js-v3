@@ -83,6 +83,16 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  * };
  * const command = new DescribeLoadBalancerTargetGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeLoadBalancerTargetGroupsResponse
+ * //   LoadBalancerTargetGroups: [ // LoadBalancerTargetGroupStates
+ * //     { // LoadBalancerTargetGroupState
+ * //       LoadBalancerTargetGroupARN: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeLoadBalancerTargetGroupsCommandInput - {@link DescribeLoadBalancerTargetGroupsCommandInput}
@@ -98,6 +108,8 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To describe the target groups for an Auto Scaling group
  * ```javascript

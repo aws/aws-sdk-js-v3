@@ -57,6 +57,27 @@ export interface DeleteOutboundCrossClusterSearchConnectionCommandOutput
  * };
  * const command = new DeleteOutboundCrossClusterSearchConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteOutboundCrossClusterSearchConnectionResponse
+ * //   CrossClusterSearchConnection: { // OutboundCrossClusterSearchConnection
+ * //     SourceDomainInfo: { // DomainInformation
+ * //       OwnerId: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE", // required
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //     DestinationDomainInfo: {
+ * //       OwnerId: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE", // required
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //     CrossClusterSearchConnectionId: "STRING_VALUE",
+ * //     ConnectionAlias: "STRING_VALUE",
+ * //     ConnectionStatus: { // OutboundCrossClusterSearchConnectionStatus
+ * //       StatusCode: "PENDING_ACCEPTANCE" || "VALIDATING" || "VALIDATION_FAILED" || "PROVISIONING" || "ACTIVE" || "REJECTED" || "DELETING" || "DELETED",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteOutboundCrossClusterSearchConnectionCommandInput - {@link DeleteOutboundCrossClusterSearchConnectionCommandInput}
@@ -71,6 +92,8 @@ export interface DeleteOutboundCrossClusterSearchConnectionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class DeleteOutboundCrossClusterSearchConnectionCommand extends $Command<

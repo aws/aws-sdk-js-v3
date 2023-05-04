@@ -56,6 +56,50 @@ export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
  * };
  * const command = new DescribeEffectivePatchesForPatchBaselineCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEffectivePatchesForPatchBaselineResult
+ * //   EffectivePatches: [ // EffectivePatchList
+ * //     { // EffectivePatch
+ * //       Patch: { // Patch
+ * //         Id: "STRING_VALUE",
+ * //         ReleaseDate: new Date("TIMESTAMP"),
+ * //         Title: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         ContentUrl: "STRING_VALUE",
+ * //         Vendor: "STRING_VALUE",
+ * //         ProductFamily: "STRING_VALUE",
+ * //         Product: "STRING_VALUE",
+ * //         Classification: "STRING_VALUE",
+ * //         MsrcSeverity: "STRING_VALUE",
+ * //         KbNumber: "STRING_VALUE",
+ * //         MsrcNumber: "STRING_VALUE",
+ * //         Language: "STRING_VALUE",
+ * //         AdvisoryIds: [ // PatchAdvisoryIdList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         BugzillaIds: [ // PatchBugzillaIdList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         CVEIds: [ // PatchCVEIdList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Name: "STRING_VALUE",
+ * //         Epoch: Number("int"),
+ * //         Version: "STRING_VALUE",
+ * //         Release: "STRING_VALUE",
+ * //         Arch: "STRING_VALUE",
+ * //         Severity: "STRING_VALUE",
+ * //         Repository: "STRING_VALUE",
+ * //       },
+ * //       PatchStatus: { // PatchStatus
+ * //         DeploymentStatus: "APPROVED" || "PENDING_APPROVAL" || "EXPLICIT_APPROVED" || "EXPLICIT_REJECTED",
+ * //         ComplianceLevel: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
+ * //         ApprovalDate: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeEffectivePatchesForPatchBaselineCommandInput - {@link DescribeEffectivePatchesForPatchBaselineCommandInput}
@@ -80,6 +124,8 @@ export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
  *  <p>The operating systems you specified isn't supported, or the operation isn't supported for
  *    the operating system.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<

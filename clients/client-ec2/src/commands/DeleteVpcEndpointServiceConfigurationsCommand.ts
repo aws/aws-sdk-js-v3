@@ -59,6 +59,18 @@ export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
  * };
  * const command = new DeleteVpcEndpointServiceConfigurationsCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteVpcEndpointServiceConfigurationsResult
+ * //   Unsuccessful: [ // UnsuccessfulItemSet
+ * //     { // UnsuccessfulItem
+ * //       Error: { // UnsuccessfulItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       ResourceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DeleteVpcEndpointServiceConfigurationsCommandInput - {@link DeleteVpcEndpointServiceConfigurationsCommandInput}
@@ -67,6 +79,8 @@ export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
  * @see {@link DeleteVpcEndpointServiceConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<

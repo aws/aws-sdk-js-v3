@@ -51,6 +51,17 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
  * };
  * const command = new ResolveRoomCommand(input);
  * const response = await client.send(command);
+ * // { // ResolveRoomResponse
+ * //   RoomArn: "STRING_VALUE",
+ * //   RoomName: "STRING_VALUE",
+ * //   RoomSkillParameters: [ // RoomSkillParameters
+ * //     { // RoomSkillParameter
+ * //       ParameterKey: "STRING_VALUE", // required
+ * //       ParameterValue: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ResolveRoomCommandInput - {@link ResolveRoomCommandInput}
@@ -62,6 +73,8 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ResolveRoomCommand extends $Command<

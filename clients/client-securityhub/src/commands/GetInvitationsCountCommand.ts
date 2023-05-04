@@ -43,6 +43,10 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * const input = {};
  * const command = new GetInvitationsCountCommand(input);
  * const response = await client.send(command);
+ * // { // GetInvitationsCountResponse
+ * //   InvitationsCount: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param GetInvitationsCountCommandInput - {@link GetInvitationsCountCommandInput}
@@ -65,6 +69,8 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To get a count of membership invitations
  * ```javascript

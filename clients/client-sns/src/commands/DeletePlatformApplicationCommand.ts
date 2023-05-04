@@ -47,6 +47,8 @@ export interface DeletePlatformApplicationCommandOutput extends __MetadataBearer
  * };
  * const command = new DeletePlatformApplicationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeletePlatformApplicationCommandInput - {@link DeletePlatformApplicationCommandInput}
@@ -65,6 +67,8 @@ export interface DeletePlatformApplicationCommandOutput extends __MetadataBearer
  *  <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class DeletePlatformApplicationCommand extends $Command<

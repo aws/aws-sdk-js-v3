@@ -51,6 +51,8 @@ export interface UpdateLFTagCommandOutput extends UpdateLFTagResponse, __Metadat
  * };
  * const command = new UpdateLFTagCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateLFTagCommandInput - {@link UpdateLFTagCommandInput}
@@ -77,6 +79,8 @@ export interface UpdateLFTagCommandOutput extends UpdateLFTagResponse, __Metadat
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class UpdateLFTagCommand extends $Command<

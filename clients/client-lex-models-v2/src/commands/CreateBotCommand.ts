@@ -66,6 +66,35 @@ export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBea
  * };
  * const command = new CreateBotCommand(input);
  * const response = await client.send(command);
+ * // { // CreateBotResponse
+ * //   botId: "STRING_VALUE",
+ * //   botName: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   roleArn: "STRING_VALUE",
+ * //   dataPrivacy: { // DataPrivacy
+ * //     childDirected: true || false, // required
+ * //   },
+ * //   idleSessionTTLInSeconds: Number("int"),
+ * //   botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   botTags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   testBotAliasTags: {
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   botType: "Bot" || "BotNetwork",
+ * //   botMembers: [ // BotMembers
+ * //     { // BotMember
+ * //       botMemberId: "STRING_VALUE", // required
+ * //       botMemberName: "STRING_VALUE", // required
+ * //       botMemberAliasId: "STRING_VALUE", // required
+ * //       botMemberAliasName: "STRING_VALUE", // required
+ * //       botMemberVersion: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param CreateBotCommandInput - {@link CreateBotCommandInput}
@@ -99,6 +128,8 @@ export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBea
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class CreateBotCommand extends $Command<

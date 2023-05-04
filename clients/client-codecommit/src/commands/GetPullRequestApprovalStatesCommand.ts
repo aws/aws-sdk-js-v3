@@ -51,6 +51,15 @@ export interface GetPullRequestApprovalStatesCommandOutput
  * };
  * const command = new GetPullRequestApprovalStatesCommand(input);
  * const response = await client.send(command);
+ * // { // GetPullRequestApprovalStatesOutput
+ * //   approvals: [ // ApprovalList
+ * //     { // Approval
+ * //       userArn: "STRING_VALUE",
+ * //       approvalState: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetPullRequestApprovalStatesCommandInput - {@link GetPullRequestApprovalStatesCommandInput}
@@ -89,6 +98,8 @@ export interface GetPullRequestApprovalStatesCommandOutput
  * @throws {@link RevisionIdRequiredException} (client fault)
  *  <p>A revision ID is required, but was not provided.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetPullRequestApprovalStatesCommand extends $Command<

@@ -45,6 +45,18 @@ export interface ListStoredQueriesCommandOutput extends ListStoredQueriesRespons
  * };
  * const command = new ListStoredQueriesCommand(input);
  * const response = await client.send(command);
+ * // { // ListStoredQueriesResponse
+ * //   StoredQueryMetadata: [ // StoredQueryMetadataList
+ * //     { // StoredQueryMetadata
+ * //       QueryId: "STRING_VALUE", // required
+ * //       QueryArn: "STRING_VALUE", // required
+ * //       QueryName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListStoredQueriesCommandInput - {@link ListStoredQueriesCommandInput}
@@ -63,6 +75,8 @@ export interface ListStoredQueriesCommandOutput extends ListStoredQueriesRespons
  *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class ListStoredQueriesCommand extends $Command<

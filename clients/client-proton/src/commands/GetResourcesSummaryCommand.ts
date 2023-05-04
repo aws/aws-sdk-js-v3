@@ -55,6 +55,48 @@ export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOut
  * const input = {};
  * const command = new GetResourcesSummaryCommand(input);
  * const response = await client.send(command);
+ * // { // GetResourcesSummaryOutput
+ * //   counts: { // CountsSummary
+ * //     components: { // ResourceCountsSummary
+ * //       total: Number("int"), // required
+ * //       failed: Number("int"),
+ * //       upToDate: Number("int"),
+ * //       behindMajor: Number("int"),
+ * //       behindMinor: Number("int"),
+ * //     },
+ * //     environments: {
+ * //       total: Number("int"), // required
+ * //       failed: Number("int"),
+ * //       upToDate: Number("int"),
+ * //       behindMajor: Number("int"),
+ * //       behindMinor: Number("int"),
+ * //     },
+ * //     environmentTemplates: {
+ * //       total: Number("int"), // required
+ * //       failed: Number("int"),
+ * //       upToDate: Number("int"),
+ * //       behindMajor: Number("int"),
+ * //       behindMinor: Number("int"),
+ * //     },
+ * //     serviceInstances: {
+ * //       total: Number("int"), // required
+ * //       failed: Number("int"),
+ * //       upToDate: Number("int"),
+ * //       behindMajor: Number("int"),
+ * //       behindMinor: Number("int"),
+ * //     },
+ * //     services: {
+ * //       total: Number("int"), // required
+ * //       failed: Number("int"),
+ * //       upToDate: Number("int"),
+ * //       behindMajor: Number("int"),
+ * //       behindMinor: Number("int"),
+ * //     },
+ * //     serviceTemplates: "<ResourceCountsSummary>",
+ * //     pipelines: "<ResourceCountsSummary>",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetResourcesSummaryCommandInput - {@link GetResourcesSummaryCommandInput}
@@ -75,6 +117,8 @@ export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class GetResourcesSummaryCommand extends $Command<

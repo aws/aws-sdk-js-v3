@@ -44,6 +44,8 @@ export interface DisassociateUserSettingsCommandOutput extends DisassociateUserS
  * };
  * const command = new DisassociateUserSettingsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateUserSettingsCommandInput - {@link DisassociateUserSettingsCommandInput}
@@ -67,6 +69,8 @@ export interface DisassociateUserSettingsCommandOutput extends DisassociateUserS
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DisassociateUserSettingsCommand extends $Command<

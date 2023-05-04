@@ -51,6 +51,17 @@ export interface ListAdminAccountsForOrganizationCommandOutput
  * };
  * const command = new ListAdminAccountsForOrganizationCommand(input);
  * const response = await client.send(command);
+ * // { // ListAdminAccountsForOrganizationResponse
+ * //   AdminAccounts: [ // AdminAccountSummaryList
+ * //     { // AdminAccountSummary
+ * //       AdminAccount: "STRING_VALUE",
+ * //       DefaultAdmin: true || false,
+ * //       Status: "ONBOARDING" || "ONBOARDING_COMPLETE" || "OFFBOARDING" || "OFFBOARDING_COMPLETE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAdminAccountsForOrganizationCommandInput - {@link ListAdminAccountsForOrganizationCommandInput}
@@ -73,6 +84,8 @@ export interface ListAdminAccountsForOrganizationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListAdminAccountsForOrganizationCommand extends $Command<

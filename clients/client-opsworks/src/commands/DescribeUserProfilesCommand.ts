@@ -50,6 +50,18 @@ export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesR
  * };
  * const command = new DescribeUserProfilesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeUserProfilesResult
+ * //   UserProfiles: [ // UserProfiles
+ * //     { // UserProfile
+ * //       IamUserArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       SshUsername: "STRING_VALUE",
+ * //       SshPublicKey: "STRING_VALUE",
+ * //       AllowSelfManagement: true || false,
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeUserProfilesCommandInput - {@link DescribeUserProfilesCommandInput}
@@ -64,6 +76,8 @@ export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesR
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeUserProfilesCommand extends $Command<

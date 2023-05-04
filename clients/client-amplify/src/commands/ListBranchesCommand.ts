@@ -46,6 +46,49 @@ export interface ListBranchesCommandOutput extends ListBranchesResult, __Metadat
  * };
  * const command = new ListBranchesCommand(input);
  * const response = await client.send(command);
+ * // { // ListBranchesResult
+ * //   branches: [ // Branches // required
+ * //     { // Branch
+ * //       branchArn: "STRING_VALUE", // required
+ * //       branchName: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE", // required
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       stage: "PRODUCTION" || "BETA" || "DEVELOPMENT" || "EXPERIMENTAL" || "PULL_REQUEST", // required
+ * //       displayName: "STRING_VALUE", // required
+ * //       enableNotification: true || false, // required
+ * //       createTime: new Date("TIMESTAMP"), // required
+ * //       updateTime: new Date("TIMESTAMP"), // required
+ * //       environmentVariables: { // EnvironmentVariables // required
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       enableAutoBuild: true || false, // required
+ * //       customDomains: [ // CustomDomains // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       framework: "STRING_VALUE", // required
+ * //       activeJobId: "STRING_VALUE", // required
+ * //       totalNumberOfJobs: "STRING_VALUE", // required
+ * //       enableBasicAuth: true || false, // required
+ * //       enablePerformanceMode: true || false,
+ * //       thumbnailUrl: "STRING_VALUE",
+ * //       basicAuthCredentials: "STRING_VALUE",
+ * //       buildSpec: "STRING_VALUE",
+ * //       ttl: "STRING_VALUE", // required
+ * //       associatedResources: [ // AssociatedResources
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       enablePullRequestPreview: true || false, // required
+ * //       pullRequestEnvironmentName: "STRING_VALUE",
+ * //       destinationBranch: "STRING_VALUE",
+ * //       sourceBranch: "STRING_VALUE",
+ * //       backendEnvironmentArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListBranchesCommandInput - {@link ListBranchesCommandInput}
@@ -63,6 +106,8 @@ export interface ListBranchesCommandOutput extends ListBranchesResult, __Metadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class ListBranchesCommand extends $Command<

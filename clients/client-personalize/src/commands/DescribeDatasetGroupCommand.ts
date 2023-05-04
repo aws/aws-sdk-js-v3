@@ -45,6 +45,20 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  * };
  * const command = new DescribeDatasetGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDatasetGroupResponse
+ * //   datasetGroup: { // DatasetGroup
+ * //     name: "STRING_VALUE",
+ * //     datasetGroupArn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     roleArn: "STRING_VALUE",
+ * //     kmsKeyArn: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     failureReason: "STRING_VALUE",
+ * //     domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeDatasetGroupCommandInput - {@link DescribeDatasetGroupCommandInput}
@@ -59,6 +73,8 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeDatasetGroupCommand extends $Command<

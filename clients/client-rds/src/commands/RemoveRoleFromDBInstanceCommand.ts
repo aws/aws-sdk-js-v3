@@ -46,6 +46,8 @@ export interface RemoveRoleFromDBInstanceCommandOutput extends __MetadataBearer 
  * };
  * const command = new RemoveRoleFromDBInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RemoveRoleFromDBInstanceCommandInput - {@link RemoveRoleFromDBInstanceCommandInput}
@@ -65,6 +67,8 @@ export interface RemoveRoleFromDBInstanceCommandOutput extends __MetadataBearer 
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class RemoveRoleFromDBInstanceCommand extends $Command<

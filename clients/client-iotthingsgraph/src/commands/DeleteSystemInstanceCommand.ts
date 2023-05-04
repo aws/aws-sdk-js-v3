@@ -48,6 +48,8 @@ export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceR
  * };
  * const command = new DeleteSystemInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSystemInstanceCommandInput - {@link DeleteSystemInstanceCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceR
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class DeleteSystemInstanceCommand extends $Command<

@@ -51,6 +51,12 @@ export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesRespo
  * const input = {};
  * const command = new GetCheckerIpRangesCommand(input);
  * const response = await client.send(command);
+ * // { // GetCheckerIpRangesResponse
+ * //   CheckerIpRanges: [ // CheckerIpRanges // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetCheckerIpRangesCommandInput - {@link GetCheckerIpRangesCommandInput}
@@ -59,6 +65,8 @@ export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesRespo
  * @see {@link GetCheckerIpRangesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetCheckerIpRangesCommand extends $Command<

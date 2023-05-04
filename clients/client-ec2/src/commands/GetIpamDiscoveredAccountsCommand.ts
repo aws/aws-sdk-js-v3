@@ -56,6 +56,22 @@ export interface GetIpamDiscoveredAccountsCommandOutput extends GetIpamDiscovere
  * };
  * const command = new GetIpamDiscoveredAccountsCommand(input);
  * const response = await client.send(command);
+ * // { // GetIpamDiscoveredAccountsResult
+ * //   IpamDiscoveredAccounts: [ // IpamDiscoveredAccountSet
+ * //     { // IpamDiscoveredAccount
+ * //       AccountId: "STRING_VALUE",
+ * //       DiscoveryRegion: "STRING_VALUE",
+ * //       FailureReason: { // IpamDiscoveryFailureReason
+ * //         Code: "assume-role-failure" || "throttling-failure" || "unauthorized-failure",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       LastAttemptedDiscoveryTime: new Date("TIMESTAMP"),
+ * //       LastSuccessfulDiscoveryTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetIpamDiscoveredAccountsCommandInput - {@link GetIpamDiscoveredAccountsCommandInput}
@@ -64,6 +80,8 @@ export interface GetIpamDiscoveredAccountsCommandOutput extends GetIpamDiscovere
  * @see {@link GetIpamDiscoveredAccountsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetIpamDiscoveredAccountsCommand extends $Command<

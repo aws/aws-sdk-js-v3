@@ -85,6 +85,29 @@ export interface PromotePermissionCreatedFromPolicyCommandOutput
  * };
  * const command = new PromotePermissionCreatedFromPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PromotePermissionCreatedFromPolicyResponse
+ * //   permission: { // ResourceSharePermissionSummary
+ * //     arn: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //     defaultVersion: true || false,
+ * //     name: "STRING_VALUE",
+ * //     resourceType: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedTime: new Date("TIMESTAMP"),
+ * //     isResourceTypeDefault: true || false,
+ * //     permissionType: "CUSTOMER_MANAGED" || "AWS_MANAGED",
+ * //     featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
+ * //     tags: [ // TagList
+ * //       { // Tag
+ * //         key: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   clientToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PromotePermissionCreatedFromPolicyCommandInput - {@link PromotePermissionCreatedFromPolicyCommandInput}
@@ -116,6 +139,8 @@ export interface PromotePermissionCreatedFromPolicyCommandOutput
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class PromotePermissionCreatedFromPolicyCommand extends $Command<

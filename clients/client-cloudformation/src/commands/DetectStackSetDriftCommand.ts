@@ -100,6 +100,10 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  * };
  * const command = new DetectStackSetDriftCommand(input);
  * const response = await client.send(command);
+ * // { // DetectStackSetDriftOutput
+ * //   OperationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DetectStackSetDriftCommandInput - {@link DetectStackSetDriftCommandInput}
@@ -118,6 +122,8 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  * @throws {@link StackSetNotFoundException} (client fault)
  *  <p>The specified stack set doesn't exist.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DetectStackSetDriftCommand extends $Command<

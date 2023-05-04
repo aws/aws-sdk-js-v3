@@ -49,6 +49,11 @@ export interface GetSolNetworkPackageContentCommandOutput extends GetSolNetworkP
  * };
  * const command = new GetSolNetworkPackageContentCommand(input);
  * const response = await client.send(command);
+ * // { // GetSolNetworkPackageContentOutput
+ * //   contentType: "application/zip",
+ * //   nsdContent: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetSolNetworkPackageContentCommandInput - {@link GetSolNetworkPackageContentCommandInput}
@@ -72,6 +77,8 @@ export interface GetSolNetworkPackageContentCommandOutput extends GetSolNetworkP
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class GetSolNetworkPackageContentCommand extends $Command<

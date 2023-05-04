@@ -64,6 +64,21 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
  * };
  * const command = new CreateVpcEndpointConnectionNotificationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateVpcEndpointConnectionNotificationResult
+ * //   ConnectionNotification: { // ConnectionNotification
+ * //     ConnectionNotificationId: "STRING_VALUE",
+ * //     ServiceId: "STRING_VALUE",
+ * //     VpcEndpointId: "STRING_VALUE",
+ * //     ConnectionNotificationType: "Topic",
+ * //     ConnectionNotificationArn: "STRING_VALUE",
+ * //     ConnectionEvents: [ // ValueStringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ConnectionNotificationState: "Enabled" || "Disabled",
+ * //   },
+ * //   ClientToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateVpcEndpointConnectionNotificationCommandInput - {@link CreateVpcEndpointConnectionNotificationCommandInput}
@@ -72,6 +87,8 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
  * @see {@link CreateVpcEndpointConnectionNotificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateVpcEndpointConnectionNotificationCommand extends $Command<

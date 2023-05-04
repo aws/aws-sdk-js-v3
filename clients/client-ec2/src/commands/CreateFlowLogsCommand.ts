@@ -83,6 +83,22 @@ export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __Met
  * };
  * const command = new CreateFlowLogsCommand(input);
  * const response = await client.send(command);
+ * // { // CreateFlowLogsResult
+ * //   ClientToken: "STRING_VALUE",
+ * //   FlowLogIds: [ // ValueStringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Unsuccessful: [ // UnsuccessfulItemSet
+ * //     { // UnsuccessfulItem
+ * //       Error: { // UnsuccessfulItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       ResourceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param CreateFlowLogsCommandInput - {@link CreateFlowLogsCommandInput}
@@ -91,6 +107,8 @@ export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __Met
  * @see {@link CreateFlowLogsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateFlowLogsCommand extends $Command<

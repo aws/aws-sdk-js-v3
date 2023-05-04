@@ -48,6 +48,19 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
+ * // { // ListGatewaysResponse
+ * //   Gateways: [ // GatewaySummaries
+ * //     { // GatewaySummary
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       GatewayGroupArn: "STRING_VALUE",
+ * //       SoftwareVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListGatewaysCommandInput - {@link ListGatewaysCommandInput}
@@ -56,6 +69,8 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * @see {@link ListGatewaysCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class ListGatewaysCommand extends $Command<

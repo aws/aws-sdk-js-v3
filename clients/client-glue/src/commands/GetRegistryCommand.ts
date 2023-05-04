@@ -47,6 +47,15 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * };
  * const command = new GetRegistryCommand(input);
  * const response = await client.send(command);
+ * // { // GetRegistryResponse
+ * //   RegistryName: "STRING_VALUE",
+ * //   RegistryArn: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Status: "AVAILABLE" || "DELETING",
+ * //   CreatedTime: "STRING_VALUE",
+ * //   UpdatedTime: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetRegistryCommandInput - {@link GetRegistryCommandInput}
@@ -67,6 +76,8 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetRegistryCommand extends $Command<

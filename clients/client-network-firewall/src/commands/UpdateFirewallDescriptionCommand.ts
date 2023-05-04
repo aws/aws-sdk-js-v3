@@ -48,6 +48,13 @@ export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDe
  * };
  * const command = new UpdateFirewallDescriptionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateFirewallDescriptionResponse
+ * //   FirewallArn: "STRING_VALUE",
+ * //   FirewallName: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   UpdateToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateFirewallDescriptionCommandInput - {@link UpdateFirewallDescriptionCommandInput}
@@ -85,6 +92,8 @@ export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDe
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class UpdateFirewallDescriptionCommand extends $Command<

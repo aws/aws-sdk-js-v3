@@ -66,6 +66,21 @@ export interface GetRateBasedStatementManagedKeysCommandOutput
  * };
  * const command = new GetRateBasedStatementManagedKeysCommand(input);
  * const response = await client.send(command);
+ * // { // GetRateBasedStatementManagedKeysResponse
+ * //   ManagedKeysIPV4: { // RateBasedStatementManagedKeysIPSet
+ * //     IPAddressVersion: "IPV4" || "IPV6",
+ * //     Addresses: [ // IPAddresses
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   ManagedKeysIPV6: {
+ * //     IPAddressVersion: "IPV4" || "IPV6",
+ * //     Addresses: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetRateBasedStatementManagedKeysCommandInput - {@link GetRateBasedStatementManagedKeysCommandInput}
@@ -108,6 +123,8 @@ export interface GetRateBasedStatementManagedKeysCommandOutput
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class GetRateBasedStatementManagedKeysCommand extends $Command<

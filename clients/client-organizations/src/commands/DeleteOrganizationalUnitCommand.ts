@@ -46,6 +46,8 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteOrganizationalUnitCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteOrganizationalUnitCommandInput - {@link DeleteOrganizationalUnitCommandInput}
@@ -192,6 +194,8 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To delete an organization unit
  * ```javascript

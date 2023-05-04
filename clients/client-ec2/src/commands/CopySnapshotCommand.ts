@@ -83,6 +83,16 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * };
  * const command = new CopySnapshotCommand(input);
  * const response = await client.send(command);
+ * // { // CopySnapshotResult
+ * //   SnapshotId: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param CopySnapshotCommandInput - {@link CopySnapshotCommandInput}
@@ -91,6 +101,8 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To copy a snapshot
  * ```javascript

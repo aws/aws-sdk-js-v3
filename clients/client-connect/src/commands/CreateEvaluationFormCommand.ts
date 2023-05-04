@@ -176,6 +176,11 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  * };
  * const command = new CreateEvaluationFormCommand(input);
  * const response = await client.send(command);
+ * // { // CreateEvaluationFormResponse
+ * //   EvaluationFormId: "STRING_VALUE", // required
+ * //   EvaluationFormArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateEvaluationFormCommandInput - {@link CreateEvaluationFormCommandInput}
@@ -202,6 +207,8 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateEvaluationFormCommand extends $Command<

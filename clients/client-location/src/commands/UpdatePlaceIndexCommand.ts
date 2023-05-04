@@ -49,6 +49,12 @@ export interface UpdatePlaceIndexCommandOutput extends UpdatePlaceIndexResponse,
  * };
  * const command = new UpdatePlaceIndexCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePlaceIndexResponse
+ * //   IndexName: "STRING_VALUE", // required
+ * //   IndexArn: "STRING_VALUE", // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param UpdatePlaceIndexCommandInput - {@link UpdatePlaceIndexCommandInput}
@@ -73,6 +79,8 @@ export interface UpdatePlaceIndexCommandOutput extends UpdatePlaceIndexResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class UpdatePlaceIndexCommand extends $Command<

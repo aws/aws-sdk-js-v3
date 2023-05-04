@@ -63,6 +63,11 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
+ * // { // CreateProjectOutput
+ * //   ProjectArn: "STRING_VALUE", // required
+ * //   ProjectId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
@@ -75,6 +80,8 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateProjectCommand extends $Command<

@@ -51,6 +51,16 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  * };
  * const command = new ListRegionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListRegionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Regions: [ // RegionOptList
+ * //     { // Region
+ * //       RegionName: "STRING_VALUE",
+ * //       RegionOptStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListRegionsCommandInput - {@link ListRegionsCommandInput}
@@ -74,6 +84,8 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>
  *
+ * @throws {@link AccountServiceException}
+ * <p>Base exception class for all service exceptions from Account service.</p>
  *
  */
 export class ListRegionsCommand extends $Command<

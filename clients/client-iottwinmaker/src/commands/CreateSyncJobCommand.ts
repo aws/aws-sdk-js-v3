@@ -49,6 +49,12 @@ export interface CreateSyncJobCommandOutput extends CreateSyncJobResponse, __Met
  * };
  * const command = new CreateSyncJobCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSyncJobResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   creationDateTime: new Date("TIMESTAMP"), // required
+ * //   state: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateSyncJobCommandInput - {@link CreateSyncJobCommandInput}
@@ -75,6 +81,8 @@ export interface CreateSyncJobCommandOutput extends CreateSyncJobResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class CreateSyncJobCommand extends $Command<

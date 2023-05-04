@@ -51,6 +51,8 @@ export interface DeleteApplicationsCommandOutput extends DeleteApplicationsRespo
  * };
  * const command = new DeleteApplicationsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteApplicationsCommandInput - {@link DeleteApplicationsCommandInput}
@@ -76,6 +78,8 @@ export interface DeleteApplicationsCommandOutput extends DeleteApplicationsRespo
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class DeleteApplicationsCommand extends $Command<

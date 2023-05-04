@@ -44,6 +44,8 @@ export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDef
  * };
  * const command = new DeleteResourceDefinitionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteResourceDefinitionCommandInput - {@link DeleteResourceDefinitionCommandInput}
@@ -55,6 +57,8 @@ export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDef
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteResourceDefinitionCommand extends $Command<

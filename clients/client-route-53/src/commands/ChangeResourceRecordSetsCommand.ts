@@ -173,6 +173,15 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * };
  * const command = new ChangeResourceRecordSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ChangeResourceRecordSetsResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ChangeResourceRecordSetsCommandInput - {@link ChangeResourceRecordSetsCommandInput}
@@ -201,6 +210,8 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * 			for the same request, we recommend that you wait, in intervals of increasing duration,
  * 			before you try the request again.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  * @example To create a basic resource record set
  * ```javascript

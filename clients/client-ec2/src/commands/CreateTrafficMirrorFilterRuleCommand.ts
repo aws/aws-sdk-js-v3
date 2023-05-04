@@ -65,6 +65,29 @@ export interface CreateTrafficMirrorFilterRuleCommandOutput
  * };
  * const command = new CreateTrafficMirrorFilterRuleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTrafficMirrorFilterRuleResult
+ * //   TrafficMirrorFilterRule: { // TrafficMirrorFilterRule
+ * //     TrafficMirrorFilterRuleId: "STRING_VALUE",
+ * //     TrafficMirrorFilterId: "STRING_VALUE",
+ * //     TrafficDirection: "ingress" || "egress",
+ * //     RuleNumber: Number("int"),
+ * //     RuleAction: "accept" || "reject",
+ * //     Protocol: Number("int"),
+ * //     DestinationPortRange: { // TrafficMirrorPortRange
+ * //       FromPort: Number("int"),
+ * //       ToPort: Number("int"),
+ * //     },
+ * //     SourcePortRange: {
+ * //       FromPort: Number("int"),
+ * //       ToPort: Number("int"),
+ * //     },
+ * //     DestinationCidrBlock: "STRING_VALUE",
+ * //     SourceCidrBlock: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * //   ClientToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateTrafficMirrorFilterRuleCommandInput - {@link CreateTrafficMirrorFilterRuleCommandInput}
@@ -73,6 +96,8 @@ export interface CreateTrafficMirrorFilterRuleCommandOutput
  * @see {@link CreateTrafficMirrorFilterRuleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateTrafficMirrorFilterRuleCommand extends $Command<

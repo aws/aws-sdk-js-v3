@@ -260,6 +260,8 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketAclCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutBucketAclCommandInput - {@link PutBucketAclCommandInput}
@@ -268,6 +270,8 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example Put bucket acl
  * ```javascript

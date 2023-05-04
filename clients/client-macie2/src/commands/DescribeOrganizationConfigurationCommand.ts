@@ -50,6 +50,11 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * const input = {};
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeOrganizationConfigurationResponse
+ * //   autoEnable: true || false,
+ * //   maxAccountLimitReached: true || false,
+ * // };
+ *
  * ```
  *
  * @param DescribeOrganizationConfigurationCommandInput - {@link DescribeOrganizationConfigurationCommandInput}
@@ -79,6 +84,8 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class DescribeOrganizationConfigurationCommand extends $Command<

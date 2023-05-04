@@ -45,6 +45,13 @@ export interface DeleteVoiceTemplateCommandOutput extends DeleteVoiceTemplateRes
  * };
  * const command = new DeleteVoiceTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteVoiceTemplateResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteVoiceTemplateCommandInput - {@link DeleteVoiceTemplateCommandInput}
@@ -74,6 +81,8 @@ export interface DeleteVoiceTemplateCommandOutput extends DeleteVoiceTemplateRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class DeleteVoiceTemplateCommand extends $Command<

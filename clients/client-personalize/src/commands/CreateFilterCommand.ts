@@ -52,6 +52,10 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * };
  * const command = new CreateFilterCommand(input);
  * const response = await client.send(command);
+ * // { // CreateFilterResponse
+ * //   filterArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateFilterCommandInput - {@link CreateFilterCommandInput}
@@ -75,6 +79,8 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateFilterCommand extends $Command<

@@ -57,6 +57,18 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * };
  * const command = new ListTargetsForPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // ListTargetsForPolicyResponse
+ * //   Targets: [ // PolicyTargets
+ * //     { // PolicyTargetSummary
+ * //       TargetId: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Type: "ACCOUNT" || "ORGANIZATIONAL_UNIT" || "ROOT",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTargetsForPolicyCommandInput - {@link ListTargetsForPolicyCommandInput}
@@ -197,6 +209,8 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list of roots, OUs, and accounts to which a policy is attached
  * ```javascript

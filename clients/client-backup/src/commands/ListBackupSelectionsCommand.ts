@@ -47,6 +47,20 @@ export interface ListBackupSelectionsCommandOutput extends ListBackupSelectionsO
  * };
  * const command = new ListBackupSelectionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListBackupSelectionsOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   BackupSelectionsList: [ // BackupSelectionsList
+ * //     { // BackupSelectionsListMember
+ * //       SelectionId: "STRING_VALUE",
+ * //       SelectionName: "STRING_VALUE",
+ * //       BackupPlanId: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       CreatorRequestId: "STRING_VALUE",
+ * //       IamRoleArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListBackupSelectionsCommandInput - {@link ListBackupSelectionsCommandInput}
@@ -68,6 +82,8 @@ export interface ListBackupSelectionsCommandOutput extends ListBackupSelectionsO
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListBackupSelectionsCommand extends $Command<

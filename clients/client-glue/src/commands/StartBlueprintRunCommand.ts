@@ -46,6 +46,10 @@ export interface StartBlueprintRunCommandOutput extends StartBlueprintRunRespons
  * };
  * const command = new StartBlueprintRunCommand(input);
  * const response = await client.send(command);
+ * // { // StartBlueprintRunResponse
+ * //   RunId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartBlueprintRunCommandInput - {@link StartBlueprintRunCommandInput}
@@ -72,6 +76,8 @@ export interface StartBlueprintRunCommandOutput extends StartBlueprintRunRespons
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StartBlueprintRunCommand extends $Command<

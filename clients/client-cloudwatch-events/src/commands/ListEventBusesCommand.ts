@@ -47,6 +47,17 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * };
  * const command = new ListEventBusesCommand(input);
  * const response = await client.send(command);
+ * // { // ListEventBusesResponse
+ * //   EventBuses: [ // EventBusList
+ * //     { // EventBus
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Policy: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEventBusesCommandInput - {@link ListEventBusesCommandInput}
@@ -58,6 +69,8 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class ListEventBusesCommand extends $Command<

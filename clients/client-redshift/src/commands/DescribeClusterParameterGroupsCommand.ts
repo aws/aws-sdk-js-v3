@@ -71,6 +71,23 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  * };
  * const command = new DescribeClusterParameterGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ClusterParameterGroupsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ParameterGroups: [ // ParameterGroupList
+ * //     { // ClusterParameterGroup
+ * //       ParameterGroupName: "STRING_VALUE",
+ * //       ParameterGroupFamily: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeClusterParameterGroupsCommandInput - {@link DescribeClusterParameterGroupsCommandInput}
@@ -85,6 +102,8 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  * @throws {@link InvalidTagFault} (client fault)
  *  <p>The tag is invalid.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeClusterParameterGroupsCommand extends $Command<

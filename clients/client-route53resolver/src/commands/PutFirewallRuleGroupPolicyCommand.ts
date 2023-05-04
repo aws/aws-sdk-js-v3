@@ -47,6 +47,10 @@ export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRule
  * };
  * const command = new PutFirewallRuleGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutFirewallRuleGroupPolicyResponse
+ * //   ReturnValue: true || false,
+ * // };
+ *
  * ```
  *
  * @param PutFirewallRuleGroupPolicyCommandInput - {@link PutFirewallRuleGroupPolicyCommandInput}
@@ -71,6 +75,8 @@ export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRule
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class PutFirewallRuleGroupPolicyCommand extends $Command<

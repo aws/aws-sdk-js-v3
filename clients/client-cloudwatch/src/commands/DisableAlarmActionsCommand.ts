@@ -47,6 +47,8 @@ export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisableAlarmActionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisableAlarmActionsCommandInput - {@link DisableAlarmActionsCommandInput}
@@ -55,6 +57,8 @@ export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
  * @see {@link DisableAlarmActionsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DisableAlarmActionsCommand extends $Command<

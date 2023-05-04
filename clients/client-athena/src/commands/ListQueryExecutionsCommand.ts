@@ -52,6 +52,13 @@ export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOut
  * };
  * const command = new ListQueryExecutionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListQueryExecutionsOutput
+ * //   QueryExecutionIds: [ // QueryExecutionIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListQueryExecutionsCommandInput - {@link ListQueryExecutionsCommandInput}
@@ -68,6 +75,8 @@ export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOut
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListQueryExecutionsCommand extends $Command<

@@ -44,6 +44,10 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * };
  * const command = new DeleteDeviceCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDeviceResponse
+ * //   DeviceId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteDeviceCommandInput - {@link DeleteDeviceCommandInput}
@@ -67,6 +71,8 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DeleteDeviceCommand extends $Command<

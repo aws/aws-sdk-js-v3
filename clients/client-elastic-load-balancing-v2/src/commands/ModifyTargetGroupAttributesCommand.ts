@@ -54,6 +54,15 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  * };
  * const command = new ModifyTargetGroupAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyTargetGroupAttributesOutput
+ * //   Attributes: [ // TargetGroupAttributes
+ * //     { // TargetGroupAttribute
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ModifyTargetGroupAttributesCommandInput - {@link ModifyTargetGroupAttributesCommandInput}
@@ -68,6 +77,8 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  * @throws {@link TargetGroupNotFoundException} (client fault)
  *  <p>The specified target group does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To modify the deregistration delay timeout
  * ```javascript

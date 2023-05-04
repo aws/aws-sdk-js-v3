@@ -48,6 +48,16 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  * };
  * const command = new ListLocationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListLocationsOutput
+ * //   Locations: [ // LocationModelList
+ * //     { // LocationModel
+ * //       LocationName: "STRING_VALUE",
+ * //       LocationArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListLocationsCommandInput - {@link ListLocationsCommandInput}
@@ -67,6 +77,8 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class ListLocationsCommand extends $Command<

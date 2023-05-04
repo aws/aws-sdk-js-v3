@@ -46,6 +46,15 @@ export interface GetLaunchProfileMemberCommandOutput extends GetLaunchProfileMem
  * };
  * const command = new GetLaunchProfileMemberCommand(input);
  * const response = await client.send(command);
+ * // { // GetLaunchProfileMemberResponse
+ * //   member: { // LaunchProfileMembership
+ * //     identityStoreId: "STRING_VALUE",
+ * //     persona: "USER",
+ * //     principalId: "STRING_VALUE",
+ * //     sid: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetLaunchProfileMemberCommandInput - {@link GetLaunchProfileMemberCommandInput}
@@ -78,6 +87,8 @@ export interface GetLaunchProfileMemberCommandOutput extends GetLaunchProfileMem
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class GetLaunchProfileMemberCommand extends $Command<

@@ -54,6 +54,8 @@ export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
  * };
  * const command = new PutEmailIdentityConfigurationSetAttributesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutEmailIdentityConfigurationSetAttributesCommandInput - {@link PutEmailIdentityConfigurationSetAttributesCommandInput}
@@ -71,6 +73,8 @@ export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<

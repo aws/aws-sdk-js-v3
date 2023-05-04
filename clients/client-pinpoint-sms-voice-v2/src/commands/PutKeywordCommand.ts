@@ -58,6 +58,14 @@ export interface PutKeywordCommandOutput extends PutKeywordResult, __MetadataBea
  * };
  * const command = new PutKeywordCommand(input);
  * const response = await client.send(command);
+ * // { // PutKeywordResult
+ * //   OriginationIdentityArn: "STRING_VALUE",
+ * //   OriginationIdentity: "STRING_VALUE",
+ * //   Keyword: "STRING_VALUE",
+ * //   KeywordMessage: "STRING_VALUE",
+ * //   KeywordAction: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutKeywordCommandInput - {@link PutKeywordCommandInput}
@@ -93,6 +101,8 @@ export interface PutKeywordCommandOutput extends PutKeywordResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class PutKeywordCommand extends $Command<

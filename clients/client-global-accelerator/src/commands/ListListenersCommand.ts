@@ -50,6 +50,23 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
  * };
  * const command = new ListListenersCommand(input);
  * const response = await client.send(command);
+ * // { // ListListenersResponse
+ * //   Listeners: [ // Listeners
+ * //     { // Listener
+ * //       ListenerArn: "STRING_VALUE",
+ * //       PortRanges: [ // PortRanges
+ * //         { // PortRange
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       ],
+ * //       Protocol: "TCP" || "UDP",
+ * //       ClientAffinity: "NONE" || "SOURCE_IP",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListListenersCommandInput - {@link ListListenersCommandInput}
@@ -70,6 +87,8 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>There isn't another item to return.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class ListListenersCommand extends $Command<

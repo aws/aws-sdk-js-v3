@@ -42,6 +42,14 @@ export interface GetEncryptionConfigCommandOutput extends GetEncryptionConfigRes
  * const input = {};
  * const command = new GetEncryptionConfigCommand(input);
  * const response = await client.send(command);
+ * // { // GetEncryptionConfigResult
+ * //   EncryptionConfig: { // EncryptionConfig
+ * //     KeyId: "STRING_VALUE",
+ * //     Status: "UPDATING" || "ACTIVE",
+ * //     Type: "NONE" || "KMS",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetEncryptionConfigCommandInput - {@link GetEncryptionConfigCommandInput}
@@ -56,6 +64,8 @@ export interface GetEncryptionConfigCommandOutput extends GetEncryptionConfigRes
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetEncryptionConfigCommand extends $Command<

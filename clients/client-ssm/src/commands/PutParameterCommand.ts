@@ -59,6 +59,11 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  * };
  * const command = new PutParameterCommand(input);
  * const response = await client.send(command);
+ * // { // PutParameterResult
+ * //   Version: Number("long"),
+ * //   Tier: "Standard" || "Advanced" || "Intelligent-Tiering",
+ * // };
+ *
  * ```
  *
  * @param PutParameterCommandInput - {@link PutParameterCommandInput}
@@ -134,6 +139,8 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  * @throws {@link UnsupportedParameterType} (client fault)
  *  <p>The parameter type isn't supported.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class PutParameterCommand extends $Command<

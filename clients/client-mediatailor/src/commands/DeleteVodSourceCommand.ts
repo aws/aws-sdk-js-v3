@@ -45,6 +45,8 @@ export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, _
  * };
  * const command = new DeleteVodSourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteVodSourceCommandInput - {@link DeleteVodSourceCommandInput}
@@ -53,6 +55,8 @@ export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, _
  * @see {@link DeleteVodSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class DeleteVodSourceCommand extends $Command<

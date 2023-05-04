@@ -60,6 +60,12 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * };
  * const command = new StartSessionCommand(input);
  * const response = await client.send(command);
+ * // { // StartSessionResponse
+ * //   SessionId: "STRING_VALUE",
+ * //   TokenValue: "STRING_VALUE",
+ * //   StreamUrl: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartSessionCommandInput - {@link StartSessionCommandInput}
@@ -81,6 +87,8 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  *    attempt to start a session on a managed node that is located in a different account or
  *    Region</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class StartSessionCommand extends $Command<

@@ -64,6 +64,30 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  * };
  * const command = new DescribeStackResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeStackResourcesOutput
+ * //   StackResources: [ // StackResources
+ * //     { // StackResource
+ * //       StackName: "STRING_VALUE",
+ * //       StackId: "STRING_VALUE",
+ * //       LogicalResourceId: "STRING_VALUE", // required
+ * //       PhysicalResourceId: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE", // required
+ * //       Timestamp: new Date("TIMESTAMP"), // required
+ * //       ResourceStatus: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "CREATE_COMPLETE" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "DELETE_COMPLETE" || "DELETE_SKIPPED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "UPDATE_COMPLETE" || "IMPORT_FAILED" || "IMPORT_COMPLETE" || "IMPORT_IN_PROGRESS" || "IMPORT_ROLLBACK_IN_PROGRESS" || "IMPORT_ROLLBACK_FAILED" || "IMPORT_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_IN_PROGRESS" || "UPDATE_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETE" || "ROLLBACK_FAILED", // required
+ * //       ResourceStatusReason: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       DriftInformation: { // StackResourceDriftInformation
+ * //         StackResourceDriftStatus: "IN_SYNC" || "MODIFIED" || "DELETED" || "NOT_CHECKED", // required
+ * //         LastCheckTimestamp: new Date("TIMESTAMP"),
+ * //       },
+ * //       ModuleInfo: { // ModuleInfo
+ * //         TypeHierarchy: "STRING_VALUE",
+ * //         LogicalIdHierarchy: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeStackResourcesCommandInput - {@link DescribeStackResourcesCommandInput}
@@ -72,6 +96,8 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  * @see {@link DescribeStackResourcesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DescribeStackResourcesCommand extends $Command<

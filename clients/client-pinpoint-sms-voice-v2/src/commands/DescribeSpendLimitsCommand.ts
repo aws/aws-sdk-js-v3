@@ -55,6 +55,18 @@ export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsRes
  * };
  * const command = new DescribeSpendLimitsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSpendLimitsResult
+ * //   SpendLimits: [ // SpendLimitList
+ * //     { // SpendLimit
+ * //       Name: "STRING_VALUE", // required
+ * //       EnforcedLimit: Number("long"), // required
+ * //       MaxLimit: Number("long"), // required
+ * //       Overridden: true || false, // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeSpendLimitsCommandInput - {@link DescribeSpendLimitsCommandInput}
@@ -78,6 +90,8 @@ export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DescribeSpendLimitsCommand extends $Command<

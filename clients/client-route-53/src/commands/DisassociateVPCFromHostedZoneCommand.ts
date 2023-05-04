@@ -103,6 +103,15 @@ export interface DisassociateVPCFromHostedZoneCommandOutput
  * };
  * const command = new DisassociateVPCFromHostedZoneCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateVPCFromHostedZoneResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DisassociateVPCFromHostedZoneCommandInput - {@link DisassociateVPCFromHostedZoneCommandInput}
@@ -129,6 +138,8 @@ export interface DisassociateVPCFromHostedZoneCommandOutput
  * @throws {@link VPCAssociationNotFound} (client fault)
  *  <p>The specified VPC and hosted zone are not currently associated.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DisassociateVPCFromHostedZoneCommand extends $Command<

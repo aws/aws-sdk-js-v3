@@ -56,6 +56,24 @@ export interface ListEnvironmentTemplateVersionsCommandOutput
  * };
  * const command = new ListEnvironmentTemplateVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListEnvironmentTemplateVersionsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   templateVersions: [ // EnvironmentTemplateVersionSummaryList // required
+ * //     { // EnvironmentTemplateVersionSummary
+ * //       templateName: "STRING_VALUE", // required
+ * //       majorVersion: "STRING_VALUE", // required
+ * //       minorVersion: "STRING_VALUE", // required
+ * //       recommendedMinorVersion: "STRING_VALUE",
+ * //       status: "STRING_VALUE", // required
+ * //       statusMessage: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       arn: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListEnvironmentTemplateVersionsCommandInput - {@link ListEnvironmentTemplateVersionsCommandInput}
@@ -79,6 +97,8 @@ export interface ListEnvironmentTemplateVersionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class ListEnvironmentTemplateVersionsCommand extends $Command<

@@ -59,6 +59,51 @@ export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
  * };
  * const command = new GetReservedNodeExchangeConfigurationOptionsCommand(input);
  * const response = await client.send(command);
+ * // { // GetReservedNodeExchangeConfigurationOptionsOutputMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ReservedNodeConfigurationOptionList: [ // ReservedNodeConfigurationOptionList
+ * //     { // ReservedNodeConfigurationOption
+ * //       SourceReservedNode: { // ReservedNode
+ * //         ReservedNodeId: "STRING_VALUE",
+ * //         ReservedNodeOfferingId: "STRING_VALUE",
+ * //         NodeType: "STRING_VALUE",
+ * //         StartTime: new Date("TIMESTAMP"),
+ * //         Duration: Number("int"),
+ * //         FixedPrice: Number("double"),
+ * //         UsagePrice: Number("double"),
+ * //         CurrencyCode: "STRING_VALUE",
+ * //         NodeCount: Number("int"),
+ * //         State: "STRING_VALUE",
+ * //         OfferingType: "STRING_VALUE",
+ * //         RecurringCharges: [ // RecurringChargeList
+ * //           { // RecurringCharge
+ * //             RecurringChargeAmount: Number("double"),
+ * //             RecurringChargeFrequency: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         ReservedNodeOfferingType: "Regular" || "Upgradable",
+ * //       },
+ * //       TargetReservedNodeCount: Number("int"),
+ * //       TargetReservedNodeOffering: { // ReservedNodeOffering
+ * //         ReservedNodeOfferingId: "STRING_VALUE",
+ * //         NodeType: "STRING_VALUE",
+ * //         Duration: Number("int"),
+ * //         FixedPrice: Number("double"),
+ * //         UsagePrice: Number("double"),
+ * //         CurrencyCode: "STRING_VALUE",
+ * //         OfferingType: "STRING_VALUE",
+ * //         RecurringCharges: [
+ * //           {
+ * //             RecurringChargeAmount: Number("double"),
+ * //             RecurringChargeFrequency: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         ReservedNodeOfferingType: "Regular" || "Upgradable",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetReservedNodeExchangeConfigurationOptionsCommandInput - {@link GetReservedNodeExchangeConfigurationOptionsCommandInput}
@@ -93,6 +138,8 @@ export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command<

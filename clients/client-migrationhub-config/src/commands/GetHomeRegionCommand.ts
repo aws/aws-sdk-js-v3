@@ -50,6 +50,10 @@ export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __Metad
  * const input = {};
  * const command = new GetHomeRegionCommand(input);
  * const response = await client.send(command);
+ * // { // GetHomeRegionResult
+ * //   HomeRegion: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetHomeRegionCommandInput - {@link GetHomeRegionCommandInput}
@@ -76,6 +80,8 @@ export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubConfigServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
  */
 export class GetHomeRegionCommand extends $Command<

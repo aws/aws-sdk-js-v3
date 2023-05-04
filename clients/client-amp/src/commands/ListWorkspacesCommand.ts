@@ -46,6 +46,24 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * };
  * const command = new ListWorkspacesCommand(input);
  * const response = await client.send(command);
+ * // { // ListWorkspacesResponse
+ * //   workspaces: [ // WorkspaceSummaryList // required
+ * //     { // WorkspaceSummary
+ * //       workspaceId: "STRING_VALUE", // required
+ * //       alias: "STRING_VALUE",
+ * //       arn: "STRING_VALUE", // required
+ * //       status: { // WorkspaceStatus
+ * //         statusCode: "STRING_VALUE", // required
+ * //       },
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListWorkspacesCommandInput - {@link ListWorkspacesCommandInput}
@@ -66,6 +84,8 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class ListWorkspacesCommand extends $Command<

@@ -44,6 +44,10 @@ export interface DeleteCustomLogSourceCommandOutput extends DeleteCustomLogSourc
  * };
  * const command = new DeleteCustomLogSourceCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteCustomLogSourceResponse
+ * //   customDataLocation: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteCustomLogSourceCommandInput - {@link DeleteCustomLogSourceCommandInput}
@@ -80,6 +84,8 @@ export interface DeleteCustomLogSourceCommandOutput extends DeleteCustomLogSourc
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class DeleteCustomLogSourceCommand extends $Command<

@@ -64,6 +64,8 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteMessageCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteMessageCommandInput - {@link DeleteMessageCommandInput}
@@ -78,6 +80,8 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  * @throws {@link ReceiptHandleIsInvalid} (client fault)
  *  <p>The specified receipt handle isn't valid.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class DeleteMessageCommand extends $Command<

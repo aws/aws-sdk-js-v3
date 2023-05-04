@@ -64,6 +64,20 @@ export interface CreateServiceTemplateCommandOutput extends CreateServiceTemplat
  * };
  * const command = new CreateServiceTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // CreateServiceTemplateOutput
+ * //   serviceTemplate: { // ServiceTemplate
+ * //     name: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //     displayName: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     recommendedVersion: "STRING_VALUE",
+ * //     encryptionKey: "STRING_VALUE",
+ * //     pipelineProvisioning: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateServiceTemplateCommandInput - {@link CreateServiceTemplateCommandInput}
@@ -91,6 +105,8 @@ export interface CreateServiceTemplateCommandOutput extends CreateServiceTemplat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class CreateServiceTemplateCommand extends $Command<

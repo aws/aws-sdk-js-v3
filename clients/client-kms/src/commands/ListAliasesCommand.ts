@@ -86,6 +86,20 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
+ * // { // ListAliasesResponse
+ * //   Aliases: [ // AliasList
+ * //     { // AliasListEntry
+ * //       AliasName: "STRING_VALUE",
+ * //       AliasArn: "STRING_VALUE",
+ * //       TargetKeyId: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       LastUpdatedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * //   Truncated: true || false,
+ * // };
+ *
  * ```
  *
  * @param ListAliasesCommandInput - {@link ListAliasesCommandInput}
@@ -114,6 +128,8 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To list aliases
  * ```javascript

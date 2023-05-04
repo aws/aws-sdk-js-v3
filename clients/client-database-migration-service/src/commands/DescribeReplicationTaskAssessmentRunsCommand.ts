@@ -74,6 +74,29 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
  * };
  * const command = new DescribeReplicationTaskAssessmentRunsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeReplicationTaskAssessmentRunsResponse
+ * //   Marker: "STRING_VALUE",
+ * //   ReplicationTaskAssessmentRuns: [ // ReplicationTaskAssessmentRunList
+ * //     { // ReplicationTaskAssessmentRun
+ * //       ReplicationTaskAssessmentRunArn: "STRING_VALUE",
+ * //       ReplicationTaskArn: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       ReplicationTaskAssessmentRunCreationDate: new Date("TIMESTAMP"),
+ * //       AssessmentProgress: { // ReplicationTaskAssessmentRunProgress
+ * //         IndividualAssessmentCount: Number("int"),
+ * //         IndividualAssessmentCompletedCount: Number("int"),
+ * //       },
+ * //       LastFailureMessage: "STRING_VALUE",
+ * //       ServiceAccessRoleArn: "STRING_VALUE",
+ * //       ResultLocationBucket: "STRING_VALUE",
+ * //       ResultLocationFolder: "STRING_VALUE",
+ * //       ResultEncryptionMode: "STRING_VALUE",
+ * //       ResultKmsKeyArn: "STRING_VALUE",
+ * //       AssessmentRunName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeReplicationTaskAssessmentRunsCommandInput - {@link DescribeReplicationTaskAssessmentRunsCommandInput}
@@ -85,6 +108,8 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<

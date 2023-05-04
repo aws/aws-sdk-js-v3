@@ -51,6 +51,20 @@ export interface DescribePackageCommandOutput extends DescribePackageResult, __M
  * };
  * const command = new DescribePackageCommand(input);
  * const response = await client.send(command);
+ * // { // DescribePackageResult
+ * //   package: { // PackageDescription
+ * //     format: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ * //     namespace: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     originConfiguration: { // PackageOriginConfiguration
+ * //       restrictions: { // PackageOriginRestrictions
+ * //         publish: "ALLOW" || "BLOCK", // required
+ * //         upstream: "ALLOW" || "BLOCK", // required
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribePackageCommandInput - {@link DescribePackageCommandInput}
@@ -82,6 +96,8 @@ export interface DescribePackageCommandOutput extends DescribePackageResult, __M
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class DescribePackageCommand extends $Command<

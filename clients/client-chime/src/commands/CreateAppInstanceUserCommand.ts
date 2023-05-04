@@ -59,6 +59,10 @@ export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUse
  * };
  * const command = new CreateAppInstanceUserCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAppInstanceUserResponse
+ * //   AppInstanceUserArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateAppInstanceUserCommandInput - {@link CreateAppInstanceUserCommandInput}
@@ -92,6 +96,8 @@ export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUse
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateAppInstanceUserCommand extends $Command<

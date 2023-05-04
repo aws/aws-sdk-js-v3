@@ -44,6 +44,15 @@ export interface GetDestinationCommandOutput extends GetDestinationResponse, __M
  * };
  * const command = new GetDestinationCommand(input);
  * const response = await client.send(command);
+ * // { // GetDestinationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Expression: "STRING_VALUE",
+ * //   ExpressionType: "RuleName" || "MqttTopic",
+ * //   Description: "STRING_VALUE",
+ * //   RoleArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetDestinationCommandInput - {@link GetDestinationCommandInput}
@@ -67,6 +76,8 @@ export interface GetDestinationCommandOutput extends GetDestinationResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetDestinationCommand extends $Command<

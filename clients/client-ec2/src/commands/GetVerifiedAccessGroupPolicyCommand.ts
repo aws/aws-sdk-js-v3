@@ -47,6 +47,11 @@ export interface GetVerifiedAccessGroupPolicyCommandOutput
  * };
  * const command = new GetVerifiedAccessGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetVerifiedAccessGroupPolicyResult
+ * //   PolicyEnabled: true || false,
+ * //   PolicyDocument: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetVerifiedAccessGroupPolicyCommandInput - {@link GetVerifiedAccessGroupPolicyCommandInput}
@@ -55,6 +60,8 @@ export interface GetVerifiedAccessGroupPolicyCommandOutput
  * @see {@link GetVerifiedAccessGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetVerifiedAccessGroupPolicyCommand extends $Command<

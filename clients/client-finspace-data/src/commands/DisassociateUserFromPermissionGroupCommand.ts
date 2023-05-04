@@ -54,6 +54,10 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
  * };
  * const command = new DisassociateUserFromPermissionGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateUserFromPermissionGroupResponse
+ * //   statusCode: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param DisassociateUserFromPermissionGroupCommandInput - {@link DisassociateUserFromPermissionGroupCommandInput}
@@ -81,6 +85,8 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class DisassociateUserFromPermissionGroupCommand extends $Command<

@@ -50,6 +50,20 @@ export interface DescribeAccountModificationsCommandOutput
  * };
  * const command = new DescribeAccountModificationsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAccountModificationsResult
+ * //   AccountModifications: [ // AccountModificationList
+ * //     { // AccountModification
+ * //       ModificationState: "PENDING" || "COMPLETED" || "FAILED",
+ * //       DedicatedTenancySupport: "ENABLED" || "DISABLED",
+ * //       DedicatedTenancyManagementCidrRange: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeAccountModificationsCommandInput - {@link DescribeAccountModificationsCommandInput}
@@ -61,6 +75,8 @@ export interface DescribeAccountModificationsCommandOutput
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The user is not authorized to access a resource.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeAccountModificationsCommand extends $Command<

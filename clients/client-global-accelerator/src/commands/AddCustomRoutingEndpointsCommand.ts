@@ -63,6 +63,15 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  * };
  * const command = new AddCustomRoutingEndpointsCommand(input);
  * const response = await client.send(command);
+ * // { // AddCustomRoutingEndpointsResponse
+ * //   EndpointDescriptions: [ // CustomRoutingEndpointDescriptions
+ * //     { // CustomRoutingEndpointDescription
+ * //       EndpointId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   EndpointGroupArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AddCustomRoutingEndpointsCommandInput - {@link AddCustomRoutingEndpointsCommandInput}
@@ -92,6 +101,8 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class AddCustomRoutingEndpointsCommand extends $Command<

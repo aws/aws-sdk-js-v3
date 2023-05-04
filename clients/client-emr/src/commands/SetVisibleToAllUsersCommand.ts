@@ -60,6 +60,8 @@ export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetVisibleToAllUsersCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SetVisibleToAllUsersCommandInput - {@link SetVisibleToAllUsersCommandInput}
@@ -72,6 +74,8 @@ export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
  *  <p>Indicates that an error occurred while processing the request and that the request was
  *          not completed.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class SetVisibleToAllUsersCommand extends $Command<

@@ -48,6 +48,8 @@ export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __Met
  * };
  * const command = new StopHumanLoopCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopHumanLoopCommandInput - {@link StopHumanLoopCommandInput}
@@ -73,6 +75,8 @@ export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __Met
  *  <p>The
  *       request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link SageMakerA2IRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
  */
 export class StopHumanLoopCommand extends $Command<

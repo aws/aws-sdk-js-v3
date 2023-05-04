@@ -65,6 +65,65 @@ export interface GetEBSVolumeRecommendationsCommandOutput
  * };
  * const command = new GetEBSVolumeRecommendationsCommand(input);
  * const response = await client.send(command);
+ * // { // GetEBSVolumeRecommendationsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   volumeRecommendations: [ // VolumeRecommendations
+ * //     { // VolumeRecommendation
+ * //       volumeArn: "STRING_VALUE",
+ * //       accountId: "STRING_VALUE",
+ * //       currentConfiguration: { // VolumeConfiguration
+ * //         volumeType: "STRING_VALUE",
+ * //         volumeSize: Number("int"),
+ * //         volumeBaselineIOPS: Number("int"),
+ * //         volumeBurstIOPS: Number("int"),
+ * //         volumeBaselineThroughput: Number("int"),
+ * //         volumeBurstThroughput: Number("int"),
+ * //         rootVolume: true || false,
+ * //       },
+ * //       finding: "Optimized" || "NotOptimized",
+ * //       utilizationMetrics: [ // EBSUtilizationMetrics
+ * //         { // EBSUtilizationMetric
+ * //           name: "VolumeReadOpsPerSecond" || "VolumeWriteOpsPerSecond" || "VolumeReadBytesPerSecond" || "VolumeWriteBytesPerSecond",
+ * //           statistic: "Maximum" || "Average",
+ * //           value: Number("double"),
+ * //         },
+ * //       ],
+ * //       lookBackPeriodInDays: Number("double"),
+ * //       volumeRecommendationOptions: [ // VolumeRecommendationOptions
+ * //         { // VolumeRecommendationOption
+ * //           configuration: {
+ * //             volumeType: "STRING_VALUE",
+ * //             volumeSize: Number("int"),
+ * //             volumeBaselineIOPS: Number("int"),
+ * //             volumeBurstIOPS: Number("int"),
+ * //             volumeBaselineThroughput: Number("int"),
+ * //             volumeBurstThroughput: Number("int"),
+ * //             rootVolume: true || false,
+ * //           },
+ * //           performanceRisk: Number("double"),
+ * //           rank: Number("int"),
+ * //           savingsOpportunity: { // SavingsOpportunity
+ * //             savingsOpportunityPercentage: Number("double"),
+ * //             estimatedMonthlySavings: { // EstimatedMonthlySavings
+ * //               currency: "USD" || "CNY",
+ * //               value: Number("double"),
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       lastRefreshTimestamp: new Date("TIMESTAMP"),
+ * //       currentPerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
+ * //     },
+ * //   ],
+ * //   errors: [ // GetRecommendationErrors
+ * //     { // GetRecommendationError
+ * //       identifier: "STRING_VALUE",
+ * //       code: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetEBSVolumeRecommendationsCommandInput - {@link GetEBSVolumeRecommendationsCommandInput}
@@ -98,6 +157,8 @@ export interface GetEBSVolumeRecommendationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class GetEBSVolumeRecommendationsCommand extends $Command<

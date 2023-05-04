@@ -48,6 +48,8 @@ export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __Metadat
  * };
  * const command = new DeleteFieldLevelEncryptionConfigCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteFieldLevelEncryptionConfigCommandInput - {@link DeleteFieldLevelEncryptionConfigCommandInput}
@@ -72,6 +74,8 @@ export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __Metadat
  *  <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeleteFieldLevelEncryptionConfigCommand extends $Command<

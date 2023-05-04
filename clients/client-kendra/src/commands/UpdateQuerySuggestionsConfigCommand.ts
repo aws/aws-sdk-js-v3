@@ -38,7 +38,7 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
  * <p>Updates the settings of query suggestions for an index.</p>
  *          <p>Amazon Kendra supports partial updates, so you only need to provide
  *             the fields you want to update.</p>
- *          <p>If an update is currently processing (i.e. 'happening'), you
+ *          <p>If an update is currently processing, you
  *             need to wait for the update to finish before making another update.</p>
  *          <p>Updates to query suggestions settings might not take effect right away.
  *             The time for your updated settings to take effect depends on the updates
@@ -60,9 +60,20 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
  *   IncludeQueriesWithoutUserInformation: true || false,
  *   MinimumNumberOfQueryingUsers: Number("int"),
  *   MinimumQueryCount: Number("int"),
+ *   AttributeSuggestionsConfig: { // AttributeSuggestionsUpdateConfig
+ *     SuggestableConfigList: [ // SuggestableConfigList
+ *       { // SuggestableConfig
+ *         AttributeName: "STRING_VALUE",
+ *         Suggestable: true || false,
+ *       },
+ *     ],
+ *     AttributeSuggestionsMode: "ACTIVE" || "INACTIVE",
+ *   },
  * };
  * const command = new UpdateQuerySuggestionsConfigCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateQuerySuggestionsConfigCommandInput - {@link UpdateQuerySuggestionsConfigCommandInput}
@@ -95,6 +106,8 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class UpdateQuerySuggestionsConfigCommand extends $Command<

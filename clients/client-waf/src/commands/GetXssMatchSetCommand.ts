@@ -52,6 +52,22 @@ export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __M
  * };
  * const command = new GetXssMatchSetCommand(input);
  * const response = await client.send(command);
+ * // { // GetXssMatchSetResponse
+ * //   XssMatchSet: { // XssMatchSet
+ * //     XssMatchSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     XssMatchTuples: [ // XssMatchTuples // required
+ * //       { // XssMatchTuple
+ * //         FieldToMatch: { // FieldToMatch
+ * //           Type: "STRING_VALUE", // required
+ * //           Data: "STRING_VALUE",
+ * //         },
+ * //         TextTransformation: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetXssMatchSetCommandInput - {@link GetXssMatchSetCommandInput}
@@ -69,6 +85,8 @@ export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __M
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To get an XSS match set
  * ```javascript

@@ -47,6 +47,20 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  * };
  * const command = new DescribeSnapshotScheduleCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSnapshotScheduleOutput
+ * //   VolumeARN: "STRING_VALUE",
+ * //   StartAt: Number("int"),
+ * //   RecurrenceInHours: Number("int"),
+ * //   Description: "STRING_VALUE",
+ * //   Timezone: "STRING_VALUE",
+ * //   Tags: [ // Tags
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeSnapshotScheduleCommandInput - {@link DescribeSnapshotScheduleCommandInput}
@@ -63,6 +77,8 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe snapshot schedule for gateway volume
  * ```javascript

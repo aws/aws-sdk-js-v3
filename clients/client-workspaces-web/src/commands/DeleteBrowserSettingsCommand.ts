@@ -44,6 +44,8 @@ export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSetting
  * };
  * const command = new DeleteBrowserSettingsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteBrowserSettingsCommandInput - {@link DeleteBrowserSettingsCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSetting
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class DeleteBrowserSettingsCommand extends $Command<

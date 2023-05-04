@@ -74,6 +74,10 @@ export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult,
  * };
  * const command = new ModifyVpcEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyVpcEndpointResult
+ * //   Return: true || false,
+ * // };
+ *
  * ```
  *
  * @param ModifyVpcEndpointCommandInput - {@link ModifyVpcEndpointCommandInput}
@@ -82,6 +86,8 @@ export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult,
  * @see {@link ModifyVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyVpcEndpointCommand extends $Command<

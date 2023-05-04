@@ -65,6 +65,13 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
  * };
  * const command = new OpenTunnelCommand(input);
  * const response = await client.send(command);
+ * // { // OpenTunnelResponse
+ * //   tunnelId: "STRING_VALUE",
+ * //   tunnelArn: "STRING_VALUE",
+ * //   sourceAccessToken: "STRING_VALUE",
+ * //   destinationAccessToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param OpenTunnelCommandInput - {@link OpenTunnelCommandInput}
@@ -76,6 +83,8 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Thrown when a tunnel limit is exceeded.</p>
  *
+ * @throws {@link IoTSecureTunnelingServiceException}
+ * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
  */
 export class OpenTunnelCommand extends $Command<

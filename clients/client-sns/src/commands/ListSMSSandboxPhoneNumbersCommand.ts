@@ -54,6 +54,16 @@ export interface ListSMSSandboxPhoneNumbersCommandOutput extends ListSMSSandboxP
  * };
  * const command = new ListSMSSandboxPhoneNumbersCommand(input);
  * const response = await client.send(command);
+ * // { // ListSMSSandboxPhoneNumbersResult
+ * //   PhoneNumbers: [ // SMSSandboxPhoneNumberList // required
+ * //     { // SMSSandboxPhoneNumber
+ * //       PhoneNumber: "STRING_VALUE",
+ * //       Status: "Pending" || "Verified",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSMSSandboxPhoneNumbersCommandInput - {@link ListSMSSandboxPhoneNumbersCommandInput}
@@ -79,6 +89,8 @@ export interface ListSMSSandboxPhoneNumbersCommandOutput extends ListSMSSandboxP
  * @throws {@link ThrottledException} (client fault)
  *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ListSMSSandboxPhoneNumbersCommand extends $Command<

@@ -46,6 +46,17 @@ export interface GetOutpostInstanceTypesCommandOutput extends GetOutpostInstance
  * };
  * const command = new GetOutpostInstanceTypesCommand(input);
  * const response = await client.send(command);
+ * // { // GetOutpostInstanceTypesOutput
+ * //   InstanceTypes: [ // InstanceTypeListDefinition
+ * //     { // InstanceTypeItem
+ * //       InstanceType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   OutpostId: "STRING_VALUE",
+ * //   OutpostArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetOutpostInstanceTypesCommandInput - {@link GetOutpostInstanceTypesCommandInput}
@@ -66,6 +77,8 @@ export interface GetOutpostInstanceTypesCommandOutput extends GetOutpostInstance
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class GetOutpostInstanceTypesCommand extends $Command<

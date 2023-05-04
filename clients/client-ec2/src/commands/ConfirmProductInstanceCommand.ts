@@ -48,6 +48,11 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  * };
  * const command = new ConfirmProductInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // ConfirmProductInstanceResult
+ * //   OwnerId: "STRING_VALUE",
+ * //   Return: true || false,
+ * // };
+ *
  * ```
  *
  * @param ConfirmProductInstanceCommandInput - {@link ConfirmProductInstanceCommandInput}
@@ -56,6 +61,8 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  * @see {@link ConfirmProductInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To confirm the product instance
  * ```javascript

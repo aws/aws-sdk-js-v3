@@ -57,6 +57,8 @@ export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnab
  * };
  * const command = new SetIdentityDkimEnabledCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SetIdentityDkimEnabledCommandInput - {@link SetIdentityDkimEnabledCommandInput}
@@ -65,6 +67,8 @@ export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnab
  * @see {@link SetIdentityDkimEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example SetIdentityDkimEnabled
  * ```javascript

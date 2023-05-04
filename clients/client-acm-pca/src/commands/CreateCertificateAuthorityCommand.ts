@@ -170,6 +170,10 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * };
  * const command = new CreateCertificateAuthorityCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCertificateAuthorityResponse
+ * //   CertificateAuthorityArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateCertificateAuthorityCommandInput - {@link CreateCertificateAuthorityCommandInput}
@@ -193,6 +197,8 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *  <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine
  * 			the quota that was exceeded.</p>
  *
+ * @throws {@link ACMPCAServiceException}
+ * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
  */
 export class CreateCertificateAuthorityCommand extends $Command<

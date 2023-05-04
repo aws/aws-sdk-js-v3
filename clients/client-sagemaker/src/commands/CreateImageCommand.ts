@@ -55,6 +55,10 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * };
  * const command = new CreateImageCommand(input);
  * const response = await client.send(command);
+ * // { // CreateImageResponse
+ * //   ImageArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateImageCommandInput - {@link CreateImageCommandInput}
@@ -70,6 +74,8 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateImageCommand extends $Command<

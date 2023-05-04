@@ -68,6 +68,13 @@ export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPrevie
  * };
  * const command = new GetAutoMergingPreviewCommand(input);
  * const response = await client.send(command);
+ * // { // GetAutoMergingPreviewResponse
+ * //   DomainName: "STRING_VALUE", // required
+ * //   NumberOfMatchesInSample: Number("long"),
+ * //   NumberOfProfilesInSample: Number("long"),
+ * //   NumberOfProfilesWillBeMerged: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param GetAutoMergingPreviewCommandInput - {@link GetAutoMergingPreviewCommandInput}
@@ -91,6 +98,8 @@ export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPrevie
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class GetAutoMergingPreviewCommand extends $Command<

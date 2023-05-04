@@ -47,6 +47,22 @@ export interface DeleteLocalGatewayRouteCommandOutput extends DeleteLocalGateway
  * };
  * const command = new DeleteLocalGatewayRouteCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteLocalGatewayRouteResult
+ * //   Route: { // LocalGatewayRoute
+ * //     DestinationCidrBlock: "STRING_VALUE",
+ * //     LocalGatewayVirtualInterfaceGroupId: "STRING_VALUE",
+ * //     Type: "static" || "propagated",
+ * //     State: "pending" || "active" || "blackhole" || "deleting" || "deleted",
+ * //     LocalGatewayRouteTableId: "STRING_VALUE",
+ * //     LocalGatewayRouteTableArn: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     SubnetId: "STRING_VALUE",
+ * //     CoipPoolId: "STRING_VALUE",
+ * //     NetworkInterfaceId: "STRING_VALUE",
+ * //     DestinationPrefixListId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteLocalGatewayRouteCommandInput - {@link DeleteLocalGatewayRouteCommandInput}
@@ -55,6 +71,8 @@ export interface DeleteLocalGatewayRouteCommandOutput extends DeleteLocalGateway
  * @see {@link DeleteLocalGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteLocalGatewayRouteCommand extends $Command<

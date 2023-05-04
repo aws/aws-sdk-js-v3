@@ -52,6 +52,12 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  * };
  * const command = new DescribeBandwidthRateLimitCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeBandwidthRateLimitOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   AverageUploadRateLimitInBitsPerSec: Number("long"),
+ * //   AverageDownloadRateLimitInBitsPerSec: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param DescribeBandwidthRateLimitCommandInput - {@link DescribeBandwidthRateLimitCommandInput}
@@ -68,6 +74,8 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe the bandwidth rate limits of a gateway
  * ```javascript

@@ -52,6 +52,16 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
  * };
  * const command = new ValidateAssessmentReportIntegrityCommand(input);
  * const response = await client.send(command);
+ * // { // ValidateAssessmentReportIntegrityResponse
+ * //   signatureValid: true || false,
+ * //   signatureAlgorithm: "STRING_VALUE",
+ * //   signatureDateTime: "STRING_VALUE",
+ * //   signatureKeyId: "STRING_VALUE",
+ * //   validationErrors: [ // ValidationErrors
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ValidateAssessmentReportIntegrityCommandInput - {@link ValidateAssessmentReportIntegrityCommandInput}
@@ -74,6 +84,8 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class ValidateAssessmentReportIntegrityCommand extends $Command<

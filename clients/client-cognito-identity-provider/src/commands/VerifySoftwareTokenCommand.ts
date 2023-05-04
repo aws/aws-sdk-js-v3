@@ -58,6 +58,11 @@ export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenRes
  * };
  * const command = new VerifySoftwareTokenCommand(input);
  * const response = await client.send(command);
+ * // { // VerifySoftwareTokenResponse
+ * //   Status: "SUCCESS" || "ERROR",
+ * //   Session: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param VerifySoftwareTokenCommandInput - {@link VerifySoftwareTokenCommandInput}
@@ -111,6 +116,8 @@ export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenRes
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class VerifySoftwareTokenCommand extends $Command<

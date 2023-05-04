@@ -74,6 +74,34 @@ export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __Metadat
  * };
  * const command = new PutBotAliasCommand(input);
  * const response = await client.send(command);
+ * // { // PutBotAliasResponse
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   botName: "STRING_VALUE",
+ * //   lastUpdatedDate: new Date("TIMESTAMP"),
+ * //   createdDate: new Date("TIMESTAMP"),
+ * //   checksum: "STRING_VALUE",
+ * //   conversationLogs: { // ConversationLogsResponse
+ * //     logSettings: [ // LogSettingsResponseList
+ * //       { // LogSettingsResponse
+ * //         logType: "STRING_VALUE",
+ * //         destination: "STRING_VALUE",
+ * //         kmsKeyArn: "STRING_VALUE",
+ * //         resourceArn: "STRING_VALUE",
+ * //         resourcePrefix: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     iamRoleArn: "STRING_VALUE",
+ * //   },
+ * //   tags: [ // TagList
+ * //     { // Tag
+ * //       key: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param PutBotAliasCommandInput - {@link PutBotAliasCommandInput}
@@ -102,6 +130,8 @@ export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __Metadat
  *       not match the checksum in the request. Check the resource's checksum and
  *       try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class PutBotAliasCommand extends $Command<

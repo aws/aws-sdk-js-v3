@@ -47,6 +47,8 @@ export interface PutResourceLogLevelCommandOutput extends PutResourceLogLevelRes
  * };
  * const command = new PutResourceLogLevelCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutResourceLogLevelCommandInput - {@link PutResourceLogLevelCommandInput}
@@ -70,6 +72,8 @@ export interface PutResourceLogLevelCommandOutput extends PutResourceLogLevelRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class PutResourceLogLevelCommand extends $Command<

@@ -45,6 +45,19 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * };
  * const command = new ListWorkspacesCommand(input);
  * const response = await client.send(command);
+ * // { // ListWorkspacesResponse
+ * //   workspaceSummaries: [ // WorkspaceSummaries
+ * //     { // WorkspaceSummary
+ * //       workspaceId: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"), // required
+ * //       updateDateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListWorkspacesCommandInput - {@link ListWorkspacesCommandInput}
@@ -65,6 +78,8 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class ListWorkspacesCommand extends $Command<

@@ -64,6 +64,21 @@ export interface PutVoiceConnectorOriginationCommandOutput
  * };
  * const command = new PutVoiceConnectorOriginationCommand(input);
  * const response = await client.send(command);
+ * // { // PutVoiceConnectorOriginationResponse
+ * //   Origination: { // Origination
+ * //     Routes: [ // OriginationRouteList
+ * //       { // OriginationRoute
+ * //         Host: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         Protocol: "TCP" || "UDP",
+ * //         Priority: Number("int"),
+ * //         Weight: Number("int"),
+ * //       },
+ * //     ],
+ * //     Disabled: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutVoiceConnectorOriginationCommandInput - {@link PutVoiceConnectorOriginationCommandInput}
@@ -93,6 +108,8 @@ export interface PutVoiceConnectorOriginationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class PutVoiceConnectorOriginationCommand extends $Command<

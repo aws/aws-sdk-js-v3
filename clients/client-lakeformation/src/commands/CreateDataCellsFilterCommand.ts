@@ -62,6 +62,8 @@ export interface CreateDataCellsFilterCommandOutput extends CreateDataCellsFilte
  * };
  * const command = new CreateDataCellsFilterCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateDataCellsFilterCommandInput - {@link CreateDataCellsFilterCommandInput}
@@ -91,6 +93,8 @@ export interface CreateDataCellsFilterCommandOutput extends CreateDataCellsFilte
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class CreateDataCellsFilterCommand extends $Command<

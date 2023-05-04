@@ -44,6 +44,45 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * };
  * const command = new GetCampaignCommand(input);
  * const response = await client.send(command);
+ * // { // GetCampaignResponse
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   signalCatalogArn: "STRING_VALUE",
+ * //   targetArn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   startTime: new Date("TIMESTAMP"),
+ * //   expiryTime: new Date("TIMESTAMP"),
+ * //   postTriggerCollectionDuration: Number("long"),
+ * //   diagnosticsMode: "STRING_VALUE",
+ * //   spoolingMode: "STRING_VALUE",
+ * //   compression: "STRING_VALUE",
+ * //   priority: Number("int"),
+ * //   signalsToCollect: [ // SignalInformationList
+ * //     { // SignalInformation
+ * //       name: "STRING_VALUE", // required
+ * //       maxSampleCount: Number("long"),
+ * //       minimumSamplingIntervalMs: Number("long"),
+ * //     },
+ * //   ],
+ * //   collectionScheme: { // CollectionScheme Union: only one key present
+ * //     timeBasedCollectionScheme: { // TimeBasedCollectionScheme
+ * //       periodMs: Number("long"), // required
+ * //     },
+ * //     conditionBasedCollectionScheme: { // ConditionBasedCollectionScheme
+ * //       expression: "STRING_VALUE", // required
+ * //       minimumTriggerIntervalMs: Number("long"),
+ * //       triggerMode: "STRING_VALUE",
+ * //       conditionLanguageVersion: Number("int"),
+ * //     },
+ * //   },
+ * //   dataExtraDimensions: [ // DataExtraDimensionNodePathList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   lastModificationTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param GetCampaignCommandInput - {@link GetCampaignCommandInput}
@@ -67,6 +106,8 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class GetCampaignCommand extends $Command<

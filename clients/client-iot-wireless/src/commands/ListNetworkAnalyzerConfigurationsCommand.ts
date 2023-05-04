@@ -53,6 +53,16 @@ export interface ListNetworkAnalyzerConfigurationsCommandOutput
  * };
  * const command = new ListNetworkAnalyzerConfigurationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListNetworkAnalyzerConfigurationsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   NetworkAnalyzerConfigurationList: [ // NetworkAnalyzerConfigurationList
+ * //     { // NetworkAnalyzerConfigurations
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListNetworkAnalyzerConfigurationsCommandInput - {@link ListNetworkAnalyzerConfigurationsCommandInput}
@@ -73,6 +83,8 @@ export interface ListNetworkAnalyzerConfigurationsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ListNetworkAnalyzerConfigurationsCommand extends $Command<

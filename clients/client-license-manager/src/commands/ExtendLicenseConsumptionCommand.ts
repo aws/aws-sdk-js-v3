@@ -45,6 +45,11 @@ export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseCons
  * };
  * const command = new ExtendLicenseConsumptionCommand(input);
  * const response = await client.send(command);
+ * // { // ExtendLicenseConsumptionResponse
+ * //   LicenseConsumptionToken: "STRING_VALUE",
+ * //   Expiration: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ExtendLicenseConsumptionCommandInput - {@link ExtendLicenseConsumptionCommandInput}
@@ -75,6 +80,8 @@ export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseCons
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ExtendLicenseConsumptionCommand extends $Command<

@@ -47,6 +47,13 @@ export interface ImportBackendStorageCommandOutput extends ImportBackendStorageR
  * };
  * const command = new ImportBackendStorageCommand(input);
  * const response = await client.send(command);
+ * // { // ImportBackendStorageResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ImportBackendStorageCommandInput - {@link ImportBackendStorageCommandInput}
@@ -67,6 +74,8 @@ export interface ImportBackendStorageCommandOutput extends ImportBackendStorageR
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  *
+ * @throws {@link AmplifyBackendServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
 export class ImportBackendStorageCommand extends $Command<

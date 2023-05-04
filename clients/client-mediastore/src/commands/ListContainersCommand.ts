@@ -53,6 +53,20 @@ export interface ListContainersCommandOutput extends ListContainersOutput, __Met
  * };
  * const command = new ListContainersCommand(input);
  * const response = await client.send(command);
+ * // { // ListContainersOutput
+ * //   Containers: [ // ContainerList // required
+ * //     { // Container
+ * //       Endpoint: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       ARN: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       AccessLoggingEnabled: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListContainersCommandInput - {@link ListContainersCommandInput}
@@ -64,6 +78,8 @@ export interface ListContainersCommandOutput extends ListContainersOutput, __Met
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class ListContainersCommand extends $Command<

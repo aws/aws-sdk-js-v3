@@ -44,6 +44,10 @@ export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVe
  * };
  * const command = new GetAppliedSchemaVersionCommand(input);
  * const response = await client.send(command);
+ * // { // GetAppliedSchemaVersionResponse
+ * //   AppliedSchemaArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetAppliedSchemaVersionCommandInput - {@link GetAppliedSchemaVersionCommandInput}
@@ -74,6 +78,8 @@ export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVe
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class GetAppliedSchemaVersionCommand extends $Command<

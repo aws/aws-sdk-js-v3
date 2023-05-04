@@ -50,6 +50,8 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * };
  * const command = new DeleteMemberCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteMemberCommandInput - {@link DeleteMemberCommandInput}
@@ -79,6 +81,8 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class DeleteMemberCommand extends $Command<

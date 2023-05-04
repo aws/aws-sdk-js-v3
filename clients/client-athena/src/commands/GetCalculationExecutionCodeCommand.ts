@@ -46,6 +46,10 @@ export interface GetCalculationExecutionCodeCommandOutput
  * };
  * const command = new GetCalculationExecutionCodeCommand(input);
  * const response = await client.send(command);
+ * // { // GetCalculationExecutionCodeResponse
+ * //   CodeBlock: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetCalculationExecutionCodeCommandInput - {@link GetCalculationExecutionCodeCommandInput}
@@ -65,6 +69,8 @@ export interface GetCalculationExecutionCodeCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class GetCalculationExecutionCodeCommand extends $Command<

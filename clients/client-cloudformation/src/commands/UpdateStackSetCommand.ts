@@ -108,6 +108,10 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  * };
  * const command = new UpdateStackSetCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateStackSetOutput
+ * //   OperationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateStackSetCommandInput - {@link UpdateStackSetCommandInput}
@@ -136,6 +140,8 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  *  <p>Another operation has been performed on this stack set since the specified operation was
  *          performed.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class UpdateStackSetCommand extends $Command<

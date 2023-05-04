@@ -53,6 +53,8 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput
  * };
  * const command = new DeregisterOrganizationDelegatedAdminCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeregisterOrganizationDelegatedAdminCommandInput - {@link DeregisterOrganizationDelegatedAdminCommandInput}
@@ -105,6 +107,8 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class DeregisterOrganizationDelegatedAdminCommand extends $Command<

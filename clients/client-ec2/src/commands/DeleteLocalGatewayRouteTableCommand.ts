@@ -49,6 +49,28 @@ export interface DeleteLocalGatewayRouteTableCommandOutput
  * };
  * const command = new DeleteLocalGatewayRouteTableCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteLocalGatewayRouteTableResult
+ * //   LocalGatewayRouteTable: { // LocalGatewayRouteTable
+ * //     LocalGatewayRouteTableId: "STRING_VALUE",
+ * //     LocalGatewayRouteTableArn: "STRING_VALUE",
+ * //     LocalGatewayId: "STRING_VALUE",
+ * //     OutpostArn: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     State: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Mode: "direct-vpc-routing" || "coip",
+ * //     StateReason: { // StateReason
+ * //       Code: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteLocalGatewayRouteTableCommandInput - {@link DeleteLocalGatewayRouteTableCommandInput}
@@ -57,6 +79,8 @@ export interface DeleteLocalGatewayRouteTableCommandOutput
  * @see {@link DeleteLocalGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteLocalGatewayRouteTableCommand extends $Command<

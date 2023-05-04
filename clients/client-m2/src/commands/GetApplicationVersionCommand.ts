@@ -45,6 +45,16 @@ export interface GetApplicationVersionCommandOutput extends GetApplicationVersio
  * };
  * const command = new GetApplicationVersionCommand(input);
  * const response = await client.send(command);
+ * // { // GetApplicationVersionResponse
+ * //   name: "STRING_VALUE", // required
+ * //   applicationVersion: Number("int"), // required
+ * //   description: "STRING_VALUE",
+ * //   definitionContent: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   statusReason: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetApplicationVersionCommandInput - {@link GetApplicationVersionCommandInput}
@@ -68,6 +78,8 @@ export interface GetApplicationVersionCommandOutput extends GetApplicationVersio
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class GetApplicationVersionCommand extends $Command<

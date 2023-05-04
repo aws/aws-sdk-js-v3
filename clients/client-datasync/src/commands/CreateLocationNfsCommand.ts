@@ -60,6 +60,10 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
  * };
  * const command = new CreateLocationNfsCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLocationNfsResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateLocationNfsCommandInput - {@link CreateLocationNfsCommandInput}
@@ -75,6 +79,8 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationNfsCommand extends $Command<

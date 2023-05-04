@@ -49,6 +49,8 @@ export interface RegisterEventTopicCommandOutput extends RegisterEventTopicResul
  * };
  * const command = new RegisterEventTopicCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RegisterEventTopicCommandInput - {@link RegisterEventTopicCommandInput}
@@ -69,6 +71,8 @@ export interface RegisterEventTopicCommandOutput extends RegisterEventTopicResul
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class RegisterEventTopicCommand extends $Command<

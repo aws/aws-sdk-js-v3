@@ -45,6 +45,34 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * };
  * const command = new DescribeCertificateCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeCertificateResponse
+ * //   certificateDescription: { // CertificateDescription
+ * //     certificateArn: "STRING_VALUE",
+ * //     certificateId: "STRING_VALUE",
+ * //     caCertificateId: "STRING_VALUE",
+ * //     status: "ACTIVE" || "INACTIVE" || "REVOKED" || "PENDING_TRANSFER" || "REGISTER_INACTIVE" || "PENDING_ACTIVATION",
+ * //     certificatePem: "STRING_VALUE",
+ * //     ownedBy: "STRING_VALUE",
+ * //     previousOwnedBy: "STRING_VALUE",
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     lastModifiedDate: new Date("TIMESTAMP"),
+ * //     customerVersion: Number("int"),
+ * //     transferData: { // TransferData
+ * //       transferMessage: "STRING_VALUE",
+ * //       rejectReason: "STRING_VALUE",
+ * //       transferDate: new Date("TIMESTAMP"),
+ * //       acceptDate: new Date("TIMESTAMP"),
+ * //       rejectDate: new Date("TIMESTAMP"),
+ * //     },
+ * //     generationId: "STRING_VALUE",
+ * //     validity: { // CertificateValidity
+ * //       notBefore: new Date("TIMESTAMP"),
+ * //       notAfter: new Date("TIMESTAMP"),
+ * //     },
+ * //     certificateMode: "DEFAULT" || "SNI_ONLY",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeCertificateCommandInput - {@link DescribeCertificateCommandInput}
@@ -71,6 +99,8 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeCertificateCommand extends $Command<

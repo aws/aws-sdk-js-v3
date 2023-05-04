@@ -103,6 +103,16 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  * };
  * const command = new DescribeEventAggregatesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEventAggregatesResponse
+ * //   eventAggregates: [ // EventAggregateList
+ * //     { // EventAggregate
+ * //       aggregateValue: "STRING_VALUE",
+ * //       count: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeEventAggregatesCommandInput - {@link DescribeEventAggregatesCommandInput}
@@ -114,6 +124,8 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  * @throws {@link InvalidPaginationToken} (client fault)
  *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeEventAggregatesCommand extends $Command<

@@ -53,6 +53,12 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * };
  * const command = new ListResourcesForWebACLCommand(input);
  * const response = await client.send(command);
+ * // { // ListResourcesForWebACLResponse
+ * //   ResourceArns: [ // ResourceArns
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListResourcesForWebACLCommandInput - {@link ListResourcesForWebACLCommandInput}
@@ -110,6 +116,8 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class ListResourcesForWebACLCommand extends $Command<

@@ -46,6 +46,27 @@ export interface ListSolNetworkOperationsCommandOutput extends ListSolNetworkOpe
  * };
  * const command = new ListSolNetworkOperationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSolNetworkOperationsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   networkOperations: [ // ListSolNetworkOperationsResources
+ * //     { // ListSolNetworkOperationsInfo
+ * //       id: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       operationState: "PROCESSING" || "COMPLETED" || "FAILED" || "CANCELLING" || "CANCELLED", // required
+ * //       nsInstanceId: "STRING_VALUE", // required
+ * //       lcmOperationType: "INSTANTIATE" || "UPDATE" || "TERMINATE", // required
+ * //       error: { // ProblemDetails
+ * //         detail: "STRING_VALUE", // required
+ * //         title: "STRING_VALUE",
+ * //       },
+ * //       metadata: { // ListSolNetworkOperationsMetadata
+ * //         createdAt: new Date("TIMESTAMP"), // required
+ * //         lastModified: new Date("TIMESTAMP"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListSolNetworkOperationsCommandInput - {@link ListSolNetworkOperationsCommandInput}
@@ -66,6 +87,8 @@ export interface ListSolNetworkOperationsCommandOutput extends ListSolNetworkOpe
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class ListSolNetworkOperationsCommand extends $Command<

@@ -53,6 +53,16 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * };
  * const command = new ListRuleGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListRuleGroupsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   RuleGroups: [ // RuleGroupSummaries
+ * //     { // RuleGroupSummary
+ * //       RuleGroupId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListRuleGroupsCommandInput - {@link ListRuleGroupsCommandInput}
@@ -64,6 +74,8 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * @throws {@link WAFInternalErrorException} (server fault)
  *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class ListRuleGroupsCommand extends $Command<

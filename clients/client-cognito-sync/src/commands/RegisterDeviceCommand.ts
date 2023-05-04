@@ -91,6 +91,10 @@ export interface RegisterDeviceCommandOutput extends RegisterDeviceResponse, __M
  * };
  * const command = new RegisterDeviceCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterDeviceResponse
+ * //   DeviceId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RegisterDeviceCommandInput - {@link RegisterDeviceCommandInput}
@@ -121,6 +125,8 @@ export interface RegisterDeviceCommandOutput extends RegisterDeviceResponse, __M
  *  Thrown if the request is
  *       throttled.
  *
+ * @throws {@link CognitoSyncServiceException}
+ * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
  */
 export class RegisterDeviceCommand extends $Command<

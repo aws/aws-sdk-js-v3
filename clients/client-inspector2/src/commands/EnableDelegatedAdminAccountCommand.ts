@@ -50,6 +50,10 @@ export interface EnableDelegatedAdminAccountCommandOutput
  * };
  * const command = new EnableDelegatedAdminAccountCommand(input);
  * const response = await client.send(command);
+ * // { // EnableDelegatedAdminAccountResponse
+ * //   delegatedAdminAccountId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param EnableDelegatedAdminAccountCommandInput - {@link EnableDelegatedAdminAccountCommandInput}
@@ -77,6 +81,8 @@ export interface EnableDelegatedAdminAccountCommandOutput
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class EnableDelegatedAdminAccountCommand extends $Command<

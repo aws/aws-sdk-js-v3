@@ -52,6 +52,13 @@ export interface ListTriggersCommandOutput extends ListTriggersResponse, __Metad
  * };
  * const command = new ListTriggersCommand(input);
  * const response = await client.send(command);
+ * // { // ListTriggersResponse
+ * //   TriggerNames: [ // TriggerNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTriggersCommandInput - {@link ListTriggersCommandInput}
@@ -72,6 +79,8 @@ export interface ListTriggersCommandOutput extends ListTriggersResponse, __Metad
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListTriggersCommand extends $Command<

@@ -68,6 +68,39 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * };
  * const command = new CreateBackupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateBackupResponse
+ * //   Backup: { // Backup
+ * //     BackupArn: "STRING_VALUE",
+ * //     BackupId: "STRING_VALUE",
+ * //     BackupType: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     Description: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
+ * //     EngineModel: "STRING_VALUE",
+ * //     EngineVersion: "STRING_VALUE",
+ * //     InstanceProfileArn: "STRING_VALUE",
+ * //     InstanceType: "STRING_VALUE",
+ * //     KeyPair: "STRING_VALUE",
+ * //     PreferredBackupWindow: "STRING_VALUE",
+ * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     S3DataSize: Number("int"),
+ * //     S3DataUrl: "STRING_VALUE",
+ * //     S3LogUrl: "STRING_VALUE",
+ * //     SecurityGroupIds: [ // Strings
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ServerName: "STRING_VALUE",
+ * //     ServiceRoleArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     StatusDescription: "STRING_VALUE",
+ * //     SubnetIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ToolsVersion: "STRING_VALUE",
+ * //     UserArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateBackupCommandInput - {@link CreateBackupCommandInput}
@@ -92,6 +125,8 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class CreateBackupCommand extends $Command<

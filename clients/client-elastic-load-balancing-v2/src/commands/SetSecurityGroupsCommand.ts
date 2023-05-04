@@ -54,6 +54,12 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  * };
  * const command = new SetSecurityGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // SetSecurityGroupsOutput
+ * //   SecurityGroupIds: [ // SecurityGroups
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param SetSecurityGroupsCommandInput - {@link SetSecurityGroupsCommandInput}
@@ -71,6 +77,8 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  * @throws {@link LoadBalancerNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To associate a security group with a load balancer
  * ```javascript

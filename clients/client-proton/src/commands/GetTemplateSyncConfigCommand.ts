@@ -45,6 +45,17 @@ export interface GetTemplateSyncConfigCommandOutput extends GetTemplateSyncConfi
  * };
  * const command = new GetTemplateSyncConfigCommand(input);
  * const response = await client.send(command);
+ * // { // GetTemplateSyncConfigOutput
+ * //   templateSyncConfig: { // TemplateSyncConfig
+ * //     templateName: "STRING_VALUE", // required
+ * //     templateType: "STRING_VALUE", // required
+ * //     repositoryProvider: "STRING_VALUE", // required
+ * //     repositoryName: "STRING_VALUE", // required
+ * //     branch: "STRING_VALUE", // required
+ * //     subdirectory: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetTemplateSyncConfigCommandInput - {@link GetTemplateSyncConfigCommandInput}
@@ -68,6 +79,8 @@ export interface GetTemplateSyncConfigCommandOutput extends GetTemplateSyncConfi
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class GetTemplateSyncConfigCommand extends $Command<

@@ -55,6 +55,16 @@ export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
  * };
  * const command = new ListThirdPartyFirewallFirewallPoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // ListThirdPartyFirewallFirewallPoliciesResponse
+ * //   ThirdPartyFirewallFirewallPolicies: [ // ThirdPartyFirewallFirewallPolicies
+ * //     { // ThirdPartyFirewallFirewallPolicy
+ * //       FirewallPolicyId: "STRING_VALUE",
+ * //       FirewallPolicyName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListThirdPartyFirewallFirewallPoliciesCommandInput - {@link ListThirdPartyFirewallFirewallPoliciesCommandInput}
@@ -80,6 +90,8 @@ export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListThirdPartyFirewallFirewallPoliciesCommand extends $Command<

@@ -60,6 +60,18 @@ export interface ListModelExplainabilityJobDefinitionsCommandOutput
  * };
  * const command = new ListModelExplainabilityJobDefinitionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListModelExplainabilityJobDefinitionsResponse
+ * //   JobDefinitionSummaries: [ // MonitoringJobDefinitionSummaryList // required
+ * //     { // MonitoringJobDefinitionSummary
+ * //       MonitoringJobDefinitionName: "STRING_VALUE", // required
+ * //       MonitoringJobDefinitionArn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       EndpointName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListModelExplainabilityJobDefinitionsCommandInput - {@link ListModelExplainabilityJobDefinitionsCommandInput}
@@ -68,6 +80,8 @@ export interface ListModelExplainabilityJobDefinitionsCommandOutput
  * @see {@link ListModelExplainabilityJobDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListModelExplainabilityJobDefinitionsCommand extends $Command<

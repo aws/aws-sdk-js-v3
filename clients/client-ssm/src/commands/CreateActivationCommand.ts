@@ -69,6 +69,11 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
  * };
  * const command = new CreateActivationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateActivationResult
+ * //   ActivationId: "STRING_VALUE",
+ * //   ActivationCode: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateActivationCommandInput - {@link CreateActivationCommandInput}
@@ -84,6 +89,8 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
  *  <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM
  *    document). You can only supply values to parameters defined in the SSM document.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CreateActivationCommand extends $Command<

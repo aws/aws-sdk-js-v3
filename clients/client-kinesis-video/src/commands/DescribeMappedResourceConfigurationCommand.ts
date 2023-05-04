@@ -57,6 +57,16 @@ export interface DescribeMappedResourceConfigurationCommandOutput
  * };
  * const command = new DescribeMappedResourceConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeMappedResourceConfigurationOutput
+ * //   MappedResourceConfigurationList: [ // MappedResourceConfigurationList
+ * //     { // MappedResourceConfigurationListItem
+ * //       Type: "STRING_VALUE",
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeMappedResourceConfigurationCommandInput - {@link DescribeMappedResourceConfigurationCommandInput}
@@ -78,6 +88,8 @@ export interface DescribeMappedResourceConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class DescribeMappedResourceConfigurationCommand extends $Command<

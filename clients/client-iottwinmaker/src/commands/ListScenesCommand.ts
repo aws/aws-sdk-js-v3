@@ -46,6 +46,20 @@ export interface ListScenesCommandOutput extends ListScenesResponse, __MetadataB
  * };
  * const command = new ListScenesCommand(input);
  * const response = await client.send(command);
+ * // { // ListScenesResponse
+ * //   sceneSummaries: [ // SceneSummaries
+ * //     { // SceneSummary
+ * //       sceneId: "STRING_VALUE", // required
+ * //       contentLocation: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       creationDateTime: new Date("TIMESTAMP"), // required
+ * //       updateDateTime: new Date("TIMESTAMP"), // required
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListScenesCommandInput - {@link ListScenesCommandInput}
@@ -66,6 +80,8 @@ export interface ListScenesCommandOutput extends ListScenesResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class ListScenesCommand extends $Command<

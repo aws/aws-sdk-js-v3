@@ -68,6 +68,19 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
  * };
  * const command = new DescribeReplicationTaskIndividualAssessmentsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeReplicationTaskIndividualAssessmentsResponse
+ * //   Marker: "STRING_VALUE",
+ * //   ReplicationTaskIndividualAssessments: [ // ReplicationTaskIndividualAssessmentList
+ * //     { // ReplicationTaskIndividualAssessment
+ * //       ReplicationTaskIndividualAssessmentArn: "STRING_VALUE",
+ * //       ReplicationTaskAssessmentRunArn: "STRING_VALUE",
+ * //       IndividualAssessmentName: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       ReplicationTaskIndividualAssessmentStartDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeReplicationTaskIndividualAssessmentsCommandInput - {@link DescribeReplicationTaskIndividualAssessmentsCommandInput}
@@ -79,6 +92,8 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Command<

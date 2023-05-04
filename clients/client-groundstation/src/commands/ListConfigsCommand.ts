@@ -45,6 +45,18 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
  * };
  * const command = new ListConfigsCommand(input);
  * const response = await client.send(command);
+ * // { // ListConfigsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   configList: [ // ConfigList
+ * //     { // ConfigListItem
+ * //       configId: "STRING_VALUE",
+ * //       configType: "STRING_VALUE",
+ * //       configArn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListConfigsCommandInput - {@link ListConfigsCommandInput}
@@ -62,6 +74,8 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class ListConfigsCommand extends $Command<

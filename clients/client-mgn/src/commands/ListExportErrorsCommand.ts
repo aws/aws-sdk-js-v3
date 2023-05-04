@@ -46,6 +46,18 @@ export interface ListExportErrorsCommandOutput extends ListExportErrorsResponse,
  * };
  * const command = new ListExportErrorsCommand(input);
  * const response = await client.send(command);
+ * // { // ListExportErrorsResponse
+ * //   items: [ // ExportErrors
+ * //     { // ExportTaskError
+ * //       errorDateTime: "STRING_VALUE",
+ * //       errorData: { // ExportErrorData
+ * //         rawError: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListExportErrorsCommandInput - {@link ListExportErrorsCommandInput}
@@ -60,6 +72,8 @@ export interface ListExportErrorsCommandOutput extends ListExportErrorsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class ListExportErrorsCommand extends $Command<

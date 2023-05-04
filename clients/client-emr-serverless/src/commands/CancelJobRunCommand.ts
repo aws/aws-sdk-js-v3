@@ -45,6 +45,11 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * };
  * const command = new CancelJobRunCommand(input);
  * const response = await client.send(command);
+ * // { // CancelJobRunResponse
+ * //   applicationId: "STRING_VALUE", // required
+ * //   jobRunId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CancelJobRunCommandInput - {@link CancelJobRunCommandInput}
@@ -63,6 +68,8 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class CancelJobRunCommand extends $Command<

@@ -61,6 +61,10 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  * };
  * const command = new CreateGraphCommand(input);
  * const response = await client.send(command);
+ * // { // CreateGraphResponse
+ * //   GraphArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateGraphCommandInput - {@link CreateGraphCommandInput}
@@ -97,6 +101,8 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  *             </li>
  *          </ul>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class CreateGraphCommand extends $Command<

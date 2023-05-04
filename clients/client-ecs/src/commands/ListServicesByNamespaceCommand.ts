@@ -50,6 +50,13 @@ export interface ListServicesByNamespaceCommandOutput extends ListServicesByName
  * };
  * const command = new ListServicesByNamespaceCommand(input);
  * const response = await client.send(command);
+ * // { // ListServicesByNamespaceResponse
+ * //   serviceArns: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListServicesByNamespaceCommandInput - {@link ListServicesByNamespaceCommandInput}
@@ -73,6 +80,8 @@ export interface ListServicesByNamespaceCommandOutput extends ListServicesByName
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class ListServicesByNamespaceCommand extends $Command<

@@ -64,6 +64,12 @@ export interface UpdateKeyCommandOutput extends UpdateKeyResponse, __MetadataBea
  * };
  * const command = new UpdateKeyCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateKeyResponse
+ * //   KeyArn: "STRING_VALUE", // required
+ * //   KeyName: "STRING_VALUE", // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param UpdateKeyCommandInput - {@link UpdateKeyCommandInput}
@@ -88,6 +94,8 @@ export interface UpdateKeyCommandOutput extends UpdateKeyResponse, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class UpdateKeyCommand extends $Command<
