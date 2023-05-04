@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeGroupRequest, DescribeGroupResponse } from "../models/models_2";
+import { DescribeGroupRequest, DescribeGroupResponse } from "../models/models_3";
 import { de_DescribeGroupCommand, se_DescribeGroupCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

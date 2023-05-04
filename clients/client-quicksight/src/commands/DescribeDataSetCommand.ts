@@ -17,7 +17,7 @@ import {
   DescribeDataSetRequest,
   DescribeDataSetResponse,
   DescribeDataSetResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import { de_DescribeDataSetCommand, se_DescribeDataSetCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -147,6 +147,24 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * //                 "COLUMN_GEOGRAPHIC_ROLE" || "COLUMN_DESCRIPTION",
  * //               ],
  * //             },
+ * //             OverrideDatasetParameterOperation: { // OverrideDatasetParameterOperation
+ * //               ParameterName: "STRING_VALUE", // required
+ * //               NewParameterName: "STRING_VALUE",
+ * //               NewDefaultValues: { // NewDefaultValues
+ * //                 StringStaticValues: [ // StringDatasetParameterValueList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 DecimalStaticValues: [ // DecimalDatasetParameterValueList
+ * //                   Number("double"),
+ * //                 ],
+ * //                 DateTimeStaticValues: [ // DateTimeDatasetParameterValueList
+ * //                   new Date("TIMESTAMP"),
+ * //                 ],
+ * //                 IntegerStaticValues: [ // IntegerDatasetParameterValueList
+ * //                   Number("long"),
+ * //                 ],
+ * //               },
+ * //             },
  * //           },
  * //         ],
  * //         Source: { // LogicalTableSource
@@ -232,6 +250,51 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * //       DisableUseAsDirectQuerySource: true || false,
  * //       DisableUseAsImportedSource: true || false,
  * //     },
+ * //     DatasetParameters: [ // DatasetParameterList
+ * //       { // DatasetParameter
+ * //         StringDatasetParameter: { // StringDatasetParameter
+ * //           Id: "STRING_VALUE", // required
+ * //           Name: "STRING_VALUE", // required
+ * //           ValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
+ * //           DefaultValues: { // StringDatasetParameterDefaultValues
+ * //             StaticValues: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //         DecimalDatasetParameter: { // DecimalDatasetParameter
+ * //           Id: "STRING_VALUE", // required
+ * //           Name: "STRING_VALUE", // required
+ * //           ValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
+ * //           DefaultValues: { // DecimalDatasetParameterDefaultValues
+ * //             StaticValues: [
+ * //               Number("double"),
+ * //             ],
+ * //           },
+ * //         },
+ * //         IntegerDatasetParameter: { // IntegerDatasetParameter
+ * //           Id: "STRING_VALUE", // required
+ * //           Name: "STRING_VALUE", // required
+ * //           ValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
+ * //           DefaultValues: { // IntegerDatasetParameterDefaultValues
+ * //             StaticValues: [
+ * //               Number("long"),
+ * //             ],
+ * //           },
+ * //         },
+ * //         DateTimeDatasetParameter: { // DateTimeDatasetParameter
+ * //           Id: "STRING_VALUE", // required
+ * //           Name: "STRING_VALUE", // required
+ * //           ValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
+ * //           TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
+ * //           DefaultValues: { // DateTimeDatasetParameterDefaultValues
+ * //             StaticValues: [
+ * //               new Date("TIMESTAMP"),
+ * //             ],
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
  * //   },
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),

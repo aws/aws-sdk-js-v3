@@ -2,11 +2,11 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
-  AccountCustomization,
   AnalysisDefaults,
   AxisBinding,
   AxisDisplayOptions,
   BarChartVisual,
+  BarsArrangement,
   BoxPlotVisual,
   CalculatedField,
   CalculatedFieldFilterSensitiveLog,
@@ -16,7 +16,8 @@ import {
   ColumnHierarchy,
   ColumnIdentifier,
   ColumnSort,
-  ComboChartConfiguration,
+  ComboChartFieldWells,
+  ComboChartSortConfiguration,
   ContributionAnalysisDefault,
   DataLabelOptions,
   DataLabelOptionsFilterSensitiveLog,
@@ -25,7 +26,6 @@ import {
   DataPathValueFilterSensitiveLog,
   DataSetIdentifierDeclaration,
   DimensionField,
-  Edition,
   FieldSort,
   FieldSortOptions,
   FilterControl,
@@ -67,6 +67,108 @@ import {
   WidgetStatus,
 } from "./models_0";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>The configuration of a <code>ComboChartVisual</code>.</p>
+ */
+export interface ComboChartConfiguration {
+  /**
+   * <p>The field wells of the visual.</p>
+   */
+  FieldWells?: ComboChartFieldWells;
+
+  /**
+   * <p>The sort configuration of a <code>ComboChartVisual</code>.</p>
+   */
+  SortConfiguration?: ComboChartSortConfiguration;
+
+  /**
+   * <p>Determines the bar arrangement in a combo chart. The following are valid values in this structure:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CLUSTERED</code>: For clustered bar combo charts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STACKED</code>: For stacked bar combo charts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STACKED_PERCENT</code>: Do not use. If you use this value, the operation returns a validation error.</p>
+   *             </li>
+   *          </ul>
+   */
+  BarsArrangement?: BarsArrangement | string;
+
+  /**
+   * <p>The category axis of a combo chart.</p>
+   */
+  CategoryAxis?: AxisDisplayOptions;
+
+  /**
+   * <p>The label options (label text, label visibility, and sort icon visibility) of a combo chart category (group/color) field well.</p>
+   */
+  CategoryLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The label display options (grid line, range, scale, and axis step) of a combo chart's primary y-axis (bar) field well.</p>
+   */
+  PrimaryYAxisDisplayOptions?: AxisDisplayOptions;
+
+  /**
+   * <p>The label options (label text, label visibility, and sort icon visibility) of a combo chart's primary y-axis (bar) field well.</p>
+   */
+  PrimaryYAxisLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The label display options (grid line, range, scale, axis step) of a combo chart's secondary y-axis (line) field well.</p>
+   */
+  SecondaryYAxisDisplayOptions?: AxisDisplayOptions;
+
+  /**
+   * <p>The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.</p>
+   */
+  SecondaryYAxisLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.</p>
+   */
+  ColorLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The legend display setup of the visual.</p>
+   */
+  Legend?: LegendOptions;
+
+  /**
+   * <p>The options that determine if visual data labels are displayed.</p>
+   *          <p>The data label options for a bar in a combo chart.</p>
+   */
+  BarDataLabels?: DataLabelOptions;
+
+  /**
+   * <p>The options that determine if visual data labels are displayed.</p>
+   *          <p>The data label options for a line in a combo chart.</p>
+   */
+  LineDataLabels?: DataLabelOptions;
+
+  /**
+   * <p>The legend display setup of the visual.</p>
+   */
+  Tooltip?: TooltipOptions;
+
+  /**
+   * <p>The reference line setup of the visual.</p>
+   */
+  ReferenceLines?: ReferenceLine[];
+
+  /**
+   * <p>The palette (chart color) display setup of the visual.</p>
+   */
+  VisualPalette?: VisualPalette;
+}
 
 /**
  * @public
@@ -4480,6 +4582,11 @@ export interface ScatterPlotCategoricallyAggregatedFieldWells {
    * <p>The size field well of a scatter plot.</p>
    */
   Size?: MeasureField[];
+
+  /**
+   * <p>The label field well of a scatter plot.</p>
+   */
+  Label?: DimensionField[];
 }
 
 /**
@@ -4503,6 +4610,16 @@ export interface ScatterPlotUnaggregatedFieldWells {
    * <p>The size field well of a scatter plot.</p>
    */
   Size?: MeasureField[];
+
+  /**
+   * <p>The category field well of a scatter plot.</p>
+   */
+  Category?: DimensionField[];
+
+  /**
+   * <p>The label field well of a scatter plot.</p>
+   */
+  Label?: DimensionField[];
 }
 
 /**
@@ -4512,13 +4629,12 @@ export interface ScatterPlotUnaggregatedFieldWells {
  */
 export interface ScatterPlotFieldWells {
   /**
-   * <p>The aggregated field wells of a scatter plot. Scatter plots that have a field in the category (group/color) field will have aggregated field wells. The x and y-axes of these scatter plots are aggregated by category.</p>
+   * <p>The aggregated field wells of a scatter plot. The x and y-axes of scatter plots with aggregated field wells are aggregated by category, label, or both.</p>
    */
   ScatterPlotCategoricallyAggregatedFieldWells?: ScatterPlotCategoricallyAggregatedFieldWells;
 
   /**
-   * <p>The unaggregated field wells of a scatter plot. Scatter plots without a category field
-   *             well have unaggregated field wells. The x and y-axes of these scatter plots are
+   * <p>The unaggregated field wells of a scatter plot. The x and y-axes of these scatter plots are
    *             unaggregated.</p>
    */
   ScatterPlotUnaggregatedFieldWells?: ScatterPlotUnaggregatedFieldWells;
@@ -6241,6 +6357,30 @@ export type AuthenticationMethodOption = (typeof AuthenticationMethodOption)[key
 
 /**
  * @public
+ * @enum
+ */
+export const AuthorSpecifiedAggregation = {
+  AVERAGE: "AVERAGE",
+  COUNT: "COUNT",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+  MAX: "MAX",
+  MEDIAN: "MEDIAN",
+  MIN: "MIN",
+  PERCENTILE: "PERCENTILE",
+  STDEV: "STDEV",
+  STDEVP: "STDEVP",
+  SUM: "SUM",
+  VAR: "VAR",
+  VARP: "VARP",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthorSpecifiedAggregation = (typeof AuthorSpecifiedAggregation)[keyof typeof AuthorSpecifiedAggregation];
+
+/**
+ * @public
  * <p>The parameters for IoT Analytics.</p>
  */
 export interface AwsIotAnalyticsParameters {
@@ -6248,6 +6388,18 @@ export interface AwsIotAnalyticsParameters {
    * <p>Dataset name.</p>
    */
   DataSetName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The bookmarks configuration of an embedded dashboard.</p>
+ */
+export interface BookmarksConfigurations {
+  /**
+   * <p>A Boolean value that determines whether a user
+   *             can bookmark an embedded dashboard.</p>
+   */
+  Enabled: boolean | undefined;
 }
 
 /**
@@ -6537,6 +6689,76 @@ export interface CastColumnTypeOperation {
 
 /**
  * @public
+ * @enum
+ */
+export const CategoryFilterFunction = {
+  CONTAINS: "CONTAINS",
+  EXACT: "EXACT",
+} as const;
+
+/**
+ * @public
+ */
+export type CategoryFilterFunction = (typeof CategoryFilterFunction)[keyof typeof CategoryFilterFunction];
+
+/**
+ * @public
+ * @enum
+ */
+export const CategoryFilterType = {
+  CUSTOM_FILTER: "CUSTOM_FILTER",
+  CUSTOM_FILTER_LIST: "CUSTOM_FILTER_LIST",
+  FILTER_LIST: "FILTER_LIST",
+} as const;
+
+/**
+ * @public
+ */
+export type CategoryFilterType = (typeof CategoryFilterType)[keyof typeof CategoryFilterType];
+
+/**
+ * @public
+ * <p>A structure that represents the cell value synonym.</p>
+ */
+export interface CellValueSynonym {
+  /**
+   * <p>The cell value.</p>
+   */
+  CellValue?: string;
+
+  /**
+   * <p>Other names or aliases for the cell value.</p>
+   */
+  Synonyms?: string[];
+}
+
+/**
+ * @public
+ * <p>A structure that represents a collective constant.</p>
+ */
+export interface CollectiveConstant {
+  /**
+   * <p>A list of values for the collective constant.</p>
+   */
+  ValueList?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ColumnDataRole = {
+  DIMENSION: "DIMENSION",
+  MEASURE: "MEASURE",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnDataRole = (typeof ColumnDataRole)[keyof typeof ColumnDataRole];
+
+/**
+ * @public
  * <p>Metadata that contains a description for a column.</p>
  */
 export interface ColumnDescription {
@@ -6643,6 +6865,21 @@ export interface ColumnLevelPermissionRule {
 
 /**
  * @public
+ * @enum
+ */
+export const ColumnOrderingType = {
+  GREATER_IS_BETTER: "GREATER_IS_BETTER",
+  LESSER_IS_BETTER: "LESSER_IS_BETTER",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnOrderingType = (typeof ColumnOrderingType)[keyof typeof ColumnOrderingType];
+
+/**
+ * @public
  * <p>The column schema.</p>
  */
 export interface ColumnSchema {
@@ -6718,349 +6955,17 @@ export const ColumnTagName = {
 export type ColumnTagName = (typeof ColumnTagName)[keyof typeof ColumnTagName];
 
 /**
- * @public
- * <p>A resource is already in a state that indicates an operation is happening that must complete
- * 			before a new update can be applied.</p>
+ * @internal
  */
-export class ConcurrentUpdatingException extends __BaseException {
-  readonly name: "ConcurrentUpdatingException" = "ConcurrentUpdatingException";
-  readonly $fault: "server" = "server";
-  Message?: string;
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentUpdatingException, __BaseException>) {
-    super({
-      name: "ConcurrentUpdatingException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentUpdatingException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
- *             resource.</p>
- */
-export interface Tag {
-  /**
-   * <p>Tag key.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>Tag value.</p>
-   */
-  Value: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateAccountCustomizationRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to customize Amazon QuickSight for.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Amazon QuickSight namespace that you want to add customizations to.</p>
-   */
-  Namespace?: string;
-
-  /**
-   * <p>The Amazon QuickSight customizations you're adding in the current Amazon Web Services Region. You can add
-   *             these to an Amazon Web Services account and a QuickSight namespace. </p>
-   *          <p>For example, you can add a default theme by setting <code>AccountCustomization</code>
-   *             to the midnight theme: <code>"AccountCustomization": \{ "DefaultTheme":
-   *                 "arn:aws:quicksight::aws:theme/MIDNIGHT" \}</code>. Or, you can add a custom theme by
-   *             specifying <code>"AccountCustomization": \{ "DefaultTheme":
-   *                 "arn:aws:quicksight:us-west-2:111122223333:theme/bdb844d0-0fe9-4d9d-b520-0fe602d93639"
-   *                 \}</code>. </p>
-   */
-  AccountCustomization: AccountCustomization | undefined;
-
-  /**
-   * <p>A list of the tags that you want to attach to this resource.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateAccountCustomizationResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the customization that you created for this Amazon Web Services account.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to customize Amazon QuickSight for.</p>
-   */
-  AwsAccountId?: string;
-
-  /**
-   * <p>The namespace associated with the customization you're creating. </p>
-   */
-  Namespace?: string;
-
-  /**
-   * <p>The Amazon QuickSight customizations you're adding in the current Amazon Web Services Region. </p>
-   */
-  AccountCustomization?: AccountCustomization;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- * <p>This resource is currently unavailable.</p>
- */
-export class ResourceUnavailableException extends __BaseException {
-  readonly name: "ResourceUnavailableException" = "ResourceUnavailableException";
-  readonly $fault: "server" = "server";
-  Message?: string;
-  /**
-   * <p>The resource type for this request.</p>
-   */
-  ResourceType?: ExceptionResourceType | string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceUnavailableException, __BaseException>) {
-    super({
-      name: "ResourceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceUnavailableException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateAccountSubscriptionRequest {
-  /**
-   * <p>The edition of Amazon QuickSight that you want your account to have. Currently, you can
-   *             choose from <code>ENTERPRISE</code> or
-   *                 <code>ENTERPRISE_AND_Q</code>.</p>
-   *          <p>If you choose <code>ENTERPRISE_AND_Q</code>, the following parameters are
-   *             required:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FirstName</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LastName</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EmailAddress</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ContactNumber</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  Edition: Edition | string | undefined;
-
-  /**
-   * <p>The method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are <code>IAM_AND_QUICKSIGHT</code>, <code>IAM_ONLY</code>, and <code>ACTIVE_DIRECTORY</code>.</p>
-   *          <p>If you choose <code>ACTIVE_DIRECTORY</code>, provide an <code>ActiveDirectoryName</code>
-   *             and an <code>AdminGroup</code> associated with your Active Directory.</p>
-   */
-  AuthenticationMethod: AuthenticationMethodOption | string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the account that you're using to create your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of your Amazon QuickSight account. This name is unique over all of Amazon Web Services, and it appears only when users sign in. You can't change
-   *                 <code>AccountName</code> value after the Amazon QuickSight account is
-   *             created.</p>
-   */
-  AccountName: string | undefined;
-
-  /**
-   * <p>The email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.</p>
-   */
-  NotificationEmail: string | undefined;
-
-  /**
-   * <p>The name of your Active Directory. This field is required if <code>ACTIVE_DIRECTORY</code> is the selected authentication method of the new Amazon QuickSight account.</p>
-   */
-  ActiveDirectoryName?: string;
-
-  /**
-   * <p>The realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if <code>ACTIVE_DIRECTORY</code> is the selected authentication method of the new Amazon QuickSight account.</p>
-   */
-  Realm?: string;
-
-  /**
-   * <p>The ID of the Active Directory that is associated with your Amazon QuickSight account.</p>
-   */
-  DirectoryId?: string;
-
-  /**
-   * <p>The admin group associated with your Active Directory. This field is required if <code>ACTIVE_DIRECTORY</code> is the selected authentication method of the new Amazon QuickSight account. For more information about using
-   *             Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with
-   *                     Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
-   *                 User Guide.</p>
-   */
-  AdminGroup?: string[];
-
-  /**
-   * <p>The author group associated with your Active Directory. For more information about using
-   *             Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with
-   *                     Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
-   *                 User Guide.</p>
-   */
-  AuthorGroup?: string[];
-
-  /**
-   * <p>The reader group associated with your Active Direcrtory. For more information about
-   *             using Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with
-   *                     Amazon QuickSight Enterprise Edition</a> in the <i>Amazon QuickSight
-   *                 User Guide</i>.</p>
-   */
-  ReaderGroup?: string[];
-
-  /**
-   * <p>The first name of the author of the Amazon QuickSight account to use for future
-   *             communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the selected
-   *             edition of the new Amazon QuickSight account.</p>
-   */
-  FirstName?: string;
-
-  /**
-   * <p>The last name of the author of the Amazon QuickSight account to use for future
-   *             communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the selected
-   *             edition of the new Amazon QuickSight account.</p>
-   */
-  LastName?: string;
-
-  /**
-   * <p>The email address of the author of the Amazon QuickSight account to use for future
-   *             communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the selected
-   *             edition of the new Amazon QuickSight account.</p>
-   */
-  EmailAddress?: string;
-
-  /**
-   * <p>A 10-digit phone number for the author of the Amazon QuickSight account to use for
-   *             future communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the
-   *             selected edition of the new Amazon QuickSight account.</p>
-   */
-  ContactNumber?: string;
-}
-
-/**
- * @public
- * <p>A <code>SignupResponse</code> object that contains a summary of a newly created account.</p>
- */
-export interface SignupResponse {
-  /**
-   * <p>A Boolean that is <code>TRUE</code> if the Amazon QuickSight uses IAM as an
-   *             authentication method.</p>
-   */
-  IAMUser?: boolean;
-
-  /**
-   * <p>The user login name for your Amazon QuickSight account.</p>
-   */
-  userLoginName?: string;
-
-  /**
-   * <p>The name of your Amazon QuickSight account.</p>
-   */
-  accountName?: string;
-
-  /**
-   * <p>The type of Active Directory that is being used to authenticate the Amazon QuickSight
-   *             account. Valid values are <code>SIMPLE_AD</code>, <code>AD_CONNECTOR</code>, and
-   *                 <code>MICROSOFT_AD</code>.</p>
-   */
-  directoryType?: string;
-}
-
-/**
- * @public
- */
-export interface CreateAccountSubscriptionResponse {
-  /**
-   * <p>A <code>SignupResponse</code> object that returns information about a newly created Amazon QuickSight account.</p>
-   */
-  SignupResponse?: SignupResponse;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
+export const ComboChartConfigurationFilterSensitiveLog = (obj: ComboChartConfiguration): any => ({
+  ...obj,
+  ...(obj.BarDataLabels && { BarDataLabels: DataLabelOptionsFilterSensitiveLog(obj.BarDataLabels) }),
+  ...(obj.LineDataLabels && { LineDataLabels: DataLabelOptionsFilterSensitiveLog(obj.LineDataLabels) }),
+  ...(obj.ReferenceLines && {
+    ReferenceLines: obj.ReferenceLines.map((item) => ReferenceLineFilterSensitiveLog(item)),
+  }),
+  ...(obj.VisualPalette && { VisualPalette: VisualPaletteFilterSensitiveLog(obj.VisualPalette) }),
+});
 
 /**
  * @internal

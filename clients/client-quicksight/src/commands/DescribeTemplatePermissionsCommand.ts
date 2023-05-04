@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeTemplatePermissionsRequest, DescribeTemplatePermissionsResponse } from "../models/models_2";
+import { DescribeTemplatePermissionsRequest, DescribeTemplatePermissionsResponse } from "../models/models_3";
 import {
   de_DescribeTemplatePermissionsCommand,
   se_DescribeTemplatePermissionsCommand,

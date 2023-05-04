@@ -2318,6 +2318,22 @@ export interface DateTimeDefaultValues {
 
 /**
  * @public
+ * <p>A dataset parameter that is mapped to an analysis parameter.</p>
+ */
+export interface MappedDataSetParameter {
+  /**
+   * <p>A unique name that identifies a dataset within the analysis or dashboard.</p>
+   */
+  DataSetIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the dataset parameter.</p>
+   */
+  DataSetParameterName: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ValueWhenUnsetOption = {
@@ -2380,6 +2396,11 @@ export interface DateTimeParameterDeclaration {
    * <p>The configuration that defines the default value of a <code>DateTime</code> parameter when a value has not been set.</p>
    */
   ValueWhenUnset?: DateTimeValueWhenUnsetConfiguration;
+
+  /**
+   * <p>A list of dataset parameters that are mapped to an analysis parameter.</p>
+   */
+  MappedDataSetParameters?: MappedDataSetParameter[];
 }
 
 /**
@@ -2462,6 +2483,11 @@ export interface DecimalParameterDeclaration {
    * <p>The configuration that defines the default value of a <code>Decimal</code> parameter when a value has not been set.</p>
    */
   ValueWhenUnset?: DecimalValueWhenUnsetConfiguration;
+
+  /**
+   * <p>A list of dataset parameters that are mapped to an analysis parameter.</p>
+   */
+  MappedDataSetParameters?: MappedDataSetParameter[];
 }
 
 /**
@@ -2531,6 +2557,11 @@ export interface IntegerParameterDeclaration {
    * <p>A parameter declaration for the <code>Integer</code> data type.</p>
    */
   ValueWhenUnset?: IntegerValueWhenUnsetConfiguration;
+
+  /**
+   * <p>A list of dataset parameters that are mapped to an analysis parameter.</p>
+   */
+  MappedDataSetParameters?: MappedDataSetParameter[];
 }
 
 /**
@@ -2599,6 +2630,11 @@ export interface StringParameterDeclaration {
    * <p>The configuration that defines the default value of a <code>String</code> parameter when a value has not been set.</p>
    */
   ValueWhenUnset?: StringValueWhenUnsetConfiguration;
+
+  /**
+   * <p>A list of dataset parameters that are mapped to an analysis parameter.</p>
+   */
+  MappedDataSetParameters?: MappedDataSetParameter[];
 }
 
 /**
@@ -4074,6 +4110,11 @@ export interface FilterOperationSelectedFieldsConfiguration {
    *          </ul>
    */
   SelectedFieldOptions?: SelectedFieldOptions | string;
+
+  /**
+   * <p>The selected columns of a dataset.</p>
+   */
+  SelectedColumns?: ColumnIdentifier[];
 }
 
 /**
@@ -4246,6 +4287,11 @@ export interface DestinationParameterValueConfiguration {
    * <p>The source field ID of the destination parameter.</p>
    */
   SourceField?: string;
+
+  /**
+   * <p>A column of a data set.</p>
+   */
+  SourceColumn?: ColumnIdentifier;
 }
 
 /**
@@ -4929,6 +4975,11 @@ export interface DataLabelOptions {
    * <p>Determines whether overlap is enabled or disabled for the data labels.</p>
    */
   Overlap?: DataLabelOverlap | string;
+
+  /**
+   * <p>Determines the visibility of the total.</p>
+   */
+  TotalsVisibility?: Visibility | string;
 }
 
 /**
@@ -5353,7 +5404,7 @@ export interface ReferenceLineDynamicDataConfiguration {
   /**
    * <p>The aggregation function that is used in the dynamic data.</p>
    */
-  MeasureAggregationFunction: AggregationFunction | undefined;
+  MeasureAggregationFunction?: AggregationFunction;
 
   /**
    * <p>The calculation that is used in the dynamic data.</p>
@@ -6771,108 +6822,6 @@ export interface ComboChartSortConfiguration {
 }
 
 /**
- * @public
- * <p>The configuration of a <code>ComboChartVisual</code>.</p>
- */
-export interface ComboChartConfiguration {
-  /**
-   * <p>The field wells of the visual.</p>
-   */
-  FieldWells?: ComboChartFieldWells;
-
-  /**
-   * <p>The sort configuration of a <code>ComboChartVisual</code>.</p>
-   */
-  SortConfiguration?: ComboChartSortConfiguration;
-
-  /**
-   * <p>Determines the bar arrangement in a combo chart. The following are valid values in this structure:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CLUSTERED</code>: For clustered bar combo charts.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STACKED</code>: For stacked bar combo charts.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STACKED_PERCENT</code>: Do not use. If you use this value, the operation returns a validation error.</p>
-   *             </li>
-   *          </ul>
-   */
-  BarsArrangement?: BarsArrangement | string;
-
-  /**
-   * <p>The category axis of a combo chart.</p>
-   */
-  CategoryAxis?: AxisDisplayOptions;
-
-  /**
-   * <p>The label options (label text, label visibility, and sort icon visibility) of a combo chart category (group/color) field well.</p>
-   */
-  CategoryLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The label display options (grid line, range, scale, and axis step) of a combo chart's primary y-axis (bar) field well.</p>
-   */
-  PrimaryYAxisDisplayOptions?: AxisDisplayOptions;
-
-  /**
-   * <p>The label options (label text, label visibility, and sort icon visibility) of a combo chart's primary y-axis (bar) field well.</p>
-   */
-  PrimaryYAxisLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The label display options (grid line, range, scale, axis step) of a combo chart's secondary y-axis (line) field well.</p>
-   */
-  SecondaryYAxisDisplayOptions?: AxisDisplayOptions;
-
-  /**
-   * <p>The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.</p>
-   */
-  SecondaryYAxisLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.</p>
-   */
-  ColorLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The legend display setup of the visual.</p>
-   */
-  Legend?: LegendOptions;
-
-  /**
-   * <p>The options that determine if visual data labels are displayed.</p>
-   *          <p>The data label options for a bar in a combo chart.</p>
-   */
-  BarDataLabels?: DataLabelOptions;
-
-  /**
-   * <p>The options that determine if visual data labels are displayed.</p>
-   *          <p>The data label options for a line in a combo chart.</p>
-   */
-  LineDataLabels?: DataLabelOptions;
-
-  /**
-   * <p>The legend display setup of the visual.</p>
-   */
-  Tooltip?: TooltipOptions;
-
-  /**
-   * <p>The reference line setup of the visual.</p>
-   */
-  ReferenceLines?: ReferenceLine[];
-
-  /**
-   * <p>The palette (chart color) display setup of the visual.</p>
-   */
-  VisualPalette?: VisualPalette;
-}
-
-/**
  * @internal
  */
 export const CalculatedFieldFilterSensitiveLog = (obj: CalculatedField): any => ({
@@ -7603,17 +7552,4 @@ export const ComboChartAggregatedFieldWellsFilterSensitiveLog = (obj: ComboChart
  */
 export const ComboChartFieldWellsFilterSensitiveLog = (obj: ComboChartFieldWells): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const ComboChartConfigurationFilterSensitiveLog = (obj: ComboChartConfiguration): any => ({
-  ...obj,
-  ...(obj.BarDataLabels && { BarDataLabels: DataLabelOptionsFilterSensitiveLog(obj.BarDataLabels) }),
-  ...(obj.LineDataLabels && { LineDataLabels: DataLabelOptionsFilterSensitiveLog(obj.LineDataLabels) }),
-  ...(obj.ReferenceLines && {
-    ReferenceLines: obj.ReferenceLines.map((item) => ReferenceLineFilterSensitiveLog(item)),
-  }),
-  ...(obj.VisualPalette && { VisualPalette: VisualPaletteFilterSensitiveLog(obj.VisualPalette) }),
 });

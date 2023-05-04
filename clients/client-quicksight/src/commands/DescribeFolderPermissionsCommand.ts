@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeFolderPermissionsRequest, DescribeFolderPermissionsResponse } from "../models/models_2";
+import { DescribeFolderPermissionsRequest, DescribeFolderPermissionsResponse } from "../models/models_3";
 import { de_DescribeFolderPermissionsCommand, se_DescribeFolderPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

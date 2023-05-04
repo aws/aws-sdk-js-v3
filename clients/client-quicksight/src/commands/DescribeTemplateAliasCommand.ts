@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeTemplateAliasRequest, DescribeTemplateAliasResponse } from "../models/models_2";
+import { DescribeTemplateAliasRequest, DescribeTemplateAliasResponse } from "../models/models_3";
 import { de_DescribeTemplateAliasCommand, se_DescribeTemplateAliasCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

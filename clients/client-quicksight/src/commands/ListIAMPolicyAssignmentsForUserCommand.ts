@@ -37,9 +37,13 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
 
 /**
  * @public
- * <p>Lists all the IAM policy assignments, including the Amazon Resource Names (ARNs) for the IAM
- * 			policies assigned to the specified user and group or groups that the user belongs
- * 			to.</p>
+ * <p>Lists all of
+ * 			the IAM policy assignments, including the Amazon
+ * 			Resource Names
+ * 			(ARNs),
+ * 			for the IAM policies assigned to the specified user and
+ * 			group,
+ * 			or groups that the user belongs to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

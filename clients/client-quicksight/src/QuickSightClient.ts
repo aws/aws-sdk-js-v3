@@ -89,6 +89,15 @@ import {
 import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "./commands/CreateTemplateCommand";
 import { CreateThemeAliasCommandInput, CreateThemeAliasCommandOutput } from "./commands/CreateThemeAliasCommand";
 import { CreateThemeCommandInput, CreateThemeCommandOutput } from "./commands/CreateThemeCommand";
+import { CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand";
+import {
+  CreateTopicRefreshScheduleCommandInput,
+  CreateTopicRefreshScheduleCommandOutput,
+} from "./commands/CreateTopicRefreshScheduleCommand";
+import {
+  CreateVPCConnectionCommandInput,
+  CreateVPCConnectionCommandOutput,
+} from "./commands/CreateVPCConnectionCommand";
 import {
   DeleteAccountCustomizationCommandInput,
   DeleteAccountCustomizationCommandOutput,
@@ -131,11 +140,20 @@ import {
 import { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "./commands/DeleteTemplateCommand";
 import { DeleteThemeAliasCommandInput, DeleteThemeAliasCommandOutput } from "./commands/DeleteThemeAliasCommand";
 import { DeleteThemeCommandInput, DeleteThemeCommandOutput } from "./commands/DeleteThemeCommand";
+import { DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
+import {
+  DeleteTopicRefreshScheduleCommandInput,
+  DeleteTopicRefreshScheduleCommandOutput,
+} from "./commands/DeleteTopicRefreshScheduleCommand";
 import {
   DeleteUserByPrincipalIdCommandInput,
   DeleteUserByPrincipalIdCommandOutput,
 } from "./commands/DeleteUserByPrincipalIdCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DeleteVPCConnectionCommandInput,
+  DeleteVPCConnectionCommandOutput,
+} from "./commands/DeleteVPCConnectionCommand";
 import {
   DescribeAccountCustomizationCommandInput,
   DescribeAccountCustomizationCommandOutput,
@@ -227,7 +245,24 @@ import {
   DescribeThemePermissionsCommandInput,
   DescribeThemePermissionsCommandOutput,
 } from "./commands/DescribeThemePermissionsCommand";
+import { DescribeTopicCommandInput, DescribeTopicCommandOutput } from "./commands/DescribeTopicCommand";
+import {
+  DescribeTopicPermissionsCommandInput,
+  DescribeTopicPermissionsCommandOutput,
+} from "./commands/DescribeTopicPermissionsCommand";
+import {
+  DescribeTopicRefreshCommandInput,
+  DescribeTopicRefreshCommandOutput,
+} from "./commands/DescribeTopicRefreshCommand";
+import {
+  DescribeTopicRefreshScheduleCommandInput,
+  DescribeTopicRefreshScheduleCommandOutput,
+} from "./commands/DescribeTopicRefreshScheduleCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
+import {
+  DescribeVPCConnectionCommandInput,
+  DescribeVPCConnectionCommandOutput,
+} from "./commands/DescribeVPCConnectionCommand";
 import {
   GenerateEmbedUrlForAnonymousUserCommandInput,
   GenerateEmbedUrlForAnonymousUserCommandOutput,
@@ -286,8 +321,14 @@ import {
 import { ListThemeAliasesCommandInput, ListThemeAliasesCommandOutput } from "./commands/ListThemeAliasesCommand";
 import { ListThemesCommandInput, ListThemesCommandOutput } from "./commands/ListThemesCommand";
 import { ListThemeVersionsCommandInput, ListThemeVersionsCommandOutput } from "./commands/ListThemeVersionsCommand";
+import {
+  ListTopicRefreshSchedulesCommandInput,
+  ListTopicRefreshSchedulesCommandOutput,
+} from "./commands/ListTopicRefreshSchedulesCommand";
+import { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
 import { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "./commands/ListUserGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { ListVPCConnectionsCommandInput, ListVPCConnectionsCommandOutput } from "./commands/ListVPCConnectionsCommand";
 import {
   PutDataSetRefreshPropertiesCommandInput,
   PutDataSetRefreshPropertiesCommandOutput,
@@ -371,7 +412,20 @@ import {
   UpdateThemePermissionsCommandInput,
   UpdateThemePermissionsCommandOutput,
 } from "./commands/UpdateThemePermissionsCommand";
+import { UpdateTopicCommandInput, UpdateTopicCommandOutput } from "./commands/UpdateTopicCommand";
+import {
+  UpdateTopicPermissionsCommandInput,
+  UpdateTopicPermissionsCommandOutput,
+} from "./commands/UpdateTopicPermissionsCommand";
+import {
+  UpdateTopicRefreshScheduleCommandInput,
+  UpdateTopicRefreshScheduleCommandOutput,
+} from "./commands/UpdateTopicRefreshScheduleCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import {
+  UpdateVPCConnectionCommandInput,
+  UpdateVPCConnectionCommandOutput,
+} from "./commands/UpdateVPCConnectionCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -403,6 +457,9 @@ export type ServiceInputTypes =
   | CreateTemplateCommandInput
   | CreateThemeAliasCommandInput
   | CreateThemeCommandInput
+  | CreateTopicCommandInput
+  | CreateTopicRefreshScheduleCommandInput
+  | CreateVPCConnectionCommandInput
   | DeleteAccountCustomizationCommandInput
   | DeleteAccountSubscriptionCommandInput
   | DeleteAnalysisCommandInput
@@ -421,8 +478,11 @@ export type ServiceInputTypes =
   | DeleteTemplateCommandInput
   | DeleteThemeAliasCommandInput
   | DeleteThemeCommandInput
+  | DeleteTopicCommandInput
+  | DeleteTopicRefreshScheduleCommandInput
   | DeleteUserByPrincipalIdCommandInput
   | DeleteUserCommandInput
+  | DeleteVPCConnectionCommandInput
   | DescribeAccountCustomizationCommandInput
   | DescribeAccountSettingsCommandInput
   | DescribeAccountSubscriptionCommandInput
@@ -454,7 +514,12 @@ export type ServiceInputTypes =
   | DescribeThemeAliasCommandInput
   | DescribeThemeCommandInput
   | DescribeThemePermissionsCommandInput
+  | DescribeTopicCommandInput
+  | DescribeTopicPermissionsCommandInput
+  | DescribeTopicRefreshCommandInput
+  | DescribeTopicRefreshScheduleCommandInput
   | DescribeUserCommandInput
+  | DescribeVPCConnectionCommandInput
   | GenerateEmbedUrlForAnonymousUserCommandInput
   | GenerateEmbedUrlForRegisteredUserCommandInput
   | GetDashboardEmbedUrlCommandInput
@@ -480,8 +545,11 @@ export type ServiceInputTypes =
   | ListThemeAliasesCommandInput
   | ListThemeVersionsCommandInput
   | ListThemesCommandInput
+  | ListTopicRefreshSchedulesCommandInput
+  | ListTopicsCommandInput
   | ListUserGroupsCommandInput
   | ListUsersCommandInput
+  | ListVPCConnectionsCommandInput
   | PutDataSetRefreshPropertiesCommandInput
   | RegisterUserCommandInput
   | RestoreAnalysisCommandInput
@@ -517,7 +585,11 @@ export type ServiceInputTypes =
   | UpdateThemeAliasCommandInput
   | UpdateThemeCommandInput
   | UpdateThemePermissionsCommandInput
-  | UpdateUserCommandInput;
+  | UpdateTopicCommandInput
+  | UpdateTopicPermissionsCommandInput
+  | UpdateTopicRefreshScheduleCommandInput
+  | UpdateUserCommandInput
+  | UpdateVPCConnectionCommandInput;
 
 /**
  * @public
@@ -542,6 +614,9 @@ export type ServiceOutputTypes =
   | CreateTemplateCommandOutput
   | CreateThemeAliasCommandOutput
   | CreateThemeCommandOutput
+  | CreateTopicCommandOutput
+  | CreateTopicRefreshScheduleCommandOutput
+  | CreateVPCConnectionCommandOutput
   | DeleteAccountCustomizationCommandOutput
   | DeleteAccountSubscriptionCommandOutput
   | DeleteAnalysisCommandOutput
@@ -560,8 +635,11 @@ export type ServiceOutputTypes =
   | DeleteTemplateCommandOutput
   | DeleteThemeAliasCommandOutput
   | DeleteThemeCommandOutput
+  | DeleteTopicCommandOutput
+  | DeleteTopicRefreshScheduleCommandOutput
   | DeleteUserByPrincipalIdCommandOutput
   | DeleteUserCommandOutput
+  | DeleteVPCConnectionCommandOutput
   | DescribeAccountCustomizationCommandOutput
   | DescribeAccountSettingsCommandOutput
   | DescribeAccountSubscriptionCommandOutput
@@ -593,7 +671,12 @@ export type ServiceOutputTypes =
   | DescribeThemeAliasCommandOutput
   | DescribeThemeCommandOutput
   | DescribeThemePermissionsCommandOutput
+  | DescribeTopicCommandOutput
+  | DescribeTopicPermissionsCommandOutput
+  | DescribeTopicRefreshCommandOutput
+  | DescribeTopicRefreshScheduleCommandOutput
   | DescribeUserCommandOutput
+  | DescribeVPCConnectionCommandOutput
   | GenerateEmbedUrlForAnonymousUserCommandOutput
   | GenerateEmbedUrlForRegisteredUserCommandOutput
   | GetDashboardEmbedUrlCommandOutput
@@ -619,8 +702,11 @@ export type ServiceOutputTypes =
   | ListThemeAliasesCommandOutput
   | ListThemeVersionsCommandOutput
   | ListThemesCommandOutput
+  | ListTopicRefreshSchedulesCommandOutput
+  | ListTopicsCommandOutput
   | ListUserGroupsCommandOutput
   | ListUsersCommandOutput
+  | ListVPCConnectionsCommandOutput
   | PutDataSetRefreshPropertiesCommandOutput
   | RegisterUserCommandOutput
   | RestoreAnalysisCommandOutput
@@ -656,7 +742,11 @@ export type ServiceOutputTypes =
   | UpdateThemeAliasCommandOutput
   | UpdateThemeCommandOutput
   | UpdateThemePermissionsCommandOutput
-  | UpdateUserCommandOutput;
+  | UpdateTopicCommandOutput
+  | UpdateTopicPermissionsCommandOutput
+  | UpdateTopicRefreshScheduleCommandOutput
+  | UpdateUserCommandOutput
+  | UpdateVPCConnectionCommandOutput;
 
 /**
  * @public

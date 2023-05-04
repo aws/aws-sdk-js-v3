@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeIAMPolicyAssignmentRequest, DescribeIAMPolicyAssignmentResponse } from "../models/models_2";
+import { DescribeIAMPolicyAssignmentRequest, DescribeIAMPolicyAssignmentResponse } from "../models/models_3";
 import {
   de_DescribeIAMPolicyAssignmentCommand,
   se_DescribeIAMPolicyAssignmentCommand,
@@ -37,7 +37,8 @@ export interface DescribeIAMPolicyAssignmentCommandOutput
 
 /**
  * @public
- * <p>Describes an existing IAM policy assignment, as specified by the assignment name.</p>
+ * <p>Describes an existing IAM policy assignment, as specified by the
+ * 			assignment name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

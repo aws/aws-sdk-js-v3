@@ -32,7 +32,10 @@ export interface UpdateIpRestrictionCommandOutput extends UpdateIpRestrictionRes
 
 /**
  * @public
- * <p>Updates the content and status of IP rules. To use this operation, you need to provide the entire map of rules. You can use the <code>DescribeIpRestriction</code> operation to get the current rule map.</p>
+ * <p>Updates the content and status of IP rules. To use this operation, you
+ * 			must
+ * 			provide the entire map of rules. You can use the <code>DescribeIpRestriction</code>
+ * 			operation to get the current rule map.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

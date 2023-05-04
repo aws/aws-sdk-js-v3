@@ -66,6 +66,15 @@ import {
 import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "../commands/CreateTemplateCommand";
 import { CreateThemeAliasCommandInput, CreateThemeAliasCommandOutput } from "../commands/CreateThemeAliasCommand";
 import { CreateThemeCommandInput, CreateThemeCommandOutput } from "../commands/CreateThemeCommand";
+import { CreateTopicCommandInput, CreateTopicCommandOutput } from "../commands/CreateTopicCommand";
+import {
+  CreateTopicRefreshScheduleCommandInput,
+  CreateTopicRefreshScheduleCommandOutput,
+} from "../commands/CreateTopicRefreshScheduleCommand";
+import {
+  CreateVPCConnectionCommandInput,
+  CreateVPCConnectionCommandOutput,
+} from "../commands/CreateVPCConnectionCommand";
 import {
   DeleteAccountCustomizationCommandInput,
   DeleteAccountCustomizationCommandOutput,
@@ -108,11 +117,20 @@ import {
 import { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "../commands/DeleteTemplateCommand";
 import { DeleteThemeAliasCommandInput, DeleteThemeAliasCommandOutput } from "../commands/DeleteThemeAliasCommand";
 import { DeleteThemeCommandInput, DeleteThemeCommandOutput } from "../commands/DeleteThemeCommand";
+import { DeleteTopicCommandInput, DeleteTopicCommandOutput } from "../commands/DeleteTopicCommand";
+import {
+  DeleteTopicRefreshScheduleCommandInput,
+  DeleteTopicRefreshScheduleCommandOutput,
+} from "../commands/DeleteTopicRefreshScheduleCommand";
 import {
   DeleteUserByPrincipalIdCommandInput,
   DeleteUserByPrincipalIdCommandOutput,
 } from "../commands/DeleteUserByPrincipalIdCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
+import {
+  DeleteVPCConnectionCommandInput,
+  DeleteVPCConnectionCommandOutput,
+} from "../commands/DeleteVPCConnectionCommand";
 import {
   DescribeAccountCustomizationCommandInput,
   DescribeAccountCustomizationCommandOutput,
@@ -204,7 +222,24 @@ import {
   DescribeThemePermissionsCommandInput,
   DescribeThemePermissionsCommandOutput,
 } from "../commands/DescribeThemePermissionsCommand";
+import { DescribeTopicCommandInput, DescribeTopicCommandOutput } from "../commands/DescribeTopicCommand";
+import {
+  DescribeTopicPermissionsCommandInput,
+  DescribeTopicPermissionsCommandOutput,
+} from "../commands/DescribeTopicPermissionsCommand";
+import {
+  DescribeTopicRefreshCommandInput,
+  DescribeTopicRefreshCommandOutput,
+} from "../commands/DescribeTopicRefreshCommand";
+import {
+  DescribeTopicRefreshScheduleCommandInput,
+  DescribeTopicRefreshScheduleCommandOutput,
+} from "../commands/DescribeTopicRefreshScheduleCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "../commands/DescribeUserCommand";
+import {
+  DescribeVPCConnectionCommandInput,
+  DescribeVPCConnectionCommandOutput,
+} from "../commands/DescribeVPCConnectionCommand";
 import {
   GenerateEmbedUrlForAnonymousUserCommandInput,
   GenerateEmbedUrlForAnonymousUserCommandOutput,
@@ -263,8 +298,14 @@ import {
 import { ListThemeAliasesCommandInput, ListThemeAliasesCommandOutput } from "../commands/ListThemeAliasesCommand";
 import { ListThemesCommandInput, ListThemesCommandOutput } from "../commands/ListThemesCommand";
 import { ListThemeVersionsCommandInput, ListThemeVersionsCommandOutput } from "../commands/ListThemeVersionsCommand";
+import {
+  ListTopicRefreshSchedulesCommandInput,
+  ListTopicRefreshSchedulesCommandOutput,
+} from "../commands/ListTopicRefreshSchedulesCommand";
+import { ListTopicsCommandInput, ListTopicsCommandOutput } from "../commands/ListTopicsCommand";
 import { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "../commands/ListUserGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
+import { ListVPCConnectionsCommandInput, ListVPCConnectionsCommandOutput } from "../commands/ListVPCConnectionsCommand";
 import {
   PutDataSetRefreshPropertiesCommandInput,
   PutDataSetRefreshPropertiesCommandOutput,
@@ -348,7 +389,20 @@ import {
   UpdateThemePermissionsCommandInput,
   UpdateThemePermissionsCommandOutput,
 } from "../commands/UpdateThemePermissionsCommand";
+import { UpdateTopicCommandInput, UpdateTopicCommandOutput } from "../commands/UpdateTopicCommand";
+import {
+  UpdateTopicPermissionsCommandInput,
+  UpdateTopicPermissionsCommandOutput,
+} from "../commands/UpdateTopicPermissionsCommand";
+import {
+  UpdateTopicRefreshScheduleCommandInput,
+  UpdateTopicRefreshScheduleCommandOutput,
+} from "../commands/UpdateTopicRefreshScheduleCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
+import {
+  UpdateVPCConnectionCommandInput,
+  UpdateVPCConnectionCommandOutput,
+} from "../commands/UpdateVPCConnectionCommand";
 import {
   AccessDeniedException,
   AccountCustomization,
@@ -401,7 +455,6 @@ import {
   ColumnSort,
   ColumnTooltipItem,
   ComboChartAggregatedFieldWells,
-  ComboChartConfiguration,
   ComboChartFieldWells,
   ComboChartSortConfiguration,
   ContributionAnalysisDefault,
@@ -496,6 +549,7 @@ import {
   LoadingAnimation,
   LocalNavigationConfiguration,
   LongFormatText,
+  MappedDataSetParameter,
   MaximumLabelType,
   MeasureField,
   MinimumLabelType,
@@ -601,14 +655,18 @@ import {
   AthenaParameters,
   AuroraParameters,
   AuroraPostgreSqlParameters,
+  AuthorSpecifiedAggregation,
   AwsIotAnalyticsParameters,
   BinCountOptions,
   BinWidthOptions,
+  BookmarksConfigurations,
   BorderStyle,
   CalculatedColumn,
   CastColumnTypeOperation,
+  CellValueSynonym,
   ClusterMarker,
   ClusterMarkerConfiguration,
+  CollectiveConstant,
   ColorScale,
   ColumnDescription,
   ColumnGroup,
@@ -618,11 +676,11 @@ import {
   ColumnSchema,
   ColumnTag,
   ColumnTagName,
+  ComboChartConfiguration,
   ComboChartVisual,
   ComparisonConfiguration,
   ComparisonFormatConfiguration,
   Computation,
-  ConcurrentUpdatingException,
   ConditionalFormattingColor,
   ConditionalFormattingCustomIconCondition,
   ConditionalFormattingCustomIconOptions,
@@ -631,7 +689,6 @@ import {
   ConditionalFormattingIconDisplayConfiguration,
   ConditionalFormattingIconSet,
   ConditionalFormattingSolidColor,
-  ConflictException,
   CustomContentConfiguration,
   CustomContentVisual,
   CustomNarrativeOptions,
@@ -755,7 +812,6 @@ import {
   RadarChartVisual,
   ResourceExistsException,
   ResourceNotFoundException,
-  ResourceUnavailableException,
   RowAlternateColorOptions,
   SankeyDiagramAggregatedFieldWells,
   SankeyDiagramChartConfiguration,
@@ -798,7 +854,6 @@ import {
   TableSortConfiguration,
   TableUnaggregatedFieldWells,
   TableVisual,
-  Tag,
   TextConditionalFormat,
   ThrottlingException,
   TimeBasedForecastProperties,
@@ -832,6 +887,9 @@ import {
 } from "../models/models_1";
 import {
   _Parameters,
+  ComparativeOrder,
+  ConcurrentUpdatingException,
+  ConflictException,
   CreateColumnsOperation,
   CredentialPair,
   CustomSql,
@@ -845,6 +903,7 @@ import {
   DashboardVersionDefinition,
   DashboardVersionSummary,
   DashboardVisualPublishOptions,
+  DataAggregation,
   DatabricksParameters,
   DataColorPalette,
   DataPointDrillUpDownOption,
@@ -852,6 +911,8 @@ import {
   DataPointTooltipOption,
   DataSet,
   DataSetConfiguration,
+  DatasetMetadata,
+  DatasetParameter,
   DataSetRefreshProperties,
   DataSetSchema,
   DataSetSearchFilter,
@@ -862,23 +923,27 @@ import {
   DataSourceParameters,
   DataSourceSearchFilter,
   DataSourceSummary,
+  DateTimeDatasetParameter,
+  DateTimeDatasetParameterDefaultValues,
   DateTimeParameter,
+  DecimalDatasetParameter,
+  DecimalDatasetParameterDefaultValues,
   DecimalParameter,
-  DomainNotWhitelistedException,
+  DefaultFormatting,
+  DisplayFormatOptions,
   ExasolParameters,
   ExportHiddenFieldsOption,
   ExportToCSVOption,
   ExportWithHiddenFieldsOption,
   FieldFolder,
   FilterOperation,
-  Folder,
   Font,
   GutterStyle,
   IncrementalRefresh,
-  Ingestion,
   InputColumn,
+  IntegerDatasetParameter,
+  IntegerDatasetParameterDefaultValues,
   IntegerParameter,
-  InvalidNextTokenException,
   JiraParameters,
   JoinInstruction,
   JoinKeyProperties,
@@ -890,12 +955,18 @@ import {
   MarginStyle,
   MariaDbParameters,
   MySqlParameters,
+  NamedEntityDefinition,
+  NamedEntityDefinitionMetric,
+  NegativeFormat,
+  NewDefaultValues,
   OracleParameters,
+  OverrideDatasetParameterOperation,
   PhysicalTable,
   PostgreSqlParameters,
   PreconditionNotMetException,
   PrestoParameters,
   ProjectOperation,
+  RangeConstant,
   RdsParameters,
   RedshiftParameters,
   RefreshConfiguration,
@@ -904,12 +975,15 @@ import {
   RelationalTable,
   RenameColumnOperation,
   ResourcePermission,
+  ResourceUnavailableException,
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagRule,
   S3Parameters,
   S3Source,
   ScheduleRefreshOnEntity,
+  SemanticEntityType,
+  SemanticType,
   ServiceNowParameters,
   SheetControlsOption,
   SheetLayoutElementMaximizationOption,
@@ -918,20 +992,33 @@ import {
   SparkParameters,
   SqlServerParameters,
   SslProperties,
+  StringDatasetParameter,
+  StringDatasetParameterDefaultValues,
   StringParameter,
+  Tag,
   TagColumnOperation,
-  Template,
   TemplateSourceAnalysis,
   TemplateSourceEntity,
   TemplateSourceTemplate,
-  TemplateVersion,
   TemplateVersionDefinition,
   TeradataParameters,
-  Theme,
   ThemeConfiguration,
-  ThemeVersion,
   TileLayoutStyle,
   TileStyle,
+  TopicCalculatedField,
+  TopicCategoryFilter,
+  TopicCategoryFilterConstant,
+  TopicColumn,
+  TopicDateRangeFilter,
+  TopicDetails,
+  TopicFilter,
+  TopicNamedEntity,
+  TopicNumericEqualityFilter,
+  TopicNumericRangeFilter,
+  TopicRangeFilterConstant,
+  TopicRefreshSchedule,
+  TopicRelativeDateFilter,
+  TopicSingularFilterConstant,
   TransformOperation,
   TwitterParameters,
   Typography,
@@ -944,10 +1031,14 @@ import {
   VpcConnectionProperties,
 } from "../models/models_2";
 import {
+  DomainNotWhitelistedException,
+  Folder,
   FolderSearchFilter,
   FolderSummary,
   GroupSearchFilter,
   IdentityTypeNotSupportedException,
+  Ingestion,
+  InvalidNextTokenException,
   InvalidRequestException,
   QuickSightUserNotFoundException,
   RegisteredUserConsoleFeatureConfigurations,
@@ -960,11 +1051,18 @@ import {
   SessionLifetimeInMinutesInvalidException,
   SessionTag,
   StatePersistenceConfigurations,
+  Template,
   TemplateSummary,
+  TemplateVersion,
   TemplateVersionSummary,
+  Theme,
   ThemeSummary,
+  ThemeVersion,
   ThemeVersionSummary,
+  TopicRefreshScheduleSummary,
   UnsupportedPricingPlanException,
+  VPCConnection,
+  VPCConnectionSummary,
 } from "../models/models_3";
 import { QuickSightServiceException as __BaseException } from "../models/QuickSightServiceException";
 
@@ -1217,9 +1315,10 @@ export const se_CreateDataSetCommand = async (
       ColumnLevelPermissionRules: (_) => _json(_),
       DataSetId: [],
       DataSetUsageConfiguration: (_) => _json(_),
+      DatasetParameters: (_) => se_DatasetParameterList(_, context),
       FieldFolders: (_) => _json(_),
       ImportMode: [],
-      LogicalTableMap: (_) => _json(_),
+      LogicalTableMap: (_) => se_LogicalTableMap(_, context),
       Name: [],
       Permissions: (_) => _json(_),
       PhysicalTableMap: (_) => _json(_),
@@ -1761,6 +1860,132 @@ export const se_CreateThemeAliasCommand = async (
   body = JSON.stringify(
     take(input, {
       ThemeVersionNumber: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateTopicCommand
+ */
+export const se_CreateTopicCommand = async (
+  input: CreateTopicCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/topics";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+      Topic: (_) => _json(_),
+      TopicId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateTopicRefreshScheduleCommand
+ */
+export const se_CreateTopicRefreshScheduleCommand = async (
+  input: CreateTopicRefreshScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/topics/{TopicId}/schedules";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DatasetArn: [],
+      DatasetName: [],
+      RefreshSchedule: (_) => se_TopicRefreshSchedule(_, context),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateVPCConnectionCommand
+ */
+export const se_CreateVPCConnectionCommand = async (
+  input: CreateVPCConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/vpc-connections";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DnsResolvers: (_) => _json(_),
+      Name: [],
+      RoleArn: [],
+      SecurityGroupIds: (_) => _json(_),
+      SubnetIds: (_) => _json(_),
+      Tags: (_) => _json(_),
+      VPCConnectionId: [],
     })
   );
   return new __HttpRequest({
@@ -2413,6 +2638,72 @@ export const se_DeleteThemeAliasCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteTopicCommand
+ */
+export const se_DeleteTopicCommand = async (
+  input: DeleteTopicCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/topics/{TopicId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteTopicRefreshScheduleCommand
+ */
+export const se_DeleteTopicRefreshScheduleCommand = async (
+  input: DeleteTopicRefreshScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "DatasetId", () => input.DatasetId!, "{DatasetId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteUserCommand
  */
 export const se_DeleteUserCommand = async (
@@ -2468,6 +2759,46 @@ export const se_DeleteUserByPrincipalIdCommand = async (
     false
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteVPCConnectionCommand
+ */
+export const se_DeleteVPCConnectionCommand = async (
+  input: DeleteVPCConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VPCConnectionId",
+    () => input.VPCConnectionId!,
+    "{VPCConnectionId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -3553,6 +3884,139 @@ export const se_DescribeThemePermissionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeTopicCommand
+ */
+export const se_DescribeTopicCommand = async (
+  input: DescribeTopicCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/topics/{TopicId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeTopicPermissionsCommand
+ */
+export const se_DescribeTopicPermissionsCommand = async (
+  input: DescribeTopicPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/topics/{TopicId}/permissions";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeTopicRefreshCommand
+ */
+export const se_DescribeTopicRefreshCommand = async (
+  input: DescribeTopicRefreshCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/topics/{TopicId}/refresh/{RefreshId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "RefreshId", () => input.RefreshId!, "{RefreshId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeTopicRefreshScheduleCommand
+ */
+export const se_DescribeTopicRefreshScheduleCommand = async (
+  input: DescribeTopicRefreshScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "DatasetId", () => input.DatasetId!, "{DatasetId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DescribeUserCommand
  */
 export const se_DescribeUserCommand = async (
@@ -3574,6 +4038,46 @@ export const se_DescribeUserCommand = async (
     false
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeVPCConnectionCommand
+ */
+export const se_DescribeVPCConnectionCommand = async (
+  input: DescribeVPCConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VPCConnectionId",
+    () => input.VPCConnectionId!,
+    "{VPCConnectionId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -4107,12 +4611,10 @@ export const se_ListIAMPolicyAssignmentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments";
+    "/accounts/{AwsAccountId}/namespaces/{Namespace}/v2/iam-policy-assignments";
   resolvedPath = __resolvedPath(
     resolvedPath,
     input,
@@ -4123,15 +4625,11 @@ export const se_ListIAMPolicyAssignmentsCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
   const query: any = map({
+    "assignment-status": [, input.AssignmentStatus!],
     "next-token": [, input.NextToken!],
     "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
   });
   let body: any;
-  body = JSON.stringify(
-    take(input, {
-      AssignmentStatus: [],
-    })
-  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4540,6 +5038,75 @@ export const se_ListThemeVersionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListTopicRefreshSchedulesCommand
+ */
+export const se_ListTopicRefreshSchedulesCommand = async (
+  input: ListTopicRefreshSchedulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/topics/{TopicId}/schedules";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListTopicsCommand
+ */
+export const se_ListTopicsCommand = async (
+  input: ListTopicsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/topics";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  const query: any = map({
+    "next-token": [, input.NextToken!],
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListUserGroupsCommand
  */
 export const se_ListUserGroupsCommand = async (
@@ -4599,6 +5166,42 @@ export const se_ListUsersCommand = async (
     false
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  const query: any = map({
+    "next-token": [, input.NextToken!],
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListVPCConnectionsCommand
+ */
+export const se_ListVPCConnectionsCommand = async (
+  input: ListVPCConnectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/vpc-connections";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
   const query: any = map({
     "next-token": [, input.NextToken!],
     "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
@@ -5373,9 +5976,10 @@ export const se_UpdateDataSetCommand = async (
       ColumnGroups: (_) => _json(_),
       ColumnLevelPermissionRules: (_) => _json(_),
       DataSetUsageConfiguration: (_) => _json(_),
+      DatasetParameters: (_) => se_DatasetParameterList(_, context),
       FieldFolders: (_) => _json(_),
       ImportMode: [],
-      LogicalTableMap: (_) => _json(_),
+      LogicalTableMap: (_) => se_LogicalTableMap(_, context),
       Name: [],
       PhysicalTableMap: (_) => _json(_),
       RowLevelPermissionDataSet: (_) => _json(_),
@@ -6073,6 +6677,127 @@ export const se_UpdateThemePermissionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateTopicCommand
+ */
+export const se_UpdateTopicCommand = async (
+  input: UpdateTopicCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/topics/{TopicId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Topic: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateTopicPermissionsCommand
+ */
+export const se_UpdateTopicPermissionsCommand = async (
+  input: UpdateTopicPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/topics/{TopicId}/permissions";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      GrantPermissions: (_) => _json(_),
+      RevokePermissions: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateTopicRefreshScheduleCommand
+ */
+export const se_UpdateTopicRefreshScheduleCommand = async (
+  input: UpdateTopicRefreshScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "DatasetId", () => input.DatasetId!, "{DatasetId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RefreshSchedule: (_) => se_TopicRefreshSchedule(_, context),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateUserCommand
  */
 export const se_UpdateUserCommand = async (
@@ -6106,6 +6831,57 @@ export const se_UpdateUserCommand = async (
       ExternalLoginId: [],
       Role: [],
       UnapplyCustomPermissions: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateVPCConnectionCommand
+ */
+export const se_UpdateVPCConnectionCommand = async (
+  input: UpdateVPCConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VPCConnectionId",
+    () => input.VPCConnectionId!,
+    "{VPCConnectionId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DnsResolvers: (_) => _json(_),
+      Name: [],
+      RoleArn: [],
+      SecurityGroupIds: (_) => _json(_),
+      SubnetIds: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -7521,6 +8297,229 @@ const de_CreateThemeAliasCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateTopicCommand
+ */
+export const de_CreateTopicCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTopicCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateTopicCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    RefreshArn: __expectString,
+    RequestId: __expectString,
+    TopicId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateTopicCommandError
+ */
+const de_CreateTopicCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTopicCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateTopicRefreshScheduleCommand
+ */
+export const de_CreateTopicRefreshScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTopicRefreshScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateTopicRefreshScheduleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DatasetArn: __expectString,
+    RequestId: __expectString,
+    TopicArn: __expectString,
+    TopicId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateTopicRefreshScheduleCommandError
+ */
+const de_CreateTopicRefreshScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTopicRefreshScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateVPCConnectionCommand
+ */
+export const de_CreateVPCConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVPCConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateVPCConnectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    AvailabilityStatus: __expectString,
+    CreationStatus: __expectString,
+    RequestId: __expectString,
+    VPCConnectionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateVPCConnectionCommandError
+ */
+const de_CreateVPCConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVPCConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteAccountCustomizationCommand
  */
 export const de_DeleteAccountCustomizationCommand = async (
@@ -8737,6 +9736,147 @@ const de_DeleteThemeAliasCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteTopicCommand
+ */
+export const de_DeleteTopicCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTopicCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteTopicCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    RequestId: __expectString,
+    TopicId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteTopicCommandError
+ */
+const de_DeleteTopicCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTopicCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteTopicRefreshScheduleCommand
+ */
+export const de_DeleteTopicRefreshScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTopicRefreshScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteTopicRefreshScheduleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DatasetArn: __expectString,
+    RequestId: __expectString,
+    TopicArn: __expectString,
+    TopicId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteTopicRefreshScheduleCommandError
+ */
+const de_DeleteTopicRefreshScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTopicRefreshScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteUserCommand
  */
 export const de_DeleteUserCommand = async (
@@ -8862,6 +10002,78 @@ const de_DeleteUserByPrincipalIdCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.quicksight#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteVPCConnectionCommand
+ */
+export const de_DeleteVPCConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVPCConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteVPCConnectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    AvailabilityStatus: __expectString,
+    DeletionStatus: __expectString,
+    RequestId: __expectString,
+    VPCConnectionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteVPCConnectionCommandError
+ */
+const de_DeleteVPCConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVPCConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -10967,6 +12179,274 @@ const de_DescribeThemePermissionsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeTopicCommand
+ */
+export const de_DescribeTopicCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTopicCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeTopicCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    RequestId: __expectString,
+    Topic: _json,
+    TopicId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeTopicCommandError
+ */
+const de_DescribeTopicCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTopicCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeTopicPermissionsCommand
+ */
+export const de_DescribeTopicPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTopicPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeTopicPermissionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Permissions: _json,
+    RequestId: __expectString,
+    TopicArn: __expectString,
+    TopicId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeTopicPermissionsCommandError
+ */
+const de_DescribeTopicPermissionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTopicPermissionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeTopicRefreshCommand
+ */
+export const de_DescribeTopicRefreshCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTopicRefreshCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeTopicRefreshCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RefreshDetails: _json,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeTopicRefreshCommandError
+ */
+const de_DescribeTopicRefreshCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTopicRefreshCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeTopicRefreshScheduleCommand
+ */
+export const de_DescribeTopicRefreshScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTopicRefreshScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeTopicRefreshScheduleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DatasetArn: __expectString,
+    RefreshSchedule: (_) => de_TopicRefreshSchedule(_, context),
+    RequestId: __expectString,
+    TopicArn: __expectString,
+    TopicId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeTopicRefreshScheduleCommandError
+ */
+const de_DescribeTopicRefreshScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTopicRefreshScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeUserCommand
  */
 export const de_DescribeUserCommand = async (
@@ -11025,6 +12505,70 @@ const de_DescribeUserCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.quicksight#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeVPCConnectionCommand
+ */
+export const de_DescribeVPCConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVPCConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeVPCConnectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+    Status: __expectInt32,
+    VPCConnection: (_) => de_VPCConnection(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeVPCConnectionCommandError
+ */
+const de_DescribeVPCConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVPCConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -12763,6 +14307,144 @@ const de_ListThemeVersionsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListTopicRefreshSchedulesCommand
+ */
+export const de_ListTopicRefreshSchedulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTopicRefreshSchedulesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListTopicRefreshSchedulesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RefreshSchedules: (_) => de_TopicRefreshScheduleSummaries(_, context),
+    RequestId: __expectString,
+    TopicArn: __expectString,
+    TopicId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTopicRefreshSchedulesCommandError
+ */
+const de_ListTopicRefreshSchedulesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTopicRefreshSchedulesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListTopicsCommand
+ */
+export const de_ListTopicsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTopicsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListTopicsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RequestId: __expectString,
+    TopicsSummaries: _json,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTopicsCommandError
+ */
+const de_ListTopicsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTopicsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.quicksight#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListUserGroupsCommand
  */
 export const de_ListUserGroupsCommand = async (
@@ -12895,6 +14577,73 @@ const de_ListUsersCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.quicksight#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListVPCConnectionsCommand
+ */
+export const de_ListVPCConnectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVPCConnectionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListVPCConnectionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RequestId: __expectString,
+    VPCConnectionSummaries: (_) => de_VPCConnectionSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListVPCConnectionsCommandError
+ */
+const de_ListVPCConnectionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVPCConnectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.quicksight#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -15335,6 +17084,228 @@ const de_UpdateThemePermissionsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateTopicCommand
+ */
+export const de_UpdateTopicCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTopicCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateTopicCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    RefreshArn: __expectString,
+    RequestId: __expectString,
+    TopicId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateTopicCommandError
+ */
+const de_UpdateTopicCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTopicCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateTopicPermissionsCommand
+ */
+export const de_UpdateTopicPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTopicPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateTopicPermissionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Permissions: _json,
+    RequestId: __expectString,
+    TopicArn: __expectString,
+    TopicId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateTopicPermissionsCommandError
+ */
+const de_UpdateTopicPermissionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTopicPermissionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateTopicRefreshScheduleCommand
+ */
+export const de_UpdateTopicRefreshScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTopicRefreshScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateTopicRefreshScheduleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DatasetArn: __expectString,
+    RequestId: __expectString,
+    TopicArn: __expectString,
+    TopicId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateTopicRefreshScheduleCommandError
+ */
+const de_UpdateTopicRefreshScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTopicRefreshScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateUserCommand
  */
 export const de_UpdateUserCommand = async (
@@ -15393,6 +17364,81 @@ const de_UpdateUserCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.quicksight#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateVPCConnectionCommand
+ */
+export const de_UpdateVPCConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVPCConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateVPCConnectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    AvailabilityStatus: __expectString,
+    RequestId: __expectString,
+    UpdateStatus: __expectString,
+    VPCConnectionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateVPCConnectionCommandError
+ */
+const de_UpdateVPCConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVPCConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -15818,6 +17864,8 @@ const se_AggregationFunction = (input: AggregationFunction, context: __SerdeCont
   });
 };
 
+// se_AggregationFunctionParameters omitted.
+
 /**
  * serializeAws_restJson1AggregationSortConfiguration
  */
@@ -15918,6 +17966,8 @@ const se_ArcConfiguration = (input: ArcConfiguration, context: __SerdeContext): 
 // se_AuroraParameters omitted.
 
 // se_AuroraPostgreSqlParameters omitted.
+
+// se_AuthorSpecifiedAggregations omitted.
 
 // se_AwsIotAnalyticsParameters omitted.
 
@@ -16103,6 +18153,8 @@ const se_BinWidthOptions = (input: BinWidthOptions, context: __SerdeContext): an
 
 // se_BodySectionContent omitted.
 
+// se_BookmarksConfigurations omitted.
+
 // se_BorderStyle omitted.
 
 /**
@@ -16214,11 +18266,17 @@ const se_BoxPlotVisual = (input: BoxPlotVisual, context: __SerdeContext): any =>
 
 // se_CategoryValueList omitted.
 
+// se_CellValueSynonym omitted.
+
+// se_CellValueSynonyms omitted.
+
 // se_ChartAxisLabelOptions omitted.
 
 // se_ClusterMarker omitted.
 
 // se_ClusterMarkerConfiguration omitted.
+
+// se_CollectiveConstant omitted.
 
 // se_ColorList omitted.
 
@@ -16398,6 +18456,8 @@ const se_ComboChartVisual = (input: ComboChartVisual, context: __SerdeContext): 
   });
 };
 
+// se_ComparativeOrder omitted.
+
 // se_ComparisonConfiguration omitted.
 
 // se_ComparisonFormatConfiguration omitted.
@@ -16477,6 +18537,8 @@ const se_ConditionalFormattingGradientColor = (
 // se_CredentialPair omitted.
 
 // se_CurrencyDisplayFormatConfiguration omitted.
+
+// se_CustomActionColumnList omitted.
 
 // se_CustomActionFilterOperation omitted.
 
@@ -16571,6 +18633,8 @@ const se_DashboardVersionDefinition = (input: DashboardVersionDefinition, contex
 
 // se_DashboardVisualPublishOptions omitted.
 
+// se_DataAggregation omitted.
+
 // se_DataBarsOptions omitted.
 
 // se_DatabricksParameters omitted.
@@ -16621,11 +18685,38 @@ const se_DataColor = (input: DataColor, context: __SerdeContext): any => {
 
 // se_DataSetIdentifierDeclarationList omitted.
 
+// se_DatasetMetadata omitted.
+
+/**
+ * serializeAws_restJson1DatasetParameter
+ */
+const se_DatasetParameter = (input: DatasetParameter, context: __SerdeContext): any => {
+  return take(input, {
+    DateTimeDatasetParameter: (_) => se_DateTimeDatasetParameter(_, context),
+    DecimalDatasetParameter: (_) => se_DecimalDatasetParameter(_, context),
+    IntegerDatasetParameter: _json,
+    StringDatasetParameter: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1DatasetParameterList
+ */
+const se_DatasetParameterList = (input: DatasetParameter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_DatasetParameter(entry, context);
+    });
+};
+
 // se_DataSetReference omitted.
 
 // se_DataSetReferenceList omitted.
 
 // se_DataSetRefreshProperties omitted.
+
+// se_Datasets omitted.
 
 // se_DataSetSchema omitted.
 
@@ -16650,6 +18741,42 @@ const se_DataColor = (input: DataColor, context: __SerdeContext): any => {
 // se_DateDimensionField omitted.
 
 // se_DateMeasureField omitted.
+
+/**
+ * serializeAws_restJson1DateTimeDatasetParameter
+ */
+const se_DateTimeDatasetParameter = (input: DateTimeDatasetParameter, context: __SerdeContext): any => {
+  return take(input, {
+    DefaultValues: (_) => se_DateTimeDatasetParameterDefaultValues(_, context),
+    Id: [],
+    Name: [],
+    TimeGranularity: [],
+    ValueType: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1DateTimeDatasetParameterDefaultValues
+ */
+const se_DateTimeDatasetParameterDefaultValues = (
+  input: DateTimeDatasetParameterDefaultValues,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    StaticValues: (_) => se_DateTimeDatasetParameterValueList(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1DateTimeDatasetParameterValueList
+ */
+const se_DateTimeDatasetParameterValueList = (input: Date[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return Math.round(entry.getTime() / 1000);
+    });
+};
 
 /**
  * serializeAws_restJson1DateTimeDefaultValueList
@@ -16701,6 +18828,7 @@ const se_DateTimeParameter = (input: DateTimeParameter, context: __SerdeContext)
 const se_DateTimeParameterDeclaration = (input: DateTimeParameterDeclaration, context: __SerdeContext): any => {
   return take(input, {
     DefaultValues: (_) => se_DateTimeDefaultValues(_, context),
+    MappedDataSetParameters: _json,
     Name: [],
     TimeGranularity: [],
     ValueWhenUnset: (_) => se_DateTimeValueWhenUnsetConfiguration(_, context),
@@ -16731,6 +18859,41 @@ const se_DateTimeValueWhenUnsetConfiguration = (
     CustomValue: (_) => Math.round(_.getTime() / 1000),
     ValueWhenUnsetOption: [],
   });
+};
+
+/**
+ * serializeAws_restJson1DecimalDatasetParameter
+ */
+const se_DecimalDatasetParameter = (input: DecimalDatasetParameter, context: __SerdeContext): any => {
+  return take(input, {
+    DefaultValues: (_) => se_DecimalDatasetParameterDefaultValues(_, context),
+    Id: [],
+    Name: [],
+    ValueType: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1DecimalDatasetParameterDefaultValues
+ */
+const se_DecimalDatasetParameterDefaultValues = (
+  input: DecimalDatasetParameterDefaultValues,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    StaticValues: (_) => se_DecimalDatasetParameterValueList(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1DecimalDatasetParameterValueList
+ */
+const se_DecimalDatasetParameterValueList = (input: number[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return __serializeFloat(entry);
+    });
 };
 
 /**
@@ -16770,6 +18933,7 @@ const se_DecimalParameter = (input: DecimalParameter, context: __SerdeContext): 
 const se_DecimalParameterDeclaration = (input: DecimalParameterDeclaration, context: __SerdeContext): any => {
   return take(input, {
     DefaultValues: (_) => se_DecimalDefaultValues(_, context),
+    MappedDataSetParameters: _json,
     Name: [],
     ParameterValueType: [],
     ValueWhenUnset: (_) => se_DecimalValueWhenUnsetConfiguration(_, context),
@@ -16802,6 +18966,8 @@ const se_DecimalValueWhenUnsetConfiguration = (
   });
 };
 
+// se_DefaultFormatting omitted.
+
 // se_DefaultFreeFormLayoutConfiguration omitted.
 
 // se_DefaultGridLayoutConfiguration omitted.
@@ -16824,6 +18990,7 @@ const se_DestinationParameterValueConfiguration = (
   return take(input, {
     CustomValuesConfiguration: (_) => se_CustomValuesConfiguration(_, context),
     SelectAllValueOptions: [],
+    SourceColumn: _json,
     SourceField: [],
     SourceParameterName: [],
   });
@@ -16832,6 +18999,10 @@ const se_DestinationParameterValueConfiguration = (
 // se_DimensionField omitted.
 
 // se_DimensionFieldList omitted.
+
+// se_DisplayFormatOptions omitted.
+
+// se_DnsResolverList omitted.
 
 // se_DonutCenterOptions omitted.
 
@@ -17774,6 +19945,12 @@ const se_InsightVisual = (input: InsightVisual, context: __SerdeContext): any =>
   });
 };
 
+// se_IntegerDatasetParameter omitted.
+
+// se_IntegerDatasetParameterDefaultValues omitted.
+
+// se_IntegerDatasetParameterValueList omitted.
+
 // se_IntegerDefaultValueList omitted.
 
 // se_IntegerDefaultValues omitted.
@@ -18040,9 +20217,29 @@ const se_LineSeriesAxisDisplayOptions = (input: LineSeriesAxisDisplayOptions, co
 
 // se_LocalNavigationConfiguration omitted.
 
-// se_LogicalTable omitted.
+/**
+ * serializeAws_restJson1LogicalTable
+ */
+const se_LogicalTable = (input: LogicalTable, context: __SerdeContext): any => {
+  return take(input, {
+    Alias: [],
+    DataTransforms: (_) => se_TransformOperationList(_, context),
+    Source: _json,
+  });
+};
 
-// se_LogicalTableMap omitted.
+/**
+ * serializeAws_restJson1LogicalTableMap
+ */
+const se_LogicalTableMap = (input: Record<string, LogicalTable>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_LogicalTable(value, context);
+    return acc;
+  }, {});
+};
 
 // se_LogicalTableSource omitted.
 
@@ -18051,6 +20248,10 @@ const se_LineSeriesAxisDisplayOptions = (input: LineSeriesAxisDisplayOptions, co
 // se_LookbackWindow omitted.
 
 // se_ManifestFileLocation omitted.
+
+// se_MappedDataSetParameter omitted.
+
+// se_MappedDataSetParameters omitted.
 
 // se_MarginStyle omitted.
 
@@ -18115,7 +20316,27 @@ const se_MetricComparisonComputation = (input: MetricComparisonComputation, cont
 
 // se_MySqlParameters omitted.
 
+// se_NamedEntityDefinition omitted.
+
+// se_NamedEntityDefinitionMetric omitted.
+
+// se_NamedEntityDefinitions omitted.
+
+// se_NegativeFormat omitted.
+
 // se_NegativeValueConfiguration omitted.
+
+/**
+ * serializeAws_restJson1NewDefaultValues
+ */
+const se_NewDefaultValues = (input: NewDefaultValues, context: __SerdeContext): any => {
+  return take(input, {
+    DateTimeStaticValues: (_) => se_DateTimeDatasetParameterValueList(_, context),
+    DecimalStaticValues: (_) => se_DecimalDatasetParameterValueList(_, context),
+    IntegerStaticValues: _json,
+    StringStaticValues: _json,
+  });
+};
 
 // se_NullValueFormatConfiguration omitted.
 
@@ -18215,6 +20436,20 @@ const se_NumericRangeFilterValue = (input: NumericRangeFilterValue, context: __S
 // se_NumericSeparatorConfiguration omitted.
 
 // se_OracleParameters omitted.
+
+/**
+ * serializeAws_restJson1OverrideDatasetParameterOperation
+ */
+const se_OverrideDatasetParameterOperation = (
+  input: OverrideDatasetParameterOperation,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    NewDefaultValues: (_) => se_NewDefaultValues(_, context),
+    NewParameterName: [],
+    ParameterName: [],
+  });
+};
 
 // se_PaginationConfiguration omitted.
 
@@ -18713,6 +20948,8 @@ const se_RadarChartVisual = (input: RadarChartVisual, context: __SerdeContext): 
   });
 };
 
+// se_RangeConstant omitted.
+
 // se_RangeEndsLabelType omitted.
 
 // se_RdsParameters omitted.
@@ -18932,6 +21169,7 @@ const se_ScatterPlotCategoricallyAggregatedFieldWells = (
 ): any => {
   return take(input, {
     Category: _json,
+    Label: _json,
     Size: (_) => se_MeasureFieldList(_, context),
     XAxis: (_) => se_MeasureFieldList(_, context),
     YAxis: (_) => se_MeasureFieldList(_, context),
@@ -18973,6 +21211,8 @@ const se_ScatterPlotUnaggregatedFieldWells = (
   context: __SerdeContext
 ): any => {
   return take(input, {
+    Category: _json,
+    Label: _json,
     Size: (_) => se_MeasureFieldList(_, context),
     XAxis: _json,
     YAxis: _json,
@@ -19031,9 +21271,15 @@ const se_SectionBasedLayoutConfiguration = (input: SectionBasedLayoutConfigurati
 
 // se_SectionStyle omitted.
 
+// se_SecurityGroupIdList omitted.
+
 // se_SelectedFieldList omitted.
 
 // se_SelectedSheetsFilterScopeConfiguration omitted.
+
+// se_SemanticEntityType omitted.
+
+// se_SemanticType omitted.
 
 /**
  * serializeAws_restJson1SensitiveDoubleList
@@ -19182,6 +21428,12 @@ const se_SheetDefinitionList = (input: SheetDefinition[], context: __SerdeContex
 
 // se_StatePersistenceConfigurations omitted.
 
+// se_StringDatasetParameter omitted.
+
+// se_StringDatasetParameterDefaultValues omitted.
+
+// se_StringDatasetParameterValueList omitted.
+
 // se_StringDefaultValueList omitted.
 
 // se_StringDefaultValues omitted.
@@ -19198,7 +21450,11 @@ const se_SheetDefinitionList = (input: SheetDefinition[], context: __SerdeContex
 
 // se_StringValueWhenUnsetConfiguration omitted.
 
+// se_SubnetIdList omitted.
+
 // se_SubtotalOptions omitted.
+
+// se_Synonyms omitted.
 
 /**
  * serializeAws_restJson1TableAggregatedFieldWells
@@ -19547,6 +21803,54 @@ const se_TopBottomRankedComputation = (input: TopBottomRankedComputation, contex
   });
 };
 
+// se_TopicCalculatedField omitted.
+
+// se_TopicCalculatedFields omitted.
+
+// se_TopicCategoryFilter omitted.
+
+// se_TopicCategoryFilterConstant omitted.
+
+// se_TopicColumn omitted.
+
+// se_TopicColumns omitted.
+
+// se_TopicDateRangeFilter omitted.
+
+// se_TopicDetails omitted.
+
+// se_TopicFilter omitted.
+
+// se_TopicFilters omitted.
+
+// se_TopicNamedEntities omitted.
+
+// se_TopicNamedEntity omitted.
+
+// se_TopicNumericEqualityFilter omitted.
+
+// se_TopicNumericRangeFilter omitted.
+
+// se_TopicRangeFilterConstant omitted.
+
+/**
+ * serializeAws_restJson1TopicRefreshSchedule
+ */
+const se_TopicRefreshSchedule = (input: TopicRefreshSchedule, context: __SerdeContext): any => {
+  return take(input, {
+    BasedOnSpiceSchedule: [],
+    IsEnabled: [],
+    RepeatAt: [],
+    StartingAt: (_) => Math.round(_.getTime() / 1000),
+    Timezone: [],
+    TopicScheduleType: [],
+  });
+};
+
+// se_TopicRelativeDateFilter omitted.
+
+// se_TopicSingularFilterConstant omitted.
+
 /**
  * serializeAws_restJson1TotalAggregationComputation
  */
@@ -19560,9 +21864,35 @@ const se_TotalAggregationComputation = (input: TotalAggregationComputation, cont
 
 // se_TotalOptions omitted.
 
-// se_TransformOperation omitted.
+/**
+ * serializeAws_restJson1TransformOperation
+ */
+const se_TransformOperation = (input: TransformOperation, context: __SerdeContext): any => {
+  return TransformOperation.visit(input, {
+    CastColumnTypeOperation: (value) => ({ CastColumnTypeOperation: _json(value) }),
+    CreateColumnsOperation: (value) => ({ CreateColumnsOperation: _json(value) }),
+    FilterOperation: (value) => ({ FilterOperation: _json(value) }),
+    OverrideDatasetParameterOperation: (value) => ({
+      OverrideDatasetParameterOperation: se_OverrideDatasetParameterOperation(value, context),
+    }),
+    ProjectOperation: (value) => ({ ProjectOperation: _json(value) }),
+    RenameColumnOperation: (value) => ({ RenameColumnOperation: _json(value) }),
+    TagColumnOperation: (value) => ({ TagColumnOperation: _json(value) }),
+    UntagColumnOperation: (value) => ({ UntagColumnOperation: _json(value) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
 
-// se_TransformOperationList omitted.
+/**
+ * serializeAws_restJson1TransformOperationList
+ */
+const se_TransformOperationList = (input: TransformOperation[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_TransformOperation(entry, context);
+    });
+};
 
 /**
  * serializeAws_restJson1TreeMapAggregatedFieldWells
@@ -19641,6 +21971,8 @@ const se_TreeMapVisual = (input: TreeMapVisual, context: __SerdeContext): any =>
 // se_TrendArrowOptions omitted.
 
 // se_TwitterParameters omitted.
+
+// se_TypeParameters omitted.
 
 // se_Typography omitted.
 
@@ -19953,6 +22285,8 @@ const de_AggregationFunction = (output: any, context: __SerdeContext): Aggregati
   }) as any;
 };
 
+// de_AggregationFunctionParameters omitted.
+
 /**
  * deserializeAws_restJson1AggregationSortConfiguration
  */
@@ -20084,6 +22418,8 @@ const de_ArcConfiguration = (output: any, context: __SerdeContext): ArcConfigura
 // de_AuroraParameters omitted.
 
 // de_AuroraPostgreSqlParameters omitted.
+
+// de_AuthorSpecifiedAggregations omitted.
 
 // de_AwsIotAnalyticsParameters omitted.
 
@@ -20381,11 +22717,17 @@ const de_BoxPlotVisual = (output: any, context: __SerdeContext): BoxPlotVisual =
 
 // de_CategoryValueList omitted.
 
+// de_CellValueSynonym omitted.
+
+// de_CellValueSynonyms omitted.
+
 // de_ChartAxisLabelOptions omitted.
 
 // de_ClusterMarker omitted.
 
 // de_ClusterMarkerConfiguration omitted.
+
+// de_CollectiveConstant omitted.
 
 // de_ColorList omitted.
 
@@ -20567,6 +22909,8 @@ const de_ComboChartVisual = (output: any, context: __SerdeContext): ComboChartVi
   }) as any;
 };
 
+// de_ComparativeOrder omitted.
+
 // de_ComparisonConfiguration omitted.
 
 // de_ComparisonFormatConfiguration omitted.
@@ -20645,6 +22989,8 @@ const de_ConditionalFormattingGradientColor = (
 // de_CreateColumnsOperation omitted.
 
 // de_CurrencyDisplayFormatConfiguration omitted.
+
+// de_CustomActionColumnList omitted.
 
 // de_CustomActionFilterOperation omitted.
 
@@ -20819,6 +23165,8 @@ const de_DashboardVersionSummaryList = (output: any, context: __SerdeContext): D
 
 // de_DashboardVisualPublishOptions omitted.
 
+// de_DataAggregation omitted.
+
 // de_DataBarsOptions omitted.
 
 // de_DatabricksParameters omitted.
@@ -20873,10 +23221,11 @@ const de_DataSet = (output: any, context: __SerdeContext): DataSet => {
     CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DataSetId: __expectString,
     DataSetUsageConfiguration: _json,
+    DatasetParameters: (_: any) => de_DatasetParameterList(_, context),
     FieldFolders: _json,
     ImportMode: __expectString,
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    LogicalTableMap: _json,
+    LogicalTableMap: (_: any) => de_LogicalTableMap(_, context),
     Name: __expectString,
     OutputColumns: _json,
     PhysicalTableMap: _json,
@@ -20895,7 +23244,35 @@ const de_DataSet = (output: any, context: __SerdeContext): DataSet => {
 
 // de_DataSetIdentifierDeclarationList omitted.
 
+// de_DatasetMetadata omitted.
+
+/**
+ * deserializeAws_restJson1DatasetParameter
+ */
+const de_DatasetParameter = (output: any, context: __SerdeContext): DatasetParameter => {
+  return take(output, {
+    DateTimeDatasetParameter: (_: any) => de_DateTimeDatasetParameter(_, context),
+    DecimalDatasetParameter: (_: any) => de_DecimalDatasetParameter(_, context),
+    IntegerDatasetParameter: _json,
+    StringDatasetParameter: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DatasetParameterList
+ */
+const de_DatasetParameterList = (output: any, context: __SerdeContext): DatasetParameter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DatasetParameter(entry, context);
+    });
+  return retVal;
+};
+
 // de_DataSetRefreshProperties omitted.
+
+// de_Datasets omitted.
 
 // de_DataSetSchema omitted.
 
@@ -21002,6 +23379,43 @@ const de_DataSourceSummaryList = (output: any, context: __SerdeContext): DataSou
 // de_DateMeasureField omitted.
 
 /**
+ * deserializeAws_restJson1DateTimeDatasetParameter
+ */
+const de_DateTimeDatasetParameter = (output: any, context: __SerdeContext): DateTimeDatasetParameter => {
+  return take(output, {
+    DefaultValues: (_: any) => de_DateTimeDatasetParameterDefaultValues(_, context),
+    Id: __expectString,
+    Name: __expectString,
+    TimeGranularity: __expectString,
+    ValueType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DateTimeDatasetParameterDefaultValues
+ */
+const de_DateTimeDatasetParameterDefaultValues = (
+  output: any,
+  context: __SerdeContext
+): DateTimeDatasetParameterDefaultValues => {
+  return take(output, {
+    StaticValues: (_: any) => de_DateTimeDatasetParameterValueList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DateTimeDatasetParameterValueList
+ */
+const de_DateTimeDatasetParameterValueList = (output: any, context: __SerdeContext): Date[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1DateTimeDefaultValueList
  */
 const de_DateTimeDefaultValueList = (output: any, context: __SerdeContext): Date[] => {
@@ -21042,6 +23456,7 @@ const de_DateTimeHierarchy = (output: any, context: __SerdeContext): DateTimeHie
 const de_DateTimeParameterDeclaration = (output: any, context: __SerdeContext): DateTimeParameterDeclaration => {
   return take(output, {
     DefaultValues: (_: any) => de_DateTimeDefaultValues(_, context),
+    MappedDataSetParameters: _json,
     Name: __expectString,
     TimeGranularity: __expectString,
     ValueWhenUnset: (_: any) => de_DateTimeValueWhenUnsetConfiguration(_, context),
@@ -21061,6 +23476,42 @@ const de_DateTimeValueWhenUnsetConfiguration = (
     CustomValue: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ValueWhenUnsetOption: __expectString,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DecimalDatasetParameter
+ */
+const de_DecimalDatasetParameter = (output: any, context: __SerdeContext): DecimalDatasetParameter => {
+  return take(output, {
+    DefaultValues: (_: any) => de_DecimalDatasetParameterDefaultValues(_, context),
+    Id: __expectString,
+    Name: __expectString,
+    ValueType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DecimalDatasetParameterDefaultValues
+ */
+const de_DecimalDatasetParameterDefaultValues = (
+  output: any,
+  context: __SerdeContext
+): DecimalDatasetParameterDefaultValues => {
+  return take(output, {
+    StaticValues: (_: any) => de_DecimalDatasetParameterValueList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DecimalDatasetParameterValueList
+ */
+const de_DecimalDatasetParameterValueList = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __limitedParseDouble(entry) as any;
+    });
+  return retVal;
 };
 
 /**
@@ -21091,6 +23542,7 @@ const de_DecimalDefaultValues = (output: any, context: __SerdeContext): DecimalD
 const de_DecimalParameterDeclaration = (output: any, context: __SerdeContext): DecimalParameterDeclaration => {
   return take(output, {
     DefaultValues: (_: any) => de_DecimalDefaultValues(_, context),
+    MappedDataSetParameters: _json,
     Name: __expectString,
     ParameterValueType: __expectString,
     ValueWhenUnset: (_: any) => de_DecimalValueWhenUnsetConfiguration(_, context),
@@ -21111,6 +23563,8 @@ const de_DecimalValueWhenUnsetConfiguration = (
     ValueWhenUnsetOption: __expectString,
   }) as any;
 };
+
+// de_DefaultFormatting omitted.
 
 // de_DefaultFreeFormLayoutConfiguration omitted.
 
@@ -21134,6 +23588,7 @@ const de_DestinationParameterValueConfiguration = (
   return take(output, {
     CustomValuesConfiguration: (_: any) => de_CustomValuesConfiguration(_, context),
     SelectAllValueOptions: __expectString,
+    SourceColumn: _json,
     SourceField: __expectString,
     SourceParameterName: __expectString,
   }) as any;
@@ -21142,6 +23597,8 @@ const de_DestinationParameterValueConfiguration = (
 // de_DimensionField omitted.
 
 // de_DimensionFieldList omitted.
+
+// de_DisplayFormatOptions omitted.
 
 // de_DonutCenterOptions omitted.
 
@@ -22183,6 +24640,12 @@ const de_InsightVisual = (output: any, context: __SerdeContext): InsightVisual =
   }) as any;
 };
 
+// de_IntegerDatasetParameter omitted.
+
+// de_IntegerDatasetParameterDefaultValues omitted.
+
+// de_IntegerDatasetParameterValueList omitted.
+
 // de_IntegerDefaultValueList omitted.
 
 // de_IntegerDefaultValues omitted.
@@ -22449,9 +24912,29 @@ const de_LineSeriesAxisDisplayOptions = (output: any, context: __SerdeContext): 
 
 // de_LocalNavigationConfiguration omitted.
 
-// de_LogicalTable omitted.
+/**
+ * deserializeAws_restJson1LogicalTable
+ */
+const de_LogicalTable = (output: any, context: __SerdeContext): LogicalTable => {
+  return take(output, {
+    Alias: __expectString,
+    DataTransforms: (_: any) => de_TransformOperationList(_, context),
+    Source: _json,
+  }) as any;
+};
 
-// de_LogicalTableMap omitted.
+/**
+ * deserializeAws_restJson1LogicalTableMap
+ */
+const de_LogicalTableMap = (output: any, context: __SerdeContext): Record<string, LogicalTable> => {
+  return Object.entries(output).reduce((acc: Record<string, LogicalTable>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = de_LogicalTable(value, context);
+    return acc;
+  }, {});
+};
 
 // de_LogicalTableSource omitted.
 
@@ -22460,6 +24943,10 @@ const de_LineSeriesAxisDisplayOptions = (output: any, context: __SerdeContext): 
 // de_LookbackWindow omitted.
 
 // de_ManifestFileLocation omitted.
+
+// de_MappedDataSetParameter omitted.
+
+// de_MappedDataSetParameters omitted.
 
 // de_MarginStyle omitted.
 
@@ -22527,13 +25014,37 @@ const de_MetricComparisonComputation = (output: any, context: __SerdeContext): M
 
 // de_MySqlParameters omitted.
 
+// de_NamedEntityDefinition omitted.
+
+// de_NamedEntityDefinitionMetric omitted.
+
+// de_NamedEntityDefinitions omitted.
+
 // de_NamespaceError omitted.
 
 // de_NamespaceInfoV2 omitted.
 
 // de_Namespaces omitted.
 
+// de_NegativeFormat omitted.
+
 // de_NegativeValueConfiguration omitted.
+
+// de_NetworkInterface omitted.
+
+// de_NetworkInterfaceList omitted.
+
+/**
+ * deserializeAws_restJson1NewDefaultValues
+ */
+const de_NewDefaultValues = (output: any, context: __SerdeContext): NewDefaultValues => {
+  return take(output, {
+    DateTimeStaticValues: (_: any) => de_DateTimeDatasetParameterValueList(_, context),
+    DecimalStaticValues: (_: any) => de_DecimalDatasetParameterValueList(_, context),
+    IntegerStaticValues: _json,
+    StringStaticValues: _json,
+  }) as any;
+};
 
 // de_NullValueFormatConfiguration omitted.
 
@@ -22637,6 +25148,20 @@ const de_NumericRangeFilterValue = (output: any, context: __SerdeContext): Numer
 // de_OutputColumn omitted.
 
 // de_OutputColumnList omitted.
+
+/**
+ * deserializeAws_restJson1OverrideDatasetParameterOperation
+ */
+const de_OverrideDatasetParameterOperation = (
+  output: any,
+  context: __SerdeContext
+): OverrideDatasetParameterOperation => {
+  return take(output, {
+    NewDefaultValues: (_: any) => de_NewDefaultValues(_, context),
+    NewParameterName: __expectString,
+    ParameterName: __expectString,
+  }) as any;
+};
 
 // de_PaginationConfiguration omitted.
 
@@ -23133,6 +25658,8 @@ const de_RadarChartVisual = (output: any, context: __SerdeContext): RadarChartVi
   }) as any;
 };
 
+// de_RangeConstant omitted.
+
 // de_RangeEndsLabelType omitted.
 
 // de_RdsParameters omitted.
@@ -23354,6 +25881,7 @@ const de_ScatterPlotCategoricallyAggregatedFieldWells = (
 ): ScatterPlotCategoricallyAggregatedFieldWells => {
   return take(output, {
     Category: _json,
+    Label: _json,
     Size: (_: any) => de_MeasureFieldList(_, context),
     XAxis: (_: any) => de_MeasureFieldList(_, context),
     YAxis: (_: any) => de_MeasureFieldList(_, context),
@@ -23396,6 +25924,8 @@ const de_ScatterPlotUnaggregatedFieldWells = (
   context: __SerdeContext
 ): ScatterPlotUnaggregatedFieldWells => {
   return take(output, {
+    Category: _json,
+    Label: _json,
     Size: (_: any) => de_MeasureFieldList(_, context),
     XAxis: _json,
     YAxis: _json,
@@ -23454,9 +25984,17 @@ const de_SectionBasedLayoutConfiguration = (output: any, context: __SerdeContext
 
 // de_SectionStyle omitted.
 
+// de_SecurityGroupIdList omitted.
+
 // de_SelectedFieldList omitted.
 
 // de_SelectedSheetsFilterScopeConfiguration omitted.
+
+// de_SemanticEntityType omitted.
+
+// de_SemanticType omitted.
+
+// de_SensitiveStringList omitted.
 
 // de_SeriesItem omitted.
 
@@ -23581,17 +26119,27 @@ const de_SheetDefinitionList = (output: any, context: __SerdeContext): SheetDefi
 
 // de_SslProperties omitted.
 
+// de_StringDatasetParameter omitted.
+
+// de_StringDatasetParameterDefaultValues omitted.
+
+// de_StringDatasetParameterValueList omitted.
+
 // de_StringDefaultValueList omitted.
 
 // de_StringDefaultValues omitted.
 
 // de_StringFormatConfiguration omitted.
 
+// de_StringList omitted.
+
 // de_StringParameterDeclaration omitted.
 
 // de_StringValueWhenUnsetConfiguration omitted.
 
 // de_SubtotalOptions omitted.
+
+// de_Synonyms omitted.
 
 /**
  * deserializeAws_restJson1TableAggregatedFieldWells
@@ -24119,6 +26667,84 @@ const de_TopBottomRankedComputation = (output: any, context: __SerdeContext): To
   }) as any;
 };
 
+// de_TopicCalculatedField omitted.
+
+// de_TopicCalculatedFields omitted.
+
+// de_TopicCategoryFilter omitted.
+
+// de_TopicCategoryFilterConstant omitted.
+
+// de_TopicColumn omitted.
+
+// de_TopicColumns omitted.
+
+// de_TopicDateRangeFilter omitted.
+
+// de_TopicDetails omitted.
+
+// de_TopicFilter omitted.
+
+// de_TopicFilters omitted.
+
+// de_TopicNamedEntities omitted.
+
+// de_TopicNamedEntity omitted.
+
+// de_TopicNumericEqualityFilter omitted.
+
+// de_TopicNumericRangeFilter omitted.
+
+// de_TopicRangeFilterConstant omitted.
+
+// de_TopicRefreshDetails omitted.
+
+/**
+ * deserializeAws_restJson1TopicRefreshSchedule
+ */
+const de_TopicRefreshSchedule = (output: any, context: __SerdeContext): TopicRefreshSchedule => {
+  return take(output, {
+    BasedOnSpiceSchedule: __expectBoolean,
+    IsEnabled: __expectBoolean,
+    RepeatAt: __expectString,
+    StartingAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Timezone: __expectString,
+    TopicScheduleType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TopicRefreshScheduleSummaries
+ */
+const de_TopicRefreshScheduleSummaries = (output: any, context: __SerdeContext): TopicRefreshScheduleSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TopicRefreshScheduleSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1TopicRefreshScheduleSummary
+ */
+const de_TopicRefreshScheduleSummary = (output: any, context: __SerdeContext): TopicRefreshScheduleSummary => {
+  return take(output, {
+    DatasetArn: __expectString,
+    DatasetId: __expectString,
+    DatasetName: __expectString,
+    RefreshSchedule: (_: any) => de_TopicRefreshSchedule(_, context),
+  }) as any;
+};
+
+// de_TopicRelativeDateFilter omitted.
+
+// de_TopicSingularFilterConstant omitted.
+
+// de_TopicSummaries omitted.
+
+// de_TopicSummary omitted.
+
 /**
  * deserializeAws_restJson1TotalAggregationComputation
  */
@@ -24132,9 +26758,67 @@ const de_TotalAggregationComputation = (output: any, context: __SerdeContext): T
 
 // de_TotalOptions omitted.
 
-// de_TransformOperation omitted.
+/**
+ * deserializeAws_restJson1TransformOperation
+ */
+const de_TransformOperation = (output: any, context: __SerdeContext): TransformOperation => {
+  if (output.CastColumnTypeOperation != null) {
+    return {
+      CastColumnTypeOperation: _json(output.CastColumnTypeOperation),
+    };
+  }
+  if (output.CreateColumnsOperation != null) {
+    return {
+      CreateColumnsOperation: _json(output.CreateColumnsOperation),
+    };
+  }
+  if (output.FilterOperation != null) {
+    return {
+      FilterOperation: _json(output.FilterOperation),
+    };
+  }
+  if (output.OverrideDatasetParameterOperation != null) {
+    return {
+      OverrideDatasetParameterOperation: de_OverrideDatasetParameterOperation(
+        output.OverrideDatasetParameterOperation,
+        context
+      ),
+    };
+  }
+  if (output.ProjectOperation != null) {
+    return {
+      ProjectOperation: _json(output.ProjectOperation),
+    };
+  }
+  if (output.RenameColumnOperation != null) {
+    return {
+      RenameColumnOperation: _json(output.RenameColumnOperation),
+    };
+  }
+  if (output.TagColumnOperation != null) {
+    return {
+      TagColumnOperation: _json(output.TagColumnOperation),
+    };
+  }
+  if (output.UntagColumnOperation != null) {
+    return {
+      UntagColumnOperation: _json(output.UntagColumnOperation),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
-// de_TransformOperationList omitted.
+/**
+ * deserializeAws_restJson1TransformOperationList
+ */
+const de_TransformOperationList = (output: any, context: __SerdeContext): TransformOperation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TransformOperation(__expectUnion(entry), context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1TreeMapAggregatedFieldWells
@@ -24214,6 +26898,8 @@ const de_TreeMapVisual = (output: any, context: __SerdeContext): TreeMapVisual =
 // de_TrendArrowOptions omitted.
 
 // de_TwitterParameters omitted.
+
+// de_TypeParameters omitted.
 
 // de_Typography omitted.
 
@@ -24344,7 +27030,59 @@ const de_VisualList = (output: any, context: __SerdeContext): Visual[] => {
 
 // de_VisualTitleLabelOptions omitted.
 
+/**
+ * deserializeAws_restJson1VPCConnection
+ */
+const de_VPCConnection = (output: any, context: __SerdeContext): VPCConnection => {
+  return take(output, {
+    Arn: __expectString,
+    AvailabilityStatus: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DnsResolvers: _json,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    NetworkInterfaces: _json,
+    RoleArn: __expectString,
+    SecurityGroupIds: _json,
+    Status: __expectString,
+    VPCConnectionId: __expectString,
+    VPCId: __expectString,
+  }) as any;
+};
+
 // de_VpcConnectionProperties omitted.
+
+/**
+ * deserializeAws_restJson1VPCConnectionSummary
+ */
+const de_VPCConnectionSummary = (output: any, context: __SerdeContext): VPCConnectionSummary => {
+  return take(output, {
+    Arn: __expectString,
+    AvailabilityStatus: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DnsResolvers: _json,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    NetworkInterfaces: _json,
+    RoleArn: __expectString,
+    SecurityGroupIds: _json,
+    Status: __expectString,
+    VPCConnectionId: __expectString,
+    VPCId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VPCConnectionSummaryList
+ */
+const de_VPCConnectionSummaryList = (output: any, context: __SerdeContext): VPCConnectionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_VPCConnectionSummary(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1WaterfallChartAggregatedFieldWells

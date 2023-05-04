@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeRefreshScheduleRequest, DescribeRefreshScheduleResponse } from "../models/models_2";
+import { DescribeRefreshScheduleRequest, DescribeRefreshScheduleResponse } from "../models/models_3";
 import { de_DescribeRefreshScheduleCommand, se_DescribeRefreshScheduleCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

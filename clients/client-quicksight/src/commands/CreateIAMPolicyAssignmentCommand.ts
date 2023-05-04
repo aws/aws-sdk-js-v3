@@ -32,10 +32,11 @@ export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyA
 
 /**
  * @public
- * <p>Creates an assignment with one specified IAM policy, identified by its Amazon Resource Name
- * 			(ARN). This policy assignment is attached to the specified groups or users of Amazon QuickSight.
- * 			Assignment names are unique per Amazon Web Services account. To avoid overwriting rules in other namespaces,
- * 			use assignment names that are unique.</p>
+ * <p>Creates an assignment with one specified IAM policy, identified by its
+ * 			Amazon Resource Name (ARN). This policy assignment is attached to the specified groups
+ * 			or users of Amazon QuickSight. Assignment names are unique per Amazon Web Services
+ * 			account. To avoid overwriting rules in other namespaces, use assignment names that are
+ * 			unique.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

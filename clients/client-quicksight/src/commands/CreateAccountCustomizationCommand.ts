@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateAccountCustomizationRequest, CreateAccountCustomizationResponse } from "../models/models_1";
+import { CreateAccountCustomizationRequest, CreateAccountCustomizationResponse } from "../models/models_2";
 import { de_CreateAccountCustomizationCommand, se_CreateAccountCustomizationCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

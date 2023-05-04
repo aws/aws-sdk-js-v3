@@ -12,6 +12,8 @@ export * from "./ListTemplateVersionsPaginator";
 export * from "./ListTemplatesPaginator";
 export * from "./ListThemeVersionsPaginator";
 export * from "./ListThemesPaginator";
+export * from "./ListTopicsPaginator";
+export * from "./ListVPCConnectionsPaginator";
 export * from "./SearchAnalysesPaginator";
 export * from "./SearchDashboardsPaginator";
 export * from "./SearchDataSetsPaginator";

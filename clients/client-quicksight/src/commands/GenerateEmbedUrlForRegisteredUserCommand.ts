@@ -79,6 +79,9 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  *         StatePersistence: { // StatePersistenceConfigurations
  *           Enabled: true || false, // required
  *         },
+ *         Bookmarks: { // BookmarksConfigurations
+ *           Enabled: true || false, // required
+ *         },
  *       },
  *     },
  *     QuickSightConsole: { // RegisteredUserQuickSightConsoleEmbeddingConfiguration

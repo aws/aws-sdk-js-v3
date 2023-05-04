@@ -89,6 +89,17 @@ import {
   CreateThemeAliasCommandOutput,
 } from "./commands/CreateThemeAliasCommand";
 import { CreateThemeCommand, CreateThemeCommandInput, CreateThemeCommandOutput } from "./commands/CreateThemeCommand";
+import { CreateTopicCommand, CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand";
+import {
+  CreateTopicRefreshScheduleCommand,
+  CreateTopicRefreshScheduleCommandInput,
+  CreateTopicRefreshScheduleCommandOutput,
+} from "./commands/CreateTopicRefreshScheduleCommand";
+import {
+  CreateVPCConnectionCommand,
+  CreateVPCConnectionCommandInput,
+  CreateVPCConnectionCommandOutput,
+} from "./commands/CreateVPCConnectionCommand";
 import {
   DeleteAccountCustomizationCommand,
   DeleteAccountCustomizationCommandInput,
@@ -171,12 +182,23 @@ import {
   DeleteThemeAliasCommandOutput,
 } from "./commands/DeleteThemeAliasCommand";
 import { DeleteThemeCommand, DeleteThemeCommandInput, DeleteThemeCommandOutput } from "./commands/DeleteThemeCommand";
+import { DeleteTopicCommand, DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
+import {
+  DeleteTopicRefreshScheduleCommand,
+  DeleteTopicRefreshScheduleCommandInput,
+  DeleteTopicRefreshScheduleCommandOutput,
+} from "./commands/DeleteTopicRefreshScheduleCommand";
 import {
   DeleteUserByPrincipalIdCommand,
   DeleteUserByPrincipalIdCommandInput,
   DeleteUserByPrincipalIdCommandOutput,
 } from "./commands/DeleteUserByPrincipalIdCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DeleteVPCConnectionCommand,
+  DeleteVPCConnectionCommandInput,
+  DeleteVPCConnectionCommandOutput,
+} from "./commands/DeleteVPCConnectionCommand";
 import {
   DescribeAccountCustomizationCommand,
   DescribeAccountCustomizationCommandInput,
@@ -333,10 +355,35 @@ import {
   DescribeThemePermissionsCommandOutput,
 } from "./commands/DescribeThemePermissionsCommand";
 import {
+  DescribeTopicCommand,
+  DescribeTopicCommandInput,
+  DescribeTopicCommandOutput,
+} from "./commands/DescribeTopicCommand";
+import {
+  DescribeTopicPermissionsCommand,
+  DescribeTopicPermissionsCommandInput,
+  DescribeTopicPermissionsCommandOutput,
+} from "./commands/DescribeTopicPermissionsCommand";
+import {
+  DescribeTopicRefreshCommand,
+  DescribeTopicRefreshCommandInput,
+  DescribeTopicRefreshCommandOutput,
+} from "./commands/DescribeTopicRefreshCommand";
+import {
+  DescribeTopicRefreshScheduleCommand,
+  DescribeTopicRefreshScheduleCommandInput,
+  DescribeTopicRefreshScheduleCommandOutput,
+} from "./commands/DescribeTopicRefreshScheduleCommand";
+import {
   DescribeUserCommand,
   DescribeUserCommandInput,
   DescribeUserCommandOutput,
 } from "./commands/DescribeUserCommand";
+import {
+  DescribeVPCConnectionCommand,
+  DescribeVPCConnectionCommandInput,
+  DescribeVPCConnectionCommandOutput,
+} from "./commands/DescribeVPCConnectionCommand";
 import {
   GenerateEmbedUrlForAnonymousUserCommand,
   GenerateEmbedUrlForAnonymousUserCommandInput,
@@ -451,11 +498,22 @@ import {
   ListThemeVersionsCommandOutput,
 } from "./commands/ListThemeVersionsCommand";
 import {
+  ListTopicRefreshSchedulesCommand,
+  ListTopicRefreshSchedulesCommandInput,
+  ListTopicRefreshSchedulesCommandOutput,
+} from "./commands/ListTopicRefreshSchedulesCommand";
+import { ListTopicsCommand, ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
+import {
   ListUserGroupsCommand,
   ListUserGroupsCommandInput,
   ListUserGroupsCommandOutput,
 } from "./commands/ListUserGroupsCommand";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import {
+  ListVPCConnectionsCommand,
+  ListVPCConnectionsCommandInput,
+  ListVPCConnectionsCommandOutput,
+} from "./commands/ListVPCConnectionsCommand";
 import {
   PutDataSetRefreshPropertiesCommand,
   PutDataSetRefreshPropertiesCommandInput,
@@ -619,7 +677,23 @@ import {
   UpdateThemePermissionsCommandInput,
   UpdateThemePermissionsCommandOutput,
 } from "./commands/UpdateThemePermissionsCommand";
+import { UpdateTopicCommand, UpdateTopicCommandInput, UpdateTopicCommandOutput } from "./commands/UpdateTopicCommand";
+import {
+  UpdateTopicPermissionsCommand,
+  UpdateTopicPermissionsCommandInput,
+  UpdateTopicPermissionsCommandOutput,
+} from "./commands/UpdateTopicPermissionsCommand";
+import {
+  UpdateTopicRefreshScheduleCommand,
+  UpdateTopicRefreshScheduleCommandInput,
+  UpdateTopicRefreshScheduleCommandOutput,
+} from "./commands/UpdateTopicRefreshScheduleCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import {
+  UpdateVPCConnectionCommand,
+  UpdateVPCConnectionCommandInput,
+  UpdateVPCConnectionCommandOutput,
+} from "./commands/UpdateVPCConnectionCommand";
 import { QuickSightClient, QuickSightClientConfig } from "./QuickSightClient";
 
 const commands = {
@@ -642,6 +716,9 @@ const commands = {
   CreateTemplateAliasCommand,
   CreateThemeCommand,
   CreateThemeAliasCommand,
+  CreateTopicCommand,
+  CreateTopicRefreshScheduleCommand,
+  CreateVPCConnectionCommand,
   DeleteAccountCustomizationCommand,
   DeleteAccountSubscriptionCommand,
   DeleteAnalysisCommand,
@@ -660,8 +737,11 @@ const commands = {
   DeleteTemplateAliasCommand,
   DeleteThemeCommand,
   DeleteThemeAliasCommand,
+  DeleteTopicCommand,
+  DeleteTopicRefreshScheduleCommand,
   DeleteUserCommand,
   DeleteUserByPrincipalIdCommand,
+  DeleteVPCConnectionCommand,
   DescribeAccountCustomizationCommand,
   DescribeAccountSettingsCommand,
   DescribeAccountSubscriptionCommand,
@@ -693,7 +773,12 @@ const commands = {
   DescribeThemeCommand,
   DescribeThemeAliasCommand,
   DescribeThemePermissionsCommand,
+  DescribeTopicCommand,
+  DescribeTopicPermissionsCommand,
+  DescribeTopicRefreshCommand,
+  DescribeTopicRefreshScheduleCommand,
   DescribeUserCommand,
+  DescribeVPCConnectionCommand,
   GenerateEmbedUrlForAnonymousUserCommand,
   GenerateEmbedUrlForRegisteredUserCommand,
   GetDashboardEmbedUrlCommand,
@@ -719,8 +804,11 @@ const commands = {
   ListThemeAliasesCommand,
   ListThemesCommand,
   ListThemeVersionsCommand,
+  ListTopicRefreshSchedulesCommand,
+  ListTopicsCommand,
   ListUserGroupsCommand,
   ListUsersCommand,
+  ListVPCConnectionsCommand,
   PutDataSetRefreshPropertiesCommand,
   RegisterUserCommand,
   RestoreAnalysisCommand,
@@ -756,7 +844,11 @@ const commands = {
   UpdateThemeCommand,
   UpdateThemeAliasCommand,
   UpdateThemePermissionsCommand,
+  UpdateTopicCommand,
+  UpdateTopicPermissionsCommand,
+  UpdateTopicRefreshScheduleCommand,
   UpdateUserCommand,
+  UpdateVPCConnectionCommand,
 };
 
 export interface QuickSight {
@@ -1042,6 +1134,51 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link CreateTopicCommand}
+   */
+  createTopic(args: CreateTopicCommandInput, options?: __HttpHandlerOptions): Promise<CreateTopicCommandOutput>;
+  createTopic(args: CreateTopicCommandInput, cb: (err: any, data?: CreateTopicCommandOutput) => void): void;
+  createTopic(
+    args: CreateTopicCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTopicCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateTopicRefreshScheduleCommand}
+   */
+  createTopicRefreshSchedule(
+    args: CreateTopicRefreshScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTopicRefreshScheduleCommandOutput>;
+  createTopicRefreshSchedule(
+    args: CreateTopicRefreshScheduleCommandInput,
+    cb: (err: any, data?: CreateTopicRefreshScheduleCommandOutput) => void
+  ): void;
+  createTopicRefreshSchedule(
+    args: CreateTopicRefreshScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTopicRefreshScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateVPCConnectionCommand}
+   */
+  createVPCConnection(
+    args: CreateVPCConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVPCConnectionCommandOutput>;
+  createVPCConnection(
+    args: CreateVPCConnectionCommandInput,
+    cb: (err: any, data?: CreateVPCConnectionCommandOutput) => void
+  ): void;
+  createVPCConnection(
+    args: CreateVPCConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVPCConnectionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAccountCustomizationCommand}
    */
   deleteAccountCustomization(
@@ -1312,6 +1449,34 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DeleteTopicCommand}
+   */
+  deleteTopic(args: DeleteTopicCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTopicCommandOutput>;
+  deleteTopic(args: DeleteTopicCommandInput, cb: (err: any, data?: DeleteTopicCommandOutput) => void): void;
+  deleteTopic(
+    args: DeleteTopicCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTopicCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTopicRefreshScheduleCommand}
+   */
+  deleteTopicRefreshSchedule(
+    args: DeleteTopicRefreshScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTopicRefreshScheduleCommandOutput>;
+  deleteTopicRefreshSchedule(
+    args: DeleteTopicRefreshScheduleCommandInput,
+    cb: (err: any, data?: DeleteTopicRefreshScheduleCommandOutput) => void
+  ): void;
+  deleteTopicRefreshSchedule(
+    args: DeleteTopicRefreshScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTopicRefreshScheduleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteUserCommand}
    */
   deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
@@ -1337,6 +1502,23 @@ export interface QuickSight {
     args: DeleteUserByPrincipalIdCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteUserByPrincipalIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVPCConnectionCommand}
+   */
+  deleteVPCConnection(
+    args: DeleteVPCConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVPCConnectionCommandOutput>;
+  deleteVPCConnection(
+    args: DeleteVPCConnectionCommandInput,
+    cb: (err: any, data?: DeleteVPCConnectionCommandOutput) => void
+  ): void;
+  deleteVPCConnection(
+    args: DeleteVPCConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVPCConnectionCommandOutput) => void
   ): void;
 
   /**
@@ -1849,6 +2031,68 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DescribeTopicCommand}
+   */
+  describeTopic(args: DescribeTopicCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTopicCommandOutput>;
+  describeTopic(args: DescribeTopicCommandInput, cb: (err: any, data?: DescribeTopicCommandOutput) => void): void;
+  describeTopic(
+    args: DescribeTopicCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTopicCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTopicPermissionsCommand}
+   */
+  describeTopicPermissions(
+    args: DescribeTopicPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTopicPermissionsCommandOutput>;
+  describeTopicPermissions(
+    args: DescribeTopicPermissionsCommandInput,
+    cb: (err: any, data?: DescribeTopicPermissionsCommandOutput) => void
+  ): void;
+  describeTopicPermissions(
+    args: DescribeTopicPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTopicPermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTopicRefreshCommand}
+   */
+  describeTopicRefresh(
+    args: DescribeTopicRefreshCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTopicRefreshCommandOutput>;
+  describeTopicRefresh(
+    args: DescribeTopicRefreshCommandInput,
+    cb: (err: any, data?: DescribeTopicRefreshCommandOutput) => void
+  ): void;
+  describeTopicRefresh(
+    args: DescribeTopicRefreshCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTopicRefreshCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTopicRefreshScheduleCommand}
+   */
+  describeTopicRefreshSchedule(
+    args: DescribeTopicRefreshScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTopicRefreshScheduleCommandOutput>;
+  describeTopicRefreshSchedule(
+    args: DescribeTopicRefreshScheduleCommandInput,
+    cb: (err: any, data?: DescribeTopicRefreshScheduleCommandOutput) => void
+  ): void;
+  describeTopicRefreshSchedule(
+    args: DescribeTopicRefreshScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTopicRefreshScheduleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeUserCommand}
    */
   describeUser(args: DescribeUserCommandInput, options?: __HttpHandlerOptions): Promise<DescribeUserCommandOutput>;
@@ -1857,6 +2101,23 @@ export interface QuickSight {
     args: DescribeUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeVPCConnectionCommand}
+   */
+  describeVPCConnection(
+    args: DescribeVPCConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVPCConnectionCommandOutput>;
+  describeVPCConnection(
+    args: DescribeVPCConnectionCommandInput,
+    cb: (err: any, data?: DescribeVPCConnectionCommandOutput) => void
+  ): void;
+  describeVPCConnection(
+    args: DescribeVPCConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVPCConnectionCommandOutput) => void
   ): void;
 
   /**
@@ -2237,6 +2498,34 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link ListTopicRefreshSchedulesCommand}
+   */
+  listTopicRefreshSchedules(
+    args: ListTopicRefreshSchedulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTopicRefreshSchedulesCommandOutput>;
+  listTopicRefreshSchedules(
+    args: ListTopicRefreshSchedulesCommandInput,
+    cb: (err: any, data?: ListTopicRefreshSchedulesCommandOutput) => void
+  ): void;
+  listTopicRefreshSchedules(
+    args: ListTopicRefreshSchedulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTopicRefreshSchedulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTopicsCommand}
+   */
+  listTopics(args: ListTopicsCommandInput, options?: __HttpHandlerOptions): Promise<ListTopicsCommandOutput>;
+  listTopics(args: ListTopicsCommandInput, cb: (err: any, data?: ListTopicsCommandOutput) => void): void;
+  listTopics(
+    args: ListTopicsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTopicsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListUserGroupsCommand}
    */
   listUserGroups(
@@ -2259,6 +2548,23 @@ export interface QuickSight {
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVPCConnectionsCommand}
+   */
+  listVPCConnections(
+    args: ListVPCConnectionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVPCConnectionsCommandOutput>;
+  listVPCConnections(
+    args: ListVPCConnectionsCommandInput,
+    cb: (err: any, data?: ListVPCConnectionsCommandOutput) => void
+  ): void;
+  listVPCConnections(
+    args: ListVPCConnectionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVPCConnectionsCommandOutput) => void
   ): void;
 
   /**
@@ -2785,6 +3091,51 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link UpdateTopicCommand}
+   */
+  updateTopic(args: UpdateTopicCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTopicCommandOutput>;
+  updateTopic(args: UpdateTopicCommandInput, cb: (err: any, data?: UpdateTopicCommandOutput) => void): void;
+  updateTopic(
+    args: UpdateTopicCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTopicCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTopicPermissionsCommand}
+   */
+  updateTopicPermissions(
+    args: UpdateTopicPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTopicPermissionsCommandOutput>;
+  updateTopicPermissions(
+    args: UpdateTopicPermissionsCommandInput,
+    cb: (err: any, data?: UpdateTopicPermissionsCommandOutput) => void
+  ): void;
+  updateTopicPermissions(
+    args: UpdateTopicPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTopicPermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTopicRefreshScheduleCommand}
+   */
+  updateTopicRefreshSchedule(
+    args: UpdateTopicRefreshScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTopicRefreshScheduleCommandOutput>;
+  updateTopicRefreshSchedule(
+    args: UpdateTopicRefreshScheduleCommandInput,
+    cb: (err: any, data?: UpdateTopicRefreshScheduleCommandOutput) => void
+  ): void;
+  updateTopicRefreshSchedule(
+    args: UpdateTopicRefreshScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTopicRefreshScheduleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateUserCommand}
    */
   updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
@@ -2793,6 +3144,23 @@ export interface QuickSight {
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateVPCConnectionCommand}
+   */
+  updateVPCConnection(
+    args: UpdateVPCConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVPCConnectionCommandOutput>;
+  updateVPCConnection(
+    args: UpdateVPCConnectionCommandInput,
+    cb: (err: any, data?: UpdateVPCConnectionCommandOutput) => void
+  ): void;
+  updateVPCConnection(
+    args: UpdateVPCConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVPCConnectionCommandOutput) => void
   ): void;
 }
 

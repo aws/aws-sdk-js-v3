@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeDataSetPermissionsRequest, DescribeDataSetPermissionsResponse } from "../models/models_2";
+import { DescribeDataSetPermissionsRequest, DescribeDataSetPermissionsResponse } from "../models/models_3";
 import { de_DescribeDataSetPermissionsCommand, se_DescribeDataSetPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

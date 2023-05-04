@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeNamespaceRequest, DescribeNamespaceResponse } from "../models/models_2";
+import { DescribeNamespaceRequest, DescribeNamespaceResponse } from "../models/models_3";
 import { de_DescribeNamespaceCommand, se_DescribeNamespaceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

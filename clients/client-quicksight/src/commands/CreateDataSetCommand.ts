@@ -138,6 +138,24 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *               "COLUMN_GEOGRAPHIC_ROLE" || "COLUMN_DESCRIPTION",
  *             ],
  *           },
+ *           OverrideDatasetParameterOperation: { // OverrideDatasetParameterOperation
+ *             ParameterName: "STRING_VALUE", // required
+ *             NewParameterName: "STRING_VALUE",
+ *             NewDefaultValues: { // NewDefaultValues
+ *               StringStaticValues: [ // StringDatasetParameterValueList
+ *                 "STRING_VALUE",
+ *               ],
+ *               DecimalStaticValues: [ // DecimalDatasetParameterValueList
+ *                 Number("double"),
+ *               ],
+ *               DateTimeStaticValues: [ // DateTimeDatasetParameterValueList
+ *                 new Date("TIMESTAMP"),
+ *               ],
+ *               IntegerStaticValues: [ // IntegerDatasetParameterValueList
+ *                 Number("long"),
+ *               ],
+ *             },
+ *           },
  *         },
  *       ],
  *       Source: { // LogicalTableSource
@@ -229,6 +247,51 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *     DisableUseAsDirectQuerySource: true || false,
  *     DisableUseAsImportedSource: true || false,
  *   },
+ *   DatasetParameters: [ // DatasetParameterList
+ *     { // DatasetParameter
+ *       StringDatasetParameter: { // StringDatasetParameter
+ *         Id: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *         ValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
+ *         DefaultValues: { // StringDatasetParameterDefaultValues
+ *           StaticValues: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       DecimalDatasetParameter: { // DecimalDatasetParameter
+ *         Id: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *         ValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
+ *         DefaultValues: { // DecimalDatasetParameterDefaultValues
+ *           StaticValues: [
+ *             Number("double"),
+ *           ],
+ *         },
+ *       },
+ *       IntegerDatasetParameter: { // IntegerDatasetParameter
+ *         Id: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *         ValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
+ *         DefaultValues: { // IntegerDatasetParameterDefaultValues
+ *           StaticValues: [
+ *             Number("long"),
+ *           ],
+ *         },
+ *       },
+ *       DateTimeDatasetParameter: { // DateTimeDatasetParameter
+ *         Id: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *         ValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
+ *         TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
+ *         DefaultValues: { // DateTimeDatasetParameterDefaultValues
+ *           StaticValues: [
+ *             new Date("TIMESTAMP"),
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new CreateDataSetCommand(input);
  * const response = await client.send(command);

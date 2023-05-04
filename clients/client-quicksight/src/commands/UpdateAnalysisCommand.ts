@@ -1006,6 +1006,9 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                             "STRING_VALUE",
  *                           ],
  *                           SelectedFieldOptions: "ALL_FIELDS",
+ *                           SelectedColumns: [ // CustomActionColumnList
+ *                             "<ColumnIdentifier>",
+ *                           ],
  *                         },
  *                         TargetVisualsConfiguration: { // FilterOperationTargetVisualsConfiguration
  *                           SameSheetTargetVisualConfiguration: { // SameSheetTargetVisualConfiguration
@@ -1050,6 +1053,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                               SelectAllValueOptions: "ALL_VALUES",
  *                               SourceParameterName: "STRING_VALUE",
  *                               SourceField: "STRING_VALUE",
+ *                               SourceColumn: "<ColumnIdentifier>",
  *                             },
  *                           },
  *                         ],
@@ -1401,6 +1405,9 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                             "STRING_VALUE",
  *                           ],
  *                           SelectedFieldOptions: "ALL_FIELDS",
+ *                           SelectedColumns: [
+ *                             "<ColumnIdentifier>",
+ *                           ],
  *                         },
  *                         TargetVisualsConfiguration: {
  *                           SameSheetTargetVisualConfiguration: {
@@ -1445,6 +1452,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                               SelectAllValueOptions: "ALL_VALUES",
  *                               SourceParameterName: "STRING_VALUE",
  *                               SourceField: "STRING_VALUE",
+ *                               SourceColumn: "<ColumnIdentifier>",
  *                             },
  *                           },
  *                         ],
@@ -1813,6 +1821,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
+ *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                 },
  *                 Tooltip: { // TooltipOptions
  *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
@@ -1846,7 +1855,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                       },
  *                       DynamicConfiguration: { // ReferenceLineDynamicDataConfiguration
  *                         Column: "<ColumnIdentifier>", // required
- *                         MeasureAggregationFunction: "<AggregationFunction>", // required
+ *                         MeasureAggregationFunction: "<AggregationFunction>",
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
@@ -1893,6 +1902,9 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                             "STRING_VALUE",
  *                           ],
  *                           SelectedFieldOptions: "ALL_FIELDS",
+ *                           SelectedColumns: [
+ *                             "<ColumnIdentifier>",
+ *                           ],
  *                         },
  *                         TargetVisualsConfiguration: {
  *                           SameSheetTargetVisualConfiguration: {
@@ -1937,6 +1949,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                               SelectAllValueOptions: "ALL_VALUES",
  *                               SourceParameterName: "STRING_VALUE",
  *                               SourceField: "STRING_VALUE",
+ *                               SourceColumn: "<ColumnIdentifier>",
  *                             },
  *                           },
  *                         ],
@@ -2172,6 +2185,9 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                             "STRING_VALUE",
  *                           ],
  *                           SelectedFieldOptions: "ALL_FIELDS",
+ *                           SelectedColumns: [
+ *                             "<ColumnIdentifier>",
+ *                           ],
  *                         },
  *                         TargetVisualsConfiguration: {
  *                           SameSheetTargetVisualConfiguration: {
@@ -2216,6 +2232,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                               SelectAllValueOptions: "ALL_VALUES",
  *                               SourceParameterName: "STRING_VALUE",
  *                               SourceField: "STRING_VALUE",
+ *                               SourceColumn: "<ColumnIdentifier>",
  *                             },
  *                           },
  *                         ],
@@ -2422,6 +2439,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
+ *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                 },
  *                 Tooltip: {
  *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
@@ -2479,6 +2497,9 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                             "STRING_VALUE",
  *                           ],
  *                           SelectedFieldOptions: "ALL_FIELDS",
+ *                           SelectedColumns: [
+ *                             "<ColumnIdentifier>",
+ *                           ],
  *                         },
  *                         TargetVisualsConfiguration: {
  *                           SameSheetTargetVisualConfiguration: {
@@ -2523,6 +2544,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                               SelectAllValueOptions: "ALL_VALUES",
  *                               SourceParameterName: "STRING_VALUE",
  *                               SourceField: "STRING_VALUE",
+ *                               SourceColumn: "<ColumnIdentifier>",
  *                             },
  *                           },
  *                         ],
@@ -2616,6 +2638,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
+ *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                 },
  *                 TooltipOptions: {
  *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
@@ -2981,6 +3004,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
+ *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                 },
  *                 ReferenceLines: [
  *                   {
@@ -2991,7 +3015,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                       },
  *                       DynamicConfiguration: {
  *                         Column: "<ColumnIdentifier>", // required
- *                         MeasureAggregationFunction: "<AggregationFunction>", // required
+ *                         MeasureAggregationFunction: "<AggregationFunction>",
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
@@ -3158,6 +3182,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
+ *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                 },
  *                 Tooltip: {
  *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
@@ -3403,11 +3428,14 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                     YAxis: "<MeasureFieldList>",
  *                     Category: "<DimensionFieldList>",
  *                     Size: "<MeasureFieldList>",
+ *                     Label: "<DimensionFieldList>",
  *                   },
  *                   ScatterPlotUnaggregatedFieldWells: { // ScatterPlotUnaggregatedFieldWells
  *                     XAxis: "<DimensionFieldList>",
  *                     YAxis: "<DimensionFieldList>",
  *                     Size: "<MeasureFieldList>",
+ *                     Category: "<DimensionFieldList>",
+ *                     Label: "<DimensionFieldList>",
  *                   },
  *                 },
  *                 XAxisLabelOptions: "<ChartAxisLabelOptions>",
@@ -3462,7 +3490,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                       },
  *                       DynamicConfiguration: {
  *                         Column: "<ColumnIdentifier>", // required
- *                         MeasureAggregationFunction: "<AggregationFunction>", // required
+ *                         MeasureAggregationFunction: "<AggregationFunction>",
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
@@ -3535,7 +3563,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                       },
  *                       DynamicConfiguration: {
  *                         Column: "<ColumnIdentifier>", // required
- *                         MeasureAggregationFunction: "<AggregationFunction>", // required
+ *                         MeasureAggregationFunction: "<AggregationFunction>",
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
@@ -4066,6 +4094,12 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *             ValueWhenUnsetOption: "RECOMMENDED_VALUE" || "NULL",
  *             CustomValue: "STRING_VALUE",
  *           },
+ *           MappedDataSetParameters: [ // MappedDataSetParameters
+ *             { // MappedDataSetParameter
+ *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetParameterName: "STRING_VALUE", // required
+ *             },
+ *           ],
  *         },
  *         DecimalParameterDeclaration: { // DecimalParameterDeclaration
  *           ParameterValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
@@ -4082,6 +4116,12 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *             ValueWhenUnsetOption: "RECOMMENDED_VALUE" || "NULL",
  *             CustomValue: Number("double"),
  *           },
+ *           MappedDataSetParameters: [
+ *             {
+ *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetParameterName: "STRING_VALUE", // required
+ *             },
+ *           ],
  *         },
  *         IntegerParameterDeclaration: { // IntegerParameterDeclaration
  *           ParameterValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
@@ -4098,6 +4138,12 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *             ValueWhenUnsetOption: "RECOMMENDED_VALUE" || "NULL",
  *             CustomValue: Number("long"),
  *           },
+ *           MappedDataSetParameters: [
+ *             {
+ *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetParameterName: "STRING_VALUE", // required
+ *             },
+ *           ],
  *         },
  *         DateTimeParameterDeclaration: { // DateTimeParameterDeclaration
  *           Name: "STRING_VALUE", // required
@@ -4118,6 +4164,12 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *             ValueWhenUnsetOption: "RECOMMENDED_VALUE" || "NULL",
  *             CustomValue: new Date("TIMESTAMP"),
  *           },
+ *           MappedDataSetParameters: [
+ *             {
+ *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetParameterName: "STRING_VALUE", // required
+ *             },
+ *           ],
  *         },
  *       },
  *     ],

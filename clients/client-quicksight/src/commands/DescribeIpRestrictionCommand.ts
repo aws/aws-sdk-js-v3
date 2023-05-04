@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeIpRestrictionRequest, DescribeIpRestrictionResponse } from "../models/models_2";
+import { DescribeIpRestrictionRequest, DescribeIpRestrictionResponse } from "../models/models_3";
 import { de_DescribeIpRestrictionCommand, se_DescribeIpRestrictionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

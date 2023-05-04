@@ -1066,6 +1066,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                             "STRING_VALUE",
  *                           ],
  *                           SelectedFieldOptions: "ALL_FIELDS",
+ *                           SelectedColumns: [ // CustomActionColumnList
+ *                             "<ColumnIdentifier>",
+ *                           ],
  *                         },
  *                         TargetVisualsConfiguration: { // FilterOperationTargetVisualsConfiguration
  *                           SameSheetTargetVisualConfiguration: { // SameSheetTargetVisualConfiguration
@@ -1110,6 +1113,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                               SelectAllValueOptions: "ALL_VALUES",
  *                               SourceParameterName: "STRING_VALUE",
  *                               SourceField: "STRING_VALUE",
+ *                               SourceColumn: "<ColumnIdentifier>",
  *                             },
  *                           },
  *                         ],
@@ -1461,6 +1465,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                             "STRING_VALUE",
  *                           ],
  *                           SelectedFieldOptions: "ALL_FIELDS",
+ *                           SelectedColumns: [
+ *                             "<ColumnIdentifier>",
+ *                           ],
  *                         },
  *                         TargetVisualsConfiguration: {
  *                           SameSheetTargetVisualConfiguration: {
@@ -1505,6 +1512,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                               SelectAllValueOptions: "ALL_VALUES",
  *                               SourceParameterName: "STRING_VALUE",
  *                               SourceField: "STRING_VALUE",
+ *                               SourceColumn: "<ColumnIdentifier>",
  *                             },
  *                           },
  *                         ],
@@ -1873,6 +1881,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
+ *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                 },
  *                 Tooltip: { // TooltipOptions
  *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
@@ -1906,7 +1915,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       },
  *                       DynamicConfiguration: { // ReferenceLineDynamicDataConfiguration
  *                         Column: "<ColumnIdentifier>", // required
- *                         MeasureAggregationFunction: "<AggregationFunction>", // required
+ *                         MeasureAggregationFunction: "<AggregationFunction>",
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
@@ -1953,6 +1962,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                             "STRING_VALUE",
  *                           ],
  *                           SelectedFieldOptions: "ALL_FIELDS",
+ *                           SelectedColumns: [
+ *                             "<ColumnIdentifier>",
+ *                           ],
  *                         },
  *                         TargetVisualsConfiguration: {
  *                           SameSheetTargetVisualConfiguration: {
@@ -1997,6 +2009,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                               SelectAllValueOptions: "ALL_VALUES",
  *                               SourceParameterName: "STRING_VALUE",
  *                               SourceField: "STRING_VALUE",
+ *                               SourceColumn: "<ColumnIdentifier>",
  *                             },
  *                           },
  *                         ],
@@ -2232,6 +2245,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                             "STRING_VALUE",
  *                           ],
  *                           SelectedFieldOptions: "ALL_FIELDS",
+ *                           SelectedColumns: [
+ *                             "<ColumnIdentifier>",
+ *                           ],
  *                         },
  *                         TargetVisualsConfiguration: {
  *                           SameSheetTargetVisualConfiguration: {
@@ -2276,6 +2292,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                               SelectAllValueOptions: "ALL_VALUES",
  *                               SourceParameterName: "STRING_VALUE",
  *                               SourceField: "STRING_VALUE",
+ *                               SourceColumn: "<ColumnIdentifier>",
  *                             },
  *                           },
  *                         ],
@@ -2482,6 +2499,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
+ *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                 },
  *                 Tooltip: {
  *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
@@ -2539,6 +2557,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                             "STRING_VALUE",
  *                           ],
  *                           SelectedFieldOptions: "ALL_FIELDS",
+ *                           SelectedColumns: [
+ *                             "<ColumnIdentifier>",
+ *                           ],
  *                         },
  *                         TargetVisualsConfiguration: {
  *                           SameSheetTargetVisualConfiguration: {
@@ -2583,6 +2604,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                               SelectAllValueOptions: "ALL_VALUES",
  *                               SourceParameterName: "STRING_VALUE",
  *                               SourceField: "STRING_VALUE",
+ *                               SourceColumn: "<ColumnIdentifier>",
  *                             },
  *                           },
  *                         ],
@@ -2676,6 +2698,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
+ *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                 },
  *                 TooltipOptions: {
  *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
@@ -3041,6 +3064,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
+ *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                 },
  *                 ReferenceLines: [
  *                   {
@@ -3051,7 +3075,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       },
  *                       DynamicConfiguration: {
  *                         Column: "<ColumnIdentifier>", // required
- *                         MeasureAggregationFunction: "<AggregationFunction>", // required
+ *                         MeasureAggregationFunction: "<AggregationFunction>",
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
@@ -3218,6 +3242,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   LabelFontConfiguration: "<FontConfiguration>",
  *                   LabelColor: "STRING_VALUE",
  *                   Overlap: "DISABLE_OVERLAP" || "ENABLE_OVERLAP",
+ *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
  *                 },
  *                 Tooltip: {
  *                   TooltipVisibility: "HIDDEN" || "VISIBLE",
@@ -3463,11 +3488,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     YAxis: "<MeasureFieldList>",
  *                     Category: "<DimensionFieldList>",
  *                     Size: "<MeasureFieldList>",
+ *                     Label: "<DimensionFieldList>",
  *                   },
  *                   ScatterPlotUnaggregatedFieldWells: { // ScatterPlotUnaggregatedFieldWells
  *                     XAxis: "<DimensionFieldList>",
  *                     YAxis: "<DimensionFieldList>",
  *                     Size: "<MeasureFieldList>",
+ *                     Category: "<DimensionFieldList>",
+ *                     Label: "<DimensionFieldList>",
  *                   },
  *                 },
  *                 XAxisLabelOptions: "<ChartAxisLabelOptions>",
@@ -3522,7 +3550,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       },
  *                       DynamicConfiguration: {
  *                         Column: "<ColumnIdentifier>", // required
- *                         MeasureAggregationFunction: "<AggregationFunction>", // required
+ *                         MeasureAggregationFunction: "<AggregationFunction>",
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
@@ -3595,7 +3623,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       },
  *                       DynamicConfiguration: {
  *                         Column: "<ColumnIdentifier>", // required
- *                         MeasureAggregationFunction: "<AggregationFunction>", // required
+ *                         MeasureAggregationFunction: "<AggregationFunction>",
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
@@ -4126,6 +4154,12 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *             ValueWhenUnsetOption: "RECOMMENDED_VALUE" || "NULL",
  *             CustomValue: "STRING_VALUE",
  *           },
+ *           MappedDataSetParameters: [ // MappedDataSetParameters
+ *             { // MappedDataSetParameter
+ *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetParameterName: "STRING_VALUE", // required
+ *             },
+ *           ],
  *         },
  *         DecimalParameterDeclaration: { // DecimalParameterDeclaration
  *           ParameterValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
@@ -4142,6 +4176,12 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *             ValueWhenUnsetOption: "RECOMMENDED_VALUE" || "NULL",
  *             CustomValue: Number("double"),
  *           },
+ *           MappedDataSetParameters: [
+ *             {
+ *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetParameterName: "STRING_VALUE", // required
+ *             },
+ *           ],
  *         },
  *         IntegerParameterDeclaration: { // IntegerParameterDeclaration
  *           ParameterValueType: "MULTI_VALUED" || "SINGLE_VALUED", // required
@@ -4158,6 +4198,12 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *             ValueWhenUnsetOption: "RECOMMENDED_VALUE" || "NULL",
  *             CustomValue: Number("long"),
  *           },
+ *           MappedDataSetParameters: [
+ *             {
+ *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetParameterName: "STRING_VALUE", // required
+ *             },
+ *           ],
  *         },
  *         DateTimeParameterDeclaration: { // DateTimeParameterDeclaration
  *           Name: "STRING_VALUE", // required
@@ -4178,6 +4224,12 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *             ValueWhenUnsetOption: "RECOMMENDED_VALUE" || "NULL",
  *             CustomValue: new Date("TIMESTAMP"),
  *           },
+ *           MappedDataSetParameters: [
+ *             {
+ *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetParameterName: "STRING_VALUE", // required
+ *             },
+ *           ],
  *         },
  *       },
  *     ],
