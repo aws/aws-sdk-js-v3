@@ -53,7 +53,7 @@ export const retryMiddleware =
           output.$metadata.totalRetryDelay = totalRetryDelay;
           return { response, output };
         } catch (e) {
-          const retryErrorInfo = getRetyErrorInto(e);
+          const retryErrorInfo = getRetryErrorInfo(e);
           lastError = asSdkError(e);
           try {
             retryToken = await retryStrategy.refreshRetryTokenForRetry(retryToken, retryErrorInfo);
@@ -85,7 +85,7 @@ const isRetryStrategyV2 = (retryStrategy: RetryStrategy | RetryStrategyV2) =>
   typeof (retryStrategy as RetryStrategyV2).refreshRetryTokenForRetry !== "undefined" &&
   typeof (retryStrategy as RetryStrategyV2).recordSuccess !== "undefined";
 
-const getRetyErrorInto = (error: SdkError): RetryErrorInfo => {
+const getRetryErrorInfo = (error: SdkError): RetryErrorInfo => {
   const errorInfo: RetryErrorInfo = {
     errorType: getRetryErrorType(error),
   };
