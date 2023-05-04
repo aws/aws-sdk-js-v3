@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.327.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.326.0...v3.327.0) (2023-05-04)
+
+
+### Features
+
+* **client-securityhub:** Add support for Finding History. ([7929075](https://github.com/aws/aws-sdk-js-v3/commit/7929075dc743ac68fc6f87020108b10980c66b88))
+
+
+
+
+
 # [3.326.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.325.0...v3.326.0) (2023-05-03)
 
 **Note:** Version bump only for package @aws-sdk/client-securityhub

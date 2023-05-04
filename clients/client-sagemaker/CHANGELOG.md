@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.327.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.326.0...v3.327.0) (2023-05-04)
+
+
+### Features
+
+* **client-sagemaker:** We added support for ml.inf2 and ml.trn1 family of instances on Amazon SageMaker for deploying machine learning (ML) models for Real-time and Asynchronous inference. You can use these instances to achieve high performance at a low cost for generative artificial intelligence (AI) models. ([02db558](https://github.com/aws/aws-sdk-js-v3/commit/02db558bf281c4cab5910a7f3a400c63a1d5db7c))
+
+
+
+
+
 # [3.326.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.325.0...v3.326.0) (2023-05-03)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

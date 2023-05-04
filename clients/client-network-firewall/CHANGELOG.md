@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.327.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.326.0...v3.327.0) (2023-05-04)
+
+
+### Features
+
+* **client-network-firewall:** This release adds support for the Suricata REJECT option in midstream exception configurations. ([15cffb4](https://github.com/aws/aws-sdk-js-v3/commit/15cffb46ab6a962e787a27f744b053c8591921a1))
+
+
+
+
+
 # [3.326.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.325.0...v3.326.0) (2023-05-03)
 
 

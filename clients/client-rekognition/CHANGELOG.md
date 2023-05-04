@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.327.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.326.0...v3.327.0) (2023-05-04)
+
+
+### Features
+
+* **client-rekognition:** This release adds a new attribute FaceOccluded. Additionally, you can now select attributes individually (e.g. ["DEFAULT", "FACE_OCCLUDED", "AGE_RANGE"] instead of ["ALL"]), which can reduce response time. ([e71366a](https://github.com/aws/aws-sdk-js-v3/commit/e71366ab8041184e34bea74277d663d367d1d584))
+
+
+
+
+
 # [3.326.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.325.0...v3.326.0) (2023-05-03)
 
 **Note:** Version bump only for package @aws-sdk/client-rekognition

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.327.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.326.0...v3.327.0) (2023-05-04)
+
+
+### Features
+
+* **client-opensearch:** DescribeDomainNodes: A new API that provides configuration information for nodes part of the domain ([4f67883](https://github.com/aws/aws-sdk-js-v3/commit/4f67883aa5a8a40bc3ba42ce3d7518abd51c23a0))
+
+
+
+
+
 # [3.326.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.325.0...v3.326.0) (2023-05-03)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.327.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.326.0...v3.327.0) (2023-05-04)
+
+
+### Features
+
+* **client-sqs:** This release enables customers to call SQS using AWS JSON-1.0 protocol. ([b3f5a9d](https://github.com/aws/aws-sdk-js-v3/commit/b3f5a9d536b2b92c9e0a6856b90dfaed0d3b7db1))
+
+
+
+
+
 # [3.326.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.325.0...v3.326.0) (2023-05-03)
 
 **Note:** Version bump only for package @aws-sdk/client-sqs

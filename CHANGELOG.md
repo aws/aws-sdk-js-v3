@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.327.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.326.0...v3.327.0) (2023-05-04)
+
+
+### Bug Fixes
+
+* **service-error-classification:** add ECONNREFUSED to list of retryable errors ([#4693](https://github.com/aws/aws-sdk-js-v3/issues/4693)) ([d305472](https://github.com/aws/aws-sdk-js-v3/commit/d305472e9e64873e1d82cea78e974e5dd0460e8b))
+
+
+### Features
+
+* **client-cloudwatch:** Adds support for filtering by metric names in CloudWatch Metric Streams. ([6666673](https://github.com/aws/aws-sdk-js-v3/commit/6666673a423609f3fd49e962ef6134c4463d603e))
+* **client-config-service:** Updated ResourceType enum with new resource types onboarded by AWS Config in April 2023. ([a45b0da](https://github.com/aws/aws-sdk-js-v3/commit/a45b0da34b41bbadc589395f1ea3e770b2fadde0))
+* **client-ecs:** Documentation update for new error type NamespaceNotFoundException for CreateCluster and UpdateCluster ([fd48f2d](https://github.com/aws/aws-sdk-js-v3/commit/fd48f2dd3272ff5889f758ae0a6c08094d820fec))
+* **client-network-firewall:** This release adds support for the Suricata REJECT option in midstream exception configurations. ([15cffb4](https://github.com/aws/aws-sdk-js-v3/commit/15cffb46ab6a962e787a27f744b053c8591921a1))
+* **client-opensearch:** DescribeDomainNodes: A new API that provides configuration information for nodes part of the domain ([4f67883](https://github.com/aws/aws-sdk-js-v3/commit/4f67883aa5a8a40bc3ba42ce3d7518abd51c23a0))
+* **client-quicksight:** Add support for Topic, Dataset parameters and VPC ([e057ab9](https://github.com/aws/aws-sdk-js-v3/commit/e057ab9b6bfd7475086810420fb7dacb24cbfed7))
+* **client-rekognition:** This release adds a new attribute FaceOccluded. Additionally, you can now select attributes individually (e.g. ["DEFAULT", "FACE_OCCLUDED", "AGE_RANGE"] instead of ["ALL"]), which can reduce response time. ([e71366a](https://github.com/aws/aws-sdk-js-v3/commit/e71366ab8041184e34bea74277d663d367d1d584))
+* **client-sagemaker:** We added support for ml.inf2 and ml.trn1 family of instances on Amazon SageMaker for deploying machine learning (ML) models for Real-time and Asynchronous inference. You can use these instances to achieve high performance at a low cost for generative artificial intelligence (AI) models. ([02db558](https://github.com/aws/aws-sdk-js-v3/commit/02db558bf281c4cab5910a7f3a400c63a1d5db7c))
+* **client-securityhub:** Add support for Finding History. ([7929075](https://github.com/aws/aws-sdk-js-v3/commit/7929075dc743ac68fc6f87020108b10980c66b88))
+* **client-sqs:** This release enables customers to call SQS using AWS JSON-1.0 protocol. ([b3f5a9d](https://github.com/aws/aws-sdk-js-v3/commit/b3f5a9d536b2b92c9e0a6856b90dfaed0d3b7db1))
+
+
+
+
+
 # [3.326.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.325.0...v3.326.0) (2023-05-03)
 
 
