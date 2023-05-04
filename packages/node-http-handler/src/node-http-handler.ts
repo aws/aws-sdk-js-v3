@@ -152,6 +152,7 @@ export class NodeHttpHandler implements HttpHandler {
         };
       }
 
+      // Workaround for bug report in Node.js https://github.com/nodejs/node/issues/47137
       const httpAgent = nodeHttpsOptions.agent;
       if (typeof httpAgent === "object" && "keepAlive" in httpAgent) {
         setSocketKeepAlive(req, {
