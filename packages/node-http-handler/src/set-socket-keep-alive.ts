@@ -6,7 +6,7 @@ export interface SocketKeepAliveOptions {
 }
 
 export const setSocketKeepAlive = (request: ClientRequest, socketKeepAlive: SocketKeepAliveOptions) => {
-  if (socketKeepAlive?.keepAlive !== true) {
+  if (socketKeepAlive.keepAlive !== true) {
     return;
   }
 
