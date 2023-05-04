@@ -19,4 +19,4 @@ export const DEFAULT_MAX_ATTEMPTS = 3;
  *
  * The default retry algorithm to use.
  */
-export const DEFAULT_RETRY_MODE = "STANDARD" as RETRY_MODES;
+export const DEFAULT_RETRY_MODE = RETRY_MODES.STANDARD;

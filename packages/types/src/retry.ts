@@ -142,7 +142,7 @@ export interface RetryStrategyV2 {
   refreshRetryTokenForRetry(tokenToRenew: RetryToken, errorInfo: RetryErrorInfo): Promise<RetryToken>;
 
   /**
-   * Upon successful completion of the operation, a user calls this function
+   * Upon successful completion of the operation, this function is called
    * to record that the operation was successful.
    */
   recordSuccess(token: RetryToken): void;
