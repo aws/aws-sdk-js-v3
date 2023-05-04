@@ -36,7 +36,7 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  * <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.
  *          To use this operation, you must have the <code>s3:PutBucketPublicAccessBlock</code>
  *          permission. For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
- *          Policy</a>.</p>
+ *             Policy</a>.</p>
  *          <important>
  *             <p>When Amazon S3 evaluates the <code>PublicAccessBlock</code> configuration for a bucket or
  *             an object, it checks the <code>PublicAccessBlock</code> configuration for both the
@@ -46,9 +46,7 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  *             account-level settings.</p>
  *          </important>
  *          <p>For more information about when Amazon S3 considers a bucket or an object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a>.</p>
- *          <p class="title">
- *             <b>Related Resources</b>
- *          </p>
+ *          <p>The following operations are related to <code>PutPublicAccessBlock</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

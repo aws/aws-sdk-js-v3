@@ -42,7 +42,7 @@ export interface GetObjectTorrentCommandOutput
 /**
  * @public
  * <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're
- *          distributing large files. For more information about BitTorrent, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Using BitTorrent with Amazon S3</a>.</p>
+ *          distributing large files.</p>
  *          <note>
  *             <p>You can get torrent only for objects that are less than 5 GB in size, and that are
  *             not encrypted using server-side encryption with a customer-provided encryption

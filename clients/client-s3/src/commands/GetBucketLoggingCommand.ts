@@ -33,7 +33,7 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
 /**
  * @public
  * <p>Returns the logging status of a bucket and the permissions users have to view and modify
- *          that status. To use GET, you must be the bucket owner.</p>
+ *          that status.</p>
  *          <p>The following operations are related to <code>GetBucketLogging</code>:</p>
  *          <ul>
  *             <li>

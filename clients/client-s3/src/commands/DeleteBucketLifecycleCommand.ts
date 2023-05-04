@@ -41,8 +41,7 @@ export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
  *          permission and the bucket owner can grant this permission to others.</p>
  *          <p>There is usually some time lag before lifecycle configuration deletion is fully
  *          propagated to all the Amazon S3 systems.</p>
- *          <p>For more information about the object expiration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#intro-lifecycle-rules-actions">Elements to
- *             Describe Lifecycle Actions</a>.</p>
+ *          <p>For more information about the object expiration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#intro-lifecycle-rules-actions">Elements to Describe Lifecycle Actions</a>.</p>
  *          <p>Related actions include:</p>
  *          <ul>
  *             <li>

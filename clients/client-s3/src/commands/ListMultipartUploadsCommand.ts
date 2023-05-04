@@ -48,8 +48,8 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  *          upload initiation time.</p>
  *          <p>For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
  *             Upload</a>.</p>
- *          <p>For information on permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
- *          Permissions</a>.</p>
+ *          <p>For information on permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
+ *             and Permissions</a>.</p>
  *          <p>The following operations are related to <code>ListMultipartUploads</code>:</p>
  *          <ul>
  *             <li>

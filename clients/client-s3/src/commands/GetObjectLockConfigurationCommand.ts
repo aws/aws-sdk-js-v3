@@ -34,8 +34,7 @@ export interface GetObjectLockConfigurationCommandOutput extends GetObjectLockCo
  * @public
  * <p>Gets the Object Lock configuration for a bucket. The rule specified in the Object Lock
  *          configuration will be applied by default to every new object placed in the specified
- *          bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
- *             Objects</a>.</p>
+ *          bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.</p>
  *          <p>The following action is related to <code>GetObjectLockConfiguration</code>:</p>
  *          <ul>
  *             <li>

@@ -46,9 +46,8 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *          <p>To put tags of any other version, use the <code>versionId</code> query parameter. You
  *          also need permission for the <code>s3:PutObjectVersionTagging</code> action.</p>
  *          <p>For information about the Amazon S3 object tagging feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object Tagging</a>.</p>
- *          <p class="title">
- *             <b>Special Errors</b>
- *          </p>
+ *          <p>
+ *             <code>PutObjectTagging</code> has the following special errors:</p>
  *          <ul>
  *             <li>
  *                <ul>
@@ -60,7 +59,8 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *                   <li>
  *                      <p>
  *                         <i>Cause: The tag provided was not a valid tag. This error can occur
- *                         if the tag did not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object Tagging</a>.</i>
+ *                         if the tag did not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object
+ *                            Tagging</a>.</i>
  *                      </p>
  *                   </li>
  *                </ul>
@@ -88,8 +88,8 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <i>Cause: A conflicting conditional action is currently in
- *                         progress against this resource. Please try again.</i>
+ *                         <i>Cause: A conflicting conditional action is currently in progress
+ *                         against this resource. Please try again.</i>
  *                      </p>
  *                   </li>
  *                </ul>
@@ -110,9 +110,7 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *                </ul>
  *             </li>
  *          </ul>
- *          <p class="title">
- *             <b>Related Resources</b>
- *          </p>
+ *          <p>The following operations are related to <code>PutObjectTagging</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

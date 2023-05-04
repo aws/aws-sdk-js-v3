@@ -35,22 +35,21 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  * @public
  * <p>Places an Object Lock configuration on the specified bucket. The rule specified in the
  *          Object Lock configuration will be applied by default to every new object placed in the
- *          specified bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.
- *       </p>
+ *          specified bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>. </p>
  *          <note>
  *             <ul>
  *                <li>
  *                   <p>The <code>DefaultRetention</code> settings require both a mode and a
- *                period.</p>
+ *                   period.</p>
  *                </li>
  *                <li>
- *                   <p>The <code>DefaultRetention</code> period can be either <code>Days</code>
- *                or <code>Years</code> but you must select one. You cannot specify <code>Days</code>
- *                and <code>Years</code> at the same time.</p>
+ *                   <p>The <code>DefaultRetention</code> period can be either <code>Days</code> or
+ *                      <code>Years</code> but you must select one. You cannot specify
+ *                      <code>Days</code> and <code>Years</code> at the same time.</p>
  *                </li>
  *                <li>
- *                   <p>You can only enable Object Lock for new buckets. If you want to turn on
- *                Object Lock for an existing bucket, contact Amazon Web Services Support.</p>
+ *                   <p>You can only enable Object Lock for new buckets. If you want to turn on Object
+ *                   Lock for an existing bucket, contact Amazon Web Services Support.</p>
  *                </li>
  *             </ul>
  *          </note>

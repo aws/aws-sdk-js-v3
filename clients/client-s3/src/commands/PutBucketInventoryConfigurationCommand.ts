@@ -51,75 +51,60 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  *          the <i>destination</i> bucket where you want the inventory to be stored, and
  *          whether to generate the inventory daily or weekly. You can also configure what object
  *          metadata to include and whether to inventory all object versions or only current versions.
- *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon S3
- *             Inventory</a> in the Amazon S3 User Guide.</p>
+ *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon S3 Inventory</a> in the
+ *          Amazon S3 User Guide.</p>
  *          <important>
  *             <p>You must create a bucket policy on the <i>destination</i> bucket to
  *             grant permissions to Amazon S3 to write objects to the bucket in the defined location. For an
- *             example policy, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-9">
- *                Granting Permissions for Amazon S3 Inventory and Storage Class Analysis</a>.</p>
+ *             example policy, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-9"> Granting Permissions for Amazon S3 Inventory and Storage Class Analysis</a>.</p>
  *          </important>
- *          <p>To use this operation, you must have permissions to perform the
- *             <code>s3:PutInventoryConfiguration</code> action. The bucket owner has this permission
- *          by default and can grant this permission to others. For more information about permissions,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *             Resources</a> in the Amazon S3 User Guide.</p>
- *          <p class="title">
- *             <b>Special Errors</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p class="title">
- *                   <b>HTTP 400 Bad Request Error</b>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <i>Code:</i> InvalidArgument</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <i>Cause:</i> Invalid Argument</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p class="title">
- *                   <b>HTTP 400 Bad Request Error</b>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <i>Code:</i> TooManyConfigurations</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <i>Cause:</i> You are attempting to create a new configuration
- *                      but have already reached the 1,000-configuration limit. </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p class="title">
- *                   <b>HTTP 403 Forbidden Error</b>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <i>Code:</i> AccessDenied</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <i>Cause:</i> You are not the owner of the specified bucket,
- *                      or you do not have the <code>s3:PutInventoryConfiguration</code> bucket
- *                      permission to set the configuration on the bucket. </p>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
- *          <p class="title">
- *             <b>Related Resources</b>
- *          </p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>To use this operation, you must have permission to perform the
+ *                   <code>s3:PutInventoryConfiguration</code> action. The bucket owner has this permission
+ *                   by default and can grant this permission to others. </p>
+ *                <p>The <code>s3:PutInventoryConfiguration</code> permission allows a user to create an
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html">S3
+ *                      Inventory</a> report that includes all object metadata fields available and to
+ *                   specify the destination bucket to store the inventory. A user with read access to objects
+ *                   in the destination bucket can also access all object metadata fields that are available in
+ *                   the inventory report. </p>
+ *                <p>To restrict access to an inventory report, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-10">Restricting access to an Amazon S3 Inventory report</a> in the
+ *                   <i>Amazon S3 User Guide</i>. For more information about the metadata fields
+ *                   available in S3 Inventory, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html#storage-inventory-contents">Amazon S3
+ *                      Inventory lists</a> in the <i>Amazon S3 User Guide</i>. For more
+ *                   information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions related to bucket subresource operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Identity and
+ *                         access management in Amazon S3</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *             </dd>
+ *          </dl>
+ *          <p>
+ *             <code>PutBucketInventoryConfiguration</code> has the following special errors:</p>
+ *          <dl>
+ *             <dt>HTTP 400 Bad Request Error</dt>
+ *             <dd>
+ *                <p>
+ *                   <i>Code:</i> InvalidArgument</p>
+ *                <p>
+ *                   <i>Cause:</i> Invalid Argument</p>
+ *             </dd>
+ *             <dt>HTTP 400 Bad Request Error</dt>
+ *             <dd>
+ *                <p>
+ *                   <i>Code:</i> TooManyConfigurations</p>
+ *                <p>
+ *                   <i>Cause:</i> You are attempting to create a new configuration
+ *                         but have already reached the 1,000-configuration limit. </p>
+ *             </dd>
+ *             <dt>HTTP 403 Forbidden Error</dt>
+ *             <dd>
+ *                <p>
+ *                   <i>Cause:</i> You are not the owner of the specified bucket,
+ *                            or you do not have the <code>s3:PutInventoryConfiguration</code> bucket
+ *                            permission to set the configuration on the bucket. </p>
+ *             </dd>
+ *          </dl>
+ *          <p>The following operations are related to <code>PutBucketInventoryConfiguration</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

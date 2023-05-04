@@ -42,28 +42,36 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * <p>Completes a multipart upload by assembling previously uploaded parts.</p>
  *          <p>You first initiate the multipart upload and then upload all parts using the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
  *          operation. After successfully uploading all relevant parts of an upload, you call this
- *          action to complete the upload. Upon receiving this request, Amazon S3 concatenates all
- *          the parts in ascending order by part number to create a new object. In the Complete
- *          Multipart Upload request, you must provide the parts list. You must ensure that the parts
- *          list is complete. This action concatenates the parts that you provide in the list. For
- *          each part in the list, you must provide the part number and the <code>ETag</code> value,
- *          returned after that part was uploaded.</p>
+ *          action to complete the upload. Upon receiving this request, Amazon S3 concatenates all the
+ *          parts in ascending order by part number to create a new object. In the Complete Multipart
+ *          Upload request, you must provide the parts list. You must ensure that the parts list is
+ *          complete. This action concatenates the parts that you provide in the list. For each part in
+ *          the list, you must provide the part number and the <code>ETag</code> value, returned after
+ *          that part was uploaded.</p>
  *          <p>Processing of a Complete Multipart Upload request could take several minutes to
  *          complete. After Amazon S3 begins processing the request, it sends an HTTP response header that
  *          specifies a 200 OK response. While processing is in progress, Amazon S3 periodically sends white
- *          space characters to keep the connection from timing out. Because a request could fail after
- *          the initial 200 OK response has been sent, it is important that you check the response body
- *          to determine whether the request succeeded.</p>
+ *          space characters to keep the connection from timing out. A request could fail after the
+ *          initial 200 OK response has been sent. This means that a <code>200 OK</code> response can
+ *          contain either a success or an error. If you call the S3 API directly, make sure to design
+ *          your application to parse the contents of the response and handle it appropriately. If you
+ *          use Amazon Web Services SDKs, SDKs handle this condition. The SDKs detect the embedded error and apply
+ *          error handling per your configuration settings (including automatically retrying the
+ *          request as appropriate). If the condition persists, the SDKs throws an exception (or, for
+ *          the SDKs that don't use exceptions, they return the error). </p>
  *          <p>Note that if <code>CompleteMultipartUpload</code> fails, applications should be prepared
- *          to retry the failed requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon S3 Error Best Practices</a>.</p>
+ *          to retry the failed requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon S3 Error Best
+ *          Practices</a>.</p>
  *          <important>
- *             <p>You cannot use <code>Content-Type: application/x-www-form-urlencoded</code> with Complete
- *             Multipart Upload requests. Also, if you do not provide a <code>Content-Type</code> header, <code>CompleteMultipartUpload</code> returns a 200 OK response.</p>
+ *             <p>You cannot use <code>Content-Type: application/x-www-form-urlencoded</code> with
+ *             Complete Multipart Upload requests. Also, if you do not provide a
+ *                <code>Content-Type</code> header, <code>CompleteMultipartUpload</code> returns a 200
+ *             OK response.</p>
  *          </important>
  *          <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
  *             Upload</a>.</p>
- *          <p>For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
- *          Permissions</a>.</p>
+ *          <p>For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
+ *             and Permissions</a>.</p>
  *          <p>
  *             <code>CompleteMultipartUpload</code> has the following special errors:</p>
  *          <ul>

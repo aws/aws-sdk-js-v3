@@ -41,10 +41,18 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyOutput, __M
  *          identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not
  *             Allowed</code> error.</p>
  *          <important>
- *             <p>As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
- *             always use this operation, even if the policy explicitly denies the root user the
- *             ability to perform this action.</p>
+ *             <p>To ensure that bucket owners don't inadvertently lock themselves out of their own
+ *             buckets, the root principal in a bucket owner's Amazon Web Services account can perform the
+ *             <code>GetBucketPolicy</code>, <code>PutBucketPolicy</code>, and
+ *             <code>DeleteBucketPolicy</code> API actions, even if their bucket policy explicitly
+ *             denies the root principal's access. Bucket owner root principals can only be blocked from performing
+ *             these API actions by VPC endpoint policies and Amazon Web Services Organizations policies.</p>
  *          </important>
+ *          <p>To use this API operation against an access point, provide the alias of the access point in place of the bucket name.</p>
+ *          <p>To use this API operation against an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name.
+ * If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned.
+ * For more information about <code>InvalidAccessPointAliasError</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List of
+ *             Error Codes</a>.</p>
  *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
  *             Policies</a>.</p>
  *          <p>The following action is related to <code>GetBucketPolicy</code>:</p>

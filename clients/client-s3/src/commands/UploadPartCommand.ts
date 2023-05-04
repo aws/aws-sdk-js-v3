@@ -62,14 +62,15 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *          identifies a part and also defines its position within the object being created. If you
  *          upload a new part using the same part number that was used with a previous part, the
  *          previously uploaded part is overwritten.</p>
- *          <p>For information about maximum and minimum part sizes and other multipart upload specifications, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html">Multipart upload limits</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>For information about maximum and minimum part sizes and other multipart upload
+ *          specifications, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html">Multipart upload limits</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>To ensure that data is not corrupted when traversing the network, specify the
  *             <code>Content-MD5</code> header in the upload part request. Amazon S3 checks the part data
  *          against the provided MD5 value. If they do not match, Amazon S3 returns an error. </p>
  *          <p>If the upload request is signed with Signature Version 4, then Amazon Web Services S3 uses the
  *             <code>x-amz-content-sha256</code> header as a checksum instead of
- *             <code>Content-MD5</code>. For more information see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html">Authenticating Requests: Using the Authorization Header (Amazon Web Services Signature Version
- *             4)</a>. </p>
+ *             <code>Content-MD5</code>. For more information see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html">Authenticating
+ *             Requests: Using the Authorization Header (Amazon Web Services Signature Version 4)</a>. </p>
  *          <p>
  *             <b>Note:</b> After you initiate multipart upload and upload
  *          one or more parts, you must either complete or abort multipart upload in order to stop
@@ -79,23 +80,29 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *          <p>For more information on multipart uploads, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html">Multipart Upload Overview</a> in the
  *             <i>Amazon S3 User Guide </i>.</p>
  *          <p>For information on the permissions required to use the multipart upload API, go to
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
- *             Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <p>You can optionally request server-side encryption where Amazon S3 encrypts your data as it
- *          writes it to disks in its data centers and decrypts it for you when you access it. You have
- *          the option of providing your own encryption key, or you can use the Amazon Web Services managed encryption
- *          keys. If you choose to provide your own encryption key, the request headers you provide in
- *          the request must match the headers you used in the request to initiate the upload by using
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>. For more information, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side Encryption</a> in
- *          the <i>Amazon S3 User Guide</i>.</p>
+ *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart
+ *             Upload and Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>Server-side encryption is for data encryption at rest. Amazon S3 encrypts your data as it
+ *          writes it to disks in its data centers and decrypts it when you access it. You have three
+ *          mutually exclusive options to protect data using server-side encryption in Amazon S3, depending
+ *          on how you choose to manage the encryption keys. Specifically, the encryption key options
+ *          are Amazon S3 managed keys (SSE-S3), Amazon Web Services KMS keys (SSE-KMS), and Customer-Provided Keys
+ *          (SSE-C). Amazon S3 encrypts data with server-side encryption using Amazon S3 managed keys (SSE-S3) by
+ *          default. You can optionally tell Amazon S3 to encrypt data at rest using server-side encryption
+ *          with other key options. The option you use depends on whether you want to use KMS keys
+ *          (SSE-KMS) or provide your own encryption key (SSE-C). If you choose to provide your own
+ *          encryption key, the request headers you provide in the request must match the headers you
+ *          used in the request to initiate the upload by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>.
+ *          For more information, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side
+ *             Encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>Server-side encryption is supported by the S3 Multipart Upload actions. Unless you are
- *          using a customer-provided encryption key, you don't need to specify the encryption
+ *          using a customer-provided encryption key (SSE-C), you don't need to specify the encryption
  *          parameters in each UploadPart request. Instead, you only need to specify the server-side
  *          encryption parameters in the initial Initiate Multipart request. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>.</p>
- *          <p>If you requested server-side encryption using a customer-provided encryption key in your
- *          initiate multipart upload request, you must provide identical encryption information in
- *          each part upload using the following headers.</p>
+ *          <p>If you requested server-side encryption using a customer-provided encryption key (SSE-C)
+ *          in your initiate multipart upload request, you must provide identical encryption
+ *          information in each part upload using the following headers.</p>
  *          <ul>
  *             <li>
  *                <p>x-amz-server-side-encryption-customer-algorithm</p>
@@ -107,9 +114,8 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *                <p>x-amz-server-side-encryption-customer-key-MD5</p>
  *             </li>
  *          </ul>
- *          <p class="title">
- *             <b>Special Errors</b>
- *          </p>
+ *          <p>
+ *             <code>UploadPart</code> has the following special errors:</p>
  *          <ul>
  *             <li>
  *                <ul>
@@ -138,9 +144,7 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *                </ul>
  *             </li>
  *          </ul>
- *          <p class="title">
- *             <b>Related Resources</b>
- *          </p>
+ *          <p>The following operations are related to <code>UploadPart</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

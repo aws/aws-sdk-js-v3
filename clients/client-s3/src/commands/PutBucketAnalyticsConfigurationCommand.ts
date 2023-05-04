@@ -43,8 +43,8 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  *          selecting data export, you specify a destination bucket and an optional destination prefix
  *          where the file is written. You can export the data to a destination bucket in a different
  *          account. However, the destination bucket must be in the same Region as the bucket that you
- *          are making the PUT analytics configuration to. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html">Amazon S3 Analytics – Storage Class
- *             Analysis</a>. </p>
+ *          are making the PUT analytics configuration to. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html">Amazon S3
+ *             Analytics – Storage Class Analysis</a>. </p>
  *          <important>
  *             <p>You must create a bucket policy on the destination bucket where the exported file is
  *             written to grant permissions to Amazon S3 to write objects to the bucket. For an example
@@ -53,11 +53,10 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  *          <p>To use this operation, you must have permissions to perform the
  *             <code>s3:PutAnalyticsConfiguration</code> action. The bucket owner has this permission
  *          by default. The bucket owner can grant this permission to others. For more information
- *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *             Resources</a>.</p>
- *          <p class="title">
- *             <b>Special Errors</b>
- *          </p>
+ *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+ *             Access Permissions to Your Amazon S3 Resources</a>.</p>
+ *          <p>
+ *             <code>PutBucketAnalyticsConfiguration</code> has the following special errors:</p>
  *          <ul>
  *             <li>
  *                <ul>
@@ -120,9 +119,7 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  *                </ul>
  *             </li>
  *          </ul>
- *          <p class="title">
- *             <b>Related Resources</b>
- *          </p>
+ *          <p>The following operations are related to <code>PutBucketAnalyticsConfiguration</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

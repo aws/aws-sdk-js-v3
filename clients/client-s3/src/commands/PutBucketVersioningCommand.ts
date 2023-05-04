@@ -44,21 +44,19 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  *          <p>If the versioning state has never been set on a bucket, it has no versioning state; a
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a> request does not return a versioning state value.</p>
  *          <p>In order to enable MFA Delete, you must be the bucket owner. If you are the bucket owner
- *          and want to enable MFA Delete in the bucket versioning configuration, you must
- *          include the <code>x-amz-mfa request</code> header and the
- *             <code>Status</code> and the <code>MfaDelete</code> request elements in a request to set
- *          the versioning state of the bucket.</p>
+ *          and want to enable MFA Delete in the bucket versioning configuration, you must include the
+ *             <code>x-amz-mfa request</code> header and the <code>Status</code> and the
+ *             <code>MfaDelete</code> request elements in a request to set the versioning state of the
+ *          bucket.</p>
  *          <important>
- *             <p>If you have an object expiration lifecycle policy in your non-versioned bucket and
+ *             <p>If you have an object expiration lifecycle configuration in your non-versioned bucket and
  *             you want to maintain the same permanent delete behavior when you enable versioning, you
- *             must add a noncurrent expiration policy. The noncurrent expiration lifecycle policy will
+ *             must add a noncurrent expiration policy. The noncurrent expiration lifecycle configuration will
  *             manage the deletes of the noncurrent object versions in the version-enabled bucket. (A
  *             version-enabled bucket maintains one current and zero or more noncurrent object
  *             versions.) For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-and-other-bucket-config">Lifecycle and Versioning</a>.</p>
  *          </important>
- *          <p class="title">
- *             <b>Related Resources</b>
- *          </p>
+ *          <p>The following operations are related to <code>PutBucketVersioning</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

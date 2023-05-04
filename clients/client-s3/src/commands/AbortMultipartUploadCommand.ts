@@ -41,8 +41,8 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  *          <p>To verify that all parts have been removed, so you don't get charged for the part
  *          storage, you should call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a> action and ensure that
  *          the parts list is empty.</p>
- *          <p>For information about permissions required to use the multipart upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
- *          Permissions</a>.</p>
+ *          <p>For information about permissions required to use the multipart upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
+ *             and Permissions</a>.</p>
  *          <p>The following operations are related to <code>AbortMultipartUpload</code>:</p>
  *          <ul>
  *             <li>

@@ -113,8 +113,8 @@ export interface PutObjectTaggingRequest {
   /**
    * <p>The bucket name containing the object. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -278,16 +278,15 @@ export interface GlacierJobParameters {
 export interface Encryption {
   /**
    * <p>The server-side encryption algorithm used when storing job results in Amazon S3 (for example,
-   *          AES256, aws:kms).</p>
+   *          AES256, <code>aws:kms</code>).</p>
    */
   EncryptionType: ServerSideEncryption | string | undefined;
 
   /**
    * <p>If the encryption type is <code>aws:kms</code>, this optional value specifies the ID of
-   *          the symmetric customer managed key to use for encryption of job results. Amazon S3 only
-   *          supports symmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and
-   *             asymmetric keys</a> in the <i>Amazon Web Services Key Management Service Developer
-   *             Guide</i>.</p>
+   *          the symmetric encryption customer managed key to use for encryption of job results. Amazon S3 only
+   *          supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service
+   *             Developer Guide</i>.</p>
    */
   KMSKeyId?: string;
 
@@ -444,8 +443,10 @@ export interface CSVInput {
 
   /**
    * <p>A single character used to indicate that a row should be ignored when the character is
-   *          present at the start of that row. You can specify any character to indicate a comment
-   *          line.</p>
+   *          present at the start of that row. You can specify any character to indicate a comment line.
+   *          The default character is <code>#</code>.</p>
+   *          <p>Default: <code>#</code>
+   *          </p>
    */
   Comments?: string;
 
@@ -726,8 +727,8 @@ export interface RestoreObjectRequest {
   /**
    * <p>The bucket name containing the object to restore. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -1128,7 +1129,7 @@ export interface SelectObjectContentRequest {
 export interface UploadPartOutput {
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, aws:kms).</p>
+   *          AES256, <code>aws:kms</code>).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
 
@@ -1184,12 +1185,13 @@ export interface UploadPartOutput {
 
   /**
    * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          customer managed key was used for the object.</p>
+   *          encryption customer managed key was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
   /**
-   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with Amazon Web Services KMS (SSE-KMS).</p>
+   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption
+   *          with Amazon Web Services KMS (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -1212,8 +1214,8 @@ export interface UploadPartRequest {
   /**
    * <p>The name of the bucket to which the multipart upload was initiated.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -1240,8 +1242,8 @@ export interface UploadPartRequest {
    *     the <i>Amazon S3 User Guide</i>.</p>
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
-   *          <p>This checksum algorithm must be the same for all parts and it match the checksum
-   *             value supplied in the <code>CreateMultipartUpload</code> request.</p>
+   *          <p>This checksum algorithm must be the same for all parts and it match the checksum value
+   *          supplied in the <code>CreateMultipartUpload</code> request.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
 
@@ -1394,7 +1396,7 @@ export interface UploadPartCopyOutput {
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, aws:kms).</p>
+   *          AES256, <code>aws:kms</code>).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
 
@@ -1413,12 +1415,13 @@ export interface UploadPartCopyOutput {
 
   /**
    * <p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          customer managed key that was used for the object.</p>
+   *          encryption customer managed key that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
 
   /**
-   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with Amazon Web Services KMS (SSE-KMS).</p>
+   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption
+   *          with Amazon Web Services KMS (SSE-KMS).</p>
    */
   BucketKeyEnabled?: boolean;
 
@@ -1436,8 +1439,8 @@ export interface UploadPartCopyRequest {
   /**
    * <p>The bucket name.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
-   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -1597,10 +1600,7 @@ export interface WriteGetObjectResponseRequest {
 
   /**
    * <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code>
-   *          request.</p>
-   *          <p class="title">
-   *             <b>Status Codes</b>
-   *          </p>
+   *          request. The following is a list of status codes.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1710,8 +1710,8 @@ export interface WriteGetObjectResponseRequest {
 
   /**
    * <p>Specifies what content encodings have been applied to the object and thus what decoding
-   *           mechanisms must be applied to obtain the media-type referenced by the Content-Type header
-   *           field.</p>
+   *          mechanisms must be applied to obtain the media-type referenced by the Content-Type header
+   *          field.</p>
    */
   ContentEncoding?: string;
 
@@ -1736,55 +1736,55 @@ export interface WriteGetObjectResponseRequest {
   ContentType?: string;
 
   /**
-   * <p>This header can be used as a data integrity check to verify that the data received is the
-   *             same data that was originally sent. This specifies the base64-encoded, 32-bit CRC32 checksum
-   *             of the object returned by the Object Lambda function. This may not match the checksum for the
-   *             object stored in Amazon S3. Amazon S3 will perform validation of the checksum values only when the original
-   *             <code>GetObject</code> request required checksum validation. For more information about checksums, see
-   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
-   *                 object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>Only one checksum header can be specified at a time. If you supply multiple
-   *             checksum headers, this request will fail.</p>
+   * <p>This header can be used as a data integrity check to verify that the data received is
+   *          the same data that was originally sent. This specifies the base64-encoded, 32-bit CRC32
+   *          checksum of the object returned by the Object Lambda function. This may not match the
+   *          checksum for the object stored in Amazon S3. Amazon S3 will perform validation of the checksum values
+   *          only when the original <code>GetObject</code> request required checksum validation. For
+   *          more information about checksums, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object
+   *             integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>Only one checksum header can be specified at a time. If you supply multiple checksum
+   *          headers, this request will fail.</p>
    *          <p></p>
    */
   ChecksumCRC32?: string;
 
   /**
-   * <p>This header can be used as a data integrity check to verify that the data received is the
-   *             same data that was originally sent. This specifies the base64-encoded, 32-bit CRC32C checksum
-   *             of the object returned by the Object Lambda function. This may not match the checksum for the
-   *             object stored in Amazon S3. Amazon S3 will perform validation of the checksum values only when the original
-   *             <code>GetObject</code> request required checksum validation. For more information about checksums, see
-   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
-   *                 object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>Only one checksum header can be specified at a time. If you supply multiple
-   *             checksum headers, this request will fail.</p>
+   * <p>This header can be used as a data integrity check to verify that the data received is
+   *          the same data that was originally sent. This specifies the base64-encoded, 32-bit CRC32C
+   *          checksum of the object returned by the Object Lambda function. This may not match the
+   *          checksum for the object stored in Amazon S3. Amazon S3 will perform validation of the checksum values
+   *          only when the original <code>GetObject</code> request required checksum validation. For
+   *          more information about checksums, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object
+   *             integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>Only one checksum header can be specified at a time. If you supply multiple checksum
+   *          headers, this request will fail.</p>
    */
   ChecksumCRC32C?: string;
 
   /**
-   * <p>This header can be used as a data integrity check to verify that the data received is the
-   *             same data that was originally sent. This specifies the base64-encoded, 160-bit SHA-1 digest
-   *             of the object returned by the Object Lambda function. This may not match the checksum for the
-   *             object stored in Amazon S3. Amazon S3 will perform validation of the checksum values only when the original
-   *             <code>GetObject</code> request required checksum validation. For more information about checksums, see
-   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
-   *                 object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>Only one checksum header can be specified at a time. If you supply multiple
-   *             checksum headers, this request will fail.</p>
+   * <p>This header can be used as a data integrity check to verify that the data received is
+   *          the same data that was originally sent. This specifies the base64-encoded, 160-bit SHA-1
+   *          digest of the object returned by the Object Lambda function. This may not match the
+   *          checksum for the object stored in Amazon S3. Amazon S3 will perform validation of the checksum values
+   *          only when the original <code>GetObject</code> request required checksum validation. For
+   *          more information about checksums, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object
+   *             integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>Only one checksum header can be specified at a time. If you supply multiple checksum
+   *          headers, this request will fail.</p>
    */
   ChecksumSHA1?: string;
 
   /**
-   * <p>This header can be used as a data integrity check to verify that the data received is the
-   *             same data that was originally sent. This specifies the base64-encoded, 256-bit SHA-256 digest
-   *             of the object returned by the Object Lambda function. This may not match the checksum for the
-   *             object stored in Amazon S3. Amazon S3 will perform validation of the checksum values only when the original
-   *             <code>GetObject</code> request required checksum validation. For more information about checksums, see
-   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
-   *                 object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>Only one checksum header can be specified at a time. If you supply multiple
-   *             checksum headers, this request will fail.</p>
+   * <p>This header can be used as a data integrity check to verify that the data received is
+   *          the same data that was originally sent. This specifies the base64-encoded, 256-bit SHA-256
+   *          digest of the object returned by the Object Lambda function. This may not match the
+   *          checksum for the object stored in Amazon S3. Amazon S3 will perform validation of the checksum values
+   *          only when the original <code>GetObject</code> request required checksum validation. For
+   *          more information about checksums, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object
+   *             integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>Only one checksum header can be specified at a time. If you supply multiple checksum
+   *          headers, this request will fail.</p>
    */
   ChecksumSHA256?: string;
 
@@ -1806,10 +1806,10 @@ export interface WriteGetObjectResponseRequest {
   Expires?: Date;
 
   /**
-   * <p>If the object expiration is configured (see PUT Bucket lifecycle), the response
-   *          includes this header. It includes the <code>expiry-date</code> and <code>rule-id</code>
-   *          key-value pairs that provide the object expiration information. The value of the
-   *             <code>rule-id</code> is URL-encoded. </p>
+   * <p>If the object expiration is configured (see PUT Bucket lifecycle), the response includes
+   *          this header. It includes the <code>expiry-date</code> and <code>rule-id</code> key-value
+   *          pairs that provide the object expiration information. The value of the <code>rule-id</code>
+   *          is URL-encoded. </p>
    */
   Expiration?: string;
 
@@ -1832,8 +1832,8 @@ export interface WriteGetObjectResponseRequest {
   Metadata?: Record<string, string>;
 
   /**
-   * <p>Indicates whether an object stored in Amazon S3 has Object Lock enabled. For more
-   *           information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Object Lock</a>.</p>
+   * <p>Indicates whether an object stored in Amazon S3 has Object Lock enabled. For more information
+   *          about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Object Lock</a>.</p>
    */
   ObjectLockMode?: ObjectLockMode | string;
 
@@ -1853,8 +1853,8 @@ export interface WriteGetObjectResponseRequest {
   PartsCount?: number;
 
   /**
-   * <p>Indicates if request involves bucket that is either a source or destination in a Replication rule. For more
-   *           information about S3 Replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication</a>.</p>
+   * <p>Indicates if request involves bucket that is either a source or destination in a
+   *          Replication rule. For more information about S3 Replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication</a>.</p>
    */
   ReplicationStatus?: ReplicationStatus | string;
 
@@ -1866,22 +1866,25 @@ export interface WriteGetObjectResponseRequest {
 
   /**
    * <p>Provides information about object restoration operation and expiration time of the
-   *           restored object copy.</p>
+   *          restored object copy.</p>
    */
   Restore?: string;
 
   /**
-   * <p> The server-side encryption algorithm used when storing requested object in Amazon S3 (for example, AES256, aws:kms).</p>
+   * <p> The server-side encryption algorithm used when storing requested object in Amazon S3 (for
+   *          example, AES256, <code>aws:kms</code>).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
 
   /**
-   * <p>Encryption algorithm used if server-side encryption with a customer-provided encryption key was specified for object stored in Amazon S3.</p>
+   * <p>Encryption algorithm used if server-side encryption with a customer-provided encryption
+   *          key was specified for object stored in Amazon S3.</p>
    */
   SSECustomerAlgorithm?: string;
 
   /**
-   * <p> If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric customer managed key that was used for stored in Amazon S3 object. </p>
+   * <p> If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
+   *          encryption customer managed key that was used for stored in Amazon S3 object. </p>
    */
   SSEKMSKeyId?: string;
 
@@ -1895,9 +1898,8 @@ export interface WriteGetObjectResponseRequest {
 
   /**
    * <p>Provides storage class information of the object. Amazon S3 returns this header for all
-   *             objects except for S3 Standard storage class objects.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
-   *             Classes</a>.</p>
+   *          objects except for S3 Standard storage class objects.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
    */
   StorageClass?: StorageClass | string;
 

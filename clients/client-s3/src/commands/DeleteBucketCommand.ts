@@ -34,9 +34,7 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  * @public
  * <p>Deletes the S3 bucket. All objects (including all object versions and delete markers) in
  *          the bucket must be deleted before the bucket itself can be deleted.</p>
- *          <p class="title">
- *             <b>Related Resources</b>
- *          </p>
+ *          <p>The following operations are related to <code>DeleteBucket</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

@@ -33,7 +33,9 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
 /**
  * @public
  * <p>Returns a list of all buckets owned by the authenticated sender of the request. To use
- *         this operation, you must have the <code>s3:ListAllMyBuckets</code> permission.</p>
+ *          this operation, you must have the <code>s3:ListAllMyBuckets</code> permission. </p>
+ *          <p>For information about Amazon S3 buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating, configuring, and
+ *             working with Amazon S3 buckets</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,9 +69,9 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @example To list object versions
+ * @example To list all buckets
  * ```javascript
- * // The following example return versions of an object with specific key name prefix. The request limits the number of items returned to two. If there are are more than two object version, S3 returns NextToken in the response. You can specify this token value in your next request to fetch next set of object versions.
+ * // The following example returns all the buckets owned by the sender of this request.
  * const input = undefined;
  * const command = new ListBucketsCommand(input);
  * const response = await client.send(command);
@@ -77,15 +79,15 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * {
  *   "Buckets": [
  *     {
- *       "CreationDate": "2012-02-15T21: 03: 02.000Z",
+ *       "CreationDate": "2012-02-15T21:03:02.000Z",
  *       "Name": "examplebucket"
  *     },
  *     {
- *       "CreationDate": "2011-07-24T19: 33: 50.000Z",
+ *       "CreationDate": "2011-07-24T19:33:50.000Z",
  *       "Name": "examplebucket2"
  *     },
  *     {
- *       "CreationDate": "2010-12-17T00: 56: 49.000Z",
+ *       "CreationDate": "2010-12-17T00:56:49.000Z",
  *       "Name": "examplebucket3"
  *     }
  *   ],
@@ -95,7 +97,7 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  *   }
  * }
  * *\/
- * // example id: to-list-object-versions-1481910996058
+ * // example id: to-list-buckets-1481910996058
  * ```
  *
  */

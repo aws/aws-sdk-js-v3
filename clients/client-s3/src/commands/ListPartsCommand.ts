@@ -44,12 +44,11 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *          requests you can include the part-number-marker query string parameter and set its value to
  *          the <code>NextPartNumberMarker</code> field value from the previous response.</p>
  *          <p>If the upload was created using a checksum algorithm, you will need to have permission
- *            to the <code>kms:Decrypt</code> action for the request to succeed.
- *        </p>
+ *          to the <code>kms:Decrypt</code> action for the request to succeed. </p>
  *          <p>For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
  *             Upload</a>.</p>
- *          <p>For information on permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
- *          Permissions</a>.</p>
+ *          <p>For information on permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
+ *             and Permissions</a>.</p>
  *          <p>The following operations are related to <code>ListParts</code>:</p>
  *          <ul>
  *             <li>

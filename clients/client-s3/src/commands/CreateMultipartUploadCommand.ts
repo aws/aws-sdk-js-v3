@@ -47,39 +47,55 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *          <p>If you have configured a lifecycle rule to abort incomplete multipart uploads, the
  *          upload must complete within the number of days specified in the bucket lifecycle
  *          configuration. Otherwise, the incomplete multipart upload becomes eligible for an abort
- *          action and Amazon S3 aborts the multipart upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting
- *             Incomplete Multipart Uploads Using a Bucket Lifecycle Policy</a>.</p>
+ *          action and Amazon S3 aborts the multipart upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p>
  *          <p>For information about the permissions required to use the multipart upload API, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
- *             Permissions</a>.</p>
+ *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart
+ *             Upload and Permissions</a>.</p>
  *          <p>For request signing, multipart upload is just a series of regular requests. You initiate
  *          a multipart upload, send one or more requests to upload parts, and then complete the
  *          multipart upload process. You sign each request individually. There is nothing special
- *          about signing multipart upload requests. For more information about signing, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
- *             Requests (Amazon Web Services Signature Version 4)</a>.</p>
+ *          about signing multipart upload requests. For more information about signing, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (Amazon Web Services Signature Version 4)</a>.</p>
  *          <note>
- *             <p> After you initiate a multipart upload and upload one or more parts, to stop being
+ *             <p>After you initiate a multipart upload and upload one or more parts, to stop being
  *             charged for storing the uploaded parts, you must either complete or abort the multipart
  *             upload. Amazon S3 frees up the space used to store the parts and stop charging you for
  *             storing them only after you either complete or abort a multipart upload. </p>
  *          </note>
- *          <p>You can optionally request server-side encryption. For server-side encryption, Amazon S3
- *          encrypts your data as it writes it to disks in its data centers and decrypts it when you
- *          access it. You can provide your own encryption key, or use Amazon Web Services KMS keys or Amazon S3-managed encryption keys. If you choose to provide
- *          your own encryption key, the request headers you provide in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a> requests must match the headers you used in the request to
- *          initiate the upload by using <code>CreateMultipartUpload</code>. </p>
- *          <p>To perform a multipart upload with encryption using an Amazon Web Services KMS key, the requester must
- *          have permission to the <code>kms:Decrypt</code> and <code>kms:GenerateDataKey*</code>
+ *          <p>Server-side encryption is for data encryption at rest. Amazon S3 encrypts your data as it
+ *          writes it to disks in its data centers and decrypts it when you access it. Amazon S3
+ *          automatically encrypts all new objects that are uploaded to an S3 bucket. When doing a
+ *          multipart upload, if you don't specify encryption information in your request, the
+ *          encryption setting of the uploaded parts is set to the default encryption configuration of
+ *          the destination bucket. By default, all buckets have a base level of encryption
+ *          configuration that uses server-side encryption with Amazon S3 managed keys (SSE-S3). If the
+ *          destination bucket has a default encryption configuration that uses server-side encryption
+ *          with an Key Management Service (KMS) key (SSE-KMS), or a customer-provided encryption key (SSE-C),
+ *          Amazon S3 uses the corresponding KMS key, or a customer-provided key to encrypt the uploaded
+ *          parts. When you perform a CreateMultipartUpload operation, if you want to use a different
+ *          type of encryption setting for the uploaded parts, you can request that Amazon S3 encrypts the
+ *          object with a KMS key, an Amazon S3 managed key, or a customer-provided key. If the encryption
+ *          setting in your request is different from the default encryption configuration of the
+ *          destination bucket, the encryption setting in your request takes precedence. If you choose
+ *          to provide your own encryption key, the request headers you provide in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
+ *          and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a> requests must match the headers you used in the request to
+ *          initiate the upload by using <code>CreateMultipartUpload</code>. You can request that Amazon S3
+ *          save the uploaded parts encrypted with server-side encryption with an Amazon S3 managed key
+ *          (SSE-S3), an Key Management Service (KMS) key (SSE-KMS), or a customer-provided encryption key
+ *          (SSE-C). </p>
+ *          <p>To perform a multipart upload with encryption by using an Amazon Web Services KMS key, the requester
+ *          must have permission to the <code>kms:Decrypt</code> and <code>kms:GenerateDataKey*</code>
  *          actions on the key. These permissions are required because Amazon S3 must decrypt and read data
  *          from the encrypted file parts before it completes the multipart upload. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpuAndPermissions">Multipart upload API
- *             and permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <p>If your Identity and Access Management (IAM) user or role is in the same Amazon Web Services account
- *          as the KMS key, then you must have these permissions on the key policy. If your IAM
- *          user or role belongs to a different account than the key, then you must have the
- *          permissions on both the key policy and your IAM user or role.</p>
- *          <p> For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting
- *             Data Using Server-Side Encryption</a>.</p>
+ *             and permissions</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">Protecting data using
+ *             server-side encryption with Amazon Web Services KMS</a> in the
+ *             <i>Amazon S3 User Guide</i>.</p>
+ *          <p>If your Identity and Access Management (IAM) user or role is in the same Amazon Web Services account as the KMS key,
+ *          then you must have these permissions on the key policy. If your IAM user or role belongs
+ *          to a different account than the key, then you must have the permissions on both the key
+ *          policy and your IAM user or role.</p>
+ *          <p> For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using Server-Side
+ *             Encryption</a>.</p>
  *          <dl>
  *             <dt>Access Permissions</dt>
  *             <dd>
@@ -89,7 +105,8 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                <ul>
  *                   <li>
  *                      <p>Specify a canned ACL with the <code>x-amz-acl</code> request header. For
- *                         more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
+ *                         more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned
+ *                         ACL</a>.</p>
  *                   </li>
  *                   <li>
  *                      <p>Specify access permissions explicitly with the
@@ -97,8 +114,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                            <code>x-amz-grant-write-acp</code>, and
  *                            <code>x-amz-grant-full-control</code> headers. These parameters map to
  *                         the set of permissions that Amazon S3 supports in an ACL. For more information,
- *                         see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL)
- *                            Overview</a>.</p>
+ *                         see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>.</p>
  *                   </li>
  *                </ul>
  *                <p>You can use either a canned ACL or specify access permissions explicitly. You
@@ -106,16 +122,19 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *             </dd>
  *             <dt>Server-Side- Encryption-Specific Request Headers</dt>
  *             <dd>
- *                <p>You can optionally tell Amazon S3 to encrypt data at rest using server-side
- *                   encryption. Server-side encryption is for data encryption at rest. Amazon S3 encrypts
+ *                <p>Amazon S3 encrypts data
+ *                   by using server-side encryption with an Amazon S3 managed key (SSE-S3) by default. Server-side encryption is for data encryption at rest. Amazon S3 encrypts
  *                   your data as it writes it to disks in its data centers and decrypts it when you
- *                   access it. The option you use depends on whether you want to use Amazon Web Services managed
- *                   encryption keys or provide your own encryption key. </p>
+ *                   access it. You can request that Amazon S3 encrypts
+ *                   data at rest by using server-side encryption with other key options. The option you use depends on
+ *                   whether you want to use KMS keys (SSE-KMS) or provide your own encryption keys
+ *                   (SSE-C).</p>
  *                <ul>
  *                   <li>
- *                      <p>Use encryption keys managed by Amazon S3 or customer managed key stored
- *                         in Amazon Web Services Key Management Service (Amazon Web Services KMS) – If you want Amazon Web Services to manage the keys
- *                         used to encrypt data, specify the following headers in the request.</p>
+ *                      <p>Use KMS keys (SSE-KMS) that include the Amazon Web Services managed key
+ *                         (<code>aws/s3</code>) and KMS customer managed keys stored in Key Management Service (KMS) – If you
+ *                         want Amazon Web Services to manage the keys used to encrypt data, specify the following
+ *                         headers in the request.</p>
  *                      <ul>
  *                         <li>
  *                            <p>
@@ -136,18 +155,22 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                      <note>
  *                         <p>If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but
  *                            don't provide <code>x-amz-server-side-encryption-aws-kms-key-id</code>,
- *                            Amazon S3 uses the Amazon Web Services managed key in Amazon Web Services KMS to protect the data.</p>
+ *                            Amazon S3 uses the Amazon Web Services managed key (<code>aws/s3</code> key) in KMS to
+ *                            protect the data.</p>
  *                      </note>
  *                      <important>
- *                         <p>All GET and PUT requests for an object protected by Amazon Web Services KMS fail if
- *                            you don't make them with SSL or by using SigV4.</p>
+ *                         <p>All <code>GET</code> and <code>PUT</code> requests for an object protected
+ *                            by KMS fail if you don't make them by using Secure Sockets Layer (SSL),
+ *                            Transport Layer Security (TLS), or Signature Version 4.</p>
  *                      </important>
- *                      <p>For more information about server-side encryption with KMS key (SSE-KMS),
- *                         see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with KMS keys</a>.</p>
+ *                      <p>For more information about server-side encryption with KMS keys
+ *                         (SSE-KMS), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">Protecting Data
+ *                            Using Server-Side Encryption with KMS keys</a>.</p>
  *                   </li>
  *                   <li>
- *                      <p>Use customer-provided encryption keys – If you want to manage your own
- *                         encryption keys, provide all the following headers in the request.</p>
+ *                      <p>Use customer-provided encryption keys (SSE-C) – If you want to manage
+ *                         your own encryption keys, provide all the following headers in the
+ *                         request.</p>
  *                      <ul>
  *                         <li>
  *                            <p>
@@ -165,8 +188,10 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                            </p>
  *                         </li>
  *                      </ul>
- *                      <p>For more information about server-side encryption with KMS keys (SSE-KMS),
- *                         see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting Data Using Server-Side Encryption with KMS keys</a>.</p>
+ *                      <p>For more information about server-side encryption with customer-provided
+ *                         encryption keys (SSE-C), see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">
+ *                            Protecting data using server-side encryption with customer-provided
+ *                            encryption keys (SSE-C)</a>.</p>
  *                   </li>
  *                </ul>
  *             </dd>
@@ -174,10 +199,11 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *             <dd>
  *                <p>You also can use the following access control–related headers with this
  *                   operation. By default, all objects are private. Only the owner has full access
- *                   control. When adding a new object, you can grant permissions to individual Amazon Web Services accounts or to predefined groups defined by Amazon S3. These permissions are then added
- *                   to the access control list (ACL) on the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. With this
- *                   operation, you can grant access permissions using one of the following two
- *                   methods:</p>
+ *                   control. When adding a new object, you can grant permissions to individual
+ *                   Amazon Web Services accounts or to predefined groups defined by Amazon S3. These permissions are then
+ *                   added to the access control list (ACL) on the object. For more information, see
+ *                      <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. With this operation, you can grant access permissions
+ *                   using one of the following two methods:</p>
  *                <ul>
  *                   <li>
  *                      <p>Specify a canned ACL (<code>x-amz-acl</code>) — Amazon S3 supports a set of
@@ -190,10 +216,9 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                      <p>Specify access permissions explicitly — To explicitly grant access
  *                         permissions to specific Amazon Web Services accounts or groups, use the following headers.
  *                         Each header maps to specific permissions that Amazon S3 supports in an ACL. For
- *                         more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access
- *                            Control List (ACL) Overview</a>. In the header, you specify a list of
- *                         grantees who get the specific permission. To grant permissions explicitly,
- *                         use:</p>
+ *                         more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL)
+ *                            Overview</a>. In the header, you specify a list of grantees who get
+ *                         the specific permission. To grant permissions explicitly, use:</p>
  *                      <ul>
  *                         <li>
  *                            <p>

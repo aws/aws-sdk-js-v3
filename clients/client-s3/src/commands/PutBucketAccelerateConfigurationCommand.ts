@@ -53,13 +53,14 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  *                <p> Suspended – Disables accelerated data transfers to the bucket.</p>
  *             </li>
  *          </ul>
- *          <p>The <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html">GetBucketAccelerateConfiguration</a> action returns the transfer acceleration
- *          state of a bucket.</p>
+ *          <p>The <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html">GetBucketAccelerateConfiguration</a> action returns the transfer acceleration state
+ *          of a bucket.</p>
  *          <p>After setting the Transfer Acceleration state of a bucket to Enabled, it might take up
  *          to thirty minutes before the data transfer rates to the bucket increase.</p>
  *          <p> The name of the bucket used for Transfer Acceleration must be DNS-compliant and must
  *          not contain periods (".").</p>
- *          <p> For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer Acceleration</a>.</p>
+ *          <p> For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer
+ *          Acceleration</a>.</p>
  *          <p>The following operations are related to
  *          <code>PutBucketAccelerateConfiguration</code>:</p>
  *          <ul>
