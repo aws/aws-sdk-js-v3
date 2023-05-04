@@ -95,6 +95,20 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  * };
  * const command = new GetPublicKeyCommand(input);
  * const response = await client.send(command);
+ * // { // GetPublicKeyResponse
+ * //   KeyId: "STRING_VALUE",
+ * //   PublicKey: "BLOB_VALUE",
+ * //   CustomerMasterKeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
+ * //   KeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
+ * //   KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC",
+ * //   EncryptionAlgorithms: [ // EncryptionAlgorithmSpecList
+ * //     "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
+ * //   ],
+ * //   SigningAlgorithms: [ // SigningAlgorithmSpecList
+ * //     "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetPublicKeyCommandInput - {@link GetPublicKeyCommandInput}
@@ -172,6 +186,8 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *  <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To download the public key of an asymmetric KMS key
  * ```javascript

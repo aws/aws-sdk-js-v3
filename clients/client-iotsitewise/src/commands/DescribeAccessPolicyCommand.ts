@@ -45,6 +45,36 @@ export interface DescribeAccessPolicyCommandOutput extends DescribeAccessPolicyR
  * };
  * const command = new DescribeAccessPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAccessPolicyResponse
+ * //   accessPolicyId: "STRING_VALUE", // required
+ * //   accessPolicyArn: "STRING_VALUE", // required
+ * //   accessPolicyIdentity: { // Identity
+ * //     user: { // UserIdentity
+ * //       id: "STRING_VALUE", // required
+ * //     },
+ * //     group: { // GroupIdentity
+ * //       id: "STRING_VALUE", // required
+ * //     },
+ * //     iamUser: { // IAMUserIdentity
+ * //       arn: "STRING_VALUE", // required
+ * //     },
+ * //     iamRole: { // IAMRoleIdentity
+ * //       arn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   accessPolicyResource: { // Resource
+ * //     portal: { // PortalResource
+ * //       id: "STRING_VALUE", // required
+ * //     },
+ * //     project: { // ProjectResource
+ * //       id: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   accessPolicyPermission: "ADMINISTRATOR" || "VIEWER", // required
+ * //   accessPolicyCreationDate: new Date("TIMESTAMP"), // required
+ * //   accessPolicyLastUpdateDate: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param DescribeAccessPolicyCommandInput - {@link DescribeAccessPolicyCommandInput}
@@ -69,6 +99,8 @@ export interface DescribeAccessPolicyCommandOutput extends DescribeAccessPolicyR
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class DescribeAccessPolicyCommand extends $Command<

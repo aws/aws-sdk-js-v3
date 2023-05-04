@@ -53,6 +53,16 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * };
  * const command = new ListIPSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListIPSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   IPSets: [ // IPSetSummaries
+ * //     { // IPSetSummary
+ * //       IPSetId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListIPSetsCommandInput - {@link ListIPSetsCommandInput}
@@ -67,6 +77,8 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To list IP sets
  * ```javascript

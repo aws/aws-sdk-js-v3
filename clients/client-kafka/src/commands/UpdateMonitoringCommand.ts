@@ -73,6 +73,11 @@ export interface UpdateMonitoringCommandOutput extends UpdateMonitoringResponse,
  * };
  * const command = new UpdateMonitoringCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateMonitoringResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterOperationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateMonitoringCommandInput - {@link UpdateMonitoringCommandInput}
@@ -96,6 +101,8 @@ export interface UpdateMonitoringCommandOutput extends UpdateMonitoringResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class UpdateMonitoringCommand extends $Command<

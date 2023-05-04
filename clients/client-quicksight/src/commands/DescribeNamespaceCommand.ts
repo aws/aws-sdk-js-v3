@@ -45,6 +45,22 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  * };
  * const command = new DescribeNamespaceCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeNamespaceResponse
+ * //   Namespace: { // NamespaceInfoV2
+ * //     Name: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     CapacityRegion: "STRING_VALUE",
+ * //     CreationStatus: "CREATED" || "CREATING" || "DELETING" || "RETRYABLE_FAILURE" || "NON_RETRYABLE_FAILURE",
+ * //     IdentityStore: "QUICKSIGHT",
+ * //     NamespaceError: { // NamespaceError
+ * //       Type: "PERMISSION_DENIED" || "INTERNAL_SERVICE_ERROR",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param DescribeNamespaceCommandInput - {@link DescribeNamespaceCommandInput}
@@ -74,6 +90,8 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeNamespaceCommand extends $Command<

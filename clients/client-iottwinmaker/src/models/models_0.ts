@@ -1223,6 +1223,35 @@ export interface GetSceneRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const SceneErrorCode = {
+  MATTERPORT_ERROR: "MATTERPORT_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type SceneErrorCode = (typeof SceneErrorCode)[keyof typeof SceneErrorCode];
+
+/**
+ * @public
+ * <p>The scene error.</p>
+ */
+export interface SceneError {
+  /**
+   * <p>The SceneError code.</p>
+   */
+  code?: SceneErrorCode | string;
+
+  /**
+   * <p>The SceneError message.</p>
+   */
+  message?: string;
+}
+
+/**
+ * @public
  */
 export interface GetSceneResponse {
   /**
@@ -1274,6 +1303,11 @@ export interface GetSceneResponse {
    * <p>The generated scene metadata.</p>
    */
   generatedSceneMetadata?: Record<string, string>;
+
+  /**
+   * <p>The SceneResponse error.</p>
+   */
+  error?: SceneError;
 }
 
 /**

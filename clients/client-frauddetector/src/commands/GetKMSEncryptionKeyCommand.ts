@@ -42,6 +42,12 @@ export interface GetKMSEncryptionKeyCommandOutput extends GetKMSEncryptionKeyRes
  * const input = {};
  * const command = new GetKMSEncryptionKeyCommand(input);
  * const response = await client.send(command);
+ * // { // GetKMSEncryptionKeyResult
+ * //   kmsKey: { // KMSKey
+ * //     kmsEncryptionKeyArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetKMSEncryptionKeyCommandInput - {@link GetKMSEncryptionKeyCommandInput}
@@ -62,6 +68,8 @@ export interface GetKMSEncryptionKeyCommandOutput extends GetKMSEncryptionKeyRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>An exception indicating a throttling error.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetKMSEncryptionKeyCommand extends $Command<

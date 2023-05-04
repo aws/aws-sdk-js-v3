@@ -85,6 +85,13 @@ export interface StartDocumentClassificationJobCommandOutput
  * };
  * const command = new StartDocumentClassificationJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartDocumentClassificationJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobArn: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * //   DocumentClassifierArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartDocumentClassificationJobCommandInput - {@link StartDocumentClassificationJobCommandInput}
@@ -122,6 +129,8 @@ export interface StartDocumentClassificationJobCommandOutput
  *       resource). The maximum number of tags includes both existing tags and those included in your
  *       current request. </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StartDocumentClassificationJobCommand extends $Command<

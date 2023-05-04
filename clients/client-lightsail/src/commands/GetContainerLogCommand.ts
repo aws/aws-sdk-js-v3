@@ -58,6 +58,16 @@ export interface GetContainerLogCommandOutput extends GetContainerLogResult, __M
  * };
  * const command = new GetContainerLogCommand(input);
  * const response = await client.send(command);
+ * // { // GetContainerLogResult
+ * //   logEvents: [ // ContainerServiceLogEventList
+ * //     { // ContainerServiceLogEvent
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetContainerLogCommandInput - {@link GetContainerLogCommandInput}
@@ -89,6 +99,8 @@ export interface GetContainerLogCommandOutput extends GetContainerLogResult, __M
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetContainerLogCommand extends $Command<

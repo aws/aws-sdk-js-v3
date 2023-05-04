@@ -45,6 +45,8 @@ export interface DeleteSuiteDefinitionCommandOutput extends DeleteSuiteDefinitio
  * };
  * const command = new DeleteSuiteDefinitionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSuiteDefinitionCommandInput - {@link DeleteSuiteDefinitionCommandInput}
@@ -59,6 +61,8 @@ export interface DeleteSuiteDefinitionCommandOutput extends DeleteSuiteDefinitio
  * @throws {@link ValidationException} (client fault)
  *  <p>Sends a validation exception.</p>
  *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class DeleteSuiteDefinitionCommand extends $Command<

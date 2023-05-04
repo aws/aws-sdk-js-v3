@@ -52,6 +52,8 @@ export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {
  * };
  * const command = new UnlinkDeveloperIdentityCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UnlinkDeveloperIdentityCommandInput - {@link UnlinkDeveloperIdentityCommandInput}
@@ -80,6 +82,8 @@ export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class UnlinkDeveloperIdentityCommand extends $Command<

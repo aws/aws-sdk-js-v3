@@ -183,6 +183,10 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  * };
  * const command = new GenerateOrganizationsAccessReportCommand(input);
  * const response = await client.send(command);
+ * // { // GenerateOrganizationsAccessReportResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GenerateOrganizationsAccessReportCommandInput - {@link GenerateOrganizationsAccessReportCommandInput}
@@ -195,6 +199,8 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *  <p>The request failed because the maximum number of concurrent requests for this account are
  *       already running.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To generate a service last accessed data report for an organizational unit
  * ```javascript

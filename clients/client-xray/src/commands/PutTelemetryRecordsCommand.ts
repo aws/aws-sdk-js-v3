@@ -63,6 +63,8 @@ export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsRes
  * };
  * const command = new PutTelemetryRecordsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutTelemetryRecordsCommandInput - {@link PutTelemetryRecordsCommandInput}
@@ -77,6 +79,8 @@ export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsRes
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class PutTelemetryRecordsCommand extends $Command<

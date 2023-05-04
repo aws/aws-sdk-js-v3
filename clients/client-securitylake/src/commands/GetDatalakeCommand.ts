@@ -43,6 +43,37 @@ export interface GetDatalakeCommandOutput extends GetDatalakeResponse, __Metadat
  * const input = {};
  * const command = new GetDatalakeCommand(input);
  * const response = await client.send(command);
+ * // { // GetDatalakeResponse
+ * //   configurations: { // LakeConfigurationResponseMap // required
+ * //     "<keys>": { // LakeConfigurationResponse
+ * //       encryptionKey: "STRING_VALUE",
+ * //       retentionSettings: [ // RetentionSettingList
+ * //         { // RetentionSetting
+ * //           storageClass: "STRING_VALUE",
+ * //           retentionPeriod: Number("int"),
+ * //         },
+ * //       ],
+ * //       tagsMap: { // TagsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       replicationDestinationRegions: [ // RegionSet
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       replicationRoleArn: "STRING_VALUE",
+ * //       s3BucketArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       updateStatus: { // UpdateStatus
+ * //         lastUpdateRequestId: "STRING_VALUE",
+ * //         lastUpdateStatus: "STRING_VALUE",
+ * //         lastUpdateFailure: { // LastUpdateFailure
+ * //           reason: "STRING_VALUE",
+ * //           code: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetDatalakeCommandInput - {@link GetDatalakeCommandInput}
@@ -72,6 +103,8 @@ export interface GetDatalakeCommandOutput extends GetDatalakeResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class GetDatalakeCommand extends $Command<

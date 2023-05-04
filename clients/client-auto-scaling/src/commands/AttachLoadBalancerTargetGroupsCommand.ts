@@ -81,6 +81,8 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  * };
  * const command = new AttachLoadBalancerTargetGroupsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AttachLoadBalancerTargetGroupsCommandInput - {@link AttachLoadBalancerTargetGroupsCommandInput}
@@ -96,6 +98,8 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
  *  <p>The service-linked role is not yet ready for use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To attach a target group to an Auto Scaling group
  * ```javascript

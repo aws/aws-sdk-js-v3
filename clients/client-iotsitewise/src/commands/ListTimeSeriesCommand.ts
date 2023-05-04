@@ -48,6 +48,23 @@ export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __M
  * };
  * const command = new ListTimeSeriesCommand(input);
  * const response = await client.send(command);
+ * // { // ListTimeSeriesResponse
+ * //   TimeSeriesSummaries: [ // TimeSeriesSummaries // required
+ * //     { // TimeSeriesSummary
+ * //       assetId: "STRING_VALUE",
+ * //       propertyId: "STRING_VALUE",
+ * //       alias: "STRING_VALUE",
+ * //       timeSeriesId: "STRING_VALUE", // required
+ * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ * //       dataTypeSpec: "STRING_VALUE",
+ * //       timeSeriesCreationDate: new Date("TIMESTAMP"), // required
+ * //       timeSeriesLastUpdateDate: new Date("TIMESTAMP"), // required
+ * //       timeSeriesArn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTimeSeriesCommandInput - {@link ListTimeSeriesCommandInput}
@@ -72,6 +89,8 @@ export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __M
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class ListTimeSeriesCommand extends $Command<

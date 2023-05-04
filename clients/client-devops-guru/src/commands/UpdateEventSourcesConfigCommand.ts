@@ -50,6 +50,8 @@ export interface UpdateEventSourcesConfigCommandOutput extends UpdateEventSource
  * };
  * const command = new UpdateEventSourcesConfigCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateEventSourcesConfigCommandInput - {@link UpdateEventSourcesConfigCommandInput}
@@ -74,6 +76,8 @@ export interface UpdateEventSourcesConfigCommandOutput extends UpdateEventSource
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class UpdateEventSourcesConfigCommand extends $Command<

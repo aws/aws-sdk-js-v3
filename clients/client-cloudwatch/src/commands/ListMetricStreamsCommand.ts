@@ -45,6 +45,21 @@ export interface ListMetricStreamsCommandOutput extends ListMetricStreamsOutput,
  * };
  * const command = new ListMetricStreamsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMetricStreamsOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   Entries: [ // MetricStreamEntries
+ * //     { // MetricStreamEntry
+ * //       Arn: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       LastUpdateDate: new Date("TIMESTAMP"),
+ * //       Name: "STRING_VALUE",
+ * //       FirehoseArn: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       OutputFormat: "json" || "opentelemetry0.7",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListMetricStreamsCommandInput - {@link ListMetricStreamsCommandInput}
@@ -65,6 +80,8 @@ export interface ListMetricStreamsCommandOutput extends ListMetricStreamsOutput,
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class ListMetricStreamsCommand extends $Command<

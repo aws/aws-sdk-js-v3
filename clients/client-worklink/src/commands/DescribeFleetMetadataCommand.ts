@@ -47,6 +47,19 @@ export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadat
  * };
  * const command = new DescribeFleetMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFleetMetadataResponse
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   FleetName: "STRING_VALUE",
+ * //   DisplayName: "STRING_VALUE",
+ * //   OptimizeForEndUserLocation: true || false,
+ * //   CompanyCode: "STRING_VALUE",
+ * //   FleetStatus: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeFleetMetadataCommandInput - {@link DescribeFleetMetadataCommandInput}
@@ -70,6 +83,8 @@ export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadat
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class DescribeFleetMetadataCommand extends $Command<

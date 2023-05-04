@@ -65,6 +65,14 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  * };
  * const command = new LookupDeveloperIdentityCommand(input);
  * const response = await client.send(command);
+ * // { // LookupDeveloperIdentityResponse
+ * //   IdentityId: "STRING_VALUE",
+ * //   DeveloperUserIdentifierList: [ // DeveloperUserIdentifierList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param LookupDeveloperIdentityCommandInput - {@link LookupDeveloperIdentityCommandInput}
@@ -93,6 +101,8 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class LookupDeveloperIdentityCommand extends $Command<

@@ -75,6 +75,16 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  * };
  * const command = new CreateSecurityGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSecurityGroupResult
+ * //   GroupId: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param CreateSecurityGroupCommandInput - {@link CreateSecurityGroupCommandInput}
@@ -83,6 +93,8 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  * @see {@link CreateSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To create a security group for a VPC
  * ```javascript

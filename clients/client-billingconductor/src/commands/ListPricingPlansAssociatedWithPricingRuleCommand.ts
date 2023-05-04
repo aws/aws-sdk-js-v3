@@ -58,6 +58,15 @@ export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
  * };
  * const command = new ListPricingPlansAssociatedWithPricingRuleCommand(input);
  * const response = await client.send(command);
+ * // { // ListPricingPlansAssociatedWithPricingRuleOutput
+ * //   BillingPeriod: "STRING_VALUE",
+ * //   PricingRuleArn: "STRING_VALUE",
+ * //   PricingPlanArns: [ // PricingPlanArns
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPricingPlansAssociatedWithPricingRuleCommandInput - {@link ListPricingPlansAssociatedWithPricingRuleCommandInput}
@@ -85,6 +94,8 @@ export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
  *
+ * @throws {@link BillingconductorServiceException}
+ * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
 export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command<

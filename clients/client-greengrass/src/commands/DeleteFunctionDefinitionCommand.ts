@@ -44,6 +44,8 @@ export interface DeleteFunctionDefinitionCommandOutput extends DeleteFunctionDef
  * };
  * const command = new DeleteFunctionDefinitionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteFunctionDefinitionCommandInput - {@link DeleteFunctionDefinitionCommandInput}
@@ -55,6 +57,8 @@ export interface DeleteFunctionDefinitionCommandOutput extends DeleteFunctionDef
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DeleteFunctionDefinitionCommand extends $Command<

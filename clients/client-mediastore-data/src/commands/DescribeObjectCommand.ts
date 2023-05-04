@@ -44,6 +44,14 @@ export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __M
  * };
  * const command = new DescribeObjectCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeObjectResponse
+ * //   ETag: "STRING_VALUE",
+ * //   ContentType: "STRING_VALUE",
+ * //   ContentLength: Number("long"),
+ * //   CacheControl: "STRING_VALUE",
+ * //   LastModified: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeObjectCommandInput - {@link DescribeObjectCommandInput}
@@ -61,6 +69,8 @@ export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __M
  * @throws {@link ObjectNotFoundException} (client fault)
  *  <p>Could not perform an operation on an object that does not exist.</p>
  *
+ * @throws {@link MediaStoreDataServiceException}
+ * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
  */
 export class DescribeObjectCommand extends $Command<

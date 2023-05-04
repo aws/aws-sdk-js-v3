@@ -149,6 +149,10 @@ export interface CreateProcessingJobCommandOutput extends CreateProcessingJobRes
  * };
  * const command = new CreateProcessingJobCommand(input);
  * const response = await client.send(command);
+ * // { // CreateProcessingJobResponse
+ * //   ProcessingJobArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateProcessingJobCommandInput - {@link CreateProcessingJobCommandInput}
@@ -167,6 +171,8 @@ export interface CreateProcessingJobCommandOutput extends CreateProcessingJobRes
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateProcessingJobCommand extends $Command<

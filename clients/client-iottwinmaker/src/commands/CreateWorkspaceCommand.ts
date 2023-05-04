@@ -50,6 +50,11 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * };
  * const command = new CreateWorkspaceCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWorkspaceResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   creationDateTime: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param CreateWorkspaceCommandInput - {@link CreateWorkspaceCommandInput}
@@ -76,6 +81,8 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class CreateWorkspaceCommand extends $Command<

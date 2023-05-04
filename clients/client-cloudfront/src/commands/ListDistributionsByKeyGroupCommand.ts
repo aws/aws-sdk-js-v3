@@ -52,6 +52,19 @@ export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributi
  * };
  * const command = new ListDistributionsByKeyGroupCommand(input);
  * const response = await client.send(command);
+ * // { // ListDistributionsByKeyGroupResult
+ * //   DistributionIdList: { // DistributionIdList
+ * //     Marker: "STRING_VALUE", // required
+ * //     NextMarker: "STRING_VALUE",
+ * //     MaxItems: Number("int"), // required
+ * //     IsTruncated: true || false, // required
+ * //     Quantity: Number("int"), // required
+ * //     Items: [ // DistributionIdListSummary
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ListDistributionsByKeyGroupCommandInput - {@link ListDistributionsByKeyGroupCommandInput}
@@ -66,6 +79,8 @@ export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributi
  * @throws {@link NoSuchResource} (client fault)
  *  <p>A resource that was specified is not valid.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListDistributionsByKeyGroupCommand extends $Command<

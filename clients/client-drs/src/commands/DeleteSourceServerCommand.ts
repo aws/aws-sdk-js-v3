@@ -44,6 +44,8 @@ export interface DeleteSourceServerCommandOutput extends DeleteSourceServerRespo
  * };
  * const command = new DeleteSourceServerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSourceServerCommandInput - {@link DeleteSourceServerCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteSourceServerCommandOutput extends DeleteSourceServerRespo
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class DeleteSourceServerCommand extends $Command<

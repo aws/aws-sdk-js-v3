@@ -47,6 +47,12 @@ export interface ListAvailableVoiceConnectorRegionsCommandOutput
  * const input = {};
  * const command = new ListAvailableVoiceConnectorRegionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAvailableVoiceConnectorRegionsResponse
+ * //   VoiceConnectorRegions: [ // VoiceConnectorAwsRegionList
+ * //     "us-east-1" || "us-west-2" || "ca-central-1" || "eu-central-1" || "eu-west-1" || "eu-west-2" || "ap-northeast-2" || "ap-northeast-1" || "ap-southeast-1" || "ap-southeast-2",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListAvailableVoiceConnectorRegionsCommandInput - {@link ListAvailableVoiceConnectorRegionsCommandInput}
@@ -73,6 +79,8 @@ export interface ListAvailableVoiceConnectorRegionsCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class ListAvailableVoiceConnectorRegionsCommand extends $Command<

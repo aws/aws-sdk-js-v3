@@ -49,6 +49,26 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * };
  * const command = new ListFirewallRulesCommand(input);
  * const response = await client.send(command);
+ * // { // ListFirewallRulesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   FirewallRules: [ // FirewallRules
+ * //     { // FirewallRule
+ * //       FirewallRuleGroupId: "STRING_VALUE",
+ * //       FirewallDomainListId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Priority: Number("int"),
+ * //       Action: "ALLOW" || "BLOCK" || "ALERT",
+ * //       BlockResponse: "NODATA" || "NXDOMAIN" || "OVERRIDE",
+ * //       BlockOverrideDomain: "STRING_VALUE",
+ * //       BlockOverrideDnsType: "CNAME",
+ * //       BlockOverrideTtl: Number("int"),
+ * //       CreatorRequestId: "STRING_VALUE",
+ * //       CreationTime: "STRING_VALUE",
+ * //       ModificationTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListFirewallRulesCommandInput - {@link ListFirewallRulesCommandInput}
@@ -73,6 +93,8 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class ListFirewallRulesCommand extends $Command<

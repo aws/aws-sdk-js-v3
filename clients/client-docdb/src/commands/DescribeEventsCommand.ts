@@ -61,6 +61,22 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
+ * // { // EventsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   Events: [ // EventList
+ * //     { // Event
+ * //       SourceIdentifier: "STRING_VALUE",
+ * //       SourceType: "db-instance" || "db-parameter-group" || "db-security-group" || "db-snapshot" || "db-cluster" || "db-cluster-snapshot",
+ * //       Message: "STRING_VALUE",
+ * //       EventCategories: [ // EventCategoriesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Date: new Date("TIMESTAMP"),
+ * //       SourceArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
@@ -69,6 +85,8 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeEventsCommand extends $Command<

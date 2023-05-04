@@ -95,6 +95,8 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * };
  * const command = new DisconnectCustomKeyStoreCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisconnectCustomKeyStoreCommandInput - {@link DisconnectCustomKeyStoreCommandInput}
@@ -147,6 +149,8 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  *  <p>The request was rejected because an internal exception occurred. The request can be
  *       retried.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To disconnect a custom key store from its CloudHSM cluster
  * ```javascript
@@ -156,7 +160,18 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * };
  * const command = new DisconnectCustomKeyStoreCommand(input);
  * await client.send(command);
- * // example id: to-disconnect-a-custom-key-store-from-its-cloudhsm-cluster-1628627955156
+ * // example id: to-disconnect-a-custom-key-store-from-its-cloudhsm-cluster-234abcdefABC
+ * ```
+ *
+ * @example To disconnect a custom key store from its CloudHSM cluster
+ * ```javascript
+ * // This example disconnects an AWS KMS custom key store from its backing key store. For an AWS CloudHSM key store, it disconnects the key store from its AWS CloudHSM cluster. For an external key store, it disconnects the key store from the external key store proxy that communicates with your external key manager. This operation doesn't return any data. To verify that the custom key store is disconnected, use the <code>DescribeCustomKeyStores</code> operation.
+ * const input = {
+ *   "CustomKeyStoreId": "cks-1234567890abcdef0"
+ * };
+ * const command = new DisconnectCustomKeyStoreCommand(input);
+ * await client.send(command);
+ * // example id: to-disconnect-a-custom-key-store-from-its-cloudhsm-cluster-234abcdefABC
  * ```
  *
  */

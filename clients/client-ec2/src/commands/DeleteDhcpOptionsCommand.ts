@@ -45,6 +45,8 @@ export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDhcpOptionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDhcpOptionsCommandInput - {@link DeleteDhcpOptionsCommandInput}
@@ -53,6 +55,8 @@ export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To delete a DHCP options set
  * ```javascript

@@ -56,6 +56,18 @@ export interface ListObjectParentPathsCommandOutput extends ListObjectParentPath
  * };
  * const command = new ListObjectParentPathsCommand(input);
  * const response = await client.send(command);
+ * // { // ListObjectParentPathsResponse
+ * //   PathToObjectIdentifiersList: [ // PathToObjectIdentifiersList
+ * //     { // PathToObjectIdentifiers
+ * //       Path: "STRING_VALUE",
+ * //       ObjectIdentifiers: [ // ObjectIdentifierList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListObjectParentPathsCommandInput - {@link ListObjectParentPathsCommandInput}
@@ -92,6 +104,8 @@ export interface ListObjectParentPathsCommandOutput extends ListObjectParentPath
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class ListObjectParentPathsCommand extends $Command<

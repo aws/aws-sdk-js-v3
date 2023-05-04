@@ -53,6 +53,20 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * };
  * const command = new ListDeviceEventsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDeviceEventsResponse
+ * //   Events: [ // __listOfDeviceEvent
+ * //     { // DeviceEvent
+ * //       Device: { // Device
+ * //         Attributes: {},
+ * //         DeviceId: "STRING_VALUE",
+ * //         Type: "STRING_VALUE",
+ * //       },
+ * //       StdEvent: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDeviceEventsCommandInput - {@link ListDeviceEventsCommandInput}
@@ -69,6 +83,8 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class ListDeviceEventsCommand extends $Command<

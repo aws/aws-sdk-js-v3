@@ -88,6 +88,26 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  * };
  * const command = new GetObjectAclCommand(input);
  * const response = await client.send(command);
+ * // { // GetObjectAclOutput
+ * //   Owner: { // Owner
+ * //     DisplayName: "STRING_VALUE",
+ * //     ID: "STRING_VALUE",
+ * //   },
+ * //   Grants: [ // Grants
+ * //     { // Grant
+ * //       Grantee: { // Grantee
+ * //         DisplayName: "STRING_VALUE",
+ * //         EmailAddress: "STRING_VALUE",
+ * //         ID: "STRING_VALUE",
+ * //         URI: "STRING_VALUE",
+ * //         Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ * //       },
+ * //       Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ * //     },
+ * //   ],
+ * //   RequestCharged: "requester",
+ * // };
+ *
  * ```
  *
  * @param GetObjectAclCommandInput - {@link GetObjectAclCommandInput}
@@ -99,6 +119,8 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  * @throws {@link NoSuchKey} (client fault)
  *  <p>The specified key does not exist.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To retrieve object ACL
  * ```javascript

@@ -45,6 +45,36 @@ export interface GetReadSetImportJobCommandOutput extends GetReadSetImportJobRes
  * };
  * const command = new GetReadSetImportJobCommand(input);
  * const response = await client.send(command);
+ * // { // GetReadSetImportJobResponse
+ * //   id: "STRING_VALUE", // required
+ * //   sequenceStoreId: "STRING_VALUE", // required
+ * //   roleArn: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   statusMessage: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   completionTime: new Date("TIMESTAMP"),
+ * //   sources: [ // ImportReadSetSourceList // required
+ * //     { // ImportReadSetSourceItem
+ * //       sourceFiles: { // SourceFiles
+ * //         source1: "STRING_VALUE", // required
+ * //         source2: "STRING_VALUE",
+ * //       },
+ * //       sourceFileType: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       statusMessage: "STRING_VALUE",
+ * //       subjectId: "STRING_VALUE", // required
+ * //       sampleId: "STRING_VALUE", // required
+ * //       generatedFrom: "STRING_VALUE",
+ * //       referenceArn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetReadSetImportJobCommandInput - {@link GetReadSetImportJobCommandInput}
@@ -71,6 +101,8 @@ export interface GetReadSetImportJobCommandOutput extends GetReadSetImportJobRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetReadSetImportJobCommand extends $Command<

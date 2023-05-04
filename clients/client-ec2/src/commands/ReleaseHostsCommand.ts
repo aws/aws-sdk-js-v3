@@ -54,6 +54,21 @@ export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __Metadat
  * };
  * const command = new ReleaseHostsCommand(input);
  * const response = await client.send(command);
+ * // { // ReleaseHostsResult
+ * //   Successful: [ // ResponseHostIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Unsuccessful: [ // UnsuccessfulItemList
+ * //     { // UnsuccessfulItem
+ * //       Error: { // UnsuccessfulItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       ResourceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ReleaseHostsCommandInput - {@link ReleaseHostsCommandInput}
@@ -62,6 +77,8 @@ export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __Metadat
  * @see {@link ReleaseHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ReleaseHostsCommand extends $Command<

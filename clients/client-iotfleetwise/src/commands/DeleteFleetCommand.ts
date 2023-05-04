@@ -50,6 +50,11 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * };
  * const command = new DeleteFleetCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteFleetResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteFleetCommandInput - {@link DeleteFleetCommandInput}
@@ -70,6 +75,8 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class DeleteFleetCommand extends $Command<

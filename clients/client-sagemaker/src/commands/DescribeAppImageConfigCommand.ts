@@ -44,6 +44,26 @@ export interface DescribeAppImageConfigCommandOutput extends DescribeAppImageCon
  * };
  * const command = new DescribeAppImageConfigCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAppImageConfigResponse
+ * //   AppImageConfigArn: "STRING_VALUE",
+ * //   AppImageConfigName: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   KernelGatewayImageConfig: { // KernelGatewayImageConfig
+ * //     KernelSpecs: [ // KernelSpecs // required
+ * //       { // KernelSpec
+ * //         Name: "STRING_VALUE", // required
+ * //         DisplayName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     FileSystemConfig: { // FileSystemConfig
+ * //       MountPath: "STRING_VALUE",
+ * //       DefaultUid: Number("int"),
+ * //       DefaultGid: Number("int"),
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeAppImageConfigCommandInput - {@link DescribeAppImageConfigCommandInput}
@@ -55,6 +75,8 @@ export interface DescribeAppImageConfigCommandOutput extends DescribeAppImageCon
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeAppImageConfigCommand extends $Command<

@@ -49,6 +49,43 @@ export interface GetDeliverabilityTestReportCommandOutput
  * };
  * const command = new GetDeliverabilityTestReportCommand(input);
  * const response = await client.send(command);
+ * // { // GetDeliverabilityTestReportResponse
+ * //   DeliverabilityTestReport: { // DeliverabilityTestReport
+ * //     ReportId: "STRING_VALUE",
+ * //     ReportName: "STRING_VALUE",
+ * //     Subject: "STRING_VALUE",
+ * //     FromEmailAddress: "STRING_VALUE",
+ * //     CreateDate: new Date("TIMESTAMP"),
+ * //     DeliverabilityTestStatus: "STRING_VALUE",
+ * //   },
+ * //   OverallPlacement: { // PlacementStatistics
+ * //     InboxPercentage: Number("double"),
+ * //     SpamPercentage: Number("double"),
+ * //     MissingPercentage: Number("double"),
+ * //     SpfPercentage: Number("double"),
+ * //     DkimPercentage: Number("double"),
+ * //   },
+ * //   IspPlacements: [ // IspPlacements // required
+ * //     { // IspPlacement
+ * //       IspName: "STRING_VALUE",
+ * //       PlacementStatistics: {
+ * //         InboxPercentage: Number("double"),
+ * //         SpamPercentage: Number("double"),
+ * //         MissingPercentage: Number("double"),
+ * //         SpfPercentage: Number("double"),
+ * //         DkimPercentage: Number("double"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   Message: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetDeliverabilityTestReportCommandInput - {@link GetDeliverabilityTestReportCommandInput}
@@ -66,6 +103,8 @@ export interface GetDeliverabilityTestReportCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class GetDeliverabilityTestReportCommand extends $Command<

@@ -75,6 +75,11 @@ export interface StartTableDataImportJobCommandOutput extends StartTableDataImpo
  * };
  * const command = new StartTableDataImportJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartTableDataImportJobResult
+ * //   jobId: "STRING_VALUE", // required
+ * //   jobStatus: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param StartTableDataImportJobCommandInput - {@link StartTableDataImportJobCommandInput}
@@ -114,6 +119,8 @@ export interface StartTableDataImportJobCommandOutput extends StartTableDataImpo
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class StartTableDataImportJobCommand extends $Command<

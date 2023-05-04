@@ -53,6 +53,19 @@ export interface DescribeWorkerConfigurationCommandOutput
  * };
  * const command = new DescribeWorkerConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeWorkerConfigurationResponse
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   description: "STRING_VALUE",
+ * //   latestRevision: { // WorkerConfigurationRevisionDescription
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     description: "STRING_VALUE",
+ * //     propertiesFileContent: "STRING_VALUE",
+ * //     revision: Number("long"),
+ * //   },
+ * //   name: "STRING_VALUE",
+ * //   workerConfigurationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeWorkerConfigurationCommandInput - {@link DescribeWorkerConfigurationCommandInput}
@@ -88,6 +101,8 @@ export interface DescribeWorkerConfigurationCommandOutput
  *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  *
+ * @throws {@link KafkaConnectServiceException}
+ * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
 export class DescribeWorkerConfigurationCommand extends $Command<

@@ -45,6 +45,10 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateGroupResponse
+ * //   GroupId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
@@ -79,6 +83,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>You can't perform a write operation against a read-only directory.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class CreateGroupCommand extends $Command<

@@ -103,6 +103,22 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRuleResponse
+ * //   Rule: { // Rule
+ * //     RuleId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     MetricName: "STRING_VALUE",
+ * //     Predicates: [ // Predicates // required
+ * //       { // Predicate
+ * //         Negated: true || false, // required
+ * //         Type: "STRING_VALUE", // required
+ * //         DataId: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateRuleCommandInput - {@link CreateRuleCommandInput}
@@ -174,6 +190,8 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To create a rule
  * ```javascript

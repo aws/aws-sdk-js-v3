@@ -47,6 +47,10 @@ export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackage
  * };
  * const command = new GetModelPackageGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetModelPackageGroupPolicyOutput
+ * //   ResourcePolicy: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param GetModelPackageGroupPolicyCommandInput - {@link GetModelPackageGroupPolicyCommandInput}
@@ -55,6 +59,8 @@ export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackage
  * @see {@link GetModelPackageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class GetModelPackageGroupPolicyCommand extends $Command<

@@ -47,6 +47,16 @@ export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliv
  * };
  * const command = new ListTagsForDeliveryStreamCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForDeliveryStreamOutput
+ * //   Tags: [ // ListTagsForDeliveryStreamOutputTagList // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   HasMoreTags: true || false, // required
+ * // };
+ *
  * ```
  *
  * @param ListTagsForDeliveryStreamCommandInput - {@link ListTagsForDeliveryStreamCommandInput}
@@ -64,6 +74,8 @@ export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliv
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class ListTagsForDeliveryStreamCommand extends $Command<

@@ -82,6 +82,10 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * };
  * const command = new CreateStackCommand(input);
  * const response = await client.send(command);
+ * // { // CreateStackResult
+ * //   StackId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateStackCommandInput - {@link CreateStackCommandInput}
@@ -93,6 +97,8 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class CreateStackCommand extends $Command<

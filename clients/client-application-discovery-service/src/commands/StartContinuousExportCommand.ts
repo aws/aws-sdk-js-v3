@@ -46,6 +46,16 @@ export interface StartContinuousExportCommandOutput extends StartContinuousExpor
  * const input = {};
  * const command = new StartContinuousExportCommand(input);
  * const response = await client.send(command);
+ * // { // StartContinuousExportResponse
+ * //   exportId: "STRING_VALUE",
+ * //   s3Bucket: "STRING_VALUE",
+ * //   startTime: new Date("TIMESTAMP"),
+ * //   dataSource: "AGENT",
+ * //   schemaStorageConfig: { // SchemaStorageConfig
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StartContinuousExportCommandInput - {@link StartContinuousExportCommandInput}
@@ -84,6 +94,8 @@ export interface StartContinuousExportCommandOutput extends StartContinuousExpor
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class StartContinuousExportCommand extends $Command<

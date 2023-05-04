@@ -133,6 +133,19 @@ export interface RecognizeUtteranceCommandOutput
  * };
  * const command = new RecognizeUtteranceCommand(input);
  * const response = await client.send(command);
+ * // { // RecognizeUtteranceResponse
+ * //   inputMode: "STRING_VALUE",
+ * //   contentType: "STRING_VALUE",
+ * //   messages: "STRING_VALUE",
+ * //   interpretations: "STRING_VALUE",
+ * //   sessionState: "STRING_VALUE",
+ * //   requestAttributes: "STRING_VALUE",
+ * //   sessionId: "STRING_VALUE",
+ * //   inputTranscript: "STRING_VALUE",
+ * //   audioStream: "STREAMING_BLOB_VALUE",
+ * //   recognizedBotMember: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RecognizeUtteranceCommandInput - {@link RecognizeUtteranceCommandInput}
@@ -165,6 +178,8 @@ export interface RecognizeUtteranceCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p></p>
  *
+ * @throws {@link LexRuntimeV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
  */
 export class RecognizeUtteranceCommand extends $Command<

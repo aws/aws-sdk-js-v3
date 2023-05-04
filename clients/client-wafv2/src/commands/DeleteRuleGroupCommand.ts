@@ -47,6 +47,8 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * };
  * const command = new DeleteRuleGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteRuleGroupCommandInput - {@link DeleteRuleGroupCommandInput}
@@ -105,6 +107,8 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  *  <p>WAF couldn’t perform your tagging operation because of an internal error. Retry
  *          your request.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class DeleteRuleGroupCommand extends $Command<

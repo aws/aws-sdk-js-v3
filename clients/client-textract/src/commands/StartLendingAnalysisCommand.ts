@@ -91,6 +91,10 @@ export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisR
  * };
  * const command = new StartLendingAnalysisCommand(input);
  * const response = await client.send(command);
+ * // { // StartLendingAnalysisResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartLendingAnalysisCommandInput - {@link StartLendingAnalysisCommandInput}
@@ -155,6 +159,8 @@ export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisR
  *  <p>The format of the input document isn't supported. Documents for operations can be in
  *          PNG, JPEG, PDF, or TIFF format.</p>
  *
+ * @throws {@link TextractServiceException}
+ * <p>Base exception class for all service exceptions from Textract service.</p>
  *
  */
 export class StartLendingAnalysisCommand extends $Command<

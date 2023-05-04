@@ -77,6 +77,18 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  * };
  * const command = new CreateAccountCustomizationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAccountCustomizationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   AwsAccountId: "STRING_VALUE",
+ * //   Namespace: "STRING_VALUE",
+ * //   AccountCustomization: { // AccountCustomization
+ * //     DefaultTheme: "STRING_VALUE",
+ * //     DefaultEmailCustomizationTemplate: "STRING_VALUE",
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param CreateAccountCustomizationCommandInput - {@link CreateAccountCustomizationCommandInput}
@@ -112,6 +124,8 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateAccountCustomizationCommand extends $Command<

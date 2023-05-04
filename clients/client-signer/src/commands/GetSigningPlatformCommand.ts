@@ -44,6 +44,36 @@ export interface GetSigningPlatformCommandOutput extends GetSigningPlatformRespo
  * };
  * const command = new GetSigningPlatformCommand(input);
  * const response = await client.send(command);
+ * // { // GetSigningPlatformResponse
+ * //   platformId: "STRING_VALUE",
+ * //   displayName: "STRING_VALUE",
+ * //   partner: "STRING_VALUE",
+ * //   target: "STRING_VALUE",
+ * //   category: "STRING_VALUE",
+ * //   signingConfiguration: { // SigningConfiguration
+ * //     encryptionAlgorithmOptions: { // EncryptionAlgorithmOptions
+ * //       allowedValues: [ // EncryptionAlgorithms // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       defaultValue: "STRING_VALUE", // required
+ * //     },
+ * //     hashAlgorithmOptions: { // HashAlgorithmOptions
+ * //       allowedValues: [ // HashAlgorithms // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       defaultValue: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   signingImageFormat: { // SigningImageFormat
+ * //     supportedFormats: [ // ImageFormats // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     defaultFormat: "STRING_VALUE", // required
+ * //   },
+ * //   maxSizeInMB: Number("int"),
+ * //   revocationSupported: true || false,
+ * // };
+ *
  * ```
  *
  * @param GetSigningPlatformCommandInput - {@link GetSigningPlatformCommandInput}
@@ -65,6 +95,8 @@ export interface GetSigningPlatformCommandOutput extends GetSigningPlatformRespo
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
  * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class GetSigningPlatformCommand extends $Command<

@@ -49,6 +49,17 @@ export interface DescribeFraudsterCommandOutput extends DescribeFraudsterRespons
  * };
  * const command = new DescribeFraudsterCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFraudsterResponse
+ * //   Fraudster: { // Fraudster
+ * //     DomainId: "STRING_VALUE",
+ * //     GeneratedFraudsterId: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     WatchlistIds: [ // ResponseWatchlistIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeFraudsterCommandInput - {@link DescribeFraudsterCommandInput}
@@ -78,6 +89,8 @@ export interface DescribeFraudsterCommandOutput extends DescribeFraudsterRespons
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DescribeFraudsterCommand extends $Command<

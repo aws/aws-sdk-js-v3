@@ -49,6 +49,13 @@ export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistration
  * };
  * const command = new ListTypeRegistrationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTypeRegistrationsOutput
+ * //   RegistrationTokenList: [ // RegistrationTokenList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTypeRegistrationsCommandInput - {@link ListTypeRegistrationsCommandInput}
@@ -60,6 +67,8 @@ export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistration
  * @throws {@link CFNRegistryException} (client fault)
  *  <p>An error occurred during a CloudFormation registry operation.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListTypeRegistrationsCommand extends $Command<

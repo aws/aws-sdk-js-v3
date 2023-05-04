@@ -86,6 +86,17 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * };
  * const command = new CreateAccountSubscriptionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAccountSubscriptionResponse
+ * //   SignupResponse: { // SignupResponse
+ * //     IAMUser: true || false,
+ * //     userLoginName: "STRING_VALUE",
+ * //     accountName: "STRING_VALUE",
+ * //     directoryType: "STRING_VALUE",
+ * //   },
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateAccountSubscriptionCommandInput - {@link CreateAccountSubscriptionCommandInput}
@@ -124,6 +135,8 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CreateAccountSubscriptionCommand extends $Command<

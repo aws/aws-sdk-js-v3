@@ -91,6 +91,8 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  * };
  * const command = new StartConfigRulesEvaluationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartConfigRulesEvaluationCommandInput - {@link StartConfigRulesEvaluationCommandInput}
@@ -140,6 +142,8 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  *             </li>
  *          </ul>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class StartConfigRulesEvaluationCommand extends $Command<

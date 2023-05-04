@@ -49,6 +49,10 @@ export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, _
  * };
  * const command = new DeleteEvaluationCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteEvaluationOutput
+ * //   EvaluationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteEvaluationCommandInput - {@link DeleteEvaluationCommandInput}
@@ -66,6 +70,8 @@ export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class DeleteEvaluationCommand extends $Command<

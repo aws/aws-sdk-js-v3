@@ -75,6 +75,12 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteObjectOutput
+ * //   DeleteMarker: true || false,
+ * //   VersionId: "STRING_VALUE",
+ * //   RequestCharged: "requester",
+ * // };
+ *
  * ```
  *
  * @param DeleteObjectCommandInput - {@link DeleteObjectCommandInput}
@@ -83,18 +89,8 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * @see {@link DeleteObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
- *
- * @example To delete an object (from a non-versioned bucket)
- * ```javascript
- * // The following example deletes an object from a non-versioned bucket.
- * const input = {
- *   "Bucket": "ExampleBucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new DeleteObjectCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-object-from-a-non-versioned-bucket-1481588533089
- * ```
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To delete an object
  * ```javascript
@@ -106,6 +102,18 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * const command = new DeleteObjectCommand(input);
  * await client.send(command);
  * // example id: to-delete-an-object-1472850136595
+ * ```
+ *
+ * @example To delete an object (from a non-versioned bucket)
+ * ```javascript
+ * // The following example deletes an object from a non-versioned bucket.
+ * const input = {
+ *   "Bucket": "ExampleBucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new DeleteObjectCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-an-object-from-a-non-versioned-bucket-1481588533089
  * ```
  *
  */

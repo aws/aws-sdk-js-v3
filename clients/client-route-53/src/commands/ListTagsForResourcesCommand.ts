@@ -49,6 +49,21 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * };
  * const command = new ListTagsForResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourcesResponse
+ * //   ResourceTagSets: [ // ResourceTagSetList // required
+ * //     { // ResourceTagSet
+ * //       ResourceType: "healthcheck" || "hostedzone",
+ * //       ResourceId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourcesCommandInput - {@link ListTagsForResourcesCommandInput}
@@ -76,6 +91,8 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListTagsForResourcesCommand extends $Command<

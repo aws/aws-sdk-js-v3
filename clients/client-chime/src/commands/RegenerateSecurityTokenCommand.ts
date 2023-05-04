@@ -49,6 +49,20 @@ export interface RegenerateSecurityTokenCommandOutput extends RegenerateSecurity
  * };
  * const command = new RegenerateSecurityTokenCommand(input);
  * const response = await client.send(command);
+ * // { // RegenerateSecurityTokenResponse
+ * //   Bot: { // Bot
+ * //     BotId: "STRING_VALUE",
+ * //     UserId: "STRING_VALUE",
+ * //     DisplayName: "STRING_VALUE",
+ * //     BotType: "ChatBot",
+ * //     Disabled: true || false,
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     BotEmail: "STRING_VALUE",
+ * //     SecurityToken: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param RegenerateSecurityTokenCommandInput - {@link RegenerateSecurityTokenCommandInput}
@@ -78,6 +92,8 @@ export interface RegenerateSecurityTokenCommandOutput extends RegenerateSecurity
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class RegenerateSecurityTokenCommand extends $Command<

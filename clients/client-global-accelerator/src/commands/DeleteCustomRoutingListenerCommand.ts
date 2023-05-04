@@ -48,6 +48,8 @@ export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteCustomRoutingListenerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteCustomRoutingListenerCommandInput - {@link DeleteCustomRoutingListenerCommandInput}
@@ -69,6 +71,8 @@ export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBear
  * @throws {@link ListenerNotFoundException} (client fault)
  *  <p>The listener that you specified doesn't exist.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class DeleteCustomRoutingListenerCommand extends $Command<

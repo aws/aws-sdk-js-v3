@@ -52,6 +52,8 @@ export interface PutStudioMembersCommandOutput extends PutStudioMembersResponse,
  * };
  * const command = new PutStudioMembersCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutStudioMembersCommandInput - {@link PutStudioMembersCommandInput}
@@ -84,6 +86,8 @@ export interface PutStudioMembersCommandOutput extends PutStudioMembersResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class PutStudioMembersCommand extends $Command<

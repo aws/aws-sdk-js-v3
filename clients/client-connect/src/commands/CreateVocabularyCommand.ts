@@ -53,6 +53,12 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  * };
  * const command = new CreateVocabularyCommand(input);
  * const response = await client.send(command);
+ * // { // CreateVocabularyResponse
+ * //   VocabularyArn: "STRING_VALUE", // required
+ * //   VocabularyId: "STRING_VALUE", // required
+ * //   State: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED" || "DELETE_IN_PROGRESS", // required
+ * // };
+ *
  * ```
  *
  * @param CreateVocabularyCommandInput - {@link CreateVocabularyCommandInput}
@@ -82,6 +88,8 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateVocabularyCommand extends $Command<

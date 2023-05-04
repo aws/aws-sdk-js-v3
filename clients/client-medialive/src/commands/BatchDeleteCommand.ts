@@ -55,6 +55,24 @@ export interface BatchDeleteCommandOutput extends BatchDeleteResponse, __Metadat
  * };
  * const command = new BatchDeleteCommand(input);
  * const response = await client.send(command);
+ * // { // BatchDeleteResponse
+ * //   Failed: [ // __listOfBatchFailedResultModel
+ * //     { // BatchFailedResultModel
+ * //       Arn: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Successful: [ // __listOfBatchSuccessfulResultModel
+ * //     { // BatchSuccessfulResultModel
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchDeleteCommandInput - {@link BatchDeleteCommandInput}
@@ -87,6 +105,8 @@ export interface BatchDeleteCommandOutput extends BatchDeleteResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class BatchDeleteCommand extends $Command<

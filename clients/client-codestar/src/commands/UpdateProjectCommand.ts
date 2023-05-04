@@ -46,6 +46,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
@@ -60,6 +62,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class UpdateProjectCommand extends $Command<

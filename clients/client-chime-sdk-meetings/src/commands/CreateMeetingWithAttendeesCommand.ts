@@ -88,6 +88,54 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * };
  * const command = new CreateMeetingWithAttendeesCommand(input);
  * const response = await client.send(command);
+ * // { // CreateMeetingWithAttendeesResponse
+ * //   Meeting: { // Meeting
+ * //     MeetingId: "STRING_VALUE",
+ * //     MeetingHostId: "STRING_VALUE",
+ * //     ExternalMeetingId: "STRING_VALUE",
+ * //     MediaRegion: "STRING_VALUE",
+ * //     MediaPlacement: { // MediaPlacement
+ * //       AudioHostUrl: "STRING_VALUE",
+ * //       AudioFallbackUrl: "STRING_VALUE",
+ * //       SignalingUrl: "STRING_VALUE",
+ * //       TurnControlUrl: "STRING_VALUE",
+ * //       ScreenDataUrl: "STRING_VALUE",
+ * //       ScreenViewingUrl: "STRING_VALUE",
+ * //       ScreenSharingUrl: "STRING_VALUE",
+ * //       EventIngestionUrl: "STRING_VALUE",
+ * //     },
+ * //     MeetingFeatures: { // MeetingFeaturesConfiguration
+ * //       Audio: { // AudioFeatures
+ * //         EchoReduction: "AVAILABLE" || "UNAVAILABLE",
+ * //       },
+ * //     },
+ * //     PrimaryMeetingId: "STRING_VALUE",
+ * //     TenantIds: [ // TenantIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     MeetingArn: "STRING_VALUE",
+ * //   },
+ * //   Attendees: [ // AttendeeList
+ * //     { // Attendee
+ * //       ExternalUserId: "STRING_VALUE",
+ * //       AttendeeId: "STRING_VALUE",
+ * //       JoinToken: "STRING_VALUE",
+ * //       Capabilities: { // AttendeeCapabilities
+ * //         Audio: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //         Video: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //         Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   Errors: [ // BatchCreateAttendeeErrorList
+ * //     { // CreateAttendeeError
+ * //       ExternalUserId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param CreateMeetingWithAttendeesCommandInput - {@link CreateMeetingWithAttendeesCommandInput}
@@ -117,6 +165,8 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The user isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKMeetingsServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
 export class CreateMeetingWithAttendeesCommand extends $Command<

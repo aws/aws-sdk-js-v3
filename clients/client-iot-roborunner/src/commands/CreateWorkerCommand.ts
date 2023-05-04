@@ -64,6 +64,14 @@ export interface CreateWorkerCommandOutput extends CreateWorkerResponse, __Metad
  * };
  * const command = new CreateWorkerCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWorkerResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   site: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateWorkerCommandInput - {@link CreateWorkerCommandInput}
@@ -93,6 +101,8 @@ export interface CreateWorkerCommandOutput extends CreateWorkerResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  Exception thrown if an invalid parameter is provided to an API.
  *
+ * @throws {@link IoTRoboRunnerServiceException}
+ * <p>Base exception class for all service exceptions from IoTRoboRunner service.</p>
  *
  */
 export class CreateWorkerCommand extends $Command<

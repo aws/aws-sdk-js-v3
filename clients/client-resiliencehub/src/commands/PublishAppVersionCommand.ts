@@ -44,6 +44,11 @@ export interface PublishAppVersionCommandOutput extends PublishAppVersionRespons
  * };
  * const command = new PublishAppVersionCommand(input);
  * const response = await client.send(command);
+ * // { // PublishAppVersionResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PublishAppVersionCommandInput - {@link PublishAppVersionCommandInput}
@@ -76,6 +81,8 @@ export interface PublishAppVersionCommandOutput extends PublishAppVersionRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class PublishAppVersionCommand extends $Command<

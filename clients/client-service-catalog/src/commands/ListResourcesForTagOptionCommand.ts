@@ -47,6 +47,19 @@ export interface ListResourcesForTagOptionCommandOutput extends ListResourcesFor
  * };
  * const command = new ListResourcesForTagOptionCommand(input);
  * const response = await client.send(command);
+ * // { // ListResourcesForTagOptionOutput
+ * //   ResourceDetails: [ // ResourceDetails
+ * //     { // ResourceDetail
+ * //       Id: "STRING_VALUE",
+ * //       ARN: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   PageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListResourcesForTagOptionCommandInput - {@link ListResourcesForTagOptionCommandInput}
@@ -66,6 +79,8 @@ export interface ListResourcesForTagOptionCommandOutput extends ListResourcesFor
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListResourcesForTagOptionCommand extends $Command<

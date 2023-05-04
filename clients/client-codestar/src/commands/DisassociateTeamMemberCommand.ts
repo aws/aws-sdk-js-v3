@@ -48,6 +48,8 @@ export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMem
  * };
  * const command = new DisassociateTeamMemberCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateTeamMemberCommandInput - {@link DisassociateTeamMemberCommandInput}
@@ -69,6 +71,8 @@ export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMem
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class DisassociateTeamMemberCommand extends $Command<

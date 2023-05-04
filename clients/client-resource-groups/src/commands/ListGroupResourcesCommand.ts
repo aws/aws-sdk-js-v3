@@ -82,6 +82,33 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutpu
  * };
  * const command = new ListGroupResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // ListGroupResourcesOutput
+ * //   Resources: [ // ListGroupResourcesItemList
+ * //     { // ListGroupResourcesItem
+ * //       Identifier: { // ResourceIdentifier
+ * //         ResourceArn: "STRING_VALUE",
+ * //         ResourceType: "STRING_VALUE",
+ * //       },
+ * //       Status: { // ResourceStatus
+ * //         Name: "PENDING",
+ * //       },
+ * //     },
+ * //   ],
+ * //   ResourceIdentifiers: [ // ResourceIdentifierList
+ * //     {
+ * //       ResourceArn: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   QueryErrors: [ // QueryErrorList
+ * //     { // QueryError
+ * //       ErrorCode: "CLOUDFORMATION_STACK_INACTIVE" || "CLOUDFORMATION_STACK_NOT_EXISTING" || "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListGroupResourcesCommandInput - {@link ListGroupResourcesCommandInput}
@@ -113,6 +140,8 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutpu
  *  <p>The request was rejected because it doesn't have valid credentials for the target
  *             resource.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class ListGroupResourcesCommand extends $Command<

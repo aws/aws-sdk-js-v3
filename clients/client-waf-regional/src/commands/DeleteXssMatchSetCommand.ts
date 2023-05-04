@@ -69,6 +69,10 @@ export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetRespons
  * };
  * const command = new DeleteXssMatchSetCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteXssMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteXssMatchSetCommandInput - {@link DeleteXssMatchSetCommandInput}
@@ -118,6 +122,8 @@ export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetRespons
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To delete an XSS match set
  * ```javascript

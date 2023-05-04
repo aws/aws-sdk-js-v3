@@ -49,6 +49,19 @@ export interface ListExtensionsCommandOutput extends Extensions, __MetadataBeare
  * };
  * const command = new ListExtensionsCommand(input);
  * const response = await client.send(command);
+ * // { // Extensions
+ * //   Items: [ // ExtensionSummaries
+ * //     { // ExtensionSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       VersionNumber: Number("int"),
+ * //       Arn: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListExtensionsCommandInput - {@link ListExtensionsCommandInput}
@@ -63,6 +76,8 @@ export interface ListExtensionsCommandOutput extends Extensions, __MetadataBeare
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal failure in the AppConfig service.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class ListExtensionsCommand extends $Command<

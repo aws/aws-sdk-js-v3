@@ -54,6 +54,10 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  * };
  * const command = new GetGameSessionLogUrlCommand(input);
  * const response = await client.send(command);
+ * // { // GetGameSessionLogUrlOutput
+ * //   PreSignedUrl: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetGameSessionLogUrlCommandInput - {@link GetGameSessionLogUrlCommandInput}
@@ -76,6 +80,8 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class GetGameSessionLogUrlCommand extends $Command<

@@ -44,6 +44,17 @@ export interface GetEventStreamCommandOutput extends GetEventStreamResponse, __M
  * };
  * const command = new GetEventStreamCommand(input);
  * const response = await client.send(command);
+ * // { // GetEventStreamResponse
+ * //   EventStream: { // EventStream
+ * //     ApplicationId: "STRING_VALUE", // required
+ * //     DestinationStreamArn: "STRING_VALUE", // required
+ * //     ExternalId: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     LastUpdatedBy: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetEventStreamCommandInput - {@link GetEventStreamCommandInput}
@@ -73,6 +84,8 @@ export interface GetEventStreamCommandOutput extends GetEventStreamResponse, __M
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetEventStreamCommand extends $Command<

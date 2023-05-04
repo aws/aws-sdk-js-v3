@@ -54,6 +54,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -88,6 +90,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *             the Amazon Kendra Intelligent Ranking service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraRankingServiceException}
+ * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

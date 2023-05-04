@@ -59,6 +59,11 @@ export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer 
  * };
  * const command = new PutChunkCommand(input);
  * const response = await client.send(command);
+ * // { // PutChunkOutput
+ * //   ChunkChecksum: "STRING_VALUE", // required
+ * //   ChunkChecksumAlgorithm: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param PutChunkCommandInput - {@link PutChunkCommandInput}
@@ -91,6 +96,8 @@ export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer 
  * @throws {@link ThrottlingException} (client fault)
  *  Increased rate over throttling limits. Can be retried with exponential backoff.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class PutChunkCommand extends $Command<

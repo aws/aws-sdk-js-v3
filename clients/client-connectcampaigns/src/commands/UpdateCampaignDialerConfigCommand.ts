@@ -52,6 +52,8 @@ export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBeare
  * };
  * const command = new UpdateCampaignDialerConfigCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateCampaignDialerConfigCommandInput - {@link UpdateCampaignDialerConfigCommandInput}
@@ -75,6 +77,8 @@ export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class UpdateCampaignDialerConfigCommand extends $Command<

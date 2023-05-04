@@ -45,6 +45,27 @@ export interface GetDataQualityMetricsCommandOutput extends GetDataQualityMetric
  * };
  * const command = new GetDataQualityMetricsCommand(input);
  * const response = await client.send(command);
+ * // { // GetDataQualityMetricsResponse
+ * //   AnomalyDetectorDataQualityMetricList: [ // AnomalyDetectorDataQualityMetricList
+ * //     { // AnomalyDetectorDataQualityMetric
+ * //       StartTimestamp: new Date("TIMESTAMP"),
+ * //       MetricSetDataQualityMetricList: [ // MetricSetDataQualityMetricList
+ * //         { // MetricSetDataQualityMetric
+ * //           MetricSetArn: "STRING_VALUE",
+ * //           DataQualityMetricList: [ // DataQualityMetricList
+ * //             { // DataQualityMetric
+ * //               MetricType: "STRING_VALUE",
+ * //               MetricDescription: "STRING_VALUE",
+ * //               RelatedColumnName: "STRING_VALUE",
+ * //               MetricValue: Number("double"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetDataQualityMetricsCommandInput - {@link GetDataQualityMetricsCommandInput}
@@ -69,6 +90,8 @@ export interface GetDataQualityMetricsCommandOutput extends GetDataQualityMetric
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class GetDataQualityMetricsCommand extends $Command<

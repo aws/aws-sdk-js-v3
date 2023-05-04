@@ -55,6 +55,23 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  * };
  * const command = new UpdateNetworkProfileCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateNetworkProfileResult
+ * //   networkProfile: { // NetworkProfile
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     type: "CURATED" || "PRIVATE",
+ * //     uplinkBandwidthBits: Number("long"),
+ * //     downlinkBandwidthBits: Number("long"),
+ * //     uplinkDelayMs: Number("long"),
+ * //     downlinkDelayMs: Number("long"),
+ * //     uplinkJitterMs: Number("long"),
+ * //     downlinkJitterMs: Number("long"),
+ * //     uplinkLossPercent: Number("int"),
+ * //     downlinkLossPercent: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateNetworkProfileCommandInput - {@link UpdateNetworkProfileCommandInput}
@@ -75,6 +92,8 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class UpdateNetworkProfileCommand extends $Command<

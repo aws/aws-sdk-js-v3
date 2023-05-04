@@ -94,6 +94,19 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  * };
  * const command = new ListFragmentsCommand(input);
  * const response = await client.send(command);
+ * // { // ListFragmentsOutput
+ * //   Fragments: [ // FragmentList
+ * //     { // Fragment
+ * //       FragmentNumber: "STRING_VALUE",
+ * //       FragmentSizeInBytes: Number("long"),
+ * //       ProducerTimestamp: new Date("TIMESTAMP"),
+ * //       ServerTimestamp: new Date("TIMESTAMP"),
+ * //       FragmentLengthInMilliseconds: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFragmentsCommandInput - {@link ListFragmentsCommandInput}
@@ -125,6 +138,8 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
  *             seconds.</p>
  *
+ * @throws {@link KinesisVideoArchivedMediaServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
  */
 export class ListFragmentsCommand extends $Command<

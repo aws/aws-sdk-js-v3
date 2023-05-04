@@ -47,6 +47,8 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
  * };
  * const command = new StartConfigurationRecorderCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartConfigurationRecorderCommandInput - {@link StartConfigurationRecorderCommandInput}
@@ -63,6 +65,8 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
  *  <p>You have specified a configuration recorder that does not
  * 			exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class StartConfigurationRecorderCommand extends $Command<

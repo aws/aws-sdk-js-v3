@@ -51,6 +51,23 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
+ * // { // ListRulesResponse
+ * //   Rules: [ // RuleResponseList
+ * //     { // Rule
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       EventPattern: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       ScheduleExpression: "STRING_VALUE",
+ * //       RoleArn: "STRING_VALUE",
+ * //       ManagedBy: "STRING_VALUE",
+ * //       EventBusName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListRulesCommandInput - {@link ListRulesCommandInput}
@@ -65,6 +82,8 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class ListRulesCommand extends $Command<

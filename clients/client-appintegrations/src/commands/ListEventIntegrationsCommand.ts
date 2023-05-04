@@ -45,6 +45,24 @@ export interface ListEventIntegrationsCommandOutput extends ListEventIntegration
  * };
  * const command = new ListEventIntegrationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListEventIntegrationsResponse
+ * //   EventIntegrations: [ // EventIntegrationsList
+ * //     { // EventIntegration
+ * //       EventIntegrationArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       EventFilter: { // EventFilter
+ * //         Source: "STRING_VALUE", // required
+ * //       },
+ * //       EventBridgeBus: "STRING_VALUE",
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEventIntegrationsCommandInput - {@link ListEventIntegrationsCommandInput}
@@ -65,6 +83,8 @@ export interface ListEventIntegrationsCommandOutput extends ListEventIntegration
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class ListEventIntegrationsCommand extends $Command<

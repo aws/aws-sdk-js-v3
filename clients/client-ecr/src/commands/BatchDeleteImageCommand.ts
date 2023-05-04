@@ -56,6 +56,25 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * };
  * const command = new BatchDeleteImageCommand(input);
  * const response = await client.send(command);
+ * // { // BatchDeleteImageResponse
+ * //   imageIds: [ // ImageIdentifierList
+ * //     { // ImageIdentifier
+ * //       imageDigest: "STRING_VALUE",
+ * //       imageTag: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   failures: [ // ImageFailureList
+ * //     { // ImageFailure
+ * //       imageId: {
+ * //         imageDigest: "STRING_VALUE",
+ * //         imageTag: "STRING_VALUE",
+ * //       },
+ * //       failureCode: "STRING_VALUE",
+ * //       failureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchDeleteImageCommandInput - {@link BatchDeleteImageCommandInput}
@@ -75,6 +94,8 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  * @example To delete multiple images
  * ```javascript

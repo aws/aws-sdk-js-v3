@@ -100,6 +100,10 @@ export interface UpdateRegexMatchSetCommandOutput extends UpdateRegexMatchSetRes
  * };
  * const command = new UpdateRegexMatchSetCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateRegexMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateRegexMatchSetCommandInput - {@link UpdateRegexMatchSetCommandInput}
@@ -169,6 +173,8 @@ export interface UpdateRegexMatchSetCommandOutput extends UpdateRegexMatchSetRes
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class UpdateRegexMatchSetCommand extends $Command<

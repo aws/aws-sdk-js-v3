@@ -46,6 +46,8 @@ export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionR
  * };
  * const command = new DeleteCidrCollectionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteCidrCollectionCommandInput - {@link DeleteCidrCollectionCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionR
  * @throws {@link NoSuchCidrCollectionException} (client fault)
  *  <p>The CIDR collection you specified, doesn't exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeleteCidrCollectionCommand extends $Command<

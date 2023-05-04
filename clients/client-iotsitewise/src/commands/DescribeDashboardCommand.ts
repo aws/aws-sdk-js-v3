@@ -44,6 +44,17 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  * };
  * const command = new DescribeDashboardCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDashboardResponse
+ * //   dashboardId: "STRING_VALUE", // required
+ * //   dashboardArn: "STRING_VALUE", // required
+ * //   dashboardName: "STRING_VALUE", // required
+ * //   projectId: "STRING_VALUE", // required
+ * //   dashboardDescription: "STRING_VALUE",
+ * //   dashboardDefinition: "STRING_VALUE", // required
+ * //   dashboardCreationDate: new Date("TIMESTAMP"), // required
+ * //   dashboardLastUpdateDate: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param DescribeDashboardCommandInput - {@link DescribeDashboardCommandInput}
@@ -68,6 +79,8 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class DescribeDashboardCommand extends $Command<

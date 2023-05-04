@@ -48,6 +48,8 @@ export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {
  * };
  * const command = new StartMonitoringScheduleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartMonitoringScheduleCommandInput - {@link StartMonitoringScheduleCommandInput}
@@ -59,6 +61,8 @@ export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StartMonitoringScheduleCommand extends $Command<

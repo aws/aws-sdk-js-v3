@@ -51,6 +51,8 @@ export interface AssociateDiscoveredResourceCommandOutput extends AssociateDisco
  * };
  * const command = new AssociateDiscoveredResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AssociateDiscoveredResourceCommandInput - {@link AssociateDiscoveredResourceCommandInput}
@@ -98,6 +100,8 @@ export interface AssociateDiscoveredResourceCommandOutput extends AssociateDisco
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class AssociateDiscoveredResourceCommand extends $Command<

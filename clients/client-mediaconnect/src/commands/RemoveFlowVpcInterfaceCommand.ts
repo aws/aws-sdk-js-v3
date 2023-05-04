@@ -45,6 +45,14 @@ export interface RemoveFlowVpcInterfaceCommandOutput extends RemoveFlowVpcInterf
  * };
  * const command = new RemoveFlowVpcInterfaceCommand(input);
  * const response = await client.send(command);
+ * // { // RemoveFlowVpcInterfaceResponse
+ * //   FlowArn: "STRING_VALUE",
+ * //   NonDeletedNetworkInterfaceIds: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   VpcInterfaceName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RemoveFlowVpcInterfaceCommandInput - {@link RemoveFlowVpcInterfaceCommandInput}
@@ -71,6 +79,8 @@ export interface RemoveFlowVpcInterfaceCommandOutput extends RemoveFlowVpcInterf
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class RemoveFlowVpcInterfaceCommand extends $Command<

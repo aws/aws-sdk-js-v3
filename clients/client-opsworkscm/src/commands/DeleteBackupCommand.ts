@@ -51,6 +51,8 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * };
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteBackupCommandInput - {@link DeleteBackupCommandInput}
@@ -71,6 +73,8 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class DeleteBackupCommand extends $Command<

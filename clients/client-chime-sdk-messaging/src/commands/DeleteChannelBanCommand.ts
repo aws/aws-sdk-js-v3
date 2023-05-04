@@ -55,6 +55,8 @@ export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteChannelBanCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteChannelBanCommandInput - {@link DeleteChannelBanCommandInput}
@@ -81,6 +83,8 @@ export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class DeleteChannelBanCommand extends $Command<

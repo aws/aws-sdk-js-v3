@@ -42,6 +42,8 @@ export interface ResetAllResourceLogLevelsCommandOutput extends ResetAllResource
  * const input = {};
  * const command = new ResetAllResourceLogLevelsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ResetAllResourceLogLevelsCommandInput - {@link ResetAllResourceLogLevelsCommandInput}
@@ -65,6 +67,8 @@ export interface ResetAllResourceLogLevelsCommandOutput extends ResetAllResource
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class ResetAllResourceLogLevelsCommand extends $Command<

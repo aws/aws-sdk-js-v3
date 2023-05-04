@@ -352,6 +352,118 @@ export interface BasicAuthCredentials {
 
 /**
  * @public
+ */
+export interface CancelFlowExecutionsRequest {
+  /**
+   * <p>The name of a flow with active runs that you want to cancel.</p>
+   */
+  flowName: string | undefined;
+
+  /**
+   * <p>The ID of each active run to cancel. These runs must belong to the flow you specify in
+   *       your request.</p>
+   *          <p>If you omit this parameter, your request ends all active runs that belong to the
+   *       flow.</p>
+   */
+  executionIds?: string[];
+}
+
+/**
+ * @public
+ */
+export interface CancelFlowExecutionsResponse {
+  /**
+   * <p>The IDs of runs that Amazon AppFlow couldn't cancel. These runs might be ineligible
+   *       for canceling because they haven't started yet or have already completed.</p>
+   */
+  invalidExecutions?: string[];
+}
+
+/**
+ * @public
+ * <p> An internal service error occurred during the processing of your request. Try again
+ *       later. </p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p> The resource specified in the request (such as the source or destination connector
+ *       profile) is not found. </p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>API calls have exceeded the maximum allowed API request rate per account and per Region.
+ *     </p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p> The request has invalid or missing parameters. </p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const CatalogType = {
@@ -3271,27 +3383,6 @@ export interface CreateConnectorProfileResponse {
 
 /**
  * @public
- * <p> An internal service error occurred during the processing of your request. Try again
- *       later. </p>
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * @public
  * <p> The request would cause a service quota (such as the number of flows) to be exceeded.
  *     </p>
  */
@@ -3308,26 +3399,6 @@ export class ServiceQuotaExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * @public
- * <p> The request has invalid or missing parameters. </p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
   }
 }
 
@@ -4814,27 +4885,6 @@ export interface CreateFlowResponse {
 
 /**
  * @public
- * <p> The resource specified in the request (such as the source or destination connector
- *       profile) is not found. </p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * @public
  */
 export interface DeleteConnectorProfileRequest {
   /**
@@ -5050,6 +5100,8 @@ export interface DescribeFlowRequest {
  * @enum
  */
 export const ExecutionStatus = {
+  CANCELED: "Canceled",
+  CANCELSTARTED: "CancelStarted",
   ERROR: "Error",
   INPROGRESS: "InProgress",
   SUCCESSFUL: "Successful",
@@ -5681,27 +5733,6 @@ export interface RegisterConnectorResponse {
    * <p>The ARN of the connector being registered.</p>
    */
   connectorArn?: string;
-}
-
-/**
- * @public
- * <p>API calls have exceeded the maximum allowed API request rate per account and per Region.
- *     </p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
 }
 
 /**

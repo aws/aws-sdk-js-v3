@@ -52,6 +52,10 @@ export interface DeletePullRequestApprovalRuleCommandOutput
  * };
  * const command = new DeletePullRequestApprovalRuleCommand(input);
  * const response = await client.send(command);
+ * // { // DeletePullRequestApprovalRuleOutput
+ * //   approvalRuleId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeletePullRequestApprovalRuleCommandInput - {@link DeletePullRequestApprovalRuleCommandInput}
@@ -97,6 +101,8 @@ export interface DeletePullRequestApprovalRuleCommandOutput
  * @throws {@link PullRequestIdRequiredException} (client fault)
  *  <p>A pull request ID is required, but none was provided.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class DeletePullRequestApprovalRuleCommand extends $Command<

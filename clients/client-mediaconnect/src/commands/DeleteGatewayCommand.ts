@@ -44,6 +44,10 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayResponse, __Met
  * };
  * const command = new DeleteGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteGatewayResponse
+ * //   GatewayArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteGatewayCommandInput - {@link DeleteGatewayCommandInput}
@@ -73,6 +77,8 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class DeleteGatewayCommand extends $Command<

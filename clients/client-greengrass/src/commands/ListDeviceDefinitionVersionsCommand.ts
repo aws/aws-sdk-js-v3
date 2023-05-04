@@ -51,6 +51,18 @@ export interface ListDeviceDefinitionVersionsCommandOutput
  * };
  * const command = new ListDeviceDefinitionVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDeviceDefinitionVersionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Versions: [ // __listOfVersionInformation
+ * //     { // VersionInformation
+ * //       Arn: "STRING_VALUE",
+ * //       CreationTimestamp: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListDeviceDefinitionVersionsCommandInput - {@link ListDeviceDefinitionVersionsCommandInput}
@@ -62,6 +74,8 @@ export interface ListDeviceDefinitionVersionsCommandOutput
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListDeviceDefinitionVersionsCommand extends $Command<

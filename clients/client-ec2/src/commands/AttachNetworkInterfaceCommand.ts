@@ -54,6 +54,11 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  * };
  * const command = new AttachNetworkInterfaceCommand(input);
  * const response = await client.send(command);
+ * // { // AttachNetworkInterfaceResult
+ * //   AttachmentId: "STRING_VALUE",
+ * //   NetworkCardIndex: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param AttachNetworkInterfaceCommandInput - {@link AttachNetworkInterfaceCommandInput}
@@ -62,6 +67,8 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  * @see {@link AttachNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To attach a network interface to an instance
  * ```javascript

@@ -122,6 +122,10 @@ export interface StartModelPackagingJobCommandOutput extends StartModelPackaging
  * };
  * const command = new StartModelPackagingJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartModelPackagingJobResponse
+ * //   JobName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartModelPackagingJobCommandInput - {@link StartModelPackagingJobCommandInput}
@@ -153,6 +157,8 @@ export interface StartModelPackagingJobCommandOutput extends StartModelPackaging
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class StartModelPackagingJobCommand extends $Command<

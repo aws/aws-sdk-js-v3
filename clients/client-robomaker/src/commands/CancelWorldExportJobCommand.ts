@@ -44,6 +44,8 @@ export interface CancelWorldExportJobCommandOutput extends CancelWorldExportJobR
  * };
  * const command = new CancelWorldExportJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelWorldExportJobCommandInput - {@link CancelWorldExportJobCommandInput}
@@ -65,6 +67,8 @@ export interface CancelWorldExportJobCommandOutput extends CancelWorldExportJobR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class CancelWorldExportJobCommand extends $Command<

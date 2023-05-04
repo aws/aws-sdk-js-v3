@@ -24,7 +24,7 @@ describe("EC2", () => {
           expect(parse.get("Version")).toEqual("2016-11-15");
           const psu = parse.get("PresignedUrl") as string;
           const matcher =
-            /https\:\/\/ec2\.us-west-2\.amazonaws\.com\/\?Action=CopySnapshot&DestinationRegion=us-east-1&SourceRegion=us-west-2&SourceSnapshotId=my-snapshot-id&Version=2016-11-15&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=(.+)\%2Fus-west-2\%2Fec2\%2Faws4_request&X-Amz-Date=(\d{8})T(\d{6})Z&X-Amz-Expires=3600&X-Amz-Security-Token=(.+)&X-Amz-Signature=(.+)&X-Amz-SignedHeaders=host/;
+            /https\:\/\/ec2\.us-west-2\.amazonaws\.com\/\?Action=CopySnapshot&DestinationRegion=us-east-1&SourceRegion=us-west-2&SourceSnapshotId=my-snapshot-id&Version=2016-11-15&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=(.+)\%2Fus-west-2\%2Fec2\%2Faws4_request&X-Amz-Date=(\d{8})T(\d{6})Z&X-Amz-Expires=3600(&X-Amz-Security-Token=(.+))?&X-Amz-Signature=(.+)&X-Amz-SignedHeaders=host/;
 
           expect(psu).toMatch(matcher);
         },
@@ -60,7 +60,7 @@ describe("EC2", () => {
           expect(parse.get("Version")).toEqual("2016-11-15");
           const psu = parse.get("PresignedUrl") as string;
           const matcher =
-            /https\:\/\/ec2\.us-west-2\.amazonaws\.com\/\?Action=CopySnapshot&DestinationRegion=us-east-1&Encrypted=true&KmsKeyId=my-kms-key&SourceRegion=us-west-2&SourceSnapshotId=my-snapshot-id&Version=2016-11-15&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=(.+)\%2Fus-west-2\%2Fec2\%2Faws4_request&X-Amz-Date=(\d{8})T(\d{6})Z&X-Amz-Expires=3600&X-Amz-Security-Token=(.+)&X-Amz-Signature=(.+)&X-Amz-SignedHeaders=host/;
+            /https\:\/\/ec2\.us-west-2\.amazonaws\.com\/\?Action=CopySnapshot&DestinationRegion=us-east-1&Encrypted=true&KmsKeyId=my-kms-key&SourceRegion=us-west-2&SourceSnapshotId=my-snapshot-id&Version=2016-11-15&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=(.+)\%2Fus-west-2\%2Fec2\%2Faws4_request&X-Amz-Date=(\d{8})T(\d{6})Z&X-Amz-Expires=3600(&X-Amz-Security-Token=(.+))?&X-Amz-Signature=(.+)&X-Amz-SignedHeaders=host/;
 
           expect(psu).toMatch(matcher);
         },

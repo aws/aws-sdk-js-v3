@@ -44,6 +44,10 @@ export interface DeleteActionCommandOutput extends DeleteActionResponse, __Metad
  * };
  * const command = new DeleteActionCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteActionResponse
+ * //   ActionArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteActionCommandInput - {@link DeleteActionCommandInput}
@@ -55,6 +59,8 @@ export interface DeleteActionCommandOutput extends DeleteActionResponse, __Metad
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteActionCommand extends $Command<

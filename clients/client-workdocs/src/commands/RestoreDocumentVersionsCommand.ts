@@ -45,6 +45,8 @@ export interface RestoreDocumentVersionsCommandOutput extends __MetadataBearer {
  * };
  * const command = new RestoreDocumentVersionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RestoreDocumentVersionsCommandInput - {@link RestoreDocumentVersionsCommandInput}
@@ -79,6 +81,8 @@ export interface RestoreDocumentVersionsCommandOutput extends __MetadataBearer {
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class RestoreDocumentVersionsCommand extends $Command<

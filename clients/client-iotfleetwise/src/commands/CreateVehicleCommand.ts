@@ -64,6 +64,12 @@ export interface CreateVehicleCommandOutput extends CreateVehicleResponse, __Met
  * };
  * const command = new CreateVehicleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateVehicleResponse
+ * //   vehicleName: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   thingArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateVehicleCommandInput - {@link CreateVehicleCommandInput}
@@ -94,6 +100,8 @@ export interface CreateVehicleCommandOutput extends CreateVehicleResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class CreateVehicleCommand extends $Command<

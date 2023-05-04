@@ -62,6 +62,16 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceResponse
+ * //   Tags: [ // Tags
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -200,6 +210,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

@@ -52,6 +52,10 @@ export interface CreateAnomalyDetectorCommandOutput extends CreateAnomalyDetecto
  * };
  * const command = new CreateAnomalyDetectorCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAnomalyDetectorResponse
+ * //   AnomalyDetectorArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateAnomalyDetectorCommandInput - {@link CreateAnomalyDetectorCommandInput}
@@ -79,6 +83,8 @@ export interface CreateAnomalyDetectorCommandOutput extends CreateAnomalyDetecto
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class CreateAnomalyDetectorCommand extends $Command<

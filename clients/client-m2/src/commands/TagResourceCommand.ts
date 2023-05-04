@@ -47,6 +47,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -73,6 +75,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

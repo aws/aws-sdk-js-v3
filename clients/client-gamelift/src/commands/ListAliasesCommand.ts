@@ -58,6 +58,25 @@ export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataB
  * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
+ * // { // ListAliasesOutput
+ * //   Aliases: [ // AliasList
+ * //     { // Alias
+ * //       AliasId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       AliasArn: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       RoutingStrategy: { // RoutingStrategy
+ * //         Type: "SIMPLE" || "TERMINAL",
+ * //         FleetId: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAliasesCommandInput - {@link ListAliasesCommandInput}
@@ -77,6 +96,8 @@ export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataB
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class ListAliasesCommand extends $Command<

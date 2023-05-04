@@ -192,6 +192,8 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * };
  * const command = new PutBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutBucketLifecycleConfigurationCommandInput - {@link PutBucketLifecycleConfigurationCommandInput}
@@ -200,6 +202,8 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * @see {@link PutBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example Put bucket lifecycle
  * ```javascript

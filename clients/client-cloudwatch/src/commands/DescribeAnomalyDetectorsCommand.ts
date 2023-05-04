@@ -62,6 +62,66 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * };
  * const command = new DescribeAnomalyDetectorsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAnomalyDetectorsOutput
+ * //   AnomalyDetectors: [ // AnomalyDetectors
+ * //     { // AnomalyDetector
+ * //       Namespace: "STRING_VALUE",
+ * //       MetricName: "STRING_VALUE",
+ * //       Dimensions: [ // Dimensions
+ * //         { // Dimension
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       Stat: "STRING_VALUE",
+ * //       Configuration: { // AnomalyDetectorConfiguration
+ * //         ExcludedTimeRanges: [ // AnomalyDetectorExcludedTimeRanges
+ * //           { // Range
+ * //             StartTime: new Date("TIMESTAMP"), // required
+ * //             EndTime: new Date("TIMESTAMP"), // required
+ * //           },
+ * //         ],
+ * //         MetricTimezone: "STRING_VALUE",
+ * //       },
+ * //       StateValue: "PENDING_TRAINING" || "TRAINED_INSUFFICIENT_DATA" || "TRAINED",
+ * //       SingleMetricAnomalyDetector: { // SingleMetricAnomalyDetector
+ * //         Namespace: "STRING_VALUE",
+ * //         MetricName: "STRING_VALUE",
+ * //         Dimensions: [
+ * //           {
+ * //             Name: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         Stat: "STRING_VALUE",
+ * //       },
+ * //       MetricMathAnomalyDetector: { // MetricMathAnomalyDetector
+ * //         MetricDataQueries: [ // MetricDataQueries
+ * //           { // MetricDataQuery
+ * //             Id: "STRING_VALUE", // required
+ * //             MetricStat: { // MetricStat
+ * //               Metric: { // Metric
+ * //                 Namespace: "STRING_VALUE",
+ * //                 MetricName: "STRING_VALUE",
+ * //                 Dimensions: "<Dimensions>",
+ * //               },
+ * //               Period: Number("int"), // required
+ * //               Stat: "STRING_VALUE", // required
+ * //               Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * //             },
+ * //             Expression: "STRING_VALUE",
+ * //             Label: "STRING_VALUE",
+ * //             ReturnData: true || false,
+ * //             Period: Number("int"),
+ * //             AccountId: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeAnomalyDetectorsCommandInput - {@link DescribeAnomalyDetectorsCommandInput}
@@ -82,6 +142,8 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value of an input parameter is bad or out-of-range.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DescribeAnomalyDetectorsCommand extends $Command<

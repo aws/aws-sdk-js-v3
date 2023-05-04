@@ -46,6 +46,12 @@ export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsRespons
  * };
  * const command = new BatchDeleteWorldsCommand(input);
  * const response = await client.send(command);
+ * // { // BatchDeleteWorldsResponse
+ * //   unprocessedWorlds: [ // Arns
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchDeleteWorldsCommandInput - {@link BatchDeleteWorldsCommandInput}
@@ -64,6 +70,8 @@ export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class BatchDeleteWorldsCommand extends $Command<

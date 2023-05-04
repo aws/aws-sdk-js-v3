@@ -47,6 +47,25 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * };
  * const command = new ListTemplateVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTemplateVersionsResponse
+ * //   TemplateVersionsResponse: { // TemplateVersionsResponse
+ * //     Item: [ // ListOfTemplateVersionResponse // required
+ * //       { // TemplateVersionResponse
+ * //         CreationDate: "STRING_VALUE", // required
+ * //         DefaultSubstitutions: "STRING_VALUE",
+ * //         LastModifiedDate: "STRING_VALUE", // required
+ * //         TemplateDescription: "STRING_VALUE",
+ * //         TemplateName: "STRING_VALUE", // required
+ * //         TemplateType: "STRING_VALUE", // required
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Message: "STRING_VALUE",
+ * //     NextToken: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ListTemplateVersionsCommandInput - {@link ListTemplateVersionsCommandInput}
@@ -76,6 +95,8 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class ListTemplateVersionsCommand extends $Command<

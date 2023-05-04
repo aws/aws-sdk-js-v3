@@ -49,6 +49,11 @@ export interface UpdateClusterConfigurationCommandOutput extends UpdateClusterCo
  * };
  * const command = new UpdateClusterConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateClusterConfigurationResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterOperationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateClusterConfigurationCommandInput - {@link UpdateClusterConfigurationCommandInput}
@@ -75,6 +80,8 @@ export interface UpdateClusterConfigurationCommandOutput extends UpdateClusterCo
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class UpdateClusterConfigurationCommand extends $Command<

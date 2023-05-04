@@ -53,6 +53,28 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  * };
  * const command = new CreateVpcEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // CreateVpcEndpointResponse
+ * //   VpcEndpoint: { // VpcEndpoint
+ * //     VpcEndpointId: "STRING_VALUE",
+ * //     VpcEndpointOwner: "STRING_VALUE",
+ * //     DomainArn: "STRING_VALUE",
+ * //     VpcOptions: { // VPCDerivedInfo
+ * //       VPCId: "STRING_VALUE",
+ * //       SubnetIds: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AvailabilityZones: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SecurityGroupIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
+ * //     Endpoint: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateVpcEndpointCommandInput - {@link CreateVpcEndpointCommandInput}
@@ -68,7 +90,7 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  *  <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
@@ -79,6 +101,8 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class CreateVpcEndpointCommand extends $Command<

@@ -51,6 +51,10 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  * };
  * const command = new CreateContactChannelCommand(input);
  * const response = await client.send(command);
+ * // { // CreateContactChannelResult
+ * //   ContactChannelArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateContactChannelCommandInput - {@link CreateContactChannelCommandInput}
@@ -78,6 +82,8 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class CreateContactChannelCommand extends $Command<

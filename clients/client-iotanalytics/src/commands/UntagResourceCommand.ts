@@ -47,6 +47,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -73,6 +75,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

@@ -51,6 +51,16 @@ export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __Met
  * };
  * const command = new StopWorkspacesCommand(input);
  * const response = await client.send(command);
+ * // { // StopWorkspacesResult
+ * //   FailedRequests: [ // FailedStopWorkspaceRequests
+ * //     { // FailedWorkspaceChangeRequest
+ * //       WorkspaceId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param StopWorkspacesCommandInput - {@link StopWorkspacesCommandInput}
@@ -59,6 +69,8 @@ export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __Met
  * @see {@link StopWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class StopWorkspacesCommand extends $Command<

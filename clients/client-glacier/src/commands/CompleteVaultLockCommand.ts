@@ -59,6 +59,8 @@ export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CompleteVaultLockCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CompleteVaultLockCommandInput - {@link CompleteVaultLockCommandInput}
@@ -80,6 +82,8 @@ export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To complete a vault lock
  * ```javascript

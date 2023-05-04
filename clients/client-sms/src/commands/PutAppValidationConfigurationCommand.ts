@@ -106,6 +106,8 @@ export interface PutAppValidationConfigurationCommandOutput
  * };
  * const command = new PutAppValidationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutAppValidationConfigurationCommandInput - {@link PutAppValidationConfigurationCommandInput}
@@ -130,6 +132,8 @@ export interface PutAppValidationConfigurationCommandOutput
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class PutAppValidationConfigurationCommand extends $Command<

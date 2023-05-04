@@ -49,6 +49,15 @@ export interface DescribeStudioLifecycleConfigCommandOutput
  * };
  * const command = new DescribeStudioLifecycleConfigCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeStudioLifecycleConfigResponse
+ * //   StudioLifecycleConfigArn: "STRING_VALUE",
+ * //   StudioLifecycleConfigName: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   StudioLifecycleConfigContent: "STRING_VALUE",
+ * //   StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway",
+ * // };
+ *
  * ```
  *
  * @param DescribeStudioLifecycleConfigCommandInput - {@link DescribeStudioLifecycleConfigCommandInput}
@@ -60,6 +69,8 @@ export interface DescribeStudioLifecycleConfigCommandOutput
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeStudioLifecycleConfigCommand extends $Command<

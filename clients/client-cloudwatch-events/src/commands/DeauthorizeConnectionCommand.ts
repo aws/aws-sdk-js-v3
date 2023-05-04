@@ -45,6 +45,14 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  * };
  * const command = new DeauthorizeConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // DeauthorizeConnectionResponse
+ * //   ConnectionArn: "STRING_VALUE",
+ * //   ConnectionState: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastAuthorizedTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DeauthorizeConnectionCommandInput - {@link DeauthorizeConnectionCommandInput}
@@ -62,6 +70,8 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class DeauthorizeConnectionCommand extends $Command<

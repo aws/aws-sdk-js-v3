@@ -83,6 +83,15 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * };
  * const command = new CreateMembersCommand(input);
  * const response = await client.send(command);
+ * // { // CreateMembersResponse
+ * //   UnprocessedAccounts: [ // ResultList
+ * //     { // Result
+ * //       AccountId: "STRING_VALUE",
+ * //       ProcessingResult: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param CreateMembersCommandInput - {@link CreateMembersCommandInput}
@@ -108,6 +117,8 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To add a member account
  * ```javascript

@@ -2558,6 +2558,7 @@ export const de_GetSceneCommand = async (
     contentLocation: __expectString,
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    error: _json,
     generatedSceneMetadata: _json,
     sceneId: __expectString,
     sceneMetadata: _json,
@@ -4489,6 +4490,8 @@ const de_Rows = (output: any, context: __SerdeContext): Row[] => {
 };
 
 // de_SceneCapabilities omitted.
+
+// de_SceneError omitted.
 
 // de_SceneMetadataMap omitted.
 

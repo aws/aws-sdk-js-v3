@@ -52,6 +52,8 @@ export interface AttachUserPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachUserPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AttachUserPolicyCommandInput - {@link AttachUserPolicyCommandInput}
@@ -80,6 +82,8 @@ export interface AttachUserPolicyCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To attach a managed policy to an IAM user
  * ```javascript

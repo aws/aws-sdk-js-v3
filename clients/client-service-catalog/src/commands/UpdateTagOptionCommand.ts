@@ -46,6 +46,16 @@ export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __M
  * };
  * const command = new UpdateTagOptionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateTagOptionOutput
+ * //   TagOptionDetail: { // TagOptionDetail
+ * //     Key: "STRING_VALUE",
+ * //     Value: "STRING_VALUE",
+ * //     Active: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateTagOptionCommandInput - {@link UpdateTagOptionCommandInput}
@@ -68,6 +78,8 @@ export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __M
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class UpdateTagOptionCommand extends $Command<

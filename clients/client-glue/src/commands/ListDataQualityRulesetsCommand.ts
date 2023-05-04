@@ -60,6 +60,24 @@ export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRul
  * };
  * const command = new ListDataQualityRulesetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDataQualityRulesetsResponse
+ * //   Rulesets: [ // DataQualityRulesetList
+ * //     { // DataQualityRulesetListDetails
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       CreatedOn: new Date("TIMESTAMP"),
+ * //       LastModifiedOn: new Date("TIMESTAMP"),
+ * //       TargetTable: { // DataQualityTargetTable
+ * //         TableName: "STRING_VALUE", // required
+ * //         DatabaseName: "STRING_VALUE", // required
+ * //       },
+ * //       RecommendationRunId: "STRING_VALUE",
+ * //       RuleCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDataQualityRulesetsCommandInput - {@link ListDataQualityRulesetsCommandInput}
@@ -80,6 +98,8 @@ export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRul
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class ListDataQualityRulesetsCommand extends $Command<

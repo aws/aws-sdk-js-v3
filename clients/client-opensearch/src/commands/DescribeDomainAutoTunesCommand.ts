@@ -48,6 +48,23 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * };
  * const command = new DescribeDomainAutoTunesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDomainAutoTunesResponse
+ * //   AutoTunes: [ // AutoTuneList
+ * //     { // AutoTune
+ * //       AutoTuneType: "SCHEDULED_ACTION",
+ * //       AutoTuneDetails: { // AutoTuneDetails
+ * //         ScheduledAutoTuneDetails: { // ScheduledAutoTuneDetails
+ * //           Date: new Date("TIMESTAMP"),
+ * //           ActionType: "JVM_HEAP_SIZE_TUNING" || "JVM_YOUNG_GEN_TUNING",
+ * //           Action: "STRING_VALUE",
+ * //           Severity: "LOW" || "MEDIUM" || "HIGH",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeDomainAutoTunesCommandInput - {@link DescribeDomainAutoTunesCommandInput}
@@ -63,11 +80,13 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DescribeDomainAutoTunesCommand extends $Command<

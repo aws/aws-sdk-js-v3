@@ -48,6 +48,8 @@ export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer 
  * };
  * const command = new UpdateRoutingProfileNameCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateRoutingProfileNameCommandInput - {@link UpdateRoutingProfileNameCommandInput}
@@ -74,6 +76,8 @@ export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer 
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateRoutingProfileNameCommand extends $Command<

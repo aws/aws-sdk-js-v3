@@ -48,6 +48,12 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceOutput
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -65,6 +71,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SnowDeviceManagementServiceException}
+ * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

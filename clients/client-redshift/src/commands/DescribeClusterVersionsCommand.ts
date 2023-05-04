@@ -52,6 +52,17 @@ export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMes
  * };
  * const command = new DescribeClusterVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ClusterVersionsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ClusterVersions: [ // ClusterVersionList
+ * //     { // ClusterVersion
+ * //       ClusterVersion: "STRING_VALUE",
+ * //       ClusterParameterGroupFamily: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeClusterVersionsCommandInput - {@link DescribeClusterVersionsCommandInput}
@@ -60,6 +71,8 @@ export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMes
  * @see {@link DescribeClusterVersionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeClusterVersionsCommand extends $Command<

@@ -70,6 +70,34 @@ export interface UpdateFieldLevelEncryptionProfileCommandOutput
  * };
  * const command = new UpdateFieldLevelEncryptionProfileCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateFieldLevelEncryptionProfileResult
+ * //   FieldLevelEncryptionProfile: { // FieldLevelEncryptionProfile
+ * //     Id: "STRING_VALUE", // required
+ * //     LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     FieldLevelEncryptionProfileConfig: { // FieldLevelEncryptionProfileConfig
+ * //       Name: "STRING_VALUE", // required
+ * //       CallerReference: "STRING_VALUE", // required
+ * //       Comment: "STRING_VALUE",
+ * //       EncryptionEntities: { // EncryptionEntities
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // EncryptionEntityList
+ * //           { // EncryptionEntity
+ * //             PublicKeyId: "STRING_VALUE", // required
+ * //             ProviderId: "STRING_VALUE", // required
+ * //             FieldPatterns: { // FieldPatterns
+ * //               Quantity: Number("int"), // required
+ * //               Items: [ // FieldPatternList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateFieldLevelEncryptionProfileCommandInput - {@link UpdateFieldLevelEncryptionProfileCommandInput}
@@ -118,6 +146,8 @@ export interface UpdateFieldLevelEncryptionProfileCommandOutput
  *  <p>The maximum number of field patterns for field-level encryption have been
  * 			created.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class UpdateFieldLevelEncryptionProfileCommand extends $Command<

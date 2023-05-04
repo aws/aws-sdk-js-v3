@@ -44,6 +44,8 @@ export interface AcceptInputDeviceTransferCommandOutput extends AcceptInputDevic
  * };
  * const command = new AcceptInputDeviceTransferCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AcceptInputDeviceTransferCommandInput - {@link AcceptInputDeviceTransferCommandInput}
@@ -79,6 +81,8 @@ export interface AcceptInputDeviceTransferCommandOutput extends AcceptInputDevic
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class AcceptInputDeviceTransferCommand extends $Command<

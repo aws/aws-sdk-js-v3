@@ -59,6 +59,8 @@ export interface UpdateQuickConnectConfigCommandOutput extends __MetadataBearer 
  * };
  * const command = new UpdateQuickConnectConfigCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateQuickConnectConfigCommandInput - {@link UpdateQuickConnectConfigCommandInput}
@@ -82,6 +84,8 @@ export interface UpdateQuickConnectConfigCommandOutput extends __MetadataBearer 
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateQuickConnectConfigCommand extends $Command<

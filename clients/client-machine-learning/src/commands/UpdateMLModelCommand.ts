@@ -47,6 +47,10 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
  * };
  * const command = new UpdateMLModelCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateMLModelOutput
+ * //   MLModelId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateMLModelCommandInput - {@link UpdateMLModelCommandInput}
@@ -64,6 +68,8 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class UpdateMLModelCommand extends $Command<

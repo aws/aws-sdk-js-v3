@@ -48,6 +48,8 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
  * };
  * const command = new UpdateDestinationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateDestinationCommandInput - {@link UpdateDestinationCommandInput}
@@ -71,6 +73,8 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class UpdateDestinationCommand extends $Command<

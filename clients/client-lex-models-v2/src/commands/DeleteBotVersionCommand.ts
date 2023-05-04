@@ -47,6 +47,12 @@ export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse,
  * };
  * const command = new DeleteBotVersionCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteBotVersionResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
+ * // };
+ *
  * ```
  *
  * @param DeleteBotVersionCommandInput - {@link DeleteBotVersionCommandInput}
@@ -80,6 +86,8 @@ export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse,
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteBotVersionCommand extends $Command<

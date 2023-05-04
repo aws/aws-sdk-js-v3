@@ -44,6 +44,21 @@ export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __Metad
  * };
  * const command = new GetSatelliteCommand(input);
  * const response = await client.send(command);
+ * // { // GetSatelliteResponse
+ * //   satelliteId: "STRING_VALUE",
+ * //   satelliteArn: "STRING_VALUE",
+ * //   noradSatelliteID: Number("int"),
+ * //   groundStations: [ // GroundStationIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   currentEphemeris: { // EphemerisMetaData
+ * //     source: "STRING_VALUE", // required
+ * //     ephemerisId: "STRING_VALUE",
+ * //     epoch: new Date("TIMESTAMP"),
+ * //     name: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSatelliteCommandInput - {@link GetSatelliteCommandInput}
@@ -61,6 +76,8 @@ export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class GetSatelliteCommand extends $Command<

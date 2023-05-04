@@ -46,6 +46,8 @@ export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPerm
  * };
  * const command = new DeleteMailboxPermissionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteMailboxPermissionsCommandInput - {@link DeleteMailboxPermissionsCommandInput}
@@ -73,6 +75,8 @@ export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPerm
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DeleteMailboxPermissionsCommand extends $Command<

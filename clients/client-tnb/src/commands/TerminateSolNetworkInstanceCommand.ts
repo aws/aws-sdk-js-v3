@@ -57,6 +57,13 @@ export interface TerminateSolNetworkInstanceCommandOutput extends TerminateSolNe
  * };
  * const command = new TerminateSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // TerminateSolNetworkInstanceOutput
+ * //   nsLcmOpOccId: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param TerminateSolNetworkInstanceCommandInput - {@link TerminateSolNetworkInstanceCommandInput}
@@ -83,6 +90,8 @@ export interface TerminateSolNetworkInstanceCommandOutput extends TerminateSolNe
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class TerminateSolNetworkInstanceCommand extends $Command<

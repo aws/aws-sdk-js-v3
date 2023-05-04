@@ -49,6 +49,10 @@ export interface UpdateThingShadowCommandOutput extends UpdateThingShadowRespons
  * };
  * const command = new UpdateThingShadowCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateThingShadowResponse
+ * //   payload: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateThingShadowCommandInput - {@link UpdateThingShadowCommandInput}
@@ -84,6 +88,8 @@ export interface UpdateThingShadowCommandOutput extends UpdateThingShadowRespons
  * @throws {@link UnsupportedDocumentEncodingException} (client fault)
  *  <p>The document encoding is not supported.</p>
  *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class UpdateThingShadowCommand extends $Command<

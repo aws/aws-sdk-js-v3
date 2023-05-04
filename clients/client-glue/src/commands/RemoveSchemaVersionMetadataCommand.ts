@@ -59,6 +59,17 @@ export interface RemoveSchemaVersionMetadataCommandOutput
  * };
  * const command = new RemoveSchemaVersionMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // RemoveSchemaVersionMetadataResponse
+ * //   SchemaArn: "STRING_VALUE",
+ * //   SchemaName: "STRING_VALUE",
+ * //   RegistryName: "STRING_VALUE",
+ * //   LatestVersion: true || false,
+ * //   VersionNumber: Number("long"),
+ * //   SchemaVersionId: "STRING_VALUE",
+ * //   MetadataKey: "STRING_VALUE",
+ * //   MetadataValue: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RemoveSchemaVersionMetadataCommandInput - {@link RemoveSchemaVersionMetadataCommandInput}
@@ -76,6 +87,8 @@ export interface RemoveSchemaVersionMetadataCommandOutput
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input provided was not valid.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class RemoveSchemaVersionMetadataCommand extends $Command<

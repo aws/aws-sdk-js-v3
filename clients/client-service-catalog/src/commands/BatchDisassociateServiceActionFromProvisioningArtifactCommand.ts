@@ -60,6 +60,18 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
  * };
  * const command = new BatchDisassociateServiceActionFromProvisioningArtifactCommand(input);
  * const response = await client.send(command);
+ * // { // BatchDisassociateServiceActionFromProvisioningArtifactOutput
+ * //   FailedServiceActionAssociations: [ // FailedServiceActionAssociations
+ * //     { // FailedServiceActionAssociation
+ * //       ServiceActionId: "STRING_VALUE",
+ * //       ProductId: "STRING_VALUE",
+ * //       ProvisioningArtifactId: "STRING_VALUE",
+ * //       ErrorCode: "DUPLICATE_RESOURCE" || "INTERNAL_FAILURE" || "LIMIT_EXCEEDED" || "RESOURCE_NOT_FOUND" || "THROTTLING" || "INVALID_PARAMETER",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchDisassociateServiceActionFromProvisioningArtifactCommandInput - {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandInput}
@@ -71,6 +83,8 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
  * @throws {@link InvalidParametersException} (client fault)
  *  <p>One or more parameters provided to the operation are not valid.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class BatchDisassociateServiceActionFromProvisioningArtifactCommand extends $Command<

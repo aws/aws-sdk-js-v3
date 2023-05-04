@@ -54,6 +54,26 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * };
  * const command = new UpdateRoomCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateRoomResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   createTime: new Date("TIMESTAMP"),
+ * //   updateTime: new Date("TIMESTAMP"),
+ * //   maximumMessageRatePerSecond: Number("int"),
+ * //   maximumMessageLength: Number("int"),
+ * //   messageReviewHandler: { // MessageReviewHandler
+ * //     uri: "STRING_VALUE",
+ * //     fallbackResult: "STRING_VALUE",
+ * //   },
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   loggingConfigurationIdentifiers: [ // LoggingConfigurationIdentifierList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UpdateRoomCommandInput - {@link UpdateRoomCommandInput}
@@ -74,6 +94,8 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class UpdateRoomCommand extends $Command<

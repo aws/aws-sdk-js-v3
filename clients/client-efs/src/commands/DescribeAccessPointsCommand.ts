@@ -50,6 +50,42 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  * };
  * const command = new DescribeAccessPointsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAccessPointsResponse
+ * //   AccessPoints: [ // AccessPointDescriptions
+ * //     { // AccessPointDescription
+ * //       ClientToken: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Tags: [ // Tags
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       AccessPointId: "STRING_VALUE",
+ * //       AccessPointArn: "STRING_VALUE",
+ * //       FileSystemId: "STRING_VALUE",
+ * //       PosixUser: { // PosixUser
+ * //         Uid: Number("long"), // required
+ * //         Gid: Number("long"), // required
+ * //         SecondaryGids: [ // SecondaryGids
+ * //           Number("long"),
+ * //         ],
+ * //       },
+ * //       RootDirectory: { // RootDirectory
+ * //         Path: "STRING_VALUE",
+ * //         CreationInfo: { // CreationInfo
+ * //           OwnerUid: Number("long"), // required
+ * //           OwnerGid: Number("long"), // required
+ * //           Permissions: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       OwnerId: "STRING_VALUE",
+ * //       LifeCycleState: "creating" || "available" || "updating" || "deleting" || "deleted" || "error",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeAccessPointsCommandInput - {@link DescribeAccessPointsCommandInput}
@@ -73,6 +109,8 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  * @throws {@link InternalServerError} (server fault)
  *  <p>Returned if an error occurred on the server side.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
 export class DescribeAccessPointsCommand extends $Command<

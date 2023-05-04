@@ -68,6 +68,10 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  * };
  * const command = new CreatePublicDnsNamespaceCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePublicDnsNamespaceResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreatePublicDnsNamespaceCommandInput - {@link CreatePublicDnsNamespaceCommandInput}
@@ -95,6 +99,8 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
  *    applied to a resource is 50.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example CreatePublicDnsNamespace example
  * ```javascript

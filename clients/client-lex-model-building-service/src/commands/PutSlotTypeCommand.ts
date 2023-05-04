@@ -83,6 +83,33 @@ export interface PutSlotTypeCommandOutput extends PutSlotTypeResponse, __Metadat
  * };
  * const command = new PutSlotTypeCommand(input);
  * const response = await client.send(command);
+ * // { // PutSlotTypeResponse
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   enumerationValues: [ // EnumerationValues
+ * //     { // EnumerationValue
+ * //       value: "STRING_VALUE", // required
+ * //       synonyms: [ // SynonymList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   lastUpdatedDate: new Date("TIMESTAMP"),
+ * //   createdDate: new Date("TIMESTAMP"),
+ * //   version: "STRING_VALUE",
+ * //   checksum: "STRING_VALUE",
+ * //   valueSelectionStrategy: "STRING_VALUE",
+ * //   createVersion: true || false,
+ * //   parentSlotTypeSignature: "STRING_VALUE",
+ * //   slotTypeConfigurations: [ // SlotTypeConfigurations
+ * //     { // SlotTypeConfiguration
+ * //       regexConfiguration: { // SlotTypeRegexConfiguration
+ * //         pattern: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param PutSlotTypeCommandInput - {@link PutSlotTypeCommandInput}
@@ -111,6 +138,8 @@ export interface PutSlotTypeCommandOutput extends PutSlotTypeResponse, __Metadat
  *       not match the checksum in the request. Check the resource's checksum and
  *       try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  * @example To Create a Slot Type
  * ```javascript

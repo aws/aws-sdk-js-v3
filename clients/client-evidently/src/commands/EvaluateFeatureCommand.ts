@@ -71,6 +71,18 @@ export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, _
  * };
  * const command = new EvaluateFeatureCommand(input);
  * const response = await client.send(command);
+ * // { // EvaluateFeatureResponse
+ * //   variation: "STRING_VALUE",
+ * //   value: { // VariableValue Union: only one key present
+ * //     boolValue: true || false,
+ * //     stringValue: "STRING_VALUE",
+ * //     longValue: Number("long"),
+ * //     doubleValue: Number("double"),
+ * //   },
+ * //   reason: "STRING_VALUE",
+ * //   details: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param EvaluateFeatureCommandInput - {@link EvaluateFeatureCommandInput}
@@ -91,6 +103,8 @@ export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The value of a parameter in the request caused an error.</p>
  *
+ * @throws {@link EvidentlyServiceException}
+ * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
  */
 export class EvaluateFeatureCommand extends $Command<

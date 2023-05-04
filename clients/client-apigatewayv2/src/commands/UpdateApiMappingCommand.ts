@@ -48,6 +48,13 @@ export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse,
  * };
  * const command = new UpdateApiMappingCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateApiMappingResponse
+ * //   ApiId: "STRING_VALUE",
+ * //   ApiMappingId: "STRING_VALUE",
+ * //   ApiMappingKey: "STRING_VALUE",
+ * //   Stage: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateApiMappingCommandInput - {@link UpdateApiMappingCommandInput}
@@ -68,6 +75,8 @@ export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
  *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class UpdateApiMappingCommand extends $Command<

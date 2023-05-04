@@ -124,6 +124,10 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * };
  * const command = new ImportCertificateCommand(input);
  * const response = await client.send(command);
+ * // { // ImportCertificateResponse
+ * //   CertificateArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ImportCertificateCommandInput - {@link ImportCertificateCommandInput}
@@ -155,6 +159,8 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>The request contains too many tags. Try the request again with fewer tags.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class ImportCertificateCommand extends $Command<

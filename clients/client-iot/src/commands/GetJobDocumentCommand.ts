@@ -45,6 +45,10 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
  * };
  * const command = new GetJobDocumentCommand(input);
  * const response = await client.send(command);
+ * // { // GetJobDocumentResponse
+ * //   document: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetJobDocumentCommandInput - {@link GetJobDocumentCommandInput}
@@ -65,6 +69,8 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetJobDocumentCommand extends $Command<

@@ -58,6 +58,17 @@ export interface ListAccountAssignmentDeletionStatusCommandOutput
  * };
  * const command = new ListAccountAssignmentDeletionStatusCommand(input);
  * const response = await client.send(command);
+ * // { // ListAccountAssignmentDeletionStatusResponse
+ * //   AccountAssignmentsDeletionStatus: [ // AccountAssignmentOperationStatusList
+ * //     { // AccountAssignmentOperationStatusMetadata
+ * //       Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ * //       RequestId: "STRING_VALUE",
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAccountAssignmentDeletionStatusCommandInput - {@link ListAccountAssignmentDeletionStatusCommandInput}
@@ -83,6 +94,8 @@ export interface ListAccountAssignmentDeletionStatusCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ListAccountAssignmentDeletionStatusCommand extends $Command<

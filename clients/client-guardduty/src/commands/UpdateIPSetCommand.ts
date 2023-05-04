@@ -48,6 +48,8 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * };
  * const command = new UpdateIPSetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateIPSetCommandInput - {@link UpdateIPSetCommandInput}
@@ -62,6 +64,8 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class UpdateIPSetCommand extends $Command<

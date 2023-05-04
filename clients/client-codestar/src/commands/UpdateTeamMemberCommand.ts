@@ -49,6 +49,12 @@ export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, _
  * };
  * const command = new UpdateTeamMemberCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateTeamMemberResult
+ * //   userArn: "STRING_VALUE",
+ * //   projectRole: "STRING_VALUE",
+ * //   remoteAccessAllowed: true || false,
+ * // };
+ *
  * ```
  *
  * @param UpdateTeamMemberCommandInput - {@link UpdateTeamMemberCommandInput}
@@ -79,6 +85,8 @@ export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class UpdateTeamMemberCommand extends $Command<

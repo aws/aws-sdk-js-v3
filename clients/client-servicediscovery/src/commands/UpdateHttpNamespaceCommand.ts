@@ -49,6 +49,10 @@ export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceRes
  * };
  * const command = new UpdateHttpNamespaceCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateHttpNamespaceResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateHttpNamespaceCommandInput - {@link UpdateHttpNamespaceCommandInput}
@@ -72,6 +76,8 @@ export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceRes
  *  <p>The specified resource can't be deleted because it contains other resources. For example,
  *    you can't delete a service that contains any instances.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  */
 export class UpdateHttpNamespaceCommand extends $Command<

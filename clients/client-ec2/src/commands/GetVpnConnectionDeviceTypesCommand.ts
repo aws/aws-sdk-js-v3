@@ -49,6 +49,18 @@ export interface GetVpnConnectionDeviceTypesCommandOutput extends GetVpnConnecti
  * };
  * const command = new GetVpnConnectionDeviceTypesCommand(input);
  * const response = await client.send(command);
+ * // { // GetVpnConnectionDeviceTypesResult
+ * //   VpnConnectionDeviceTypes: [ // VpnConnectionDeviceTypeList
+ * //     { // VpnConnectionDeviceType
+ * //       VpnConnectionDeviceTypeId: "STRING_VALUE",
+ * //       Vendor: "STRING_VALUE",
+ * //       Platform: "STRING_VALUE",
+ * //       Software: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetVpnConnectionDeviceTypesCommandInput - {@link GetVpnConnectionDeviceTypesCommandInput}
@@ -57,6 +69,8 @@ export interface GetVpnConnectionDeviceTypesCommandOutput extends GetVpnConnecti
  * @see {@link GetVpnConnectionDeviceTypesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetVpnConnectionDeviceTypesCommand extends $Command<

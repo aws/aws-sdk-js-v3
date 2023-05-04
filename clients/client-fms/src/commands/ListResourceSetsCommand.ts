@@ -45,6 +45,19 @@ export interface ListResourceSetsCommandOutput extends ListResourceSetsResponse,
  * };
  * const command = new ListResourceSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListResourceSetsResponse
+ * //   ResourceSets: [ // ResourceSetSummaryList
+ * //     { // ResourceSetSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       LastUpdateTime: new Date("TIMESTAMP"),
+ * //       ResourceSetStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListResourceSetsCommandInput - {@link ListResourceSetsCommandInput}
@@ -67,6 +80,8 @@ export interface ListResourceSetsCommandOutput extends ListResourceSetsResponse,
  *   that's disabled by default, and that you need to enable for the Firewall Manager
  *   administrator account and for Organizations before you can access it.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class ListResourceSetsCommand extends $Command<

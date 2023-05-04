@@ -72,6 +72,10 @@ export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleRes
  * };
  * const command = new DeleteRateBasedRuleCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteRateBasedRuleResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteRateBasedRuleCommandInput - {@link DeleteRateBasedRuleCommandInput}
@@ -127,6 +131,8 @@ export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleRes
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class DeleteRateBasedRuleCommand extends $Command<

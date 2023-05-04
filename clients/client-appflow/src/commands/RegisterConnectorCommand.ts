@@ -54,6 +54,10 @@ export interface RegisterConnectorCommandOutput extends RegisterConnectorRespons
  * };
  * const command = new RegisterConnectorCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterConnectorResponse
+ * //   connectorArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RegisterConnectorCommandInput - {@link RegisterConnectorCommandInput}
@@ -94,6 +98,8 @@ export interface RegisterConnectorCommandOutput extends RegisterConnectorRespons
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class RegisterConnectorCommand extends $Command<

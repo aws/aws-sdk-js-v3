@@ -45,6 +45,84 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  * };
  * const command = new DescribeSolutionVersionCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSolutionVersionResponse
+ * //   solutionVersion: { // SolutionVersion
+ * //     name: "STRING_VALUE",
+ * //     solutionVersionArn: "STRING_VALUE",
+ * //     solutionArn: "STRING_VALUE",
+ * //     performHPO: true || false,
+ * //     performAutoML: true || false,
+ * //     recipeArn: "STRING_VALUE",
+ * //     eventType: "STRING_VALUE",
+ * //     datasetGroupArn: "STRING_VALUE",
+ * //     solutionConfig: { // SolutionConfig
+ * //       eventValueThreshold: "STRING_VALUE",
+ * //       hpoConfig: { // HPOConfig
+ * //         hpoObjective: { // HPOObjective
+ * //           type: "STRING_VALUE",
+ * //           metricName: "STRING_VALUE",
+ * //           metricRegex: "STRING_VALUE",
+ * //         },
+ * //         hpoResourceConfig: { // HPOResourceConfig
+ * //           maxNumberOfTrainingJobs: "STRING_VALUE",
+ * //           maxParallelTrainingJobs: "STRING_VALUE",
+ * //         },
+ * //         algorithmHyperParameterRanges: { // HyperParameterRanges
+ * //           integerHyperParameterRanges: [ // IntegerHyperParameterRanges
+ * //             { // IntegerHyperParameterRange
+ * //               name: "STRING_VALUE",
+ * //               minValue: Number("int"),
+ * //               maxValue: Number("int"),
+ * //             },
+ * //           ],
+ * //           continuousHyperParameterRanges: [ // ContinuousHyperParameterRanges
+ * //             { // ContinuousHyperParameterRange
+ * //               name: "STRING_VALUE",
+ * //               minValue: Number("double"),
+ * //               maxValue: Number("double"),
+ * //             },
+ * //           ],
+ * //           categoricalHyperParameterRanges: [ // CategoricalHyperParameterRanges
+ * //             { // CategoricalHyperParameterRange
+ * //               name: "STRING_VALUE",
+ * //               values: [ // CategoricalValues
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       algorithmHyperParameters: { // HyperParameters
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       featureTransformationParameters: { // FeatureTransformationParameters
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       autoMLConfig: { // AutoMLConfig
+ * //         metricName: "STRING_VALUE",
+ * //         recipeList: [ // ArnList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       optimizationObjective: { // OptimizationObjective
+ * //         itemAttribute: "STRING_VALUE",
+ * //         objectiveSensitivity: "LOW" || "MEDIUM" || "HIGH" || "OFF",
+ * //       },
+ * //     },
+ * //     trainingHours: Number("double"),
+ * //     trainingMode: "FULL" || "UPDATE",
+ * //     tunedHPOParams: { // TunedHPOParams
+ * //       algorithmHyperParameters: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     status: "STRING_VALUE",
+ * //     failureReason: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeSolutionVersionCommandInput - {@link DescribeSolutionVersionCommandInput}
@@ -59,6 +137,8 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DescribeSolutionVersionCommand extends $Command<

@@ -58,6 +58,13 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  * };
  * const command = new UntagCommand(input);
  * const response = await client.send(command);
+ * // { // UntagOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Keys: [ // TagKeyList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UntagCommandInput - {@link UntagCommandInput}
@@ -85,6 +92,8 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  *  <p>You've exceeded throttling limits by making too many requests in a period of
  *             time.</p>
  *
+ * @throws {@link ResourceGroupsServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
  */
 export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput, ResourceGroupsClientResolvedConfig> {

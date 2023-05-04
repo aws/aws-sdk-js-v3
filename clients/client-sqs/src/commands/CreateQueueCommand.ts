@@ -101,6 +101,10 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * };
  * const command = new CreateQueueCommand(input);
  * const response = await client.send(command);
+ * // { // CreateQueueResult
+ * //   QueueUrl: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateQueueCommandInput - {@link CreateQueueCommandInput}
@@ -117,6 +121,8 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *  <p>A queue with this name already exists. Amazon SQS returns this error only if the request
  *             includes attributes whose values differ from those of the existing queue.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class CreateQueueCommand extends $Command<

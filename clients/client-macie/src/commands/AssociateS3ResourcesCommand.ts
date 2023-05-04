@@ -58,6 +58,19 @@ export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesR
  * };
  * const command = new AssociateS3ResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateS3ResourcesResult
+ * //   failedS3Resources: [ // FailedS3Resources
+ * //     { // FailedS3Resource
+ * //       failedItem: { // S3Resource
+ * //         bucketName: "STRING_VALUE", // required
+ * //         prefix: "STRING_VALUE",
+ * //       },
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param AssociateS3ResourcesCommandInput - {@link AssociateS3ResourcesCommandInput}
@@ -80,6 +93,8 @@ export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesR
  *  <p>(Discontinued) The request was rejected because it attempted to create resources beyond the current
  *       Amazon Web Services account quotas. The error code describes the quota exceeded.</p>
  *
+ * @throws {@link MacieServiceException}
+ * <p>Base exception class for all service exceptions from Macie service.</p>
  *
  */
 export class AssociateS3ResourcesCommand extends $Command<

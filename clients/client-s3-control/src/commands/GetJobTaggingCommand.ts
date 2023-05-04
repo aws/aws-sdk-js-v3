@@ -70,6 +70,15 @@ export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __Metad
  * };
  * const command = new GetJobTaggingCommand(input);
  * const response = await client.send(command);
+ * // { // GetJobTaggingResult
+ * //   Tags: [ // S3TagSet
+ * //     { // S3Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetJobTaggingCommandInput - {@link GetJobTaggingCommandInput}
@@ -87,6 +96,8 @@ export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __Metad
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class GetJobTaggingCommand extends $Command<

@@ -55,6 +55,17 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  * };
  * const command = new RetrieveEnvironmentInfoCommand(input);
  * const response = await client.send(command);
+ * // { // RetrieveEnvironmentInfoResultMessage
+ * //   EnvironmentInfo: [ // EnvironmentInfoDescriptionList
+ * //     { // EnvironmentInfoDescription
+ * //       InfoType: "tail" || "bundle",
+ * //       Ec2InstanceId: "STRING_VALUE",
+ * //       SampleTimestamp: new Date("TIMESTAMP"),
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param RetrieveEnvironmentInfoCommandInput - {@link RetrieveEnvironmentInfoCommandInput}
@@ -63,6 +74,8 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  * @see {@link RetrieveEnvironmentInfoCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To retrieve tailed logs
  * ```javascript

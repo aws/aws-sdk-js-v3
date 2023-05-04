@@ -156,6 +156,8 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutMetricAlarmCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutMetricAlarmCommandInput - {@link PutMetricAlarmCommandInput}
@@ -167,6 +169,8 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * @throws {@link LimitExceededFault} (client fault)
  *  <p>The quota for alarms for this customer has already been reached.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class PutMetricAlarmCommand extends $Command<

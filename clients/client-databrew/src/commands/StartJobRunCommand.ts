@@ -44,6 +44,10 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * };
  * const command = new StartJobRunCommand(input);
  * const response = await client.send(command);
+ * // { // StartJobRunResponse
+ * //   RunId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param StartJobRunCommandInput - {@link StartJobRunCommandInput}
@@ -64,6 +68,8 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class StartJobRunCommand extends $Command<

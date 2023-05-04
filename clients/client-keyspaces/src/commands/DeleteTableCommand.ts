@@ -49,6 +49,8 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * };
  * const command = new DeleteTableCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTableCommandInput - {@link DeleteTableCommandInput}
@@ -78,6 +80,8 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class DeleteTableCommand extends $Command<

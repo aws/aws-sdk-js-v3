@@ -48,6 +48,8 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  * };
  * const command = new ResumeContactRecordingCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ResumeContactRecordingCommandInput - {@link ResumeContactRecordingCommandInput}
@@ -65,6 +67,8 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ResumeContactRecordingCommand extends $Command<

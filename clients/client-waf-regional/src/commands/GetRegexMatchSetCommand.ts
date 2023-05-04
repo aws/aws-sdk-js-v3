@@ -52,6 +52,23 @@ export interface GetRegexMatchSetCommandOutput extends GetRegexMatchSetResponse,
  * };
  * const command = new GetRegexMatchSetCommand(input);
  * const response = await client.send(command);
+ * // { // GetRegexMatchSetResponse
+ * //   RegexMatchSet: { // RegexMatchSet
+ * //     RegexMatchSetId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     RegexMatchTuples: [ // RegexMatchTuples
+ * //       { // RegexMatchTuple
+ * //         FieldToMatch: { // FieldToMatch
+ * //           Type: "STRING_VALUE", // required
+ * //           Data: "STRING_VALUE",
+ * //         },
+ * //         TextTransformation: "STRING_VALUE", // required
+ * //         RegexPatternSetId: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetRegexMatchSetCommandInput - {@link GetRegexMatchSetCommandInput}
@@ -69,6 +86,8 @@ export interface GetRegexMatchSetCommandOutput extends GetRegexMatchSetResponse,
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class GetRegexMatchSetCommand extends $Command<

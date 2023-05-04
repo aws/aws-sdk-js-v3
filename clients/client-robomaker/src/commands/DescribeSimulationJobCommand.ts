@@ -44,6 +44,158 @@ export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJo
  * };
  * const command = new DescribeSimulationJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSimulationJobResponse
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   lastStartedAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   failureBehavior: "STRING_VALUE",
+ * //   failureCode: "STRING_VALUE",
+ * //   failureReason: "STRING_VALUE",
+ * //   clientRequestToken: "STRING_VALUE",
+ * //   outputLocation: { // OutputLocation
+ * //     s3Bucket: "STRING_VALUE",
+ * //     s3Prefix: "STRING_VALUE",
+ * //   },
+ * //   loggingConfig: { // LoggingConfig
+ * //     recordAllRosTopics: true || false,
+ * //   },
+ * //   maxJobDurationInSeconds: Number("long"),
+ * //   simulationTimeMillis: Number("long"),
+ * //   iamRole: "STRING_VALUE",
+ * //   robotApplications: [ // RobotApplicationConfigs
+ * //     { // RobotApplicationConfig
+ * //       application: "STRING_VALUE", // required
+ * //       applicationVersion: "STRING_VALUE",
+ * //       launchConfig: { // LaunchConfig
+ * //         packageName: "STRING_VALUE",
+ * //         launchFile: "STRING_VALUE",
+ * //         environmentVariables: { // EnvironmentVariableMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         portForwardingConfig: { // PortForwardingConfig
+ * //           portMappings: [ // PortMappingList
+ * //             { // PortMapping
+ * //               jobPort: Number("int"), // required
+ * //               applicationPort: Number("int"), // required
+ * //               enableOnPublicIp: true || false,
+ * //             },
+ * //           ],
+ * //         },
+ * //         streamUI: true || false,
+ * //         command: [ // CommandList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       uploadConfigurations: [ // UploadConfigurations
+ * //         { // UploadConfiguration
+ * //           name: "STRING_VALUE", // required
+ * //           path: "STRING_VALUE", // required
+ * //           uploadBehavior: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       useDefaultUploadConfigurations: true || false,
+ * //       tools: [ // Tools
+ * //         { // Tool
+ * //           streamUI: true || false,
+ * //           name: "STRING_VALUE", // required
+ * //           command: "STRING_VALUE", // required
+ * //           streamOutputToCloudWatch: true || false,
+ * //           exitBehavior: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       useDefaultTools: true || false,
+ * //     },
+ * //   ],
+ * //   simulationApplications: [ // SimulationApplicationConfigs
+ * //     { // SimulationApplicationConfig
+ * //       application: "STRING_VALUE", // required
+ * //       applicationVersion: "STRING_VALUE",
+ * //       launchConfig: {
+ * //         packageName: "STRING_VALUE",
+ * //         launchFile: "STRING_VALUE",
+ * //         environmentVariables: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         portForwardingConfig: {
+ * //           portMappings: [
+ * //             {
+ * //               jobPort: Number("int"), // required
+ * //               applicationPort: Number("int"), // required
+ * //               enableOnPublicIp: true || false,
+ * //             },
+ * //           ],
+ * //         },
+ * //         streamUI: true || false,
+ * //         command: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       uploadConfigurations: [
+ * //         {
+ * //           name: "STRING_VALUE", // required
+ * //           path: "STRING_VALUE", // required
+ * //           uploadBehavior: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       worldConfigs: [ // WorldConfigs
+ * //         { // WorldConfig
+ * //           world: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       useDefaultUploadConfigurations: true || false,
+ * //       tools: [
+ * //         {
+ * //           streamUI: true || false,
+ * //           name: "STRING_VALUE", // required
+ * //           command: "STRING_VALUE", // required
+ * //           streamOutputToCloudWatch: true || false,
+ * //           exitBehavior: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       useDefaultTools: true || false,
+ * //     },
+ * //   ],
+ * //   dataSources: [ // DataSources
+ * //     { // DataSource
+ * //       name: "STRING_VALUE",
+ * //       s3Bucket: "STRING_VALUE",
+ * //       s3Keys: [ // S3KeyOutputs
+ * //         { // S3KeyOutput
+ * //           s3Key: "STRING_VALUE",
+ * //           etag: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       type: "STRING_VALUE",
+ * //       destination: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   vpcConfig: { // VPCConfigResponse
+ * //     subnets: [ // Subnets
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     securityGroups: [ // SecurityGroups
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     vpcId: "STRING_VALUE",
+ * //     assignPublicIp: true || false,
+ * //   },
+ * //   networkInterface: { // NetworkInterface
+ * //     networkInterfaceId: "STRING_VALUE",
+ * //     privateIpAddress: "STRING_VALUE",
+ * //     publicIpAddress: "STRING_VALUE",
+ * //   },
+ * //   compute: { // ComputeResponse
+ * //     simulationUnitLimit: Number("int"),
+ * //     computeType: "STRING_VALUE",
+ * //     gpuUnitLimit: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeSimulationJobCommandInput - {@link DescribeSimulationJobCommandInput}
@@ -65,6 +217,8 @@ export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class DescribeSimulationJobCommand extends $Command<

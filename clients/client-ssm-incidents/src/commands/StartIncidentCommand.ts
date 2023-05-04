@@ -73,6 +73,10 @@ export interface StartIncidentCommandOutput extends StartIncidentOutput, __Metad
  * };
  * const command = new StartIncidentCommand(input);
  * const response = await client.send(command);
+ * // { // StartIncidentOutput
+ * //   incidentRecordArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param StartIncidentCommandInput - {@link StartIncidentCommandInput}
@@ -101,6 +105,8 @@ export interface StartIncidentCommandOutput extends StartIncidentOutput, __Metad
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class StartIncidentCommand extends $Command<

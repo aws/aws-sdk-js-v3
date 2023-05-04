@@ -46,6 +46,29 @@ export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultP
  * };
  * const command = new DescribeDefaultParametersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDefaultParametersResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Parameters: [ // ParameterList
+ * //     { // Parameter
+ * //       ParameterName: "STRING_VALUE",
+ * //       ParameterType: "STRING_VALUE",
+ * //       ParameterValue: "STRING_VALUE",
+ * //       NodeTypeSpecificValues: [ // NodeTypeSpecificValueList
+ * //         { // NodeTypeSpecificValue
+ * //           NodeType: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Description: "STRING_VALUE",
+ * //       Source: "STRING_VALUE",
+ * //       DataType: "STRING_VALUE",
+ * //       AllowedValues: "STRING_VALUE",
+ * //       IsModifiable: "STRING_VALUE",
+ * //       ChangeType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeDefaultParametersCommandInput - {@link DescribeDefaultParametersCommandInput}
@@ -63,6 +86,8 @@ export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultP
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class DescribeDefaultParametersCommand extends $Command<

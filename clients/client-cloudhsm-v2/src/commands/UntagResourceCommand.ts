@@ -47,6 +47,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -76,6 +78,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link CloudHsmTagException} (client fault)
  *  <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

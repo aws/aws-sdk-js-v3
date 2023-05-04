@@ -47,6 +47,28 @@ export interface ListNotificationChannelsCommandOutput extends ListNotificationC
  * };
  * const command = new ListNotificationChannelsCommand(input);
  * const response = await client.send(command);
+ * // { // ListNotificationChannelsResponse
+ * //   Channels: [ // Channels
+ * //     { // NotificationChannel
+ * //       Id: "STRING_VALUE",
+ * //       Config: { // NotificationChannelConfig
+ * //         Sns: { // SnsChannelConfig
+ * //           TopicArn: "STRING_VALUE",
+ * //         },
+ * //         Filters: { // NotificationFilterConfig
+ * //           Severities: [ // InsightSeverities
+ * //             "LOW" || "MEDIUM" || "HIGH",
+ * //           ],
+ * //           MessageTypes: [ // NotificationMessageTypes
+ * //             "NEW_INSIGHT" || "CLOSED_INSIGHT" || "NEW_ASSOCIATION" || "SEVERITY_UPGRADED" || "NEW_RECOMMENDATION",
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListNotificationChannelsCommandInput - {@link ListNotificationChannelsCommandInput}
@@ -71,6 +93,8 @@ export interface ListNotificationChannelsCommandOutput extends ListNotificationC
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class ListNotificationChannelsCommand extends $Command<

@@ -55,6 +55,20 @@ export interface CreateGUISessionAccessDetailsCommandOutput
  * };
  * const command = new CreateGUISessionAccessDetailsCommand(input);
  * const response = await client.send(command);
+ * // { // CreateGUISessionAccessDetailsResult
+ * //   resourceName: "STRING_VALUE",
+ * //   status: "startExpired" || "notStarted" || "started" || "starting" || "stopped" || "stopping" || "settingUpInstance" || "failedInstanceCreation" || "failedStartingGUISession" || "failedStoppingGUISession",
+ * //   percentageComplete: Number("int"),
+ * //   failureReason: "STRING_VALUE",
+ * //   sessions: [ // Sessions
+ * //     { // Session
+ * //       name: "STRING_VALUE",
+ * //       url: "STRING_VALUE",
+ * //       isPrimary: true || false,
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param CreateGUISessionAccessDetailsCommandInput - {@link CreateGUISessionAccessDetailsCommandInput}
@@ -86,6 +100,8 @@ export interface CreateGUISessionAccessDetailsCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class CreateGUISessionAccessDetailsCommand extends $Command<

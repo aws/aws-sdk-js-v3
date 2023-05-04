@@ -65,6 +65,25 @@ export interface CreateTrafficMirrorTargetCommandOutput extends CreateTrafficMir
  * };
  * const command = new CreateTrafficMirrorTargetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTrafficMirrorTargetResult
+ * //   TrafficMirrorTarget: { // TrafficMirrorTarget
+ * //     TrafficMirrorTargetId: "STRING_VALUE",
+ * //     NetworkInterfaceId: "STRING_VALUE",
+ * //     NetworkLoadBalancerArn: "STRING_VALUE",
+ * //     Type: "network-interface" || "network-load-balancer" || "gateway-load-balancer-endpoint",
+ * //     Description: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     GatewayLoadBalancerEndpointId: "STRING_VALUE",
+ * //   },
+ * //   ClientToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateTrafficMirrorTargetCommandInput - {@link CreateTrafficMirrorTargetCommandInput}
@@ -73,6 +92,8 @@ export interface CreateTrafficMirrorTargetCommandOutput extends CreateTrafficMir
  * @see {@link CreateTrafficMirrorTargetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateTrafficMirrorTargetCommand extends $Command<

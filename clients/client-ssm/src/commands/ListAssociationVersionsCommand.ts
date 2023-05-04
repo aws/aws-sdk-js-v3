@@ -50,6 +50,78 @@ export interface ListAssociationVersionsCommandOutput extends ListAssociationVer
  * };
  * const command = new ListAssociationVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAssociationVersionsResult
+ * //   AssociationVersions: [ // AssociationVersionList
+ * //     { // AssociationVersionInfo
+ * //       AssociationId: "STRING_VALUE",
+ * //       AssociationVersion: "STRING_VALUE",
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       Name: "STRING_VALUE",
+ * //       DocumentVersion: "STRING_VALUE",
+ * //       Parameters: { // Parameters
+ * //         "<keys>": [ // ParameterValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Targets: [ // Targets
+ * //         { // Target
+ * //           Key: "STRING_VALUE",
+ * //           Values: [ // TargetValues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       ScheduleExpression: "STRING_VALUE",
+ * //       OutputLocation: { // InstanceAssociationOutputLocation
+ * //         S3Location: { // S3OutputLocation
+ * //           OutputS3Region: "STRING_VALUE",
+ * //           OutputS3BucketName: "STRING_VALUE",
+ * //           OutputS3KeyPrefix: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       AssociationName: "STRING_VALUE",
+ * //       MaxErrors: "STRING_VALUE",
+ * //       MaxConcurrency: "STRING_VALUE",
+ * //       ComplianceSeverity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "UNSPECIFIED",
+ * //       SyncCompliance: "AUTO" || "MANUAL",
+ * //       ApplyOnlyAtCronInterval: true || false,
+ * //       CalendarNames: [ // CalendarNameOrARNList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       TargetLocations: [ // TargetLocations
+ * //         { // TargetLocation
+ * //           Accounts: [ // Accounts
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Regions: [ // Regions
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           TargetLocationMaxConcurrency: "STRING_VALUE",
+ * //           TargetLocationMaxErrors: "STRING_VALUE",
+ * //           ExecutionRoleName: "STRING_VALUE",
+ * //           TargetLocationAlarmConfiguration: { // AlarmConfiguration
+ * //             IgnorePollAlarmFailure: true || false,
+ * //             Alarms: [ // AlarmList // required
+ * //               { // Alarm
+ * //                 Name: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       ],
+ * //       ScheduleOffset: Number("int"),
+ * //       TargetMaps: [ // TargetMaps
+ * //         { // TargetMap
+ * //           "<keys>": [ // TargetMapValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAssociationVersionsCommandInput - {@link ListAssociationVersionsCommandInput}
@@ -67,6 +139,8 @@ export interface ListAssociationVersionsCommandOutput extends ListAssociationVer
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ListAssociationVersionsCommand extends $Command<

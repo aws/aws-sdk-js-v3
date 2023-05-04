@@ -56,6 +56,10 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * };
  * const command = new CreateIndexCommand(input);
  * const response = await client.send(command);
+ * // { // CreateIndexResponse
+ * //   ObjectIdentifier: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateIndexCommandInput - {@link CreateIndexCommandInput}
@@ -100,6 +104,8 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class CreateIndexCommand extends $Command<

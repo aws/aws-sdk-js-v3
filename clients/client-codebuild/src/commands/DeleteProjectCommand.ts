@@ -45,6 +45,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectOutput, __Metad
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
@@ -56,6 +58,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectOutput, __Metad
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class DeleteProjectCommand extends $Command<

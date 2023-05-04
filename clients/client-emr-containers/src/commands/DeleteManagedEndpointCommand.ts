@@ -47,6 +47,11 @@ export interface DeleteManagedEndpointCommandOutput extends DeleteManagedEndpoin
  * };
  * const command = new DeleteManagedEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteManagedEndpointResponse
+ * //   id: "STRING_VALUE",
+ * //   virtualClusterId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteManagedEndpointCommandInput - {@link DeleteManagedEndpointCommandInput}
@@ -61,6 +66,8 @@ export interface DeleteManagedEndpointCommandOutput extends DeleteManagedEndpoin
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class DeleteManagedEndpointCommand extends $Command<

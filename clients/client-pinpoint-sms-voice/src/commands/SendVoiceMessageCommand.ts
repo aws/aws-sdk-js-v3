@@ -62,6 +62,10 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse,
  * };
  * const command = new SendVoiceMessageCommand(input);
  * const response = await client.send(command);
+ * // { // SendVoiceMessageResponse
+ * //   MessageId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param SendVoiceMessageCommandInput - {@link SendVoiceMessageCommandInput}
@@ -79,6 +83,8 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  You've issued too many requests to the resource. Wait a few minutes, and then try again.
  *
+ * @throws {@link PinpointSMSVoiceServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
  */
 export class SendVoiceMessageCommand extends $Command<

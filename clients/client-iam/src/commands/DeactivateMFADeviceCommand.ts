@@ -49,6 +49,8 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeactivateMFADeviceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeactivateMFADeviceCommandInput - {@link DeactivateMFADeviceCommandInput}
@@ -75,6 +77,8 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DeactivateMFADeviceCommand extends $Command<

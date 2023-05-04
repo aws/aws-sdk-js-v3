@@ -413,6 +413,11 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * };
  * const command = new RestoreObjectCommand(input);
  * const response = await client.send(command);
+ * // { // RestoreObjectOutput
+ * //   RequestCharged: "requester",
+ * //   RestoreOutputPath: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RestoreObjectCommandInput - {@link RestoreObjectCommandInput}
@@ -424,6 +429,8 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * @throws {@link ObjectAlreadyInActiveTierError} (client fault)
  *  <p>This action is not allowed against this storage tier.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To restore an archived object
  * ```javascript

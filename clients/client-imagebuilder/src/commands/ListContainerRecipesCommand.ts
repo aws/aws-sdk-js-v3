@@ -54,6 +54,25 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  * };
  * const command = new ListContainerRecipesCommand(input);
  * const response = await client.send(command);
+ * // { // ListContainerRecipesResponse
+ * //   requestId: "STRING_VALUE",
+ * //   containerRecipeSummaryList: [ // ContainerRecipeSummaryList
+ * //     { // ContainerRecipeSummary
+ * //       arn: "STRING_VALUE",
+ * //       containerType: "DOCKER",
+ * //       name: "STRING_VALUE",
+ * //       platform: "Windows" || "Linux",
+ * //       owner: "STRING_VALUE",
+ * //       parentImage: "STRING_VALUE",
+ * //       dateCreated: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListContainerRecipesCommandInput - {@link ListContainerRecipesCommandInput}
@@ -86,6 +105,8 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListContainerRecipesCommand extends $Command<

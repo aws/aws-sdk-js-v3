@@ -402,8 +402,8 @@ export interface AppSyncClientResolvedConfig extends AppSyncClientResolvedConfig
 
 /**
  * @public
- * <p>AppSync provides API actions for creating and interacting with data sources using GraphQL
- *          from your application.</p>
+ * <p>AppSync provides API actions for creating and interacting with data
+ *          sources using GraphQL from your application.</p>
  */
 export class AppSyncClient extends __Client<
   __HttpHandlerOptions,

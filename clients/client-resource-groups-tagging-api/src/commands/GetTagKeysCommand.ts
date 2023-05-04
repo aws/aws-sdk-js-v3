@@ -55,6 +55,13 @@ export interface GetTagKeysCommandOutput extends GetTagKeysOutput, __MetadataBea
  * };
  * const command = new GetTagKeysCommand(input);
  * const response = await client.send(command);
+ * // { // GetTagKeysOutput
+ * //   PaginationToken: "STRING_VALUE",
+ * //   TagKeys: [ // TagKeyList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetTagKeysCommandInput - {@link GetTagKeysCommandInput}
@@ -97,6 +104,8 @@ export interface GetTagKeysCommandOutput extends GetTagKeysOutput, __MetadataBea
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request was denied to limit the frequency of submitted requests.</p>
  *
+ * @throws {@link ResourceGroupsTaggingAPIServiceException}
+ * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
 export class GetTagKeysCommand extends $Command<

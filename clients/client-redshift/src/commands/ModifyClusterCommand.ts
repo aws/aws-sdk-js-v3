@@ -80,6 +80,180 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * };
  * const command = new ModifyClusterCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyClusterResult
+ * //   Cluster: { // Cluster
+ * //     ClusterIdentifier: "STRING_VALUE",
+ * //     NodeType: "STRING_VALUE",
+ * //     ClusterStatus: "STRING_VALUE",
+ * //     ClusterAvailabilityStatus: "STRING_VALUE",
+ * //     ModifyStatus: "STRING_VALUE",
+ * //     MasterUsername: "STRING_VALUE",
+ * //     DBName: "STRING_VALUE",
+ * //     Endpoint: { // Endpoint
+ * //       Address: "STRING_VALUE",
+ * //       Port: Number("int"),
+ * //       VpcEndpoints: [ // VpcEndpointsList
+ * //         { // VpcEndpoint
+ * //           VpcEndpointId: "STRING_VALUE",
+ * //           VpcId: "STRING_VALUE",
+ * //           NetworkInterfaces: [ // NetworkInterfaceList
+ * //             { // NetworkInterface
+ * //               NetworkInterfaceId: "STRING_VALUE",
+ * //               SubnetId: "STRING_VALUE",
+ * //               PrivateIpAddress: "STRING_VALUE",
+ * //               AvailabilityZone: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //     ClusterCreateTime: new Date("TIMESTAMP"),
+ * //     AutomatedSnapshotRetentionPeriod: Number("int"),
+ * //     ManualSnapshotRetentionPeriod: Number("int"),
+ * //     ClusterSecurityGroups: [ // ClusterSecurityGroupMembershipList
+ * //       { // ClusterSecurityGroupMembership
+ * //         ClusterSecurityGroupName: "STRING_VALUE",
+ * //         Status: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ * //       { // VpcSecurityGroupMembership
+ * //         VpcSecurityGroupId: "STRING_VALUE",
+ * //         Status: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ClusterParameterGroups: [ // ClusterParameterGroupStatusList
+ * //       { // ClusterParameterGroupStatus
+ * //         ParameterGroupName: "STRING_VALUE",
+ * //         ParameterApplyStatus: "STRING_VALUE",
+ * //         ClusterParameterStatusList: [ // ClusterParameterStatusList
+ * //           { // ClusterParameterStatus
+ * //             ParameterName: "STRING_VALUE",
+ * //             ParameterApplyStatus: "STRING_VALUE",
+ * //             ParameterApplyErrorDescription: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     ClusterSubnetGroupName: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     PendingModifiedValues: { // PendingModifiedValues
+ * //       MasterUserPassword: "STRING_VALUE",
+ * //       NodeType: "STRING_VALUE",
+ * //       NumberOfNodes: Number("int"),
+ * //       ClusterType: "STRING_VALUE",
+ * //       ClusterVersion: "STRING_VALUE",
+ * //       AutomatedSnapshotRetentionPeriod: Number("int"),
+ * //       ClusterIdentifier: "STRING_VALUE",
+ * //       PubliclyAccessible: true || false,
+ * //       EnhancedVpcRouting: true || false,
+ * //       MaintenanceTrackName: "STRING_VALUE",
+ * //       EncryptionType: "STRING_VALUE",
+ * //     },
+ * //     ClusterVersion: "STRING_VALUE",
+ * //     AllowVersionUpgrade: true || false,
+ * //     NumberOfNodes: Number("int"),
+ * //     PubliclyAccessible: true || false,
+ * //     Encrypted: true || false,
+ * //     RestoreStatus: { // RestoreStatus
+ * //       Status: "STRING_VALUE",
+ * //       CurrentRestoreRateInMegaBytesPerSecond: Number("double"),
+ * //       SnapshotSizeInMegaBytes: Number("long"),
+ * //       ProgressInMegaBytes: Number("long"),
+ * //       ElapsedTimeInSeconds: Number("long"),
+ * //       EstimatedTimeToCompletionInSeconds: Number("long"),
+ * //     },
+ * //     DataTransferProgress: { // DataTransferProgress
+ * //       Status: "STRING_VALUE",
+ * //       CurrentRateInMegaBytesPerSecond: Number("double"),
+ * //       TotalDataInMegaBytes: Number("long"),
+ * //       DataTransferredInMegaBytes: Number("long"),
+ * //       EstimatedTimeToCompletionInSeconds: Number("long"),
+ * //       ElapsedTimeInSeconds: Number("long"),
+ * //     },
+ * //     HsmStatus: { // HsmStatus
+ * //       HsmClientCertificateIdentifier: "STRING_VALUE",
+ * //       HsmConfigurationIdentifier: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //     },
+ * //     ClusterSnapshotCopyStatus: { // ClusterSnapshotCopyStatus
+ * //       DestinationRegion: "STRING_VALUE",
+ * //       RetentionPeriod: Number("long"),
+ * //       ManualSnapshotRetentionPeriod: Number("int"),
+ * //       SnapshotCopyGrantName: "STRING_VALUE",
+ * //     },
+ * //     ClusterPublicKey: "STRING_VALUE",
+ * //     ClusterNodes: [ // ClusterNodesList
+ * //       { // ClusterNode
+ * //         NodeRole: "STRING_VALUE",
+ * //         PrivateIPAddress: "STRING_VALUE",
+ * //         PublicIPAddress: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ElasticIpStatus: { // ElasticIpStatus
+ * //       ElasticIp: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //     },
+ * //     ClusterRevisionNumber: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     EnhancedVpcRouting: true || false,
+ * //     IamRoles: [ // ClusterIamRoleList
+ * //       { // ClusterIamRole
+ * //         IamRoleArn: "STRING_VALUE",
+ * //         ApplyStatus: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     PendingActions: [ // PendingActionsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     MaintenanceTrackName: "STRING_VALUE",
+ * //     ElasticResizeNumberOfNodeOptions: "STRING_VALUE",
+ * //     DeferredMaintenanceWindows: [ // DeferredMaintenanceWindowsList
+ * //       { // DeferredMaintenanceWindow
+ * //         DeferMaintenanceIdentifier: "STRING_VALUE",
+ * //         DeferMaintenanceStartTime: new Date("TIMESTAMP"),
+ * //         DeferMaintenanceEndTime: new Date("TIMESTAMP"),
+ * //       },
+ * //     ],
+ * //     SnapshotScheduleIdentifier: "STRING_VALUE",
+ * //     SnapshotScheduleState: "MODIFYING" || "ACTIVE" || "FAILED",
+ * //     ExpectedNextSnapshotScheduleTime: new Date("TIMESTAMP"),
+ * //     ExpectedNextSnapshotScheduleTimeStatus: "STRING_VALUE",
+ * //     NextMaintenanceWindowStartTime: new Date("TIMESTAMP"),
+ * //     ResizeInfo: { // ResizeInfo
+ * //       ResizeType: "STRING_VALUE",
+ * //       AllowCancelResize: true || false,
+ * //     },
+ * //     AvailabilityZoneRelocationStatus: "STRING_VALUE",
+ * //     ClusterNamespaceArn: "STRING_VALUE",
+ * //     TotalStorageCapacityInMegaBytes: Number("long"),
+ * //     AquaConfiguration: { // AquaConfiguration
+ * //       AquaStatus: "enabled" || "disabled" || "applying",
+ * //       AquaConfigurationStatus: "enabled" || "disabled" || "auto",
+ * //     },
+ * //     DefaultIamRoleArn: "STRING_VALUE",
+ * //     ReservedNodeExchangeStatus: { // ReservedNodeExchangeStatus
+ * //       ReservedNodeExchangeRequestId: "STRING_VALUE",
+ * //       Status: "REQUESTED" || "PENDING" || "IN_PROGRESS" || "RETRYING" || "SUCCEEDED" || "FAILED",
+ * //       RequestTime: new Date("TIMESTAMP"),
+ * //       SourceReservedNodeId: "STRING_VALUE",
+ * //       SourceReservedNodeType: "STRING_VALUE",
+ * //       SourceReservedNodeCount: Number("int"),
+ * //       TargetReservedNodeOfferingId: "STRING_VALUE",
+ * //       TargetReservedNodeType: "STRING_VALUE",
+ * //       TargetReservedNodeCount: Number("int"),
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ModifyClusterCommandInput - {@link ModifyClusterCommandInput}
@@ -156,6 +330,8 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * @throws {@link UnsupportedOptionFault} (client fault)
  *  <p>A request option was specified that is not supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ModifyClusterCommand extends $Command<

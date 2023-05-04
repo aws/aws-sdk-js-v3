@@ -45,6 +45,28 @@ export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityG
  * };
  * const command = new ListInputSecurityGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListInputSecurityGroupsResponse
+ * //   InputSecurityGroups: [ // __listOfInputSecurityGroup
+ * //     { // InputSecurityGroup
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Inputs: [ // __listOf__string
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       State: "IDLE" || "IN_USE" || "UPDATING" || "DELETED",
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       WhitelistRules: [ // __listOfInputWhitelistRule
+ * //         { // InputWhitelistRule
+ * //           Cidr: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListInputSecurityGroupsCommandInput - {@link ListInputSecurityGroupsCommandInput}
@@ -71,6 +93,8 @@ export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityG
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class ListInputSecurityGroupsCommand extends $Command<

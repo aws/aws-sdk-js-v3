@@ -55,6 +55,51 @@ export interface GetLendingAnalysisSummaryCommandOutput extends GetLendingAnalys
  * };
  * const command = new GetLendingAnalysisSummaryCommand(input);
  * const response = await client.send(command);
+ * // { // GetLendingAnalysisSummaryResponse
+ * //   DocumentMetadata: { // DocumentMetadata
+ * //     Pages: Number("int"),
+ * //   },
+ * //   JobStatus: "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "PARTIAL_SUCCESS",
+ * //   Summary: { // LendingSummary
+ * //     DocumentGroups: [ // DocumentGroupList
+ * //       { // DocumentGroup
+ * //         Type: "STRING_VALUE",
+ * //         SplitDocuments: [ // SplitDocumentList
+ * //           { // SplitDocument
+ * //             Index: Number("int"),
+ * //             Pages: [ // PageList
+ * //               Number("int"),
+ * //             ],
+ * //           },
+ * //         ],
+ * //         DetectedSignatures: [ // DetectedSignatureList
+ * //           { // DetectedSignature
+ * //             Page: Number("int"),
+ * //           },
+ * //         ],
+ * //         UndetectedSignatures: [ // UndetectedSignatureList
+ * //           { // UndetectedSignature
+ * //             Page: Number("int"),
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     UndetectedDocumentTypes: [ // UndetectedDocumentTypeList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   Warnings: [ // Warnings
+ * //     { // Warning
+ * //       ErrorCode: "STRING_VALUE",
+ * //       Pages: [ // Pages
+ * //         Number("int"),
+ * //       ],
+ * //     },
+ * //   ],
+ * //   StatusMessage: "STRING_VALUE",
+ * //   AnalyzeLendingModelVersion: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetLendingAnalysisSummaryCommandInput - {@link GetLendingAnalysisSummaryCommandInput}
@@ -97,6 +142,8 @@ export interface GetLendingAnalysisSummaryCommandOutput extends GetLendingAnalys
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link TextractServiceException}
+ * <p>Base exception class for all service exceptions from Textract service.</p>
  *
  */
 export class GetLendingAnalysisSummaryCommand extends $Command<

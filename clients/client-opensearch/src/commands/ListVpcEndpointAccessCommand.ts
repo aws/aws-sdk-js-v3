@@ -46,6 +46,16 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * };
  * const command = new ListVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * // { // ListVpcEndpointAccessResponse
+ * //   AuthorizedPrincipalList: [ // AuthorizedPrincipalList // required
+ * //     { // AuthorizedPrincipal
+ * //       PrincipalType: "AWS_ACCOUNT" || "AWS_SERVICE",
+ * //       Principal: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param ListVpcEndpointAccessCommandInput - {@link ListVpcEndpointAccessCommandInput}
@@ -58,14 +68,16 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  *  <p>An error occurred while processing the request.</p>
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class ListVpcEndpointAccessCommand extends $Command<

@@ -48,6 +48,32 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  * };
  * const command = new ModifyCacheSubnetGroupCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyCacheSubnetGroupResult
+ * //   CacheSubnetGroup: { // CacheSubnetGroup
+ * //     CacheSubnetGroupName: "STRING_VALUE",
+ * //     CacheSubnetGroupDescription: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     Subnets: [ // SubnetList
+ * //       { // Subnet
+ * //         SubnetIdentifier: "STRING_VALUE",
+ * //         SubnetAvailabilityZone: { // AvailabilityZone
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //         SubnetOutpost: { // SubnetOutpost
+ * //           SubnetOutpostArn: "STRING_VALUE",
+ * //         },
+ * //         SupportedNetworkTypes: [ // NetworkTypeList
+ * //           "ipv4" || "ipv6" || "dual_stack",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     ARN: "STRING_VALUE",
+ * //     SupportedNetworkTypes: [
+ * //       "ipv4" || "ipv6" || "dual_stack",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ModifyCacheSubnetGroupCommandInput - {@link ModifyCacheSubnetGroupCommandInput}
@@ -72,6 +98,8 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  *  <p>At least one subnet ID does not match the other subnet IDs. This mismatch typically occurs when a
  *             user sets one subnet ID to a regional Availability Zone and a different one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed on this service.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example ModifyCacheSubnetGroup
  * ```javascript

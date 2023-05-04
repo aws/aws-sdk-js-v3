@@ -57,6 +57,18 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
  * };
  * const command = new UpdateCloudFrontOriginAccessIdentityCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateCloudFrontOriginAccessIdentityResult
+ * //   CloudFrontOriginAccessIdentity: { // CloudFrontOriginAccessIdentity
+ * //     Id: "STRING_VALUE", // required
+ * //     S3CanonicalUserId: "STRING_VALUE", // required
+ * //     CloudFrontOriginAccessIdentityConfig: { // CloudFrontOriginAccessIdentityConfig
+ * //       CallerReference: "STRING_VALUE", // required
+ * //       Comment: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateCloudFrontOriginAccessIdentityCommandInput - {@link UpdateCloudFrontOriginAccessIdentityCommandInput}
@@ -92,6 +104,8 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
  *  <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<

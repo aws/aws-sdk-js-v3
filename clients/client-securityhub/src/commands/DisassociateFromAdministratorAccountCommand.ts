@@ -54,6 +54,8 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * const input = {};
  * const command = new DisassociateFromAdministratorAccountCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateFromAdministratorAccountCommandInput - {@link DisassociateFromAdministratorAccountCommandInput}
@@ -79,6 +81,8 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To disassociate requesting account from administrator account
  * ```javascript

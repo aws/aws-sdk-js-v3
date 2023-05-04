@@ -45,6 +45,17 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * };
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeUserResponse
+ * //   UserId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Email: "STRING_VALUE",
+ * //   DisplayName: "STRING_VALUE",
+ * //   State: "ENABLED" || "DISABLED" || "DELETED",
+ * //   UserRole: "USER" || "RESOURCE" || "SYSTEM_USER",
+ * //   EnabledDate: new Date("TIMESTAMP"),
+ * //   DisabledDate: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeUserCommandInput - {@link DescribeUserCommandInput}
@@ -68,6 +79,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DescribeUserCommand extends $Command<

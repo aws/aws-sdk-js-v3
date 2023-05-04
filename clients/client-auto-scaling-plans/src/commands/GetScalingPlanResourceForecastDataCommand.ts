@@ -62,6 +62,15 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  * };
  * const command = new GetScalingPlanResourceForecastDataCommand(input);
  * const response = await client.send(command);
+ * // { // GetScalingPlanResourceForecastDataResponse
+ * //   Datapoints: [ // Datapoints // required
+ * //     { // Datapoint
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //       Value: Number("double"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetScalingPlanResourceForecastDataCommandInput - {@link GetScalingPlanResourceForecastDataCommandInput}
@@ -76,6 +85,8 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
  *
+ * @throws {@link AutoScalingPlansServiceException}
+ * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
  */
 export class GetScalingPlanResourceForecastDataCommand extends $Command<

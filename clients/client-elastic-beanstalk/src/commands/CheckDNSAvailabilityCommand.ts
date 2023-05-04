@@ -44,6 +44,11 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
  * };
  * const command = new CheckDNSAvailabilityCommand(input);
  * const response = await client.send(command);
+ * // { // CheckDNSAvailabilityResultMessage
+ * //   Available: true || false,
+ * //   FullyQualifiedCNAME: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CheckDNSAvailabilityCommandInput - {@link CheckDNSAvailabilityCommandInput}
@@ -52,6 +57,8 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
  * @see {@link CheckDNSAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To check the availability of a CNAME
  * ```javascript

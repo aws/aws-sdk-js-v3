@@ -53,6 +53,22 @@ export interface DescribeAccountAuditConfigurationCommandOutput
  * const input = {};
  * const command = new DescribeAccountAuditConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAccountAuditConfigurationResponse
+ * //   roleArn: "STRING_VALUE",
+ * //   auditNotificationTargetConfigurations: { // AuditNotificationTargetConfigurations
+ * //     "<keys>": { // AuditNotificationTarget
+ * //       targetArn: "STRING_VALUE",
+ * //       roleArn: "STRING_VALUE",
+ * //       enabled: true || false,
+ * //     },
+ * //   },
+ * //   auditCheckConfigurations: { // AuditCheckConfigurations
+ * //     "<keys>": { // AuditCheckConfiguration
+ * //       enabled: true || false,
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeAccountAuditConfigurationCommandInput - {@link DescribeAccountAuditConfigurationCommandInput}
@@ -67,6 +83,8 @@ export interface DescribeAccountAuditConfigurationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeAccountAuditConfigurationCommand extends $Command<

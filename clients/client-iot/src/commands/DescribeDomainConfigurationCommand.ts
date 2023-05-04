@@ -50,6 +50,30 @@ export interface DescribeDomainConfigurationCommandOutput
  * };
  * const command = new DescribeDomainConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDomainConfigurationResponse
+ * //   domainConfigurationName: "STRING_VALUE",
+ * //   domainConfigurationArn: "STRING_VALUE",
+ * //   domainName: "STRING_VALUE",
+ * //   serverCertificates: [ // ServerCertificates
+ * //     { // ServerCertificateSummary
+ * //       serverCertificateArn: "STRING_VALUE",
+ * //       serverCertificateStatus: "INVALID" || "VALID",
+ * //       serverCertificateStatusDetail: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   authorizerConfig: { // AuthorizerConfig
+ * //     defaultAuthorizerName: "STRING_VALUE",
+ * //     allowAuthorizerOverride: true || false,
+ * //   },
+ * //   domainConfigurationStatus: "ENABLED" || "DISABLED",
+ * //   serviceType: "DATA" || "CREDENTIAL_PROVIDER" || "JOBS",
+ * //   domainType: "ENDPOINT" || "AWS_MANAGED" || "CUSTOMER_MANAGED",
+ * //   lastStatusChangeDate: new Date("TIMESTAMP"),
+ * //   tlsConfig: { // TlsConfig
+ * //     securityPolicy: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeDomainConfigurationCommandInput - {@link DescribeDomainConfigurationCommandInput}
@@ -76,6 +100,8 @@ export interface DescribeDomainConfigurationCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeDomainConfigurationCommand extends $Command<

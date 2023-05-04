@@ -62,6 +62,69 @@ export interface DescribeProvisioningParametersCommandOutput
  * };
  * const command = new DescribeProvisioningParametersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeProvisioningParametersOutput
+ * //   ProvisioningArtifactParameters: [ // ProvisioningArtifactParameters
+ * //     { // ProvisioningArtifactParameter
+ * //       ParameterKey: "STRING_VALUE",
+ * //       DefaultValue: "STRING_VALUE",
+ * //       ParameterType: "STRING_VALUE",
+ * //       IsNoEcho: true || false,
+ * //       Description: "STRING_VALUE",
+ * //       ParameterConstraints: { // ParameterConstraints
+ * //         AllowedValues: [ // AllowedValues
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AllowedPattern: "STRING_VALUE",
+ * //         ConstraintDescription: "STRING_VALUE",
+ * //         MaxLength: "STRING_VALUE",
+ * //         MinLength: "STRING_VALUE",
+ * //         MaxValue: "STRING_VALUE",
+ * //         MinValue: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   ConstraintSummaries: [ // ConstraintSummaries
+ * //     { // ConstraintSummary
+ * //       Type: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   UsageInstructions: [ // UsageInstructions
+ * //     { // UsageInstruction
+ * //       Type: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   TagOptions: [ // TagOptionSummaries
+ * //     { // TagOptionSummary
+ * //       Key: "STRING_VALUE",
+ * //       Values: [ // TagOptionValues
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   ProvisioningArtifactPreferences: { // ProvisioningArtifactPreferences
+ * //     StackSetAccounts: [ // StackSetAccounts
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     StackSetRegions: [ // StackSetRegions
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   ProvisioningArtifactOutputs: [ // ProvisioningArtifactOutputs
+ * //     { // ProvisioningArtifactOutput
+ * //       Key: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ProvisioningArtifactOutputKeys: [
+ * //     {
+ * //       Key: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeProvisioningParametersCommandInput - {@link DescribeProvisioningParametersCommandInput}
@@ -76,6 +139,8 @@ export interface DescribeProvisioningParametersCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeProvisioningParametersCommand extends $Command<

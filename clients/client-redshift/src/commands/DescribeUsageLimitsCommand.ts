@@ -73,6 +73,27 @@ export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __Meta
  * };
  * const command = new DescribeUsageLimitsCommand(input);
  * const response = await client.send(command);
+ * // { // UsageLimitList
+ * //   UsageLimits: [ // UsageLimits
+ * //     { // UsageLimit
+ * //       UsageLimitId: "STRING_VALUE",
+ * //       ClusterIdentifier: "STRING_VALUE",
+ * //       FeatureType: "spectrum" || "concurrency-scaling" || "cross-region-datasharing",
+ * //       LimitType: "time" || "data-scanned",
+ * //       Amount: Number("long"),
+ * //       Period: "daily" || "weekly" || "monthly",
+ * //       BreachAction: "log" || "emit-metric" || "disable",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeUsageLimitsCommandInput - {@link DescribeUsageLimitsCommandInput}
@@ -88,6 +109,8 @@ export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __Meta
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeUsageLimitsCommand extends $Command<

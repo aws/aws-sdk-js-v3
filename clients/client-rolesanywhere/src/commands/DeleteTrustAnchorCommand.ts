@@ -48,6 +48,24 @@ export interface DeleteTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * };
  * const command = new DeleteTrustAnchorCommand(input);
  * const response = await client.send(command);
+ * // { // TrustAnchorDetailResponse
+ * //   trustAnchor: { // TrustAnchorDetail
+ * //     trustAnchorId: "STRING_VALUE",
+ * //     trustAnchorArn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     source: { // Source
+ * //       sourceType: "STRING_VALUE",
+ * //       sourceData: { // SourceData Union: only one key present
+ * //         x509CertificateData: "STRING_VALUE",
+ * //         acmPcaArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     enabled: true || false,
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteTrustAnchorCommandInput - {@link DeleteTrustAnchorCommandInput}
@@ -62,6 +80,8 @@ export interface DeleteTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link RolesAnywhereServiceException}
+ * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  */
 export class DeleteTrustAnchorCommand extends $Command<

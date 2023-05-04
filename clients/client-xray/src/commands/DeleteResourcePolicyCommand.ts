@@ -45,6 +45,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
@@ -63,6 +65,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

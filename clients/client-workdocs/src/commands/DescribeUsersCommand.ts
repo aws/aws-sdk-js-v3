@@ -62,6 +62,36 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * };
  * const command = new DescribeUsersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeUsersResponse
+ * //   Users: [ // OrganizationUserList
+ * //     { // User
+ * //       Id: "STRING_VALUE",
+ * //       Username: "STRING_VALUE",
+ * //       EmailAddress: "STRING_VALUE",
+ * //       GivenName: "STRING_VALUE",
+ * //       Surname: "STRING_VALUE",
+ * //       OrganizationId: "STRING_VALUE",
+ * //       RootFolderId: "STRING_VALUE",
+ * //       RecycleBinFolderId: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "INACTIVE" || "PENDING",
+ * //       Type: "USER" || "ADMIN" || "POWERUSER" || "MINIMALUSER" || "WORKSPACESUSER",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       ModifiedTimestamp: new Date("TIMESTAMP"),
+ * //       TimeZoneId: "STRING_VALUE",
+ * //       Locale: "en" || "fr" || "ko" || "de" || "es" || "ja" || "ru" || "zh_CN" || "zh_TW" || "pt_BR" || "default",
+ * //       Storage: { // UserStorageMetadata
+ * //         StorageUtilizedInBytes: Number("long"),
+ * //         StorageRule: { // StorageRuleType
+ * //           StorageAllocatedInBytes: Number("long"),
+ * //           StorageType: "UNLIMITED" || "QUOTA",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   TotalNumberOfUsers: Number("long"),
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeUsersCommandInput - {@link DescribeUsersCommandInput}
@@ -93,6 +123,8 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DescribeUsersCommand extends $Command<

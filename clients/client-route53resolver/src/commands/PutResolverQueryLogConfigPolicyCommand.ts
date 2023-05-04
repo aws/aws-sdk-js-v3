@@ -51,6 +51,10 @@ export interface PutResolverQueryLogConfigPolicyCommandOutput
  * };
  * const command = new PutResolverQueryLogConfigPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutResolverQueryLogConfigPolicyResponse
+ * //   ReturnValue: true || false,
+ * // };
+ *
  * ```
  *
  * @param PutResolverQueryLogConfigPolicyCommandInput - {@link PutResolverQueryLogConfigPolicyCommandInput}
@@ -77,6 +81,8 @@ export interface PutResolverQueryLogConfigPolicyCommandOutput
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The specified resource doesn't exist.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class PutResolverQueryLogConfigPolicyCommand extends $Command<

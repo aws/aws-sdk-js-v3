@@ -44,6 +44,8 @@ export interface DeleteAddressBookCommandOutput extends DeleteAddressBookRespons
  * };
  * const command = new DeleteAddressBookCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAddressBookCommandInput - {@link DeleteAddressBookCommandInput}
@@ -58,6 +60,8 @@ export interface DeleteAddressBookCommandOutput extends DeleteAddressBookRespons
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DeleteAddressBookCommand extends $Command<

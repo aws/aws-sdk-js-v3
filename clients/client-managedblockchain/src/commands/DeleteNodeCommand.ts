@@ -51,6 +51,8 @@ export interface DeleteNodeCommandOutput extends DeleteNodeOutput, __MetadataBea
  * };
  * const command = new DeleteNodeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteNodeCommandInput - {@link DeleteNodeCommandInput}
@@ -80,6 +82,8 @@ export interface DeleteNodeCommandOutput extends DeleteNodeOutput, __MetadataBea
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class DeleteNodeCommand extends $Command<

@@ -100,6 +100,41 @@ export interface GetResourceLFTagsCommandOutput extends GetResourceLFTagsRespons
  * };
  * const command = new GetResourceLFTagsCommand(input);
  * const response = await client.send(command);
+ * // { // GetResourceLFTagsResponse
+ * //   LFTagOnDatabase: [ // LFTagsList
+ * //     { // LFTagPair
+ * //       CatalogId: "STRING_VALUE",
+ * //       TagKey: "STRING_VALUE", // required
+ * //       TagValues: [ // TagValueList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   LFTagsOnTable: [
+ * //     {
+ * //       CatalogId: "STRING_VALUE",
+ * //       TagKey: "STRING_VALUE", // required
+ * //       TagValues: [ // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   LFTagsOnColumns: [ // ColumnLFTagsList
+ * //     { // ColumnLFTag
+ * //       Name: "STRING_VALUE",
+ * //       LFTags: [
+ * //         {
+ * //           CatalogId: "STRING_VALUE",
+ * //           TagKey: "STRING_VALUE", // required
+ * //           TagValues: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetResourceLFTagsCommandInput - {@link GetResourceLFTagsCommandInput}
@@ -126,6 +161,8 @@ export interface GetResourceLFTagsCommandOutput extends GetResourceLFTagsRespons
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetResourceLFTagsCommand extends $Command<

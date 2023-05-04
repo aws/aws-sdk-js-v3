@@ -44,6 +44,8 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  * };
  * const command = new CancelInputDeviceTransferCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelInputDeviceTransferCommandInput - {@link CancelInputDeviceTransferCommandInput}
@@ -79,6 +81,8 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  * @throws {@link UnprocessableEntityException} (client fault)
  *  Placeholder documentation for UnprocessableEntityException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class CancelInputDeviceTransferCommand extends $Command<

@@ -54,6 +54,17 @@ export interface GetRelationalDatabaseLogEventsCommandOutput
  * };
  * const command = new GetRelationalDatabaseLogEventsCommand(input);
  * const response = await client.send(command);
+ * // { // GetRelationalDatabaseLogEventsResult
+ * //   resourceLogEvents: [ // LogEventList
+ * //     { // LogEvent
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextBackwardToken: "STRING_VALUE",
+ * //   nextForwardToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetRelationalDatabaseLogEventsCommandInput - {@link GetRelationalDatabaseLogEventsCommandInput}
@@ -92,6 +103,8 @@ export interface GetRelationalDatabaseLogEventsCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetRelationalDatabaseLogEventsCommand extends $Command<

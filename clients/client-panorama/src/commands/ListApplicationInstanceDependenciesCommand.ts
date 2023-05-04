@@ -54,6 +54,17 @@ export interface ListApplicationInstanceDependenciesCommandOutput
  * };
  * const command = new ListApplicationInstanceDependenciesCommand(input);
  * const response = await client.send(command);
+ * // { // ListApplicationInstanceDependenciesResponse
+ * //   PackageObjects: [ // PackageObjects
+ * //     { // PackageObject
+ * //       Name: "STRING_VALUE", // required
+ * //       PackageVersion: "STRING_VALUE", // required
+ * //       PatchVersion: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListApplicationInstanceDependenciesCommandInput - {@link ListApplicationInstanceDependenciesCommandInput}
@@ -68,6 +79,8 @@ export interface ListApplicationInstanceDependenciesCommandOutput
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error occurred.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class ListApplicationInstanceDependenciesCommand extends $Command<

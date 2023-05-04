@@ -46,6 +46,8 @@ export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVocabularyFilterCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteVocabularyFilterCommandInput - {@link DeleteVocabularyFilterCommandInput}
@@ -72,6 +74,8 @@ export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
  *  <p>We can't find the requested resource. Check that the specified name is correct and try
  *             your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class DeleteVocabularyFilterCommand extends $Command<

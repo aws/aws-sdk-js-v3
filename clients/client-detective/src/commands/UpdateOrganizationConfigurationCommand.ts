@@ -50,6 +50,8 @@ export interface UpdateOrganizationConfigurationCommandOutput extends __Metadata
  * };
  * const command = new UpdateOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateOrganizationConfigurationCommandInput - {@link UpdateOrganizationConfigurationCommandInput}
@@ -72,6 +74,8 @@ export interface UpdateOrganizationConfigurationCommandOutput extends __Metadata
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class UpdateOrganizationConfigurationCommand extends $Command<

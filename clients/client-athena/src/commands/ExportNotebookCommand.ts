@@ -44,6 +44,18 @@ export interface ExportNotebookCommandOutput extends ExportNotebookOutput, __Met
  * };
  * const command = new ExportNotebookCommand(input);
  * const response = await client.send(command);
+ * // { // ExportNotebookOutput
+ * //   NotebookMetadata: { // NotebookMetadata
+ * //     NotebookId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     WorkGroup: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Type: "IPYNB",
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //   },
+ * //   Payload: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ExportNotebookCommandInput - {@link ExportNotebookCommandInput}
@@ -63,6 +75,8 @@ export interface ExportNotebookCommandOutput extends ExportNotebookOutput, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ExportNotebookCommand extends $Command<

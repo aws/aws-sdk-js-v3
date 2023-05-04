@@ -60,6 +60,21 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * };
  * const command = new SearchUsersCommand(input);
  * const response = await client.send(command);
+ * // { // SearchUsersResponse
+ * //   Users: [ // UserDataList
+ * //     { // UserData
+ * //       UserArn: "STRING_VALUE",
+ * //       FirstName: "STRING_VALUE",
+ * //       LastName: "STRING_VALUE",
+ * //       Email: "STRING_VALUE",
+ * //       EnrollmentStatus: "STRING_VALUE",
+ * //       EnrollmentId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TotalCount: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param SearchUsersCommandInput - {@link SearchUsersCommandInput}
@@ -68,6 +83,8 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * @see {@link SearchUsersCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class SearchUsersCommand extends $Command<

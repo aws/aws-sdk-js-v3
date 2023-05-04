@@ -98,6 +98,14 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  * };
  * const command = new QueryObjectsCommand(input);
  * const response = await client.send(command);
+ * // { // QueryObjectsOutput
+ * //   ids: [ // idList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   marker: "STRING_VALUE",
+ * //   hasMoreResults: true || false,
+ * // };
+ *
  * ```
  *
  * @param QueryObjectsCommandInput - {@link QueryObjectsCommandInput}
@@ -118,6 +126,8 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class QueryObjectsCommand extends $Command<

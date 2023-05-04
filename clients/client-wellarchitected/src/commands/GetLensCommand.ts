@@ -45,6 +45,20 @@ export interface GetLensCommandOutput extends GetLensOutput, __MetadataBearer {}
  * };
  * const command = new GetLensCommand(input);
  * const response = await client.send(command);
+ * // { // GetLensOutput
+ * //   Lens: { // Lens
+ * //     LensArn: "STRING_VALUE",
+ * //     LensVersion: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //     ShareInvitationId: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetLensCommandInput - {@link GetLensCommandInput}
@@ -68,6 +82,8 @@ export interface GetLensCommandOutput extends GetLensOutput, __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class GetLensCommand extends $Command<

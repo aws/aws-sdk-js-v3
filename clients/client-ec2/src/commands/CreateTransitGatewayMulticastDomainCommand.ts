@@ -70,6 +70,28 @@ export interface CreateTransitGatewayMulticastDomainCommandOutput
  * };
  * const command = new CreateTransitGatewayMulticastDomainCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTransitGatewayMulticastDomainResult
+ * //   TransitGatewayMulticastDomain: { // TransitGatewayMulticastDomain
+ * //     TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //     TransitGatewayId: "STRING_VALUE",
+ * //     TransitGatewayMulticastDomainArn: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Options: { // TransitGatewayMulticastDomainOptions
+ * //       Igmpv2Support: "enable" || "disable",
+ * //       StaticSourcesSupport: "enable" || "disable",
+ * //       AutoAcceptSharedAssociations: "enable" || "disable",
+ * //     },
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateTransitGatewayMulticastDomainCommandInput - {@link CreateTransitGatewayMulticastDomainCommandInput}
@@ -78,6 +100,8 @@ export interface CreateTransitGatewayMulticastDomainCommandOutput
  * @see {@link CreateTransitGatewayMulticastDomainCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateTransitGatewayMulticastDomainCommand extends $Command<

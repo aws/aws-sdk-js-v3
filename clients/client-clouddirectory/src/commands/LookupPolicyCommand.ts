@@ -54,6 +54,22 @@ export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __Metad
  * };
  * const command = new LookupPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // LookupPolicyResponse
+ * //   PolicyToPathList: [ // PolicyToPathList
+ * //     { // PolicyToPath
+ * //       Path: "STRING_VALUE",
+ * //       Policies: [ // PolicyAttachmentList
+ * //         { // PolicyAttachment
+ * //           PolicyId: "STRING_VALUE",
+ * //           ObjectIdentifier: "STRING_VALUE",
+ * //           PolicyType: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param LookupPolicyCommandInput - {@link LookupPolicyCommandInput}
@@ -90,6 +106,8 @@ export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class LookupPolicyCommand extends $Command<

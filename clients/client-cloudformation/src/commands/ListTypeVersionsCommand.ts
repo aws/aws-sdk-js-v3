@@ -50,6 +50,22 @@ export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, _
  * };
  * const command = new ListTypeVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTypeVersionsOutput
+ * //   TypeVersionSummaries: [ // TypeVersionSummaries
+ * //     { // TypeVersionSummary
+ * //       Type: "RESOURCE" || "MODULE" || "HOOK",
+ * //       TypeName: "STRING_VALUE",
+ * //       VersionId: "STRING_VALUE",
+ * //       IsDefaultVersion: true || false,
+ * //       Arn: "STRING_VALUE",
+ * //       TimeCreated: new Date("TIMESTAMP"),
+ * //       Description: "STRING_VALUE",
+ * //       PublicVersionNumber: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTypeVersionsCommandInput - {@link ListTypeVersionsCommandInput}
@@ -61,6 +77,8 @@ export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, _
  * @throws {@link CFNRegistryException} (client fault)
  *  <p>An error occurred during a CloudFormation registry operation.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ListTypeVersionsCommand extends $Command<

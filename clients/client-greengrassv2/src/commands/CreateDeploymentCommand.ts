@@ -115,6 +115,12 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDeploymentResponse
+ * //   deploymentId: "STRING_VALUE",
+ * //   iotJobId: "STRING_VALUE",
+ * //   iotJobArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateDeploymentCommandInput - {@link CreateDeploymentCommandInput}
@@ -149,6 +155,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class CreateDeploymentCommand extends $Command<

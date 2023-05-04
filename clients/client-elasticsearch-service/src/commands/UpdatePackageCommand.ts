@@ -54,6 +54,23 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  * };
  * const command = new UpdatePackageCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePackageResponse
+ * //   PackageDetails: { // PackageDetails
+ * //     PackageID: "STRING_VALUE",
+ * //     PackageName: "STRING_VALUE",
+ * //     PackageType: "TXT-DICTIONARY",
+ * //     PackageDescription: "STRING_VALUE",
+ * //     PackageStatus: "COPYING" || "COPY_FAILED" || "VALIDATING" || "VALIDATION_FAILED" || "AVAILABLE" || "DELETING" || "DELETED" || "DELETE_FAILED",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     LastUpdatedAt: new Date("TIMESTAMP"),
+ * //     AvailablePackageVersion: "STRING_VALUE",
+ * //     ErrorDetails: { // ErrorDetails
+ * //       ErrorType: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdatePackageCommandInput - {@link UpdatePackageCommandInput}
@@ -80,6 +97,8 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class UpdatePackageCommand extends $Command<

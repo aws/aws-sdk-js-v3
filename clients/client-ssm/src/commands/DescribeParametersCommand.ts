@@ -74,6 +74,31 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  * };
  * const command = new DescribeParametersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeParametersResult
+ * //   Parameters: [ // ParameterMetadataList
+ * //     { // ParameterMetadata
+ * //       Name: "STRING_VALUE",
+ * //       Type: "String" || "StringList" || "SecureString",
+ * //       KeyId: "STRING_VALUE",
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       LastModifiedUser: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       AllowedPattern: "STRING_VALUE",
+ * //       Version: Number("long"),
+ * //       Tier: "Standard" || "Advanced" || "Intelligent-Tiering",
+ * //       Policies: [ // ParameterPolicyList
+ * //         { // ParameterInlinePolicy
+ * //           PolicyText: "STRING_VALUE",
+ * //           PolicyType: "STRING_VALUE",
+ * //           PolicyStatus: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DataType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeParametersCommandInput - {@link DescribeParametersCommandInput}
@@ -98,6 +123,8 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeParametersCommand extends $Command<

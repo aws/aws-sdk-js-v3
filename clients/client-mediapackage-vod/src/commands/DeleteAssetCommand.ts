@@ -44,6 +44,8 @@ export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __Metadat
  * };
  * const command = new DeleteAssetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAssetCommandInput - {@link DeleteAssetCommandInput}
@@ -70,6 +72,8 @@ export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __Metadat
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageVodServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
  */
 export class DeleteAssetCommand extends $Command<

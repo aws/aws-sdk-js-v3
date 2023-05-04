@@ -73,6 +73,10 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  * };
  * const command = new CreateNodeCommand(input);
  * const response = await client.send(command);
+ * // { // CreateNodeOutput
+ * //   NodeId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateNodeCommandInput - {@link CreateNodeCommandInput}
@@ -112,6 +116,8 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  * @throws {@link TooManyTagsException} (client fault)
  *  <p></p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class CreateNodeCommand extends $Command<

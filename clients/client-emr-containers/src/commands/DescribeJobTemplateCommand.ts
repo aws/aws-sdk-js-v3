@@ -51,6 +51,76 @@ export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateRes
  * };
  * const command = new DescribeJobTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeJobTemplateResponse
+ * //   jobTemplate: { // JobTemplate
+ * //     name: "STRING_VALUE",
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     createdBy: "STRING_VALUE",
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     jobTemplateData: { // JobTemplateData
+ * //       executionRoleArn: "STRING_VALUE", // required
+ * //       releaseLabel: "STRING_VALUE", // required
+ * //       configurationOverrides: { // ParametricConfigurationOverrides
+ * //         applicationConfiguration: [ // ConfigurationList
+ * //           { // Configuration
+ * //             classification: "STRING_VALUE", // required
+ * //             properties: { // SensitivePropertiesMap
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             configurations: [
+ * //               {
+ * //                 classification: "STRING_VALUE", // required
+ * //                 properties: {
+ * //                   "<keys>": "STRING_VALUE",
+ * //                 },
+ * //                 configurations: "<ConfigurationList>",
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //         monitoringConfiguration: { // ParametricMonitoringConfiguration
+ * //           persistentAppUI: "STRING_VALUE",
+ * //           cloudWatchMonitoringConfiguration: { // ParametricCloudWatchMonitoringConfiguration
+ * //             logGroupName: "STRING_VALUE",
+ * //             logStreamNamePrefix: "STRING_VALUE",
+ * //           },
+ * //           s3MonitoringConfiguration: { // ParametricS3MonitoringConfiguration
+ * //             logUri: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       jobDriver: { // JobDriver
+ * //         sparkSubmitJobDriver: { // SparkSubmitJobDriver
+ * //           entryPoint: "STRING_VALUE", // required
+ * //           entryPointArguments: [ // EntryPointArguments
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           sparkSubmitParameters: "STRING_VALUE",
+ * //         },
+ * //         sparkSqlJobDriver: { // SparkSqlJobDriver
+ * //           entryPoint: "STRING_VALUE",
+ * //           sparkSqlParameters: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       parameterConfiguration: { // TemplateParameterConfigurationMap
+ * //         "<keys>": { // TemplateParameterConfiguration
+ * //           type: "NUMBER" || "STRING",
+ * //           defaultValue: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       jobTags: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     kmsKeyArn: "STRING_VALUE",
+ * //     decryptionError: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeJobTemplateCommandInput - {@link DescribeJobTemplateCommandInput}
@@ -68,6 +138,8 @@ export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateRes
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class DescribeJobTemplateCommand extends $Command<

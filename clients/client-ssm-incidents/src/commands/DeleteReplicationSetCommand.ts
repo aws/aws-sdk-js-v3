@@ -45,6 +45,8 @@ export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetO
  * };
  * const command = new DeleteReplicationSetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteReplicationSetCommandInput - {@link DeleteReplicationSetCommandInput}
@@ -70,6 +72,8 @@ export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetO
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class DeleteReplicationSetCommand extends $Command<

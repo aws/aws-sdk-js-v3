@@ -47,6 +47,8 @@ export interface RevokeIpRulesCommandOutput extends RevokeIpRulesResult, __Metad
  * };
  * const command = new RevokeIpRulesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RevokeIpRulesCommandInput - {@link RevokeIpRulesCommandInput}
@@ -67,6 +69,8 @@ export interface RevokeIpRulesCommandOutput extends RevokeIpRulesResult, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class RevokeIpRulesCommand extends $Command<

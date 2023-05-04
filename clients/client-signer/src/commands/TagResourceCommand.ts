@@ -50,6 +50,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -72,6 +74,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>The allowed number of job-signing requests has been exceeded.</p>
  * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

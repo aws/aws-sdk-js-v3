@@ -67,6 +67,18 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  * };
  * const command = new DescribeDBClusterParameterGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // DBClusterParameterGroupsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   DBClusterParameterGroups: [ // DBClusterParameterGroupList
+ * //     { // DBClusterParameterGroup
+ * //       DBClusterParameterGroupName: "STRING_VALUE",
+ * //       DBParameterGroupFamily: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       DBClusterParameterGroupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeDBClusterParameterGroupsCommandInput - {@link DescribeDBClusterParameterGroupsCommandInput}
@@ -80,6 +92,8 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  *             <code>DBParameterGroupName</code> doesn't refer to an
  *         existing DB parameter group.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe DB cluster parameter groups
  * ```javascript

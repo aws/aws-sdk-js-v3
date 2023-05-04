@@ -65,6 +65,8 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ReplaceRouteCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ReplaceRouteCommandInput - {@link ReplaceRouteCommandInput}
@@ -73,6 +75,8 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  * @see {@link ReplaceRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To replace a route
  * ```javascript

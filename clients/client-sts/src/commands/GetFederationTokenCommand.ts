@@ -144,6 +144,20 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * };
  * const command = new GetFederationTokenCommand(input);
  * const response = await client.send(command);
+ * // { // GetFederationTokenResponse
+ * //   Credentials: { // Credentials
+ * //     AccessKeyId: "STRING_VALUE", // required
+ * //     SecretAccessKey: "STRING_VALUE", // required
+ * //     SessionToken: "STRING_VALUE", // required
+ * //     Expiration: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   FederatedUser: { // FederatedUser
+ * //     FederatedUserId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //   },
+ * //   PackedPolicySize: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param GetFederationTokenCommandInput - {@link GetFederationTokenCommandInput}
@@ -174,6 +188,8 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
  *                     Guide</i>.</p>
  *
+ * @throws {@link STSServiceException}
+ * <p>Base exception class for all service exceptions from STS service.</p>
  *
  * @example To get temporary credentials for a role by using GetFederationToken
  * ```javascript

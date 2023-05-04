@@ -45,6 +45,13 @@ export interface DeleteBranchCommandOutput extends DeleteBranchOutput, __Metadat
  * };
  * const command = new DeleteBranchCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteBranchOutput
+ * //   deletedBranch: { // BranchInfo
+ * //     branchName: "STRING_VALUE",
+ * //     commitId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteBranchCommandInput - {@link DeleteBranchCommandInput}
@@ -92,6 +99,8 @@ export interface DeleteBranchCommandOutput extends DeleteBranchOutput, __Metadat
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class DeleteBranchCommand extends $Command<

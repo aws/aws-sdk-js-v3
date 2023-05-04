@@ -75,6 +75,28 @@ export interface CreateCustomRoutingAcceleratorCommandOutput
  * };
  * const command = new CreateCustomRoutingAcceleratorCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCustomRoutingAcceleratorResponse
+ * //   Accelerator: { // CustomRoutingAccelerator
+ * //     AcceleratorArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     IpAddressType: "IPV4" || "DUAL_STACK",
+ * //     Enabled: true || false,
+ * //     IpSets: [ // IpSets
+ * //       { // IpSet
+ * //         IpFamily: "STRING_VALUE",
+ * //         IpAddresses: [ // IpAddresses
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         IpAddressFamily: "IPv4" || "IPv6",
+ * //       },
+ * //     ],
+ * //     DnsName: "STRING_VALUE",
+ * //     Status: "DEPLOYED" || "IN_PROGRESS",
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateCustomRoutingAcceleratorCommandInput - {@link CreateCustomRoutingAcceleratorCommandInput}
@@ -95,6 +117,8 @@ export interface CreateCustomRoutingAcceleratorCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class CreateCustomRoutingAcceleratorCommand extends $Command<

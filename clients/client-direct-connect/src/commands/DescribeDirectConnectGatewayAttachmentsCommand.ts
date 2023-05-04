@@ -60,6 +60,21 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
  * };
  * const command = new DescribeDirectConnectGatewayAttachmentsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDirectConnectGatewayAttachmentsResult
+ * //   directConnectGatewayAttachments: [ // DirectConnectGatewayAttachmentList
+ * //     { // DirectConnectGatewayAttachment
+ * //       directConnectGatewayId: "STRING_VALUE",
+ * //       virtualInterfaceId: "STRING_VALUE",
+ * //       virtualInterfaceRegion: "STRING_VALUE",
+ * //       virtualInterfaceOwnerAccount: "STRING_VALUE",
+ * //       attachmentState: "attaching" || "attached" || "detaching" || "detached",
+ * //       attachmentType: "TransitVirtualInterface" || "PrivateVirtualInterface",
+ * //       stateChangeError: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeDirectConnectGatewayAttachmentsCommandInput - {@link DescribeDirectConnectGatewayAttachmentsCommandInput}
@@ -74,6 +89,8 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<

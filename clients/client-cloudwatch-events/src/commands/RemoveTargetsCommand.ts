@@ -57,6 +57,17 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  * };
  * const command = new RemoveTargetsCommand(input);
  * const response = await client.send(command);
+ * // { // RemoveTargetsResponse
+ * //   FailedEntryCount: Number("int"),
+ * //   FailedEntries: [ // RemoveTargetsResultEntryList
+ * //     { // RemoveTargetsResultEntry
+ * //       TargetId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param RemoveTargetsCommandInput - {@link RemoveTargetsCommandInput}
@@ -82,6 +93,8 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class RemoveTargetsCommand extends $Command<

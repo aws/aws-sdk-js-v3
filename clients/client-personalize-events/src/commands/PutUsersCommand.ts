@@ -55,6 +55,8 @@ export interface PutUsersCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutUsersCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutUsersCommandInput - {@link PutUsersCommandInput}
@@ -72,6 +74,8 @@ export interface PutUsersCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeEventsServiceException}
+ * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
  */
 export class PutUsersCommand extends $Command<

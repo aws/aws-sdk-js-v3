@@ -55,6 +55,8 @@ export interface CancelDetectMitigationActionsTaskCommandOutput
  * };
  * const command = new CancelDetectMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelDetectMitigationActionsTaskCommandInput - {@link CancelDetectMitigationActionsTaskCommandInput}
@@ -75,6 +77,8 @@ export interface CancelDetectMitigationActionsTaskCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CancelDetectMitigationActionsTaskCommand extends $Command<

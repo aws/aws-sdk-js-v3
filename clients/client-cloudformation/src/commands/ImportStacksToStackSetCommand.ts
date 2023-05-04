@@ -71,6 +71,10 @@ export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStack
  * };
  * const command = new ImportStacksToStackSetCommand(input);
  * const response = await client.send(command);
+ * // { // ImportStacksToStackSetOutput
+ * //   OperationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ImportStacksToStackSetCommandInput - {@link ImportStacksToStackSetCommandInput}
@@ -105,6 +109,8 @@ export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStack
  *  <p>Another operation has been performed on this stack set since the specified operation was
  *          performed.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ImportStacksToStackSetCommand extends $Command<

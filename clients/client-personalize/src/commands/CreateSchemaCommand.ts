@@ -72,6 +72,10 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSchemaResponse
+ * //   schemaArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateSchemaCommandInput - {@link CreateSchemaCommandInput}
@@ -89,6 +93,8 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The specified resource already exists.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateSchemaCommand extends $Command<

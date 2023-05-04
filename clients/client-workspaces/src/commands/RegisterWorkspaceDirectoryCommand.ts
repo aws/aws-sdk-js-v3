@@ -60,6 +60,8 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * };
  * const command = new RegisterWorkspaceDirectoryCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RegisterWorkspaceDirectoryCommandInput - {@link RegisterWorkspaceDirectoryCommandInput}
@@ -96,6 +98,8 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  *  <p>The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you
  *          will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating the workspaces_DefaultRole Role</a>.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class RegisterWorkspaceDirectoryCommand extends $Command<

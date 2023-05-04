@@ -68,6 +68,11 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  * };
  * const command = new UpdateFleetAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateFleetAttributesOutput
+ * //   FleetId: "STRING_VALUE",
+ * //   FleetArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateFleetAttributesCommandInput - {@link UpdateFleetAttributesCommandInput}
@@ -105,6 +110,8 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class UpdateFleetAttributesCommand extends $Command<

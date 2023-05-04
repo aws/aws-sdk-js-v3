@@ -44,6 +44,8 @@ export interface DeleteVPCEConfigurationCommandOutput extends DeleteVPCEConfigur
  * };
  * const command = new DeleteVPCEConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteVPCEConfigurationCommandInput - {@link DeleteVPCEConfigurationCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteVPCEConfigurationCommandOutput extends DeleteVPCEConfigur
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class DeleteVPCEConfigurationCommand extends $Command<

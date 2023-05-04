@@ -44,6 +44,15 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceResponse
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -64,6 +73,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

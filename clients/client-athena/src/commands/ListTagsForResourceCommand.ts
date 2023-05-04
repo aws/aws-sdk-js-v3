@@ -46,6 +46,16 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceOutput
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -65,6 +75,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

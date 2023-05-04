@@ -52,6 +52,10 @@ export interface EnableImportFindingsForProductCommandOutput
  * };
  * const command = new EnableImportFindingsForProductCommand(input);
  * const response = await client.send(command);
+ * // { // EnableImportFindingsForProductResponse
+ * //   ProductSubscriptionArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param EnableImportFindingsForProductCommandInput - {@link EnableImportFindingsForProductCommandInput}
@@ -77,6 +81,8 @@ export interface EnableImportFindingsForProductCommandOutput
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To activate an integration
  * ```javascript

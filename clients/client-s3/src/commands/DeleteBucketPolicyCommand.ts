@@ -74,6 +74,8 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBucketPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteBucketPolicyCommandInput - {@link DeleteBucketPolicyCommandInput}
@@ -82,6 +84,8 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To delete bucket policy
  * ```javascript

@@ -101,6 +101,12 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * };
  * const command = new SignCommand(input);
  * const response = await client.send(command);
+ * // { // SignResponse
+ * //   KeyId: "STRING_VALUE",
+ * //   Signature: "BLOB_VALUE",
+ * //   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA",
+ * // };
+ *
  * ```
  *
  * @param SignCommandInput - {@link SignCommandInput}
@@ -170,6 +176,8 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To digitally sign a message with an asymmetric KMS key.
  * ```javascript

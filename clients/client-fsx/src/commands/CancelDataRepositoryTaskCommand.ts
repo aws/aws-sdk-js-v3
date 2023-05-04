@@ -56,6 +56,11 @@ export interface CancelDataRepositoryTaskCommandOutput extends CancelDataReposit
  * };
  * const command = new CancelDataRepositoryTaskCommand(input);
  * const response = await client.send(command);
+ * // { // CancelDataRepositoryTaskResponse
+ * //   Lifecycle: "PENDING" || "EXECUTING" || "FAILED" || "SUCCEEDED" || "CANCELED" || "CANCELING",
+ * //   TaskId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CancelDataRepositoryTaskCommandInput - {@link CancelDataRepositoryTaskCommandInput}
@@ -79,6 +84,8 @@ export interface CancelDataRepositoryTaskCommandOutput extends CancelDataReposit
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>The requested operation is not supported for this resource or API.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class CancelDataRepositoryTaskCommand extends $Command<

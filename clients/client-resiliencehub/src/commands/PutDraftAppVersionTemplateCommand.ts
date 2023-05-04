@@ -45,6 +45,11 @@ export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVers
  * };
  * const command = new PutDraftAppVersionTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // PutDraftAppVersionTemplateResponse
+ * //   appArn: "STRING_VALUE",
+ * //   appVersion: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutDraftAppVersionTemplateCommandInput - {@link PutDraftAppVersionTemplateCommandInput}
@@ -77,6 +82,8 @@ export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVers
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class PutDraftAppVersionTemplateCommand extends $Command<

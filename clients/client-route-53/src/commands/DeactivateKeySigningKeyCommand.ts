@@ -47,6 +47,15 @@ export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigni
  * };
  * const command = new DeactivateKeySigningKeyCommand(input);
  * const response = await client.send(command);
+ * // { // DeactivateKeySigningKeyResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeactivateKeySigningKeyCommandInput - {@link DeactivateKeySigningKeyCommandInput}
@@ -81,6 +90,8 @@ export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigni
  * @throws {@link NoSuchKeySigningKey} (client fault)
  *  <p>The specified key-signing key (KSK) doesn't exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeactivateKeySigningKeyCommand extends $Command<

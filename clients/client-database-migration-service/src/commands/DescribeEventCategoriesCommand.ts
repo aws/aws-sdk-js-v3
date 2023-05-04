@@ -60,6 +60,17 @@ export interface DescribeEventCategoriesCommandOutput extends DescribeEventCateg
  * };
  * const command = new DescribeEventCategoriesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEventCategoriesResponse
+ * //   EventCategoryGroupList: [ // EventCategoryGroupList
+ * //     { // EventCategoryGroup
+ * //       SourceType: "STRING_VALUE",
+ * //       EventCategories: [ // EventCategoriesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeEventCategoriesCommandInput - {@link DescribeEventCategoriesCommandInput}
@@ -68,6 +79,8 @@ export interface DescribeEventCategoriesCommandOutput extends DescribeEventCateg
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeEventCategoriesCommand extends $Command<

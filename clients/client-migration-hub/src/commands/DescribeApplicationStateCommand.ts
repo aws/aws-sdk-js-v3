@@ -44,6 +44,11 @@ export interface DescribeApplicationStateCommandOutput extends DescribeApplicati
  * };
  * const command = new DescribeApplicationStateCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeApplicationStateResult
+ * //   ApplicationStatus: "STRING_VALUE",
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeApplicationStateCommandInput - {@link DescribeApplicationStateCommandInput}
@@ -83,6 +88,8 @@ export interface DescribeApplicationStateCommandOutput extends DescribeApplicati
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class DescribeApplicationStateCommand extends $Command<

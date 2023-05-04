@@ -59,6 +59,28 @@ export interface DescribeScheduledActionsCommandOutput extends DescribeScheduled
  * };
  * const command = new DescribeScheduledActionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeScheduledActionsResponse
+ * //   ScheduledActions: [ // ScheduledActions
+ * //     { // ScheduledAction
+ * //       ScheduledActionName: "STRING_VALUE", // required
+ * //       ScheduledActionARN: "STRING_VALUE", // required
+ * //       ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
+ * //       Schedule: "STRING_VALUE", // required
+ * //       Timezone: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE", // required
+ * //       ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       ScalableTargetAction: { // ScalableTargetAction
+ * //         MinCapacity: Number("int"),
+ * //         MaxCapacity: Number("int"),
+ * //       },
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeScheduledActionsCommandInput - {@link DescribeScheduledActionsCommandInput}
@@ -81,6 +103,8 @@ export interface DescribeScheduledActionsCommandOutput extends DescribeScheduled
  *  <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  *
+ * @throws {@link ApplicationAutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
  * @example To describe scheduled actions
  * ```javascript

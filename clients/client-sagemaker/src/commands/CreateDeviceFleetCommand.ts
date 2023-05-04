@@ -59,6 +59,8 @@ export interface CreateDeviceFleetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateDeviceFleetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateDeviceFleetCommandInput - {@link CreateDeviceFleetCommandInput}
@@ -74,6 +76,8 @@ export interface CreateDeviceFleetCommandOutput extends __MetadataBearer {}
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateDeviceFleetCommand extends $Command<

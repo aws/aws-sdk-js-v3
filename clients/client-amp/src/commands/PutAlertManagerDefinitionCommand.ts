@@ -46,6 +46,13 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  * };
  * const command = new PutAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
+ * // { // PutAlertManagerDefinitionResponse
+ * //   status: { // AlertManagerDefinitionStatus
+ * //     statusCode: "STRING_VALUE", // required
+ * //     statusReason: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutAlertManagerDefinitionCommandInput - {@link PutAlertManagerDefinitionCommandInput}
@@ -75,6 +82,8 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class PutAlertManagerDefinitionCommand extends $Command<

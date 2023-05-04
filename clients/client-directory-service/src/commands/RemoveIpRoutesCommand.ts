@@ -47,6 +47,8 @@ export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __Met
  * };
  * const command = new RemoveIpRoutesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RemoveIpRoutesCommandInput - {@link RemoveIpRoutesCommandInput}
@@ -70,6 +72,8 @@ export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __Met
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class RemoveIpRoutesCommand extends $Command<

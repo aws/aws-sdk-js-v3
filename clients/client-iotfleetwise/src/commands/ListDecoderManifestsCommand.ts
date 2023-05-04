@@ -49,6 +49,21 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
  * };
  * const command = new ListDecoderManifestsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDecoderManifestsResponse
+ * //   summaries: [ // decoderManifestSummaries
+ * //     { // DecoderManifestSummary
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       modelManifestArn: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       lastModificationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDecoderManifestsCommandInput - {@link ListDecoderManifestsCommandInput}
@@ -69,6 +84,8 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class ListDecoderManifestsCommand extends $Command<

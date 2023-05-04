@@ -76,6 +76,16 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * };
  * const command = new GetObjectTaggingCommand(input);
  * const response = await client.send(command);
+ * // { // GetObjectTaggingOutput
+ * //   VersionId: "STRING_VALUE",
+ * //   TagSet: [ // TagSet // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetObjectTaggingCommandInput - {@link GetObjectTaggingCommandInput}
@@ -84,6 +94,8 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * @see {@link GetObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To retrieve tag set of a specific object version
  * ```javascript

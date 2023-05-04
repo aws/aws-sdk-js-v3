@@ -49,6 +49,18 @@ export interface AssociateMacSecKeyCommandOutput extends AssociateMacSecKeyRespo
  * };
  * const command = new AssociateMacSecKeyCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateMacSecKeyResponse
+ * //   connectionId: "STRING_VALUE",
+ * //   macSecKeys: [ // MacSecKeyList
+ * //     { // MacSecKey
+ * //       secretARN: "STRING_VALUE",
+ * //       ckn: "STRING_VALUE",
+ * //       state: "STRING_VALUE",
+ * //       startOn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param AssociateMacSecKeyCommandInput - {@link AssociateMacSecKeyCommandInput}
@@ -63,6 +75,8 @@ export interface AssociateMacSecKeyCommandOutput extends AssociateMacSecKeyRespo
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class AssociateMacSecKeyCommand extends $Command<

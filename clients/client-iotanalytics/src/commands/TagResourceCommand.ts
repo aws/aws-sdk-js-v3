@@ -51,6 +51,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -77,6 +79,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

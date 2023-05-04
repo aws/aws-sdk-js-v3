@@ -53,6 +53,22 @@ export interface GetBucketAccessKeysCommandOutput extends GetBucketAccessKeysRes
  * };
  * const command = new GetBucketAccessKeysCommand(input);
  * const response = await client.send(command);
+ * // { // GetBucketAccessKeysResult
+ * //   accessKeys: [ // AccessKeyList
+ * //     { // AccessKey
+ * //       accessKeyId: "STRING_VALUE",
+ * //       secretAccessKey: "STRING_VALUE",
+ * //       status: "Active" || "Inactive",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       lastUsed: { // AccessKeyLastUsed
+ * //         lastUsedDate: new Date("TIMESTAMP"),
+ * //         region: "STRING_VALUE",
+ * //         serviceName: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetBucketAccessKeysCommandInput - {@link GetBucketAccessKeysCommandInput}
@@ -84,6 +100,8 @@ export interface GetBucketAccessKeysCommandOutput extends GetBucketAccessKeysRes
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class GetBucketAccessKeysCommand extends $Command<

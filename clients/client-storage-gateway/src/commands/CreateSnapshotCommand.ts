@@ -78,6 +78,11 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSnapshotOutput
+ * //   VolumeARN: "STRING_VALUE",
+ * //   SnapshotId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
@@ -98,6 +103,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  *  <p>An internal server error has occurred because the service is unavailable. For more
  *          information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To create a snapshot of a gateway volume
  * ```javascript

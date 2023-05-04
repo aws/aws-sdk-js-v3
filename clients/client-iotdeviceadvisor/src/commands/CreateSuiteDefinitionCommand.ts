@@ -62,6 +62,13 @@ export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitio
  * };
  * const command = new CreateSuiteDefinitionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSuiteDefinitionResponse
+ * //   suiteDefinitionId: "STRING_VALUE",
+ * //   suiteDefinitionArn: "STRING_VALUE",
+ * //   suiteDefinitionName: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param CreateSuiteDefinitionCommandInput - {@link CreateSuiteDefinitionCommandInput}
@@ -76,6 +83,8 @@ export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitio
  * @throws {@link ValidationException} (client fault)
  *  <p>Sends a validation exception.</p>
  *
+ * @throws {@link IotDeviceAdvisorServiceException}
+ * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
  */
 export class CreateSuiteDefinitionCommand extends $Command<

@@ -44,6 +44,19 @@ export interface GetResourceDefinitionCommandOutput extends GetResourceDefinitio
  * };
  * const command = new GetResourceDefinitionCommand(input);
  * const response = await client.send(command);
+ * // { // GetResourceDefinitionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   LastUpdatedTimestamp: "STRING_VALUE",
+ * //   LatestVersion: "STRING_VALUE",
+ * //   LatestVersionArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetResourceDefinitionCommandInput - {@link GetResourceDefinitionCommandInput}
@@ -55,6 +68,8 @@ export interface GetResourceDefinitionCommandOutput extends GetResourceDefinitio
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetResourceDefinitionCommand extends $Command<

@@ -54,6 +54,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -82,6 +84,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>An error occurred during validation.</p>
  *          <p>HTTP status code: 422</p>
  *
+ * @throws {@link MarketplaceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

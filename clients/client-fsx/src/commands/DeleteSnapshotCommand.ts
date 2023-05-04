@@ -49,6 +49,11 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * };
  * const command = new DeleteSnapshotCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteSnapshotResponse
+ * //   SnapshotId: "STRING_VALUE",
+ * //   Lifecycle: "PENDING" || "CREATING" || "DELETING" || "AVAILABLE",
+ * // };
+ *
  * ```
  *
  * @param DeleteSnapshotCommandInput - {@link DeleteSnapshotCommandInput}
@@ -66,6 +71,8 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * @throws {@link SnapshotNotFound} (client fault)
  *  <p>No Amazon FSx snapshots were found based on the supplied parameters.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DeleteSnapshotCommand extends $Command<

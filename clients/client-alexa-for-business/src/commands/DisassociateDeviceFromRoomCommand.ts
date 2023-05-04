@@ -46,6 +46,8 @@ export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDev
  * };
  * const command = new DisassociateDeviceFromRoomCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateDeviceFromRoomCommandInput - {@link DisassociateDeviceFromRoomCommandInput}
@@ -60,6 +62,8 @@ export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDev
  * @throws {@link DeviceNotRegisteredException} (client fault)
  *  <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DisassociateDeviceFromRoomCommand extends $Command<

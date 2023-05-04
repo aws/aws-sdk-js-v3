@@ -51,6 +51,23 @@ export interface ListEnvironmentVpcsCommandOutput extends ListEnvironmentVpcsRes
  * };
  * const command = new ListEnvironmentVpcsCommand(input);
  * const response = await client.send(command);
+ * // { // ListEnvironmentVpcsResponse
+ * //   EnvironmentVpcList: [ // EnvironmentVpcs
+ * //     { // EnvironmentVpc
+ * //       EnvironmentId: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       AccountId: "STRING_VALUE",
+ * //       CidrBlocks: [ // CidrBlocks
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       VpcName: "STRING_VALUE",
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEnvironmentVpcsCommandInput - {@link ListEnvironmentVpcsCommandInput}
@@ -75,6 +92,8 @@ export interface ListEnvironmentVpcsCommandOutput extends ListEnvironmentVpcsRes
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class ListEnvironmentVpcsCommand extends $Command<

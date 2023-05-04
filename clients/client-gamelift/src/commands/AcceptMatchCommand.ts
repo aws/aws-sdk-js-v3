@@ -76,6 +76,8 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  * };
  * const command = new AcceptMatchCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AcceptMatchCommandInput - {@link AcceptMatchCommandInput}
@@ -98,6 +100,8 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class AcceptMatchCommand extends $Command<

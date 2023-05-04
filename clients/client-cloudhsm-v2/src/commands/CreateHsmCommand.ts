@@ -47,6 +47,19 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * };
  * const command = new CreateHsmCommand(input);
  * const response = await client.send(command);
+ * // { // CreateHsmResponse
+ * //   Hsm: { // Hsm
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     ClusterId: "STRING_VALUE",
+ * //     SubnetId: "STRING_VALUE",
+ * //     EniId: "STRING_VALUE",
+ * //     EniIp: "STRING_VALUE",
+ * //     HsmId: "STRING_VALUE", // required
+ * //     State: "STRING_VALUE",
+ * //     StateMessage: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateHsmCommandInput - {@link CreateHsmCommandInput}
@@ -73,6 +86,8 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * @throws {@link CloudHsmServiceException} (client fault)
  *  <p>The request was rejected because an error occurred.</p>
  *
+ * @throws {@link CloudHSMV2ServiceException}
+ * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
 export class CreateHsmCommand extends $Command<

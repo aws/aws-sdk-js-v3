@@ -47,6 +47,16 @@ export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersRespons
  * const input = {};
  * const command = new ListSAMLProvidersCommand(input);
  * const response = await client.send(command);
+ * // { // ListSAMLProvidersResponse
+ * //   SAMLProviderList: [ // SAMLProviderListType
+ * //     { // SAMLProviderListEntry
+ * //       Arn: "STRING_VALUE",
+ * //       ValidUntil: new Date("TIMESTAMP"),
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListSAMLProvidersCommandInput - {@link ListSAMLProvidersCommandInput}
@@ -59,6 +69,8 @@ export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersRespons
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListSAMLProvidersCommand extends $Command<

@@ -54,6 +54,10 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
  * };
  * const command = new CreateThreatIntelSetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateThreatIntelSetResponse
+ * //   ThreatIntelSetId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateThreatIntelSetCommandInput - {@link CreateThreatIntelSetCommandInput}
@@ -68,6 +72,8 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class CreateThreatIntelSetCommand extends $Command<

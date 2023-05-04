@@ -46,6 +46,21 @@ export interface BatchGetCustomEntityTypesCommandOutput extends BatchGetCustomEn
  * };
  * const command = new BatchGetCustomEntityTypesCommand(input);
  * const response = await client.send(command);
+ * // { // BatchGetCustomEntityTypesResponse
+ * //   CustomEntityTypes: [ // CustomEntityTypes
+ * //     { // CustomEntityType
+ * //       Name: "STRING_VALUE", // required
+ * //       RegexString: "STRING_VALUE", // required
+ * //       ContextWords: [ // ContextWords
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   CustomEntityTypesNotFound: [ // CustomEntityTypeNames
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchGetCustomEntityTypesCommandInput - {@link BatchGetCustomEntityTypesCommandInput}
@@ -63,6 +78,8 @@ export interface BatchGetCustomEntityTypesCommandOutput extends BatchGetCustomEn
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchGetCustomEntityTypesCommand extends $Command<

@@ -192,6 +192,16 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PolicyARNType
+ * //   PolicyARN: "STRING_VALUE",
+ * //   Alarms: [ // Alarms
+ * //     { // Alarm
+ * //       AlarmName: "STRING_VALUE",
+ * //       AlarmARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param PutScalingPolicyCommandInput - {@link PutScalingPolicyCommandInput}
@@ -213,6 +223,8 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
  *  <p>The service-linked role is not yet ready for use.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To add a scaling policy to an Auto Scaling group
  * ```javascript

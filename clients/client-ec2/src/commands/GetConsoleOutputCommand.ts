@@ -58,6 +58,12 @@ export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, _
  * };
  * const command = new GetConsoleOutputCommand(input);
  * const response = await client.send(command);
+ * // { // GetConsoleOutputResult
+ * //   InstanceId: "STRING_VALUE",
+ * //   Output: "STRING_VALUE",
+ * //   Timestamp: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param GetConsoleOutputCommandInput - {@link GetConsoleOutputCommandInput}
@@ -66,6 +72,8 @@ export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, _
  * @see {@link GetConsoleOutputCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To get the console output
  * ```javascript

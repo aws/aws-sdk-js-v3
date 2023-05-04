@@ -56,6 +56,10 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  * };
  * const command = new UpdatePrivateDnsNamespaceCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePrivateDnsNamespaceResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdatePrivateDnsNamespaceCommandInput - {@link UpdatePrivateDnsNamespaceCommandInput}
@@ -79,6 +83,8 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  *  <p>The specified resource can't be deleted because it contains other resources. For example,
  *    you can't delete a service that contains any instances.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  */
 export class UpdatePrivateDnsNamespaceCommand extends $Command<

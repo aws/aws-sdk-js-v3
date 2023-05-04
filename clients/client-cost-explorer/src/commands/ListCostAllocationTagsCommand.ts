@@ -51,6 +51,17 @@ export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationT
  * };
  * const command = new ListCostAllocationTagsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCostAllocationTagsResponse
+ * //   CostAllocationTags: [ // CostAllocationTagList
+ * //     { // CostAllocationTag
+ * //       TagKey: "STRING_VALUE", // required
+ * //       Type: "AWSGenerated" || "UserDefined", // required
+ * //       Status: "Active" || "Inactive", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCostAllocationTagsCommandInput - {@link ListCostAllocationTagsCommandInput}
@@ -65,6 +76,8 @@ export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationT
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class ListCostAllocationTagsCommand extends $Command<

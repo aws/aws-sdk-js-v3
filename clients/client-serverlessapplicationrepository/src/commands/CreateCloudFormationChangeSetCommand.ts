@@ -89,6 +89,13 @@ export interface CreateCloudFormationChangeSetCommandOutput
  * };
  * const command = new CreateCloudFormationChangeSetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCloudFormationChangeSetResponse
+ * //   ApplicationId: "STRING_VALUE",
+ * //   ChangeSetId: "STRING_VALUE",
+ * //   SemanticVersion: "STRING_VALUE",
+ * //   StackId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateCloudFormationChangeSetCommandInput - {@link CreateCloudFormationChangeSetCommandInput}
@@ -109,6 +116,8 @@ export interface CreateCloudFormationChangeSetCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The client is sending more than the allowed number of requests per unit of time.</p>
  *
+ * @throws {@link ServerlessApplicationRepositoryServiceException}
+ * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
  */
 export class CreateCloudFormationChangeSetCommand extends $Command<

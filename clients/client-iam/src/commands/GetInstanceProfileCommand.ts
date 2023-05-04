@@ -47,6 +47,48 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileRespo
  * };
  * const command = new GetInstanceProfileCommand(input);
  * const response = await client.send(command);
+ * // { // GetInstanceProfileResponse
+ * //   InstanceProfile: { // InstanceProfile
+ * //     Path: "STRING_VALUE", // required
+ * //     InstanceProfileName: "STRING_VALUE", // required
+ * //     InstanceProfileId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //     CreateDate: new Date("TIMESTAMP"), // required
+ * //     Roles: [ // roleListType // required
+ * //       { // Role
+ * //         Path: "STRING_VALUE", // required
+ * //         RoleName: "STRING_VALUE", // required
+ * //         RoleId: "STRING_VALUE", // required
+ * //         Arn: "STRING_VALUE", // required
+ * //         CreateDate: new Date("TIMESTAMP"), // required
+ * //         AssumeRolePolicyDocument: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         MaxSessionDuration: Number("int"),
+ * //         PermissionsBoundary: { // AttachedPermissionsBoundary
+ * //           PermissionsBoundaryType: "PermissionsBoundaryPolicy",
+ * //           PermissionsBoundaryArn: "STRING_VALUE",
+ * //         },
+ * //         Tags: [ // tagListType
+ * //           { // Tag
+ * //             Key: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         RoleLastUsed: { // RoleLastUsed
+ * //           LastUsedDate: new Date("TIMESTAMP"),
+ * //           Region: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     Tags: [
+ * //       {
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetInstanceProfileCommandInput - {@link GetInstanceProfileCommandInput}
@@ -63,6 +105,8 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileRespo
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To get information about an instance profile
  * ```javascript

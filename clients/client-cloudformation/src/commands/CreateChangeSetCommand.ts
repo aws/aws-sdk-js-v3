@@ -114,6 +114,11 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  * };
  * const command = new CreateChangeSetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateChangeSetOutput
+ * //   Id: "STRING_VALUE",
+ * //   StackId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateChangeSetCommandInput - {@link CreateChangeSetCommandInput}
@@ -134,6 +139,8 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
  *             quotas</a> in the <i>CloudFormation User Guide</i>.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class CreateChangeSetCommand extends $Command<

@@ -61,6 +61,26 @@ export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogC
  * };
  * const command = new CreateRealtimeLogConfigCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRealtimeLogConfigResult
+ * //   RealtimeLogConfig: { // RealtimeLogConfig
+ * //     ARN: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     SamplingRate: Number("long"), // required
+ * //     EndPoints: [ // EndPointList // required
+ * //       { // EndPoint
+ * //         StreamType: "STRING_VALUE", // required
+ * //         KinesisStreamConfig: { // KinesisStreamConfig
+ * //           RoleARN: "STRING_VALUE", // required
+ * //           StreamARN: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     ],
+ * //     Fields: [ // FieldList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateRealtimeLogConfigCommandInput - {@link CreateRealtimeLogConfigCommandInput}
@@ -85,6 +105,8 @@ export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogC
  * 			Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class CreateRealtimeLogConfigCommand extends $Command<

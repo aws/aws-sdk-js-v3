@@ -53,6 +53,18 @@ export interface ListPlatformApplicationsCommandOutput extends ListPlatformAppli
  * };
  * const command = new ListPlatformApplicationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPlatformApplicationsResponse
+ * //   PlatformApplications: [ // ListOfPlatformApplications
+ * //     { // PlatformApplication
+ * //       PlatformApplicationArn: "STRING_VALUE",
+ * //       Attributes: { // MapStringToString
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPlatformApplicationsCommandInput - {@link ListPlatformApplicationsCommandInput}
@@ -71,6 +83,8 @@ export interface ListPlatformApplicationsCommandOutput extends ListPlatformAppli
  *  <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ListPlatformApplicationsCommand extends $Command<

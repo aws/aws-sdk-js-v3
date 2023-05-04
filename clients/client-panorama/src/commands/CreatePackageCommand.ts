@@ -47,6 +47,18 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * };
  * const command = new CreatePackageCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePackageResponse
+ * //   PackageId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   StorageLocation: { // StorageLocation
+ * //     Bucket: "STRING_VALUE", // required
+ * //     RepoPrefixLocation: "STRING_VALUE", // required
+ * //     GeneratedPrefixLocation: "STRING_VALUE", // required
+ * //     BinaryPrefixLocation: "STRING_VALUE", // required
+ * //     ManifestPrefixLocation: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreatePackageCommandInput - {@link CreatePackageCommandInput}
@@ -67,6 +79,8 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class CreatePackageCommand extends $Command<

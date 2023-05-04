@@ -74,6 +74,10 @@ export interface CreateAlertCommandOutput extends CreateAlertResponse, __Metadat
  * };
  * const command = new CreateAlertCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAlertResponse
+ * //   AlertArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateAlertCommandInput - {@link CreateAlertCommandInput}
@@ -104,6 +108,8 @@ export interface CreateAlertCommandOutput extends CreateAlertResponse, __Metadat
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class CreateAlertCommand extends $Command<

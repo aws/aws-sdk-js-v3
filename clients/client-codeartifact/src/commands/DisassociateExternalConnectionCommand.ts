@@ -54,6 +54,30 @@ export interface DisassociateExternalConnectionCommandOutput
  * };
  * const command = new DisassociateExternalConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateExternalConnectionResult
+ * //   repository: { // RepositoryDescription
+ * //     name: "STRING_VALUE",
+ * //     administratorAccount: "STRING_VALUE",
+ * //     domainName: "STRING_VALUE",
+ * //     domainOwner: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     upstreams: [ // UpstreamRepositoryInfoList
+ * //       { // UpstreamRepositoryInfo
+ * //         repositoryName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     externalConnections: [ // RepositoryExternalConnectionInfoList
+ * //       { // RepositoryExternalConnectionInfo
+ * //         externalConnectionName: "STRING_VALUE",
+ * //         packageFormat: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ * //         status: "Available",
+ * //       },
+ * //     ],
+ * //     createdTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DisassociateExternalConnectionCommandInput - {@link DisassociateExternalConnectionCommandInput}
@@ -95,6 +119,8 @@ export interface DisassociateExternalConnectionCommandOutput
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class DisassociateExternalConnectionCommand extends $Command<

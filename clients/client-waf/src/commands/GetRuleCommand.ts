@@ -52,6 +52,21 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * };
  * const command = new GetRuleCommand(input);
  * const response = await client.send(command);
+ * // { // GetRuleResponse
+ * //   Rule: { // Rule
+ * //     RuleId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     MetricName: "STRING_VALUE",
+ * //     Predicates: [ // Predicates // required
+ * //       { // Predicate
+ * //         Negated: true || false, // required
+ * //         Type: "STRING_VALUE", // required
+ * //         DataId: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetRuleCommandInput - {@link GetRuleCommandInput}
@@ -69,6 +84,8 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To get a rule
  * ```javascript

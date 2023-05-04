@@ -55,6 +55,28 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * };
  * const command = new DescribeDBSubnetGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // DBSubnetGroupMessage
+ * //   Marker: "STRING_VALUE",
+ * //   DBSubnetGroups: [ // DBSubnetGroups
+ * //     { // DBSubnetGroup
+ * //       DBSubnetGroupName: "STRING_VALUE",
+ * //       DBSubnetGroupDescription: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       SubnetGroupStatus: "STRING_VALUE",
+ * //       Subnets: [ // SubnetList
+ * //         { // Subnet
+ * //           SubnetIdentifier: "STRING_VALUE",
+ * //           SubnetAvailabilityZone: { // AvailabilityZone
+ * //             Name: "STRING_VALUE",
+ * //           },
+ * //           SubnetStatus: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DBSubnetGroupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeDBSubnetGroupsCommandInput - {@link DescribeDBSubnetGroupsCommandInput}
@@ -67,6 +89,8 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  *  <p>
  *             <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeDBSubnetGroupsCommand extends $Command<

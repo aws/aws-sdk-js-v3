@@ -57,6 +57,8 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PurgeQueueCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PurgeQueueCommandInput - {@link PurgeQueueCommandInput}
@@ -71,6 +73,8 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  * @throws {@link QueueDoesNotExist} (client fault)
  *  <p>The specified queue doesn't exist.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class PurgeQueueCommand extends $Command<

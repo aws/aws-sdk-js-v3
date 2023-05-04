@@ -93,6 +93,30 @@ export interface SearchQueuesCommandOutput extends SearchQueuesResponse, __Metad
  * };
  * const command = new SearchQueuesCommand(input);
  * const response = await client.send(command);
+ * // { // SearchQueuesResponse
+ * //   Queues: [ // QueueSearchSummaryList
+ * //     { // Queue
+ * //       Name: "STRING_VALUE",
+ * //       QueueArn: "STRING_VALUE",
+ * //       QueueId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       OutboundCallerConfig: { // OutboundCallerConfig
+ * //         OutboundCallerIdName: "STRING_VALUE",
+ * //         OutboundCallerIdNumberId: "STRING_VALUE",
+ * //         OutboundFlowId: "STRING_VALUE",
+ * //       },
+ * //       HoursOfOperationId: "STRING_VALUE",
+ * //       MaxContacts: Number("int"),
+ * //       Status: "ENABLED" || "DISABLED",
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   ApproximateTotalCount: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param SearchQueuesCommandInput - {@link SearchQueuesCommandInput}
@@ -116,6 +140,8 @@ export interface SearchQueuesCommandOutput extends SearchQueuesResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class SearchQueuesCommand extends $Command<

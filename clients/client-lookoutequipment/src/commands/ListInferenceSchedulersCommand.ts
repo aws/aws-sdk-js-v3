@@ -49,6 +49,22 @@ export interface ListInferenceSchedulersCommandOutput extends ListInferenceSched
  * };
  * const command = new ListInferenceSchedulersCommand(input);
  * const response = await client.send(command);
+ * // { // ListInferenceSchedulersResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   InferenceSchedulerSummaries: [ // InferenceSchedulerSummaries
+ * //     { // InferenceSchedulerSummary
+ * //       ModelName: "STRING_VALUE",
+ * //       ModelArn: "STRING_VALUE",
+ * //       InferenceSchedulerName: "STRING_VALUE",
+ * //       InferenceSchedulerArn: "STRING_VALUE",
+ * //       Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
+ * //       DataDelayOffsetInMinutes: Number("long"),
+ * //       DataUploadFrequency: "PT5M" || "PT10M" || "PT15M" || "PT30M" || "PT1H",
+ * //       LatestInferenceResult: "ANOMALOUS" || "NORMAL",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListInferenceSchedulersCommandInput - {@link ListInferenceSchedulersCommandInput}
@@ -72,6 +88,8 @@ export interface ListInferenceSchedulersCommandOutput extends ListInferenceSched
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class ListInferenceSchedulersCommand extends $Command<

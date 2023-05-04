@@ -48,6 +48,17 @@ export interface ListMFADeviceTagsCommandOutput extends ListMFADeviceTagsRespons
  * };
  * const command = new ListMFADeviceTagsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMFADeviceTagsResponse
+ * //   Tags: [ // tagListType // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListMFADeviceTagsCommandInput - {@link ListMFADeviceTagsCommandInput}
@@ -68,6 +79,8 @@ export interface ListMFADeviceTagsCommandOutput extends ListMFADeviceTagsRespons
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListMFADeviceTagsCommand extends $Command<

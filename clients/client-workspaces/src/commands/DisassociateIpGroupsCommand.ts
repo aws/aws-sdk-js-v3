@@ -47,6 +47,8 @@ export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsR
  * };
  * const command = new DisassociateIpGroupsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateIpGroupsCommandInput - {@link DisassociateIpGroupsCommandInput}
@@ -67,6 +69,8 @@ export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DisassociateIpGroupsCommand extends $Command<

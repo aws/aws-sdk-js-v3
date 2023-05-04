@@ -48,6 +48,22 @@ export interface ListDatasetContentsCommandOutput extends ListDatasetContentsRes
  * };
  * const command = new ListDatasetContentsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDatasetContentsResponse
+ * //   datasetContentSummaries: [ // DatasetContentSummaries
+ * //     { // DatasetContentSummary
+ * //       version: "STRING_VALUE",
+ * //       status: { // DatasetContentStatus
+ * //         state: "STRING_VALUE",
+ * //         reason: "STRING_VALUE",
+ * //       },
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       scheduleTime: new Date("TIMESTAMP"),
+ * //       completionTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDatasetContentsCommandInput - {@link ListDatasetContentsCommandInput}
@@ -71,6 +87,8 @@ export interface ListDatasetContentsCommandOutput extends ListDatasetContentsRes
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link IoTAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
  */
 export class ListDatasetContentsCommand extends $Command<

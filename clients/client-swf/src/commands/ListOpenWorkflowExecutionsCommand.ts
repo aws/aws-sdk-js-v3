@@ -108,6 +108,34 @@ export interface ListOpenWorkflowExecutionsCommandOutput extends WorkflowExecuti
  * };
  * const command = new ListOpenWorkflowExecutionsCommand(input);
  * const response = await client.send(command);
+ * // { // WorkflowExecutionInfos
+ * //   executionInfos: [ // WorkflowExecutionInfoList // required
+ * //     { // WorkflowExecutionInfo
+ * //       execution: { // WorkflowExecution
+ * //         workflowId: "STRING_VALUE", // required
+ * //         runId: "STRING_VALUE", // required
+ * //       },
+ * //       workflowType: { // WorkflowType
+ * //         name: "STRING_VALUE", // required
+ * //         version: "STRING_VALUE", // required
+ * //       },
+ * //       startTimestamp: new Date("TIMESTAMP"), // required
+ * //       closeTimestamp: new Date("TIMESTAMP"),
+ * //       executionStatus: "OPEN" || "CLOSED", // required
+ * //       closeStatus: "COMPLETED" || "FAILED" || "CANCELED" || "TERMINATED" || "CONTINUED_AS_NEW" || "TIMED_OUT",
+ * //       parent: {
+ * //         workflowId: "STRING_VALUE", // required
+ * //         runId: "STRING_VALUE", // required
+ * //       },
+ * //       tagList: [ // TagList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       cancelRequested: true || false,
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListOpenWorkflowExecutionsCommandInput - {@link ListOpenWorkflowExecutionsCommandInput}
@@ -122,6 +150,8 @@ export interface ListOpenWorkflowExecutionsCommandOutput extends WorkflowExecuti
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class ListOpenWorkflowExecutionsCommand extends $Command<

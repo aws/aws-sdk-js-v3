@@ -57,6 +57,20 @@ export interface CreateAttributeGroupCommandOutput extends CreateAttributeGroupR
  * };
  * const command = new CreateAttributeGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAttributeGroupResponse
+ * //   attributeGroup: { // AttributeGroup
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdateTime: new Date("TIMESTAMP"),
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateAttributeGroupCommandInput - {@link CreateAttributeGroupCommandInput}
@@ -81,6 +95,8 @@ export interface CreateAttributeGroupCommandOutput extends CreateAttributeGroupR
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class CreateAttributeGroupCommand extends $Command<

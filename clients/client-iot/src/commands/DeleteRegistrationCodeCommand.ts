@@ -43,6 +43,8 @@ export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationC
  * const input = {};
  * const command = new DeleteRegistrationCodeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteRegistrationCodeCommandInput - {@link DeleteRegistrationCodeCommandInput}
@@ -66,6 +68,8 @@ export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationC
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteRegistrationCodeCommand extends $Command<

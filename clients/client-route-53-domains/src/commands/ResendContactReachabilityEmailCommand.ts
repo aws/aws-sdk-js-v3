@@ -51,6 +51,12 @@ export interface ResendContactReachabilityEmailCommandOutput
  * };
  * const command = new ResendContactReachabilityEmailCommand(input);
  * const response = await client.send(command);
+ * // { // ResendContactReachabilityEmailResponse
+ * //   domainName: "STRING_VALUE",
+ * //   emailAddress: "STRING_VALUE",
+ * //   isAlreadyVerified: true || false,
+ * // };
+ *
  * ```
  *
  * @param ResendContactReachabilityEmailCommandInput - {@link ResendContactReachabilityEmailCommandInput}
@@ -72,6 +78,8 @@ export interface ResendContactReachabilityEmailCommandOutput
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class ResendContactReachabilityEmailCommand extends $Command<

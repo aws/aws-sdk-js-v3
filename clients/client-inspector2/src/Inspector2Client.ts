@@ -59,6 +59,14 @@ import {
   BatchGetFreeTrialInfoCommandOutput,
 } from "./commands/BatchGetFreeTrialInfoCommand";
 import {
+  BatchGetMemberEc2DeepInspectionStatusCommandInput,
+  BatchGetMemberEc2DeepInspectionStatusCommandOutput,
+} from "./commands/BatchGetMemberEc2DeepInspectionStatusCommand";
+import {
+  BatchUpdateMemberEc2DeepInspectionStatusCommandInput,
+  BatchUpdateMemberEc2DeepInspectionStatusCommandOutput,
+} from "./commands/BatchUpdateMemberEc2DeepInspectionStatusCommand";
+import {
   CancelFindingsReportCommandInput,
   CancelFindingsReportCommandOutput,
 } from "./commands/CancelFindingsReportCommand";
@@ -88,6 +96,10 @@ import {
   GetDelegatedAdminAccountCommandInput,
   GetDelegatedAdminAccountCommandOutput,
 } from "./commands/GetDelegatedAdminAccountCommand";
+import {
+  GetEc2DeepInspectionConfigurationCommandInput,
+  GetEc2DeepInspectionConfigurationCommandOutput,
+} from "./commands/GetEc2DeepInspectionConfigurationCommand";
 import {
   GetFindingsReportStatusCommandInput,
   GetFindingsReportStatusCommandOutput,
@@ -124,11 +136,19 @@ import {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
 } from "./commands/UpdateConfigurationCommand";
+import {
+  UpdateEc2DeepInspectionConfigurationCommandInput,
+  UpdateEc2DeepInspectionConfigurationCommandOutput,
+} from "./commands/UpdateEc2DeepInspectionConfigurationCommand";
 import { UpdateFilterCommandInput, UpdateFilterCommandOutput } from "./commands/UpdateFilterCommand";
 import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
+import {
+  UpdateOrgEc2DeepInspectionConfigurationCommandInput,
+  UpdateOrgEc2DeepInspectionConfigurationCommandOutput,
+} from "./commands/UpdateOrgEc2DeepInspectionConfigurationCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -144,6 +164,8 @@ export type ServiceInputTypes =
   | AssociateMemberCommandInput
   | BatchGetAccountStatusCommandInput
   | BatchGetFreeTrialInfoCommandInput
+  | BatchGetMemberEc2DeepInspectionStatusCommandInput
+  | BatchUpdateMemberEc2DeepInspectionStatusCommandInput
   | CancelFindingsReportCommandInput
   | CreateFilterCommandInput
   | CreateFindingsReportCommandInput
@@ -156,6 +178,7 @@ export type ServiceInputTypes =
   | EnableDelegatedAdminAccountCommandInput
   | GetConfigurationCommandInput
   | GetDelegatedAdminAccountCommandInput
+  | GetEc2DeepInspectionConfigurationCommandInput
   | GetFindingsReportStatusCommandInput
   | GetMemberCommandInput
   | ListAccountPermissionsCommandInput
@@ -171,7 +194,9 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateConfigurationCommandInput
+  | UpdateEc2DeepInspectionConfigurationCommandInput
   | UpdateFilterCommandInput
+  | UpdateOrgEc2DeepInspectionConfigurationCommandInput
   | UpdateOrganizationConfigurationCommandInput;
 
 /**
@@ -181,6 +206,8 @@ export type ServiceOutputTypes =
   | AssociateMemberCommandOutput
   | BatchGetAccountStatusCommandOutput
   | BatchGetFreeTrialInfoCommandOutput
+  | BatchGetMemberEc2DeepInspectionStatusCommandOutput
+  | BatchUpdateMemberEc2DeepInspectionStatusCommandOutput
   | CancelFindingsReportCommandOutput
   | CreateFilterCommandOutput
   | CreateFindingsReportCommandOutput
@@ -193,6 +220,7 @@ export type ServiceOutputTypes =
   | EnableDelegatedAdminAccountCommandOutput
   | GetConfigurationCommandOutput
   | GetDelegatedAdminAccountCommandOutput
+  | GetEc2DeepInspectionConfigurationCommandOutput
   | GetFindingsReportStatusCommandOutput
   | GetMemberCommandOutput
   | ListAccountPermissionsCommandOutput
@@ -208,7 +236,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateConfigurationCommandOutput
+  | UpdateEc2DeepInspectionConfigurationCommandOutput
   | UpdateFilterCommandOutput
+  | UpdateOrgEc2DeepInspectionConfigurationCommandOutput
   | UpdateOrganizationConfigurationCommandOutput;
 
 /**

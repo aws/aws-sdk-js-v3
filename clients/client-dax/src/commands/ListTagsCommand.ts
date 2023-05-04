@@ -46,6 +46,16 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsResponse
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTagsCommandInput - {@link ListTagsCommandInput}
@@ -73,6 +83,8 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsCommandOutput, DAXClientResolvedConfig> {

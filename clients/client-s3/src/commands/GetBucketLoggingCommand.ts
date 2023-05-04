@@ -59,6 +59,25 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
  * };
  * const command = new GetBucketLoggingCommand(input);
  * const response = await client.send(command);
+ * // { // GetBucketLoggingOutput
+ * //   LoggingEnabled: { // LoggingEnabled
+ * //     TargetBucket: "STRING_VALUE", // required
+ * //     TargetGrants: [ // TargetGrants
+ * //       { // TargetGrant
+ * //         Grantee: { // Grantee
+ * //           DisplayName: "STRING_VALUE",
+ * //           EmailAddress: "STRING_VALUE",
+ * //           ID: "STRING_VALUE",
+ * //           URI: "STRING_VALUE",
+ * //           Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ * //         },
+ * //         Permission: "FULL_CONTROL" || "READ" || "WRITE",
+ * //       },
+ * //     ],
+ * //     TargetPrefix: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetBucketLoggingCommandInput - {@link GetBucketLoggingCommandInput}
@@ -67,6 +86,8 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
  * @see {@link GetBucketLoggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class GetBucketLoggingCommand extends $Command<

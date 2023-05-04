@@ -58,6 +58,20 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * };
  * const command = new ListFleetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListFleetsResponse
+ * //   fleetDetails: [ // Fleets
+ * //     { // Fleet
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       lastDeploymentStatus: "STRING_VALUE",
+ * //       lastDeploymentJob: "STRING_VALUE",
+ * //       lastDeploymentTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFleetsCommandInput - {@link ListFleetsCommandInput}
@@ -79,6 +93,8 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListFleetsCommand extends $Command<

@@ -48,6 +48,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -73,6 +75,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

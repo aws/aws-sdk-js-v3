@@ -57,6 +57,11 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutResourcePolicyResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -98,6 +103,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @example To add a resource-based policy to a secret
  * ```javascript

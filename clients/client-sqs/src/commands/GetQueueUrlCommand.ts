@@ -50,6 +50,10 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  * };
  * const command = new GetQueueUrlCommand(input);
  * const response = await client.send(command);
+ * // { // GetQueueUrlResult
+ * //   QueueUrl: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetQueueUrlCommandInput - {@link GetQueueUrlCommandInput}
@@ -61,6 +65,8 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  * @throws {@link QueueDoesNotExist} (client fault)
  *  <p>The specified queue doesn't exist.</p>
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class GetQueueUrlCommand extends $Command<

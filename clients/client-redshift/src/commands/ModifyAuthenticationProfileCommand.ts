@@ -45,6 +45,11 @@ export interface ModifyAuthenticationProfileCommandOutput extends ModifyAuthenti
  * };
  * const command = new ModifyAuthenticationProfileCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyAuthenticationProfileResult
+ * //   AuthenticationProfileName: "STRING_VALUE",
+ * //   AuthenticationProfileContent: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ModifyAuthenticationProfileCommandInput - {@link ModifyAuthenticationProfileCommandInput}
@@ -64,6 +69,8 @@ export interface ModifyAuthenticationProfileCommandOutput extends ModifyAuthenti
  *  <p>The authentication profile request is not valid. The profile name can't be null or empty.
  *             The authentication profile API operation must be available in the Amazon Web Services Region.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class ModifyAuthenticationProfileCommand extends $Command<

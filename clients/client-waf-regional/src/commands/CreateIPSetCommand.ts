@@ -78,6 +78,20 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * };
  * const command = new CreateIPSetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateIPSetResponse
+ * //   IPSet: { // IPSet
+ * //     IPSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     IPSetDescriptors: [ // IPSetDescriptors // required
+ * //       { // IPSetDescriptor
+ * //         Type: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateIPSetCommandInput - {@link CreateIPSetCommandInput}
@@ -143,6 +157,8 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To create an IP set
  * ```javascript

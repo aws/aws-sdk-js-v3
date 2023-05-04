@@ -90,6 +90,8 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  * };
  * const command = new PutBucketAccelerateConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutBucketAccelerateConfigurationCommandInput - {@link PutBucketAccelerateConfigurationCommandInput}
@@ -98,6 +100,8 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  * @see {@link PutBucketAccelerateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class PutBucketAccelerateConfigurationCommand extends $Command<

@@ -66,6 +66,8 @@ export interface EnableHealthServiceAccessForOrganizationCommandOutput extends _
  * const input = {};
  * const command = new EnableHealthServiceAccessForOrganizationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param EnableHealthServiceAccessForOrganizationCommandInput - {@link EnableHealthServiceAccessForOrganizationCommandInput}
@@ -79,6 +81,8 @@ export interface EnableHealthServiceAccessForOrganizationCommandOutput extends _
  *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> is already in progress. Wait for the
  *          action to complete before trying again. To get the current status, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html">DescribeHealthServiceStatusForOrganization</a> operation.</p>
  *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class EnableHealthServiceAccessForOrganizationCommand extends $Command<

@@ -49,6 +49,8 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * };
  * const command = new CreateSampleFindingsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateSampleFindingsCommandInput - {@link CreateSampleFindingsCommandInput}
@@ -63,6 +65,8 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class CreateSampleFindingsCommand extends $Command<

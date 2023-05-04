@@ -49,6 +49,8 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  * };
  * const command = new DeleteScalingPlanCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteScalingPlanCommandInput - {@link DeleteScalingPlanCommandInput}
@@ -70,6 +72,8 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
  *
+ * @throws {@link AutoScalingPlansServiceException}
+ * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
  */
 export class DeleteScalingPlanCommand extends $Command<

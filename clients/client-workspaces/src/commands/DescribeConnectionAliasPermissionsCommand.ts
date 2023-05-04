@@ -57,6 +57,17 @@ export interface DescribeConnectionAliasPermissionsCommandOutput
  * };
  * const command = new DescribeConnectionAliasPermissionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeConnectionAliasPermissionsResult
+ * //   AliasId: "STRING_VALUE",
+ * //   ConnectionAliasPermissions: [ // ConnectionAliasPermissions
+ * //     { // ConnectionAliasPermission
+ * //       SharedAccountId: "STRING_VALUE", // required
+ * //       AllowAssociation: true || false, // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeConnectionAliasPermissionsCommandInput - {@link DescribeConnectionAliasPermissionsCommandInput}
@@ -77,6 +88,8 @@ export interface DescribeConnectionAliasPermissionsCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeConnectionAliasPermissionsCommand extends $Command<

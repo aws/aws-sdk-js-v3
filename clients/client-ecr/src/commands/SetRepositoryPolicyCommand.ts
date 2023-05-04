@@ -49,6 +49,12 @@ export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyRes
  * };
  * const command = new SetRepositoryPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // SetRepositoryPolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   policyText: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param SetRepositoryPolicyCommandInput - {@link SetRepositoryPolicyCommandInput}
@@ -68,6 +74,8 @@ export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyRes
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class SetRepositoryPolicyCommand extends $Command<

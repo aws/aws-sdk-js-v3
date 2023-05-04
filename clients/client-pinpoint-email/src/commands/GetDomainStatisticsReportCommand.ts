@@ -47,6 +47,47 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  * };
  * const command = new GetDomainStatisticsReportCommand(input);
  * const response = await client.send(command);
+ * // { // GetDomainStatisticsReportResponse
+ * //   OverallVolume: { // OverallVolume
+ * //     VolumeStatistics: { // VolumeStatistics
+ * //       InboxRawCount: Number("long"),
+ * //       SpamRawCount: Number("long"),
+ * //       ProjectedInbox: Number("long"),
+ * //       ProjectedSpam: Number("long"),
+ * //     },
+ * //     ReadRatePercent: Number("double"),
+ * //     DomainIspPlacements: [ // DomainIspPlacements
+ * //       { // DomainIspPlacement
+ * //         IspName: "STRING_VALUE",
+ * //         InboxRawCount: Number("long"),
+ * //         SpamRawCount: Number("long"),
+ * //         InboxPercentage: Number("double"),
+ * //         SpamPercentage: Number("double"),
+ * //       },
+ * //     ],
+ * //   },
+ * //   DailyVolumes: [ // DailyVolumes // required
+ * //     { // DailyVolume
+ * //       StartDate: new Date("TIMESTAMP"),
+ * //       VolumeStatistics: {
+ * //         InboxRawCount: Number("long"),
+ * //         SpamRawCount: Number("long"),
+ * //         ProjectedInbox: Number("long"),
+ * //         ProjectedSpam: Number("long"),
+ * //       },
+ * //       DomainIspPlacements: [
+ * //         {
+ * //           IspName: "STRING_VALUE",
+ * //           InboxRawCount: Number("long"),
+ * //           SpamRawCount: Number("long"),
+ * //           InboxPercentage: Number("double"),
+ * //           SpamPercentage: Number("double"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetDomainStatisticsReportCommandInput - {@link GetDomainStatisticsReportCommandInput}
@@ -64,6 +105,8 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class GetDomainStatisticsReportCommand extends $Command<

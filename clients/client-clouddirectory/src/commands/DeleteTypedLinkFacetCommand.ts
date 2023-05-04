@@ -45,6 +45,8 @@ export interface DeleteTypedLinkFacetCommandOutput extends DeleteTypedLinkFacetR
  * };
  * const command = new DeleteTypedLinkFacetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTypedLinkFacetCommandInput - {@link DeleteTypedLinkFacetCommandInput}
@@ -78,6 +80,8 @@ export interface DeleteTypedLinkFacetCommandOutput extends DeleteTypedLinkFacetR
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DeleteTypedLinkFacetCommand extends $Command<

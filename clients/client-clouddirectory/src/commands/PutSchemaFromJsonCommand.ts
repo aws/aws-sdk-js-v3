@@ -45,6 +45,10 @@ export interface PutSchemaFromJsonCommandOutput extends PutSchemaFromJsonRespons
  * };
  * const command = new PutSchemaFromJsonCommand(input);
  * const response = await client.send(command);
+ * // { // PutSchemaFromJsonResponse
+ * //   Arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutSchemaFromJsonCommandInput - {@link PutSchemaFromJsonCommandInput}
@@ -78,6 +82,8 @@ export interface PutSchemaFromJsonCommandOutput extends PutSchemaFromJsonRespons
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class PutSchemaFromJsonCommand extends $Command<

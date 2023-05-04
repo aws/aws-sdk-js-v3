@@ -44,6 +44,8 @@ export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfi
  * };
  * const command = new DeleteDirectoryConfigCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDirectoryConfigCommandInput - {@link DeleteDirectoryConfigCommandInput}
@@ -58,6 +60,8 @@ export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DeleteDirectoryConfigCommand extends $Command<

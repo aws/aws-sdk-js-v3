@@ -44,6 +44,12 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceOutput
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -67,6 +73,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>There were too many requests.</p>
  *
+ * @throws {@link InternetMonitorServiceException}
+ * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

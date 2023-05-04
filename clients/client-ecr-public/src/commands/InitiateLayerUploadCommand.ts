@@ -51,6 +51,11 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  * };
  * const command = new InitiateLayerUploadCommand(input);
  * const response = await client.send(command);
+ * // { // InitiateLayerUploadResponse
+ * //   uploadId: "STRING_VALUE",
+ * //   partSize: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param InitiateLayerUploadCommandInput - {@link InitiateLayerUploadCommandInput}
@@ -76,6 +81,8 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class InitiateLayerUploadCommand extends $Command<

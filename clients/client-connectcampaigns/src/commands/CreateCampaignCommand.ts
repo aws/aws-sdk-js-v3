@@ -64,6 +64,14 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * };
  * const command = new CreateCampaignCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCampaignResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateCampaignCommandInput - {@link CreateCampaignCommandInput}
@@ -93,6 +101,8 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link ConnectCampaignsServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
  */
 export class CreateCampaignCommand extends $Command<

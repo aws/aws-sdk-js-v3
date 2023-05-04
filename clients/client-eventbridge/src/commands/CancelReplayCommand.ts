@@ -44,6 +44,12 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  * };
  * const command = new CancelReplayCommand(input);
  * const response = await client.send(command);
+ * // { // CancelReplayResponse
+ * //   ReplayArn: "STRING_VALUE",
+ * //   State: "STARTING" || "RUNNING" || "CANCELLING" || "COMPLETED" || "CANCELLED" || "FAILED",
+ * //   StateReason: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CancelReplayCommandInput - {@link CancelReplayCommandInput}
@@ -65,6 +71,8 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class CancelReplayCommand extends $Command<

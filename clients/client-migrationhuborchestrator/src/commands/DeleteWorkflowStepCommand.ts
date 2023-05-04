@@ -51,6 +51,8 @@ export interface DeleteWorkflowStepCommandOutput extends DeleteWorkflowStepRespo
  * };
  * const command = new DeleteWorkflowStepCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteWorkflowStepCommandInput - {@link DeleteWorkflowStepCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteWorkflowStepCommandOutput extends DeleteWorkflowStepRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class DeleteWorkflowStepCommand extends $Command<

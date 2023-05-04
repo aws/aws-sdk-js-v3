@@ -44,6 +44,12 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceResponse
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -62,6 +68,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
  *
+ * @throws {@link FinspaceServiceException}
+ * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

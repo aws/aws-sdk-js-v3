@@ -60,6 +60,39 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  * };
  * const command = new CreateConnectPeerCommand(input);
  * const response = await client.send(command);
+ * // { // CreateConnectPeerResponse
+ * //   ConnectPeer: { // ConnectPeer
+ * //     CoreNetworkId: "STRING_VALUE",
+ * //     ConnectAttachmentId: "STRING_VALUE",
+ * //     ConnectPeerId: "STRING_VALUE",
+ * //     EdgeLocation: "STRING_VALUE",
+ * //     State: "CREATING" || "FAILED" || "AVAILABLE" || "DELETING",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     Configuration: { // ConnectPeerConfiguration
+ * //       CoreNetworkAddress: "STRING_VALUE",
+ * //       PeerAddress: "STRING_VALUE",
+ * //       InsideCidrBlocks: [ // ConstrainedStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Protocol: "GRE",
+ * //       BgpConfigurations: [ // ConnectPeerBgpConfigurationList
+ * //         { // ConnectPeerBgpConfiguration
+ * //           CoreNetworkAsn: Number("long"),
+ * //           PeerAsn: Number("long"),
+ * //           CoreNetworkAddress: "STRING_VALUE",
+ * //           PeerAddress: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateConnectPeerCommandInput - {@link CreateConnectPeerCommandInput}
@@ -87,6 +120,8 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class CreateConnectPeerCommand extends $Command<

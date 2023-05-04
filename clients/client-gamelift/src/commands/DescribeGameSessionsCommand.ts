@@ -91,6 +91,38 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  * };
  * const command = new DescribeGameSessionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeGameSessionsOutput
+ * //   GameSessions: [ // GameSessionList
+ * //     { // GameSession
+ * //       GameSessionId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       FleetId: "STRING_VALUE",
+ * //       FleetArn: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       TerminationTime: new Date("TIMESTAMP"),
+ * //       CurrentPlayerSessionCount: Number("int"),
+ * //       MaximumPlayerSessionCount: Number("int"),
+ * //       Status: "ACTIVE" || "ACTIVATING" || "TERMINATED" || "TERMINATING" || "ERROR",
+ * //       StatusReason: "INTERRUPTED",
+ * //       GameProperties: [ // GamePropertyList
+ * //         { // GameProperty
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       IpAddress: "STRING_VALUE",
+ * //       DnsName: "STRING_VALUE",
+ * //       Port: Number("int"),
+ * //       PlayerSessionCreationPolicy: "ACCEPT_ALL" || "DENY_ALL",
+ * //       CreatorId: "STRING_VALUE",
+ * //       GameSessionData: "STRING_VALUE",
+ * //       MatchmakerData: "STRING_VALUE",
+ * //       Location: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeGameSessionsCommandInput - {@link DescribeGameSessionsCommandInput}
@@ -122,6 +154,8 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeGameSessionsCommand extends $Command<

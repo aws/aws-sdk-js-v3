@@ -50,6 +50,10 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  * };
  * const command = new VerifyDomainIdentityCommand(input);
  * const response = await client.send(command);
+ * // { // VerifyDomainIdentityResponse
+ * //   VerificationToken: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param VerifyDomainIdentityCommandInput - {@link VerifyDomainIdentityCommandInput}
@@ -58,6 +62,8 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  * @see {@link VerifyDomainIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example VerifyDomainIdentity
  * ```javascript

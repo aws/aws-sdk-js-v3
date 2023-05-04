@@ -49,6 +49,15 @@ export interface GetPartnerAccountCommandOutput extends GetPartnerAccountRespons
  * };
  * const command = new GetPartnerAccountCommand(input);
  * const response = await client.send(command);
+ * // { // GetPartnerAccountResponse
+ * //   Sidewalk: { // SidewalkAccountInfoWithFingerprint
+ * //     AmazonId: "STRING_VALUE",
+ * //     Fingerprint: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //   },
+ * //   AccountLinked: true || false,
+ * // };
+ *
  * ```
  *
  * @param GetPartnerAccountCommandInput - {@link GetPartnerAccountCommandInput}
@@ -69,6 +78,8 @@ export interface GetPartnerAccountCommandOutput extends GetPartnerAccountRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetPartnerAccountCommand extends $Command<

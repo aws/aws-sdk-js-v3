@@ -56,6 +56,13 @@ export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtend
  * };
  * const command = new GetClusterCredentialsWithIAMCommand(input);
  * const response = await client.send(command);
+ * // { // ClusterExtendedCredentials
+ * //   DbUser: "STRING_VALUE",
+ * //   DbPassword: "STRING_VALUE",
+ * //   Expiration: new Date("TIMESTAMP"),
+ * //   NextRefreshTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param GetClusterCredentialsWithIAMCommandInput - {@link GetClusterCredentialsWithIAMCommandInput}
@@ -71,6 +78,8 @@ export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtend
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class GetClusterCredentialsWithIAMCommand extends $Command<

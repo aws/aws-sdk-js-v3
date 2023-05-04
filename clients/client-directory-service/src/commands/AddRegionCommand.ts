@@ -51,6 +51,8 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  * };
  * const command = new AddRegionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AddRegionCommandInput - {@link AddRegionCommandInput}
@@ -91,6 +93,8 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class AddRegionCommand extends $Command<

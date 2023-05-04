@@ -49,6 +49,8 @@ export interface DeletePackagingConfigurationCommandOutput
  * };
  * const command = new DeletePackagingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeletePackagingConfigurationCommandInput - {@link DeletePackagingConfigurationCommandInput}
@@ -75,6 +77,8 @@ export interface DeletePackagingConfigurationCommandOutput
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageVodServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
  */
 export class DeletePackagingConfigurationCommand extends $Command<

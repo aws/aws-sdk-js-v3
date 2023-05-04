@@ -52,6 +52,10 @@ export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTar
  * };
  * const command = new CreateAssessmentTargetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAssessmentTargetResponse
+ * //   assessmentTargetArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateAssessmentTargetCommandInput - {@link CreateAssessmentTargetCommandInput}
@@ -85,6 +89,8 @@ export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTar
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Create assessment target
  * ```javascript

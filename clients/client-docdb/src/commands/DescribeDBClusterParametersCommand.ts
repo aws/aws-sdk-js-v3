@@ -56,6 +56,24 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * };
  * const command = new DescribeDBClusterParametersCommand(input);
  * const response = await client.send(command);
+ * // { // DBClusterParameterGroupDetails
+ * //   Parameters: [ // ParametersList
+ * //     { // Parameter
+ * //       ParameterName: "STRING_VALUE",
+ * //       ParameterValue: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Source: "STRING_VALUE",
+ * //       ApplyType: "STRING_VALUE",
+ * //       DataType: "STRING_VALUE",
+ * //       AllowedValues: "STRING_VALUE",
+ * //       IsModifiable: true || false,
+ * //       MinimumEngineVersion: "STRING_VALUE",
+ * //       ApplyMethod: "immediate" || "pending-reboot",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeDBClusterParametersCommandInput - {@link DescribeDBClusterParametersCommandInput}
@@ -68,6 +86,8 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  *  <p>
  *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeDBClusterParametersCommand extends $Command<

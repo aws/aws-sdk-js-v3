@@ -88,6 +88,11 @@ export interface CreateDeliverabilityTestReportCommandOutput
  * };
  * const command = new CreateDeliverabilityTestReportCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDeliverabilityTestReportResponse
+ * //   ReportId: "STRING_VALUE", // required
+ * //   DeliverabilityTestStatus: "IN_PROGRESS" || "COMPLETED", // required
+ * // };
+ *
  * ```
  *
  * @param CreateDeliverabilityTestReportCommandInput - {@link CreateDeliverabilityTestReportCommandInput}
@@ -125,6 +130,8 @@ export interface CreateDeliverabilityTestReportCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class CreateDeliverabilityTestReportCommand extends $Command<

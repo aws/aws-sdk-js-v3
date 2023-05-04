@@ -44,6 +44,8 @@ export interface DeleteBatchImportJobCommandOutput extends DeleteBatchImportJobR
  * };
  * const command = new DeleteBatchImportJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteBatchImportJobCommandInput - {@link DeleteBatchImportJobCommandInput}
@@ -64,6 +66,8 @@ export interface DeleteBatchImportJobCommandOutput extends DeleteBatchImportJobR
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class DeleteBatchImportJobCommand extends $Command<

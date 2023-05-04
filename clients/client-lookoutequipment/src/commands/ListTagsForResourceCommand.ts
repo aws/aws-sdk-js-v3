@@ -44,6 +44,15 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceResponse
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -71,6 +80,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
  *          related AWS service that's being utilized. </p>
  *
+ * @throws {@link LookoutEquipmentServiceException}
+ * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

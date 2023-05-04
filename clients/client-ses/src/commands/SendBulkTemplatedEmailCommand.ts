@@ -124,6 +124,16 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  * };
  * const command = new SendBulkTemplatedEmailCommand(input);
  * const response = await client.send(command);
+ * // { // SendBulkTemplatedEmailResponse
+ * //   Status: [ // BulkEmailDestinationStatusList // required
+ * //     { // BulkEmailDestinationStatus
+ * //       Status: "STRING_VALUE",
+ * //       Error: "STRING_VALUE",
+ * //       MessageId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param SendBulkTemplatedEmailCommandInput - {@link SendBulkTemplatedEmailCommandInput}
@@ -157,6 +167,8 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
  *             account.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class SendBulkTemplatedEmailCommand extends $Command<

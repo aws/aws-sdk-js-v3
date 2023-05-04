@@ -45,6 +45,8 @@ export interface DeleteContactEvaluationCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteContactEvaluationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteContactEvaluationCommandInput - {@link DeleteContactEvaluationCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteContactEvaluationCommandOutput extends __MetadataBearer {
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeleteContactEvaluationCommand extends $Command<

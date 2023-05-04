@@ -45,6 +45,10 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
  * };
  * const command = new GetPermissionPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetPermissionPolicyResponse
+ * //   Policy: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetPermissionPolicyCommandInput - {@link GetPermissionPolicyCommandInput}
@@ -84,6 +88,8 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class GetPermissionPolicyCommand extends $Command<

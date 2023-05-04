@@ -52,6 +52,17 @@ export interface ImportPlaybackKeyPairCommandOutput extends ImportPlaybackKeyPai
  * };
  * const command = new ImportPlaybackKeyPairCommand(input);
  * const response = await client.send(command);
+ * // { // ImportPlaybackKeyPairResponse
+ * //   keyPair: { // PlaybackKeyPair
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     fingerprint: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ImportPlaybackKeyPairCommandInput - {@link ImportPlaybackKeyPairCommandInput}
@@ -75,6 +86,8 @@ export interface ImportPlaybackKeyPairCommandOutput extends ImportPlaybackKeyPai
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class ImportPlaybackKeyPairCommand extends $Command<

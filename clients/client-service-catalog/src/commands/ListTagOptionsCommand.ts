@@ -50,6 +50,19 @@ export interface ListTagOptionsCommandOutput extends ListTagOptionsOutput, __Met
  * };
  * const command = new ListTagOptionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagOptionsOutput
+ * //   TagOptionDetails: [ // TagOptionDetails
+ * //     { // TagOptionDetail
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //       Active: true || false,
+ * //       Id: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   PageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTagOptionsCommandInput - {@link ListTagOptionsCommandInput}
@@ -66,6 +79,8 @@ export interface ListTagOptionsCommandOutput extends ListTagOptionsOutput, __Met
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListTagOptionsCommand extends $Command<

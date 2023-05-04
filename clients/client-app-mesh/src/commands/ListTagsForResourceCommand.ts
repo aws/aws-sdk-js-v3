@@ -46,6 +46,16 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceOutput
+ * //   tags: [ // TagList // required
+ * //     { // TagRef
+ * //       key: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -75,6 +85,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

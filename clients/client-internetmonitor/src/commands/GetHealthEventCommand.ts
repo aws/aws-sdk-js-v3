@@ -49,6 +49,66 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  * };
  * const command = new GetHealthEventCommand(input);
  * const response = await client.send(command);
+ * // { // GetHealthEventOutput
+ * //   EventArn: "STRING_VALUE", // required
+ * //   EventId: "STRING_VALUE", // required
+ * //   StartedAt: new Date("TIMESTAMP"), // required
+ * //   EndedAt: new Date("TIMESTAMP"),
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   LastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //   ImpactedLocations: [ // ImpactedLocationsList // required
+ * //     { // ImpactedLocation
+ * //       ASName: "STRING_VALUE", // required
+ * //       ASNumber: Number("long"), // required
+ * //       Country: "STRING_VALUE", // required
+ * //       Subdivision: "STRING_VALUE",
+ * //       Metro: "STRING_VALUE",
+ * //       City: "STRING_VALUE",
+ * //       Latitude: Number("double"),
+ * //       Longitude: Number("double"),
+ * //       CountryCode: "STRING_VALUE",
+ * //       SubdivisionCode: "STRING_VALUE",
+ * //       ServiceLocation: "STRING_VALUE",
+ * //       Status: "STRING_VALUE", // required
+ * //       CausedBy: { // NetworkImpairment
+ * //         Networks: [ // NetworkList // required
+ * //           { // Network
+ * //             ASName: "STRING_VALUE", // required
+ * //             ASNumber: Number("long"), // required
+ * //           },
+ * //         ],
+ * //         AsPath: [ // required
+ * //           {
+ * //             ASName: "STRING_VALUE", // required
+ * //             ASNumber: Number("long"), // required
+ * //           },
+ * //         ],
+ * //         NetworkEventType: "STRING_VALUE", // required
+ * //       },
+ * //       InternetHealth: { // InternetHealth
+ * //         Availability: { // AvailabilityMeasurement
+ * //           ExperienceScore: Number("double"),
+ * //           PercentOfTotalTrafficImpacted: Number("double"),
+ * //           PercentOfClientLocationImpacted: Number("double"),
+ * //         },
+ * //         Performance: { // PerformanceMeasurement
+ * //           ExperienceScore: Number("double"),
+ * //           PercentOfTotalTrafficImpacted: Number("double"),
+ * //           PercentOfClientLocationImpacted: Number("double"),
+ * //           RoundTripTime: { // RoundTripTime
+ * //             P50: Number("double"),
+ * //             P90: Number("double"),
+ * //             P95: Number("double"),
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   Status: "STRING_VALUE", // required
+ * //   PercentOfTotalTrafficImpacted: Number("double"),
+ * //   ImpactType: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param GetHealthEventCommandInput - {@link GetHealthEventCommandInput}
@@ -69,6 +129,8 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>Invalid request.</p>
  *
+ * @throws {@link InternetMonitorServiceException}
+ * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
  */
 export class GetHealthEventCommand extends $Command<

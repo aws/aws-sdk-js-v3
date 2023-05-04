@@ -59,6 +59,8 @@ export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFee
  * };
  * const command = new UpdateAuthEventFeedbackCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateAuthEventFeedbackCommandInput - {@link UpdateAuthEventFeedbackCommandInput}
@@ -91,6 +93,8 @@ export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFee
  * @throws {@link UserPoolAddOnNotEnabledException} (client fault)
  *  <p>This exception is thrown when user pool add-ons aren't enabled.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class UpdateAuthEventFeedbackCommand extends $Command<

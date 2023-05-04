@@ -58,6 +58,16 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * };
  * const command = new CreateRepositoryCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRepositoryOutput
+ * //   repository: { // Repository
+ * //     arn: "STRING_VALUE", // required
+ * //     provider: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     connectionArn: "STRING_VALUE", // required
+ * //     encryptionKey: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateRepositoryCommandInput - {@link CreateRepositoryCommandInput}
@@ -85,6 +95,8 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class CreateRepositoryCommand extends $Command<

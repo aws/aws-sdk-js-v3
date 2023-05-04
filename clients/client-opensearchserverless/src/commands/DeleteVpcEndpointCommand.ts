@@ -50,6 +50,14 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  * };
  * const command = new DeleteVpcEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteVpcEndpointResponse
+ * //   deleteVpcEndpointDetail: { // DeleteVpcEndpointDetail
+ * //     id: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteVpcEndpointCommandInput - {@link DeleteVpcEndpointCommandInput}
@@ -73,6 +81,8 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class DeleteVpcEndpointCommand extends $Command<

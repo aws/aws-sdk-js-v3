@@ -49,6 +49,19 @@ export interface GetSamplingStatisticSummariesCommandOutput
  * };
  * const command = new GetSamplingStatisticSummariesCommand(input);
  * const response = await client.send(command);
+ * // { // GetSamplingStatisticSummariesResult
+ * //   SamplingStatisticSummaries: [ // SamplingStatisticSummaryList
+ * //     { // SamplingStatisticSummary
+ * //       RuleName: "STRING_VALUE",
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //       RequestCount: Number("int"),
+ * //       BorrowCount: Number("int"),
+ * //       SampledCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetSamplingStatisticSummariesCommandInput - {@link GetSamplingStatisticSummariesCommandInput}
@@ -63,6 +76,8 @@ export interface GetSamplingStatisticSummariesCommandOutput
  * @throws {@link ThrottledException} (client fault)
  *  <p>The request exceeds the maximum number of requests per second.</p>
  *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class GetSamplingStatisticSummariesCommand extends $Command<

@@ -45,6 +45,24 @@ export interface ListCoreDefinitionsCommandOutput extends ListCoreDefinitionsRes
  * };
  * const command = new ListCoreDefinitionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCoreDefinitionsResponse
+ * //   Definitions: [ // __listOfDefinitionInformation
+ * //     { // DefinitionInformation
+ * //       Arn: "STRING_VALUE",
+ * //       CreationTimestamp: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       LastUpdatedTimestamp: "STRING_VALUE",
+ * //       LatestVersion: "STRING_VALUE",
+ * //       LatestVersionArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCoreDefinitionsCommandInput - {@link ListCoreDefinitionsCommandInput}
@@ -53,6 +71,8 @@ export interface ListCoreDefinitionsCommandOutput extends ListCoreDefinitionsRes
  * @see {@link ListCoreDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListCoreDefinitionsCommand extends $Command<

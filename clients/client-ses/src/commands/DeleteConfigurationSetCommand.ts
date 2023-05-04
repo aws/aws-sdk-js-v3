@@ -46,6 +46,8 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * };
  * const command = new DeleteConfigurationSetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteConfigurationSetCommandInput - {@link DeleteConfigurationSetCommandInput}
@@ -57,6 +59,8 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
  *  <p>Indicates that the configuration set does not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class DeleteConfigurationSetCommand extends $Command<

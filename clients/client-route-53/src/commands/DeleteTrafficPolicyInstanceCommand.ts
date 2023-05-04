@@ -52,6 +52,8 @@ export interface DeleteTrafficPolicyInstanceCommandOutput
  * };
  * const command = new DeleteTrafficPolicyInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTrafficPolicyInstanceCommandInput - {@link DeleteTrafficPolicyInstanceCommandInput}
@@ -73,6 +75,8 @@ export interface DeleteTrafficPolicyInstanceCommandOutput
  * 			for the same request, we recommend that you wait, in intervals of increasing duration,
  * 			before you try the request again.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class DeleteTrafficPolicyInstanceCommand extends $Command<

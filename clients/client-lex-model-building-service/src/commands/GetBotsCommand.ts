@@ -64,6 +64,20 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  * };
  * const command = new GetBotsCommand(input);
  * const response = await client.send(command);
+ * // { // GetBotsResponse
+ * //   bots: [ // BotMetadataList
+ * //     { // BotMetadata
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       lastUpdatedDate: new Date("TIMESTAMP"),
+ * //       createdDate: new Date("TIMESTAMP"),
+ * //       version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetBotsCommandInput - {@link GetBotsCommandInput}
@@ -87,6 +101,8 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  * @example To get a list of bots
  * ```javascript

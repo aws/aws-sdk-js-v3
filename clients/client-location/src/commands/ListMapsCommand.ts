@@ -45,6 +45,20 @@ export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBeare
  * };
  * const command = new ListMapsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMapsResponse
+ * //   Entries: [ // ListMapsResponseEntryList // required
+ * //     { // ListMapsResponseEntry
+ * //       MapName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE", // required
+ * //       DataSource: "STRING_VALUE", // required
+ * //       PricingPlan: "STRING_VALUE",
+ * //       CreateTime: new Date("TIMESTAMP"), // required
+ * //       UpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListMapsCommandInput - {@link ListMapsCommandInput}
@@ -66,6 +80,8 @@ export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class ListMapsCommand extends $Command<

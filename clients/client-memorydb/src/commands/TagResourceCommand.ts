@@ -59,6 +59,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // { // TagResourceResponse
+ * //   TagList: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -97,6 +106,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link UserNotFoundFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

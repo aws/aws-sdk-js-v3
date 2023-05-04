@@ -52,6 +52,29 @@ export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, _
  * };
  * const command = new ListHostedZonesCommand(input);
  * const response = await client.send(command);
+ * // { // ListHostedZonesResponse
+ * //   HostedZones: [ // HostedZones // required
+ * //     { // HostedZone
+ * //       Id: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       CallerReference: "STRING_VALUE", // required
+ * //       Config: { // HostedZoneConfig
+ * //         Comment: "STRING_VALUE",
+ * //         PrivateZone: true || false,
+ * //       },
+ * //       ResourceRecordSetCount: Number("long"),
+ * //       LinkedService: { // LinkedService
+ * //         ServicePrincipal: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE", // required
+ * //   IsTruncated: true || false, // required
+ * //   NextMarker: "STRING_VALUE",
+ * //   MaxItems: Number("int"), // required
+ * // };
+ *
  * ```
  *
  * @param ListHostedZonesCommandInput - {@link ListHostedZonesCommandInput}
@@ -69,6 +92,8 @@ export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, _
  * @throws {@link NoSuchDelegationSet} (client fault)
  *  <p>A reusable delegation set with the specified ID does not exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListHostedZonesCommand extends $Command<

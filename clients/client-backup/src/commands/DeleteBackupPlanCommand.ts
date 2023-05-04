@@ -46,6 +46,13 @@ export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, _
  * };
  * const command = new DeleteBackupPlanCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteBackupPlanOutput
+ * //   BackupPlanId: "STRING_VALUE",
+ * //   BackupPlanArn: "STRING_VALUE",
+ * //   DeletionDate: new Date("TIMESTAMP"),
+ * //   VersionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteBackupPlanCommandInput - {@link DeleteBackupPlanCommandInput}
@@ -71,6 +78,8 @@ export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, _
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DeleteBackupPlanCommand extends $Command<

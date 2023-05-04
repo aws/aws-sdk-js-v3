@@ -74,6 +74,10 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * };
  * const command = new ModifyDBParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DBParameterGroupNameMessage
+ * //   DBParameterGroupName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ModifyDBParameterGroupCommandInput - {@link ModifyDBParameterGroupCommandInput}
@@ -92,6 +96,8 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  *             to delete the parameter group, you can't delete it when the parameter group is in
  *             this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To modify a DB parameter group
  * ```javascript

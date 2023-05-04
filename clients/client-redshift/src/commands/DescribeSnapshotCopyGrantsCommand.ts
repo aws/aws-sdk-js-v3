@@ -58,6 +58,22 @@ export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGra
  * };
  * const command = new DescribeSnapshotCopyGrantsCommand(input);
  * const response = await client.send(command);
+ * // { // SnapshotCopyGrantMessage
+ * //   Marker: "STRING_VALUE",
+ * //   SnapshotCopyGrants: [ // SnapshotCopyGrantList
+ * //     { // SnapshotCopyGrant
+ * //       SnapshotCopyGrantName: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeSnapshotCopyGrantsCommandInput - {@link DescribeSnapshotCopyGrantsCommandInput}
@@ -73,6 +89,8 @@ export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGra
  *  <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
  *             correctly and that the grant exists in the destination region.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeSnapshotCopyGrantsCommand extends $Command<

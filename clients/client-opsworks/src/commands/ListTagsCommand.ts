@@ -46,6 +46,13 @@ export interface ListTagsCommandOutput extends ListTagsResult, __MetadataBearer 
  * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsResult
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTagsCommandInput - {@link ListTagsCommandInput}
@@ -60,6 +67,8 @@ export interface ListTagsCommandOutput extends ListTagsResult, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p>Indicates that a request was not valid.</p>
  *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class ListTagsCommand extends $Command<

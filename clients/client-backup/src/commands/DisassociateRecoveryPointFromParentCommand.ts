@@ -49,6 +49,8 @@ export interface DisassociateRecoveryPointFromParentCommandOutput extends __Meta
  * };
  * const command = new DisassociateRecoveryPointFromParentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateRecoveryPointFromParentCommandInput - {@link DisassociateRecoveryPointFromParentCommandInput}
@@ -74,6 +76,8 @@ export interface DisassociateRecoveryPointFromParentCommandOutput extends __Meta
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DisassociateRecoveryPointFromParentCommand extends $Command<

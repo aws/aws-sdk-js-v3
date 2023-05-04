@@ -49,6 +49,26 @@ export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessa
  * };
  * const command = new DescribeServiceUpdatesCommand(input);
  * const response = await client.send(command);
+ * // { // ServiceUpdatesMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ServiceUpdates: [ // ServiceUpdateList
+ * //     { // ServiceUpdate
+ * //       ServiceUpdateName: "STRING_VALUE",
+ * //       ServiceUpdateReleaseDate: new Date("TIMESTAMP"),
+ * //       ServiceUpdateEndDate: new Date("TIMESTAMP"),
+ * //       ServiceUpdateSeverity: "critical" || "important" || "medium" || "low",
+ * //       ServiceUpdateRecommendedApplyByDate: new Date("TIMESTAMP"),
+ * //       ServiceUpdateStatus: "available" || "cancelled" || "expired",
+ * //       ServiceUpdateDescription: "STRING_VALUE",
+ * //       ServiceUpdateType: "security-update",
+ * //       Engine: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       AutoUpdateAfterRecommendedApplyByDate: true || false,
+ * //       EstimatedUpdateTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeServiceUpdatesCommandInput - {@link DescribeServiceUpdatesCommandInput}
@@ -66,6 +86,8 @@ export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessa
  * @throws {@link ServiceUpdateNotFoundFault} (client fault)
  *  <p>The service update doesn't exist</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
 export class DescribeServiceUpdatesCommand extends $Command<

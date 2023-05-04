@@ -43,6 +43,12 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  * const input = {};
  * const command = new GetV2LoggingOptionsCommand(input);
  * const response = await client.send(command);
+ * // { // GetV2LoggingOptionsResponse
+ * //   roleArn: "STRING_VALUE",
+ * //   defaultLogLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
+ * //   disableAllLogs: true || false,
+ * // };
+ *
  * ```
  *
  * @param GetV2LoggingOptionsCommandInput - {@link GetV2LoggingOptionsCommandInput}
@@ -60,6 +66,8 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class GetV2LoggingOptionsCommand extends $Command<

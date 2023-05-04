@@ -48,6 +48,22 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * };
  * const command = new ListDatabasesCommand(input);
  * const response = await client.send(command);
+ * // { // ListDatabasesOutput
+ * //   Databases: [ // DatabaseSummaryList
+ * //     { // DatabaseSummary
+ * //       ApplicationId: "STRING_VALUE",
+ * //       ComponentId: "STRING_VALUE",
+ * //       DatabaseId: "STRING_VALUE",
+ * //       DatabaseType: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDatabasesCommandInput - {@link ListDatabasesCommandInput}
@@ -65,6 +81,8 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
+ * @throws {@link SsmSapServiceException}
+ * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
 export class ListDatabasesCommand extends $Command<

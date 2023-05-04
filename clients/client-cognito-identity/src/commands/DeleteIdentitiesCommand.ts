@@ -49,6 +49,15 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  * };
  * const command = new DeleteIdentitiesCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteIdentitiesResponse
+ * //   UnprocessedIdentityIds: [ // UnprocessedIdentityIdList
+ * //     { // UnprocessedIdentityId
+ * //       IdentityId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DeleteIdentitiesCommandInput - {@link DeleteIdentitiesCommandInput}
@@ -66,6 +75,8 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class DeleteIdentitiesCommand extends $Command<

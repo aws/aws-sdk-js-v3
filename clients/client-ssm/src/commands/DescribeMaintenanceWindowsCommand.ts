@@ -57,6 +57,26 @@ export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMainten
  * };
  * const command = new DescribeMaintenanceWindowsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeMaintenanceWindowsResult
+ * //   WindowIdentities: [ // MaintenanceWindowIdentityList
+ * //     { // MaintenanceWindowIdentity
+ * //       WindowId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Enabled: true || false,
+ * //       Duration: Number("int"),
+ * //       Cutoff: Number("int"),
+ * //       Schedule: "STRING_VALUE",
+ * //       ScheduleTimezone: "STRING_VALUE",
+ * //       ScheduleOffset: Number("int"),
+ * //       EndDate: "STRING_VALUE",
+ * //       StartDate: "STRING_VALUE",
+ * //       NextExecutionTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeMaintenanceWindowsCommandInput - {@link DescribeMaintenanceWindowsCommandInput}
@@ -68,6 +88,8 @@ export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMainten
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeMaintenanceWindowsCommand extends $Command<

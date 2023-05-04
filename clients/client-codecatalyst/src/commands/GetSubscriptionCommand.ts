@@ -45,6 +45,11 @@ export interface GetSubscriptionCommandOutput extends GetSubscriptionResponse, _
  * };
  * const command = new GetSubscriptionCommand(input);
  * const response = await client.send(command);
+ * // { // GetSubscriptionResponse
+ * //   subscriptionType: "STRING_VALUE",
+ * //   awsAccountName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetSubscriptionCommandInput - {@link GetSubscriptionCommandInput}
@@ -73,6 +78,8 @@ export interface GetSubscriptionCommandOutput extends GetSubscriptionResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class GetSubscriptionCommand extends $Command<

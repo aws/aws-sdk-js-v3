@@ -105,6 +105,63 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  * };
  * const command = new UpdatePatchBaselineCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePatchBaselineResult
+ * //   BaselineId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023",
+ * //   GlobalFilters: { // PatchFilterGroup
+ * //     PatchFilters: [ // PatchFilterList // required
+ * //       { // PatchFilter
+ * //         Key: "ARCH" || "ADVISORY_ID" || "BUGZILLA_ID" || "PATCH_SET" || "PRODUCT" || "PRODUCT_FAMILY" || "CLASSIFICATION" || "CVE_ID" || "EPOCH" || "MSRC_SEVERITY" || "NAME" || "PATCH_ID" || "SECTION" || "PRIORITY" || "REPOSITORY" || "RELEASE" || "SEVERITY" || "SECURITY" || "VERSION", // required
+ * //         Values: [ // PatchFilterValueList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   ApprovalRules: { // PatchRuleGroup
+ * //     PatchRules: [ // PatchRuleList // required
+ * //       { // PatchRule
+ * //         PatchFilterGroup: {
+ * //           PatchFilters: [ // required
+ * //             {
+ * //               Key: "ARCH" || "ADVISORY_ID" || "BUGZILLA_ID" || "PATCH_SET" || "PRODUCT" || "PRODUCT_FAMILY" || "CLASSIFICATION" || "CVE_ID" || "EPOCH" || "MSRC_SEVERITY" || "NAME" || "PATCH_ID" || "SECTION" || "PRIORITY" || "REPOSITORY" || "RELEASE" || "SEVERITY" || "SECURITY" || "VERSION", // required
+ * //               Values: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //         ComplianceLevel: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
+ * //         ApproveAfterDays: Number("int"),
+ * //         ApproveUntilDate: "STRING_VALUE",
+ * //         EnableNonSecurity: true || false,
+ * //       },
+ * //     ],
+ * //   },
+ * //   ApprovedPatches: [ // PatchIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ApprovedPatchesComplianceLevel: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
+ * //   ApprovedPatchesEnableNonSecurity: true || false,
+ * //   RejectedPatches: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   RejectedPatchesAction: "ALLOW_AS_DEPENDENCY" || "BLOCK",
+ * //   CreatedDate: new Date("TIMESTAMP"),
+ * //   ModifiedDate: new Date("TIMESTAMP"),
+ * //   Description: "STRING_VALUE",
+ * //   Sources: [ // PatchSourceList
+ * //     { // PatchSource
+ * //       Name: "STRING_VALUE", // required
+ * //       Products: [ // PatchSourceProductList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Configuration: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UpdatePatchBaselineCommandInput - {@link UpdatePatchBaselineCommandInput}
@@ -122,6 +179,8 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdatePatchBaselineCommand extends $Command<

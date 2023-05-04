@@ -51,6 +51,13 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  * };
  * const command = new DescribeSchemasCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSchemasResponse
+ * //   Marker: "STRING_VALUE",
+ * //   Schemas: [ // SchemaList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeSchemasCommandInput - {@link DescribeSchemasCommandInput}
@@ -65,6 +72,8 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Describe schemas
  * ```javascript

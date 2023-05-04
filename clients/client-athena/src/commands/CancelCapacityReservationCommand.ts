@@ -44,6 +44,8 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  * };
  * const command = new CancelCapacityReservationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelCapacityReservationCommandInput - {@link CancelCapacityReservationCommandInput}
@@ -60,6 +62,8 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class CancelCapacityReservationCommand extends $Command<

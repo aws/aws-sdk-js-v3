@@ -74,6 +74,10 @@ export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse,
  * };
  * const command = new SendAnnouncementCommand(input);
  * const response = await client.send(command);
+ * // { // SendAnnouncementResponse
+ * //   AnnouncementArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param SendAnnouncementCommandInput - {@link SendAnnouncementCommandInput}
@@ -88,6 +92,8 @@ export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse,
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class SendAnnouncementCommand extends $Command<

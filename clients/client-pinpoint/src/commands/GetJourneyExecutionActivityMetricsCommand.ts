@@ -56,6 +56,19 @@ export interface GetJourneyExecutionActivityMetricsCommandOutput
  * };
  * const command = new GetJourneyExecutionActivityMetricsCommand(input);
  * const response = await client.send(command);
+ * // { // GetJourneyExecutionActivityMetricsResponse
+ * //   JourneyExecutionActivityMetricsResponse: { // JourneyExecutionActivityMetricsResponse
+ * //     ActivityType: "STRING_VALUE", // required
+ * //     ApplicationId: "STRING_VALUE", // required
+ * //     JourneyActivityId: "STRING_VALUE", // required
+ * //     JourneyId: "STRING_VALUE", // required
+ * //     LastEvaluatedTime: "STRING_VALUE", // required
+ * //     Metrics: { // MapOf__string // required
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetJourneyExecutionActivityMetricsCommandInput - {@link GetJourneyExecutionActivityMetricsCommandInput}
@@ -85,6 +98,8 @@ export interface GetJourneyExecutionActivityMetricsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetJourneyExecutionActivityMetricsCommand extends $Command<

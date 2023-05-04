@@ -49,6 +49,17 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * };
  * const command = new TestConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // TestConnectionResponse
+ * //   Connection: { // Connection
+ * //     ReplicationInstanceArn: "STRING_VALUE",
+ * //     EndpointArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     LastFailureMessage: "STRING_VALUE",
+ * //     EndpointIdentifier: "STRING_VALUE",
+ * //     ReplicationInstanceIdentifier: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param TestConnectionCommandInput - {@link TestConnectionCommandInput}
@@ -73,6 +84,8 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * @throws {@link ResourceQuotaExceededFault} (client fault)
  *  <p>The quota for this resource quota has been exceeded.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Test conection
  * ```javascript

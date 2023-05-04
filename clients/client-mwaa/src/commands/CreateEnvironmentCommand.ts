@@ -101,6 +101,10 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
+ * // { // CreateEnvironmentOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
@@ -115,6 +119,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * @throws {@link ValidationException} (client fault)
  *  <p>ValidationException: The provided input is not valid.</p>
  *
+ * @throws {@link MWAAServiceException}
+ * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  */
 export class CreateEnvironmentCommand extends $Command<

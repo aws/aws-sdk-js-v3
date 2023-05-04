@@ -44,6 +44,8 @@ export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSnapshotScheduleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSnapshotScheduleCommandInput - {@link DeleteSnapshotScheduleCommandInput}
@@ -58,6 +60,8 @@ export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
  * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
  *  <p>We could not find the specified snapshot schedule. </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteSnapshotScheduleCommand extends $Command<

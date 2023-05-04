@@ -47,6 +47,8 @@ export interface DeleteTagsCommandOutput extends DeleteTagsResult, __MetadataBea
  * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
@@ -61,6 +63,8 @@ export interface DeleteTagsCommandOutput extends DeleteTagsResult, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DeleteTagsCommand extends $Command<

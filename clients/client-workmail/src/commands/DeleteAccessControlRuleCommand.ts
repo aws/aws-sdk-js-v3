@@ -48,6 +48,8 @@ export interface DeleteAccessControlRuleCommandOutput extends DeleteAccessContro
  * };
  * const command = new DeleteAccessControlRuleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAccessControlRuleCommandInput - {@link DeleteAccessControlRuleCommandInput}
@@ -64,6 +66,8 @@ export interface DeleteAccessControlRuleCommandOutput extends DeleteAccessContro
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DeleteAccessControlRuleCommand extends $Command<

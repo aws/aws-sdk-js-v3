@@ -87,6 +87,10 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  * };
  * const command = new StartTaskExecutionCommand(input);
  * const response = await client.send(command);
+ * // { // StartTaskExecutionResponse
+ * //   TaskExecutionArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartTaskExecutionCommandInput - {@link StartTaskExecutionCommandInput}
@@ -102,6 +106,8 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class StartTaskExecutionCommand extends $Command<

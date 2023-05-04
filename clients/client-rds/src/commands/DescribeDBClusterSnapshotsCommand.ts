@@ -64,6 +64,44 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * };
  * const command = new DescribeDBClusterSnapshotsCommand(input);
  * const response = await client.send(command);
+ * // { // DBClusterSnapshotMessage
+ * //   Marker: "STRING_VALUE",
+ * //   DBClusterSnapshots: [ // DBClusterSnapshotList
+ * //     { // DBClusterSnapshot
+ * //       AvailabilityZones: [ // AvailabilityZones
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DBClusterSnapshotIdentifier: "STRING_VALUE",
+ * //       DBClusterIdentifier: "STRING_VALUE",
+ * //       SnapshotCreateTime: new Date("TIMESTAMP"),
+ * //       Engine: "STRING_VALUE",
+ * //       EngineMode: "STRING_VALUE",
+ * //       AllocatedStorage: Number("int"),
+ * //       Status: "STRING_VALUE",
+ * //       Port: Number("int"),
+ * //       VpcId: "STRING_VALUE",
+ * //       ClusterCreateTime: new Date("TIMESTAMP"),
+ * //       MasterUsername: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       LicenseModel: "STRING_VALUE",
+ * //       SnapshotType: "STRING_VALUE",
+ * //       PercentProgress: Number("int"),
+ * //       StorageEncrypted: true || false,
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       DBClusterSnapshotArn: "STRING_VALUE",
+ * //       SourceDBClusterSnapshotArn: "STRING_VALUE",
+ * //       IAMDatabaseAuthenticationEnabled: true || false,
+ * //       TagList: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DBSystemId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeDBClusterSnapshotsCommandInput - {@link DescribeDBClusterSnapshotsCommandInput}
@@ -76,6 +114,8 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  *  <p>
  *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To describe a DB cluster snapshot for a DB cluster
  * ```javascript

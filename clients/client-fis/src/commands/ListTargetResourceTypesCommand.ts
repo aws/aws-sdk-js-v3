@@ -45,6 +45,16 @@ export interface ListTargetResourceTypesCommandOutput extends ListTargetResource
  * };
  * const command = new ListTargetResourceTypesCommand(input);
  * const response = await client.send(command);
+ * // { // ListTargetResourceTypesResponse
+ * //   targetResourceTypes: [ // TargetResourceTypeSummaryList
+ * //     { // TargetResourceTypeSummary
+ * //       resourceType: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTargetResourceTypesCommandInput - {@link ListTargetResourceTypesCommandInput}
@@ -56,6 +66,8 @@ export interface ListTargetResourceTypesCommandOutput extends ListTargetResource
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
  *
+ * @throws {@link FisServiceException}
+ * <p>Base exception class for all service exceptions from Fis service.</p>
  *
  */
 export class ListTargetResourceTypesCommand extends $Command<

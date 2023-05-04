@@ -57,6 +57,11 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  * };
  * const command = new ImportHostKeyCommand(input);
  * const response = await client.send(command);
+ * // { // ImportHostKeyResponse
+ * //   ServerId: "STRING_VALUE", // required
+ * //   HostKeyId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param ImportHostKeyCommandInput - {@link ImportHostKeyCommandInput}
@@ -84,6 +89,8 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ImportHostKeyCommand extends $Command<

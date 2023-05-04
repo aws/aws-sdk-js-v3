@@ -53,6 +53,20 @@ export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
  * };
  * const command = new UpdateUsageCommand(input);
  * const response = await client.send(command);
+ * // { // Usage
+ * //   usagePlanId: "STRING_VALUE",
+ * //   startDate: "STRING_VALUE",
+ * //   endDate: "STRING_VALUE",
+ * //   items: { // MapOfKeyUsages
+ * //     "<keys>": [ // ListOfUsage
+ * //       [ // ListOfLong
+ * //         Number("long"),
+ * //       ],
+ * //     ],
+ * //   },
+ * //   position: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateUsageCommandInput - {@link UpdateUsageCommandInput}
@@ -79,6 +93,8 @@ export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class UpdateUsageCommand extends $Command<

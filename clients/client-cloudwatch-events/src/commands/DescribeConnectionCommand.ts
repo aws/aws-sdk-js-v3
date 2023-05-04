@@ -44,6 +44,80 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * };
  * const command = new DescribeConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeConnectionResponse
+ * //   ConnectionArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   ConnectionState: "STRING_VALUE",
+ * //   StateReason: "STRING_VALUE",
+ * //   AuthorizationType: "STRING_VALUE",
+ * //   SecretArn: "STRING_VALUE",
+ * //   AuthParameters: { // ConnectionAuthResponseParameters
+ * //     BasicAuthParameters: { // ConnectionBasicAuthResponseParameters
+ * //       Username: "STRING_VALUE",
+ * //     },
+ * //     OAuthParameters: { // ConnectionOAuthResponseParameters
+ * //       ClientParameters: { // ConnectionOAuthClientResponseParameters
+ * //         ClientID: "STRING_VALUE",
+ * //       },
+ * //       AuthorizationEndpoint: "STRING_VALUE",
+ * //       HttpMethod: "STRING_VALUE",
+ * //       OAuthHttpParameters: { // ConnectionHttpParameters
+ * //         HeaderParameters: [ // ConnectionHeaderParametersList
+ * //           { // ConnectionHeaderParameter
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //             IsValueSecret: true || false,
+ * //           },
+ * //         ],
+ * //         QueryStringParameters: [ // ConnectionQueryStringParametersList
+ * //           { // ConnectionQueryStringParameter
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //             IsValueSecret: true || false,
+ * //           },
+ * //         ],
+ * //         BodyParameters: [ // ConnectionBodyParametersList
+ * //           { // ConnectionBodyParameter
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //             IsValueSecret: true || false,
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //     ApiKeyAuthParameters: { // ConnectionApiKeyAuthResponseParameters
+ * //       ApiKeyName: "STRING_VALUE",
+ * //     },
+ * //     InvocationHttpParameters: {
+ * //       HeaderParameters: [
+ * //         {
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //           IsValueSecret: true || false,
+ * //         },
+ * //       ],
+ * //       QueryStringParameters: [
+ * //         {
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //           IsValueSecret: true || false,
+ * //         },
+ * //       ],
+ * //       BodyParameters: [
+ * //         {
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //           IsValueSecret: true || false,
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastAuthorizedTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeConnectionCommandInput - {@link DescribeConnectionCommandInput}
@@ -58,6 +132,8 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An entity that you specified does not exist.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class DescribeConnectionCommand extends $Command<

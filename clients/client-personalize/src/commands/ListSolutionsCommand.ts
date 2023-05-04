@@ -49,6 +49,20 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  * };
  * const command = new ListSolutionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSolutionsResponse
+ * //   solutions: [ // Solutions
+ * //     { // SolutionSummary
+ * //       name: "STRING_VALUE",
+ * //       solutionArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       recipeArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSolutionsCommandInput - {@link ListSolutionsCommandInput}
@@ -63,6 +77,8 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListSolutionsCommand extends $Command<

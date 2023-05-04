@@ -53,6 +53,55 @@ export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescription
  * };
  * const command = new ComposeEnvironmentsCommand(input);
  * const response = await client.send(command);
+ * // { // EnvironmentDescriptionsMessage
+ * //   Environments: [ // EnvironmentDescriptionsList
+ * //     { // EnvironmentDescription
+ * //       EnvironmentName: "STRING_VALUE",
+ * //       EnvironmentId: "STRING_VALUE",
+ * //       ApplicationName: "STRING_VALUE",
+ * //       VersionLabel: "STRING_VALUE",
+ * //       SolutionStackName: "STRING_VALUE",
+ * //       PlatformArn: "STRING_VALUE",
+ * //       TemplateName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       EndpointURL: "STRING_VALUE",
+ * //       CNAME: "STRING_VALUE",
+ * //       DateCreated: new Date("TIMESTAMP"),
+ * //       DateUpdated: new Date("TIMESTAMP"),
+ * //       Status: "Aborting" || "Launching" || "Updating" || "LinkingFrom" || "LinkingTo" || "Ready" || "Terminating" || "Terminated",
+ * //       AbortableOperationInProgress: true || false,
+ * //       Health: "Green" || "Yellow" || "Red" || "Grey",
+ * //       HealthStatus: "NoData" || "Unknown" || "Pending" || "Ok" || "Info" || "Warning" || "Degraded" || "Severe" || "Suspended",
+ * //       Resources: { // EnvironmentResourcesDescription
+ * //         LoadBalancer: { // LoadBalancerDescription
+ * //           LoadBalancerName: "STRING_VALUE",
+ * //           Domain: "STRING_VALUE",
+ * //           Listeners: [ // LoadBalancerListenersDescription
+ * //             { // Listener
+ * //               Protocol: "STRING_VALUE",
+ * //               Port: Number("int"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       Tier: { // EnvironmentTier
+ * //         Name: "STRING_VALUE",
+ * //         Type: "STRING_VALUE",
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //       EnvironmentLinks: [ // EnvironmentLinks
+ * //         { // EnvironmentLink
+ * //           LinkName: "STRING_VALUE",
+ * //           EnvironmentName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       EnvironmentArn: "STRING_VALUE",
+ * //       OperationsRole: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ComposeEnvironmentsCommandInput - {@link ComposeEnvironmentsCommandInput}
@@ -68,6 +117,8 @@ export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescription
  * @throws {@link TooManyEnvironmentsException} (client fault)
  *  <p>The specified account has reached its limit of environments.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class ComposeEnvironmentsCommand extends $Command<

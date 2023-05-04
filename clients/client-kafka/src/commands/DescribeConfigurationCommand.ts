@@ -44,6 +44,22 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
  * };
  * const command = new DescribeConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeConfigurationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   Description: "STRING_VALUE",
+ * //   KafkaVersions: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   LatestRevision: { // ConfigurationRevision
+ * //     CreationTime: new Date("TIMESTAMP"), // required
+ * //     Description: "STRING_VALUE",
+ * //     Revision: Number("long"), // required
+ * //   },
+ * //   Name: "STRING_VALUE",
+ * //   State: "ACTIVE" || "DELETING" || "DELETE_FAILED",
+ * // };
+ *
  * ```
  *
  * @param DescribeConfigurationCommandInput - {@link DescribeConfigurationCommandInput}
@@ -70,6 +86,8 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class DescribeConfigurationCommand extends $Command<

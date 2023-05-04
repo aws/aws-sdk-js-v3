@@ -45,6 +45,8 @@ export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePublicKeyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeletePublicKeyCommandInput - {@link DeletePublicKeyCommandInput}
@@ -69,6 +71,8 @@ export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link PublicKeyInUse} (client fault)
  *  <p>The specified public key is in use.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class DeletePublicKeyCommand extends $Command<

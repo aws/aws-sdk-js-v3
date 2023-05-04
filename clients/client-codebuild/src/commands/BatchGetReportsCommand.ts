@@ -48,6 +48,51 @@ export interface BatchGetReportsCommandOutput extends BatchGetReportsOutput, __M
  * };
  * const command = new BatchGetReportsCommand(input);
  * const response = await client.send(command);
+ * // { // BatchGetReportsOutput
+ * //   reports: [ // Reports
+ * //     { // Report
+ * //       arn: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       reportGroupArn: "STRING_VALUE",
+ * //       executionId: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       created: new Date("TIMESTAMP"),
+ * //       expired: new Date("TIMESTAMP"),
+ * //       exportConfig: { // ReportExportConfig
+ * //         exportConfigType: "STRING_VALUE",
+ * //         s3Destination: { // S3ReportExportConfig
+ * //           bucket: "STRING_VALUE",
+ * //           bucketOwner: "STRING_VALUE",
+ * //           path: "STRING_VALUE",
+ * //           packaging: "STRING_VALUE",
+ * //           encryptionKey: "STRING_VALUE",
+ * //           encryptionDisabled: true || false,
+ * //         },
+ * //       },
+ * //       truncated: true || false,
+ * //       testSummary: { // TestReportSummary
+ * //         total: Number("int"), // required
+ * //         statusCounts: { // ReportStatusCounts // required
+ * //           "<keys>": Number("int"),
+ * //         },
+ * //         durationInNanoSeconds: Number("long"), // required
+ * //       },
+ * //       codeCoverageSummary: { // CodeCoverageReportSummary
+ * //         lineCoveragePercentage: Number("double"),
+ * //         linesCovered: Number("int"),
+ * //         linesMissed: Number("int"),
+ * //         branchCoveragePercentage: Number("double"),
+ * //         branchesCovered: Number("int"),
+ * //         branchesMissed: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   reportsNotFound: [ // ReportArns
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchGetReportsCommandInput - {@link BatchGetReportsCommandInput}
@@ -59,6 +104,8 @@ export interface BatchGetReportsCommandOutput extends BatchGetReportsOutput, __M
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class BatchGetReportsCommand extends $Command<

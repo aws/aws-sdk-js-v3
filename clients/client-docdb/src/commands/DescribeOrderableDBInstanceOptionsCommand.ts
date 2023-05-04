@@ -63,6 +63,24 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * };
  * const command = new DescribeOrderableDBInstanceOptionsCommand(input);
  * const response = await client.send(command);
+ * // { // OrderableDBInstanceOptionsMessage
+ * //   OrderableDBInstanceOptions: [ // OrderableDBInstanceOptionsList
+ * //     { // OrderableDBInstanceOption
+ * //       Engine: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       DBInstanceClass: "STRING_VALUE",
+ * //       LicenseModel: "STRING_VALUE",
+ * //       AvailabilityZones: [ // AvailabilityZoneList
+ * //         { // AvailabilityZone
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Vpc: true || false,
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeOrderableDBInstanceOptionsCommandInput - {@link DescribeOrderableDBInstanceOptionsCommandInput}
@@ -71,6 +89,8 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * @see {@link DescribeOrderableDBInstanceOptionsCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class DescribeOrderableDBInstanceOptionsCommand extends $Command<

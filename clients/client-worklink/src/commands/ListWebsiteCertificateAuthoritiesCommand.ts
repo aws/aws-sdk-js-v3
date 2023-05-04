@@ -57,6 +57,17 @@ export interface ListWebsiteCertificateAuthoritiesCommandOutput
  * };
  * const command = new ListWebsiteCertificateAuthoritiesCommand(input);
  * const response = await client.send(command);
+ * // { // ListWebsiteCertificateAuthoritiesResponse
+ * //   WebsiteCertificateAuthorities: [ // WebsiteCaSummaryList
+ * //     { // WebsiteCaSummary
+ * //       WebsiteCaId: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       DisplayName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListWebsiteCertificateAuthoritiesCommandInput - {@link ListWebsiteCertificateAuthoritiesCommandInput}
@@ -77,6 +88,8 @@ export interface ListWebsiteCertificateAuthoritiesCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class ListWebsiteCertificateAuthoritiesCommand extends $Command<

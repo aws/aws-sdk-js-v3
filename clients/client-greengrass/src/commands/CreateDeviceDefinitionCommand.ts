@@ -58,6 +58,16 @@ export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinit
  * };
  * const command = new CreateDeviceDefinitionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDeviceDefinitionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   LastUpdatedTimestamp: "STRING_VALUE",
+ * //   LatestVersion: "STRING_VALUE",
+ * //   LatestVersionArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateDeviceDefinitionCommandInput - {@link CreateDeviceDefinitionCommandInput}
@@ -69,6 +79,8 @@ export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinit
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class CreateDeviceDefinitionCommand extends $Command<

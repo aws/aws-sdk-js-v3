@@ -46,6 +46,12 @@ export interface DeleteIAMPolicyAssignmentCommandOutput extends DeleteIAMPolicyA
  * };
  * const command = new DeleteIAMPolicyAssignmentCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteIAMPolicyAssignmentResponse
+ * //   AssignmentName: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param DeleteIAMPolicyAssignmentCommandInput - {@link DeleteIAMPolicyAssignmentCommandInput}
@@ -79,6 +85,8 @@ export interface DeleteIAMPolicyAssignmentCommandOutput extends DeleteIAMPolicyA
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteIAMPolicyAssignmentCommand extends $Command<

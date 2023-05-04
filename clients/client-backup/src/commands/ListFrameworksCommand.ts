@@ -45,6 +45,20 @@ export interface ListFrameworksCommandOutput extends ListFrameworksOutput, __Met
  * };
  * const command = new ListFrameworksCommand(input);
  * const response = await client.send(command);
+ * // { // ListFrameworksOutput
+ * //   Frameworks: [ // FrameworkList
+ * //     { // Framework
+ * //       FrameworkName: "STRING_VALUE",
+ * //       FrameworkArn: "STRING_VALUE",
+ * //       FrameworkDescription: "STRING_VALUE",
+ * //       NumberOfControls: Number("int"),
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       DeploymentStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFrameworksCommandInput - {@link ListFrameworksCommandInput}
@@ -60,6 +74,8 @@ export interface ListFrameworksCommandOutput extends ListFrameworksOutput, __Met
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class ListFrameworksCommand extends $Command<

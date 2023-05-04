@@ -49,6 +49,24 @@ export interface ListExperiencesCommandOutput extends ListExperiencesResponse, _
  * };
  * const command = new ListExperiencesCommand(input);
  * const response = await client.send(command);
+ * // { // ListExperiencesResponse
+ * //   SummaryItems: [ // ExperiencesSummaryList
+ * //     { // ExperiencesSummary
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * //       Endpoints: [ // ExperienceEndpoints
+ * //         { // ExperienceEndpoint
+ * //           EndpointType: "HOME",
+ * //           Endpoint: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListExperiencesCommandInput - {@link ListExperiencesCommandInput}
@@ -77,6 +95,8 @@ export interface ListExperiencesCommandOutput extends ListExperiencesResponse, _
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class ListExperiencesCommand extends $Command<

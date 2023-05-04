@@ -54,6 +54,22 @@ export interface GetDetectorModelAnalysisResultsCommandOutput
  * };
  * const command = new GetDetectorModelAnalysisResultsCommand(input);
  * const response = await client.send(command);
+ * // { // GetDetectorModelAnalysisResultsResponse
+ * //   analysisResults: [ // AnalysisResults
+ * //     { // AnalysisResult
+ * //       type: "STRING_VALUE",
+ * //       level: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //       locations: [ // AnalysisResultLocations
+ * //         { // AnalysisResultLocation
+ * //           path: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetDetectorModelAnalysisResultsCommandInput - {@link GetDetectorModelAnalysisResultsCommandInput}
@@ -77,6 +93,8 @@ export interface GetDetectorModelAnalysisResultsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class GetDetectorModelAnalysisResultsCommand extends $Command<

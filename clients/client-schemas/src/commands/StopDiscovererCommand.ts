@@ -44,6 +44,11 @@ export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __M
  * };
  * const command = new StopDiscovererCommand(input);
  * const response = await client.send(command);
+ * // { // StopDiscovererResponse
+ * //   DiscovererId: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StopDiscovererCommandInput - {@link StopDiscovererCommandInput}
@@ -64,6 +69,8 @@ export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __M
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class StopDiscovererCommand extends $Command<

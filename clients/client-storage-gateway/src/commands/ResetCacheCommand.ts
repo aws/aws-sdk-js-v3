@@ -56,6 +56,10 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  * };
  * const command = new ResetCacheCommand(input);
  * const response = await client.send(command);
+ * // { // ResetCacheOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ResetCacheCommandInput - {@link ResetCacheCommandInput}
@@ -72,6 +76,8 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To reset cache disks in error status
  * ```javascript

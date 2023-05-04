@@ -47,6 +47,22 @@ export interface ListDetectorModelVersionsCommandOutput extends ListDetectorMode
  * };
  * const command = new ListDetectorModelVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDetectorModelVersionsResponse
+ * //   detectorModelVersionSummaries: [ // DetectorModelVersionSummaries
+ * //     { // DetectorModelVersionSummary
+ * //       detectorModelName: "STRING_VALUE",
+ * //       detectorModelVersion: "STRING_VALUE",
+ * //       detectorModelArn: "STRING_VALUE",
+ * //       roleArn: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdateTime: new Date("TIMESTAMP"),
+ * //       status: "STRING_VALUE",
+ * //       evaluationMethod: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDetectorModelVersionsCommandInput - {@link ListDetectorModelVersionsCommandInput}
@@ -70,6 +86,8 @@ export interface ListDetectorModelVersionsCommandOutput extends ListDetectorMode
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class ListDetectorModelVersionsCommand extends $Command<

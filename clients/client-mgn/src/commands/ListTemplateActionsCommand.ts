@@ -51,6 +51,38 @@ export interface ListTemplateActionsCommandOutput extends ListTemplateActionsRes
  * };
  * const command = new ListTemplateActionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTemplateActionsResponse
+ * //   items: [ // TemplateActionDocuments
+ * //     { // TemplateActionDocument
+ * //       actionID: "STRING_VALUE",
+ * //       actionName: "STRING_VALUE",
+ * //       documentIdentifier: "STRING_VALUE",
+ * //       order: Number("int"),
+ * //       documentVersion: "STRING_VALUE",
+ * //       active: true || false,
+ * //       timeoutSeconds: Number("int"),
+ * //       mustSucceedForCutover: true || false,
+ * //       parameters: { // SsmDocumentParameters
+ * //         "<keys>": [ // SsmParameterStoreParameters
+ * //           { // SsmParameterStoreParameter
+ * //             parameterType: "STRING_VALUE", // required
+ * //             parameterName: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       operatingSystem: "STRING_VALUE",
+ * //       externalParameters: { // SsmDocumentExternalParameters
+ * //         "<keys>": { // SsmExternalParameter Union: only one key present
+ * //           dynamicPath: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       description: "STRING_VALUE",
+ * //       category: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTemplateActionsCommandInput - {@link ListTemplateActionsCommandInput}
@@ -65,6 +97,8 @@ export interface ListTemplateActionsCommandOutput extends ListTemplateActionsRes
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class ListTemplateActionsCommand extends $Command<

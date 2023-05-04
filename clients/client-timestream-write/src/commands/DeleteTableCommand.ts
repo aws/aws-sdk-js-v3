@@ -54,6 +54,8 @@ export interface DeleteTableCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteTableCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTableCommandInput - {@link DeleteTableCommandInput}
@@ -84,6 +86,8 @@ export interface DeleteTableCommandOutput extends __MetadataBearer {}
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class DeleteTableCommand extends $Command<

@@ -49,6 +49,33 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
  * };
  * const command = new UpdateLensReviewCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateLensReviewOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   LensReview: { // LensReview
+ * //     LensAlias: "STRING_VALUE",
+ * //     LensArn: "STRING_VALUE",
+ * //     LensVersion: "STRING_VALUE",
+ * //     LensName: "STRING_VALUE",
+ * //     LensStatus: "CURRENT" || "NOT_CURRENT" || "DEPRECATED" || "DELETED" || "UNSHARED",
+ * //     PillarReviewSummaries: [ // PillarReviewSummaries
+ * //       { // PillarReviewSummary
+ * //         PillarId: "STRING_VALUE",
+ * //         PillarName: "STRING_VALUE",
+ * //         Notes: "STRING_VALUE",
+ * //         RiskCounts: { // RiskCounts
+ * //           "<keys>": Number("int"),
+ * //         },
+ * //       },
+ * //     ],
+ * //     UpdatedAt: new Date("TIMESTAMP"),
+ * //     Notes: "STRING_VALUE",
+ * //     RiskCounts: {
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //     NextToken: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateLensReviewCommandInput - {@link UpdateLensReviewCommandInput}
@@ -75,6 +102,8 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class UpdateLensReviewCommand extends $Command<

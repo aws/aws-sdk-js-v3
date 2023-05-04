@@ -56,6 +56,10 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * };
  * const command = new UpdatePipelineCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePipelineResponse
+ * //   PipelineArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdatePipelineCommandInput - {@link UpdatePipelineCommandInput}
@@ -67,6 +71,8 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdatePipelineCommand extends $Command<

@@ -45,6 +45,38 @@ export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __M
  * };
  * const command = new GetTerminologyCommand(input);
  * const response = await client.send(command);
+ * // { // GetTerminologyResponse
+ * //   TerminologyProperties: { // TerminologyProperties
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     SourceLanguageCode: "STRING_VALUE",
+ * //     TargetLanguageCodes: [ // LanguageCodeStringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     EncryptionKey: { // EncryptionKey
+ * //       Type: "KMS", // required
+ * //       Id: "STRING_VALUE", // required
+ * //     },
+ * //     SizeBytes: Number("int"),
+ * //     TermCount: Number("int"),
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     LastUpdatedAt: new Date("TIMESTAMP"),
+ * //     Directionality: "UNI" || "MULTI",
+ * //     Message: "STRING_VALUE",
+ * //     SkippedTermCount: Number("int"),
+ * //     Format: "CSV" || "TMX" || "TSV",
+ * //   },
+ * //   TerminologyDataLocation: { // TerminologyDataLocation
+ * //     RepositoryType: "STRING_VALUE", // required
+ * //     Location: "STRING_VALUE", // required
+ * //   },
+ * //   AuxiliaryDataLocation: {
+ * //     RepositoryType: "STRING_VALUE", // required
+ * //     Location: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetTerminologyCommandInput - {@link GetTerminologyCommandInput}
@@ -69,6 +101,8 @@ export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __M
  *  <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class GetTerminologyCommand extends $Command<

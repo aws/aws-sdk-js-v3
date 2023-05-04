@@ -58,6 +58,33 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * };
  * const command = new CopyDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
+ * // { // CopyDBClusterSnapshotResult
+ * //   DBClusterSnapshot: { // DBClusterSnapshot
+ * //     AvailabilityZones: [ // AvailabilityZones
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     DBClusterSnapshotIdentifier: "STRING_VALUE",
+ * //     DBClusterIdentifier: "STRING_VALUE",
+ * //     SnapshotCreateTime: new Date("TIMESTAMP"),
+ * //     Engine: "STRING_VALUE",
+ * //     AllocatedStorage: Number("int"),
+ * //     Status: "STRING_VALUE",
+ * //     Port: Number("int"),
+ * //     VpcId: "STRING_VALUE",
+ * //     ClusterCreateTime: new Date("TIMESTAMP"),
+ * //     MasterUsername: "STRING_VALUE",
+ * //     EngineVersion: "STRING_VALUE",
+ * //     LicenseModel: "STRING_VALUE",
+ * //     SnapshotType: "STRING_VALUE",
+ * //     PercentProgress: Number("int"),
+ * //     StorageEncrypted: true || false,
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     DBClusterSnapshotArn: "STRING_VALUE",
+ * //     SourceDBClusterSnapshotArn: "STRING_VALUE",
+ * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CopyDBClusterSnapshotCommandInput - {@link CopyDBClusterSnapshotCommandInput}
@@ -86,6 +113,8 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
  *  <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class CopyDBClusterSnapshotCommand extends $Command<

@@ -50,6 +50,10 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  * };
  * const command = new ConfirmSubscriptionCommand(input);
  * const response = await client.send(command);
+ * // { // ConfirmSubscriptionResponse
+ * //   SubscriptionArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ConfirmSubscriptionCommandInput - {@link ConfirmSubscriptionCommandInput}
@@ -80,6 +84,8 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  *  <p>Indicates that the customer already owns the maximum allowed number of
  *             subscriptions.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class ConfirmSubscriptionCommand extends $Command<

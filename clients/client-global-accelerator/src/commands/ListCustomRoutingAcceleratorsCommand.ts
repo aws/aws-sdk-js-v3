@@ -54,6 +54,31 @@ export interface ListCustomRoutingAcceleratorsCommandOutput
  * };
  * const command = new ListCustomRoutingAcceleratorsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCustomRoutingAcceleratorsResponse
+ * //   Accelerators: [ // CustomRoutingAccelerators
+ * //     { // CustomRoutingAccelerator
+ * //       AcceleratorArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       IpAddressType: "IPV4" || "DUAL_STACK",
+ * //       Enabled: true || false,
+ * //       IpSets: [ // IpSets
+ * //         { // IpSet
+ * //           IpFamily: "STRING_VALUE",
+ * //           IpAddresses: [ // IpAddresses
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           IpAddressFamily: "IPv4" || "IPv6",
+ * //         },
+ * //       ],
+ * //       DnsName: "STRING_VALUE",
+ * //       Status: "DEPLOYED" || "IN_PROGRESS",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCustomRoutingAcceleratorsCommandInput - {@link ListCustomRoutingAcceleratorsCommandInput}
@@ -71,6 +96,8 @@ export interface ListCustomRoutingAcceleratorsCommandOutput
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>There isn't another item to return.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class ListCustomRoutingAcceleratorsCommand extends $Command<

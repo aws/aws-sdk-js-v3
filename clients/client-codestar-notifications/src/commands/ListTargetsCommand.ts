@@ -55,6 +55,17 @@ export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataB
  * };
  * const command = new ListTargetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTargetsResult
+ * //   Targets: [ // TargetsBatch
+ * //     { // TargetSummary
+ * //       TargetAddress: "STRING_VALUE",
+ * //       TargetType: "STRING_VALUE",
+ * //       TargetStatus: "PENDING" || "ACTIVE" || "UNREACHABLE" || "INACTIVE" || "DEACTIVATED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTargetsCommandInput - {@link ListTargetsCommandInput}
@@ -69,6 +80,8 @@ export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link CodestarNotificationsServiceException}
+ * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
 export class ListTargetsCommand extends $Command<

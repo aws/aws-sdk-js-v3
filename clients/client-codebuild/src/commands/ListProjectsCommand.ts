@@ -47,6 +47,13 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * // { // ListProjectsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   projects: [ // ProjectNames
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
@@ -58,6 +65,8 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * @throws {@link InvalidInputException} (client fault)
  *  <p>The input value that was provided is not valid.</p>
  *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListProjectsCommand extends $Command<

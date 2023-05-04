@@ -49,6 +49,20 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * };
  * const command = new ListCampaignsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCampaignsResponse
+ * //   campaigns: [ // Campaigns
+ * //     { // CampaignSummary
+ * //       name: "STRING_VALUE",
+ * //       campaignArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       failureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCampaignsCommandInput - {@link ListCampaignsCommandInput}
@@ -63,6 +77,8 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListCampaignsCommand extends $Command<

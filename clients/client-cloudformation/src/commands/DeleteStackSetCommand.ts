@@ -46,6 +46,8 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  * };
  * const command = new DeleteStackSetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteStackSetCommandInput - {@link DeleteStackSetCommandInput}
@@ -63,6 +65,8 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  *          instances. Delete all stack instances from the stack set before deleting the stack
  *          set.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DeleteStackSetCommand extends $Command<

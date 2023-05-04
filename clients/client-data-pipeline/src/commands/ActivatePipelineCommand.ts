@@ -81,6 +81,8 @@ export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, _
  * };
  * const command = new ActivatePipelineCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ActivatePipelineCommandInput - {@link ActivatePipelineCommandInput}
@@ -101,6 +103,8 @@ export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, _
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class ActivatePipelineCommand extends $Command<

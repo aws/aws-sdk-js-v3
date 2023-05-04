@@ -88,6 +88,12 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * };
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);
+ * // { // PutRecordOutput
+ * //   ShardId: "STRING_VALUE", // required
+ * //   SequenceNumber: "STRING_VALUE", // required
+ * //   EncryptionType: "NONE" || "KMS",
+ * // };
+ *
  * ```
  *
  * @param PutRecordCommandInput - {@link PutRecordCommandInput}
@@ -142,6 +148,8 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *  <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  *
+ * @throws {@link KinesisServiceException}
+ * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
 export class PutRecordCommand extends $Command<

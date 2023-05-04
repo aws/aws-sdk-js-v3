@@ -48,6 +48,19 @@ export interface ListFileSystemAssociationsCommandOutput extends ListFileSystemA
  * };
  * const command = new ListFileSystemAssociationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListFileSystemAssociationsOutput
+ * //   Marker: "STRING_VALUE",
+ * //   NextMarker: "STRING_VALUE",
+ * //   FileSystemAssociationSummaryList: [ // FileSystemAssociationSummaryList
+ * //     { // FileSystemAssociationSummary
+ * //       FileSystemAssociationId: "STRING_VALUE",
+ * //       FileSystemAssociationARN: "STRING_VALUE",
+ * //       FileSystemAssociationStatus: "STRING_VALUE",
+ * //       GatewayARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListFileSystemAssociationsCommandInput - {@link ListFileSystemAssociationsCommandInput}
@@ -64,6 +77,8 @@ export interface ListFileSystemAssociationsCommandOutput extends ListFileSystemA
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class ListFileSystemAssociationsCommand extends $Command<

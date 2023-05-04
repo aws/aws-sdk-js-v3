@@ -52,6 +52,21 @@ export interface ListWhatIfAnalysesCommandOutput extends ListWhatIfAnalysesRespo
  * };
  * const command = new ListWhatIfAnalysesCommand(input);
  * const response = await client.send(command);
+ * // { // ListWhatIfAnalysesResponse
+ * //   WhatIfAnalyses: [ // WhatIfAnalyses
+ * //     { // WhatIfAnalysisSummary
+ * //       WhatIfAnalysisArn: "STRING_VALUE",
+ * //       WhatIfAnalysisName: "STRING_VALUE",
+ * //       ForecastArn: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModificationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListWhatIfAnalysesCommandInput - {@link ListWhatIfAnalysesCommandInput}
@@ -67,6 +82,8 @@ export interface ListWhatIfAnalysesCommandOutput extends ListWhatIfAnalysesRespo
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The token is not valid. Tokens expire after 24 hours.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class ListWhatIfAnalysesCommand extends $Command<

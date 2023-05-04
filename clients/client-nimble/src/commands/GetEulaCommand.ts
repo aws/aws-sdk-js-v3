@@ -44,6 +44,16 @@ export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer 
  * };
  * const command = new GetEulaCommand(input);
  * const response = await client.send(command);
+ * // { // GetEulaResponse
+ * //   eula: { // Eula
+ * //     content: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     eulaId: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetEulaCommandInput - {@link GetEulaCommandInput}
@@ -76,6 +86,8 @@ export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer 
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class GetEulaCommand extends $Command<GetEulaCommandInput, GetEulaCommandOutput, NimbleClientResolvedConfig> {

@@ -45,6 +45,10 @@ export interface GetFirewallRuleGroupPolicyCommandOutput extends GetFirewallRule
  * };
  * const command = new GetFirewallRuleGroupPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetFirewallRuleGroupPolicyResponse
+ * //   FirewallRuleGroupPolicy: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetFirewallRuleGroupPolicyCommandInput - {@link GetFirewallRuleGroupPolicyCommandInput}
@@ -69,6 +73,8 @@ export interface GetFirewallRuleGroupPolicyCommandOutput extends GetFirewallRule
  *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class GetFirewallRuleGroupPolicyCommand extends $Command<

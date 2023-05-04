@@ -42,12 +42,32 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * const input = { // ListRulesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   PublishStatus: "DRAFT" || "PUBLISHED",
- *   EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate",
+ *   EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
+ * // { // ListRulesResponse
+ * //   RuleSummaryList: [ // RuleSummaryList // required
+ * //     { // RuleSummary
+ * //       Name: "STRING_VALUE", // required
+ * //       RuleId: "STRING_VALUE", // required
+ * //       RuleArn: "STRING_VALUE", // required
+ * //       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate", // required
+ * //       PublishStatus: "DRAFT" || "PUBLISHED", // required
+ * //       ActionSummaries: [ // ActionSummaries // required
+ * //         { // ActionSummary
+ * //           ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION", // required
+ * //         },
+ * //       ],
+ * //       CreatedTime: new Date("TIMESTAMP"), // required
+ * //       LastUpdatedTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListRulesCommandInput - {@link ListRulesCommandInput}
@@ -71,6 +91,8 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListRulesCommand extends $Command<

@@ -59,6 +59,19 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
  * };
  * const command = new BatchDeleteRumMetricDefinitionsCommand(input);
  * const response = await client.send(command);
+ * // { // BatchDeleteRumMetricDefinitionsResponse
+ * //   Errors: [ // BatchDeleteRumMetricDefinitionsErrors // required
+ * //     { // BatchDeleteRumMetricDefinitionsError
+ * //       MetricDefinitionId: "STRING_VALUE", // required
+ * //       ErrorCode: "STRING_VALUE", // required
+ * //       ErrorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   MetricDefinitionIds: [ // MetricDefinitionIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchDeleteRumMetricDefinitionsCommandInput - {@link BatchDeleteRumMetricDefinitionsCommandInput}
@@ -85,6 +98,8 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class BatchDeleteRumMetricDefinitionsCommand extends $Command<

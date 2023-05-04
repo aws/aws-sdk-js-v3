@@ -47,6 +47,12 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceOutput
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -61,6 +67,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource was not found.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

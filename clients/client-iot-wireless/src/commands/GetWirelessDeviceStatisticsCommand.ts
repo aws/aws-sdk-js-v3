@@ -49,6 +49,31 @@ export interface GetWirelessDeviceStatisticsCommandOutput
  * };
  * const command = new GetWirelessDeviceStatisticsCommand(input);
  * const response = await client.send(command);
+ * // { // GetWirelessDeviceStatisticsResponse
+ * //   WirelessDeviceId: "STRING_VALUE",
+ * //   LastUplinkReceivedAt: "STRING_VALUE",
+ * //   LoRaWAN: { // LoRaWANDeviceMetadata
+ * //     DevEui: "STRING_VALUE",
+ * //     FPort: Number("int"),
+ * //     DataRate: Number("int"),
+ * //     Frequency: Number("int"),
+ * //     Timestamp: "STRING_VALUE",
+ * //     Gateways: [ // LoRaWANGatewayMetadataList
+ * //       { // LoRaWANGatewayMetadata
+ * //         GatewayEui: "STRING_VALUE",
+ * //         Snr: Number("double"),
+ * //         Rssi: Number("double"),
+ * //       },
+ * //     ],
+ * //   },
+ * //   Sidewalk: { // SidewalkDeviceMetadata
+ * //     Rssi: Number("int"),
+ * //     BatteryLevel: "normal" || "low" || "critical",
+ * //     Event: "discovered" || "lost" || "ack" || "nack" || "passthrough",
+ * //     DeviceState: "Provisioned" || "RegisteredNotSeen" || "RegisteredReachable" || "RegisteredUnreachable",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetWirelessDeviceStatisticsCommandInput - {@link GetWirelessDeviceStatisticsCommandInput}
@@ -72,6 +97,8 @@ export interface GetWirelessDeviceStatisticsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetWirelessDeviceStatisticsCommand extends $Command<

@@ -59,6 +59,8 @@ export interface UpdateNotificationCommandOutput extends UpdateNotificationRespo
  * };
  * const command = new UpdateNotificationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateNotificationCommandInput - {@link UpdateNotificationCommandInput}
@@ -87,6 +89,8 @@ export interface UpdateNotificationCommandOutput extends UpdateNotificationRespo
  *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *     </p>
  *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class UpdateNotificationCommand extends $Command<

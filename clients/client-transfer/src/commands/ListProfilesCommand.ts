@@ -49,6 +49,18 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * };
  * const command = new ListProfilesCommand(input);
  * const response = await client.send(command);
+ * // { // ListProfilesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Profiles: [ // ListedProfiles // required
+ * //     { // ListedProfile
+ * //       Arn: "STRING_VALUE",
+ * //       ProfileId: "STRING_VALUE",
+ * //       As2Id: "STRING_VALUE",
+ * //       ProfileType: "LOCAL" || "PARTNER",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListProfilesCommandInput - {@link ListProfilesCommandInput}
@@ -73,6 +85,8 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ListProfilesCommand extends $Command<

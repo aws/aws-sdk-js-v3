@@ -55,6 +55,21 @@ export interface CreateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * };
  * const command = new CreateAuthorizerCommand(input);
  * const response = await client.send(command);
+ * // { // Authorizer
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   type: "TOKEN" || "REQUEST" || "COGNITO_USER_POOLS",
+ * //   providerARNs: [ // ListOfARNs
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   authType: "STRING_VALUE",
+ * //   authorizerUri: "STRING_VALUE",
+ * //   authorizerCredentials: "STRING_VALUE",
+ * //   identitySource: "STRING_VALUE",
+ * //   identityValidationExpression: "STRING_VALUE",
+ * //   authorizerResultTtlInSeconds: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param CreateAuthorizerCommandInput - {@link CreateAuthorizerCommandInput}
@@ -81,6 +96,8 @@ export interface CreateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class CreateAuthorizerCommand extends $Command<

@@ -51,6 +51,17 @@ export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOut
  * };
  * const command = new ListDeviceResourcesCommand(input);
  * const response = await client.send(command);
+ * // { // ListDeviceResourcesOutput
+ * //   resources: [ // ResourceSummaryList
+ * //     { // ResourceSummary
+ * //       resourceType: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDeviceResourcesCommandInput - {@link ListDeviceResourcesCommandInput}
@@ -74,6 +85,8 @@ export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SnowDeviceManagementServiceException}
+ * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
  */
 export class ListDeviceResourcesCommand extends $Command<

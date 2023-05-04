@@ -174,6 +174,10 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * };
  * const command = new UpdateDomainCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateDomainResponse
+ * //   DomainArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateDomainCommandInput - {@link UpdateDomainCommandInput}
@@ -192,6 +196,8 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateDomainCommand extends $Command<

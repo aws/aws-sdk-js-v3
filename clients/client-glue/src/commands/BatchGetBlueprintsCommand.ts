@@ -48,6 +48,32 @@ export interface BatchGetBlueprintsCommandOutput extends BatchGetBlueprintsRespo
  * };
  * const command = new BatchGetBlueprintsCommand(input);
  * const response = await client.send(command);
+ * // { // BatchGetBlueprintsResponse
+ * //   Blueprints: [ // Blueprints
+ * //     { // Blueprint
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       CreatedOn: new Date("TIMESTAMP"),
+ * //       LastModifiedOn: new Date("TIMESTAMP"),
+ * //       ParameterSpec: "STRING_VALUE",
+ * //       BlueprintLocation: "STRING_VALUE",
+ * //       BlueprintServiceLocation: "STRING_VALUE",
+ * //       Status: "CREATING" || "ACTIVE" || "UPDATING" || "FAILED",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       LastActiveDefinition: { // LastActiveDefinition
+ * //         Description: "STRING_VALUE",
+ * //         LastModifiedOn: new Date("TIMESTAMP"),
+ * //         ParameterSpec: "STRING_VALUE",
+ * //         BlueprintLocation: "STRING_VALUE",
+ * //         BlueprintServiceLocation: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   MissingBlueprints: [ // BlueprintNames
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchGetBlueprintsCommandInput - {@link BatchGetBlueprintsCommandInput}
@@ -65,6 +91,8 @@ export interface BatchGetBlueprintsCommandOutput extends BatchGetBlueprintsRespo
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchGetBlueprintsCommand extends $Command<

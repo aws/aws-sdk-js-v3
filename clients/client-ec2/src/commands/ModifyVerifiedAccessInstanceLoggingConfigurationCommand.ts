@@ -71,6 +71,40 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
  * };
  * const command = new ModifyVerifiedAccessInstanceLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyVerifiedAccessInstanceLoggingConfigurationResult
+ * //   LoggingConfiguration: { // VerifiedAccessInstanceLoggingConfiguration
+ * //     VerifiedAccessInstanceId: "STRING_VALUE",
+ * //     AccessLogs: { // VerifiedAccessLogs
+ * //       S3: { // VerifiedAccessLogS3Destination
+ * //         Enabled: true || false,
+ * //         DeliveryStatus: { // VerifiedAccessLogDeliveryStatus
+ * //           Code: "success" || "failed",
+ * //           Message: "STRING_VALUE",
+ * //         },
+ * //         BucketName: "STRING_VALUE",
+ * //         Prefix: "STRING_VALUE",
+ * //         BucketOwner: "STRING_VALUE",
+ * //       },
+ * //       CloudWatchLogs: { // VerifiedAccessLogCloudWatchLogsDestination
+ * //         Enabled: true || false,
+ * //         DeliveryStatus: {
+ * //           Code: "success" || "failed",
+ * //           Message: "STRING_VALUE",
+ * //         },
+ * //         LogGroup: "STRING_VALUE",
+ * //       },
+ * //       KinesisDataFirehose: { // VerifiedAccessLogKinesisDataFirehoseDestination
+ * //         Enabled: true || false,
+ * //         DeliveryStatus: {
+ * //           Code: "success" || "failed",
+ * //           Message: "STRING_VALUE",
+ * //         },
+ * //         DeliveryStream: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput - {@link ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput}
@@ -79,6 +113,8 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
  * @see {@link ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyVerifiedAccessInstanceLoggingConfigurationCommand extends $Command<

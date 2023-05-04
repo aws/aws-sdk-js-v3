@@ -74,6 +74,10 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  * };
  * const command = new UpdateFilterCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateFilterResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateFilterCommandInput - {@link UpdateFilterCommandInput}
@@ -88,6 +92,8 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class UpdateFilterCommand extends $Command<

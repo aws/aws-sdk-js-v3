@@ -59,6 +59,15 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * };
  * const command = new ModifyLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyLoadBalancerAttributesOutput
+ * //   Attributes: [ // LoadBalancerAttributes
+ * //     { // LoadBalancerAttribute
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ModifyLoadBalancerAttributesCommandInput - {@link ModifyLoadBalancerAttributesCommandInput}
@@ -73,6 +82,8 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * @throws {@link LoadBalancerNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To enable deletion protection
  * ```javascript

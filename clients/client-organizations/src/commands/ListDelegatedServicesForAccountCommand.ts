@@ -54,6 +54,16 @@ export interface ListDelegatedServicesForAccountCommandOutput
  * };
  * const command = new ListDelegatedServicesForAccountCommand(input);
  * const response = await client.send(command);
+ * // { // ListDelegatedServicesForAccountResponse
+ * //   DelegatedServices: [ // DelegatedServices
+ * //     { // DelegatedService
+ * //       ServicePrincipal: "STRING_VALUE",
+ * //       DelegationEnabledDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDelegatedServicesForAccountCommandInput - {@link ListDelegatedServicesForAccountCommandInput}
@@ -396,6 +406,8 @@ export interface ListDelegatedServicesForAccountCommandOutput
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class ListDelegatedServicesForAccountCommand extends $Command<

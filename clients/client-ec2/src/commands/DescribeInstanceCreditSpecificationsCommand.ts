@@ -84,6 +84,16 @@ export interface DescribeInstanceCreditSpecificationsCommandOutput
  * };
  * const command = new DescribeInstanceCreditSpecificationsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeInstanceCreditSpecificationsResult
+ * //   InstanceCreditSpecifications: [ // InstanceCreditSpecificationList
+ * //     { // InstanceCreditSpecification
+ * //       InstanceId: "STRING_VALUE",
+ * //       CpuCredits: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeInstanceCreditSpecificationsCommandInput - {@link DescribeInstanceCreditSpecificationsCommandInput}
@@ -92,6 +102,8 @@ export interface DescribeInstanceCreditSpecificationsCommandOutput
  * @see {@link DescribeInstanceCreditSpecificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeInstanceCreditSpecificationsCommand extends $Command<

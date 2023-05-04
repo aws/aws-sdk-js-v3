@@ -44,6 +44,8 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteOptionGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteOptionGroupCommandInput - {@link DeleteOptionGroupCommandInput}
@@ -58,6 +60,8 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link OptionGroupNotFoundFault} (client fault)
  *  <p>The specified option group could not be found.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To delete an option group
  * ```javascript

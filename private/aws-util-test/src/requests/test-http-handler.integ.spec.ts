@@ -26,7 +26,6 @@ describe(TestHttpHandler.name, () => {
     //     "amz-sdk-invocation-id": /.{32}$/,
     //     "amz-sdk-request": "attempt=1; max=3",
     //     "x-amz-date": /\d{4}\d{4}T/ || "20230420T170708Z",
-    //     // "x-amz-security-token": /^.{100,}$/,
     //     "x-amz-content-sha256": /^.{50,}$/,
     //     authorization: /AWS4-HMAC-SHA256 Credential=.{100,}$/,
     //   },

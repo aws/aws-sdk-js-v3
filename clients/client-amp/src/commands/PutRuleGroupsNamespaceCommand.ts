@@ -47,6 +47,18 @@ export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamesp
  * };
  * const command = new PutRuleGroupsNamespaceCommand(input);
  * const response = await client.send(command);
+ * // { // PutRuleGroupsNamespaceResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   status: { // RuleGroupsNamespaceStatus
+ * //     statusCode: "STRING_VALUE", // required
+ * //     statusReason: "STRING_VALUE",
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutRuleGroupsNamespaceCommandInput - {@link PutRuleGroupsNamespaceCommandInput}
@@ -76,6 +88,8 @@ export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamesp
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class PutRuleGroupsNamespaceCommand extends $Command<

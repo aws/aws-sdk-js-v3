@@ -53,6 +53,8 @@ export interface UpdateDeviceFleetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateDeviceFleetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateDeviceFleetCommandInput - {@link UpdateDeviceFleetCommandInput}
@@ -64,6 +66,8 @@ export interface UpdateDeviceFleetCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceInUse} (client fault)
  *  <p>Resource being accessed is in use.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateDeviceFleetCommand extends $Command<

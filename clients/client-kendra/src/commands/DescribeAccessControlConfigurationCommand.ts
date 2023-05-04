@@ -56,6 +56,32 @@ export interface DescribeAccessControlConfigurationCommandOutput
  * };
  * const command = new DescribeAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAccessControlConfigurationResponse
+ * //   Name: "STRING_VALUE", // required
+ * //   Description: "STRING_VALUE",
+ * //   ErrorMessage: "STRING_VALUE",
+ * //   AccessControlList: [ // PrincipalList
+ * //     { // Principal
+ * //       Name: "STRING_VALUE", // required
+ * //       Type: "USER" || "GROUP", // required
+ * //       Access: "ALLOW" || "DENY", // required
+ * //       DataSourceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   HierarchicalAccessControlList: [ // HierarchicalPrincipalList
+ * //     { // HierarchicalPrincipal
+ * //       PrincipalList: [ // required
+ * //         {
+ * //           Name: "STRING_VALUE", // required
+ * //           Type: "USER" || "GROUP", // required
+ * //           Access: "ALLOW" || "DENY", // required
+ * //           DataSourceId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeAccessControlConfigurationCommandInput - {@link DescribeAccessControlConfigurationCommandInput}
@@ -84,6 +110,8 @@ export interface DescribeAccessControlConfigurationCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class DescribeAccessControlConfigurationCommand extends $Command<

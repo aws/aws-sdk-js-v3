@@ -46,6 +46,37 @@ export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput,
  * };
  * const command = new DescribePortfolioCommand(input);
  * const response = await client.send(command);
+ * // { // DescribePortfolioOutput
+ * //   PortfolioDetail: { // PortfolioDetail
+ * //     Id: "STRING_VALUE",
+ * //     ARN: "STRING_VALUE",
+ * //     DisplayName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     ProviderName: "STRING_VALUE",
+ * //   },
+ * //   Tags: [ // Tags
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   TagOptions: [ // TagOptionDetails
+ * //     { // TagOptionDetail
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //       Active: true || false,
+ * //       Id: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Budgets: [ // Budgets
+ * //     { // BudgetDetail
+ * //       BudgetName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribePortfolioCommandInput - {@link DescribePortfolioCommandInput}
@@ -57,6 +88,8 @@ export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribePortfolioCommand extends $Command<

@@ -45,6 +45,20 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * };
  * const command = new ListInputsCommand(input);
  * const response = await client.send(command);
+ * // { // ListInputsResponse
+ * //   inputSummaries: [ // InputSummaries
+ * //     { // InputSummary
+ * //       inputName: "STRING_VALUE",
+ * //       inputDescription: "STRING_VALUE",
+ * //       inputArn: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdateTime: new Date("TIMESTAMP"),
+ * //       status: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListInputsCommandInput - {@link ListInputsCommandInput}
@@ -65,6 +79,8 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class ListInputsCommand extends $Command<

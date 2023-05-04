@@ -46,6 +46,8 @@ export interface StopMetricStreamsCommandOutput extends StopMetricStreamsOutput,
  * };
  * const command = new StopMetricStreamsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopMetricStreamsCommandInput - {@link StopMetricStreamsCommandInput}
@@ -63,6 +65,8 @@ export interface StopMetricStreamsCommandOutput extends StopMetricStreamsOutput,
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class StopMetricStreamsCommand extends $Command<

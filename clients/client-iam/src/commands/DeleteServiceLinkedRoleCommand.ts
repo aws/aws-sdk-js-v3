@@ -60,6 +60,10 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  * };
  * const command = new DeleteServiceLinkedRoleCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteServiceLinkedRoleResponse
+ * //   DeletionTaskId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteServiceLinkedRoleCommandInput - {@link DeleteServiceLinkedRoleCommandInput}
@@ -80,6 +84,8 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DeleteServiceLinkedRoleCommand extends $Command<

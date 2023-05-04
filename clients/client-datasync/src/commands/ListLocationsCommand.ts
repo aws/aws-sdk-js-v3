@@ -57,6 +57,16 @@ export interface ListLocationsCommandOutput extends ListLocationsResponse, __Met
  * };
  * const command = new ListLocationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListLocationsResponse
+ * //   Locations: [ // LocationList
+ * //     { // LocationListEntry
+ * //       LocationArn: "STRING_VALUE",
+ * //       LocationUri: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListLocationsCommandInput - {@link ListLocationsCommandInput}
@@ -72,6 +82,8 @@ export interface ListLocationsCommandOutput extends ListLocationsResponse, __Met
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class ListLocationsCommand extends $Command<

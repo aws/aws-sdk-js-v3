@@ -45,6 +45,12 @@ export interface GetBasePathMappingCommandOutput extends BasePathMapping, __Meta
  * };
  * const command = new GetBasePathMappingCommand(input);
  * const response = await client.send(command);
+ * // { // BasePathMapping
+ * //   basePath: "STRING_VALUE",
+ * //   restApiId: "STRING_VALUE",
+ * //   stage: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetBasePathMappingCommandInput - {@link GetBasePathMappingCommandInput}
@@ -65,6 +71,8 @@ export interface GetBasePathMappingCommandOutput extends BasePathMapping, __Meta
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetBasePathMappingCommand extends $Command<

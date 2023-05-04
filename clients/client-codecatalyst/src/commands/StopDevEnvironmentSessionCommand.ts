@@ -47,6 +47,13 @@ export interface StopDevEnvironmentSessionCommandOutput extends StopDevEnvironme
  * };
  * const command = new StopDevEnvironmentSessionCommand(input);
  * const response = await client.send(command);
+ * // { // StopDevEnvironmentSessionResponse
+ * //   spaceName: "STRING_VALUE", // required
+ * //   projectName: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   sessionId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param StopDevEnvironmentSessionCommandInput - {@link StopDevEnvironmentSessionCommandInput}
@@ -75,6 +82,8 @@ export interface StopDevEnvironmentSessionCommandOutput extends StopDevEnvironme
  * @throws {@link ValidationException} (client fault)
  *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
  *
+ * @throws {@link CodeCatalystServiceException}
+ * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
 export class StopDevEnvironmentSessionCommand extends $Command<

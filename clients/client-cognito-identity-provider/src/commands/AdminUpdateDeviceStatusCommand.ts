@@ -57,6 +57,8 @@ export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceS
  * };
  * const command = new AdminUpdateDeviceStatusCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AdminUpdateDeviceStatusCommandInput - {@link AdminUpdateDeviceStatusCommandInput}
@@ -89,6 +91,8 @@ export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceS
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminUpdateDeviceStatusCommand extends $Command<

@@ -52,6 +52,16 @@ export interface UpdateLogPatternCommandOutput extends UpdateLogPatternResponse,
  * };
  * const command = new UpdateLogPatternCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateLogPatternResponse
+ * //   ResourceGroupName: "STRING_VALUE",
+ * //   LogPattern: { // LogPattern
+ * //     PatternSetName: "STRING_VALUE",
+ * //     PatternName: "STRING_VALUE",
+ * //     Pattern: "STRING_VALUE",
+ * //     Rank: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateLogPatternCommandInput - {@link UpdateLogPatternCommandInput}
@@ -72,6 +82,8 @@ export interface UpdateLogPatternCommandOutput extends UpdateLogPatternResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class UpdateLogPatternCommand extends $Command<

@@ -48,6 +48,8 @@ export interface AssociateDelegateToResourceCommandOutput
  * };
  * const command = new AssociateDelegateToResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AssociateDelegateToResourceCommandInput - {@link AssociateDelegateToResourceCommandInput}
@@ -75,6 +77,8 @@ export interface AssociateDelegateToResourceCommandOutput
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class AssociateDelegateToResourceCommand extends $Command<

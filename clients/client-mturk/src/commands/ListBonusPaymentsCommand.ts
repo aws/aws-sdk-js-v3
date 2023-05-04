@@ -52,6 +52,20 @@ export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsRespons
  * };
  * const command = new ListBonusPaymentsCommand(input);
  * const response = await client.send(command);
+ * // { // ListBonusPaymentsResponse
+ * //   NumResults: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * //   BonusPayments: [ // BonusPaymentList
+ * //     { // BonusPayment
+ * //       WorkerId: "STRING_VALUE",
+ * //       BonusAmount: "STRING_VALUE",
+ * //       AssignmentId: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE",
+ * //       GrantTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListBonusPaymentsCommandInput - {@link ListBonusPaymentsCommandInput}
@@ -66,6 +80,8 @@ export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsRespons
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class ListBonusPaymentsCommand extends $Command<

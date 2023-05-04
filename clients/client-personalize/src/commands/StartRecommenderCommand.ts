@@ -45,6 +45,10 @@ export interface StartRecommenderCommandOutput extends StartRecommenderResponse,
  * };
  * const command = new StartRecommenderCommand(input);
  * const response = await client.send(command);
+ * // { // StartRecommenderResponse
+ * //   recommenderArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartRecommenderCommandInput - {@link StartRecommenderCommandInput}
@@ -62,6 +66,8 @@ export interface StartRecommenderCommandOutput extends StartRecommenderResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class StartRecommenderCommand extends $Command<

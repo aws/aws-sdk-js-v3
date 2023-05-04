@@ -74,6 +74,36 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  * };
  * const command = new GetCurrentMetricDataCommand(input);
  * const response = await client.send(command);
+ * // { // GetCurrentMetricDataResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   MetricResults: [ // CurrentMetricResults
+ * //     { // CurrentMetricResult
+ * //       Dimensions: { // Dimensions
+ * //         Queue: { // QueueReference
+ * //           Id: "STRING_VALUE",
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         Channel: "VOICE" || "CHAT" || "TASK",
+ * //         RoutingProfile: { // RoutingProfileReference
+ * //           Id: "STRING_VALUE",
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Collections: [ // CurrentMetricDataCollections
+ * //         { // CurrentMetricData
+ * //           Metric: { // CurrentMetric
+ * //             Name: "AGENTS_ONLINE" || "AGENTS_AVAILABLE" || "AGENTS_ON_CALL" || "AGENTS_NON_PRODUCTIVE" || "AGENTS_AFTER_CONTACT_WORK" || "AGENTS_ERROR" || "AGENTS_STAFFED" || "CONTACTS_IN_QUEUE" || "OLDEST_CONTACT_AGE" || "CONTACTS_SCHEDULED" || "AGENTS_ON_CONTACT" || "SLOTS_ACTIVE" || "SLOTS_AVAILABLE",
+ * //             Unit: "SECONDS" || "COUNT" || "PERCENT",
+ * //           },
+ * //           Value: Number("double"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   DataSnapshotTime: new Date("TIMESTAMP"),
+ * //   ApproximateTotalCount: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param GetCurrentMetricDataCommandInput - {@link GetCurrentMetricDataCommandInput}
@@ -97,6 +127,8 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class GetCurrentMetricDataCommand extends $Command<

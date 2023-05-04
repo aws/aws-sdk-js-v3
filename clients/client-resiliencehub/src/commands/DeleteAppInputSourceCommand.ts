@@ -53,6 +53,23 @@ export interface DeleteAppInputSourceCommandOutput extends DeleteAppInputSourceR
  * };
  * const command = new DeleteAppInputSourceCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteAppInputSourceResponse
+ * //   appArn: "STRING_VALUE",
+ * //   appInputSource: { // AppInputSource
+ * //     sourceName: "STRING_VALUE",
+ * //     importType: "STRING_VALUE", // required
+ * //     sourceArn: "STRING_VALUE",
+ * //     terraformSource: { // TerraformSource
+ * //       s3StateFileUrl: "STRING_VALUE", // required
+ * //     },
+ * //     resourceCount: Number("int"),
+ * //     eksSourceClusterNamespace: { // EksSourceClusterNamespace
+ * //       eksClusterArn: "STRING_VALUE", // required
+ * //       namespace: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteAppInputSourceCommandInput - {@link DeleteAppInputSourceCommandInput}
@@ -85,6 +102,8 @@ export interface DeleteAppInputSourceCommandOutput extends DeleteAppInputSourceR
  * @throws {@link ValidationException} (client fault)
  *  <p>This exception occurs when a request is not valid.</p>
  *
+ * @throws {@link ResiliencehubServiceException}
+ * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
 export class DeleteAppInputSourceCommand extends $Command<

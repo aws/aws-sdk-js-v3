@@ -49,6 +49,8 @@ export interface DeleteAppValidationConfigurationCommandOutput
  * };
  * const command = new DeleteAppValidationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAppValidationConfigurationCommandInput - {@link DeleteAppValidationConfigurationCommandInput}
@@ -73,6 +75,8 @@ export interface DeleteAppValidationConfigurationCommandOutput
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class DeleteAppValidationConfigurationCommand extends $Command<

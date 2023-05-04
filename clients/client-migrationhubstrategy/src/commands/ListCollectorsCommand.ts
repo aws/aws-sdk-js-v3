@@ -49,6 +49,51 @@ export interface ListCollectorsCommandOutput extends ListCollectorsResponse, __M
  * };
  * const command = new ListCollectorsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCollectorsResponse
+ * //   Collectors: [ // Collectors
+ * //     { // Collector
+ * //       collectorId: "STRING_VALUE",
+ * //       ipAddress: "STRING_VALUE",
+ * //       hostName: "STRING_VALUE",
+ * //       collectorHealth: "STRING_VALUE",
+ * //       collectorVersion: "STRING_VALUE",
+ * //       registeredTimeStamp: "STRING_VALUE",
+ * //       lastActivityTimeStamp: "STRING_VALUE",
+ * //       configurationSummary: { // ConfigurationSummary
+ * //         vcenterBasedRemoteInfoList: [ // VcenterBasedRemoteInfoList
+ * //           { // VcenterBasedRemoteInfo
+ * //             vcenterConfigurationTimeStamp: "STRING_VALUE",
+ * //             osType: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         ipAddressBasedRemoteInfoList: [ // IPAddressBasedRemoteInfoList
+ * //           { // IPAddressBasedRemoteInfo
+ * //             ipAddressConfigurationTimeStamp: "STRING_VALUE",
+ * //             authType: "STRING_VALUE",
+ * //             osType: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         versionControlInfoList: [ // VersionControlInfoList
+ * //           { // VersionControlInfo
+ * //             versionControlType: "STRING_VALUE",
+ * //             versionControlConfigurationTimeStamp: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         pipelineInfoList: [ // PipelineInfoList
+ * //           { // PipelineInfo
+ * //             pipelineType: "STRING_VALUE",
+ * //             pipelineConfigurationTimeStamp: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         remoteSourceCodeAnalysisServerInfo: { // RemoteSourceCodeAnalysisServerInfo
+ * //           remoteSourceCodeAnalysisServerConfigurationTimestamp: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCollectorsCommandInput - {@link ListCollectorsCommandInput}
@@ -70,6 +115,8 @@ export interface ListCollectorsCommandOutput extends ListCollectorsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p> The request body isn't valid. </p>
  *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class ListCollectorsCommand extends $Command<

@@ -55,6 +55,8 @@ export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetad
  * };
  * const command = new UpdateDocumentMetadataCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateDocumentMetadataCommandInput - {@link UpdateDocumentMetadataCommandInput}
@@ -76,6 +78,8 @@ export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetad
  * @throws {@link InvalidDocumentVersion} (client fault)
  *  <p>The document version isn't valid or doesn't exist.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateDocumentMetadataCommand extends $Command<

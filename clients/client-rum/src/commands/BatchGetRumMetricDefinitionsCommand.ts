@@ -53,6 +53,23 @@ export interface BatchGetRumMetricDefinitionsCommandOutput
  * };
  * const command = new BatchGetRumMetricDefinitionsCommand(input);
  * const response = await client.send(command);
+ * // { // BatchGetRumMetricDefinitionsResponse
+ * //   MetricDefinitions: [ // MetricDefinitions
+ * //     { // MetricDefinition
+ * //       MetricDefinitionId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       ValueKey: "STRING_VALUE",
+ * //       UnitLabel: "STRING_VALUE",
+ * //       DimensionKeys: { // DimensionKeysMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       EventPattern: "STRING_VALUE",
+ * //       Namespace: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param BatchGetRumMetricDefinitionsCommandInput - {@link BatchGetRumMetricDefinitionsCommandInput}
@@ -73,6 +90,8 @@ export interface BatchGetRumMetricDefinitionsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the arguments for the request is not valid.</p>
  *
+ * @throws {@link RUMServiceException}
+ * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
 export class BatchGetRumMetricDefinitionsCommand extends $Command<

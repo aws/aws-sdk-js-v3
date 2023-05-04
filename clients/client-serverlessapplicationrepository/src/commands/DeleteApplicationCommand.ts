@@ -48,6 +48,8 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The client is sending more than the allowed number of requests per unit of time.</p>
  *
+ * @throws {@link ServerlessApplicationRepositoryServiceException}
+ * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
  */
 export class DeleteApplicationCommand extends $Command<

@@ -47,6 +47,11 @@ export interface PutImageRecipePolicyCommandOutput extends PutImageRecipePolicyR
  * };
  * const command = new PutImageRecipePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutImageRecipePolicyResponse
+ * //   requestId: "STRING_VALUE",
+ * //   imageRecipeArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutImageRecipePolicyCommandInput - {@link PutImageRecipePolicyCommandInput}
@@ -82,6 +87,8 @@ export interface PutImageRecipePolicyCommandOutput extends PutImageRecipePolicyR
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class PutImageRecipePolicyCommand extends $Command<

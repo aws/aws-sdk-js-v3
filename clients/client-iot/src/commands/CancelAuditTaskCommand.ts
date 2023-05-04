@@ -45,6 +45,8 @@ export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, _
  * };
  * const command = new CancelAuditTaskCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelAuditTaskCommandInput - {@link CancelAuditTaskCommandInput}
@@ -65,6 +67,8 @@ export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CancelAuditTaskCommand extends $Command<

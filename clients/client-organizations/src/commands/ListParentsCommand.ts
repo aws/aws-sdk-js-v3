@@ -61,6 +61,16 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  * };
  * const command = new ListParentsCommand(input);
  * const response = await client.send(command);
+ * // { // ListParentsResponse
+ * //   Parents: [ // Parents
+ * //     { // Parent
+ * //       Id: "STRING_VALUE",
+ * //       Type: "ROOT" || "ORGANIZATIONAL_UNIT",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListParentsCommandInput - {@link ListParentsCommandInput}
@@ -199,6 +209,8 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  *                 <i>Organizations User Guide.</i>
  *          </p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @example To retrieve a list of all of the parents of a child OU or account
  * ```javascript

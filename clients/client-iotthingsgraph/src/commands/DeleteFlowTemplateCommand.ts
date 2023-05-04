@@ -47,6 +47,8 @@ export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateRespo
  * };
  * const command = new DeleteFlowTemplateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteFlowTemplateCommandInput - {@link DeleteFlowTemplateCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class DeleteFlowTemplateCommand extends $Command<

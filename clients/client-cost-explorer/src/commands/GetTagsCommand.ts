@@ -125,6 +125,15 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * };
  * const command = new GetTagsCommand(input);
  * const response = await client.send(command);
+ * // { // GetTagsResponse
+ * //   NextPageToken: "STRING_VALUE",
+ * //   Tags: [ // TagList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ReturnSize: Number("int"), // required
+ * //   TotalSize: Number("int"), // required
+ * // };
+ *
  * ```
  *
  * @param GetTagsCommandInput - {@link GetTagsCommandInput}
@@ -149,6 +158,8 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  *  <p>Your request parameters changed between pages. Try again with the old parameters or
  *             without a pagination token.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetTagsCommand extends $Command<

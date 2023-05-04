@@ -46,6 +46,10 @@ export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorR
  * };
  * const command = new UpdateAnomalyMonitorCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateAnomalyMonitorResponse
+ * //   MonitorArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateAnomalyMonitorCommandInput - {@link UpdateAnomalyMonitorCommandInput}
@@ -60,6 +64,8 @@ export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorR
  * @throws {@link UnknownMonitorException} (client fault)
  *  <p>The cost anomaly monitor does not exist for the account. </p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class UpdateAnomalyMonitorCommand extends $Command<

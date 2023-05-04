@@ -87,6 +87,8 @@ export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBea
  * };
  * const command = new RespondActivityTaskCompletedCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RespondActivityTaskCompletedCommandInput - {@link RespondActivityTaskCompletedCommandInput}
@@ -101,6 +103,8 @@ export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBea
  * @throws {@link UnknownResourceFault} (client fault)
  *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class RespondActivityTaskCompletedCommand extends $Command<

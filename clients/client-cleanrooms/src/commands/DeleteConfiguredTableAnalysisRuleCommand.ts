@@ -50,6 +50,8 @@ export interface DeleteConfiguredTableAnalysisRuleCommandOutput
  * };
  * const command = new DeleteConfiguredTableAnalysisRuleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteConfiguredTableAnalysisRuleCommandInput - {@link DeleteConfiguredTableAnalysisRuleCommandInput}
@@ -76,6 +78,8 @@ export interface DeleteConfiguredTableAnalysisRuleCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CleanRoomsServiceException}
+ * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
 export class DeleteConfiguredTableAnalysisRuleCommand extends $Command<

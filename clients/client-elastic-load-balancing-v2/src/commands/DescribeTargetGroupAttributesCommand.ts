@@ -74,6 +74,15 @@ export interface DescribeTargetGroupAttributesCommandOutput
  * };
  * const command = new DescribeTargetGroupAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeTargetGroupAttributesOutput
+ * //   Attributes: [ // TargetGroupAttributes
+ * //     { // TargetGroupAttribute
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeTargetGroupAttributesCommandInput - {@link DescribeTargetGroupAttributesCommandInput}
@@ -85,6 +94,8 @@ export interface DescribeTargetGroupAttributesCommandOutput
  * @throws {@link TargetGroupNotFoundException} (client fault)
  *  <p>The specified target group does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To describe target group attributes
  * ```javascript

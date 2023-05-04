@@ -54,6 +54,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -74,6 +76,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link NotFoundException} (client fault)
  *  <p>The target resource cannot be found.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

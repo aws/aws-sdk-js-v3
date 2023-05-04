@@ -51,6 +51,10 @@ export interface StartVariantImportJobCommandOutput extends StartVariantImportRe
  * };
  * const command = new StartVariantImportJobCommand(input);
  * const response = await client.send(command);
+ * // { // StartVariantImportResponse
+ * //   jobId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param StartVariantImportJobCommandInput - {@link StartVariantImportJobCommandInput}
@@ -77,6 +81,8 @@ export interface StartVariantImportJobCommandOutput extends StartVariantImportRe
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class StartVariantImportJobCommand extends $Command<

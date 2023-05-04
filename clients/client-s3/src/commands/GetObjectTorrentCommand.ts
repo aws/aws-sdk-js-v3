@@ -72,6 +72,11 @@ export interface GetObjectTorrentCommandOutput
  * };
  * const command = new GetObjectTorrentCommand(input);
  * const response = await client.send(command);
+ * // { // GetObjectTorrentOutput
+ * //   Body: "STREAMING_BLOB_VALUE",
+ * //   RequestCharged: "requester",
+ * // };
+ *
  * ```
  *
  * @param GetObjectTorrentCommandInput - {@link GetObjectTorrentCommandInput}
@@ -80,6 +85,8 @@ export interface GetObjectTorrentCommandOutput
  * @see {@link GetObjectTorrentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To retrieve torrent files for an object
  * ```javascript

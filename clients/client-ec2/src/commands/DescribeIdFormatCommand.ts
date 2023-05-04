@@ -63,6 +63,16 @@ export interface DescribeIdFormatCommandOutput extends DescribeIdFormatResult, _
  * };
  * const command = new DescribeIdFormatCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeIdFormatResult
+ * //   Statuses: [ // IdFormatList
+ * //     { // IdFormat
+ * //       Deadline: new Date("TIMESTAMP"),
+ * //       Resource: "STRING_VALUE",
+ * //       UseLongIds: true || false,
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeIdFormatCommandInput - {@link DescribeIdFormatCommandInput}
@@ -71,6 +81,8 @@ export interface DescribeIdFormatCommandOutput extends DescribeIdFormatResult, _
  * @see {@link DescribeIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeIdFormatCommand extends $Command<

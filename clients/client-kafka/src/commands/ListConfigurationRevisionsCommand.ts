@@ -46,6 +46,17 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
  * };
  * const command = new ListConfigurationRevisionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListConfigurationRevisionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Revisions: [ // __listOfConfigurationRevision
+ * //     { // ConfigurationRevision
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       Description: "STRING_VALUE",
+ * //       Revision: Number("long"), // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListConfigurationRevisionsCommandInput - {@link ListConfigurationRevisionsCommandInput}
@@ -72,6 +83,8 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class ListConfigurationRevisionsCommand extends $Command<

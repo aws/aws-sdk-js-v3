@@ -44,6 +44,15 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeTagsResult
+ * //   TagList: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
@@ -55,6 +64,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeTagsCommand extends $Command<

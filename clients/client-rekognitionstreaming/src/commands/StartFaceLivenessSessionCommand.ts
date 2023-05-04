@@ -115,6 +115,73 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  * };
  * const command = new StartFaceLivenessSessionCommand(input);
  * const response = await client.send(command);
+ * // { // StartFaceLivenessSessionResponse
+ * //   SessionId: "STRING_VALUE", // required
+ * //   LivenessResponseStream: { // LivenessResponseStream Union: only one key present
+ * //     ServerSessionInformationEvent: { // ServerSessionInformationEvent
+ * //       SessionInformation: { // SessionInformation
+ * //         Challenge: { // ServerChallenge Union: only one key present
+ * //           FaceMovementAndLightChallenge: { // FaceMovementAndLightServerChallenge
+ * //             OvalParameters: { // OvalParameters
+ * //               Width: Number("float"), // required
+ * //               Height: Number("float"), // required
+ * //               CenterX: Number("float"), // required
+ * //               CenterY: Number("float"), // required
+ * //             },
+ * //             LightChallengeType: "SEQUENTIAL", // required
+ * //             ChallengeConfig: { // ChallengeConfig
+ * //               BlazeFaceDetectionThreshold: Number("float"),
+ * //               FaceDistanceThresholdMin: Number("float"),
+ * //               FaceDistanceThreshold: Number("float"),
+ * //               FaceDistanceThresholdMax: Number("float"),
+ * //               OvalIouThreshold: Number("float"),
+ * //               OvalHeightWidthRatio: Number("float"),
+ * //               OvalIouWidthThreshold: Number("float"),
+ * //               OvalIouHeightThreshold: Number("float"),
+ * //               FaceIouWidthThreshold: Number("float"),
+ * //               FaceIouHeightThreshold: Number("float"),
+ * //             },
+ * //             ColorSequences: [ // ColorSequences // required
+ * //               { // ColorSequence
+ * //                 FreshnessColor: { // FreshnessColor
+ * //                   RGB: [ // ColorComponentList // required
+ * //                     Number("int"),
+ * //                   ],
+ * //                 },
+ * //                 DownscrollDuration: Number("float"), // required
+ * //                 FlatDisplayDuration: Number("float"), // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //     DisconnectionEvent: { // DisconnectionEvent
+ * //       TimestampMillis: Number("long"), // required
+ * //     },
+ * //     ValidationException: { // ValidationException
+ * //       Message: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //     },
+ * //     InternalServerException: { // InternalServerException
+ * //       Message: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //     },
+ * //     ThrottlingException: { // ThrottlingException
+ * //       Message: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //     },
+ * //     ServiceQuotaExceededException: { // ServiceQuotaExceededException
+ * //       Message: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //     },
+ * //     ServiceUnavailableException: { // ServiceUnavailableException
+ * //       Message: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StartFaceLivenessSessionCommandInput - {@link StartFaceLivenessSessionCommandInput}
@@ -149,6 +216,8 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  *       invalid, session has expired or is invalid, S3 bucket is invalid/in another AWS region, KMS
  *       Key is invalid.</p>
  *
+ * @throws {@link RekognitionStreamingServiceException}
+ * <p>Base exception class for all service exceptions from RekognitionStreaming service.</p>
  *
  */
 export class StartFaceLivenessSessionCommand extends $Command<

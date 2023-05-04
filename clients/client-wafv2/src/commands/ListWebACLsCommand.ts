@@ -47,6 +47,19 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * };
  * const command = new ListWebACLsCommand(input);
  * const response = await client.send(command);
+ * // { // ListWebACLsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   WebACLs: [ // WebACLSummaries
+ * //     { // WebACLSummary
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       LockToken: "STRING_VALUE",
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListWebACLsCommandInput - {@link ListWebACLsCommandInput}
@@ -83,6 +96,8 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  *             </li>
  *          </ul>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListWebACLsCommand extends $Command<

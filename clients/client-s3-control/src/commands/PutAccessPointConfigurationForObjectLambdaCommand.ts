@@ -79,6 +79,8 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  * };
  * const command = new PutAccessPointConfigurationForObjectLambdaCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutAccessPointConfigurationForObjectLambdaCommandInput - {@link PutAccessPointConfigurationForObjectLambdaCommandInput}
@@ -87,6 +89,8 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  * @see {@link PutAccessPointConfigurationForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command<

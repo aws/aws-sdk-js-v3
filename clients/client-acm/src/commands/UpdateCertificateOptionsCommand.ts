@@ -50,6 +50,8 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  * };
  * const command = new UpdateCertificateOptionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateCertificateOptionsCommandInput - {@link UpdateCertificateOptionsCommandInput}
@@ -71,6 +73,8 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  *  <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>
  *
+ * @throws {@link ACMServiceException}
+ * <p>Base exception class for all service exceptions from ACM service.</p>
  *
  */
 export class UpdateCertificateOptionsCommand extends $Command<

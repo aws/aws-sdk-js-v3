@@ -60,6 +60,8 @@ export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSign
  * };
  * const command = new AdminUserGlobalSignOutCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AdminUserGlobalSignOutCommandInput - {@link AdminUserGlobalSignOutCommandInput}
@@ -89,6 +91,8 @@ export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSign
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AdminUserGlobalSignOutCommand extends $Command<

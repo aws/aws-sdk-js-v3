@@ -44,6 +44,12 @@ export interface GetServiceEndpointCommandOutput extends GetServiceEndpointRespo
  * };
  * const command = new GetServiceEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // GetServiceEndpointResponse
+ * //   ServiceType: "CUPS" || "LNS",
+ * //   ServiceEndpoint: "STRING_VALUE",
+ * //   ServerTrust: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetServiceEndpointCommandInput - {@link GetServiceEndpointCommandInput}
@@ -64,6 +70,8 @@ export interface GetServiceEndpointCommandOutput extends GetServiceEndpointRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetServiceEndpointCommand extends $Command<

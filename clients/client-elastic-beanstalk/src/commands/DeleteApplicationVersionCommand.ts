@@ -50,6 +50,8 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteApplicationVersionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteApplicationVersionCommandInput - {@link DeleteApplicationVersionCommandInput}
@@ -85,6 +87,8 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  *  <p>Unable to delete the Amazon S3 source bundle associated with the application version.
  *       The application version was deleted successfully.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To delete an application version
  * ```javascript

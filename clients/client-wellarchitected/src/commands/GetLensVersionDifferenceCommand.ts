@@ -46,6 +46,30 @@ export interface GetLensVersionDifferenceCommandOutput extends GetLensVersionDif
  * };
  * const command = new GetLensVersionDifferenceCommand(input);
  * const response = await client.send(command);
+ * // { // GetLensVersionDifferenceOutput
+ * //   LensAlias: "STRING_VALUE",
+ * //   LensArn: "STRING_VALUE",
+ * //   BaseLensVersion: "STRING_VALUE",
+ * //   TargetLensVersion: "STRING_VALUE",
+ * //   LatestLensVersion: "STRING_VALUE",
+ * //   VersionDifferences: { // VersionDifferences
+ * //     PillarDifferences: [ // PillarDifferences
+ * //       { // PillarDifference
+ * //         PillarId: "STRING_VALUE",
+ * //         PillarName: "STRING_VALUE",
+ * //         DifferenceStatus: "UPDATED" || "NEW" || "DELETED",
+ * //         QuestionDifferences: [ // QuestionDifferences
+ * //           { // QuestionDifference
+ * //             QuestionId: "STRING_VALUE",
+ * //             QuestionTitle: "STRING_VALUE",
+ * //             DifferenceStatus: "UPDATED" || "NEW" || "DELETED",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetLensVersionDifferenceCommandInput - {@link GetLensVersionDifferenceCommandInput}
@@ -69,6 +93,8 @@ export interface GetLensVersionDifferenceCommandOutput extends GetLensVersionDif
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class GetLensVersionDifferenceCommand extends $Command<

@@ -44,6 +44,8 @@ export interface DeleteAlgorithmCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAlgorithmCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAlgorithmCommandInput - {@link DeleteAlgorithmCommandInput}
@@ -52,6 +54,8 @@ export interface DeleteAlgorithmCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAlgorithmCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteAlgorithmCommand extends $Command<

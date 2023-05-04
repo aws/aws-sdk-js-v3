@@ -55,6 +55,16 @@ export interface GetArchitectureRecommendationsCommandOutput
  * };
  * const command = new GetArchitectureRecommendationsCommand(input);
  * const response = await client.send(command);
+ * // { // GetArchitectureRecommendationsResponse
+ * //   LastAuditTimestamp: new Date("TIMESTAMP"),
+ * //   NextToken: "STRING_VALUE",
+ * //   Recommendations: [ // __listOfRecommendation
+ * //     { // Recommendation
+ * //       RecommendationText: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetArchitectureRecommendationsCommandInput - {@link GetArchitectureRecommendationsCommandInput}
@@ -78,6 +88,8 @@ export interface GetArchitectureRecommendationsCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link Route53RecoveryReadinessServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
 export class GetArchitectureRecommendationsCommand extends $Command<

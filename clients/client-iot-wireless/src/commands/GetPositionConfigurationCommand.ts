@@ -52,6 +52,18 @@ export interface GetPositionConfigurationCommandOutput extends GetPositionConfig
  * };
  * const command = new GetPositionConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // GetPositionConfigurationResponse
+ * //   Solvers: { // PositionSolverDetails
+ * //     SemtechGnss: { // SemtechGnssDetail
+ * //       Provider: "Semtech",
+ * //       Type: "GNSS",
+ * //       Status: "Enabled" || "Disabled",
+ * //       Fec: "ROSE" || "NONE",
+ * //     },
+ * //   },
+ * //   Destination: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetPositionConfigurationCommandInput - {@link GetPositionConfigurationCommandInput}
@@ -75,6 +87,8 @@ export interface GetPositionConfigurationCommandOutput extends GetPositionConfig
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetPositionConfigurationCommand extends $Command<

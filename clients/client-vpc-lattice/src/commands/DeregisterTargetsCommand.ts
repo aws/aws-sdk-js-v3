@@ -50,6 +50,23 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsRespons
  * };
  * const command = new DeregisterTargetsCommand(input);
  * const response = await client.send(command);
+ * // { // DeregisterTargetsResponse
+ * //   successful: [ // TargetList
+ * //     { // Target
+ * //       id: "STRING_VALUE", // required
+ * //       port: Number("int"),
+ * //     },
+ * //   ],
+ * //   unsuccessful: [ // TargetFailureList
+ * //     { // TargetFailure
+ * //       id: "STRING_VALUE",
+ * //       port: Number("int"),
+ * //       failureCode: "STRING_VALUE",
+ * //       failureMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DeregisterTargetsCommandInput - {@link DeregisterTargetsCommandInput}
@@ -78,6 +95,8 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsRespons
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class DeregisterTargetsCommand extends $Command<

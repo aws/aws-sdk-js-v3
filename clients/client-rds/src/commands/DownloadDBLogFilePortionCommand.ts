@@ -48,6 +48,12 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  * };
  * const command = new DownloadDBLogFilePortionCommand(input);
  * const response = await client.send(command);
+ * // { // DownloadDBLogFilePortionDetails
+ * //   LogFileData: "STRING_VALUE",
+ * //   Marker: "STRING_VALUE",
+ * //   AdditionalDataPending: true || false,
+ * // };
+ *
  * ```
  *
  * @param DownloadDBLogFilePortionCommandInput - {@link DownloadDBLogFilePortionCommandInput}
@@ -64,6 +70,8 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  *  <p>
  *             <code>LogFileName</code> doesn't refer to an existing DB log file.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To download a DB log file
  * ```javascript

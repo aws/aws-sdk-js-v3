@@ -59,6 +59,8 @@ export interface DeleteServerCommandOutput extends DeleteServerResponse, __Metad
  * };
  * const command = new DeleteServerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteServerCommandInput - {@link DeleteServerCommandInput}
@@ -79,6 +81,8 @@ export interface DeleteServerCommandOutput extends DeleteServerResponse, __Metad
  *  <p>One or more of the provided request parameters are not valid.
  *     </p>
  *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class DeleteServerCommand extends $Command<

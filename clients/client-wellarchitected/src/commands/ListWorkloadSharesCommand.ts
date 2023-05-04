@@ -48,6 +48,20 @@ export interface ListWorkloadSharesCommandOutput extends ListWorkloadSharesOutpu
  * };
  * const command = new ListWorkloadSharesCommand(input);
  * const response = await client.send(command);
+ * // { // ListWorkloadSharesOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   WorkloadShareSummaries: [ // WorkloadShareSummaries
+ * //     { // WorkloadShareSummary
+ * //       ShareId: "STRING_VALUE",
+ * //       SharedWith: "STRING_VALUE",
+ * //       PermissionType: "READONLY" || "CONTRIBUTOR",
+ * //       Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListWorkloadSharesCommandInput - {@link ListWorkloadSharesCommandInput}
@@ -71,6 +85,8 @@ export interface ListWorkloadSharesCommandOutput extends ListWorkloadSharesOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListWorkloadSharesCommand extends $Command<

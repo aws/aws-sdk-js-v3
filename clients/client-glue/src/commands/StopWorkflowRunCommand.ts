@@ -45,6 +45,8 @@ export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, _
  * };
  * const command = new StopWorkflowRunCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopWorkflowRunCommandInput - {@link StopWorkflowRunCommandInput}
@@ -68,6 +70,8 @@ export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, _
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class StopWorkflowRunCommand extends $Command<

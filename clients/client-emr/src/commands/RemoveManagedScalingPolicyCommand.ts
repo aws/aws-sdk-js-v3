@@ -44,6 +44,8 @@ export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedSc
  * };
  * const command = new RemoveManagedScalingPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RemoveManagedScalingPolicyCommandInput - {@link RemoveManagedScalingPolicyCommandInput}
@@ -52,6 +54,8 @@ export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedSc
  * @see {@link RemoveManagedScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class RemoveManagedScalingPolicyCommand extends $Command<

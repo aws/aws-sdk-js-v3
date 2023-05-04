@@ -48,6 +48,8 @@ export interface DeleteVpnConnectionRouteCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteVpnConnectionRouteCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteVpnConnectionRouteCommandInput - {@link DeleteVpnConnectionRouteCommandInput}
@@ -56,6 +58,8 @@ export interface DeleteVpnConnectionRouteCommandOutput extends __MetadataBearer 
  * @see {@link DeleteVpnConnectionRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteVpnConnectionRouteCommand extends $Command<

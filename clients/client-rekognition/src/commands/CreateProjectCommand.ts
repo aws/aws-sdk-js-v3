@@ -46,6 +46,10 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
+ * // { // CreateProjectResponse
+ * //   ProjectArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
@@ -79,6 +83,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class CreateProjectCommand extends $Command<

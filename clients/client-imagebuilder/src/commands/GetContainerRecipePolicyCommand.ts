@@ -44,6 +44,11 @@ export interface GetContainerRecipePolicyCommandOutput extends GetContainerRecip
  * };
  * const command = new GetContainerRecipePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetContainerRecipePolicyResponse
+ * //   requestId: "STRING_VALUE",
+ * //   policy: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetContainerRecipePolicyCommandInput - {@link GetContainerRecipePolicyCommandInput}
@@ -71,6 +76,8 @@ export interface GetContainerRecipePolicyCommandOutput extends GetContainerRecip
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class GetContainerRecipePolicyCommand extends $Command<

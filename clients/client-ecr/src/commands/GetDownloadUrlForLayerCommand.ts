@@ -53,6 +53,11 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  * };
  * const command = new GetDownloadUrlForLayerCommand(input);
  * const response = await client.send(command);
+ * // { // GetDownloadUrlForLayerResponse
+ * //   downloadUrl: "STRING_VALUE",
+ * //   layerDigest: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetDownloadUrlForLayerCommandInput - {@link GetDownloadUrlForLayerCommandInput}
@@ -80,6 +85,8 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
 export class GetDownloadUrlForLayerCommand extends $Command<

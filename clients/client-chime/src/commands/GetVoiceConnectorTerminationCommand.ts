@@ -53,6 +53,20 @@ export interface GetVoiceConnectorTerminationCommandOutput
  * };
  * const command = new GetVoiceConnectorTerminationCommand(input);
  * const response = await client.send(command);
+ * // { // GetVoiceConnectorTerminationResponse
+ * //   Termination: { // Termination
+ * //     CpsLimit: Number("int"),
+ * //     DefaultPhoneNumber: "STRING_VALUE",
+ * //     CallingRegions: [ // CallingRegionList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     CidrAllowedList: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Disabled: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetVoiceConnectorTerminationCommandInput - {@link GetVoiceConnectorTerminationCommandInput}
@@ -82,6 +96,8 @@ export interface GetVoiceConnectorTerminationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetVoiceConnectorTerminationCommand extends $Command<

@@ -46,6 +46,10 @@ export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult,
  * };
  * const command = new DeleteUserProfileCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteUserProfileResult
+ * //   userArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteUserProfileCommandInput - {@link DeleteUserProfileCommandInput}
@@ -57,6 +61,8 @@ export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult,
  * @throws {@link ValidationException} (client fault)
  *  <p>The specified input is either not valid, or it could not be validated.</p>
  *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class DeleteUserProfileCommand extends $Command<

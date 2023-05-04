@@ -48,6 +48,35 @@ export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOut
  * };
  * const command = new DeleteVirtualRouterCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteVirtualRouterOutput
+ * //   virtualRouter: { // VirtualRouterData
+ * //     meshName: "STRING_VALUE", // required
+ * //     virtualRouterName: "STRING_VALUE", // required
+ * //     spec: { // VirtualRouterSpec
+ * //       listeners: [ // VirtualRouterListeners
+ * //         { // VirtualRouterListener
+ * //           portMapping: { // PortMapping
+ * //             port: Number("int"), // required
+ * //             protocol: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //     metadata: { // ResourceMetadata
+ * //       arn: "STRING_VALUE", // required
+ * //       version: Number("long"), // required
+ * //       uid: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //       meshOwner: "STRING_VALUE", // required
+ * //       resourceOwner: "STRING_VALUE", // required
+ * //     },
+ * //     status: { // VirtualRouterStatus
+ * //       status: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteVirtualRouterCommandInput - {@link DeleteVirtualRouterCommandInput}
@@ -81,6 +110,8 @@ export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOut
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class DeleteVirtualRouterCommand extends $Command<

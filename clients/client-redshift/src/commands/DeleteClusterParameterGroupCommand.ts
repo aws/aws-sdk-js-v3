@@ -48,6 +48,8 @@ export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteClusterParameterGroupCommandInput - {@link DeleteClusterParameterGroupCommandInput}
@@ -64,6 +66,8 @@ export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBear
  *             progress that involves the parameter group. Wait a few moments and try the operation
  *             again.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteClusterParameterGroupCommand extends $Command<

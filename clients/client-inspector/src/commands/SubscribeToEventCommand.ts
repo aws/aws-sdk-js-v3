@@ -47,6 +47,8 @@ export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SubscribeToEventCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SubscribeToEventCommandInput - {@link SubscribeToEventCommandInput}
@@ -76,6 +78,8 @@ export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Subscribe to event
  * ```javascript

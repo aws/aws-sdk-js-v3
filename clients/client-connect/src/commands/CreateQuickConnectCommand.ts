@@ -63,6 +63,11 @@ export interface CreateQuickConnectCommandOutput extends CreateQuickConnectRespo
  * };
  * const command = new CreateQuickConnectCommand(input);
  * const response = await client.send(command);
+ * // { // CreateQuickConnectResponse
+ * //   QuickConnectARN: "STRING_VALUE",
+ * //   QuickConnectId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateQuickConnectCommandInput - {@link CreateQuickConnectCommandInput}
@@ -92,6 +97,8 @@ export interface CreateQuickConnectCommandOutput extends CreateQuickConnectRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateQuickConnectCommand extends $Command<

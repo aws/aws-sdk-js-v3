@@ -48,6 +48,10 @@ export interface CreateConnectClientAddInCommandOutput extends CreateConnectClie
  * };
  * const command = new CreateConnectClientAddInCommand(input);
  * const response = await client.send(command);
+ * // { // CreateConnectClientAddInResult
+ * //   AddInId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateConnectClientAddInCommandInput - {@link CreateConnectClientAddInCommandInput}
@@ -71,6 +75,8 @@ export interface CreateConnectClientAddInCommandOutput extends CreateConnectClie
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CreateConnectClientAddInCommand extends $Command<

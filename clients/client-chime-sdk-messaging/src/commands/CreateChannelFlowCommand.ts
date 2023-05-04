@@ -92,6 +92,10 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  * };
  * const command = new CreateChannelFlowCommand(input);
  * const response = await client.send(command);
+ * // { // CreateChannelFlowResponse
+ * //   ChannelFlowArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateChannelFlowCommandInput - {@link CreateChannelFlowCommandInput}
@@ -125,6 +129,8 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class CreateChannelFlowCommand extends $Command<

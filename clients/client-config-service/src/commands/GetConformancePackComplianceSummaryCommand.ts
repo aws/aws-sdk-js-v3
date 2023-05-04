@@ -56,6 +56,16 @@ export interface GetConformancePackComplianceSummaryCommandOutput
  * };
  * const command = new GetConformancePackComplianceSummaryCommand(input);
  * const response = await client.send(command);
+ * // { // GetConformancePackComplianceSummaryResponse
+ * //   ConformancePackComplianceSummaryList: [ // ConformancePackComplianceSummaryList
+ * //     { // ConformancePackComplianceSummary
+ * //       ConformancePackName: "STRING_VALUE", // required
+ * //       ConformancePackComplianceStatus: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetConformancePackComplianceSummaryCommandInput - {@link GetConformancePackComplianceSummaryCommandInput}
@@ -75,6 +85,8 @@ export interface GetConformancePackComplianceSummaryCommandOutput
  * @throws {@link NoSuchConformancePackException} (client fault)
  *  <p>You specified one or more conformance packs that do not exist.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetConformancePackComplianceSummaryCommand extends $Command<

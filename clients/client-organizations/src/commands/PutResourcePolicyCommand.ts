@@ -51,6 +51,16 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutResourcePolicyResponse
+ * //   ResourcePolicy: { // ResourcePolicy
+ * //     ResourcePolicySummary: { // ResourcePolicySummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //     Content: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
@@ -389,6 +399,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
  *
+ * @throws {@link OrganizationsServiceException}
+ * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
 export class PutResourcePolicyCommand extends $Command<

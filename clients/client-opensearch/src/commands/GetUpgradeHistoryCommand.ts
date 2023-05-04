@@ -47,6 +47,27 @@ export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryRespons
  * };
  * const command = new GetUpgradeHistoryCommand(input);
  * const response = await client.send(command);
+ * // { // GetUpgradeHistoryResponse
+ * //   UpgradeHistories: [ // UpgradeHistoryList
+ * //     { // UpgradeHistory
+ * //       UpgradeName: "STRING_VALUE",
+ * //       StartTimestamp: new Date("TIMESTAMP"),
+ * //       UpgradeStatus: "IN_PROGRESS" || "SUCCEEDED" || "SUCCEEDED_WITH_ISSUES" || "FAILED",
+ * //       StepsList: [ // UpgradeStepsList
+ * //         { // UpgradeStepItem
+ * //           UpgradeStep: "PRE_UPGRADE_CHECK" || "SNAPSHOT" || "UPGRADE",
+ * //           UpgradeStepStatus: "IN_PROGRESS" || "SUCCEEDED" || "SUCCEEDED_WITH_ISSUES" || "FAILED",
+ * //           Issues: [ // Issues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ProgressPercent: Number("double"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetUpgradeHistoryCommandInput - {@link GetUpgradeHistoryCommandInput}
@@ -59,17 +80,19 @@ export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryRespons
  *  <p>An error occurred while processing the request.</p>
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class GetUpgradeHistoryCommand extends $Command<

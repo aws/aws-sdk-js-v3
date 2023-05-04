@@ -50,6 +50,18 @@ export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse,
  * };
  * const command = new ListAgentStatusesCommand(input);
  * const response = await client.send(command);
+ * // { // ListAgentStatusResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   AgentStatusSummaryList: [ // AgentStatusSummaryList
+ * //     { // AgentStatusSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Type: "ROUTABLE" || "CUSTOM" || "OFFLINE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListAgentStatusesCommandInput - {@link ListAgentStatusesCommandInput}
@@ -73,6 +85,8 @@ export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListAgentStatusesCommand extends $Command<

@@ -48,6 +48,10 @@ export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDet
  * };
  * const command = new StopEntitiesDetectionV2JobCommand(input);
  * const response = await client.send(command);
+ * // { // StopEntitiesDetectionV2JobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StopEntitiesDetectionV2JobCommandInput - {@link StopEntitiesDetectionV2JobCommandInput}
@@ -67,6 +71,8 @@ export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDet
  *  <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check
  *       the ARN and try your request again.</p>
  *
+ * @throws {@link ComprehendMedicalServiceException}
+ * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
 export class StopEntitiesDetectionV2JobCommand extends $Command<

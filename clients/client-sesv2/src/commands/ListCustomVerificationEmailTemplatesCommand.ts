@@ -58,6 +58,19 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
  * };
  * const command = new ListCustomVerificationEmailTemplatesCommand(input);
  * const response = await client.send(command);
+ * // { // ListCustomVerificationEmailTemplatesResponse
+ * //   CustomVerificationEmailTemplates: [ // CustomVerificationEmailTemplatesList
+ * //     { // CustomVerificationEmailTemplateMetadata
+ * //       TemplateName: "STRING_VALUE",
+ * //       FromEmailAddress: "STRING_VALUE",
+ * //       TemplateSubject: "STRING_VALUE",
+ * //       SuccessRedirectionURL: "STRING_VALUE",
+ * //       FailureRedirectionURL: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCustomVerificationEmailTemplatesCommandInput - {@link ListCustomVerificationEmailTemplatesCommandInput}
@@ -72,6 +85,8 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class ListCustomVerificationEmailTemplatesCommand extends $Command<

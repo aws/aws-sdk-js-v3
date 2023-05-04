@@ -63,6 +63,16 @@ export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
  * };
  * const command = new RegisterTransitGatewayMulticastGroupMembersCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterTransitGatewayMulticastGroupMembersResult
+ * //   RegisteredMulticastGroupMembers: { // TransitGatewayMulticastRegisteredGroupMembers
+ * //     TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //     RegisteredNetworkInterfaceIds: [ // ValueStringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     GroupIpAddress: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param RegisterTransitGatewayMulticastGroupMembersCommandInput - {@link RegisterTransitGatewayMulticastGroupMembersCommandInput}
@@ -71,6 +81,8 @@ export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
  * @see {@link RegisterTransitGatewayMulticastGroupMembersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command<

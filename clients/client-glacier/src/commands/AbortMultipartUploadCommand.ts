@@ -63,6 +63,8 @@ export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AbortMultipartUploadCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AbortMultipartUploadCommandInput - {@link AbortMultipartUploadCommandInput}
@@ -84,6 +86,8 @@ export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To abort a multipart upload identified by the upload ID
  * ```javascript

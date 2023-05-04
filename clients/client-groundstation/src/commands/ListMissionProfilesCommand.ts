@@ -45,6 +45,18 @@ export interface ListMissionProfilesCommandOutput extends ListMissionProfilesRes
  * };
  * const command = new ListMissionProfilesCommand(input);
  * const response = await client.send(command);
+ * // { // ListMissionProfilesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   missionProfileList: [ // MissionProfileList
+ * //     { // MissionProfileListItem
+ * //       missionProfileId: "STRING_VALUE",
+ * //       missionProfileArn: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListMissionProfilesCommandInput - {@link ListMissionProfilesCommandInput}
@@ -62,6 +74,8 @@ export interface ListMissionProfilesCommandOutput extends ListMissionProfilesRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource was not found.</p>
  *
+ * @throws {@link GroundStationServiceException}
+ * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
  */
 export class ListMissionProfilesCommand extends $Command<

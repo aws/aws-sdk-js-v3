@@ -45,6 +45,13 @@ export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsR
  * };
  * const command = new ListAssociatedFleetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAssociatedFleetsResult
+ * //   Names: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAssociatedFleetsCommandInput - {@link ListAssociatedFleetsCommandInput}
@@ -53,6 +60,8 @@ export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsR
  * @see {@link ListAssociatedFleetsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class ListAssociatedFleetsCommand extends $Command<

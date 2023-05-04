@@ -142,6 +142,10 @@ export interface CreateModelBiasJobDefinitionCommandOutput
  * };
  * const command = new CreateModelBiasJobDefinitionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateModelBiasJobDefinitionResponse
+ * //   JobDefinitionArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateModelBiasJobDefinitionCommandInput - {@link CreateModelBiasJobDefinitionCommandInput}
@@ -157,6 +161,8 @@ export interface CreateModelBiasJobDefinitionCommandOutput
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateModelBiasJobDefinitionCommand extends $Command<

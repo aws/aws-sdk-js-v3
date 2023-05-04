@@ -49,6 +49,11 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateProjectResponse
+ * //   LastModifiedDate: new Date("TIMESTAMP"),
+ * //   Name: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
@@ -63,6 +68,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class UpdateProjectCommand extends $Command<

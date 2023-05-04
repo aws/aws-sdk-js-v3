@@ -45,6 +45,8 @@ export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBeare
  * };
  * const command = new DeleteRunCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteRunCommandInput - {@link DeleteRunCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBeare
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To delete a run
  * ```javascript

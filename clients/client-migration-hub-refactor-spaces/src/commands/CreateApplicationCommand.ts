@@ -72,6 +72,27 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateApplicationResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   OwnerAccountId: "STRING_VALUE",
+ * //   CreatedByAccountId: "STRING_VALUE",
+ * //   ApplicationId: "STRING_VALUE",
+ * //   EnvironmentId: "STRING_VALUE",
+ * //   VpcId: "STRING_VALUE",
+ * //   ProxyType: "STRING_VALUE",
+ * //   ApiGatewayProxy: { // ApiGatewayProxyInput
+ * //     EndpointType: "STRING_VALUE",
+ * //     StageName: "STRING_VALUE",
+ * //   },
+ * //   State: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -102,6 +123,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

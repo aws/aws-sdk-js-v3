@@ -74,6 +74,26 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  * };
  * const command = new UpdateConfigurationTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // ConfigurationSettingsDescription
+ * //   SolutionStackName: "STRING_VALUE",
+ * //   PlatformArn: "STRING_VALUE",
+ * //   ApplicationName: "STRING_VALUE",
+ * //   TemplateName: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   EnvironmentName: "STRING_VALUE",
+ * //   DeploymentStatus: "deployed" || "pending" || "failed",
+ * //   DateCreated: new Date("TIMESTAMP"),
+ * //   DateUpdated: new Date("TIMESTAMP"),
+ * //   OptionSettings: [ // ConfigurationOptionSettingsList
+ * //     { // ConfigurationOptionSetting
+ * //       ResourceName: "STRING_VALUE",
+ * //       Namespace: "STRING_VALUE",
+ * //       OptionName: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UpdateConfigurationTemplateCommandInput - {@link UpdateConfigurationTemplateCommandInput}
@@ -89,6 +109,8 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  * @throws {@link TooManyBucketsException} (client fault)
  *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @example To update a configuration template
  * ```javascript

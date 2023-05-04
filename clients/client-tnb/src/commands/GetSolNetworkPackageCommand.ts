@@ -49,6 +49,35 @@ export interface GetSolNetworkPackageCommandOutput extends GetSolNetworkPackageO
  * };
  * const command = new GetSolNetworkPackageCommand(input);
  * const response = await client.send(command);
+ * // { // GetSolNetworkPackageOutput
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   nsdOnboardingState: "CREATED" || "ONBOARDED" || "ERROR", // required
+ * //   nsdOperationalState: "ENABLED" || "DISABLED", // required
+ * //   nsdUsageState: "IN_USE" || "NOT_IN_USE", // required
+ * //   nsdId: "STRING_VALUE", // required
+ * //   nsdName: "STRING_VALUE", // required
+ * //   nsdVersion: "STRING_VALUE", // required
+ * //   vnfPkgIds: [ // VnfPkgIdList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   metadata: { // GetSolNetworkPackageMetadata
+ * //     nsd: { // NetworkArtifactMeta
+ * //       overrides: [ // OverrideList
+ * //         { // ToscaOverride
+ * //           name: "STRING_VALUE",
+ * //           defaultValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastModified: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSolNetworkPackageCommandInput - {@link GetSolNetworkPackageCommandInput}
@@ -72,6 +101,8 @@ export interface GetSolNetworkPackageCommandOutput extends GetSolNetworkPackageO
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class GetSolNetworkPackageCommand extends $Command<

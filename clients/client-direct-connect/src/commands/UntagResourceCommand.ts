@@ -47,6 +47,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -61,6 +63,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

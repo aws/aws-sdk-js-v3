@@ -63,6 +63,12 @@ export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, _
  * };
  * const command = new CreateChatTokenCommand(input);
  * const response = await client.send(command);
+ * // { // CreateChatTokenResponse
+ * //   token: "STRING_VALUE",
+ * //   tokenExpirationTime: new Date("TIMESTAMP"),
+ * //   sessionExpirationTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param CreateChatTokenCommandInput - {@link CreateChatTokenCommandInput}
@@ -83,6 +89,8 @@ export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class CreateChatTokenCommand extends $Command<

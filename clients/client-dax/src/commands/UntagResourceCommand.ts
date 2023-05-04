@@ -48,6 +48,15 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * // { // UntagResourceResponse
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -78,6 +87,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link TagNotFoundFault} (client fault)
  *  <p>The tag does not exist.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

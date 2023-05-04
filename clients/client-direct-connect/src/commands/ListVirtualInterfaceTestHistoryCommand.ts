@@ -56,6 +56,24 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
  * };
  * const command = new ListVirtualInterfaceTestHistoryCommand(input);
  * const response = await client.send(command);
+ * // { // ListVirtualInterfaceTestHistoryResponse
+ * //   virtualInterfaceTestHistory: [ // VirtualInterfaceTestHistoryList
+ * //     { // VirtualInterfaceTestHistory
+ * //       testId: "STRING_VALUE",
+ * //       virtualInterfaceId: "STRING_VALUE",
+ * //       bgpPeers: [ // BGPPeerIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       status: "STRING_VALUE",
+ * //       ownerAccount: "STRING_VALUE",
+ * //       testDurationInMinutes: Number("int"),
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       endTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListVirtualInterfaceTestHistoryCommandInput - {@link ListVirtualInterfaceTestHistoryCommandInput}
@@ -70,6 +88,8 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class ListVirtualInterfaceTestHistoryCommand extends $Command<

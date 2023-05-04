@@ -47,6 +47,17 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  * };
  * const command = new DisableInsightRulesCommand(input);
  * const response = await client.send(command);
+ * // { // DisableInsightRulesOutput
+ * //   Failures: [ // BatchFailures
+ * //     { // PartialFailure
+ * //       FailureResource: "STRING_VALUE",
+ * //       ExceptionType: "STRING_VALUE",
+ * //       FailureCode: "STRING_VALUE",
+ * //       FailureDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DisableInsightRulesCommandInput - {@link DisableInsightRulesCommandInput}
@@ -61,6 +72,8 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DisableInsightRulesCommand extends $Command<

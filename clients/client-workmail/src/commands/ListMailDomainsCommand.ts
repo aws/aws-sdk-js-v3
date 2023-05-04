@@ -46,6 +46,16 @@ export interface ListMailDomainsCommandOutput extends ListMailDomainsResponse, _
  * };
  * const command = new ListMailDomainsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMailDomainsResponse
+ * //   MailDomains: [ // MailDomains
+ * //     { // MailDomainSummary
+ * //       DomainName: "STRING_VALUE",
+ * //       DefaultDomain: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListMailDomainsCommandInput - {@link ListMailDomainsCommandInput}
@@ -65,6 +75,8 @@ export interface ListMailDomainsCommandOutput extends ListMailDomainsResponse, _
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListMailDomainsCommand extends $Command<

@@ -46,6 +46,14 @@ export interface GetModelCommandOutput extends Model, __MetadataBearer {}
  * };
  * const command = new GetModelCommand(input);
  * const response = await client.send(command);
+ * // { // Model
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   schema: "STRING_VALUE",
+ * //   contentType: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetModelCommandInput - {@link GetModelCommandInput}
@@ -66,6 +74,8 @@ export interface GetModelCommandOutput extends Model, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetModelCommand extends $Command<

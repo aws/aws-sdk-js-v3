@@ -75,6 +75,10 @@ export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisR
  * };
  * const command = new StartExpenseAnalysisCommand(input);
  * const response = await client.send(command);
+ * // { // StartExpenseAnalysisResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartExpenseAnalysisCommandInput - {@link StartExpenseAnalysisCommandInput}
@@ -139,6 +143,8 @@ export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisR
  *  <p>The format of the input document isn't supported. Documents for operations can be in
  *          PNG, JPEG, PDF, or TIFF format.</p>
  *
+ * @throws {@link TextractServiceException}
+ * <p>Base exception class for all service exceptions from Textract service.</p>
  *
  */
 export class StartExpenseAnalysisCommand extends $Command<

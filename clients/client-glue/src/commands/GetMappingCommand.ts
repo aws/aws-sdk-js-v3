@@ -76,6 +76,19 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
  * };
  * const command = new GetMappingCommand(input);
  * const response = await client.send(command);
+ * // { // GetMappingResponse
+ * //   Mapping: [ // MappingList // required
+ * //     { // MappingEntry
+ * //       SourceTable: "STRING_VALUE",
+ * //       SourcePath: "STRING_VALUE",
+ * //       SourceType: "STRING_VALUE",
+ * //       TargetTable: "STRING_VALUE",
+ * //       TargetPath: "STRING_VALUE",
+ * //       TargetType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetMappingCommandInput - {@link GetMappingCommandInput}
@@ -96,6 +109,8 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetMappingCommand extends $Command<

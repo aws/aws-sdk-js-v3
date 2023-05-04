@@ -51,6 +51,43 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  * };
  * const command = new GetConfigurationSetCommand(input);
  * const response = await client.send(command);
+ * // { // GetConfigurationSetResponse
+ * //   ConfigurationSetName: "STRING_VALUE",
+ * //   TrackingOptions: { // TrackingOptions
+ * //     CustomRedirectDomain: "STRING_VALUE", // required
+ * //   },
+ * //   DeliveryOptions: { // DeliveryOptions
+ * //     TlsPolicy: "REQUIRE" || "OPTIONAL",
+ * //     SendingPoolName: "STRING_VALUE",
+ * //   },
+ * //   ReputationOptions: { // ReputationOptions
+ * //     ReputationMetricsEnabled: true || false,
+ * //     LastFreshStart: new Date("TIMESTAMP"),
+ * //   },
+ * //   SendingOptions: { // SendingOptions
+ * //     SendingEnabled: true || false,
+ * //   },
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   SuppressionOptions: { // SuppressionOptions
+ * //     SuppressedReasons: [ // SuppressionListReasons
+ * //       "BOUNCE" || "COMPLAINT",
+ * //     ],
+ * //   },
+ * //   VdmOptions: { // VdmOptions
+ * //     DashboardOptions: { // DashboardOptions
+ * //       EngagementMetrics: "ENABLED" || "DISABLED",
+ * //     },
+ * //     GuardianOptions: { // GuardianOptions
+ * //       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetConfigurationSetCommandInput - {@link GetConfigurationSetCommandInput}
@@ -68,6 +105,8 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class GetConfigurationSetCommand extends $Command<

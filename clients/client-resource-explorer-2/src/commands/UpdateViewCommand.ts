@@ -62,6 +62,23 @@ export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBea
  * };
  * const command = new UpdateViewCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateViewOutput
+ * //   View: { // View
+ * //     ViewArn: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //     LastUpdatedAt: new Date("TIMESTAMP"),
+ * //     Scope: "STRING_VALUE",
+ * //     IncludedProperties: [ // IncludedPropertyList
+ * //       { // IncludedProperty
+ * //         Name: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     Filters: { // SearchFilter
+ * //       FilterString: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateViewCommandInput - {@link UpdateViewCommandInput}
@@ -93,6 +110,8 @@ export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBea
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
  *             for the operation, and try again.</p>
  *
+ * @throws {@link ResourceExplorer2ServiceException}
+ * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
 export class UpdateViewCommand extends $Command<

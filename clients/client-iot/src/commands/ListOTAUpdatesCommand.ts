@@ -47,6 +47,17 @@ export interface ListOTAUpdatesCommandOutput extends ListOTAUpdatesResponse, __M
  * };
  * const command = new ListOTAUpdatesCommand(input);
  * const response = await client.send(command);
+ * // { // ListOTAUpdatesResponse
+ * //   otaUpdates: [ // OTAUpdatesSummary
+ * //     { // OTAUpdateSummary
+ * //       otaUpdateId: "STRING_VALUE",
+ * //       otaUpdateArn: "STRING_VALUE",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListOTAUpdatesCommandInput - {@link ListOTAUpdatesCommandInput}
@@ -70,6 +81,8 @@ export interface ListOTAUpdatesCommandOutput extends ListOTAUpdatesResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListOTAUpdatesCommand extends $Command<

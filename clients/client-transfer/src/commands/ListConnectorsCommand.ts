@@ -45,6 +45,17 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * };
  * const command = new ListConnectorsCommand(input);
  * const response = await client.send(command);
+ * // { // ListConnectorsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Connectors: [ // ListedConnectors // required
+ * //     { // ListedConnector
+ * //       Arn: "STRING_VALUE",
+ * //       ConnectorId: "STRING_VALUE",
+ * //       Url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListConnectorsCommandInput - {@link ListConnectorsCommandInput}
@@ -69,6 +80,8 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ListConnectorsCommand extends $Command<

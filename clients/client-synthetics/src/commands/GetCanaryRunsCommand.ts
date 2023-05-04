@@ -46,6 +46,26 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * };
  * const command = new GetCanaryRunsCommand(input);
  * const response = await client.send(command);
+ * // { // GetCanaryRunsResponse
+ * //   CanaryRuns: [ // CanaryRuns
+ * //     { // CanaryRun
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: { // CanaryRunStatus
+ * //         State: "STRING_VALUE",
+ * //         StateReason: "STRING_VALUE",
+ * //         StateReasonCode: "STRING_VALUE",
+ * //       },
+ * //       Timeline: { // CanaryRunTimeline
+ * //         Started: new Date("TIMESTAMP"),
+ * //         Completed: new Date("TIMESTAMP"),
+ * //       },
+ * //       ArtifactS3Location: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetCanaryRunsCommandInput - {@link GetCanaryRunsCommandInput}
@@ -63,6 +83,8 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class GetCanaryRunsCommand extends $Command<

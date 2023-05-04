@@ -52,6 +52,20 @@ export interface ListSecurityConfigsCommandOutput extends ListSecurityConfigsRes
  * };
  * const command = new ListSecurityConfigsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSecurityConfigsResponse
+ * //   securityConfigSummaries: [ // SecurityConfigSummaries
+ * //     { // SecurityConfigSummary
+ * //       id: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       configVersion: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       createdDate: Number("long"),
+ * //       lastModifiedDate: Number("long"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSecurityConfigsCommandInput - {@link ListSecurityConfigsCommandInput}
@@ -67,6 +81,8 @@ export interface ListSecurityConfigsCommandOutput extends ListSecurityConfigsRes
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class ListSecurityConfigsCommand extends $Command<

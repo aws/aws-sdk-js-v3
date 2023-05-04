@@ -62,6 +62,28 @@ export interface CreateVpnGatewayCommandOutput extends CreateVpnGatewayResult, _
  * };
  * const command = new CreateVpnGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // CreateVpnGatewayResult
+ * //   VpnGateway: { // VpnGateway
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     Type: "ipsec.1",
+ * //     VpcAttachments: [ // VpcAttachmentList
+ * //       { // VpcAttachment
+ * //         State: "attaching" || "attached" || "detaching" || "detached",
+ * //         VpcId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     VpnGatewayId: "STRING_VALUE",
+ * //     AmazonSideAsn: Number("long"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateVpnGatewayCommandInput - {@link CreateVpnGatewayCommandInput}
@@ -70,6 +92,8 @@ export interface CreateVpnGatewayCommandOutput extends CreateVpnGatewayResult, _
  * @see {@link CreateVpnGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateVpnGatewayCommand extends $Command<

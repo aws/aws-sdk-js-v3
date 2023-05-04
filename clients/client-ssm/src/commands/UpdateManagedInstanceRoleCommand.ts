@@ -47,6 +47,8 @@ export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedIns
  * };
  * const command = new UpdateManagedInstanceRoleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateManagedInstanceRoleCommandInput - {@link UpdateManagedInstanceRoleCommandInput}
@@ -78,6 +80,8 @@ export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedIns
  *             </li>
  *          </ul>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UpdateManagedInstanceRoleCommand extends $Command<

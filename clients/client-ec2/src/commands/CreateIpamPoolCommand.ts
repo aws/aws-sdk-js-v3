@@ -76,6 +76,44 @@ export interface CreateIpamPoolCommandOutput extends CreateIpamPoolResult, __Met
  * };
  * const command = new CreateIpamPoolCommand(input);
  * const response = await client.send(command);
+ * // { // CreateIpamPoolResult
+ * //   IpamPool: { // IpamPool
+ * //     OwnerId: "STRING_VALUE",
+ * //     IpamPoolId: "STRING_VALUE",
+ * //     SourceIpamPoolId: "STRING_VALUE",
+ * //     IpamPoolArn: "STRING_VALUE",
+ * //     IpamScopeArn: "STRING_VALUE",
+ * //     IpamScopeType: "public" || "private",
+ * //     IpamArn: "STRING_VALUE",
+ * //     IpamRegion: "STRING_VALUE",
+ * //     Locale: "STRING_VALUE",
+ * //     PoolDepth: Number("int"),
+ * //     State: "create-in-progress" || "create-complete" || "create-failed" || "modify-in-progress" || "modify-complete" || "modify-failed" || "delete-in-progress" || "delete-complete" || "delete-failed" || "isolate-in-progress" || "isolate-complete" || "restore-in-progress",
+ * //     StateMessage: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     AutoImport: true || false,
+ * //     PubliclyAdvertisable: true || false,
+ * //     AddressFamily: "ipv4" || "ipv6",
+ * //     AllocationMinNetmaskLength: Number("int"),
+ * //     AllocationMaxNetmaskLength: Number("int"),
+ * //     AllocationDefaultNetmaskLength: Number("int"),
+ * //     AllocationResourceTags: [ // IpamResourceTagList
+ * //       { // IpamResourceTag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     AwsService: "ec2",
+ * //     PublicIpSource: "amazon" || "byoip",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateIpamPoolCommandInput - {@link CreateIpamPoolCommandInput}
@@ -84,6 +122,8 @@ export interface CreateIpamPoolCommandOutput extends CreateIpamPoolResult, __Met
  * @see {@link CreateIpamPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateIpamPoolCommand extends $Command<

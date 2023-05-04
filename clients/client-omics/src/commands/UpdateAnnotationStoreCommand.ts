@@ -45,6 +45,32 @@ export interface UpdateAnnotationStoreCommandOutput extends UpdateAnnotationStor
  * };
  * const command = new UpdateAnnotationStoreCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateAnnotationStoreResponse
+ * //   id: "STRING_VALUE", // required
+ * //   reference: { // ReferenceItem Union: only one key present
+ * //     referenceArn: "STRING_VALUE",
+ * //   },
+ * //   status: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   updateTime: new Date("TIMESTAMP"), // required
+ * //   storeOptions: { // StoreOptions Union: only one key present
+ * //     tsvStoreOptions: { // TsvStoreOptions
+ * //       annotationType: "STRING_VALUE",
+ * //       formatToHeader: { // FormatToHeader
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       schema: [ // Schema
+ * //         { // SchemaItem
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   storeFormat: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateAnnotationStoreCommandInput - {@link UpdateAnnotationStoreCommandInput}
@@ -68,6 +94,8 @@ export interface UpdateAnnotationStoreCommandOutput extends UpdateAnnotationStor
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class UpdateAnnotationStoreCommand extends $Command<

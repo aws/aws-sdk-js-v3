@@ -48,6 +48,34 @@ export interface GetLogLevelsByResourceTypesCommandOutput
  * const input = {};
  * const command = new GetLogLevelsByResourceTypesCommand(input);
  * const response = await client.send(command);
+ * // { // GetLogLevelsByResourceTypesResponse
+ * //   DefaultLogLevel: "INFO" || "ERROR" || "DISABLED",
+ * //   WirelessGatewayLogOptions: [ // WirelessGatewayLogOptionList
+ * //     { // WirelessGatewayLogOption
+ * //       Type: "LoRaWAN", // required
+ * //       LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ * //       Events: [ // WirelessGatewayEventLogOptionList
+ * //         { // WirelessGatewayEventLogOption
+ * //           Event: "CUPS_Request" || "Certificate", // required
+ * //           LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   WirelessDeviceLogOptions: [ // WirelessDeviceLogOptionList
+ * //     { // WirelessDeviceLogOption
+ * //       Type: "Sidewalk" || "LoRaWAN", // required
+ * //       LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ * //       Events: [ // WirelessDeviceEventLogOptionList
+ * //         { // WirelessDeviceEventLogOption
+ * //           Event: "Join" || "Rejoin" || "Uplink_Data" || "Downlink_Data" || "Registration", // required
+ * //           LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetLogLevelsByResourceTypesCommandInput - {@link GetLogLevelsByResourceTypesCommandInput}
@@ -71,6 +99,8 @@ export interface GetLogLevelsByResourceTypesCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input did not meet the specified constraints.</p>
  *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetLogLevelsByResourceTypesCommand extends $Command<

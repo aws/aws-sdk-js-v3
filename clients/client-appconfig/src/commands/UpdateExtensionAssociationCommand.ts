@@ -50,6 +50,17 @@ export interface UpdateExtensionAssociationCommandOutput extends ExtensionAssoci
  * };
  * const command = new UpdateExtensionAssociationCommand(input);
  * const response = await client.send(command);
+ * // { // ExtensionAssociation
+ * //   Id: "STRING_VALUE",
+ * //   ExtensionArn: "STRING_VALUE",
+ * //   ResourceArn: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   Parameters: { // ParameterValueMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   ExtensionVersionNumber: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param UpdateExtensionAssociationCommandInput - {@link UpdateExtensionAssociationCommandInput}
@@ -67,6 +78,8 @@ export interface UpdateExtensionAssociationCommandOutput extends ExtensionAssoci
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class UpdateExtensionAssociationCommand extends $Command<

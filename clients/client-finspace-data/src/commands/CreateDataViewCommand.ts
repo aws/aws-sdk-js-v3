@@ -60,6 +60,11 @@ export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __M
  * };
  * const command = new CreateDataViewCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDataViewResponse
+ * //   datasetId: "STRING_VALUE",
+ * //   dataViewId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateDataViewCommandInput - {@link CreateDataViewCommandInput}
@@ -87,6 +92,8 @@ export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class CreateDataViewCommand extends $Command<

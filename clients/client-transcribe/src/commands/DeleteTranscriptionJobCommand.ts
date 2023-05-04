@@ -46,6 +46,8 @@ export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteTranscriptionJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTranscriptionJobCommandInput - {@link DeleteTranscriptionJobCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
  *  <p>You've either sent too many requests or your input file is too long. Wait before
  *             retrying your request, or use a smaller file and try your request again.</p>
  *
+ * @throws {@link TranscribeServiceException}
+ * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
  */
 export class DeleteTranscriptionJobCommand extends $Command<

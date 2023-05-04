@@ -45,6 +45,8 @@ export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteAssessmentTemplateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAssessmentTemplateCommandInput - {@link DeleteAssessmentTemplateCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer 
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
  *  <p>The serice is temporary unavailable.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Delete assessment template
  * ```javascript

@@ -42,6 +42,11 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  * const input = {};
  * const command = new GetServiceRoleForAccountCommand(input);
  * const response = await client.send(command);
+ * // { // GetServiceRoleForAccountResponse
+ * //   AssociatedAt: "STRING_VALUE",
+ * //   RoleArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetServiceRoleForAccountCommandInput - {@link GetServiceRoleForAccountCommandInput}
@@ -53,6 +58,8 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetServiceRoleForAccountCommand extends $Command<

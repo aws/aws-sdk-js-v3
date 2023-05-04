@@ -61,6 +61,10 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
  * };
  * const command = new CreateLocationFsxWindowsCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLocationFsxWindowsResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateLocationFsxWindowsCommandInput - {@link CreateLocationFsxWindowsCommandInput}
@@ -76,6 +80,8 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationFsxWindowsCommand extends $Command<

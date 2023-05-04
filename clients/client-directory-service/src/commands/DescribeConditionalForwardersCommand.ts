@@ -54,6 +54,18 @@ export interface DescribeConditionalForwardersCommandOutput
  * };
  * const command = new DescribeConditionalForwardersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeConditionalForwardersResult
+ * //   ConditionalForwarders: [ // ConditionalForwarders
+ * //     { // ConditionalForwarder
+ * //       RemoteDomainName: "STRING_VALUE",
+ * //       DnsIpAddrs: [ // DnsIpAddrs
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ReplicationScope: "Domain",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeConditionalForwardersCommandInput - {@link DescribeConditionalForwardersCommandInput}
@@ -80,6 +92,8 @@ export interface DescribeConditionalForwardersCommandOutput
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation is not supported.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeConditionalForwardersCommand extends $Command<

@@ -68,6 +68,10 @@ export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetRespo
  * };
  * const command = new DeleteByteMatchSetCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteByteMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteByteMatchSetCommandInput - {@link DeleteByteMatchSetCommandInput}
@@ -117,6 +121,8 @@ export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetRespo
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To delete a byte match set
  * ```javascript

@@ -54,6 +54,32 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResponse,
  * };
  * const command = new ListAssociationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAssociationsResponse
+ * //   AssociationSummaries: [ // AssociationSummaries
+ * //     { // AssociationSummary
+ * //       SourceArn: "STRING_VALUE",
+ * //       DestinationArn: "STRING_VALUE",
+ * //       SourceType: "STRING_VALUE",
+ * //       DestinationType: "STRING_VALUE",
+ * //       AssociationType: "ContributedTo" || "AssociatedWith" || "DerivedFrom" || "Produced",
+ * //       SourceName: "STRING_VALUE",
+ * //       DestinationName: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       CreatedBy: { // UserContext
+ * //         UserProfileArn: "STRING_VALUE",
+ * //         UserProfileName: "STRING_VALUE",
+ * //         DomainId: "STRING_VALUE",
+ * //         IamIdentity: { // IamIdentity
+ * //           Arn: "STRING_VALUE",
+ * //           PrincipalId: "STRING_VALUE",
+ * //           SourceIdentity: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAssociationsCommandInput - {@link ListAssociationsCommandInput}
@@ -65,6 +91,8 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResponse,
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListAssociationsCommand extends $Command<

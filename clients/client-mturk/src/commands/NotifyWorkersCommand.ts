@@ -57,6 +57,16 @@ export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __Met
  * };
  * const command = new NotifyWorkersCommand(input);
  * const response = await client.send(command);
+ * // { // NotifyWorkersResponse
+ * //   NotifyWorkersFailureStatuses: [ // NotifyWorkersFailureStatusList
+ * //     { // NotifyWorkersFailureStatus
+ * //       NotifyWorkersFailureCode: "STRING_VALUE",
+ * //       NotifyWorkersFailureMessage: "STRING_VALUE",
+ * //       WorkerId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param NotifyWorkersCommandInput - {@link NotifyWorkersCommandInput}
@@ -71,6 +81,8 @@ export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __Met
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class NotifyWorkersCommand extends $Command<

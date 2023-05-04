@@ -49,6 +49,10 @@ export interface UpdateAnomalyDetectorCommandOutput extends UpdateAnomalyDetecto
  * };
  * const command = new UpdateAnomalyDetectorCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateAnomalyDetectorResponse
+ * //   AnomalyDetectorArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateAnomalyDetectorCommandInput - {@link UpdateAnomalyDetectorCommandInput}
@@ -73,6 +77,8 @@ export interface UpdateAnomalyDetectorCommandOutput extends UpdateAnomalyDetecto
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class UpdateAnomalyDetectorCommand extends $Command<

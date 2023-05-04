@@ -49,6 +49,16 @@ export interface ListServicePipelineOutputsCommandOutput extends ListServicePipe
  * };
  * const command = new ListServicePipelineOutputsCommand(input);
  * const response = await client.send(command);
+ * // { // ListServicePipelineOutputsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   outputs: [ // OutputsList // required
+ * //     { // Output
+ * //       key: "STRING_VALUE",
+ * //       valueString: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListServicePipelineOutputsCommandInput - {@link ListServicePipelineOutputsCommandInput}
@@ -72,6 +82,8 @@ export interface ListServicePipelineOutputsCommandOutput extends ListServicePipe
  * @throws {@link ValidationException} (client fault)
  *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
  *
+ * @throws {@link ProtonServiceException}
+ * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
 export class ListServicePipelineOutputsCommand extends $Command<

@@ -18,6 +18,16 @@ import {
   BatchGetFreeTrialInfoCommandOutput,
 } from "./commands/BatchGetFreeTrialInfoCommand";
 import {
+  BatchGetMemberEc2DeepInspectionStatusCommand,
+  BatchGetMemberEc2DeepInspectionStatusCommandInput,
+  BatchGetMemberEc2DeepInspectionStatusCommandOutput,
+} from "./commands/BatchGetMemberEc2DeepInspectionStatusCommand";
+import {
+  BatchUpdateMemberEc2DeepInspectionStatusCommand,
+  BatchUpdateMemberEc2DeepInspectionStatusCommandInput,
+  BatchUpdateMemberEc2DeepInspectionStatusCommandOutput,
+} from "./commands/BatchUpdateMemberEc2DeepInspectionStatusCommand";
+import {
   CancelFindingsReportCommand,
   CancelFindingsReportCommandInput,
   CancelFindingsReportCommandOutput,
@@ -69,6 +79,11 @@ import {
   GetDelegatedAdminAccountCommandInput,
   GetDelegatedAdminAccountCommandOutput,
 } from "./commands/GetDelegatedAdminAccountCommand";
+import {
+  GetEc2DeepInspectionConfigurationCommand,
+  GetEc2DeepInspectionConfigurationCommandInput,
+  GetEc2DeepInspectionConfigurationCommandOutput,
+} from "./commands/GetEc2DeepInspectionConfigurationCommand";
 import {
   GetFindingsReportStatusCommand,
   GetFindingsReportStatusCommandInput,
@@ -129,6 +144,11 @@ import {
   UpdateConfigurationCommandOutput,
 } from "./commands/UpdateConfigurationCommand";
 import {
+  UpdateEc2DeepInspectionConfigurationCommand,
+  UpdateEc2DeepInspectionConfigurationCommandInput,
+  UpdateEc2DeepInspectionConfigurationCommandOutput,
+} from "./commands/UpdateEc2DeepInspectionConfigurationCommand";
+import {
   UpdateFilterCommand,
   UpdateFilterCommandInput,
   UpdateFilterCommandOutput,
@@ -138,12 +158,19 @@ import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
+import {
+  UpdateOrgEc2DeepInspectionConfigurationCommand,
+  UpdateOrgEc2DeepInspectionConfigurationCommandInput,
+  UpdateOrgEc2DeepInspectionConfigurationCommandOutput,
+} from "./commands/UpdateOrgEc2DeepInspectionConfigurationCommand";
 import { Inspector2Client, Inspector2ClientConfig } from "./Inspector2Client";
 
 const commands = {
   AssociateMemberCommand,
   BatchGetAccountStatusCommand,
   BatchGetFreeTrialInfoCommand,
+  BatchGetMemberEc2DeepInspectionStatusCommand,
+  BatchUpdateMemberEc2DeepInspectionStatusCommand,
   CancelFindingsReportCommand,
   CreateFilterCommand,
   CreateFindingsReportCommand,
@@ -156,6 +183,7 @@ const commands = {
   EnableDelegatedAdminAccountCommand,
   GetConfigurationCommand,
   GetDelegatedAdminAccountCommand,
+  GetEc2DeepInspectionConfigurationCommand,
   GetFindingsReportStatusCommand,
   GetMemberCommand,
   ListAccountPermissionsCommand,
@@ -171,8 +199,10 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateConfigurationCommand,
+  UpdateEc2DeepInspectionConfigurationCommand,
   UpdateFilterCommand,
   UpdateOrganizationConfigurationCommand,
+  UpdateOrgEc2DeepInspectionConfigurationCommand,
 };
 
 export interface Inspector2 {
@@ -222,6 +252,40 @@ export interface Inspector2 {
     args: BatchGetFreeTrialInfoCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetFreeTrialInfoCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetMemberEc2DeepInspectionStatusCommand}
+   */
+  batchGetMemberEc2DeepInspectionStatus(
+    args: BatchGetMemberEc2DeepInspectionStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetMemberEc2DeepInspectionStatusCommandOutput>;
+  batchGetMemberEc2DeepInspectionStatus(
+    args: BatchGetMemberEc2DeepInspectionStatusCommandInput,
+    cb: (err: any, data?: BatchGetMemberEc2DeepInspectionStatusCommandOutput) => void
+  ): void;
+  batchGetMemberEc2DeepInspectionStatus(
+    args: BatchGetMemberEc2DeepInspectionStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetMemberEc2DeepInspectionStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdateMemberEc2DeepInspectionStatusCommand}
+   */
+  batchUpdateMemberEc2DeepInspectionStatus(
+    args: BatchUpdateMemberEc2DeepInspectionStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateMemberEc2DeepInspectionStatusCommandOutput>;
+  batchUpdateMemberEc2DeepInspectionStatus(
+    args: BatchUpdateMemberEc2DeepInspectionStatusCommandInput,
+    cb: (err: any, data?: BatchUpdateMemberEc2DeepInspectionStatusCommandOutput) => void
+  ): void;
+  batchUpdateMemberEc2DeepInspectionStatus(
+    args: BatchUpdateMemberEc2DeepInspectionStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateMemberEc2DeepInspectionStatusCommandOutput) => void
   ): void;
 
   /**
@@ -402,6 +466,23 @@ export interface Inspector2 {
     args: GetDelegatedAdminAccountCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDelegatedAdminAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEc2DeepInspectionConfigurationCommand}
+   */
+  getEc2DeepInspectionConfiguration(
+    args: GetEc2DeepInspectionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEc2DeepInspectionConfigurationCommandOutput>;
+  getEc2DeepInspectionConfiguration(
+    args: GetEc2DeepInspectionConfigurationCommandInput,
+    cb: (err: any, data?: GetEc2DeepInspectionConfigurationCommandOutput) => void
+  ): void;
+  getEc2DeepInspectionConfiguration(
+    args: GetEc2DeepInspectionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEc2DeepInspectionConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -615,6 +696,23 @@ export interface Inspector2 {
   ): void;
 
   /**
+   * @see {@link UpdateEc2DeepInspectionConfigurationCommand}
+   */
+  updateEc2DeepInspectionConfiguration(
+    args: UpdateEc2DeepInspectionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEc2DeepInspectionConfigurationCommandOutput>;
+  updateEc2DeepInspectionConfiguration(
+    args: UpdateEc2DeepInspectionConfigurationCommandInput,
+    cb: (err: any, data?: UpdateEc2DeepInspectionConfigurationCommandOutput) => void
+  ): void;
+  updateEc2DeepInspectionConfiguration(
+    args: UpdateEc2DeepInspectionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEc2DeepInspectionConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateFilterCommand}
    */
   updateFilter(args: UpdateFilterCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFilterCommandOutput>;
@@ -640,6 +738,23 @@ export interface Inspector2 {
     args: UpdateOrganizationConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateOrgEc2DeepInspectionConfigurationCommand}
+   */
+  updateOrgEc2DeepInspectionConfiguration(
+    args: UpdateOrgEc2DeepInspectionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOrgEc2DeepInspectionConfigurationCommandOutput>;
+  updateOrgEc2DeepInspectionConfiguration(
+    args: UpdateOrgEc2DeepInspectionConfigurationCommandInput,
+    cb: (err: any, data?: UpdateOrgEc2DeepInspectionConfigurationCommandOutput) => void
+  ): void;
+  updateOrgEc2DeepInspectionConfiguration(
+    args: UpdateOrgEc2DeepInspectionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateOrgEc2DeepInspectionConfigurationCommandOutput) => void
   ): void;
 }
 

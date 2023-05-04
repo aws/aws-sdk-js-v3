@@ -50,6 +50,11 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * };
  * const command = new RegisterCertificateCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterCertificateResponse
+ * //   certificateArn: "STRING_VALUE",
+ * //   certificateId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RegisterCertificateCommandInput - {@link RegisterCertificateCommandInput}
@@ -87,6 +92,8 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class RegisterCertificateCommand extends $Command<

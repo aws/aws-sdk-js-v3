@@ -50,6 +50,15 @@ export interface GetProvisionedConcurrencyConfigCommandOutput
  * };
  * const command = new GetProvisionedConcurrencyConfigCommand(input);
  * const response = await client.send(command);
+ * // { // GetProvisionedConcurrencyConfigResponse
+ * //   RequestedProvisionedConcurrentExecutions: Number("int"),
+ * //   AvailableProvisionedConcurrentExecutions: Number("int"),
+ * //   AllocatedProvisionedConcurrentExecutions: Number("int"),
+ * //   Status: "IN_PROGRESS" || "READY" || "FAILED",
+ * //   StatusReason: "STRING_VALUE",
+ * //   LastModified: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetProvisionedConcurrencyConfigCommandInput - {@link GetProvisionedConcurrencyConfigCommandInput}
@@ -73,6 +82,8 @@ export interface GetProvisionedConcurrencyConfigCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class GetProvisionedConcurrencyConfigCommand extends $Command<

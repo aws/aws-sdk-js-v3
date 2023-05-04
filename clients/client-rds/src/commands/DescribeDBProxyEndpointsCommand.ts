@@ -55,6 +55,29 @@ export interface DescribeDBProxyEndpointsCommandOutput extends DescribeDBProxyEn
  * };
  * const command = new DescribeDBProxyEndpointsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDBProxyEndpointsResponse
+ * //   DBProxyEndpoints: [ // DBProxyEndpointList
+ * //     { // DBProxyEndpoint
+ * //       DBProxyEndpointName: "STRING_VALUE",
+ * //       DBProxyEndpointArn: "STRING_VALUE",
+ * //       DBProxyName: "STRING_VALUE",
+ * //       Status: "available" || "modifying" || "incompatible-network" || "insufficient-resource-limits" || "creating" || "deleting",
+ * //       VpcId: "STRING_VALUE",
+ * //       VpcSecurityGroupIds: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       VpcSubnetIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Endpoint: "STRING_VALUE",
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       TargetRole: "READ_WRITE" || "READ_ONLY",
+ * //       IsDefault: true || false,
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeDBProxyEndpointsCommandInput - {@link DescribeDBProxyEndpointsCommandInput}
@@ -69,6 +92,8 @@ export interface DescribeDBProxyEndpointsCommandOutput extends DescribeDBProxyEn
  * @throws {@link DBProxyNotFoundFault} (client fault)
  *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class DescribeDBProxyEndpointsCommand extends $Command<

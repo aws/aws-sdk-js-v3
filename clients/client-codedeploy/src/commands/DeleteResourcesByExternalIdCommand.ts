@@ -44,6 +44,8 @@ export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResource
  * };
  * const command = new DeleteResourcesByExternalIdCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteResourcesByExternalIdCommandInput - {@link DeleteResourcesByExternalIdCommandInput}
@@ -52,6 +54,8 @@ export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResource
  * @see {@link DeleteResourcesByExternalIdCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class DeleteResourcesByExternalIdCommand extends $Command<

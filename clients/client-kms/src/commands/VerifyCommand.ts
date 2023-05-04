@@ -86,6 +86,12 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  * };
  * const command = new VerifyCommand(input);
  * const response = await client.send(command);
+ * // { // VerifyResponse
+ * //   KeyId: "STRING_VALUE",
+ * //   SignatureValid: true || false,
+ * //   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA",
+ * // };
+ *
  * ```
  *
  * @param VerifyCommandInput - {@link VerifyCommandInput}
@@ -160,6 +166,8 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To use an asymmetric KMS key to verify a digital signature
  * ```javascript

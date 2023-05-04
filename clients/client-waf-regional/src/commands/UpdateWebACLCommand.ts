@@ -148,6 +148,10 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * };
  * const command = new UpdateWebACLCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateWebACLResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateWebACLCommandInput - {@link UpdateWebACLCommandInput}
@@ -268,6 +272,8 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * @throws {@link WAFSubscriptionNotFoundException} (client fault)
  *  <p>The specified subscription does not exist.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @example To update a Web ACL
  * ```javascript

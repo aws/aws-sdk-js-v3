@@ -44,6 +44,8 @@ export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDomainNameCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDomainNameCommandInput - {@link DeleteDomainNameCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class DeleteDomainNameCommand extends $Command<

@@ -178,6 +178,22 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  * };
  * const command = new CreateComponentVersionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateComponentVersionResponse
+ * //   arn: "STRING_VALUE",
+ * //   componentName: "STRING_VALUE", // required
+ * //   componentVersion: "STRING_VALUE", // required
+ * //   creationTimestamp: new Date("TIMESTAMP"), // required
+ * //   status: { // CloudComponentStatus
+ * //     componentState: "REQUESTED" || "INITIATED" || "DEPLOYABLE" || "FAILED" || "DEPRECATED",
+ * //     message: "STRING_VALUE",
+ * //     errors: { // StringMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     vendorGuidance: "ACTIVE" || "DISCONTINUED" || "DELETED",
+ * //     vendorGuidanceMessage: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateComponentVersionCommandInput - {@link CreateComponentVersionCommandInput}
@@ -213,6 +229,8 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class CreateComponentVersionCommand extends $Command<

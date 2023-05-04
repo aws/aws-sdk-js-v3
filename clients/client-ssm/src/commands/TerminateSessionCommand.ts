@@ -45,6 +45,10 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * };
  * const command = new TerminateSessionCommand(input);
  * const response = await client.send(command);
+ * // { // TerminateSessionResponse
+ * //   SessionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param TerminateSessionCommandInput - {@link TerminateSessionCommandInput}
@@ -56,6 +60,8 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class TerminateSessionCommand extends $Command<

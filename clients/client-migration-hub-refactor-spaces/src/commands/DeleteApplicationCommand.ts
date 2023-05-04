@@ -50,6 +50,15 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteApplicationResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   ApplicationId: "STRING_VALUE",
+ * //   EnvironmentId: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
@@ -77,6 +86,8 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
  *     </p>
  *
+ * @throws {@link MigrationHubRefactorSpacesServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
 export class DeleteApplicationCommand extends $Command<

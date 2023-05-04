@@ -48,6 +48,8 @@ export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __M
  * };
  * const command = new DisconnectUserCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisconnectUserCommandInput - {@link DisconnectUserCommandInput}
@@ -71,6 +73,8 @@ export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvschatServiceException}
+ * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
  */
 export class DisconnectUserCommand extends $Command<

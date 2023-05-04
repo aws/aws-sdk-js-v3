@@ -57,6 +57,13 @@ export interface PutVoiceConnectorLoggingConfigurationCommandOutput
  * };
  * const command = new PutVoiceConnectorLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // PutVoiceConnectorLoggingConfigurationResponse
+ * //   LoggingConfiguration: { // LoggingConfiguration
+ * //     EnableSIPLogs: true || false,
+ * //     EnableMediaMetricLogs: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutVoiceConnectorLoggingConfigurationCommandInput - {@link PutVoiceConnectorLoggingConfigurationCommandInput}
@@ -86,6 +93,8 @@ export interface PutVoiceConnectorLoggingConfigurationCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<

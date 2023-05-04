@@ -75,6 +75,40 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  * };
  * const command = new PutProfileObjectTypeCommand(input);
  * const response = await client.send(command);
+ * // { // PutProfileObjectTypeResponse
+ * //   ObjectTypeName: "STRING_VALUE", // required
+ * //   Description: "STRING_VALUE", // required
+ * //   TemplateId: "STRING_VALUE",
+ * //   ExpirationDays: Number("int"),
+ * //   EncryptionKey: "STRING_VALUE",
+ * //   AllowProfileCreation: true || false,
+ * //   SourceLastUpdatedTimestampFormat: "STRING_VALUE",
+ * //   Fields: { // FieldMap
+ * //     "<keys>": { // ObjectTypeField
+ * //       Source: "STRING_VALUE",
+ * //       Target: "STRING_VALUE",
+ * //       ContentType: "STRING" || "NUMBER" || "PHONE_NUMBER" || "EMAIL_ADDRESS" || "NAME",
+ * //     },
+ * //   },
+ * //   Keys: { // KeyMap
+ * //     "<keys>": [ // ObjectTypeKeyList
+ * //       { // ObjectTypeKey
+ * //         StandardIdentifiers: [ // StandardIdentifierList
+ * //           "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
+ * //         ],
+ * //         FieldNames: [ // FieldNameList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   LastUpdatedAt: new Date("TIMESTAMP"),
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutProfileObjectTypeCommandInput - {@link PutProfileObjectTypeCommandInput}
@@ -98,6 +132,8 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class PutProfileObjectTypeCommand extends $Command<

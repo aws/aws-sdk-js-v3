@@ -225,6 +225,26 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  * };
  * const command = new ValidatePipelineDefinitionCommand(input);
  * const response = await client.send(command);
+ * // { // ValidatePipelineDefinitionOutput
+ * //   validationErrors: [ // ValidationErrors
+ * //     { // ValidationError
+ * //       id: "STRING_VALUE",
+ * //       errors: [ // validationMessages
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   validationWarnings: [ // ValidationWarnings
+ * //     { // ValidationWarning
+ * //       id: "STRING_VALUE",
+ * //       warnings: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   errored: true || false, // required
+ * // };
+ *
  * ```
  *
  * @param ValidatePipelineDefinitionCommandInput - {@link ValidatePipelineDefinitionCommandInput}
@@ -245,6 +265,8 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
+ * @throws {@link DataPipelineServiceException}
+ * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
 export class ValidatePipelineDefinitionCommand extends $Command<

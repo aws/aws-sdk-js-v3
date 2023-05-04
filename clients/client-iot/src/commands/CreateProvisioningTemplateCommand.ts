@@ -60,6 +60,12 @@ export interface CreateProvisioningTemplateCommandOutput extends CreateProvision
  * };
  * const command = new CreateProvisioningTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // CreateProvisioningTemplateResponse
+ * //   templateArn: "STRING_VALUE",
+ * //   templateName: "STRING_VALUE",
+ * //   defaultVersionId: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param CreateProvisioningTemplateCommandInput - {@link CreateProvisioningTemplateCommandInput}
@@ -86,6 +92,8 @@ export interface CreateProvisioningTemplateCommandOutput extends CreateProvision
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateProvisioningTemplateCommand extends $Command<

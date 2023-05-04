@@ -49,6 +49,12 @@ export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __Met
  * };
  * const command = new ResumeSessionCommand(input);
  * const response = await client.send(command);
+ * // { // ResumeSessionResponse
+ * //   SessionId: "STRING_VALUE",
+ * //   TokenValue: "STRING_VALUE",
+ * //   StreamUrl: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ResumeSessionCommandInput - {@link ResumeSessionCommandInput}
@@ -66,6 +72,8 @@ export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __Met
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class ResumeSessionCommand extends $Command<

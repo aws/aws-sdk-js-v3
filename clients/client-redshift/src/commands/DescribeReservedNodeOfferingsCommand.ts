@@ -58,6 +58,28 @@ export interface DescribeReservedNodeOfferingsCommandOutput extends ReservedNode
  * };
  * const command = new DescribeReservedNodeOfferingsCommand(input);
  * const response = await client.send(command);
+ * // { // ReservedNodeOfferingsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ReservedNodeOfferings: [ // ReservedNodeOfferingList
+ * //     { // ReservedNodeOffering
+ * //       ReservedNodeOfferingId: "STRING_VALUE",
+ * //       NodeType: "STRING_VALUE",
+ * //       Duration: Number("int"),
+ * //       FixedPrice: Number("double"),
+ * //       UsagePrice: Number("double"),
+ * //       CurrencyCode: "STRING_VALUE",
+ * //       OfferingType: "STRING_VALUE",
+ * //       RecurringCharges: [ // RecurringChargeList
+ * //         { // RecurringCharge
+ * //           RecurringChargeAmount: Number("double"),
+ * //           RecurringChargeFrequency: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ReservedNodeOfferingType: "Regular" || "Upgradable",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeReservedNodeOfferingsCommandInput - {@link DescribeReservedNodeOfferingsCommandInput}
@@ -76,6 +98,8 @@ export interface DescribeReservedNodeOfferingsCommandOutput extends ReservedNode
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeReservedNodeOfferingsCommand extends $Command<

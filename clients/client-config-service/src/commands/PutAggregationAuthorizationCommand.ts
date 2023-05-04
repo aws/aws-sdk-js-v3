@@ -59,6 +59,15 @@ export interface PutAggregationAuthorizationCommandOutput
  * };
  * const command = new PutAggregationAuthorizationCommand(input);
  * const response = await client.send(command);
+ * // { // PutAggregationAuthorizationResponse
+ * //   AggregationAuthorization: { // AggregationAuthorization
+ * //     AggregationAuthorizationArn: "STRING_VALUE",
+ * //     AuthorizedAccountId: "STRING_VALUE",
+ * //     AuthorizedAwsRegion: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutAggregationAuthorizationCommandInput - {@link PutAggregationAuthorizationCommandInput}
@@ -71,6 +80,8 @@ export interface PutAggregationAuthorizationCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutAggregationAuthorizationCommand extends $Command<

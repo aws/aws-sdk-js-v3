@@ -58,6 +58,14 @@ export interface DisassociateOriginationIdentityCommandOutput
  * };
  * const command = new DisassociateOriginationIdentityCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateOriginationIdentityResult
+ * //   PoolArn: "STRING_VALUE",
+ * //   PoolId: "STRING_VALUE",
+ * //   OriginationIdentityArn: "STRING_VALUE",
+ * //   OriginationIdentity: "STRING_VALUE",
+ * //   IsoCountryCode: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DisassociateOriginationIdentityCommandInput - {@link DisassociateOriginationIdentityCommandInput}
@@ -90,6 +98,8 @@ export interface DisassociateOriginationIdentityCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DisassociateOriginationIdentityCommand extends $Command<

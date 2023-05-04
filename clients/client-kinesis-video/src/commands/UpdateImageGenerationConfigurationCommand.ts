@@ -65,6 +65,8 @@ export interface UpdateImageGenerationConfigurationCommandOutput
  * };
  * const command = new UpdateImageGenerationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateImageGenerationConfigurationCommandInput - {@link UpdateImageGenerationConfigurationCommandInput}
@@ -109,6 +111,8 @@ export interface UpdateImageGenerationConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class UpdateImageGenerationConfigurationCommand extends $Command<

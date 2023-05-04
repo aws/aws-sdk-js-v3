@@ -51,6 +51,8 @@ export interface UpdateContactFlowModuleContentCommandOutput
  * };
  * const command = new UpdateContactFlowModuleContentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateContactFlowModuleContentCommandInput - {@link UpdateContactFlowModuleContentCommandInput}
@@ -77,6 +79,8 @@ export interface UpdateContactFlowModuleContentCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateContactFlowModuleContentCommand extends $Command<

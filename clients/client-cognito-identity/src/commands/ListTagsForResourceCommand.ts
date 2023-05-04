@@ -48,6 +48,12 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceResponse
+ * //   Tags: { // IdentityPoolTagsType
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -72,6 +78,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

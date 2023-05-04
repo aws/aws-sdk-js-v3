@@ -47,6 +47,10 @@ export interface UpdateSolNetworkPackageCommandOutput extends UpdateSolNetworkPa
  * };
  * const command = new UpdateSolNetworkPackageCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateSolNetworkPackageOutput
+ * //   nsdOperationalState: "ENABLED" || "DISABLED", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateSolNetworkPackageCommandInput - {@link UpdateSolNetworkPackageCommandInput}
@@ -70,6 +74,8 @@ export interface UpdateSolNetworkPackageCommandOutput extends UpdateSolNetworkPa
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class UpdateSolNetworkPackageCommand extends $Command<

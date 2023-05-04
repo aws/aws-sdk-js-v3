@@ -54,6 +54,8 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * };
  * const command = new RemoveRoleFromDBClusterCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RemoveRoleFromDBClusterCommandInput - {@link RemoveRoleFromDBClusterCommandInput}
@@ -72,6 +74,8 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @example To disassociate an Identity and Access Management (IAM) role from a DB cluster
  * ```javascript

@@ -48,6 +48,19 @@ export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSof
  * };
  * const command = new StartServiceSoftwareUpdateCommand(input);
  * const response = await client.send(command);
+ * // { // StartServiceSoftwareUpdateResponse
+ * //   ServiceSoftwareOptions: { // ServiceSoftwareOptions
+ * //     CurrentVersion: "STRING_VALUE",
+ * //     NewVersion: "STRING_VALUE",
+ * //     UpdateAvailable: true || false,
+ * //     Cancellable: true || false,
+ * //     UpdateStatus: "PENDING_UPDATE" || "IN_PROGRESS" || "COMPLETED" || "NOT_ELIGIBLE" || "ELIGIBLE",
+ * //     Description: "STRING_VALUE",
+ * //     AutomatedUpdateDate: new Date("TIMESTAMP"),
+ * //     OptionalDeployment: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param StartServiceSoftwareUpdateCommandInput - {@link StartServiceSoftwareUpdateCommandInput}
@@ -63,11 +76,13 @@ export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSof
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class StartServiceSoftwareUpdateCommand extends $Command<

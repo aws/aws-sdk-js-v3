@@ -58,6 +58,22 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
  * };
  * const command = new AcceptTransitGatewayMulticastDomainAssociationsCommand(input);
  * const response = await client.send(command);
+ * // { // AcceptTransitGatewayMulticastDomainAssociationsResult
+ * //   Associations: { // TransitGatewayMulticastDomainAssociations
+ * //     TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //     TransitGatewayAttachmentId: "STRING_VALUE",
+ * //     ResourceId: "STRING_VALUE",
+ * //     ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //     ResourceOwnerId: "STRING_VALUE",
+ * //     Subnets: [ // SubnetAssociationList
+ * //       { // SubnetAssociation
+ * //         SubnetId: "STRING_VALUE",
+ * //         State: "pendingAcceptance" || "associating" || "associated" || "disassociating" || "disassociated" || "rejected" || "failed",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param AcceptTransitGatewayMulticastDomainAssociationsCommandInput - {@link AcceptTransitGatewayMulticastDomainAssociationsCommandInput}
@@ -66,6 +82,8 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
  * @see {@link AcceptTransitGatewayMulticastDomainAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AcceptTransitGatewayMulticastDomainAssociationsCommand extends $Command<

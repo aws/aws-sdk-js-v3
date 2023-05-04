@@ -44,6 +44,10 @@ export interface GetCustomRulePolicyCommandOutput extends GetCustomRulePolicyRes
  * };
  * const command = new GetCustomRulePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetCustomRulePolicyResponse
+ * //   PolicyText: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetCustomRulePolicyCommandInput - {@link GetCustomRulePolicyCommandInput}
@@ -55,6 +59,8 @@ export interface GetCustomRulePolicyCommandOutput extends GetCustomRulePolicyRes
  * @throws {@link NoSuchConfigRuleException} (client fault)
  *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetCustomRulePolicyCommand extends $Command<

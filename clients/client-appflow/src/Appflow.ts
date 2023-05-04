@@ -4,6 +4,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { AppflowClient, AppflowClientConfig } from "./AppflowClient";
 import {
+  CancelFlowExecutionsCommand,
+  CancelFlowExecutionsCommandInput,
+  CancelFlowExecutionsCommandOutput,
+} from "./commands/CancelFlowExecutionsCommand";
+import {
   CreateConnectorProfileCommand,
   CreateConnectorProfileCommandInput,
   CreateConnectorProfileCommandOutput,
@@ -92,6 +97,7 @@ import {
 import { UpdateFlowCommand, UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
 
 const commands = {
+  CancelFlowExecutionsCommand,
   CreateConnectorProfileCommand,
   CreateFlowCommand,
   DeleteConnectorProfileCommand,
@@ -118,6 +124,23 @@ const commands = {
 };
 
 export interface Appflow {
+  /**
+   * @see {@link CancelFlowExecutionsCommand}
+   */
+  cancelFlowExecutions(
+    args: CancelFlowExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelFlowExecutionsCommandOutput>;
+  cancelFlowExecutions(
+    args: CancelFlowExecutionsCommandInput,
+    cb: (err: any, data?: CancelFlowExecutionsCommandOutput) => void
+  ): void;
+  cancelFlowExecutions(
+    args: CancelFlowExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelFlowExecutionsCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateConnectorProfileCommand}
    */

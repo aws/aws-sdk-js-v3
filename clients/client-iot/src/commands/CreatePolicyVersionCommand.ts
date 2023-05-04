@@ -53,6 +53,13 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * };
  * const command = new CreatePolicyVersionCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePolicyVersionResponse
+ * //   policyArn: "STRING_VALUE",
+ * //   policyDocument: "STRING_VALUE",
+ * //   policyVersionId: "STRING_VALUE",
+ * //   isDefaultVersion: true || false,
+ * // };
+ *
  * ```
  *
  * @param CreatePolicyVersionCommandInput - {@link CreatePolicyVersionCommandInput}
@@ -85,6 +92,8 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * @throws {@link VersionsLimitExceededException} (client fault)
  *  <p>The number of policy versions exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreatePolicyVersionCommand extends $Command<

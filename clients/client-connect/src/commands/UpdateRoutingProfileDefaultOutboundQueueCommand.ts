@@ -50,6 +50,8 @@ export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends _
  * };
  * const command = new UpdateRoutingProfileDefaultOutboundQueueCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateRoutingProfileDefaultOutboundQueueCommandInput - {@link UpdateRoutingProfileDefaultOutboundQueueCommandInput}
@@ -73,6 +75,8 @@ export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command<

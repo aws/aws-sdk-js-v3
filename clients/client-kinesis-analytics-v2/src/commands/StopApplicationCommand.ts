@@ -55,6 +55,8 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * };
  * const command = new StopApplicationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopApplicationCommandInput - {@link StopApplicationCommandInput}
@@ -83,6 +85,8 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class StopApplicationCommand extends $Command<

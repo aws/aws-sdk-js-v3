@@ -47,6 +47,8 @@ export interface CreatePreparedStatementCommandOutput extends CreatePreparedStat
  * };
  * const command = new CreatePreparedStatementCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreatePreparedStatementCommandInput - {@link CreatePreparedStatementCommandInput}
@@ -63,6 +65,8 @@ export interface CreatePreparedStatementCommandOutput extends CreatePreparedStat
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class CreatePreparedStatementCommand extends $Command<

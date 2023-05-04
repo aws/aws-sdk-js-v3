@@ -49,6 +49,15 @@ export interface GetAppInstanceRetentionSettingsCommandOutput
  * };
  * const command = new GetAppInstanceRetentionSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // GetAppInstanceRetentionSettingsResponse
+ * //   AppInstanceRetentionSettings: { // AppInstanceRetentionSettings
+ * //     ChannelRetentionSettings: { // ChannelRetentionSettings
+ * //       RetentionDays: Number("int"),
+ * //     },
+ * //   },
+ * //   InitiateDeletionTimestamp: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param GetAppInstanceRetentionSettingsCommandInput - {@link GetAppInstanceRetentionSettingsCommandInput}
@@ -75,6 +84,8 @@ export interface GetAppInstanceRetentionSettingsCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class GetAppInstanceRetentionSettingsCommand extends $Command<

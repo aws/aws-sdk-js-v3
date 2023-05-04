@@ -49,6 +49,8 @@ export interface CreateProgressUpdateStreamCommandOutput extends CreateProgressU
  * };
  * const command = new CreateProgressUpdateStreamCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateProgressUpdateStreamCommandInput - {@link CreateProgressUpdateStreamCommandInput}
@@ -86,6 +88,8 @@ export interface CreateProgressUpdateStreamCommandOutput extends CreateProgressU
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class CreateProgressUpdateStreamCommand extends $Command<

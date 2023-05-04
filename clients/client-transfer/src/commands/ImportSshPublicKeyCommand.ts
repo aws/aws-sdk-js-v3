@@ -50,6 +50,12 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  * };
  * const command = new ImportSshPublicKeyCommand(input);
  * const response = await client.send(command);
+ * // { // ImportSshPublicKeyResponse
+ * //   ServerId: "STRING_VALUE", // required
+ * //   SshPublicKeyId: "STRING_VALUE", // required
+ * //   UserName: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param ImportSshPublicKeyCommandInput - {@link ImportSshPublicKeyCommandInput}
@@ -77,6 +83,8 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ImportSshPublicKeyCommand extends $Command<

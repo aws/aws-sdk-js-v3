@@ -45,6 +45,11 @@ export interface DeleteImportCommandOutput extends DeleteImportResponse, __Metad
  * };
  * const command = new DeleteImportCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteImportResponse
+ * //   importId: "STRING_VALUE",
+ * //   importStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
+ * // };
+ *
  * ```
  *
  * @param DeleteImportCommandInput - {@link DeleteImportCommandInput}
@@ -73,6 +78,8 @@ export interface DeleteImportCommandOutput extends DeleteImportResponse, __Metad
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class DeleteImportCommand extends $Command<

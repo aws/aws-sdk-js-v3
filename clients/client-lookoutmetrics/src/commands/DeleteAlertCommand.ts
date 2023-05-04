@@ -44,6 +44,8 @@ export interface DeleteAlertCommandOutput extends DeleteAlertResponse, __Metadat
  * };
  * const command = new DeleteAlertCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAlertCommandInput - {@link DeleteAlertCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteAlertCommandOutput extends DeleteAlertResponse, __Metadat
  *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
  *       again.</p>
  *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class DeleteAlertCommand extends $Command<

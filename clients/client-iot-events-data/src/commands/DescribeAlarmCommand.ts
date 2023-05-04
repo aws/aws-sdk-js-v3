@@ -45,6 +45,52 @@ export interface DescribeAlarmCommandOutput extends DescribeAlarmResponse, __Met
  * };
  * const command = new DescribeAlarmCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAlarmResponse
+ * //   alarm: { // Alarm
+ * //     alarmModelName: "STRING_VALUE",
+ * //     alarmModelVersion: "STRING_VALUE",
+ * //     keyValue: "STRING_VALUE",
+ * //     alarmState: { // AlarmState
+ * //       stateName: "STRING_VALUE",
+ * //       ruleEvaluation: { // RuleEvaluation
+ * //         simpleRuleEvaluation: { // SimpleRuleEvaluation
+ * //           inputPropertyValue: "STRING_VALUE",
+ * //           operator: "STRING_VALUE",
+ * //           thresholdValue: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       customerAction: { // CustomerAction
+ * //         actionName: "STRING_VALUE",
+ * //         snoozeActionConfiguration: { // SnoozeActionConfiguration
+ * //           snoozeDuration: Number("int"),
+ * //           note: "STRING_VALUE",
+ * //         },
+ * //         enableActionConfiguration: { // EnableActionConfiguration
+ * //           note: "STRING_VALUE",
+ * //         },
+ * //         disableActionConfiguration: { // DisableActionConfiguration
+ * //           note: "STRING_VALUE",
+ * //         },
+ * //         acknowledgeActionConfiguration: { // AcknowledgeActionConfiguration
+ * //           note: "STRING_VALUE",
+ * //         },
+ * //         resetActionConfiguration: { // ResetActionConfiguration
+ * //           note: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       systemEvent: { // SystemEvent
+ * //         eventType: "STRING_VALUE",
+ * //         stateChangeConfiguration: { // StateChangeConfiguration
+ * //           triggerType: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //     severity: Number("int"),
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeAlarmCommandInput - {@link DescribeAlarmCommandInput}
@@ -68,6 +114,8 @@ export interface DescribeAlarmCommandOutput extends DescribeAlarmResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class DescribeAlarmCommand extends $Command<

@@ -45,6 +45,15 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceOutput
+ * //   tags: [ // TagList
+ * //     { // Tag
+ * //       key: "STRING_VALUE",
+ * //       value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -60,6 +69,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  *  <p>Could not find the referenced resource. Only state machine and activity ARNs are
  *       supported.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

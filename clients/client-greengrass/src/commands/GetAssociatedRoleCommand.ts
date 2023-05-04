@@ -44,6 +44,11 @@ export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleRespons
  * };
  * const command = new GetAssociatedRoleCommand(input);
  * const response = await client.send(command);
+ * // { // GetAssociatedRoleResponse
+ * //   AssociatedAt: "STRING_VALUE",
+ * //   RoleArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetAssociatedRoleCommandInput - {@link GetAssociatedRoleCommandInput}
@@ -58,6 +63,8 @@ export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleRespons
  * @throws {@link InternalServerErrorException} (server fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class GetAssociatedRoleCommand extends $Command<

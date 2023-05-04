@@ -55,6 +55,10 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * };
  * const command = new CreateIPSetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateIPSetResponse
+ * //   IpSetId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateIPSetCommandInput - {@link CreateIPSetCommandInput}
@@ -69,6 +73,8 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class CreateIPSetCommand extends $Command<

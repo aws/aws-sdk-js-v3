@@ -48,6 +48,13 @@ export interface DescribeCollectionCommandOutput extends DescribeCollectionRespo
  * };
  * const command = new DescribeCollectionCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeCollectionResponse
+ * //   FaceCount: Number("long"),
+ * //   FaceModelVersion: "STRING_VALUE",
+ * //   CollectionARN: "STRING_VALUE",
+ * //   CreationTimestamp: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DescribeCollectionCommandInput - {@link DescribeCollectionCommandInput}
@@ -76,6 +83,8 @@ export interface DescribeCollectionCommandOutput extends DescribeCollectionRespo
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DescribeCollectionCommand extends $Command<

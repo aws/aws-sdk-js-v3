@@ -53,6 +53,8 @@ export interface DeleteSMSSandboxPhoneNumberCommandOutput extends DeleteSMSSandb
  * };
  * const command = new DeleteSMSSandboxPhoneNumberCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSMSSandboxPhoneNumberCommandInput - {@link DeleteSMSSandboxPhoneNumberCommandInput}
@@ -82,6 +84,8 @@ export interface DeleteSMSSandboxPhoneNumberCommandOutput extends DeleteSMSSandb
  *  <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class DeleteSMSSandboxPhoneNumberCommand extends $Command<

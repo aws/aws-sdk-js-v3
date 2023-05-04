@@ -50,6 +50,19 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
  * };
  * const command = new DescribeCacheEngineVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // CacheEngineVersionMessage
+ * //   Marker: "STRING_VALUE",
+ * //   CacheEngineVersions: [ // CacheEngineVersionList
+ * //     { // CacheEngineVersion
+ * //       Engine: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       CacheParameterGroupFamily: "STRING_VALUE",
+ * //       CacheEngineDescription: "STRING_VALUE",
+ * //       CacheEngineVersionDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeCacheEngineVersionsCommandInput - {@link DescribeCacheEngineVersionsCommandInput}
@@ -58,6 +71,8 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
  * @see {@link DescribeCacheEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example DescribeCacheEngineVersions
  * ```javascript

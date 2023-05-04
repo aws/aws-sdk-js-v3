@@ -50,6 +50,8 @@ export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermission
  * };
  * const command = new PutMailboxPermissionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutMailboxPermissionsCommandInput - {@link PutMailboxPermissionsCommandInput}
@@ -77,6 +79,8 @@ export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermission
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class PutMailboxPermissionsCommand extends $Command<

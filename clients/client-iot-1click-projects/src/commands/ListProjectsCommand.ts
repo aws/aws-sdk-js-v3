@@ -49,6 +49,21 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
+ * // { // ListProjectsResponse
+ * //   projects: [ // ProjectSummaryList // required
+ * //     { // ProjectSummary
+ * //       arn: "STRING_VALUE",
+ * //       projectName: "STRING_VALUE", // required
+ * //       createdDate: new Date("TIMESTAMP"), // required
+ * //       updatedDate: new Date("TIMESTAMP"), // required
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
@@ -63,6 +78,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * @throws {@link InvalidRequestException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class ListProjectsCommand extends $Command<

@@ -70,6 +70,8 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  * };
  * const command = new NotifyMigrationTaskStateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param NotifyMigrationTaskStateCommandInput - {@link NotifyMigrationTaskStateCommandInput}
@@ -112,6 +114,8 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class NotifyMigrationTaskStateCommand extends $Command<

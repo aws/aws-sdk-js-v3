@@ -46,6 +46,13 @@ export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParamete
  * };
  * const command = new GetRoomSkillParameterCommand(input);
  * const response = await client.send(command);
+ * // { // GetRoomSkillParameterResponse
+ * //   RoomSkillParameter: { // RoomSkillParameter
+ * //     ParameterKey: "STRING_VALUE", // required
+ * //     ParameterValue: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetRoomSkillParameterCommandInput - {@link GetRoomSkillParameterCommandInput}
@@ -57,6 +64,8 @@ export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParamete
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetRoomSkillParameterCommand extends $Command<

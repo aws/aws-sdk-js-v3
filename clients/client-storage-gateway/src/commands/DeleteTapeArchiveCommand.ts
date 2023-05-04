@@ -46,6 +46,10 @@ export interface DeleteTapeArchiveCommandOutput extends DeleteTapeArchiveOutput,
  * };
  * const command = new DeleteTapeArchiveCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteTapeArchiveOutput
+ * //   TapeARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteTapeArchiveCommandInput - {@link DeleteTapeArchiveCommandInput}
@@ -62,6 +66,8 @@ export interface DeleteTapeArchiveCommandOutput extends DeleteTapeArchiveOutput,
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To delete a virtual tape from the shelf (VTS)
  * ```javascript

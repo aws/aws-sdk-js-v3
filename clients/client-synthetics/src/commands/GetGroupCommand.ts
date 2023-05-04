@@ -45,6 +45,19 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
+ * // { // GetGroupResponse
+ * //   Group: { // Group
+ * //     Id: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetGroupCommandInput - {@link GetGroupCommandInput}
@@ -65,6 +78,8 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter could not be validated.</p>
  *
+ * @throws {@link SyntheticsServiceException}
+ * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
 export class GetGroupCommand extends $Command<

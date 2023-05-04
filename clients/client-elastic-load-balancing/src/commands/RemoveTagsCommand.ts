@@ -55,6 +55,8 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * };
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RemoveTagsCommandInput - {@link RemoveTagsCommandInput}
@@ -66,6 +68,8 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * @throws {@link AccessPointNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To remove tags from a load balancer
  * ```javascript

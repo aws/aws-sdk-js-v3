@@ -46,6 +46,31 @@ export interface DeleteInboundConnectionCommandOutput extends DeleteInboundConne
  * };
  * const command = new DeleteInboundConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteInboundConnectionResponse
+ * //   Connection: { // InboundConnection
+ * //     LocalDomainInfo: { // DomainInformationContainer
+ * //       AWSDomainInformation: { // AWSDomainInformation
+ * //         OwnerId: "STRING_VALUE",
+ * //         DomainName: "STRING_VALUE", // required
+ * //         Region: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     RemoteDomainInfo: {
+ * //       AWSDomainInformation: {
+ * //         OwnerId: "STRING_VALUE",
+ * //         DomainName: "STRING_VALUE", // required
+ * //         Region: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     ConnectionId: "STRING_VALUE",
+ * //     ConnectionStatus: { // InboundConnectionStatus
+ * //       StatusCode: "PENDING_ACCEPTANCE" || "APPROVED" || "PROVISIONING" || "ACTIVE" || "REJECTING" || "REJECTED" || "DELETING" || "DELETED",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     ConnectionMode: "DIRECT" || "VPC_ENDPOINT",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteInboundConnectionCommandInput - {@link DeleteInboundConnectionCommandInput}
@@ -55,11 +80,13 @@ export interface DeleteInboundConnectionCommandOutput extends DeleteInboundConne
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DeleteInboundConnectionCommand extends $Command<

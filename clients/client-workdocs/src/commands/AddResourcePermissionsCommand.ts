@@ -63,6 +63,19 @@ export interface AddResourcePermissionsCommandOutput extends AddResourcePermissi
  * };
  * const command = new AddResourcePermissionsCommand(input);
  * const response = await client.send(command);
+ * // { // AddResourcePermissionsResponse
+ * //   ShareResults: [ // ShareResultsList
+ * //     { // ShareResult
+ * //       PrincipalId: "STRING_VALUE",
+ * //       InviteePrincipalId: "STRING_VALUE",
+ * //       Role: "VIEWER" || "CONTRIBUTOR" || "OWNER" || "COOWNER",
+ * //       Status: "SUCCESS" || "FAILURE",
+ * //       ShareId: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param AddResourcePermissionsCommandInput - {@link AddResourcePermissionsCommandInput}
@@ -88,6 +101,8 @@ export interface AddResourcePermissionsCommandOutput extends AddResourcePermissi
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class AddResourcePermissionsCommand extends $Command<

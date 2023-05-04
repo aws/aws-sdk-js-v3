@@ -45,6 +45,8 @@ export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrat
  * };
  * const command = new DeleteEventIntegrationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteEventIntegrationCommandInput - {@link DeleteEventIntegrationCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class DeleteEventIntegrationCommand extends $Command<

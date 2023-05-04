@@ -48,6 +48,24 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  * };
  * const command = new DescribeRulesPackagesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRulesPackagesResponse
+ * //   rulesPackages: [ // RulesPackageList // required
+ * //     { // RulesPackage
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       version: "STRING_VALUE", // required
+ * //       provider: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   failedItems: { // FailedItems // required
+ * //     "<keys>": { // FailedItemDetails
+ * //       failureCode: "STRING_VALUE", // required
+ * //       retryable: true || false, // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeRulesPackagesCommandInput - {@link DescribeRulesPackagesCommandInput}
@@ -63,6 +81,8 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @example Describe rules packages
  * ```javascript

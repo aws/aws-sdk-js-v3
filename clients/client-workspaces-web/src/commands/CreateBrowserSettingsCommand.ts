@@ -61,6 +61,10 @@ export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSetting
  * };
  * const command = new CreateBrowserSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // CreateBrowserSettingsResponse
+ * //   browserSettingsArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateBrowserSettingsCommandInput - {@link CreateBrowserSettingsCommandInput}
@@ -90,6 +94,8 @@ export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSetting
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class CreateBrowserSettingsCommand extends $Command<

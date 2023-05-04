@@ -55,6 +55,19 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * };
  * const command = new DescribeEnvironmentMembershipsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEnvironmentMembershipsResult
+ * //   memberships: [ // EnvironmentMembersList
+ * //     { // EnvironmentMember
+ * //       permissions: "owner" || "read-write" || "read-only", // required
+ * //       userId: "STRING_VALUE", // required
+ * //       userArn: "STRING_VALUE", // required
+ * //       environmentId: "STRING_VALUE", // required
+ * //       lastAccess: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeEnvironmentMembershipsCommandInput - {@link DescribeEnvironmentMembershipsCommandInput}
@@ -84,6 +97,8 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many service requests were made over the given time period.</p>
  *
+ * @throws {@link Cloud9ServiceException}
+ * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @example DescribeEnvironmentMemberships1
  * ```javascript

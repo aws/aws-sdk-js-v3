@@ -48,6 +48,8 @@ export interface UpdateThreatIntelSetCommandOutput extends UpdateThreatIntelSetR
  * };
  * const command = new UpdateThreatIntelSetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateThreatIntelSetCommandInput - {@link UpdateThreatIntelSetCommandInput}
@@ -62,6 +64,8 @@ export interface UpdateThreatIntelSetCommandOutput extends UpdateThreatIntelSetR
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class UpdateThreatIntelSetCommand extends $Command<

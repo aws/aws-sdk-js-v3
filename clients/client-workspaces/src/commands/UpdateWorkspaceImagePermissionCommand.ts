@@ -73,6 +73,8 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  * };
  * const command = new UpdateWorkspaceImagePermissionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateWorkspaceImagePermissionCommandInput - {@link UpdateWorkspaceImagePermissionCommandInput}
@@ -96,6 +98,8 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  * @throws {@link ResourceUnavailableException} (client fault)
  *  <p>The specified resource is not available.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class UpdateWorkspaceImagePermissionCommand extends $Command<

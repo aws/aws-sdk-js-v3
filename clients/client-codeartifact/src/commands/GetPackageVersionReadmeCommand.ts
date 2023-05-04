@@ -55,6 +55,15 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  * };
  * const command = new GetPackageVersionReadmeCommand(input);
  * const response = await client.send(command);
+ * // { // GetPackageVersionReadmeResult
+ * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ * //   namespace: "STRING_VALUE",
+ * //   package: "STRING_VALUE",
+ * //   version: "STRING_VALUE",
+ * //   versionRevision: "STRING_VALUE",
+ * //   readme: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetPackageVersionReadmeCommandInput - {@link GetPackageVersionReadmeCommandInput}
@@ -86,6 +95,8 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class GetPackageVersionReadmeCommand extends $Command<

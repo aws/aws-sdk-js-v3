@@ -64,6 +64,15 @@ export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBeare
  * };
  * const command = new GetBlockCommand(input);
  * const response = await client.send(command);
+ * // { // GetBlockResponse
+ * //   Block: { // ValueHolder
+ * //     IonText: "STRING_VALUE",
+ * //   },
+ * //   Proof: {
+ * //     IonText: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetBlockCommandInput - {@link GetBlockCommandInput}
@@ -81,6 +90,8 @@ export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBeare
  * @throws {@link ResourcePreconditionNotMetException} (client fault)
  *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockCommandOutput, QLDBClientResolvedConfig> {

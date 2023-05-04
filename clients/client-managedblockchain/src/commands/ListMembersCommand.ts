@@ -54,6 +54,21 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
+ * // { // ListMembersOutput
+ * //   Members: [ // MemberSummaryList
+ * //     { // MemberSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "UPDATING" || "DELETING" || "DELETED" || "INACCESSIBLE_ENCRYPTION_KEY",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       IsOwned: true || false,
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListMembersCommandInput - {@link ListMembersCommandInput}
@@ -77,6 +92,8 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class ListMembersCommand extends $Command<

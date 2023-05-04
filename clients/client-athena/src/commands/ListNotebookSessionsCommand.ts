@@ -49,6 +49,16 @@ export interface ListNotebookSessionsCommandOutput extends ListNotebookSessionsR
  * };
  * const command = new ListNotebookSessionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListNotebookSessionsResponse
+ * //   NotebookSessionsList: [ // NotebookSessionsList // required
+ * //     { // NotebookSessionSummary
+ * //       SessionId: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListNotebookSessionsCommandInput - {@link ListNotebookSessionsCommandInput}
@@ -68,6 +78,8 @@ export interface ListNotebookSessionsCommandOutput extends ListNotebookSessionsR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource, such as a workgroup, was not found.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListNotebookSessionsCommand extends $Command<

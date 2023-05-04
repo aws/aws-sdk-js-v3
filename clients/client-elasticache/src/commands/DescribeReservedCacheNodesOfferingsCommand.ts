@@ -56,6 +56,27 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
  * };
  * const command = new DescribeReservedCacheNodesOfferingsCommand(input);
  * const response = await client.send(command);
+ * // { // ReservedCacheNodesOfferingMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ReservedCacheNodesOfferings: [ // ReservedCacheNodesOfferingList
+ * //     { // ReservedCacheNodesOffering
+ * //       ReservedCacheNodesOfferingId: "STRING_VALUE",
+ * //       CacheNodeType: "STRING_VALUE",
+ * //       Duration: Number("int"),
+ * //       FixedPrice: Number("double"),
+ * //       UsagePrice: Number("double"),
+ * //       ProductDescription: "STRING_VALUE",
+ * //       OfferingType: "STRING_VALUE",
+ * //       RecurringCharges: [ // RecurringChargeList
+ * //         { // RecurringCharge
+ * //           RecurringChargeAmount: Number("double"),
+ * //           RecurringChargeFrequency: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeReservedCacheNodesOfferingsCommandInput - {@link DescribeReservedCacheNodesOfferingsCommandInput}
@@ -73,6 +94,8 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
  * @throws {@link ReservedCacheNodesOfferingNotFoundFault} (client fault)
  *  <p>The requested cache node offering does not exist.</p>
  *
+ * @throws {@link ElastiCacheServiceException}
+ * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @example DescribeReseredCacheNodeOfferings
  * ```javascript

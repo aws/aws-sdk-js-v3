@@ -122,6 +122,10 @@ export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse,
  * };
  * const command = new UpdateProfileJobCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateProfileJobResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateProfileJobCommandInput - {@link UpdateProfileJobCommandInput}
@@ -139,6 +143,8 @@ export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class UpdateProfileJobCommand extends $Command<

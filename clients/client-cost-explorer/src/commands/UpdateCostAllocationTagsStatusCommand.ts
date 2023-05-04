@@ -57,6 +57,16 @@ export interface UpdateCostAllocationTagsStatusCommandOutput
  * };
  * const command = new UpdateCostAllocationTagsStatusCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateCostAllocationTagsStatusResponse
+ * //   Errors: [ // UpdateCostAllocationTagsStatusErrors
+ * //     { // UpdateCostAllocationTagsStatusError
+ * //       TagKey: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param UpdateCostAllocationTagsStatusCommandInput - {@link UpdateCostAllocationTagsStatusCommandInput}
@@ -68,6 +78,8 @@ export interface UpdateCostAllocationTagsStatusCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class UpdateCostAllocationTagsStatusCommand extends $Command<

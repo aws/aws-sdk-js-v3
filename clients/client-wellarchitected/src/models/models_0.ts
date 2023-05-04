@@ -1168,6 +1168,20 @@ export type TrustedAdvisorIntegrationStatus =
 
 /**
  * @public
+ * @enum
+ */
+export const DefinitionType = {
+  APP_REGISTRY: "APP_REGISTRY",
+  WORKLOAD_METADATA: "WORKLOAD_METADATA",
+} as const;
+
+/**
+ * @public
+ */
+export type DefinitionType = (typeof DefinitionType)[keyof typeof DefinitionType];
+
+/**
+ * @public
  * <p>Discovery configuration associated to the workload.</p>
  */
 export interface WorkloadDiscoveryConfig {
@@ -1175,6 +1189,12 @@ export interface WorkloadDiscoveryConfig {
    * <p>Discovery integration status in respect to Trusted Advisor for the workload.</p>
    */
   TrustedAdvisorIntegrationStatus?: TrustedAdvisorIntegrationStatus | string;
+
+  /**
+   * <p>The mode to use for identifying resources associated with the workload.</p>
+   *          <p>You can specify <code>WORKLOAD_METADATA</code>, <code>APP_REGISTRY</code>, or both.</p>
+   */
+  WorkloadResourceDefinition?: (DefinitionType | string)[];
 }
 
 /**
@@ -1688,6 +1708,20 @@ export interface DisassociateLensesInput {
    */
   LensAliases: string[] | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const DiscoveryIntegrationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DiscoveryIntegrationStatus = (typeof DiscoveryIntegrationStatus)[keyof typeof DiscoveryIntegrationStatus];
 
 /**
  * @public
@@ -4090,6 +4124,11 @@ export interface UpdateGlobalSettingsInput {
    * <p>The status of organization sharing settings.</p>
    */
   OrganizationSharingStatus?: OrganizationSharingStatus | string;
+
+  /**
+   * <p>The status of discovery support settings.</p>
+   */
+  DiscoveryIntegrationStatus?: DiscoveryIntegrationStatus | string;
 }
 
 /**

@@ -76,6 +76,8 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutSubscriptionFilterCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutSubscriptionFilterCommandInput - {@link PutSubscriptionFilterCommandInput}
@@ -99,6 +101,8 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class PutSubscriptionFilterCommand extends $Command<

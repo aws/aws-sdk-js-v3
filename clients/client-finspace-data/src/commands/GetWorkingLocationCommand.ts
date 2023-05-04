@@ -45,6 +45,12 @@ export interface GetWorkingLocationCommandOutput extends GetWorkingLocationRespo
  * };
  * const command = new GetWorkingLocationCommand(input);
  * const response = await client.send(command);
+ * // { // GetWorkingLocationResponse
+ * //   s3Uri: "STRING_VALUE",
+ * //   s3Path: "STRING_VALUE",
+ * //   s3Bucket: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetWorkingLocationCommandInput - {@link GetWorkingLocationCommandInput}
@@ -66,6 +72,8 @@ export interface GetWorkingLocationCommandOutput extends GetWorkingLocationRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class GetWorkingLocationCommand extends $Command<

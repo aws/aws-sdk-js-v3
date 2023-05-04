@@ -179,6 +179,8 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  * };
  * const command = new UpdateLifecyclePolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateLifecyclePolicyCommandInput - {@link UpdateLifecyclePolicyCommandInput}
@@ -200,6 +202,8 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource was not found.</p>
  *
+ * @throws {@link DLMServiceException}
+ * <p>Base exception class for all service exceptions from DLM service.</p>
  *
  */
 export class UpdateLifecyclePolicyCommand extends $Command<

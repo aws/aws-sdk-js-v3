@@ -49,6 +49,38 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, _
  * };
  * const command = new PurchaseOfferingCommand(input);
  * const response = await client.send(command);
+ * // { // PurchaseOfferingResult
+ * //   offeringTransaction: { // OfferingTransaction
+ * //     offeringStatus: { // OfferingStatus
+ * //       type: "PURCHASE" || "RENEW" || "SYSTEM",
+ * //       offering: { // Offering
+ * //         id: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //         type: "RECURRING",
+ * //         platform: "ANDROID" || "IOS",
+ * //         recurringCharges: [ // RecurringCharges
+ * //           { // RecurringCharge
+ * //             cost: { // MonetaryAmount
+ * //               amount: Number("double"),
+ * //               currencyCode: "USD",
+ * //             },
+ * //             frequency: "MONTHLY",
+ * //           },
+ * //         ],
+ * //       },
+ * //       quantity: Number("int"),
+ * //       effectiveOn: new Date("TIMESTAMP"),
+ * //     },
+ * //     transactionId: "STRING_VALUE",
+ * //     offeringPromotionId: "STRING_VALUE",
+ * //     createdOn: new Date("TIMESTAMP"),
+ * //     cost: {
+ * //       amount: Number("double"),
+ * //       currencyCode: "USD",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PurchaseOfferingCommandInput - {@link PurchaseOfferingCommandInput}
@@ -73,6 +105,8 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, _
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To purchase a device slot offering
  * ```javascript

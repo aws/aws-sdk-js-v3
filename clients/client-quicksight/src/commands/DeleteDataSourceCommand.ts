@@ -46,6 +46,13 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  * };
  * const command = new DeleteDataSourceCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDataSourceResponse
+ * //   Arn: "STRING_VALUE",
+ * //   DataSourceId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param DeleteDataSourceCommandInput - {@link DeleteDataSourceCommandInput}
@@ -72,6 +79,8 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteDataSourceCommand extends $Command<

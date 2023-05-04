@@ -51,6 +51,39 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  * };
  * const command = new ListContactReferencesCommand(input);
  * const response = await client.send(command);
+ * // { // ListContactReferencesResponse
+ * //   ReferenceSummaryList: [ // ReferenceSummaryList
+ * //     { // ReferenceSummary Union: only one key present
+ * //       Url: { // UrlReference
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //       Attachment: { // AttachmentReference
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //         Status: "APPROVED" || "REJECTED",
+ * //       },
+ * //       String: { // StringReference
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //       Number: { // NumberReference
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //       Date: { // DateReference
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //       Email: { // EmailReference
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListContactReferencesCommandInput - {@link ListContactReferencesCommandInput}
@@ -74,6 +107,8 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class ListContactReferencesCommand extends $Command<

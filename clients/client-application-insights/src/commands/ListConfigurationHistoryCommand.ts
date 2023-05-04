@@ -66,6 +66,20 @@ export interface ListConfigurationHistoryCommandOutput extends ListConfiguration
  * };
  * const command = new ListConfigurationHistoryCommand(input);
  * const response = await client.send(command);
+ * // { // ListConfigurationHistoryResponse
+ * //   EventList: [ // ConfigurationEventList
+ * //     { // ConfigurationEvent
+ * //       MonitoredResourceARN: "STRING_VALUE",
+ * //       EventStatus: "STRING_VALUE",
+ * //       EventResourceType: "STRING_VALUE",
+ * //       EventTime: new Date("TIMESTAMP"),
+ * //       EventDetail: "STRING_VALUE",
+ * //       EventResourceName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListConfigurationHistoryCommandInput - {@link ListConfigurationHistoryCommandInput}
@@ -83,6 +97,8 @@ export interface ListConfigurationHistoryCommandOutput extends ListConfiguration
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class ListConfigurationHistoryCommand extends $Command<

@@ -52,6 +52,13 @@ export interface GetFailbackReplicationConfigurationCommandOutput
  * };
  * const command = new GetFailbackReplicationConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // GetFailbackReplicationConfigurationResponse
+ * //   recoveryInstanceID: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE",
+ * //   bandwidthThrottling: Number("long"),
+ * //   usePrivateIP: true || false,
+ * // };
+ *
  * ```
  *
  * @param GetFailbackReplicationConfigurationCommandInput - {@link GetFailbackReplicationConfigurationCommandInput}
@@ -72,6 +79,8 @@ export interface GetFailbackReplicationConfigurationCommandOutput
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class GetFailbackReplicationConfigurationCommand extends $Command<

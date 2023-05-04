@@ -53,6 +53,16 @@ export interface DescribePendingAggregationRequestsCommandOutput
  * };
  * const command = new DescribePendingAggregationRequestsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribePendingAggregationRequestsResponse
+ * //   PendingAggregationRequests: [ // PendingAggregationRequestList
+ * //     { // PendingAggregationRequest
+ * //       RequesterAccountId: "STRING_VALUE",
+ * //       RequesterAwsRegion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribePendingAggregationRequestsCommandInput - {@link DescribePendingAggregationRequestsCommandInput}
@@ -73,6 +83,8 @@ export interface DescribePendingAggregationRequestsCommandOutput
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DescribePendingAggregationRequestsCommand extends $Command<

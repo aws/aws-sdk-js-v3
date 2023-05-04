@@ -46,6 +46,13 @@ export interface DeleteThemeCommandOutput extends DeleteThemeResponse, __Metadat
  * };
  * const command = new DeleteThemeCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteThemeResponse
+ * //   Arn: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   ThemeId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteThemeCommandInput - {@link DeleteThemeCommandInput}
@@ -81,6 +88,8 @@ export interface DeleteThemeCommandOutput extends DeleteThemeResponse, __Metadat
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteThemeCommand extends $Command<

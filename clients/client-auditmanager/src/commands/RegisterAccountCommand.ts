@@ -45,6 +45,10 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * };
  * const command = new RegisterAccountCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterAccountResponse
+ * //   status: "ACTIVE" || "INACTIVE" || "PENDING_ACTIVATION",
+ * // };
+ *
  * ```
  *
  * @param RegisterAccountCommandInput - {@link RegisterAccountCommandInput}
@@ -70,6 +74,8 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class RegisterAccountCommand extends $Command<

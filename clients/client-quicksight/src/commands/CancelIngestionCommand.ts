@@ -46,6 +46,13 @@ export interface CancelIngestionCommandOutput extends CancelIngestionResponse, _
  * };
  * const command = new CancelIngestionCommand(input);
  * const response = await client.send(command);
+ * // { // CancelIngestionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   IngestionId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param CancelIngestionCommandInput - {@link CancelIngestionCommandInput}
@@ -75,6 +82,8 @@ export interface CancelIngestionCommandOutput extends CancelIngestionResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class CancelIngestionCommand extends $Command<

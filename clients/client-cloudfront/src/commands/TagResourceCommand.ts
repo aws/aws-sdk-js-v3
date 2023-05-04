@@ -52,6 +52,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -72,6 +74,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link NoSuchResource} (client fault)
  *  <p>A resource that was specified is not valid.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

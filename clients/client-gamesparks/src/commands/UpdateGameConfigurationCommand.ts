@@ -52,6 +52,20 @@ export interface UpdateGameConfigurationCommandOutput extends UpdateGameConfigur
  * };
  * const command = new UpdateGameConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateGameConfigurationResult
+ * //   GameConfiguration: { // GameConfigurationDetails
+ * //     Sections: { // Sections
+ * //       "<keys>": { // Section
+ * //         Name: "STRING_VALUE",
+ * //         Size: Number("int"),
+ * //         Attributes: "DOCUMENT_VALUE",
+ * //       },
+ * //     },
+ * //     Created: new Date("TIMESTAMP"),
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateGameConfigurationCommandInput - {@link UpdateGameConfigurationCommandInput}
@@ -78,6 +92,8 @@ export interface UpdateGameConfigurationCommandOutput extends UpdateGameConfigur
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link GameSparksServiceException}
+ * <p>Base exception class for all service exceptions from GameSparks service.</p>
  *
  */
 export class UpdateGameConfigurationCommand extends $Command<

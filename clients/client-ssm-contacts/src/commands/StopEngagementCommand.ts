@@ -46,6 +46,8 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  * };
  * const command = new StopEngagementCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopEngagementCommandInput - {@link StopEngagementCommandInput}
@@ -70,6 +72,8 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class StopEngagementCommand extends $Command<

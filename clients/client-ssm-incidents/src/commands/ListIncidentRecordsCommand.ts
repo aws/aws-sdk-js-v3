@@ -63,6 +63,26 @@ export interface ListIncidentRecordsCommandOutput extends ListIncidentRecordsOut
  * };
  * const command = new ListIncidentRecordsCommand(input);
  * const response = await client.send(command);
+ * // { // ListIncidentRecordsOutput
+ * //   incidentRecordSummaries: [ // IncidentRecordSummaryList // required
+ * //     { // IncidentRecordSummary
+ * //       arn: "STRING_VALUE", // required
+ * //       title: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       impact: Number("int"), // required
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       resolvedTime: new Date("TIMESTAMP"),
+ * //       incidentRecordSource: { // IncidentRecordSource
+ * //         createdBy: "STRING_VALUE", // required
+ * //         invokedBy: "STRING_VALUE",
+ * //         resourceArn: "STRING_VALUE",
+ * //         source: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListIncidentRecordsCommandInput - {@link ListIncidentRecordsCommandInput}
@@ -85,6 +105,8 @@ export interface ListIncidentRecordsCommandOutput extends ListIncidentRecordsOut
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class ListIncidentRecordsCommand extends $Command<

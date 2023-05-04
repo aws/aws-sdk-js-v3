@@ -809,6 +809,16 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * };
  * const command = new CreateWebACLCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWebACLResponse
+ * //   Summary: { // WebACLSummary
+ * //     Name: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     LockToken: "STRING_VALUE",
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateWebACLCommandInput - {@link CreateWebACLCommandInput}
@@ -906,6 +916,8 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *        for changes to propagate. Verify the resources that you are specifying in your request
  *        parameters and then retry the operation.</p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class CreateWebACLCommand extends $Command<

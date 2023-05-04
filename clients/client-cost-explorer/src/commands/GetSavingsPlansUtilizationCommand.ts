@@ -126,6 +126,49 @@ export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlans
  * };
  * const command = new GetSavingsPlansUtilizationCommand(input);
  * const response = await client.send(command);
+ * // { // GetSavingsPlansUtilizationResponse
+ * //   SavingsPlansUtilizationsByTime: [ // SavingsPlansUtilizationsByTime
+ * //     { // SavingsPlansUtilizationByTime
+ * //       TimePeriod: { // DateInterval
+ * //         Start: "STRING_VALUE", // required
+ * //         End: "STRING_VALUE", // required
+ * //       },
+ * //       Utilization: { // SavingsPlansUtilization
+ * //         TotalCommitment: "STRING_VALUE",
+ * //         UsedCommitment: "STRING_VALUE",
+ * //         UnusedCommitment: "STRING_VALUE",
+ * //         UtilizationPercentage: "STRING_VALUE",
+ * //       },
+ * //       Savings: { // SavingsPlansSavings
+ * //         NetSavings: "STRING_VALUE",
+ * //         OnDemandCostEquivalent: "STRING_VALUE",
+ * //       },
+ * //       AmortizedCommitment: { // SavingsPlansAmortizedCommitment
+ * //         AmortizedRecurringCommitment: "STRING_VALUE",
+ * //         AmortizedUpfrontCommitment: "STRING_VALUE",
+ * //         TotalAmortizedCommitment: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   Total: { // SavingsPlansUtilizationAggregates
+ * //     Utilization: {
+ * //       TotalCommitment: "STRING_VALUE",
+ * //       UsedCommitment: "STRING_VALUE",
+ * //       UnusedCommitment: "STRING_VALUE",
+ * //       UtilizationPercentage: "STRING_VALUE",
+ * //     },
+ * //     Savings: {
+ * //       NetSavings: "STRING_VALUE",
+ * //       OnDemandCostEquivalent: "STRING_VALUE",
+ * //     },
+ * //     AmortizedCommitment: {
+ * //       AmortizedRecurringCommitment: "STRING_VALUE",
+ * //       AmortizedUpfrontCommitment: "STRING_VALUE",
+ * //       TotalAmortizedCommitment: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSavingsPlansUtilizationCommandInput - {@link GetSavingsPlansUtilizationCommandInput}
@@ -140,6 +183,8 @@ export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlans
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetSavingsPlansUtilizationCommand extends $Command<

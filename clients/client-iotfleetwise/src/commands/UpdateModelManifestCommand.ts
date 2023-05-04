@@ -53,6 +53,11 @@ export interface UpdateModelManifestCommandOutput extends UpdateModelManifestRes
  * };
  * const command = new UpdateModelManifestCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateModelManifestResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateModelManifestCommandInput - {@link UpdateModelManifestCommandInput}
@@ -83,6 +88,8 @@ export interface UpdateModelManifestCommandOutput extends UpdateModelManifestRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class UpdateModelManifestCommand extends $Command<

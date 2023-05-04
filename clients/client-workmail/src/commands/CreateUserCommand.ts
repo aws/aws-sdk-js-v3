@@ -47,6 +47,10 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
+ * // { // CreateUserResponse
+ * //   UserId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateUserCommandInput - {@link CreateUserCommandInput}
@@ -85,6 +89,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>You can't perform a write operation against a read-only directory.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class CreateUserCommand extends $Command<

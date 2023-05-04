@@ -47,6 +47,8 @@ export interface DeleteFleetMetricCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFleetMetricCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteFleetMetricCommandInput - {@link DeleteFleetMetricCommandInput}
@@ -75,6 +77,8 @@ export interface DeleteFleetMetricCommandOutput extends __MetadataBearer {}
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteFleetMetricCommand extends $Command<

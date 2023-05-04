@@ -49,6 +49,16 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * };
  * const command = new DescribeParameterGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeParameterGroupsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ParameterGroups: [ // ParameterGroupList
+ * //     { // ParameterGroup
+ * //       ParameterGroupName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeParameterGroupsCommandInput - {@link DescribeParameterGroupsCommandInput}
@@ -69,6 +79,8 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
+ * @throws {@link DAXServiceException}
+ * <p>Base exception class for all service exceptions from DAX service.</p>
  *
  */
 export class DescribeParameterGroupsCommand extends $Command<

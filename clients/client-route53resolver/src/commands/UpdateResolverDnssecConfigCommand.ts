@@ -45,6 +45,15 @@ export interface UpdateResolverDnssecConfigCommandOutput extends UpdateResolverD
  * };
  * const command = new UpdateResolverDnssecConfigCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateResolverDnssecConfigResponse
+ * //   ResolverDNSSECConfig: { // ResolverDnssecConfig
+ * //     Id: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     ResourceId: "STRING_VALUE",
+ * //     ValidationStatus: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING" || "USE_LOCAL_RESOURCE_SETTING",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateResolverDnssecConfigCommandInput - {@link UpdateResolverDnssecConfigCommandInput}
@@ -71,6 +80,8 @@ export interface UpdateResolverDnssecConfigCommandOutput extends UpdateResolverD
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class UpdateResolverDnssecConfigCommand extends $Command<

@@ -55,6 +55,26 @@ export interface ListSimulationApplicationsCommandOutput extends ListSimulationA
  * };
  * const command = new ListSimulationApplicationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSimulationApplicationsResponse
+ * //   simulationApplicationSummaries: [ // SimulationApplicationSummaries
+ * //     { // SimulationApplicationSummary
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       robotSoftwareSuite: { // RobotSoftwareSuite
+ * //         name: "STRING_VALUE",
+ * //         version: "STRING_VALUE",
+ * //       },
+ * //       simulationSoftwareSuite: { // SimulationSoftwareSuite
+ * //         name: "STRING_VALUE",
+ * //         version: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSimulationApplicationsCommandInput - {@link ListSimulationApplicationsCommandInput}
@@ -73,6 +93,8 @@ export interface ListSimulationApplicationsCommandOutput extends ListSimulationA
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListSimulationApplicationsCommand extends $Command<

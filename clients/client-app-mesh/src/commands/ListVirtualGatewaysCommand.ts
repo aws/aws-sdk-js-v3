@@ -47,6 +47,22 @@ export interface ListVirtualGatewaysCommandOutput extends ListVirtualGatewaysOut
  * };
  * const command = new ListVirtualGatewaysCommand(input);
  * const response = await client.send(command);
+ * // { // ListVirtualGatewaysOutput
+ * //   virtualGateways: [ // VirtualGatewayList // required
+ * //     { // VirtualGatewayRef
+ * //       meshName: "STRING_VALUE", // required
+ * //       virtualGatewayName: "STRING_VALUE", // required
+ * //       meshOwner: "STRING_VALUE", // required
+ * //       resourceOwner: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       version: Number("long"), // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListVirtualGatewaysCommandInput - {@link ListVirtualGatewaysCommandInput}
@@ -76,6 +92,8 @@ export interface ListVirtualGatewaysCommandOutput extends ListVirtualGatewaysOut
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class ListVirtualGatewaysCommand extends $Command<

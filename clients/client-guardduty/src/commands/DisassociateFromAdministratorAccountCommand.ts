@@ -55,6 +55,8 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * };
  * const command = new DisassociateFromAdministratorAccountCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateFromAdministratorAccountCommandInput - {@link DisassociateFromAdministratorAccountCommandInput}
@@ -69,6 +71,8 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class DisassociateFromAdministratorAccountCommand extends $Command<

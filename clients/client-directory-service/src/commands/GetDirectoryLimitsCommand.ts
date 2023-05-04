@@ -42,6 +42,20 @@ export interface GetDirectoryLimitsCommandOutput extends GetDirectoryLimitsResul
  * const input = {};
  * const command = new GetDirectoryLimitsCommand(input);
  * const response = await client.send(command);
+ * // { // GetDirectoryLimitsResult
+ * //   DirectoryLimits: { // DirectoryLimits
+ * //     CloudOnlyDirectoriesLimit: Number("int"),
+ * //     CloudOnlyDirectoriesCurrentCount: Number("int"),
+ * //     CloudOnlyDirectoriesLimitReached: true || false,
+ * //     CloudOnlyMicrosoftADLimit: Number("int"),
+ * //     CloudOnlyMicrosoftADCurrentCount: Number("int"),
+ * //     CloudOnlyMicrosoftADLimitReached: true || false,
+ * //     ConnectedDirectoriesLimit: Number("int"),
+ * //     ConnectedDirectoriesCurrentCount: Number("int"),
+ * //     ConnectedDirectoriesLimitReached: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetDirectoryLimitsCommandInput - {@link GetDirectoryLimitsCommandInput}
@@ -59,6 +73,8 @@ export interface GetDirectoryLimitsCommandOutput extends GetDirectoryLimitsResul
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
  *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class GetDirectoryLimitsCommand extends $Command<

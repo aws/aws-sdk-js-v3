@@ -53,6 +53,13 @@ export interface UpdateNetworkResourceMetadataCommandOutput
  * };
  * const command = new UpdateNetworkResourceMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateNetworkResourceMetadataResponse
+ * //   ResourceArn: "STRING_VALUE",
+ * //   Metadata: { // NetworkResourceMetadataMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateNetworkResourceMetadataCommandInput - {@link UpdateNetworkResourceMetadataCommandInput}
@@ -80,6 +87,8 @@ export interface UpdateNetworkResourceMetadataCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints.</p>
  *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class UpdateNetworkResourceMetadataCommand extends $Command<

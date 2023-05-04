@@ -45,6 +45,124 @@ export interface GetAccessPreviewCommandOutput extends GetAccessPreviewResponse,
  * };
  * const command = new GetAccessPreviewCommand(input);
  * const response = await client.send(command);
+ * // { // GetAccessPreviewResponse
+ * //   accessPreview: { // AccessPreview
+ * //     id: "STRING_VALUE", // required
+ * //     analyzerArn: "STRING_VALUE", // required
+ * //     configurations: { // ConfigurationsMap // required
+ * //       "<keys>": { // Configuration Union: only one key present
+ * //         ebsSnapshot: { // EbsSnapshotConfiguration
+ * //           userIds: [ // EbsUserIdList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           groups: [ // EbsGroupList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           kmsKeyId: "STRING_VALUE",
+ * //         },
+ * //         ecrRepository: { // EcrRepositoryConfiguration
+ * //           repositoryPolicy: "STRING_VALUE",
+ * //         },
+ * //         iamRole: { // IamRoleConfiguration
+ * //           trustPolicy: "STRING_VALUE",
+ * //         },
+ * //         efsFileSystem: { // EfsFileSystemConfiguration
+ * //           fileSystemPolicy: "STRING_VALUE",
+ * //         },
+ * //         kmsKey: { // KmsKeyConfiguration
+ * //           keyPolicies: { // KmsKeyPoliciesMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           grants: [ // KmsGrantConfigurationsList
+ * //             { // KmsGrantConfiguration
+ * //               operations: [ // KmsGrantOperationsList // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               granteePrincipal: "STRING_VALUE", // required
+ * //               retiringPrincipal: "STRING_VALUE",
+ * //               constraints: { // KmsGrantConstraints
+ * //                 encryptionContextEquals: { // KmsConstraintsMap
+ * //                   "<keys>": "STRING_VALUE",
+ * //                 },
+ * //                 encryptionContextSubset: {
+ * //                   "<keys>": "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               issuingAccount: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //         rdsDbClusterSnapshot: { // RdsDbClusterSnapshotConfiguration
+ * //           attributes: { // RdsDbClusterSnapshotAttributesMap
+ * //             "<keys>": { // RdsDbClusterSnapshotAttributeValue Union: only one key present
+ * //               accountIds: [ // RdsDbClusterSnapshotAccountIdsList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //           kmsKeyId: "STRING_VALUE",
+ * //         },
+ * //         rdsDbSnapshot: { // RdsDbSnapshotConfiguration
+ * //           attributes: { // RdsDbSnapshotAttributesMap
+ * //             "<keys>": { // RdsDbSnapshotAttributeValue Union: only one key present
+ * //               accountIds: [ // RdsDbSnapshotAccountIdsList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //           kmsKeyId: "STRING_VALUE",
+ * //         },
+ * //         secretsManagerSecret: { // SecretsManagerSecretConfiguration
+ * //           kmsKeyId: "STRING_VALUE",
+ * //           secretPolicy: "STRING_VALUE",
+ * //         },
+ * //         s3Bucket: { // S3BucketConfiguration
+ * //           bucketPolicy: "STRING_VALUE",
+ * //           bucketAclGrants: [ // S3BucketAclGrantConfigurationsList
+ * //             { // S3BucketAclGrantConfiguration
+ * //               permission: "STRING_VALUE", // required
+ * //               grantee: { // AclGrantee Union: only one key present
+ * //                 id: "STRING_VALUE",
+ * //                 uri: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           ],
+ * //           bucketPublicAccessBlock: { // S3PublicAccessBlockConfiguration
+ * //             ignorePublicAcls: true || false, // required
+ * //             restrictPublicBuckets: true || false, // required
+ * //           },
+ * //           accessPoints: { // S3AccessPointConfigurationsMap
+ * //             "<keys>": { // S3AccessPointConfiguration
+ * //               accessPointPolicy: "STRING_VALUE",
+ * //               publicAccessBlock: {
+ * //                 ignorePublicAcls: true || false, // required
+ * //                 restrictPublicBuckets: true || false, // required
+ * //               },
+ * //               networkOrigin: { // NetworkOriginConfiguration Union: only one key present
+ * //                 vpcConfiguration: { // VpcConfiguration
+ * //                   vpcId: "STRING_VALUE", // required
+ * //                 },
+ * //                 internetConfiguration: {},
+ * //               },
+ * //             },
+ * //           },
+ * //         },
+ * //         snsTopic: { // SnsTopicConfiguration
+ * //           topicPolicy: "STRING_VALUE",
+ * //         },
+ * //         sqsQueue: { // SqsQueueConfiguration
+ * //           queuePolicy: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     status: "STRING_VALUE", // required
+ * //     statusReason: { // AccessPreviewStatusReason
+ * //       code: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetAccessPreviewCommandInput - {@link GetAccessPreviewCommandInput}
@@ -68,6 +186,8 @@ export interface GetAccessPreviewCommandOutput extends GetAccessPreviewResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link AccessAnalyzerServiceException}
+ * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  */
 export class GetAccessPreviewCommand extends $Command<

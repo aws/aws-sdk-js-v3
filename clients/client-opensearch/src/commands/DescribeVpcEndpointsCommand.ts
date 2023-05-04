@@ -46,6 +46,37 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * };
  * const command = new DescribeVpcEndpointsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeVpcEndpointsResponse
+ * //   VpcEndpoints: [ // VpcEndpoints // required
+ * //     { // VpcEndpoint
+ * //       VpcEndpointId: "STRING_VALUE",
+ * //       VpcEndpointOwner: "STRING_VALUE",
+ * //       DomainArn: "STRING_VALUE",
+ * //       VpcOptions: { // VPCDerivedInfo
+ * //         VPCId: "STRING_VALUE",
+ * //         SubnetIds: [ // StringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AvailabilityZones: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SecurityGroupIds: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
+ * //       Endpoint: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   VpcEndpointErrors: [ // VpcEndpointErrorList // required
+ * //     { // VpcEndpointError
+ * //       VpcEndpointId: "STRING_VALUE",
+ * //       ErrorCode: "ENDPOINT_NOT_FOUND" || "SERVER_ERROR",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeVpcEndpointsCommandInput - {@link DescribeVpcEndpointsCommandInput}
@@ -58,7 +89,7 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  *  <p>An error occurred while processing the request.</p>
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
@@ -66,6 +97,8 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DescribeVpcEndpointsCommand extends $Command<

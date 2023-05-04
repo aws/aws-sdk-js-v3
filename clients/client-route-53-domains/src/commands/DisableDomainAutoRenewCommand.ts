@@ -45,6 +45,8 @@ export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRe
  * };
  * const command = new DisableDomainAutoRenewCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisableDomainAutoRenewCommandInput - {@link DisableDomainAutoRenewCommandInput}
@@ -62,6 +64,8 @@ export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRe
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class DisableDomainAutoRenewCommand extends $Command<

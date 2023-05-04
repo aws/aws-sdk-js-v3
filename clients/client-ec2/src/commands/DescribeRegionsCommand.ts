@@ -59,6 +59,16 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * };
  * const command = new DescribeRegionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRegionsResult
+ * //   Regions: [ // RegionList
+ * //     { // Region
+ * //       Endpoint: "STRING_VALUE",
+ * //       RegionName: "STRING_VALUE",
+ * //       OptInStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeRegionsCommandInput - {@link DescribeRegionsCommandInput}
@@ -67,6 +77,8 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * @see {@link DescribeRegionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe your regions
  * ```javascript

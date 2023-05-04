@@ -47,6 +47,8 @@ export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterRes
  * };
  * const command = new DeleteReceiptFilterCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteReceiptFilterCommandInput - {@link DeleteReceiptFilterCommandInput}
@@ -55,6 +57,8 @@ export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterRes
  * @see {@link DeleteReceiptFilterCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @example DeleteReceiptFilter
  * ```javascript

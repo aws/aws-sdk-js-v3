@@ -58,6 +58,8 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisableKeyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisableKeyCommandInput - {@link DisableKeyCommandInput}
@@ -100,6 +102,8 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To disable a KMS key
  * ```javascript

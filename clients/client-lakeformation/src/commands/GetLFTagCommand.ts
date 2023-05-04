@@ -45,6 +45,14 @@ export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBeare
  * };
  * const command = new GetLFTagCommand(input);
  * const response = await client.send(command);
+ * // { // GetLFTagResponse
+ * //   CatalogId: "STRING_VALUE",
+ * //   TagKey: "STRING_VALUE",
+ * //   TagValues: [ // TagValueList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetLFTagCommandInput - {@link GetLFTagCommandInput}
@@ -68,6 +76,8 @@ export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBeare
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class GetLFTagCommand extends $Command<

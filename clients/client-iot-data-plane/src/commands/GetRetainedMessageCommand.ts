@@ -50,6 +50,14 @@ export interface GetRetainedMessageCommandOutput extends GetRetainedMessageRespo
  * };
  * const command = new GetRetainedMessageCommand(input);
  * const response = await client.send(command);
+ * // { // GetRetainedMessageResponse
+ * //   topic: "STRING_VALUE",
+ * //   payload: "BLOB_VALUE",
+ * //   qos: Number("int"),
+ * //   lastModifiedTime: Number("long"),
+ * //   userProperties: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetRetainedMessageCommandInput - {@link GetRetainedMessageCommandInput}
@@ -79,6 +87,8 @@ export interface GetRetainedMessageCommandOutput extends GetRetainedMessageRespo
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class GetRetainedMessageCommand extends $Command<

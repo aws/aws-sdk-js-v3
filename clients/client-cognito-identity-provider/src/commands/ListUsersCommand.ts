@@ -55,6 +55,31 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
+ * // { // ListUsersResponse
+ * //   Users: [ // UsersListType
+ * //     { // UserType
+ * //       Username: "STRING_VALUE",
+ * //       Attributes: [ // AttributeListType
+ * //         { // AttributeType
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       UserCreateDate: new Date("TIMESTAMP"),
+ * //       UserLastModifiedDate: new Date("TIMESTAMP"),
+ * //       Enabled: true || false,
+ * //       UserStatus: "UNCONFIRMED" || "CONFIRMED" || "ARCHIVED" || "COMPROMISED" || "UNKNOWN" || "RESET_REQUIRED" || "FORCE_CHANGE_PASSWORD",
+ * //       MFAOptions: [ // MFAOptionListType
+ * //         { // MFAOptionType
+ * //           DeliveryMedium: "SMS" || "EMAIL",
+ * //           AttributeName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   PaginationToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListUsersCommandInput - {@link ListUsersCommandInput}
@@ -81,6 +106,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class ListUsersCommand extends $Command<

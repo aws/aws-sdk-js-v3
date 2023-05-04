@@ -47,6 +47,11 @@ export interface CreateUsageReportSubscriptionCommandOutput
  * const input = {};
  * const command = new CreateUsageReportSubscriptionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateUsageReportSubscriptionResult
+ * //   S3BucketName: "STRING_VALUE",
+ * //   Schedule: "DAILY",
+ * // };
+ *
  * ```
  *
  * @param CreateUsageReportSubscriptionCommandInput - {@link CreateUsageReportSubscriptionCommandInput}
@@ -64,6 +69,8 @@ export interface CreateUsageReportSubscriptionCommandOutput
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The requested limit exceeds the permitted limit for an account.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class CreateUsageReportSubscriptionCommand extends $Command<

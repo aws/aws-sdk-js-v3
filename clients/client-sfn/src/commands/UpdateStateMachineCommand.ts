@@ -79,6 +79,10 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  * };
  * const command = new UpdateStateMachineCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateStateMachineOutput
+ * //   updateDate: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param UpdateStateMachineCommandInput - {@link UpdateStateMachineCommandInput}
@@ -113,6 +117,8 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class UpdateStateMachineCommand extends $Command<

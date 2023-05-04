@@ -50,6 +50,21 @@ export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataB
  * };
  * const command = new GetKeyGroupCommand(input);
  * const response = await client.send(command);
+ * // { // GetKeyGroupResult
+ * //   KeyGroup: { // KeyGroup
+ * //     Id: "STRING_VALUE", // required
+ * //     LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     KeyGroupConfig: { // KeyGroupConfig
+ * //       Name: "STRING_VALUE", // required
+ * //       Items: [ // PublicKeyIdList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Comment: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetKeyGroupCommandInput - {@link GetKeyGroupCommandInput}
@@ -61,6 +76,8 @@ export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataB
  * @throws {@link NoSuchResource} (client fault)
  *  <p>A resource that was specified is not valid.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetKeyGroupCommand extends $Command<

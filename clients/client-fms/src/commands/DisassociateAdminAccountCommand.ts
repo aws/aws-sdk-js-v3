@@ -43,6 +43,8 @@ export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer 
  * const input = {};
  * const command = new DisassociateAdminAccountCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateAdminAccountCommandInput - {@link DisassociateAdminAccountCommandInput}
@@ -65,6 +67,8 @@ export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer 
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class DisassociateAdminAccountCommand extends $Command<

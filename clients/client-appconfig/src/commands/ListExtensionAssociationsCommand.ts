@@ -51,6 +51,17 @@ export interface ListExtensionAssociationsCommandOutput extends ExtensionAssocia
  * };
  * const command = new ListExtensionAssociationsCommand(input);
  * const response = await client.send(command);
+ * // { // ExtensionAssociations
+ * //   Items: [ // ExtensionAssociationSummaries
+ * //     { // ExtensionAssociationSummary
+ * //       Id: "STRING_VALUE",
+ * //       ExtensionArn: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListExtensionAssociationsCommandInput - {@link ListExtensionAssociationsCommandInput}
@@ -65,6 +76,8 @@ export interface ListExtensionAssociationsCommandOutput extends ExtensionAssocia
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal failure in the AppConfig service.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
 export class ListExtensionAssociationsCommand extends $Command<

@@ -67,6 +67,20 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * };
  * const command = new CreatePortalCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePortalResponse
+ * //   portalId: "STRING_VALUE", // required
+ * //   portalArn: "STRING_VALUE", // required
+ * //   portalStartUrl: "STRING_VALUE", // required
+ * //   portalStatus: { // PortalStatus
+ * //     state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
+ * //     error: { // MonitorErrorDetails
+ * //       code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ssoApplicationId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreatePortalCommandInput - {@link CreatePortalCommandInput}
@@ -97,6 +111,8 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class CreatePortalCommand extends $Command<

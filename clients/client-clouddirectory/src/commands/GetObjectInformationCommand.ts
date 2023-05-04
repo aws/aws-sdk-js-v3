@@ -48,6 +48,16 @@ export interface GetObjectInformationCommandOutput extends GetObjectInformationR
  * };
  * const command = new GetObjectInformationCommand(input);
  * const response = await client.send(command);
+ * // { // GetObjectInformationResponse
+ * //   SchemaFacets: [ // SchemaFacetList
+ * //     { // SchemaFacet
+ * //       SchemaArn: "STRING_VALUE",
+ * //       FacetName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ObjectIdentifier: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetObjectInformationCommandInput - {@link GetObjectInformationCommandInput}
@@ -81,6 +91,8 @@ export interface GetObjectInformationCommandOutput extends GetObjectInformationR
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class GetObjectInformationCommand extends $Command<

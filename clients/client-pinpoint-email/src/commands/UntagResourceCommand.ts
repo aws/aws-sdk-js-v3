@@ -47,6 +47,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -67,6 +69,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

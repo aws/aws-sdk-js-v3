@@ -54,6 +54,17 @@ export interface DescribeNotificationSubscriptionsCommandOutput
  * };
  * const command = new DescribeNotificationSubscriptionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeNotificationSubscriptionsResponse
+ * //   Subscriptions: [ // SubscriptionList
+ * //     { // Subscription
+ * //       SubscriptionId: "STRING_VALUE",
+ * //       EndPoint: "STRING_VALUE",
+ * //       Protocol: "HTTPS" || "SQS",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeNotificationSubscriptionsCommandInput - {@link DescribeNotificationSubscriptionsCommandInput}
@@ -71,6 +82,8 @@ export interface DescribeNotificationSubscriptionsCommandOutput
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class DescribeNotificationSubscriptionsCommand extends $Command<

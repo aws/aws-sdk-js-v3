@@ -50,6 +50,29 @@ export interface ListInvitationsCommandOutput extends ListInvitationsOutput, __M
  * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListInvitationsOutput
+ * //   Invitations: [ // InvitationList
+ * //     { // Invitation
+ * //       InvitationId: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       ExpirationDate: new Date("TIMESTAMP"),
+ * //       Status: "PENDING" || "ACCEPTED" || "ACCEPTING" || "REJECTED" || "EXPIRED",
+ * //       NetworkSummary: { // NetworkSummary
+ * //         Id: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         Framework: "HYPERLEDGER_FABRIC" || "ETHEREUM",
+ * //         FrameworkVersion: "STRING_VALUE",
+ * //         Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "DELETING" || "DELETED",
+ * //         CreationDate: new Date("TIMESTAMP"),
+ * //         Arn: "STRING_VALUE",
+ * //       },
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListInvitationsCommandInput - {@link ListInvitationsCommandInput}
@@ -80,6 +103,8 @@ export interface ListInvitationsCommandOutput extends ListInvitationsOutput, __M
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class ListInvitationsCommand extends $Command<

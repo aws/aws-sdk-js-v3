@@ -46,6 +46,11 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * };
  * const command = new CancelJobRunCommand(input);
  * const response = await client.send(command);
+ * // { // CancelJobRunResponse
+ * //   id: "STRING_VALUE",
+ * //   virtualClusterId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CancelJobRunCommandInput - {@link CancelJobRunCommandInput}
@@ -60,6 +65,8 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>There are invalid parameters in the client request.</p>
  *
+ * @throws {@link EMRContainersServiceException}
+ * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
 export class CancelJobRunCommand extends $Command<

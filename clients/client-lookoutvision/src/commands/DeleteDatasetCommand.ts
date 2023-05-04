@@ -60,6 +60,8 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * };
  * const command = new DeleteDatasetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDatasetCommandInput - {@link DeleteDatasetCommandInput}
@@ -87,6 +89,8 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class DeleteDatasetCommand extends $Command<

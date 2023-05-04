@@ -46,6 +46,20 @@ export interface ListDatasourcePackagesCommandOutput extends ListDatasourcePacka
  * };
  * const command = new ListDatasourcePackagesCommand(input);
  * const response = await client.send(command);
+ * // { // ListDatasourcePackagesResponse
+ * //   DatasourcePackages: { // DatasourcePackageIngestDetails
+ * //     "<keys>": { // DatasourcePackageIngestDetail
+ * //       DatasourcePackageIngestState: "STARTED" || "STOPPED" || "DISABLED",
+ * //       LastIngestStateChange: { // LastIngestStateChangeDates
+ * //         "<keys>": { // TimestampForCollection
+ * //           Timestamp: new Date("TIMESTAMP"),
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDatasourcePackagesCommandInput - {@link ListDatasourcePackagesCommandInput}
@@ -67,6 +81,8 @@ export interface ListDatasourcePackagesCommandOutput extends ListDatasourcePacka
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters are invalid.</p>
  *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
  *
  */
 export class ListDatasourcePackagesCommand extends $Command<

@@ -48,6 +48,19 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * };
  * const command = new DescribeApplicationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeApplicationResponse
+ * //   ApplicationInfo: { // ApplicationInfo
+ * //     ResourceGroupName: "STRING_VALUE",
+ * //     LifeCycle: "STRING_VALUE",
+ * //     OpsItemSNSTopicArn: "STRING_VALUE",
+ * //     OpsCenterEnabled: true || false,
+ * //     CWEMonitorEnabled: true || false,
+ * //     Remarks: "STRING_VALUE",
+ * //     AutoConfigEnabled: true || false,
+ * //     DiscoveryType: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeApplicationCommandInput - {@link DescribeApplicationCommandInput}
@@ -65,6 +78,8 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class DescribeApplicationCommand extends $Command<

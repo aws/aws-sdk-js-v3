@@ -48,6 +48,13 @@ export interface ListCustomMetricsCommandOutput extends ListCustomMetricsRespons
  * };
  * const command = new ListCustomMetricsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCustomMetricsResponse
+ * //   metricNames: [ // MetricNames
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCustomMetricsCommandInput - {@link ListCustomMetricsCommandInput}
@@ -65,6 +72,8 @@ export interface ListCustomMetricsCommandOutput extends ListCustomMetricsRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListCustomMetricsCommand extends $Command<

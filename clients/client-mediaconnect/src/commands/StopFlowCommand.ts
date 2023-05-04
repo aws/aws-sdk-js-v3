@@ -44,6 +44,11 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * };
  * const command = new StopFlowCommand(input);
  * const response = await client.send(command);
+ * // { // StopFlowResponse
+ * //   FlowArn: "STRING_VALUE",
+ * //   Status: "STANDBY" || "ACTIVE" || "UPDATING" || "DELETING" || "STARTING" || "STOPPING" || "ERROR",
+ * // };
+ *
  * ```
  *
  * @param StopFlowCommandInput - {@link StopFlowCommandInput}
@@ -70,6 +75,8 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class StopFlowCommand extends $Command<

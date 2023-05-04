@@ -49,6 +49,16 @@ export interface CreateProvisioningClaimCommandOutput extends CreateProvisioning
  * };
  * const command = new CreateProvisioningClaimCommand(input);
  * const response = await client.send(command);
+ * // { // CreateProvisioningClaimResponse
+ * //   certificateId: "STRING_VALUE",
+ * //   certificatePem: "STRING_VALUE",
+ * //   keyPair: { // KeyPair
+ * //     PublicKey: "STRING_VALUE",
+ * //     PrivateKey: "STRING_VALUE",
+ * //   },
+ * //   expiration: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param CreateProvisioningClaimCommandInput - {@link CreateProvisioningClaimCommandInput}
@@ -75,6 +85,8 @@ export interface CreateProvisioningClaimCommandOutput extends CreateProvisioning
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateProvisioningClaimCommand extends $Command<

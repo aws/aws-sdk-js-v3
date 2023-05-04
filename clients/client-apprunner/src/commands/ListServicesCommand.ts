@@ -45,6 +45,21 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
+ * // { // ListServicesResponse
+ * //   ServiceSummaryList: [ // ServiceSummaryList // required
+ * //     { // ServiceSummary
+ * //       ServiceName: "STRING_VALUE",
+ * //       ServiceId: "STRING_VALUE",
+ * //       ServiceArn: "STRING_VALUE",
+ * //       ServiceUrl: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       Status: "CREATE_FAILED" || "RUNNING" || "DELETED" || "DELETE_FAILED" || "PAUSED" || "OPERATION_IN_PROGRESS",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListServicesCommandInput - {@link ListServicesCommandInput}
@@ -59,6 +74,8 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class ListServicesCommand extends $Command<

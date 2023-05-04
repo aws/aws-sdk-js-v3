@@ -46,6 +46,19 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListConnectionsResponse
+ * //   ConnectionSummaryList: [ // ConnectionSummaryList // required
+ * //     { // ConnectionSummary
+ * //       ConnectionName: "STRING_VALUE",
+ * //       ConnectionArn: "STRING_VALUE",
+ * //       ProviderType: "GITHUB",
+ * //       Status: "PENDING_HANDSHAKE" || "AVAILABLE" || "ERROR" || "DELETED",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListConnectionsCommandInput - {@link ListConnectionsCommandInput}
@@ -60,6 +73,8 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
  *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class ListConnectionsCommand extends $Command<

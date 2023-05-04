@@ -58,6 +58,20 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
  * };
  * const command = new DescribeConnectionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeConnectionsResponse
+ * //   Marker: "STRING_VALUE",
+ * //   Connections: [ // ConnectionList
+ * //     { // Connection
+ * //       ReplicationInstanceArn: "STRING_VALUE",
+ * //       EndpointArn: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       LastFailureMessage: "STRING_VALUE",
+ * //       EndpointIdentifier: "STRING_VALUE",
+ * //       ReplicationInstanceIdentifier: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeConnectionsCommandInput - {@link DescribeConnectionsCommandInput}
@@ -69,6 +83,8 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Describe connections
  * ```javascript

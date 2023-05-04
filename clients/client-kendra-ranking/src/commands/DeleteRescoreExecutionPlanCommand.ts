@@ -46,6 +46,8 @@ export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteRescoreExecutionPlanCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteRescoreExecutionPlanCommandInput - {@link DeleteRescoreExecutionPlanCommandInput}
@@ -84,6 +86,8 @@ export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBeare
  *             the Amazon Kendra Intelligent Ranking service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraRankingServiceException}
+ * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
  */
 export class DeleteRescoreExecutionPlanCommand extends $Command<

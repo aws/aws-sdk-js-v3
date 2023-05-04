@@ -49,6 +49,8 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PostToConnectionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PostToConnectionCommandInput - {@link PostToConnectionCommandInput}
@@ -69,6 +71,8 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
  * @throws {@link PayloadTooLargeException} (client fault)
  *  <p>The data has exceeded the maximum size allowed.</p>
  *
+ * @throws {@link ApiGatewayManagementApiServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayManagementApi service.</p>
  *
  */
 export class PostToConnectionCommand extends $Command<

@@ -46,6 +46,15 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResul
  * };
  * const command = new ListMemberAccountsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMemberAccountsResult
+ * //   memberAccounts: [ // MemberAccounts
+ * //     { // MemberAccount
+ * //       accountId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListMemberAccountsCommandInput - {@link ListMemberAccountsCommandInput}
@@ -61,6 +70,8 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResul
  *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  *
+ * @throws {@link MacieServiceException}
+ * <p>Base exception class for all service exceptions from Macie service.</p>
  *
  */
 export class ListMemberAccountsCommand extends $Command<

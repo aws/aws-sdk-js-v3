@@ -32,7 +32,7 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
 
 /**
  * @public
- * <p>Creates a finding report.</p>
+ * <p>Creates a finding report. By default only <code>ACTIVE</code> findings are returned in the report. To see <code>SUPRESSED</code> or <code>CLOSED</code> findings you must specify a value for the <code>findingStatus</code> filter criteria. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -168,6 +168,10 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  * };
  * const command = new CreateFindingsReportCommand(input);
  * const response = await client.send(command);
+ * // { // CreateFindingsReportResponse
+ * //   reportId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateFindingsReportCommandInput - {@link CreateFindingsReportCommandInput}
@@ -192,6 +196,8 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  *  <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
  *
+ * @throws {@link Inspector2ServiceException}
+ * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
 export class CreateFindingsReportCommand extends $Command<

@@ -49,6 +49,8 @@ export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataB
  * };
  * const command = new DeleteAggregationAuthorizationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAggregationAuthorizationCommandInput - {@link DeleteAggregationAuthorizationCommandInput}
@@ -61,6 +63,8 @@ export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataB
  *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteAggregationAuthorizationCommand extends $Command<

@@ -49,6 +49,20 @@ export interface ListNotebookMetadataCommandOutput extends ListNotebookMetadataO
  * };
  * const command = new ListNotebookMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // ListNotebookMetadataOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   NotebookMetadataList: [ // NotebookMetadataArray
+ * //     { // NotebookMetadata
+ * //       NotebookId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       WorkGroup: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       Type: "IPYNB",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListNotebookMetadataCommandInput - {@link ListNotebookMetadataCommandInput}
@@ -68,6 +82,8 @@ export interface ListNotebookMetadataCommandOutput extends ListNotebookMetadataO
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListNotebookMetadataCommand extends $Command<

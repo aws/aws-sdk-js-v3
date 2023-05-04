@@ -45,6 +45,8 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteDeploymentStrategyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDeploymentStrategyCommandInput - {@link DeleteDeploymentStrategyCommandInput}
@@ -62,6 +64,8 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To delete a deployment strategy
  * ```javascript

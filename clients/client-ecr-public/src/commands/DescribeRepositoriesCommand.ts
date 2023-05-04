@@ -49,6 +49,19 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * };
  * const command = new DescribeRepositoriesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRepositoriesResponse
+ * //   repositories: [ // RepositoryList
+ * //     { // Repository
+ * //       repositoryArn: "STRING_VALUE",
+ * //       registryId: "STRING_VALUE",
+ * //       repositoryName: "STRING_VALUE",
+ * //       repositoryUri: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeRepositoriesCommandInput - {@link DescribeRepositoriesCommandInput}
@@ -71,6 +84,8 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class DescribeRepositoriesCommand extends $Command<

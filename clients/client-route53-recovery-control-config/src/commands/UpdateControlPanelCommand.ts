@@ -49,6 +49,17 @@ export interface UpdateControlPanelCommandOutput extends UpdateControlPanelRespo
  * };
  * const command = new UpdateControlPanelCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateControlPanelResponse
+ * //   ControlPanel: { // ControlPanel
+ * //     ClusterArn: "STRING_VALUE",
+ * //     ControlPanelArn: "STRING_VALUE",
+ * //     DefaultControlPanel: true || false,
+ * //     Name: "STRING_VALUE",
+ * //     RoutingControlCount: Number("int"),
+ * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateControlPanelCommandInput - {@link UpdateControlPanelCommandInput}
@@ -75,6 +86,8 @@ export interface UpdateControlPanelCommandOutput extends UpdateControlPanelRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
  *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class UpdateControlPanelCommand extends $Command<

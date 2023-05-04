@@ -73,6 +73,24 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * };
  * const command = new DetectModerationLabelsCommand(input);
  * const response = await client.send(command);
+ * // { // DetectModerationLabelsResponse
+ * //   ModerationLabels: [ // ModerationLabels
+ * //     { // ModerationLabel
+ * //       Confidence: Number("float"),
+ * //       Name: "STRING_VALUE",
+ * //       ParentName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ModerationModelVersion: "STRING_VALUE",
+ * //   HumanLoopActivationOutput: { // HumanLoopActivationOutput
+ * //     HumanLoopArn: "STRING_VALUE",
+ * //     HumanLoopActivationReasons: [ // HumanLoopActivationReasons
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     HumanLoopActivationConditionsEvaluationResults: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DetectModerationLabelsCommandInput - {@link DetectModerationLabelsCommandInput}
@@ -113,6 +131,8 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class DetectModerationLabelsCommand extends $Command<

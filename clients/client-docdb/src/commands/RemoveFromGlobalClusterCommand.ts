@@ -48,6 +48,29 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * };
  * const command = new RemoveFromGlobalClusterCommand(input);
  * const response = await client.send(command);
+ * // { // RemoveFromGlobalClusterResult
+ * //   GlobalCluster: { // GlobalCluster
+ * //     GlobalClusterIdentifier: "STRING_VALUE",
+ * //     GlobalClusterResourceId: "STRING_VALUE",
+ * //     GlobalClusterArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
+ * //     EngineVersion: "STRING_VALUE",
+ * //     DatabaseName: "STRING_VALUE",
+ * //     StorageEncrypted: true || false,
+ * //     DeletionProtection: true || false,
+ * //     GlobalClusterMembers: [ // GlobalClusterMemberList
+ * //       { // GlobalClusterMember
+ * //         DBClusterArn: "STRING_VALUE",
+ * //         Readers: [ // ReadersArnList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         IsWriter: true || false,
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param RemoveFromGlobalClusterCommandInput - {@link RemoveFromGlobalClusterCommandInput}
@@ -66,6 +89,8 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
+ * @throws {@link DocDBServiceException}
+ * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
  */
 export class RemoveFromGlobalClusterCommand extends $Command<

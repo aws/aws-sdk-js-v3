@@ -64,6 +64,43 @@ export interface AssociateInstanceEventWindowCommandOutput
  * };
  * const command = new AssociateInstanceEventWindowCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateInstanceEventWindowResult
+ * //   InstanceEventWindow: { // InstanceEventWindow
+ * //     InstanceEventWindowId: "STRING_VALUE",
+ * //     TimeRanges: [ // InstanceEventWindowTimeRangeList
+ * //       { // InstanceEventWindowTimeRange
+ * //         StartWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ * //         StartHour: Number("int"),
+ * //         EndWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ * //         EndHour: Number("int"),
+ * //       },
+ * //     ],
+ * //     Name: "STRING_VALUE",
+ * //     CronExpression: "STRING_VALUE",
+ * //     AssociationTarget: { // InstanceEventWindowAssociationTarget
+ * //       InstanceIds: [ // InstanceIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DedicatedHostIds: [ // DedicatedHostIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     State: "creating" || "deleting" || "active" || "deleted",
+ * //     Tags: [
+ * //       {
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param AssociateInstanceEventWindowCommandInput - {@link AssociateInstanceEventWindowCommandInput}
@@ -72,6 +109,8 @@ export interface AssociateInstanceEventWindowCommandOutput
  * @see {@link AssociateInstanceEventWindowCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AssociateInstanceEventWindowCommand extends $Command<

@@ -45,6 +45,15 @@ export interface ListStagingAccountsCommandOutput extends ListStagingAccountsRes
  * };
  * const command = new ListStagingAccountsCommand(input);
  * const response = await client.send(command);
+ * // { // ListStagingAccountsResponse
+ * //   accounts: [ // Accounts
+ * //     { // Account
+ * //       accountID: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListStagingAccountsCommandInput - {@link ListStagingAccountsCommandInput}
@@ -68,6 +77,8 @@ export interface ListStagingAccountsCommandOutput extends ListStagingAccountsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class ListStagingAccountsCommand extends $Command<

@@ -49,6 +49,8 @@ export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatu
  * };
  * const command = new UpdateHITReviewStatusCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateHITReviewStatusCommandInput - {@link UpdateHITReviewStatusCommandInput}
@@ -63,6 +65,8 @@ export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatu
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class UpdateHITReviewStatusCommand extends $Command<

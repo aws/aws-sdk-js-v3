@@ -46,6 +46,8 @@ export interface UnregisterConnectorCommandOutput extends UnregisterConnectorRes
  * };
  * const command = new UnregisterConnectorCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UnregisterConnectorCommandInput - {@link UnregisterConnectorCommandInput}
@@ -66,6 +68,8 @@ export interface UnregisterConnectorCommandOutput extends UnregisterConnectorRes
  *  <p> The resource specified in the request (such as the source or destination connector
  *       profile) is not found. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class UnregisterConnectorCommand extends $Command<

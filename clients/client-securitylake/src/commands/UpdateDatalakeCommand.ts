@@ -62,6 +62,8 @@ export interface UpdateDatalakeCommandOutput extends UpdateDatalakeResponse, __M
  * };
  * const command = new UpdateDatalakeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateDatalakeCommandInput - {@link UpdateDatalakeCommandInput}
@@ -89,6 +91,8 @@ export interface UpdateDatalakeCommandOutput extends UpdateDatalakeResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>Your signing certificate could not be validated. </p>
  *
+ * @throws {@link SecurityLakeServiceException}
+ * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
 export class UpdateDatalakeCommand extends $Command<

@@ -117,6 +117,10 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  * };
  * const command = new CreateScheduledQueryCommand(input);
  * const response = await client.send(command);
+ * // { // CreateScheduledQueryResponse
+ * //   Arn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateScheduledQueryCommandInput - {@link CreateScheduledQueryCommandInput}
@@ -148,6 +152,8 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>
  *
+ * @throws {@link TimestreamQueryServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
 export class CreateScheduledQueryCommand extends $Command<

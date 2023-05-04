@@ -50,6 +50,11 @@ export interface StopTextTranslationJobCommandOutput extends StopTextTranslation
  * };
  * const command = new StopTextTranslationJobCommand(input);
  * const response = await client.send(command);
+ * // { // StopTextTranslationJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERROR" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
+ *
  * ```
  *
  * @param StopTextTranslationJobCommandInput - {@link StopTextTranslationJobCommandInput}
@@ -70,6 +75,8 @@ export interface StopTextTranslationJobCommandOutput extends StopTextTranslation
  *  <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class StopTextTranslationJobCommand extends $Command<

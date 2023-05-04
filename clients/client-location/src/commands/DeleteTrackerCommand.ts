@@ -49,6 +49,8 @@ export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __Met
  * };
  * const command = new DeleteTrackerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTrackerCommandInput - {@link DeleteTrackerCommandInput}
@@ -73,6 +75,8 @@ export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class DeleteTrackerCommand extends $Command<

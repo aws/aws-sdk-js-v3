@@ -52,6 +52,12 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * // { // Application
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -66,6 +72,8 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal failure in the AppConfig service.</p>
  *
+ * @throws {@link AppConfigServiceException}
+ * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @example To create an application
  * ```javascript

@@ -65,6 +65,10 @@ export interface PurchaseReservedInstancesOfferingCommandOutput
  * };
  * const command = new PurchaseReservedInstancesOfferingCommand(input);
  * const response = await client.send(command);
+ * // { // PurchaseReservedInstancesOfferingResult
+ * //   ReservedInstancesId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PurchaseReservedInstancesOfferingCommandInput - {@link PurchaseReservedInstancesOfferingCommandInput}
@@ -73,6 +77,8 @@ export interface PurchaseReservedInstancesOfferingCommandOutput
  * @see {@link PurchaseReservedInstancesOfferingCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class PurchaseReservedInstancesOfferingCommand extends $Command<

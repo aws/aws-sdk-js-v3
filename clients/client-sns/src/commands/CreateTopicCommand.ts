@@ -58,6 +58,10 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  * };
  * const command = new CreateTopicCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTopicResponse
+ * //   TopicArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateTopicCommandInput - {@link CreateTopicCommandInput}
@@ -98,6 +102,8 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  * @throws {@link TopicLimitExceededException} (client fault)
  *  <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class CreateTopicCommand extends $Command<

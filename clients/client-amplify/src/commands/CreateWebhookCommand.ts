@@ -46,6 +46,18 @@ export interface CreateWebhookCommandOutput extends CreateWebhookResult, __Metad
  * };
  * const command = new CreateWebhookCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWebhookResult
+ * //   webhook: { // Webhook
+ * //     webhookArn: "STRING_VALUE", // required
+ * //     webhookId: "STRING_VALUE", // required
+ * //     webhookUrl: "STRING_VALUE", // required
+ * //     branchName: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE", // required
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     updateTime: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateWebhookCommandInput - {@link CreateWebhookCommandInput}
@@ -72,6 +84,8 @@ export interface CreateWebhookCommandOutput extends CreateWebhookResult, __Metad
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class CreateWebhookCommand extends $Command<

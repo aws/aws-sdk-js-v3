@@ -65,6 +65,10 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
  * };
  * const command = new CreateNetworkProfileCommand(input);
  * const response = await client.send(command);
+ * // { // CreateNetworkProfileResponse
+ * //   NetworkProfileArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateNetworkProfileCommandInput - {@link CreateNetworkProfileCommandInput}
@@ -88,6 +92,8 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateNetworkProfileCommand extends $Command<

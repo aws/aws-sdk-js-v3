@@ -50,6 +50,27 @@ export interface ListCheckSummariesCommandOutput extends ListCheckSummariesOutpu
  * };
  * const command = new ListCheckSummariesCommand(input);
  * const response = await client.send(command);
+ * // { // ListCheckSummariesOutput
+ * //   CheckSummaries: [ // CheckSummaries
+ * //     { // CheckSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Provider: "TRUSTED_ADVISOR",
+ * //       Description: "STRING_VALUE",
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       LensArn: "STRING_VALUE",
+ * //       PillarId: "STRING_VALUE",
+ * //       QuestionId: "STRING_VALUE",
+ * //       ChoiceId: "STRING_VALUE",
+ * //       Status: "OKAY" || "WARNING" || "ERROR" || "NOT_AVAILABLE" || "FETCH_FAILED",
+ * //       AccountSummary: { // AccountSummary
+ * //         "<keys>": Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListCheckSummariesCommandInput - {@link ListCheckSummariesCommandInput}
@@ -73,6 +94,8 @@ export interface ListCheckSummariesCommandOutput extends ListCheckSummariesOutpu
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class ListCheckSummariesCommand extends $Command<

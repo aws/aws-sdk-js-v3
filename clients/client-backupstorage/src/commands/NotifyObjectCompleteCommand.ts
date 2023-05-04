@@ -65,6 +65,11 @@ export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteO
  * };
  * const command = new NotifyObjectCompleteCommand(input);
  * const response = await client.send(command);
+ * // { // NotifyObjectCompleteOutput
+ * //   ObjectChecksum: "STRING_VALUE", // required
+ * //   ObjectChecksumAlgorithm: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param NotifyObjectCompleteCommandInput - {@link NotifyObjectCompleteCommandInput}
@@ -97,6 +102,8 @@ export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteO
  * @throws {@link ThrottlingException} (client fault)
  *  Increased rate over throttling limits. Can be retried with exponential backoff.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class NotifyObjectCompleteCommand extends $Command<

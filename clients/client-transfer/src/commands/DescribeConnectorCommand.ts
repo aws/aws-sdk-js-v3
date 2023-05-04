@@ -45,6 +45,32 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * };
  * const command = new DescribeConnectorCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeConnectorResponse
+ * //   Connector: { // DescribedConnector
+ * //     Arn: "STRING_VALUE", // required
+ * //     ConnectorId: "STRING_VALUE",
+ * //     Url: "STRING_VALUE",
+ * //     As2Config: { // As2ConnectorConfig
+ * //       LocalProfileId: "STRING_VALUE",
+ * //       PartnerProfileId: "STRING_VALUE",
+ * //       MessageSubject: "STRING_VALUE",
+ * //       Compression: "ZLIB" || "DISABLED",
+ * //       EncryptionAlgorithm: "AES128_CBC" || "AES192_CBC" || "AES256_CBC" || "NONE",
+ * //       SigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE",
+ * //       MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
+ * //       MdnResponse: "SYNC" || "NONE",
+ * //     },
+ * //     AccessRole: "STRING_VALUE",
+ * //     LoggingRole: "STRING_VALUE",
+ * //     Tags: [ // Tags
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeConnectorCommandInput - {@link DescribeConnectorCommandInput}
@@ -66,6 +92,8 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class DescribeConnectorCommand extends $Command<

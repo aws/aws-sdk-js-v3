@@ -47,6 +47,23 @@ export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJob
  * };
  * const command = new ListMailboxExportJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMailboxExportJobsResponse
+ * //   Jobs: [ // Jobs
+ * //     { // MailboxExportJob
+ * //       JobId: "STRING_VALUE",
+ * //       EntityId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       S3BucketName: "STRING_VALUE",
+ * //       S3Path: "STRING_VALUE",
+ * //       EstimatedProgress: Number("int"),
+ * //       State: "RUNNING" || "COMPLETED" || "FAILED" || "CANCELLED",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListMailboxExportJobsCommandInput - {@link ListMailboxExportJobsCommandInput}
@@ -66,6 +83,8 @@ export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJob
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class ListMailboxExportJobsCommand extends $Command<

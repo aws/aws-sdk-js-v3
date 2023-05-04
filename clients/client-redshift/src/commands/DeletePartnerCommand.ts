@@ -47,6 +47,11 @@ export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMess
  * };
  * const command = new DeletePartnerCommand(input);
  * const response = await client.send(command);
+ * // { // PartnerIntegrationOutputMessage
+ * //   DatabaseName: "STRING_VALUE",
+ * //   PartnerName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeletePartnerCommandInput - {@link DeletePartnerCommandInput}
@@ -65,6 +70,8 @@ export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMess
  * @throws {@link UnauthorizedPartnerIntegrationFault} (client fault)
  *  <p>The partner integration is not authorized.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeletePartnerCommand extends $Command<

@@ -46,6 +46,11 @@ export interface AssumeImpersonationRoleCommandOutput extends AssumeImpersonatio
  * };
  * const command = new AssumeImpersonationRoleCommand(input);
  * const response = await client.send(command);
+ * // { // AssumeImpersonationRoleResponse
+ * //   Token: "STRING_VALUE",
+ * //   ExpiresIn: Number("long"),
+ * // };
+ *
  * ```
  *
  * @param AssumeImpersonationRoleCommandInput - {@link AssumeImpersonationRoleCommandInput}
@@ -68,6 +73,8 @@ export interface AssumeImpersonationRoleCommandOutput extends AssumeImpersonatio
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class AssumeImpersonationRoleCommand extends $Command<

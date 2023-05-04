@@ -60,6 +60,8 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
  * };
  * const command = new ModifyCertificateBasedAuthPropertiesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ModifyCertificateBasedAuthPropertiesCommandInput - {@link ModifyCertificateBasedAuthPropertiesCommandInput}
@@ -80,6 +82,8 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class ModifyCertificateBasedAuthPropertiesCommand extends $Command<

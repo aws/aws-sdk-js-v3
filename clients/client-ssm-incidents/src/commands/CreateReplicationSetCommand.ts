@@ -53,6 +53,10 @@ export interface CreateReplicationSetCommandOutput extends CreateReplicationSetO
  * };
  * const command = new CreateReplicationSetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateReplicationSetOutput
+ * //   arn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateReplicationSetCommandInput - {@link CreateReplicationSetCommandInput}
@@ -81,6 +85,8 @@ export interface CreateReplicationSetCommandOutput extends CreateReplicationSetO
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class CreateReplicationSetCommand extends $Command<

@@ -106,6 +106,10 @@ export interface CreateNotebookInstanceCommandOutput extends CreateNotebookInsta
  * };
  * const command = new CreateNotebookInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // CreateNotebookInstanceOutput
+ * //   NotebookInstanceArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateNotebookInstanceCommandInput - {@link CreateNotebookInstanceCommandInput}
@@ -118,6 +122,8 @@ export interface CreateNotebookInstanceCommandOutput extends CreateNotebookInsta
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateNotebookInstanceCommand extends $Command<

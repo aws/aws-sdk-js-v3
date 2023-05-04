@@ -67,6 +67,8 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  * };
  * const command = new AssociateCreatedArtifactCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AssociateCreatedArtifactCommandInput - {@link AssociateCreatedArtifactCommandInput}
@@ -109,6 +111,8 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  *  <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
  *          flag is set to "true".</p>
  *
+ * @throws {@link MigrationHubServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
 export class AssociateCreatedArtifactCommand extends $Command<

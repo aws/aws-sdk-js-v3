@@ -51,6 +51,17 @@ export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedD
  * };
  * const command = new ListSuppressedDestinationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListSuppressedDestinationsResponse
+ * //   SuppressedDestinationSummaries: [ // SuppressedDestinationSummaries
+ * //     { // SuppressedDestinationSummary
+ * //       EmailAddress: "STRING_VALUE", // required
+ * //       Reason: "BOUNCE" || "COMPLAINT", // required
+ * //       LastUpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListSuppressedDestinationsCommandInput - {@link ListSuppressedDestinationsCommandInput}
@@ -68,6 +79,8 @@ export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedD
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class ListSuppressedDestinationsCommand extends $Command<

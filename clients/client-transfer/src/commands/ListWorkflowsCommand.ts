@@ -45,6 +45,17 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * };
  * const command = new ListWorkflowsCommand(input);
  * const response = await client.send(command);
+ * // { // ListWorkflowsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Workflows: [ // ListedWorkflows // required
+ * //     { // ListedWorkflow
+ * //       WorkflowId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListWorkflowsCommandInput - {@link ListWorkflowsCommandInput}
@@ -65,6 +76,8 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class ListWorkflowsCommand extends $Command<

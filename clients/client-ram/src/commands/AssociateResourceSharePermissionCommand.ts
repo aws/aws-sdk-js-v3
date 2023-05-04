@@ -56,6 +56,11 @@ export interface AssociateResourceSharePermissionCommandOutput
  * };
  * const command = new AssociateResourceSharePermissionCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateResourceSharePermissionResponse
+ * //   returnValue: true || false,
+ * //   clientToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AssociateResourceSharePermissionCommandInput - {@link AssociateResourceSharePermissionCommandInput}
@@ -87,6 +92,8 @@ export interface AssociateResourceSharePermissionCommandOutput
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class AssociateResourceSharePermissionCommand extends $Command<

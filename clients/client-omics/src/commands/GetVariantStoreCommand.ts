@@ -44,6 +44,28 @@ export interface GetVariantStoreCommandOutput extends GetVariantStoreResponse, _
  * };
  * const command = new GetVariantStoreCommand(input);
  * const response = await client.send(command);
+ * // { // GetVariantStoreResponse
+ * //   id: "STRING_VALUE", // required
+ * //   reference: { // ReferenceItem Union: only one key present
+ * //     referenceArn: "STRING_VALUE",
+ * //   },
+ * //   status: "STRING_VALUE", // required
+ * //   storeArn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE", // required
+ * //   sseConfig: { // SseConfig
+ * //     type: "STRING_VALUE", // required
+ * //     keyArn: "STRING_VALUE",
+ * //   },
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   updateTime: new Date("TIMESTAMP"), // required
+ * //   tags: { // TagMap // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   statusMessage: "STRING_VALUE", // required
+ * //   storeSizeBytes: Number("long"), // required
+ * // };
+ *
  * ```
  *
  * @param GetVariantStoreCommandInput - {@link GetVariantStoreCommandInput}
@@ -67,6 +89,8 @@ export interface GetVariantStoreCommandOutput extends GetVariantStoreResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetVariantStoreCommand extends $Command<

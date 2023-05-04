@@ -46,6 +46,8 @@ export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBackupSelectionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteBackupSelectionCommandInput - {@link DeleteBackupSelectionCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DeleteBackupSelectionCommand extends $Command<

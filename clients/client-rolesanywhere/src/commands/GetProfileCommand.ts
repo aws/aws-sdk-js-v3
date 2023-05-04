@@ -48,6 +48,27 @@ export interface GetProfileCommandOutput extends ProfileDetailResponse, __Metada
  * };
  * const command = new GetProfileCommand(input);
  * const response = await client.send(command);
+ * // { // ProfileDetailResponse
+ * //   profile: { // ProfileDetail
+ * //     profileId: "STRING_VALUE",
+ * //     profileArn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     requireInstanceProperties: true || false,
+ * //     enabled: true || false,
+ * //     createdBy: "STRING_VALUE",
+ * //     sessionPolicy: "STRING_VALUE",
+ * //     roleArns: [ // RoleArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     managedPolicyArns: [ // ManagedPolicyList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //     durationSeconds: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetProfileCommandInput - {@link GetProfileCommandInput}
@@ -62,6 +83,8 @@ export interface GetProfileCommandOutput extends ProfileDetailResponse, __Metada
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link RolesAnywhereServiceException}
+ * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  */
 export class GetProfileCommand extends $Command<

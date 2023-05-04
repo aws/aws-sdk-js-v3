@@ -50,6 +50,17 @@ export interface DescribeChapCredentialsCommandOutput extends DescribeChapCreden
  * };
  * const command = new DescribeChapCredentialsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeChapCredentialsOutput
+ * //   ChapCredentials: [ // ChapCredentials
+ * //     { // ChapInfo
+ * //       TargetARN: "STRING_VALUE",
+ * //       SecretToAuthenticateInitiator: "STRING_VALUE",
+ * //       InitiatorName: "STRING_VALUE",
+ * //       SecretToAuthenticateTarget: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeChapCredentialsCommandInput - {@link DescribeChapCredentialsCommandInput}
@@ -66,6 +77,8 @@ export interface DescribeChapCredentialsCommandOutput extends DescribeChapCreden
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To describe CHAP credetnitals for an iSCSI
  * ```javascript

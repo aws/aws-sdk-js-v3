@@ -54,6 +54,27 @@ export interface RestoreFromRecoveryPointCommandOutput extends RestoreFromRecove
  * };
  * const command = new RestoreFromRecoveryPointCommand(input);
  * const response = await client.send(command);
+ * // { // RestoreFromRecoveryPointResponse
+ * //   recoveryPointId: "STRING_VALUE",
+ * //   namespace: { // Namespace
+ * //     namespaceArn: "STRING_VALUE",
+ * //     namespaceId: "STRING_VALUE",
+ * //     namespaceName: "STRING_VALUE",
+ * //     adminUsername: "STRING_VALUE",
+ * //     dbName: "STRING_VALUE",
+ * //     kmsKeyId: "STRING_VALUE",
+ * //     defaultIamRoleArn: "STRING_VALUE",
+ * //     iamRoles: [ // IamRoleArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     logExports: [ // LogExportList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     status: "STRING_VALUE",
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param RestoreFromRecoveryPointCommandInput - {@link RestoreFromRecoveryPointCommandInput}
@@ -74,6 +95,8 @@ export interface RestoreFromRecoveryPointCommandOutput extends RestoreFromRecove
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link RedshiftServerlessServiceException}
+ * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
 export class RestoreFromRecoveryPointCommand extends $Command<

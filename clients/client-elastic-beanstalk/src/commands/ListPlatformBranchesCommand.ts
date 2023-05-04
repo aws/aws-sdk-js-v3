@@ -57,6 +57,21 @@ export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesR
  * };
  * const command = new ListPlatformBranchesCommand(input);
  * const response = await client.send(command);
+ * // { // ListPlatformBranchesResult
+ * //   PlatformBranchSummaryList: [ // PlatformBranchSummaryList
+ * //     { // PlatformBranchSummary
+ * //       PlatformName: "STRING_VALUE",
+ * //       BranchName: "STRING_VALUE",
+ * //       LifecycleState: "STRING_VALUE",
+ * //       BranchOrder: Number("int"),
+ * //       SupportedTierList: [ // SupportedTierList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPlatformBranchesCommandInput - {@link ListPlatformBranchesCommandInput}
@@ -65,6 +80,8 @@ export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesR
  * @see {@link ListPlatformBranchesCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class ListPlatformBranchesCommand extends $Command<

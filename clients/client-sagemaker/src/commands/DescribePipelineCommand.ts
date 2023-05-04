@@ -44,6 +44,42 @@ export interface DescribePipelineCommandOutput extends DescribePipelineResponse,
  * };
  * const command = new DescribePipelineCommand(input);
  * const response = await client.send(command);
+ * // { // DescribePipelineResponse
+ * //   PipelineArn: "STRING_VALUE",
+ * //   PipelineName: "STRING_VALUE",
+ * //   PipelineDisplayName: "STRING_VALUE",
+ * //   PipelineDefinition: "STRING_VALUE",
+ * //   PipelineDescription: "STRING_VALUE",
+ * //   RoleArn: "STRING_VALUE",
+ * //   PipelineStatus: "Active",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastRunTime: new Date("TIMESTAMP"),
+ * //   CreatedBy: { // UserContext
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: { // IamIdentity
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   LastModifiedBy: {
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: {
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ParallelismConfiguration: { // ParallelismConfiguration
+ * //     MaxParallelExecutionSteps: Number("int"), // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribePipelineCommandInput - {@link DescribePipelineCommandInput}
@@ -55,6 +91,8 @@ export interface DescribePipelineCommandOutput extends DescribePipelineResponse,
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribePipelineCommand extends $Command<

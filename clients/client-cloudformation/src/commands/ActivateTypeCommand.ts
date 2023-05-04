@@ -61,6 +61,10 @@ export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __Metadat
  * };
  * const command = new ActivateTypeCommand(input);
  * const response = await client.send(command);
+ * // { // ActivateTypeOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ActivateTypeCommandInput - {@link ActivateTypeCommandInput}
@@ -75,6 +79,8 @@ export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __Metadat
  * @throws {@link TypeNotFoundException} (client fault)
  *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class ActivateTypeCommand extends $Command<

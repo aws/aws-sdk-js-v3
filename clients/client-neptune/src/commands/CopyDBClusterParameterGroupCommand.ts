@@ -52,6 +52,15 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * };
  * const command = new CopyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CopyDBClusterParameterGroupResult
+ * //   DBClusterParameterGroup: { // DBClusterParameterGroup
+ * //     DBClusterParameterGroupName: "STRING_VALUE",
+ * //     DBParameterGroupFamily: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     DBClusterParameterGroupArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CopyDBClusterParameterGroupCommandInput - {@link CopyDBClusterParameterGroupCommandInput}
@@ -71,6 +80,8 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
  *  <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class CopyDBClusterParameterGroupCommand extends $Command<

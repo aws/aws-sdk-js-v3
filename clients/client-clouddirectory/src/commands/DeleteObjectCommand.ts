@@ -48,6 +48,8 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteObjectCommandInput - {@link DeleteObjectCommandInput}
@@ -85,6 +87,8 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class DeleteObjectCommand extends $Command<

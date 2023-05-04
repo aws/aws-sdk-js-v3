@@ -55,6 +55,16 @@ export interface BatchDeleteDelegationByAssessmentCommandOutput
  * };
  * const command = new BatchDeleteDelegationByAssessmentCommand(input);
  * const response = await client.send(command);
+ * // { // BatchDeleteDelegationByAssessmentResponse
+ * //   errors: [ // BatchDeleteDelegationByAssessmentErrors
+ * //     { // BatchDeleteDelegationByAssessmentError
+ * //       delegationId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchDeleteDelegationByAssessmentCommandInput - {@link BatchDeleteDelegationByAssessmentCommandInput}
@@ -77,6 +87,8 @@ export interface BatchDeleteDelegationByAssessmentCommandOutput
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class BatchDeleteDelegationByAssessmentCommand extends $Command<

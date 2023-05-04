@@ -46,6 +46,8 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
  * };
  * const command = new DeleteConstraintCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteConstraintCommandInput - {@link DeleteConstraintCommandInput}
@@ -60,6 +62,8 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DeleteConstraintCommand extends $Command<

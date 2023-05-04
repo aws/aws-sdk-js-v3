@@ -44,6 +44,8 @@ export interface DeleteStageCommandOutput extends DeleteStageResponse, __Metadat
  * };
  * const command = new DeleteStageCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteStageCommandInput - {@link DeleteStageCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteStageCommandOutput extends DeleteStageResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IVSRealTimeServiceException}
+ * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
  */
 export class DeleteStageCommand extends $Command<

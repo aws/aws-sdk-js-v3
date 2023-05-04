@@ -52,6 +52,10 @@ export interface UpdateHubCommandOutput extends UpdateHubResponse, __MetadataBea
  * };
  * const command = new UpdateHubCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateHubResponse
+ * //   HubArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateHubCommandInput - {@link UpdateHubCommandInput}
@@ -63,6 +67,8 @@ export interface UpdateHubCommandOutput extends UpdateHubResponse, __MetadataBea
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateHubCommand extends $Command<

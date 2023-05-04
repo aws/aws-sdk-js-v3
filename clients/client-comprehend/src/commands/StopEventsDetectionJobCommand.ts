@@ -44,6 +44,11 @@ export interface StopEventsDetectionJobCommandOutput extends StopEventsDetection
  * };
  * const command = new StopEventsDetectionJobCommand(input);
  * const response = await client.send(command);
+ * // { // StopEventsDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
+ *
  * ```
  *
  * @param StopEventsDetectionJobCommandInput - {@link StopEventsDetectionJobCommandInput}
@@ -61,6 +66,8 @@ export interface StopEventsDetectionJobCommandOutput extends StopEventsDetection
  * @throws {@link JobNotFoundException} (client fault)
  *  <p>The specified job was not found. Check the job ID and try again.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class StopEventsDetectionJobCommand extends $Command<

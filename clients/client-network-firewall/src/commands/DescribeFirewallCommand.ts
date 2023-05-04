@@ -45,6 +45,68 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * };
  * const command = new DescribeFirewallCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFirewallResponse
+ * //   UpdateToken: "STRING_VALUE",
+ * //   Firewall: { // Firewall
+ * //     FirewallName: "STRING_VALUE",
+ * //     FirewallArn: "STRING_VALUE",
+ * //     FirewallPolicyArn: "STRING_VALUE", // required
+ * //     VpcId: "STRING_VALUE", // required
+ * //     SubnetMappings: [ // SubnetMappings // required
+ * //       { // SubnetMapping
+ * //         SubnetId: "STRING_VALUE", // required
+ * //         IPAddressType: "DUALSTACK" || "IPV4" || "IPV6",
+ * //       },
+ * //     ],
+ * //     DeleteProtection: true || false,
+ * //     SubnetChangeProtection: true || false,
+ * //     FirewallPolicyChangeProtection: true || false,
+ * //     Description: "STRING_VALUE",
+ * //     FirewallId: "STRING_VALUE", // required
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     EncryptionConfiguration: { // EncryptionConfiguration
+ * //       KeyId: "STRING_VALUE",
+ * //       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ * //     },
+ * //   },
+ * //   FirewallStatus: { // FirewallStatus
+ * //     Status: "PROVISIONING" || "DELETING" || "READY", // required
+ * //     ConfigurationSyncStateSummary: "PENDING" || "IN_SYNC" || "CAPACITY_CONSTRAINED", // required
+ * //     SyncStates: { // SyncStates
+ * //       "<keys>": { // SyncState
+ * //         Attachment: { // Attachment
+ * //           SubnetId: "STRING_VALUE",
+ * //           EndpointId: "STRING_VALUE",
+ * //           Status: "CREATING" || "DELETING" || "SCALING" || "READY" || "FAILED" || "ERROR",
+ * //           StatusMessage: "STRING_VALUE",
+ * //         },
+ * //         Config: { // SyncStateConfig
+ * //           "<keys>": { // PerObjectStatus
+ * //             SyncStatus: "PENDING" || "IN_SYNC" || "CAPACITY_CONSTRAINED",
+ * //             UpdateToken: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //     CapacityUsageSummary: { // CapacityUsageSummary
+ * //       CIDRs: { // CIDRSummary
+ * //         AvailableCIDRCount: Number("int"),
+ * //         UtilizedCIDRCount: Number("int"),
+ * //         IPSetReferences: { // IPSetMetadataMap
+ * //           "<keys>": { // IPSetMetadata
+ * //             ResolvedCIDRCount: Number("int"),
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeFirewallCommandInput - {@link DescribeFirewallCommandInput}
@@ -79,6 +141,8 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class DescribeFirewallCommand extends $Command<

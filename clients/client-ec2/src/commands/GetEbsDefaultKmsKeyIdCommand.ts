@@ -48,6 +48,10 @@ export interface GetEbsDefaultKmsKeyIdCommandOutput extends GetEbsDefaultKmsKeyI
  * };
  * const command = new GetEbsDefaultKmsKeyIdCommand(input);
  * const response = await client.send(command);
+ * // { // GetEbsDefaultKmsKeyIdResult
+ * //   KmsKeyId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetEbsDefaultKmsKeyIdCommandInput - {@link GetEbsDefaultKmsKeyIdCommandInput}
@@ -56,6 +60,8 @@ export interface GetEbsDefaultKmsKeyIdCommandOutput extends GetEbsDefaultKmsKeyI
  * @see {@link GetEbsDefaultKmsKeyIdCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetEbsDefaultKmsKeyIdCommand extends $Command<

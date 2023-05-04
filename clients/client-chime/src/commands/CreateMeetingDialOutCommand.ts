@@ -54,6 +54,10 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  * };
  * const command = new CreateMeetingDialOutCommand(input);
  * const response = await client.send(command);
+ * // { // CreateMeetingDialOutResponse
+ * //   TransactionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateMeetingDialOutCommandInput - {@link CreateMeetingDialOutCommandInput}
@@ -86,6 +90,8 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateMeetingDialOutCommand extends $Command<

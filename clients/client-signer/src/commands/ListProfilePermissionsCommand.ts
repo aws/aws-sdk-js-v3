@@ -45,6 +45,20 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
  * };
  * const command = new ListProfilePermissionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListProfilePermissionsResponse
+ * //   revisionId: "STRING_VALUE",
+ * //   policySizeBytes: Number("int"),
+ * //   permissions: [ // Permissions
+ * //     { // Permission
+ * //       action: "STRING_VALUE",
+ * //       principal: "STRING_VALUE",
+ * //       statementId: "STRING_VALUE",
+ * //       profileVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListProfilePermissionsCommandInput - {@link ListProfilePermissionsCommandInput}
@@ -69,6 +83,8 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class ListProfilePermissionsCommand extends $Command<

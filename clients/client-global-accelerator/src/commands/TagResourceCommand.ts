@@ -56,6 +56,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param TagResourceCommandInput - {@link TagResourceCommandInput}
@@ -73,6 +75,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class TagResourceCommand extends $Command<

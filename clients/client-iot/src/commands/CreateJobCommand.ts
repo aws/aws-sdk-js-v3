@@ -110,6 +110,12 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
+ * // { // CreateJobResponse
+ * //   jobArn: "STRING_VALUE",
+ * //   jobId: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateJobCommandInput - {@link CreateJobCommandInput}
@@ -136,6 +142,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateJobCommand extends $Command<CreateJobCommandInput, CreateJobCommandOutput, IoTClientResolvedConfig> {

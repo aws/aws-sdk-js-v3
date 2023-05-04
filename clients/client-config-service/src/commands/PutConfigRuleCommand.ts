@@ -130,6 +130,8 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutConfigRuleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutConfigRuleCommandInput - {@link PutConfigRuleCommandInput}
@@ -203,6 +205,8 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  *             </li>
  *          </ul>
  *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class PutConfigRuleCommand extends $Command<

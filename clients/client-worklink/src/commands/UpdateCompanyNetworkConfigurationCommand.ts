@@ -61,6 +61,8 @@ export interface UpdateCompanyNetworkConfigurationCommandOutput
  * };
  * const command = new UpdateCompanyNetworkConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateCompanyNetworkConfigurationCommandInput - {@link UpdateCompanyNetworkConfigurationCommandInput}
@@ -84,6 +86,8 @@ export interface UpdateCompanyNetworkConfigurationCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this action.</p>
  *
+ * @throws {@link WorkLinkServiceException}
+ * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  */
 export class UpdateCompanyNetworkConfigurationCommand extends $Command<

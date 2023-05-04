@@ -45,6 +45,26 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * };
  * const command = new GetAccountCommand(input);
  * const response = await client.send(command);
+ * // { // GetAccountResponse
+ * //   Account: { // Account
+ * //     AwsAccountId: "STRING_VALUE", // required
+ * //     AccountId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     AccountType: "Team" || "EnterpriseDirectory" || "EnterpriseLWA" || "EnterpriseOIDC",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     DefaultLicense: "Basic" || "Plus" || "Pro" || "ProTrial",
+ * //     SupportedLicenses: [ // LicenseList
+ * //       "Basic" || "Plus" || "Pro" || "ProTrial",
+ * //     ],
+ * //     AccountStatus: "Suspended" || "Active",
+ * //     SigninDelegateGroups: [ // SigninDelegateGroupList
+ * //       { // SigninDelegateGroup
+ * //         GroupName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetAccountCommandInput - {@link GetAccountCommandInput}
@@ -74,6 +94,8 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetAccountCommand extends $Command<

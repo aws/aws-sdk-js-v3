@@ -50,6 +50,16 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
  * };
  * const command = new CreateLedgerCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLedgerResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   State: "CREATING" || "ACTIVE" || "DELETING" || "DELETED",
+ * //   CreationDateTime: new Date("TIMESTAMP"),
+ * //   PermissionsMode: "ALLOW_ALL" || "STANDARD",
+ * //   DeletionProtection: true || false,
+ * //   KmsKeyArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateLedgerCommandInput - {@link CreateLedgerCommandInput}
@@ -70,6 +80,8 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The specified resource can't be modified at this time.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class CreateLedgerCommand extends $Command<

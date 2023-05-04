@@ -48,6 +48,13 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * };
  * const command = new ListIPSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListIPSetsResponse
+ * //   IpSetIds: [ // IpSetIds // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListIPSetsCommandInput - {@link ListIPSetsCommandInput}
@@ -62,6 +69,8 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal server error exception object.</p>
  *
+ * @throws {@link GuardDutyServiceException}
+ * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
 export class ListIPSetsCommand extends $Command<

@@ -52,6 +52,29 @@ export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrase
  * };
  * const command = new BatchDetectKeyPhrasesCommand(input);
  * const response = await client.send(command);
+ * // { // BatchDetectKeyPhrasesResponse
+ * //   ResultList: [ // ListOfDetectKeyPhrasesResult // required
+ * //     { // BatchDetectKeyPhrasesItemResult
+ * //       Index: Number("int"),
+ * //       KeyPhrases: [ // ListOfKeyPhrases
+ * //         { // KeyPhrase
+ * //           Score: Number("float"),
+ * //           Text: "STRING_VALUE",
+ * //           BeginOffset: Number("int"),
+ * //           EndOffset: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   ErrorList: [ // BatchItemErrorList // required
+ * //     { // BatchItemError
+ * //       Index: Number("int"),
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchDetectKeyPhrasesCommandInput - {@link BatchDetectKeyPhrasesCommandInput}
@@ -80,6 +103,8 @@ export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrase
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class BatchDetectKeyPhrasesCommand extends $Command<

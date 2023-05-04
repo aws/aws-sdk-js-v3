@@ -68,6 +68,27 @@ export interface ListChannelMembershipsForAppInstanceUserCommandOutput
  * };
  * const command = new ListChannelMembershipsForAppInstanceUserCommand(input);
  * const response = await client.send(command);
+ * // { // ListChannelMembershipsForAppInstanceUserResponse
+ * //   ChannelMemberships: [ // ChannelMembershipForAppInstanceUserSummaryList
+ * //     { // ChannelMembershipForAppInstanceUserSummary
+ * //       ChannelSummary: { // ChannelSummary
+ * //         Name: "STRING_VALUE",
+ * //         ChannelArn: "STRING_VALUE",
+ * //         Mode: "UNRESTRICTED" || "RESTRICTED",
+ * //         Privacy: "PUBLIC" || "PRIVATE",
+ * //         Metadata: "STRING_VALUE",
+ * //         LastMessageTimestamp: new Date("TIMESTAMP"),
+ * //       },
+ * //       AppInstanceUserMembershipSummary: { // AppInstanceUserMembershipSummary
+ * //         Type: "DEFAULT" || "HIDDEN",
+ * //         ReadMarkerTimestamp: new Date("TIMESTAMP"),
+ * //         SubChannelId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListChannelMembershipsForAppInstanceUserCommandInput - {@link ListChannelMembershipsForAppInstanceUserCommandInput}
@@ -94,6 +115,8 @@ export interface ListChannelMembershipsForAppInstanceUserCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class ListChannelMembershipsForAppInstanceUserCommand extends $Command<

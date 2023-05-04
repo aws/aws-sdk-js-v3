@@ -46,6 +46,22 @@ export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCata
  * };
  * const command = new GetRepositoryCatalogDataCommand(input);
  * const response = await client.send(command);
+ * // { // GetRepositoryCatalogDataResponse
+ * //   catalogData: { // RepositoryCatalogData
+ * //     description: "STRING_VALUE",
+ * //     architectures: [ // ArchitectureList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     operatingSystems: [ // OperatingSystemList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     logoUrl: "STRING_VALUE",
+ * //     aboutText: "STRING_VALUE",
+ * //     usageText: "STRING_VALUE",
+ * //     marketplaceCertified: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetRepositoryCatalogDataCommandInput - {@link GetRepositoryCatalogDataCommandInput}
@@ -71,6 +87,8 @@ export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCata
  * @throws {@link UnsupportedCommandException} (client fault)
  *  <p>The action isn't supported in this Region.</p>
  *
+ * @throws {@link ECRPUBLICServiceException}
+ * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
  */
 export class GetRepositoryCatalogDataCommand extends $Command<

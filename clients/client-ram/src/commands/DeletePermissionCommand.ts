@@ -47,6 +47,12 @@ export interface DeletePermissionCommandOutput extends DeletePermissionResponse,
  * };
  * const command = new DeletePermissionCommand(input);
  * const response = await client.send(command);
+ * // { // DeletePermissionResponse
+ * //   returnValue: true || false,
+ * //   clientToken: "STRING_VALUE",
+ * //   permissionStatus: "ATTACHABLE" || "UNATTACHABLE" || "DELETING" || "DELETED",
+ * // };
+ *
  * ```
  *
  * @param DeletePermissionCommandInput - {@link DeletePermissionCommandInput}
@@ -80,6 +86,8 @@ export interface DeletePermissionCommandOutput extends DeletePermissionResponse,
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class DeletePermissionCommand extends $Command<

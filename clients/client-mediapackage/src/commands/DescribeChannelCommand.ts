@@ -44,6 +44,32 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * };
  * const command = new DescribeChannelCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeChannelResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreatedAt: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   EgressAccessLogs: { // EgressAccessLogs
+ * //     LogGroupName: "STRING_VALUE",
+ * //   },
+ * //   HlsIngest: { // HlsIngest
+ * //     IngestEndpoints: [ // __listOfIngestEndpoint
+ * //       { // IngestEndpoint
+ * //         Id: "STRING_VALUE",
+ * //         Password: "STRING_VALUE",
+ * //         Url: "STRING_VALUE",
+ * //         Username: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   Id: "STRING_VALUE",
+ * //   IngressAccessLogs: { // IngressAccessLogs
+ * //     LogGroupName: "STRING_VALUE",
+ * //   },
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeChannelCommandInput - {@link DescribeChannelCommandInput}
@@ -70,6 +96,8 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
  */
 export class DescribeChannelCommand extends $Command<

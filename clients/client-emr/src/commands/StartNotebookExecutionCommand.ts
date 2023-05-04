@@ -60,6 +60,10 @@ export interface StartNotebookExecutionCommandOutput extends StartNotebookExecut
  * };
  * const command = new StartNotebookExecutionCommand(input);
  * const response = await client.send(command);
+ * // { // StartNotebookExecutionOutput
+ * //   NotebookExecutionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartNotebookExecutionCommandInput - {@link StartNotebookExecutionCommandInput}
@@ -75,6 +79,8 @@ export interface StartNotebookExecutionCommandOutput extends StartNotebookExecut
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class StartNotebookExecutionCommand extends $Command<

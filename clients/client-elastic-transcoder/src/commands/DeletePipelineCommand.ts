@@ -51,6 +51,8 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * };
  * const command = new DeletePipelineCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeletePipelineCommandInput - {@link DeletePipelineCommandInput}
@@ -78,6 +80,8 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more required parameter values were not provided in the request.</p>
  *
+ * @throws {@link ElasticTranscoderServiceException}
+ * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
  */
 export class DeletePipelineCommand extends $Command<

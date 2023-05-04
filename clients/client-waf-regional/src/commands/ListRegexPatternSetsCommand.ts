@@ -53,6 +53,16 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  * };
  * const command = new ListRegexPatternSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListRegexPatternSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   RegexPatternSets: [ // RegexPatternSetSummaries
+ * //     { // RegexPatternSetSummary
+ * //       RegexPatternSetId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListRegexPatternSetsCommandInput - {@link ListRegexPatternSetsCommandInput}
@@ -67,6 +77,8 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  * @throws {@link WAFInvalidAccountException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class ListRegexPatternSetsCommand extends $Command<

@@ -44,6 +44,8 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelJobCommandInput - {@link CancelJobCommandInput}
@@ -70,6 +72,8 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @throws {@link TooManyRequestsException} (client fault)
  *  Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  *
+ * @throws {@link MediaConvertServiceException}
+ * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
  */
 export class CancelJobCommand extends $Command<

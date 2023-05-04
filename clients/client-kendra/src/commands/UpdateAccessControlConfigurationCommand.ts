@@ -90,6 +90,8 @@ export interface UpdateAccessControlConfigurationCommandOutput
  * };
  * const command = new UpdateAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateAccessControlConfigurationCommandInput - {@link UpdateAccessControlConfigurationCommandInput}
@@ -128,6 +130,8 @@ export interface UpdateAccessControlConfigurationCommandOutput
  *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
  *             Please provide the correct input and try again.</p>
  *
+ * @throws {@link KendraServiceException}
+ * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
 export class UpdateAccessControlConfigurationCommand extends $Command<

@@ -77,6 +77,31 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  * };
  * const command = new UpdateDashboardPermissionsCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateDashboardPermissionsResponse
+ * //   DashboardArn: "STRING_VALUE",
+ * //   DashboardId: "STRING_VALUE",
+ * //   Permissions: [ // ResourcePermissionList
+ * //     { // ResourcePermission
+ * //       Principal: "STRING_VALUE", // required
+ * //       Actions: [ // ActionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   LinkSharingConfiguration: { // LinkSharingConfiguration
+ * //     Permissions: [
+ * //       {
+ * //         Principal: "STRING_VALUE", // required
+ * //         Actions: [ // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateDashboardPermissionsCommandInput - {@link UpdateDashboardPermissionsCommandInput}
@@ -109,6 +134,8 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateDashboardPermissionsCommand extends $Command<

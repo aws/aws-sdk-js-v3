@@ -52,6 +52,8 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
  * };
  * const command = new DeleteLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteLaunchConfigurationTemplateCommandInput - {@link DeleteLaunchConfigurationTemplateCommandInput}
@@ -69,6 +71,8 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class DeleteLaunchConfigurationTemplateCommand extends $Command<

@@ -55,6 +55,18 @@ export interface SearchSessionsCommandOutput extends SearchSessionsResponse, __M
  * };
  * const command = new SearchSessionsCommand(input);
  * const response = await client.send(command);
+ * // { // SearchSessionsResponse
+ * //   sessionSummaries: [ // SessionSummaries // required
+ * //     { // SessionSummary
+ * //       sessionId: "STRING_VALUE", // required
+ * //       sessionArn: "STRING_VALUE", // required
+ * //       assistantId: "STRING_VALUE", // required
+ * //       assistantArn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param SearchSessionsCommandInput - {@link SearchSessionsCommandInput}
@@ -72,6 +84,8 @@ export interface SearchSessionsCommandOutput extends SearchSessionsResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by a service.</p>
  *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class SearchSessionsCommand extends $Command<

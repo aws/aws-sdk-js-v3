@@ -42,6 +42,8 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * const input = {};
  * const command = new InitializeServiceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param InitializeServiceCommandInput - {@link InitializeServiceCommandInput}
@@ -56,6 +58,8 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>
  *
+ * @throws {@link MgnServiceException}
+ * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
 export class InitializeServiceCommand extends $Command<

@@ -49,6 +49,12 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
  * };
  * const command = new CheckDomainTransferabilityCommand(input);
  * const response = await client.send(command);
+ * // { // CheckDomainTransferabilityResponse
+ * //   Transferability: { // DomainTransferability
+ * //     Transferable: "TRANSFERABLE" || "UNTRANSFERABLE" || "DONT_KNOW" || "DOMAIN_IN_OWN_ACCOUNT" || "DOMAIN_IN_ANOTHER_ACCOUNT" || "PREMIUM_DOMAIN",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CheckDomainTransferabilityCommandInput - {@link CheckDomainTransferabilityCommandInput}
@@ -66,6 +72,8 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
  * @throws {@link UnsupportedTLD} (client fault)
  *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class CheckDomainTransferabilityCommand extends $Command<

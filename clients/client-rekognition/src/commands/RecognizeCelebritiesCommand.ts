@@ -77,6 +77,95 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  * };
  * const command = new RecognizeCelebritiesCommand(input);
  * const response = await client.send(command);
+ * // { // RecognizeCelebritiesResponse
+ * //   CelebrityFaces: [ // CelebrityList
+ * //     { // Celebrity
+ * //       Urls: [ // Urls
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Face: { // ComparedFace
+ * //         BoundingBox: { // BoundingBox
+ * //           Width: Number("float"),
+ * //           Height: Number("float"),
+ * //           Left: Number("float"),
+ * //           Top: Number("float"),
+ * //         },
+ * //         Confidence: Number("float"),
+ * //         Landmarks: [ // Landmarks
+ * //           { // Landmark
+ * //             Type: "eyeLeft" || "eyeRight" || "nose" || "mouthLeft" || "mouthRight" || "leftEyeBrowLeft" || "leftEyeBrowRight" || "leftEyeBrowUp" || "rightEyeBrowLeft" || "rightEyeBrowRight" || "rightEyeBrowUp" || "leftEyeLeft" || "leftEyeRight" || "leftEyeUp" || "leftEyeDown" || "rightEyeLeft" || "rightEyeRight" || "rightEyeUp" || "rightEyeDown" || "noseLeft" || "noseRight" || "mouthUp" || "mouthDown" || "leftPupil" || "rightPupil" || "upperJawlineLeft" || "midJawlineLeft" || "chinBottom" || "midJawlineRight" || "upperJawlineRight",
+ * //             X: Number("float"),
+ * //             Y: Number("float"),
+ * //           },
+ * //         ],
+ * //         Pose: { // Pose
+ * //           Roll: Number("float"),
+ * //           Yaw: Number("float"),
+ * //           Pitch: Number("float"),
+ * //         },
+ * //         Quality: { // ImageQuality
+ * //           Brightness: Number("float"),
+ * //           Sharpness: Number("float"),
+ * //         },
+ * //         Emotions: [ // Emotions
+ * //           { // Emotion
+ * //             Type: "HAPPY" || "SAD" || "ANGRY" || "CONFUSED" || "DISGUSTED" || "SURPRISED" || "CALM" || "UNKNOWN" || "FEAR",
+ * //             Confidence: Number("float"),
+ * //           },
+ * //         ],
+ * //         Smile: { // Smile
+ * //           Value: true || false,
+ * //           Confidence: Number("float"),
+ * //         },
+ * //       },
+ * //       MatchConfidence: Number("float"),
+ * //       KnownGender: { // KnownGender
+ * //         Type: "Male" || "Female" || "Nonbinary" || "Unlisted",
+ * //       },
+ * //     },
+ * //   ],
+ * //   UnrecognizedFaces: [ // ComparedFaceList
+ * //     {
+ * //       BoundingBox: {
+ * //         Width: Number("float"),
+ * //         Height: Number("float"),
+ * //         Left: Number("float"),
+ * //         Top: Number("float"),
+ * //       },
+ * //       Confidence: Number("float"),
+ * //       Landmarks: [
+ * //         {
+ * //           Type: "eyeLeft" || "eyeRight" || "nose" || "mouthLeft" || "mouthRight" || "leftEyeBrowLeft" || "leftEyeBrowRight" || "leftEyeBrowUp" || "rightEyeBrowLeft" || "rightEyeBrowRight" || "rightEyeBrowUp" || "leftEyeLeft" || "leftEyeRight" || "leftEyeUp" || "leftEyeDown" || "rightEyeLeft" || "rightEyeRight" || "rightEyeUp" || "rightEyeDown" || "noseLeft" || "noseRight" || "mouthUp" || "mouthDown" || "leftPupil" || "rightPupil" || "upperJawlineLeft" || "midJawlineLeft" || "chinBottom" || "midJawlineRight" || "upperJawlineRight",
+ * //           X: Number("float"),
+ * //           Y: Number("float"),
+ * //         },
+ * //       ],
+ * //       Pose: {
+ * //         Roll: Number("float"),
+ * //         Yaw: Number("float"),
+ * //         Pitch: Number("float"),
+ * //       },
+ * //       Quality: {
+ * //         Brightness: Number("float"),
+ * //         Sharpness: Number("float"),
+ * //       },
+ * //       Emotions: [
+ * //         {
+ * //           Type: "HAPPY" || "SAD" || "ANGRY" || "CONFUSED" || "DISGUSTED" || "SURPRISED" || "CALM" || "UNKNOWN" || "FEAR",
+ * //           Confidence: Number("float"),
+ * //         },
+ * //       ],
+ * //       Smile: {
+ * //         Value: true || false,
+ * //         Confidence: Number("float"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   OrientationCorrection: "ROTATE_0" || "ROTATE_90" || "ROTATE_180" || "ROTATE_270",
+ * // };
+ *
  * ```
  *
  * @param RecognizeCelebritiesCommandInput - {@link RecognizeCelebritiesCommandInput}
@@ -114,6 +203,8 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class RecognizeCelebritiesCommand extends $Command<

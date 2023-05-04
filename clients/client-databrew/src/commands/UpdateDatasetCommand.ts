@@ -124,6 +124,10 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * };
  * const command = new UpdateDatasetCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateDatasetResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateDatasetCommandInput - {@link UpdateDatasetCommandInput}
@@ -141,6 +145,8 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>The input parameters for this request failed validation.</p>
  *
+ * @throws {@link DataBrewServiceException}
+ * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
 export class UpdateDatasetCommand extends $Command<

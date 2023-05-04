@@ -61,6 +61,10 @@ export interface AttachObjectCommandOutput extends AttachObjectResponse, __Metad
  * };
  * const command = new AttachObjectCommand(input);
  * const response = await client.send(command);
+ * // { // AttachObjectResponse
+ * //   AttachedObjectIdentifier: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AttachObjectCommandInput - {@link AttachObjectCommandInput}
@@ -106,6 +110,8 @@ export interface AttachObjectCommandOutput extends AttachObjectResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class AttachObjectCommand extends $Command<

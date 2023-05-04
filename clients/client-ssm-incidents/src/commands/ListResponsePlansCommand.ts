@@ -45,6 +45,17 @@ export interface ListResponsePlansCommandOutput extends ListResponsePlansOutput,
  * };
  * const command = new ListResponsePlansCommand(input);
  * const response = await client.send(command);
+ * // { // ListResponsePlansOutput
+ * //   responsePlanSummaries: [ // ResponsePlanSummaryList // required
+ * //     { // ResponsePlanSummary
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       displayName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListResponsePlansCommandInput - {@link ListResponsePlansCommandInput}
@@ -67,6 +78,8 @@ export interface ListResponsePlansCommandOutput extends ListResponsePlansOutput,
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class ListResponsePlansCommand extends $Command<

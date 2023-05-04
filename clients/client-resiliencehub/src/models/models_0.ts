@@ -1472,7 +1472,7 @@ export interface CreateAppVersionResourceRequest {
   /**
    * <p>The name of the resource.</p>
    */
-  resourceName: string | undefined;
+  resourceName?: string;
 
   /**
    * <p>The logical identifier of the resource.</p>
@@ -1515,6 +1515,20 @@ export interface CreateAppVersionResourceRequest {
    */
   clientToken?: string;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceSourceType = {
+  APP_TEMPLATE: "AppTemplate",
+  DISCOVERED: "Discovered",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceSourceType = (typeof ResourceSourceType)[keyof typeof ResourceSourceType];
 
 /**
  * @public
@@ -1564,6 +1578,16 @@ export interface PhysicalResource {
    * <p>Indicates if a resource is included or excluded from the assessment.</p>
    */
   excluded?: boolean;
+
+  /**
+   * <p>The type of input source.</p>
+   */
+  sourceType?: ResourceSourceType | string;
+
+  /**
+   * <p>The name of the parent resource.</p>
+   */
+  parentResourceName?: string;
 }
 
 /**

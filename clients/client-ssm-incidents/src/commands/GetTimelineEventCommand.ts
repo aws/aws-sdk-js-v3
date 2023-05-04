@@ -45,6 +45,23 @@ export interface GetTimelineEventCommandOutput extends GetTimelineEventOutput, _
  * };
  * const command = new GetTimelineEventCommand(input);
  * const response = await client.send(command);
+ * // { // GetTimelineEventOutput
+ * //   event: { // TimelineEvent
+ * //     incidentRecordArn: "STRING_VALUE", // required
+ * //     eventId: "STRING_VALUE", // required
+ * //     eventTime: new Date("TIMESTAMP"), // required
+ * //     eventUpdatedTime: new Date("TIMESTAMP"), // required
+ * //     eventType: "STRING_VALUE", // required
+ * //     eventData: "STRING_VALUE", // required
+ * //     eventReferences: [ // EventReferenceList
+ * //       { // EventReference Union: only one key present
+ * //         resource: "STRING_VALUE",
+ * //         relatedItemId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetTimelineEventCommandInput - {@link GetTimelineEventCommandInput}
@@ -70,6 +87,8 @@ export interface GetTimelineEventCommandOutput extends GetTimelineEventOutput, _
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
  *
+ * @throws {@link SSMIncidentsServiceException}
+ * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
  */
 export class GetTimelineEventCommand extends $Command<

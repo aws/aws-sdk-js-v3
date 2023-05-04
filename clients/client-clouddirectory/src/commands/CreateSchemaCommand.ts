@@ -64,6 +64,10 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSchemaResponse
+ * //   SchemaArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateSchemaCommandInput - {@link CreateSchemaCommandInput}
@@ -95,6 +99,8 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  *  <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  *
+ * @throws {@link CloudDirectoryServiceException}
+ * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
 export class CreateSchemaCommand extends $Command<

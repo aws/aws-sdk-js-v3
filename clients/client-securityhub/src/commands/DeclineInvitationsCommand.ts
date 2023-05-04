@@ -49,6 +49,15 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * };
  * const command = new DeclineInvitationsCommand(input);
  * const response = await client.send(command);
+ * // { // DeclineInvitationsResponse
+ * //   UnprocessedAccounts: [ // ResultList
+ * //     { // Result
+ * //       AccountId: "STRING_VALUE",
+ * //       ProcessingResult: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DeclineInvitationsCommandInput - {@link DeclineInvitationsCommandInput}
@@ -70,6 +79,8 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To decline invitation to become a member account
  * ```javascript

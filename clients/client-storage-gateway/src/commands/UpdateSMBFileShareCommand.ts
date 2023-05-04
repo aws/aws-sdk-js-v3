@@ -89,6 +89,10 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  * };
  * const command = new UpdateSMBFileShareCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateSMBFileShareOutput
+ * //   FileShareARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateSMBFileShareCommandInput - {@link UpdateSMBFileShareCommandInput}
@@ -105,6 +109,8 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
 export class UpdateSMBFileShareCommand extends $Command<

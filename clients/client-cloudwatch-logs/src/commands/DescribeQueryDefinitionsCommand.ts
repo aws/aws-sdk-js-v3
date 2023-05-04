@@ -48,6 +48,21 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * };
  * const command = new DescribeQueryDefinitionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeQueryDefinitionsResponse
+ * //   queryDefinitions: [ // QueryDefinitionList
+ * //     { // QueryDefinition
+ * //       queryDefinitionId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       queryString: "STRING_VALUE",
+ * //       lastModified: Number("long"),
+ * //       logGroupNames: [ // LogGroupNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeQueryDefinitionsCommandInput - {@link DescribeQueryDefinitionsCommandInput}
@@ -62,6 +77,8 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeQueryDefinitionsCommand extends $Command<

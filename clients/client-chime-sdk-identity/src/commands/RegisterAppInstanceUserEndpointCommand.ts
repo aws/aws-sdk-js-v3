@@ -63,6 +63,11 @@ export interface RegisterAppInstanceUserEndpointCommandOutput
  * };
  * const command = new RegisterAppInstanceUserEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterAppInstanceUserEndpointResponse
+ * //   AppInstanceUserArn: "STRING_VALUE",
+ * //   EndpointId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RegisterAppInstanceUserEndpointCommandInput - {@link RegisterAppInstanceUserEndpointCommandInput}
@@ -96,6 +101,8 @@ export interface RegisterAppInstanceUserEndpointCommandOutput
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKIdentityServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
 export class RegisterAppInstanceUserEndpointCommand extends $Command<

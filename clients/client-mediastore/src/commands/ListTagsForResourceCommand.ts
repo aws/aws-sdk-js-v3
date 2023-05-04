@@ -44,6 +44,15 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceOutput
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -62,6 +71,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link InternalServerError} (server fault)
  *  <p>The service is temporarily unavailable.</p>
  *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

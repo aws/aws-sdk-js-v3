@@ -50,6 +50,20 @@ export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBeare
  * };
  * const command = new ListTasksCommand(input);
  * const response = await client.send(command);
+ * // { // ListTasksOutput
+ * //   tasks: [ // TaskSummaryList
+ * //     { // TaskSummary
+ * //       taskId: "STRING_VALUE", // required
+ * //       taskArn: "STRING_VALUE",
+ * //       state: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTasksCommandInput - {@link ListTasksCommandInput}
@@ -70,6 +84,8 @@ export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SnowDeviceManagementServiceException}
+ * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
  */
 export class ListTasksCommand extends $Command<

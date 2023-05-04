@@ -86,6 +86,10 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * };
  * const command = new AbortMultipartUploadCommand(input);
  * const response = await client.send(command);
+ * // { // AbortMultipartUploadOutput
+ * //   RequestCharged: "requester",
+ * // };
+ *
  * ```
  *
  * @param AbortMultipartUploadCommandInput - {@link AbortMultipartUploadCommandInput}
@@ -97,6 +101,8 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * @throws {@link NoSuchUpload} (client fault)
  *  <p>The specified multipart upload does not exist.</p>
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @example To abort a multipart upload
  * ```javascript

@@ -54,6 +54,26 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  * };
  * const command = new DescribePackagesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribePackagesResponse
+ * //   PackageDetailsList: [ // PackageDetailsList
+ * //     { // PackageDetails
+ * //       PackageID: "STRING_VALUE",
+ * //       PackageName: "STRING_VALUE",
+ * //       PackageType: "TXT-DICTIONARY",
+ * //       PackageDescription: "STRING_VALUE",
+ * //       PackageStatus: "COPYING" || "COPY_FAILED" || "VALIDATING" || "VALIDATION_FAILED" || "AVAILABLE" || "DELETING" || "DELETED" || "DELETE_FAILED",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       LastUpdatedAt: new Date("TIMESTAMP"),
+ * //       AvailablePackageVersion: "STRING_VALUE",
+ * //       ErrorDetails: { // ErrorDetails
+ * //         ErrorType: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribePackagesCommandInput - {@link DescribePackagesCommandInput}
@@ -72,11 +92,13 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DescribePackagesCommand extends $Command<

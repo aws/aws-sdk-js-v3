@@ -51,6 +51,17 @@ export interface ListBuiltInSlotTypesCommandOutput extends ListBuiltInSlotTypesR
  * };
  * const command = new ListBuiltInSlotTypesCommand(input);
  * const response = await client.send(command);
+ * // { // ListBuiltInSlotTypesResponse
+ * //   builtInSlotTypeSummaries: [ // BuiltInSlotTypeSummaryList
+ * //     { // BuiltInSlotTypeSummary
+ * //       slotTypeSignature: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListBuiltInSlotTypesCommandInput - {@link ListBuiltInSlotTypesCommandInput}
@@ -74,6 +85,8 @@ export interface ListBuiltInSlotTypesCommandOutput extends ListBuiltInSlotTypesR
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class ListBuiltInSlotTypesCommand extends $Command<

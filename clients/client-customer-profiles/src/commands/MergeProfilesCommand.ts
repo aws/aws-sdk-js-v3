@@ -115,6 +115,10 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  * };
  * const command = new MergeProfilesCommand(input);
  * const response = await client.send(command);
+ * // { // MergeProfilesResponse
+ * //   Message: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param MergeProfilesCommandInput - {@link MergeProfilesCommandInput}
@@ -135,6 +139,8 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class MergeProfilesCommand extends $Command<

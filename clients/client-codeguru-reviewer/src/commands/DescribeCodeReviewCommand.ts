@@ -44,6 +44,65 @@ export interface DescribeCodeReviewCommandOutput extends DescribeCodeReviewRespo
  * };
  * const command = new DescribeCodeReviewCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeCodeReviewResponse
+ * //   CodeReview: { // CodeReview
+ * //     Name: "STRING_VALUE",
+ * //     CodeReviewArn: "STRING_VALUE",
+ * //     RepositoryName: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //     ProviderType: "CodeCommit" || "GitHub" || "Bitbucket" || "GitHubEnterpriseServer" || "S3Bucket",
+ * //     State: "Completed" || "Pending" || "Failed" || "Deleting",
+ * //     StateReason: "STRING_VALUE",
+ * //     CreatedTimeStamp: new Date("TIMESTAMP"),
+ * //     LastUpdatedTimeStamp: new Date("TIMESTAMP"),
+ * //     Type: "PullRequest" || "RepositoryAnalysis",
+ * //     PullRequestId: "STRING_VALUE",
+ * //     SourceCodeType: { // SourceCodeType
+ * //       CommitDiff: { // CommitDiffSourceCodeType
+ * //         SourceCommit: "STRING_VALUE",
+ * //         DestinationCommit: "STRING_VALUE",
+ * //         MergeBaseCommit: "STRING_VALUE",
+ * //       },
+ * //       RepositoryHead: { // RepositoryHeadSourceCodeType
+ * //         BranchName: "STRING_VALUE", // required
+ * //       },
+ * //       BranchDiff: { // BranchDiffSourceCodeType
+ * //         SourceBranchName: "STRING_VALUE", // required
+ * //         DestinationBranchName: "STRING_VALUE", // required
+ * //       },
+ * //       S3BucketRepository: { // S3BucketRepository
+ * //         Name: "STRING_VALUE", // required
+ * //         Details: { // S3RepositoryDetails
+ * //           BucketName: "STRING_VALUE",
+ * //           CodeArtifacts: { // CodeArtifacts
+ * //             SourceCodeArtifactsObjectKey: "STRING_VALUE", // required
+ * //             BuildArtifactsObjectKey: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       RequestMetadata: { // RequestMetadata
+ * //         RequestId: "STRING_VALUE",
+ * //         Requester: "STRING_VALUE",
+ * //         EventInfo: { // EventInfo
+ * //           Name: "STRING_VALUE",
+ * //           State: "STRING_VALUE",
+ * //         },
+ * //         VendorName: "GitHub" || "GitLab" || "NativeS3",
+ * //       },
+ * //     },
+ * //     AssociationArn: "STRING_VALUE",
+ * //     Metrics: { // Metrics
+ * //       MeteredLinesOfCodeCount: Number("long"),
+ * //       SuppressedLinesOfCodeCount: Number("long"),
+ * //       FindingsCount: Number("long"),
+ * //     },
+ * //     AnalysisTypes: [ // AnalysisTypes
+ * //       "Security" || "CodeQuality",
+ * //     ],
+ * //     ConfigFileState: "Present" || "Absent" || "PresentWithErrors",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeCodeReviewCommandInput - {@link DescribeCodeReviewCommandInput}
@@ -67,6 +126,8 @@ export interface DescribeCodeReviewCommandOutput extends DescribeCodeReviewRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
+ * @throws {@link CodeGuruReviewerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
  */
 export class DescribeCodeReviewCommand extends $Command<

@@ -62,6 +62,10 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  * };
  * const command = new CopyProductCommand(input);
  * const response = await client.send(command);
+ * // { // CopyProductOutput
+ * //   CopyProductToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CopyProductCommandInput - {@link CopyProductCommandInput}
@@ -76,6 +80,8 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class CopyProductCommand extends $Command<

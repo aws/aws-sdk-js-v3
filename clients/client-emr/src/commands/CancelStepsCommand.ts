@@ -52,6 +52,16 @@ export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataB
  * };
  * const command = new CancelStepsCommand(input);
  * const response = await client.send(command);
+ * // { // CancelStepsOutput
+ * //   CancelStepsInfoList: [ // CancelStepsInfoList
+ * //     { // CancelStepsInfo
+ * //       StepId: "STRING_VALUE",
+ * //       Status: "SUBMITTED" || "FAILED",
+ * //       Reason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param CancelStepsCommandInput - {@link CancelStepsCommandInput}
@@ -67,6 +77,8 @@ export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataB
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class CancelStepsCommand extends $Command<

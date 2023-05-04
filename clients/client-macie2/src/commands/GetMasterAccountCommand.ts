@@ -42,6 +42,15 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * const input = {};
  * const command = new GetMasterAccountCommand(input);
  * const response = await client.send(command);
+ * // { // GetMasterAccountResponse
+ * //   master: { // Invitation
+ * //     accountId: "STRING_VALUE",
+ * //     invitationId: "STRING_VALUE",
+ * //     invitedAt: new Date("TIMESTAMP"),
+ * //     relationshipStatus: "Enabled" || "Paused" || "Invited" || "Created" || "Removed" || "Resigned" || "EmailVerificationInProgress" || "EmailVerificationFailed" || "RegionDisabled" || "AccountSuspended",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetMasterAccountCommandInput - {@link GetMasterAccountCommandInput}
@@ -71,6 +80,8 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class GetMasterAccountCommand extends $Command<

@@ -52,6 +52,21 @@ export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __Metad
  * };
  * const command = new GetRepositoryCommand(input);
  * const response = await client.send(command);
+ * // { // GetRepositoryOutput
+ * //   repositoryMetadata: { // RepositoryMetadata
+ * //     accountId: "STRING_VALUE",
+ * //     repositoryId: "STRING_VALUE",
+ * //     repositoryName: "STRING_VALUE",
+ * //     repositoryDescription: "STRING_VALUE",
+ * //     defaultBranch: "STRING_VALUE",
+ * //     lastModifiedDate: new Date("TIMESTAMP"),
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     cloneUrlHttp: "STRING_VALUE",
+ * //     cloneUrlSsh: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetRepositoryCommandInput - {@link GetRepositoryCommandInput}
@@ -90,6 +105,8 @@ export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __Metad
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetRepositoryCommand extends $Command<

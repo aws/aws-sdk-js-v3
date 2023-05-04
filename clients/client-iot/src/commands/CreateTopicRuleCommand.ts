@@ -455,6 +455,8 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateTopicRuleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateTopicRuleCommandInput - {@link CreateTopicRuleCommandInput}
@@ -482,6 +484,8 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link SqlParseException} (client fault)
  *  <p>The Rule-SQL expression can't be parsed correctly.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class CreateTopicRuleCommand extends $Command<

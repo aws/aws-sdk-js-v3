@@ -53,6 +53,8 @@ export interface UntagQueueCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagQueueCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UntagQueueCommandInput - {@link UntagQueueCommandInput}
@@ -61,6 +63,8 @@ export interface UntagQueueCommandOutput extends __MetadataBearer {}
  * @see {@link UntagQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class UntagQueueCommand extends $Command<

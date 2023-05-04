@@ -74,6 +74,8 @@ export interface DeleteBucketInventoryConfigurationCommandOutput extends __Metad
  * };
  * const command = new DeleteBucketInventoryConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteBucketInventoryConfigurationCommandInput - {@link DeleteBucketInventoryConfigurationCommandInput}
@@ -82,6 +84,8 @@ export interface DeleteBucketInventoryConfigurationCommandOutput extends __Metad
  * @see {@link DeleteBucketInventoryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class DeleteBucketInventoryConfigurationCommand extends $Command<

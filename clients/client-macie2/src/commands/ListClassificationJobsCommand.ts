@@ -69,6 +69,81 @@ export interface ListClassificationJobsCommandOutput extends ListClassificationJ
  * };
  * const command = new ListClassificationJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListClassificationJobsResponse
+ * //   items: [ // __listOfJobSummary
+ * //     { // JobSummary
+ * //       bucketCriteria: { // S3BucketCriteriaForJob
+ * //         excludes: { // CriteriaBlockForJob
+ * //           and: [ // __listOfCriteriaForJob
+ * //             { // CriteriaForJob
+ * //               simpleCriterion: { // SimpleCriterionForJob
+ * //                 comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ * //                 key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS",
+ * //                 values: [ // __listOf__string
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //               tagCriterion: { // TagCriterionForJob
+ * //                 comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ * //                 tagValues: [ // __listOfTagCriterionPairForJob
+ * //                   { // TagCriterionPairForJob
+ * //                     key: "STRING_VALUE",
+ * //                     value: "STRING_VALUE",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //         includes: {
+ * //           and: [
+ * //             {
+ * //               simpleCriterion: {
+ * //                 comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ * //                 key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS",
+ * //                 values: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //               tagCriterion: {
+ * //                 comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ * //                 tagValues: [
+ * //                   {
+ * //                     key: "STRING_VALUE",
+ * //                     value: "STRING_VALUE",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       bucketDefinitions: [ // __listOfS3BucketDefinitionForJob
+ * //         { // S3BucketDefinitionForJob
+ * //           accountId: "STRING_VALUE", // required
+ * //           buckets: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       jobId: "STRING_VALUE",
+ * //       jobStatus: "RUNNING" || "PAUSED" || "CANCELLED" || "COMPLETE" || "IDLE" || "USER_PAUSED",
+ * //       jobType: "ONE_TIME" || "SCHEDULED",
+ * //       lastRunErrorStatus: { // LastRunErrorStatus
+ * //         code: "NONE" || "ERROR",
+ * //       },
+ * //       name: "STRING_VALUE",
+ * //       userPausedDetails: { // UserPausedDetails
+ * //         jobExpiresAt: new Date("TIMESTAMP"),
+ * //         jobImminentExpirationHealthEventArn: "STRING_VALUE",
+ * //         jobPausedAt: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListClassificationJobsCommandInput - {@link ListClassificationJobsCommandInput}
@@ -98,6 +173,8 @@ export interface ListClassificationJobsCommandOutput extends ListClassificationJ
  * @throws {@link ValidationException} (client fault)
  *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
  *
+ * @throws {@link Macie2ServiceException}
+ * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
 export class ListClassificationJobsCommand extends $Command<

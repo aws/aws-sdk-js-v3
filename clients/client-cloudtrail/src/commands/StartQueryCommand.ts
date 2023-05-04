@@ -48,6 +48,10 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * };
  * const command = new StartQueryCommand(input);
  * const response = await client.send(command);
+ * // { // StartQueryResponse
+ * //   QueryId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartQueryCommandInput - {@link StartQueryCommandInput}
@@ -104,6 +108,8 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class StartQueryCommand extends $Command<

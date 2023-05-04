@@ -72,6 +72,8 @@ export interface AssociateQualificationWithWorkerCommandOutput
  * };
  * const command = new AssociateQualificationWithWorkerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AssociateQualificationWithWorkerCommandInput - {@link AssociateQualificationWithWorkerCommandInput}
@@ -86,6 +88,8 @@ export interface AssociateQualificationWithWorkerCommandOutput
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class AssociateQualificationWithWorkerCommand extends $Command<

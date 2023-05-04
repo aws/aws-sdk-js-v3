@@ -60,6 +60,8 @@ export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ReplaceNetworkAclEntryCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ReplaceNetworkAclEntryCommandInput - {@link ReplaceNetworkAclEntryCommandInput}
@@ -68,6 +70,8 @@ export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * @see {@link ReplaceNetworkAclEntryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To replace a network ACL entry
  * ```javascript

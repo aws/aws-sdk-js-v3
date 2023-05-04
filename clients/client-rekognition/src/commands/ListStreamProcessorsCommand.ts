@@ -45,6 +45,16 @@ export interface ListStreamProcessorsCommandOutput extends ListStreamProcessorsR
  * };
  * const command = new ListStreamProcessorsCommand(input);
  * const response = await client.send(command);
+ * // { // ListStreamProcessorsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   StreamProcessors: [ // StreamProcessorList
+ * //     { // StreamProcessor
+ * //       Name: "STRING_VALUE",
+ * //       Status: "STOPPED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "UPDATING",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListStreamProcessorsCommandInput - {@link ListStreamProcessorsCommandInput}
@@ -73,6 +83,8 @@ export interface ListStreamProcessorsCommandOutput extends ListStreamProcessorsR
  * @throws {@link ThrottlingException} (server fault)
  *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class ListStreamProcessorsCommand extends $Command<

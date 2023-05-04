@@ -49,6 +49,20 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListApplicationsResponse
+ * //   applications: [ // ApplicationSummaries
+ * //     { // ApplicationSummary
+ * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
@@ -63,6 +77,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>
  *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class ListApplicationsCommand extends $Command<

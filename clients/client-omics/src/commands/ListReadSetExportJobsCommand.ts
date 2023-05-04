@@ -51,6 +51,20 @@ export interface ListReadSetExportJobsCommandOutput extends ListReadSetExportJob
  * };
  * const command = new ListReadSetExportJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListReadSetExportJobsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   exportJobs: [ // ExportReadSetJobDetailList
+ * //     { // ExportReadSetJobDetail
+ * //       id: "STRING_VALUE", // required
+ * //       sequenceStoreId: "STRING_VALUE", // required
+ * //       destination: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       completionTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListReadSetExportJobsCommandInput - {@link ListReadSetExportJobsCommandInput}
@@ -77,6 +91,8 @@ export interface ListReadSetExportJobsCommandOutput extends ListReadSetExportJob
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class ListReadSetExportJobsCommand extends $Command<

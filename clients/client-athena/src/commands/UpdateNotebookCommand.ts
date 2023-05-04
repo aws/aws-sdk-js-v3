@@ -48,6 +48,8 @@ export interface UpdateNotebookCommandOutput extends UpdateNotebookOutput, __Met
  * };
  * const command = new UpdateNotebookCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateNotebookCommandInput - {@link UpdateNotebookCommandInput}
@@ -67,6 +69,8 @@ export interface UpdateNotebookCommandOutput extends UpdateNotebookOutput, __Met
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class UpdateNotebookCommand extends $Command<

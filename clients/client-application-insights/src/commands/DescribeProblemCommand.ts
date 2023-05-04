@@ -48,6 +48,25 @@ export interface DescribeProblemCommandOutput extends DescribeProblemResponse, _
  * };
  * const command = new DescribeProblemCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeProblemResponse
+ * //   Problem: { // Problem
+ * //     Id: "STRING_VALUE",
+ * //     Title: "STRING_VALUE",
+ * //     Insights: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     AffectedResource: "STRING_VALUE",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //     SeverityLevel: "STRING_VALUE",
+ * //     ResourceGroupName: "STRING_VALUE",
+ * //     Feedback: { // Feedback
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     RecurringCount: Number("long"),
+ * //     LastRecurrenceTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeProblemCommandInput - {@link DescribeProblemCommandInput}
@@ -65,6 +84,8 @@ export interface DescribeProblemCommandOutput extends DescribeProblemResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class DescribeProblemCommand extends $Command<

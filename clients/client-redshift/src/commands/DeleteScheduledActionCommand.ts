@@ -45,6 +45,8 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteScheduledActionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteScheduledActionCommandInput - {@link DeleteScheduledActionCommandInput}
@@ -59,6 +61,8 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedOperation} (client fault)
  *  <p>Your account is not authorized to perform the requested operation.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteScheduledActionCommand extends $Command<

@@ -72,6 +72,10 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  * };
  * const command = new GetRepositoryEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // GetRepositoryEndpointResult
+ * //   repositoryEndpoint: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetRepositoryEndpointCommandInput - {@link GetRepositoryEndpointCommandInput}
@@ -103,6 +107,8 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  *
+ * @throws {@link CodeartifactServiceException}
+ * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
 export class GetRepositoryEndpointCommand extends $Command<

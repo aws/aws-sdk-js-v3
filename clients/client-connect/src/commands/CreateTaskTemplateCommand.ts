@@ -94,6 +94,11 @@ export interface CreateTaskTemplateCommandOutput extends CreateTaskTemplateRespo
  * };
  * const command = new CreateTaskTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTaskTemplateResponse
+ * //   Id: "STRING_VALUE", // required
+ * //   Arn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateTaskTemplateCommandInput - {@link CreateTaskTemplateCommandInput}
@@ -120,6 +125,8 @@ export interface CreateTaskTemplateCommandOutput extends CreateTaskTemplateRespo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class CreateTaskTemplateCommand extends $Command<

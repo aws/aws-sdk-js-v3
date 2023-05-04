@@ -44,6 +44,8 @@ export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __M
  * };
  * const command = new DeleteKeyspaceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteKeyspaceCommandInput - {@link DeleteKeyspaceCommandInput}
@@ -73,6 +75,8 @@ export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
+ * @throws {@link KeyspacesServiceException}
+ * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
 export class DeleteKeyspaceCommand extends $Command<

@@ -45,6 +45,63 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  * };
  * const command = new ListPlaybackConfigurationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPlaybackConfigurationsResponse
+ * //   Items: [ // __listOfPlaybackConfiguration
+ * //     { // PlaybackConfiguration
+ * //       AdDecisionServerUrl: "STRING_VALUE",
+ * //       AvailSuppression: { // AvailSuppression
+ * //         Mode: "OFF" || "BEHIND_LIVE_EDGE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //       Bumper: { // Bumper
+ * //         EndUrl: "STRING_VALUE",
+ * //         StartUrl: "STRING_VALUE",
+ * //       },
+ * //       CdnConfiguration: { // CdnConfiguration
+ * //         AdSegmentUrlPrefix: "STRING_VALUE",
+ * //         ContentSegmentUrlPrefix: "STRING_VALUE",
+ * //       },
+ * //       ConfigurationAliases: { // ConfigurationAliasesResponse
+ * //         "<keys>": { // __mapOf__string
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       DashConfiguration: { // DashConfiguration
+ * //         ManifestEndpointPrefix: "STRING_VALUE",
+ * //         MpdLocation: "STRING_VALUE",
+ * //         OriginManifestType: "SINGLE_PERIOD" || "MULTI_PERIOD",
+ * //       },
+ * //       HlsConfiguration: { // HlsConfiguration
+ * //         ManifestEndpointPrefix: "STRING_VALUE",
+ * //       },
+ * //       LivePreRollConfiguration: { // LivePreRollConfiguration
+ * //         AdDecisionServerUrl: "STRING_VALUE",
+ * //         MaxDurationSeconds: Number("int"),
+ * //       },
+ * //       LogConfiguration: { // LogConfiguration
+ * //         PercentEnabled: Number("int"), // required
+ * //       },
+ * //       ManifestProcessingRules: { // ManifestProcessingRules
+ * //         AdMarkerPassthrough: { // AdMarkerPassthrough
+ * //           Enabled: true || false,
+ * //         },
+ * //       },
+ * //       Name: "STRING_VALUE",
+ * //       PersonalizationThresholdSeconds: Number("int"),
+ * //       PlaybackConfigurationArn: "STRING_VALUE",
+ * //       PlaybackEndpointPrefix: "STRING_VALUE",
+ * //       SessionInitializationEndpointPrefix: "STRING_VALUE",
+ * //       SlateAdUrl: "STRING_VALUE",
+ * //       Tags: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       TranscodeProfileName: "STRING_VALUE",
+ * //       VideoContentSourceUrl: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPlaybackConfigurationsCommandInput - {@link ListPlaybackConfigurationsCommandInput}
@@ -53,6 +110,8 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  * @see {@link ListPlaybackConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class ListPlaybackConfigurationsCommand extends $Command<

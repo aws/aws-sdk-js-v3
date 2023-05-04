@@ -50,6 +50,21 @@ export interface DeleteCarrierGatewayCommandOutput extends DeleteCarrierGatewayR
  * };
  * const command = new DeleteCarrierGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteCarrierGatewayResult
+ * //   CarrierGateway: { // CarrierGateway
+ * //     CarrierGatewayId: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteCarrierGatewayCommandInput - {@link DeleteCarrierGatewayCommandInput}
@@ -58,6 +73,8 @@ export interface DeleteCarrierGatewayCommandOutput extends DeleteCarrierGatewayR
  * @see {@link DeleteCarrierGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteCarrierGatewayCommand extends $Command<

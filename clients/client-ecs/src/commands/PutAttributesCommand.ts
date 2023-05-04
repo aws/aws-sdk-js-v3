@@ -55,6 +55,17 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  * };
  * const command = new PutAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // PutAttributesResponse
+ * //   attributes: [ // Attributes
+ * //     { // Attribute
+ * //       name: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE",
+ * //       targetType: "container-instance",
+ * //       targetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param PutAttributesCommandInput - {@link PutAttributesCommandInput}
@@ -80,6 +91,8 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  * 			with <a>ListContainerInstances</a>. Amazon ECS container instances are
  * 			cluster-specific and Region-specific.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
 export class PutAttributesCommand extends $Command<

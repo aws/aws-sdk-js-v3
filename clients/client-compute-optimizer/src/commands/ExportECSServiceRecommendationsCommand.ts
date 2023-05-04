@@ -75,6 +75,15 @@ export interface ExportECSServiceRecommendationsCommandOutput
  * };
  * const command = new ExportECSServiceRecommendationsCommand(input);
  * const response = await client.send(command);
+ * // { // ExportECSServiceRecommendationsResponse
+ * //   jobId: "STRING_VALUE",
+ * //   s3Destination: { // S3Destination
+ * //     bucket: "STRING_VALUE",
+ * //     key: "STRING_VALUE",
+ * //     metadataKey: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ExportECSServiceRecommendationsCommandInput - {@link ExportECSServiceRecommendationsCommandInput}
@@ -108,6 +117,8 @@ export interface ExportECSServiceRecommendationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ComputeOptimizerServiceException}
+ * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
 export class ExportECSServiceRecommendationsCommand extends $Command<

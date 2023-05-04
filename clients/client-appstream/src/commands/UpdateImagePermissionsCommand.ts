@@ -49,6 +49,8 @@ export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissi
  * };
  * const command = new UpdateImagePermissionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateImagePermissionsCommandInput - {@link UpdateImagePermissionsCommandInput}
@@ -66,6 +68,8 @@ export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissi
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class UpdateImagePermissionsCommand extends $Command<

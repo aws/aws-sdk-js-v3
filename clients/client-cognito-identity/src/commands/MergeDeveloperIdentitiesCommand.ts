@@ -60,6 +60,10 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  * };
  * const command = new MergeDeveloperIdentitiesCommand(input);
  * const response = await client.send(command);
+ * // { // MergeDeveloperIdentitiesResponse
+ * //   IdentityId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param MergeDeveloperIdentitiesCommandInput - {@link MergeDeveloperIdentitiesCommandInput}
@@ -88,6 +92,8 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Thrown when a request is throttled.</p>
  *
+ * @throws {@link CognitoIdentityServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
 export class MergeDeveloperIdentitiesCommand extends $Command<

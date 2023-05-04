@@ -59,6 +59,27 @@ export interface DescribeTrafficMirrorTargetsCommandOutput
  * };
  * const command = new DescribeTrafficMirrorTargetsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeTrafficMirrorTargetsResult
+ * //   TrafficMirrorTargets: [ // TrafficMirrorTargetSet
+ * //     { // TrafficMirrorTarget
+ * //       TrafficMirrorTargetId: "STRING_VALUE",
+ * //       NetworkInterfaceId: "STRING_VALUE",
+ * //       NetworkLoadBalancerArn: "STRING_VALUE",
+ * //       Type: "network-interface" || "network-load-balancer" || "gateway-load-balancer-endpoint",
+ * //       Description: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       GatewayLoadBalancerEndpointId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeTrafficMirrorTargetsCommandInput - {@link DescribeTrafficMirrorTargetsCommandInput}
@@ -67,6 +88,8 @@ export interface DescribeTrafficMirrorTargetsCommandOutput
  * @see {@link DescribeTrafficMirrorTargetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeTrafficMirrorTargetsCommand extends $Command<

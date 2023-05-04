@@ -50,6 +50,12 @@ export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyO
  * };
  * const command = new GetVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetVaultAccessPolicyOutput
+ * //   policy: { // VaultAccessPolicy
+ * //     Policy: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetVaultAccessPolicyCommandInput - {@link GetVaultAccessPolicyCommandInput}
@@ -71,6 +77,8 @@ export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyO
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To  get the access-policy set on the vault
  * ```javascript

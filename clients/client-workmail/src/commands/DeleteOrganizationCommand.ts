@@ -46,6 +46,11 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  * };
  * const command = new DeleteOrganizationCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteOrganizationResponse
+ * //   OrganizationId: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteOrganizationCommandInput - {@link DeleteOrganizationCommandInput}
@@ -65,6 +70,8 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DeleteOrganizationCommand extends $Command<

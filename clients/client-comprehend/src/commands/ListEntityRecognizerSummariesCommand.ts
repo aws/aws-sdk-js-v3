@@ -50,6 +50,19 @@ export interface ListEntityRecognizerSummariesCommandOutput
  * };
  * const command = new ListEntityRecognizerSummariesCommand(input);
  * const response = await client.send(command);
+ * // { // ListEntityRecognizerSummariesResponse
+ * //   EntityRecognizerSummariesList: [ // EntityRecognizerSummariesList
+ * //     { // EntityRecognizerSummary
+ * //       RecognizerName: "STRING_VALUE",
+ * //       NumberOfVersions: Number("int"),
+ * //       LatestVersionCreatedAt: new Date("TIMESTAMP"),
+ * //       LatestVersionName: "STRING_VALUE",
+ * //       LatestVersionStatus: "SUBMITTED" || "TRAINING" || "DELETING" || "STOP_REQUESTED" || "STOPPED" || "IN_ERROR" || "TRAINED" || "TRAINED_WITH_WARNING",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEntityRecognizerSummariesCommandInput - {@link ListEntityRecognizerSummariesCommandInput}
@@ -67,6 +80,8 @@ export interface ListEntityRecognizerSummariesCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class ListEntityRecognizerSummariesCommand extends $Command<

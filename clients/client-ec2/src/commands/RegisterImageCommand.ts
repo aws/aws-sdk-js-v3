@@ -127,6 +127,10 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  * };
  * const command = new RegisterImageCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterImageResult
+ * //   ImageId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RegisterImageCommandInput - {@link RegisterImageCommandInput}
@@ -135,6 +139,8 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  * @see {@link RegisterImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class RegisterImageCommand extends $Command<

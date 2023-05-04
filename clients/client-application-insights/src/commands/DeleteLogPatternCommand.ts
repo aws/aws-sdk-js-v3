@@ -50,6 +50,8 @@ export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse,
  * };
  * const command = new DeleteLogPatternCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteLogPatternCommandInput - {@link DeleteLogPatternCommandInput}
@@ -70,6 +72,8 @@ export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse,
  * @throws {@link ValidationException} (client fault)
  *  <p>The parameter is not valid.</p>
  *
+ * @throws {@link ApplicationInsightsServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
 export class DeleteLogPatternCommand extends $Command<

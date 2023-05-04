@@ -50,6 +50,34 @@ export interface ListRealtimeLogConfigsCommandOutput extends ListRealtimeLogConf
  * };
  * const command = new ListRealtimeLogConfigsCommand(input);
  * const response = await client.send(command);
+ * // { // ListRealtimeLogConfigsResult
+ * //   RealtimeLogConfigs: { // RealtimeLogConfigs
+ * //     MaxItems: Number("int"), // required
+ * //     Items: [ // RealtimeLogConfigList
+ * //       { // RealtimeLogConfig
+ * //         ARN: "STRING_VALUE", // required
+ * //         Name: "STRING_VALUE", // required
+ * //         SamplingRate: Number("long"), // required
+ * //         EndPoints: [ // EndPointList // required
+ * //           { // EndPoint
+ * //             StreamType: "STRING_VALUE", // required
+ * //             KinesisStreamConfig: { // KinesisStreamConfig
+ * //               RoleARN: "STRING_VALUE", // required
+ * //               StreamARN: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         ],
+ * //         Fields: [ // FieldList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     IsTruncated: true || false, // required
+ * //     Marker: "STRING_VALUE", // required
+ * //     NextMarker: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ListRealtimeLogConfigsCommandInput - {@link ListRealtimeLogConfigsCommandInput}
@@ -67,6 +95,8 @@ export interface ListRealtimeLogConfigsCommandOutput extends ListRealtimeLogConf
  * @throws {@link NoSuchRealtimeLogConfig} (client fault)
  *  <p>The real-time log configuration does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListRealtimeLogConfigsCommand extends $Command<

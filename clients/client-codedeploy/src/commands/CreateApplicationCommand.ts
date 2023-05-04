@@ -51,6 +51,10 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateApplicationOutput
+ * //   applicationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
@@ -77,6 +81,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
  * @throws {@link InvalidTagsToAddException} (client fault)
  *  <p> The specified tags are not valid. </p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class CreateApplicationCommand extends $Command<

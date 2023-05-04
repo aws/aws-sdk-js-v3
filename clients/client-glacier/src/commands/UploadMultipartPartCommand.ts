@@ -112,6 +112,10 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * };
  * const command = new UploadMultipartPartCommand(input);
  * const response = await client.send(command);
+ * // { // UploadMultipartPartOutput
+ * //   checksum: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UploadMultipartPartCommandInput - {@link UploadMultipartPartCommandInput}
@@ -137,6 +141,8 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To upload the first part of an archive
  * ```javascript

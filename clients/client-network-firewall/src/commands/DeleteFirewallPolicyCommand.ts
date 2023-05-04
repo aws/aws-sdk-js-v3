@@ -45,6 +45,30 @@ export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyR
  * };
  * const command = new DeleteFirewallPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteFirewallPolicyResponse
+ * //   FirewallPolicyResponse: { // FirewallPolicyResponse
+ * //     FirewallPolicyName: "STRING_VALUE", // required
+ * //     FirewallPolicyArn: "STRING_VALUE", // required
+ * //     FirewallPolicyId: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     FirewallPolicyStatus: "ACTIVE" || "DELETING",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     ConsumedStatelessRuleCapacity: Number("int"),
+ * //     ConsumedStatefulRuleCapacity: Number("int"),
+ * //     NumberOfAssociations: Number("int"),
+ * //     EncryptionConfiguration: { // EncryptionConfiguration
+ * //       KeyId: "STRING_VALUE",
+ * //       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ * //     },
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteFirewallPolicyCommandInput - {@link DeleteFirewallPolicyCommandInput}
@@ -86,6 +110,8 @@ export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyR
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>The operation you requested isn't supported by Network Firewall. </p>
  *
+ * @throws {@link NetworkFirewallServiceException}
+ * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
 export class DeleteFirewallPolicyCommand extends $Command<

@@ -54,6 +54,19 @@ export interface GetStreamingSessionStreamCommandOutput extends GetStreamingSess
  * };
  * const command = new GetStreamingSessionStreamCommand(input);
  * const response = await client.send(command);
+ * // { // GetStreamingSessionStreamResponse
+ * //   stream: { // StreamingSessionStream
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     createdBy: "STRING_VALUE",
+ * //     expiresAt: new Date("TIMESTAMP"),
+ * //     ownedBy: "STRING_VALUE",
+ * //     state: "READY" || "CREATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "CREATE_FAILED" || "DELETE_FAILED",
+ * //     statusCode: "STREAM_CREATE_IN_PROGRESS" || "STREAM_READY" || "STREAM_DELETE_IN_PROGRESS" || "STREAM_DELETED" || "INTERNAL_ERROR" || "NETWORK_CONNECTION_ERROR",
+ * //     streamId: "STRING_VALUE",
+ * //     url: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetStreamingSessionStreamCommandInput - {@link GetStreamingSessionStreamCommandInput}
@@ -86,6 +99,8 @@ export interface GetStreamingSessionStreamCommandOutput extends GetStreamingSess
  * @throws {@link ValidationException} (client fault)
  *  <p>One of the parameters in the request is invalid.</p>
  *
+ * @throws {@link NimbleServiceException}
+ * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
  */
 export class GetStreamingSessionStreamCommand extends $Command<

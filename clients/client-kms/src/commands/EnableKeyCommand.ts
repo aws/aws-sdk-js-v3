@@ -54,6 +54,8 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableKeyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param EnableKeyCommandInput - {@link EnableKeyCommandInput}
@@ -100,6 +102,8 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To enable a KMS key
  * ```javascript

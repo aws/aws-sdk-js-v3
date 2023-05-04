@@ -44,6 +44,16 @@ export interface GetPublicKeyConfigCommandOutput extends GetPublicKeyConfigResul
  * };
  * const command = new GetPublicKeyConfigCommand(input);
  * const response = await client.send(command);
+ * // { // GetPublicKeyConfigResult
+ * //   PublicKeyConfig: { // PublicKeyConfig
+ * //     CallerReference: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     EncodedKey: "STRING_VALUE", // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetPublicKeyConfigCommandInput - {@link GetPublicKeyConfigCommandInput}
@@ -58,6 +68,8 @@ export interface GetPublicKeyConfigCommandOutput extends GetPublicKeyConfigResul
  * @throws {@link NoSuchPublicKey} (client fault)
  *  <p>The specified public key doesn't exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetPublicKeyConfigCommand extends $Command<

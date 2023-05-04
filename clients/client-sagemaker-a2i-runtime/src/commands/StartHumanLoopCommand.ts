@@ -57,6 +57,10 @@ export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __M
  * };
  * const command = new StartHumanLoopCommand(input);
  * const response = await client.send(command);
+ * // { // StartHumanLoopResponse
+ * //   HumanLoopArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartHumanLoopCommandInput - {@link StartHumanLoopCommandInput}
@@ -90,6 +94,8 @@ export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __M
  *  <p>The
  *       request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link SageMakerA2IRuntimeServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
  */
 export class StartHumanLoopCommand extends $Command<

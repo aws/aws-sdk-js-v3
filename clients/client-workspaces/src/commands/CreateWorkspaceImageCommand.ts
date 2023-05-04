@@ -52,6 +52,19 @@ export interface CreateWorkspaceImageCommandOutput extends CreateWorkspaceImageR
  * };
  * const command = new CreateWorkspaceImageCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWorkspaceImageResult
+ * //   ImageId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   OperatingSystem: { // OperatingSystem
+ * //     Type: "WINDOWS" || "LINUX",
+ * //   },
+ * //   State: "AVAILABLE" || "PENDING" || "ERROR",
+ * //   RequiredTenancy: "DEFAULT" || "DEDICATED",
+ * //   Created: new Date("TIMESTAMP"),
+ * //   OwnerAccountId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateWorkspaceImageCommandInput - {@link CreateWorkspaceImageCommandInput}
@@ -81,6 +94,8 @@ export interface CreateWorkspaceImageCommandOutput extends CreateWorkspaceImageR
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class CreateWorkspaceImageCommand extends $Command<

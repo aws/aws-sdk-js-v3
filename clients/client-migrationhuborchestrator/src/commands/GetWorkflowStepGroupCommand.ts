@@ -49,6 +49,30 @@ export interface GetWorkflowStepGroupCommandOutput extends GetWorkflowStepGroupR
  * };
  * const command = new GetWorkflowStepGroupCommand(input);
  * const response = await client.send(command);
+ * // { // GetWorkflowStepGroupResponse
+ * //   id: "STRING_VALUE",
+ * //   workflowId: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   owner: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   lastModifiedTime: new Date("TIMESTAMP"),
+ * //   endTime: new Date("TIMESTAMP"),
+ * //   tools: [ // ToolsList
+ * //     { // Tool
+ * //       name: "STRING_VALUE",
+ * //       url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   previous: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   next: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetWorkflowStepGroupCommandInput - {@link GetWorkflowStepGroupCommandInput}
@@ -72,6 +96,8 @@ export interface GetWorkflowStepGroupCommandOutput extends GetWorkflowStepGroupR
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link MigrationHubOrchestratorServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
 export class GetWorkflowStepGroupCommand extends $Command<

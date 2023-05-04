@@ -49,6 +49,12 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * };
  * const command = new UpdateCampaignCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateCampaignResponse
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateCampaignCommandInput - {@link UpdateCampaignCommandInput}
@@ -76,6 +82,8 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class UpdateCampaignCommand extends $Command<

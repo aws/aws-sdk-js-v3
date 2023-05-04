@@ -77,6 +77,10 @@ export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsx
  * };
  * const command = new CreateLocationFsxOpenZfsCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLocationFsxOpenZfsResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateLocationFsxOpenZfsCommandInput - {@link CreateLocationFsxOpenZfsCommandInput}
@@ -92,6 +96,8 @@ export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsx
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationFsxOpenZfsCommand extends $Command<

@@ -128,6 +128,11 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  * };
  * const command = new GenerateDataKeyWithoutPlaintextCommand(input);
  * const response = await client.send(command);
+ * // { // GenerateDataKeyWithoutPlaintextResponse
+ * //   CiphertextBlob: "BLOB_VALUE",
+ * //   KeyId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GenerateDataKeyWithoutPlaintextCommandInput - {@link GenerateDataKeyWithoutPlaintextCommandInput}
@@ -197,6 +202,8 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *  <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To generate an encrypted data key
  * ```javascript

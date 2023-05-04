@@ -52,6 +52,10 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  * };
  * const command = new StartEngagementCommand(input);
  * const response = await client.send(command);
+ * // { // StartEngagementResult
+ * //   EngagementArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param StartEngagementCommandInput - {@link StartEngagementCommandInput}
@@ -79,6 +83,8 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class StartEngagementCommand extends $Command<

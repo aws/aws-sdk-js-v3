@@ -47,6 +47,26 @@ export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConf
  * };
  * const command = new ListCodeSigningConfigsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCodeSigningConfigsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   CodeSigningConfigs: [ // CodeSigningConfigList
+ * //     { // CodeSigningConfig
+ * //       CodeSigningConfigId: "STRING_VALUE", // required
+ * //       CodeSigningConfigArn: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //       AllowedPublishers: { // AllowedPublishers
+ * //         SigningProfileVersionArns: [ // SigningProfileVersionArns // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       CodeSigningPolicies: { // CodeSigningPolicies
+ * //         UntrustedArtifactOnDeployment: "Warn" || "Enforce",
+ * //       },
+ * //       LastModified: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListCodeSigningConfigsCommandInput - {@link ListCodeSigningConfigsCommandInput}
@@ -61,6 +81,8 @@ export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConf
  * @throws {@link ServiceException} (server fault)
  *  <p>The Lambda service encountered an internal error.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class ListCodeSigningConfigsCommand extends $Command<

@@ -46,6 +46,8 @@ export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCustomerGatewayCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteCustomerGatewayCommandInput - {@link DeleteCustomerGatewayCommandInput}
@@ -54,6 +56,8 @@ export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To delete a customer gateway
  * ```javascript

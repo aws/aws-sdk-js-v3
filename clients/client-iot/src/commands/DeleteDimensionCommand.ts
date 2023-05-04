@@ -45,6 +45,8 @@ export interface DeleteDimensionCommandOutput extends DeleteDimensionResponse, _
  * };
  * const command = new DeleteDimensionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDimensionCommandInput - {@link DeleteDimensionCommandInput}
@@ -62,6 +64,8 @@ export interface DeleteDimensionCommandOutput extends DeleteDimensionResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteDimensionCommand extends $Command<

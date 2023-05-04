@@ -46,6 +46,20 @@ export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __Met
  * };
  * const command = new ListPortfoliosCommand(input);
  * const response = await client.send(command);
+ * // { // ListPortfoliosOutput
+ * //   PortfolioDetails: [ // PortfolioDetails
+ * //     { // PortfolioDetail
+ * //       Id: "STRING_VALUE",
+ * //       ARN: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       ProviderName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPortfoliosCommandInput - {@link ListPortfoliosCommandInput}
@@ -57,6 +71,8 @@ export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __Met
  * @throws {@link InvalidParametersException} (client fault)
  *  <p>One or more parameters provided to the operation are not valid.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ListPortfoliosCommand extends $Command<

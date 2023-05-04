@@ -50,6 +50,25 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
+ * // { // ListDevicesResponse
+ * //   Devices: [ // __listOfDeviceDescription
+ * //     { // DeviceDescription
+ * //       Arn: "STRING_VALUE",
+ * //       Attributes: { // DeviceAttributes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       DeviceId: "STRING_VALUE",
+ * //       Enabled: true || false,
+ * //       RemainingLife: Number("double"),
+ * //       Type: "STRING_VALUE",
+ * //       Tags: { // __mapOf__string
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListDevicesCommandInput - {@link ListDevicesCommandInput}
@@ -64,6 +83,8 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  *
  * @throws {@link RangeNotSatisfiableException} (client fault)
  *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class ListDevicesCommand extends $Command<

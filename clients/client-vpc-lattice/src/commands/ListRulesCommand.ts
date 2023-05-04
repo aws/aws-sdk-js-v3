@@ -47,6 +47,21 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
+ * // { // ListRulesResponse
+ * //   items: [ // RuleSummaryList // required
+ * //     { // RuleSummary
+ * //       arn: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       isDefault: true || false,
+ * //       priority: Number("int"),
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListRulesCommandInput - {@link ListRulesCommandInput}
@@ -71,6 +86,8 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class ListRulesCommand extends $Command<

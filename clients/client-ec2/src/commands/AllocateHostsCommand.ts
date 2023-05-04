@@ -65,6 +65,12 @@ export interface AllocateHostsCommandOutput extends AllocateHostsResult, __Metad
  * };
  * const command = new AllocateHostsCommand(input);
  * const response = await client.send(command);
+ * // { // AllocateHostsResult
+ * //   HostIds: [ // ResponseHostIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param AllocateHostsCommandInput - {@link AllocateHostsCommandInput}
@@ -73,6 +79,8 @@ export interface AllocateHostsCommandOutput extends AllocateHostsResult, __Metad
  * @see {@link AllocateHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class AllocateHostsCommand extends $Command<

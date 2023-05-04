@@ -46,6 +46,12 @@ export interface CancelImportTaskCommandOutput extends CancelImportTaskResult, _
  * };
  * const command = new CancelImportTaskCommand(input);
  * const response = await client.send(command);
+ * // { // CancelImportTaskResult
+ * //   ImportTaskId: "STRING_VALUE",
+ * //   PreviousState: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CancelImportTaskCommandInput - {@link CancelImportTaskCommandInput}
@@ -54,6 +60,8 @@ export interface CancelImportTaskCommandOutput extends CancelImportTaskResult, _
  * @see {@link CancelImportTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CancelImportTaskCommand extends $Command<

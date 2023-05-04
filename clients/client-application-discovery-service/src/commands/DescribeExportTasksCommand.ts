@@ -62,6 +62,22 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * };
  * const command = new DescribeExportTasksCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeExportTasksResponse
+ * //   exportsInfo: [ // ExportsInfo
+ * //     { // ExportInfo
+ * //       exportId: "STRING_VALUE", // required
+ * //       exportStatus: "FAILED" || "SUCCEEDED" || "IN_PROGRESS", // required
+ * //       statusMessage: "STRING_VALUE", // required
+ * //       configurationsDownloadUrl: "STRING_VALUE",
+ * //       exportRequestTime: new Date("TIMESTAMP"), // required
+ * //       isTruncated: true || false,
+ * //       requestedStartTime: new Date("TIMESTAMP"),
+ * //       requestedEndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeExportTasksCommandInput - {@link DescribeExportTasksCommandInput}
@@ -87,6 +103,8 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class DescribeExportTasksCommand extends $Command<

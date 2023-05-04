@@ -48,6 +48,13 @@ export interface GetMergeCommitCommandOutput extends GetMergeCommitOutput, __Met
  * };
  * const command = new GetMergeCommitCommand(input);
  * const response = await client.send(command);
+ * // { // GetMergeCommitOutput
+ * //   sourceCommitId: "STRING_VALUE",
+ * //   destinationCommitId: "STRING_VALUE",
+ * //   baseCommitId: "STRING_VALUE",
+ * //   mergedCommitId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetMergeCommitCommandInput - {@link GetMergeCommitCommandInput}
@@ -101,6 +108,8 @@ export interface GetMergeCommitCommandOutput extends GetMergeCommitOutput, __Met
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class GetMergeCommitCommand extends $Command<

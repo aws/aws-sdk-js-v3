@@ -57,6 +57,15 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  * };
  * const command = new GetCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // GetCustomVerificationEmailTemplateResponse
+ * //   TemplateName: "STRING_VALUE",
+ * //   FromEmailAddress: "STRING_VALUE",
+ * //   TemplateSubject: "STRING_VALUE",
+ * //   TemplateContent: "STRING_VALUE",
+ * //   SuccessRedirectionURL: "STRING_VALUE",
+ * //   FailureRedirectionURL: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetCustomVerificationEmailTemplateCommandInput - {@link GetCustomVerificationEmailTemplateCommandInput}
@@ -74,6 +83,8 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class GetCustomVerificationEmailTemplateCommand extends $Command<

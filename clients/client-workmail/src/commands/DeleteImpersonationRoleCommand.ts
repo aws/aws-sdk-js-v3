@@ -45,6 +45,8 @@ export interface DeleteImpersonationRoleCommandOutput extends DeleteImpersonatio
  * };
  * const command = new DeleteImpersonationRoleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteImpersonationRoleCommandInput - {@link DeleteImpersonationRoleCommandInput}
@@ -64,6 +66,8 @@ export interface DeleteImpersonationRoleCommandOutput extends DeleteImpersonatio
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DeleteImpersonationRoleCommand extends $Command<

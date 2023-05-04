@@ -77,6 +77,10 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  * };
  * const command = new CreateLicenseConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLicenseConfigurationResponse
+ * //   LicenseConfigurationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateLicenseConfigurationCommandInput - {@link CreateLicenseConfigurationCommandInput}
@@ -104,6 +108,8 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CreateLicenseConfigurationCommand extends $Command<

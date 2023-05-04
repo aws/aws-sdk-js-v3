@@ -50,6 +50,30 @@ export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBeare
  * };
  * const command = new LockRuleCommand(input);
  * const response = await client.send(command);
+ * // { // LockRuleResponse
+ * //   Identifier: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE",
+ * //   RetentionPeriod: { // RetentionPeriod
+ * //     RetentionPeriodValue: Number("int"), // required
+ * //     RetentionPeriodUnit: "DAYS", // required
+ * //   },
+ * //   ResourceTags: [ // ResourceTags
+ * //     { // ResourceTag
+ * //       ResourceTagKey: "STRING_VALUE", // required
+ * //       ResourceTagValue: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Status: "pending" || "available",
+ * //   LockConfiguration: { // LockConfiguration
+ * //     UnlockDelay: { // UnlockDelay
+ * //       UnlockDelayValue: Number("int"), // required
+ * //       UnlockDelayUnit: "DAYS", // required
+ * //     },
+ * //   },
+ * //   LockState: "locked" || "pending_unlock" || "unlocked",
+ * // };
+ *
  * ```
  *
  * @param LockRuleCommandInput - {@link LockRuleCommandInput}
@@ -70,6 +94,8 @@ export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBeare
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more of the parameters in the request is not valid.</p>
  *
+ * @throws {@link RbinServiceException}
+ * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
  */
 export class LockRuleCommand extends $Command<LockRuleCommandInput, LockRuleCommandOutput, RbinClientResolvedConfig> {

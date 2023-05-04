@@ -44,6 +44,14 @@ export interface GetSkillGroupCommandOutput extends GetSkillGroupResponse, __Met
  * };
  * const command = new GetSkillGroupCommand(input);
  * const response = await client.send(command);
+ * // { // GetSkillGroupResponse
+ * //   SkillGroup: { // SkillGroup
+ * //     SkillGroupArn: "STRING_VALUE",
+ * //     SkillGroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSkillGroupCommandInput - {@link GetSkillGroupCommandInput}
@@ -55,6 +63,8 @@ export interface GetSkillGroupCommandOutput extends GetSkillGroupResponse, __Met
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetSkillGroupCommand extends $Command<

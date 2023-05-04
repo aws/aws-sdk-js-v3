@@ -47,6 +47,10 @@ export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __M
  * };
  * const command = new CancelRetrievalCommand(input);
  * const response = await client.send(command);
+ * // { // CancelRetrievalOutput
+ * //   TapeARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CancelRetrievalCommandInput - {@link CancelRetrievalCommandInput}
@@ -63,6 +67,8 @@ export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __M
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To cancel virtual tape retrieval
  * ```javascript

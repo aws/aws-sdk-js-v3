@@ -61,6 +61,23 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
  * };
  * const command = new DescribeVpcPeeringConnectionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeVpcPeeringConnectionsOutput
+ * //   VpcPeeringConnections: [ // VpcPeeringConnectionList
+ * //     { // VpcPeeringConnection
+ * //       FleetId: "STRING_VALUE",
+ * //       FleetArn: "STRING_VALUE",
+ * //       IpV4CidrBlock: "STRING_VALUE",
+ * //       VpcPeeringConnectionId: "STRING_VALUE",
+ * //       Status: { // VpcPeeringConnectionStatus
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       PeerVpcId: "STRING_VALUE",
+ * //       GameLiftVpcId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeVpcPeeringConnectionsCommandInput - {@link DescribeVpcPeeringConnectionsCommandInput}
@@ -83,6 +100,8 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DescribeVpcPeeringConnectionsCommand extends $Command<

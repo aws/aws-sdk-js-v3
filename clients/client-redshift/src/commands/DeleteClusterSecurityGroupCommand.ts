@@ -52,6 +52,8 @@ export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteClusterSecurityGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteClusterSecurityGroupCommandInput - {@link DeleteClusterSecurityGroupCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBeare
  * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
  *  <p>The state of the cluster security group is not <code>available</code>. </p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeleteClusterSecurityGroupCommand extends $Command<

@@ -62,6 +62,10 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  * };
  * const command = new UpdateSnapshotScheduleCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateSnapshotScheduleOutput
+ * //   VolumeARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateSnapshotScheduleCommandInput - {@link UpdateSnapshotScheduleCommandInput}
@@ -78,6 +82,8 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To update a volume snapshot schedule
  * ```javascript

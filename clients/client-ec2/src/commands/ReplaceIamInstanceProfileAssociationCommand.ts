@@ -60,6 +60,19 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput
  * };
  * const command = new ReplaceIamInstanceProfileAssociationCommand(input);
  * const response = await client.send(command);
+ * // { // ReplaceIamInstanceProfileAssociationResult
+ * //   IamInstanceProfileAssociation: { // IamInstanceProfileAssociation
+ * //     AssociationId: "STRING_VALUE",
+ * //     InstanceId: "STRING_VALUE",
+ * //     IamInstanceProfile: { // IamInstanceProfile
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //     },
+ * //     State: "associating" || "associated" || "disassociating" || "disassociated",
+ * //     Timestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ReplaceIamInstanceProfileAssociationCommandInput - {@link ReplaceIamInstanceProfileAssociationCommandInput}
@@ -68,6 +81,8 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput
  * @see {@link ReplaceIamInstanceProfileAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ReplaceIamInstanceProfileAssociationCommand extends $Command<

@@ -44,6 +44,11 @@ export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __Met
  * };
  * const command = new GetArtifactUrlCommand(input);
  * const response = await client.send(command);
+ * // { // GetArtifactUrlResult
+ * //   artifactId: "STRING_VALUE", // required
+ * //   artifactUrl: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param GetArtifactUrlCommandInput - {@link GetArtifactUrlCommandInput}
@@ -67,6 +72,8 @@ export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class GetArtifactUrlCommand extends $Command<

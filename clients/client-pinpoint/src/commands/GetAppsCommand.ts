@@ -45,6 +45,23 @@ export interface GetAppsCommandOutput extends GetAppsResponse, __MetadataBearer 
  * };
  * const command = new GetAppsCommand(input);
  * const response = await client.send(command);
+ * // { // GetAppsResponse
+ * //   ApplicationsResponse: { // ApplicationsResponse
+ * //     Item: [ // ListOfApplicationResponse
+ * //       { // ApplicationResponse
+ * //         Arn: "STRING_VALUE", // required
+ * //         Id: "STRING_VALUE", // required
+ * //         Name: "STRING_VALUE", // required
+ * //         tags: { // MapOf__string
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         CreationDate: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     NextToken: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetAppsCommandInput - {@link GetAppsCommandInput}
@@ -74,6 +91,8 @@ export interface GetAppsCommandOutput extends GetAppsResponse, __MetadataBearer 
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Provides information about an API request or response.</p>
  *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetAppsCommand extends $Command<GetAppsCommandInput, GetAppsCommandOutput, PinpointClientResolvedConfig> {

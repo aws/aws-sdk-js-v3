@@ -61,6 +61,12 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  * };
  * const command = new ResolveCustomerCommand(input);
  * const response = await client.send(command);
+ * // { // ResolveCustomerResult
+ * //   CustomerIdentifier: "STRING_VALUE",
+ * //   ProductCode: "STRING_VALUE",
+ * //   CustomerAWSAccountId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ResolveCustomerCommandInput - {@link ResolveCustomerCommandInput}
@@ -89,6 +95,8 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The calls to the API are throttled.</p>
  *
+ * @throws {@link MarketplaceMeteringServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
  */
 export class ResolveCustomerCommand extends $Command<

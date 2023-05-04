@@ -75,6 +75,10 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  * };
  * const command = new CreateLocationS3Command(input);
  * const response = await client.send(command);
+ * // { // CreateLocationS3Response
+ * //   LocationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateLocationS3CommandInput - {@link CreateLocationS3CommandInput}
@@ -90,6 +94,8 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationS3Command extends $Command<

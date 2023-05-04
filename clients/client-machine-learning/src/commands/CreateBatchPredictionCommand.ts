@@ -59,6 +59,10 @@ export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictio
  * };
  * const command = new CreateBatchPredictionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateBatchPredictionOutput
+ * //   BatchPredictionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateBatchPredictionCommandInput - {@link CreateBatchPredictionCommandInput}
@@ -76,6 +80,8 @@ export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictio
  * @throws {@link InvalidInputException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class CreateBatchPredictionCommand extends $Command<

@@ -53,6 +53,23 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
+ * // { // EventsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   Events: [ // EventList
+ * //     { // Event
+ * //       SourceIdentifier: "STRING_VALUE",
+ * //       SourceType: "cluster" || "cluster-parameter-group" || "cluster-security-group" || "cluster-snapshot" || "scheduled-action",
+ * //       Message: "STRING_VALUE",
+ * //       EventCategories: [ // EventCategoriesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Severity: "STRING_VALUE",
+ * //       Date: new Date("TIMESTAMP"),
+ * //       EventId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
@@ -61,6 +78,8 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeEventsCommand extends $Command<

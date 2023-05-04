@@ -46,6 +46,18 @@ export interface DescribeClientPropertiesCommandOutput extends DescribeClientPro
  * };
  * const command = new DescribeClientPropertiesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeClientPropertiesResult
+ * //   ClientPropertiesList: [ // ClientPropertiesList
+ * //     { // ClientPropertiesResult
+ * //       ResourceId: "STRING_VALUE",
+ * //       ClientProperties: { // ClientProperties
+ * //         ReconnectEnabled: "ENABLED" || "DISABLED",
+ * //         LogUploadEnabled: "ENABLED" || "DISABLED",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeClientPropertiesCommandInput - {@link DescribeClientPropertiesCommandInput}
@@ -63,6 +75,8 @@ export interface DescribeClientPropertiesCommandOutput extends DescribeClientPro
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeClientPropertiesCommand extends $Command<

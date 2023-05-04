@@ -83,6 +83,59 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * };
  * const command = new CreateInputCommand(input);
  * const response = await client.send(command);
+ * // { // CreateInputResponse
+ * //   Input: { // Input
+ * //     Arn: "STRING_VALUE",
+ * //     AttachedChannels: [ // __listOf__string
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Destinations: [ // __listOfInputDestination
+ * //       { // InputDestination
+ * //         Ip: "STRING_VALUE",
+ * //         Port: "STRING_VALUE",
+ * //         Url: "STRING_VALUE",
+ * //         Vpc: { // InputDestinationVpc
+ * //           AvailabilityZone: "STRING_VALUE",
+ * //           NetworkInterfaceId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     Id: "STRING_VALUE",
+ * //     InputClass: "STANDARD" || "SINGLE_PIPELINE",
+ * //     InputDevices: [ // __listOfInputDeviceSettings
+ * //       { // InputDeviceSettings
+ * //         Id: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     InputPartnerIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     InputSourceType: "STATIC" || "DYNAMIC",
+ * //     MediaConnectFlows: [ // __listOfMediaConnectFlow
+ * //       { // MediaConnectFlow
+ * //         FlowArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Name: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE",
+ * //     SecurityGroups: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Sources: [ // __listOfInputSource
+ * //       { // InputSource
+ * //         PasswordParam: "STRING_VALUE",
+ * //         Url: "STRING_VALUE",
+ * //         Username: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     State: "CREATING" || "DETACHED" || "ATTACHED" || "DELETING" || "DELETED",
+ * //     Tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateInputCommandInput - {@link CreateInputCommandInput}
@@ -109,6 +162,8 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
+ * @throws {@link MediaLiveServiceException}
+ * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
 export class CreateInputCommand extends $Command<

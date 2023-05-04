@@ -52,6 +52,27 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
+ * // { // CreateUserResponse
+ * //   User: { // User
+ * //     UserId: "STRING_VALUE", // required
+ * //     AccountId: "STRING_VALUE",
+ * //     PrimaryEmail: "STRING_VALUE",
+ * //     PrimaryProvisionedNumber: "STRING_VALUE",
+ * //     DisplayName: "STRING_VALUE",
+ * //     LicenseType: "Basic" || "Plus" || "Pro" || "ProTrial",
+ * //     UserType: "PrivateUser" || "SharedDevice",
+ * //     UserRegistrationStatus: "Unregistered" || "Registered" || "Suspended",
+ * //     UserInvitationStatus: "Pending" || "Accepted" || "Failed",
+ * //     RegisteredOn: new Date("TIMESTAMP"),
+ * //     InvitedOn: new Date("TIMESTAMP"),
+ * //     AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
+ * //       IsAlexaForBusinessEnabled: true || false,
+ * //       AlexaForBusinessRoomArn: "STRING_VALUE",
+ * //     },
+ * //     PersonalPIN: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateUserCommandInput - {@link CreateUserCommandInput}
@@ -85,6 +106,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateUserCommand extends $Command<

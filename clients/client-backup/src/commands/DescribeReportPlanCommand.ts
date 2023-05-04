@@ -44,6 +44,41 @@ export interface DescribeReportPlanCommandOutput extends DescribeReportPlanOutpu
  * };
  * const command = new DescribeReportPlanCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeReportPlanOutput
+ * //   ReportPlan: { // ReportPlan
+ * //     ReportPlanArn: "STRING_VALUE",
+ * //     ReportPlanName: "STRING_VALUE",
+ * //     ReportPlanDescription: "STRING_VALUE",
+ * //     ReportSetting: { // ReportSetting
+ * //       ReportTemplate: "STRING_VALUE", // required
+ * //       FrameworkArns: [ // stringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       NumberOfFrameworks: Number("int"),
+ * //       Accounts: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       OrganizationUnits: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Regions: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     ReportDeliveryChannel: { // ReportDeliveryChannel
+ * //       S3BucketName: "STRING_VALUE", // required
+ * //       S3KeyPrefix: "STRING_VALUE",
+ * //       Formats: [ // FormatList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     DeploymentStatus: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     LastAttemptedExecutionTime: new Date("TIMESTAMP"),
+ * //     LastSuccessfulExecutionTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeReportPlanCommandInput - {@link DescribeReportPlanCommandInput}
@@ -65,6 +100,8 @@ export interface DescribeReportPlanCommandOutput extends DescribeReportPlanOutpu
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
  *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DescribeReportPlanCommand extends $Command<

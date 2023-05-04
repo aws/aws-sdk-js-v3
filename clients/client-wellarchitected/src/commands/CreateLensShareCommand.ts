@@ -66,6 +66,10 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
  * };
  * const command = new CreateLensShareCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLensShareOutput
+ * //   ShareId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateLensShareCommandInput - {@link CreateLensShareCommandInput}
@@ -95,6 +99,8 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class CreateLensShareCommand extends $Command<

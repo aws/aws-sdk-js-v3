@@ -61,6 +61,8 @@ export interface SetTerminationProtectionCommandOutput extends __MetadataBearer 
  * };
  * const command = new SetTerminationProtectionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SetTerminationProtectionCommandInput - {@link SetTerminationProtectionCommandInput}
@@ -73,6 +75,8 @@ export interface SetTerminationProtectionCommandOutput extends __MetadataBearer 
  *  <p>Indicates that an error occurred while processing the request and that the request was
  *          not completed.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class SetTerminationProtectionCommand extends $Command<

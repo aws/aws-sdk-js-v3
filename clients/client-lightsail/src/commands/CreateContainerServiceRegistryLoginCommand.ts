@@ -69,6 +69,15 @@ export interface CreateContainerServiceRegistryLoginCommandOutput
  * const input = {};
  * const command = new CreateContainerServiceRegistryLoginCommand(input);
  * const response = await client.send(command);
+ * // { // CreateContainerServiceRegistryLoginResult
+ * //   registryLogin: { // ContainerServiceRegistryLogin
+ * //     username: "STRING_VALUE",
+ * //     password: "STRING_VALUE",
+ * //     expiresAt: new Date("TIMESTAMP"),
+ * //     registry: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateContainerServiceRegistryLoginCommandInput - {@link CreateContainerServiceRegistryLoginCommandInput}
@@ -100,6 +109,8 @@ export interface CreateContainerServiceRegistryLoginCommandOutput
  * @throws {@link UnauthenticatedException} (client fault)
  *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
+ * @throws {@link LightsailServiceException}
+ * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
 export class CreateContainerServiceRegistryLoginCommand extends $Command<

@@ -54,6 +54,24 @@ export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse,
  * };
  * const command = new ListImageRecipesCommand(input);
  * const response = await client.send(command);
+ * // { // ListImageRecipesResponse
+ * //   requestId: "STRING_VALUE",
+ * //   imageRecipeSummaryList: [ // ImageRecipeSummaryList
+ * //     { // ImageRecipeSummary
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       platform: "Windows" || "Linux",
+ * //       owner: "STRING_VALUE",
+ * //       parentImage: "STRING_VALUE",
+ * //       dateCreated: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListImageRecipesCommandInput - {@link ListImageRecipesCommandInput}
@@ -86,6 +104,8 @@ export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse,
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListImageRecipesCommand extends $Command<

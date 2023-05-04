@@ -52,6 +52,15 @@ export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsRespo
  * };
  * const command = new GetRoleCredentialsCommand(input);
  * const response = await client.send(command);
+ * // { // GetRoleCredentialsResponse
+ * //   roleCredentials: { // RoleCredentials
+ * //     accessKeyId: "STRING_VALUE",
+ * //     secretAccessKey: "STRING_VALUE",
+ * //     sessionToken: "STRING_VALUE",
+ * //     expiration: Number("long"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetRoleCredentialsCommandInput - {@link GetRoleCredentialsCommandInput}
@@ -75,6 +84,8 @@ export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsRespo
  *  <p>Indicates that the request is not authorized. This can happen due to an invalid access
  *       token in the request.</p>
  *
+ * @throws {@link SSOServiceException}
+ * <p>Base exception class for all service exceptions from SSO service.</p>
  *
  */
 export class GetRoleCredentialsCommand extends $Command<

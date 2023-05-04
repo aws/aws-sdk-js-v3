@@ -57,6 +57,12 @@ export interface DeleteDataRepositoryAssociationCommandOutput
  * };
  * const command = new DeleteDataRepositoryAssociationCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDataRepositoryAssociationResponse
+ * //   AssociationId: "STRING_VALUE",
+ * //   Lifecycle: "CREATING" || "AVAILABLE" || "MISCONFIGURED" || "UPDATING" || "DELETING" || "FAILED",
+ * //   DeleteDataInFileSystem: true || false,
+ * // };
+ *
  * ```
  *
  * @param DeleteDataRepositoryAssociationCommandInput - {@link DeleteDataRepositoryAssociationCommandInput}
@@ -83,6 +89,8 @@ export interface DeleteDataRepositoryAssociationCommandOutput
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
  *             some service limits by contacting Amazon Web Services Support.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DeleteDataRepositoryAssociationCommand extends $Command<

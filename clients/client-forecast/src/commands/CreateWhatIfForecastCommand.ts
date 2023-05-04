@@ -89,6 +89,10 @@ export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastR
  * };
  * const command = new CreateWhatIfForecastCommand(input);
  * const response = await client.send(command);
+ * // { // CreateWhatIfForecastResponse
+ * //   WhatIfForecastArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateWhatIfForecastCommandInput - {@link CreateWhatIfForecastCommandInput}
@@ -114,6 +118,8 @@ export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastR
  *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
  *       again.</p>
  *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateWhatIfForecastCommand extends $Command<

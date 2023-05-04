@@ -52,6 +52,8 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  * };
  * const command = new DeleteTargetGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTargetGroupCommandInput - {@link DeleteTargetGroupCommandInput}
@@ -63,6 +65,8 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>A specified resource is in use.</p>
  *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @example To delete a target group
  * ```javascript

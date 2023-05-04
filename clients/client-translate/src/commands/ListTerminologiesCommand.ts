@@ -45,6 +45,33 @@ export interface ListTerminologiesCommandOutput extends ListTerminologiesRespons
  * };
  * const command = new ListTerminologiesCommand(input);
  * const response = await client.send(command);
+ * // { // ListTerminologiesResponse
+ * //   TerminologyPropertiesList: [ // TerminologyPropertiesList
+ * //     { // TerminologyProperties
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       SourceLanguageCode: "STRING_VALUE",
+ * //       TargetLanguageCodes: [ // LanguageCodeStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       EncryptionKey: { // EncryptionKey
+ * //         Type: "KMS", // required
+ * //         Id: "STRING_VALUE", // required
+ * //       },
+ * //       SizeBytes: Number("int"),
+ * //       TermCount: Number("int"),
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       LastUpdatedAt: new Date("TIMESTAMP"),
+ * //       Directionality: "UNI" || "MULTI",
+ * //       Message: "STRING_VALUE",
+ * //       SkippedTermCount: Number("int"),
+ * //       Format: "CSV" || "TMX" || "TSV",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTerminologiesCommandInput - {@link ListTerminologiesCommandInput}
@@ -64,6 +91,8 @@ export interface ListTerminologiesCommandOutput extends ListTerminologiesRespons
  *  <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  *
+ * @throws {@link TranslateServiceException}
+ * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
 export class ListTerminologiesCommand extends $Command<

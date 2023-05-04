@@ -59,6 +59,10 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  * };
  * const command = new PutQueryDefinitionCommand(input);
  * const response = await client.send(command);
+ * // { // PutQueryDefinitionResponse
+ * //   queryDefinitionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutQueryDefinitionCommandInput - {@link PutQueryDefinitionCommandInput}
@@ -79,6 +83,8 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service cannot complete the request.</p>
  *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class PutQueryDefinitionCommand extends $Command<

@@ -58,6 +58,12 @@ export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKe
  * };
  * const command = new GetContextKeysForCustomPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetContextKeysForPolicyResponse
+ * //   ContextKeyNames: [ // ContextKeyNamesResultListType
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetContextKeysForCustomPolicyCommandInput - {@link GetContextKeysForCustomPolicyCommandInput}
@@ -70,6 +76,8 @@ export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKe
  *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class GetContextKeysForCustomPolicyCommand extends $Command<

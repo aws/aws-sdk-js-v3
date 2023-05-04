@@ -44,6 +44,8 @@ export interface DeleteVoiceProfileDomainCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteVoiceProfileDomainCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteVoiceProfileDomainCommandInput - {@link DeleteVoiceProfileDomainCommandInput}
@@ -79,6 +81,8 @@ export interface DeleteVoiceProfileDomainCommandOutput extends __MetadataBearer 
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client isn't authorized to request a resource.</p>
  *
+ * @throws {@link ChimeSDKVoiceServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
 export class DeleteVoiceProfileDomainCommand extends $Command<

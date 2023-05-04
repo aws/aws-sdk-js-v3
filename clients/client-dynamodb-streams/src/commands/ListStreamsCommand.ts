@@ -51,6 +51,17 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
+ * // { // ListStreamsOutput
+ * //   Streams: [ // StreamList
+ * //     { // Stream
+ * //       StreamArn: "STRING_VALUE",
+ * //       TableName: "STRING_VALUE",
+ * //       StreamLabel: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   LastEvaluatedStreamArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListStreamsCommandInput - {@link ListStreamsCommandInput}
@@ -67,6 +78,8 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  *             might not be specified correctly, or its status might not be
  *             <code>ACTIVE</code>.</p>
  *
+ * @throws {@link DynamoDBStreamsServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
  * @example To list all of the stream ARNs
  * ```javascript

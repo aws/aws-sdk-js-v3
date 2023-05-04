@@ -49,6 +49,17 @@ export interface GetOriginAccessControlConfigCommandOutput
  * };
  * const command = new GetOriginAccessControlConfigCommand(input);
  * const response = await client.send(command);
+ * // { // GetOriginAccessControlConfigResult
+ * //   OriginAccessControlConfig: { // OriginAccessControlConfig
+ * //     Name: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     SigningProtocol: "sigv4", // required
+ * //     SigningBehavior: "never" || "always" || "no-override", // required
+ * //     OriginAccessControlOriginType: "s3" || "mediastore", // required
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetOriginAccessControlConfigCommandInput - {@link GetOriginAccessControlConfigCommandInput}
@@ -63,6 +74,8 @@ export interface GetOriginAccessControlConfigCommandOutput
  * @throws {@link NoSuchOriginAccessControl} (client fault)
  *  <p>The origin access control does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetOriginAccessControlConfigCommand extends $Command<

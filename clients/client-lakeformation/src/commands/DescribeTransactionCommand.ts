@@ -44,6 +44,15 @@ export interface DescribeTransactionCommandOutput extends DescribeTransactionRes
  * };
  * const command = new DescribeTransactionCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeTransactionResponse
+ * //   TransactionDescription: { // TransactionDescription
+ * //     TransactionId: "STRING_VALUE",
+ * //     TransactionStatus: "ACTIVE" || "COMMITTED" || "ABORTED" || "COMMIT_IN_PROGRESS",
+ * //     TransactionStartTime: new Date("TIMESTAMP"),
+ * //     TransactionEndTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeTransactionCommandInput - {@link DescribeTransactionCommandInput}
@@ -64,6 +73,8 @@ export interface DescribeTransactionCommandOutput extends DescribeTransactionRes
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class DescribeTransactionCommand extends $Command<

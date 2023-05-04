@@ -51,6 +51,17 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * };
  * const command = new CreateRoomCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRoomResponse
+ * //   Room: { // Room
+ * //     RoomId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     AccountId: "STRING_VALUE",
+ * //     CreatedBy: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateRoomCommandInput - {@link CreateRoomCommandInput}
@@ -83,6 +94,8 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class CreateRoomCommand extends $Command<

@@ -44,6 +44,16 @@ export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpo
  * };
  * const command = new CreateRealtimeEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRealtimeEndpointOutput
+ * //   MLModelId: "STRING_VALUE",
+ * //   RealtimeEndpointInfo: { // RealtimeEndpointInfo
+ * //     PeakRequestsPerSecond: Number("int"),
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     EndpointUrl: "STRING_VALUE",
+ * //     EndpointStatus: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateRealtimeEndpointCommandInput - {@link CreateRealtimeEndpointCommandInput}
@@ -61,6 +71,8 @@ export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A specified resource cannot be located.</p>
  *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class CreateRealtimeEndpointCommand extends $Command<

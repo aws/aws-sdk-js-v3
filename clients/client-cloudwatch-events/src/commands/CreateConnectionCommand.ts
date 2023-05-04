@@ -111,6 +111,13 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateConnectionResponse
+ * //   ConnectionArn: "STRING_VALUE",
+ * //   ConnectionState: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param CreateConnectionCommandInput - {@link CreateConnectionCommandInput}
@@ -129,6 +136,8 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource you are trying to create already exists.</p>
  *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class CreateConnectionCommand extends $Command<

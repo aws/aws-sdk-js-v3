@@ -50,6 +50,17 @@ export interface ListProfileObjectTypeTemplatesCommandOutput
  * };
  * const command = new ListProfileObjectTypeTemplatesCommand(input);
  * const response = await client.send(command);
+ * // { // ListProfileObjectTypeTemplatesResponse
+ * //   Items: [ // ProfileObjectTypeTemplateList
+ * //     { // ListProfileObjectTypeTemplateItem
+ * //       TemplateId: "STRING_VALUE",
+ * //       SourceName: "STRING_VALUE",
+ * //       SourceObject: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListProfileObjectTypeTemplatesCommandInput - {@link ListProfileObjectTypeTemplatesCommandInput}
@@ -73,6 +84,8 @@ export interface ListProfileObjectTypeTemplatesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class ListProfileObjectTypeTemplatesCommand extends $Command<

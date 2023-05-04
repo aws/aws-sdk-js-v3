@@ -48,6 +48,8 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteInstanceCommandInput - {@link DeleteInstanceCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DeleteInstanceCommand extends $Command<

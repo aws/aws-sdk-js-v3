@@ -59,6 +59,15 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  * };
  * const command = new GetChangeCommand(input);
  * const response = await client.send(command);
+ * // { // GetChangeResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetChangeCommandInput - {@link GetChangeCommandInput}
@@ -73,6 +82,8 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  * @throws {@link NoSuchChange} (client fault)
  *  <p>A change with the specified change ID does not exist.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetChangeCommand extends $Command<

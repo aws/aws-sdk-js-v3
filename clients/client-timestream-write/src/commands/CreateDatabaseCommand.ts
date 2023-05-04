@@ -55,6 +55,17 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * };
  * const command = new CreateDatabaseCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDatabaseResponse
+ * //   Database: { // Database
+ * //     Arn: "STRING_VALUE",
+ * //     DatabaseName: "STRING_VALUE",
+ * //     TableCount: Number("long"),
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateDatabaseCommandInput - {@link CreateDatabaseCommandInput}
@@ -88,6 +99,8 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p> An invalid or malformed request.</p>
  *
+ * @throws {@link TimestreamWriteServiceException}
+ * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
  */
 export class CreateDatabaseCommand extends $Command<

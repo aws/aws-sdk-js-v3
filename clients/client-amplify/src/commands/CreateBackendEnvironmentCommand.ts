@@ -47,6 +47,17 @@ export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvi
  * };
  * const command = new CreateBackendEnvironmentCommand(input);
  * const response = await client.send(command);
+ * // { // CreateBackendEnvironmentResult
+ * //   backendEnvironment: { // BackendEnvironment
+ * //     backendEnvironmentArn: "STRING_VALUE", // required
+ * //     environmentName: "STRING_VALUE", // required
+ * //     stackName: "STRING_VALUE",
+ * //     deploymentArtifacts: "STRING_VALUE",
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     updateTime: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateBackendEnvironmentCommandInput - {@link CreateBackendEnvironmentCommandInput}
@@ -70,6 +81,8 @@ export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvi
  * @throws {@link UnauthorizedException} (client fault)
  *  <p> An operation failed due to a lack of access. </p>
  *
+ * @throws {@link AmplifyServiceException}
+ * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
 export class CreateBackendEnvironmentCommand extends $Command<

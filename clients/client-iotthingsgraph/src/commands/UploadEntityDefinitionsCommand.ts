@@ -61,6 +61,10 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  * };
  * const command = new UploadEntityDefinitionsCommand(input);
  * const response = await client.send(command);
+ * // { // UploadEntityDefinitionsResponse
+ * //   uploadId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UploadEntityDefinitionsCommandInput - {@link UploadEntityDefinitionsCommandInput}
@@ -78,6 +82,8 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class UploadEntityDefinitionsCommand extends $Command<

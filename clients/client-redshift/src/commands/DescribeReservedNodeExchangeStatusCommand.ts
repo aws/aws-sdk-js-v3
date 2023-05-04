@@ -57,6 +57,23 @@ export interface DescribeReservedNodeExchangeStatusCommandOutput
  * };
  * const command = new DescribeReservedNodeExchangeStatusCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeReservedNodeExchangeStatusOutputMessage
+ * //   ReservedNodeExchangeStatusDetails: [ // ReservedNodeExchangeStatusList
+ * //     { // ReservedNodeExchangeStatus
+ * //       ReservedNodeExchangeRequestId: "STRING_VALUE",
+ * //       Status: "REQUESTED" || "PENDING" || "IN_PROGRESS" || "RETRYING" || "SUCCEEDED" || "FAILED",
+ * //       RequestTime: new Date("TIMESTAMP"),
+ * //       SourceReservedNodeId: "STRING_VALUE",
+ * //       SourceReservedNodeType: "STRING_VALUE",
+ * //       SourceReservedNodeCount: Number("int"),
+ * //       TargetReservedNodeOfferingId: "STRING_VALUE",
+ * //       TargetReservedNodeType: "STRING_VALUE",
+ * //       TargetReservedNodeCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeReservedNodeExchangeStatusCommandInput - {@link DescribeReservedNodeExchangeStatusCommandInput}
@@ -74,6 +91,8 @@ export interface DescribeReservedNodeExchangeStatusCommandOutput
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeReservedNodeExchangeStatusCommand extends $Command<

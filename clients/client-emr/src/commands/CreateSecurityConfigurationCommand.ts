@@ -46,6 +46,11 @@ export interface CreateSecurityConfigurationCommandOutput extends CreateSecurity
  * };
  * const command = new CreateSecurityConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSecurityConfigurationOutput
+ * //   Name: "STRING_VALUE", // required
+ * //   CreationDateTime: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
  * @param CreateSecurityConfigurationCommandInput - {@link CreateSecurityConfigurationCommandInput}
@@ -61,6 +66,8 @@ export interface CreateSecurityConfigurationCommandOutput extends CreateSecurity
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class CreateSecurityConfigurationCommand extends $Command<

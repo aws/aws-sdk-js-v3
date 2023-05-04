@@ -56,6 +56,8 @@ export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteBotChannelAssociationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteBotChannelAssociationCommandInput - {@link DeleteBotChannelAssociationCommandInput}
@@ -83,6 +85,8 @@ export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBear
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class DeleteBotChannelAssociationCommand extends $Command<

@@ -50,6 +50,22 @@ export interface DescribeDataSetRefreshPropertiesCommandOutput
  * };
  * const command = new DescribeDataSetRefreshPropertiesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDataSetRefreshPropertiesResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   DataSetRefreshProperties: { // DataSetRefreshProperties
+ * //     RefreshConfiguration: { // RefreshConfiguration
+ * //       IncrementalRefresh: { // IncrementalRefresh
+ * //         LookbackWindow: { // LookbackWindow
+ * //           ColumnName: "STRING_VALUE", // required
+ * //           Size: Number("long"), // required
+ * //           SizeUnit: "HOUR" || "DAY" || "WEEK", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeDataSetRefreshPropertiesCommandInput - {@link DescribeDataSetRefreshPropertiesCommandInput}
@@ -82,6 +98,8 @@ export interface DescribeDataSetRefreshPropertiesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeDataSetRefreshPropertiesCommand extends $Command<

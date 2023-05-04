@@ -47,6 +47,30 @@ export interface ListWorkflowStepExecutionsCommandOutput extends ListWorkflowSte
  * };
  * const command = new ListWorkflowStepExecutionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListWorkflowStepExecutionsResponse
+ * //   requestId: "STRING_VALUE",
+ * //   steps: [ // WorkflowStepExecutionsList
+ * //     { // WorkflowStepMetadata
+ * //       stepExecutionId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       action: "STRING_VALUE",
+ * //       status: "PENDING" || "SKIPPED" || "RUNNING" || "COMPLETED" || "FAILED",
+ * //       rollbackStatus: "RUNNING" || "COMPLETED" || "SKIPPED" || "FAILED",
+ * //       message: "STRING_VALUE",
+ * //       inputs: "STRING_VALUE",
+ * //       outputs: "STRING_VALUE",
+ * //       startTime: "STRING_VALUE",
+ * //       endTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   workflowBuildVersionArn: "STRING_VALUE",
+ * //   workflowExecutionId: "STRING_VALUE",
+ * //   imageBuildVersionArn: "STRING_VALUE",
+ * //   message: "STRING_VALUE",
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListWorkflowStepExecutionsCommandInput - {@link ListWorkflowStepExecutionsCommandInput}
@@ -79,6 +103,8 @@ export interface ListWorkflowStepExecutionsCommandOutput extends ListWorkflowSte
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListWorkflowStepExecutionsCommand extends $Command<

@@ -54,6 +54,17 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * };
  * const command = new ListTasksCommand(input);
  * const response = await client.send(command);
+ * // { // ListTasksResponse
+ * //   Tasks: [ // TaskList
+ * //     { // TaskListEntry
+ * //       TaskArn: "STRING_VALUE",
+ * //       Status: "AVAILABLE" || "CREATING" || "QUEUED" || "RUNNING" || "UNAVAILABLE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTasksCommandInput - {@link ListTasksCommandInput}
@@ -69,6 +80,8 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class ListTasksCommand extends $Command<

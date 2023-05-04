@@ -48,6 +48,8 @@ export interface UntagRoleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagRoleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UntagRoleCommandInput - {@link UntagRoleCommandInput}
@@ -68,6 +70,8 @@ export interface UntagRoleCommandOutput extends __MetadataBearer {}
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To remove a tag from an IAM role
  * ```javascript

@@ -46,6 +46,13 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  * };
  * const command = new ListVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListVersionsResponse
+ * //   Versions: [ // VersionList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListVersionsCommandInput - {@link ListVersionsCommandInput}
@@ -61,11 +68,13 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class ListVersionsCommand extends $Command<

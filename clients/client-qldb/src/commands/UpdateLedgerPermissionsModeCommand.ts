@@ -56,6 +56,12 @@ export interface UpdateLedgerPermissionsModeCommandOutput
  * };
  * const command = new UpdateLedgerPermissionsModeCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateLedgerPermissionsModeResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   PermissionsMode: "ALLOW_ALL" || "STANDARD",
+ * // };
+ *
  * ```
  *
  * @param UpdateLedgerPermissionsModeCommandInput - {@link UpdateLedgerPermissionsModeCommandInput}
@@ -70,6 +76,8 @@ export interface UpdateLedgerPermissionsModeCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource doesn't exist.</p>
  *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class UpdateLedgerPermissionsModeCommand extends $Command<

@@ -45,6 +45,15 @@ export interface ListTrustStoresCommandOutput extends ListTrustStoresResponse, _
  * };
  * const command = new ListTrustStoresCommand(input);
  * const response = await client.send(command);
+ * // { // ListTrustStoresResponse
+ * //   trustStores: [ // TrustStoreSummaryList
+ * //     { // TrustStoreSummary
+ * //       trustStoreArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTrustStoresCommandInput - {@link ListTrustStoresCommandInput}
@@ -65,6 +74,8 @@ export interface ListTrustStoresCommandOutput extends ListTrustStoresResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class ListTrustStoresCommand extends $Command<

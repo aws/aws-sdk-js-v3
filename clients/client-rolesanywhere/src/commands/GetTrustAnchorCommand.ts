@@ -48,6 +48,24 @@ export interface GetTrustAnchorCommandOutput extends TrustAnchorDetailResponse, 
  * };
  * const command = new GetTrustAnchorCommand(input);
  * const response = await client.send(command);
+ * // { // TrustAnchorDetailResponse
+ * //   trustAnchor: { // TrustAnchorDetail
+ * //     trustAnchorId: "STRING_VALUE",
+ * //     trustAnchorArn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     source: { // Source
+ * //       sourceType: "STRING_VALUE",
+ * //       sourceData: { // SourceData Union: only one key present
+ * //         x509CertificateData: "STRING_VALUE",
+ * //         acmPcaArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     enabled: true || false,
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetTrustAnchorCommandInput - {@link GetTrustAnchorCommandInput}
@@ -65,6 +83,8 @@ export interface GetTrustAnchorCommandOutput extends TrustAnchorDetailResponse, 
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation exception error.</p>
  *
+ * @throws {@link RolesAnywhereServiceException}
+ * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  */
 export class GetTrustAnchorCommand extends $Command<

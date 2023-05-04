@@ -62,6 +62,10 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * };
  * const command = new CreateOrganizationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateOrganizationResponse
+ * //   OrganizationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateOrganizationCommandInput - {@link CreateOrganizationCommandInput}
@@ -85,6 +89,8 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * @throws {@link NameAvailabilityException} (client fault)
  *  <p>The user, group, or resource name isn't unique in WorkMail.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class CreateOrganizationCommand extends $Command<

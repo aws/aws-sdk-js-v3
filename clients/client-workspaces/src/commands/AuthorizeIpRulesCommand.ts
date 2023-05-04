@@ -52,6 +52,8 @@ export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, _
  * };
  * const command = new AuthorizeIpRulesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AuthorizeIpRulesCommandInput - {@link AuthorizeIpRulesCommandInput}
@@ -75,6 +77,8 @@ export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class AuthorizeIpRulesCommand extends $Command<

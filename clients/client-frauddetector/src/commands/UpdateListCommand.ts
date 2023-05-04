@@ -52,6 +52,8 @@ export interface UpdateListCommandOutput extends UpdateListResult, __MetadataBea
  * };
  * const command = new UpdateListCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateListCommandInput - {@link UpdateListCommandInput}
@@ -78,6 +80,8 @@ export interface UpdateListCommandOutput extends UpdateListResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class UpdateListCommand extends $Command<

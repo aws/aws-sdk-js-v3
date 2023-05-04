@@ -55,6 +55,8 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  * };
  * const command = new DeleteVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteVpcPeeringConnectionCommandInput - {@link DeleteVpcPeeringConnectionCommandInput}
@@ -77,6 +79,8 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DeleteVpcPeeringConnectionCommand extends $Command<

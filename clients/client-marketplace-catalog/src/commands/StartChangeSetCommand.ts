@@ -85,6 +85,11 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  * };
  * const command = new StartChangeSetCommand(input);
  * const response = await client.send(command);
+ * // { // StartChangeSetResponse
+ * //   ChangeSetId: "STRING_VALUE",
+ * //   ChangeSetArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartChangeSetCommandInput - {@link StartChangeSetCommandInput}
@@ -119,6 +124,8 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  *  <p>An error occurred during validation.</p>
  *          <p>HTTP status code: 422</p>
  *
+ * @throws {@link MarketplaceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
  */
 export class StartChangeSetCommand extends $Command<

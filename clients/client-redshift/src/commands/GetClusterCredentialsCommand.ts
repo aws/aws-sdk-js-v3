@@ -72,6 +72,12 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  * };
  * const command = new GetClusterCredentialsCommand(input);
  * const response = await client.send(command);
+ * // { // ClusterCredentials
+ * //   DbUser: "STRING_VALUE",
+ * //   DbPassword: "STRING_VALUE",
+ * //   Expiration: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param GetClusterCredentialsCommandInput - {@link GetClusterCredentialsCommandInput}
@@ -87,6 +93,8 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class GetClusterCredentialsCommand extends $Command<

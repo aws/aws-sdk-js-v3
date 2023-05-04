@@ -47,6 +47,22 @@ export interface GetSystemTemplateCommandOutput extends GetSystemTemplateRespons
  * };
  * const command = new GetSystemTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // GetSystemTemplateResponse
+ * //   description: { // SystemTemplateDescription
+ * //     summary: { // SystemTemplateSummary
+ * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       revisionNumber: Number("long"),
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //     },
+ * //     definition: { // DefinitionDocument
+ * //       language: "STRING_VALUE", // required
+ * //       text: "STRING_VALUE", // required
+ * //     },
+ * //     validatedNamespaceVersion: Number("long"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSystemTemplateCommandInput - {@link GetSystemTemplateCommandInput}
@@ -67,6 +83,8 @@ export interface GetSystemTemplateCommandOutput extends GetSystemTemplateRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class GetSystemTemplateCommand extends $Command<

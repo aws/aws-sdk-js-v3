@@ -43,6 +43,11 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
  * const input = {};
  * const command = new GetAdminAccountCommand(input);
  * const response = await client.send(command);
+ * // { // GetAdminAccountResponse
+ * //   AdminAccount: "STRING_VALUE",
+ * //   RoleStatus: "READY" || "CREATING" || "PENDING_DELETION" || "DELETING" || "DELETED",
+ * // };
+ *
  * ```
  *
  * @param GetAdminAccountCommandInput - {@link GetAdminAccountCommandInput}
@@ -65,6 +70,8 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class GetAdminAccountCommand extends $Command<

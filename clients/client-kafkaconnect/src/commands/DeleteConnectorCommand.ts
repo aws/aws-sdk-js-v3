@@ -45,6 +45,11 @@ export interface DeleteConnectorCommandOutput extends DeleteConnectorResponse, _
  * };
  * const command = new DeleteConnectorCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteConnectorResponse
+ * //   connectorArn: "STRING_VALUE",
+ * //   connectorState: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteConnectorCommandInput - {@link DeleteConnectorCommandInput}
@@ -80,6 +85,8 @@ export interface DeleteConnectorCommandOutput extends DeleteConnectorResponse, _
  *  <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
  *          validated.</p>
  *
+ * @throws {@link KafkaConnectServiceException}
+ * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
 export class DeleteConnectorCommand extends $Command<

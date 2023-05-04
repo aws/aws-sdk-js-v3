@@ -47,6 +47,17 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateGroupResponse
+ * //   Group: { // Group
+ * //     Arn: "STRING_VALUE",
+ * //     GroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     PrincipalId: "STRING_VALUE",
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
@@ -79,6 +90,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class UpdateGroupCommand extends $Command<

@@ -49,6 +49,8 @@ export interface DeletePartitionCommandOutput extends DeletePartitionResponse, _
  * };
  * const command = new DeletePartitionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeletePartitionCommandInput - {@link DeletePartitionCommandInput}
@@ -69,6 +71,8 @@ export interface DeletePartitionCommandOutput extends DeletePartitionResponse, _
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeletePartitionCommand extends $Command<

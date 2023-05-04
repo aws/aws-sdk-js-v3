@@ -47,6 +47,12 @@ export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOve
  * };
  * const command = new DescribeAccountOverviewCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAccountOverviewResponse
+ * //   ReactiveInsights: Number("int"), // required
+ * //   ProactiveInsights: Number("int"), // required
+ * //   MeanTimeToRecoverInMilliseconds: Number("long"), // required
+ * // };
+ *
  * ```
  *
  * @param DescribeAccountOverviewCommandInput - {@link DescribeAccountOverviewCommandInput}
@@ -71,6 +77,8 @@ export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOve
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class DescribeAccountOverviewCommand extends $Command<

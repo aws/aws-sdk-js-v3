@@ -57,6 +57,17 @@ export interface ListAvailableManagedRuleGroupVersionsCommandOutput
  * };
  * const command = new ListAvailableManagedRuleGroupVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAvailableManagedRuleGroupVersionsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   Versions: [ // ManagedRuleGroupVersions
+ * //     { // ManagedRuleGroupVersion
+ * //       Name: "STRING_VALUE",
+ * //       LastUpdateTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   CurrentDefaultVersion: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAvailableManagedRuleGroupVersionsCommandInput - {@link ListAvailableManagedRuleGroupVersionsCommandInput}
@@ -99,6 +110,8 @@ export interface ListAvailableManagedRuleGroupVersionsCommandOutput
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class ListAvailableManagedRuleGroupVersionsCommand extends $Command<

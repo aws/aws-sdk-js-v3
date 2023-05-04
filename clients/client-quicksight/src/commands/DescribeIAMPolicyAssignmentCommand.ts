@@ -51,6 +51,23 @@ export interface DescribeIAMPolicyAssignmentCommandOutput
  * };
  * const command = new DescribeIAMPolicyAssignmentCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeIAMPolicyAssignmentResponse
+ * //   IAMPolicyAssignment: { // IAMPolicyAssignment
+ * //     AwsAccountId: "STRING_VALUE",
+ * //     AssignmentId: "STRING_VALUE",
+ * //     AssignmentName: "STRING_VALUE",
+ * //     PolicyArn: "STRING_VALUE",
+ * //     Identities: { // IdentityMap
+ * //       "<keys>": [ // IdentityNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     AssignmentStatus: "ENABLED" || "DRAFT" || "DISABLED",
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param DescribeIAMPolicyAssignmentCommandInput - {@link DescribeIAMPolicyAssignmentCommandInput}
@@ -80,6 +97,8 @@ export interface DescribeIAMPolicyAssignmentCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeIAMPolicyAssignmentCommand extends $Command<

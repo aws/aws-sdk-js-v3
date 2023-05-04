@@ -62,6 +62,8 @@ export interface UpdateImpersonationRoleCommandOutput extends UpdateImpersonatio
  * };
  * const command = new UpdateImpersonationRoleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateImpersonationRoleCommandInput - {@link UpdateImpersonationRoleCommandInput}
@@ -95,6 +97,8 @@ export interface UpdateImpersonationRoleCommandOutput extends UpdateImpersonatio
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class UpdateImpersonationRoleCommand extends $Command<

@@ -44,6 +44,8 @@ export interface DeleteDeviceFleetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDeviceFleetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDeviceFleetCommandInput - {@link DeleteDeviceFleetCommandInput}
@@ -55,6 +57,8 @@ export interface DeleteDeviceFleetCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceInUse} (client fault)
  *  <p>Resource being accessed is in use.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteDeviceFleetCommand extends $Command<

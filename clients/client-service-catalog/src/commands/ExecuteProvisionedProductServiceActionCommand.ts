@@ -61,6 +61,35 @@ export interface ExecuteProvisionedProductServiceActionCommandOutput
  * };
  * const command = new ExecuteProvisionedProductServiceActionCommand(input);
  * const response = await client.send(command);
+ * // { // ExecuteProvisionedProductServiceActionOutput
+ * //   RecordDetail: { // RecordDetail
+ * //     RecordId: "STRING_VALUE",
+ * //     ProvisionedProductName: "STRING_VALUE",
+ * //     Status: "CREATED" || "IN_PROGRESS" || "IN_PROGRESS_IN_ERROR" || "SUCCEEDED" || "FAILED",
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     UpdatedTime: new Date("TIMESTAMP"),
+ * //     ProvisionedProductType: "STRING_VALUE",
+ * //     RecordType: "STRING_VALUE",
+ * //     ProvisionedProductId: "STRING_VALUE",
+ * //     ProductId: "STRING_VALUE",
+ * //     ProvisioningArtifactId: "STRING_VALUE",
+ * //     PathId: "STRING_VALUE",
+ * //     RecordErrors: [ // RecordErrors
+ * //       { // RecordError
+ * //         Code: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     RecordTags: [ // RecordTags
+ * //       { // RecordTag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     LaunchRoleArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ExecuteProvisionedProductServiceActionCommandInput - {@link ExecuteProvisionedProductServiceActionCommandInput}
@@ -79,6 +108,8 @@ export interface ExecuteProvisionedProductServiceActionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class ExecuteProvisionedProductServiceActionCommand extends $Command<

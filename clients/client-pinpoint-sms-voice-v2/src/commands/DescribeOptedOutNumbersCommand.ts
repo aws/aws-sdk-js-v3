@@ -68,6 +68,19 @@ export interface DescribeOptedOutNumbersCommandOutput extends DescribeOptedOutNu
  * };
  * const command = new DescribeOptedOutNumbersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeOptedOutNumbersResult
+ * //   OptOutListArn: "STRING_VALUE",
+ * //   OptOutListName: "STRING_VALUE",
+ * //   OptedOutNumbers: [ // OptedOutNumberInformationList
+ * //     { // OptedOutNumberInformation
+ * //       OptedOutNumber: "STRING_VALUE", // required
+ * //       OptedOutTimestamp: new Date("TIMESTAMP"), // required
+ * //       EndUserOptedOut: true || false, // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeOptedOutNumbersCommandInput - {@link DescribeOptedOutNumbersCommandInput}
@@ -94,6 +107,8 @@ export interface DescribeOptedOutNumbersCommandOutput extends DescribeOptedOutNu
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DescribeOptedOutNumbersCommand extends $Command<

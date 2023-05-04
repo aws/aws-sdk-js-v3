@@ -45,6 +45,21 @@ export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBea
  * };
  * const command = new ListMeshesCommand(input);
  * const response = await client.send(command);
+ * // { // ListMeshesOutput
+ * //   meshes: [ // MeshList // required
+ * //     { // MeshRef
+ * //       meshName: "STRING_VALUE", // required
+ * //       meshOwner: "STRING_VALUE", // required
+ * //       resourceOwner: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       version: Number("long"), // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListMeshesCommandInput - {@link ListMeshesCommandInput}
@@ -74,6 +89,8 @@ export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBea
  *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  *
+ * @throws {@link AppMeshServiceException}
+ * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
  */
 export class ListMeshesCommand extends $Command<

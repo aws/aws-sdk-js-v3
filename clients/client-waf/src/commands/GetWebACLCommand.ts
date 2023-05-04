@@ -52,6 +52,36 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * };
  * const command = new GetWebACLCommand(input);
  * const response = await client.send(command);
+ * // { // GetWebACLResponse
+ * //   WebACL: { // WebACL
+ * //     WebACLId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     MetricName: "STRING_VALUE",
+ * //     DefaultAction: { // WafAction
+ * //       Type: "STRING_VALUE", // required
+ * //     },
+ * //     Rules: [ // ActivatedRules // required
+ * //       { // ActivatedRule
+ * //         Priority: Number("int"), // required
+ * //         RuleId: "STRING_VALUE", // required
+ * //         Action: {
+ * //           Type: "STRING_VALUE", // required
+ * //         },
+ * //         OverrideAction: { // WafOverrideAction
+ * //           Type: "STRING_VALUE", // required
+ * //         },
+ * //         Type: "STRING_VALUE",
+ * //         ExcludedRules: [ // ExcludedRules
+ * //           { // ExcludedRule
+ * //             RuleId: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     WebACLArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetWebACLCommandInput - {@link GetWebACLCommandInput}
@@ -69,6 +99,8 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * @throws {@link WAFNonexistentItemException} (client fault)
  *  <p>The operation failed because the referenced object doesn't exist.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @example To get a web ACL
  * ```javascript

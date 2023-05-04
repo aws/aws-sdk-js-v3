@@ -54,6 +54,8 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
  * };
  * const command = new PutSkillAuthorizationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutSkillAuthorizationCommandInput - {@link PutSkillAuthorizationCommandInput}
@@ -68,6 +70,8 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The caller has no permissions to operate on the resource involved in the API call.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class PutSkillAuthorizationCommand extends $Command<

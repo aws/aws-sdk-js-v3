@@ -50,6 +50,8 @@ export interface UpdateQueueHoursOfOperationCommandOutput extends __MetadataBear
  * };
  * const command = new UpdateQueueHoursOfOperationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateQueueHoursOfOperationCommandInput - {@link UpdateQueueHoursOfOperationCommandInput}
@@ -73,6 +75,8 @@ export interface UpdateQueueHoursOfOperationCommandOutput extends __MetadataBear
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateQueueHoursOfOperationCommand extends $Command<

@@ -98,6 +98,10 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * };
  * const command = new UpdateRuleGroupCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateRuleGroupResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateRuleGroupCommandInput - {@link UpdateRuleGroupCommandInput}
@@ -201,6 +205,8 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * @throws {@link WAFStaleDataException} (client fault)
  *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class UpdateRuleGroupCommand extends $Command<

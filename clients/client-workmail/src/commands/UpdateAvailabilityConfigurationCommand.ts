@@ -63,6 +63,8 @@ export interface UpdateAvailabilityConfigurationCommandOutput
  * };
  * const command = new UpdateAvailabilityConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateAvailabilityConfigurationCommandInput - {@link UpdateAvailabilityConfigurationCommandInput}
@@ -85,6 +87,8 @@ export interface UpdateAvailabilityConfigurationCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
  *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class UpdateAvailabilityConfigurationCommand extends $Command<

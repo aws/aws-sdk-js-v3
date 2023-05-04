@@ -45,6 +45,16 @@ export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionR
  * };
  * const command = new CreateCidrCollectionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCidrCollectionResponse
+ * //   Collection: { // CidrCollection
+ * //     Arn: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Version: Number("long"),
+ * //   },
+ * //   Location: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateCidrCollectionCommandInput - {@link CreateCidrCollectionCommandInput}
@@ -68,6 +78,8 @@ export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionR
  * 			limit on the resource you are trying to create. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
  * 			Center.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class CreateCidrCollectionCommand extends $Command<

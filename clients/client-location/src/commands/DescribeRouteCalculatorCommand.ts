@@ -44,6 +44,19 @@ export interface DescribeRouteCalculatorCommandOutput extends DescribeRouteCalcu
  * };
  * const command = new DescribeRouteCalculatorCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRouteCalculatorResponse
+ * //   CalculatorName: "STRING_VALUE", // required
+ * //   CalculatorArn: "STRING_VALUE", // required
+ * //   PricingPlan: "STRING_VALUE",
+ * //   Description: "STRING_VALUE", // required
+ * //   CreateTime: new Date("TIMESTAMP"), // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * //   DataSource: "STRING_VALUE", // required
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeRouteCalculatorCommandInput - {@link DescribeRouteCalculatorCommandInput}
@@ -68,6 +81,8 @@ export interface DescribeRouteCalculatorCommandOutput extends DescribeRouteCalcu
  * @throws {@link ValidationException} (client fault)
  *  <p>The input failed to meet the constraints specified by the AWS service. </p>
  *
+ * @throws {@link LocationServiceException}
+ * <p>Base exception class for all service exceptions from Location service.</p>
  *
  */
 export class DescribeRouteCalculatorCommand extends $Command<

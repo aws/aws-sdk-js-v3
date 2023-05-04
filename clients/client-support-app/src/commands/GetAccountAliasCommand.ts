@@ -43,6 +43,10 @@ export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __M
  * const input = {};
  * const command = new GetAccountAliasCommand(input);
  * const response = await client.send(command);
+ * // { // GetAccountAliasResult
+ * //   accountAlias: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetAccountAliasCommandInput - {@link GetAccountAliasCommandInput}
@@ -54,6 +58,8 @@ export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __M
  * @throws {@link InternalServerException} (server fault)
  *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
  *
+ * @throws {@link SupportAppServiceException}
+ * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
  */
 export class GetAccountAliasCommand extends $Command<

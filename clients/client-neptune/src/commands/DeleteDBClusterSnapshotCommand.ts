@@ -49,6 +49,33 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * };
  * const command = new DeleteDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDBClusterSnapshotResult
+ * //   DBClusterSnapshot: { // DBClusterSnapshot
+ * //     AvailabilityZones: [ // AvailabilityZones
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     DBClusterSnapshotIdentifier: "STRING_VALUE",
+ * //     DBClusterIdentifier: "STRING_VALUE",
+ * //     SnapshotCreateTime: new Date("TIMESTAMP"),
+ * //     Engine: "STRING_VALUE",
+ * //     AllocatedStorage: Number("int"),
+ * //     Status: "STRING_VALUE",
+ * //     Port: Number("int"),
+ * //     VpcId: "STRING_VALUE",
+ * //     ClusterCreateTime: new Date("TIMESTAMP"),
+ * //     MasterUsername: "STRING_VALUE",
+ * //     EngineVersion: "STRING_VALUE",
+ * //     LicenseModel: "STRING_VALUE",
+ * //     SnapshotType: "STRING_VALUE",
+ * //     PercentProgress: Number("int"),
+ * //     StorageEncrypted: true || false,
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     DBClusterSnapshotArn: "STRING_VALUE",
+ * //     SourceDBClusterSnapshotArn: "STRING_VALUE",
+ * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteDBClusterSnapshotCommandInput - {@link DeleteDBClusterSnapshotCommandInput}
@@ -65,6 +92,8 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
  *  <p>The supplied value is not a valid DB cluster snapshot state.</p>
  *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DeleteDBClusterSnapshotCommand extends $Command<

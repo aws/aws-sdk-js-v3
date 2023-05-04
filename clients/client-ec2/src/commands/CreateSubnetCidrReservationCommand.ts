@@ -59,6 +59,23 @@ export interface CreateSubnetCidrReservationCommandOutput extends CreateSubnetCi
  * };
  * const command = new CreateSubnetCidrReservationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSubnetCidrReservationResult
+ * //   SubnetCidrReservation: { // SubnetCidrReservation
+ * //     SubnetCidrReservationId: "STRING_VALUE",
+ * //     SubnetId: "STRING_VALUE",
+ * //     Cidr: "STRING_VALUE",
+ * //     ReservationType: "prefix" || "explicit",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateSubnetCidrReservationCommandInput - {@link CreateSubnetCidrReservationCommandInput}
@@ -67,6 +84,8 @@ export interface CreateSubnetCidrReservationCommandOutput extends CreateSubnetCi
  * @see {@link CreateSubnetCidrReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateSubnetCidrReservationCommand extends $Command<

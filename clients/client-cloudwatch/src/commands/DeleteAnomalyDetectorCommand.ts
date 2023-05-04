@@ -93,6 +93,8 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  * };
  * const command = new DeleteAnomalyDetectorCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteAnomalyDetectorCommandInput - {@link DeleteAnomalyDetectorCommandInput}
@@ -116,6 +118,8 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The named resource does not exist.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DeleteAnomalyDetectorCommand extends $Command<

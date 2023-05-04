@@ -419,6 +419,10 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  * };
  * const command = new StartDetectorModelAnalysisCommand(input);
  * const response = await client.send(command);
+ * // { // StartDetectorModelAnalysisResponse
+ * //   analysisId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartDetectorModelAnalysisCommandInput - {@link StartDetectorModelAnalysisCommandInput}
@@ -442,6 +446,8 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request could not be completed due to throttling.</p>
  *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class StartDetectorModelAnalysisCommand extends $Command<

@@ -46,6 +46,18 @@ export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPU
  * };
  * const command = new ListApplicationDPUSizesCommand(input);
  * const response = await client.send(command);
+ * // { // ListApplicationDPUSizesOutput
+ * //   ApplicationDPUSizes: [ // ApplicationDPUSizesList
+ * //     { // ApplicationDPUSizes
+ * //       ApplicationRuntimeId: "STRING_VALUE",
+ * //       SupportedDPUSizes: [ // SupportedDPUSizeList
+ * //         Number("int"),
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListApplicationDPUSizesCommandInput - {@link ListApplicationDPUSizesCommandInput}
@@ -65,6 +77,8 @@ export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPU
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Indicates that the request was throttled.</p>
  *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class ListApplicationDPUSizesCommand extends $Command<

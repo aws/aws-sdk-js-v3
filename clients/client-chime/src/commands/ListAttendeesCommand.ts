@@ -54,6 +54,17 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  * };
  * const command = new ListAttendeesCommand(input);
  * const response = await client.send(command);
+ * // { // ListAttendeesResponse
+ * //   Attendees: [ // AttendeeList
+ * //     { // Attendee
+ * //       ExternalUserId: "STRING_VALUE",
+ * //       AttendeeId: "STRING_VALUE",
+ * //       JoinToken: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAttendeesCommandInput - {@link ListAttendeesCommandInput}
@@ -83,6 +94,8 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class ListAttendeesCommand extends $Command<

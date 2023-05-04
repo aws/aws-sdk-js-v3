@@ -55,6 +55,10 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  * };
  * const command = new SubscribeCommand(input);
  * const response = await client.send(command);
+ * // { // SubscribeResponse
+ * //   SubscriptionArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param SubscribeCommandInput - {@link SubscribeCommandInput}
@@ -89,6 +93,8 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  *  <p>Indicates that the customer already owns the maximum allowed number of
  *             subscriptions.</p>
  *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeCommandOutput, SNSClientResolvedConfig> {

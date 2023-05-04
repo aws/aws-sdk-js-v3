@@ -48,6 +48,18 @@ export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignme
  * };
  * const command = new ListAccountAssignmentsCommand(input);
  * const response = await client.send(command);
+ * // { // ListAccountAssignmentsResponse
+ * //   AccountAssignments: [ // AccountAssignmentList
+ * //     { // AccountAssignment
+ * //       AccountId: "STRING_VALUE",
+ * //       PermissionSetArn: "STRING_VALUE",
+ * //       PrincipalType: "USER" || "GROUP",
+ * //       PrincipalId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListAccountAssignmentsCommandInput - {@link ListAccountAssignmentsCommandInput}
@@ -73,6 +85,8 @@ export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignme
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
  *
+ * @throws {@link SSOAdminServiceException}
+ * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
 export class ListAccountAssignmentsCommand extends $Command<

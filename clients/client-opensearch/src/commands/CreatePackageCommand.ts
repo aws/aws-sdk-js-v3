@@ -51,6 +51,23 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * };
  * const command = new CreatePackageCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePackageResponse
+ * //   PackageDetails: { // PackageDetails
+ * //     PackageID: "STRING_VALUE",
+ * //     PackageName: "STRING_VALUE",
+ * //     PackageType: "TXT-DICTIONARY",
+ * //     PackageDescription: "STRING_VALUE",
+ * //     PackageStatus: "COPYING" || "COPY_FAILED" || "VALIDATING" || "VALIDATION_FAILED" || "AVAILABLE" || "DELETING" || "DELETED" || "DELETE_FAILED",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     LastUpdatedAt: new Date("TIMESTAMP"),
+ * //     AvailablePackageVersion: "STRING_VALUE",
+ * //     ErrorDetails: { // ErrorDetails
+ * //       ErrorType: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreatePackageCommandInput - {@link CreatePackageCommandInput}
@@ -80,6 +97,8 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class CreatePackageCommand extends $Command<

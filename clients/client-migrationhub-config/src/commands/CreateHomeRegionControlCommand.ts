@@ -53,6 +53,18 @@ export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionCo
  * };
  * const command = new CreateHomeRegionControlCommand(input);
  * const response = await client.send(command);
+ * // { // CreateHomeRegionControlResult
+ * //   HomeRegionControl: { // HomeRegionControl
+ * //     ControlId: "STRING_VALUE",
+ * //     HomeRegion: "STRING_VALUE",
+ * //     Target: { // Target
+ * //       Type: "STRING_VALUE", // required
+ * //       Id: "STRING_VALUE",
+ * //     },
+ * //     RequestedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateHomeRegionControlCommandInput - {@link CreateHomeRegionControlCommandInput}
@@ -83,6 +95,8 @@ export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionCo
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link MigrationHubConfigServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
  */
 export class CreateHomeRegionControlCommand extends $Command<

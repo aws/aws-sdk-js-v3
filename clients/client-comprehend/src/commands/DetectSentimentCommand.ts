@@ -51,6 +51,16 @@ export interface DetectSentimentCommandOutput extends DetectSentimentResponse, _
  * };
  * const command = new DetectSentimentCommand(input);
  * const response = await client.send(command);
+ * // { // DetectSentimentResponse
+ * //   Sentiment: "POSITIVE" || "NEGATIVE" || "NEUTRAL" || "MIXED",
+ * //   SentimentScore: { // SentimentScore
+ * //     Positive: Number("float"),
+ * //     Negative: Number("float"),
+ * //     Neutral: Number("float"),
+ * //     Mixed: Number("float"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DetectSentimentCommandInput - {@link DetectSentimentCommandInput}
@@ -75,6 +85,8 @@ export interface DetectSentimentCommandOutput extends DetectSentimentResponse, _
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DetectSentimentCommand extends $Command<

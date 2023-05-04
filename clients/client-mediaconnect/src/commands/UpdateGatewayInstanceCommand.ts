@@ -45,6 +45,11 @@ export interface UpdateGatewayInstanceCommandOutput extends UpdateGatewayInstanc
  * };
  * const command = new UpdateGatewayInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateGatewayInstanceResponse
+ * //   BridgePlacement: "AVAILABLE" || "LOCKED",
+ * //   GatewayInstanceArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateGatewayInstanceCommandInput - {@link UpdateGatewayInstanceCommandInput}
@@ -74,6 +79,8 @@ export interface UpdateGatewayInstanceCommandOutput extends UpdateGatewayInstanc
  * @throws {@link TooManyRequestsException} (client fault)
  *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  *
+ * @throws {@link MediaConnectServiceException}
+ * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
  */
 export class UpdateGatewayInstanceCommand extends $Command<

@@ -75,6 +75,50 @@ export interface DescribeFileCachesCommandOutput extends DescribeFileCachesRespo
  * };
  * const command = new DescribeFileCachesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeFileCachesResponse
+ * //   FileCaches: [ // FileCaches
+ * //     { // FileCache
+ * //       OwnerId: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       FileCacheId: "STRING_VALUE",
+ * //       FileCacheType: "LUSTRE",
+ * //       FileCacheTypeVersion: "STRING_VALUE",
+ * //       Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "UPDATING" || "FAILED",
+ * //       FailureDetails: { // FileCacheFailureDetails
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       StorageCapacity: Number("int"),
+ * //       VpcId: "STRING_VALUE",
+ * //       SubnetIds: [ // SubnetIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       NetworkInterfaceIds: [ // NetworkInterfaceIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DNSName: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       ResourceARN: "STRING_VALUE",
+ * //       LustreConfiguration: { // FileCacheLustreConfiguration
+ * //         PerUnitStorageThroughput: Number("int"),
+ * //         DeploymentType: "CACHE_1",
+ * //         MountName: "STRING_VALUE",
+ * //         WeeklyMaintenanceStartTime: "STRING_VALUE",
+ * //         MetadataConfiguration: { // FileCacheLustreMetadataConfiguration
+ * //           StorageCapacity: Number("int"), // required
+ * //         },
+ * //         LogConfiguration: { // LustreLogConfiguration
+ * //           Level: "DISABLED" || "WARN_ONLY" || "ERROR_ONLY" || "WARN_ERROR", // required
+ * //           Destination: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       DataRepositoryAssociationIds: [ // DataRepositoryAssociationIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeFileCachesCommandInput - {@link DescribeFileCachesCommandInput}
@@ -92,6 +136,8 @@ export interface DescribeFileCachesCommandOutput extends DescribeFileCachesRespo
  * @throws {@link InternalServerError} (server fault)
  *  <p>A generic error indicating a server-side failure.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DescribeFileCachesCommand extends $Command<

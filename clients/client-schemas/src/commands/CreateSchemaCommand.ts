@@ -51,6 +51,19 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSchemaResponse
+ * //   Description: "STRING_VALUE",
+ * //   LastModified: new Date("TIMESTAMP"),
+ * //   SchemaArn: "STRING_VALUE",
+ * //   SchemaName: "STRING_VALUE",
+ * //   SchemaVersion: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   Type: "STRING_VALUE",
+ * //   VersionCreatedDate: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param CreateSchemaCommandInput - {@link CreateSchemaCommandInput}
@@ -67,6 +80,8 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class CreateSchemaCommand extends $Command<

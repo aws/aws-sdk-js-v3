@@ -51,6 +51,10 @@ export interface ConfirmPublicVirtualInterfaceCommandOutput
  * };
  * const command = new ConfirmPublicVirtualInterfaceCommand(input);
  * const response = await client.send(command);
+ * // { // ConfirmPublicVirtualInterfaceResponse
+ * //   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
+ * // };
+ *
  * ```
  *
  * @param ConfirmPublicVirtualInterfaceCommandInput - {@link ConfirmPublicVirtualInterfaceCommandInput}
@@ -65,6 +69,8 @@ export interface ConfirmPublicVirtualInterfaceCommandOutput
  * @throws {@link DirectConnectServerException} (server fault)
  *  <p>A server-side error occurred.</p>
  *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class ConfirmPublicVirtualInterfaceCommand extends $Command<

@@ -45,6 +45,8 @@ export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBea
  * };
  * const command = new DeleteLinkCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteLinkCommandInput - {@link DeleteLinkCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class DeleteLinkCommand extends $Command<

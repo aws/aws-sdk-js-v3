@@ -51,6 +51,10 @@ export interface UpdateImageCommandOutput extends UpdateImageResponse, __Metadat
  * };
  * const command = new UpdateImageCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateImageResponse
+ * //   ImageArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateImageCommandInput - {@link UpdateImageCommandInput}
@@ -65,6 +69,8 @@ export interface UpdateImageCommandOutput extends UpdateImageResponse, __Metadat
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateImageCommand extends $Command<

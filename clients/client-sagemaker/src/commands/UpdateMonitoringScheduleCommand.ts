@@ -149,6 +149,10 @@ export interface UpdateMonitoringScheduleCommandOutput extends UpdateMonitoringS
  * };
  * const command = new UpdateMonitoringScheduleCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateMonitoringScheduleResponse
+ * //   MonitoringScheduleArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param UpdateMonitoringScheduleCommandInput - {@link UpdateMonitoringScheduleCommandInput}
@@ -164,6 +168,8 @@ export interface UpdateMonitoringScheduleCommandOutput extends UpdateMonitoringS
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateMonitoringScheduleCommand extends $Command<

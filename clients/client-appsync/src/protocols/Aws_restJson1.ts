@@ -357,6 +357,7 @@ export const se_CreateGraphqlApiCommand = async (
       openIDConnectConfig: (_) => _json(_),
       tags: (_) => _json(_),
       userPoolConfig: (_) => _json(_),
+      visibility: [],
       xrayEnabled: [],
     })
   );

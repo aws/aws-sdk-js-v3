@@ -45,6 +45,15 @@ export interface ListBrowserSettingsCommandOutput extends ListBrowserSettingsRes
  * };
  * const command = new ListBrowserSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // ListBrowserSettingsResponse
+ * //   browserSettings: [ // BrowserSettingsList
+ * //     { // BrowserSettingsSummary
+ * //       browserSettingsArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListBrowserSettingsCommandInput - {@link ListBrowserSettingsCommandInput}
@@ -65,6 +74,8 @@ export interface ListBrowserSettingsCommandOutput extends ListBrowserSettingsRes
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class ListBrowserSettingsCommand extends $Command<

@@ -51,6 +51,26 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  * };
  * const command = new CreateAssetCommand(input);
  * const response = await client.send(command);
+ * // { // CreateAssetResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreatedAt: "STRING_VALUE",
+ * //   EgressEndpoints: [ // __listOfEgressEndpoint
+ * //     { // EgressEndpoint
+ * //       PackagingConfigurationId: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Id: "STRING_VALUE",
+ * //   PackagingGroupId: "STRING_VALUE",
+ * //   ResourceId: "STRING_VALUE",
+ * //   SourceArn: "STRING_VALUE",
+ * //   SourceRoleArn: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateAssetCommandInput - {@link CreateAssetCommandInput}
@@ -77,6 +97,8 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  * @throws {@link UnprocessableEntityException} (client fault)
  *  The parameters sent in the request are not valid.
  *
+ * @throws {@link MediaPackageVodServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
  */
 export class CreateAssetCommand extends $Command<

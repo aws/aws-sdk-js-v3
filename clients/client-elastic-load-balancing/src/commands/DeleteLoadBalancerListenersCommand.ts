@@ -51,6 +51,8 @@ export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBala
  * };
  * const command = new DeleteLoadBalancerListenersCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteLoadBalancerListenersCommandInput - {@link DeleteLoadBalancerListenersCommandInput}
@@ -62,6 +64,8 @@ export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBala
  * @throws {@link AccessPointNotFoundException} (client fault)
  *  <p>The specified load balancer does not exist.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To delete a listener from your load balancer
  * ```javascript

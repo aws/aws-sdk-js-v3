@@ -56,6 +56,10 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  * };
  * const command = new GetDataEndpointCommand(input);
  * const response = await client.send(command);
+ * // { // GetDataEndpointOutput
+ * //   DataEndpoint: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetDataEndpointCommandInput - {@link GetDataEndpointCommandInput}
@@ -77,6 +81,8 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
+ * @throws {@link KinesisVideoServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
  */
 export class GetDataEndpointCommand extends $Command<

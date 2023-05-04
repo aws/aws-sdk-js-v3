@@ -53,6 +53,10 @@ export interface CreatePermissionGroupCommandOutput extends CreatePermissionGrou
  * };
  * const command = new CreatePermissionGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePermissionGroupResponse
+ * //   permissionGroupId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreatePermissionGroupCommandInput - {@link CreatePermissionGroupCommandInput}
@@ -80,6 +84,8 @@ export interface CreatePermissionGroupCommandOutput extends CreatePermissionGrou
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link FinspaceDataServiceException}
+ * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
 export class CreatePermissionGroupCommand extends $Command<

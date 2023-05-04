@@ -49,6 +49,11 @@ export interface DeleteDistributionConfigurationCommandOutput
  * };
  * const command = new DeleteDistributionConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDistributionConfigurationResponse
+ * //   requestId: "STRING_VALUE",
+ * //   distributionConfigurationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteDistributionConfigurationCommandInput - {@link DeleteDistributionConfigurationCommandInput}
@@ -82,6 +87,8 @@ export interface DeleteDistributionConfigurationCommandOutput
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
  *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class DeleteDistributionConfigurationCommand extends $Command<

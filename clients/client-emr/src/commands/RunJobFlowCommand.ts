@@ -328,6 +328,11 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  * };
  * const command = new RunJobFlowCommand(input);
  * const response = await client.send(command);
+ * // { // RunJobFlowOutput
+ * //   JobFlowId: "STRING_VALUE",
+ * //   ClusterArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RunJobFlowCommandInput - {@link RunJobFlowCommandInput}
@@ -340,6 +345,8 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *  <p>Indicates that an error occurred while processing the request and that the request was
  *          not completed.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class RunJobFlowCommand extends $Command<

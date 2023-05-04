@@ -58,6 +58,20 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * };
  * const command = new CreateCollectionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateCollectionResponse
+ * //   createCollectionDetail: { // CreateCollectionDetail
+ * //     id: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     type: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     kmsKeyArn: "STRING_VALUE",
+ * //     createdDate: Number("long"),
+ * //     lastModifiedDate: Number("long"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateCollectionCommandInput - {@link CreateCollectionCommandInput}
@@ -84,6 +98,8 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  *  <p>Thrown when the HTTP request contains invalid input or is missing required
  *             input.</p>
  *
+ * @throws {@link OpenSearchServerlessServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
  */
 export class CreateCollectionCommand extends $Command<

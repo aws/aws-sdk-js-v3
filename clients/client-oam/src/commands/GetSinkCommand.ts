@@ -45,6 +45,15 @@ export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
  * };
  * const command = new GetSinkCommand(input);
  * const response = await client.send(command);
+ * // { // GetSinkOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Tags: { // TagMapOutput
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSinkCommandInput - {@link GetSinkCommandInput}
@@ -65,6 +74,8 @@ export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class GetSinkCommand extends $Command<GetSinkCommandInput, GetSinkCommandOutput, OAMClientResolvedConfig> {

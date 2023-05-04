@@ -48,6 +48,20 @@ export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorizat
  * };
  * const command = new AuthorizeEndpointAccessCommand(input);
  * const response = await client.send(command);
+ * // { // EndpointAuthorization
+ * //   Grantor: "STRING_VALUE",
+ * //   Grantee: "STRING_VALUE",
+ * //   ClusterIdentifier: "STRING_VALUE",
+ * //   AuthorizeTime: new Date("TIMESTAMP"),
+ * //   ClusterStatus: "STRING_VALUE",
+ * //   Status: "Authorized" || "Revoking",
+ * //   AllowedAllVPCs: true || false,
+ * //   AllowedVPCs: [ // VpcIdentifierList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   EndpointCount: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param AuthorizeEndpointAccessCommandInput - {@link AuthorizeEndpointAccessCommandInput}
@@ -75,6 +89,8 @@ export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorizat
  * @throws {@link UnsupportedOperationFault} (client fault)
  *  <p>The requested operation isn't supported.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class AuthorizeEndpointAccessCommand extends $Command<

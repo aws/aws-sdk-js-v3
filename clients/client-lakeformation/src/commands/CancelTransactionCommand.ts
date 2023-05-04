@@ -44,6 +44,8 @@ export interface CancelTransactionCommandOutput extends CancelTransactionRespons
  * };
  * const command = new CancelTransactionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CancelTransactionCommandInput - {@link CancelTransactionCommandInput}
@@ -73,6 +75,8 @@ export interface CancelTransactionCommandOutput extends CancelTransactionRespons
  * @throws {@link TransactionCommittedException} (client fault)
  *  <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class CancelTransactionCommand extends $Command<

@@ -61,6 +61,8 @@ export interface CreateLBCookieStickinessPolicyCommandOutput
  * };
  * const command = new CreateLBCookieStickinessPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateLBCookieStickinessPolicyCommandInput - {@link CreateLBCookieStickinessPolicyCommandInput}
@@ -81,6 +83,8 @@ export interface CreateLBCookieStickinessPolicyCommandOutput
  * @throws {@link TooManyPoliciesException} (client fault)
  *  <p>The quota for the number of policies for this load balancer has been reached.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To generate a duration-based stickiness policy for your load balancer
  * ```javascript

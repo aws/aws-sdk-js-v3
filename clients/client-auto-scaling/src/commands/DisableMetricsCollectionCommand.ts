@@ -47,6 +47,8 @@ export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer 
  * };
  * const command = new DisableMetricsCollectionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisableMetricsCollectionCommandInput - {@link DisableMetricsCollectionCommandInput}
@@ -59,6 +61,8 @@ export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer 
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To disable metrics collection for an Auto Scaling group
  * ```javascript

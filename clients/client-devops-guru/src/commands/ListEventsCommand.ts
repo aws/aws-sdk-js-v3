@@ -72,6 +72,42 @@ export interface ListEventsCommandOutput extends ListEventsResponse, __MetadataB
  * };
  * const command = new ListEventsCommand(input);
  * const response = await client.send(command);
+ * // { // ListEventsResponse
+ * //   Events: [ // Events // required
+ * //     { // Event
+ * //       ResourceCollection: { // ResourceCollection
+ * //         CloudFormation: { // CloudFormationCollection
+ * //           StackNames: [ // StackNames
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         Tags: [ // TagCollections
+ * //           { // TagCollection
+ * //             AppBoundaryKey: "STRING_VALUE", // required
+ * //             TagValues: [ // TagValues // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //       Id: "STRING_VALUE",
+ * //       Time: new Date("TIMESTAMP"),
+ * //       EventSource: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       DataSource: "AWS_CLOUD_TRAIL" || "AWS_CODE_DEPLOY",
+ * //       EventClass: "INFRASTRUCTURE" || "DEPLOYMENT" || "SECURITY_CHANGE" || "CONFIG_CHANGE" || "SCHEMA_CHANGE",
+ * //       Resources: [ // EventResources
+ * //         { // EventResource
+ * //           Type: "STRING_VALUE",
+ * //           Name: "STRING_VALUE",
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListEventsCommandInput - {@link ListEventsCommandInput}
@@ -99,6 +135,8 @@ export interface ListEventsCommandOutput extends ListEventsResponse, __MetadataB
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class ListEventsCommand extends $Command<

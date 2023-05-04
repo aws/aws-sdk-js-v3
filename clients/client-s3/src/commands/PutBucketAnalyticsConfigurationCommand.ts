@@ -185,6 +185,8 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  * };
  * const command = new PutBucketAnalyticsConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param PutBucketAnalyticsConfigurationCommandInput - {@link PutBucketAnalyticsConfigurationCommandInput}
@@ -193,6 +195,8 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  * @see {@link PutBucketAnalyticsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class PutBucketAnalyticsConfigurationCommand extends $Command<

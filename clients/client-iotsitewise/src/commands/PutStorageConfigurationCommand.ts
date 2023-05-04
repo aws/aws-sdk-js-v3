@@ -55,6 +55,28 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  * };
  * const command = new PutStorageConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // PutStorageConfigurationResponse
+ * //   storageType: "SITEWISE_DEFAULT_STORAGE" || "MULTI_LAYER_STORAGE", // required
+ * //   multiLayerStorage: { // MultiLayerStorage
+ * //     customerManagedS3Storage: { // CustomerManagedS3Storage
+ * //       s3ResourceArn: "STRING_VALUE", // required
+ * //       roleArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   disassociatedDataStorage: "ENABLED" || "DISABLED",
+ * //   retentionPeriod: { // RetentionPeriod
+ * //     numberOfDays: Number("int"),
+ * //     unlimited: true || false,
+ * //   },
+ * //   configurationStatus: { // ConfigurationStatus
+ * //     state: "ACTIVE" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED", // required
+ * //     error: { // ConfigurationErrorDetails
+ * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //       message: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PutStorageConfigurationCommandInput - {@link PutStorageConfigurationCommandInput}
@@ -92,6 +114,8 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class PutStorageConfigurationCommand extends $Command<

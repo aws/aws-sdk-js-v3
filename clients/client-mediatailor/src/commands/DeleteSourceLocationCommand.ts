@@ -44,6 +44,8 @@ export interface DeleteSourceLocationCommandOutput extends DeleteSourceLocationR
  * };
  * const command = new DeleteSourceLocationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSourceLocationCommandInput - {@link DeleteSourceLocationCommandInput}
@@ -52,6 +54,8 @@ export interface DeleteSourceLocationCommandOutput extends DeleteSourceLocationR
  * @see {@link DeleteSourceLocationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ * @throws {@link MediaTailorServiceException}
+ * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
  */
 export class DeleteSourceLocationCommand extends $Command<

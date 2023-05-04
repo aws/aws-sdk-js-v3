@@ -56,6 +56,33 @@ export interface DescribePublicIpv4PoolsCommandOutput extends DescribePublicIpv4
  * };
  * const command = new DescribePublicIpv4PoolsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribePublicIpv4PoolsResult
+ * //   PublicIpv4Pools: [ // PublicIpv4PoolSet
+ * //     { // PublicIpv4Pool
+ * //       PoolId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       PoolAddressRanges: [ // PublicIpv4PoolRangeSet
+ * //         { // PublicIpv4PoolRange
+ * //           FirstAddress: "STRING_VALUE",
+ * //           LastAddress: "STRING_VALUE",
+ * //           AddressCount: Number("int"),
+ * //           AvailableAddressCount: Number("int"),
+ * //         },
+ * //       ],
+ * //       TotalAddressCount: Number("int"),
+ * //       TotalAvailableAddressCount: Number("int"),
+ * //       NetworkBorderGroup: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribePublicIpv4PoolsCommandInput - {@link DescribePublicIpv4PoolsCommandInput}
@@ -64,6 +91,8 @@ export interface DescribePublicIpv4PoolsCommandOutput extends DescribePublicIpv4
  * @see {@link DescribePublicIpv4PoolsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribePublicIpv4PoolsCommand extends $Command<

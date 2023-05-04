@@ -45,6 +45,8 @@ export interface CreateWorkerBlockCommandOutput extends CreateWorkerBlockRespons
  * };
  * const command = new CreateWorkerBlockCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateWorkerBlockCommandInput - {@link CreateWorkerBlockCommandInput}
@@ -59,6 +61,8 @@ export interface CreateWorkerBlockCommandOutput extends CreateWorkerBlockRespons
  * @throws {@link ServiceFault} (server fault)
  *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class CreateWorkerBlockCommand extends $Command<

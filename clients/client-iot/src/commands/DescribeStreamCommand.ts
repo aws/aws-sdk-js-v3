@@ -45,6 +45,28 @@ export interface DescribeStreamCommandOutput extends DescribeStreamResponse, __M
  * };
  * const command = new DescribeStreamCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeStreamResponse
+ * //   streamInfo: { // StreamInfo
+ * //     streamId: "STRING_VALUE",
+ * //     streamArn: "STRING_VALUE",
+ * //     streamVersion: Number("int"),
+ * //     description: "STRING_VALUE",
+ * //     files: [ // StreamFiles
+ * //       { // StreamFile
+ * //         fileId: Number("int"),
+ * //         s3Location: { // S3Location
+ * //           bucket: "STRING_VALUE",
+ * //           key: "STRING_VALUE",
+ * //           version: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     lastUpdatedAt: new Date("TIMESTAMP"),
+ * //     roleArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeStreamCommandInput - {@link DescribeStreamCommandInput}
@@ -71,6 +93,8 @@ export interface DescribeStreamCommandOutput extends DescribeStreamResponse, __M
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You are not authorized to perform this operation.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DescribeStreamCommand extends $Command<

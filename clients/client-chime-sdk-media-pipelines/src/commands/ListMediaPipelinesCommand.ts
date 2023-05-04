@@ -49,6 +49,16 @@ export interface ListMediaPipelinesCommandOutput extends ListMediaPipelinesRespo
  * };
  * const command = new ListMediaPipelinesCommand(input);
  * const response = await client.send(command);
+ * // { // ListMediaPipelinesResponse
+ * //   MediaPipelines: [ // MediaPipelineList
+ * //     { // MediaPipelineSummary
+ * //       MediaPipelineId: "STRING_VALUE",
+ * //       MediaPipelineArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListMediaPipelinesCommandInput - {@link ListMediaPipelinesCommandInput}
@@ -78,6 +88,8 @@ export interface ListMediaPipelinesCommandOutput extends ListMediaPipelinesRespo
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMediaPipelinesServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
 export class ListMediaPipelinesCommand extends $Command<

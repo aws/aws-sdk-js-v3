@@ -64,6 +64,51 @@ export interface DescribeVpcEndpointServicesCommandOutput extends DescribeVpcEnd
  * };
  * const command = new DescribeVpcEndpointServicesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeVpcEndpointServicesResult
+ * //   ServiceNames: [ // ValueStringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ServiceDetails: [ // ServiceDetailSet
+ * //     { // ServiceDetail
+ * //       ServiceName: "STRING_VALUE",
+ * //       ServiceId: "STRING_VALUE",
+ * //       ServiceType: [ // ServiceTypeDetailSet
+ * //         { // ServiceTypeDetail
+ * //           ServiceType: "Interface" || "Gateway" || "GatewayLoadBalancer",
+ * //         },
+ * //       ],
+ * //       AvailabilityZones: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Owner: "STRING_VALUE",
+ * //       BaseEndpointDnsNames: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       PrivateDnsName: "STRING_VALUE",
+ * //       PrivateDnsNames: [ // PrivateDnsDetailsSet
+ * //         { // PrivateDnsDetails
+ * //           PrivateDnsName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       VpcEndpointPolicySupported: true || false,
+ * //       AcceptanceRequired: true || false,
+ * //       ManagesVpcEndpoints: true || false,
+ * //       PayerResponsibility: "ServiceOwner",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       PrivateDnsNameVerificationState: "pendingVerification" || "verified" || "failed",
+ * //       SupportedIpAddressTypes: [ // SupportedIpAddressTypes
+ * //         "ipv4" || "ipv6",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeVpcEndpointServicesCommandInput - {@link DescribeVpcEndpointServicesCommandInput}
@@ -72,6 +117,8 @@ export interface DescribeVpcEndpointServicesCommandOutput extends DescribeVpcEnd
  * @see {@link DescribeVpcEndpointServicesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeVpcEndpointServicesCommand extends $Command<

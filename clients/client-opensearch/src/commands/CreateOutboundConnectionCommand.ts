@@ -61,6 +61,33 @@ export interface CreateOutboundConnectionCommandOutput extends CreateOutboundCon
  * };
  * const command = new CreateOutboundConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateOutboundConnectionResponse
+ * //   LocalDomainInfo: { // DomainInformationContainer
+ * //     AWSDomainInformation: { // AWSDomainInformation
+ * //       OwnerId: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE", // required
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   RemoteDomainInfo: {
+ * //     AWSDomainInformation: {
+ * //       OwnerId: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE", // required
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ConnectionAlias: "STRING_VALUE",
+ * //   ConnectionStatus: { // OutboundConnectionStatus
+ * //     StatusCode: "VALIDATING" || "VALIDATION_FAILED" || "PENDING_ACCEPTANCE" || "APPROVED" || "PROVISIONING" || "ACTIVE" || "REJECTING" || "REJECTED" || "DELETING" || "DELETED",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * //   ConnectionId: "STRING_VALUE",
+ * //   ConnectionMode: "DIRECT" || "VPC_ENDPOINT",
+ * //   ConnectionProperties: { // ConnectionProperties
+ * //     Endpoint: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateOutboundConnectionCommandInput - {@link CreateOutboundConnectionCommandInput}
@@ -70,7 +97,7 @@ export interface CreateOutboundConnectionCommandOutput extends CreateOutboundCon
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation.</p>
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
@@ -81,6 +108,8 @@ export interface CreateOutboundConnectionCommandOutput extends CreateOutboundCon
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>An exception for creating a resource that already exists.</p>
  *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class CreateOutboundConnectionCommand extends $Command<

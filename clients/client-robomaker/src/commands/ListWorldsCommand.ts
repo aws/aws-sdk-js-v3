@@ -53,6 +53,18 @@ export interface ListWorldsCommandOutput extends ListWorldsResponse, __MetadataB
  * };
  * const command = new ListWorldsCommand(input);
  * const response = await client.send(command);
+ * // { // ListWorldsResponse
+ * //   worldSummaries: [ // WorldSummaries
+ * //     { // WorldSummary
+ * //       arn: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       generationJob: "STRING_VALUE",
+ * //       template: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListWorldsCommandInput - {@link ListWorldsCommandInput}
@@ -71,6 +83,8 @@ export interface ListWorldsCommandOutput extends ListWorldsResponse, __MetadataB
  * @throws {@link ThrottlingException} (client fault)
  *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListWorldsCommand extends $Command<

@@ -45,6 +45,16 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  * };
  * const command = new GetInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // GetInstanceResponse
+ * //   Instance: { // Instance
+ * //     Id: "STRING_VALUE", // required
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //     Attributes: { // Attributes
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetInstanceCommandInput - {@link GetInstanceCommandInput}
@@ -65,6 +75,8 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example GetInstance example
  * ```javascript

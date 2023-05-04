@@ -151,6 +151,8 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateCustomKeyStoreCommandInput - {@link UpdateCustomKeyStoreCommandInput}
@@ -315,6 +317,8 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *       endpoint service includes the KMS service principal for the Region, such as
  *         <code>cks.kms.us-east-1.amazonaws.com</code>.</p>
  *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @example To edit the friendly name of a custom key store
  * ```javascript
@@ -344,7 +348,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * ```javascript
  * // This example changes the AWS CloudHSM cluster that is associated with an AWS CloudHSM key store to a related cluster, such as a different backup of the same cluster. This operation does not return any data. To verify that the operation worked, use the DescribeCustomKeyStores operation.
  * const input = {
- *   "CloudHsmClusterId": "cluster-1a23b4cdefg",
+ *   "CloudHsmClusterId": "cluster-234abcdefABC",
  *   "CustomKeyStoreId": "cks-1234567890abcdef0"
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);

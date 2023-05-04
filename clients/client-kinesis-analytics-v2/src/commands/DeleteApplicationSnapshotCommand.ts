@@ -50,6 +50,8 @@ export interface DeleteApplicationSnapshotCommandOutput extends DeleteApplicatio
  * };
  * const command = new DeleteApplicationSnapshotCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteApplicationSnapshotCommandInput - {@link DeleteApplicationSnapshotCommandInput}
@@ -79,6 +81,8 @@ export interface DeleteApplicationSnapshotCommandOutput extends DeleteApplicatio
  *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
  *       operation. </p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class DeleteApplicationSnapshotCommand extends $Command<

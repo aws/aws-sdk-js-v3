@@ -61,6 +61,13 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  * };
  * const command = new DescribePublisherCommand(input);
  * const response = await client.send(command);
+ * // { // DescribePublisherOutput
+ * //   PublisherId: "STRING_VALUE",
+ * //   PublisherStatus: "VERIFIED" || "UNVERIFIED",
+ * //   IdentityProvider: "AWS_Marketplace" || "GitHub" || "Bitbucket",
+ * //   PublisherProfile: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribePublisherCommandInput - {@link DescribePublisherCommandInput}
@@ -72,6 +79,8 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  * @throws {@link CFNRegistryException} (client fault)
  *  <p>An error occurred during a CloudFormation registry operation.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class DescribePublisherCommand extends $Command<

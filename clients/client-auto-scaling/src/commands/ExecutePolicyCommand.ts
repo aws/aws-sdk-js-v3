@@ -49,6 +49,8 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ExecutePolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ExecutePolicyCommandInput - {@link ExecutePolicyCommandInput}
@@ -65,6 +67,8 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  *  <p>The operation can't be performed because there are scaling activities in
  *             progress.</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To execute a scaling policy
  * ```javascript

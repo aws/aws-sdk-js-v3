@@ -49,6 +49,10 @@ export interface DeleteProfileKeyCommandOutput extends DeleteProfileKeyResponse,
  * };
  * const command = new DeleteProfileKeyCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteProfileKeyResponse
+ * //   Message: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteProfileKeyCommandInput - {@link DeleteProfileKeyCommandInput}
@@ -72,6 +76,8 @@ export interface DeleteProfileKeyCommandOutput extends DeleteProfileKeyResponse,
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class DeleteProfileKeyCommand extends $Command<

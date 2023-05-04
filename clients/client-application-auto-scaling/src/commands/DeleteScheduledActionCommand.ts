@@ -52,6 +52,8 @@ export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActio
  * };
  * const command = new DeleteScheduledActionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteScheduledActionCommandInput - {@link DeleteScheduledActionCommandInput}
@@ -78,6 +80,8 @@ export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActio
  *  <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  *
+ * @throws {@link ApplicationAutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
  * @example To delete a scheduled action
  * ```javascript

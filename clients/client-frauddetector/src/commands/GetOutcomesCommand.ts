@@ -51,6 +51,19 @@ export interface GetOutcomesCommandOutput extends GetOutcomesResult, __MetadataB
  * };
  * const command = new GetOutcomesCommand(input);
  * const response = await client.send(command);
+ * // { // GetOutcomesResult
+ * //   outcomes: [ // OutcomeList
+ * //     { // Outcome
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       lastUpdatedTime: "STRING_VALUE",
+ * //       createdTime: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetOutcomesCommandInput - {@link GetOutcomesCommandInput}
@@ -74,6 +87,8 @@ export interface GetOutcomesCommandOutput extends GetOutcomesResult, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class GetOutcomesCommand extends $Command<

@@ -147,6 +147,24 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  * };
  * const command = new CreateRateBasedRuleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateRateBasedRuleResponse
+ * //   Rule: { // RateBasedRule
+ * //     RuleId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     MetricName: "STRING_VALUE",
+ * //     MatchPredicates: [ // Predicates // required
+ * //       { // Predicate
+ * //         Negated: true || false, // required
+ * //         Type: "STRING_VALUE", // required
+ * //         DataId: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     RateKey: "STRING_VALUE", // required
+ * //     RateLimit: Number("long"), // required
+ * //   },
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateRateBasedRuleCommandInput - {@link CreateRateBasedRuleCommandInput}
@@ -218,6 +236,8 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
  *  <p></p>
  *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class CreateRateBasedRuleCommand extends $Command<

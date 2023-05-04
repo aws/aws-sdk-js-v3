@@ -52,6 +52,8 @@ export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBea
  * };
  * const command = new DeleteRecordingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteRecordingConfigurationCommandInput - {@link DeleteRecordingConfigurationCommandInput}
@@ -75,6 +77,8 @@ export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class DeleteRecordingConfigurationCommand extends $Command<

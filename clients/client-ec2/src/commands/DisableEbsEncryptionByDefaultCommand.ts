@@ -52,6 +52,10 @@ export interface DisableEbsEncryptionByDefaultCommandOutput
  * };
  * const command = new DisableEbsEncryptionByDefaultCommand(input);
  * const response = await client.send(command);
+ * // { // DisableEbsEncryptionByDefaultResult
+ * //   EbsEncryptionByDefault: true || false,
+ * // };
+ *
  * ```
  *
  * @param DisableEbsEncryptionByDefaultCommandInput - {@link DisableEbsEncryptionByDefaultCommandInput}
@@ -60,6 +64,8 @@ export interface DisableEbsEncryptionByDefaultCommandOutput
  * @see {@link DisableEbsEncryptionByDefaultCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DisableEbsEncryptionByDefaultCommand extends $Command<

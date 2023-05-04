@@ -110,6 +110,10 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * };
  * const command = new PutMetricStreamCommand(input);
  * const response = await client.send(command);
+ * // { // PutMetricStreamOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutMetricStreamCommandInput - {@link PutMetricStreamCommandInput}
@@ -133,6 +137,8 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * @throws {@link MissingRequiredParameterException} (client fault)
  *  <p>An input parameter that is required is missing.</p>
  *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class PutMetricStreamCommand extends $Command<

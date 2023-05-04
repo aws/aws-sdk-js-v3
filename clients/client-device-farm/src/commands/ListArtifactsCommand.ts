@@ -46,6 +46,19 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * };
  * const command = new ListArtifactsCommand(input);
  * const response = await client.send(command);
+ * // { // ListArtifactsResult
+ * //   artifacts: [ // Artifacts
+ * //     { // Artifact
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       type: "UNKNOWN" || "SCREENSHOT" || "DEVICE_LOG" || "MESSAGE_LOG" || "VIDEO_LOG" || "RESULT_LOG" || "SERVICE_LOG" || "WEBKIT_LOG" || "INSTRUMENTATION_OUTPUT" || "EXERCISER_MONKEY_OUTPUT" || "CALABASH_JSON_OUTPUT" || "CALABASH_PRETTY_OUTPUT" || "CALABASH_STANDARD_OUTPUT" || "CALABASH_JAVA_XML_OUTPUT" || "AUTOMATION_OUTPUT" || "APPIUM_SERVER_OUTPUT" || "APPIUM_JAVA_OUTPUT" || "APPIUM_JAVA_XML_OUTPUT" || "APPIUM_PYTHON_OUTPUT" || "APPIUM_PYTHON_XML_OUTPUT" || "EXPLORER_EVENT_LOG" || "EXPLORER_SUMMARY_LOG" || "APPLICATION_CRASH_REPORT" || "XCTEST_LOG" || "VIDEO" || "CUSTOMER_ARTIFACT" || "CUSTOMER_ARTIFACT_LOG" || "TESTSPEC_OUTPUT",
+ * //       extension: "STRING_VALUE",
+ * //       url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListArtifactsCommandInput - {@link ListArtifactsCommandInput}
@@ -66,6 +79,8 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * @throws {@link ServiceAccountException} (client fault)
  *  <p>There was a problem with the service account.</p>
  *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @example To list artifacts for a resource
  * ```javascript

@@ -56,6 +56,27 @@ export interface DescribeCustomRoutingEndpointGroupCommandOutput
  * };
  * const command = new DescribeCustomRoutingEndpointGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeCustomRoutingEndpointGroupResponse
+ * //   EndpointGroup: { // CustomRoutingEndpointGroup
+ * //     EndpointGroupArn: "STRING_VALUE",
+ * //     EndpointGroupRegion: "STRING_VALUE",
+ * //     DestinationDescriptions: [ // CustomRoutingDestinationDescriptions
+ * //       { // CustomRoutingDestinationDescription
+ * //         FromPort: Number("int"),
+ * //         ToPort: Number("int"),
+ * //         Protocols: [ // Protocols
+ * //           "TCP" || "UDP",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     EndpointDescriptions: [ // CustomRoutingEndpointDescriptions
+ * //       { // CustomRoutingEndpointDescription
+ * //         EndpointId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeCustomRoutingEndpointGroupCommandInput - {@link DescribeCustomRoutingEndpointGroupCommandInput}
@@ -73,6 +94,8 @@ export interface DescribeCustomRoutingEndpointGroupCommandOutput
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class DescribeCustomRoutingEndpointGroupCommand extends $Command<

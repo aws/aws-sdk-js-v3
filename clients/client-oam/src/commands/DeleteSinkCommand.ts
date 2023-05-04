@@ -44,6 +44,8 @@ export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBea
  * };
  * const command = new DeleteSinkCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSinkCommandInput - {@link DeleteSinkCommandInput}
@@ -67,6 +69,8 @@ export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBea
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link OAMServiceException}
+ * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
 export class DeleteSinkCommand extends $Command<

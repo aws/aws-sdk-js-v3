@@ -118,6 +118,24 @@ export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse,
  * };
  * const command = new GetUsageForecastCommand(input);
  * const response = await client.send(command);
+ * // { // GetUsageForecastResponse
+ * //   Total: { // MetricValue
+ * //     Amount: "STRING_VALUE",
+ * //     Unit: "STRING_VALUE",
+ * //   },
+ * //   ForecastResultsByTime: [ // ForecastResultsByTime
+ * //     { // ForecastResult
+ * //       TimePeriod: { // DateInterval
+ * //         Start: "STRING_VALUE", // required
+ * //         End: "STRING_VALUE", // required
+ * //       },
+ * //       MeanValue: "STRING_VALUE",
+ * //       PredictionIntervalLowerBound: "STRING_VALUE",
+ * //       PredictionIntervalUpperBound: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetUsageForecastCommandInput - {@link GetUsageForecastCommandInput}
@@ -137,6 +155,8 @@ export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse,
  *                 <code>UsageType/UsageTypeGroup</code> filter selections that contain matching units,
  *             for example: <code>hours</code>.</p>
  *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class GetUsageForecastCommand extends $Command<

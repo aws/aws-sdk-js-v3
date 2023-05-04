@@ -142,6 +142,12 @@ export interface CreateComponentTypeCommandOutput extends CreateComponentTypeRes
  * };
  * const command = new CreateComponentTypeCommand(input);
  * const response = await client.send(command);
+ * // { // CreateComponentTypeResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   creationDateTime: new Date("TIMESTAMP"), // required
+ * //   state: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateComponentTypeCommandInput - {@link CreateComponentTypeCommandInput}
@@ -168,6 +174,8 @@ export interface CreateComponentTypeCommandOutput extends CreateComponentTypeRes
  * @throws {@link ValidationException} (client fault)
  *  <p>Failed</p>
  *
+ * @throws {@link IoTTwinMakerServiceException}
+ * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
 export class CreateComponentTypeCommand extends $Command<

@@ -84,6 +84,8 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * };
  * const command = new UpdateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateConfigurationSetEventDestinationCommandInput - {@link UpdateConfigurationSetEventDestinationCommandInput}
@@ -101,6 +103,8 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>Too many requests have been made to the operation.</p>
  *
+ * @throws {@link PinpointEmailServiceException}
+ * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
 export class UpdateConfigurationSetEventDestinationCommand extends $Command<

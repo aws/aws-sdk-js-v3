@@ -46,6 +46,19 @@ export interface UpdateWorkloadShareCommandOutput extends UpdateWorkloadShareOut
  * };
  * const command = new UpdateWorkloadShareCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateWorkloadShareOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   WorkloadShare: { // WorkloadShare
+ * //     ShareId: "STRING_VALUE",
+ * //     SharedBy: "STRING_VALUE",
+ * //     SharedWith: "STRING_VALUE",
+ * //     PermissionType: "READONLY" || "CONTRIBUTOR",
+ * //     Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
+ * //     WorkloadName: "STRING_VALUE",
+ * //     WorkloadId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateWorkloadShareCommandInput - {@link UpdateWorkloadShareCommandInput}
@@ -72,6 +85,8 @@ export interface UpdateWorkloadShareCommandOutput extends UpdateWorkloadShareOut
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input is not valid.</p>
  *
+ * @throws {@link WellArchitectedServiceException}
+ * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
 export class UpdateWorkloadShareCommand extends $Command<

@@ -67,6 +67,12 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  * };
  * const command = new DescribeMountTargetSecurityGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeMountTargetSecurityGroupsResponse
+ * //   SecurityGroups: [ // SecurityGroups // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeMountTargetSecurityGroupsCommandInput - {@link DescribeMountTargetSecurityGroupsCommandInput}
@@ -90,6 +96,8 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  *  <p>Returned if there is no mount target with the specified ID found in the
  *             caller's Amazon Web Services account.</p>
  *
+ * @throws {@link EFSServiceException}
+ * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @example To describe the security groups for a mount target
  * ```javascript

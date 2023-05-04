@@ -67,6 +67,12 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
  * };
  * const command = new PutSigningProfileCommand(input);
  * const response = await client.send(command);
+ * // { // PutSigningProfileResponse
+ * //   arn: "STRING_VALUE",
+ * //   profileVersion: "STRING_VALUE",
+ * //   profileVersionArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutSigningProfileCommandInput - {@link PutSigningProfileCommandInput}
@@ -91,6 +97,8 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
  * @throws {@link ValidationException} (client fault)
  *  <p>You signing certificate could not be validated.</p>
  *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class PutSigningProfileCommand extends $Command<

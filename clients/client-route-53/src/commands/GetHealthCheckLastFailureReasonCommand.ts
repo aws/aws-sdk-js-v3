@@ -49,6 +49,19 @@ export interface GetHealthCheckLastFailureReasonCommandOutput
  * };
  * const command = new GetHealthCheckLastFailureReasonCommand(input);
  * const response = await client.send(command);
+ * // { // GetHealthCheckLastFailureReasonResponse
+ * //   HealthCheckObservations: [ // HealthCheckObservations // required
+ * //     { // HealthCheckObservation
+ * //       Region: "us-east-1" || "us-west-1" || "us-west-2" || "eu-west-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "sa-east-1",
+ * //       IPAddress: "STRING_VALUE",
+ * //       StatusReport: { // StatusReport
+ * //         Status: "STRING_VALUE",
+ * //         CheckedTime: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetHealthCheckLastFailureReasonCommandInput - {@link GetHealthCheckLastFailureReasonCommandInput}
@@ -63,6 +76,8 @@ export interface GetHealthCheckLastFailureReasonCommandOutput
  * @throws {@link NoSuchHealthCheck} (client fault)
  *  <p>No health check exists with the specified ID.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetHealthCheckLastFailureReasonCommand extends $Command<

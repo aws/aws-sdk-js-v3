@@ -97,6 +97,62 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  * };
  * const command = new AddApplicationInputCommand(input);
  * const response = await client.send(command);
+ * // { // AddApplicationInputResponse
+ * //   ApplicationARN: "STRING_VALUE",
+ * //   ApplicationVersionId: Number("long"),
+ * //   InputDescriptions: [ // InputDescriptions
+ * //     { // InputDescription
+ * //       InputId: "STRING_VALUE",
+ * //       NamePrefix: "STRING_VALUE",
+ * //       InAppStreamNames: [ // InAppStreamNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       InputProcessingConfigurationDescription: { // InputProcessingConfigurationDescription
+ * //         InputLambdaProcessorDescription: { // InputLambdaProcessorDescription
+ * //           ResourceARN: "STRING_VALUE", // required
+ * //           RoleARN: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       KinesisStreamsInputDescription: { // KinesisStreamsInputDescription
+ * //         ResourceARN: "STRING_VALUE", // required
+ * //         RoleARN: "STRING_VALUE",
+ * //       },
+ * //       KinesisFirehoseInputDescription: { // KinesisFirehoseInputDescription
+ * //         ResourceARN: "STRING_VALUE", // required
+ * //         RoleARN: "STRING_VALUE",
+ * //       },
+ * //       InputSchema: { // SourceSchema
+ * //         RecordFormat: { // RecordFormat
+ * //           RecordFormatType: "JSON" || "CSV", // required
+ * //           MappingParameters: { // MappingParameters
+ * //             JSONMappingParameters: { // JSONMappingParameters
+ * //               RecordRowPath: "STRING_VALUE", // required
+ * //             },
+ * //             CSVMappingParameters: { // CSVMappingParameters
+ * //               RecordRowDelimiter: "STRING_VALUE", // required
+ * //               RecordColumnDelimiter: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //         RecordEncoding: "STRING_VALUE",
+ * //         RecordColumns: [ // RecordColumns // required
+ * //           { // RecordColumn
+ * //             Name: "STRING_VALUE", // required
+ * //             Mapping: "STRING_VALUE",
+ * //             SqlType: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       InputParallelism: { // InputParallelism
+ * //         Count: Number("int"),
+ * //       },
+ * //       InputStartingPositionConfiguration: { // InputStartingPositionConfiguration
+ * //         InputStartingPosition: "NOW" || "TRIM_HORIZON" || "LAST_STOPPED_POINT",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param AddApplicationInputCommandInput - {@link AddApplicationInputCommandInput}
@@ -126,6 +182,8 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Specified application can't be found.</p>
  *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class AddApplicationInputCommand extends $Command<

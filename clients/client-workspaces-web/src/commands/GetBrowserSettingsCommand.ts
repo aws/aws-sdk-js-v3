@@ -48,6 +48,16 @@ export interface GetBrowserSettingsCommandOutput extends GetBrowserSettingsRespo
  * };
  * const command = new GetBrowserSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // GetBrowserSettingsResponse
+ * //   browserSettings: { // BrowserSettings
+ * //     browserSettingsArn: "STRING_VALUE", // required
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     browserPolicy: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetBrowserSettingsCommandInput - {@link GetBrowserSettingsCommandInput}
@@ -71,6 +81,8 @@ export interface GetBrowserSettingsCommandOutput extends GetBrowserSettingsRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>There is a validation error.</p>
  *
+ * @throws {@link WorkSpacesWebServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
 export class GetBrowserSettingsCommand extends $Command<

@@ -44,6 +44,66 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
+ * // { // GetApplicationResponse
+ * //   application: { // Application
+ * //     applicationId: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE",
+ * //     arn: "STRING_VALUE", // required
+ * //     releaseLabel: "STRING_VALUE", // required
+ * //     type: "STRING_VALUE", // required
+ * //     state: "STRING_VALUE", // required
+ * //     stateDetails: "STRING_VALUE",
+ * //     initialCapacity: { // InitialCapacityConfigMap
+ * //       "<keys>": { // InitialCapacityConfig
+ * //         workerCount: Number("long"), // required
+ * //         workerConfiguration: { // WorkerResourceConfig
+ * //           cpu: "STRING_VALUE", // required
+ * //           memory: "STRING_VALUE", // required
+ * //           disk: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //     maximumCapacity: { // MaximumAllowedResources
+ * //       cpu: "STRING_VALUE", // required
+ * //       memory: "STRING_VALUE", // required
+ * //       disk: "STRING_VALUE",
+ * //     },
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     updatedAt: new Date("TIMESTAMP"), // required
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     autoStartConfiguration: { // AutoStartConfig
+ * //       enabled: true || false,
+ * //     },
+ * //     autoStopConfiguration: { // AutoStopConfig
+ * //       enabled: true || false,
+ * //       idleTimeoutMinutes: Number("int"),
+ * //     },
+ * //     networkConfiguration: { // NetworkConfiguration
+ * //       subnetIds: [ // SubnetIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       securityGroupIds: [ // SecurityGroupIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     architecture: "STRING_VALUE",
+ * //     imageConfiguration: { // ImageConfiguration
+ * //       imageUri: "STRING_VALUE", // required
+ * //       resolvedImageDigest: "STRING_VALUE",
+ * //     },
+ * //     workerTypeSpecifications: { // WorkerTypeSpecificationMap
+ * //       "<keys>": { // WorkerTypeSpecification
+ * //         imageConfiguration: {
+ * //           imageUri: "STRING_VALUE", // required
+ * //           resolvedImageDigest: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetApplicationCommandInput - {@link GetApplicationCommandInput}
@@ -62,6 +122,8 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link EMRServerlessServiceException}
+ * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
 export class GetApplicationCommand extends $Command<

@@ -50,6 +50,8 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateConfigurationSetCommandInput - {@link CreateConfigurationSetCommandInput}
@@ -71,6 +73,8 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
  *             Guide</a>.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class CreateConfigurationSetCommand extends $Command<

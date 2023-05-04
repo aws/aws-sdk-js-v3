@@ -55,6 +55,17 @@ export interface CreateSolNetworkPackageCommandOutput extends CreateSolNetworkPa
  * };
  * const command = new CreateSolNetworkPackageCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSolNetworkPackageOutput
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   nsdOnboardingState: "CREATED" || "ONBOARDED" || "ERROR", // required
+ * //   nsdOperationalState: "ENABLED" || "DISABLED", // required
+ * //   nsdUsageState: "IN_USE" || "NOT_IN_USE", // required
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateSolNetworkPackageCommandInput - {@link CreateSolNetworkPackageCommandInput}
@@ -78,6 +89,8 @@ export interface CreateSolNetworkPackageCommandOutput extends CreateSolNetworkPa
  * @throws {@link ValidationException} (client fault)
  *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
  *
+ * @throws {@link TnbServiceException}
+ * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
 export class CreateSolNetworkPackageCommand extends $Command<

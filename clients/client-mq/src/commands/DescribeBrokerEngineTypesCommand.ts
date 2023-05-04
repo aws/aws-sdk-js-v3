@@ -46,6 +46,21 @@ export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEn
  * };
  * const command = new DescribeBrokerEngineTypesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeBrokerEngineTypesResponse
+ * //   BrokerEngineTypes: [ // __listOfBrokerEngineType
+ * //     { // BrokerEngineType
+ * //       EngineType: "STRING_VALUE",
+ * //       EngineVersions: [ // __listOfEngineVersion
+ * //         { // EngineVersion
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   MaxResults: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeBrokerEngineTypesCommandInput - {@link DescribeBrokerEngineTypesCommandInput}
@@ -63,6 +78,8 @@ export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEn
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class DescribeBrokerEngineTypesCommand extends $Command<

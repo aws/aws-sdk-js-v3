@@ -77,6 +77,10 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  * };
  * const command = new CreateContactCommand(input);
  * const response = await client.send(command);
+ * // { // CreateContactResult
+ * //   ContactArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateContactCommandInput - {@link CreateContactCommandInput}
@@ -107,6 +111,8 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *          service.</p>
  *
+ * @throws {@link SSMContactsServiceException}
+ * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
  */
 export class CreateContactCommand extends $Command<

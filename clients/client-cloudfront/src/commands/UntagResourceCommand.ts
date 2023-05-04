@@ -49,6 +49,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
@@ -69,6 +71,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link NoSuchResource} (client fault)
  *  <p>A resource that was specified is not valid.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class UntagResourceCommand extends $Command<

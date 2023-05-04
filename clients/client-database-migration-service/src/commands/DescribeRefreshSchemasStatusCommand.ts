@@ -53,6 +53,16 @@ export interface DescribeRefreshSchemasStatusCommandOutput
  * };
  * const command = new DescribeRefreshSchemasStatusCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRefreshSchemasStatusResponse
+ * //   RefreshSchemasStatus: { // RefreshSchemasStatus
+ * //     EndpointArn: "STRING_VALUE",
+ * //     ReplicationInstanceArn: "STRING_VALUE",
+ * //     Status: "successful" || "failed" || "refreshing",
+ * //     LastRefreshDate: new Date("TIMESTAMP"),
+ * //     LastFailureMessage: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeRefreshSchemasStatusCommandInput - {@link DescribeRefreshSchemasStatusCommandInput}
@@ -67,6 +77,8 @@ export interface DescribeRefreshSchemasStatusCommandOutput
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Describe refresh schema status
  * ```javascript

@@ -57,6 +57,12 @@ export interface RedactChannelMessageCommandOutput extends RedactChannelMessageR
  * };
  * const command = new RedactChannelMessageCommand(input);
  * const response = await client.send(command);
+ * // { // RedactChannelMessageResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   MessageId: "STRING_VALUE",
+ * //   SubChannelId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RedactChannelMessageCommandInput - {@link RedactChannelMessageCommandInput}
@@ -87,6 +93,8 @@ export interface RedactChannelMessageCommandOutput extends RedactChannelMessageR
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class RedactChannelMessageCommand extends $Command<

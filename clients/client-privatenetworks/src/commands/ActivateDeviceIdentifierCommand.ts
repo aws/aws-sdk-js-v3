@@ -49,6 +49,23 @@ export interface ActivateDeviceIdentifierCommandOutput extends ActivateDeviceIde
  * };
  * const command = new ActivateDeviceIdentifierCommand(input);
  * const response = await client.send(command);
+ * // { // ActivateDeviceIdentifierResponse
+ * //   deviceIdentifier: { // DeviceIdentifier
+ * //     deviceIdentifierArn: "STRING_VALUE",
+ * //     trafficGroupArn: "STRING_VALUE",
+ * //     networkArn: "STRING_VALUE",
+ * //     imsi: "STRING_VALUE",
+ * //     iccid: "STRING_VALUE",
+ * //     vendor: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     orderArn: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ActivateDeviceIdentifierCommandInput - {@link ActivateDeviceIdentifierCommandInput}
@@ -66,6 +83,8 @@ export interface ActivateDeviceIdentifierCommandOutput extends ActivateDeviceIde
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed validation.</p>
  *
+ * @throws {@link PrivateNetworksServiceException}
+ * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
 export class ActivateDeviceIdentifierCommand extends $Command<

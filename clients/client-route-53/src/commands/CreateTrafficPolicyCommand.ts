@@ -48,6 +48,18 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  * };
  * const command = new CreateTrafficPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // CreateTrafficPolicyResponse
+ * //   TrafficPolicy: { // TrafficPolicy
+ * //     Id: "STRING_VALUE", // required
+ * //     Version: Number("int"), // required
+ * //     Name: "STRING_VALUE", // required
+ * //     Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //     Document: "STRING_VALUE", // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * //   Location: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateTrafficPolicyCommandInput - {@link CreateTrafficPolicyCommandInput}
@@ -75,6 +87,8 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  * @throws {@link TrafficPolicyAlreadyExists} (client fault)
  *  <p>A traffic policy that has the same value for <code>Name</code> already exists.</p>
  *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class CreateTrafficPolicyCommand extends $Command<

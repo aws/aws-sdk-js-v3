@@ -59,6 +59,16 @@ export interface BatchCreateVariableCommandOutput extends BatchCreateVariableRes
  * };
  * const command = new BatchCreateVariableCommand(input);
  * const response = await client.send(command);
+ * // { // BatchCreateVariableResult
+ * //   errors: [ // BatchCreateVariableErrorList
+ * //     { // BatchCreateVariableError
+ * //       name: "STRING_VALUE",
+ * //       code: Number("int"),
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchCreateVariableCommandInput - {@link BatchCreateVariableCommandInput}
@@ -79,6 +89,8 @@ export interface BatchCreateVariableCommandOutput extends BatchCreateVariableRes
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class BatchCreateVariableCommand extends $Command<

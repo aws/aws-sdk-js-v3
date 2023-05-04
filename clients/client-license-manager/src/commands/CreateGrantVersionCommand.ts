@@ -56,6 +56,12 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  * };
  * const command = new CreateGrantVersionCommand(input);
  * const response = await client.send(command);
+ * // { // CreateGrantVersionResponse
+ * //   GrantArn: "STRING_VALUE",
+ * //   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
+ * //   Version: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateGrantVersionCommandInput - {@link CreateGrantVersionCommandInput}
@@ -86,6 +92,8 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The provided input is not valid. Try your request again.</p>
  *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class CreateGrantVersionCommand extends $Command<

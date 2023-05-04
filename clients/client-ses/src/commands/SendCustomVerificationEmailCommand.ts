@@ -56,6 +56,10 @@ export interface SendCustomVerificationEmailCommandOutput
  * };
  * const command = new SendCustomVerificationEmailCommand(input);
  * const response = await client.send(command);
+ * // { // SendCustomVerificationEmailResponse
+ * //   MessageId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param SendCustomVerificationEmailCommandInput - {@link SendCustomVerificationEmailCommandInput}
@@ -82,6 +86,8 @@ export interface SendCustomVerificationEmailCommandOutput
  * @throws {@link ProductionAccessNotGrantedException} (client fault)
  *  <p>Indicates that the account has not been granted production access.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class SendCustomVerificationEmailCommand extends $Command<

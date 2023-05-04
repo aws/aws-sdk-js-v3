@@ -46,6 +46,15 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceResponse
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -73,6 +82,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

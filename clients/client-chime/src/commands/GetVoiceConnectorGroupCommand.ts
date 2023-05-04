@@ -45,6 +45,22 @@ export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGr
  * };
  * const command = new GetVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
+ * // { // GetVoiceConnectorGroupResponse
+ * //   VoiceConnectorGroup: { // VoiceConnectorGroup
+ * //     VoiceConnectorGroupId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     VoiceConnectorItems: [ // VoiceConnectorItemList
+ * //       { // VoiceConnectorItem
+ * //         VoiceConnectorId: "STRING_VALUE", // required
+ * //         Priority: Number("int"), // required
+ * //       },
+ * //     ],
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     VoiceConnectorGroupArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetVoiceConnectorGroupCommandInput - {@link GetVoiceConnectorGroupCommandInput}
@@ -74,6 +90,8 @@ export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGr
  * @throws {@link UnauthorizedClientException} (client fault)
  *  <p>The client is not currently authorized to make the request.</p>
  *
+ * @throws {@link ChimeServiceException}
+ * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
 export class GetVoiceConnectorGroupCommand extends $Command<

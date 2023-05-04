@@ -45,6 +45,15 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * };
  * const command = new UpdateRegistryCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateRegistryResponse
+ * //   Description: "STRING_VALUE",
+ * //   RegistryArn: "STRING_VALUE",
+ * //   RegistryName: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateRegistryCommandInput - {@link UpdateRegistryCommandInput}
@@ -65,6 +74,8 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  *
  * @throws {@link UnauthorizedException} (client fault)
  *
+ * @throws {@link SchemasServiceException}
+ * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
 export class UpdateRegistryCommand extends $Command<

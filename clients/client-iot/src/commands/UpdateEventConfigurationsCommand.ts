@@ -49,6 +49,8 @@ export interface UpdateEventConfigurationsCommandOutput extends UpdateEventConfi
  * };
  * const command = new UpdateEventConfigurationsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UpdateEventConfigurationsCommandInput - {@link UpdateEventConfigurationsCommandInput}
@@ -66,6 +68,8 @@ export interface UpdateEventConfigurationsCommandOutput extends UpdateEventConfi
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateEventConfigurationsCommand extends $Command<

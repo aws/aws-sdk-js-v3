@@ -46,6 +46,10 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
  * };
  * const command = new GetIntrospectionSchemaCommand(input);
  * const response = await client.send(command);
+ * // { // GetIntrospectionSchemaResponse
+ * //   schema: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetIntrospectionSchemaCommandInput - {@link GetIntrospectionSchemaCommandInput}
@@ -61,11 +65,14 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *  <p>The resource specified in the request was not found. Check the resource, and then try
+ *          again.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class GetIntrospectionSchemaCommand extends $Command<

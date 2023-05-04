@@ -49,6 +49,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
@@ -77,6 +79,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  *  <p>An error occurred during validation.</p>
  *          <p>HTTP status code: 422</p>
  *
+ * @throws {@link MarketplaceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

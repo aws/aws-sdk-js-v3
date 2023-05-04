@@ -57,6 +57,13 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput
  * };
  * const command = new AssumeDecoratedRoleWithSAMLCommand(input);
  * const response = await client.send(command);
+ * // { // AssumeDecoratedRoleWithSAMLResponse
+ * //   AccessKeyId: "STRING_VALUE",
+ * //   SecretAccessKey: "STRING_VALUE",
+ * //   SessionToken: "STRING_VALUE",
+ * //   Expiration: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param AssumeDecoratedRoleWithSAMLCommandInput - {@link AssumeDecoratedRoleWithSAMLCommandInput}
@@ -80,6 +87,8 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class AssumeDecoratedRoleWithSAMLCommand extends $Command<

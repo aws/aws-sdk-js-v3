@@ -61,6 +61,16 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * };
  * const command = new UpdatePortalCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePortalResponse
+ * //   portalStatus: { // PortalStatus
+ * //     state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
+ * //     error: { // MonitorErrorDetails
+ * //       code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdatePortalCommandInput - {@link UpdatePortalCommandInput}
@@ -89,6 +99,8 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class UpdatePortalCommand extends $Command<

@@ -44,6 +44,8 @@ export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse,
  * };
  * const command = new DeleteClassifierCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteClassifierCommandInput - {@link DeleteClassifierCommandInput}
@@ -58,6 +60,8 @@ export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse,
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeleteClassifierCommand extends $Command<

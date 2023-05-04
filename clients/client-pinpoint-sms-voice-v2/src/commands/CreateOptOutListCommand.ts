@@ -63,6 +63,18 @@ export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, _
  * };
  * const command = new CreateOptOutListCommand(input);
  * const response = await client.send(command);
+ * // { // CreateOptOutListResult
+ * //   OptOutListArn: "STRING_VALUE",
+ * //   OptOutListName: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param CreateOptOutListCommandInput - {@link CreateOptOutListCommandInput}
@@ -95,6 +107,8 @@ export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class CreateOptOutListCommand extends $Command<

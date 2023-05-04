@@ -48,6 +48,15 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // { // ListTagsForResourceResponse
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
@@ -77,6 +86,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class ListTagsForResourceCommand extends $Command<

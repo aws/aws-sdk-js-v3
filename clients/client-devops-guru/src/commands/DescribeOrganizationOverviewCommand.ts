@@ -57,6 +57,11 @@ export interface DescribeOrganizationOverviewCommandOutput
  * };
  * const command = new DescribeOrganizationOverviewCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeOrganizationOverviewResponse
+ * //   ReactiveInsights: Number("int"), // required
+ * //   ProactiveInsights: Number("int"), // required
+ * // };
+ *
  * ```
  *
  * @param DescribeOrganizationOverviewCommandInput - {@link DescribeOrganizationOverviewCommandInput}
@@ -81,6 +86,8 @@ export interface DescribeOrganizationOverviewCommandOutput
  *  <p> Contains information about data passed in to a field during a request that is not
  * 			valid. </p>
  *
+ * @throws {@link DevOpsGuruServiceException}
+ * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
 export class DescribeOrganizationOverviewCommand extends $Command<

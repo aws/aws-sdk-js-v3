@@ -59,6 +59,10 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * };
  * const command = new UpdateGatewaySoftwareNowCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateGatewaySoftwareNowOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateGatewaySoftwareNowCommandInput - {@link UpdateGatewaySoftwareNowCommandInput}
@@ -75,6 +79,8 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To update a gateway's VM software
  * ```javascript

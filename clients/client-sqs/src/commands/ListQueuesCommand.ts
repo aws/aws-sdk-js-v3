@@ -59,6 +59,13 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  * };
  * const command = new ListQueuesCommand(input);
  * const response = await client.send(command);
+ * // { // ListQueuesResult
+ * //   NextToken: "STRING_VALUE",
+ * //   QueueUrls: [ // QueueUrlList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListQueuesCommandInput - {@link ListQueuesCommandInput}
@@ -67,6 +74,8 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  * @see {@link ListQueuesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link SQSServiceException}
+ * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
 export class ListQueuesCommand extends $Command<

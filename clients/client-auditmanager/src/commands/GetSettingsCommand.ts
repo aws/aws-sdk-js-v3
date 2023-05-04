@@ -44,6 +44,33 @@ export interface GetSettingsCommandOutput extends GetSettingsResponse, __Metadat
  * };
  * const command = new GetSettingsCommand(input);
  * const response = await client.send(command);
+ * // { // GetSettingsResponse
+ * //   settings: { // Settings
+ * //     isAwsOrgEnabled: true || false,
+ * //     snsTopic: "STRING_VALUE",
+ * //     defaultAssessmentReportsDestination: { // AssessmentReportsDestination
+ * //       destinationType: "S3",
+ * //       destination: "STRING_VALUE",
+ * //     },
+ * //     defaultProcessOwners: [ // Roles
+ * //       { // Role
+ * //         roleType: "PROCESS_OWNER" || "RESOURCE_OWNER", // required
+ * //         roleArn: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     kmsKey: "STRING_VALUE",
+ * //     evidenceFinderEnablement: { // EvidenceFinderEnablement
+ * //       eventDataStoreArn: "STRING_VALUE",
+ * //       enablementStatus: "ENABLED" || "DISABLED" || "ENABLE_IN_PROGRESS" || "DISABLE_IN_PROGRESS",
+ * //       backfillStatus: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETED",
+ * //       error: "STRING_VALUE",
+ * //     },
+ * //     deregistrationPolicy: { // DeregistrationPolicy
+ * //       deleteResources: "ALL" || "DEFAULT",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSettingsCommandInput - {@link GetSettingsCommandInput}
@@ -60,6 +87,8 @@ export interface GetSettingsCommandOutput extends GetSettingsResponse, __Metadat
  *  <p> An internal service error occurred during the processing of your request. Try again
  *          later. </p>
  *
+ * @throws {@link AuditManagerServiceException}
+ * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
 export class GetSettingsCommand extends $Command<

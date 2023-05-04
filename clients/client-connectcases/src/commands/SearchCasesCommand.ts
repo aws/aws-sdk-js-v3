@@ -126,6 +126,29 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  * };
  * const command = new SearchCasesCommand(input);
  * const response = await client.send(command);
+ * // { // SearchCasesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   cases: [ // SearchCasesResponseItemList // required
+ * //     { // SearchCasesResponseItem
+ * //       caseId: "STRING_VALUE", // required
+ * //       templateId: "STRING_VALUE", // required
+ * //       fields: [ // FieldValueList // required
+ * //         { // FieldValue
+ * //           id: "STRING_VALUE", // required
+ * //           value: { // FieldValueUnion Union: only one key present
+ * //             stringValue: "STRING_VALUE",
+ * //             doubleValue: Number("double"),
+ * //             booleanValue: true || false,
+ * //           },
+ * //         },
+ * //       ],
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param SearchCasesCommandInput - {@link SearchCasesCommandInput}
@@ -151,6 +174,8 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class SearchCasesCommand extends $Command<

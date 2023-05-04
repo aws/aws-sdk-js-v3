@@ -48,6 +48,8 @@ export interface StopVectorEnrichmentJobCommandOutput extends StopVectorEnrichme
  * };
  * const command = new StopVectorEnrichmentJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopVectorEnrichmentJobCommandInput - {@link StopVectorEnrichmentJobCommandInput}
@@ -74,6 +76,8 @@ export interface StopVectorEnrichmentJobCommandOutput extends StopVectorEnrichme
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link SageMakerGeospatialServiceException}
+ * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
 export class StopVectorEnrichmentJobCommand extends $Command<

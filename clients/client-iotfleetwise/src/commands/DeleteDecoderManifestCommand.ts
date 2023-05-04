@@ -49,6 +49,11 @@ export interface DeleteDecoderManifestCommandOutput extends DeleteDecoderManifes
  * };
  * const command = new DeleteDecoderManifestCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDecoderManifestResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteDecoderManifestCommandInput - {@link DeleteDecoderManifestCommandInput}
@@ -73,6 +78,8 @@ export interface DeleteDecoderManifestCommandOutput extends DeleteDecoderManifes
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link IoTFleetWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
 export class DeleteDecoderManifestCommand extends $Command<

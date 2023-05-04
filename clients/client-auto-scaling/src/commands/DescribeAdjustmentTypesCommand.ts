@@ -61,6 +61,14 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  * const input = {};
  * const command = new DescribeAdjustmentTypesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAdjustmentTypesAnswer
+ * //   AdjustmentTypes: [ // AdjustmentTypes
+ * //     { // AdjustmentType
+ * //       AdjustmentType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeAdjustmentTypesCommandInput - {@link DescribeAdjustmentTypesCommandInput}
@@ -73,6 +81,8 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @example To describe the Amazon EC2 Auto Scaling adjustment types
  * ```javascript

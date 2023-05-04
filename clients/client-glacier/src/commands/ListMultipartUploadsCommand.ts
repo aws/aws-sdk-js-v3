@@ -72,6 +72,19 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * };
  * const command = new ListMultipartUploadsCommand(input);
  * const response = await client.send(command);
+ * // { // ListMultipartUploadsOutput
+ * //   UploadsList: [ // UploadsList
+ * //     { // UploadListElement
+ * //       MultipartUploadId: "STRING_VALUE",
+ * //       VaultARN: "STRING_VALUE",
+ * //       ArchiveDescription: "STRING_VALUE",
+ * //       PartSizeInBytes: Number("long"),
+ * //       CreationDate: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListMultipartUploadsCommandInput - {@link ListMultipartUploadsCommandInput}
@@ -93,6 +106,8 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To list all the in-progress multipart uploads for a vault
  * ```javascript

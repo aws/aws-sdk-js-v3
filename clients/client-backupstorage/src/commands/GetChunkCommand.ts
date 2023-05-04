@@ -48,6 +48,13 @@ export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutp
  * };
  * const command = new GetChunkCommand(input);
  * const response = await client.send(command);
+ * // { // GetChunkOutput
+ * //   Data: "STREAMING_BLOB_VALUE", // required
+ * //   Length: Number("long"), // required
+ * //   Checksum: "STRING_VALUE", // required
+ * //   ChecksumAlgorithm: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param GetChunkCommandInput - {@link GetChunkCommandInput}
@@ -77,6 +84,8 @@ export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutp
  * @throws {@link ThrottlingException} (client fault)
  *  Increased rate over throttling limits. Can be retried with exponential backoff.
  *
+ * @throws {@link BackupStorageServiceException}
+ * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
 export class GetChunkCommand extends $Command<

@@ -64,6 +64,20 @@ export interface DescribeMaintenanceWindowExecutionsCommandOutput
  * };
  * const command = new DescribeMaintenanceWindowExecutionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeMaintenanceWindowExecutionsResult
+ * //   WindowExecutions: [ // MaintenanceWindowExecutionList
+ * //     { // MaintenanceWindowExecution
+ * //       WindowId: "STRING_VALUE",
+ * //       WindowExecutionId: "STRING_VALUE",
+ * //       Status: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED" || "TIMED_OUT" || "CANCELLING" || "CANCELLED" || "SKIPPED_OVERLAPPING",
+ * //       StatusDetails: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeMaintenanceWindowExecutionsCommandInput - {@link DescribeMaintenanceWindowExecutionsCommandInput}
@@ -75,6 +89,8 @@ export interface DescribeMaintenanceWindowExecutionsCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeMaintenanceWindowExecutionsCommand extends $Command<

@@ -73,6 +73,25 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  * };
  * const command = new DeleteFleetsCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteFleetsResult
+ * //   SuccessfulFleetDeletions: [ // DeleteFleetSuccessSet
+ * //     { // DeleteFleetSuccessItem
+ * //       CurrentFleetState: "submitted" || "active" || "deleted" || "failed" || "deleted_running" || "deleted_terminating" || "modifying",
+ * //       PreviousFleetState: "submitted" || "active" || "deleted" || "failed" || "deleted_running" || "deleted_terminating" || "modifying",
+ * //       FleetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   UnsuccessfulFleetDeletions: [ // DeleteFleetErrorSet
+ * //     { // DeleteFleetErrorItem
+ * //       Error: { // DeleteFleetError
+ * //         Code: "fleetIdDoesNotExist" || "fleetIdMalformed" || "fleetNotInDeletableState" || "unexpectedError",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       FleetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DeleteFleetsCommandInput - {@link DeleteFleetsCommandInput}
@@ -81,6 +100,8 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  * @see {@link DeleteFleetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeleteFleetsCommand extends $Command<

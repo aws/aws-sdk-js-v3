@@ -45,6 +45,10 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * };
  * const command = new DeleteDomainCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteDomainResponse
+ * //   Message: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteDomainCommandInput - {@link DeleteDomainCommandInput}
@@ -68,6 +72,8 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>You exceeded the maximum number of requests.</p>
  *
+ * @throws {@link CustomerProfilesServiceException}
+ * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
 export class DeleteDomainCommand extends $Command<

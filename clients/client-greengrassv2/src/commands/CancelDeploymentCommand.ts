@@ -46,6 +46,10 @@ export interface CancelDeploymentCommandOutput extends CancelDeploymentResponse,
  * };
  * const command = new CancelDeploymentCommand(input);
  * const response = await client.send(command);
+ * // { // CancelDeploymentResponse
+ * //   message: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CancelDeploymentCommandInput - {@link CancelDeploymentCommandInput}
@@ -75,6 +79,8 @@ export interface CancelDeploymentCommandOutput extends CancelDeploymentResponse,
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class CancelDeploymentCommand extends $Command<

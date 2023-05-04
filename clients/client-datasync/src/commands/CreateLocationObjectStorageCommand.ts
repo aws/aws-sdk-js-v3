@@ -68,6 +68,10 @@ export interface CreateLocationObjectStorageCommandOutput
  * };
  * const command = new CreateLocationObjectStorageCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLocationObjectStorageResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateLocationObjectStorageCommandInput - {@link CreateLocationObjectStorageCommandInput}
@@ -83,6 +87,8 @@ export interface CreateLocationObjectStorageCommandOutput
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationObjectStorageCommand extends $Command<

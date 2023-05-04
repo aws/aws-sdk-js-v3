@@ -65,6 +65,25 @@ export interface CreateReplaceRootVolumeTaskCommandOutput extends CreateReplaceR
  * };
  * const command = new CreateReplaceRootVolumeTaskCommand(input);
  * const response = await client.send(command);
+ * // { // CreateReplaceRootVolumeTaskResult
+ * //   ReplaceRootVolumeTask: { // ReplaceRootVolumeTask
+ * //     ReplaceRootVolumeTaskId: "STRING_VALUE",
+ * //     InstanceId: "STRING_VALUE",
+ * //     TaskState: "pending" || "in-progress" || "failing" || "succeeded" || "failed" || "failed-detached",
+ * //     StartTime: "STRING_VALUE",
+ * //     CompleteTime: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ImageId: "STRING_VALUE",
+ * //     SnapshotId: "STRING_VALUE",
+ * //     DeleteReplacedRootVolume: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateReplaceRootVolumeTaskCommandInput - {@link CreateReplaceRootVolumeTaskCommandInput}
@@ -73,6 +92,8 @@ export interface CreateReplaceRootVolumeTaskCommandOutput extends CreateReplaceR
  * @see {@link CreateReplaceRootVolumeTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class CreateReplaceRootVolumeTaskCommand extends $Command<

@@ -48,6 +48,11 @@ export interface CreateFieldCommandOutput extends CreateFieldResponse, __Metadat
  * };
  * const command = new CreateFieldCommand(input);
  * const response = await client.send(command);
+ * // { // CreateFieldResponse
+ * //   fieldId: "STRING_VALUE", // required
+ * //   fieldArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param CreateFieldCommandInput - {@link CreateFieldCommandInput}
@@ -82,6 +87,8 @@ export interface CreateFieldCommandOutput extends CreateFieldResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class CreateFieldCommand extends $Command<

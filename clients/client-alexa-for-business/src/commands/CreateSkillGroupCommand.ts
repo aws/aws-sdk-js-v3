@@ -52,6 +52,10 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
  * };
  * const command = new CreateSkillGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSkillGroupResponse
+ * //   SkillGroupArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateSkillGroupCommandInput - {@link CreateSkillGroupCommandInput}
@@ -69,6 +73,8 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You are performing an action that would put you beyond your account's limits.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateSkillGroupCommand extends $Command<

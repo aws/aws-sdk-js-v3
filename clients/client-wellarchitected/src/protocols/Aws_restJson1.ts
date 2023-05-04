@@ -106,6 +106,7 @@ import {
   ChoiceUpdate,
   ConflictException,
   ConsolidatedReportMetric,
+  DefinitionType,
   InternalServerException,
   LensReview,
   LensReviewSummary,
@@ -1289,6 +1290,7 @@ export const se_UpdateGlobalSettingsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      DiscoveryIntegrationStatus: [],
       OrganizationSharingStatus: [],
     })
   );
@@ -4236,6 +4238,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_WorkloadPillarPriorities omitted.
 
+// se_WorkloadResourceDefinition omitted.
+
 // de_AccountSummary omitted.
 
 // de_AdditionalResources omitted.
@@ -4581,6 +4585,8 @@ const de_Workload = (output: any, context: __SerdeContext): Workload => {
 // de_WorkloadNonAwsRegions omitted.
 
 // de_WorkloadPillarPriorities omitted.
+
+// de_WorkloadResourceDefinition omitted.
 
 // de_WorkloadShare omitted.
 

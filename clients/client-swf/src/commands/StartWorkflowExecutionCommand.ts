@@ -126,6 +126,10 @@ export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBear
  * };
  * const command = new StartWorkflowExecutionCommand(input);
  * const response = await client.send(command);
+ * // { // Run
+ * //   runId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StartWorkflowExecutionCommandInput - {@link StartWorkflowExecutionCommandInput}
@@ -163,6 +167,8 @@ export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBear
  *  <p>Returned by <a>StartWorkflowExecution</a> when an open execution with the same workflowId is already running in
  *       the specified domain.</p>
  *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class StartWorkflowExecutionCommand extends $Command<

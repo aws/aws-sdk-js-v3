@@ -46,6 +46,8 @@ export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __Met
  * };
  * const command = new DeleteLocationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteLocationCommandInput - {@link DeleteLocationCommandInput}
@@ -68,6 +70,8 @@ export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link GameLiftServiceException}
+ * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
 export class DeleteLocationCommand extends $Command<

@@ -45,6 +45,8 @@ export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __M
  * };
  * const command = new DeleteTagOptionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteTagOptionCommandInput - {@link DeleteTagOptionCommandInput}
@@ -64,6 +66,8 @@ export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __M
  *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DeleteTagOptionCommand extends $Command<

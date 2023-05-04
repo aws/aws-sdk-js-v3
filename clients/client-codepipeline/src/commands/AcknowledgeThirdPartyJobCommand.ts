@@ -47,6 +47,10 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
  * };
  * const command = new AcknowledgeThirdPartyJobCommand(input);
  * const response = await client.send(command);
+ * // { // AcknowledgeThirdPartyJobOutput
+ * //   status: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param AcknowledgeThirdPartyJobCommandInput - {@link AcknowledgeThirdPartyJobCommandInput}
@@ -67,6 +71,8 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class AcknowledgeThirdPartyJobCommand extends $Command<

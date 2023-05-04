@@ -68,6 +68,24 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  * };
  * const command = new CreatePlacementGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePlacementGroupResult
+ * //   PlacementGroup: { // PlacementGroup
+ * //     GroupName: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     Strategy: "cluster" || "spread" || "partition",
+ * //     PartitionCount: Number("int"),
+ * //     GroupId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     GroupArn: "STRING_VALUE",
+ * //     SpreadLevel: "host" || "rack",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreatePlacementGroupCommandInput - {@link CreatePlacementGroupCommandInput}
@@ -76,6 +94,8 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  * @see {@link CreatePlacementGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To create a placement group
  * ```javascript

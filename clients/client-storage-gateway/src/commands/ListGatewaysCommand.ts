@@ -55,6 +55,23 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
+ * // { // ListGatewaysOutput
+ * //   Gateways: [ // Gateways
+ * //     { // GatewayInfo
+ * //       GatewayId: "STRING_VALUE",
+ * //       GatewayARN: "STRING_VALUE",
+ * //       GatewayType: "STRING_VALUE",
+ * //       GatewayOperationalState: "STRING_VALUE",
+ * //       GatewayName: "STRING_VALUE",
+ * //       Ec2InstanceId: "STRING_VALUE",
+ * //       Ec2InstanceRegion: "STRING_VALUE",
+ * //       HostEnvironment: "STRING_VALUE",
+ * //       HostEnvironmentId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListGatewaysCommandInput - {@link ListGatewaysCommandInput}
@@ -71,6 +88,8 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To lists region specific gateways per AWS account
  * ```javascript

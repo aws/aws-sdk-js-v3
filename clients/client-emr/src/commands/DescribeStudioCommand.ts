@@ -45,6 +45,35 @@ export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __Met
  * };
  * const command = new DescribeStudioCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeStudioOutput
+ * //   Studio: { // Studio
+ * //     StudioId: "STRING_VALUE",
+ * //     StudioArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     AuthMode: "SSO" || "IAM",
+ * //     VpcId: "STRING_VALUE",
+ * //     SubnetIds: [ // SubnetIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ServiceRole: "STRING_VALUE",
+ * //     UserRole: "STRING_VALUE",
+ * //     WorkspaceSecurityGroupId: "STRING_VALUE",
+ * //     EngineSecurityGroupId: "STRING_VALUE",
+ * //     Url: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     DefaultS3Location: "STRING_VALUE",
+ * //     IdpAuthUrl: "STRING_VALUE",
+ * //     IdpRelayStateParameterName: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeStudioCommandInput - {@link DescribeStudioCommandInput}
@@ -60,6 +89,8 @@ export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __Met
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception occurs when there is something wrong with user input.</p>
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class DescribeStudioCommand extends $Command<

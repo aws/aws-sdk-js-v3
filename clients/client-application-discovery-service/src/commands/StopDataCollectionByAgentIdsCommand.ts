@@ -55,6 +55,16 @@ export interface StopDataCollectionByAgentIdsCommandOutput
  * };
  * const command = new StopDataCollectionByAgentIdsCommand(input);
  * const response = await client.send(command);
+ * // { // StopDataCollectionByAgentIdsResponse
+ * //   agentsConfigurationStatus: [ // AgentConfigurationStatusList
+ * //     { // AgentConfigurationStatus
+ * //       agentId: "STRING_VALUE",
+ * //       operationSucceeded: true || false,
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param StopDataCollectionByAgentIdsCommandInput - {@link StopDataCollectionByAgentIdsCommandInput}
@@ -80,6 +90,8 @@ export interface StopDataCollectionByAgentIdsCommandOutput
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class StopDataCollectionByAgentIdsCommand extends $Command<

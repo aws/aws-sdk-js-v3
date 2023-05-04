@@ -47,6 +47,13 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  * };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
+ * // { // ListTablesOutput
+ * //   TableNames: [ // TableNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   LastEvaluatedTableName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListTablesCommandInput - {@link ListTablesCommandInput}
@@ -60,6 +67,8 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
+ * @throws {@link DynamoDBServiceException}
+ * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @example To list tables
  * ```javascript

@@ -49,6 +49,18 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * };
  * const command = new GetImportCommand(input);
  * const response = await client.send(command);
+ * // { // GetImportResponse
+ * //   name: "STRING_VALUE",
+ * //   resourceType: "STRING_VALUE",
+ * //   mergeStrategy: "STRING_VALUE",
+ * //   importId: "STRING_VALUE",
+ * //   importStatus: "STRING_VALUE",
+ * //   failureReason: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   createdDate: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param GetImportCommandInput - {@link GetImportCommandInput}
@@ -72,6 +84,8 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  *  <p>The resource specified in the request was not found. Check the
  *       resource and try again.</p>
  *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetImportCommand extends $Command<

@@ -46,6 +46,8 @@ export interface DeleteFormCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFormCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteFormCommandInput - {@link DeleteFormCommandInput}
@@ -63,6 +65,8 @@ export interface DeleteFormCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource does not exist, or access was denied.</p>
  *
+ * @throws {@link AmplifyUIBuilderServiceException}
+ * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
 export class DeleteFormCommand extends $Command<

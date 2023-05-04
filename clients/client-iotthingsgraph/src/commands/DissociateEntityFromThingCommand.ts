@@ -48,6 +48,8 @@ export interface DissociateEntityFromThingCommandOutput extends DissociateEntity
  * };
  * const command = new DissociateEntityFromThingCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DissociateEntityFromThingCommandInput - {@link DissociateEntityFromThingCommandInput}
@@ -68,6 +70,8 @@ export interface DissociateEntityFromThingCommandOutput extends DissociateEntity
  * @throws {@link ThrottlingException} (client fault)
  *  <p></p>
  *
+ * @throws {@link IoTThingsGraphServiceException}
+ * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
 export class DissociateEntityFromThingCommand extends $Command<

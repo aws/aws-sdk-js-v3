@@ -53,6 +53,17 @@ export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointSta
  * };
  * const command = new DescribeInstanceHealthCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEndPointStateOutput
+ * //   InstanceStates: [ // InstanceStates
+ * //     { // InstanceState
+ * //       InstanceId: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       ReasonCode: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeInstanceHealthCommandInput - {@link DescribeInstanceHealthCommandInput}
@@ -67,6 +78,8 @@ export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointSta
  * @throws {@link InvalidEndPointException} (client fault)
  *  <p>The specified endpoint is not valid.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To describe the health of the instances for a load balancer
  * ```javascript

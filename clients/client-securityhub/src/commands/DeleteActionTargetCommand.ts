@@ -46,6 +46,10 @@ export interface DeleteActionTargetCommandOutput extends DeleteActionTargetRespo
  * };
  * const command = new DeleteActionTargetCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteActionTargetResponse
+ * //   ActionTargetArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteActionTargetCommandInput - {@link DeleteActionTargetCommandInput}
@@ -67,6 +71,8 @@ export interface DeleteActionTargetCommandOutput extends DeleteActionTargetRespo
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @example To delete a custom action target
  * ```javascript

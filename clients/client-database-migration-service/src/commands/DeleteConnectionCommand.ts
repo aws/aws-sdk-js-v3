@@ -49,6 +49,17 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteConnectionResponse
+ * //   Connection: { // Connection
+ * //     ReplicationInstanceArn: "STRING_VALUE",
+ * //     EndpointArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     LastFailureMessage: "STRING_VALUE",
+ * //     EndpointIdentifier: "STRING_VALUE",
+ * //     ReplicationInstanceIdentifier: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
@@ -67,6 +78,8 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Delete Connection
  * ```javascript

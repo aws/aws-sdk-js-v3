@@ -52,6 +52,26 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
  * };
  * const command = new ListFunctionEventInvokeConfigsCommand(input);
  * const response = await client.send(command);
+ * // { // ListFunctionEventInvokeConfigsResponse
+ * //   FunctionEventInvokeConfigs: [ // FunctionEventInvokeConfigList
+ * //     { // FunctionEventInvokeConfig
+ * //       LastModified: new Date("TIMESTAMP"),
+ * //       FunctionArn: "STRING_VALUE",
+ * //       MaximumRetryAttempts: Number("int"),
+ * //       MaximumEventAgeInSeconds: Number("int"),
+ * //       DestinationConfig: { // DestinationConfig
+ * //         OnSuccess: { // OnSuccess
+ * //           Destination: "STRING_VALUE",
+ * //         },
+ * //         OnFailure: { // OnFailure
+ * //           Destination: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFunctionEventInvokeConfigsCommandInput - {@link ListFunctionEventInvokeConfigsCommandInput}
@@ -72,6 +92,8 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class ListFunctionEventInvokeConfigsCommand extends $Command<

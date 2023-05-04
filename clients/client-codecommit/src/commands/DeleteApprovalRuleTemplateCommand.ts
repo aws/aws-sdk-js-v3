@@ -44,6 +44,10 @@ export interface DeleteApprovalRuleTemplateCommandOutput extends DeleteApprovalR
  * };
  * const command = new DeleteApprovalRuleTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteApprovalRuleTemplateOutput
+ * //   approvalRuleTemplateId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param DeleteApprovalRuleTemplateCommandInput - {@link DeleteApprovalRuleTemplateCommandInput}
@@ -65,6 +69,8 @@ export interface DeleteApprovalRuleTemplateCommandOutput extends DeleteApprovalR
  *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
  *                 CodeCommit User Guide</a>.</p>
  *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class DeleteApprovalRuleTemplateCommand extends $Command<

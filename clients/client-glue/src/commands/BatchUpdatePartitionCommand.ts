@@ -119,6 +119,20 @@ export interface BatchUpdatePartitionCommandOutput extends BatchUpdatePartitionR
  * };
  * const command = new BatchUpdatePartitionCommand(input);
  * const response = await client.send(command);
+ * // { // BatchUpdatePartitionResponse
+ * //   Errors: [ // BatchUpdatePartitionFailureList
+ * //     { // BatchUpdatePartitionFailureEntry
+ * //       PartitionValueList: [ // BoundedPartitionValueList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ErrorDetail: { // ErrorDetail
+ * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchUpdatePartitionCommandInput - {@link BatchUpdatePartitionCommandInput}
@@ -142,6 +156,8 @@ export interface BatchUpdatePartitionCommandOutput extends BatchUpdatePartitionR
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class BatchUpdatePartitionCommand extends $Command<

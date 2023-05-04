@@ -57,6 +57,8 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * };
  * const command = new DeleteConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteConfigurationSetEventDestinationCommandInput - {@link DeleteConfigurationSetEventDestinationCommandInput}
@@ -71,6 +73,8 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * @throws {@link EventDestinationDoesNotExistException} (client fault)
  *  <p>Indicates that the event destination does not exist.</p>
  *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class DeleteConfigurationSetEventDestinationCommand extends $Command<

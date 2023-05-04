@@ -50,6 +50,8 @@ export interface StopLoggingCommandOutput extends StopLoggingResponse, __Metadat
  * };
  * const command = new StopLoggingCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopLoggingCommandInput - {@link StopLoggingCommandInput}
@@ -128,6 +130,8 @@ export interface StopLoggingCommandOutput extends StopLoggingResponse, __Metadat
  * @throws {@link UnsupportedOperationException} (client fault)
  *  <p>This exception is thrown when the requested operation is not supported.</p>
  *
+ * @throws {@link CloudTrailServiceException}
+ * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
 export class StopLoggingCommand extends $Command<

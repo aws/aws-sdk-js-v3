@@ -44,6 +44,8 @@ export interface StopFailbackCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopFailbackCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopFailbackCommandInput - {@link StopFailbackCommandInput}
@@ -64,6 +66,8 @@ export interface StopFailbackCommandOutput extends __MetadataBearer {}
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>The account performing the request has not been initialized.</p>
  *
+ * @throws {@link DrsServiceException}
+ * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
 export class StopFailbackCommand extends $Command<

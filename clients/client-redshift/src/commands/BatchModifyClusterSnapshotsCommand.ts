@@ -50,6 +50,20 @@ export interface BatchModifyClusterSnapshotsCommandOutput
  * };
  * const command = new BatchModifyClusterSnapshotsCommand(input);
  * const response = await client.send(command);
+ * // { // BatchModifyClusterSnapshotsOutputMessage
+ * //   Resources: [ // SnapshotIdentifierList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Errors: [ // BatchSnapshotOperationErrors
+ * //     { // SnapshotErrorMessage
+ * //       SnapshotIdentifier: "STRING_VALUE",
+ * //       SnapshotClusterIdentifier: "STRING_VALUE",
+ * //       FailureCode: "STRING_VALUE",
+ * //       FailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param BatchModifyClusterSnapshotsCommandInput - {@link BatchModifyClusterSnapshotsCommandInput}
@@ -66,6 +80,8 @@ export interface BatchModifyClusterSnapshotsCommandOutput
  *  <p>The retention period specified is either in the past or is not a valid value.</p>
  *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class BatchModifyClusterSnapshotsCommand extends $Command<

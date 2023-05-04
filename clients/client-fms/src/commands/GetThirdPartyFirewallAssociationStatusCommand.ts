@@ -53,6 +53,11 @@ export interface GetThirdPartyFirewallAssociationStatusCommandOutput
  * };
  * const command = new GetThirdPartyFirewallAssociationStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetThirdPartyFirewallAssociationStatusResponse
+ * //   ThirdPartyFirewallStatus: "ONBOARDING" || "ONBOARD_COMPLETE" || "OFFBOARDING" || "OFFBOARD_COMPLETE" || "NOT_EXIST",
+ * //   MarketplaceOnboardingStatus: "NO_SUBSCRIPTION" || "NOT_COMPLETE" || "COMPLETE",
+ * // };
+ *
  * ```
  *
  * @param GetThirdPartyFirewallAssociationStatusCommandInput - {@link GetThirdPartyFirewallAssociationStatusCommandInput}
@@ -78,6 +83,8 @@ export interface GetThirdPartyFirewallAssociationStatusCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link FMSServiceException}
+ * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
 export class GetThirdPartyFirewallAssociationStatusCommand extends $Command<

@@ -49,6 +49,20 @@ export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataB
  * };
  * const command = new GetAccessorCommand(input);
  * const response = await client.send(command);
+ * // { // GetAccessorOutput
+ * //   Accessor: { // Accessor
+ * //     Id: "STRING_VALUE",
+ * //     Type: "BILLING_TOKEN",
+ * //     BillingToken: "STRING_VALUE",
+ * //     Status: "AVAILABLE" || "PENDING_DELETION" || "DELETED",
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //     Arn: "STRING_VALUE",
+ * //     Tags: { // OutputTagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetAccessorCommandInput - {@link GetAccessorCommandInput}
@@ -75,6 +89,8 @@ export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataB
  *          creating resources that exceed your service limit for this resource type.
  *          Request a limit increase or delete unused resources if possible.</p>
  *
+ * @throws {@link ManagedBlockchainServiceException}
+ * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
  */
 export class GetAccessorCommand extends $Command<

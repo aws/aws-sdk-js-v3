@@ -53,6 +53,10 @@ export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __Metad
  * };
  * const command = new CreateGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // CreateGatewayOutput
+ * //   GatewayArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CreateGatewayCommandInput - {@link CreateGatewayCommandInput}
@@ -71,6 +75,8 @@ export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
  *
+ * @throws {@link BackupGatewayServiceException}
+ * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
 export class CreateGatewayCommand extends $Command<

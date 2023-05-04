@@ -60,16 +60,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppflowClient` and
-the commands you need, for example `CreateConnectorProfileCommand`:
+the commands you need, for example `CancelFlowExecutionsCommand`:
 
 ```js
 // ES5 example
-const { AppflowClient, CreateConnectorProfileCommand } = require("@aws-sdk/client-appflow");
+const { AppflowClient, CancelFlowExecutionsCommand } = require("@aws-sdk/client-appflow");
 ```
 
 ```ts
 // ES6+ example
-import { AppflowClient, CreateConnectorProfileCommand } from "@aws-sdk/client-appflow";
+import { AppflowClient, CancelFlowExecutionsCommand } from "@aws-sdk/client-appflow";
 ```
 
 ### Usage
@@ -88,7 +88,7 @@ const client = new AppflowClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateConnectorProfileCommand(params);
+const command = new CancelFlowExecutionsCommand(params);
 ```
 
 #### Async/await
@@ -167,7 +167,7 @@ const client = new AWS.Appflow({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createConnectorProfile(params);
+  const data = await client.cancelFlowExecutions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -175,7 +175,7 @@ try {
 
 // Promises.
 client
-  .createConnectorProfile(params)
+  .cancelFlowExecutions(params)
   .then((data) => {
     // process data.
   })
@@ -184,7 +184,7 @@ client
   });
 
 // callbacks.
-client.createConnectorProfile(params, (err, data) => {
+client.cancelFlowExecutions(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -240,6 +240,14 @@ see LICENSE for more information.
 
 ## Client Commands (Operations List)
 
+<details>
+<summary>
+CancelFlowExecutions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appflow/classes/cancelflowexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appflow/interfaces/cancelflowexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appflow/interfaces/cancelflowexecutionscommandoutput.html)
+
+</details>
 <details>
 <summary>
 CreateConnectorProfile

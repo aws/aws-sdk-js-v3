@@ -44,6 +44,23 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * };
  * const command = new GetChannelCommand(input);
  * const response = await client.send(command);
+ * // { // GetChannelResponse
+ * //   channel: { // Channel
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     latencyMode: "STRING_VALUE",
+ * //     type: "BASIC" || "STANDARD",
+ * //     recordingConfigurationArn: "STRING_VALUE",
+ * //     ingestEndpoint: "STRING_VALUE",
+ * //     playbackUrl: "STRING_VALUE",
+ * //     authorized: true || false,
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     insecureIngest: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetChannelCommandInput - {@link GetChannelCommandInput}
@@ -61,6 +78,8 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * @throws {@link ValidationException} (client fault)
  *  <p/>
  *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class GetChannelCommand extends $Command<

@@ -57,6 +57,8 @@ export interface DeleteStorageLensConfigurationCommandOutput extends __MetadataB
  * };
  * const command = new DeleteStorageLensConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteStorageLensConfigurationCommandInput - {@link DeleteStorageLensConfigurationCommandInput}
@@ -65,6 +67,8 @@ export interface DeleteStorageLensConfigurationCommandOutput extends __MetadataB
  * @see {@link DeleteStorageLensConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link S3ControlServiceException}
+ * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
 export class DeleteStorageLensConfigurationCommand extends $Command<

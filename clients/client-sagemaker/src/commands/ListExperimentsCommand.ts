@@ -51,6 +51,23 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * };
  * const command = new ListExperimentsCommand(input);
  * const response = await client.send(command);
+ * // { // ListExperimentsResponse
+ * //   ExperimentSummaries: [ // ExperimentSummaries
+ * //     { // ExperimentSummary
+ * //       ExperimentArn: "STRING_VALUE",
+ * //       ExperimentName: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       ExperimentSource: { // ExperimentSource
+ * //         SourceArn: "STRING_VALUE", // required
+ * //         SourceType: "STRING_VALUE",
+ * //       },
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListExperimentsCommandInput - {@link ListExperimentsCommandInput}
@@ -59,6 +76,8 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * @see {@link ListExperimentsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListExperimentsCommand extends $Command<

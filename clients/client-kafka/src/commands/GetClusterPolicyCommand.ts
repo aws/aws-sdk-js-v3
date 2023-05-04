@@ -44,6 +44,11 @@ export interface GetClusterPolicyCommandOutput extends GetClusterPolicyResponse,
  * };
  * const command = new GetClusterPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetClusterPolicyResponse
+ * //   CurrentVersion: "STRING_VALUE",
+ * //   Policy: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetClusterPolicyCommandInput - {@link GetClusterPolicyCommandInput}
@@ -64,6 +69,8 @@ export interface GetClusterPolicyCommandOutput extends GetClusterPolicyResponse,
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
+ * @throws {@link KafkaServiceException}
+ * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
 export class GetClusterPolicyCommand extends $Command<

@@ -51,6 +51,8 @@ export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBea
  * };
  * const command = new RemoveAllResourcePermissionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RemoveAllResourcePermissionsCommandInput - {@link RemoveAllResourcePermissionsCommandInput}
@@ -73,6 +75,8 @@ export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBea
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
  *  <p>The caller does not have access to perform the action on the resource.</p>
  *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class RemoveAllResourcePermissionsCommand extends $Command<

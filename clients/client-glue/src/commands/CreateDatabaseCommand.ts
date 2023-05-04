@@ -73,6 +73,8 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * };
  * const command = new CreateDatabaseCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateDatabaseCommandInput - {@link CreateDatabaseCommandInput}
@@ -105,6 +107,8 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
  *  <p>A resource numerical limit was exceeded.</p>
  *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class CreateDatabaseCommand extends $Command<

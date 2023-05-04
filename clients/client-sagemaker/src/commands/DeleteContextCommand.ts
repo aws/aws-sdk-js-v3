@@ -44,6 +44,10 @@ export interface DeleteContextCommandOutput extends DeleteContextResponse, __Met
  * };
  * const command = new DeleteContextCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteContextResponse
+ * //   ContextArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DeleteContextCommandInput - {@link DeleteContextCommandInput}
@@ -55,6 +59,8 @@ export interface DeleteContextCommandOutput extends DeleteContextResponse, __Met
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeleteContextCommand extends $Command<

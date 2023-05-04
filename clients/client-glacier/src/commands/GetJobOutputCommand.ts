@@ -86,6 +86,16 @@ export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOu
  * };
  * const command = new GetJobOutputCommand(input);
  * const response = await client.send(command);
+ * // { // GetJobOutputOutput
+ * //   body: "STREAMING_BLOB_VALUE",
+ * //   checksum: "STRING_VALUE",
+ * //   status: Number("int"),
+ * //   contentRange: "STRING_VALUE",
+ * //   acceptRanges: "STRING_VALUE",
+ * //   contentType: "STRING_VALUE",
+ * //   archiveDescription: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetJobOutputCommandInput - {@link GetJobOutputCommandInput}
@@ -107,6 +117,8 @@ export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOu
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returned if the service cannot complete the request.</p>
  *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @example To get the output of a previously initiated job
  * ```javascript

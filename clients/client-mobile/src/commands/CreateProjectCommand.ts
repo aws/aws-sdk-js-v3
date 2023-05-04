@@ -49,6 +49,29 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
+ * // { // CreateProjectResult
+ * //   details: { // ProjectDetails
+ * //     name: "STRING_VALUE",
+ * //     projectId: "STRING_VALUE",
+ * //     region: "STRING_VALUE",
+ * //     state: "STRING_VALUE",
+ * //     createdDate: new Date("TIMESTAMP"),
+ * //     lastUpdatedDate: new Date("TIMESTAMP"),
+ * //     consoleUrl: "STRING_VALUE",
+ * //     resources: [ // Resources
+ * //       { // Resource
+ * //         type: "STRING_VALUE",
+ * //         name: "STRING_VALUE",
+ * //         arn: "STRING_VALUE",
+ * //         feature: "STRING_VALUE",
+ * //         attributes: { // Attributes
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
@@ -99,6 +122,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  *             Credentials of the caller are insufficient to authorize the request.
  *         </p>
  *
+ * @throws {@link MobileServiceException}
+ * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
  */
 export class CreateProjectCommand extends $Command<

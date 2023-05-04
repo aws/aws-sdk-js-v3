@@ -44,6 +44,18 @@ export interface GetManagedScalingPolicyCommandOutput extends GetManagedScalingP
  * };
  * const command = new GetManagedScalingPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetManagedScalingPolicyOutput
+ * //   ManagedScalingPolicy: { // ManagedScalingPolicy
+ * //     ComputeLimits: { // ComputeLimits
+ * //       UnitType: "InstanceFleetUnits" || "Instances" || "VCPU", // required
+ * //       MinimumCapacityUnits: Number("int"), // required
+ * //       MaximumCapacityUnits: Number("int"), // required
+ * //       MaximumOnDemandCapacityUnits: Number("int"),
+ * //       MaximumCoreCapacityUnits: Number("int"),
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetManagedScalingPolicyCommandInput - {@link GetManagedScalingPolicyCommandInput}
@@ -52,6 +64,8 @@ export interface GetManagedScalingPolicyCommandOutput extends GetManagedScalingP
  * @see {@link GetManagedScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class GetManagedScalingPolicyCommand extends $Command<

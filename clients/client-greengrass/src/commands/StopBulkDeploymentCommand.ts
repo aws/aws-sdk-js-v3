@@ -44,6 +44,8 @@ export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentRespo
  * };
  * const command = new StopBulkDeploymentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopBulkDeploymentCommandInput - {@link StopBulkDeploymentCommandInput}
@@ -55,6 +57,8 @@ export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentRespo
  * @throws {@link BadRequestException} (client fault)
  *  General error information.
  *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class StopBulkDeploymentCommand extends $Command<

@@ -45,6 +45,26 @@ export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __Met
  * };
  * const command = new GetConnectorsCommand(input);
  * const response = await client.send(command);
+ * // { // GetConnectorsResponse
+ * //   connectorList: [ // ConnectorList
+ * //     { // Connector
+ * //       connectorId: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //       status: "HEALTHY" || "UNHEALTHY",
+ * //       capabilityList: [ // ConnectorCapabilityList
+ * //         "VSPHERE" || "SCVMM" || "HYPERV-MANAGER" || "SNAPSHOT_BATCHING" || "SMS_OPTIMIZED",
+ * //       ],
+ * //       vmManagerName: "STRING_VALUE",
+ * //       vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
+ * //       vmManagerId: "STRING_VALUE",
+ * //       ipAddress: "STRING_VALUE",
+ * //       macAddress: "STRING_VALUE",
+ * //       associatedOn: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetConnectorsCommandInput - {@link GetConnectorsCommandInput}
@@ -57,6 +77,8 @@ export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __Met
  *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  *
+ * @throws {@link SMSServiceException}
+ * <p>Base exception class for all service exceptions from SMS service.</p>
  *
  */
 export class GetConnectorsCommand extends $Command<

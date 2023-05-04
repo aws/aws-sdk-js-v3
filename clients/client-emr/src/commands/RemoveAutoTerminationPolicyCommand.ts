@@ -44,6 +44,8 @@ export interface RemoveAutoTerminationPolicyCommandOutput extends RemoveAutoTerm
  * };
  * const command = new RemoveAutoTerminationPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RemoveAutoTerminationPolicyCommandInput - {@link RemoveAutoTerminationPolicyCommandInput}
@@ -52,6 +54,8 @@ export interface RemoveAutoTerminationPolicyCommandOutput extends RemoveAutoTerm
  * @see {@link RemoveAutoTerminationPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class RemoveAutoTerminationPolicyCommand extends $Command<

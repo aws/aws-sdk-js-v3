@@ -44,6 +44,8 @@ export interface DeleteFilterCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFilterCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteFilterCommandInput - {@link DeleteFilterCommandInput}
@@ -61,6 +63,8 @@ export interface DeleteFilterCommandOutput extends __MetadataBearer {}
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Could not find the specified resource.</p>
  *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class DeleteFilterCommand extends $Command<

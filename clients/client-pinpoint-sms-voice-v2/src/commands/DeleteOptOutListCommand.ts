@@ -51,6 +51,12 @@ export interface DeleteOptOutListCommandOutput extends DeleteOptOutListResult, _
  * };
  * const command = new DeleteOptOutListCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteOptOutListResult
+ * //   OptOutListArn: "STRING_VALUE",
+ * //   OptOutListName: "STRING_VALUE",
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param DeleteOptOutListCommandInput - {@link DeleteOptOutListCommandInput}
@@ -83,6 +89,8 @@ export interface DeleteOptOutListCommandOutput extends DeleteOptOutListResult, _
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
+ * @throws {@link PinpointSMSVoiceV2ServiceException}
+ * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
 export class DeleteOptOutListCommand extends $Command<

@@ -46,6 +46,13 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * };
  * const command = new UpdateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateLoggingConfigurationResponse
+ * //   status: { // LoggingConfigurationStatus
+ * //     statusCode: "STRING_VALUE", // required
+ * //     statusReason: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param UpdateLoggingConfigurationCommandInput - {@link UpdateLoggingConfigurationCommandInput}
@@ -69,6 +76,8 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * @throws {@link ValidationException} (client fault)
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
  *
  */
 export class UpdateLoggingConfigurationCommand extends $Command<

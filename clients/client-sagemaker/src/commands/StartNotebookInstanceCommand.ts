@@ -47,6 +47,8 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StartNotebookInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StartNotebookInstanceCommandInput - {@link StartNotebookInstanceCommandInput}
@@ -59,6 +61,8 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StartNotebookInstanceCommand extends $Command<

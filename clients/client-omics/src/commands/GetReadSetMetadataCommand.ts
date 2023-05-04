@@ -45,6 +45,43 @@ export interface GetReadSetMetadataCommandOutput extends GetReadSetMetadataRespo
  * };
  * const command = new GetReadSetMetadataCommand(input);
  * const response = await client.send(command);
+ * // { // GetReadSetMetadataResponse
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   sequenceStoreId: "STRING_VALUE", // required
+ * //   subjectId: "STRING_VALUE",
+ * //   sampleId: "STRING_VALUE",
+ * //   status: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   fileType: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   sequenceInformation: { // SequenceInformation
+ * //     totalReadCount: Number("long"),
+ * //     totalBaseCount: Number("long"),
+ * //     generatedFrom: "STRING_VALUE",
+ * //     alignment: "STRING_VALUE",
+ * //   },
+ * //   referenceArn: "STRING_VALUE",
+ * //   files: { // ReadSetFiles
+ * //     source1: { // FileInformation
+ * //       totalParts: Number("int"),
+ * //       partSize: Number("long"),
+ * //       contentLength: Number("long"),
+ * //     },
+ * //     source2: {
+ * //       totalParts: Number("int"),
+ * //       partSize: Number("long"),
+ * //       contentLength: Number("long"),
+ * //     },
+ * //     index: {
+ * //       totalParts: Number("int"),
+ * //       partSize: Number("long"),
+ * //       contentLength: Number("long"),
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetReadSetMetadataCommandInput - {@link GetReadSetMetadataCommandInput}
@@ -71,6 +108,8 @@ export interface GetReadSetMetadataCommandOutput extends GetReadSetMetadataRespo
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetReadSetMetadataCommand extends $Command<

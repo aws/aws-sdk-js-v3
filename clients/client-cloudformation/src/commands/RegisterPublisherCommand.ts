@@ -51,6 +51,10 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
  * };
  * const command = new RegisterPublisherCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterPublisherOutput
+ * //   PublisherId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param RegisterPublisherCommandInput - {@link RegisterPublisherCommandInput}
@@ -62,6 +66,8 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
  * @throws {@link CFNRegistryException} (client fault)
  *  <p>An error occurred during a CloudFormation registry operation.</p>
  *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class RegisterPublisherCommand extends $Command<

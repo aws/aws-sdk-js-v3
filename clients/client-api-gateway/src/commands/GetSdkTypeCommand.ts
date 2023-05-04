@@ -44,6 +44,21 @@ export interface GetSdkTypeCommandOutput extends SdkType, __MetadataBearer {}
  * };
  * const command = new GetSdkTypeCommand(input);
  * const response = await client.send(command);
+ * // { // SdkType
+ * //   id: "STRING_VALUE",
+ * //   friendlyName: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   configurationProperties: [ // ListOfSdkConfigurationProperty
+ * //     { // SdkConfigurationProperty
+ * //       name: "STRING_VALUE",
+ * //       friendlyName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       required: true || false,
+ * //       defaultValue: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param GetSdkTypeCommandInput - {@link GetSdkTypeCommandInput}
@@ -64,6 +79,8 @@ export interface GetSdkTypeCommandOutput extends SdkType, __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetSdkTypeCommand extends $Command<

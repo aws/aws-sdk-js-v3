@@ -69,6 +69,21 @@ export interface ListConflictingAliasesCommandOutput extends ListConflictingAlia
  * };
  * const command = new ListConflictingAliasesCommand(input);
  * const response = await client.send(command);
+ * // { // ListConflictingAliasesResult
+ * //   ConflictingAliasesList: { // ConflictingAliasesList
+ * //     NextMarker: "STRING_VALUE",
+ * //     MaxItems: Number("int"),
+ * //     Quantity: Number("int"),
+ * //     Items: [ // ConflictingAliases
+ * //       { // ConflictingAlias
+ * //         Alias: "STRING_VALUE",
+ * //         DistributionId: "STRING_VALUE",
+ * //         AccountId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ListConflictingAliasesCommandInput - {@link ListConflictingAliasesCommandInput}
@@ -83,6 +98,8 @@ export interface ListConflictingAliasesCommandOutput extends ListConflictingAlia
  * @throws {@link NoSuchDistribution} (client fault)
  *  <p>The specified distribution does not exist.</p>
  *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListConflictingAliasesCommand extends $Command<

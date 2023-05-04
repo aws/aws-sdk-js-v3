@@ -44,6 +44,14 @@ export interface GetGatewayGroupCommandOutput extends GetGatewayGroupResponse, _
  * };
  * const command = new GetGatewayGroupCommand(input);
  * const response = await client.send(command);
+ * // { // GetGatewayGroupResponse
+ * //   GatewayGroup: { // GatewayGroup
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetGatewayGroupCommandInput - {@link GetGatewayGroupCommandInput}
@@ -55,6 +63,8 @@ export interface GetGatewayGroupCommandOutput extends GetGatewayGroupResponse, _
  * @throws {@link NotFoundException} (client fault)
  *  <p>The resource is not found.</p>
  *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class GetGatewayGroupCommand extends $Command<

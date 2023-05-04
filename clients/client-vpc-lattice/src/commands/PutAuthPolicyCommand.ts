@@ -46,6 +46,11 @@ export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __Met
  * };
  * const command = new PutAuthPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutAuthPolicyResponse
+ * //   policy: "STRING_VALUE",
+ * //   state: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutAuthPolicyCommandInput - {@link PutAuthPolicyCommandInput}
@@ -70,6 +75,8 @@ export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __Met
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class PutAuthPolicyCommand extends $Command<

@@ -48,6 +48,10 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
  * const input = {};
  * const command = new GetAWSOrganizationsAccessStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetAWSOrganizationsAccessStatusOutput
+ * //   AccessStatus: "ENABLED" || "UNDER_CHANGE" || "DISABLED",
+ * // };
+ *
  * ```
  *
  * @param GetAWSOrganizationsAccessStatusCommandInput - {@link GetAWSOrganizationsAccessStatusCommandInput}
@@ -62,6 +66,8 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class GetAWSOrganizationsAccessStatusCommand extends $Command<

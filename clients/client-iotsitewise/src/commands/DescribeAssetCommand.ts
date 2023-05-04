@@ -45,6 +45,71 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  * };
  * const command = new DescribeAssetCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAssetResponse
+ * //   assetId: "STRING_VALUE", // required
+ * //   assetArn: "STRING_VALUE", // required
+ * //   assetName: "STRING_VALUE", // required
+ * //   assetModelId: "STRING_VALUE", // required
+ * //   assetProperties: [ // AssetProperties // required
+ * //     { // AssetProperty
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       alias: "STRING_VALUE",
+ * //       notification: { // PropertyNotification
+ * //         topic: "STRING_VALUE", // required
+ * //         state: "ENABLED" || "DISABLED", // required
+ * //       },
+ * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ * //       dataTypeSpec: "STRING_VALUE",
+ * //       unit: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   assetHierarchies: [ // AssetHierarchies // required
+ * //     { // AssetHierarchy
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   assetCompositeModels: [ // AssetCompositeModels
+ * //     { // AssetCompositeModel
+ * //       name: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       type: "STRING_VALUE", // required
+ * //       properties: [ // required
+ * //         {
+ * //           id: "STRING_VALUE", // required
+ * //           name: "STRING_VALUE", // required
+ * //           alias: "STRING_VALUE",
+ * //           notification: {
+ * //             topic: "STRING_VALUE", // required
+ * //             state: "ENABLED" || "DISABLED", // required
+ * //           },
+ * //           dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ * //           dataTypeSpec: "STRING_VALUE",
+ * //           unit: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       id: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   assetCreationDate: new Date("TIMESTAMP"), // required
+ * //   assetLastUpdateDate: new Date("TIMESTAMP"), // required
+ * //   assetStatus: { // AssetStatus
+ * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
+ * //     error: { // ErrorDetails
+ * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //       message: "STRING_VALUE", // required
+ * //       details: [ // DetailedErrors
+ * //         { // DetailedError
+ * //           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
+ * //           message: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   assetDescription: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeAssetCommandInput - {@link DescribeAssetCommandInput}
@@ -69,6 +134,8 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class DescribeAssetCommand extends $Command<

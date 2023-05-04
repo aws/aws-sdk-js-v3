@@ -51,6 +51,51 @@ export interface DescribeModelPackagingJobCommandOutput extends DescribeModelPac
  * };
  * const command = new DescribeModelPackagingJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeModelPackagingJobResponse
+ * //   ModelPackagingDescription: { // ModelPackagingDescription
+ * //     JobName: "STRING_VALUE",
+ * //     ProjectName: "STRING_VALUE",
+ * //     ModelVersion: "STRING_VALUE",
+ * //     ModelPackagingConfiguration: { // ModelPackagingConfiguration
+ * //       Greengrass: { // GreengrassConfiguration
+ * //         CompilerOptions: "STRING_VALUE",
+ * //         TargetDevice: "jetson_xavier",
+ * //         TargetPlatform: { // TargetPlatform
+ * //           Os: "LINUX", // required
+ * //           Arch: "ARM64" || "X86_64", // required
+ * //           Accelerator: "NVIDIA",
+ * //         },
+ * //         S3OutputLocation: { // S3Location
+ * //           Bucket: "STRING_VALUE", // required
+ * //           Prefix: "STRING_VALUE",
+ * //         },
+ * //         ComponentName: "STRING_VALUE", // required
+ * //         ComponentVersion: "STRING_VALUE",
+ * //         ComponentDescription: "STRING_VALUE",
+ * //         Tags: [ // TagList
+ * //           { // Tag
+ * //             Key: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //     ModelPackagingJobDescription: "STRING_VALUE",
+ * //     ModelPackagingMethod: "STRING_VALUE",
+ * //     ModelPackagingOutputDetails: { // ModelPackagingOutputDetails
+ * //       Greengrass: { // GreengrassOutputDetails
+ * //         ComponentVersionArn: "STRING_VALUE",
+ * //         ComponentName: "STRING_VALUE",
+ * //         ComponentVersion: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     Status: "CREATED" || "RUNNING" || "SUCCEEDED" || "FAILED",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     CreationTimestamp: new Date("TIMESTAMP"),
+ * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeModelPackagingJobCommandInput - {@link DescribeModelPackagingJobCommandInput}
@@ -75,6 +120,8 @@ export interface DescribeModelPackagingJobCommandOutput extends DescribeModelPac
  *  <p>An input validation error occured. For example, invalid characters in a project name,
  *       or if a pagination token is invalid.</p>
  *
+ * @throws {@link LookoutVisionServiceException}
+ * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
 export class DescribeModelPackagingJobCommand extends $Command<

@@ -50,6 +50,8 @@ export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteIdentityProviderCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteIdentityProviderCommandInput - {@link DeleteIdentityProviderCommandInput}
@@ -83,6 +85,8 @@ export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
  * @throws {@link UnsupportedIdentityProviderException} (client fault)
  *  <p>This exception is thrown when the specified identifier isn't supported.</p>
  *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class DeleteIdentityProviderCommand extends $Command<

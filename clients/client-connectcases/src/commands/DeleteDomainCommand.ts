@@ -44,6 +44,8 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * };
  * const command = new DeleteDomainCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteDomainCommandInput - {@link DeleteDomainCommandInput}
@@ -74,6 +76,8 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * @throws {@link ValidationException} (client fault)
  *  <p>The request isn't valid. Check the syntax and try again.</p>
  *
+ * @throws {@link ConnectCasesServiceException}
+ * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
 export class DeleteDomainCommand extends $Command<

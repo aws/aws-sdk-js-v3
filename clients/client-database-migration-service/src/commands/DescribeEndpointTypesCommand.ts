@@ -57,6 +57,19 @@ export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointType
  * };
  * const command = new DescribeEndpointTypesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEndpointTypesResponse
+ * //   Marker: "STRING_VALUE",
+ * //   SupportedEndpointTypes: [ // SupportedEndpointTypeList
+ * //     { // SupportedEndpointType
+ * //       EngineName: "STRING_VALUE",
+ * //       SupportsCDC: true || false,
+ * //       EndpointType: "source" || "target",
+ * //       ReplicationInstanceEngineMinimumVersion: "STRING_VALUE",
+ * //       EngineDisplayName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeEndpointTypesCommandInput - {@link DescribeEndpointTypesCommandInput}
@@ -65,6 +78,8 @@ export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointType
  * @see {@link DescribeEndpointTypesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @example Describe endpoint types
  * ```javascript

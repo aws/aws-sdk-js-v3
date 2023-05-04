@@ -42,6 +42,8 @@ export interface EnableProactiveEngagementCommandOutput extends EnableProactiveE
  * const input = {};
  * const command = new EnableProactiveEngagementCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param EnableProactiveEngagementCommandInput - {@link EnableProactiveEngagementCommandInput}
@@ -66,6 +68,8 @@ export interface EnableProactiveEngagementCommandOutput extends EnableProactiveE
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  *
+ * @throws {@link ShieldServiceException}
+ * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
 export class EnableProactiveEngagementCommand extends $Command<

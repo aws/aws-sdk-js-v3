@@ -46,6 +46,19 @@ export interface DeprovisionIpamPoolCidrCommandOutput extends DeprovisionIpamPoo
  * };
  * const command = new DeprovisionIpamPoolCidrCommand(input);
  * const response = await client.send(command);
+ * // { // DeprovisionIpamPoolCidrResult
+ * //   IpamPoolCidr: { // IpamPoolCidr
+ * //     Cidr: "STRING_VALUE",
+ * //     State: "pending-provision" || "provisioned" || "failed-provision" || "pending-deprovision" || "deprovisioned" || "failed-deprovision" || "pending-import" || "failed-import",
+ * //     FailureReason: { // IpamPoolCidrFailureReason
+ * //       Code: "cidr-not-available" || "limit-exceeded",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     IpamPoolCidrId: "STRING_VALUE",
+ * //     NetmaskLength: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DeprovisionIpamPoolCidrCommandInput - {@link DeprovisionIpamPoolCidrCommandInput}
@@ -54,6 +67,8 @@ export interface DeprovisionIpamPoolCidrCommandOutput extends DeprovisionIpamPoo
  * @see {@link DeprovisionIpamPoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DeprovisionIpamPoolCidrCommand extends $Command<

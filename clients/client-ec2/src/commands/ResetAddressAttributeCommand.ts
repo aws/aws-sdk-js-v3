@@ -46,6 +46,19 @@ export interface ResetAddressAttributeCommandOutput extends ResetAddressAttribut
  * };
  * const command = new ResetAddressAttributeCommand(input);
  * const response = await client.send(command);
+ * // { // ResetAddressAttributeResult
+ * //   Address: { // AddressAttribute
+ * //     PublicIp: "STRING_VALUE",
+ * //     AllocationId: "STRING_VALUE",
+ * //     PtrRecord: "STRING_VALUE",
+ * //     PtrRecordUpdate: { // PtrUpdateStatus
+ * //       Value: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param ResetAddressAttributeCommandInput - {@link ResetAddressAttributeCommandInput}
@@ -54,6 +67,8 @@ export interface ResetAddressAttributeCommandOutput extends ResetAddressAttribut
  * @see {@link ResetAddressAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ResetAddressAttributeCommand extends $Command<

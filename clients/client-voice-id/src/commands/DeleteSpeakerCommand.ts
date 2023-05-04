@@ -45,6 +45,8 @@ export interface DeleteSpeakerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSpeakerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DeleteSpeakerCommandInput - {@link DeleteSpeakerCommandInput}
@@ -78,6 +80,8 @@ export interface DeleteSpeakerCommandOutput extends __MetadataBearer {}
  *  <p>The request failed one or more validations; check the error message for more
  *             details.</p>
  *
+ * @throws {@link VoiceIDServiceException}
+ * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
 export class DeleteSpeakerCommand extends $Command<

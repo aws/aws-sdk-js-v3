@@ -55,6 +55,13 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * };
  * const command = new GetInstancesHealthStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetInstancesHealthStatusResponse
+ * //   Status: { // InstanceHealthStatusMap
+ * //     "<keys>": "HEALTHY" || "UNHEALTHY" || "UNKNOWN",
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetInstancesHealthStatusCommandInput - {@link GetInstancesHealthStatusCommandInput}
@@ -75,6 +82,8 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * @throws {@link ServiceNotFound} (client fault)
  *  <p>No service exists with the specified ID.</p>
  *
+ * @throws {@link ServiceDiscoveryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @example GetInstancesHealthStatus example
  * ```javascript

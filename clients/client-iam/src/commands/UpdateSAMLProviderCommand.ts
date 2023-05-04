@@ -48,6 +48,10 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  * };
  * const command = new UpdateSAMLProviderCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateSAMLProviderResponse
+ * //   SAMLProviderArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateSAMLProviderCommandInput - {@link UpdateSAMLProviderCommandInput}
@@ -72,6 +76,8 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class UpdateSAMLProviderCommand extends $Command<

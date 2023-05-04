@@ -59,6 +59,10 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  * };
  * const command = new InvokeAsyncCommand(input);
  * const response = await client.send(command);
+ * // { // InvokeAsyncResponse
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param InvokeAsyncCommandInput - {@link InvokeAsyncCommandInput}
@@ -82,6 +86,8 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  * @throws {@link ServiceException} (server fault)
  *  <p>The Lambda service encountered an internal error.</p>
  *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class InvokeAsyncCommand extends $Command<

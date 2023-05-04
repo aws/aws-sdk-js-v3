@@ -46,6 +46,10 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  * };
  * const command = new CancelArchivalCommand(input);
  * const response = await client.send(command);
+ * // { // CancelArchivalOutput
+ * //   TapeARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param CancelArchivalCommandInput - {@link CancelArchivalCommandInput}
@@ -62,6 +66,8 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  *  <p>An exception occurred because an invalid gateway request was issued to the service. For
  *          more information, see the error and message fields.</p>
  *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @example To cancel virtual tape archiving
  * ```javascript

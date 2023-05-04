@@ -50,6 +50,20 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * };
  * const command = new ListPipelineExecutionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListPipelineExecutionsResponse
+ * //   PipelineExecutionSummaries: [ // PipelineExecutionSummaryList
+ * //     { // PipelineExecutionSummary
+ * //       PipelineExecutionArn: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       PipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded",
+ * //       PipelineExecutionDescription: "STRING_VALUE",
+ * //       PipelineExecutionDisplayName: "STRING_VALUE",
+ * //       PipelineExecutionFailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListPipelineExecutionsCommandInput - {@link ListPipelineExecutionsCommandInput}
@@ -61,6 +75,8 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListPipelineExecutionsCommand extends $Command<

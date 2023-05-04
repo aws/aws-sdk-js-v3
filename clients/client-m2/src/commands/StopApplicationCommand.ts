@@ -45,6 +45,8 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * };
  * const command = new StopApplicationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StopApplicationCommandInput - {@link StopApplicationCommandInput}
@@ -71,6 +73,8 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>One or more parameters provided in the request is not valid.</p>
  *
+ * @throws {@link M2ServiceException}
+ * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
 export class StopApplicationCommand extends $Command<

@@ -60,6 +60,8 @@ export interface DisassociateConfigurationItemsFromApplicationCommandOutput
  * };
  * const command = new DisassociateConfigurationItemsFromApplicationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param DisassociateConfigurationItemsFromApplicationCommandInput - {@link DisassociateConfigurationItemsFromApplicationCommandInput}
@@ -85,6 +87,8 @@ export interface DisassociateConfigurationItemsFromApplicationCommandOutput
  * @throws {@link ServerInternalErrorException} (server fault)
  *  <p>The server experienced an internal error. Try again.</p>
  *
+ * @throws {@link ApplicationDiscoveryServiceServiceException}
+ * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
 export class DisassociateConfigurationItemsFromApplicationCommand extends $Command<

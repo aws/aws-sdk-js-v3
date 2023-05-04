@@ -2747,6 +2747,7 @@ export type RulePublishStatus = (typeof RulePublishStatus)[keyof typeof RulePubl
  * @enum
  */
 export const EventSourceName = {
+  OnContactEvaluationSubmit: "OnContactEvaluationSubmit",
   OnPostCallAnalysisAvailable: "OnPostCallAnalysisAvailable",
   OnPostChatAnalysisAvailable: "OnPostChatAnalysisAvailable",
   OnRealTimeCallAnalysisAvailable: "OnRealTimeCallAnalysisAvailable",

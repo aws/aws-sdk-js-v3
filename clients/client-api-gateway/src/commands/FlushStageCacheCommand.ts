@@ -45,6 +45,8 @@ export interface FlushStageCacheCommandOutput extends __MetadataBearer {}
  * };
  * const command = new FlushStageCacheCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param FlushStageCacheCommandInput - {@link FlushStageCacheCommandInput}
@@ -71,6 +73,8 @@ export interface FlushStageCacheCommandOutput extends __MetadataBearer {}
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The request is denied because the caller has insufficient permissions.</p>
  *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class FlushStageCacheCommand extends $Command<

@@ -66,6 +66,21 @@ export interface ReplacePermissionAssociationsCommandOutput
  * };
  * const command = new ReplacePermissionAssociationsCommand(input);
  * const response = await client.send(command);
+ * // { // ReplacePermissionAssociationsResponse
+ * //   replacePermissionAssociationsWork: { // ReplacePermissionAssociationsWork
+ * //     id: "STRING_VALUE",
+ * //     fromPermissionArn: "STRING_VALUE",
+ * //     fromPermissionVersion: "STRING_VALUE",
+ * //     toPermissionArn: "STRING_VALUE",
+ * //     toPermissionVersion: "STRING_VALUE",
+ * //     status: "IN_PROGRESS" || "COMPLETED" || "FAILED",
+ * //     statusMessage: "STRING_VALUE",
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedTime: new Date("TIMESTAMP"),
+ * //   },
+ * //   clientToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ReplacePermissionAssociationsCommandInput - {@link ReplacePermissionAssociationsCommandInput}
@@ -102,6 +117,8 @@ export interface ReplacePermissionAssociationsCommandOutput
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *
+ * @throws {@link RAMServiceException}
+ * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
 export class ReplacePermissionAssociationsCommand extends $Command<

@@ -4330,7 +4330,7 @@ export interface AutoMLAlgorithmConfig {
    *          job. </p>
    *          <note>
    *             <p>Selected algorithms must belong to the list corresponding to the training mode set in
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html#sagemaker-Type-AutoMLJobConfig-Mode">AutoMLJobConfig.Mode</a> (<code>ENSEMBLING</code> or
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html#sagemaker-Type-AutoMLJobConfig-Mode">AutoMLJobConfig.Mode</a> (<code>ENSEMBLING</code> or
    *                <code>HYPERPARAMETER_TUNING</code>). Choose a minimum of 1 algorithm. </p>
    *          </note>
    *          <ul>
@@ -4626,25 +4626,25 @@ export type AutoMLProcessingUnit = (typeof AutoMLProcessingUnit)[keyof typeof Au
  * @public
  * <p>A list of container definitions that describe the different containers that make up an
  *          AutoML candidate. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
- *                ContainerDefinition</a>.</p>
+ *             ContainerDefinition</a>.</p>
  */
 export interface AutoMLContainerDefinition {
   /**
    * <p>The Amazon Elastic Container Registry (Amazon ECR) path of the container. For more
    *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
-   *                ContainerDefinition</a>.</p>
+   *             ContainerDefinition</a>.</p>
    */
   Image: string | undefined;
 
   /**
-   * <p>The location of the model artifacts. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html"> ContainerDefinition</a>.</p>
+   * <p>The location of the model artifacts. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
+   *             ContainerDefinition</a>.</p>
    */
   ModelDataUrl: string | undefined;
 
   /**
-   * <p>The environment variables to set in the container. For more information, see
-   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
-   *                ContainerDefinition</a>.</p>
+   * <p>The environment variables to set in the container. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
+   *             ContainerDefinition</a>.</p>
    */
   Environment?: Record<string, string>;
 }
@@ -4795,7 +4795,7 @@ export interface AutoMLCandidateGenerationConfig {
    *             </li>
    *          </ul>
    *          <p>For the list of all algorithms per training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
-   *                AutoMLAlgorithmConfig</a>.</p>
+   *             AutoMLAlgorithmConfig</a>.</p>
    *          <p>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm support</a> section in Autopilot developer guide.</p>
    */
   AlgorithmsConfig?: AutoMLAlgorithmConfig[];
@@ -4947,6 +4947,21 @@ export interface AutoMLChannel {
    *          specifying training and validation channel types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation">How to specify training and validation datasets</a>.</p>
    */
   ChannelType?: AutoMLChannelType | string;
+
+  /**
+   * <p>If specified, this column name indicates which column of the dataset should be treated
+   *          as sample weights for use by the objective metric during the training, evaluation, and
+   *          the selection of the best model. This column
+   *          is not considered as a predictive feature. For more information on Autopilot metrics,
+   *          see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html">Metrics and validation</a>.</p>
+   *          <p>Sample weights should be numeric, non-negative, with larger values
+   *          indicating which rows are more important than others. Data points that have invalid or no
+   *          weight value are excluded.</p>
+   *          <p>Support for sample weights
+   *          is available in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">Ensembling</a>
+   *          mode only.</p>
+   */
+  SampleWeightAttributeName?: string;
 }
 
 /**
@@ -4988,9 +5003,8 @@ export interface AutoMLJobArtifacts {
  * @public
  * <p>A channel is a named input source that training algorithms can consume. This channel is
  *          used for the non tabular training data of an AutoML job using the V2 API. For tabular
- *          training data, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLChannel.html">
- *             AutoMLChannel</a>. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html">
- *                Channel</a>.</p>
+ *          training data, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLChannel.html"> AutoMLChannel</a>. For
+ *          more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html"> Channel</a>.</p>
  */
 export interface AutoMLJobChannel {
   /**
@@ -5048,7 +5062,8 @@ export interface AutoMLJobCompletionCriteria {
   /**
    * <p>The maximum time, in seconds, that each training job executed inside hyperparameter
    *          tuning is allowed to run as part of a hyperparameter tuning job. For more information, see
-   *          the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a> used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a> action.</p>
+   *          the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
+   *          used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a> action.</p>
    *          <p>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field
    *          controls the runtime of the job candidate.</p>
    */
@@ -5179,154 +5194,11 @@ export interface AutoMLJobConfig {
 export interface AutoMLJobObjective {
   /**
    * <p>The name of the objective metric used to measure the predictive quality of a machine
-   *          learning system. This metric is optimized during training to provide the best estimate for
-   *          model parameter values from data.</p>
-   *          <p>Here are the options:</p>
-   *          <dl>
-   *             <dt>Accuracy</dt>
-   *             <dd>
-   *                <p>The ratio of the number of correctly classified items to the total number of
-   *                   (correctly and incorrectly) classified items. It is used for both binary and
-   *                   multiclass classification. Accuracy measures how close the predicted class values
-   *                   are to the actual values. Values for accuracy metrics vary between zero (0) and
-   *                   one (1). A value of 1 indicates perfect accuracy, and 0 indicates perfect
-   *                   inaccuracy.</p>
-   *             </dd>
-   *             <dt>AUC</dt>
-   *             <dd>
-   *                <p>The area under the curve (AUC) metric is used to compare and evaluate binary
-   *                   classification by algorithms that return probabilities, such as logistic
-   *                   regression. To map the probabilities into classifications, these are compared
-   *                   against a threshold value. </p>
-   *                <p>The relevant curve is the receiver operating characteristic curve (ROC curve).
-   *                   The ROC curve plots the true positive rate (TPR) of predictions (or recall)
-   *                   against the false positive rate (FPR) as a function of the threshold value, above
-   *                   which a prediction is considered positive. Increasing the threshold results in
-   *                   fewer false positives, but more false negatives. </p>
-   *                <p>AUC is the area under this ROC curve. Therefore, AUC provides an aggregated
-   *                   measure of the model performance across all possible classification thresholds.
-   *                   AUC scores vary between 0 and 1. A score of 1 indicates perfect accuracy, and a
-   *                   score of one half (0.5) indicates that the prediction is not better than a random
-   *                   classifier. </p>
-   *             </dd>
-   *             <dt>BalancedAccuracy</dt>
-   *             <dd>
-   *                <p>
-   *                   <code>BalancedAccuracy</code> is a metric that measures the ratio of accurate
-   *                   predictions to all predictions. This ratio is calculated after normalizing true
-   *                   positives (TP) and true negatives (TN) by the total number of positive (P) and
-   *                   negative (N) values. It is used in both binary and multiclass classification and
-   *                   is defined as follows: 0.5*((TP/P)+(TN/N)), with values ranging from 0 to 1.
-   *                      <code>BalancedAccuracy</code> gives a better measure of accuracy when the
-   *                   number of positives or negatives differ greatly from each other in an imbalanced
-   *                   dataset. For example, when only 1% of email is spam. </p>
-   *             </dd>
-   *             <dt>F1</dt>
-   *             <dd>
-   *                <p>The <code>F1</code> score is the harmonic mean of the precision and recall,
-   *                   defined as follows: F1 = 2 * (precision * recall) / (precision + recall). It is
-   *                   used for binary classification into classes traditionally referred to as positive
-   *                   and negative. Predictions are said to be true when they match their actual
-   *                   (correct) class, and false when they do not. </p>
-   *                <p>Precision is the ratio of the true positive predictions to all positive
-   *                   predictions, and it includes the false positives in a dataset. Precision measures
-   *                   the quality of the prediction when it predicts the positive class. </p>
-   *                <p>Recall (or sensitivity) is the ratio of the true positive predictions to all
-   *                   actual positive instances. Recall measures how completely a model predicts the
-   *                   actual class members in a dataset. </p>
-   *                <p>F1 scores vary between 0 and 1. A score of 1 indicates the best possible
-   *                   performance, and 0 indicates the worst.</p>
-   *             </dd>
-   *             <dt>F1macro</dt>
-   *             <dd>
-   *                <p>The <code>F1macro</code> score applies F1 scoring to multiclass classification
-   *                   problems. It does this by calculating the precision and recall, and then taking
-   *                   their harmonic mean to calculate the F1 score for each class. Lastly, the F1macro
-   *                   averages the individual scores to obtain the <code>F1macro</code> score.
-   *                      <code>F1macro</code> scores vary between 0 and 1. A score of 1 indicates the
-   *                   best possible performance, and 0 indicates the worst.</p>
-   *             </dd>
-   *             <dt>MAE</dt>
-   *             <dd>
-   *                <p>The mean absolute error (MAE) is a measure of how different the predicted and
-   *                   actual values are, when they're averaged over all values. MAE is commonly used in
-   *                   regression analysis to understand model prediction error. If there is linear
-   *                   regression, MAE represents the average distance from a predicted line to the
-   *                   actual value. MAE is defined as the sum of absolute errors divided by the number
-   *                   of observations. Values range from 0 to infinity, with smaller numbers indicating
-   *                   a better model fit to the data.</p>
-   *             </dd>
-   *             <dt>MSE</dt>
-   *             <dd>
-   *                <p>The mean squared error (MSE) is the average of the squared differences between
-   *                   the predicted and actual values. It is used for regression. MSE values are always
-   *                   positive. The better a model is at predicting the actual values, the smaller the
-   *                   MSE value is</p>
-   *             </dd>
-   *             <dt>Precision</dt>
-   *             <dd>
-   *                <p>Precision measures how well an algorithm predicts the true positives (TP) out
-   *                   of all of the positives that it identifies. It is defined as follows: Precision =
-   *                   TP/(TP+FP), with values ranging from zero (0) to one (1), and is used in binary
-   *                   classification. Precision is an important metric when the cost of a false positive
-   *                   is high. For example, the cost of a false positive is very high if an airplane
-   *                   safety system is falsely deemed safe to fly. A false positive (FP) reflects a
-   *                   positive prediction that is actually negative in the data.</p>
-   *             </dd>
-   *             <dt>PrecisionMacro</dt>
-   *             <dd>
-   *                <p>The precision macro computes precision for multiclass classification problems.
-   *                   It does this by calculating precision for each class and averaging scores to
-   *                   obtain precision for several classes. <code>PrecisionMacro</code> scores range
-   *                   from zero (0) to one (1). Higher scores reflect the model's ability to predict
-   *                   true positives (TP) out of all of the positives that it identifies, averaged
-   *                   across multiple classes.</p>
-   *             </dd>
-   *             <dt>R2</dt>
-   *             <dd>
-   *                <p>R2, also known as the coefficient of determination, is used in regression to
-   *                   quantify how much a model can explain the variance of a dependent variable. Values
-   *                   range from one (1) to negative one (-1). Higher numbers indicate a higher fraction
-   *                   of explained variability. <code>R2</code> values close to zero (0) indicate that
-   *                   very little of the dependent variable can be explained by the model. Negative
-   *                   values indicate a poor fit and that the model is outperformed by a constant
-   *                   function. For linear regression, this is a horizontal line.</p>
-   *             </dd>
-   *             <dt>Recall</dt>
-   *             <dd>
-   *                <p>Recall measures how well an algorithm correctly predicts all of the true
-   *                   positives (TP) in a dataset. A true positive is a positive prediction that is also
-   *                   an actual positive value in the data. Recall is defined as follows: Recall =
-   *                   TP/(TP+FN), with values ranging from 0 to 1. Higher scores reflect a better
-   *                   ability of the model to predict true positives (TP) in the data, and is used in
-   *                   binary classification. </p>
-   *                <p>Recall is important when testing for cancer because it's used to find all of
-   *                   the true positives. A false positive (FP) reflects a positive prediction that is
-   *                   actually negative in the data. It is often insufficient to measure only recall,
-   *                   because predicting every output as a true positive yield a perfect recall
-   *                   score.</p>
-   *             </dd>
-   *             <dt>RecallMacro</dt>
-   *             <dd>
-   *                <p>The RecallMacro computes recall for multiclass classification problems by
-   *                   calculating recall for each class and averaging scores to obtain recall for
-   *                   several classes. RecallMacro scores range from 0 to 1. Higher scores reflect the
-   *                   model's ability to predict true positives (TP) in a dataset. Whereas, a true
-   *                   positive reflects a positive prediction that is also an actual positive value in
-   *                   the data. It is often insufficient to measure only recall, because predicting
-   *                   every output as a true positive yields a perfect recall score.</p>
-   *             </dd>
-   *             <dt>RMSE</dt>
-   *             <dd>
-   *                <p>Root mean squared error (RMSE) measures the square root of the squared
-   *                   difference between predicted and actual values, and it's averaged over all values.
-   *                   It is used in regression analysis to understand model prediction error. It's an
-   *                   important metric to indicate the presence of large model errors and outliers.
-   *                   Values range from zero (0) to infinity, with smaller numbers indicating a better
-   *                   model fit to the data. RMSE is dependent on scale, and should not be used to
-   *                   compare datasets of different sizes.</p>
-   *             </dd>
-   *          </dl>
+   *          learning system. During training, the model's parameters are updated iteratively to
+   *          optimize its performance based on the feedback provided by the objective metric when
+   *          evaluating the model on the validation dataset.</p>
+   *          <p>For the list of all available metrics supported by Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot
+   *             metrics</a>.</p>
    *          <p>If you do not specify a metric explicitly, the default behavior is to automatically
    *          use:</p>
    *          <ul>
@@ -8321,9 +8193,9 @@ export interface CreateAutoMLJobRequest {
 
   /**
    * <p>An array of channel objects that describes the input data and its location. Each channel
-   *          is a named input source. Similar to <code>InputDataConfig</code> supported by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a>. Format(s) supported: CSV,
-   *          Parquet. A minimum of 500 rows is required for the training dataset. There is not a minimum
-   *          number of rows required for the validation dataset.</p>
+   *          is a named input source. Similar to <code>InputDataConfig</code> supported by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a>. Format(s) supported: CSV, Parquet. A
+   *          minimum of 500 rows is required for the training dataset. There is not a minimum number of
+   *          rows required for the validation dataset.</p>
    */
   InputDataConfig: AutoMLChannel[] | undefined;
 
@@ -8342,8 +8214,8 @@ export interface CreateAutoMLJobRequest {
 
   /**
    * <p>Defines the objective metric used to measure the predictive quality of an AutoML job. You
-   *          provide an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective$MetricName</a> and Autopilot infers whether to minimize or
-   *          maximize it. For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>, only <code>Accuracy</code> is supported.</p>
+   *          provide an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective$MetricName</a> and Autopilot infers whether to minimize or maximize
+   *          it. For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>, only <code>Accuracy</code> is supported.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 
@@ -8400,8 +8272,8 @@ export interface CreateAutoMLJobV2Request {
 
   /**
    * <p>An array of channel objects describing the input data and their location. Each channel
-   *          is a named input source. Similar to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a> supported by <code>CreateAutoMLJob</code>. The
-   *          supported formats depend on the problem type:</p>
+   *          is a named input source. Similar to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a> supported by <code>CreateAutoMLJob</code>. The supported
+   *          formats depend on the problem type:</p>
    *          <ul>
    *             <li>
    *                <p>ImageClassification: S3Prefix, <code>ManifestFile</code>,

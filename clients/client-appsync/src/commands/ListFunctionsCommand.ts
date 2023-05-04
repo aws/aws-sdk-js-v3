@@ -46,6 +46,35 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * };
  * const command = new ListFunctionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListFunctionsResponse
+ * //   functions: [ // Functions
+ * //     { // FunctionConfiguration
+ * //       functionId: "STRING_VALUE",
+ * //       functionArn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       dataSourceName: "STRING_VALUE",
+ * //       requestMappingTemplate: "STRING_VALUE",
+ * //       responseMappingTemplate: "STRING_VALUE",
+ * //       functionVersion: "STRING_VALUE",
+ * //       syncConfig: { // SyncConfig
+ * //         conflictHandler: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
+ * //         conflictDetection: "VERSION" || "NONE",
+ * //         lambdaConflictHandlerConfig: { // LambdaConflictHandlerConfig
+ * //           lambdaConflictHandlerArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       maxBatchSize: Number("int"),
+ * //       runtime: { // AppSyncRuntime
+ * //         name: "APPSYNC_JS", // required
+ * //         runtimeVersion: "STRING_VALUE", // required
+ * //       },
+ * //       code: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListFunctionsCommandInput - {@link ListFunctionsCommandInput}
@@ -55,18 +84,21 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
- *          field values, and then try again.</p>
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is
+ *          missing. Check the field values, and then try again.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *  <p>The resource specified in the request was not found. Check the resource, and then try
+ *          again.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
+ * @throws {@link AppSyncServiceException}
+ * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
 export class ListFunctionsCommand extends $Command<

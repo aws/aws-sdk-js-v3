@@ -49,6 +49,8 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
  * };
  * const command = new RegisterOnPremisesInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param RegisterOnPremisesInstanceCommandInput - {@link RegisterOnPremisesInstanceCommandInput}
@@ -90,6 +92,8 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
  *  <p>Both an IAM user ARN and an IAM session ARN were
  *             included in the request. Use only one ARN type.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class RegisterOnPremisesInstanceCommand extends $Command<

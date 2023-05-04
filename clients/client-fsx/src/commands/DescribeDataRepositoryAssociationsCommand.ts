@@ -82,6 +82,60 @@ export interface DescribeDataRepositoryAssociationsCommandOutput
  * };
  * const command = new DescribeDataRepositoryAssociationsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDataRepositoryAssociationsResponse
+ * //   Associations: [ // DataRepositoryAssociations
+ * //     { // DataRepositoryAssociation
+ * //       AssociationId: "STRING_VALUE",
+ * //       ResourceARN: "STRING_VALUE",
+ * //       FileSystemId: "STRING_VALUE",
+ * //       Lifecycle: "CREATING" || "AVAILABLE" || "MISCONFIGURED" || "UPDATING" || "DELETING" || "FAILED",
+ * //       FailureDetails: { // DataRepositoryFailureDetails
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       FileSystemPath: "STRING_VALUE",
+ * //       DataRepositoryPath: "STRING_VALUE",
+ * //       BatchImportMetaDataOnCreate: true || false,
+ * //       ImportedFileChunkSize: Number("int"),
+ * //       S3: { // S3DataRepositoryConfiguration
+ * //         AutoImportPolicy: { // AutoImportPolicy
+ * //           Events: [ // EventTypes
+ * //             "NEW" || "CHANGED" || "DELETED",
+ * //           ],
+ * //         },
+ * //         AutoExportPolicy: { // AutoExportPolicy
+ * //           Events: [
+ * //             "NEW" || "CHANGED" || "DELETED",
+ * //           ],
+ * //         },
+ * //       },
+ * //       Tags: [ // Tags
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       FileCacheId: "STRING_VALUE",
+ * //       FileCachePath: "STRING_VALUE",
+ * //       DataRepositorySubdirectories: [ // SubDirectoriesPaths
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       NFS: { // NFSDataRepositoryConfiguration
+ * //         Version: "NFS3", // required
+ * //         DnsIps: [ // RepositoryDnsIps
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AutoExportPolicy: {
+ * //           Events: [
+ * //             "NEW" || "CHANGED" || "DELETED",
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeDataRepositoryAssociationsCommandInput - {@link DescribeDataRepositoryAssociationsCommandInput}
@@ -105,6 +159,8 @@ export interface DescribeDataRepositoryAssociationsCommandOutput
  * @throws {@link InvalidDataRepositoryType} (client fault)
  *  <p>You have filtered the response to a data repository type that is not supported.</p>
  *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
 export class DescribeDataRepositoryAssociationsCommand extends $Command<

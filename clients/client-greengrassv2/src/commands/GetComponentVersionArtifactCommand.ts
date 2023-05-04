@@ -52,6 +52,10 @@ export interface GetComponentVersionArtifactCommandOutput
  * };
  * const command = new GetComponentVersionArtifactCommand(input);
  * const response = await client.send(command);
+ * // { // GetComponentVersionArtifactResponse
+ * //   preSignedUrl: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
  * @param GetComponentVersionArtifactCommandInput - {@link GetComponentVersionArtifactCommandInput}
@@ -77,6 +81,8 @@ export interface GetComponentVersionArtifactCommandOutput
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  *
+ * @throws {@link GreengrassV2ServiceException}
+ * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
  */
 export class GetComponentVersionArtifactCommand extends $Command<

@@ -66,6 +66,41 @@ export interface GetApplicationRevisionCommandOutput extends GetApplicationRevis
  * };
  * const command = new GetApplicationRevisionCommand(input);
  * const response = await client.send(command);
+ * // { // GetApplicationRevisionOutput
+ * //   applicationName: "STRING_VALUE",
+ * //   revision: { // RevisionLocation
+ * //     revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
+ * //     s3Location: { // S3Location
+ * //       bucket: "STRING_VALUE",
+ * //       key: "STRING_VALUE",
+ * //       bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
+ * //       version: "STRING_VALUE",
+ * //       eTag: "STRING_VALUE",
+ * //     },
+ * //     gitHubLocation: { // GitHubLocation
+ * //       repository: "STRING_VALUE",
+ * //       commitId: "STRING_VALUE",
+ * //     },
+ * //     string: { // RawString
+ * //       content: "STRING_VALUE",
+ * //       sha256: "STRING_VALUE",
+ * //     },
+ * //     appSpecContent: { // AppSpecContent
+ * //       content: "STRING_VALUE",
+ * //       sha256: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   revisionInfo: { // GenericRevisionInfo
+ * //     description: "STRING_VALUE",
+ * //     deploymentGroups: [ // DeploymentGroupsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     firstUsedTime: new Date("TIMESTAMP"),
+ * //     lastUsedTime: new Date("TIMESTAMP"),
+ * //     registerTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetApplicationRevisionCommandInput - {@link GetApplicationRevisionCommandInput}
@@ -92,6 +127,8 @@ export interface GetApplicationRevisionCommandOutput extends GetApplicationRevis
  * @throws {@link RevisionRequiredException} (client fault)
  *  <p>The revision ID was not specified.</p>
  *
+ * @throws {@link CodeDeployServiceException}
+ * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
 export class GetApplicationRevisionCommand extends $Command<

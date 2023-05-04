@@ -44,6 +44,24 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * };
  * const command = new GetServiceCommand(input);
  * const response = await client.send(command);
+ * // { // GetServiceResponse
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   dnsEntry: { // DnsEntry
+ * //     domainName: "STRING_VALUE",
+ * //     hostedZoneId: "STRING_VALUE",
+ * //   },
+ * //   customDomainName: "STRING_VALUE",
+ * //   certificateArn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   authType: "STRING_VALUE",
+ * //   failureCode: "STRING_VALUE",
+ * //   failureMessage: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GetServiceCommandInput - {@link GetServiceCommandInput}
@@ -68,6 +86,8 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services
  *    service.</p>
  *
+ * @throws {@link VPCLatticeServiceException}
+ * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
 export class GetServiceCommand extends $Command<

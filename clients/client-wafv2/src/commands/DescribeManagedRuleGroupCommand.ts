@@ -48,6 +48,82 @@ export interface DescribeManagedRuleGroupCommandOutput extends DescribeManagedRu
  * };
  * const command = new DescribeManagedRuleGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeManagedRuleGroupResponse
+ * //   VersionName: "STRING_VALUE",
+ * //   SnsTopicArn: "STRING_VALUE",
+ * //   Capacity: Number("long"),
+ * //   Rules: [ // RuleSummaries
+ * //     { // RuleSummary
+ * //       Name: "STRING_VALUE",
+ * //       Action: { // RuleAction
+ * //         Block: { // BlockAction
+ * //           CustomResponse: { // CustomResponse
+ * //             ResponseCode: Number("int"), // required
+ * //             CustomResponseBodyKey: "STRING_VALUE",
+ * //             ResponseHeaders: [ // CustomHTTPHeaders
+ * //               { // CustomHTTPHeader
+ * //                 Name: "STRING_VALUE", // required
+ * //                 Value: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //         Allow: { // AllowAction
+ * //           CustomRequestHandling: { // CustomRequestHandling
+ * //             InsertHeaders: [ // required
+ * //               {
+ * //                 Name: "STRING_VALUE", // required
+ * //                 Value: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //         Count: { // CountAction
+ * //           CustomRequestHandling: {
+ * //             InsertHeaders: [ // required
+ * //               {
+ * //                 Name: "STRING_VALUE", // required
+ * //                 Value: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //         Captcha: { // CaptchaAction
+ * //           CustomRequestHandling: {
+ * //             InsertHeaders: [ // required
+ * //               {
+ * //                 Name: "STRING_VALUE", // required
+ * //                 Value: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //         Challenge: { // ChallengeAction
+ * //           CustomRequestHandling: {
+ * //             InsertHeaders: [ // required
+ * //               {
+ * //                 Name: "STRING_VALUE", // required
+ * //                 Value: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   LabelNamespace: "STRING_VALUE",
+ * //   AvailableLabels: [ // LabelSummaries
+ * //     { // LabelSummary
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ConsumedLabels: [
+ * //     {
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeManagedRuleGroupCommandInput - {@link DescribeManagedRuleGroupCommandInput}
@@ -99,6 +175,8 @@ export interface DescribeManagedRuleGroupCommandOutput extends DescribeManagedRu
  *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
  *        for changes to propagate. </p>
  *
+ * @throws {@link WAFV2ServiceException}
+ * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
 export class DescribeManagedRuleGroupCommand extends $Command<

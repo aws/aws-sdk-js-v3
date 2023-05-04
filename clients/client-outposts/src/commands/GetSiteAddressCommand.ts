@@ -45,6 +45,24 @@ export interface GetSiteAddressCommandOutput extends GetSiteAddressOutput, __Met
  * };
  * const command = new GetSiteAddressCommand(input);
  * const response = await client.send(command);
+ * // { // GetSiteAddressOutput
+ * //   SiteId: "STRING_VALUE",
+ * //   AddressType: "SHIPPING_ADDRESS" || "OPERATING_ADDRESS",
+ * //   Address: { // Address
+ * //     ContactName: "STRING_VALUE",
+ * //     ContactPhoneNumber: "STRING_VALUE",
+ * //     AddressLine1: "STRING_VALUE", // required
+ * //     AddressLine2: "STRING_VALUE",
+ * //     AddressLine3: "STRING_VALUE",
+ * //     City: "STRING_VALUE", // required
+ * //     StateOrRegion: "STRING_VALUE", // required
+ * //     DistrictOrCounty: "STRING_VALUE",
+ * //     PostalCode: "STRING_VALUE", // required
+ * //     CountryCode: "STRING_VALUE", // required
+ * //     Municipality: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetSiteAddressCommandInput - {@link GetSiteAddressCommandInput}
@@ -65,6 +83,8 @@ export interface GetSiteAddressCommandOutput extends GetSiteAddressOutput, __Met
  * @throws {@link ValidationException} (client fault)
  *  <p>A parameter is not valid.</p>
  *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class GetSiteAddressCommand extends $Command<

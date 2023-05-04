@@ -57,6 +57,19 @@ export interface CreateHsmClientCertificateCommandOutput extends CreateHsmClient
  * };
  * const command = new CreateHsmClientCertificateCommand(input);
  * const response = await client.send(command);
+ * // { // CreateHsmClientCertificateResult
+ * //   HsmClientCertificate: { // HsmClientCertificate
+ * //     HsmClientCertificateIdentifier: "STRING_VALUE",
+ * //     HsmClientCertificatePublicKey: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param CreateHsmClientCertificateCommandInput - {@link CreateHsmClientCertificateCommandInput}
@@ -81,6 +94,8 @@ export interface CreateHsmClientCertificateCommandOutput extends CreateHsmClient
  * @throws {@link TagLimitExceededFault} (client fault)
  *  <p>You have exceeded the number of tags allowed.</p>
  *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class CreateHsmClientCertificateCommand extends $Command<

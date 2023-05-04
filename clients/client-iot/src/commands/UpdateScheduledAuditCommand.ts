@@ -52,6 +52,10 @@ export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditR
  * };
  * const command = new UpdateScheduledAuditCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateScheduledAuditResponse
+ * //   scheduledAuditArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateScheduledAuditCommandInput - {@link UpdateScheduledAuditCommandInput}
@@ -72,6 +76,8 @@ export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditR
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
  *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateScheduledAuditCommand extends $Command<

@@ -48,6 +48,11 @@ export interface UpdateResourcePolicyCommandOutput extends UpdateResourcePolicyR
  * };
  * const command = new UpdateResourcePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateResourcePolicyResponse
+ * //   resourceArn: "STRING_VALUE",
+ * //   revisionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param UpdateResourcePolicyCommandInput - {@link UpdateResourcePolicyCommandInput}
@@ -80,6 +85,8 @@ export interface UpdateResourcePolicyCommandOutput extends UpdateResourcePolicyR
  *  <p>One of the input parameters in your request isn't valid. Check the
  *          parameters and try your request again.</p>
  *
+ * @throws {@link LexModelsV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
 export class UpdateResourcePolicyCommand extends $Command<

@@ -53,6 +53,68 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * };
  * const command = new DescribeInstanceAttributeCommand(input);
  * const response = await client.send(command);
+ * // { // InstanceAttribute
+ * //   Groups: [ // GroupIdentifierList
+ * //     { // GroupIdentifier
+ * //       GroupName: "STRING_VALUE",
+ * //       GroupId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   BlockDeviceMappings: [ // InstanceBlockDeviceMappingList
+ * //     { // InstanceBlockDeviceMapping
+ * //       DeviceName: "STRING_VALUE",
+ * //       Ebs: { // EbsInstanceBlockDevice
+ * //         AttachTime: new Date("TIMESTAMP"),
+ * //         DeleteOnTermination: true || false,
+ * //         Status: "attaching" || "attached" || "detaching" || "detached",
+ * //         VolumeId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   DisableApiTermination: { // AttributeBooleanValue
+ * //     Value: true || false,
+ * //   },
+ * //   EnaSupport: {
+ * //     Value: true || false,
+ * //   },
+ * //   EnclaveOptions: { // EnclaveOptions
+ * //     Enabled: true || false,
+ * //   },
+ * //   EbsOptimized: {
+ * //     Value: true || false,
+ * //   },
+ * //   InstanceId: "STRING_VALUE",
+ * //   InstanceInitiatedShutdownBehavior: { // AttributeValue
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   InstanceType: {
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   KernelId: {
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   ProductCodes: [ // ProductCodeList
+ * //     { // ProductCode
+ * //       ProductCodeId: "STRING_VALUE",
+ * //       ProductCodeType: "devpay" || "marketplace",
+ * //     },
+ * //   ],
+ * //   RamdiskId: {
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   RootDeviceName: {
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   SourceDestCheck: {
+ * //     Value: true || false,
+ * //   },
+ * //   SriovNetSupport: "<AttributeValue>",
+ * //   UserData: "<AttributeValue>",
+ * //   DisableApiStop: {
+ * //     Value: true || false,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param DescribeInstanceAttributeCommandInput - {@link DescribeInstanceAttributeCommandInput}
@@ -61,6 +123,8 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * @see {@link DescribeInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe the instance type
  * ```javascript

@@ -58,6 +58,21 @@ export interface ListResolverRuleAssociationsCommandOutput
  * };
  * const command = new ListResolverRuleAssociationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListResolverRuleAssociationsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   MaxResults: Number("int"),
+ * //   ResolverRuleAssociations: [ // ResolverRuleAssociations
+ * //     { // ResolverRuleAssociation
+ * //       Id: "STRING_VALUE",
+ * //       ResolverRuleId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       VPCId: "STRING_VALUE",
+ * //       Status: "CREATING" || "COMPLETE" || "DELETING" || "FAILED" || "OVERRIDDEN",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param ListResolverRuleAssociationsCommandInput - {@link ListResolverRuleAssociationsCommandInput}
@@ -81,6 +96,8 @@ export interface ListResolverRuleAssociationsCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class ListResolverRuleAssociationsCommand extends $Command<

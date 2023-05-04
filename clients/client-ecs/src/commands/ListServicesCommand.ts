@@ -49,6 +49,13 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
+ * // { // ListServicesResponse
+ * //   serviceArns: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListServicesCommandInput - {@link ListServicesCommandInput}
@@ -72,6 +79,8 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
+ * @throws {@link ECSServiceException}
+ * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @example To list the services in a cluster
  * ```javascript

@@ -66,6 +66,11 @@ export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareO
  * };
  * const command = new UpdatePortfolioShareCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePortfolioShareOutput
+ * //   PortfolioShareToken: "STRING_VALUE",
+ * //   Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERRORS" || "ERROR",
+ * // };
+ *
  * ```
  *
  * @param UpdatePortfolioShareCommandInput - {@link UpdatePortfolioShareCommandInput}
@@ -87,6 +92,8 @@ export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareO
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class UpdatePortfolioShareCommand extends $Command<

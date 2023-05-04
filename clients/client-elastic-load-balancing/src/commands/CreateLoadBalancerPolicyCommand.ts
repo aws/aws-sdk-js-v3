@@ -57,6 +57,8 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * };
  * const command = new CreateLoadBalancerPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateLoadBalancerPolicyCommandInput - {@link CreateLoadBalancerPolicyCommandInput}
@@ -80,6 +82,8 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * @throws {@link TooManyPoliciesException} (client fault)
  *  <p>The quota for the number of policies for this load balancer has been reached.</p>
  *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @example To create a policy that enables Proxy Protocol on a load balancer
  * ```javascript

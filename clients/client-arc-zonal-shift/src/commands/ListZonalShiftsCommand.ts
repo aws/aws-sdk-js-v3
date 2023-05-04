@@ -46,6 +46,21 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  * };
  * const command = new ListZonalShiftsCommand(input);
  * const response = await client.send(command);
+ * // { // ListZonalShiftsResponse
+ * //   items: [ // ZonalShiftSummaries
+ * //     { // ZonalShiftSummary
+ * //       zonalShiftId: "STRING_VALUE", // required
+ * //       resourceIdentifier: "STRING_VALUE", // required
+ * //       awayFrom: "STRING_VALUE", // required
+ * //       expiryTime: new Date("TIMESTAMP"), // required
+ * //       startTime: new Date("TIMESTAMP"), // required
+ * //       status: "ACTIVE" || "EXPIRED" || "CANCELED", // required
+ * //       comment: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListZonalShiftsCommandInput - {@link ListZonalShiftsCommandInput}
@@ -66,6 +81,8 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link ARCZonalShiftServiceException}
+ * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
 export class ListZonalShiftsCommand extends $Command<

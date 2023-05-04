@@ -44,6 +44,19 @@ export interface GetRunGroupCommandOutput extends GetRunGroupResponse, __Metadat
  * };
  * const command = new GetRunGroupCommand(input);
  * const response = await client.send(command);
+ * // { // GetRunGroupResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   maxCpus: Number("int"),
+ * //   maxRuns: Number("int"),
+ * //   maxDuration: Number("int"),
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param GetRunGroupCommandInput - {@link GetRunGroupCommandInput}
@@ -76,6 +89,8 @@ export interface GetRunGroupCommandOutput extends GetRunGroupResponse, __Metadat
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
+ * @throws {@link OmicsServiceException}
+ * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
 export class GetRunGroupCommand extends $Command<

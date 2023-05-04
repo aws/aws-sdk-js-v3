@@ -48,6 +48,20 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // ListGroupsResponse
+ * //   Groups: [ // groupListType // required
+ * //     { // Group
+ * //       Path: "STRING_VALUE", // required
+ * //       GroupName: "STRING_VALUE", // required
+ * //       GroupId: "STRING_VALUE", // required
+ * //       Arn: "STRING_VALUE", // required
+ * //       CreateDate: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param ListGroupsCommandInput - {@link ListGroupsCommandInput}
@@ -60,6 +74,8 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  *  <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @example To list the IAM groups for the current account
  * ```javascript

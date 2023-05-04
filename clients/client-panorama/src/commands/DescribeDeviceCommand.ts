@@ -44,6 +44,84 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * };
  * const command = new DescribeDeviceCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDeviceResponse
+ * //   DeviceId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Type: "STRING_VALUE",
+ * //   DeviceConnectionStatus: "STRING_VALUE",
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * //   ProvisioningStatus: "STRING_VALUE",
+ * //   LatestSoftware: "STRING_VALUE",
+ * //   CurrentSoftware: "STRING_VALUE",
+ * //   SerialNumber: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   NetworkingConfiguration: { // NetworkPayload
+ * //     Ethernet0: { // EthernetPayload
+ * //       ConnectionType: "STRING_VALUE", // required
+ * //       StaticIpConnectionInfo: { // StaticIpConnectionInfo
+ * //         IpAddress: "STRING_VALUE", // required
+ * //         Mask: "STRING_VALUE", // required
+ * //         Dns: [ // DnsList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         DefaultGateway: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     Ethernet1: {
+ * //       ConnectionType: "STRING_VALUE", // required
+ * //       StaticIpConnectionInfo: {
+ * //         IpAddress: "STRING_VALUE", // required
+ * //         Mask: "STRING_VALUE", // required
+ * //         Dns: [ // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         DefaultGateway: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     Ntp: { // NtpPayload
+ * //       NtpServers: [ // NtpServerList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * //   CurrentNetworkingStatus: { // NetworkStatus
+ * //     Ethernet0Status: { // EthernetStatus
+ * //       IpAddress: "STRING_VALUE",
+ * //       ConnectionStatus: "STRING_VALUE",
+ * //       HwAddress: "STRING_VALUE",
+ * //     },
+ * //     Ethernet1Status: {
+ * //       IpAddress: "STRING_VALUE",
+ * //       ConnectionStatus: "STRING_VALUE",
+ * //       HwAddress: "STRING_VALUE",
+ * //     },
+ * //     NtpStatus: { // NtpStatus
+ * //       ConnectionStatus: "STRING_VALUE",
+ * //       IpAddress: "STRING_VALUE",
+ * //       NtpServerName: "STRING_VALUE",
+ * //     },
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   },
+ * //   LeaseExpirationTime: new Date("TIMESTAMP"),
+ * //   AlternateSoftwares: [ // AlternateSoftwares
+ * //     { // AlternateSoftwareMetadata
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   LatestAlternateSoftware: "STRING_VALUE",
+ * //   Brand: "STRING_VALUE",
+ * //   LatestDeviceJob: { // LatestDeviceJob
+ * //     ImageVersion: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     JobType: "STRING_VALUE",
+ * //   },
+ * //   DeviceAggregatedStatus: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeDeviceCommandInput - {@link DescribeDeviceCommandInput}
@@ -64,6 +142,8 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * @throws {@link ValidationException} (client fault)
  *  <p>The request contains an invalid parameter value.</p>
  *
+ * @throws {@link PanoramaServiceException}
+ * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
  */
 export class DescribeDeviceCommand extends $Command<

@@ -49,6 +49,24 @@ export interface TerminateClientVpnConnectionsCommandOutput
  * };
  * const command = new TerminateClientVpnConnectionsCommand(input);
  * const response = await client.send(command);
+ * // { // TerminateClientVpnConnectionsResult
+ * //   ClientVpnEndpointId: "STRING_VALUE",
+ * //   Username: "STRING_VALUE",
+ * //   ConnectionStatuses: [ // TerminateConnectionStatusSet
+ * //     { // TerminateConnectionStatus
+ * //       ConnectionId: "STRING_VALUE",
+ * //       PreviousStatus: { // ClientVpnConnectionStatus
+ * //         Code: "active" || "failed-to-terminate" || "terminating" || "terminated",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       CurrentStatus: {
+ * //         Code: "active" || "failed-to-terminate" || "terminating" || "terminated",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param TerminateClientVpnConnectionsCommandInput - {@link TerminateClientVpnConnectionsCommandInput}
@@ -57,6 +75,8 @@ export interface TerminateClientVpnConnectionsCommandOutput
  * @see {@link TerminateClientVpnConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class TerminateClientVpnConnectionsCommand extends $Command<

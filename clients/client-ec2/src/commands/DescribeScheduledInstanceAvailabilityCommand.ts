@@ -81,6 +81,35 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput
  * };
  * const command = new DescribeScheduledInstanceAvailabilityCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeScheduledInstanceAvailabilityResult
+ * //   NextToken: "STRING_VALUE",
+ * //   ScheduledInstanceAvailabilitySet: [ // ScheduledInstanceAvailabilitySet
+ * //     { // ScheduledInstanceAvailability
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       AvailableInstanceCount: Number("int"),
+ * //       FirstSlotStartTime: new Date("TIMESTAMP"),
+ * //       HourlyPrice: "STRING_VALUE",
+ * //       InstanceType: "STRING_VALUE",
+ * //       MaxTermDurationInDays: Number("int"),
+ * //       MinTermDurationInDays: Number("int"),
+ * //       NetworkPlatform: "STRING_VALUE",
+ * //       Platform: "STRING_VALUE",
+ * //       PurchaseToken: "STRING_VALUE",
+ * //       Recurrence: { // ScheduledInstanceRecurrence
+ * //         Frequency: "STRING_VALUE",
+ * //         Interval: Number("int"),
+ * //         OccurrenceDaySet: [ // OccurrenceDaySet
+ * //           Number("int"),
+ * //         ],
+ * //         OccurrenceRelativeToEnd: true || false,
+ * //         OccurrenceUnit: "STRING_VALUE",
+ * //       },
+ * //       SlotDurationInHours: Number("int"),
+ * //       TotalScheduledInstanceHours: Number("int"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param DescribeScheduledInstanceAvailabilityCommandInput - {@link DescribeScheduledInstanceAvailabilityCommandInput}
@@ -89,6 +118,8 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput
  * @see {@link DescribeScheduledInstanceAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe an available schedule
  * ```javascript

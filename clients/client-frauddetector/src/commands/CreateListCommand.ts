@@ -59,6 +59,8 @@ export interface CreateListCommandOutput extends CreateListResult, __MetadataBea
  * };
  * const command = new CreateListCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param CreateListCommandInput - {@link CreateListCommandInput}
@@ -79,6 +81,8 @@ export interface CreateListCommandOutput extends CreateListResult, __MetadataBea
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception indicating a specified value is not allowed.</p>
  *
+ * @throws {@link FraudDetectorServiceException}
+ * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
  */
 export class CreateListCommand extends $Command<

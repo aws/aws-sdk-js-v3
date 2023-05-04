@@ -47,6 +47,11 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * };
  * const command = new DeleteNamespaceCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteNamespaceResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
+ *
  * ```
  *
  * @param DeleteNamespaceCommandInput - {@link DeleteNamespaceCommandInput}
@@ -79,6 +84,8 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DeleteNamespaceCommand extends $Command<

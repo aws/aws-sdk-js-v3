@@ -59,6 +59,32 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  * };
  * const command = new DescribeDhcpOptionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDhcpOptionsResult
+ * //   DhcpOptions: [ // DhcpOptionsList
+ * //     { // DhcpOptions
+ * //       DhcpConfigurations: [ // DhcpConfigurationList
+ * //         { // DhcpConfiguration
+ * //           Key: "STRING_VALUE",
+ * //           Values: [ // DhcpConfigurationValueList
+ * //             { // AttributeValue
+ * //               Value: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       DhcpOptionsId: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DescribeDhcpOptionsCommandInput - {@link DescribeDhcpOptionsCommandInput}
@@ -67,6 +93,8 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  * @see {@link DescribeDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @example To describe a DHCP options set
  * ```javascript
