@@ -9,6 +9,7 @@ import { getTransformedHeaders } from "./get-transformed-headers";
 import { setConnectionTimeout } from "./set-connection-timeout";
 import { setSocketTimeout } from "./set-socket-timeout";
 import { writeRequestBody } from "./write-request-body";
+import { setSocketKeepAlive } from "./set-socket-keep-alive";
 
 /**
  * Represents the http options that can be passed to a node http client.
@@ -149,6 +150,17 @@ export class NodeHttpHandler implements HttpHandler {
           abortError.name = "AbortError";
           reject(abortError);
         };
+      }
+
+      // Workaround for bug report in Node.js https://github.com/nodejs/node/issues/47137
+      const httpAgent = nodeHttpsOptions.agent;
+      if (typeof httpAgent === "object" && "keepAlive" in httpAgent) {
+        setSocketKeepAlive(req, {
+          // @ts-expect-error keepAlive is not public on httpAgent.
+          keepAlive: (httpAgent as hAgent).keepAlive,
+          // @ts-expect-error keepAliveMsecs is not public on httpAgent.
+          keepAliveMsecs: (httpAgent as hAgent).keepAliveMsecs,
+        });
       }
 
       writeRequestBody(req, request);
