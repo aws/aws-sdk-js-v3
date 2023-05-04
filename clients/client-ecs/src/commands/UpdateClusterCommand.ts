@@ -156,6 +156,9 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
  *
+ * @throws {@link NamespaceNotFoundException} (client fault)
+ *  <p>The specified namespace wasn't found.</p>
+ *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *

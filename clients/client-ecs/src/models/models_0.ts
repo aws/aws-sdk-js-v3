@@ -1148,6 +1148,26 @@ export interface CreateClusterResponse {
 
 /**
  * @public
+ * <p>The specified namespace wasn't found.</p>
+ */
+export class NamespaceNotFoundException extends __BaseException {
+  readonly name: "NamespaceNotFoundException" = "NamespaceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NamespaceNotFoundException, __BaseException>) {
+    super({
+      name: "NamespaceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NamespaceNotFoundException.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  */
 export class ClusterNotFoundException extends __BaseException {
@@ -3043,26 +3063,6 @@ export interface CreateServiceResponse {
    * 				<code>deployments</code> parameter will be an empty list.</p>
    */
   service?: Service;
-}
-
-/**
- * @public
- * <p>The specified namespace wasn't found.</p>
- */
-export class NamespaceNotFoundException extends __BaseException {
-  readonly name: "NamespaceNotFoundException" = "NamespaceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NamespaceNotFoundException, __BaseException>) {
-    super({
-      name: "NamespaceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NamespaceNotFoundException.prototype);
-  }
 }
 
 /**

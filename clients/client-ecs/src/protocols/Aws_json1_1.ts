@@ -1187,6 +1187,9 @@ const de_CreateClusterCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.ecs#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "NamespaceNotFoundException":
+    case "com.amazonaws.ecs#NamespaceNotFoundException":
+      throw await de_NamespaceNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecs#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
@@ -3832,6 +3835,9 @@ const de_UpdateClusterCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.ecs#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "NamespaceNotFoundException":
+    case "com.amazonaws.ecs#NamespaceNotFoundException":
+      throw await de_NamespaceNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecs#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
