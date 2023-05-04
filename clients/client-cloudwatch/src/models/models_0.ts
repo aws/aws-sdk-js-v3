@@ -2467,16 +2467,30 @@ export interface GetMetricStreamInput {
 
 /**
  * @public
- * <p>This structure contains the name of one of the metric namespaces that is listed in
- * 		a filter of a metric stream.</p>
- *          <p>The namespace can contain only ASCII printable characters (ASCII range 32 through 126). It must
- * 			contain at least one non-whitespace character.</p>
+ * <p>This structure contains a metric namespace and optionally, a list of metric names,
+ * 			to either include in a metric stream or exclude from
+ * 			a metric stream.</p>
+ *          <p>A metric stream's filters can include up to 1000 total names. This limit
+ * 			applies to the sum of namespace names and metric names in the filters. For example,
+ * 		this could include 10 metric namespace filters with 99 metrics each, or 20 namespace filters
+ * 		with 49 metrics specified in each filter.</p>
  */
 export interface MetricStreamFilter {
   /**
-   * <p>The name of the metric namespace in the filter.</p>
+   * <p>The name of the metric namespace for this filter.</p>
+   *          <p>The namespace can contain only ASCII printable characters (ASCII range 32 through 126). It must
+   * 			contain at least one non-whitespace character.</p>
    */
   Namespace?: string;
+
+  /**
+   * <p>The names of the metrics to either include or exclude from the metric stream. </p>
+   *          <p>If you omit this parameter, all metrics in the namespace are included or excluded,
+   * 		depending on whether this filter is specified as an exclude filter or an include filter.</p>
+   *          <p>Each metric name can contain only ASCII printable characters (ASCII range 32 through 126).
+   * 			Each metric name must contain at least one non-whitespace character.</p>
+   */
+  MetricNames?: string[];
 }
 
 /**
@@ -3635,7 +3649,7 @@ export interface PutMetricAlarmInput {
    *             </li>
    *          </ul>
    *          <p>
-   *             <b>SSN notification action:</b>
+   *             <b>SNS notification action:</b>
    *          </p>
    *          <ul>
    *             <li>
@@ -3725,7 +3739,7 @@ export interface PutMetricAlarmInput {
    *             </li>
    *          </ul>
    *          <p>
-   *             <b>SSN notification action:</b>
+   *             <b>SNS notification action:</b>
    *          </p>
    *          <ul>
    *             <li>
@@ -3815,7 +3829,7 @@ export interface PutMetricAlarmInput {
    *             </li>
    *          </ul>
    *          <p>
-   *             <b>SSN notification action:</b>
+   *             <b>SNS notification action:</b>
    *          </p>
    *          <ul>
    *             <li>

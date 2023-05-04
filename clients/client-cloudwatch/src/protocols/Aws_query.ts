@@ -4060,6 +4060,32 @@ const se_MetricStreamFilter = (input: MetricStreamFilter, context: __SerdeContex
   if (input.Namespace != null) {
     entries["Namespace"] = input.Namespace;
   }
+  if (input.MetricNames != null) {
+    const memberEntries = se_MetricStreamFilterMetricNames(input.MetricNames, context);
+    if (input.MetricNames?.length === 0) {
+      entries.MetricNames = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MetricNames.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryMetricStreamFilterMetricNames
+ */
+const se_MetricStreamFilterMetricNames = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
   return entries;
 };
 
@@ -6294,7 +6320,26 @@ const de_MetricStreamFilter = (output: any, context: __SerdeContext): MetricStre
   if (output["Namespace"] !== undefined) {
     contents.Namespace = __expectString(output["Namespace"]);
   }
+  if (output.MetricNames === "") {
+    contents.MetricNames = [];
+  } else if (output["MetricNames"] !== undefined && output["MetricNames"]["member"] !== undefined) {
+    contents.MetricNames = de_MetricStreamFilterMetricNames(
+      __getArrayIfSingleItem(output["MetricNames"]["member"]),
+      context
+    );
+  }
   return contents;
+};
+
+/**
+ * deserializeAws_queryMetricStreamFilterMetricNames
+ */
+const de_MetricStreamFilterMetricNames = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
 };
 
 /**

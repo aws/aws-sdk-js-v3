@@ -50,11 +50,17 @@ export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __M
  * //   IncludeFilters: [ // MetricStreamFilters
  * //     { // MetricStreamFilter
  * //       Namespace: "STRING_VALUE",
+ * //       MetricNames: [ // MetricStreamFilterMetricNames
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   ExcludeFilters: [
  * //     {
  * //       Namespace: "STRING_VALUE",
+ * //       MetricNames: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   FirehoseArn: "STRING_VALUE",
