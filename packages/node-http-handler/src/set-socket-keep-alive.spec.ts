@@ -1,5 +1,6 @@
-import { setSocketKeepAlive } from "./set-socket-keep-alive";
 import { EventEmitter } from "events";
+
+import { setSocketKeepAlive } from "./set-socket-keep-alive";
 
 class MockSocket {
   enableKeepAlive: boolean;
