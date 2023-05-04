@@ -59,6 +59,7 @@ export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobRespons
  * //       TargetAttributeName: "STRING_VALUE", // required
  * //       ContentType: "STRING_VALUE",
  * //       ChannelType: "training" || "validation",
+ * //       SampleWeightAttributeName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   OutputDataConfig: { // AutoMLOutputDataConfig

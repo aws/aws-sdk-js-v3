@@ -361,6 +361,10 @@ export const ProductionVariantInstanceType = {
   ML_INF1_2XLARGE: "ml.inf1.2xlarge",
   ML_INF1_6XLARGE: "ml.inf1.6xlarge",
   ML_INF1_XLARGE: "ml.inf1.xlarge",
+  ML_INF2_24XLARGE: "ml.inf2.24xlarge",
+  ML_INF2_48XLARGE: "ml.inf2.48xlarge",
+  ML_INF2_8XLARGE: "ml.inf2.8xlarge",
+  ML_INF2_XLARGE: "ml.inf2.xlarge",
   ML_M4_10XLARGE: "ml.m4.10xlarge",
   ML_M4_16XLARGE: "ml.m4.16xlarge",
   ML_M4_2XLARGE: "ml.m4.2xlarge",
@@ -430,6 +434,8 @@ export const ProductionVariantInstanceType = {
   ML_T2_LARGE: "ml.t2.large",
   ML_T2_MEDIUM: "ml.t2.medium",
   ML_T2_XLARGE: "ml.t2.xlarge",
+  ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
+  ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
 } as const;
 
 /**
