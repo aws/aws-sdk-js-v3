@@ -152,12 +152,13 @@ export class NodeHttpHandler implements HttpHandler {
         };
       }
 
-      // @ts-ignore
-      const httpAgent: SocketKeepAliveOptions = nodeHttpsOptions.agent;
+      const httpAgent = nodeHttpsOptions.agent;
       if (typeof httpAgent === "object" && "keepAlive" in httpAgent) {
         setSocketKeepAlive(req, {
-          keepAlive: httpAgent.keepAlive,
-          keepAliveMsecs: httpAgent.keepAliveMsecs,
+          // @ts-expect-error keepAlive is not public on httpAgent.
+          keepAlive: (httpAgent as hAgent).keepAlive,
+          // @ts-expect-error keepAliveMsecs is not public on httpAgent.
+          keepAliveMsecs: (httpAgent as hAgent).keepAliveMsecs,
         });
       }
 
