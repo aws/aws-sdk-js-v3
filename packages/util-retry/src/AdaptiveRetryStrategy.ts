@@ -6,8 +6,8 @@ import { StandardRetryStrategy } from "./StandardRetryStrategy";
 import { RateLimiter } from "./types";
 
 /**
- * @internal
- * 
+ * @public
+ *
  * Strategy options to be passed to AdaptiveRetryStrategy
  */
 export interface AdaptiveRetryStrategyOptions {
@@ -15,8 +15,8 @@ export interface AdaptiveRetryStrategyOptions {
 }
 
 /**
- * @internal
- * 
+ * @public
+ *
  * The AdaptiveRetryStrategy is a retry strategy for executing against a very
  * resource constrained set of resources. Care should be taken when using this
  * retry strategy. By default, it uses a dynamic backoff delay based on load
