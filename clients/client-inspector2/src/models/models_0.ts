@@ -1844,6 +1844,32 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * <p>The Amazon Web Services Threat Intel Group (ATIG) details for a specific vulnerability.</p>
+ */
+export interface AtigData {
+  /**
+   * <p>The date and time this vulnerability was first observed.</p>
+   */
+  firstSeen?: Date;
+
+  /**
+   * <p>The date and time this vulnerability was last observed.</p>
+   */
+  lastSeen?: Date;
+
+  /**
+   * <p>The commercial sectors this vulnerability targets.</p>
+   */
+  targets?: string[];
+
+  /**
+   * <p>The <a href="https://attack.mitre.org/">MITRE ATT&amp;CK</a> tactics, techniques, and procedures (TTPs) associated with vulnerability.</p>
+   */
+  ttps?: string[];
+}
+
+/**
+ * @public
  * <p>Represents which scan types are automatically enabled for new members of your Amazon Inspector organization.</p>
  */
 export interface AutoEnable {
@@ -2465,6 +2491,27 @@ export interface CancelFindingsReportResponse {
    * <p>The ID of the canceled report.</p>
    */
   reportId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific vulnerability.</p>
+ */
+export interface CisaData {
+  /**
+   * <p>The date and time CISA added this vulnerability to their catalogue.</p>
+   */
+  dateAdded?: Date;
+
+  /**
+   * <p>The date and time CISA expects a fix to have been provided vulnerability.</p>
+   */
+  dateDue?: Date;
+
+  /**
+   * <p>The remediation action recommended by CISA for this vulnerability.</p>
+   */
+  action?: string;
 }
 
 /**
@@ -3379,6 +3426,38 @@ export type Currency = (typeof Currency)[keyof typeof Currency];
 
 /**
  * @public
+ * <p>The Common Vulnerability Scoring System (CVSS) version 2 details for the vulnerability.</p>
+ */
+export interface Cvss2 {
+  /**
+   * <p>The CVSS v2 base score for the vulnerability.</p>
+   */
+  baseScore?: number;
+
+  /**
+   * <p>The scoring vector associated with the CVSS v2 score.</p>
+   */
+  scoringVector?: string;
+}
+
+/**
+ * @public
+ * <p>The Common Vulnerability Scoring System (CVSS) version 3 details for the vulnerability.</p>
+ */
+export interface Cvss3 {
+  /**
+   * <p>The CVSS v3 base score for the vulnerability.</p>
+   */
+  baseScore?: number;
+
+  /**
+   * <p>The scoring vector associated with the CVSS v3 score.</p>
+   */
+  scoringVector?: string;
+}
+
+/**
+ * @public
  * <p>The CVSS score for a finding.</p>
  */
 export interface CvssScore {
@@ -3789,6 +3868,17 @@ export interface EnableDelegatedAdminAccountResponse {
 
 /**
  * @public
+ * <p>Details about the Exploit Prediction Scoring System (EPSS) score.</p>
+ */
+export interface Epss {
+  /**
+   * <p>The Exploit Prediction Scoring System (EPSS) score.</p>
+   */
+  score?: number;
+}
+
+/**
+ * @public
  * <p>The details of an exploit available for a finding discovered in your environment.</p>
  */
 export interface ExploitabilityDetails {
@@ -3811,6 +3901,22 @@ export const ExploitAvailable = {
  * @public
  */
 export type ExploitAvailable = (typeof ExploitAvailable)[keyof typeof ExploitAvailable];
+
+/**
+ * @public
+ * <p>Contains information on when this exploit was observed.</p>
+ */
+export interface ExploitObserved {
+  /**
+   * <p>The date an time when the exploit was last seen.</p>
+   */
+  lastSeen?: Date;
+
+  /**
+   * <p>The date an time when the exploit was first seen.</p>
+   */
+  firstSeen?: Date;
+}
 
 /**
  * @public
@@ -5110,6 +5216,155 @@ export interface ListUsageTotalsResponse {
    * <p>An object with details on the total usage for the requested account.</p>
    */
   totals?: UsageTotal[];
+}
+
+/**
+ * @public
+ * <p>Details on the criteria used to define the filter for a vulnerability search.
+ *       </p>
+ */
+export interface SearchVulnerabilitiesFilterCriteria {
+  /**
+   * <p>The IDs for specific vulnerabilities.</p>
+   */
+  vulnerabilityIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchVulnerabilitiesRequest {
+  /**
+   * <p>The criteria used to filter the results of a vulnerability search.</p>
+   */
+  filterCriteria: SearchVulnerabilitiesFilterCriteria | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. For subsequent calls, use
+   *          the <code>NextToken</code> value returned from the previous request to continue listing
+   *          results after the first page.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VulnerabilitySource = {
+  NVD: "NVD",
+} as const;
+
+/**
+ * @public
+ */
+export type VulnerabilitySource = (typeof VulnerabilitySource)[keyof typeof VulnerabilitySource];
+
+/**
+ * @public
+ * <p>Contains details about a specific vulnerability Amazon Inspector can detect.</p>
+ */
+export interface Vulnerability {
+  /**
+   * <p>The ID for the specific vulnerability.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Common Weakness Enumeration (CWE) associated with the vulnerability.</p>
+   */
+  cwes?: string[];
+
+  /**
+   * <p>An object that contains the Cybersecurity and Infrastructure Security Agency (CISA) details for the vulnerability.</p>
+   */
+  cisaData?: CisaData;
+
+  /**
+   * <p>The source of the vulnerability information.</p>
+   */
+  source?: VulnerabilitySource | string;
+
+  /**
+   * <p>A description of the vulnerability.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>An object that contains information about the Amazon Web Services Threat Intel Group (ATIG) details for the vulnerability.</p>
+   */
+  atigData?: AtigData;
+
+  /**
+   * <p>The severity assigned by the vendor.</p>
+   */
+  vendorSeverity?: string;
+
+  /**
+   * <p>An object that contains the Common Vulnerability Scoring System (CVSS) Version 3 details for the vulnerability.</p>
+   */
+  cvss3?: Cvss3;
+
+  /**
+   * <p>A list of related vulnerabilities.</p>
+   */
+  relatedVulnerabilities?: string[];
+
+  /**
+   * <p>An object that contains the Common Vulnerability Scoring System (CVSS) Version 2 details for the vulnerability.</p>
+   */
+  cvss2?: Cvss2;
+
+  /**
+   * <p>The date and time when the vendor created this vulnerability.</p>
+   */
+  vendorCreatedAt?: Date;
+
+  /**
+   * <p>The date and time when the vendor last updated this vulnerability.</p>
+   */
+  vendorUpdatedAt?: Date;
+
+  /**
+   * <p>A link to the official source material for this vulnerability.</p>
+   */
+  sourceUrl?: string;
+
+  /**
+   * <p>Links to various resources with more information on this vulnerability. </p>
+   */
+  referenceUrls?: string[];
+
+  /**
+   * <p>An object that contains details on when the exploit was observed.</p>
+   */
+  exploitObserved?: ExploitObserved;
+
+  /**
+   * <p>Platforms that the vulnerability can be detected on.</p>
+   */
+  detectionPlatforms?: string[];
+
+  /**
+   * <p>An object that contains the Exploit Prediction Scoring System (EPSS) score.</p>
+   */
+  epss?: Epss;
+}
+
+/**
+ * @public
+ */
+export interface SearchVulnerabilitiesResponse {
+  /**
+   * <p>Details about the listed vulnerability.</p>
+   */
+  vulnerabilities: Vulnerability[] | undefined;
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
+   */
+  nextToken?: string;
 }
 
 /**

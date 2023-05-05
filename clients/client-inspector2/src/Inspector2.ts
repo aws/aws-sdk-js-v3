@@ -132,6 +132,11 @@ import {
   ListUsageTotalsCommandInput,
   ListUsageTotalsCommandOutput,
 } from "./commands/ListUsageTotalsCommand";
+import {
+  SearchVulnerabilitiesCommand,
+  SearchVulnerabilitiesCommandInput,
+  SearchVulnerabilitiesCommandOutput,
+} from "./commands/SearchVulnerabilitiesCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -196,6 +201,7 @@ const commands = {
   ListMembersCommand,
   ListTagsForResourceCommand,
   ListUsageTotalsCommand,
+  SearchVulnerabilitiesCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateConfigurationCommand,
@@ -654,6 +660,23 @@ export interface Inspector2 {
     args: ListUsageTotalsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListUsageTotalsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchVulnerabilitiesCommand}
+   */
+  searchVulnerabilities(
+    args: SearchVulnerabilitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchVulnerabilitiesCommandOutput>;
+  searchVulnerabilities(
+    args: SearchVulnerabilitiesCommandInput,
+    cb: (err: any, data?: SearchVulnerabilitiesCommandOutput) => void
+  ): void;
+  searchVulnerabilities(
+    args: SearchVulnerabilitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchVulnerabilitiesCommandOutput) => void
   ): void;
 
   /**

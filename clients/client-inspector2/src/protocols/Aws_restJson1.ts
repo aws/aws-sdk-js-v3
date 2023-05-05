@@ -108,6 +108,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { ListUsageTotalsCommandInput, ListUsageTotalsCommandOutput } from "../commands/ListUsageTotalsCommand";
+import {
+  SearchVulnerabilitiesCommandInput,
+  SearchVulnerabilitiesCommandOutput,
+} from "../commands/SearchVulnerabilitiesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -134,16 +138,20 @@ import {
   AggregationRequest,
   AggregationResponse,
   AmiAggregation,
+  AtigData,
   AutoEnable,
   AwsEc2InstanceDetails,
   AwsEcrContainerAggregation,
   AwsEcrContainerImageDetails,
   AwsLambdaFunctionDetails,
   BadRequestException,
+  CisaData,
   ConflictException,
   CoverageFilterCriteria,
   CoverageMapFilter,
   CoverageStringFilter,
+  Cvss2,
+  Cvss3,
   CvssScore,
   CvssScoreDetails,
   DateFilter,
@@ -152,7 +160,9 @@ import {
   EcrConfiguration,
   EcrConfigurationState,
   EcrRescanDurationState,
+  Epss,
   ExploitabilityDetails,
+  ExploitObserved,
   Filter,
   FilterCriteria,
   Finding,
@@ -178,6 +188,7 @@ import {
   ResourceDetails,
   ResourceNotFoundException,
   ResourceScanType,
+  SearchVulnerabilitiesFilterCriteria,
   ServiceQuotaExceededException,
   SortCriteria,
   StringFilter,
@@ -186,6 +197,7 @@ import {
   Usage,
   UsageTotal,
   ValidationException,
+  Vulnerability,
 } from "../models/models_0";
 
 /**
@@ -1064,6 +1076,37 @@ export const se_ListUsageTotalsCommand = async (
     take(input, {
       accountIds: (_) => _json(_),
       maxResults: [],
+      nextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1SearchVulnerabilitiesCommand
+ */
+export const se_SearchVulnerabilitiesCommand = async (
+  input: SearchVulnerabilitiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vulnerabilities/search";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filterCriteria: (_) => _json(_),
       nextToken: [],
     })
   );
@@ -3027,6 +3070,63 @@ const de_ListUsageTotalsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1SearchVulnerabilitiesCommand
+ */
+export const de_SearchVulnerabilitiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchVulnerabilitiesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SearchVulnerabilitiesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    vulnerabilities: (_) => de_Vulnerabilities(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchVulnerabilitiesCommandError
+ */
+const de_SearchVulnerabilitiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchVulnerabilitiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -3751,6 +3851,8 @@ const se_PackageFilterList = (input: PackageFilter[], context: __SerdeContext): 
 
 // se_RepositoryAggregation omitted.
 
+// se_SearchVulnerabilitiesFilterCriteria omitted.
+
 // se_SortCriteria omitted.
 
 // se_StringFilter omitted.
@@ -3762,6 +3864,8 @@ const se_PackageFilterList = (input: PackageFilter[], context: __SerdeContext): 
 // se_TitleAggregation omitted.
 
 // se_UsageAccountIdList omitted.
+
+// se_VulnIdList omitted.
 
 // de_Account omitted.
 
@@ -3851,6 +3955,18 @@ const de_AggregationResponseList = (output: any, context: __SerdeContext): Aggre
 
 // de_ArchitectureList omitted.
 
+/**
+ * deserializeAws_restJson1AtigData
+ */
+const de_AtigData = (output: any, context: __SerdeContext): AtigData => {
+  return take(output, {
+    firstSeen: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastSeen: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    targets: _json,
+    ttps: _json,
+  }) as any;
+};
+
 // de_AutoEnable omitted.
 
 /**
@@ -3907,6 +4023,17 @@ const de_AwsLambdaFunctionDetails = (output: any, context: __SerdeContext): AwsL
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1CisaData
+ */
+const de_CisaData = (output: any, context: __SerdeContext): CisaData => {
+  return take(output, {
+    action: __expectString,
+    dateAdded: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dateDue: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
 // de_Counts omitted.
 
 // de_CountsList omitted.
@@ -3914,6 +4041,26 @@ const de_AwsLambdaFunctionDetails = (output: any, context: __SerdeContext): AwsL
 // de_CoveredResource omitted.
 
 // de_CoveredResources omitted.
+
+/**
+ * deserializeAws_restJson1Cvss2
+ */
+const de_Cvss2 = (output: any, context: __SerdeContext): Cvss2 => {
+  return take(output, {
+    baseScore: __limitedParseDouble,
+    scoringVector: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Cvss3
+ */
+const de_Cvss3 = (output: any, context: __SerdeContext): Cvss3 => {
+  return take(output, {
+    baseScore: __limitedParseDouble,
+    scoringVector: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1CvssScore
@@ -3957,6 +4104,8 @@ const de_CvssScoreList = (output: any, context: __SerdeContext): CvssScore[] => 
   return retVal;
 };
 
+// de_Cwes omitted.
+
 /**
  * deserializeAws_restJson1DateFilter
  */
@@ -3987,6 +4136,8 @@ const de_DateFilterList = (output: any, context: __SerdeContext): DateFilter[] =
 
 // de_Destination omitted.
 
+// de_DetectionPlatforms omitted.
+
 // de_Ec2InstanceAggregationResponse omitted.
 
 // de_Ec2Metadata omitted.
@@ -4016,11 +4167,30 @@ const de_EcrRescanDurationState = (output: any, context: __SerdeContext): EcrRes
 };
 
 /**
+ * deserializeAws_restJson1Epss
+ */
+const de_Epss = (output: any, context: __SerdeContext): Epss => {
+  return take(output, {
+    score: __limitedParseDouble,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ExploitabilityDetails
  */
 const de_ExploitabilityDetails = (output: any, context: __SerdeContext): ExploitabilityDetails => {
   return take(output, {
     lastKnownExploitAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ExploitObserved
+ */
+const de_ExploitObserved = (output: any, context: __SerdeContext): ExploitObserved => {
+  return take(output, {
+    firstSeen: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastSeen: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
 
@@ -4365,6 +4535,8 @@ const de_PackageVulnerabilityDetails = (output: any, context: __SerdeContext): P
 
 // de_Recommendation omitted.
 
+// de_RelatedVulnerabilities omitted.
+
 // de_Remediation omitted.
 
 // de_RepositoryAggregationResponse omitted.
@@ -4436,7 +4608,11 @@ const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
 
 // de_TagMap omitted.
 
+// de_Targets omitted.
+
 // de_TitleAggregationResponse omitted.
+
+// de_Ttps omitted.
 
 /**
  * deserializeAws_restJson1Usage
@@ -4488,7 +4664,46 @@ const de_UsageTotalList = (output: any, context: __SerdeContext): UsageTotal[] =
 
 // de_ValidationExceptionFields omitted.
 
+/**
+ * deserializeAws_restJson1Vulnerabilities
+ */
+const de_Vulnerabilities = (output: any, context: __SerdeContext): Vulnerability[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Vulnerability(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1Vulnerability
+ */
+const de_Vulnerability = (output: any, context: __SerdeContext): Vulnerability => {
+  return take(output, {
+    atigData: (_: any) => de_AtigData(_, context),
+    cisaData: (_: any) => de_CisaData(_, context),
+    cvss2: (_: any) => de_Cvss2(_, context),
+    cvss3: (_: any) => de_Cvss3(_, context),
+    cwes: _json,
+    description: __expectString,
+    detectionPlatforms: _json,
+    epss: (_: any) => de_Epss(_, context),
+    exploitObserved: (_: any) => de_ExploitObserved(_, context),
+    id: __expectString,
+    referenceUrls: _json,
+    relatedVulnerabilities: _json,
+    source: __expectString,
+    sourceUrl: __expectString,
+    vendorCreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    vendorSeverity: __expectString,
+    vendorUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
 // de_VulnerabilityIdList omitted.
+
+// de_VulnerabilityReferenceUrls omitted.
 
 // de_VulnerablePackage omitted.
 

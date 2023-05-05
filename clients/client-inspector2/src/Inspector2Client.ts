@@ -130,6 +130,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListUsageTotalsCommandInput, ListUsageTotalsCommandOutput } from "./commands/ListUsageTotalsCommand";
+import {
+  SearchVulnerabilitiesCommandInput,
+  SearchVulnerabilitiesCommandOutput,
+} from "./commands/SearchVulnerabilitiesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -191,6 +195,7 @@ export type ServiceInputTypes =
   | ListMembersCommandInput
   | ListTagsForResourceCommandInput
   | ListUsageTotalsCommandInput
+  | SearchVulnerabilitiesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateConfigurationCommandInput
@@ -233,6 +238,7 @@ export type ServiceOutputTypes =
   | ListMembersCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUsageTotalsCommandOutput
+  | SearchVulnerabilitiesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateConfigurationCommandOutput

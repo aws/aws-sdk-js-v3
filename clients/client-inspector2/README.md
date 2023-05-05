@@ -449,6 +449,14 @@ ListUsageTotals
 </details>
 <details>
 <summary>
+SearchVulnerabilities
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/classes/searchvulnerabilitiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/searchvulnerabilitiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/searchvulnerabilitiescommandoutput.html)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 
