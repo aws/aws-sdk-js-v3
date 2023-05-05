@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.328.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.327.0...v3.328.0) (2023-05-05)
+
+
+### Bug Fixes
+
+* **node-http-handler:** call socket.setKeepAlive if enabled in http(s)Agent ([#4561](https://github.com/aws/aws-sdk-js-v3/issues/4561)) ([bd16ace](https://github.com/aws/aws-sdk-js-v3/commit/bd16ace6c19ba7644742b684418b179e9745c2b9))
+
+
+
+
+
 ## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
 
 

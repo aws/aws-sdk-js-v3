@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.328.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.327.0...v3.328.0) (2023-05-05)
+
+
+### Features
+
+* **client-mediatailor:** This release adds support for AFTER_LIVE_EDGE mode configuration for avail suppression, and adding a fill-policy setting that sets the avail suppression to PARTIAL_AVAIL or FULL_AVAIL_ONLY when AFTER_LIVE_EDGE is enabled. ([03ea04c](https://github.com/aws/aws-sdk-js-v3/commit/03ea04cc448e5fd112762817af64adc4df49b870))
+
+
+
+
+
 # [3.327.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.326.0...v3.327.0) (2023-05-04)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.328.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.327.0...v3.328.0) (2023-05-05)
+
+
+### Features
+
+* **client-sqs:** Revert previous SQS protocol change. ([75d4246](https://github.com/aws/aws-sdk-js-v3/commit/75d42466d12b4d059b61ea1a7c10902c5f18fee3))
+
+
+
+
+
 # [3.327.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.326.0...v3.327.0) (2023-05-04)
 
 

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.328.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.327.0...v3.328.0) (2023-05-05)
+
+
+### Bug Fixes
+
+* **node-http-handler:** call socket.setKeepAlive if enabled in http(s)Agent ([#4561](https://github.com/aws/aws-sdk-js-v3/issues/4561)) ([bd16ace](https://github.com/aws/aws-sdk-js-v3/commit/bd16ace6c19ba7644742b684418b179e9745c2b9))
+
+
+### Features
+
+* **client-ec2:** This release adds support the inf2 and trn1n instances. inf2 instances are purpose built for deep learning inference while trn1n instances are powered by AWS Trainium accelerators and they build on the capabilities of Trainium-powered trn1 instances. ([81d3554](https://github.com/aws/aws-sdk-js-v3/commit/81d3554c4abecc9eae694c91e59655b0286ad259))
+* **client-inspector2:** Amazon Inspector now allows customers to search its vulnerability intelligence database if any of the Inspector scanning types are activated. ([71466f2](https://github.com/aws/aws-sdk-js-v3/commit/71466f217f53f97f90acc7c9fcd046c6d35dd836))
+* **client-mediatailor:** This release adds support for AFTER_LIVE_EDGE mode configuration for avail suppression, and adding a fill-policy setting that sets the avail suppression to PARTIAL_AVAIL or FULL_AVAIL_ONLY when AFTER_LIVE_EDGE is enabled. ([03ea04c](https://github.com/aws/aws-sdk-js-v3/commit/03ea04cc448e5fd112762817af64adc4df49b870))
+* **client-sqs:** Revert previous SQS protocol change. ([75d4246](https://github.com/aws/aws-sdk-js-v3/commit/75d42466d12b4d059b61ea1a7c10902c5f18fee3))
+
+
+
+
+
 # [3.327.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.326.0...v3.327.0) (2023-05-04)
 
 
