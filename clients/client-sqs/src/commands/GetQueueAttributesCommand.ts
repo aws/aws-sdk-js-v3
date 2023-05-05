@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetQueueAttributesRequest, GetQueueAttributesResult } from "../models/models_0";
-import { de_GetQueueAttributesCommand, se_GetQueueAttributesCommand } from "../protocols/Aws_json1_0";
+import { de_GetQueueAttributesCommand, se_GetQueueAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -66,34 +66,6 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  *
  * @throws {@link InvalidAttributeName} (client fault)
  *  <p>The specified attribute doesn't exist.</p>
- *
- * @throws {@link InvalidSecurity} (client fault)
- *  <p>When the request to a queue is not HTTPS and SigV4.</p>
- *
- * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>The specified queue doesn't exist.</p>
- *
- * @throws {@link RequestThrottled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
- *          <ul>
- *             <li>
- *                <p>The rate of requests per second exceeds the AWS KMS request quota for an
- *                     account and Region. </p>
- *             </li>
- *             <li>
- *                <p>A burst or sustained high rate of requests to change the state of the same KMS
- *                     key. This condition is often known as a "hot key."</p>
- *             </li>
- *             <li>
- *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
- *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
- *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
- *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
- *             </li>
- *          </ul>
- *
- * @throws {@link UnsupportedOperation} (client fault)
- *  <p>Error code 400. Unsupported operation.</p>
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListQueuesRequest, ListQueuesResult } from "../models/models_0";
-import { de_ListQueuesCommand, se_ListQueuesCommand } from "../protocols/Aws_json1_0";
+import { de_ListQueuesCommand, se_ListQueuesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -32,21 +32,19 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
 
 /**
  * @public
- * <p>Returns a list of your queues in the current region. The response includes a maximum
- *             of 1,000 results. If you specify a value for the optional <code>QueueNamePrefix</code>
- *             parameter, only queues with a name that begins with the specified value are
- *             returned.</p>
- *          <p> The <code>listQueues</code> methods supports pagination. Set parameter
- *                 <code>MaxResults</code> in the request to specify the maximum number of results to
- *             be returned in the response. If you do not set <code>MaxResults</code>, the response
- *             includes a maximum of 1,000 results. If you set <code>MaxResults</code> and there are
- *             additional results to display, the response includes a value for <code>NextToken</code>.
- *             Use <code>NextToken</code> as a parameter in your next request to
- *                 <code>listQueues</code> to receive the next page of results. </p>
+ * <p>Returns a list of your queues in the current region. The response includes a maximum of 1,000 results. If you specify a value for the optional
+ *           <code>QueueNamePrefix</code> parameter, only queues with a name that begins with the specified value are returned.</p>
+ *          <p> The <code>listQueues</code> methods supports
+ *           pagination. Set parameter <code>MaxResults</code> in the request to specify the maximum number of
+ *           results to be returned in the response. If you do not set <code>MaxResults</code>,
+ *           the response includes a maximum of 1,000 results. If you set <code>MaxResults</code> and there are additional results to
+ *           display, the response includes a value for <code>NextToken</code>. Use
+ *           <code>NextToken</code> as a parameter in your next request to
+ *           <code>listQueues</code> to receive the next page of results.  </p>
  *          <note>
  *             <p>Cross-account permissions don't apply to this action. For more information,
  * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
- * cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+ * cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,10 +60,10 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  * const command = new ListQueuesCommand(input);
  * const response = await client.send(command);
  * // { // ListQueuesResult
+ * //   NextToken: "STRING_VALUE",
  * //   QueueUrls: [ // QueueUrlList
  * //     "STRING_VALUE",
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
@@ -75,34 +73,6 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  * @see {@link ListQueuesCommandInput} for command's `input` shape.
  * @see {@link ListQueuesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
- *
- * @throws {@link InvalidAddress} (client fault)
- *  <p>The <code>accountId</code> is invalid.</p>
- *
- * @throws {@link InvalidSecurity} (client fault)
- *  <p>When the request to a queue is not HTTPS and SigV4.</p>
- *
- * @throws {@link RequestThrottled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
- *          <ul>
- *             <li>
- *                <p>The rate of requests per second exceeds the AWS KMS request quota for an
- *                     account and Region. </p>
- *             </li>
- *             <li>
- *                <p>A burst or sustained high rate of requests to change the state of the same KMS
- *                     key. This condition is often known as a "hot key."</p>
- *             </li>
- *             <li>
- *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
- *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
- *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
- *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
- *             </li>
- *          </ul>
- *
- * @throws {@link UnsupportedOperation} (client fault)
- *  <p>Error code 400. Unsupported operation.</p>
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>

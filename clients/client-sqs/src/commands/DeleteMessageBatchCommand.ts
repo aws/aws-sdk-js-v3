@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteMessageBatchRequest, DeleteMessageBatchResult } from "../models/models_0";
-import { de_DeleteMessageBatchCommand, se_DeleteMessageBatchCommand } from "../protocols/Aws_json1_0";
+import { de_DeleteMessageBatchCommand, se_DeleteMessageBatchCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -32,13 +32,18 @@ export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResul
 
 /**
  * @public
- * <p>Deletes up to ten messages from the specified queue. This is a batch version of
- *                     <code>
- *                <a>DeleteMessage</a>.</code> The result of the action on each
- *             message is reported individually in the response.</p>
+ * <p>Deletes up to ten messages from the specified queue. This is a batch version of <code>
+ *                <a>DeleteMessage</a>.</code> The result of the action on each message is reported individually in the response.</p>
  *          <important>
  *             <p>Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
  *          </important>
+ *          <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this:</p>
+ *          <p>
+ *             <code>&AttributeName.1=first</code>
+ *          </p>
+ *          <p>
+ *             <code>&AttributeName.2=second</code>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,36 +92,10 @@ export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResul
  *  <p>The batch request doesn't contain any entries.</p>
  *
  * @throws {@link InvalidBatchEntryId} (client fault)
- *  <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the
- *             specification.</p>
- *
- * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>The specified queue doesn't exist.</p>
- *
- * @throws {@link RequestThrottled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
- *          <ul>
- *             <li>
- *                <p>The rate of requests per second exceeds the AWS KMS request quota for an
- *                     account and Region. </p>
- *             </li>
- *             <li>
- *                <p>A burst or sustained high rate of requests to change the state of the same KMS
- *                     key. This condition is often known as a "hot key."</p>
- *             </li>
- *             <li>
- *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
- *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
- *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
- *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
- *             </li>
- *          </ul>
+ *  <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
  *
  * @throws {@link TooManyEntriesInBatchRequest} (client fault)
  *  <p>The batch request contains more entries than permissible.</p>
- *
- * @throws {@link UnsupportedOperation} (client fault)
- *  <p>Error code 400. Unsupported operation.</p>
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
