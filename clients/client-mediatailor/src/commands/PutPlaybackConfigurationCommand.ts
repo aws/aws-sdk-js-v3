@@ -42,8 +42,9 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * const input = { // PutPlaybackConfigurationRequest
  *   AdDecisionServerUrl: "STRING_VALUE",
  *   AvailSuppression: { // AvailSuppression
- *     Mode: "OFF" || "BEHIND_LIVE_EDGE",
+ *     Mode: "OFF" || "BEHIND_LIVE_EDGE" || "AFTER_LIVE_EDGE",
  *     Value: "STRING_VALUE",
+ *     FillPolicy: "FULL_AVAIL_ONLY" || "PARTIAL_AVAIL",
  *   },
  *   Bumper: { // Bumper
  *     EndUrl: "STRING_VALUE",
@@ -85,8 +86,9 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * // { // PutPlaybackConfigurationResponse
  * //   AdDecisionServerUrl: "STRING_VALUE",
  * //   AvailSuppression: { // AvailSuppression
- * //     Mode: "OFF" || "BEHIND_LIVE_EDGE",
+ * //     Mode: "OFF" || "BEHIND_LIVE_EDGE" || "AFTER_LIVE_EDGE",
  * //     Value: "STRING_VALUE",
+ * //     FillPolicy: "FULL_AVAIL_ONLY" || "PARTIAL_AVAIL",
  * //   },
  * //   Bumper: { // Bumper
  * //     EndUrl: "STRING_VALUE",
