@@ -1901,11 +1901,11 @@ export interface BatchGetAssetPropertyAggregatesRequest {
    *       first.</p>
    *          <ul>
    *             <li>
-   *                <p>The size of the result set is less than 1 MB.</p>
+   *                <p>The size of the result set is equal to 1 MB.</p>
    *             </li>
    *             <li>
-   *                <p>The number of data points in the result set is less than the value of
-   *             <code>maxResults</code>. The maximum value of <code>maxResults</code> is 4000.</p>
+   *                <p>The number of data points in the result set is equal to the value of
+   *           <code>maxResults</code>. The maximum value of <code>maxResults</code> is 4000.</p>
    *             </li>
    *          </ul>
    */
@@ -2325,11 +2325,11 @@ export interface BatchGetAssetPropertyValueHistoryRequest {
    *       first.</p>
    *          <ul>
    *             <li>
-   *                <p>The size of the result set is less than 1 MB.</p>
+   *                <p>The size of the result set is equal to 4 MB.</p>
    *             </li>
    *             <li>
-   *                <p>The number of data points in the result set is less than the value of
-   *             <code>maxResults</code>. The maximum value of <code>maxResults</code> is 4000.</p>
+   *                <p>The number of data points in the result set is equal to the value of
+   *             <code>maxResults</code>. The maximum value of <code>maxResults</code> is 20000.</p>
    *             </li>
    *          </ul>
    */
@@ -4823,8 +4823,17 @@ export interface GetAssetPropertyAggregatesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   *          <p>Default: 100</p>
+   * <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs
+   *       first.</p>
+   *          <ul>
+   *             <li>
+   *                <p>The size of the result set is equal to 1 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>The number of data points in the result set is equal to the value of
+   *           <code>maxResults</code>. The maximum value of <code>maxResults</code> is 250.</p>
+   *             </li>
+   *          </ul>
    */
   maxResults?: number;
 }
@@ -4927,8 +4936,17 @@ export interface GetAssetPropertyValueHistoryRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   *          <p>Default: 100</p>
+   * <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs
+   *       first.</p>
+   *          <ul>
+   *             <li>
+   *                <p>The size of the result set is equal to 4 MB.</p>
+   *             </li>
+   *             <li>
+   *                <p>The number of data points in the result set is equal to the value of
+   *           <code>maxResults</code>. The maximum value of <code>maxResults</code> is 20000.</p>
+   *             </li>
+   *          </ul>
    */
   maxResults?: number;
 }
