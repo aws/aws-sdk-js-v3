@@ -83,6 +83,7 @@ export class FetchHttpHandler implements HttpHandler {
           transformedHeaders[pair[0]] = pair[1];
         }
 
+        // Check for undefined as well as null.
         const hasReadableStream = response.body != undefined;
 
         // Return the response with buffered body
