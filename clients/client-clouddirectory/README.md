@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-clouddirectory
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-clouddirectory/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-clouddirectory)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-clouddirectory.svg)](https://www.npmjs.com/package/@aws-sdk/client-clouddirectory)
-
 ## Description
 
 AWS SDK for JavaScript CloudDirectory Client for Node.js, Browser and React Native.

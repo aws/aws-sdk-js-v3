@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-snowball
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-snowball/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-snowball)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-snowball.svg)](https://www.npmjs.com/package/@aws-sdk/client-snowball)
-
 ## Description
 
 AWS SDK for JavaScript Snowball Client for Node.js, Browser and React Native.

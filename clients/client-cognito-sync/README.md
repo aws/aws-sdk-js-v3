@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-cognito-sync
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cognito-sync/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-cognito-sync)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-cognito-sync.svg)](https://www.npmjs.com/package/@aws-sdk/client-cognito-sync)
-
 ## Description
 
 AWS SDK for JavaScript CognitoSync Client for Node.js, Browser and React Native.

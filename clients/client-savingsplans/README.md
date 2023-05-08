@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-savingsplans
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-savingsplans/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-savingsplans)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-savingsplans.svg)](https://www.npmjs.com/package/@aws-sdk/client-savingsplans)
-
 ## Description
 
 AWS SDK for JavaScript Savingsplans Client for Node.js, Browser and React Native.

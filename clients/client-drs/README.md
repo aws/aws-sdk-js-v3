@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-drs
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-drs/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-drs)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-drs.svg)](https://www.npmjs.com/package/@aws-sdk/client-drs)
-
 ## Description
 
 AWS SDK for JavaScript Drs Client for Node.js, Browser and React Native.

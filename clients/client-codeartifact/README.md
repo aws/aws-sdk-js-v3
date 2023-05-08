@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-codeartifact
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-codeartifact/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-codeartifact)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-codeartifact.svg)](https://www.npmjs.com/package/@aws-sdk/client-codeartifact)
-
 ## Description
 
 AWS SDK for JavaScript Codeartifact Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-quicksight
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-quicksight/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-quicksight)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-quicksight.svg)](https://www.npmjs.com/package/@aws-sdk/client-quicksight)
-
 ## Description
 
 AWS SDK for JavaScript QuickSight Client for Node.js, Browser and React Native.

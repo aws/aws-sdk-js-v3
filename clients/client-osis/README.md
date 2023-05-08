@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-osis
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-osis/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-osis)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-osis.svg)](https://www.npmjs.com/package/@aws-sdk/client-osis)
-
 ## Description
 
 AWS SDK for JavaScript OSIS Client for Node.js, Browser and React Native.

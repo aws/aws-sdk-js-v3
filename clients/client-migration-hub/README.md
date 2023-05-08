@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-migration-hub
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-migration-hub/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-migration-hub)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-migration-hub.svg)](https://www.npmjs.com/package/@aws-sdk/client-migration-hub)
-
 ## Description
 
 AWS SDK for JavaScript MigrationHub Client for Node.js, Browser and React Native.

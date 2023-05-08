@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-emr-serverless
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-emr-serverless/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-emr-serverless)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-emr-serverless.svg)](https://www.npmjs.com/package/@aws-sdk/client-emr-serverless)
-
 ## Description
 
 AWS SDK for JavaScript EMRServerless Client for Node.js, Browser and React Native.

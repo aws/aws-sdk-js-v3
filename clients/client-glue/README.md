@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-glue
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-glue/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-glue)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-glue.svg)](https://www.npmjs.com/package/@aws-sdk/client-glue)
-
 ## Description
 
 AWS SDK for JavaScript Glue Client for Node.js, Browser and React Native.

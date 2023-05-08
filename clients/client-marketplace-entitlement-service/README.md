@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-marketplace-entitlement-service
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-marketplace-entitlement-service/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-marketplace-entitlement-service)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-marketplace-entitlement-service.svg)](https://www.npmjs.com/package/@aws-sdk/client-marketplace-entitlement-service)
-
 ## Description
 
 AWS SDK for JavaScript MarketplaceEntitlementService Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-iotfleetwise
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iotfleetwise/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotfleetwise)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iotfleetwise.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotfleetwise)
-
 ## Description
 
 AWS SDK for JavaScript IoTFleetWise Client for Node.js, Browser and React Native.

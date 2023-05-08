@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-accessanalyzer
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-accessanalyzer/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-accessanalyzer)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-accessanalyzer.svg)](https://www.npmjs.com/package/@aws-sdk/client-accessanalyzer)
-
 ## Description
 
 AWS SDK for JavaScript AccessAnalyzer Client for Node.js, Browser and React Native.

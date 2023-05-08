@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-resource-groups
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-resource-groups/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-resource-groups)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-resource-groups.svg)](https://www.npmjs.com/package/@aws-sdk/client-resource-groups)
-
 ## Description
 
 AWS SDK for JavaScript ResourceGroups Client for Node.js, Browser and React Native.

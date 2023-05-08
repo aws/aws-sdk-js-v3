@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-dynamodb-streams
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-dynamodb-streams/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-dynamodb-streams)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-dynamodb-streams.svg)](https://www.npmjs.com/package/@aws-sdk/client-dynamodb-streams)
-
 ## Description
 
 AWS SDK for JavaScript DynamoDBStreams Client for Node.js, Browser and React Native.

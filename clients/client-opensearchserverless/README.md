@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-opensearchserverless
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-opensearchserverless/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-opensearchserverless)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-opensearchserverless.svg)](https://www.npmjs.com/package/@aws-sdk/client-opensearchserverless)
-
 ## Description
 
 AWS SDK for JavaScript OpenSearchServerless Client for Node.js, Browser and React Native.

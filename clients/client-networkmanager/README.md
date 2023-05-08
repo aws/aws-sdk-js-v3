@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-networkmanager
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-networkmanager/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-networkmanager)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-networkmanager.svg)](https://www.npmjs.com/package/@aws-sdk/client-networkmanager)
-
 ## Description
 
 AWS SDK for JavaScript NetworkManager Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-greengrass
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-greengrass/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-greengrass)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-greengrass.svg)](https://www.npmjs.com/package/@aws-sdk/client-greengrass)
-
 ## Description
 
 AWS SDK for JavaScript Greengrass Client for Node.js, Browser and React Native.

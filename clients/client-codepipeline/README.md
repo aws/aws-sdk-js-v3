@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-codepipeline
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-codepipeline/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-codepipeline)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-codepipeline.svg)](https://www.npmjs.com/package/@aws-sdk/client-codepipeline)
-
 ## Description
 
 AWS SDK for JavaScript CodePipeline Client for Node.js, Browser and React Native.

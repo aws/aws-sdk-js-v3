@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-codeguru-reviewer
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-codeguru-reviewer/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-codeguru-reviewer)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-codeguru-reviewer.svg)](https://www.npmjs.com/package/@aws-sdk/client-codeguru-reviewer)
-
 ## Description
 
 AWS SDK for JavaScript CodeGuruReviewer Client for Node.js, Browser and React Native.

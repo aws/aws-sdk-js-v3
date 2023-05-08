@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-oam
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-oam/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-oam)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-oam.svg)](https://www.npmjs.com/package/@aws-sdk/client-oam)
-
 ## Description
 
 AWS SDK for JavaScript OAM Client for Node.js, Browser and React Native.

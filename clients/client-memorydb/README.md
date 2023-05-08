@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-memorydb
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-memorydb/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-memorydb)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-memorydb.svg)](https://www.npmjs.com/package/@aws-sdk/client-memorydb)
-
 ## Description
 
 AWS SDK for JavaScript MemoryDB Client for Node.js, Browser and React Native.

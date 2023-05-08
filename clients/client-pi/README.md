@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-pi
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-pi/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-pi)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-pi.svg)](https://www.npmjs.com/package/@aws-sdk/client-pi)
-
 ## Description
 
 AWS SDK for JavaScript PI Client for Node.js, Browser and React Native.

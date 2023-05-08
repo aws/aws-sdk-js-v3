@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-ebs
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-ebs/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-ebs)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-ebs.svg)](https://www.npmjs.com/package/@aws-sdk/client-ebs)
-
 ## Description
 
 AWS SDK for JavaScript EBS Client for Node.js, Browser and React Native.

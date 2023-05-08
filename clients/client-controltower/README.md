@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-controltower
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-controltower/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-controltower)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-controltower.svg)](https://www.npmjs.com/package/@aws-sdk/client-controltower)
-
 ## Description
 
 AWS SDK for JavaScript ControlTower Client for Node.js, Browser and React Native.

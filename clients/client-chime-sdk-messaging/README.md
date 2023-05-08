@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-chime-sdk-messaging
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-chime-sdk-messaging/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-chime-sdk-messaging)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-chime-sdk-messaging.svg)](https://www.npmjs.com/package/@aws-sdk/client-chime-sdk-messaging)
-
 ## Description
 
 AWS SDK for JavaScript ChimeSDKMessaging Client for Node.js, Browser and React Native.

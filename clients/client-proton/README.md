@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-proton
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-proton/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-proton)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-proton.svg)](https://www.npmjs.com/package/@aws-sdk/client-proton)
-
 ## Description
 
 AWS SDK for JavaScript Proton Client for Node.js, Browser and React Native.

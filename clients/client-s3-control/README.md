@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-s3-control
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-s3-control/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-s3-control)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-s3-control.svg)](https://www.npmjs.com/package/@aws-sdk/client-s3-control)
-
 ## Description
 
 AWS SDK for JavaScript S3Control Client for Node.js, Browser and React Native.

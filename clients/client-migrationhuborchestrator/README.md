@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-migrationhuborchestrator
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-migrationhuborchestrator/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-migrationhuborchestrator)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-migrationhuborchestrator.svg)](https://www.npmjs.com/package/@aws-sdk/client-migrationhuborchestrator)
-
 ## Description
 
 AWS SDK for JavaScript MigrationHubOrchestrator Client for Node.js, Browser and React Native.

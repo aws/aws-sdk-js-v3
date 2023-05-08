@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-elastic-inference
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-elastic-inference/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-elastic-inference)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-elastic-inference.svg)](https://www.npmjs.com/package/@aws-sdk/client-elastic-inference)
-
 ## Description
 
 AWS SDK for JavaScript ElasticInference Client for Node.js, Browser and React Native.

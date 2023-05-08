@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-docdb-elastic
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-docdb-elastic/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-docdb-elastic)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-docdb-elastic.svg)](https://www.npmjs.com/package/@aws-sdk/client-docdb-elastic)
-
 ## Description
 
 AWS SDK for JavaScript DocDBElastic Client for Node.js, Browser and React Native.

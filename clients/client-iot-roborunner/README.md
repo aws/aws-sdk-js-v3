@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-iot-roborunner
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iot-roborunner/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-roborunner)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iot-roborunner.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-roborunner)
-
 ## Description
 
 AWS SDK for JavaScript IoTRoboRunner Client for Node.js, Browser and React Native.

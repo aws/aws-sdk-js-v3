@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-s3
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-s3/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-s3)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-s3.svg)](https://www.npmjs.com/package/@aws-sdk/client-s3)
-
 ## Description
 
 AWS SDK for JavaScript S3 Client for Node.js, Browser and React Native.

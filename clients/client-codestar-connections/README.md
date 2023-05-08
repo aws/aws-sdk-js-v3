@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-codestar-connections
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-codestar-connections/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-codestar-connections)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-codestar-connections.svg)](https://www.npmjs.com/package/@aws-sdk/client-codestar-connections)
-
 ## Description
 
 AWS SDK for JavaScript CodeStarConnections Client for Node.js, Browser and React Native.

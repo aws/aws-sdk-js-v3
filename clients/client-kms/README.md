@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-kms
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kms/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-kms)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-kms.svg)](https://www.npmjs.com/package/@aws-sdk/client-kms)
-
 ## Description
 
 AWS SDK for JavaScript KMS Client for Node.js, Browser and React Native.

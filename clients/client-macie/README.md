@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-macie
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-macie/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-macie)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-macie.svg)](https://www.npmjs.com/package/@aws-sdk/client-macie)
-
 ## Description
 
 AWS SDK for JavaScript Macie Client for Node.js, Browser and React Native.

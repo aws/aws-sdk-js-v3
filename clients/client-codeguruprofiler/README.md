@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-codeguruprofiler
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-codeguruprofiler/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-codeguruprofiler)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-codeguruprofiler.svg)](https://www.npmjs.com/package/@aws-sdk/client-codeguruprofiler)
-
 ## Description
 
 AWS SDK for JavaScript CodeGuruProfiler Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-support-app
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-support-app/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-support-app)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-support-app.svg)](https://www.npmjs.com/package/@aws-sdk/client-support-app)
-
 ## Description
 
 AWS SDK for JavaScript SupportApp Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-voice-id
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-voice-id/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-voice-id)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-voice-id.svg)](https://www.npmjs.com/package/@aws-sdk/client-voice-id)
-
 ## Description
 
 AWS SDK for JavaScript VoiceID Client for Node.js, Browser and React Native.

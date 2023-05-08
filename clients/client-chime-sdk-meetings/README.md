@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-chime-sdk-meetings
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-chime-sdk-meetings/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-chime-sdk-meetings)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-chime-sdk-meetings.svg)](https://www.npmjs.com/package/@aws-sdk/client-chime-sdk-meetings)
-
 ## Description
 
 AWS SDK for JavaScript ChimeSDKMeetings Client for Node.js, Browser and React Native.

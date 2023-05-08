@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-mediaconvert
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-mediaconvert/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-mediaconvert)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-mediaconvert.svg)](https://www.npmjs.com/package/@aws-sdk/client-mediaconvert)
-
 ## Description
 
 AWS SDK for JavaScript MediaConvert Client for Node.js, Browser and React Native.

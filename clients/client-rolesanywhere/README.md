@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-rolesanywhere
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-rolesanywhere/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-rolesanywhere)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-rolesanywhere.svg)](https://www.npmjs.com/package/@aws-sdk/client-rolesanywhere)
-
 ## Description
 
 AWS SDK for JavaScript RolesAnywhere Client for Node.js, Browser and React Native.

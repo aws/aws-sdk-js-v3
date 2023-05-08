@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-translate
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-translate/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-translate)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-translate.svg)](https://www.npmjs.com/package/@aws-sdk/client-translate)
-
 ## Description
 
 AWS SDK for JavaScript Translate Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-ivschat
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-ivschat/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-ivschat)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-ivschat.svg)](https://www.npmjs.com/package/@aws-sdk/client-ivschat)
-
 ## Description
 
 AWS SDK for JavaScript Ivschat Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-sms
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sms/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sms)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sms.svg)](https://www.npmjs.com/package/@aws-sdk/client-sms)
-
 ## Description
 
 AWS SDK for JavaScript SMS Client for Node.js, Browser and React Native.

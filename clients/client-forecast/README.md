@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-forecast
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-forecast/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-forecast)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-forecast.svg)](https://www.npmjs.com/package/@aws-sdk/client-forecast)
-
 ## Description
 
 AWS SDK for JavaScript Forecast Client for Node.js, Browser and React Native.

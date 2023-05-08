@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-chime-sdk-voice
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-chime-sdk-voice/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-chime-sdk-voice)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-chime-sdk-voice.svg)](https://www.npmjs.com/package/@aws-sdk/client-chime-sdk-voice)
-
 ## Description
 
 AWS SDK for JavaScript ChimeSDKVoice Client for Node.js, Browser and React Native.

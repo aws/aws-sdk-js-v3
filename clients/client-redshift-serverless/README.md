@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-redshift-serverless
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-redshift-serverless/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-redshift-serverless)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-redshift-serverless.svg)](https://www.npmjs.com/package/@aws-sdk/client-redshift-serverless)
-
 ## Description
 
 AWS SDK for JavaScript RedshiftServerless Client for Node.js, Browser and React Native.

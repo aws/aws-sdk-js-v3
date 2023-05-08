@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-sso-admin
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sso-admin/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sso-admin)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sso-admin.svg)](https://www.npmjs.com/package/@aws-sdk/client-sso-admin)
-
 ## Description
 
 AWS SDK for JavaScript SSOAdmin Client for Node.js, Browser and React Native.

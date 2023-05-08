@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-workmailmessageflow
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-workmailmessageflow/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-workmailmessageflow)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-workmailmessageflow.svg)](https://www.npmjs.com/package/@aws-sdk/client-workmailmessageflow)
-
 ## Description
 
 AWS SDK for JavaScript WorkMailMessageFlow Client for Node.js, Browser and React Native.

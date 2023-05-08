@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-datasync
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-datasync/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-datasync)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-datasync.svg)](https://www.npmjs.com/package/@aws-sdk/client-datasync)
-
 ## Description
 
 AWS SDK for JavaScript DataSync Client for Node.js, Browser and React Native.

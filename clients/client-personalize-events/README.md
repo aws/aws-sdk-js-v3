@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-personalize-events
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-personalize-events/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-personalize-events)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-personalize-events.svg)](https://www.npmjs.com/package/@aws-sdk/client-personalize-events)
-
 ## Description
 
 AWS SDK for JavaScript PersonalizeEvents Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-eventbridge
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-eventbridge/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-eventbridge)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-eventbridge.svg)](https://www.npmjs.com/package/@aws-sdk/client-eventbridge)
-
 ## Description
 
 AWS SDK for JavaScript EventBridge Client for Node.js, Browser and React Native.

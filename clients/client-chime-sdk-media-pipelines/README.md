@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-chime-sdk-media-pipelines
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-chime-sdk-media-pipelines/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-chime-sdk-media-pipelines)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-chime-sdk-media-pipelines.svg)](https://www.npmjs.com/package/@aws-sdk/client-chime-sdk-media-pipelines)
-
 ## Description
 
 AWS SDK for JavaScript ChimeSDKMediaPipelines Client for Node.js, Browser and React Native.

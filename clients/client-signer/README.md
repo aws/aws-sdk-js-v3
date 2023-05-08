@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-signer
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-signer/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-signer)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-signer.svg)](https://www.npmjs.com/package/@aws-sdk/client-signer)
-
 ## Description
 
 AWS SDK for JavaScript Signer Client for Node.js, Browser and React Native.

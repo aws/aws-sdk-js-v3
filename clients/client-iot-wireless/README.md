@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-iot-wireless
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iot-wireless/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-wireless)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iot-wireless.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-wireless)
-
 ## Description
 
 AWS SDK for JavaScript IoTWireless Client for Node.js, Browser and React Native.

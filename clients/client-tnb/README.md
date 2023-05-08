@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-tnb
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-tnb/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-tnb)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-tnb.svg)](https://www.npmjs.com/package/@aws-sdk/client-tnb)
-
 ## Description
 
 AWS SDK for JavaScript Tnb Client for Node.js, Browser and React Native.

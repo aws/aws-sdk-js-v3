@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-billingconductor
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-billingconductor/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-billingconductor)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-billingconductor.svg)](https://www.npmjs.com/package/@aws-sdk/client-billingconductor)
-
 ## Description
 
 AWS SDK for JavaScript Billingconductor Client for Node.js, Browser and React Native.

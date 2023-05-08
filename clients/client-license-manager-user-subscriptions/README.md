@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-license-manager-user-subscriptions
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-license-manager-user-subscriptions/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-license-manager-user-subscriptions)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-license-manager-user-subscriptions.svg)](https://www.npmjs.com/package/@aws-sdk/client-license-manager-user-subscriptions)
-
 ## Description
 
 AWS SDK for JavaScript LicenseManagerUserSubscriptions Client for Node.js, Browser and React Native.

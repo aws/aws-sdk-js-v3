@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-kendra-ranking
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kendra-ranking/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-kendra-ranking)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-kendra-ranking.svg)](https://www.npmjs.com/package/@aws-sdk/client-kendra-ranking)
-
 ## Description
 
 AWS SDK for JavaScript KendraRanking Client for Node.js, Browser and React Native.

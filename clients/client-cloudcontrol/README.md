@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-cloudcontrol
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cloudcontrol/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloudcontrol)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-cloudcontrol.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloudcontrol)
-
 ## Description
 
 AWS SDK for JavaScript CloudControl Client for Node.js, Browser and React Native.

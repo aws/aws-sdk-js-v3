@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-worklink
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-worklink/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-worklink)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-worklink.svg)](https://www.npmjs.com/package/@aws-sdk/client-worklink)
-
 ## Description
 
 AWS SDK for JavaScript WorkLink Client for Node.js, Browser and React Native.

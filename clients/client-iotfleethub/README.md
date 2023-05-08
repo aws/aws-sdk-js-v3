@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-iotfleethub
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iotfleethub/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotfleethub)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iotfleethub.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotfleethub)
-
 ## Description
 
 AWS SDK for JavaScript IoTFleetHub Client for Node.js, Browser and React Native.

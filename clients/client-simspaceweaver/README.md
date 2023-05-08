@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-simspaceweaver
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-simspaceweaver/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-simspaceweaver)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-simspaceweaver.svg)](https://www.npmjs.com/package/@aws-sdk/client-simspaceweaver)
-
 ## Description
 
 AWS SDK for JavaScript SimSpaceWeaver Client for Node.js, Browser and React Native.

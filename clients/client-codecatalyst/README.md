@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-codecatalyst
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-codecatalyst/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-codecatalyst)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-codecatalyst.svg)](https://www.npmjs.com/package/@aws-sdk/client-codecatalyst)
-
 ## Description
 
 AWS SDK for JavaScript CodeCatalyst Client for Node.js, Browser and React Native.

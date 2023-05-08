@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-snow-device-management
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-snow-device-management/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-snow-device-management)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-snow-device-management.svg)](https://www.npmjs.com/package/@aws-sdk/client-snow-device-management)
-
 ## Description
 
 AWS SDK for JavaScript SnowDeviceManagement Client for Node.js, Browser and React Native.

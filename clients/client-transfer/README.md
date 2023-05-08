@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-transfer
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-transfer/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-transfer)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-transfer.svg)](https://www.npmjs.com/package/@aws-sdk/client-transfer)
-
 ## Description
 
 AWS SDK for JavaScript Transfer Client for Node.js, Browser and React Native.

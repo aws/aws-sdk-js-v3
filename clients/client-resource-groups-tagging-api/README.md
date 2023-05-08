@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-resource-groups-tagging-api
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-resource-groups-tagging-api/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-resource-groups-tagging-api)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-resource-groups-tagging-api.svg)](https://www.npmjs.com/package/@aws-sdk/client-resource-groups-tagging-api)
-
 ## Description
 
 AWS SDK for JavaScript ResourceGroupsTaggingAPI Client for Node.js, Browser and React Native.

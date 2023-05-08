@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-apprunner
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-apprunner/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-apprunner)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-apprunner.svg)](https://www.npmjs.com/package/@aws-sdk/client-apprunner)
-
 ## Description
 
 AWS SDK for JavaScript AppRunner Client for Node.js, Browser and React Native.

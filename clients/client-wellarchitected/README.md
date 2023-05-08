@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-wellarchitected
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-wellarchitected/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-wellarchitected)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-wellarchitected.svg)](https://www.npmjs.com/package/@aws-sdk/client-wellarchitected)
-
 ## Description
 
 AWS SDK for JavaScript WellArchitected Client for Node.js, Browser and React Native.

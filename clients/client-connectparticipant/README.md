@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-connectparticipant
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-connectparticipant/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-connectparticipant)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-connectparticipant.svg)](https://www.npmjs.com/package/@aws-sdk/client-connectparticipant)
-
 ## Description
 
 AWS SDK for JavaScript ConnectParticipant Client for Node.js, Browser and React Native.

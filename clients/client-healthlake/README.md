@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-healthlake
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-healthlake/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-healthlake)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-healthlake.svg)](https://www.npmjs.com/package/@aws-sdk/client-healthlake)
-
 ## Description
 
 AWS SDK for JavaScript HealthLake Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-lookoutequipment
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lookoutequipment/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-lookoutequipment)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-lookoutequipment.svg)](https://www.npmjs.com/package/@aws-sdk/client-lookoutequipment)
-
 ## Description
 
 AWS SDK for JavaScript LookoutEquipment Client for Node.js, Browser and React Native.

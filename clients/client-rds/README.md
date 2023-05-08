@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-rds
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-rds/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-rds)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-rds.svg)](https://www.npmjs.com/package/@aws-sdk/client-rds)
-
 ## Description
 
 AWS SDK for JavaScript RDS Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-iot-1click-devices-service
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iot-1click-devices-service/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-1click-devices-service)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iot-1click-devices-service.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-1click-devices-service)
-
 ## Description
 
 AWS SDK for JavaScript IoT1ClickDevicesService Client for Node.js, Browser and React Native.

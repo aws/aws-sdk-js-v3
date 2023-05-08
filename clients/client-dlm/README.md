@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-dlm
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-dlm/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-dlm)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-dlm.svg)](https://www.npmjs.com/package/@aws-sdk/client-dlm)
-
 ## Description
 
 AWS SDK for JavaScript DLM Client for Node.js, Browser and React Native.

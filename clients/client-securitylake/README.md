@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-securitylake
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-securitylake/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-securitylake)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-securitylake.svg)](https://www.npmjs.com/package/@aws-sdk/client-securitylake)
-
 ## Description
 
 AWS SDK for JavaScript SecurityLake Client for Node.js, Browser and React Native.

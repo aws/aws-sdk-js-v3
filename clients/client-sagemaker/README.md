@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-sagemaker
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sagemaker/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sagemaker)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sagemaker.svg)](https://www.npmjs.com/package/@aws-sdk/client-sagemaker)
-
 ## Description
 
 AWS SDK for JavaScript SageMaker Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-route-53-domains
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-route-53-domains/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-route-53-domains)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-route-53-domains.svg)](https://www.npmjs.com/package/@aws-sdk/client-route-53-domains)
-
 ## Description
 
 AWS SDK for JavaScript Route53Domains Client for Node.js, Browser and React Native.

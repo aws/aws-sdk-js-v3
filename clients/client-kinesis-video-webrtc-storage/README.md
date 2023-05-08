@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-kinesis-video-webrtc-storage
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kinesis-video-webrtc-storage/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-kinesis-video-webrtc-storage)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-kinesis-video-webrtc-storage.svg)](https://www.npmjs.com/package/@aws-sdk/client-kinesis-video-webrtc-storage)
-
 ## Description
 
 AWS SDK for JavaScript KinesisVideoWebRTCStorage Client for Node.js, Browser and React Native.

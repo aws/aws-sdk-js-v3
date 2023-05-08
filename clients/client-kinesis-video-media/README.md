@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-kinesis-video-media
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kinesis-video-media/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-kinesis-video-media)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-kinesis-video-media.svg)](https://www.npmjs.com/package/@aws-sdk/client-kinesis-video-media)
-
 ## Description
 
 AWS SDK for JavaScript KinesisVideoMedia Client for Node.js, Browser and React Native.

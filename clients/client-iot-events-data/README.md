@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-iot-events-data
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iot-events-data/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-events-data)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iot-events-data.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-events-data)
-
 ## Description
 
 AWS SDK for JavaScript IoTEventsData Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-ssm-incidents
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-ssm-incidents/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-ssm-incidents)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-ssm-incidents.svg)](https://www.npmjs.com/package/@aws-sdk/client-ssm-incidents)
-
 ## Description
 
 AWS SDK for JavaScript SSMIncidents Client for Node.js, Browser and React Native.

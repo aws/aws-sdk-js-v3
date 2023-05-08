@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-connectcases
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-connectcases/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-connectcases)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-connectcases.svg)](https://www.npmjs.com/package/@aws-sdk/client-connectcases)
-
 ## Description
 
 AWS SDK for JavaScript ConnectCases Client for Node.js, Browser and React Native.

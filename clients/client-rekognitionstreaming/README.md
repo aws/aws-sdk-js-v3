@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-rekognitionstreaming
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-rekognitionstreaming/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-rekognitionstreaming)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-rekognitionstreaming.svg)](https://www.npmjs.com/package/@aws-sdk/client-rekognitionstreaming)
-
 ## Description
 
 AWS SDK for JavaScript RekognitionStreaming Client for Node.js, Browser and React Native.

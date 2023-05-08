@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-panorama
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-panorama/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-panorama)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-panorama.svg)](https://www.npmjs.com/package/@aws-sdk/client-panorama)
-
 ## Description
 
 AWS SDK for JavaScript Panorama Client for Node.js, Browser and React Native.

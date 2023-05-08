@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-rbin
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-rbin/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-rbin)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-rbin.svg)](https://www.npmjs.com/package/@aws-sdk/client-rbin)
-
 ## Description
 
 AWS SDK for JavaScript Rbin Client for Node.js, Browser and React Native.

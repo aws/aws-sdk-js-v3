@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-iot-jobs-data-plane
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iot-jobs-data-plane/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-jobs-data-plane)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iot-jobs-data-plane.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-jobs-data-plane)
-
 ## Description
 
 AWS SDK for JavaScript IoTJobsDataPlane Client for Node.js, Browser and React Native.

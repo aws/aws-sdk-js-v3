@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-lookoutmetrics
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lookoutmetrics/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-lookoutmetrics)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-lookoutmetrics.svg)](https://www.npmjs.com/package/@aws-sdk/client-lookoutmetrics)
-
 ## Description
 
 AWS SDK for JavaScript LookoutMetrics Client for Node.js, Browser and React Native.

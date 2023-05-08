@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-dax
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-dax/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-dax)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-dax.svg)](https://www.npmjs.com/package/@aws-sdk/client-dax)
-
 ## Description
 
 AWS SDK for JavaScript DAX Client for Node.js, Browser and React Native.

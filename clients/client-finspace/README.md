@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-finspace
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-finspace/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-finspace)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-finspace.svg)](https://www.npmjs.com/package/@aws-sdk/client-finspace)
-
 ## Description
 
 AWS SDK for JavaScript Finspace Client for Node.js, Browser and React Native.

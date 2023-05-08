@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-omics
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-omics/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-omics)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-omics.svg)](https://www.npmjs.com/package/@aws-sdk/client-omics)
-
 ## Description
 
 AWS SDK for JavaScript Omics Client for Node.js, Browser and React Native.

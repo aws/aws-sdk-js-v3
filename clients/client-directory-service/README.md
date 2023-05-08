@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-directory-service
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-directory-service/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-directory-service)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-directory-service.svg)](https://www.npmjs.com/package/@aws-sdk/client-directory-service)
-
 ## Description
 
 AWS SDK for JavaScript DirectoryService Client for Node.js, Browser and React Native.

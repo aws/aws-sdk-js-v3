@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-route53-recovery-cluster
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-route53-recovery-cluster/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-route53-recovery-cluster)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-route53-recovery-cluster.svg)](https://www.npmjs.com/package/@aws-sdk/client-route53-recovery-cluster)
-
 ## Description
 
 AWS SDK for JavaScript Route53RecoveryCluster Client for Node.js, Browser and React Native.

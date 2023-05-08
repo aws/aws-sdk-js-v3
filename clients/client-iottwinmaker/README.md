@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-iottwinmaker
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iottwinmaker/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iottwinmaker)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iottwinmaker.svg)](https://www.npmjs.com/package/@aws-sdk/client-iottwinmaker)
-
 ## Description
 
 AWS SDK for JavaScript IoTTwinMaker Client for Node.js, Browser and React Native.

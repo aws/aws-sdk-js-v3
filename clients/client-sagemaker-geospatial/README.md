@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-sagemaker-geospatial
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sagemaker-geospatial/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sagemaker-geospatial)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sagemaker-geospatial.svg)](https://www.npmjs.com/package/@aws-sdk/client-sagemaker-geospatial)
-
 ## Description
 
 AWS SDK for JavaScript SageMakerGeospatial Client for Node.js, Browser and React Native.

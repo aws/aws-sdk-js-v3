@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-timestream-query
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-timestream-query/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-timestream-query)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-timestream-query.svg)](https://www.npmjs.com/package/@aws-sdk/client-timestream-query)
-
 ## Description
 
 AWS SDK for JavaScript TimestreamQuery Client for Node.js, Browser and React Native.

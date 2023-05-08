@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-data-pipeline
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-data-pipeline/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-data-pipeline)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-data-pipeline.svg)](https://www.npmjs.com/package/@aws-sdk/client-data-pipeline)
-
 ## Description
 
 AWS SDK for JavaScript DataPipeline Client for Node.js, Browser and React Native.

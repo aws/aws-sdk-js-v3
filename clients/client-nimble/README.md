@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-nimble
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-nimble/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-nimble)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-nimble.svg)](https://www.npmjs.com/package/@aws-sdk/client-nimble)
-
 ## Description
 
 AWS SDK for JavaScript Nimble Client for Node.js, Browser and React Native.

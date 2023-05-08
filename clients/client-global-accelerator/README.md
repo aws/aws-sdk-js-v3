@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-global-accelerator
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-global-accelerator/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-global-accelerator)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-global-accelerator.svg)](https://www.npmjs.com/package/@aws-sdk/client-global-accelerator)
-
 ## Description
 
 AWS SDK for JavaScript GlobalAccelerator Client for Node.js, Browser and React Native.

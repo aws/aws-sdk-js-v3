@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-workmail
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-workmail/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-workmail)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-workmail.svg)](https://www.npmjs.com/package/@aws-sdk/client-workmail)
-
 ## Description
 
 AWS SDK for JavaScript WorkMail Client for Node.js, Browser and React Native.

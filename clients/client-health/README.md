@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-health
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-health/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-health)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-health.svg)](https://www.npmjs.com/package/@aws-sdk/client-health)
-
 ## Description
 
 AWS SDK for JavaScript Health Client for Node.js, Browser and React Native.
