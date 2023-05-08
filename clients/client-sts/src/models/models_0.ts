@@ -607,7 +607,7 @@ export interface AssumeRoleWithSAMLResponse {
    *             </li>
    *          </ul>
    *          <p>The combination of <code>NameQualifier</code> and <code>Subject</code> can be used to
-   *          uniquely identify a federated user.</p>
+   *          uniquely identify a user.</p>
    *          <p>The following pseudocode shows how the hash value is calculated:</p>
    *          <p>
    *             <code>BASE64 ( SHA1 ( "https://example.com/saml" + "123456789012" + "/MySAMLIdP" ) )</code>
@@ -1076,7 +1076,7 @@ export interface GetFederationTokenRequest {
   /**
    * <p>The duration, in seconds, that the session should last. Acceptable durations for
    *          federation sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours), with
-   *          43,200 seconds (12 hours) as the default. Sessions obtained using Amazon Web Services account root user
+   *          43,200 seconds (12 hours) as the default. Sessions obtained using root user
    *          credentials are restricted to a maximum of 3,600 seconds (one hour). If the specified
    *          duration is longer than one hour, the session obtained by using root user credentials
    *          defaults to one hour.</p>
