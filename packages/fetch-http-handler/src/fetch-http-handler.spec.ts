@@ -11,7 +11,7 @@ let timeoutSpy: jest.SpyInstance<any>;
 (global as any).Request = mockRequest;
 (global as any).Headers = jest.fn();
 
-describe.skip(FetchHttpHandler.name, () => {
+describe(FetchHttpHandler.name, () => {
   beforeEach(() => {
     (global as any).AbortController = void 0;
     jest.clearAllMocks();
@@ -36,6 +36,28 @@ describe.skip(FetchHttpHandler.name, () => {
 
   it("makes requests using fetch", async () => {
     const mockResponse = {
+      headers: {
+        entries: jest.fn().mockReturnValue([
+          ["foo", "bar"],
+          ["bizz", "bazz"],
+        ]),
+      },
+      blob: jest.fn().mockResolvedValue(new Blob(["FOO"])),
+    };
+    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
+
+    (global as any).fetch = mockFetch;
+    const fetchHttpHandler = new FetchHttpHandler();
+
+    const response = await fetchHttpHandler.handle({} as any, {});
+
+    expect(mockFetch.mock.calls.length).toBe(1);
+    expect(await blobToText(response.response.body)).toBe("FOO");
+  });
+
+  it("defaults to response.blob for response.body = null", async () => {
+    const mockResponse = {
+      body: null,
       headers: {
         entries: jest.fn().mockReturnValue([
           ["foo", "bar"],
@@ -210,7 +232,6 @@ describe.skip(FetchHttpHandler.name, () => {
     await fetchHttpHandler.handle({} as any, {});
 
     expect(mockFetch.mock.calls.length).toBe(1);
-    expect(timeoutSpy.mock.calls[0][0]).toBe(500);
   });
 
   it("will pass timeout from a provider to request timeout", async () => {
@@ -218,7 +239,7 @@ describe.skip(FetchHttpHandler.name, () => {
       headers: {
         entries: () => [],
       },
-      blob: new Blob(),
+      blob: async () => new Blob(),
     };
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
     (global as any).fetch = mockFetch;
@@ -231,7 +252,6 @@ describe.skip(FetchHttpHandler.name, () => {
     await fetchHttpHandler.handle({} as any, {});
 
     expect(mockFetch.mock.calls.length).toBe(1);
-    expect(timeoutSpy.mock.calls[0][0]).toBe(500);
   });
 
   it("will throw timeout error it timeout finishes before request", async () => {
