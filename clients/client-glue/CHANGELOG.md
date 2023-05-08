@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.329.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.328.0...v3.329.0) (2023-05-08)
+
+
+### Features
+
+* **client-glue:** We don't do release notes https://w.amazon.com/bin/view/AWSDocs/common-tasks/release-notes ([7676eac](https://github.com/aws/aws-sdk-js-v3/commit/7676eac6509c324ae16c23bcf5b5f1a3e219a589))
+
+
+
+
+
 # [3.328.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.327.0...v3.328.0) (2023-05-05)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

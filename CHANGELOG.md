@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.329.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.328.0...v3.329.0) (2023-05-08)
+
+
+### Bug Fixes
+
+* **fetch-http-handler:** check for null fetch response.body ([#4705](https://github.com/aws/aws-sdk-js-v3/issues/4705)) ([4468be6](https://github.com/aws/aws-sdk-js-v3/commit/4468be6dee40ac6715352fcfee7a697a143eefc2))
+
+
+### Features
+
+* **client-glue:** We don't do release notes https://w.amazon.com/bin/view/AWSDocs/common-tasks/release-notes ([7676eac](https://github.com/aws/aws-sdk-js-v3/commit/7676eac6509c324ae16c23bcf5b5f1a3e219a589))
+* **client-guardduty:** Add AccessDeniedException 403 Error message code to support 3 Tagging related APIs ([cef7c65](https://github.com/aws/aws-sdk-js-v3/commit/cef7c6569df30276dd3e1ebc872f825e4ba5ccee))
+* **client-iotsitewise:** Provide support for 20,000 max results for GetAssetPropertyValueHistory/BatchGetAssetPropertyValueHistory and 15 minute aggregate resolution for GetAssetPropertyAggregates/BatchGetAssetPropertyAggregates ([b0aef34](https://github.com/aws/aws-sdk-js-v3/commit/b0aef34cc5f383231beeed6865c361efe7401c68))
+* **client-sts:** Documentation updates for AWS Security Token Service. ([eaced29](https://github.com/aws/aws-sdk-js-v3/commit/eaced29c8dda28ac208dc959590656af5a89f933))
+* **clients:** update client endpoints as of 2023-05-08 ([d930cb2](https://github.com/aws/aws-sdk-js-v3/commit/d930cb2af9b2c816a22f08c30c26336f13392fa9))
+
+
+
+
+
 # [3.328.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.327.0...v3.328.0) (2023-05-05)
 
 

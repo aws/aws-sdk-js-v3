@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.329.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.328.0...v3.329.0) (2023-05-08)
+
+
+### Features
+
+* **client-guardduty:** Add AccessDeniedException 403 Error message code to support 3 Tagging related APIs ([cef7c65](https://github.com/aws/aws-sdk-js-v3/commit/cef7c6569df30276dd3e1ebc872f825e4ba5ccee))
+
+
+
+
+
 # [3.328.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.327.0...v3.328.0) (2023-05-05)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty
