@@ -126,6 +126,22 @@ lerna run build --scope [package name] --include-dependencies
 
 You don't need to run this command if the dependency packages are not changed.
 
+## Gradle Composite Build
+
+The `aws-sdk-js-v3` repository uses Gradle as a build tool and has Gradle based dependencies such as `smithy` and `smithy-typescript`.
+To improve development experience when making changes to the dependencies locally, we can
+use the [Gradle composite build feature](https://docs.gradle.org/current/userguide/composite_builds.html),
+which allows picking up any local changes from dependencies automatically and rebuilding them when `aws-sdk-js-v3` is rebuilt.
+
+This also makes IDE integration more pleasant, as Intellij IDEA will open the included projects as modules when the Gradle build is imported.
+
+In order to utilise this feature, create a file `local.properties` in the `codegen` directory with the following content:
+
+```
+smithy=/Volumes/workplace/smithy
+smithy-typescript=/Volumes/workplace/smithy-typescript
+```
+
 ## Build caching
 
 Build caching is optionally available via Turborepo. See `turbo.json`.
