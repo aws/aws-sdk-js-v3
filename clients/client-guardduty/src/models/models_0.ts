@@ -139,6 +139,37 @@ export interface AccessControlList {
 
 /**
  * @public
+ * <p>An access denied exception object.</p>
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The error message.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The error type.</p>
+   */
+  Type?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+  }
+}
+
+/**
+ * @public
  * <p>Contains information about the access keys.</p>
  */
 export interface AccessKeyDetails {
@@ -6581,15 +6612,4 @@ export interface StartMonitoringMembersRequest {
    * <p>A list of account IDs of the GuardDuty member accounts to start monitoring.</p>
    */
   AccountIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMonitoringMembersResponse {
-  /**
-   * <p>A list of objects that contain the unprocessed account and a result string that explains
-   *       why it was unprocessed.</p>
-   */
-  UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }

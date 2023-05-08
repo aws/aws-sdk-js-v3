@@ -192,6 +192,7 @@ import {
 import { GuardDutyServiceException as __BaseException } from "../models/GuardDutyServiceException";
 import {
   AccessControlList,
+  AccessDeniedException,
   AccessKeyDetails,
   AccountDetail,
   AccountFreeTrialInfo,
@@ -5026,6 +5027,9 @@ const de_ListTagsForResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.guardduty#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
@@ -5276,6 +5280,9 @@ const de_TagResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.guardduty#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
@@ -5368,6 +5375,9 @@ const de_UntagResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.guardduty#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
@@ -5807,6 +5817,27 @@ const de_UpdateThreatIntelSetCommandError = async (
 };
 
 const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+    Type: [, __expectString, `__type`],
+  });
+  Object.assign(contents, doc);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 /**
  * deserializeAws_restJson1BadRequestExceptionRes
  */

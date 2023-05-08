@@ -20,6 +20,17 @@ import {
 /**
  * @public
  */
+export interface StartMonitoringMembersResponse {
+  /**
+   * <p>A list of objects that contain the unprocessed account and a result string that explains
+   *       why it was unprocessed.</p>
+   */
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StopMonitoringMembersRequest {
   /**
    * <p>The unique ID of the detector associated with the GuardDuty administrator account that is
