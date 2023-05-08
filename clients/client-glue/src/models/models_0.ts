@@ -1947,6 +1947,8 @@ export const WorkerType = {
   G_025X: "G.025X",
   G_1X: "G.1X",
   G_2X: "G.2X",
+  G_4X: "G.4X",
+  G_8X: "G.8X",
   Standard: "Standard",
 } as const;
 

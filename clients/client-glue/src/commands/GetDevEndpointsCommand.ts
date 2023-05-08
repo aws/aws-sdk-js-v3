@@ -64,7 +64,7 @@ export interface GetDevEndpointsCommandOutput extends GetDevEndpointsResponse, _
  * //       ZeppelinRemoteSparkInterpreterPort: Number("int"),
  * //       PublicAddress: "STRING_VALUE",
  * //       Status: "STRING_VALUE",
- * //       WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
+ * //       WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X" || "G.4X" || "G.8X",
  * //       GlueVersion: "STRING_VALUE",
  * //       NumberOfWorkers: Number("int"),
  * //       NumberOfNodes: Number("int"),

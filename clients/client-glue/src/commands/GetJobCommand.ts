@@ -76,7 +76,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //     AllocatedCapacity: Number("int"),
  * //     Timeout: Number("int"),
  * //     MaxCapacity: Number("double"),
- * //     WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
+ * //     WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X" || "G.4X" || "G.8X",
  * //     NumberOfWorkers: Number("int"),
  * //     SecurityConfiguration: "STRING_VALUE",
  * //     NotificationProperty: { // NotificationProperty

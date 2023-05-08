@@ -77,7 +77,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *   },
  *   GlueVersion: "STRING_VALUE",
  *   NumberOfWorkers: Number("int"),
- *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
+ *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X" || "G.4X" || "G.8X",
  *   CodeGenConfigurationNodes: { // CodeGenConfigurationNodes
  *     "<keys>": { // CodeGenConfigurationNode
  *       AthenaConnectorSource: { // AthenaConnectorSource
