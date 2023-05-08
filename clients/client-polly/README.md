@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-polly
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-polly/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-polly)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-polly.svg)](https://www.npmjs.com/package/@aws-sdk/client-polly)
-
 ## Description
 
 AWS SDK for JavaScript Polly Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-batch
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-batch/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-batch)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-batch.svg)](https://www.npmjs.com/package/@aws-sdk/client-batch)
-
 ## Description
 
 AWS SDK for JavaScript Batch Client for Node.js, Browser and React Native.

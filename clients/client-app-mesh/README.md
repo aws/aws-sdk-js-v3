@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-app-mesh
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-app-mesh/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-app-mesh)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-app-mesh.svg)](https://www.npmjs.com/package/@aws-sdk/client-app-mesh)
-
 ## Description
 
 AWS SDK for JavaScript AppMesh Client for Node.js, Browser and React Native.

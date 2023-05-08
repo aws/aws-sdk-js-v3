@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-braket
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-braket/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-braket)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-braket.svg)](https://www.npmjs.com/package/@aws-sdk/client-braket)
-
 ## Description
 
 AWS SDK for JavaScript Braket Client for Node.js, Browser and React Native.

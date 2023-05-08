@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-workspaces-web
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-workspaces-web/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-workspaces-web)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-workspaces-web.svg)](https://www.npmjs.com/package/@aws-sdk/client-workspaces-web)
-
 ## Description
 
 AWS SDK for JavaScript WorkSpacesWeb Client for Node.js, Browser and React Native.

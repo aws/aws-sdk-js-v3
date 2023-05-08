@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-ivs-realtime
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-ivs-realtime/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-ivs-realtime)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-ivs-realtime.svg)](https://www.npmjs.com/package/@aws-sdk/client-ivs-realtime)
-
 ## Description
 
 AWS SDK for JavaScript IVSRealTime Client for Node.js, Browser and React Native.

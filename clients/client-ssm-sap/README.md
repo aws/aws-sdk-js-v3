@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-ssm-sap
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-ssm-sap/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-ssm-sap)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-ssm-sap.svg)](https://www.npmjs.com/package/@aws-sdk/client-ssm-sap)
-
 ## Description
 
 AWS SDK for JavaScript SsmSap Client for Node.js, Browser and React Native.

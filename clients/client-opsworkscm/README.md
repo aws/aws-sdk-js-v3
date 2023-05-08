@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-opsworkscm
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-opsworkscm/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-opsworkscm)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-opsworkscm.svg)](https://www.npmjs.com/package/@aws-sdk/client-opsworkscm)
-
 ## Description
 
 AWS SDK for JavaScript OpsWorksCM Client for Node.js, Browser and React Native.

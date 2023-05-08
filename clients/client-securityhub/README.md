@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-securityhub
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-securityhub/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-securityhub)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-securityhub.svg)](https://www.npmjs.com/package/@aws-sdk/client-securityhub)
-
 ## Description
 
 AWS SDK for JavaScript SecurityHub Client for Node.js, Browser and React Native.

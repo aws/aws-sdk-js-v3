@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-dynamodb
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-dynamodb/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-dynamodb)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-dynamodb.svg)](https://www.npmjs.com/package/@aws-sdk/client-dynamodb)
-
 ## Description
 
 AWS SDK for JavaScript DynamoDB Client for Node.js, Browser and React Native.

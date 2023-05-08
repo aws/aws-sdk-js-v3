@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-wisdom
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-wisdom/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-wisdom)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-wisdom.svg)](https://www.npmjs.com/package/@aws-sdk/client-wisdom)
-
 ## Description
 
 AWS SDK for JavaScript Wisdom Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-mq
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-mq/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-mq)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-mq.svg)](https://www.npmjs.com/package/@aws-sdk/client-mq)
-
 ## Description
 
 AWS SDK for JavaScript Mq Client for Node.js, Browser and React Native.

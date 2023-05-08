@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-mgn
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-mgn/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-mgn)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-mgn.svg)](https://www.npmjs.com/package/@aws-sdk/client-mgn)
-
 ## Description
 
 AWS SDK for JavaScript Mgn Client for Node.js, Browser and React Native.

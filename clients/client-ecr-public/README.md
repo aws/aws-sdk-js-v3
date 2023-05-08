@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-ecr-public
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-ecr-public/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-ecr-public)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-ecr-public.svg)](https://www.npmjs.com/package/@aws-sdk/client-ecr-public)
-
 ## Description
 
 AWS SDK for JavaScript ECRPUBLIC Client for Node.js, Browser and React Native.

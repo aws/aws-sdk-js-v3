@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-codebuild
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-codebuild/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-codebuild)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-codebuild.svg)](https://www.npmjs.com/package/@aws-sdk/client-codebuild)
-
 ## Description
 
 AWS SDK for JavaScript CodeBuild Client for Node.js, Browser and React Native.

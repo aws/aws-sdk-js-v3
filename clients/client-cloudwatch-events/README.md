@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-cloudwatch-events
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cloudwatch-events/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloudwatch-events)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-cloudwatch-events.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloudwatch-events)
-
 ## Description
 
 AWS SDK for JavaScript CloudWatchEvents Client for Node.js, Browser and React Native.

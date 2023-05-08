@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-amplifyuibuilder
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-amplifyuibuilder/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-amplifyuibuilder)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-amplifyuibuilder.svg)](https://www.npmjs.com/package/@aws-sdk/client-amplifyuibuilder)
-
 ## Description
 
 AWS SDK for JavaScript AmplifyUIBuilder Client for Node.js, Browser and React Native.

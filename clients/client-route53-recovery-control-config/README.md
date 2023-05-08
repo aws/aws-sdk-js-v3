@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-route53-recovery-control-config
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-route53-recovery-control-config/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-route53-recovery-control-config)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-route53-recovery-control-config.svg)](https://www.npmjs.com/package/@aws-sdk/client-route53-recovery-control-config)
-
 ## Description
 
 AWS SDK for JavaScript Route53RecoveryControlConfig Client for Node.js, Browser and React Native.

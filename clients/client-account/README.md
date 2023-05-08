@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-account
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-account/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-account)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-account.svg)](https://www.npmjs.com/package/@aws-sdk/client-account)
-
 ## Description
 
 AWS SDK for JavaScript Account Client for Node.js, Browser and React Native.

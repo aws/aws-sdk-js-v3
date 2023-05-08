@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-ssm-contacts
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-ssm-contacts/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-ssm-contacts)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-ssm-contacts.svg)](https://www.npmjs.com/package/@aws-sdk/client-ssm-contacts)
-
 ## Description
 
 AWS SDK for JavaScript SSMContacts Client for Node.js, Browser and React Native.

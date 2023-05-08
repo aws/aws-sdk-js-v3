@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-pricing
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-pricing/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-pricing)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-pricing.svg)](https://www.npmjs.com/package/@aws-sdk/client-pricing)
-
 ## Description
 
 AWS SDK for JavaScript Pricing Client for Node.js, Browser and React Native.

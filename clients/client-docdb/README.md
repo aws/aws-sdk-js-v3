@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-docdb
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-docdb/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-docdb)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-docdb.svg)](https://www.npmjs.com/package/@aws-sdk/client-docdb)
-
 ## Description
 
 AWS SDK for JavaScript DocDB Client for Node.js, Browser and React Native.

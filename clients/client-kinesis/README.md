@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-kinesis
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kinesis/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-kinesis)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-kinesis.svg)](https://www.npmjs.com/package/@aws-sdk/client-kinesis)
-
 ## Description
 
 AWS SDK for JavaScript Kinesis Client for Node.js, Browser and React Native.

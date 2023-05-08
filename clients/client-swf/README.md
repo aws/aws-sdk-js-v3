@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-swf
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-swf/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-swf)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-swf.svg)](https://www.npmjs.com/package/@aws-sdk/client-swf)
-
 ## Description
 
 AWS SDK for JavaScript SWF Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-sagemaker-metrics
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sagemaker-metrics/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sagemaker-metrics)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sagemaker-metrics.svg)](https://www.npmjs.com/package/@aws-sdk/client-sagemaker-metrics)
-
 ## Description
 
 AWS SDK for JavaScript SageMakerMetrics Client for Node.js, Browser and React Native.

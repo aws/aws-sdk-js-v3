@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-cleanrooms
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cleanrooms/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-cleanrooms)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-cleanrooms.svg)](https://www.npmjs.com/package/@aws-sdk/client-cleanrooms)
-
 ## Description
 
 AWS SDK for JavaScript CleanRooms Client for Node.js, Browser and React Native.

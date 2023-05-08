@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-connect
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-connect/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-connect)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-connect.svg)](https://www.npmjs.com/package/@aws-sdk/client-connect)
-
 ## Description
 
 AWS SDK for JavaScript Connect Client for Node.js, Browser and React Native.

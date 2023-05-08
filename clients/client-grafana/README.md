@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-grafana
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-grafana/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-grafana)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-grafana.svg)](https://www.npmjs.com/package/@aws-sdk/client-grafana)
-
 ## Description
 
 AWS SDK for JavaScript Grafana Client for Node.js, Browser and React Native.

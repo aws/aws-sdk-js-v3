@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-privatenetworks
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-privatenetworks/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-privatenetworks)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-privatenetworks.svg)](https://www.npmjs.com/package/@aws-sdk/client-privatenetworks)
-
 ## Description
 
 AWS SDK for JavaScript PrivateNetworks Client for Node.js, Browser and React Native.

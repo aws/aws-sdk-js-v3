@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-groundstation
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-groundstation/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-groundstation)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-groundstation.svg)](https://www.npmjs.com/package/@aws-sdk/client-groundstation)
-
 ## Description
 
 AWS SDK for JavaScript GroundStation Client for Node.js, Browser and React Native.

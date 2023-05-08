@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-cloudhsm-v2
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cloudhsm-v2/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloudhsm-v2)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-cloudhsm-v2.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloudhsm-v2)
-
 ## Description
 
 AWS SDK for JavaScript CloudHSMV2 Client for Node.js, Browser and React Native.

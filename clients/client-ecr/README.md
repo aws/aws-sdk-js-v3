@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-ecr
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-ecr/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-ecr)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-ecr.svg)](https://www.npmjs.com/package/@aws-sdk/client-ecr)
-
 ## Description
 
 AWS SDK for JavaScript ECR Client for Node.js, Browser and React Native.

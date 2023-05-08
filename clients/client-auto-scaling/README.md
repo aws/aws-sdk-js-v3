@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-auto-scaling
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-auto-scaling/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-auto-scaling)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-auto-scaling.svg)](https://www.npmjs.com/package/@aws-sdk/client-auto-scaling)
-
 ## Description
 
 AWS SDK for JavaScript AutoScaling Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-resource-explorer-2
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-resource-explorer-2/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-resource-explorer-2)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-resource-explorer-2.svg)](https://www.npmjs.com/package/@aws-sdk/client-resource-explorer-2)
-
 ## Description
 
 AWS SDK for JavaScript ResourceExplorer2 Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-iotdeviceadvisor
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iotdeviceadvisor/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotdeviceadvisor)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iotdeviceadvisor.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotdeviceadvisor)
-
 ## Description
 
 AWS SDK for JavaScript IotDeviceAdvisor Client for Node.js, Browser and React Native.

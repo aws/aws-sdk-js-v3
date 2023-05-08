@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-sts
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sts/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sts)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sts.svg)](https://www.npmjs.com/package/@aws-sdk/client-sts)
-
 ## Description
 
 AWS SDK for JavaScript STS Client for Node.js, Browser and React Native.

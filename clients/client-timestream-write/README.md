@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-timestream-write
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-timestream-write/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-timestream-write)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-timestream-write.svg)](https://www.npmjs.com/package/@aws-sdk/client-timestream-write)
-
 ## Description
 
 AWS SDK for JavaScript TimestreamWrite Client for Node.js, Browser and React Native.

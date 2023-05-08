@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-iotsecuretunneling
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iotsecuretunneling/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotsecuretunneling)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iotsecuretunneling.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotsecuretunneling)
-
 ## Description
 
 AWS SDK for JavaScript IoTSecureTunneling Client for Node.js, Browser and React Native.

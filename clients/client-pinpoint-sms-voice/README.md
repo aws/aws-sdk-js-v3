@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-pinpoint-sms-voice
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-pinpoint-sms-voice/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-pinpoint-sms-voice)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-pinpoint-sms-voice.svg)](https://www.npmjs.com/package/@aws-sdk/client-pinpoint-sms-voice)
-
 ## Description
 
 AWS SDK for JavaScript PinpointSMSVoice Client for Node.js, Browser and React Native.

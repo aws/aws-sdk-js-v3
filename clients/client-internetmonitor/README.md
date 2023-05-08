@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-internetmonitor
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-internetmonitor/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-internetmonitor)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-internetmonitor.svg)](https://www.npmjs.com/package/@aws-sdk/client-internetmonitor)
-
 ## Description
 
 AWS SDK for JavaScript InternetMonitor Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-config-service
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-config-service/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-config-service)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-config-service.svg)](https://www.npmjs.com/package/@aws-sdk/client-config-service)
-
 ## Description
 
 AWS SDK for JavaScript ConfigService Client for Node.js, Browser and React Native.

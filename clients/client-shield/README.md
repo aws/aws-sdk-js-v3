@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-shield
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-shield/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-shield)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-shield.svg)](https://www.npmjs.com/package/@aws-sdk/client-shield)
-
 ## Description
 
 AWS SDK for JavaScript Shield Client for Node.js, Browser and React Native.

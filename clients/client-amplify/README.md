@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-amplify
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-amplify/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-amplify)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-amplify.svg)](https://www.npmjs.com/package/@aws-sdk/client-amplify)
-
 ## Description
 
 AWS SDK for JavaScript Amplify Client for Node.js, Browser and React Native.

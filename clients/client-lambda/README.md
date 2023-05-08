@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-lambda
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lambda/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-lambda)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-lambda.svg)](https://www.npmjs.com/package/@aws-sdk/client-lambda)
-
 ## Description
 
 AWS SDK for JavaScript Lambda Client for Node.js, Browser and React Native.

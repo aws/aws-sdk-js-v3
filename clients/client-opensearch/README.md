@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-opensearch
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-opensearch/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-opensearch)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-opensearch.svg)](https://www.npmjs.com/package/@aws-sdk/client-opensearch)
-
 ## Description
 
 AWS SDK for JavaScript OpenSearch Client for Node.js, Browser and React Native.

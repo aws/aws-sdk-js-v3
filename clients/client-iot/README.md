@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-iot
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iot/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iot.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot)
-
 ## Description
 
 AWS SDK for JavaScript IoT Client for Node.js, Browser and React Native.

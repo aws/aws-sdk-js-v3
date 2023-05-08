@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-waf-regional
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-waf-regional/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-waf-regional)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-waf-regional.svg)](https://www.npmjs.com/package/@aws-sdk/client-waf-regional)
-
 ## Description
 
 AWS SDK for JavaScript WAFRegional Client for Node.js, Browser and React Native.

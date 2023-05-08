@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-lookoutvision
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lookoutvision/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-lookoutvision)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-lookoutvision.svg)](https://www.npmjs.com/package/@aws-sdk/client-lookoutvision)
-
 ## Description
 
 AWS SDK for JavaScript LookoutVision Client for Node.js, Browser and React Native.

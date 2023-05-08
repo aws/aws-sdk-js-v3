@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-outposts
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-outposts/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-outposts)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-outposts.svg)](https://www.npmjs.com/package/@aws-sdk/client-outposts)
-
 ## Description
 
 AWS SDK for JavaScript Outposts Client for Node.js, Browser and React Native.

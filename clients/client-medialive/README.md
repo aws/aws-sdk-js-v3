@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-medialive
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-medialive/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-medialive)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-medialive.svg)](https://www.npmjs.com/package/@aws-sdk/client-medialive)
-
 ## Description
 
 AWS SDK for JavaScript MediaLive Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-sagemaker-edge
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sagemaker-edge/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sagemaker-edge)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sagemaker-edge.svg)](https://www.npmjs.com/package/@aws-sdk/client-sagemaker-edge)
-
 ## Description
 
 AWS SDK for JavaScript SagemakerEdge Client for Node.js, Browser and React Native.

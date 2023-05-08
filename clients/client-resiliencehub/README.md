@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-resiliencehub
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-resiliencehub/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-resiliencehub)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-resiliencehub.svg)](https://www.npmjs.com/package/@aws-sdk/client-resiliencehub)
-
 ## Description
 
 AWS SDK for JavaScript Resiliencehub Client for Node.js, Browser and React Native.

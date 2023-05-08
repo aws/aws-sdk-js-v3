@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-dataexchange
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-dataexchange/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-dataexchange)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-dataexchange.svg)](https://www.npmjs.com/package/@aws-sdk/client-dataexchange)
-
 ## Description
 
 AWS SDK for JavaScript DataExchange Client for Node.js, Browser and React Native.

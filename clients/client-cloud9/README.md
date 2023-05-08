@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-cloud9
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cloud9/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloud9)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-cloud9.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloud9)
-
 ## Description
 
 AWS SDK for JavaScript Cloud9 Client for Node.js, Browser and React Native.

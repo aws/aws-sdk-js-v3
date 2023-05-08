@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-cloudtrail-data
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cloudtrail-data/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloudtrail-data)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-cloudtrail-data.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloudtrail-data)
-
 ## Description
 
 AWS SDK for JavaScript CloudTrailData Client for Node.js, Browser and React Native.

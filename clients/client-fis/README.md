@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-fis
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-fis/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-fis)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-fis.svg)](https://www.npmjs.com/package/@aws-sdk/client-fis)
-
 ## Description
 
 AWS SDK for JavaScript Fis Client for Node.js, Browser and React Native.

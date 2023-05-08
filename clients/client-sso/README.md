@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-sso
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sso/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-sso)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sso.svg)](https://www.npmjs.com/package/@aws-sdk/client-sso)
-
 ## Description
 
 AWS SDK for JavaScript SSO Client for Node.js, Browser and React Native.

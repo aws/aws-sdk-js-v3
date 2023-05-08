@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-iotthingsgraph
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iotthingsgraph/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotthingsgraph)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iotthingsgraph.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotthingsgraph)
-
 ## Description
 
 AWS SDK for JavaScript IoTThingsGraph Client for Node.js, Browser and React Native.

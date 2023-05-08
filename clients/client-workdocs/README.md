@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-workdocs
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-workdocs/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-workdocs)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-workdocs.svg)](https://www.npmjs.com/package/@aws-sdk/client-workdocs)
-
 ## Description
 
 AWS SDK for JavaScript WorkDocs Client for Node.js, Browser and React Native.

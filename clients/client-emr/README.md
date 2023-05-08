@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-emr
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-emr/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-emr)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-emr.svg)](https://www.npmjs.com/package/@aws-sdk/client-emr)
-
 ## Description
 
 AWS SDK for JavaScript EMR Client for Node.js, Browser and React Native.

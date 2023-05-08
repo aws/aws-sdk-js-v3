@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-applicationcostprofiler
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-applicationcostprofiler/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-applicationcostprofiler)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-applicationcostprofiler.svg)](https://www.npmjs.com/package/@aws-sdk/client-applicationcostprofiler)
-
 ## Description
 
 AWS SDK for JavaScript ApplicationCostProfiler Client for Node.js, Browser and React Native.

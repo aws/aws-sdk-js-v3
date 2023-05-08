@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-lex-runtime-service
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lex-runtime-service/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-lex-runtime-service)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-lex-runtime-service.svg)](https://www.npmjs.com/package/@aws-sdk/client-lex-runtime-service)
-
 ## Description
 
 AWS SDK for JavaScript LexRuntimeService Client for Node.js, Browser and React Native.

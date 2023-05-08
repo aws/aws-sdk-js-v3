@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-pinpoint-email
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-pinpoint-email/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-pinpoint-email)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-pinpoint-email.svg)](https://www.npmjs.com/package/@aws-sdk/client-pinpoint-email)
-
 ## Description
 
 AWS SDK for JavaScript PinpointEmail Client for Node.js, Browser and React Native.

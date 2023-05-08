@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-personalize-runtime
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-personalize-runtime/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-personalize-runtime)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-personalize-runtime.svg)](https://www.npmjs.com/package/@aws-sdk/client-personalize-runtime)
-
 ## Description
 
 AWS SDK for JavaScript PersonalizeRuntime Client for Node.js, Browser and React Native.

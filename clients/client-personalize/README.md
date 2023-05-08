@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-personalize
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-personalize/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-personalize)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-personalize.svg)](https://www.npmjs.com/package/@aws-sdk/client-personalize)
-
 ## Description
 
 AWS SDK for JavaScript Personalize Client for Node.js, Browser and React Native.

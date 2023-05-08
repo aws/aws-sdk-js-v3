@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-backupstorage
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-backupstorage/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-backupstorage)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-backupstorage.svg)](https://www.npmjs.com/package/@aws-sdk/client-backupstorage)
-
 ## Description
 
 AWS SDK for JavaScript BackupStorage Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-apigatewaymanagementapi
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-apigatewaymanagementapi/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-apigatewaymanagementapi)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-apigatewaymanagementapi.svg)](https://www.npmjs.com/package/@aws-sdk/client-apigatewaymanagementapi)
-
 ## Description
 
 AWS SDK for JavaScript ApiGatewayManagementApi Client for Node.js, Browser and React Native.

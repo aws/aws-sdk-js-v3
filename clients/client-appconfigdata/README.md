@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-appconfigdata
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-appconfigdata/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-appconfigdata)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-appconfigdata.svg)](https://www.npmjs.com/package/@aws-sdk/client-appconfigdata)
-
 ## Description
 
 AWS SDK for JavaScript AppConfigData Client for Node.js, Browser and React Native.

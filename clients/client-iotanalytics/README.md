@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-iotanalytics
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iotanalytics/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotanalytics)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iotanalytics.svg)](https://www.npmjs.com/package/@aws-sdk/client-iotanalytics)
-
 ## Description
 
 AWS SDK for JavaScript IoTAnalytics Client for Node.js, Browser and React Native.

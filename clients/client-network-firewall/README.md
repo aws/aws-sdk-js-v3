@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-network-firewall
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-network-firewall/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-network-firewall)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-network-firewall.svg)](https://www.npmjs.com/package/@aws-sdk/client-network-firewall)
-
 ## Description
 
 AWS SDK for JavaScript NetworkFirewall Client for Node.js, Browser and React Native.

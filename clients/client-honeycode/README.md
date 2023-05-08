@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-honeycode
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-honeycode/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-honeycode)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-honeycode.svg)](https://www.npmjs.com/package/@aws-sdk/client-honeycode)
-
 ## Description
 
 AWS SDK for JavaScript Honeycode Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-marketplace-metering
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-marketplace-metering/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-marketplace-metering)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-marketplace-metering.svg)](https://www.npmjs.com/package/@aws-sdk/client-marketplace-metering)
-
 ## Description
 
 AWS SDK for JavaScript MarketplaceMetering Client for Node.js, Browser and React Native.

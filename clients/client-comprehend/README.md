@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-comprehend
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-comprehend/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-comprehend)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-comprehend.svg)](https://www.npmjs.com/package/@aws-sdk/client-comprehend)
-
 ## Description
 
 AWS SDK for JavaScript Comprehend Client for Node.js, Browser and React Native.

@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-mobile
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-mobile/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-mobile)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-mobile.svg)](https://www.npmjs.com/package/@aws-sdk/client-mobile)
-
 ## Description
 
 AWS SDK for JavaScript Mobile Client for Node.js, Browser and React Native.

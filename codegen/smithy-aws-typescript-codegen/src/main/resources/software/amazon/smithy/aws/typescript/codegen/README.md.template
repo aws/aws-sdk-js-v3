@@ -2,9 +2,6 @@
 
 # ${packageName}
 
-[![NPM version](https://img.shields.io/npm/v/${packageName}/latest.svg)](https://www.npmjs.com/package/${packageName})
-[![NPM downloads](https://img.shields.io/npm/dm/${packageName}.svg)](https://www.npmjs.com/package/${packageName})
-
 ## Description
 
 AWS SDK for JavaScript ${serviceId} Client for Node.js, Browser and React Native.

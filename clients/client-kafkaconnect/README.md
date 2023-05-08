@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-kafkaconnect
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kafkaconnect/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-kafkaconnect)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-kafkaconnect.svg)](https://www.npmjs.com/package/@aws-sdk/client-kafkaconnect)
-
 ## Description
 
 AWS SDK for JavaScript KafkaConnect Client for Node.js, Browser and React Native.

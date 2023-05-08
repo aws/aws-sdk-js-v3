@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-rum
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-rum/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-rum)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-rum.svg)](https://www.npmjs.com/package/@aws-sdk/client-rum)
-
 ## Description
 
 AWS SDK for JavaScript RUM Client for Node.js, Browser and React Native.

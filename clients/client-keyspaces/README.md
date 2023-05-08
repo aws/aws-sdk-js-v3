@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-keyspaces
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-keyspaces/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-keyspaces)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-keyspaces.svg)](https://www.npmjs.com/package/@aws-sdk/client-keyspaces)
-
 ## Description
 
 AWS SDK for JavaScript Keyspaces Client for Node.js, Browser and React Native.

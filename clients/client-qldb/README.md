@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-qldb
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-qldb/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-qldb)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-qldb.svg)](https://www.npmjs.com/package/@aws-sdk/client-qldb)
-
 ## Description
 
 AWS SDK for JavaScript QLDB Client for Node.js, Browser and React Native.

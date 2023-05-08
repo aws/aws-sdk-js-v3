@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-servicediscovery
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-servicediscovery/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-servicediscovery)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-servicediscovery.svg)](https://www.npmjs.com/package/@aws-sdk/client-servicediscovery)
-
 ## Description
 
 AWS SDK for JavaScript ServiceDiscovery Client for Node.js, Browser and React Native.

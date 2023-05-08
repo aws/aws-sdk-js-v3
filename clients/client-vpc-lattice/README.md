@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-vpc-lattice
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-vpc-lattice/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-vpc-lattice)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-vpc-lattice.svg)](https://www.npmjs.com/package/@aws-sdk/client-vpc-lattice)
-
 ## Description
 
 AWS SDK for JavaScript VPCLattice Client for Node.js, Browser and React Native.

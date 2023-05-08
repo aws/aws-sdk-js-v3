@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-elastic-transcoder
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-elastic-transcoder/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-elastic-transcoder)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-elastic-transcoder.svg)](https://www.npmjs.com/package/@aws-sdk/client-elastic-transcoder)
-
 ## Description
 
 AWS SDK for JavaScript ElasticTranscoder Client for Node.js, Browser and React Native.

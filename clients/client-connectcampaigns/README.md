@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-connectcampaigns
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-connectcampaigns/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-connectcampaigns)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-connectcampaigns.svg)](https://www.npmjs.com/package/@aws-sdk/client-connectcampaigns)
-
 ## Description
 
 AWS SDK for JavaScript ConnectCampaigns Client for Node.js, Browser and React Native.

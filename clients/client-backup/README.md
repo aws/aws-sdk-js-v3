@@ -2,9 +2,6 @@
 
 # @aws-sdk/client-backup
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-backup/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-backup)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-backup.svg)](https://www.npmjs.com/package/@aws-sdk/client-backup)
-
 ## Description
 
 AWS SDK for JavaScript Backup Client for Node.js, Browser and React Native.
