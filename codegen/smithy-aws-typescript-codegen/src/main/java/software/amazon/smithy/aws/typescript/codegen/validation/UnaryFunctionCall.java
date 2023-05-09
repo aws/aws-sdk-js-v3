@@ -3,14 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
- package software.amazon.smithy.aws.typescript.codegen.validation;
+package software.amazon.smithy.aws.typescript.codegen.validation;
 
 import java.util.regex.Pattern;
 
 /**
  * For handling expressions that may be unary function calls.
  */
-public abstract class UnaryFunctionCall {
+class UnaryFunctionCall {
     private static final Pattern CHECK_PATTERN = Pattern.compile("^(?!new ).+\\(((?!,).)*\\)$");
     private static final Pattern TO_REF_PATTERN = Pattern.compile("(.*)\\(.*\\)$");
 

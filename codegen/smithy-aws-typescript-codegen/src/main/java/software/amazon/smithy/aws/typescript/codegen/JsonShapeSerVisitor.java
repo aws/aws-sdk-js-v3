@@ -18,6 +18,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.function.BiFunction;
+import software.amazon.smithy.aws.typescript.codegen.validation.UnaryFunctionCall;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
@@ -37,7 +38,6 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
-import software.amazon.smithy.typescript.codegen.validation.UnaryFunctionCall;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -55,16 +55,19 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
 
     private final BiFunction<MemberShape, String, String> memberNameStrategy;
 
-    JsonShapeSerVisitor(GenerationContext context) {
+    JsonShapeSerVisitor(GenerationContext context, boolean serdeElisionEnabled) {
         this(context,
                 // Use the jsonName trait value if present, otherwise use the member name.
                 (memberShape, memberName) -> memberShape.getTrait(JsonNameTrait.class)
                         .map(JsonNameTrait::getValue)
-                        .orElse(memberName));
+                        .orElse(memberName),
+                serdeElisionEnabled);
     }
 
-    JsonShapeSerVisitor(GenerationContext context, BiFunction<MemberShape, String, String> memberNameStrategy) {
+    JsonShapeSerVisitor(GenerationContext context, BiFunction<MemberShape, String, String> memberNameStrategy,
+            boolean serdeElisionEnabled) {
         super(context);
+        this.serdeElisionEnabled = serdeElisionEnabled;
         this.memberNameStrategy = memberNameStrategy;
     }
 

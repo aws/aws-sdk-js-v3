@@ -67,14 +67,14 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set<Shape> shapes) {
         AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes,
                 // AWS JSON does not support jsonName
-                new JsonShapeSerVisitor(context, (shape, name) -> name));
+                new JsonShapeSerVisitor(context, (shape, name) -> name, enableSerdeElision()));
     }
 
     @Override
     protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
         AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes,
                 // AWS JSON does not support jsonName
-                new JsonShapeDeserVisitor(context, (shape, name) -> name));
+                new JsonShapeDeserVisitor(context, (shape, name) -> name, enableSerdeElision()));
     }
 
     @Override
