@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.330.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.329.0...v3.330.0) (2023-05-09)
+
+
+### Features
+
+* **client-application-auto-scaling:** With this release, Amazon SageMaker Serverless Inference customers can use Application Auto Scaling to auto scale the provisioned concurrency of their serverless endpoints. ([1fc7861](https://github.com/aws/aws-sdk-js-v3/commit/1fc7861cc2a161eff525c6a576d51ade6828924d))
+* **client-glue:** This release adds AmazonRedshift Source and Target nodes in addition to DynamicTransform OutputSchemas ([4aa00aa](https://github.com/aws/aws-sdk-js-v3/commit/4aa00aabc67e7d71ba39ac56abea5973f0dfd4ab))
+* **client-sagemaker:** This release includes support for (1) Provisioned Concurrency for Amazon SageMaker Serverless Inference and (2) UpdateEndpointWeightsAndCapacities API for Serverless endpoints. ([53db2ca](https://github.com/aws/aws-sdk-js-v3/commit/53db2ca396bbf90b46c3818285e2fb7cc49ac3e3))
+* **clients:** update client endpoints as of 2023-05-09 ([9472480](https://github.com/aws/aws-sdk-js-v3/commit/9472480e3cc297da3fc3310b7b1c5141c1f56f19))
+
+
+
+
+
 # [3.329.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.328.0...v3.329.0) (2023-05-08)
 
 
