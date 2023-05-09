@@ -44,7 +44,7 @@ final class JsonMemberDeserVisitor extends DocumentMemberDeserVisitor {
         super(context, dataSource, defaultTimestampFormat);
         this.memberShape = memberShape;
         context.getWriter().addImport("_json", null, "@aws-sdk/smithy-client");
-        serdeElision.setEnabledForModel(!context.getSettings().generateServerSdk());
+        this.serdeElisionEnabled = !context.getSettings().generateServerSdk();
     }
 
     JsonMemberDeserVisitor(GenerationContext context,

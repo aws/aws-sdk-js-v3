@@ -17,6 +17,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.List;
 import java.util.Set;
+import software.amazon.smithy.aws.typescript.codegen.validation.UnaryFunctionCall;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.knowledge.HttpBinding;
 import software.amazon.smithy.model.shapes.DocumentShape;
@@ -33,7 +34,6 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
-import software.amazon.smithy.typescript.codegen.validation.UnaryFunctionCall;
 import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -68,12 +68,14 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
     @Override
     protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set<Shape> shapes) {
-        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeSerVisitor(context));
+        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeSerVisitor(context,
+            (!context.getSettings().generateServerSdk() && enableSerdeElision())));
     }
 
     @Override
     protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
-        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeDeserVisitor(context));
+        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeDeserVisitor(context,
+            (!context.getSettings().generateServerSdk() && enableSerdeElision())));
     }
 
     @Override
