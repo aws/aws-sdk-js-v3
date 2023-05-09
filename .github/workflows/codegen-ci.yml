@@ -33,4 +33,4 @@ jobs:
       - name: build and test codegen
         run: |
           cd ./codegen
-          ./gradlew clean smithy-aws-typescript-codegen:build protocol-test-codegen:build -Plog-tests
+          ./gradlew clean sdk-codegen:build smithy-aws-typescript-codegen:build protocol-test-codegen:build -Plog-tests
