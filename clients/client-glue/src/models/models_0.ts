@@ -181,6 +181,216 @@ export class AlreadyExistsException extends __BaseException {
 
 /**
  * @public
+ * <p>Specifies an Amazon Redshift data store.</p>
+ */
+export interface AmazonRedshiftAdvancedOption {
+  /**
+   * <p>The key when specifying a key-value pair.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value when specifying a key-value pair.</p>
+   */
+  Value?: string;
+}
+
+/**
+ * @public
+ * <p>Specifies an option value.</p>
+ */
+export interface Option {
+  /**
+   * <p>Specifies the value of the option.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>Specifies the label of the option.</p>
+   */
+  Label?: string;
+
+  /**
+   * <p>Specifies the description of the option.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ * <p>Specifies an Amazon Redshift node.</p>
+ */
+export interface AmazonRedshiftNodeData {
+  /**
+   * <p>The access type for the Redshift connection. Can be a direct connection or catalog connections.</p>
+   */
+  AccessType?: string;
+
+  /**
+   * <p>The source type to specify whether a specific table is the source or a custom query.</p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>The Glue connection to the Redshift cluster.</p>
+   */
+  Connection?: Option;
+
+  /**
+   * <p>The Redshift schema name when working with a direct connection.</p>
+   */
+  Schema?: Option;
+
+  /**
+   * <p>The Redshift table name when working with a direct connection.</p>
+   */
+  Table?: Option;
+
+  /**
+   * <p>The name of the Glue Data Catalog database when working with a data catalog.</p>
+   */
+  CatalogDatabase?: Option;
+
+  /**
+   * <p>The Glue Data Catalog table name when working with a data catalog.</p>
+   */
+  CatalogTable?: Option;
+
+  /**
+   * <p>The Redshift schema name when working with a data catalog.</p>
+   */
+  CatalogRedshiftSchema?: string;
+
+  /**
+   * <p>The database table to read from.</p>
+   */
+  CatalogRedshiftTable?: string;
+
+  /**
+   * <p>The Amazon S3 path where temporary data can be staged when copying out of the database.</p>
+   */
+  TempDir?: string;
+
+  /**
+   * <p>Optional. The role name use when connection to S3. The IAM role ill default to the role on the job when left blank.</p>
+   */
+  IamRole?: Option;
+
+  /**
+   * <p>Optional values when connecting to the Redshift cluster.</p>
+   */
+  AdvancedOptions?: AmazonRedshiftAdvancedOption[];
+
+  /**
+   * <p>The SQL used to fetch the data from a Redshift sources when the SourceType is 'query'.</p>
+   */
+  SampleQuery?: string;
+
+  /**
+   * <p>The SQL used before a MERGE or APPEND with upsert is run.</p>
+   */
+  PreAction?: string;
+
+  /**
+   * <p>The SQL used before a MERGE or APPEND with upsert is run.</p>
+   */
+  PostAction?: string;
+
+  /**
+   * <p>Specifies how writing to a Redshift cluser will occur.</p>
+   */
+  Action?: string;
+
+  /**
+   * <p>Specifies the prefix to a table.</p>
+   */
+  TablePrefix?: string;
+
+  /**
+   * <p>The action used on Redshift sinks when doing an APPEND.</p>
+   */
+  Upsert?: boolean;
+
+  /**
+   * <p>The action used when to detemine how a MERGE in a Redshift sink will be handled.</p>
+   */
+  MergeAction?: string;
+
+  /**
+   * <p>The action used when to detemine how a MERGE in a Redshift sink will be handled when an existing record matches a new record.</p>
+   */
+  MergeWhenMatched?: string;
+
+  /**
+   * <p>The action used when to detemine how a MERGE in a Redshift sink will be handled when an existing record doesn't match a new record.</p>
+   */
+  MergeWhenNotMatched?: string;
+
+  /**
+   * <p>The SQL used in a custom merge to deal with matching records.</p>
+   */
+  MergeClause?: string;
+
+  /**
+   * <p>Specifies the name of the connection that is associated with the catalog table used.</p>
+   */
+  CrawlerConnection?: string;
+
+  /**
+   * <p>The array of schema output for a given node.</p>
+   */
+  TableSchema?: Option[];
+
+  /**
+   * <p>The name of the temporary staging table that is used when doing a MERGE or APPEND with upsert.</p>
+   */
+  StagingTable?: string;
+
+  /**
+   * <p>The list of column names used to determine a matching record when doing a MERGE or APPEND with upsert.</p>
+   */
+  SelectedColumns?: Option[];
+}
+
+/**
+ * @public
+ * <p>Specifies an Amazon Redshift source.</p>
+ */
+export interface AmazonRedshiftSource {
+  /**
+   * <p>The name of the Amazon Redshift source.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Specifies the data of the Amazon Reshift source node.</p>
+   */
+  Data?: AmazonRedshiftNodeData;
+}
+
+/**
+ * @public
+ * <p>Specifies an Amazon Redshift target.</p>
+ */
+export interface AmazonRedshiftTarget {
+  /**
+   * <p>The name of the Amazon Redshift target.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Specifies the data of the Amazon Reshift target node.</p>
+   */
+  Data?: AmazonRedshiftNodeData;
+
+  /**
+   * <p>The nodes that are inputs to the data target.</p>
+   */
+  Inputs?: string[];
+}
+
+/**
+ * @public
  * <p>Specifies a single column in a Glue schema definition.</p>
  */
 export interface GlueStudioSchemaColumn {
@@ -2962,6 +3172,11 @@ export interface DynamicTransform {
    * <p>This field is not used and will be deprecated in future release.</p>
    */
   Version?: string;
+
+  /**
+   * <p>Specifies the data schema for the dynamic transform.</p>
+   */
+  OutputSchemas?: GlueSchema[];
 }
 
 /**
@@ -8018,81 +8233,3 @@ export interface CreateMLTransformResponse {
    */
   TransformId?: string;
 }
-
-/**
- * @public
- */
-export interface CreatePartitionRequest {
-  /**
-   * <p>The Amazon Web Services account ID of the catalog in which the partition is to be created.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the metadata database in which the partition is
-   *       to be created.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the metadata table in which the partition is to be created.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>A <code>PartitionInput</code> structure defining the partition
-   *       to be created.</p>
-   */
-  PartitionInput: PartitionInput | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePartitionResponse {}
-
-/**
- * @public
- * <p>A structure for a partition index.</p>
- */
-export interface PartitionIndex {
-  /**
-   * <p>The keys for the partition index.</p>
-   */
-  Keys: string[] | undefined;
-
-  /**
-   * <p>The name of the partition index.</p>
-   */
-  IndexName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePartitionIndexRequest {
-  /**
-   * <p>The catalog ID where the table resides.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>Specifies the name of a database in which you want to create a partition index.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>Specifies the name of a table in which you want to create a partition index.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>Specifies a <code>PartitionIndex</code> structure to create a partition index in an existing table.</p>
-   */
-  PartitionIndex: PartitionIndex | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePartitionIndexResponse {}

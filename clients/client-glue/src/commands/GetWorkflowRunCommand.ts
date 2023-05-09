@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetWorkflowRunRequest, GetWorkflowRunResponse } from "../models/models_1";
+import { GetWorkflowRunRequest, GetWorkflowRunResponse } from "../models/models_2";
 import { de_GetWorkflowRunCommand, se_GetWorkflowRunCommand } from "../protocols/Aws_json1_1";
 
 /**

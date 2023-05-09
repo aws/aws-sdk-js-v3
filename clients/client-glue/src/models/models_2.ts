@@ -5,6 +5,8 @@ import { GlueServiceException as __BaseException } from "./GlueServiceException"
 import {
   Action,
   Aggregate,
+  AmazonRedshiftSource,
+  AmazonRedshiftTarget,
   AthenaConnectorSource,
   BasicCatalogTarget,
   CatalogDeltaSource,
@@ -94,6 +96,7 @@ import {
   Trigger,
   Union,
   WorkerType,
+  Workflow,
   WorkflowRun,
 } from "./models_0";
 import {
@@ -114,8 +117,80 @@ import {
   TableInput,
   TransformFilterCriteria,
   TransformSortCriteria,
+  UserDefinedFunction,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetUserDefinedFunctionsResponse {
+  /**
+   * <p>A list of requested function definitions.</p>
+   */
+  UserDefinedFunctions?: UserDefinedFunction[];
+
+  /**
+   * <p>A continuation token, if the list of functions returned does
+   *       not include the last requested function.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowRequest {
+  /**
+   * <p>The name of the workflow to retrieve.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
+   */
+  IncludeGraph?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowResponse {
+  /**
+   * <p>The resource metadata for the workflow.</p>
+   */
+  Workflow?: Workflow;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowRunRequest {
+  /**
+   * <p>Name of the workflow being run.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ID of the workflow run.</p>
+   */
+  RunId: string | undefined;
+
+  /**
+   * <p>Specifies whether to include the workflow graph in response or not.</p>
+   */
+  IncludeGraph?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowRunResponse {
+  /**
+   * <p>The requested workflow run metadata.</p>
+   */
+  Run?: WorkflowRun;
+}
 
 /**
  * @public
@@ -4334,6 +4409,16 @@ export interface CodeGenConfigurationNode {
    * <p>Specifies a target that writes to a Delta Lake data source in Amazon S3.</p>
    */
   S3DeltaDirectTarget?: S3DeltaDirectTarget;
+
+  /**
+   * <p>Specifies a target that writes to a data source in Amazon Redshift.</p>
+   */
+  AmazonRedshiftSource?: AmazonRedshiftSource;
+
+  /**
+   * <p>Specifies a target that writes to a data target in Amazon Redshift.</p>
+   */
+  AmazonRedshiftTarget?: AmazonRedshiftTarget;
 }
 
 /**

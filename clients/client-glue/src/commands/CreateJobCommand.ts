@@ -758,6 +758,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         FunctionName: "STRING_VALUE", // required
  *         Path: "STRING_VALUE", // required
  *         Version: "STRING_VALUE",
+ *         OutputSchemas: "<GlueSchemas>",
  *       },
  *       EvaluateDataQuality: { // EvaluateDataQuality
  *         Name: "STRING_VALUE", // required
@@ -891,6 +892,107 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           Table: "STRING_VALUE",
  *           Database: "STRING_VALUE",
  *         },
+ *       },
+ *       AmazonRedshiftSource: { // AmazonRedshiftSource
+ *         Name: "STRING_VALUE",
+ *         Data: { // AmazonRedshiftNodeData
+ *           AccessType: "STRING_VALUE",
+ *           SourceType: "STRING_VALUE",
+ *           Connection: { // Option
+ *             Value: "STRING_VALUE",
+ *             Label: "STRING_VALUE",
+ *             Description: "STRING_VALUE",
+ *           },
+ *           Schema: {
+ *             Value: "STRING_VALUE",
+ *             Label: "STRING_VALUE",
+ *             Description: "STRING_VALUE",
+ *           },
+ *           Table: {
+ *             Value: "STRING_VALUE",
+ *             Label: "STRING_VALUE",
+ *             Description: "STRING_VALUE",
+ *           },
+ *           CatalogDatabase: {
+ *             Value: "STRING_VALUE",
+ *             Label: "STRING_VALUE",
+ *             Description: "STRING_VALUE",
+ *           },
+ *           CatalogTable: {
+ *             Value: "STRING_VALUE",
+ *             Label: "STRING_VALUE",
+ *             Description: "STRING_VALUE",
+ *           },
+ *           CatalogRedshiftSchema: "STRING_VALUE",
+ *           CatalogRedshiftTable: "STRING_VALUE",
+ *           TempDir: "STRING_VALUE",
+ *           IamRole: "<Option>",
+ *           AdvancedOptions: [ // AmazonRedshiftAdvancedOptions
+ *             { // AmazonRedshiftAdvancedOption
+ *               Key: "STRING_VALUE",
+ *               Value: "STRING_VALUE",
+ *             },
+ *           ],
+ *           SampleQuery: "STRING_VALUE",
+ *           PreAction: "STRING_VALUE",
+ *           PostAction: "STRING_VALUE",
+ *           Action: "STRING_VALUE",
+ *           TablePrefix: "STRING_VALUE",
+ *           Upsert: true || false,
+ *           MergeAction: "STRING_VALUE",
+ *           MergeWhenMatched: "STRING_VALUE",
+ *           MergeWhenNotMatched: "STRING_VALUE",
+ *           MergeClause: "STRING_VALUE",
+ *           CrawlerConnection: "STRING_VALUE",
+ *           TableSchema: [ // OptionList
+ *             "<Option>",
+ *           ],
+ *           StagingTable: "STRING_VALUE",
+ *           SelectedColumns: [
+ *             "<Option>",
+ *           ],
+ *         },
+ *       },
+ *       AmazonRedshiftTarget: { // AmazonRedshiftTarget
+ *         Name: "STRING_VALUE",
+ *         Data: {
+ *           AccessType: "STRING_VALUE",
+ *           SourceType: "STRING_VALUE",
+ *           Connection: "<Option>",
+ *           Schema: "<Option>",
+ *           Table: "<Option>",
+ *           CatalogDatabase: "<Option>",
+ *           CatalogTable: "<Option>",
+ *           CatalogRedshiftSchema: "STRING_VALUE",
+ *           CatalogRedshiftTable: "STRING_VALUE",
+ *           TempDir: "STRING_VALUE",
+ *           IamRole: "<Option>",
+ *           AdvancedOptions: [
+ *             {
+ *               Key: "STRING_VALUE",
+ *               Value: "STRING_VALUE",
+ *             },
+ *           ],
+ *           SampleQuery: "STRING_VALUE",
+ *           PreAction: "STRING_VALUE",
+ *           PostAction: "STRING_VALUE",
+ *           Action: "STRING_VALUE",
+ *           TablePrefix: "STRING_VALUE",
+ *           Upsert: true || false,
+ *           MergeAction: "STRING_VALUE",
+ *           MergeWhenMatched: "STRING_VALUE",
+ *           MergeWhenNotMatched: "STRING_VALUE",
+ *           MergeClause: "STRING_VALUE",
+ *           CrawlerConnection: "STRING_VALUE",
+ *           TableSchema: [
+ *             "<Option>",
+ *           ],
+ *           StagingTable: "STRING_VALUE",
+ *           SelectedColumns: [
+ *             "<Option>",
+ *           ],
+ *         },
+ *         Inputs: "<OneInput>",
  *       },
  *     },
  *   },

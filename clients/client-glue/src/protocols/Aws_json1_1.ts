@@ -450,6 +450,10 @@ import {
   Aggregate,
   AggregateOperation,
   AlreadyExistsException,
+  AmazonRedshiftAdvancedOption,
+  AmazonRedshiftNodeData,
+  AmazonRedshiftSource,
+  AmazonRedshiftTarget,
   AthenaConnectorSource,
   AuditContext,
   BasicCatalogTarget,
@@ -511,8 +515,6 @@ import {
   CreateGrokClassifierRequest,
   CreateJsonClassifierRequest,
   CreateMLTransformRequest,
-  CreatePartitionIndexRequest,
-  CreatePartitionRequest,
   CreateXMLClassifierRequest,
   CustomCode,
   DatabaseIdentifier,
@@ -589,11 +591,11 @@ import {
   NullCheckBoxList,
   NullValueField,
   OperationTimeoutException,
+  Option,
   OracleSQLCatalogSource,
   OracleSQLCatalogTarget,
   Order,
   Partition,
-  PartitionIndex,
   PartitionInput,
   PartitionValueList,
   Permission,
@@ -674,6 +676,8 @@ import {
   ConnectionPasswordEncryption,
   CrawlerMetrics,
   CrawlerRunningException,
+  CreatePartitionIndexRequest,
+  CreatePartitionRequest,
   CreateRegistryInput,
   CreateSchemaInput,
   CreateScriptRequest,
@@ -827,11 +831,6 @@ import {
   GetUserDefinedFunctionRequest,
   GetUserDefinedFunctionResponse,
   GetUserDefinedFunctionsRequest,
-  GetUserDefinedFunctionsResponse,
-  GetWorkflowRequest,
-  GetWorkflowResponse,
-  GetWorkflowRunRequest,
-  GetWorkflowRunResponse,
   GluePolicy,
   GrokClassifier,
   JobBookmarksEncryption,
@@ -840,6 +839,7 @@ import {
   LongColumnStatisticsData,
   MappingEntry,
   MLTransform,
+  PartitionIndex,
   PermissionType,
   PermissionTypeMismatchException,
   RegistryId,
@@ -890,7 +890,12 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetUserDefinedFunctionsResponse,
+  GetWorkflowRequest,
+  GetWorkflowResponse,
   GetWorkflowRunPropertiesRequest,
+  GetWorkflowRunRequest,
+  GetWorkflowRunResponse,
   GetWorkflowRunsRequest,
   GetWorkflowRunsResponse,
   IllegalBlueprintStateException,
@@ -15600,6 +15605,16 @@ const de_VersionMismatchExceptionRes = async (
 
 // se_AggregateOperations omitted.
 
+// se_AmazonRedshiftAdvancedOption omitted.
+
+// se_AmazonRedshiftAdvancedOptions omitted.
+
+// se_AmazonRedshiftNodeData omitted.
+
+// se_AmazonRedshiftSource omitted.
+
+// se_AmazonRedshiftTarget omitted.
+
 /**
  * serializeAws_json1_1ApplyMapping
  */
@@ -15764,6 +15779,8 @@ const se_BinaryColumnStatisticsData = (input: BinaryColumnStatisticsData, contex
 const se_CodeGenConfigurationNode = (input: CodeGenConfigurationNode, context: __SerdeContext): any => {
   return take(input, {
     Aggregate: _json,
+    AmazonRedshiftSource: _json,
+    AmazonRedshiftTarget: _json,
     ApplyMapping: (_) => se_ApplyMapping(_, context),
     AthenaConnectorSource: _json,
     CatalogDeltaSource: _json,
@@ -16811,6 +16828,10 @@ const se_Mappings = (input: Mapping[], context: __SerdeContext): any => {
 
 // se_OneInput omitted.
 
+// se_Option omitted.
+
+// se_OptionList omitted.
+
 // se_OracleSQLCatalogSource omitted.
 
 // se_OracleSQLCatalogTarget omitted.
@@ -17373,6 +17394,16 @@ const se_UpdateTableRequest = (input: UpdateTableRequest, context: __SerdeContex
 
 // de_AlreadyExistsException omitted.
 
+// de_AmazonRedshiftAdvancedOption omitted.
+
+// de_AmazonRedshiftAdvancedOptions omitted.
+
+// de_AmazonRedshiftNodeData omitted.
+
+// de_AmazonRedshiftSource omitted.
+
+// de_AmazonRedshiftTarget omitted.
+
 /**
  * deserializeAws_json1_1ApplyMapping
  */
@@ -17651,6 +17682,8 @@ const de_ClassifierList = (output: any, context: __SerdeContext): Classifier[] =
 const de_CodeGenConfigurationNode = (output: any, context: __SerdeContext): CodeGenConfigurationNode => {
   return take(output, {
     Aggregate: _json,
+    AmazonRedshiftSource: _json,
+    AmazonRedshiftTarget: _json,
     ApplyMapping: (_: any) => de_ApplyMapping(_, context),
     AthenaConnectorSource: _json,
     CatalogDeltaSource: _json,
@@ -19746,6 +19779,10 @@ const de_NodeList = (output: any, context: __SerdeContext): Node[] => {
 // de_OneInput omitted.
 
 // de_OperationTimeoutException omitted.
+
+// de_Option omitted.
+
+// de_OptionList omitted.
 
 // de_OracleSQLCatalogSource omitted.
 

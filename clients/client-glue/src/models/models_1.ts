@@ -23,7 +23,7 @@ import {
   GlueTable,
   JobRun,
   Partition,
-  PartitionIndex,
+  PartitionInput,
   PartitionValueList,
   PhysicalConnectionRequirements,
   Predicate,
@@ -37,9 +37,85 @@ import {
   Trigger,
   TriggerType,
   WorkerType,
-  Workflow,
-  WorkflowRun,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreatePartitionRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the catalog in which the partition is to be created.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the metadata database in which the partition is
+   *       to be created.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the metadata table in which the partition is to be created.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A <code>PartitionInput</code> structure defining the partition
+   *       to be created.</p>
+   */
+  PartitionInput: PartitionInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePartitionResponse {}
+
+/**
+ * @public
+ * <p>A structure for a partition index.</p>
+ */
+export interface PartitionIndex {
+  /**
+   * <p>The keys for the partition index.</p>
+   */
+  Keys: string[] | undefined;
+
+  /**
+   * <p>The name of the partition index.</p>
+   */
+  IndexName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePartitionIndexRequest {
+  /**
+   * <p>The catalog ID where the table resides.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>Specifies the name of a database in which you want to create a partition index.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>Specifies the name of a table in which you want to create a partition index.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>Specifies a <code>PartitionIndex</code> structure to create a partition index in an existing table.</p>
+   */
+  PartitionIndex: PartitionIndex | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePartitionIndexResponse {}
 
 /**
  * @public
@@ -7077,75 +7153,4 @@ export interface GetUserDefinedFunctionsRequest {
    * <p>The maximum number of functions to return in one response.</p>
    */
   MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface GetUserDefinedFunctionsResponse {
-  /**
-   * <p>A list of requested function definitions.</p>
-   */
-  UserDefinedFunctions?: UserDefinedFunction[];
-
-  /**
-   * <p>A continuation token, if the list of functions returned does
-   *       not include the last requested function.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetWorkflowRequest {
-  /**
-   * <p>The name of the workflow to retrieve.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
-   */
-  IncludeGraph?: boolean;
-}
-
-/**
- * @public
- */
-export interface GetWorkflowResponse {
-  /**
-   * <p>The resource metadata for the workflow.</p>
-   */
-  Workflow?: Workflow;
-}
-
-/**
- * @public
- */
-export interface GetWorkflowRunRequest {
-  /**
-   * <p>Name of the workflow being run.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The ID of the workflow run.</p>
-   */
-  RunId: string | undefined;
-
-  /**
-   * <p>Specifies whether to include the workflow graph in response or not.</p>
-   */
-  IncludeGraph?: boolean;
-}
-
-/**
- * @public
- */
-export interface GetWorkflowRunResponse {
-  /**
-   * <p>The requested workflow run metadata.</p>
-   */
-  Run?: WorkflowRun;
 }

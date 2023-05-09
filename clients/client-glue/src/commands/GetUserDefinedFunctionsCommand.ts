@@ -14,7 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetUserDefinedFunctionsRequest, GetUserDefinedFunctionsResponse } from "../models/models_1";
+import { GetUserDefinedFunctionsRequest } from "../models/models_1";
+import { GetUserDefinedFunctionsResponse } from "../models/models_2";
 import { de_GetUserDefinedFunctionsCommand, se_GetUserDefinedFunctionsCommand } from "../protocols/Aws_json1_1";
 
 /**

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreatePartitionRequest, CreatePartitionResponse } from "../models/models_0";
+import { CreatePartitionRequest, CreatePartitionResponse } from "../models/models_1";
 import { de_CreatePartitionCommand, se_CreatePartitionCommand } from "../protocols/Aws_json1_1";
 
 /**
