@@ -849,10 +849,12 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             CurrentServerlessConfig: { // ProductionVariantServerlessConfig
  * //               MemorySizeInMB: Number("int"), // required
  * //               MaxConcurrency: Number("int"), // required
+ * //               ProvisionedConcurrency: Number("int"),
  * //             },
  * //             DesiredServerlessConfig: {
  * //               MemorySizeInMB: Number("int"), // required
  * //               MaxConcurrency: Number("int"), // required
+ * //               ProvisionedConcurrency: Number("int"),
  * //             },
  * //           },
  * //         ],
@@ -1015,10 +1017,12 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             CurrentServerlessConfig: {
  * //               MemorySizeInMB: Number("int"), // required
  * //               MaxConcurrency: Number("int"), // required
+ * //               ProvisionedConcurrency: Number("int"),
  * //             },
  * //             DesiredServerlessConfig: {
  * //               MemorySizeInMB: Number("int"), // required
  * //               MaxConcurrency: Number("int"), // required
+ * //               ProvisionedConcurrency: Number("int"),
  * //             },
  * //           },
  * //         ],

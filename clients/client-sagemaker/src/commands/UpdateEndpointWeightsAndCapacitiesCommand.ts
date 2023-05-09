@@ -55,6 +55,10 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  *       VariantName: "STRING_VALUE", // required
  *       DesiredWeight: Number("float"),
  *       DesiredInstanceCount: Number("int"),
+ *       ServerlessUpdateConfig: { // ProductionVariantServerlessUpdateConfig
+ *         MaxConcurrency: Number("int"),
+ *         ProvisionedConcurrency: Number("int"),
+ *       },
  *     },
  *   ],
  * };

@@ -1370,6 +1370,7 @@ import {
   MonitoringSchedule,
   PendingDeploymentSummary,
   PendingProductionVariantSummary,
+  ProductionVariantServerlessUpdateConfig,
   ProductionVariantStatus,
   ProductionVariantSummary,
   ProfilerRuleEvaluationStatus,
@@ -1603,13 +1604,13 @@ import {
   TrialComponentSourceDetail,
   TrialComponentSummary,
   TrialSummary,
-  UpdateActionRequest,
   UserProfileDetails,
 } from "../models/models_3";
 import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  UpdateActionRequest,
   UpdateAppImageConfigRequest,
   UpdateArtifactRequest,
   UpdateCodeRepositoryInput,
@@ -19866,6 +19867,7 @@ const se_DesiredWeightAndCapacity = (input: DesiredWeightAndCapacity, context: _
   return take(input, {
     DesiredInstanceCount: [],
     DesiredWeight: __serializeFloat,
+    ServerlessUpdateConfig: _json,
     VariantName: [],
   });
 };
@@ -21448,6 +21450,8 @@ const se_ProductionVariantList = (input: ProductionVariant[], context: __SerdeCo
 };
 
 // se_ProductionVariantServerlessConfig omitted.
+
+// se_ProductionVariantServerlessUpdateConfig omitted.
 
 // se_ProfilerConfig omitted.
 

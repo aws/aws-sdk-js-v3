@@ -13,8 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateActionRequest } from "../models/models_3";
-import { UpdateActionResponse } from "../models/models_4";
+import { UpdateActionRequest, UpdateActionResponse } from "../models/models_4";
 import { de_UpdateActionCommand, se_UpdateActionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

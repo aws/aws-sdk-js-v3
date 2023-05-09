@@ -2,7 +2,6 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
-  ActionStatus,
   ActionSummary,
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSortBy,
@@ -141,7 +140,6 @@ import {
   InferenceRecommendationsJob,
   InferenceRecommendationsJobStep,
   LabelCounters,
-  LabelCountersForWorkteam,
   LabelingJobOutput,
   LabelingJobStatus,
   MetricData,
@@ -176,6 +174,27 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>Provides counts for human-labeled tasks in the labeling job.</p>
+ */
+export interface LabelCountersForWorkteam {
+  /**
+   * <p>The total number of data objects labeled by a human worker.</p>
+   */
+  HumanLabeled?: number;
+
+  /**
+   * <p>The total number of data objects that need to be labeled by a human worker.</p>
+   */
+  PendingHuman?: number;
+
+  /**
+   * <p>The total number of tasks in the labeling job.</p>
+   */
+  Total?: number;
+}
 
 /**
  * @public
@@ -9667,36 +9686,6 @@ export interface StopTransformJobRequest {
    * <p>The name of the batch transform job to stop.</p>
    */
   TransformJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateActionRequest {
-  /**
-   * <p>The name of the action to update.</p>
-   */
-  ActionName: string | undefined;
-
-  /**
-   * <p>The new description for the action.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The new status for the action.</p>
-   */
-  Status?: ActionStatus | string;
-
-  /**
-   * <p>The new list of properties. Overwrites the current property list.</p>
-   */
-  Properties?: Record<string, string>;
-
-  /**
-   * <p>A list of properties to remove.</p>
-   */
-  PropertiesToRemove?: string[];
 }
 
 /**

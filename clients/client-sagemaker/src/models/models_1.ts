@@ -342,6 +342,12 @@ export interface ProductionVariantServerlessConfig {
    * <p>The maximum number of concurrent invocations your serverless endpoint can process.</p>
    */
   MaxConcurrency: number | undefined;
+
+  /**
+   * <p>The amount of provisioned concurrency to allocate for the serverless endpoint.
+   *    Should be less than or equal to <code>MaxConcurrency</code>.</p>
+   */
+  ProvisionedConcurrency?: number;
 }
 
 /**

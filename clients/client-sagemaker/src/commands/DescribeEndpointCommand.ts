@@ -72,10 +72,12 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //       CurrentServerlessConfig: { // ProductionVariantServerlessConfig
  * //         MemorySizeInMB: Number("int"), // required
  * //         MaxConcurrency: Number("int"), // required
+ * //         ProvisionedConcurrency: Number("int"),
  * //       },
  * //       DesiredServerlessConfig: {
  * //         MemorySizeInMB: Number("int"), // required
  * //         MaxConcurrency: Number("int"), // required
+ * //         ProvisionedConcurrency: Number("int"),
  * //       },
  * //     },
  * //   ],
@@ -160,10 +162,12 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //         CurrentServerlessConfig: {
  * //           MemorySizeInMB: Number("int"), // required
  * //           MaxConcurrency: Number("int"), // required
+ * //           ProvisionedConcurrency: Number("int"),
  * //         },
  * //         DesiredServerlessConfig: {
  * //           MemorySizeInMB: Number("int"), // required
  * //           MaxConcurrency: Number("int"), // required
+ * //           ProvisionedConcurrency: Number("int"),
  * //         },
  * //       },
  * //     ],
@@ -194,6 +198,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //         CurrentServerlessConfig: {
  * //           MemorySizeInMB: Number("int"), // required
  * //           MaxConcurrency: Number("int"), // required
+ * //           ProvisionedConcurrency: Number("int"),
  * //         },
  * //         DesiredServerlessConfig: "<ProductionVariantServerlessConfig>",
  * //       },

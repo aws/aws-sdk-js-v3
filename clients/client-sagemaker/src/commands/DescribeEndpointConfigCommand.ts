@@ -63,6 +63,7 @@ export interface DescribeEndpointConfigCommandOutput extends DescribeEndpointCon
  * //       ServerlessConfig: { // ProductionVariantServerlessConfig
  * //         MemorySizeInMB: Number("int"), // required
  * //         MaxConcurrency: Number("int"), // required
+ * //         ProvisionedConcurrency: Number("int"),
  * //       },
  * //       VolumeSizeInGB: Number("int"),
  * //       ModelDataDownloadTimeoutInSeconds: Number("int"),
@@ -161,6 +162,7 @@ export interface DescribeEndpointConfigCommandOutput extends DescribeEndpointCon
  * //       ServerlessConfig: {
  * //         MemorySizeInMB: Number("int"), // required
  * //         MaxConcurrency: Number("int"), // required
+ * //         ProvisionedConcurrency: Number("int"),
  * //       },
  * //       VolumeSizeInGB: Number("int"),
  * //       ModelDataDownloadTimeoutInSeconds: Number("int"),

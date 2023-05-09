@@ -8116,6 +8116,23 @@ export interface DescribeWorkteamResponse {
 
 /**
  * @public
+ * <p>Specifies the serverless update concurrency configuration for an endpoint variant.</p>
+ */
+export interface ProductionVariantServerlessUpdateConfig {
+  /**
+   * <p>The updated maximum number of concurrent invocations your serverless endpoint can process.</p>
+   */
+  MaxConcurrency?: number;
+
+  /**
+   * <p>The updated amount of provisioned concurrency to allocate for the serverless endpoint.
+   *    Should be less than or equal to <code>MaxConcurrency</code>.</p>
+   */
+  ProvisionedConcurrency?: number;
+}
+
+/**
+ * @public
  * <p>Specifies weight and capacity values for a production variant.</p>
  */
 export interface DesiredWeightAndCapacity {
@@ -8133,6 +8150,11 @@ export interface DesiredWeightAndCapacity {
    * <p>The variant's capacity.</p>
    */
   DesiredInstanceCount?: number;
+
+  /**
+   * <p>Specifies the serverless update concurrency configuration for an endpoint variant.</p>
+   */
+  ServerlessUpdateConfig?: ProductionVariantServerlessUpdateConfig;
 }
 
 /**
@@ -8475,7 +8497,7 @@ export interface RStudioServerProDomainSettingsForUpdate {
 export interface DomainSettingsForUpdate {
   /**
    * <p>A collection of <code>RStudioServerPro</code> Domain-level app settings to
-   *             update.</p>
+   *             update. A single <code>RStudioServerPro</code> application is created for a domain.</p>
    */
   RStudioServerProDomainSettingsForUpdate?: RStudioServerProDomainSettingsForUpdate;
 
@@ -10575,27 +10597,6 @@ export interface InferenceRecommendationsJobStep {
    * <p>The details for a specific benchmark.</p>
    */
   InferenceBenchmark?: RecommendationJobInferenceBenchmark;
-}
-
-/**
- * @public
- * <p>Provides counts for human-labeled tasks in the labeling job.</p>
- */
-export interface LabelCountersForWorkteam {
-  /**
-   * <p>The total number of data objects labeled by a human worker.</p>
-   */
-  HumanLabeled?: number;
-
-  /**
-   * <p>The total number of data objects that need to be labeled by a human worker.</p>
-   */
-  PendingHuman?: number;
-
-  /**
-   * <p>The total number of tasks in the labeling job.</p>
-   */
-  Total?: number;
 }
 
 /**

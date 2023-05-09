@@ -2,6 +2,7 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
+  ActionStatus,
   AdditionalInferenceSpecificationDefinition,
   AppSecurityGroupManagement,
   BooleanOperator,
@@ -56,6 +57,36 @@ import {
   Workteam,
 } from "./models_2";
 import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, SearchSortOrder } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateActionRequest {
+  /**
+   * <p>The name of the action to update.</p>
+   */
+  ActionName: string | undefined;
+
+  /**
+   * <p>The new description for the action.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The new status for the action.</p>
+   */
+  Status?: ActionStatus | string;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   */
+  Properties?: Record<string, string>;
+
+  /**
+   * <p>A list of properties to remove.</p>
+   */
+  PropertiesToRemove?: string[];
+}
 
 /**
  * @public
@@ -272,7 +303,7 @@ export interface UpdateDomainRequest {
    *             communication in <code>VPCOnly</code> mode. Required when
    *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
    *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
-   *             provided.</p>
+   *             provided. If setting up the domain for use with RStudio, this value must be set to <code>Service</code>.</p>
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
 }

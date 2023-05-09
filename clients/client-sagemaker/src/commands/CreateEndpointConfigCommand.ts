@@ -84,6 +84,7 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *       ServerlessConfig: { // ProductionVariantServerlessConfig
  *         MemorySizeInMB: Number("int"), // required
  *         MaxConcurrency: Number("int"), // required
+ *         ProvisionedConcurrency: Number("int"),
  *       },
  *       VolumeSizeInGB: Number("int"),
  *       ModelDataDownloadTimeoutInSeconds: Number("int"),
@@ -187,6 +188,7 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *       ServerlessConfig: {
  *         MemorySizeInMB: Number("int"), // required
  *         MaxConcurrency: Number("int"), // required
+ *         ProvisionedConcurrency: Number("int"),
  *       },
  *       VolumeSizeInGB: Number("int"),
  *       ModelDataDownloadTimeoutInSeconds: Number("int"),
