@@ -10,9 +10,13 @@ import java.util.regex.Pattern;
 /**
  * For handling expressions that may be unary function calls.
  */
-class UnaryFunctionCall {
+public final class UnaryFunctionCall {
     private static final Pattern CHECK_PATTERN = Pattern.compile("^(?!new ).+\\(((?!,).)*\\)$");
     private static final Pattern TO_REF_PATTERN = Pattern.compile("(.*)\\(.*\\)$");
+
+    private UnaryFunctionCall() {
+        // Private
+    }
 
     /**
      * @param expression - to be examined.
