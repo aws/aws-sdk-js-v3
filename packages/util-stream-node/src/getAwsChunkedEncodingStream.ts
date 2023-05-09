@@ -19,7 +19,10 @@ export const getAwsChunkedEncodingStream: GetAwsChunkedEncodingStream<Readable> 
 
   const awsChunkedEncodingStream = new Readable({ read: () => {} });
   readableStream.on("data", (data) => {
-    awsChunkedEncodingStream.push(`${(bodyLengthChecker(data) || 0).toString(16)}\r\n${data.toString()}\r\n`);
+    const length = bodyLengthChecker(data) || 0;
+    awsChunkedEncodingStream.push(`${length.toString(16)}\r\n`);
+    awsChunkedEncodingStream.push(data);
+    awsChunkedEncodingStream.push("\r\n");
   });
   readableStream.on("end", async () => {
     awsChunkedEncodingStream.push(`0\r\n`);

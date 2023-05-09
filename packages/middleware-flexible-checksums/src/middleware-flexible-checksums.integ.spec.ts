@@ -1,4 +1,6 @@
 import { S3 } from "@aws-sdk/client-s3";
+import fs from "fs";
+import path from "path";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
@@ -76,6 +78,36 @@ describe("middleware-flexible-checksums", () => {
         Key: "k",
         Body: Buffer.from("abcd"),
         ChecksumAlgorithm: "SHA1",
+      });
+
+      expect.hasAssertions();
+    });
+
+    it("should not set binary file content length", async () => {
+      const client = new S3({ region: "us-west-2" });
+
+      requireRequestsFrom(client).toMatch({
+        method: "PUT",
+        hostname: "s3.us-west-2.amazonaws.com",
+        protocol: "https:",
+        path: "/b/k",
+        headers: {
+          "content-type": "application/octet-stream",
+          "x-amz-content-sha256": "STREAMING-UNSIGNED-PAYLOAD-TRAILER",
+          "content-length": /undefined/,
+        },
+        query: {
+          "x-id": "PutObject",
+        },
+      });
+
+      const stream = fs.createReadStream(path.join(__dirname, "..", "test", "green.jpeg"));
+
+      await client.putObject({
+        Bucket: "b",
+        Key: "k",
+        Body: stream,
+        ChecksumAlgorithm: "SHA256",
       });
 
       expect.hasAssertions();
