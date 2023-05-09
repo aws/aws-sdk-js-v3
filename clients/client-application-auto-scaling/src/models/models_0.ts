@@ -82,6 +82,7 @@ export const ScalableDimension = {
   NeptuneClusterReadReplicaCount: "neptune:cluster:ReadReplicaCount",
   RDSClusterReadReplicaCount: "rds:cluster:ReadReplicaCount",
   SageMakerVariantDesiredInstanceCount: "sagemaker:variant:DesiredInstanceCount",
+  SageMakerVariantDesiredProvisionedConcurrency: "sagemaker:variant:DesiredProvisionedConcurrency",
 } as const;
 
 /**
@@ -196,6 +197,10 @@ export interface DeleteScalingPolicyRequest {
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -282,6 +287,10 @@ export interface DeleteScalingPolicyRequest {
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
    *          </ul>
    */
@@ -445,6 +454,10 @@ export interface DeleteScheduledActionRequest {
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -532,6 +545,10 @@ export interface DeleteScheduledActionRequest {
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
+   *             </li>
    *          </ul>
    */
   ScalableDimension: ScalableDimension | string | undefined;
@@ -617,6 +634,10 @@ export interface DeregisterScalableTargetRequest {
    *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -706,6 +727,10 @@ export interface DeregisterScalableTargetRequest {
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
+   *             </li>
    *          </ul>
    */
   ScalableDimension: ScalableDimension | string | undefined;
@@ -791,6 +816,10 @@ export interface DescribeScalableTargetsRequest {
    *             </li>
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -879,6 +908,10 @@ export interface DescribeScalableTargetsRequest {
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
    *          </ul>
    */
@@ -1006,6 +1039,10 @@ export interface ScalableTarget {
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -1093,6 +1130,10 @@ export interface ScalableTarget {
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
    *          </ul>
    */
@@ -1245,6 +1286,10 @@ export interface DescribeScalingActivitiesRequest {
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
    *          </ul>
    */
   ResourceId?: string;
@@ -1332,6 +1377,10 @@ export interface DescribeScalingActivitiesRequest {
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
    *          </ul>
    */
@@ -1508,6 +1557,10 @@ export interface ScalingActivity {
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -1594,6 +1647,10 @@ export interface ScalingActivity {
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
    *          </ul>
    */
@@ -1738,6 +1795,10 @@ export interface DescribeScalingPoliciesRequest {
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
    *          </ul>
    */
   ResourceId?: string;
@@ -1825,6 +1886,10 @@ export interface DescribeScalingPoliciesRequest {
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
    *          </ul>
    */
@@ -2011,6 +2076,9 @@ export interface StepScalingPolicyConfiguration {
    *             </li>
    *             <li>
    *                <p> Neptune clusters</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint provisioned concurrency</p>
    *             </li>
    *             <li>
    *                <p>SageMaker endpoint variants</p>
@@ -2304,6 +2372,7 @@ export const MetricType = {
   RDSReaderAverageCPUUtilization: "RDSReaderAverageCPUUtilization",
   RDSReaderAverageDatabaseConnections: "RDSReaderAverageDatabaseConnections",
   SageMakerVariantInvocationsPerInstance: "SageMakerVariantInvocationsPerInstance",
+  SageMakerVariantProvisionedConcurrencyUtilization: "SageMakerVariantProvisionedConcurrencyUtilization",
 } as const;
 
 /**
@@ -2413,6 +2482,9 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *                <p> Neptune clusters</p>
    *             </li>
    *             <li>
+   *                <p>SageMaker Serverless endpoint provisioned concurrency</p>
+   *             </li>
+   *             <li>
    *                <p>SageMaker endpoint variants</p>
    *             </li>
    *             <li>
@@ -2468,6 +2540,9 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *             </li>
    *             <li>
    *                <p> Neptune clusters</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint provisioned concurrency</p>
    *             </li>
    *             <li>
    *                <p>SageMaker endpoint variants</p>
@@ -2601,6 +2676,10 @@ export interface ScalingPolicy {
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -2687,6 +2766,10 @@ export interface ScalingPolicy {
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
    *          </ul>
    */
@@ -2846,6 +2929,10 @@ export interface DescribeScheduledActionsRequest {
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
    *          </ul>
    */
   ResourceId?: string;
@@ -2933,6 +3020,10 @@ export interface DescribeScheduledActionsRequest {
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
    *          </ul>
    */
@@ -3099,6 +3190,10 @@ export interface ScheduledAction {
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -3185,6 +3280,10 @@ export interface ScheduledAction {
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
    *          </ul>
    */
@@ -3386,6 +3485,10 @@ export interface PutScalingPolicyRequest {
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -3472,6 +3575,10 @@ export interface PutScalingPolicyRequest {
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
    *          </ul>
    */
@@ -3638,6 +3745,10 @@ export interface PutScheduledActionRequest {
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -3724,6 +3835,10 @@ export interface PutScheduledActionRequest {
    *             <li>
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
    *          </ul>
    */
@@ -3829,6 +3944,10 @@ export interface RegisterScalableTargetRequest {
    *             <li>
    *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -3917,6 +4036,10 @@ export interface RegisterScalableTargetRequest {
    *                <p>
    *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
+   *             </li>
    *          </ul>
    */
   ScalableDimension: ScalableDimension | string | undefined;
@@ -3941,6 +4064,9 @@ export interface RegisterScalableTargetRequest {
    *             </li>
    *             <li>
    *                <p>Lambda provisioned concurrency</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker Serverless endpoint provisioned concurrency</p>
    *             </li>
    *             <li>
    *                <p>SageMaker endpoint variants</p>
@@ -4047,7 +4173,7 @@ export interface TagResourceRequest {
   ResourceARN: string | undefined;
 
   /**
-   * <p>The tags assigned to the resource. A tag is a label that you assign to an AWS
+   * <p>The tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services
    *          resource.</p>
    *          <p>Each tag consists of a tag key and a tag value.</p>
    *          <p>You cannot have more than one tag on an Application Auto Scaling scalable target with the same tag key.
