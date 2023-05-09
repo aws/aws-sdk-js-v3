@@ -47,21 +47,19 @@ describe(getAwsChunkedEncodingStream.name, () => {
 
   describe("skips checksum computation", () => {
     const validateStreamWithoutChecksum = (awsChunkedEncodingStream: Readable, done: Function) => {
-      let dataEventCount = 0;
+      let buffer = "";
       awsChunkedEncodingStream.on("data", (data) => {
-        if (dataEventCount === mockStreamChunks.length) {
-          expect(data.toString()).toStrictEqual(`0\r\n`);
-        } else {
-          expect(data.toString()).toStrictEqual(
-            `${mockBodyLength}\r\n${mockStreamChunks[dataEventCount].toString()}\r\n`
-          );
-        }
-        dataEventCount++;
+        buffer += data.toString();
       });
       awsChunkedEncodingStream.on("end", () => {
         expect(mockStreamHasher).not.toHaveBeenCalled();
         expect(mockBase64Encoder).not.toHaveBeenCalled();
-        expect(dataEventCount).toStrictEqual(mockStreamChunks.length + 1);
+        expect(buffer).toEqual(`5\r
+Hello\r
+5\r
+World\r
+0\r
+`);
         done();
       });
     };
@@ -90,33 +88,21 @@ describe(getAwsChunkedEncodingStream.name, () => {
     const readableStream = getMockReadableStream();
     const awsChunkedEncodingStream = getAwsChunkedEncodingStream(readableStream, mockOptions);
 
-    let dataEventCount = 0;
+    let buffer = "";
     awsChunkedEncodingStream.on("data", (data) => {
-      if (dataEventCount >= mockStreamChunks.length) {
-        switch (dataEventCount) {
-          case mockStreamChunks.length:
-            expect(data.toString()).toStrictEqual(`0\r\n`);
-            break;
-          case mockStreamChunks.length + 1:
-            expect(data.toString()).toStrictEqual(`${mockChecksumLocationName}:${mockChecksum}\r\n`);
-            break;
-          case mockStreamChunks.length + 2:
-            expect(data.toString()).toStrictEqual(`\r\n`);
-            break;
-          default:
-            throw Error("Code shouldn't reach here");
-        }
-      } else {
-        expect(data.toString()).toStrictEqual(
-          `${mockBodyLength}\r\n${mockStreamChunks[dataEventCount].toString()}\r\n`
-        );
-      }
-      dataEventCount++;
+      buffer += data.toString();
     });
     awsChunkedEncodingStream.on("end", () => {
       expect(mockStreamHasher).toHaveBeenCalledWith(mockChecksumAlgorithmFn, readableStream);
       expect(mockBase64Encoder).toHaveBeenCalledWith(mockRawChecksum);
-      expect(dataEventCount).toStrictEqual(mockStreamChunks.length + 3);
+      expect(buffer).toStrictEqual(`5\r
+Hello\r
+5\r
+World\r
+0\r
+mockChecksumLocationName:mockChecksum\r
+\r
+`);
       done();
     });
   });

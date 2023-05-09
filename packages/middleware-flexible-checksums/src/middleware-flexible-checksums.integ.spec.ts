@@ -1,6 +1,5 @@
 import { S3 } from "@aws-sdk/client-s3";
-import fs from "fs";
-import path from "path";
+import { Transform } from "stream";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
@@ -101,7 +100,12 @@ describe("middleware-flexible-checksums", () => {
         },
       });
 
-      const stream = fs.createReadStream(path.join(__dirname, "..", "test", "green.jpeg"));
+      const stream = new Transform({
+        transform(chunk) {
+          return chunk;
+        },
+      });
+      stream.write("hello");
 
       await client.putObject({
         Bucket: "b",
