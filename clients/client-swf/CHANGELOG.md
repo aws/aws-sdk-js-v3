@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.331.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.330.0...v3.331.0) (2023-05-10)
+
+
+### Features
+
+* **client-swf:** This release adds a new API parameter to exclude old history events from decision tasks. ([235f75d](https://github.com/aws/aws-sdk-js-v3/commit/235f75d769183ffe4ac1970ef80fe8d1559f8637))
+
+
+
+
+
 # [3.329.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.328.0...v3.329.0) (2023-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-swf

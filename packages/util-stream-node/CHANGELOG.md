@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.331.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.330.0...v3.331.0) (2023-05-10)
+
+
+### Bug Fixes
+
+* **util-stream:** do not convert stream data to string in AwsChunkedEncodingStream ([#4711](https://github.com/aws/aws-sdk-js-v3/issues/4711)) ([5a9149b](https://github.com/aws/aws-sdk-js-v3/commit/5a9149b3e74f41ac3b0470e16a151fce3513014d))
+
+
+
+
+
 # [3.329.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.328.0...v3.329.0) (2023-05-08)
 
 **Note:** Version bump only for package @aws-sdk/util-stream-node

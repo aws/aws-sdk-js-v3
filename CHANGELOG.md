@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.331.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.330.0...v3.331.0) (2023-05-10)
+
+
+### Bug Fixes
+
+* **ci:** buildSdk on ci ([#4692](https://github.com/aws/aws-sdk-js-v3/issues/4692)) ([b43ee0d](https://github.com/aws/aws-sdk-js-v3/commit/b43ee0da79383ad54b5aaed014e87dc41c682491))
+* **codegen:** fix UnaryFunctionCall access ([#4714](https://github.com/aws/aws-sdk-js-v3/issues/4714)) ([b53861f](https://github.com/aws/aws-sdk-js-v3/commit/b53861f16d6a5708d654cfe00fd9c3f6119b4f7f))
+* **util-stream:** do not convert stream data to string in AwsChunkedEncodingStream ([#4711](https://github.com/aws/aws-sdk-js-v3/issues/4711)) ([5a9149b](https://github.com/aws/aws-sdk-js-v3/commit/5a9149b3e74f41ac3b0470e16a151fce3513014d))
+
+
+### Features
+
+* **client-emr:** EMR Studio now supports programmatically executing a Notebooks on an EMR on EKS cluster.  In addition, notebooks can now be executed by specifying its location in S3. ([6be4ce4](https://github.com/aws/aws-sdk-js-v3/commit/6be4ce45176adea49c6aa4ceada11545fe764575))
+* **client-rds:** Amazon Relational Database Service (RDS) updates for the new Aurora I/O-Optimized storage type for Amazon Aurora DB clusters ([e5a4ebc](https://github.com/aws/aws-sdk-js-v3/commit/e5a4ebc188af2aa7a7d3043e594aaf519574aa1f))
+* **client-swf:** This release adds a new API parameter to exclude old history events from decision tasks. ([235f75d](https://github.com/aws/aws-sdk-js-v3/commit/235f75d769183ffe4ac1970ef80fe8d1559f8637))
+* **composite-build:** add gradle composite build ([#4710](https://github.com/aws/aws-sdk-js-v3/issues/4710)) ([e2ce8b4](https://github.com/aws/aws-sdk-js-v3/commit/e2ce8b439dc1d594f679c67e0ba2ae4010a6315d))
+
+
+
+
+
 # [3.330.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.329.0...v3.330.0) (2023-05-09)
 
 
