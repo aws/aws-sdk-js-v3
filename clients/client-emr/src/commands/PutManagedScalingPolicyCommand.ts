@@ -33,9 +33,9 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
 /**
  * @public
  * <p>Creates or updates a managed scaling policy for an Amazon EMR cluster. The
- *          managed scaling policy defines the limits for resources, such as EC2 instances that can be
- *          added or terminated from a cluster. The policy only applies to the core and task nodes. The
- *          master node cannot be scaled after initial configuration. </p>
+ *          managed scaling policy defines the limits for resources, such as Amazon EC2
+ *          instances that can be added or terminated from a cluster. The policy only applies to the
+ *          core and task nodes. The master node cannot be scaled after initial configuration. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

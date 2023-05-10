@@ -278,9 +278,11 @@ import {
   ModifyInstanceGroupsInput,
   NotebookExecution,
   NotebookExecutionSummary,
+  NotebookS3LocationFromInput,
   OnDemandCapacityReservationOptions,
   OnDemandProvisioningSpecification,
   OnDemandResizingSpecification,
+  OutputNotebookS3LocationFromInput,
   PlacementGroupConfig,
   PlacementType,
   PortRange,
@@ -3679,6 +3681,8 @@ const se_DescribeJobFlowsInput = (input: DescribeJobFlowsInput, context: __Serde
 
 // se_EC2InstanceIdsToTerminateList omitted.
 
+// se_EnvironmentVariablesMap omitted.
+
 // se_ExecutionEngineConfig omitted.
 
 // se_GetAutoTerminationPolicyInput omitted.
@@ -3870,6 +3874,7 @@ const se_ListClustersInput = (input: ListClustersInput, context: __SerdeContext)
 const se_ListNotebookExecutionsInput = (input: ListNotebookExecutionsInput, context: __SerdeContext): any => {
   return take(input, {
     EditorId: [],
+    ExecutionEngineId: [],
     From: (_) => Math.round(_.getTime() / 1000),
     Marker: [],
     Status: [],
@@ -3909,11 +3914,15 @@ const se_ModifyInstanceGroupsInput = (input: ModifyInstanceGroupsInput, context:
 
 // se_NewSupportedProductsList omitted.
 
+// se_NotebookS3LocationFromInput omitted.
+
 // se_OnDemandCapacityReservationOptions omitted.
 
 // se_OnDemandProvisioningSpecification omitted.
 
 // se_OnDemandResizingSpecification omitted.
+
+// se_OutputNotebookS3LocationFromInput omitted.
 
 // se_PlacementGroupConfig omitted.
 
@@ -4383,6 +4392,8 @@ const de_DescribeStudioOutput = (output: any, context: __SerdeContext): Describe
 // de_Ec2InstanceAttributes omitted.
 
 // de_EC2InstanceIdsList omitted.
+
+// de_EnvironmentVariablesMap omitted.
 
 // de_ErrorData omitted.
 
@@ -4876,12 +4887,16 @@ const de_NotebookExecution = (output: any, context: __SerdeContext): NotebookExe
     Arn: __expectString,
     EditorId: __expectString,
     EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EnvironmentVariables: _json,
     ExecutionEngine: _json,
     LastStateChangeReason: __expectString,
     NotebookExecutionId: __expectString,
     NotebookExecutionName: __expectString,
     NotebookInstanceSecurityGroupId: __expectString,
     NotebookParams: __expectString,
+    NotebookS3Location: _json,
+    OutputNotebookFormat: __expectString,
+    OutputNotebookS3Location: _json,
     OutputNotebookURI: __expectString,
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
@@ -4896,8 +4911,10 @@ const de_NotebookExecutionSummary = (output: any, context: __SerdeContext): Note
   return take(output, {
     EditorId: __expectString,
     EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExecutionEngineId: __expectString,
     NotebookExecutionId: __expectString,
     NotebookExecutionName: __expectString,
+    NotebookS3Location: _json,
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
   }) as any;
@@ -4915,6 +4932,8 @@ const de_NotebookExecutionSummaryList = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
+// de_NotebookS3LocationForOutput omitted.
+
 // de_OnDemandCapacityReservationOptions omitted.
 
 // de_OnDemandProvisioningSpecification omitted.
@@ -4924,6 +4943,8 @@ const de_NotebookExecutionSummaryList = (output: any, context: __SerdeContext): 
 // de_OSRelease omitted.
 
 // de_OSReleaseList omitted.
+
+// de_OutputNotebookS3LocationForOutput omitted.
 
 // de_PlacementGroupConfig omitted.
 

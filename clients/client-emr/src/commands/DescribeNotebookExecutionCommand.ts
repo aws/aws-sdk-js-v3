@@ -52,6 +52,7 @@ export interface DescribeNotebookExecutionCommandOutput extends DescribeNotebook
  * //       Id: "STRING_VALUE", // required
  * //       Type: "EMR",
  * //       MasterInstanceSecurityGroupId: "STRING_VALUE",
+ * //       ExecutionRoleArn: "STRING_VALUE",
  * //     },
  * //     NotebookExecutionName: "STRING_VALUE",
  * //     NotebookParams: "STRING_VALUE",
@@ -68,6 +69,18 @@ export interface DescribeNotebookExecutionCommandOutput extends DescribeNotebook
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     NotebookS3Location: { // NotebookS3LocationForOutput
+ * //       Bucket: "STRING_VALUE",
+ * //       Key: "STRING_VALUE",
+ * //     },
+ * //     OutputNotebookS3Location: { // OutputNotebookS3LocationForOutput
+ * //       Bucket: "STRING_VALUE",
+ * //       Key: "STRING_VALUE",
+ * //     },
+ * //     OutputNotebookFormat: "HTML",
+ * //     EnvironmentVariables: { // EnvironmentVariablesMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

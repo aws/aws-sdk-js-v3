@@ -50,7 +50,7 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *          Hadoop.</p>
  *          <p>For long-running clusters, we recommend that you periodically store your results.</p>
  *          <note>
- *             <p>The instance fleets configuration is available only in Amazon EMR versions
+ *             <p>The instance fleets configuration is available only in Amazon EMR releases
  *             4.8.0 and later, excluding 5.0.x versions. The RunJobFlow request can contain
  *             InstanceFleets parameters or InstanceGroups parameters, but not both.</p>
  *          </note>

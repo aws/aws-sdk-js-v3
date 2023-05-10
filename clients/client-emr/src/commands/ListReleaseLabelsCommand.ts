@@ -32,7 +32,8 @@ export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput,
 
 /**
  * @public
- * <p>Retrieves release labels of EMR services in the region where the API is called.</p>
+ * <p>Retrieves release labels of Amazon EMR services in the Region where the API is
+ *          called.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

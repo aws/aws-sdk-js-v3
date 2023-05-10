@@ -32,9 +32,9 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
 
 /**
  * @public
- * <p>Provides EMR release label details, such as releases available the region where the API
- *          request is run, and the available applications for a specific EMR release label. Can also
- *          list EMR release versions that support a specified version of Spark.</p>
+ * <p>Provides Amazon EMR release label details, such as the releases available the
+ *          Region where the API request is run, and the available applications for a specific Amazon EMR release label. Can also list Amazon EMR releases that support a
+ *          specified version of Spark.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

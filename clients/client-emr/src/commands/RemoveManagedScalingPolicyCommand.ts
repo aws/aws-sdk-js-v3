@@ -32,7 +32,7 @@ export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedSc
 
 /**
  * @public
- * <p> Removes a managed scaling policy from a specified EMR cluster. </p>
+ * <p> Removes a managed scaling policy from a specified Amazon EMR cluster. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

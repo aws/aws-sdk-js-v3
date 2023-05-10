@@ -32,9 +32,10 @@ export interface ListInstancesCommandOutput extends ListInstancesOutput, __Metad
 
 /**
  * @public
- * <p>Provides information for all active EC2 instances and EC2 instances terminated in the
- *          last 30 days, up to a maximum of 2,000. EC2 instances in any of the following states are
- *          considered active: AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.</p>
+ * <p>Provides information for all active Amazon EC2 instances and Amazon EC2
+ *          instances terminated in the last 30 days, up to a maximum of 2,000. Amazon EC2
+ *          instances in any of the following states are considered active: AWAITING_FULFILLMENT,
+ *          PROVISIONING, BOOTSTRAPPING, RUNNING.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

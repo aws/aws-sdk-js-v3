@@ -35,7 +35,7 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  * <p>Provides summaries of all notebook executions. You can filter the list based on multiple
  *          criteria such as status, time range, and editor id. Returns a maximum of 50 notebook
  *          executions and a marker to track the paging of a longer notebook execution list across
- *          multiple <code>ListNotebookExecution</code> calls.</p>
+ *          multiple <code>ListNotebookExecutions</code> calls.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +48,7 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  *   From: new Date("TIMESTAMP"),
  *   To: new Date("TIMESTAMP"),
  *   Marker: "STRING_VALUE",
+ *   ExecutionEngineId: "STRING_VALUE",
  * };
  * const command = new ListNotebookExecutionsCommand(input);
  * const response = await client.send(command);
@@ -60,6 +61,11 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  * //       Status: "START_PENDING" || "STARTING" || "RUNNING" || "FINISHING" || "FINISHED" || "FAILING" || "FAILED" || "STOP_PENDING" || "STOPPING" || "STOPPED",
  * //       StartTime: new Date("TIMESTAMP"),
  * //       EndTime: new Date("TIMESTAMP"),
+ * //       NotebookS3Location: { // NotebookS3LocationForOutput
+ * //         Bucket: "STRING_VALUE",
+ * //         Key: "STRING_VALUE",
+ * //       },
+ * //       ExecutionEngineId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

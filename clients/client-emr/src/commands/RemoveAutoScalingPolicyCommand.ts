@@ -32,8 +32,7 @@ export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingP
 
 /**
  * @public
- * <p>Removes an automatic scaling policy from a specified instance group within an EMR
- *          cluster.</p>
+ * <p>Removes an automatic scaling policy from a specified instance group within an Amazon EMR cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
