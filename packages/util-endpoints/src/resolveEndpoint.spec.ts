@@ -111,4 +111,41 @@ describe(resolveEndpoint.name, () => {
       referenceRecord: {},
     });
   });
+
+  it("should debug proper infos", () => {
+    const { paramWithDefaultKey: ignored, ...endpointParamsWithoutDefault } = mockEndpointParams;
+    const mockLogger = {
+      debug: jest.fn(),
+      info: jest.fn(),
+      warn: jest.fn(),
+      error: jest.fn(),
+    };
+
+    const resolvedEndpoint = resolveEndpoint(mockRuleSetObject, {
+      endpointParams: endpointParamsWithoutDefault,
+      logger: mockLogger,
+    });
+    expect(resolvedEndpoint).toEqual(mockResolvedEndpoint);
+
+    expect(evaluateRules).toHaveBeenCalledWith(mockRules, {
+      endpointParams: {
+        ...mockEndpointParams,
+        [paramWithDefaultKey]: mockRuleSetParameters[paramWithDefaultKey].default,
+      },
+      logger: mockLogger,
+      referenceRecord: {},
+    });
+
+    expect(mockLogger.debug).nthCalledWith(
+      1,
+      "endpoints " +
+        "Initial EndpointParams: " +
+        "{\n" +
+        '  "boolParamKey": true,\n' +
+        '  "stringParamKey": "stringParamValue",\n' +
+        '  "requiredParamKey": "requiredParamValue"\n' +
+        "}"
+    );
+    expect(mockLogger.debug).nthCalledWith(2, `endpoints Resolved endpoint: {\n  "url": "http://example.com/"\n}`);
+  });
 });
