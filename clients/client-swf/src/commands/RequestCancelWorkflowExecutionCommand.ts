@@ -39,13 +39,11 @@ export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataB
  *       workflow execution identified by the given domain, workflowId, and runId. This logically
  *       requests the cancellation of the workflow execution as a whole. It is up to the decider to
  *       take appropriate actions when it receives an execution history with this event.</p>
- *
  *          <note>
  *             <p>If the runId isn't specified, the <code>WorkflowExecutionCancelRequested</code> event
  *         is recorded in the history of the current open workflow execution with the specified
  *         workflowId in the domain.</p>
  *          </note>
- *
  *          <note>
  *             <p>Because this action allows the workflow to properly clean up and gracefully close, it
  *         should be used instead of <a>TerminateWorkflowExecution</a> when

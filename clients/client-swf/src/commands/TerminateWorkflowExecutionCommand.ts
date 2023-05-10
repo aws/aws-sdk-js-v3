@@ -36,23 +36,19 @@ export interface TerminateWorkflowExecutionCommandOutput extends __MetadataBeare
  *       workflow execution identified by the given domain, runId, and workflowId. The child policy,
  *       registered with the workflow type or specified when starting this execution, is applied to any
  *       open child workflow executions of this workflow execution.</p>
- *
  *          <important>
  *             <p>If the identified workflow execution was in progress, it is terminated
  *         immediately.</p>
  *          </important>
- *
  *          <note>
  *             <p>If a runId isn't specified, then the <code>WorkflowExecutionTerminated</code> event
  *         is recorded in the history of the current open workflow with the matching workflowId in the
  *         domain.</p>
  *          </note>
- *
  *          <note>
  *             <p>You should consider using <a>RequestCancelWorkflowExecution</a> action
  *         instead because it allows the workflow to gracefully close while <a>TerminateWorkflowExecution</a> doesn't.</p>
  *          </note>
- *
  *          <p>
  *             <b>Access Control</b>
  *          </p>

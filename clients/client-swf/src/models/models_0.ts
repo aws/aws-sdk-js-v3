@@ -1006,17 +1006,17 @@ export interface CompleteWorkflowExecutionFailedEventAttributes {
  *             <li>
  *                <p>Constrain the following parameters by using a <code>Condition</code> element with the
  *               appropriate keys.</p>
- *               <ul>
+ *                <ul>
  *                   <li>
- *                       <p>
+ *                      <p>
  *                         <code>tag</code> – A tag used to identify the workflow execution</p>
  *                   </li>
  *                   <li>
- *                       <p>
+ *                      <p>
  *                         <code>taskList</code> – String constraint. The key is <code>swf:taskList.name</code>.</p>
  *                   </li>
  *                   <li>
- *                       <p>
+ *                      <p>
  *                         <code>workflowType.version</code> – String constraint. The key is <code>swf:workflowType.version</code>.</p>
  *                   </li>
  *                </ul>
@@ -1645,19 +1645,19 @@ export interface RequestCancelExternalWorkflowExecutionDecisionAttributes {
  *                <p>Use an <code>Action</code> element to allow or deny permission to call this action.</p>
  *             </li>
  *             <li>
- *               <p>Constrain the following parameters by using a <code>Condition</code> element with the
+ *                <p>Constrain the following parameters by using a <code>Condition</code> element with the
  *   appropriate keys.</p>
- *               <ul>
+ *                <ul>
  *                   <li>
  *                      <p>
  *                         <code>activityType.name</code> – String constraint. The key is <code>swf:activityType.name</code>.</p>
  *                   </li>
  *                   <li>
- *                       <p>
+ *                      <p>
  *                         <code>activityType.version</code> – String constraint. The key is <code>swf:activityType.version</code>.</p>
  *                   </li>
  *                   <li>
- *                       <p>
+ *                      <p>
  *                         <code>taskList</code> – String constraint. The key is <code>swf:taskList.name</code>.</p>
  *                   </li>
  *                </ul>
@@ -1679,8 +1679,10 @@ export interface ScheduleActivityTaskDecisionAttributes {
   /**
    * <p>
    *          The <code>activityId</code> of the activity task.</p>
-   *          <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code>
-   *           (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not contain the literal string <code>arn</code>.</p>
+   *          <p>The specified string must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   activityId: string | undefined;
 
@@ -1709,8 +1711,10 @@ export interface ScheduleActivityTaskDecisionAttributes {
    *          <note>
    *             <p>A task list for this activity task must be specified either as a default for the activity type or through this field. If neither this field is set nor a default task list was specified at registration time then a fault is returned.</p>
    *          </note>
-   *          <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code>
-   *           (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not contain the literal string <code>arn</code>.</p>
+   *          <p>The specified string must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   taskList?: TaskList;
 
@@ -1785,7 +1789,9 @@ export interface ScheduleLambdaFunctionDecisionAttributes {
   input?: string;
 
   /**
-   * <p>The timeout value, in seconds, after which the Lambda function is considered to be failed once it has started. This can be any integer from 1-300 (1s-5m). If no value is supplied, than a default value of 300s is assumed.</p>
+   * <p>The timeout value, in seconds, after which the Lambda function is considered to be
+   *             failed once it has started. This can be any integer from 1-900 (1s-15m).</p>
+   *          <p>If no value is supplied, then a default value of 900s is assumed.</p>
    */
   startToCloseTimeout?: string;
 }
@@ -1864,22 +1870,22 @@ export interface SignalExternalWorkflowExecutionDecisionAttributes {
  *             <li>
  *                <p>Constrain the following parameters by using a <code>Condition</code> element with the
  *              appropriate keys.</p>
- *               <ul>
+ *                <ul>
  *                   <li>
- *                       <p>
+ *                      <p>
  *                         <code>tagList.member.N</code> – The key is "swf:tagList.N" where N is the tag number from 0 to 4,
  *             inclusive.</p>
  *                   </li>
  *                   <li>
- *                       <p>
+ *                      <p>
  *                         <code>taskList</code> – String constraint. The key is <code>swf:taskList.name</code>.</p>
  *                   </li>
  *                   <li>
- *                       <p>
+ *                      <p>
  *                         <code>workflowType.name</code> – String constraint. The key is <code>swf:workflowType.name</code>.</p>
  *                   </li>
  *                   <li>
- *                       <p>
+ *                      <p>
  *                         <code>workflowType.version</code> – String constraint. The key is <code>swf:workflowType.version</code>.</p>
  *                   </li>
  *                </ul>
@@ -1900,8 +1906,10 @@ export interface StartChildWorkflowExecutionDecisionAttributes {
   /**
    * <p>
    *          The <code>workflowId</code> of the workflow execution.</p>
-   *          <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code>
-   *           (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not contain the literal string <code>arn</code>.</p>
+   *          <p>The specified string must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   workflowId: string | undefined;
 
@@ -1929,8 +1937,10 @@ export interface StartChildWorkflowExecutionDecisionAttributes {
    *          <note>
    *             <p>A task list for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default task list was specified at registration time then a fault is returned.</p>
    *          </note>
-   *          <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code>
-   *           (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not contain the literal string <code>arn</code>.</p>
+   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   taskList?: TaskList;
 
@@ -2025,8 +2035,10 @@ export interface StartTimerDecisionAttributes {
   /**
    * <p>
    *          The unique ID of the timer.</p>
-   *          <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code>
-   *           (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not contain the literal string <code>arn</code>.</p>
+   *          <p>The specified string must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   timerId: string | undefined;
 
@@ -2121,13 +2133,10 @@ export interface StartTimerDecisionAttributes {
  *       decisions as a pseudo API maintains a uniform conceptual model and helps keep policies readable. For details and
  *       example IAM policies, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF
  *           Workflows</a> in the <i>Amazon SWF Developer Guide</i>.</p>
- *
  *          <p>
  *             <b>Decision Failure</b>
  *          </p>
- *
  *          <p>Decisions can fail for several reasons</p>
- *
  *          <ul>
  *             <li>
  *                <p>The ordering of decisions should follow a logical flow. Some decisions might not make sense in the current context of the workflow execution and therefore fails.</p>
@@ -2139,12 +2148,10 @@ export interface StartTimerDecisionAttributes {
  *                <p>The decision lacks sufficient permissions.</p>
  *             </li>
  *          </ul>
- *
  *          <p>One of the following events might be added to the history to indicate an error. The event attribute's
  *           <code>cause</code> parameter indicates the cause. If <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision failed
  *   because it lacked sufficient permissions. For details and example IAM policies, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF Workflows</a>
  *           in the <i>Amazon SWF Developer Guide</i>.</p>
- *
  *          <ul>
  *             <li>
  *                <p>
@@ -2154,57 +2161,57 @@ export interface StartTimerDecisionAttributes {
  *             </li>
  *             <li>
  *                <p>
- *                     <code>RequestCancelActivityTaskFailed</code> – A
+ *                   <code>RequestCancelActivityTaskFailed</code> – A
  *                         <code>RequestCancelActivityTask</code> decision failed. This could happen if
  *                     there is no open activity task with the specified activityId.</p>
  *             </li>
  *             <li>
  *                <p>
- *                     <code>StartTimerFailed</code> – A <code>StartTimer</code> decision failed. This
+ *                   <code>StartTimerFailed</code> – A <code>StartTimer</code> decision failed. This
  *                     could happen if there is another open timer with the same timerId.</p>
  *             </li>
  *             <li>
  *                <p>
- *                     <code>CancelTimerFailed</code> – A <code>CancelTimer</code> decision failed.
+ *                   <code>CancelTimerFailed</code> – A <code>CancelTimer</code> decision failed.
  *                     This could happen if there is no open timer with the specified
  *                     timerId.</p>
  *             </li>
  *             <li>
  *                <p>
- *                     <code>StartChildWorkflowExecutionFailed</code> – A
+ *                   <code>StartChildWorkflowExecutionFailed</code> – A
  *                         <code>StartChildWorkflowExecution</code> decision failed. This could happen
  *                     if the workflow type specified isn't registered, is deprecated, or the decision
  *                     isn't properly configured.</p>
  *             </li>
  *             <li>
  *                <p>
- *                     <code>SignalExternalWorkflowExecutionFailed</code> – A
+ *                   <code>SignalExternalWorkflowExecutionFailed</code> – A
  *                         <code>SignalExternalWorkflowExecution</code> decision failed. This could
  *                     happen if the <code>workflowID</code> specified in the decision was
  *                     incorrect.</p>
  *             </li>
  *             <li>
  *                <p>
- *                     <code>RequestCancelExternalWorkflowExecutionFailed</code> – A
+ *                   <code>RequestCancelExternalWorkflowExecutionFailed</code> – A
  *                         <code>RequestCancelExternalWorkflowExecution</code> decision failed. This
  *                     could happen if the <code>workflowID</code> specified in the decision was
  *                     incorrect.</p>
  *             </li>
  *             <li>
  *                <p>
- *                     <code>CancelWorkflowExecutionFailed</code> – A
+ *                   <code>CancelWorkflowExecutionFailed</code> – A
  *                         <code>CancelWorkflowExecution</code> decision failed. This could happen if
  *                     there is an unhandled decision task pending in the workflow execution.</p>
  *             </li>
  *             <li>
  *                <p>
- *                     <code>CompleteWorkflowExecutionFailed</code> – A
+ *                   <code>CompleteWorkflowExecutionFailed</code> – A
  *                         <code>CompleteWorkflowExecution</code> decision failed. This could happen if
  *                     there is an unhandled decision task pending in the workflow execution.</p>
  *             </li>
  *             <li>
  *                <p>
- *                     <code>ContinueAsNewWorkflowExecutionFailed</code> – A
+ *                   <code>ContinueAsNewWorkflowExecutionFailed</code> – A
  *                         <code>ContinueAsNewWorkflowExecution</code> decision failed. This could
  *                     happen if there is an unhandled decision task pending in the workflow execution
  *                     or the ContinueAsNewWorkflowExecution decision was not configured
@@ -2212,7 +2219,7 @@ export interface StartTimerDecisionAttributes {
  *             </li>
  *             <li>
  *                <p>
- *                     <code>FailWorkflowExecutionFailed</code> – A <code>FailWorkflowExecution</code>
+ *                   <code>FailWorkflowExecutionFailed</code> – A <code>FailWorkflowExecution</code>
  *                     decision failed. This could happen if there is an unhandled decision task
  *                     pending in the workflow execution.</p>
  *             </li>
@@ -2238,14 +2245,14 @@ export interface StartTimerDecisionAttributes {
  *                <p>
  *                   <code>
  *                      <a>ScheduleActivityTaskDecisionAttributes</a>
- *                     </code>
+ *                   </code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>
  *                      <a>RequestCancelActivityTaskDecisionAttributes</a>
- *                     </code>
+ *                   </code>
  *                </p>
  *             </li>
  *             <li>
@@ -2253,70 +2260,70 @@ export interface StartTimerDecisionAttributes {
  *                   <code>
  *                      <a>CompleteWorkflowExecutionDecisionAttributes</a>
  *                   </code>
- *                 </p>
+ *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>
  *                      <a>FailWorkflowExecutionDecisionAttributes</a>
  *                   </code>
- *                 </p>
+ *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>
  *                      <a>CancelWorkflowExecutionDecisionAttributes</a>
  *                   </code>
- *                 </p>
+ *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>
  *                      <a>ContinueAsNewWorkflowExecutionDecisionAttributes</a>
  *                   </code>
- *                 </p>
+ *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>
  *                      <a>RecordMarkerDecisionAttributes</a>
  *                   </code>
- *                 </p>
+ *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>
  *                      <a>StartTimerDecisionAttributes</a>
  *                   </code>
- *                 </p>
+ *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>
  *                      <a>CancelTimerDecisionAttributes</a>
  *                   </code>
- *                 </p>
+ *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>
  *                      <a>SignalExternalWorkflowExecutionDecisionAttributes</a>
  *                   </code>
- *                 </p>
+ *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>
  *                      <a>RequestCancelExternalWorkflowExecutionDecisionAttributes</a>
  *                   </code>
- *                 </p>
+ *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>
  *                      <a>StartChildWorkflowExecutionDecisionAttributes</a>
  *                   </code>
- *                 </p>
+ *                </p>
  *             </li>
  *          </ul>
  */
@@ -5175,9 +5182,8 @@ export interface GetWorkflowExecutionHistoryInput {
    * <p>If <code>NextPageToken</code> is returned there are more results
    *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
    *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
+   *       after 24 hours. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
    *       exceeded its maximum lifetime</code>". </p>
-   *
    *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
    *       in a single call. </p>
    */
@@ -5259,9 +5265,8 @@ export interface ListActivityTypesInput {
    * <p>If <code>NextPageToken</code> is returned there are more results
    *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
    *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
+   *       after 24 hours. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
    *       exceeded its maximum lifetime</code>". </p>
-   *
    *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
    *       in a single call. </p>
    */
@@ -5366,9 +5371,8 @@ export interface ListClosedWorkflowExecutionsInput {
    * <p>If <code>NextPageToken</code> is returned there are more results
    *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
    *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
+   *       after 24 hours. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
    *       exceeded its maximum lifetime</code>". </p>
-   *
    *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
    *       in a single call. </p>
    */
@@ -5415,9 +5419,8 @@ export interface ListDomainsInput {
    * <p>If <code>NextPageToken</code> is returned there are more results
    *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
    *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
+   *       after 24 hours. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
    *       exceeded its maximum lifetime</code>". </p>
-   *
    *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
    *       in a single call. </p>
    */
@@ -5482,9 +5485,8 @@ export interface ListOpenWorkflowExecutionsInput {
    * <p>If <code>NextPageToken</code> is returned there are more results
    *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
    *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
+   *       after 24 hours. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
    *       exceeded its maximum lifetime</code>". </p>
-   *
    *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
    *       in a single call. </p>
    */
@@ -5575,9 +5577,8 @@ export interface ListWorkflowTypesInput {
    * <p>If <code>NextPageToken</code> is returned there are more results
    *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
    *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
+   *       after 24 hours. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
    *       exceeded its maximum lifetime</code>". </p>
-   *
    *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
    *       in a single call. </p>
    */
@@ -5627,11 +5628,10 @@ export interface PollForActivityTaskInput {
 
   /**
    * <p>Specifies the task list to poll for activity tasks.</p>
-   *
    *          <p>The specified string must not start or end with whitespace. It must not contain a
    *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
    *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   taskList: TaskList | undefined;
 
@@ -5654,11 +5654,10 @@ export interface PollForDecisionTaskInput {
 
   /**
    * <p>Specifies the task list to poll for decision tasks.</p>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *          <p>The specified string must not contain a
    *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
    *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   taskList: TaskList | undefined;
 
@@ -5673,9 +5672,8 @@ export interface PollForDecisionTaskInput {
    * <p>If <code>NextPageToken</code> is returned there are more results
    *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
    *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
-   *       after 60 seconds. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
+   *       after 24 hours. Using an expired pagination token will return a <code>400</code> error: "<code>Specified token has
    *       exceeded its maximum lifetime</code>". </p>
-   *
    *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned
    *       in a single call. </p>
    *          <note>
@@ -5701,6 +5699,11 @@ export interface PollForDecisionTaskInput {
    *       events.</p>
    */
   reverseOrder?: boolean;
+
+  /**
+   * <p>When set to <code>true</code>, returns the events with <code>eventTimestamp</code> greater than or equal to <code>eventTimestamp</code> of the most recent <code>DecisionTaskStarted</code> event. By default, this parameter is set to <code>false</code>.</p>
+   */
+  startAtPreviousStartedEvent?: boolean;
 }
 
 /**
@@ -5735,11 +5738,10 @@ export interface RegisterActivityTypeInput {
 
   /**
    * <p>The name of the activity type within the domain.</p>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *          <p>The specified string must not contain a
    *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
    *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   name: string | undefined;
 
@@ -5749,11 +5751,10 @@ export interface RegisterActivityTypeInput {
    *             <p>The activity type consists of the name and version, the combination of which must be
    *         unique within the domain.</p>
    *          </note>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *          <p>The specified string must not contain a
    *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
    *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   version: string | undefined;
 
@@ -5853,11 +5854,10 @@ export interface RegisterDomainInput {
   /**
    * <p>Name of the domain to register. The name must be unique in the region that the domain
    *       is registered in.</p>
-   *
    *          <p>The specified string must not start or end with whitespace. It must not contain a
    *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
    *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   name: string | undefined;
 
@@ -5917,11 +5917,10 @@ export interface RegisterWorkflowTypeInput {
 
   /**
    * <p>The name of the workflow type.</p>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *          <p>The specified string must not contain a
    *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
    *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   name: string | undefined;
 
@@ -5932,11 +5931,10 @@ export interface RegisterWorkflowTypeInput {
    *         unique within the domain. To get a list of all currently registered workflow types, use the
    *           <a>ListWorkflowTypes</a> action.</p>
    *          </note>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *          <p>The specified string must not contain a
    *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
    *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   version: string | undefined;
 
@@ -5958,7 +5956,6 @@ export interface RegisterWorkflowTypeInput {
    * <p>If set, specifies the default maximum duration for executions of this workflow type.
    *       You can override this default when starting an execution through the <a>StartWorkflowExecution</a> Action or <code>StartChildWorkflowExecution</code>
    *             <a>Decision</a>.</p>
-   *
    *          <p>The duration is specified in seconds; an integer greater than or equal to 0. Unlike
    *       some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for
    *         <code>defaultExecutionStartToCloseTimeout</code>; there is a one-year max limit on the time
@@ -6094,7 +6091,6 @@ export interface RespondActivityTaskCompletedInput {
 export interface RespondActivityTaskFailedInput {
   /**
    * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
-   *
    *          <important>
    *             <p>
    *                <code>taskToken</code> is generated by the service and should be treated as an opaque value.
@@ -6193,6 +6189,10 @@ export interface SignalWorkflowExecutionInput {
 export interface StartWorkflowExecutionInput {
   /**
    * <p>The name of the domain in which the workflow execution is created.</p>
+   *          <p>The specified string must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   domain: string | undefined;
 
@@ -6202,11 +6202,10 @@ export interface StartWorkflowExecutionInput {
    *       if a workflow execution is logically a <i>restart</i> of a previous execution.
    *       You cannot have two open workflow executions with the same <code>workflowId</code> at the same
    *       time within the same domain.</p>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *          <p>The specified string must not contain a
    *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
    *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   workflowId: string | undefined;
 
@@ -6224,11 +6223,10 @@ export interface StartWorkflowExecutionInput {
    *         workflow type or through this parameter. If neither this parameter is set nor a default task
    *         list was specified at registration time then a fault is returned.</p>
    *          </note>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *          <p>The specified string must not contain a
    *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
    *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   *       <i>not</i> be the literal string <code>arn</code>.</p>
    */
   taskList?: TaskList;
 
@@ -6253,13 +6251,11 @@ export interface StartWorkflowExecutionInput {
   /**
    * <p>The total duration for this workflow execution. This overrides the
    *       defaultExecutionStartToCloseTimeout specified when registering the workflow type.</p>
-   *
    *          <p>The duration is specified in seconds; an integer greater than or equal to
    *         <code>0</code>. Exceeding this limit causes the workflow execution to time out. Unlike some
    *       of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for this
    *       timeout; there is a one-year max limit on the time that a workflow execution can
    *       run.</p>
-   *
    *          <note>
    *             <p>An execution start-to-close timeout must be specified either through this parameter
    *         or as a default when the workflow type is registered. If neither this parameter nor a

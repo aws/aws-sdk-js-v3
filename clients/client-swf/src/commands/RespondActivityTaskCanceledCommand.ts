@@ -35,22 +35,18 @@ export interface RespondActivityTaskCanceledCommandOutput extends __MetadataBear
  * <p>Used by workers to tell the service that the <a>ActivityTask</a> identified
  *       by the <code>taskToken</code> was successfully canceled. Additional <code>details</code> can
  *       be provided using the <code>details</code> argument.</p>
- *
  *          <p>These <code>details</code> (if provided) appear in the
  *         <code>ActivityTaskCanceled</code> event added to the workflow history.</p>
- *
  *          <important>
  *             <p>Only use this operation if the <code>canceled</code> flag of a <a>RecordActivityTaskHeartbeat</a> request returns <code>true</code> and if the
  *         activity can be safely undone or abandoned.</p>
  *          </important>
- *
  *          <p>A task is considered open from the time that it is scheduled until it is closed.
  *       Therefore a task is reported as open while a worker is processing it. A task is closed after
  *       it has been specified in a call to <a>RespondActivityTaskCompleted</a>,
  *       RespondActivityTaskCanceled, <a>RespondActivityTaskFailed</a>, or the task has
  *         <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types">timed
  *         out</a>.</p>
- *
  *          <p>
  *             <b>Access Control</b>
  *          </p>

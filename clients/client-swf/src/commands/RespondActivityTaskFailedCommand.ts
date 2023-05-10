@@ -36,12 +36,10 @@ export interface RespondActivityTaskFailedCommandOutput extends __MetadataBearer
  *       by the <code>taskToken</code> has failed with <code>reason</code> (if specified). The
  *         <code>reason</code> and <code>details</code> appear in the <code>ActivityTaskFailed</code>
  *       event added to the workflow history.</p>
- *
  *          <p>A task is considered open from the time that it is scheduled until it is closed.
  *       Therefore a task is reported as open while a worker is processing it. A task is closed after
  *       it has been specified in a call to <a>RespondActivityTaskCompleted</a>, <a>RespondActivityTaskCanceled</a>, RespondActivityTaskFailed, or the task has <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-basic.html#swf-dev-timeout-types">timed
  *         out</a>.</p>
- *
  *          <p>
  *             <b>Access Control</b>
  *          </p>

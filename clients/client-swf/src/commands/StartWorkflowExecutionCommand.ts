@@ -34,9 +34,7 @@ export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBear
  * @public
  * <p>Starts an execution of the workflow type in the specified domain using the provided
  *         <code>workflowId</code> and input data.</p>
- *
  *          <p>This action returns the newly started workflow execution.</p>
- *
  *          <p>
  *             <b>Access Control</b>
  *          </p>

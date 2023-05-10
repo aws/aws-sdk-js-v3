@@ -38,15 +38,12 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  * <p>Used by deciders to tell the service that the <a>DecisionTask</a> identified
  *       by the <code>taskToken</code> has successfully completed. The <code>decisions</code> argument
  *       specifies the list of decisions made while processing the task.</p>
- *
  *          <p>A <code>DecisionTaskCompleted</code> event is added to the workflow history. The
  *         <code>executionContext</code> specified is attached to the event in the workflow execution
  *       history.</p>
- *
  *          <p>
  *             <b>Access Control</b>
  *          </p>
- *
  *          <p>If an IAM policy grants permission to use <code>RespondDecisionTaskCompleted</code>, it
  *       can express permissions for the list of decisions in the <code>decisions</code> parameter.
  *       Each of the decisions has one or more parameters, much like a regular API call. To allow for

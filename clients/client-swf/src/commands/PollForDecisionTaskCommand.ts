@@ -95,6 +95,7 @@ export interface PollForDecisionTaskCommandOutput extends DecisionTask, __Metada
  *   nextPageToken: "STRING_VALUE",
  *   maximumPageSize: Number("int"),
  *   reverseOrder: true || false,
+ *   startAtPreviousStartedEvent: true || false,
  * };
  * const command = new PollForDecisionTaskCommand(input);
  * const response = await client.send(command);
