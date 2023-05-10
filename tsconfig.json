@@ -9,7 +9,7 @@
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@aws-sdk/*": ["packages/*/src"],
+      "@aws-sdk/*": ["packages/*/"],
       "@aws-sdk/client-*": ["clients/client-*/"],
       "@aws-sdk/aws-*": ["private/aws-*/"],
       "@aws-sdk/lib-*": ["lib/*"]
