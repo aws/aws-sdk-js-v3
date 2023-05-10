@@ -235,6 +235,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //       BackupRetentionPeriod: Number("int"),
  * //       AllocatedStorage: Number("int"),
  * //       Iops: Number("int"),
+ * //       StorageType: "STRING_VALUE",
  * //     },
  * //     DBClusterInstanceClass: "STRING_VALUE",
  * //     StorageType: "STRING_VALUE",
@@ -257,6 +258,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //       SecretStatus: "STRING_VALUE",
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
+ * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //   },
  * // };
  *
@@ -313,6 +315,10 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @throws {@link StorageQuotaExceededFault} (client fault)
  *  <p>The request would result in the user exceeding the allowed amount of storage
  *             available across all DB instances.</p>
+ *
+ * @throws {@link StorageTypeNotAvailableFault} (client fault)
+ *  <p>The <code>aurora-iopt1</code> storage type isn't available, because you modified the DB cluster
+ *             to use this storage type less than one month ago.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

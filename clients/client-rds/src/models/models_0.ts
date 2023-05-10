@@ -1796,6 +1796,12 @@ export interface DBClusterSnapshot {
    * <p>Reserved for future use.</p>
    */
   DBSystemId?: string;
+
+  /**
+   * <p>The storage type associated with the DB cluster snapshot.</p>
+   *          <p>This setting is only for Aurora DB clusters.</p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -4218,7 +4224,7 @@ export interface CreateDBClusterMessage {
   /**
    * <p>The DB engine mode of the DB cluster, either <code>provisioned</code> or <code>serverless</code>.</p>
    *          <p>The <code>serverless</code> engine mode only applies for Aurora Serverless v1 DB clusters.</p>
-   *          <p>Limitations and requirements apply to some DB engine modes. For more information, see the
+   *          <p>For information about limitations and requirements for Serverless DB clusters, see the
    *             following sections in the <i>Amazon Aurora User Guide</i>:</p>
    *          <ul>
    *             <li>
@@ -4231,17 +4237,6 @@ export interface CreateDBClusterMessage {
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html">Requirements
    *                         for Aurora Serverless v2</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">Limitations of parallel query</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">Limitations of
-   *                         Aurora global databases</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -4335,12 +4330,10 @@ export interface CreateDBClusterMessage {
   /**
    * <p>Specifies the storage type to be associated with the DB cluster.</p>
    *          <p>This setting is required to create a Multi-AZ DB cluster.</p>
-   *          <p>Valid values: <code>io1</code>
-   *          </p>
-   *          <p>When specified, a value for the <code>Iops</code> parameter is required.</p>
-   *          <p>Default: <code>io1</code>
-   *          </p>
-   *          <p>Valid for: Multi-AZ DB clusters only</p>
+   *          <p>When specified for a Multi-AZ DB cluster, a value for the <code>Iops</code> parameter is required.</p>
+   *          <p>Valid values: <code>aurora</code>, <code>aurora-iopt1</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</p>
+   *          <p>Default: <code>aurora</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   StorageType?: string;
 
@@ -4781,6 +4774,11 @@ export interface ClusterPendingModifiedValues {
    * <p>The Provisioned IOPS (I/O operations per second) value. This setting is only for non-Aurora Multi-AZ DB clusters.</p>
    */
   Iops?: number;
+
+  /**
+   * <p>The storage type for the DB cluster.</p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -5112,8 +5110,7 @@ export interface DBCluster {
   Capacity?: number;
 
   /**
-   * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-   *             <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</p>
+   * <p>The DB engine mode of the DB cluster, either <code>provisioned</code> or <code>serverless</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html">
    *             CreateDBCluster</a>.</p>
    */
@@ -5215,7 +5212,6 @@ export interface DBCluster {
 
   /**
    * <p>The storage type associated with the DB cluster.</p>
-   *          <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
    */
   StorageType?: string;
 
@@ -5348,6 +5344,12 @@ export interface DBCluster {
    *          </p>
    */
   MasterUserSecret?: MasterUserSecret;
+
+  /**
+   * <p>The next time you can modify the DB cluster to use the <code>aurora-iopt1</code> storage type.</p>
+   *          <p>This setting is only for Aurora DB clusters.</p>
+   */
+  IOOptimizedNextAllowedModificationTime?: Date;
 }
 
 /**
@@ -7987,15 +7989,10 @@ export interface DBInstance {
 
   /**
    * <p>True if mapping of Amazon Web Services Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.</p>
-   *          <p>IAM database authentication can be enabled for the following database engines:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For MySQL 5.7, minor version 5.7.16 or higher.</p>
-   *             </li>
-   *             <li>
-   *                <p>For Amazon Aurora, all versions of Aurora MySQL and Aurora PostgreSQL.</p>
-   *             </li>
-   *          </ul>
+   *          <p>For a list of engine versions that support IAM database authentication, see
+   *               <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication.html">IAM database authentication</a>
+   *               in the <i>Amazon RDS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.IAMdbauth.html">IAM
+   *               database authentication in Aurora</a> in the <i>Amazon Aurora User Guide</i>.</p>
    */
   IAMDatabaseAuthenticationEnabled?: boolean;
 
@@ -8338,8 +8335,7 @@ export class ProvisionedIopsNotAvailableInAZFault extends __BaseException {
 
 /**
  * @public
- * <p>Storage of the <code>StorageType</code> specified can't be associated
- *             with the DB instance.</p>
+ * <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
  */
 export class StorageTypeNotSupportedFault extends __BaseException {
   readonly name: "StorageTypeNotSupportedFault" = "StorageTypeNotSupportedFault";
@@ -11867,9 +11863,9 @@ export interface DescribeDBClusterBacktracksMessage {
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must contain a valid universally unique identifier (UUID). For more
-   *                     information about UUIDs, see <a href="http://www.ietf.org/rfc/rfc4122.txt">A Universally Unique Identifier
-   *                         (UUID) URN Namespace</a>.</p>
+   *                <p>Must contain a valid universally unique identifier (UUID). For more information about UUIDs, see
+   *                     <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Universally unique
+   *                         identifier</a>.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>123e4567-e89b-12d3-a456-426655440000</code>

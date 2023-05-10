@@ -88,6 +88,7 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * //       },
  * //     ],
  * //     DBSystemId: "STRING_VALUE",
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

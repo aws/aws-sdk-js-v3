@@ -98,6 +98,7 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * //         },
  * //       ],
  * //       DBSystemId: "STRING_VALUE",
+ * //       StorageType: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

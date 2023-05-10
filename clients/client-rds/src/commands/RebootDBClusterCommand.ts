@@ -178,6 +178,7 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  * //       BackupRetentionPeriod: Number("int"),
  * //       AllocatedStorage: Number("int"),
  * //       Iops: Number("int"),
+ * //       StorageType: "STRING_VALUE",
  * //     },
  * //     DBClusterInstanceClass: "STRING_VALUE",
  * //     StorageType: "STRING_VALUE",
@@ -200,6 +201,7 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  * //       SecretStatus: "STRING_VALUE",
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
+ * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //   },
  * // };
  *

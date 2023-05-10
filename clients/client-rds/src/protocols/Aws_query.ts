@@ -953,6 +953,7 @@ import {
   StopDBInstanceAutomatedBackupsReplicationResult,
   StopDBInstanceMessage,
   StopDBInstanceResult,
+  StorageTypeNotAvailableFault,
   SubnetAlreadyInUse,
   SwitchoverBlueGreenDeploymentRequest,
   SwitchoverBlueGreenDeploymentResponse,
@@ -8317,6 +8318,9 @@ const de_ModifyDBClusterCommandError = async (
     case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
+    case "StorageTypeNotAvailableFault":
+    case "com.amazonaws.rds#StorageTypeNotAvailableFault":
+      throw await de_StorageTypeNotAvailableFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -9872,6 +9876,9 @@ const de_RestoreDBClusterFromS3CommandError = async (
     case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
+    case "StorageTypeNotSupported":
+    case "com.amazonaws.rds#StorageTypeNotSupportedFault":
+      throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -12989,6 +12996,22 @@ const de_StorageQuotaExceededFaultRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_StorageQuotaExceededFault(body.Error, context);
   const exception = new StorageQuotaExceededFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryStorageTypeNotAvailableFaultRes
+ */
+const de_StorageTypeNotAvailableFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<StorageTypeNotAvailableFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_StorageTypeNotAvailableFault(body.Error, context);
+  const exception = new StorageTypeNotAvailableFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -17623,6 +17646,9 @@ const se_RestoreDBClusterFromS3Message = (input: RestoreDBClusterFromS3Message, 
   if (input.MasterUserSecretKmsKeyId != null) {
     entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
   }
+  if (input.StorageType != null) {
+    entries["StorageType"] = input.StorageType;
+  }
   return entries;
 };
 
@@ -19231,6 +19257,9 @@ const de_ClusterPendingModifiedValues = (output: any, context: __SerdeContext): 
   if (output["Iops"] !== undefined) {
     contents.Iops = __strictParseInt32(output["Iops"]) as number;
   }
+  if (output["StorageType"] !== undefined) {
+    contents.StorageType = __expectString(output["StorageType"]);
+  }
   return contents;
 };
 
@@ -19865,6 +19894,11 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output["MasterUserSecret"] !== undefined) {
     contents.MasterUserSecret = de_MasterUserSecret(output["MasterUserSecret"], context);
   }
+  if (output["IOOptimizedNextAllowedModificationTime"] !== undefined) {
+    contents.IOOptimizedNextAllowedModificationTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["IOOptimizedNextAllowedModificationTime"])
+    );
+  }
   return contents;
 };
 
@@ -20434,6 +20468,9 @@ const de_DBClusterSnapshot = (output: any, context: __SerdeContext): DBClusterSn
   }
   if (output["DBSystemId"] !== undefined) {
     contents.DBSystemId = __expectString(output["DBSystemId"]);
+  }
+  if (output["StorageType"] !== undefined) {
+    contents.StorageType = __expectString(output["StorageType"]);
   }
   return contents;
 };
@@ -25940,6 +25977,17 @@ const de_StopDBInstanceResult = (output: any, context: __SerdeContext): StopDBIn
  * deserializeAws_queryStorageQuotaExceededFault
  */
 const de_StorageQuotaExceededFault = (output: any, context: __SerdeContext): StorageQuotaExceededFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryStorageTypeNotAvailableFault
+ */
+const de_StorageTypeNotAvailableFault = (output: any, context: __SerdeContext): StorageTypeNotAvailableFault => {
   const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);

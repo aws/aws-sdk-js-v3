@@ -3985,12 +3985,10 @@ export interface ModifyDBClusterMessage {
 
   /**
    * <p>Specifies the storage type to be associated with the DB cluster.</p>
-   *          <p>Valid values: <code>io1</code>
-   *          </p>
-   *          <p>When specified, a value for the <code>Iops</code> parameter is required.</p>
-   *          <p>Default: <code>io1</code>
-   *          </p>
-   *          <p>Valid for: Multi-AZ DB clusters only</p>
+   *          <p>When specified for a Multi-AZ DB cluster, a value for the <code>Iops</code> parameter is required.</p>
+   *          <p>Valid values: <code>aurora</code>, <code>aurora-iopt1</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</p>
+   *          <p>Default: <code>aurora</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   StorageType?: string;
 
@@ -4228,6 +4226,27 @@ export interface ModifyDBClusterResult {
    *          </p>
    */
   DBCluster?: DBCluster;
+}
+
+/**
+ * @public
+ * <p>The <code>aurora-iopt1</code> storage type isn't available, because you modified the DB cluster
+ *             to use this storage type less than one month ago.</p>
+ */
+export class StorageTypeNotAvailableFault extends __BaseException {
+  readonly name: "StorageTypeNotAvailableFault" = "StorageTypeNotAvailableFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StorageTypeNotAvailableFault, __BaseException>) {
+    super({
+      name: "StorageTypeNotAvailableFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StorageTypeNotAvailableFault.prototype);
+  }
 }
 
 /**
@@ -5169,9 +5188,9 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>A value that indicates whether to manage the master user password with Amazon Web Services Secrets Manager.</p>
-   *          <p>If the DB cluster doesn't manage the master user password with Amazon Web Services Secrets Manager, you can turn
+   *          <p>If the DB instance doesn't manage the master user password with Amazon Web Services Secrets Manager, you can turn
    *             on this management. In this case, you can't specify <code>MasterUserPassword</code>.</p>
-   *          <p>If the DB cluster already manages the master user password with Amazon Web Services Secrets Manager, and you specify that the
+   *          <p>If the DB instance already manages the master user password with Amazon Web Services Secrets Manager, and you specify that the
    *             master user password is not managed with Amazon Web Services Secrets Manager, then you must specify <code>MasterUserPassword</code>.
    *             In this case, RDS deletes the secret and uses the new password for the master user specified by
    *             <code>MasterUserPassword</code>.</p>
@@ -6848,6 +6867,16 @@ export interface RestoreDBClusterFromS3Message {
    *             has a different default KMS key for each Amazon Web Services Region.</p>
    */
   MasterUserSecretKmsKeyId?: string;
+
+  /**
+   * <p>Specifies the storage type to be associated with the DB cluster.</p>
+   *          <p>Valid values: <code>aurora</code>, <code>aurora-iopt1</code>
+   *          </p>
+   *          <p>Default: <code>aurora</code>
+   *          </p>
+   *          <p>Valid for: Aurora DB clusters only</p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -7214,12 +7243,10 @@ export interface RestoreDBClusterFromSnapshotMessage {
   DBClusterInstanceClass?: string;
 
   /**
-   * <p>Specifies the storage type to be associated with the each DB instance in the Multi-AZ DB cluster.</p>
-   *          <p>Valid values: <code>io1</code>
-   *          </p>
-   *          <p>When specified, a value for the <code>Iops</code> parameter is required.</p>
-   *          <p>Default: <code>io1</code>
-   *          </p>
+   * <p>Specifies the storage type to be associated with the DB cluster.</p>
+   *          <p>When specified for a Multi-AZ DB cluster, a value for the <code>Iops</code> parameter is required.</p>
+   *          <p>Valid values: <code>aurora</code>, <code>aurora-iopt1</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</p>
+   *          <p>Default: <code>aurora</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</p>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   StorageType?: string;
@@ -7602,13 +7629,11 @@ export interface RestoreDBClusterToPointInTimeMessage {
   DBClusterInstanceClass?: string;
 
   /**
-   * <p>Specifies the storage type to be associated with the each DB instance in the Multi-AZ DB cluster.</p>
-   *          <p>Valid values: <code>io1</code>
-   *          </p>
-   *          <p>When specified, a value for the <code>Iops</code> parameter is required.</p>
-   *          <p>Default: <code>io1</code>
-   *          </p>
-   *          <p>Valid for: Multi-AZ DB clusters only</p>
+   * <p>Specifies the storage type to be associated with the DB cluster.</p>
+   *          <p>When specified for a Multi-AZ DB cluster, a value for the <code>Iops</code> parameter is required.</p>
+   *          <p>Valid values: <code>aurora</code>, <code>aurora-iopt1</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</p>
+   *          <p>Default: <code>aurora</code> (Aurora DB clusters); <code>io1</code> (Multi-AZ DB clusters)</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   StorageType?: string;
 

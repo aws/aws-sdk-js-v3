@@ -409,8 +409,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *             available across all DB instances.</p>
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
- *  <p>Storage of the <code>StorageType</code> specified can't be associated
- *             with the DB instance.</p>
+ *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
