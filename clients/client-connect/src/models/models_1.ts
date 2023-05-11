@@ -759,7 +759,8 @@ export interface MetricFilterV2 {
    * <p>The key to use for filtering data. </p>
    *          <p>Valid metric filter keys: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code>.
    *    These are the same values as the <code>InitiationMethod</code> and <code>DisconnectReason</code>
-   *    in the contact record. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> in the <i>Amazon Connect Administrator's Guide</i>. </p>
+   *    in the contact record. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> in the <i>Amazon Connect Administrator's
+   *    Guide</i>. </p>
    */
   MetricFilterKey?: string;
 
@@ -802,6 +803,9 @@ export interface ThresholdV2 {
 export interface MetricV2 {
   /**
    * <p>The name of the metric.</p>
+   *          <important>
+   *             <p>This parameter is required. The following Required = No is incorrect.</p>
+   *          </important>
    */
   Name?: string;
 
@@ -830,7 +834,7 @@ export interface GetMetricDataV2Request {
    * <p>The timestamp, in UNIX Epoch time format, at which to start the reporting interval for the
    *    retrieval of historical metrics data. The time must be before the end time timestamp. The time
    *    range between the start and end time must be less than 24 hours. The start time cannot be earlier
-   *    than 14 days before the time of the request. Historical metrics are available for 14 days.</p>
+   *    than 35 days before the time of the request. Historical metrics are available for 35 days.</p>
    */
   StartTime: Date | undefined;
 
@@ -3791,8 +3795,8 @@ export interface ListUsersResponse {
  */
 export interface MonitorContactRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the
-   *    instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -4699,8 +4703,8 @@ export interface StartChatContactRequest {
   PersistentChat?: PersistentChat;
 
   /**
-   * <p>The unique identifier for an Amazon Connect contact. This identifier is related to the chat
-   *    starting.</p>
+   * <p>The unique identifier for an Amazon Connect contact. This identifier is related to the
+   *    chat starting.</p>
    *          <note>
    *             <p>You cannot provide data for both RelatedContactId and PersistentChat. </p>
    *          </note>

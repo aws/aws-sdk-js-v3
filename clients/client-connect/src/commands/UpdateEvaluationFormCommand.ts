@@ -33,9 +33,10 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
 /**
  * @public
  * <p>Updates details about a specific evaluation form version in the specified Amazon Connect
- *    instance. Question and section
- *    identifiers cannot be duplicated within the same evaluation form.</p>
- *          <p>This operation does not support partial updates. Instead it does a full update of evaluation form content.</p>
+ *    instance. Question and section identifiers cannot be duplicated within the same evaluation
+ *    form.</p>
+ *          <p>This operation does not support partial updates. Instead it does a full update of evaluation
+ *    form content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -67,8 +67,8 @@ export interface ActivateEvaluationFormRequest {
   EvaluationFormId: string | undefined;
 
   /**
-   * <p>The version of the evaluation form to activate. If the version property is not provided, the latest version of the
-   *    evaluation form is activated.</p>
+   * <p>The version of the evaluation form to activate. If the version property is not provided, the
+   *    latest version of the evaluation form is activated.</p>
    */
   EvaluationFormVersion: number | undefined;
 }
@@ -1550,10 +1550,10 @@ export interface SingleSelectQuestionRuleCategoryAutomation {
   Category: string | undefined;
 
   /**
-   * <p>The condition to apply for the automation option. If the condition is <code>PRESENT</code>, then the
-   *    option is applied when the contact data includes the category. Similarly, if the condition is
-   *    <code>NOT_PRESENT</code>, then the option is applied when the contact data does not include the
-   *    category.</p>
+   * <p>The condition to apply for the automation option. If the condition is <code>PRESENT</code>,
+   *    then the option is applied when the contact data includes the category. Similarly, if the
+   *    condition is <code>NOT_PRESENT</code>, then the option is applied when the contact data does not
+   *    include the category.</p>
    */
   Condition: SingleSelectQuestionRuleCategoryAutomationCondition | string | undefined;
 
@@ -2186,8 +2186,8 @@ export interface ParticipantTokenCredentials {
  */
 export interface CreateParticipantResponse {
   /**
-   * <p>The token used by the chat participant to call <code>CreateParticipantConnection</code>. The participant
-   *    token is valid for the lifetime of a chat participant.</p>
+   * <p>The token used by the chat participant to call <code>CreateParticipantConnection</code>. The
+   *    participant token is valid for the lifetime of a chat participant.</p>
    */
   ParticipantCredentials?: ParticipantTokenCredentials;
 

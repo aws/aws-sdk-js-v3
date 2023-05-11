@@ -35,6 +35,10 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to
  *    another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p>
  *          <important>
+ *             <p>After using this API, you must verify that the phone number is attached to the correct flow
+ *     in the target instance or traffic distribution group. You need to do this because the API switches
+ *     only the phone number to a new instance or traffic distribution group. It doesn't migrate the
+ *     flow configuration of the phone number, too.</p>
  *             <p>You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API
  *     to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a>
  *     operation.</p>
