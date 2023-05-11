@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
+
+
+### Bug Fixes
+
+* **tsconfig:** correct paths definition for ([#4718](https://github.com/aws/aws-sdk-js-v3/issues/4718)) ([129d85b](https://github.com/aws/aws-sdk-js-v3/commit/129d85b27ee343ae7a20f20e9a9264e6178c0006))
+
+
+### Features
+
+* **client-elasticache:** Added support to modify the cluster mode configuration for the existing ElastiCache ReplicationGroups. Customers can now modify the configuration from cluster mode disabled to cluster mode enabled. ([20159f4](https://github.com/aws/aws-sdk-js-v3/commit/20159f4e54cf696797f6e9fa22b8f5d4eddcce55))
+* **client-elasticsearch-service:** This release fixes DescribePackages API error with null filter value parameter. ([af0546a](https://github.com/aws/aws-sdk-js-v3/commit/af0546ab79b2a95392b6b09a783325f2a74d24f9))
+* **client-health:** Add support for regional endpoints ([e0f0af1](https://github.com/aws/aws-sdk-js-v3/commit/e0f0af1c51e0989253e5f883771f95e86fa687b2))
+* **client-ivs-realtime:** Add methods for inspecting and debugging stages: ListStageSessions, GetStageSession, ListParticipants, GetParticipant, and ListParticipantEvents. ([3a8d2ae](https://github.com/aws/aws-sdk-js-v3/commit/3a8d2ae9ee771efd0e475a5828fced9c4165842a))
+* **client-omics:** This release provides support for Ready2Run and GPU workflows, an improved read set filter, the direct upload of read sets into Omics Storage, and annotation parsing for analytics stores. ([c64a34c](https://github.com/aws/aws-sdk-js-v3/commit/c64a34c70dc718d9be620b4e97a580c46406eb41))
+* **client-opensearch:** This release fixes DescribePackages API error with null filter value parameter. ([622fe3c](https://github.com/aws/aws-sdk-js-v3/commit/622fe3c231fb6c3b46ca49888a04a2dc8c008dca))
+* **client-route53resolver:** Update FIPS endpoints for GovCloud (US) regions in SDK. ([cdc4030](https://github.com/aws/aws-sdk-js-v3/commit/cdc4030acc27cc74d9ebfb55f2fcf180f380ca9c))
+* **client-support:** This release adds 2 new Support APIs, DescribeCreateCaseOptions and DescribeSupportedLanguages. You can use these new APIs to get available support languages. ([5a9d621](https://github.com/aws/aws-sdk-js-v3/commit/5a9d621d27b3967ff45209365601833ce3b279d8))
+* **clients:** update client endpoints as of 2023-05-11 ([f2c71cc](https://github.com/aws/aws-sdk-js-v3/commit/f2c71cc82097bbd481d01b15d05255d31ab7b0f1))
+
+
+### Reverts
+
+* Revert "Revert "feat(codegen): bump codegen version to 0.15.0 (#4678)" (#4689)" (#4715) ([b8d4c0d](https://github.com/aws/aws-sdk-js-v3/commit/b8d4c0dd2351bb11b661902cce5ace54a849062e)), closes [#4678](https://github.com/aws/aws-sdk-js-v3/issues/4678) [#4689](https://github.com/aws/aws-sdk-js-v3/issues/4689) [#4715](https://github.com/aws/aws-sdk-js-v3/issues/4715)
+
+
+
+
+
 # [3.331.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.330.0...v3.331.0) (2023-05-10)
 
 

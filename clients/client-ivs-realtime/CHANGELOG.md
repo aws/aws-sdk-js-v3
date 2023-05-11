@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
+
+
+### Features
+
+* **client-ivs-realtime:** Add methods for inspecting and debugging stages: ListStageSessions, GetStageSession, ListParticipants, GetParticipant, and ListParticipantEvents. ([3a8d2ae](https://github.com/aws/aws-sdk-js-v3/commit/3a8d2ae9ee771efd0e475a5828fced9c4165842a))
+
+
+
+
+
 # [3.329.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.328.0...v3.329.0) (2023-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs-realtime

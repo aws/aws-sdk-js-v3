@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
+
+
+### Features
+
+* **client-support:** This release adds 2 new Support APIs, DescribeCreateCaseOptions and DescribeSupportedLanguages. You can use these new APIs to get available support languages. ([5a9d621](https://github.com/aws/aws-sdk-js-v3/commit/5a9d621d27b3967ff45209365601833ce3b279d8))
+
+
+
+
+
 # [3.329.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.328.0...v3.329.0) (2023-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-support

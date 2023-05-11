@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
+
+
+### Features
+
+* **client-route53resolver:** Update FIPS endpoints for GovCloud (US) regions in SDK. ([cdc4030](https://github.com/aws/aws-sdk-js-v3/commit/cdc4030acc27cc74d9ebfb55f2fcf180f380ca9c))
+
+
+
+
+
 # [3.329.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.328.0...v3.329.0) (2023-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-route53resolver

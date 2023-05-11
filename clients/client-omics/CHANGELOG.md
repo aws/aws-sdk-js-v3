@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
+
+
+### Features
+
+* **client-omics:** This release provides support for Ready2Run and GPU workflows, an improved read set filter, the direct upload of read sets into Omics Storage, and annotation parsing for analytics stores. ([c64a34c](https://github.com/aws/aws-sdk-js-v3/commit/c64a34c70dc718d9be620b4e97a580c46406eb41))
+
+
+
+
+
 # [3.331.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.330.0...v3.331.0) (2023-05-10)
 
 **Note:** Version bump only for package @aws-sdk/client-omics

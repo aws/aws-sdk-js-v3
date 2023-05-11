@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
+
+
+### Features
+
+* **client-elasticsearch-service:** This release fixes DescribePackages API error with null filter value parameter. ([af0546a](https://github.com/aws/aws-sdk-js-v3/commit/af0546ab79b2a95392b6b09a783325f2a74d24f9))
+
+
+
+
+
 # [3.329.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.328.0...v3.329.0) (2023-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-elasticsearch-service
