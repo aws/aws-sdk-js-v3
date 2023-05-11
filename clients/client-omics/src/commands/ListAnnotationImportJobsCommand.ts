@@ -63,6 +63,9 @@ export interface ListAnnotationImportJobsCommandOutput extends ListAnnotationImp
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //       completionTime: new Date("TIMESTAMP"),
  * //       runLeftNormalization: true || false,
+ * //       annotationFields: { // AnnotationFieldMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

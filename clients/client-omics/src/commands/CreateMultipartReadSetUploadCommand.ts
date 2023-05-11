@@ -13,76 +13,77 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartAnnotationImportRequest, StartAnnotationImportResponse } from "../models/models_0";
+import { CreateMultipartReadSetUploadRequest, CreateMultipartReadSetUploadResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_StartAnnotationImportJobCommand, se_StartAnnotationImportJobCommand } from "../protocols/Aws_restJson1";
+import {
+  de_CreateMultipartReadSetUploadCommand,
+  se_CreateMultipartReadSetUploadCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link StartAnnotationImportJobCommand}.
+ * The input for {@link CreateMultipartReadSetUploadCommand}.
  */
-export interface StartAnnotationImportJobCommandInput extends StartAnnotationImportRequest {}
+export interface CreateMultipartReadSetUploadCommandInput extends CreateMultipartReadSetUploadRequest {}
 /**
  * @public
  *
- * The output of {@link StartAnnotationImportJobCommand}.
+ * The output of {@link CreateMultipartReadSetUploadCommand}.
  */
-export interface StartAnnotationImportJobCommandOutput extends StartAnnotationImportResponse, __MetadataBearer {}
+export interface CreateMultipartReadSetUploadCommandOutput
+  extends CreateMultipartReadSetUploadResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Starts an annotation import job.</p>
+ * <p>
+ *       Begins a multipart read set upload.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, StartAnnotationImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, StartAnnotationImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, CreateMultipartReadSetUploadCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, CreateMultipartReadSetUploadCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = { // StartAnnotationImportRequest
- *   destinationName: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
- *   items: [ // AnnotationImportItemSources // required
- *     { // AnnotationImportItemSource
- *       source: "STRING_VALUE", // required
- *     },
- *   ],
- *   formatOptions: { // FormatOptions Union: only one key present
- *     tsvOptions: { // TsvOptions
- *       readOptions: { // ReadOptions
- *         sep: "STRING_VALUE",
- *         encoding: "STRING_VALUE",
- *         quote: "STRING_VALUE",
- *         quoteAll: true || false,
- *         escape: "STRING_VALUE",
- *         escapeQuotes: true || false,
- *         comment: "STRING_VALUE",
- *         header: true || false,
- *         lineSep: "STRING_VALUE",
- *       },
- *     },
- *     vcfOptions: { // VcfOptions
- *       ignoreQualField: true || false,
- *       ignoreFilterField: true || false,
- *     },
- *   },
- *   runLeftNormalization: true || false,
- *   annotationFields: { // AnnotationFieldMap
+ * const input = { // CreateMultipartReadSetUploadRequest
+ *   sequenceStoreId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   sourceFileType: "STRING_VALUE", // required
+ *   subjectId: "STRING_VALUE", // required
+ *   sampleId: "STRING_VALUE", // required
+ *   generatedFrom: "STRING_VALUE",
+ *   referenceArn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };
- * const command = new StartAnnotationImportJobCommand(input);
+ * const command = new CreateMultipartReadSetUploadCommand(input);
  * const response = await client.send(command);
- * // { // StartAnnotationImportResponse
- * //   jobId: "STRING_VALUE", // required
+ * // { // CreateMultipartReadSetUploadResponse
+ * //   sequenceStoreId: "STRING_VALUE", // required
+ * //   uploadId: "STRING_VALUE", // required
+ * //   sourceFileType: "STRING_VALUE", // required
+ * //   subjectId: "STRING_VALUE", // required
+ * //   sampleId: "STRING_VALUE", // required
+ * //   generatedFrom: "STRING_VALUE",
+ * //   referenceArn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   creationTime: new Date("TIMESTAMP"), // required
  * // };
  *
  * ```
  *
- * @param StartAnnotationImportJobCommandInput - {@link StartAnnotationImportJobCommandInput}
- * @returns {@link StartAnnotationImportJobCommandOutput}
- * @see {@link StartAnnotationImportJobCommandInput} for command's `input` shape.
- * @see {@link StartAnnotationImportJobCommandOutput} for command's `response` shape.
+ * @param CreateMultipartReadSetUploadCommandInput - {@link CreateMultipartReadSetUploadCommandInput}
+ * @returns {@link CreateMultipartReadSetUploadCommandOutput}
+ * @see {@link CreateMultipartReadSetUploadCommandInput} for command's `input` shape.
+ * @see {@link CreateMultipartReadSetUploadCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -90,6 +91,14 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred. Try the request again.</p>
+ *
+ * @throws {@link NotSupportedOperationException} (client fault)
+ *  <p>
+ *       The operation is not supported by Amazon Omics, or the API does not exist.
+ *     </p>
+ *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request timed out.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The target resource was not found in the current Region.</p>
@@ -107,9 +116,9 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
-export class StartAnnotationImportJobCommand extends $Command<
-  StartAnnotationImportJobCommandInput,
-  StartAnnotationImportJobCommandOutput,
+export class CreateMultipartReadSetUploadCommand extends $Command<
+  CreateMultipartReadSetUploadCommandInput,
+  CreateMultipartReadSetUploadCommandOutput,
   OmicsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -127,7 +136,7 @@ export class StartAnnotationImportJobCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StartAnnotationImportJobCommandInput) {
+  constructor(readonly input: CreateMultipartReadSetUploadCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -140,17 +149,17 @@ export class StartAnnotationImportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OmicsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartAnnotationImportJobCommandInput, StartAnnotationImportJobCommandOutput> {
+  ): Handler<CreateMultipartReadSetUploadCommandInput, CreateMultipartReadSetUploadCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartAnnotationImportJobCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateMultipartReadSetUploadCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "OmicsClient";
-    const commandName = "StartAnnotationImportJobCommand";
+    const commandName = "CreateMultipartReadSetUploadCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -169,15 +178,18 @@ export class StartAnnotationImportJobCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StartAnnotationImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartAnnotationImportJobCommand(input, context);
+  private serialize(input: CreateMultipartReadSetUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateMultipartReadSetUploadCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAnnotationImportJobCommandOutput> {
-    return de_StartAnnotationImportJobCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<CreateMultipartReadSetUploadCommandOutput> {
+    return de_CreateMultipartReadSetUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -44,6 +44,7 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  *   runGroupId: "STRING_VALUE",
  *   startingToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   status: "STRING_VALUE",
  * };
  * const command = new ListRunsCommand(input);
  * const response = await client.send(command);

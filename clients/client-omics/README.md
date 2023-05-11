@@ -7,7 +7,7 @@
 AWS SDK for JavaScript Omics Client for Node.js, Browser and React Native.
 
 <p>This is the <i>Amazon Omics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is Amazon Omics?</a> in the
-<i>Amazon Omics Developer Guide</i>.</p>
+<i>Amazon Omics User Guide</i>.</p>
 
 ## Installing
 
@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `OmicsClient` and
-the commands you need, for example `BatchDeleteReadSetCommand`:
+the commands you need, for example `AbortMultipartReadSetUploadCommand`:
 
 ```js
 // ES5 example
-const { OmicsClient, BatchDeleteReadSetCommand } = require("@aws-sdk/client-omics");
+const { OmicsClient, AbortMultipartReadSetUploadCommand } = require("@aws-sdk/client-omics");
 ```
 
 ```ts
 // ES6+ example
-import { OmicsClient, BatchDeleteReadSetCommand } from "@aws-sdk/client-omics";
+import { OmicsClient, AbortMultipartReadSetUploadCommand } from "@aws-sdk/client-omics";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new OmicsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchDeleteReadSetCommand(params);
+const command = new AbortMultipartReadSetUploadCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.Omics({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchDeleteReadSet(params);
+  const data = await client.abortMultipartReadSetUpload(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .batchDeleteReadSet(params)
+  .abortMultipartReadSetUpload(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.batchDeleteReadSet(params, (err, data) => {
+client.abortMultipartReadSetUpload(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -206,6 +206,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AbortMultipartReadSetUpload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/abortmultipartreadsetuploadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/abortmultipartreadsetuploadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/abortmultipartreadsetuploadcommandoutput.html)
+
+</details>
+<details>
+<summary>
 BatchDeleteReadSet
 </summary>
 
@@ -238,10 +246,26 @@ CancelVariantImportJob
 </details>
 <details>
 <summary>
+CompleteMultipartReadSetUpload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/completemultipartreadsetuploadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/completemultipartreadsetuploadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/completemultipartreadsetuploadcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateAnnotationStore
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/createannotationstorecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/createannotationstorecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/createannotationstorecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateMultipartReadSetUpload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/createmultipartreadsetuploadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/createmultipartreadsetuploadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/createmultipartreadsetuploadcommandoutput.html)
 
 </details>
 <details>
@@ -510,6 +534,14 @@ ListAnnotationStores
 </details>
 <details>
 <summary>
+ListMultipartReadSetUploads
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/listmultipartreadsetuploadscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/listmultipartreadsetuploadscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/listmultipartreadsetuploadscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListReadSetActivationJobs
 </summary>
 
@@ -538,6 +570,14 @@ ListReadSets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/listreadsetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/listreadsetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/listreadsetscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListReadSetUploadParts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/listreadsetuploadpartscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/listreadsetuploadpartscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/listreadsetuploadpartscommandoutput.html)
 
 </details>
 <details>
@@ -730,5 +770,13 @@ UpdateWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/updateworkflowcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/updateworkflowcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/updateworkflowcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UploadReadSetPart
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/uploadreadsetpartcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/uploadreadsetpartcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/uploadreadsetpartcommandoutput.html)
 
 </details>

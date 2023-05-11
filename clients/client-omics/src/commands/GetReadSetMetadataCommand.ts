@@ -80,6 +80,7 @@ export interface GetReadSetMetadataCommandOutput extends GetReadSetMetadataRespo
  * //       contentLength: Number("long"),
  * //     },
  * //   },
+ * //   statusMessage: "STRING_VALUE",
  * // };
  *
  * ```

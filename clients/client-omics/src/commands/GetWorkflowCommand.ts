@@ -71,6 +71,10 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   metadata: { // WorkflowMetadata
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   accelerators: "STRING_VALUE",
  * // };
  *
  * ```

@@ -57,6 +57,9 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * //       type: "STRING_VALUE",
  * //       digest: "STRING_VALUE",
  * //       creationTime: new Date("TIMESTAMP"),
+ * //       metadata: { // WorkflowMetadata
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

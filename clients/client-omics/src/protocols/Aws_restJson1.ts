@@ -30,6 +30,10 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import {
+  AbortMultipartReadSetUploadCommandInput,
+  AbortMultipartReadSetUploadCommandOutput,
+} from "../commands/AbortMultipartReadSetUploadCommand";
 import { BatchDeleteReadSetCommandInput, BatchDeleteReadSetCommandOutput } from "../commands/BatchDeleteReadSetCommand";
 import {
   CancelAnnotationImportJobCommandInput,
@@ -41,9 +45,17 @@ import {
   CancelVariantImportJobCommandOutput,
 } from "../commands/CancelVariantImportJobCommand";
 import {
+  CompleteMultipartReadSetUploadCommandInput,
+  CompleteMultipartReadSetUploadCommandOutput,
+} from "../commands/CompleteMultipartReadSetUploadCommand";
+import {
   CreateAnnotationStoreCommandInput,
   CreateAnnotationStoreCommandOutput,
 } from "../commands/CreateAnnotationStoreCommand";
+import {
+  CreateMultipartReadSetUploadCommandInput,
+  CreateMultipartReadSetUploadCommandOutput,
+} from "../commands/CreateMultipartReadSetUploadCommand";
 import {
   CreateReferenceStoreCommandInput,
   CreateReferenceStoreCommandOutput,
@@ -120,6 +132,10 @@ import {
   ListAnnotationStoresCommandOutput,
 } from "../commands/ListAnnotationStoresCommand";
 import {
+  ListMultipartReadSetUploadsCommandInput,
+  ListMultipartReadSetUploadsCommandOutput,
+} from "../commands/ListMultipartReadSetUploadsCommand";
+import {
   ListReadSetActivationJobsCommandInput,
   ListReadSetActivationJobsCommandOutput,
 } from "../commands/ListReadSetActivationJobsCommand";
@@ -132,6 +148,10 @@ import {
   ListReadSetImportJobsCommandOutput,
 } from "../commands/ListReadSetImportJobsCommand";
 import { ListReadSetsCommandInput, ListReadSetsCommandOutput } from "../commands/ListReadSetsCommand";
+import {
+  ListReadSetUploadPartsCommandInput,
+  ListReadSetUploadPartsCommandOutput,
+} from "../commands/ListReadSetUploadPartsCommand";
 import {
   ListReferenceImportJobsCommandInput,
   ListReferenceImportJobsCommandOutput,
@@ -189,6 +209,7 @@ import {
 import { UpdateRunGroupCommandInput, UpdateRunGroupCommandOutput } from "../commands/UpdateRunGroupCommand";
 import { UpdateVariantStoreCommandInput, UpdateVariantStoreCommandOutput } from "../commands/UpdateVariantStoreCommand";
 import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "../commands/UpdateWorkflowCommand";
+import { UploadReadSetPartCommandInput, UploadReadSetPartCommandOutput } from "../commands/UploadReadSetPartCommand";
 import {
   AccessDeniedException,
   ActivateReadSetFilter,
@@ -196,6 +217,7 @@ import {
   AnnotationImportItemSource,
   AnnotationImportJobItem,
   AnnotationStoreItem,
+  CompleteReadSetUploadPartListItem,
   ConflictException,
   ExportReadSet,
   ExportReadSetFilter,
@@ -210,10 +232,14 @@ import {
   ListAnnotationStoresFilter,
   ListVariantImportJobsFilter,
   ListVariantStoresFilter,
+  MultipartReadSetUploadListItem,
+  NotSupportedOperationException,
   RangeNotSatisfiableException,
   ReadOptions,
   ReadSetFilter,
   ReadSetListItem,
+  ReadSetUploadPartListFilter,
+  ReadSetUploadPartListItem,
   ReferenceFilter,
   ReferenceItem,
   ReferenceListItem,
@@ -246,6 +272,46 @@ import {
   WorkflowParameter,
 } from "../models/models_0";
 import { OmicsServiceException as __BaseException } from "../models/OmicsServiceException";
+
+/**
+ * serializeAws_restJson1AbortMultipartReadSetUploadCommand
+ */
+export const se_AbortMultipartReadSetUploadCommand = async (
+  input: AbortMultipartReadSetUploadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/sequencestore/{sequenceStoreId}/upload/{uploadId}/abort";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "sequenceStoreId",
+    () => input.sequenceStoreId!,
+    "{sequenceStoreId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "uploadId", () => input.uploadId!, "{uploadId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "control-storage-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 /**
  * serializeAws_restJson1BatchDeleteReadSetCommand
@@ -385,6 +451,53 @@ export const se_CancelVariantImportJobCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CompleteMultipartReadSetUploadCommand
+ */
+export const se_CompleteMultipartReadSetUploadCommand = async (
+  input: CompleteMultipartReadSetUploadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/sequencestore/{sequenceStoreId}/upload/{uploadId}/complete";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "sequenceStoreId",
+    () => input.sequenceStoreId!,
+    "{sequenceStoreId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "uploadId", () => input.uploadId!, "{uploadId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      parts: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "storage-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateAnnotationStoreCommand
  */
 export const se_CreateAnnotationStoreCommand = async (
@@ -411,6 +524,59 @@ export const se_CreateAnnotationStoreCommand = async (
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "analytics-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateMultipartReadSetUploadCommand
+ */
+export const se_CreateMultipartReadSetUploadCommand = async (
+  input: CreateMultipartReadSetUploadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sequencestore/{sequenceStoreId}/upload";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "sequenceStoreId",
+    () => input.sequenceStoreId!,
+    "{sequenceStoreId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [],
+      description: [],
+      generatedFrom: [],
+      name: [],
+      referenceArn: [],
+      sampleId: [],
+      sourceFileType: [],
+      subjectId: [],
+      tags: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "control-storage-" + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -483,6 +649,7 @@ export const se_CreateRunGroupCommand = async (
     take(input, {
       maxCpus: [],
       maxDuration: [],
+      maxGpus: [],
       maxRuns: [],
       name: [],
       requestId: [true, (_) => _ ?? generateIdempotencyToken()],
@@ -524,6 +691,7 @@ export const se_CreateSequenceStoreCommand = async (
     take(input, {
       clientToken: [],
       description: [],
+      fallbackLocation: [],
       name: [],
       sseConfig: (_) => _json(_),
       tags: (_) => _json(_),
@@ -602,6 +770,7 @@ export const se_CreateWorkflowCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accelerators: [],
       definitionUri: [],
       definitionZip: (_) => context.base64Encoder(_),
       description: [],
@@ -1615,6 +1784,49 @@ export const se_ListAnnotationStoresCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListMultipartReadSetUploadsCommand
+ */
+export const se_ListMultipartReadSetUploadsCommand = async (
+  input: ListMultipartReadSetUploadsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sequencestore/{sequenceStoreId}/uploads";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "sequenceStoreId",
+    () => input.sequenceStoreId!,
+    "{sequenceStoreId}",
+    false
+  );
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "control-storage-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListReadSetActivationJobsCommand
  */
 export const se_ListReadSetActivationJobsCommand = async (
@@ -1796,6 +2008,59 @@ export const se_ListReadSetsCommand = async (
   body = JSON.stringify(
     take(input, {
       filter: (_) => se_ReadSetFilter(_, context),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "control-storage-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListReadSetUploadPartsCommand
+ */
+export const se_ListReadSetUploadPartsCommand = async (
+  input: ListReadSetUploadPartsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/sequencestore/{sequenceStoreId}/upload/{uploadId}/parts";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "sequenceStoreId",
+    () => input.sequenceStoreId!,
+    "{sequenceStoreId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "uploadId", () => input.uploadId!, "{uploadId}", false);
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => se_ReadSetUploadPartListFilter(_, context),
+      partSource: [],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2010,6 +2275,7 @@ export const se_ListRunsCommand = async (
     runGroupId: [, input.runGroupId!],
     startingToken: [, input.startingToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    status: [, input.status!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2273,6 +2539,7 @@ export const se_StartAnnotationImportJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      annotationFields: (_) => _json(_),
       destinationName: [],
       formatOptions: (_) => _json(_),
       items: (_) => _json(_),
@@ -2553,6 +2820,7 @@ export const se_StartVariantImportJobCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      annotationFields: (_) => _json(_),
       destinationName: [],
       items: (_) => _json(_),
       roleArn: [],
@@ -2706,6 +2974,7 @@ export const se_UpdateRunGroupCommand = async (
     take(input, {
       maxCpus: [],
       maxDuration: [],
+      maxGpus: [],
       maxRuns: [],
       name: [],
     })
@@ -2801,6 +3070,121 @@ export const se_UpdateWorkflowCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+/**
+ * serializeAws_restJson1UploadReadSetPartCommand
+ */
+export const se_UploadReadSetPartCommand = async (
+  input: UploadReadSetPartCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
+    "content-type": "application/octet-stream",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/sequencestore/{sequenceStoreId}/upload/{uploadId}/part";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "sequenceStoreId",
+    () => input.sequenceStoreId!,
+    "{sequenceStoreId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "uploadId", () => input.uploadId!, "{uploadId}", false);
+  const query: any = map({
+    partSource: [, __expectNonNull(input.partSource!, `partSource`)],
+    partNumber: [__expectNonNull(input.partNumber, `partNumber`) != null, () => input.partNumber!.toString()],
+  });
+  let body: any;
+  if (input.payload !== undefined) {
+    body = input.payload;
+  }
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "storage-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * deserializeAws_restJson1AbortMultipartReadSetUploadCommand
+ */
+export const de_AbortMultipartReadSetUploadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AbortMultipartReadSetUploadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_AbortMultipartReadSetUploadCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AbortMultipartReadSetUploadCommandError
+ */
+const de_AbortMultipartReadSetUploadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AbortMultipartReadSetUploadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "NotSupportedOperationException":
+    case "com.amazonaws.omics#NotSupportedOperationException":
+      throw await de_NotSupportedOperationExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.omics#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.omics#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -3040,6 +3424,74 @@ const de_CancelVariantImportJobCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CompleteMultipartReadSetUploadCommand
+ */
+export const de_CompleteMultipartReadSetUploadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CompleteMultipartReadSetUploadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CompleteMultipartReadSetUploadCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    readSetId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CompleteMultipartReadSetUploadCommandError
+ */
+const de_CompleteMultipartReadSetUploadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CompleteMultipartReadSetUploadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "NotSupportedOperationException":
+    case "com.amazonaws.omics#NotSupportedOperationException":
+      throw await de_NotSupportedOperationExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.omics#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.omics#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateAnnotationStoreCommand
  */
 export const de_CreateAnnotationStoreCommand = async (
@@ -3088,6 +3540,84 @@ const de_CreateAnnotationStoreCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.omics#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.omics#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateMultipartReadSetUploadCommand
+ */
+export const de_CreateMultipartReadSetUploadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMultipartReadSetUploadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateMultipartReadSetUploadCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    generatedFrom: __expectString,
+    name: __expectString,
+    referenceArn: __expectString,
+    sampleId: __expectString,
+    sequenceStoreId: __expectString,
+    sourceFileType: __expectString,
+    subjectId: __expectString,
+    tags: _json,
+    uploadId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateMultipartReadSetUploadCommandError
+ */
+const de_CreateMultipartReadSetUploadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMultipartReadSetUploadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "NotSupportedOperationException":
+    case "com.amazonaws.omics#NotSupportedOperationException":
+      throw await de_NotSupportedOperationExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.omics#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.omics#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -3265,6 +3795,7 @@ export const de_CreateSequenceStoreCommand = async (
     arn: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
+    fallbackLocation: __expectString,
     id: __expectString,
     name: __expectString,
     sseConfig: _json,
@@ -3968,6 +4499,7 @@ export const de_GetAnnotationImportJobCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    annotationFields: _json,
     completionTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     destinationName: __expectString,
@@ -4393,6 +4925,7 @@ export const de_GetReadSetMetadataCommand = async (
     sequenceInformation: _json,
     sequenceStoreId: __expectString,
     status: __expectString,
+    statusMessage: __expectString,
     subjectId: __expectString,
   });
   Object.assign(contents, doc);
@@ -4725,6 +5258,7 @@ export const de_GetRunCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    accelerators: __expectString,
     arn: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     definition: __expectString,
@@ -4817,6 +5351,7 @@ export const de_GetRunGroupCommand = async (
     id: __expectString,
     maxCpus: __expectInt32,
     maxDuration: __expectInt32,
+    maxGpus: __expectInt32,
     maxRuns: __expectInt32,
     name: __expectString,
     tags: _json,
@@ -4889,6 +5424,7 @@ export const de_GetRunTaskCommand = async (
   const doc = take(data, {
     cpus: __expectInt32,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    gpus: __expectInt32,
     logStream: __expectString,
     memory: __expectInt32,
     name: __expectString,
@@ -4967,6 +5503,7 @@ export const de_GetSequenceStoreCommand = async (
     arn: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
+    fallbackLocation: __expectString,
     id: __expectString,
     name: __expectString,
     sseConfig: _json,
@@ -5031,6 +5568,7 @@ export const de_GetVariantImportJobCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    annotationFields: _json,
     completionTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     destinationName: __expectString,
@@ -5169,6 +5707,7 @@ export const de_GetWorkflowCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    accelerators: __expectString,
     arn: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     definition: __expectString,
@@ -5177,6 +5716,7 @@ export const de_GetWorkflowCommand = async (
     engine: __expectString,
     id: __expectString,
     main: __expectString,
+    metadata: _json,
     name: __expectString,
     parameterTemplate: _json,
     status: __expectString,
@@ -5340,6 +5880,75 @@ const de_ListAnnotationStoresCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.omics#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListMultipartReadSetUploadsCommand
+ */
+export const de_ListMultipartReadSetUploadsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMultipartReadSetUploadsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListMultipartReadSetUploadsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    uploads: (_) => de_MultipartReadSetUploadList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListMultipartReadSetUploadsCommandError
+ */
+const de_ListMultipartReadSetUploadsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMultipartReadSetUploadsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "NotSupportedOperationException":
+    case "com.amazonaws.omics#NotSupportedOperationException":
+      throw await de_NotSupportedOperationExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.omics#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.omics#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.omics#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -5592,6 +6201,75 @@ const de_ListReadSetsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.omics#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListReadSetUploadPartsCommand
+ */
+export const de_ListReadSetUploadPartsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReadSetUploadPartsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListReadSetUploadPartsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    parts: (_) => de_ReadSetUploadPartList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListReadSetUploadPartsCommandError
+ */
+const de_ListReadSetUploadPartsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReadSetUploadPartsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "NotSupportedOperationException":
+    case "com.amazonaws.omics#NotSupportedOperationException":
+      throw await de_NotSupportedOperationExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.omics#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.omics#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.omics#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -7176,6 +7854,74 @@ const de_UpdateWorkflowCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UploadReadSetPartCommand
+ */
+export const de_UploadReadSetPartCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UploadReadSetPartCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UploadReadSetPartCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    checksum: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UploadReadSetPartCommandError
+ */
+const de_UploadReadSetPartCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UploadReadSetPartCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "NotSupportedOperationException":
+    case "com.amazonaws.omics#NotSupportedOperationException":
+      throw await de_NotSupportedOperationExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.omics#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.omics#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
@@ -7228,6 +7974,26 @@ const de_InternalServerExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new InternalServerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1NotSupportedOperationExceptionRes
+ */
+const de_NotSupportedOperationExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NotSupportedOperationException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new NotSupportedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -7359,9 +8125,15 @@ const se_ActivateReadSetFilter = (input: ActivateReadSetFilter, context: __Serde
   });
 };
 
+// se_AnnotationFieldMap omitted.
+
 // se_AnnotationImportItemSource omitted.
 
 // se_AnnotationImportItemSources omitted.
+
+// se_CompleteReadSetUploadPartList omitted.
+
+// se_CompleteReadSetUploadPartListItem omitted.
 
 // se_ExportReadSet omitted.
 
@@ -7423,13 +8195,26 @@ const se_ReadSetFilter = (input: ReadSetFilter, context: __SerdeContext): any =>
   return take(input, {
     createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
     createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    generatedFrom: [],
     name: [],
     referenceArn: [],
+    sampleId: [],
     status: [],
+    subjectId: [],
   });
 };
 
 // se_ReadSetIdList omitted.
+
+/**
+ * serializeAws_restJson1ReadSetUploadPartListFilter
+ */
+const se_ReadSetUploadPartListFilter = (input: ReadSetUploadPartListFilter, context: __SerdeContext): any => {
+  return take(input, {
+    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
+    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+  });
+};
 
 /**
  * serializeAws_restJson1ReferenceFilter
@@ -7541,6 +8326,8 @@ const de_ActivateReadSetJobList = (output: any, context: __SerdeContext): Activa
 
 // de_ActivateReadSetSourceList omitted.
 
+// de_AnnotationFieldMap omitted.
+
 // de_AnnotationImportItemDetail omitted.
 
 // de_AnnotationImportItemDetails omitted.
@@ -7550,6 +8337,7 @@ const de_ActivateReadSetJobList = (output: any, context: __SerdeContext): Activa
  */
 const de_AnnotationImportJobItem = (output: any, context: __SerdeContext): AnnotationImportJobItem => {
   return take(output, {
+    annotationFields: _json,
     completionTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     destinationName: __expectString,
@@ -7701,6 +8489,37 @@ const de_ImportReferenceJobList = (output: any, context: __SerdeContext): Import
 
 // de_ImportReferenceSourceList omitted.
 
+/**
+ * deserializeAws_restJson1MultipartReadSetUploadList
+ */
+const de_MultipartReadSetUploadList = (output: any, context: __SerdeContext): MultipartReadSetUploadListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MultipartReadSetUploadListItem(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1MultipartReadSetUploadListItem
+ */
+const de_MultipartReadSetUploadListItem = (output: any, context: __SerdeContext): MultipartReadSetUploadListItem => {
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    generatedFrom: __expectString,
+    name: __expectString,
+    referenceArn: __expectString,
+    sampleId: __expectString,
+    sequenceStoreId: __expectString,
+    sourceFileType: __expectString,
+    subjectId: __expectString,
+    tags: _json,
+    uploadId: __expectString,
+  }) as any;
+};
+
 // de_ReadOptions omitted.
 
 // de_ReadSetBatchError omitted.
@@ -7737,7 +8556,34 @@ const de_ReadSetListItem = (output: any, context: __SerdeContext): ReadSetListIt
     sequenceInformation: _json,
     sequenceStoreId: __expectString,
     status: __expectString,
+    statusMessage: __expectString,
     subjectId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ReadSetUploadPartList
+ */
+const de_ReadSetUploadPartList = (output: any, context: __SerdeContext): ReadSetUploadPartListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ReadSetUploadPartListItem(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ReadSetUploadPartListItem
+ */
+const de_ReadSetUploadPartListItem = (output: any, context: __SerdeContext): ReadSetUploadPartListItem => {
+  return take(output, {
+    checksum: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    lastUpdatedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    partNumber: __expectInt32,
+    partSize: __expectLong,
+    partSource: __expectString,
   }) as any;
 };
 
@@ -7822,6 +8668,7 @@ const de_RunGroupListItem = (output: any, context: __SerdeContext): RunGroupList
     id: __expectString,
     maxCpus: __expectInt32,
     maxDuration: __expectInt32,
+    maxGpus: __expectInt32,
     maxRuns: __expectInt32,
     name: __expectString,
   }) as any;
@@ -7880,6 +8727,7 @@ const de_SequenceStoreDetail = (output: any, context: __SerdeContext): SequenceS
     arn: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
+    fallbackLocation: __expectString,
     id: __expectString,
     name: __expectString,
     sseConfig: _json,
@@ -7925,6 +8773,7 @@ const de_TaskListItem = (output: any, context: __SerdeContext): TaskListItem => 
   return take(output, {
     cpus: __expectInt32,
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    gpus: __expectInt32,
     memory: __expectInt32,
     name: __expectString,
     startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -7947,6 +8796,7 @@ const de_TaskListItem = (output: any, context: __SerdeContext): TaskListItem => 
  */
 const de_VariantImportJobItem = (output: any, context: __SerdeContext): VariantImportJobItem => {
   return take(output, {
+    annotationFields: _json,
     completionTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     destinationName: __expectString,
@@ -8024,11 +8874,14 @@ const de_WorkflowListItem = (output: any, context: __SerdeContext): WorkflowList
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     digest: __expectString,
     id: __expectString,
+    metadata: _json,
     name: __expectString,
     status: __expectString,
     type: __expectString,
   }) as any;
 };
+
+// de_WorkflowMetadata omitted.
 
 // de_WorkflowParameter omitted.
 

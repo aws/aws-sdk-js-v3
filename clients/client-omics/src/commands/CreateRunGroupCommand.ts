@@ -48,6 +48,7 @@ export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __M
  *     "<keys>": "STRING_VALUE",
  *   },
  *   requestId: "STRING_VALUE", // required
+ *   maxGpus: Number("int"),
  * };
  * const command = new CreateRunGroupCommand(input);
  * const response = await client.send(command);

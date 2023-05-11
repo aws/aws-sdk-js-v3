@@ -45,6 +45,7 @@ export interface UpdateRunGroupCommandOutput extends __MetadataBearer {}
  *   maxCpus: Number("int"),
  *   maxRuns: Number("int"),
  *   maxDuration: Number("int"),
+ *   maxGpus: Number("int"),
  * };
  * const command = new UpdateRunGroupCommand(input);
  * const response = await client.send(command);

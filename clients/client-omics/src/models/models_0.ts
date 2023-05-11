@@ -7,6 +7,30 @@ import { OmicsServiceException as __BaseException } from "./OmicsServiceExceptio
 
 /**
  * @public
+ */
+export interface AbortMultipartReadSetUploadRequest {
+  /**
+   * <p>
+   *       The sequence store ID for the store involved in the multipart upload.
+   *     </p>
+   */
+  sequenceStoreId: string | undefined;
+
+  /**
+   * <p>
+   *       The ID for the multipart upload.
+   *     </p>
+   */
+  uploadId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AbortMultipartReadSetUploadResponse {}
+
+/**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,6 +48,165 @@ export class AccessDeniedException extends __BaseException {
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
   }
 }
+
+/**
+ * @public
+ * <p>An unexpected error occurred. Try the request again.</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>
+ *       The operation is not supported by Amazon Omics, or the API does not exist.
+ *     </p>
+ */
+export class NotSupportedOperationException extends __BaseException {
+  readonly name: "NotSupportedOperationException" = "NotSupportedOperationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotSupportedOperationException, __BaseException>) {
+    super({
+      name: "NotSupportedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotSupportedOperationException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The request timed out.</p>
+ */
+export class RequestTimeoutException extends __BaseException {
+  readonly name: "RequestTimeoutException" = "RequestTimeoutException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestTimeoutException, __BaseException>) {
+    super({
+      name: "RequestTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestTimeoutException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The target resource was not found in the current Region.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The request exceeds a service quota.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The request was denied due to request throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {
+    throttling: true,
+  };
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Accelerators = {
+  GPU: "GPU",
+} as const;
+
+/**
+ * @public
+ */
+export type Accelerators = (typeof Accelerators)[keyof typeof Accelerators];
 
 /**
  * @public
@@ -211,90 +394,6 @@ export interface CancelAnnotationImportRequest {
  * @public
  */
 export interface CancelAnnotationImportResponse {}
-
-/**
- * @public
- * <p>An unexpected error occurred. Try the request again.</p>
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * @public
- * <p>The target resource was not found in the current Region.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * @public
- * <p>The request was denied due to request throttling.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * @public
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
 
 /**
  * @public
@@ -492,6 +591,13 @@ export interface GetAnnotationImportResponse {
    * <p>Formatting options for a file.</p>
    */
   formatOptions: FormatOptions | undefined;
+
+  /**
+   * <p>
+   *       The annotation schema generated by the parsed annotation data.
+   *     </p>
+   */
+  annotationFields?: Record<string, string>;
 }
 
 /**
@@ -579,6 +685,13 @@ export interface AnnotationImportJobItem {
    * <p>The job's left normalization setting.</p>
    */
   runLeftNormalization?: boolean;
+
+  /**
+   * <p>
+   *       The annotation schema generated by the parsed annotation data.
+   *     </p>
+   */
+  annotationFields?: Record<string, string>;
 }
 
 /**
@@ -594,26 +707,6 @@ export interface ListAnnotationImportJobsResponse {
    * <p>A pagination token that's included if more results are available.</p>
    */
   nextToken?: string;
-}
-
-/**
- * @public
- * <p>The request exceeds a service quota.</p>
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
 }
 
 /**
@@ -644,6 +737,13 @@ export interface StartAnnotationImportRequest {
    * <p>The job's left normalization setting.</p>
    */
   runLeftNormalization?: boolean;
+
+  /**
+   * <p>
+   *       The annotation schema generated by the parsed annotation data.
+   *     </p>
+   */
+  annotationFields?: Record<string, string>;
 }
 
 /**
@@ -1367,26 +1467,6 @@ export interface BatchDeleteReadSetResponse {
 
 /**
  * @public
- * <p>The request timed out.</p>
- */
-export class RequestTimeoutException extends __BaseException {
-  readonly name: "RequestTimeoutException" = "RequestTimeoutException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestTimeoutException, __BaseException>) {
-    super({
-      name: "RequestTimeoutException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestTimeoutException.prototype);
-  }
-}
-
-/**
- * @public
  */
 export interface CancelRunRequest {
   /**
@@ -1409,6 +1489,259 @@ export interface CancelVariantImportRequest {
  * @public
  */
 export interface CancelVariantImportResponse {}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReadSetPartSource = {
+  SOURCE1: "SOURCE1",
+  SOURCE2: "SOURCE2",
+} as const;
+
+/**
+ * @public
+ */
+export type ReadSetPartSource = (typeof ReadSetPartSource)[keyof typeof ReadSetPartSource];
+
+/**
+ * @public
+ * <p>
+ *       Part of the response to the CompleteReadSetUpload API, including metadata.
+ *     </p>
+ */
+export interface CompleteReadSetUploadPartListItem {
+  /**
+   * <p>
+   *       A number identifying the part in a read set upload.
+   *     </p>
+   */
+  partNumber: number | undefined;
+
+  /**
+   * <p>
+   *       The source file of the part being uploaded.
+   *     </p>
+   */
+  partSource: ReadSetPartSource | string | undefined;
+
+  /**
+   * <p>
+   *       A unique identifier used to confirm that parts are being added to the correct upload.
+   *     </p>
+   */
+  checksum: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CompleteMultipartReadSetUploadRequest {
+  /**
+   * <p>
+   *       The sequence store ID for the store involved in the multipart upload.
+   *     </p>
+   */
+  sequenceStoreId: string | undefined;
+
+  /**
+   * <p>
+   *       The ID for the multipart upload.
+   *     </p>
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>
+   *       The individual uploads or parts of a multipart upload.
+   *     </p>
+   */
+  parts: CompleteReadSetUploadPartListItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CompleteMultipartReadSetUploadResponse {
+  /**
+   * <p>
+   *       The read set ID created for an uploaded read set.
+   *     </p>
+   */
+  readSetId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FileType = {
+  BAM: "BAM",
+  CRAM: "CRAM",
+  FASTQ: "FASTQ",
+} as const;
+
+/**
+ * @public
+ */
+export type FileType = (typeof FileType)[keyof typeof FileType];
+
+/**
+ * @public
+ */
+export interface CreateMultipartReadSetUploadRequest {
+  /**
+   * <p>
+   *       The sequence store ID for the store that is the destination of the multipart uploads.
+   *     </p>
+   */
+  sequenceStoreId: string | undefined;
+
+  /**
+   * <p>
+   *       An idempotency token that can be used to avoid triggering multiple multipart uploads.
+   *     </p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>
+   *       The type of file being uploaded.
+   *     </p>
+   */
+  sourceFileType: FileType | string | undefined;
+
+  /**
+   * <p>
+   *       The source's subject ID.
+   *     </p>
+   */
+  subjectId: string | undefined;
+
+  /**
+   * <p>
+   *       The source's sample ID.
+   *     </p>
+   */
+  sampleId: string | undefined;
+
+  /**
+   * <p>
+   *       Where the source originated.
+   *     </p>
+   */
+  generatedFrom?: string;
+
+  /**
+   * <p>
+   *       The ARN of the reference.
+   *     </p>
+   */
+  referenceArn: string | undefined;
+
+  /**
+   * <p>
+   *       The name of the read set.
+   *     </p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>
+   *       The description of the read set.
+   *     </p>
+   */
+  description?: string;
+
+  /**
+   * <p>
+   *       Any tags to add to the read set.
+   *     </p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateMultipartReadSetUploadResponse {
+  /**
+   * <p>
+   *       The sequence store ID for the store that the read set will be created in.
+   *     </p>
+   */
+  sequenceStoreId: string | undefined;
+
+  /**
+   * <p>
+   *       he ID for the initiated multipart upload.
+   *     </p>
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>
+   *       The file type of the read set source.
+   *     </p>
+   */
+  sourceFileType: FileType | string | undefined;
+
+  /**
+   * <p>
+   *       The source's subject ID.
+   *     </p>
+   */
+  subjectId: string | undefined;
+
+  /**
+   * <p>
+   *       The source's sample ID.
+   *     </p>
+   */
+  sampleId: string | undefined;
+
+  /**
+   * <p>
+   *       The source of the read set.
+   *     </p>
+   */
+  generatedFrom?: string;
+
+  /**
+   * <p>
+   *       The read set source's reference ARN.
+   *     </p>
+   */
+  referenceArn: string | undefined;
+
+  /**
+   * <p>
+   *       The name of the read set.
+   *     </p>
+   */
+  name?: string;
+
+  /**
+   * <p>
+   *       The description of the read set.
+   *     </p>
+   */
+  description?: string;
+
+  /**
+   * <p>
+   *       The tags to add to the read set.
+   *     </p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>
+   *       The creation time of the multipart upload.
+   *     </p>
+   */
+  creationTime: Date | undefined;
+}
 
 /**
  * @public
@@ -1508,6 +1841,13 @@ export interface CreateRunGroupRequest {
    * <p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>
    */
   requestId?: string;
+
+  /**
+   * <p>
+   *       The maximum GPUs that can be used by a run group.
+   *     </p>
+   */
+  maxGpus?: number;
 }
 
 /**
@@ -1558,6 +1898,13 @@ export interface CreateSequenceStoreRequest {
    * <p>To ensure that requests don't run multiple times, specify a unique token for each request.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>
+   *       An S3 location that is used to store files that have failed a direct upload.
+   *     </p>
+   */
+  fallbackLocation?: string;
 }
 
 /**
@@ -1593,6 +1940,13 @@ export interface CreateSequenceStoreResponse {
    * <p>When the store was created.</p>
    */
   creationTime: Date | undefined;
+
+  /**
+   * <p>
+   *       An S3 location that is used to store files that have failed a direct upload.
+   *     </p>
+   */
+  fallbackLocation?: string;
 }
 
 /**
@@ -1738,6 +2092,13 @@ export interface CreateWorkflowRequest {
    * <p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>
    */
   requestId?: string;
+
+  /**
+   * <p>
+   *       The computational accelerator specified to run the workflow.
+   *     </p>
+   */
+  accelerators?: Accelerators | string;
 }
 
 /**
@@ -1749,6 +2110,7 @@ export const WorkflowStatus = {
   CREATING: "CREATING",
   DELETED: "DELETED",
   FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
   UPDATING: "UPDATING",
 } as const;
 
@@ -2031,21 +2393,6 @@ export interface FileInformation {
    */
   contentLength?: number;
 }
-
-/**
- * @public
- * @enum
- */
-export const FileType = {
-  BAM: "BAM",
-  CRAM: "CRAM",
-  FASTQ: "FASTQ",
-} as const;
-
-/**
- * @public
- */
-export type FileType = (typeof FileType)[keyof typeof FileType];
 
 /**
  * @public
@@ -2477,6 +2824,8 @@ export const ReadSetStatus = {
   ARCHIVED: "ARCHIVED",
   DELETED: "DELETED",
   DELETING: "DELETING",
+  PROCESSING_UPLOAD: "PROCESSING_UPLOAD",
+  UPLOAD_FAILED: "UPLOAD_FAILED",
 } as const;
 
 /**
@@ -2552,6 +2901,13 @@ export interface GetReadSetMetadataResponse {
    * <p>The read set's files.</p>
    */
   files?: ReadSetFiles;
+
+  /**
+   * <p>
+   *       The status message for a read set. It provides more detail as to why the read set has a status.
+   *     </p>
+   */
+  statusMessage?: string;
 }
 
 /**
@@ -2956,6 +3312,7 @@ export type RunStatus = (typeof RunStatus)[keyof typeof RunStatus];
  */
 export const WorkflowType = {
   PRIVATE: "PRIVATE",
+  READY2RUN: "READY2RUN",
 } as const;
 
 /**
@@ -3081,6 +3438,13 @@ export interface GetRunResponse {
    * <p>The run's tags.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>
+   *       The computational accelerator used to run the workflow.
+   *     </p>
+   */
+  accelerators?: Accelerators | string;
 }
 
 /**
@@ -3136,6 +3500,13 @@ export interface GetRunGroupResponse {
    * <p>The group's tags.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>
+   *       The maximum GPUs that can be used by a run group.
+   *     </p>
+   */
+  maxGpus?: number;
 }
 
 /**
@@ -3225,6 +3596,13 @@ export interface GetRunTaskResponse {
    * <p>The task's log stream.</p>
    */
   logStream?: string;
+
+  /**
+   * <p>
+   *       The number of Graphics Processing Units (GPU) specified in the task.
+   *     </p>
+   */
+  gpus?: number;
 }
 
 /**
@@ -3270,6 +3648,13 @@ export interface GetSequenceStoreResponse {
    * <p>When the store was created.</p>
    */
   creationTime: Date | undefined;
+
+  /**
+   * <p>
+   *       An S3 location that is used to store files that have failed a direct upload.
+   *     </p>
+   */
+  fallbackLocation?: string;
 }
 
 /**
@@ -3356,6 +3741,13 @@ export interface GetVariantImportResponse {
    * <p>The job's left normalization setting.</p>
    */
   runLeftNormalization: boolean | undefined;
+
+  /**
+   * <p>
+   *       The annotation schema generated by the parsed annotation data.
+   *     </p>
+   */
+  annotationFields?: Record<string, string>;
 }
 
 /**
@@ -3544,6 +3936,19 @@ export interface GetWorkflowResponse {
    * <p>The workflow's tags.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>
+   *       Gets metadata for workflow.
+   *     </p>
+   */
+  metadata?: Record<string, string>;
+
+  /**
+   * <p>
+   *       The computational accelerator specified to run the workflow. </p>
+   */
+  accelerators?: Accelerators | string;
 }
 
 /**
@@ -3658,6 +4063,136 @@ export interface ImportReferenceJobItem {
    * <p>When the job completed.</p>
    */
   completionTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListMultipartReadSetUploadsRequest {
+  /**
+   * <p>
+   *       The Sequence Store ID used for the multipart uploads.
+   *     </p>
+   */
+  sequenceStoreId: string | undefined;
+
+  /**
+   * <p>
+   *       The maximum number of multipart uploads returned in a page.
+   *     </p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *       Next token returned in the response of a previous ListMultipartReadSetUploads call. Used to get the next page of results.
+   *     </p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *       Part of the response to ListMultipartReadSetUploads, excluding completed and aborted multipart uploads.
+ *     </p>
+ */
+export interface MultipartReadSetUploadListItem {
+  /**
+   * <p>
+   *       The sequence store ID used for the multipart upload.
+   *     </p>
+   */
+  sequenceStoreId: string | undefined;
+
+  /**
+   * <p>
+   *       The ID for the initiated multipart upload.
+   *     </p>
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>
+   *       The type of file the read set originated from.
+   *     </p>
+   */
+  sourceFileType: FileType | string | undefined;
+
+  /**
+   * <p>
+   *       The read set source's subject ID.
+   *     </p>
+   */
+  subjectId: string | undefined;
+
+  /**
+   * <p>
+   *       The read set source's sample ID.
+   *     </p>
+   */
+  sampleId: string | undefined;
+
+  /**
+   * <p>
+   *       The source of an uploaded part.
+   *     </p>
+   */
+  generatedFrom: string | undefined;
+
+  /**
+   * <p>
+   *       The source's reference ARN.
+   *     </p>
+   */
+  referenceArn: string | undefined;
+
+  /**
+   * <p>
+   *       The name of a read set.
+   *     </p>
+   */
+  name?: string;
+
+  /**
+   * <p>
+   *       The description of a read set.
+   *     </p>
+   */
+  description?: string;
+
+  /**
+   * <p>
+   *       Any tags you wish to add to a read set.
+   *     </p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>
+   *       The time stamp for when a direct upload was created.
+   *     </p>
+   */
+  creationTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMultipartReadSetUploadsResponse {
+  /**
+   * <p>
+   *       Next token returned in the response of a previous ListMultipartReadSetUploads call. Used to get the next page of results.
+   *     </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   *       An array of multipart uploads.
+   *     </p>
+   */
+  uploads?: MultipartReadSetUploadListItem[];
 }
 
 /**
@@ -3809,6 +4344,27 @@ export interface ReadSetFilter {
    * <p>The filter's end date.</p>
    */
   createdBefore?: Date;
+
+  /**
+   * <p>
+   *       The read set source's sample ID.
+   *     </p>
+   */
+  sampleId?: string;
+
+  /**
+   * <p>
+   *       The read set source's subject ID.
+   *     </p>
+   */
+  subjectId?: string;
+
+  /**
+   * <p>
+   *       Where the source originated.
+   *     </p>
+   */
+  generatedFrom?: string;
 }
 
 /**
@@ -3900,6 +4456,13 @@ export interface ReadSetListItem {
    * <p>When the read set was created.</p>
    */
   creationTime: Date | undefined;
+
+  /**
+   * <p>
+   *       The status for a read set. It provides more detail as to why the read set has a status.
+   *     </p>
+   */
+  statusMessage?: string;
 }
 
 /**
@@ -3915,6 +4478,144 @@ export interface ListReadSetsResponse {
    * <p>A list of read sets.</p>
    */
   readSets: ReadSetListItem[] | undefined;
+}
+
+/**
+ * @public
+ * <p>
+ *       Filter settings that select for read set upload parts of interest.
+ *     </p>
+ */
+export interface ReadSetUploadPartListFilter {
+  /**
+   * <p>
+   *       Filters for read set uploads after a specified time.
+   *     </p>
+   */
+  createdAfter?: Date;
+
+  /**
+   * <p>
+   *       Filters for read set part uploads before a specified time.
+   *     </p>
+   */
+  createdBefore?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListReadSetUploadPartsRequest {
+  /**
+   * <p>
+   *       The Sequence Store ID used for the multipart uploads.
+   *     </p>
+   */
+  sequenceStoreId: string | undefined;
+
+  /**
+   * <p>
+   *       The ID for the initiated multipart upload.
+   *     </p>
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>
+   *       The source file for the upload part.
+   *     </p>
+   */
+  partSource: ReadSetPartSource | string | undefined;
+
+  /**
+   * <p>
+   *       The maximum number of read set upload parts returned in a page.
+   *     </p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *       Next token returned in the response of a previous ListReadSetUploadPartsRequest call. Used to get the next page of results.
+   *     </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   *       Attributes used to filter for a specific subset of read set part uploads.
+   *     </p>
+   */
+  filter?: ReadSetUploadPartListFilter;
+}
+
+/**
+ * @public
+ * <p>
+ *       The metadata of a single part of a file that was added to a multipart upload. A list of these parts is returned in the response to the ListReadSetUploadParts API.
+ *     </p>
+ */
+export interface ReadSetUploadPartListItem {
+  /**
+   * <p>
+   *       The number identifying the part in an upload.
+   *     </p>
+   */
+  partNumber: number | undefined;
+
+  /**
+   * <p>
+   *       The size of the the part in an upload.
+   *     </p>
+   */
+  partSize: number | undefined;
+
+  /**
+   * <p>
+   *       The origin of the part being direct uploaded.
+   *     </p>
+   */
+  partSource: ReadSetPartSource | string | undefined;
+
+  /**
+   * <p>
+   *       A unique identifier used to confirm that parts are being added to the correct upload.
+   *     </p>
+   */
+  checksum: string | undefined;
+
+  /**
+   * <p>
+   *       The time stamp for when a direct upload was created.
+   *     </p>
+   */
+  creationTime?: Date;
+
+  /**
+   * <p>
+   *       The time stamp for the most recent update to an uploaded part.
+   *     </p>
+   */
+  lastUpdatedTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListReadSetUploadPartsResponse {
+  /**
+   * <p>
+   *       Next token returned in the response of a previous ListReadSetUploadParts call. Used to get the next page of results.
+   *     </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   *       An array of upload parts.
+   *     </p>
+   */
+  parts?: ReadSetUploadPartListItem[];
 }
 
 /**
@@ -4225,6 +4926,13 @@ export interface RunGroupListItem {
    * <p>When the group was created.</p>
    */
   creationTime?: Date;
+
+  /**
+   * <p>
+   *       The maximum GPUs that can be used by a run group.
+   *     </p>
+   */
+  maxGpus?: number;
 }
 
 /**
@@ -4265,6 +4973,13 @@ export interface ListRunsRequest {
    * <p>The maximum number of runs to return in one page of results.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>
+   *       The status of a run.
+   *     </p>
+   */
+  status?: RunStatus | string;
 }
 
 /**
@@ -4407,6 +5122,13 @@ export interface TaskListItem {
    * <p>When the task stopped.</p>
    */
   stopTime?: Date;
+
+  /**
+   * <p>
+   *       The number of Graphics Processing Units (GPU) specified for the task.
+   *     </p>
+   */
+  gpus?: number;
 }
 
 /**
@@ -4499,6 +5221,13 @@ export interface SequenceStoreDetail {
    * <p>When the store was created.</p>
    */
   creationTime: Date | undefined;
+
+  /**
+   * <p>
+   *       An S3 location that is used to store files that have failed a direct upload.
+   *     </p>
+   */
+  fallbackLocation?: string;
 }
 
 /**
@@ -4621,6 +5350,13 @@ export interface VariantImportJobItem {
    * <p>The job's left normalization setting.</p>
    */
   runLeftNormalization?: boolean;
+
+  /**
+   * <p>
+   *       The annotation schema generated by the parsed annotation data.
+   *     </p>
+   */
+  annotationFields?: Record<string, string>;
 }
 
 /**
@@ -4814,6 +5550,13 @@ export interface WorkflowListItem {
    * <p>When the workflow was created.</p>
    */
   creationTime?: Date;
+
+  /**
+   * <p>
+   *       Any metadata available for workflow. The information listed may vary depending on the workflow, and there may also be no metadata to return.
+   *     </p>
+   */
+  metadata?: Record<string, string>;
 }
 
 /**
@@ -4940,6 +5683,13 @@ export interface UpdateRunGroupRequest {
    * <p>A maximum run time for the group in minutes.</p>
    */
   maxDuration?: number;
+
+  /**
+   * <p>
+   *       The maximum GPUs that can be used by a run group.
+   *     </p>
+   */
+  maxGpus?: number;
 }
 
 /**
@@ -5262,6 +6012,58 @@ export interface StartReadSetImportJobResponse {
 /**
  * @public
  */
+export interface UploadReadSetPartRequest {
+  /**
+   * <p>
+   *       The Sequence Store ID used for the multipart upload.
+   *     </p>
+   */
+  sequenceStoreId: string | undefined;
+
+  /**
+   * <p>
+   *       The ID for the initiated multipart upload.
+   *     </p>
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>
+   *       The source file for an upload part.
+   *     </p>
+   */
+  partSource: ReadSetPartSource | string | undefined;
+
+  /**
+   * <p>
+   *       The number of the part being uploaded.
+   *     </p>
+   */
+  partNumber: number | undefined;
+
+  /**
+   * <p>
+   *       The read set data to upload for a part.
+   *     </p>
+   */
+  payload: Readable | ReadableStream | Blob | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UploadReadSetPartResponse {
+  /**
+   * <p>
+   *       An identifier used to confirm that parts are being added to the intended upload.
+   *     </p>
+   */
+  checksum: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The resource's ARN.</p>
@@ -5333,6 +6135,13 @@ export interface StartVariantImportRequest {
    * <p>The job's left normalization setting.</p>
    */
   runLeftNormalization?: boolean;
+
+  /**
+   * <p>
+   *       The annotation schema generated by the parsed annotation data.
+   *     </p>
+   */
+  annotationFields?: Record<string, string>;
 }
 
 /**
@@ -5431,5 +6240,12 @@ export const GetReadSetResponseFilterSensitiveLog = (obj: GetReadSetResponse): a
  * @internal
  */
 export const GetReferenceResponseFilterSensitiveLog = (obj: GetReferenceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadReadSetPartRequestFilterSensitiveLog = (obj: UploadReadSetPartRequest): any => ({
   ...obj,
 });

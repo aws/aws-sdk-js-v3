@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  AbortMultipartReadSetUploadCommand,
+  AbortMultipartReadSetUploadCommandInput,
+  AbortMultipartReadSetUploadCommandOutput,
+} from "./commands/AbortMultipartReadSetUploadCommand";
+import {
   BatchDeleteReadSetCommand,
   BatchDeleteReadSetCommandInput,
   BatchDeleteReadSetCommandOutput,
@@ -19,10 +24,20 @@ import {
   CancelVariantImportJobCommandOutput,
 } from "./commands/CancelVariantImportJobCommand";
 import {
+  CompleteMultipartReadSetUploadCommand,
+  CompleteMultipartReadSetUploadCommandInput,
+  CompleteMultipartReadSetUploadCommandOutput,
+} from "./commands/CompleteMultipartReadSetUploadCommand";
+import {
   CreateAnnotationStoreCommand,
   CreateAnnotationStoreCommandInput,
   CreateAnnotationStoreCommandOutput,
 } from "./commands/CreateAnnotationStoreCommand";
+import {
+  CreateMultipartReadSetUploadCommand,
+  CreateMultipartReadSetUploadCommandInput,
+  CreateMultipartReadSetUploadCommandOutput,
+} from "./commands/CreateMultipartReadSetUploadCommand";
 import {
   CreateReferenceStoreCommand,
   CreateReferenceStoreCommandInput,
@@ -165,6 +180,11 @@ import {
   ListAnnotationStoresCommandOutput,
 } from "./commands/ListAnnotationStoresCommand";
 import {
+  ListMultipartReadSetUploadsCommand,
+  ListMultipartReadSetUploadsCommandInput,
+  ListMultipartReadSetUploadsCommandOutput,
+} from "./commands/ListMultipartReadSetUploadsCommand";
+import {
   ListReadSetActivationJobsCommand,
   ListReadSetActivationJobsCommandInput,
   ListReadSetActivationJobsCommandOutput,
@@ -184,6 +204,11 @@ import {
   ListReadSetsCommandInput,
   ListReadSetsCommandOutput,
 } from "./commands/ListReadSetsCommand";
+import {
+  ListReadSetUploadPartsCommand,
+  ListReadSetUploadPartsCommandInput,
+  ListReadSetUploadPartsCommandOutput,
+} from "./commands/ListReadSetUploadPartsCommand";
 import {
   ListReferenceImportJobsCommand,
   ListReferenceImportJobsCommandInput,
@@ -292,14 +317,22 @@ import {
   UpdateWorkflowCommandInput,
   UpdateWorkflowCommandOutput,
 } from "./commands/UpdateWorkflowCommand";
+import {
+  UploadReadSetPartCommand,
+  UploadReadSetPartCommandInput,
+  UploadReadSetPartCommandOutput,
+} from "./commands/UploadReadSetPartCommand";
 import { OmicsClient, OmicsClientConfig } from "./OmicsClient";
 
 const commands = {
+  AbortMultipartReadSetUploadCommand,
   BatchDeleteReadSetCommand,
   CancelAnnotationImportJobCommand,
   CancelRunCommand,
   CancelVariantImportJobCommand,
+  CompleteMultipartReadSetUploadCommand,
   CreateAnnotationStoreCommand,
+  CreateMultipartReadSetUploadCommand,
   CreateReferenceStoreCommand,
   CreateRunGroupCommand,
   CreateSequenceStoreCommand,
@@ -333,10 +366,12 @@ const commands = {
   GetWorkflowCommand,
   ListAnnotationImportJobsCommand,
   ListAnnotationStoresCommand,
+  ListMultipartReadSetUploadsCommand,
   ListReadSetActivationJobsCommand,
   ListReadSetExportJobsCommand,
   ListReadSetImportJobsCommand,
   ListReadSetsCommand,
+  ListReadSetUploadPartsCommand,
   ListReferenceImportJobsCommand,
   ListReferencesCommand,
   ListReferenceStoresCommand,
@@ -361,9 +396,27 @@ const commands = {
   UpdateRunGroupCommand,
   UpdateVariantStoreCommand,
   UpdateWorkflowCommand,
+  UploadReadSetPartCommand,
 };
 
 export interface Omics {
+  /**
+   * @see {@link AbortMultipartReadSetUploadCommand}
+   */
+  abortMultipartReadSetUpload(
+    args: AbortMultipartReadSetUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AbortMultipartReadSetUploadCommandOutput>;
+  abortMultipartReadSetUpload(
+    args: AbortMultipartReadSetUploadCommandInput,
+    cb: (err: any, data?: AbortMultipartReadSetUploadCommandOutput) => void
+  ): void;
+  abortMultipartReadSetUpload(
+    args: AbortMultipartReadSetUploadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AbortMultipartReadSetUploadCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchDeleteReadSetCommand}
    */
@@ -427,6 +480,23 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link CompleteMultipartReadSetUploadCommand}
+   */
+  completeMultipartReadSetUpload(
+    args: CompleteMultipartReadSetUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CompleteMultipartReadSetUploadCommandOutput>;
+  completeMultipartReadSetUpload(
+    args: CompleteMultipartReadSetUploadCommandInput,
+    cb: (err: any, data?: CompleteMultipartReadSetUploadCommandOutput) => void
+  ): void;
+  completeMultipartReadSetUpload(
+    args: CompleteMultipartReadSetUploadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CompleteMultipartReadSetUploadCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateAnnotationStoreCommand}
    */
   createAnnotationStore(
@@ -441,6 +511,23 @@ export interface Omics {
     args: CreateAnnotationStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAnnotationStoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMultipartReadSetUploadCommand}
+   */
+  createMultipartReadSetUpload(
+    args: CreateMultipartReadSetUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMultipartReadSetUploadCommandOutput>;
+  createMultipartReadSetUpload(
+    args: CreateMultipartReadSetUploadCommandInput,
+    cb: (err: any, data?: CreateMultipartReadSetUploadCommandOutput) => void
+  ): void;
+  createMultipartReadSetUpload(
+    args: CreateMultipartReadSetUploadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMultipartReadSetUploadCommandOutput) => void
   ): void;
 
   /**
@@ -945,6 +1032,23 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link ListMultipartReadSetUploadsCommand}
+   */
+  listMultipartReadSetUploads(
+    args: ListMultipartReadSetUploadsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMultipartReadSetUploadsCommandOutput>;
+  listMultipartReadSetUploads(
+    args: ListMultipartReadSetUploadsCommandInput,
+    cb: (err: any, data?: ListMultipartReadSetUploadsCommandOutput) => void
+  ): void;
+  listMultipartReadSetUploads(
+    args: ListMultipartReadSetUploadsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMultipartReadSetUploadsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListReadSetActivationJobsCommand}
    */
   listReadSetActivationJobs(
@@ -1004,6 +1108,23 @@ export interface Omics {
     args: ListReadSetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReadSetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListReadSetUploadPartsCommand}
+   */
+  listReadSetUploadParts(
+    args: ListReadSetUploadPartsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReadSetUploadPartsCommandOutput>;
+  listReadSetUploadParts(
+    args: ListReadSetUploadPartsCommandInput,
+    cb: (err: any, data?: ListReadSetUploadPartsCommandOutput) => void
+  ): void;
+  listReadSetUploadParts(
+    args: ListReadSetUploadPartsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReadSetUploadPartsCommandOutput) => void
   ): void;
 
   /**
@@ -1362,12 +1483,29 @@ export interface Omics {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkflowCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link UploadReadSetPartCommand}
+   */
+  uploadReadSetPart(
+    args: UploadReadSetPartCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UploadReadSetPartCommandOutput>;
+  uploadReadSetPart(
+    args: UploadReadSetPartCommandInput,
+    cb: (err: any, data?: UploadReadSetPartCommandOutput) => void
+  ): void;
+  uploadReadSetPart(
+    args: UploadReadSetPartCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UploadReadSetPartCommandOutput) => void
+  ): void;
 }
 
 /**
  * @public
  * <p>This is the <i>Amazon Omics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is Amazon Omics?</a> in the
- *       <i>Amazon Omics Developer Guide</i>.</p>
+ *       <i>Amazon Omics User Guide</i>.</p>
  */
 export class Omics extends OmicsClient implements Omics {}
 createAggregatedClient(commands, Omics);

@@ -55,6 +55,7 @@ export interface GetRunGroupCommandOutput extends GetRunGroupResponse, __Metadat
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   maxGpus: Number("int"),
  * // };
  *
  * ```

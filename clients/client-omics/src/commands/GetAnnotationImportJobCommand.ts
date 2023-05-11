@@ -79,6 +79,9 @@ export interface GetAnnotationImportJobCommandOutput extends GetAnnotationImport
  * //       ignoreFilterField: true || false,
  * //     },
  * //   },
+ * //   annotationFields: { // AnnotationFieldMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

@@ -57,6 +57,7 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *     "<keys>": "STRING_VALUE",
  *   },
  *   requestId: "STRING_VALUE", // required
+ *   accelerators: "STRING_VALUE",
  * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);

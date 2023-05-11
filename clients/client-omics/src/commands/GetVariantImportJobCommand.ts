@@ -61,6 +61,9 @@ export interface GetVariantImportJobCommandOutput extends GetVariantImportRespon
  * //     },
  * //   ],
  * //   runLeftNormalization: true || false, // required
+ * //   annotationFields: { // AnnotationFieldMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

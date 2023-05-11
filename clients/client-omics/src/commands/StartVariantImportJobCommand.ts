@@ -48,6 +48,9 @@ export interface StartVariantImportJobCommandOutput extends StartVariantImportRe
  *     },
  *   ],
  *   runLeftNormalization: true || false,
+ *   annotationFields: { // AnnotationFieldMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new StartVariantImportJobCommand(input);
  * const response = await client.send(command);

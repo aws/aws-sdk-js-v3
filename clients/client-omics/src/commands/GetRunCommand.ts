@@ -75,6 +75,7 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   accelerators: "STRING_VALUE",
  * // };
  *
  * ```

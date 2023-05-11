@@ -50,6 +50,7 @@ export interface CreateSequenceStoreCommandOutput extends CreateSequenceStoreRes
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",
+ *   fallbackLocation: "STRING_VALUE",
  * };
  * const command = new CreateSequenceStoreCommand(input);
  * const response = await client.send(command);
@@ -63,6 +64,7 @@ export interface CreateSequenceStoreCommandOutput extends CreateSequenceStoreRes
  * //     keyArn: "STRING_VALUE",
  * //   },
  * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   fallbackLocation: "STRING_VALUE",
  * // };
  *
  * ```

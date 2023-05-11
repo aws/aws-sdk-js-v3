@@ -63,6 +63,7 @@ export interface ListSequenceStoresCommandOutput extends ListSequenceStoresRespo
  * //         keyArn: "STRING_VALUE",
  * //       },
  * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       fallbackLocation: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

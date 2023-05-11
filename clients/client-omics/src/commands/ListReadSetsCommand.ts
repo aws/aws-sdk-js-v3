@@ -49,6 +49,9 @@ export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __Metad
  *     referenceArn: "STRING_VALUE",
  *     createdAfter: new Date("TIMESTAMP"),
  *     createdBefore: new Date("TIMESTAMP"),
+ *     sampleId: "STRING_VALUE",
+ *     subjectId: "STRING_VALUE",
+ *     generatedFrom: "STRING_VALUE",
  *   },
  * };
  * const command = new ListReadSetsCommand(input);
@@ -74,6 +77,7 @@ export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __Metad
  * //         alignment: "STRING_VALUE",
  * //       },
  * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       statusMessage: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

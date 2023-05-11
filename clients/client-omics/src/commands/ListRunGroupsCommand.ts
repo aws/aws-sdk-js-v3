@@ -56,6 +56,7 @@ export interface ListRunGroupsCommandOutput extends ListRunGroupsResponse, __Met
  * //       maxRuns: Number("int"),
  * //       maxDuration: Number("int"),
  * //       creationTime: new Date("TIMESTAMP"),
+ * //       maxGpus: Number("int"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

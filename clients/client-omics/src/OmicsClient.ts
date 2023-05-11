@@ -50,6 +50,10 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import {
+  AbortMultipartReadSetUploadCommandInput,
+  AbortMultipartReadSetUploadCommandOutput,
+} from "./commands/AbortMultipartReadSetUploadCommand";
 import { BatchDeleteReadSetCommandInput, BatchDeleteReadSetCommandOutput } from "./commands/BatchDeleteReadSetCommand";
 import {
   CancelAnnotationImportJobCommandInput,
@@ -61,9 +65,17 @@ import {
   CancelVariantImportJobCommandOutput,
 } from "./commands/CancelVariantImportJobCommand";
 import {
+  CompleteMultipartReadSetUploadCommandInput,
+  CompleteMultipartReadSetUploadCommandOutput,
+} from "./commands/CompleteMultipartReadSetUploadCommand";
+import {
   CreateAnnotationStoreCommandInput,
   CreateAnnotationStoreCommandOutput,
 } from "./commands/CreateAnnotationStoreCommand";
+import {
+  CreateMultipartReadSetUploadCommandInput,
+  CreateMultipartReadSetUploadCommandOutput,
+} from "./commands/CreateMultipartReadSetUploadCommand";
 import {
   CreateReferenceStoreCommandInput,
   CreateReferenceStoreCommandOutput,
@@ -140,6 +152,10 @@ import {
   ListAnnotationStoresCommandOutput,
 } from "./commands/ListAnnotationStoresCommand";
 import {
+  ListMultipartReadSetUploadsCommandInput,
+  ListMultipartReadSetUploadsCommandOutput,
+} from "./commands/ListMultipartReadSetUploadsCommand";
+import {
   ListReadSetActivationJobsCommandInput,
   ListReadSetActivationJobsCommandOutput,
 } from "./commands/ListReadSetActivationJobsCommand";
@@ -152,6 +168,10 @@ import {
   ListReadSetImportJobsCommandOutput,
 } from "./commands/ListReadSetImportJobsCommand";
 import { ListReadSetsCommandInput, ListReadSetsCommandOutput } from "./commands/ListReadSetsCommand";
+import {
+  ListReadSetUploadPartsCommandInput,
+  ListReadSetUploadPartsCommandOutput,
+} from "./commands/ListReadSetUploadPartsCommand";
 import {
   ListReferenceImportJobsCommandInput,
   ListReferenceImportJobsCommandOutput,
@@ -209,6 +229,7 @@ import {
 import { UpdateRunGroupCommandInput, UpdateRunGroupCommandOutput } from "./commands/UpdateRunGroupCommand";
 import { UpdateVariantStoreCommandInput, UpdateVariantStoreCommandOutput } from "./commands/UpdateVariantStoreCommand";
 import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand";
+import { UploadReadSetPartCommandInput, UploadReadSetPartCommandOutput } from "./commands/UploadReadSetPartCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -221,11 +242,14 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
  * @public
  */
 export type ServiceInputTypes =
+  | AbortMultipartReadSetUploadCommandInput
   | BatchDeleteReadSetCommandInput
   | CancelAnnotationImportJobCommandInput
   | CancelRunCommandInput
   | CancelVariantImportJobCommandInput
+  | CompleteMultipartReadSetUploadCommandInput
   | CreateAnnotationStoreCommandInput
+  | CreateMultipartReadSetUploadCommandInput
   | CreateReferenceStoreCommandInput
   | CreateRunGroupCommandInput
   | CreateSequenceStoreCommandInput
@@ -259,9 +283,11 @@ export type ServiceInputTypes =
   | GetWorkflowCommandInput
   | ListAnnotationImportJobsCommandInput
   | ListAnnotationStoresCommandInput
+  | ListMultipartReadSetUploadsCommandInput
   | ListReadSetActivationJobsCommandInput
   | ListReadSetExportJobsCommandInput
   | ListReadSetImportJobsCommandInput
+  | ListReadSetUploadPartsCommandInput
   | ListReadSetsCommandInput
   | ListReferenceImportJobsCommandInput
   | ListReferenceStoresCommandInput
@@ -286,17 +312,21 @@ export type ServiceInputTypes =
   | UpdateAnnotationStoreCommandInput
   | UpdateRunGroupCommandInput
   | UpdateVariantStoreCommandInput
-  | UpdateWorkflowCommandInput;
+  | UpdateWorkflowCommandInput
+  | UploadReadSetPartCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | AbortMultipartReadSetUploadCommandOutput
   | BatchDeleteReadSetCommandOutput
   | CancelAnnotationImportJobCommandOutput
   | CancelRunCommandOutput
   | CancelVariantImportJobCommandOutput
+  | CompleteMultipartReadSetUploadCommandOutput
   | CreateAnnotationStoreCommandOutput
+  | CreateMultipartReadSetUploadCommandOutput
   | CreateReferenceStoreCommandOutput
   | CreateRunGroupCommandOutput
   | CreateSequenceStoreCommandOutput
@@ -330,9 +360,11 @@ export type ServiceOutputTypes =
   | GetWorkflowCommandOutput
   | ListAnnotationImportJobsCommandOutput
   | ListAnnotationStoresCommandOutput
+  | ListMultipartReadSetUploadsCommandOutput
   | ListReadSetActivationJobsCommandOutput
   | ListReadSetExportJobsCommandOutput
   | ListReadSetImportJobsCommandOutput
+  | ListReadSetUploadPartsCommandOutput
   | ListReadSetsCommandOutput
   | ListReferenceImportJobsCommandOutput
   | ListReferenceStoresCommandOutput
@@ -357,7 +389,8 @@ export type ServiceOutputTypes =
   | UpdateAnnotationStoreCommandOutput
   | UpdateRunGroupCommandOutput
   | UpdateVariantStoreCommandOutput
-  | UpdateWorkflowCommandOutput;
+  | UpdateWorkflowCommandOutput
+  | UploadReadSetPartCommandOutput;
 
 /**
  * @public
@@ -530,7 +563,7 @@ export interface OmicsClientResolvedConfig extends OmicsClientResolvedConfigType
 /**
  * @public
  * <p>This is the <i>Amazon Omics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is Amazon Omics?</a> in the
- *       <i>Amazon Omics Developer Guide</i>.</p>
+ *       <i>Amazon Omics User Guide</i>.</p>
  */
 export class OmicsClient extends __Client<
   __HttpHandlerOptions,

@@ -54,6 +54,7 @@ export interface GetSequenceStoreCommandOutput extends GetSequenceStoreResponse,
  * //     keyArn: "STRING_VALUE",
  * //   },
  * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   fallbackLocation: "STRING_VALUE",
  * // };
  *
  * ```
