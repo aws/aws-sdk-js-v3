@@ -82,7 +82,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>AcceptInboundCrossClusterSearchConnection</a></code> operation.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>AcceptInboundCrossClusterSearchConnection</a></code> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#AcceptInboundCrossClusterSearchConnectionResponse": {
@@ -96,7 +97,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code><a>AcceptInboundCrossClusterSearchConnection</a></code> operation. Contains details of accepted inbound connection.</p>"
+        "smithy.api#documentation": "<p>The result of a <code><a>AcceptInboundCrossClusterSearchConnection</a></code> operation. Contains details of accepted inbound connection.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#AccessDeniedException": {
@@ -187,7 +189,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>AddTags</a></code> operation. Specify the tags that you want to attach to the Elasticsearch domain.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>AddTags</a></code> operation. Specify the tags that you want to attach to the Elasticsearch domain.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#AdditionalLimit": {
@@ -554,13 +557,12 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
               "type": "tree",
@@ -568,23 +570,20 @@
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
                   "type": "tree",
                   "rules": [
                     {
@@ -593,19 +592,201 @@
                           "fn": "booleanEquals",
                           "argv": [
                             {
-                              "ref": "UseFIPS"
+                              "ref": "UseDualStack"
                             },
                             true
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
                       "type": "error"
                     },
                     {
                       "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
                       "type": "tree",
                       "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://es-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://es-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
                         {
                           "conditions": [
                             {
@@ -618,134 +799,52 @@
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://es.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
                             }
                           ]
                         },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://es-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
                         {
                           "conditions": [],
                           "type": "tree",
@@ -753,7 +852,7 @@
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://es-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://es.{Region}.{PartitionResult#dnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
@@ -762,74 +861,13 @@
                           ]
                         }
                       ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://es.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
                     }
                   ]
                 },
                 {
                   "conditions": [],
-                  "endpoint": {
-                    "url": "https://es.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
                 }
               ]
             }
@@ -838,665 +876,6 @@
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region ap-south-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-south-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-south-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-south-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ap-south-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-south-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ap-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-south-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-south-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-south-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-south-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-south-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-south-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-south-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.me-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.me-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.me-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.me-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ca-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ca-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ca-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ca-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.us-iso-west-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-iso-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.us-iso-west-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-iso-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-central-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-central-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-central-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-central-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.af-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "af-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.af-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "af-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.af-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "af-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
               "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -1504,516 +883,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "af-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-north-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-north-1.api.aws"
-                }
-              },
-              "params": {
                 "UseFIPS": false,
-                "Region": "eu-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-north-1",
                 "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-west-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-northeast-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-northeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ap-northeast-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ap-northeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-northeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-northeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "me-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.me-south-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-south-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "me-south-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "sa-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "sa-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "sa-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "sa-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ap-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-east-1",
-                "UseDualStack": true
               }
             },
             {
@@ -2024,152 +896,61 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "ap-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "cn-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "cn-north-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
                 "UseFIPS": false,
-                "Region": "cn-north-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "cn-north-1",
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://es-fips.us-gov-west-1.api.aws"
+                  "url": "https://es.ap-northeast-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-gov-west-1",
+                "Region": "ap-northeast-1",
+                "UseFIPS": false,
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://es.us-gov-west-1.api.aws"
+                  "url": "https://es.ap-northeast-2.amazonaws.com"
                 }
               },
               "params": {
+                "Region": "ap-northeast-2",
                 "UseFIPS": false,
-                "Region": "us-gov-west-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-gov-west-1",
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://es-fips.ap-southeast-1.api.aws"
+                  "url": "https://es.ap-northeast-3.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-1",
+                "Region": "ap-northeast-3",
+                "UseFIPS": false,
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://es.ap-southeast-1.api.aws"
+                  "url": "https://es.ap-south-1.amazonaws.com"
                 }
               },
               "params": {
+                "Region": "ap-south-1",
                 "UseFIPS": false,
-                "Region": "ap-southeast-1",
-                "UseDualStack": true
+                "UseDualStack": false
               }
             },
             {
@@ -2180,48 +961,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
                 "UseFIPS": false,
-                "Region": "ap-southeast-2",
-                "UseDualStack": true
+                "UseDualStack": false
               }
             },
             {
@@ -2232,96 +974,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-iso-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
                 "UseFIPS": false,
-                "Region": "us-iso-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-iso-east-1",
                 "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-southeast-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-3",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-southeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-3",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.ap-southeast-3.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "ap-southeast-3",
-                "UseDualStack": true
               }
             },
             {
@@ -2332,60 +987,229 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "ap-southeast-3",
+                "UseFIPS": false,
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://es-fips.ap-southeast-4.api.aws"
+                  "url": "https://es.ca-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-4",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-4 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.ap-southeast-4.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "ap-southeast-4",
+                "Region": "ca-central-1",
+                "UseFIPS": false,
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack enabled",
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://es.ap-southeast-4.api.aws"
+                  "url": "https://es.eu-central-1.amazonaws.com"
                 }
               },
               "params": {
+                "Region": "eu-central-1",
                 "UseFIPS": false,
-                "Region": "ap-southeast-4",
-                "UseDualStack": true
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack disabled",
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://es.ap-southeast-4.amazonaws.com"
+                  "url": "https://es.eu-north-1.amazonaws.com"
                 }
               },
               "params": {
+                "Region": "eu-north-1",
                 "UseFIPS": false,
-                "Region": "ap-southeast-4",
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": true,
                 "UseDualStack": false
               }
             },
@@ -2397,22 +1221,9 @@
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-east-1",
-                "UseDualStack": false
               }
             },
             {
@@ -2423,113 +1234,22 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
                 "UseFIPS": false,
-                "Region": "us-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-east-2",
                 "UseDualStack": true
               }
             },
             {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://es-fips.us-east-2.amazonaws.com"
+                  "url": "https://es.cn-north-1.amazonaws.com.cn"
                 }
               },
               "params": {
-                "UseFIPS": true,
-                "Region": "us-east-2",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.us-east-2.api.aws"
-                }
-              },
-              "params": {
+                "Region": "cn-north-1",
                 "UseFIPS": false,
-                "Region": "us-east-2",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-east-2",
                 "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.cn-northwest-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "cn-northwest-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es-fips.cn-northwest-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "cn-northwest-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://es.cn-northwest-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "cn-northwest-1",
-                "UseDualStack": true
               }
             },
             {
@@ -2540,43 +1260,186 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "cn-northwest-1",
+                "UseFIPS": false,
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
               "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+                "endpoint": {
+                  "url": "https://es-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
               },
               "params": {
+                "Region": "cn-north-1",
                 "UseFIPS": true,
-                "Region": "us-isob-east-1",
                 "UseDualStack": true
               }
             },
             {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://es-fips.us-isob-east-1.sc2s.sgov.gov"
+                  "url": "https://es-fips.cn-north-1.amazonaws.com.cn"
                 }
               },
               "params": {
+                "Region": "cn-north-1",
                 "UseFIPS": true,
-                "Region": "us-isob-east-1",
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es.us-iso-west-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
               "expect": {
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "Region": "us-iso-east-1",
                 "UseFIPS": false,
-                "Region": "us-isob-east-1",
                 "UseDualStack": true
               }
             },
@@ -2588,13 +1451,62 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-isob-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://es-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -2602,7 +1514,6 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
@@ -2613,8 +1524,8 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "UseFIPS": true,
                 "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
@@ -2625,10 +1536,16 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "UseFIPS": false,
                 "Region": "us-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -2694,7 +1611,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>AssociatePackage</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>AssociatePackage</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#AssociatePackageResponse": {
@@ -2708,7 +1626,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>AssociatePackage</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>AssociatePackage</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#AuthorizeVpcEndpointAccess": {
@@ -2768,7 +1687,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for request parameters to the <code><a>AuthorizeVpcEndpointAccess</a></code> operation.\n          Specifies the account to be permitted to manage VPC endpoints against the domain.</p>"
+        "smithy.api#documentation": "<p>Container for request parameters to the <code><a>AuthorizeVpcEndpointAccess</a></code> operation.\n          Specifies the account to be permitted to manage VPC endpoints against the domain.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#AuthorizeVpcEndpointAccessResponse": {
@@ -2783,7 +1703,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>AuthorizeVpcEndpointAccess</a></code> operation.\n          Contains the account ID and the type of the account being authorized to access the VPC endpoint.</p>"
+        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>AuthorizeVpcEndpointAccess</a></code> operation.\n          Contains the account ID and the type of the account being authorized to access the VPC endpoint.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#AuthorizedPrincipal": {
@@ -3193,7 +2114,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>CancelElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to cancel a service software update on.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>CancelElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to cancel a service software update on.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#CancelElasticsearchServiceSoftwareUpdateResponse": {
@@ -3207,7 +2129,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code>CancelElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>"
+        "smithy.api#documentation": "<p>The result of a <code>CancelElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ChangeProgressDetails": {
@@ -3621,6 +2544,9 @@
             "smithy.api#documentation": "<p>A list of <code>Tag</code> added during domain creation.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#CreateElasticsearchDomainResponse": {
@@ -3634,7 +2560,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code>CreateElasticsearchDomain</code> operation. Contains the status of the newly created Elasticsearch domain.</p>"
+        "smithy.api#documentation": "<p>The result of a <code>CreateElasticsearchDomain</code> operation. Contains the status of the newly created Elasticsearch domain.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#CreateOutboundCrossClusterSearchConnection": {
@@ -3694,7 +2621,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>CreateOutboundCrossClusterSearchConnection</a></code> operation.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>CreateOutboundCrossClusterSearchConnection</a></code> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#CreateOutboundCrossClusterSearchConnectionResponse": {
@@ -3732,7 +2660,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code><a>CreateOutboundCrossClusterSearchConnection</a></code> request. Contains the details of the newly created cross-cluster search connection.</p>"
+        "smithy.api#documentation": "<p>The result of a <code><a>CreateOutboundCrossClusterSearchConnection</a></code> request. Contains the details of the newly created cross-cluster search connection.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#CreatePackage": {
@@ -3807,7 +2736,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>CreatePackage</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>CreatePackage</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#CreatePackageResponse": {
@@ -3821,7 +2751,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>CreatePackage</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>CreatePackage</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#CreateVpcEndpoint": {
@@ -3886,7 +2817,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>CreateVpcEndpointRequest</a></code> operation.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>CreateVpcEndpointRequest</a></code> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#CreateVpcEndpointResponse": {
@@ -3901,7 +2833,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>CreateVpcEndpoint</a></code> operation. Contains the configuration and status of the VPC Endpoint being created.</p>"
+        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>CreateVpcEndpoint</a></code> operation. Contains the configuration and status of the VPC Endpoint being created.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#CreatedAt": {
@@ -3957,7 +2890,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>DeleteElasticsearchDomain</a></code> operation. Specifies the name of the Elasticsearch domain that you want to delete.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>DeleteElasticsearchDomain</a></code> operation. Specifies the name of the Elasticsearch domain that you want to delete.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DeleteElasticsearchDomainResponse": {
@@ -3971,7 +2905,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code>DeleteElasticsearchDomain</code> request. Contains the status of the pending deletion, or no status if the domain and all of its resources have been deleted.</p>"
+        "smithy.api#documentation": "<p>The result of a <code>DeleteElasticsearchDomain</code> request. Contains the status of the pending deletion, or no status if the domain and all of its resources have been deleted.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DeleteElasticsearchServiceRole": {
@@ -4040,7 +2975,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>DeleteInboundCrossClusterSearchConnection</a></code> operation.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>DeleteInboundCrossClusterSearchConnection</a></code> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DeleteInboundCrossClusterSearchConnectionResponse": {
@@ -4054,7 +2990,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code><a>DeleteInboundCrossClusterSearchConnection</a></code> operation. Contains details of deleted inbound connection.</p>"
+        "smithy.api#documentation": "<p>The result of a <code><a>DeleteInboundCrossClusterSearchConnection</a></code> operation. Contains details of deleted inbound connection.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DeleteOutboundCrossClusterSearchConnection": {
@@ -4095,7 +3032,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>DeleteOutboundCrossClusterSearchConnection</a></code> operation.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>DeleteOutboundCrossClusterSearchConnection</a></code> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DeleteOutboundCrossClusterSearchConnectionResponse": {
@@ -4109,7 +3047,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code><a>DeleteOutboundCrossClusterSearchConnection</a></code> operation. Contains details of deleted outbound connection.</p>"
+        "smithy.api#documentation": "<p>The result of a <code><a>DeleteOutboundCrossClusterSearchConnection</a></code> operation. Contains details of deleted outbound connection.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DeletePackage": {
@@ -4162,7 +3101,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>DeletePackage</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>DeletePackage</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DeletePackageResponse": {
@@ -4176,7 +3116,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for response parameters to\n      <code>\n        <a>DeletePackage</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for response parameters to\n      <code>\n        <a>DeletePackage</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DeleteVpcEndpoint": {
@@ -4223,7 +3164,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.</p>"
+        "smithy.api#documentation": "<p>Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DeleteVpcEndpointResponse": {
@@ -4238,7 +3180,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>DeleteVpcEndpoint</a></code> operation. Contains the summarized detail of the VPC Endpoint being deleted.</p>"
+        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>DeleteVpcEndpoint</a></code> operation. Contains the summarized detail of the VPC Endpoint being deleted.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DeploymentCloseDateTimeStamp": {
@@ -4350,7 +3293,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code>DescribeDomainAutoTunes</code> operation.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code>DescribeDomainAutoTunes</code> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeDomainAutoTunesResponse": {
@@ -4370,7 +3314,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of <code>DescribeDomainAutoTunes</code> request. See the <a href=\"https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html\" target=\"_blank\">Developer Guide</a> for more information. </p>"
+        "smithy.api#documentation": "<p>The result of <code>DescribeDomainAutoTunes</code> request. See the <a href=\"https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html\" target=\"_blank\">Developer Guide</a> for more information. </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeDomainChangeProgress": {
@@ -4424,7 +3369,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code>DescribeDomainChangeProgress</code> operation. Specifies the\n        domain name and optional change specific identity for which you want progress information.\n      </p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code>DescribeDomainChangeProgress</code> operation. Specifies the\n        domain name and optional change specific identity for which you want progress information.\n      </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeDomainChangeProgressResponse": {
@@ -4438,7 +3384,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code>DescribeDomainChangeProgress</code> request. Contains the progress information of\n        the requested domain change.\n      </p>"
+        "smithy.api#documentation": "<p>The result of a <code>DescribeDomainChangeProgress</code> request. Contains the progress information of\n        the requested domain change.\n      </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeElasticsearchDomain": {
@@ -4516,7 +3463,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p> Container for the parameters to the <code>DescribeElasticsearchDomainConfig</code> operation. Specifies the domain name for which you want configuration information.</p>"
+        "smithy.api#documentation": "<p> Container for the parameters to the <code>DescribeElasticsearchDomainConfig</code> operation. Specifies the domain name for which you want configuration information.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeElasticsearchDomainConfigResponse": {
@@ -4531,7 +3479,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code>DescribeElasticsearchDomainConfig</code> request. Contains the configuration information of the requested domain.</p>"
+        "smithy.api#documentation": "<p>The result of a <code>DescribeElasticsearchDomainConfig</code> request. Contains the configuration information of the requested domain.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeElasticsearchDomainRequest": {
@@ -4547,7 +3496,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>DescribeElasticsearchDomain</a></code> operation.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>DescribeElasticsearchDomain</a></code> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeElasticsearchDomainResponse": {
@@ -4562,7 +3512,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code>DescribeElasticsearchDomain</code> request. Contains the status of the domain specified in the request.</p>"
+        "smithy.api#documentation": "<p>The result of a <code>DescribeElasticsearchDomain</code> request. Contains the status of the domain specified in the request.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeElasticsearchDomains": {
@@ -4605,7 +3556,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>DescribeElasticsearchDomains</a></code> operation. By default, the API returns the status of all Elasticsearch domains.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>DescribeElasticsearchDomains</a></code> operation. By default, the API returns the status of all Elasticsearch domains.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeElasticsearchDomainsResponse": {
@@ -4620,7 +3572,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code>DescribeElasticsearchDomains</code> request. Contains the status of the specified domains or all domains owned by the account.</p>"
+        "smithy.api#documentation": "<p>The result of a <code>DescribeElasticsearchDomains</code> request. Contains the status of the specified domains or all domains owned by the account.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeElasticsearchInstanceTypeLimits": {
@@ -4688,7 +3641,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for the parameters to\n      <code>\n        <a>DescribeElasticsearchInstanceTypeLimits</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for the parameters to\n      <code>\n        <a>DescribeElasticsearchInstanceTypeLimits</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeElasticsearchInstanceTypeLimitsResponse": {
@@ -4699,7 +3653,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for the parameters received from\n      <code>\n        <a>DescribeElasticsearchInstanceTypeLimits</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for the parameters received from\n      <code>\n        <a>DescribeElasticsearchInstanceTypeLimits</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeInboundCrossClusterSearchConnections": {
@@ -4756,7 +3711,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>DescribeInboundCrossClusterSearchConnections</a></code> operation.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>DescribeInboundCrossClusterSearchConnections</a></code> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeInboundCrossClusterSearchConnectionsResponse": {
@@ -4776,7 +3732,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code><a>DescribeInboundCrossClusterSearchConnections</a></code> request. Contains the list of connections matching the filter criteria.</p>"
+        "smithy.api#documentation": "<p>The result of a <code><a>DescribeInboundCrossClusterSearchConnections</a></code> request. Contains the list of connections matching the filter criteria.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeOutboundCrossClusterSearchConnections": {
@@ -4833,7 +3790,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>DescribeOutboundCrossClusterSearchConnections</a></code> operation.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>DescribeOutboundCrossClusterSearchConnections</a></code> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeOutboundCrossClusterSearchConnectionsResponse": {
@@ -4853,7 +3811,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code><a>DescribeOutboundCrossClusterSearchConnections</a></code> request. Contains the list of connections matching the filter criteria.</p>"
+        "smithy.api#documentation": "<p>The result of a <code><a>DescribeOutboundCrossClusterSearchConnections</a></code> request. Contains the list of connections matching the filter criteria.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribePackages": {
@@ -4907,7 +3866,7 @@
         "Value": {
           "target": "com.amazonaws.elasticsearchservice#DescribePackagesFilterValues",
           "traits": {
-            "smithy.api#documentation": "<p>A list of values for the specified field.</p>"
+            "smithy.api#documentation": "<p>A non-empty list of values for the specified field.</p>"
           }
         }
       },
@@ -4957,6 +3916,11 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.elasticsearchservice#DescribePackagesFilterValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
       }
     },
     "com.amazonaws.elasticsearchservice#DescribePackagesRequest": {
@@ -4983,7 +3947,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>DescribePackage</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>DescribePackage</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribePackagesResponse": {
@@ -5000,7 +3965,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>DescribePackages</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>DescribePackages</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeReservedElasticsearchInstanceOfferings": {
@@ -5066,7 +4032,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for parameters to <code>DescribeReservedElasticsearchInstanceOfferings</code></p>"
+        "smithy.api#documentation": "<p>Container for parameters to <code>DescribeReservedElasticsearchInstanceOfferings</code></p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeReservedElasticsearchInstanceOfferingsResponse": {
@@ -5086,7 +4053,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for results from <code>DescribeReservedElasticsearchInstanceOfferings</code></p>"
+        "smithy.api#documentation": "<p>Container for results from <code>DescribeReservedElasticsearchInstanceOfferings</code></p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeReservedElasticsearchInstances": {
@@ -5152,7 +4120,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for parameters to <code>DescribeReservedElasticsearchInstances</code></p>"
+        "smithy.api#documentation": "<p>Container for parameters to <code>DescribeReservedElasticsearchInstances</code></p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeReservedElasticsearchInstancesResponse": {
@@ -5172,7 +4141,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for results from <code>DescribeReservedElasticsearchInstances</code></p>"
+        "smithy.api#documentation": "<p>Container for results from <code>DescribeReservedElasticsearchInstances</code></p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeVpcEndpoints": {
@@ -5218,7 +4188,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for request parameters to the <code><a>DescribeVpcEndpoints</a></code> operation. Specifies the list of VPC endpoints to be described.</p>"
+        "smithy.api#documentation": "<p>Container for request parameters to the <code><a>DescribeVpcEndpoints</a></code> operation. Specifies the list of VPC endpoints to be described.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DescribeVpcEndpointsResponse": {
@@ -5240,7 +4211,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>DescribeVpcEndpoints</a></code> operation. Returns a list containing configuration details and\n          status of the VPC Endpoints as well as a list containing error responses of the endpoints that could not be described</p>"
+        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>DescribeVpcEndpoints</a></code> operation. Returns a list containing configuration details and\n          status of the VPC Endpoints as well as a list containing error responses of the endpoints that could not be described</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#Description": {
@@ -5323,7 +4295,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>DissociatePackage</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>DissociatePackage</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DissociatePackageResponse": {
@@ -5337,7 +4310,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>DissociatePackage</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>DissociatePackage</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#DomainArn": {
@@ -6654,7 +5628,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>GetCompatibleElasticsearchVersions</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>GetCompatibleElasticsearchVersions</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#GetCompatibleElasticsearchVersionsResponse": {
@@ -6668,7 +5643,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>GetCompatibleElasticsearchVersions</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>GetCompatibleElasticsearchVersions</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#GetPackageVersionHistory": {
@@ -6738,7 +5714,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>GetPackageVersionHistory</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>GetPackageVersionHistory</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#GetPackageVersionHistoryResponse": {
@@ -6758,7 +5735,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>GetPackageVersionHistory</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>GetPackageVersionHistory</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#GetUpgradeHistory": {
@@ -6825,7 +5803,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>GetUpgradeHistory</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>GetUpgradeHistory</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#GetUpgradeHistoryResponse": {
@@ -6845,7 +5824,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>GetUpgradeHistory</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>GetUpgradeHistory</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#GetUpgradeStatus": {
@@ -6894,7 +5874,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>GetUpgradeStatus</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>GetUpgradeStatus</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#GetUpgradeStatusResponse": {
@@ -6920,7 +5901,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>GetUpgradeStatus</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>GetUpgradeStatus</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#IdentityPoolId": {
@@ -7254,7 +6236,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p> Container for the parameters to the <code><a>ListDomainNames</a></code> operation.</p>"
+        "smithy.api#documentation": "<p> Container for the parameters to the <code><a>ListDomainNames</a></code> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListDomainNamesResponse": {
@@ -7268,7 +6251,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code>ListDomainNames</code> operation. Contains the names of all domains owned by this account and their respective engine types.</p>"
+        "smithy.api#documentation": "<p>The result of a <code>ListDomainNames</code> operation. Contains the names of all domains owned by this account and their respective engine types.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListDomainsForPackage": {
@@ -7338,7 +6322,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>ListDomainsForPackage</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>ListDomainsForPackage</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListDomainsForPackageResponse": {
@@ -7355,7 +6340,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for response parameters to\n      <code>\n        <a>ListDomainsForPackage</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for response parameters to\n      <code>\n        <a>ListDomainsForPackage</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListElasticsearchInstanceTypes": {
@@ -7429,7 +6415,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for the parameters to the\n      <code>\n        <a>ListElasticsearchInstanceTypes</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for the parameters to the\n      <code>\n        <a>ListElasticsearchInstanceTypes</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListElasticsearchInstanceTypesResponse": {
@@ -7449,7 +6436,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for the parameters returned by\n      <code>\n        <a>ListElasticsearchInstanceTypes</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for the parameters returned by\n      <code>\n        <a>ListElasticsearchInstanceTypes</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListElasticsearchVersions": {
@@ -7507,7 +6495,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for the parameters to the\n      <code>\n        <a>ListElasticsearchVersions</a>\n      </code>\n      operation.\n      <p>\n        Use\n        <code>\n          <a>MaxResults</a>\n        </code>\n        to control the maximum number of results to retrieve in a single\n        call.\n      </p>\n      <p>\n        Use\n        <code>\n          <a>NextToken</a>\n        </code>\n        in response to retrieve more results. If the received response does\n        not contain a NextToken, then there are no more results to retrieve.\n      </p>\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for the parameters to the\n      <code>\n        <a>ListElasticsearchVersions</a>\n      </code>\n      operation.\n      <p>\n        Use\n        <code>\n          <a>MaxResults</a>\n        </code>\n        to control the maximum number of results to retrieve in a single\n        call.\n      </p>\n      <p>\n        Use\n        <code>\n          <a>NextToken</a>\n        </code>\n        in response to retrieve more results. If the received response does\n        not contain a NextToken, then there are no more results to retrieve.\n      </p>\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListElasticsearchVersionsResponse": {
@@ -7521,7 +6510,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for the parameters for response received from\n      <code>\n        <a>ListElasticsearchVersions</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for the parameters for response received from\n      <code>\n        <a>ListElasticsearchVersions</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListPackagesForDomain": {
@@ -7591,7 +6581,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>ListPackagesForDomain</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>ListPackagesForDomain</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListPackagesForDomainResponse": {
@@ -7611,7 +6602,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for response parameters to\n      <code>\n        <a>ListPackagesForDomain</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for response parameters to\n      <code>\n        <a>ListPackagesForDomain</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListTags": {
@@ -7658,7 +6650,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>ListTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view are attached.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>ListTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view are attached.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListTagsResponse": {
@@ -7672,7 +6665,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code>ListTags</code> operation. Contains tags for all requested Elasticsearch domains.</p>"
+        "smithy.api#documentation": "<p>The result of a <code>ListTags</code> operation. Contains tags for all requested Elasticsearch domains.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListVpcEndpointAccess": {
@@ -7726,7 +6720,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves information about each principal that is allowed to access a\n   given Amazon OpenSearch Service domain through the use of an interface VPC endpoint</p>"
+        "smithy.api#documentation": "<p>Retrieves information about each principal that is allowed to access a\n   given Amazon OpenSearch Service domain through the use of an interface VPC endpoint</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListVpcEndpointAccessResponse": {
@@ -7748,7 +6743,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>ListVpcEndpointAccess</a></code> operation.\n          Returns a list of accounts id and account type authorized to manage VPC endpoints.</p>"
+        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>ListVpcEndpointAccess</a></code> operation.\n          Returns a list of accounts id and account type authorized to manage VPC endpoints.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListVpcEndpoints": {
@@ -7830,7 +6826,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for request parameters to the <code><a>ListVpcEndpointsForDomain</a></code> operation. Specifies the domain whose VPC endpoints will be listed.</p>"
+        "smithy.api#documentation": "<p>Container for request parameters to the <code><a>ListVpcEndpointsForDomain</a></code> operation. Specifies the domain whose VPC endpoints will be listed.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListVpcEndpointsForDomainResponse": {
@@ -7852,7 +6849,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>ListVpcEndpointsForDomain</a></code> operation. Returns a list containing summarized details of the VPC endpoints.</p>"
+        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>ListVpcEndpointsForDomain</a></code> operation. Returns a list containing summarized details of the VPC endpoints.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListVpcEndpointsRequest": {
@@ -7867,7 +6865,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for request parameters to the <code><a>ListVpcEndpoints</a></code> operation.</p>"
+        "smithy.api#documentation": "<p>Container for request parameters to the <code><a>ListVpcEndpoints</a></code> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ListVpcEndpointsResponse": {
@@ -7889,7 +6888,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>ListVpcEndpoints</a></code> operation. Returns a list containing summarized details of the VPC endpoints.</p>"
+        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>ListVpcEndpoints</a></code> operation. Returns a list containing summarized details of the VPC endpoints.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#LogPublishingOption": {
@@ -8606,7 +7606,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for parameters to <code>PurchaseReservedElasticsearchInstanceOffering</code></p>"
+        "smithy.api#documentation": "<p>Container for parameters to <code>PurchaseReservedElasticsearchInstanceOffering</code></p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#PurchaseReservedElasticsearchInstanceOfferingResponse": {
@@ -8626,7 +7627,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Represents the output of a <code>PurchaseReservedElasticsearchInstanceOffering</code> operation.</p>"
+        "smithy.api#documentation": "<p>Represents the output of a <code>PurchaseReservedElasticsearchInstanceOffering</code> operation.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#RecurringCharge": {
@@ -8702,7 +7704,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>RejectInboundCrossClusterSearchConnection</a></code> operation.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>RejectInboundCrossClusterSearchConnection</a></code> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#RejectInboundCrossClusterSearchConnectionResponse": {
@@ -8716,7 +7719,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code><a>RejectInboundCrossClusterSearchConnection</a></code> operation. Contains details of rejected inbound connection.</p>"
+        "smithy.api#documentation": "<p>The result of a <code><a>RejectInboundCrossClusterSearchConnection</a></code> operation. Contains details of rejected inbound connection.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#RemoveTags": {
@@ -8766,7 +7770,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>RemoveTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain from which you want to remove the specified <code>TagKey</code>.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>RemoveTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain from which you want to remove the specified <code>TagKey</code>.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#ReservationToken": {
@@ -9047,14 +8052,16 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Revokes access to an Amazon OpenSearch Service domain that was provided through an interface\n   VPC endpoint.</p>"
+        "smithy.api#documentation": "<p>Revokes access to an Amazon OpenSearch Service domain that was provided through an interface\n   VPC endpoint.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#RevokeVpcEndpointAccessResponse": {
       "type": "structure",
       "members": {},
       "traits": {
-        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>RevokeVpcEndpointAccess</a></code> operation. The response body for this operation is empty.</p>"
+        "smithy.api#documentation": "<p>Container for response parameters to the <code><a>RevokeVpcEndpointAccess</a></code> operation. The response body for this operation is empty.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#RoleArn": {
@@ -9454,7 +8461,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>StartElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to schedule a service software update on.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>StartElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to schedule a service software update on.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#StartElasticsearchServiceSoftwareUpdateResponse": {
@@ -9468,7 +8476,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of a <code>StartElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>"
+        "smithy.api#documentation": "<p>The result of a <code>StartElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#StartTimestamp": {
@@ -9778,7 +8787,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>UpdateElasticsearchDomain</a></code> operation. Specifies the type and number of instances in the domain cluster.</p>"
+        "smithy.api#documentation": "<p>Container for the parameters to the <code><a>UpdateElasticsearchDomain</a></code> operation. Specifies the type and number of instances in the domain cluster.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#UpdateElasticsearchDomainConfigResponse": {
@@ -9799,7 +8809,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The result of an <code>UpdateElasticsearchDomain</code> request. Contains the status of the Elasticsearch domain being updated.</p>"
+        "smithy.api#documentation": "<p>The result of an <code>UpdateElasticsearchDomain</code> request. Contains the status of the Elasticsearch domain being updated.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#UpdatePackage": {
@@ -9869,7 +8880,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>UpdatePackage</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>UpdatePackage</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#UpdatePackageResponse": {
@@ -9883,7 +8895,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>UpdatePackage</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>UpdatePackage</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#UpdateTimestamp": {
@@ -9945,7 +8958,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.</p>"
+        "smithy.api#documentation": "<p>Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#UpdateVpcEndpointResponse": {
@@ -9960,7 +8974,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the configuration and status of the VPC endpoint being updated.</p>"
+        "smithy.api#documentation": "<p>Contains the configuration and status of the VPC endpoint being updated.</p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#UpgradeElasticsearchDomain": {
@@ -10024,7 +9039,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>UpgradeElasticsearchDomain</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>UpgradeElasticsearchDomain</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.elasticsearchservice#UpgradeElasticsearchDomainResponse": {
@@ -10050,7 +9066,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>UpgradeElasticsearchDomain</a>\n      </code>\n      operation.\n    </p>"
+        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>UpgradeElasticsearchDomain</a>\n      </code>\n      operation.\n    </p>",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticsearchservice#UpgradeHistory": {

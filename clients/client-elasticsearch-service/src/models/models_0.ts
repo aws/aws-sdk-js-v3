@@ -3253,7 +3253,7 @@ export interface DescribePackagesFilter {
   Name?: DescribePackagesFilterName | string;
 
   /**
-   * <p>A list of values for the specified field.</p>
+   * <p>A non-empty list of values for the specified field.</p>
    */
   Value?: string[];
 }
