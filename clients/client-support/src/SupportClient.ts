@@ -64,11 +64,19 @@ import {
   DescribeCommunicationsCommandInput,
   DescribeCommunicationsCommandOutput,
 } from "./commands/DescribeCommunicationsCommand";
+import {
+  DescribeCreateCaseOptionsCommandInput,
+  DescribeCreateCaseOptionsCommandOutput,
+} from "./commands/DescribeCreateCaseOptionsCommand";
 import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand";
 import {
   DescribeSeverityLevelsCommandInput,
   DescribeSeverityLevelsCommandOutput,
 } from "./commands/DescribeSeverityLevelsCommand";
+import {
+  DescribeSupportedLanguagesCommandInput,
+  DescribeSupportedLanguagesCommandOutput,
+} from "./commands/DescribeSupportedLanguagesCommand";
 import {
   DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
   DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput,
@@ -108,8 +116,10 @@ export type ServiceInputTypes =
   | DescribeAttachmentCommandInput
   | DescribeCasesCommandInput
   | DescribeCommunicationsCommandInput
+  | DescribeCreateCaseOptionsCommandInput
   | DescribeServicesCommandInput
   | DescribeSeverityLevelsCommandInput
+  | DescribeSupportedLanguagesCommandInput
   | DescribeTrustedAdvisorCheckRefreshStatusesCommandInput
   | DescribeTrustedAdvisorCheckResultCommandInput
   | DescribeTrustedAdvisorCheckSummariesCommandInput
@@ -127,8 +137,10 @@ export type ServiceOutputTypes =
   | DescribeAttachmentCommandOutput
   | DescribeCasesCommandOutput
   | DescribeCommunicationsCommandOutput
+  | DescribeCreateCaseOptionsCommandOutput
   | DescribeServicesCommandOutput
   | DescribeSeverityLevelsCommandOutput
+  | DescribeSupportedLanguagesCommandOutput
   | DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
   | DescribeTrustedAdvisorCheckResultCommandOutput
   | DescribeTrustedAdvisorCheckSummariesCommandOutput

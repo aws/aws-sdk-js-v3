@@ -29,6 +29,11 @@ import {
   DescribeCommunicationsCommandOutput,
 } from "./commands/DescribeCommunicationsCommand";
 import {
+  DescribeCreateCaseOptionsCommand,
+  DescribeCreateCaseOptionsCommandInput,
+  DescribeCreateCaseOptionsCommandOutput,
+} from "./commands/DescribeCreateCaseOptionsCommand";
+import {
   DescribeServicesCommand,
   DescribeServicesCommandInput,
   DescribeServicesCommandOutput,
@@ -38,6 +43,11 @@ import {
   DescribeSeverityLevelsCommandInput,
   DescribeSeverityLevelsCommandOutput,
 } from "./commands/DescribeSeverityLevelsCommand";
+import {
+  DescribeSupportedLanguagesCommand,
+  DescribeSupportedLanguagesCommandInput,
+  DescribeSupportedLanguagesCommandOutput,
+} from "./commands/DescribeSupportedLanguagesCommand";
 import {
   DescribeTrustedAdvisorCheckRefreshStatusesCommand,
   DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
@@ -73,8 +83,10 @@ const commands = {
   DescribeAttachmentCommand,
   DescribeCasesCommand,
   DescribeCommunicationsCommand,
+  DescribeCreateCaseOptionsCommand,
   DescribeServicesCommand,
   DescribeSeverityLevelsCommand,
+  DescribeSupportedLanguagesCommand,
   DescribeTrustedAdvisorCheckRefreshStatusesCommand,
   DescribeTrustedAdvisorCheckResultCommand,
   DescribeTrustedAdvisorChecksCommand,
@@ -175,6 +187,23 @@ export interface Support {
   ): void;
 
   /**
+   * @see {@link DescribeCreateCaseOptionsCommand}
+   */
+  describeCreateCaseOptions(
+    args: DescribeCreateCaseOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCreateCaseOptionsCommandOutput>;
+  describeCreateCaseOptions(
+    args: DescribeCreateCaseOptionsCommandInput,
+    cb: (err: any, data?: DescribeCreateCaseOptionsCommandOutput) => void
+  ): void;
+  describeCreateCaseOptions(
+    args: DescribeCreateCaseOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCreateCaseOptionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeServicesCommand}
    */
   describeServices(
@@ -206,6 +235,23 @@ export interface Support {
     args: DescribeSeverityLevelsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeSeverityLevelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeSupportedLanguagesCommand}
+   */
+  describeSupportedLanguages(
+    args: DescribeSupportedLanguagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSupportedLanguagesCommandOutput>;
+  describeSupportedLanguages(
+    args: DescribeSupportedLanguagesCommandInput,
+    cb: (err: any, data?: DescribeSupportedLanguagesCommandOutput) => void
+  ): void;
+  describeSupportedLanguages(
+    args: DescribeSupportedLanguagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSupportedLanguagesCommandOutput) => void
   ): void;
 
   /**

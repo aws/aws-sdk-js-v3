@@ -99,6 +99,11 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *         You have exceeded the maximum allowed TPS (Transactions Per Second) for the operations.
+ *         </p>
+ *
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *

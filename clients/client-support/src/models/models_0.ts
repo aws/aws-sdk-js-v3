@@ -335,7 +335,8 @@ export interface CreateCaseRequest {
 
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
-   * currently supports English ("en") and Japanese ("ja"). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
+   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
+   * code for the <code>language</code> parameter if you want support in that language.</p>
    */
   language?: string;
 
@@ -458,7 +459,8 @@ export interface DescribeCasesRequest {
 
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
-   * currently supports English ("en") and Japanese ("ja"). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
+   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
+   * code for the <code>language</code> parameter if you want support in that language.</p>
    */
   language?: string;
 
@@ -491,8 +493,8 @@ export interface Communication {
 
   /**
    * <p>The identity of the account that submitted, or responded to, the support case.
-   *             Customer entries include the role or IAM user as well as the email address. For example,
-   *             "AdminRole (Role) <janedoe@example.com>. Entries from the Amazon Web Services Support team display
+   *             Customer entries include the IAM role as well as the email address (for example,
+   *             "AdminRole (Role) <janedoe@example.com>). Entries from the Amazon Web Services Support team display
    *             "Amazon Web Services," and don't show an email address.
    *             </p>
    */
@@ -551,7 +553,8 @@ export interface RecentCaseCommunications {
  *             <li>
  *                <p>
  *                   <b>language</b> - The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
- * currently supports English ("en") and Japanese ("ja"). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
+ * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
+ * code for the <code>language</code> parameter if you want support in that language.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -728,7 +731,8 @@ export interface CaseDetails {
 
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
-   * currently supports English ("en") and Japanese ("ja"). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
+   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
+   * code for the <code>language</code> parameter if you want support in that language.</p>
    */
   language?: string;
 }
@@ -806,6 +810,186 @@ export interface DescribeCommunicationsResponse {
 /**
  * @public
  */
+export interface DescribeCreateCaseOptionsRequest {
+  /**
+   * <p>The type of issue for the case. You can specify <code>customer-service</code> or
+   *                 <code>technical</code>. If you don't specify a value, the default is
+   *                 <code>technical</code>.</p>
+   */
+  issueType: string | undefined;
+
+  /**
+   * <p>The code for the Amazon Web Services service. You can use the <a>DescribeServices</a>
+   *             operation to get the possible <code>serviceCode</code> values.</p>
+   */
+  serviceCode: string | undefined;
+
+  /**
+   * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
+   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
+   * code for the <code>language</code> parameter if you want support in that language.</p>
+   */
+  language: string | undefined;
+
+  /**
+   * <p>The category of problem for the support case. You also use the <a>DescribeServices</a> operation to get the category code for a service. Each
+   *             Amazon Web Services service defines its own set of category codes.</p>
+   */
+  categoryCode: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Date and time (UTC) format in RFC 3339 : 'yyyy-MM-dd'T'HH:mm:ss.SSSZZ'.</p>
+ */
+export interface DateInterval {
+  /**
+   * <p>
+   *         A JSON object containing start and date time (UTC). Date and time format is RFC 3339 : 'yyyy-MM-dd'T'HH:mm:ss.SSSZZ'.
+   *         </p>
+   */
+  startDateTime?: string;
+
+  /**
+   * <p>
+   *         End Date Time (UTC). RFC 3339 format : 'yyyy-MM-dd'T'HH:mm:ss.SSSZZ'.
+   *         </p>
+   */
+  endDateTime?: string;
+}
+
+/**
+ * @public
+ * <p>Time range object with <code>startTime</code> and <code>endTime</code> range in RFC 3339 format. <code>'HH:mm:ss.SSS'</code>.</p>
+ */
+export interface SupportedHour {
+  /**
+   * <p>
+   *         Start Time. RFC 3339 format <code>'HH:mm:ss.SSS'</code>.
+   *         </p>
+   */
+  startTime?: string;
+
+  /**
+   * <p>
+   *         End Time. RFC 3339 format <code>'HH:mm:ss.SSS'</code>.
+   *         </p>
+   */
+  endTime?: string;
+}
+
+/**
+ * @public
+ * <p>A JSON-formatted object that contains the CommunicationTypeOptions for creating a case for a certain
+ *         communication channel. It is contained in the response from a <a>DescribeCreateCaseOptions</a> request. <b>CommunicationTypeOptions</b> contains the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>datesWithoutSupport</b> -
+ *                     A JSON-formatted list containing date and time ranges for periods
+ *                     without support in UTC time. Date and time format is RFC 3339 : 'yyyy-MM-dd'T'HH:mm:ss.SSSZZ'.
+ *                     </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>supportedHours</b> -
+ *                     A JSON-formatted list containing time ranges when support are available.
+ *                     Time format is RFC 3339 : 'HH:mm:ss.SSS'.
+ *                     </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>type</b> -
+ *                    A string value indicating the communication type that the aforementioned rules apply to. At the moment
+ *                    the type value can assume one of 3 values at the moment <code>chat</code>, <code>web</code> and
+ *                    <code>call</code>.
+ *                     </p>
+ *             </li>
+ *          </ul>
+ */
+export interface CommunicationTypeOptions {
+  /**
+   * <p>
+   *         A string value indicating the communication type. At the moment the type value can assume one of 3 values at the moment chat, web and call.
+   *         </p>
+   */
+  type?: string;
+
+  /**
+   * <p>
+   *         A JSON-formatted list containing time ranges when support is available.
+   *         </p>
+   */
+  supportedHours?: SupportedHour[];
+
+  /**
+   * <p>
+   *         A JSON-formatted list containing date and time ranges for periods without support
+   *         </p>
+   */
+  datesWithoutSupport?: DateInterval[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeCreateCaseOptionsResponse {
+  /**
+   * <p>Language availability can be any of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                     available
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                     best_effort
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                     unavailable
+   *                 </p>
+   *             </li>
+   *          </ul>
+   */
+  languageAvailability?: string;
+
+  /**
+   * <p>
+   *         A JSON-formatted array that contains the available communication type options, along with the available support
+   *         timeframes for the given inputs.
+   *         </p>
+   */
+  communicationTypes?: CommunicationTypeOptions[];
+}
+
+/**
+ * @public
+ * <p>
+ *         You have exceeded the maximum allowed TPS (Transactions Per Second) for the operations.
+ *         </p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
 export interface DescribeServicesRequest {
   /**
    * <p>A JSON-formatted list of service codes available for Amazon Web Services services.</p>
@@ -814,7 +998,8 @@ export interface DescribeServicesRequest {
 
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
-   * currently supports English ("en") and Japanese ("ja"). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
+   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
+   * code for the <code>language</code> parameter if you want support in that language.</p>
    */
   language?: string;
 }
@@ -881,7 +1066,8 @@ export interface DescribeServicesResponse {
 export interface DescribeSeverityLevelsRequest {
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
-   * currently supports English ("en") and Japanese ("ja"). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>
+   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
+   * code for the <code>language</code> parameter if you want support in that language.</p>
    */
   language?: string;
 }
@@ -949,6 +1135,72 @@ export interface DescribeSeverityLevelsResponse {
    *             defined by your service level agreement with Amazon Web Services.</p>
    */
   severityLevels?: SeverityLevel[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeSupportedLanguagesRequest {
+  /**
+   * <p>The type of issue for the case. You can specify <code>customer-service</code> or
+   *                 <code>technical</code>.</p>
+   */
+  issueType: string | undefined;
+
+  /**
+   * <p>The code for the Amazon Web Services service. You can use the <a>DescribeServices</a>
+   *             operation to get the possible <code>serviceCode</code> values.</p>
+   */
+  serviceCode: string | undefined;
+
+  /**
+   * <p>The category of problem for the support case. You also use the <a>DescribeServices</a> operation to get the category code for a service. Each
+   *             Amazon Web Services service defines its own set of category codes.</p>
+   */
+  categoryCode: string | undefined;
+}
+
+/**
+ * @public
+ * <p>
+ *             A JSON-formatted object that contains the available ISO 639-1 language <code>code</code>,
+ *             <code>language</code> name and langauge <code>display</code> value. The language code is what should be used
+ *             in the <a>CreateCase</a> call.
+ *         </p>
+ */
+export interface SupportedLanguage {
+  /**
+   * <p>
+   *         2 digit ISO 639-1 code. e.g. <code>en</code>
+   *          </p>
+   */
+  code?: string;
+
+  /**
+   * <p>
+   *         Full language description e.g. <code>ENGLISH</code>
+   *          </p>
+   */
+  language?: string;
+
+  /**
+   * <p>
+   *             Language display value e.g. <code>ENGLISH</code>
+   *          </p>
+   */
+  display?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSupportedLanguagesResponse {
+  /**
+   * <p>
+   *         A JSON-formatted array that contains the available ISO 639-1 language codes.
+   *         </p>
+   */
+  supportedLanguages?: SupportedLanguage[];
 }
 
 /**

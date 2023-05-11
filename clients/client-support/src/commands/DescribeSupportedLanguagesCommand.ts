@@ -13,40 +13,28 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTrustedAdvisorCheckRefreshStatusesRequest,
-  DescribeTrustedAdvisorCheckRefreshStatusesResponse,
-} from "../models/models_0";
-import {
-  de_DescribeTrustedAdvisorCheckRefreshStatusesCommand,
-  se_DescribeTrustedAdvisorCheckRefreshStatusesCommand,
-} from "../protocols/Aws_json1_1";
+import { DescribeSupportedLanguagesRequest, DescribeSupportedLanguagesResponse } from "../models/models_0";
+import { de_DescribeSupportedLanguagesCommand, se_DescribeSupportedLanguagesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
  * @public
  *
- * The input for {@link DescribeTrustedAdvisorCheckRefreshStatusesCommand}.
+ * The input for {@link DescribeSupportedLanguagesCommand}.
  */
-export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandInput
-  extends DescribeTrustedAdvisorCheckRefreshStatusesRequest {}
+export interface DescribeSupportedLanguagesCommandInput extends DescribeSupportedLanguagesRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeTrustedAdvisorCheckRefreshStatusesCommand}.
+ * The output of {@link DescribeSupportedLanguagesCommand}.
  */
-export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
-  extends DescribeTrustedAdvisorCheckRefreshStatusesResponse,
-    __MetadataBearer {}
+export interface DescribeSupportedLanguagesCommandOutput extends DescribeSupportedLanguagesResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns the refresh status of the Trusted Advisor checks that have the specified check
- *             IDs. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
- *          <p>Some checks are refreshed automatically, and you can't return their refresh statuses
- *             by using the <code>DescribeTrustedAdvisorCheckRefreshStatuses</code> operation. If you
- *             call this operation for these checks, you might see an
- *                 <code>InvalidParameterValue</code> error.</p>
+ * <p>Returns a list of supported languages for a specified <code>categoryCode</code>,
+ *         <code>issueType</code> and <code>serviceCode</code>. The returned supported languages will
+ *         include a ISO 639-1 code for the <code>language</code>, and the language display name.</p>
  *          <note>
  *             <ul>
  *                <li>
@@ -61,39 +49,35 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
  *                </li>
  *             </ul>
  *          </note>
- *          <p>To call the Trusted Advisor operations in
- * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
- * endpoints don't support the Trusted Advisor operations. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint">About the Amazon Web Services Support
- * API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportClient, DescribeTrustedAdvisorCheckRefreshStatusesCommand } from "@aws-sdk/client-support"; // ES Modules import
- * // const { SupportClient, DescribeTrustedAdvisorCheckRefreshStatusesCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * import { SupportClient, DescribeSupportedLanguagesCommand } from "@aws-sdk/client-support"; // ES Modules import
+ * // const { SupportClient, DescribeSupportedLanguagesCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
- * const input = { // DescribeTrustedAdvisorCheckRefreshStatusesRequest
- *   checkIds: [ // StringList // required
- *     "STRING_VALUE",
- *   ],
+ * const input = { // DescribeSupportedLanguagesRequest
+ *   issueType: "STRING_VALUE", // required
+ *   serviceCode: "STRING_VALUE", // required
+ *   categoryCode: "STRING_VALUE", // required
  * };
- * const command = new DescribeTrustedAdvisorCheckRefreshStatusesCommand(input);
+ * const command = new DescribeSupportedLanguagesCommand(input);
  * const response = await client.send(command);
- * // { // DescribeTrustedAdvisorCheckRefreshStatusesResponse
- * //   statuses: [ // TrustedAdvisorCheckRefreshStatusList // required
- * //     { // TrustedAdvisorCheckRefreshStatus
- * //       checkId: "STRING_VALUE", // required
- * //       status: "STRING_VALUE", // required
- * //       millisUntilNextRefreshable: Number("long"), // required
+ * // { // DescribeSupportedLanguagesResponse
+ * //   supportedLanguages: [ // SupportedLanguagesList
+ * //     { // SupportedLanguage
+ * //       code: "STRING_VALUE",
+ * //       language: "STRING_VALUE",
+ * //       display: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param DescribeTrustedAdvisorCheckRefreshStatusesCommandInput - {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandInput}
- * @returns {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput}
- * @see {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandInput} for command's `input` shape.
- * @see {@link DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput} for command's `response` shape.
+ * @param DescribeSupportedLanguagesCommandInput - {@link DescribeSupportedLanguagesCommandInput}
+ * @returns {@link DescribeSupportedLanguagesCommandOutput}
+ * @see {@link DescribeSupportedLanguagesCommandInput} for command's `input` shape.
+ * @see {@link DescribeSupportedLanguagesCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
@@ -108,9 +92,9 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
  */
-export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
-  DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
-  DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput,
+export class DescribeSupportedLanguagesCommand extends $Command<
+  DescribeSupportedLanguagesCommandInput,
+  DescribeSupportedLanguagesCommandOutput,
   SupportClientResolvedConfig
 > {
   // Start section: command_properties
@@ -128,7 +112,7 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput) {
+  constructor(readonly input: DescribeSupportedLanguagesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -141,23 +125,17 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SupportClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
-    DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
-  > {
+  ): Handler<DescribeSupportedLanguagesCommandInput, DescribeSupportedLanguagesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        DescribeTrustedAdvisorCheckRefreshStatusesCommand.getEndpointParameterInstructions()
-      )
+      getEndpointPlugin(configuration, DescribeSupportedLanguagesCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SupportClient";
-    const commandName = "DescribeTrustedAdvisorCheckRefreshStatusesCommand";
+    const commandName = "DescribeSupportedLanguagesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -176,11 +154,8 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_DescribeTrustedAdvisorCheckRefreshStatusesCommand(input, context);
+  private serialize(input: DescribeSupportedLanguagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DescribeSupportedLanguagesCommand(input, context);
   }
 
   /**
@@ -189,8 +164,8 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> {
-    return de_DescribeTrustedAdvisorCheckRefreshStatusesCommand(output, context);
+  ): Promise<DescribeSupportedLanguagesCommandOutput> {
+    return de_DescribeSupportedLanguagesCommand(output, context);
   }
 
   // Start section: command_body_extra
