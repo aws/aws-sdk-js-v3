@@ -68,7 +68,6 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.</p>
- *
  *          <note>
  *             <p>This operation doesn't support resource-level permissions. You can't use this operation to allow or deny access to specific Health events. For more
  *                   information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource- and action-based conditions</a> in the <i>Health User Guide</i>.</p>
@@ -98,14 +97,14 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
  * //         arn: "STRING_VALUE",
  * //         service: "STRING_VALUE",
  * //         eventTypeCode: "STRING_VALUE",
- * //         eventTypeCategory: "STRING_VALUE",
+ * //         eventTypeCategory: "issue" || "accountNotification" || "scheduledChange" || "investigation",
  * //         region: "STRING_VALUE",
  * //         availabilityZone: "STRING_VALUE",
  * //         startTime: new Date("TIMESTAMP"),
  * //         endTime: new Date("TIMESTAMP"),
  * //         lastUpdatedTime: new Date("TIMESTAMP"),
- * //         statusCode: "STRING_VALUE",
- * //         eventScopeCode: "STRING_VALUE",
+ * //         statusCode: "open" || "closed" || "upcoming",
+ * //         eventScopeCode: "PUBLIC" || "ACCOUNT_SPECIFIC" || "NONE",
  * //       },
  * //       eventDescription: { // EventDescription
  * //         latestDescription: "STRING_VALUE",

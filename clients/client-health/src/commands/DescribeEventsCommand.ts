@@ -103,7 +103,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *       "STRING_VALUE",
  *     ],
  *     eventTypeCategories: [ // eventTypeCategoryList2
- *       "STRING_VALUE",
+ *       "issue" || "accountNotification" || "scheduledChange" || "investigation",
  *     ],
  *     tags: [ // tagFilter
  *       { // tagSet
@@ -111,7 +111,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *       },
  *     ],
  *     eventStatusCodes: [ // eventStatusCodeList
- *       "STRING_VALUE",
+ *       "open" || "closed" || "upcoming",
  *     ],
  *   },
  *   nextToken: "STRING_VALUE",
@@ -126,14 +126,14 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * //       arn: "STRING_VALUE",
  * //       service: "STRING_VALUE",
  * //       eventTypeCode: "STRING_VALUE",
- * //       eventTypeCategory: "STRING_VALUE",
+ * //       eventTypeCategory: "issue" || "accountNotification" || "scheduledChange" || "investigation",
  * //       region: "STRING_VALUE",
  * //       availabilityZone: "STRING_VALUE",
  * //       startTime: new Date("TIMESTAMP"),
  * //       endTime: new Date("TIMESTAMP"),
  * //       lastUpdatedTime: new Date("TIMESTAMP"),
- * //       statusCode: "STRING_VALUE",
- * //       eventScopeCode: "STRING_VALUE",
+ * //       statusCode: "open" || "closed" || "upcoming",
+ * //       eventScopeCode: "PUBLIC" || "ACCOUNT_SPECIFIC" || "NONE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

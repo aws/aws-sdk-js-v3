@@ -38,8 +38,7 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
 /**
  * @public
  * <p>This operation provides status information on enabling or disabling Health to work
- *          with your organization. To call this operation, you must sign in as an IAM user, assume
- *          an IAM role, or sign in as the root user (not recommended) in the organization's
+ *          with your organization. To call this operation, you must use the organization's
  *          management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

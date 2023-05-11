@@ -35,8 +35,7 @@ export interface DisableHealthServiceAccessForOrganizationCommandOutput extends 
 /**
  * @public
  * <p>Disables Health from working with Organizations. To call this operation, you must sign
- *          in as an Identity and Access Management (IAM) user, assume an IAM role, or sign in as the root user (not
- *          recommended) in the organization's management account. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
+ *          in to the organization's management account. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
  *             Health events</a> in the <i>Health User Guide</i>.</p>
  *          <p>This operation doesn't remove the service-linked role from the management account in your
  *          organization. You must use the IAM console, API, or Command Line Interface (CLI) to remove the

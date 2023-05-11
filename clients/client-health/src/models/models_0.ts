@@ -132,7 +132,7 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
   affectedAccounts?: string[];
 
   /**
-   * <p>This parameter specifies if the Health event is a public Amazon Web Services service event or an account-specific event.</p>
+   * <p>This parameter specifies if the Health event is a public Amazon Web Service event or an account-specific event.</p>
    *          <ul>
    *             <li>
    *                <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the
@@ -393,9 +393,11 @@ export interface OrganizationAffectedEntitiesErrorItem {
   errorName?: string;
 
   /**
-   * <p>The unique identifier for the event type. The format is
-   *             <code>AWS_SERVICE_DESCRIPTION</code>. For example,
-   *             <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>
+   * <p>A message that describes the error. Follow the error message and retry your request.</p>
+   *          <p>For example, the <code>InvalidAccountInputError</code> error message appears if
+   *          you call the <code>DescribeAffectedEntitiesForOrganization</code> operation and specify the
+   *             <code>AccountSpecific</code> value for the <code>EventScopeCode</code> parameter, but
+   *          don't specify an Amazon Web Services account.</p>
    */
   errorMessage?: string;
 }
@@ -533,7 +535,7 @@ export interface EventFilter {
   eventTypeCodes?: string[];
 
   /**
-   * <p>The Amazon Web Services services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
   services?: string[];
 
@@ -737,7 +739,7 @@ export interface Event {
   arn?: string;
 
   /**
-   * <p>The Amazon Web Services service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
   service?: string;
 
@@ -786,7 +788,7 @@ export interface Event {
   statusCode?: EventStatusCode | string;
 
   /**
-   * <p>This parameter specifies if the Health event is a public Amazon Web Services service event or an account-specific event.</p>
+   * <p>This parameter specifies if the Health event is a public Amazon Web Service event or an account-specific event.</p>
    *          <ul>
    *             <li>
    *                <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the
@@ -1047,7 +1049,7 @@ export interface OrganizationEventFilter {
   awsAccountIds?: string[];
 
   /**
-   * <p>The Amazon Web Services services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
   services?: string[];
 
@@ -1158,7 +1160,7 @@ export interface OrganizationEvent {
   arn?: string;
 
   /**
-   * <p>The Amazon Web Services service that is affected by the event, such as EC2 and RDS.</p>
+   * <p>The Amazon Web Service that is affected by the event, such as EC2 and RDS.</p>
    */
   service?: string;
 
@@ -1177,7 +1179,7 @@ export interface OrganizationEvent {
   eventTypeCategory?: EventTypeCategory | string;
 
   /**
-   * <p>This parameter specifies if the Health event is a public Amazon Web Services service event or an account-specific event.</p>
+   * <p>This parameter specifies if the Health event is a public Amazon Web Service event or an account-specific event.</p>
    *          <ul>
    *             <li>
    *                <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the
@@ -1256,7 +1258,7 @@ export interface EventTypeFilter {
   eventTypeCodes?: string[];
 
   /**
-   * <p>The Amazon Web Services services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
   services?: string[];
 
@@ -1292,6 +1294,10 @@ export interface DescribeEventTypesRequest {
 
   /**
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
+   *          <note>
+   *             <p>If you don't specify the <code>maxResults</code> parameter, this operation returns a
+   *             maximum of 30 items by default.</p>
+   *          </note>
    */
   maxResults?: number;
 }
@@ -1311,7 +1317,7 @@ export interface DescribeEventTypesRequest {
  */
 export interface EventType {
   /**
-   * <p>The Amazon Web Services service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
   service?: string;
 

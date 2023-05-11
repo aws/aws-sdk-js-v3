@@ -86,7 +86,7 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  *       "STRING_VALUE",
  *     ],
  *     eventTypeCategories: [ // eventTypeCategoryList2
- *       "STRING_VALUE",
+ *       "issue" || "accountNotification" || "scheduledChange" || "investigation",
  *     ],
  *     tags: [ // tagFilter
  *       { // tagSet
@@ -94,10 +94,10 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  *       },
  *     ],
  *     eventStatusCodes: [ // eventStatusCodeList
- *       "STRING_VALUE",
+ *       "open" || "closed" || "upcoming",
  *     ],
  *   },
- *   aggregateField: "STRING_VALUE", // required
+ *   aggregateField: "eventTypeCategory", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

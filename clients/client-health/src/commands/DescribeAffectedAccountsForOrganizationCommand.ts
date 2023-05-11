@@ -67,7 +67,7 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
  * //   affectedAccounts: [ // affectedAccountsList
  * //     "STRING_VALUE",
  * //   ],
- * //   eventScopeCode: "STRING_VALUE",
+ * //   eventScopeCode: "PUBLIC" || "ACCOUNT_SPECIFIC" || "NONE",
  * //   nextToken: "STRING_VALUE",
  * // };
  *

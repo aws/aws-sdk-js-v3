@@ -44,7 +44,7 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  * <p>Returns a list of entities that have been affected by one or more events for one or more
  *          accounts in your organization in Organizations, based on the filter criteria. Entities can refer
  *          to individual customer resources, groups of customer resources, or any other construct,
- *          depending on the Amazon Web Services service.</p>
+ *          depending on the Amazon Web Service.</p>
  *          <p>At least one event Amazon Resource Name (ARN) and account ID are required.</p>
  *          <p>Before you can call this operation, you must first enable Health to work with
  *          Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> operation from your organization's
@@ -59,7 +59,6 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  *                   information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource- and action-based conditions</a> in the <i>Health User Guide</i>.</p>
  *                </li>
  *             </ul>
- *
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,7 +88,7 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  * //       entityUrl: "STRING_VALUE",
  * //       awsAccountId: "STRING_VALUE",
  * //       lastUpdatedTime: new Date("TIMESTAMP"),
- * //       statusCode: "STRING_VALUE",
+ * //       statusCode: "IMPAIRED" || "UNIMPAIRED" || "UNKNOWN",
  * //       tags: { // tagSet
  * //         "<keys>": "STRING_VALUE",
  * //       },
