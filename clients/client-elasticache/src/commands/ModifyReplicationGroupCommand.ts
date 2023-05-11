@@ -106,6 +106,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  *   IpDiscovery: "ipv4" || "ipv6",
  *   TransitEncryptionEnabled: true || false,
  *   TransitEncryptionMode: "preferred" || "required",
+ *   ClusterMode: "enabled" || "disabled" || "compatible",
  * };
  * const command = new ModifyReplicationGroupCommand(input);
  * const response = await client.send(command);
@@ -152,6 +153,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * //       ],
  * //       TransitEncryptionEnabled: true || false,
  * //       TransitEncryptionMode: "preferred" || "required",
+ * //       ClusterMode: "enabled" || "disabled" || "compatible",
  * //     },
  * //     MemberClusters: [ // ClusterIdList
  * //       "STRING_VALUE",
@@ -227,6 +229,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
+ * //     ClusterMode: "enabled" || "disabled" || "compatible",
  * //   },
  * // };
  *

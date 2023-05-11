@@ -7196,6 +7196,9 @@ const se_CreateReplicationGroupMessage = (input: CreateReplicationGroupMessage, 
   if (input.TransitEncryptionMode != null) {
     entries["TransitEncryptionMode"] = input.TransitEncryptionMode;
   }
+  if (input.ClusterMode != null) {
+    entries["ClusterMode"] = input.ClusterMode;
+  }
   return entries;
 };
 
@@ -8599,6 +8602,9 @@ const se_ModifyReplicationGroupMessage = (input: ModifyReplicationGroupMessage, 
   }
   if (input.TransitEncryptionMode != null) {
     entries["TransitEncryptionMode"] = input.TransitEncryptionMode;
+  }
+  if (input.ClusterMode != null) {
+    entries["ClusterMode"] = input.ClusterMode;
   }
   return entries;
 };
@@ -12031,6 +12037,9 @@ const de_ReplicationGroup = (output: any, context: __SerdeContext): ReplicationG
   if (output["TransitEncryptionMode"] !== undefined) {
     contents.TransitEncryptionMode = __expectString(output["TransitEncryptionMode"]);
   }
+  if (output["ClusterMode"] !== undefined) {
+    contents.ClusterMode = __expectString(output["ClusterMode"]);
+  }
   return contents;
 };
 
@@ -12170,6 +12179,9 @@ const de_ReplicationGroupPendingModifiedValues = (
   }
   if (output["TransitEncryptionMode"] !== undefined) {
     contents.TransitEncryptionMode = __expectString(output["TransitEncryptionMode"]);
+  }
+  if (output["ClusterMode"] !== undefined) {
+    contents.ClusterMode = __expectString(output["ClusterMode"]);
   }
   return contents;
 };

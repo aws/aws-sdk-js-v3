@@ -145,6 +145,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *   NetworkType: "ipv4" || "ipv6" || "dual_stack",
  *   IpDiscovery: "ipv4" || "ipv6",
  *   TransitEncryptionMode: "preferred" || "required",
+ *   ClusterMode: "enabled" || "disabled" || "compatible",
  * };
  * const command = new CreateReplicationGroupCommand(input);
  * const response = await client.send(command);
@@ -191,6 +192,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * //       ],
  * //       TransitEncryptionEnabled: true || false,
  * //       TransitEncryptionMode: "preferred" || "required",
+ * //       ClusterMode: "enabled" || "disabled" || "compatible",
  * //     },
  * //     MemberClusters: [ // ClusterIdList
  * //       "STRING_VALUE",
@@ -266,6 +268,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
+ * //     ClusterMode: "enabled" || "disabled" || "compatible",
  * //   },
  * // };
  *

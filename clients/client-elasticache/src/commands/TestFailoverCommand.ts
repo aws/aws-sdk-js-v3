@@ -149,6 +149,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  * //       ],
  * //       TransitEncryptionEnabled: true || false,
  * //       TransitEncryptionMode: "preferred" || "required",
+ * //       ClusterMode: "enabled" || "disabled" || "compatible",
  * //     },
  * //     MemberClusters: [ // ClusterIdList
  * //       "STRING_VALUE",
@@ -224,6 +225,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
+ * //     ClusterMode: "enabled" || "disabled" || "compatible",
  * //   },
  * // };
  *

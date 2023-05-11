@@ -106,6 +106,7 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  * //       ],
  * //       TransitEncryptionEnabled: true || false,
  * //       TransitEncryptionMode: "preferred" || "required",
+ * //       ClusterMode: "enabled" || "disabled" || "compatible",
  * //     },
  * //     MemberClusters: [ // ClusterIdList
  * //       "STRING_VALUE",
@@ -181,6 +182,7 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
+ * //     ClusterMode: "enabled" || "disabled" || "compatible",
  * //   },
  * // };
  *
