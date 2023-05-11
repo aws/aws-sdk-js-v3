@@ -14,47 +14,50 @@ import {
 } from "@aws-sdk/types";
 
 import { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
-import { ListStagesRequest, ListStagesResponse } from "../models/models_0";
-import { de_ListStagesCommand, se_ListStagesCommand } from "../protocols/Aws_restJson1";
+import { ListParticipantsRequest, ListParticipantsResponse } from "../models/models_0";
+import { de_ListParticipantsCommand, se_ListParticipantsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link ListStagesCommand}.
+ * The input for {@link ListParticipantsCommand}.
  */
-export interface ListStagesCommandInput extends ListStagesRequest {}
+export interface ListParticipantsCommandInput extends ListParticipantsRequest {}
 /**
  * @public
  *
- * The output of {@link ListStagesCommand}.
+ * The output of {@link ListParticipantsCommand}.
  */
-export interface ListStagesCommandOutput extends ListStagesResponse, __MetadataBearer {}
+export interface ListParticipantsCommandOutput extends ListParticipantsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets summary information about all stages in your account, in the AWS region where the
- *          API request is processed.</p>
+ * <p>Lists all participants in a specified stage session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IVSRealTimeClient, ListStagesCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
- * // const { IVSRealTimeClient, ListStagesCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * import { IVSRealTimeClient, ListParticipantsCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
+ * // const { IVSRealTimeClient, ListParticipantsCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
  * const client = new IVSRealTimeClient(config);
- * const input = { // ListStagesRequest
+ * const input = { // ListParticipantsRequest
+ *   stageArn: "STRING_VALUE", // required
+ *   sessionId: "STRING_VALUE", // required
+ *   filterByUserId: "STRING_VALUE",
+ *   filterByPublished: true || false,
+ *   filterByState: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListStagesCommand(input);
+ * const command = new ListParticipantsCommand(input);
  * const response = await client.send(command);
- * // { // ListStagesResponse
- * //   stages: [ // StageSummaryList // required
- * //     { // StageSummary
- * //       arn: "STRING_VALUE", // required
- * //       name: "STRING_VALUE",
- * //       activeSessionId: "STRING_VALUE",
- * //       tags: { // Tags
- * //         "<keys>": "STRING_VALUE",
- * //       },
+ * // { // ListParticipantsResponse
+ * //   participants: [ // ParticipantList // required
+ * //     { // ParticipantSummary
+ * //       participantId: "STRING_VALUE",
+ * //       userId: "STRING_VALUE",
+ * //       state: "STRING_VALUE",
+ * //       firstJoinTime: new Date("TIMESTAMP"),
+ * //       published: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -62,16 +65,13 @@ export interface ListStagesCommandOutput extends ListStagesResponse, __MetadataB
  *
  * ```
  *
- * @param ListStagesCommandInput - {@link ListStagesCommandInput}
- * @returns {@link ListStagesCommandOutput}
- * @see {@link ListStagesCommandInput} for command's `input` shape.
- * @see {@link ListStagesCommandOutput} for command's `response` shape.
+ * @param ListParticipantsCommandInput - {@link ListParticipantsCommandInput}
+ * @returns {@link ListParticipantsCommandOutput}
+ * @see {@link ListParticipantsCommandInput} for command's `input` shape.
+ * @see {@link ListParticipantsCommandOutput} for command's `response` shape.
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
- *
- * @throws {@link ConflictException} (client fault)
  *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
@@ -81,9 +81,9 @@ export interface ListStagesCommandOutput extends ListStagesResponse, __MetadataB
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
  */
-export class ListStagesCommand extends $Command<
-  ListStagesCommandInput,
-  ListStagesCommandOutput,
+export class ListParticipantsCommand extends $Command<
+  ListParticipantsCommandInput,
+  ListParticipantsCommandOutput,
   IVSRealTimeClientResolvedConfig
 > {
   // Start section: command_properties
@@ -101,7 +101,7 @@ export class ListStagesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListStagesCommandInput) {
+  constructor(readonly input: ListParticipantsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -114,15 +114,17 @@ export class ListStagesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IVSRealTimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListStagesCommandInput, ListStagesCommandOutput> {
+  ): Handler<ListParticipantsCommandInput, ListParticipantsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListStagesCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListParticipantsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IVSRealTimeClient";
-    const commandName = "ListStagesCommand";
+    const commandName = "ListParticipantsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -141,15 +143,15 @@ export class ListStagesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListStagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListStagesCommand(input, context);
+  private serialize(input: ListParticipantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListParticipantsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStagesCommandOutput> {
-    return de_ListStagesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListParticipantsCommandOutput> {
+    return de_ListParticipantsCommand(output, context);
   }
 
   // Start section: command_body_extra

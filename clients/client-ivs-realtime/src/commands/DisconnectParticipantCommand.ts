@@ -32,7 +32,8 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
 
 /**
  * @public
- * <p>Disconnects a specified participant and revokes the participant permanently from a specified stage.</p>
+ * <p>Disconnects a specified participant and revokes the participant permanently from a
+ *          specified stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

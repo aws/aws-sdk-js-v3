@@ -52,27 +52,30 @@ export interface CreateParticipantTokenRequest {
   stageArn: string | undefined;
 
   /**
-   * <p>Duration (in minutes), after which the token expires. Default: 60 (1 hour).</p>
+   * <p>Duration (in minutes), after which the token expires. Default:  720 (12 hours).</p>
    */
   duration?: number;
 
   /**
-   * <p>Name that can be specified to help identify the token. This can be any UTF-8 encoded text. <i>This field is exposed to all stage
-   * 	        participants and should not be used for personally identifying, confidential, or sensitive information.</i>
+   * <p>Name that can be specified to help identify the token. This can be any UTF-8 encoded
+   *          text. <i>This field is exposed to all stage participants and should not be used for
+   *             personally identifying, confidential, or sensitive information.</i>
    *          </p>
    */
   userId?: string;
 
   /**
-   * <p>Application-provided attributes to encode into the token and attach to a stage. Map keys and values can contain UTF-8
-   * 	        encoded text. The maximum length of this field is 1 KB total. <i>This field is exposed to all stage participants and
-   * 			should not be used for personally identifying, confidential, or sensitive information.</i>
+   * <p>Application-provided attributes to encode into the token and attach to a stage. Map keys
+   *          and values can contain UTF-8 encoded text. The maximum length of this field is 1 KB total.
+   *             <i>This field is exposed to all stage participants and should not be used for
+   *             personally identifying, confidential, or sensitive information.</i>
    *          </p>
    */
   attributes?: Record<string, string>;
 
   /**
-   * <p>Set of capabilities that the user is allowed to perform in the stage. Default: <code>PUBLISH, SUBSCRIBE</code>.</p>
+   * <p>Set of capabilities that the user is allowed to perform in the stage. Default:
+   *             <code>PUBLISH, SUBSCRIBE</code>.</p>
    */
   capabilities?: (ParticipantTokenCapability | string)[];
 }
@@ -93,21 +96,24 @@ export interface ParticipantToken {
   token?: string;
 
   /**
-   * <p>Name to help identify the token. This can be any UTF-8 encoded text. <i>This field is exposed to all
-   *             stage participants and should not be used for personally identifying, confidential, or sensitive information.</i>
+   * <p>Customer-assigned name to help identify the token; this can be used to link a
+   *          participant to a user in the customer’s own systems. This can be any UTF-8 encoded text.
+   *             <i>This field is exposed to all stage participants and should not be used for
+   *             personally identifying, confidential, or sensitive information.</i>
    *          </p>
    */
   userId?: string;
 
   /**
-   * <p>Application-provided attributes to encode into the token and attach to a stage. <i>This field is exposed to all
-   *             stage participants and should not be used for personally identifying, confidential, or sensitive information.</i>
+   * <p>Application-provided attributes to encode into the token and attach to a stage.
+   *             <i>This field is exposed to all stage participants and should not be used for
+   *             personally identifying, confidential, or sensitive information.</i>
    *          </p>
    */
   attributes?: Record<string, string>;
 
   /**
-   * <p>Duration (in minutes), after which the participant token expires. Default: 60 (1 hour).</p>
+   * <p>Duration (in minutes), after which the participant token expires. Default:  720 (12 hours).</p>
    */
   duration?: number;
 
@@ -238,21 +244,26 @@ export class ValidationException extends __BaseException {
  */
 export interface ParticipantTokenConfiguration {
   /**
-   * <p>Duration (in minutes), after which the corresponding participant token expires. Default: 60 (1 hour).</p>
+   * <p>Duration (in minutes), after which the corresponding participant token expires. Default:
+   *          720 (12 hours).</p>
    */
   duration?: number;
 
   /**
-   * <p>Name that can be specified to help identify the corresponding participant token. This can be any UTF-8 encoded text. <i>This field is exposed to all
-   *             stage participants and should not be used for personally identifying, confidential, or sensitive information.</i>
+   * <p>Customer-assigned name to help identify the token; this can be used to link a
+   *          participant to a user in the customer’s own systems. This can be any UTF-8 encoded text.
+   *             <i>This field is exposed to all stage participants and should not be used for
+   *             personally identifying, confidential, or sensitive information.</i>
    *          </p>
    */
   userId?: string;
 
   /**
-   * <p>Application-provided attributes to encode into the corresponding participant token and attach to a stage. Map keys and values can contain UTF-8 encoded text.
-   *             The maximum length of this field is 1 KB total. <i>This field is exposed to all stage participants and should not be used for personally
-   *             identifying, confidential, or sensitive information.</i>
+   * <p>Application-provided attributes to encode into the corresponding participant token and
+   *          attach to a stage. Map keys and values can contain UTF-8 encoded text. The maximum length
+   *          of this field is 1 KB total. <i>This field is exposed to all stage participants and
+   *             should not be used for personally identifying, confidential, or sensitive
+   *             information.</i>
    *          </p>
    */
   attributes?: Record<string, string>;
@@ -281,9 +292,8 @@ export interface CreateStageRequest {
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
    *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
    *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
-   *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is
-   *          documented there.
-   *       </p>
+   *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
+   *          there. </p>
    */
   tags?: Record<string, string>;
 }
@@ -312,8 +322,8 @@ export interface Stage {
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
    *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
    *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
-   *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is
-   *          documented there.</p>
+   *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
+   *          there.</p>
    */
   tags?: Record<string, string>;
 }
@@ -328,7 +338,8 @@ export interface CreateStageResponse {
   stage?: Stage;
 
   /**
-   * <p>Participant tokens attached to the stage. These correspond to the <code>participants</code> in the request.</p>
+   * <p>Participant tokens attached to the stage. These correspond to the
+   *             <code>participants</code> in the request.</p>
    */
   participantTokens?: ParticipantToken[];
 }
@@ -383,7 +394,8 @@ export interface DisconnectParticipantRequest {
   stageArn: string | undefined;
 
   /**
-   * <p>Identifier of the participant to be disconnected. This is returned by <a>CreateParticipantToken</a>.</p>
+   * <p>Identifier of the participant to be disconnected. This is assigned by IVS and returned
+   *          by <a>CreateParticipantToken</a>.</p>
    */
   participantId: string | undefined;
 
@@ -401,6 +413,93 @@ export interface DisconnectParticipantResponse {}
 /**
  * @public
  */
+export interface GetParticipantRequest {
+  /**
+   * <p>Stage ARN.</p>
+   */
+  stageArn: string | undefined;
+
+  /**
+   * <p>ID of a session within the stage.</p>
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>Unique identifier for the participant. This is assigned by IVS and returned by <a>CreateParticipantToken</a>.</p>
+   */
+  participantId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ParticipantState = {
+  CONNECTED: "CONNECTED",
+  DISCONNECTED: "DISCONNECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantState = (typeof ParticipantState)[keyof typeof ParticipantState];
+
+/**
+ * @public
+ * <p>Object describing a participant that has joined a stage.</p>
+ */
+export interface Participant {
+  /**
+   * <p>Unique identifier for this participant, assigned by IVS.</p>
+   */
+  participantId?: string;
+
+  /**
+   * <p>Customer-assigned name to help identify the token; this can be used to link a
+   *          participant to a user in the customer’s own systems. This can be any UTF-8 encoded text.
+   *             <i>This field is exposed to all stage participants and should not be used for
+   *             personally identifying, confidential, or sensitive information</i>.</p>
+   */
+  userId?: string;
+
+  /**
+   * <p>Whether the participant is connected to or disconnected from the stage.</p>
+   */
+  state?: ParticipantState | string;
+
+  /**
+   * <p>ISO 8601 timestamp (returned as a string) when the participant first joined the stage
+   *          session.</p>
+   */
+  firstJoinTime?: Date;
+
+  /**
+   * <p>Application-provided attributes to encode into the token and attach to a stage. Map keys
+   *          and values can contain UTF-8 encoded text. The maximum length of this field is 1 KB total.
+   *             <i>This field is exposed to all stage participants and should not be used for
+   *             personally identifying, confidential, or sensitive information</i>.</p>
+   */
+  attributes?: Record<string, string>;
+
+  /**
+   * <p>Whether the participant ever published to the stage session.</p>
+   */
+  published?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetParticipantResponse {
+  /**
+   * <p>The participant that is returned.</p>
+   */
+  participant?: Participant;
+}
+
+/**
+ * @public
+ */
 export interface GetStageRequest {
   /**
    * <p>ARN of the stage for which the information is to be retrieved.</p>
@@ -413,7 +512,7 @@ export interface GetStageRequest {
  */
 export interface GetStageResponse {
   /**
-   * <p/>
+   * <p>The stage that is returned.</p>
    */
   stage?: Stage;
 }
@@ -421,9 +520,278 @@ export interface GetStageResponse {
 /**
  * @public
  */
+export interface GetStageSessionRequest {
+  /**
+   * <p>ARN of the stage for which the information is to be retrieved.</p>
+   */
+  stageArn: string | undefined;
+
+  /**
+   * <p>ID of a session within the stage.</p>
+   */
+  sessionId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A stage session begins when the first participant joins a stage and ends after the last
+ *          participant leaves the stage. A stage session helps with debugging stages by grouping
+ *          events and participants into shorter periods of time (i.e., a session), which is helpful
+ *          when stages are used over long periods of time.</p>
+ */
+export interface StageSession {
+  /**
+   * <p>ID of the session within the stage.</p>
+   */
+  sessionId?: string;
+
+  /**
+   * <p> ISO 8601 timestamp (returned as a string) when this stage session began.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>ISO 8601 timestamp (returned as a string) when the stage session ended. This is null if
+   *          the stage is active.</p>
+   */
+  endTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetStageSessionResponse {
+  /**
+   * <p>The stage session that is returned.</p>
+   */
+  stageSession?: StageSession;
+}
+
+/**
+ * @public
+ */
+export interface ListParticipantEventsRequest {
+  /**
+   * <p>Stage ARN.</p>
+   */
+  stageArn: string | undefined;
+
+  /**
+   * <p>ID of a session within the stage.</p>
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>Unique identifier for this participant. This is assigned by IVS and returned by <a>CreateParticipantToken</a>.</p>
+   */
+  participantId: string | undefined;
+
+  /**
+   * <p>The first participant to retrieve. This is used for pagination; see the
+   *             <code>nextToken</code> response field.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Maximum number of results to return. Default: 50.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EventErrorCode = {
+  INSUFFICIENT_CAPABILITIES: "INSUFFICIENT_CAPABILITIES",
+} as const;
+
+/**
+ * @public
+ */
+export type EventErrorCode = (typeof EventErrorCode)[keyof typeof EventErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventName = {
+  JOINED: "JOINED",
+  JOIN_ERROR: "JOIN_ERROR",
+  LEFT: "LEFT",
+  PUBLISH_ERROR: "PUBLISH_ERROR",
+  PUBLISH_STARTED: "PUBLISH_STARTED",
+  PUBLISH_STOPPED: "PUBLISH_STOPPED",
+  SUBSCRIBE_ERROR: "SUBSCRIBE_ERROR",
+  SUBSCRIBE_STARTED: "SUBSCRIBE_STARTED",
+  SUBSCRIBE_STOPPED: "SUBSCRIBE_STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type EventName = (typeof EventName)[keyof typeof EventName];
+
+/**
+ * @public
+ * <p>An occurrence during a stage session.</p>
+ */
+export interface Event {
+  /**
+   * <p>The name of the event.</p>
+   */
+  name?: EventName | string;
+
+  /**
+   * <p>Unique identifier for the participant who triggered the event. This is assigned by
+   *          IVS.</p>
+   */
+  participantId?: string;
+
+  /**
+   * <p>ISO 8601 timestamp (returned as a string) for when the event occurred.</p>
+   */
+  eventTime?: Date;
+
+  /**
+   * <p>Unique identifier for the remote participant. For a subscribe event, this is the
+   *          publisher. For a publish or join event, this is null. This is assigned by IVS.</p>
+   */
+  remoteParticipantId?: string;
+
+  /**
+   * <p>If the event is an error event, the error code is provided to give insight into the
+   *          specific error that occurred. If the event is not an error event, this field is null.
+   *          <code>INSUFFICIENT_CAPABILITIES</code> indicates that the participant tried to take an action that the
+   *          participant’s token is not allowed to do. For more information about participant
+   *          capabilities, see the <code>capabilities</code> field in <a>CreateParticipantToken</a>.</p>
+   */
+  errorCode?: EventErrorCode | string;
+}
+
+/**
+ * @public
+ */
+export interface ListParticipantEventsResponse {
+  /**
+   * <p>List of the matching events.</p>
+   */
+  events: Event[] | undefined;
+
+  /**
+   * <p>If there are more rooms than <code>maxResults</code>, use <code>nextToken</code> in the
+   *          request to get the next set. </p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListParticipantsRequest {
+  /**
+   * <p>Stage ARN.</p>
+   */
+  stageArn: string | undefined;
+
+  /**
+   * <p>ID of the session within the stage.</p>
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>Filters the response list to match the specified user ID. Only one of
+   *             <code>filterByUserId</code>, <code>filterByPublished</code>, or
+   *             <code>filterByState</code> can be provided per request. A <code>userId</code> is a
+   *          customer-assigned name to help identify the token; this can be used to link a participant
+   *          to a user in the customer’s own systems.</p>
+   */
+  filterByUserId?: string;
+
+  /**
+   * <p>Filters the response list to only show participants who published during the stage
+   *          session. Only one of <code>filterByUserId</code>, <code>filterByPublished</code>, or
+   *             <code>filterByState</code> can be provided per request.</p>
+   */
+  filterByPublished?: boolean;
+
+  /**
+   * <p>Filters the response list to only show participants in the specified state. Only one of
+   *             <code>filterByUserId</code>, <code>filterByPublished</code>, or
+   *             <code>filterByState</code> can be provided per request.</p>
+   */
+  filterByState?: ParticipantState | string;
+
+  /**
+   * <p>The first participant to retrieve. This is used for pagination; see the
+   *             <code>nextToken</code> response field.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Maximum number of results to return. Default: 50.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Summary object describing a participant that has joined a stage.</p>
+ */
+export interface ParticipantSummary {
+  /**
+   * <p>Unique identifier for this participant, assigned by IVS.</p>
+   */
+  participantId?: string;
+
+  /**
+   * <p>Customer-assigned name to help identify the token; this can be used to link a
+   *          participant to a user in the customer’s own systems. This can be any UTF-8 encoded text.
+   *             <i>This field is exposed to all stage participants and should not be used for
+   *             personally identifying, confidential, or sensitive information</i>.</p>
+   */
+  userId?: string;
+
+  /**
+   * <p>Whether the participant is connected to or disconnected from the stage.</p>
+   */
+  state?: ParticipantState | string;
+
+  /**
+   * <p>ISO 8601 timestamp (returned as a string) when the participant first joined the stage
+   *          session.</p>
+   */
+  firstJoinTime?: Date;
+
+  /**
+   * <p>Whether the participant ever published to the stage session.</p>
+   */
+  published?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ListParticipantsResponse {
+  /**
+   * <p>List of the matching participants (summary information only).</p>
+   */
+  participants: ParticipantSummary[] | undefined;
+
+  /**
+   * <p>If there are more rooms than <code>maxResults</code>, use <code>nextToken</code> in the
+   *          request to get the next set.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListStagesRequest {
   /**
-   * <p>The first stage to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+   * <p>The first stage to retrieve. This is used for pagination; see the <code>nextToken</code>
+   *          response field.</p>
    */
   nextToken?: string;
 
@@ -457,8 +825,8 @@ export interface StageSummary {
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
    *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
    *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
-   *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is
-   *          documented there.</p>
+   *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
+   *          there.</p>
    */
   tags?: Record<string, string>;
 }
@@ -473,7 +841,67 @@ export interface ListStagesResponse {
   stages: StageSummary[] | undefined;
 
   /**
-   * <p>If there are more rooms than <code>maxResults</code>, use <code>nextToken</code> in the request to get the next set.</p>
+   * <p>If there are more rooms than <code>maxResults</code>, use <code>nextToken</code> in the
+   *          request to get the next set.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListStageSessionsRequest {
+  /**
+   * <p>Stage ARN.</p>
+   */
+  stageArn: string | undefined;
+
+  /**
+   * <p>The first stage to retrieve. This is used for pagination; see the <code>nextToken</code>
+   *          response field.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Maximum number of results to return. Default: 50.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Summary information about a stage session.</p>
+ */
+export interface StageSessionSummary {
+  /**
+   * <p>ID of the session within the stage.</p>
+   */
+  sessionId?: string;
+
+  /**
+   * <p> ISO 8601 timestamp (returned as a string) when this stage session began.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>ISO 8601 timestamp (returned as a string) when the stage session ended. This is null if
+   *          the stage is active.</p>
+   */
+  endTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListStageSessionsResponse {
+  /**
+   * <p>List of matching stage sessions.</p>
+   */
+  stageSessions: StageSessionSummary[] | undefined;
+
+  /**
+   * <p>If there are more rooms than <code>maxResults</code>, use <code>nextToken</code> in the
+   *          request to get the next set.</p>
    */
   nextToken?: string;
 }
@@ -518,7 +946,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string (key:value)</code>.</p>
+   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
+   *             (key:value)</code>.</p>
    */
   tags: Record<string, string> | undefined;
 }
@@ -591,8 +1020,7 @@ export interface UpdateStageRequest {
  */
 export interface UpdateStageResponse {
   /**
-   * <p>The updated stage.
-   * </p>
+   * <p>The updated stage.</p>
    */
   stage?: Stage;
 }

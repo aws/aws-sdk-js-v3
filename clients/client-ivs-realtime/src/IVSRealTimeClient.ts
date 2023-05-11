@@ -59,8 +59,16 @@ import {
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput,
 } from "./commands/DisconnectParticipantCommand";
+import { GetParticipantCommandInput, GetParticipantCommandOutput } from "./commands/GetParticipantCommand";
 import { GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
+import { GetStageSessionCommandInput, GetStageSessionCommandOutput } from "./commands/GetStageSessionCommand";
+import {
+  ListParticipantEventsCommandInput,
+  ListParticipantEventsCommandOutput,
+} from "./commands/ListParticipantEventsCommand";
+import { ListParticipantsCommandInput, ListParticipantsCommandOutput } from "./commands/ListParticipantsCommand";
 import { ListStagesCommandInput, ListStagesCommandOutput } from "./commands/ListStagesCommand";
+import { ListStageSessionsCommandInput, ListStageSessionsCommandOutput } from "./commands/ListStageSessionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -84,7 +92,12 @@ export type ServiceInputTypes =
   | CreateStageCommandInput
   | DeleteStageCommandInput
   | DisconnectParticipantCommandInput
+  | GetParticipantCommandInput
   | GetStageCommandInput
+  | GetStageSessionCommandInput
+  | ListParticipantEventsCommandInput
+  | ListParticipantsCommandInput
+  | ListStageSessionsCommandInput
   | ListStagesCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
@@ -99,7 +112,12 @@ export type ServiceOutputTypes =
   | CreateStageCommandOutput
   | DeleteStageCommandOutput
   | DisconnectParticipantCommandOutput
+  | GetParticipantCommandOutput
   | GetStageCommandOutput
+  | GetStageSessionCommandOutput
+  | ListParticipantEventsCommandOutput
+  | ListParticipantsCommandOutput
+  | ListStageSessionsCommandOutput
   | ListStagesCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
@@ -277,7 +295,24 @@ export interface IVSRealTimeClientResolvedConfig extends IVSRealTimeClientResolv
  * 	  API and an AWS EventBridge event stream for responses. JSON is used for both requests and responses,
  * 	  including errors.
  *     </p>
- *          <p>Terminology: The IVS stage API sometimes is referred to as the IVS RealTime API.</p>
+ *          <p>Terminology:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The IVS stage API sometimes is referred to as the IVS <i>RealTime</i>
+ *           API.</p>
+ *             </li>
+ *             <li>
+ *                <p>A <i>participant token</i> is an authorization token used to publish/subscribe
+ *           to a stage.</p>
+ *             </li>
+ *             <li>
+ *                <p>A <i>participant object</i> represents participants
+ *           (people) in the stage and contains information about them. When a token is created, it
+ *           includes a participant ID; when a participant uses that token to join a stage, the
+ *           participant is associated with that participant ID There is a 1:1 mapping between
+ *           participant tokens and participants.</p>
+ *             </li>
+ *          </ul>
  *          <p>
  *             <b>Resources</b>
  *          </p>
@@ -325,11 +360,35 @@ export interface IVSRealTimeClientResolvedConfig extends IVSRealTimeClientResolv
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>GetParticipant</a> — Gets information about the specified
+ *           participant token.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>GetStage</a> — Gets information for the specified stage.</p>
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>GetStageSession</a> — Gets information for the specified stage
+ *           session.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListParticipantEvents</a> — Lists events for a specified
+ *           participant that occurred during a specified stage session.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListParticipants</a> — Lists all participants in a specified stage
+ *           session.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>ListStages</a> — Gets summary information about all stages in your account, in the AWS region where the API request is processed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListStageSessions</a> — Gets all sessions for a specified stage.</p>
  *             </li>
  *             <li>
  *                <p>

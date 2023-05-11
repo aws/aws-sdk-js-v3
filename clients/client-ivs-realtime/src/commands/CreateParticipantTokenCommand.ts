@@ -36,9 +36,11 @@ export interface CreateParticipantTokenCommandOutput extends CreateParticipantTo
 
 /**
  * @public
- * <p>Creates an additional token for a specified stage. This can be done after stage creation or when tokens expire.
- * 	        Tokens always are scoped to the stage for which they are created.</p>
- *          <p>Encryption keys are owned by Amazon IVS and never used directly by your application.</p>
+ * <p>Creates an additional token for a specified stage. This can be done after stage creation
+ *          or when tokens expire. Tokens always are scoped to the stage for which they are
+ *          created.</p>
+ *          <p>Encryption keys are owned by Amazon IVS and never used directly by your
+ *          application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

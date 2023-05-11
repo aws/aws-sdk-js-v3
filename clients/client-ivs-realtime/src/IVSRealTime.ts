@@ -14,8 +14,33 @@ import {
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput,
 } from "./commands/DisconnectParticipantCommand";
+import {
+  GetParticipantCommand,
+  GetParticipantCommandInput,
+  GetParticipantCommandOutput,
+} from "./commands/GetParticipantCommand";
 import { GetStageCommand, GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
+import {
+  GetStageSessionCommand,
+  GetStageSessionCommandInput,
+  GetStageSessionCommandOutput,
+} from "./commands/GetStageSessionCommand";
+import {
+  ListParticipantEventsCommand,
+  ListParticipantEventsCommandInput,
+  ListParticipantEventsCommandOutput,
+} from "./commands/ListParticipantEventsCommand";
+import {
+  ListParticipantsCommand,
+  ListParticipantsCommandInput,
+  ListParticipantsCommandOutput,
+} from "./commands/ListParticipantsCommand";
 import { ListStagesCommand, ListStagesCommandInput, ListStagesCommandOutput } from "./commands/ListStagesCommand";
+import {
+  ListStageSessionsCommand,
+  ListStageSessionsCommandInput,
+  ListStageSessionsCommandOutput,
+} from "./commands/ListStageSessionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -35,8 +60,13 @@ const commands = {
   CreateStageCommand,
   DeleteStageCommand,
   DisconnectParticipantCommand,
+  GetParticipantCommand,
   GetStageCommand,
+  GetStageSessionCommand,
+  ListParticipantEventsCommand,
+  ListParticipantsCommand,
   ListStagesCommand,
+  ListStageSessionsCommand,
   ListTagsForResourceCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -101,6 +131,20 @@ export interface IVSRealTime {
   ): void;
 
   /**
+   * @see {@link GetParticipantCommand}
+   */
+  getParticipant(
+    args: GetParticipantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetParticipantCommandOutput>;
+  getParticipant(args: GetParticipantCommandInput, cb: (err: any, data?: GetParticipantCommandOutput) => void): void;
+  getParticipant(
+    args: GetParticipantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetParticipantCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetStageCommand}
    */
   getStage(args: GetStageCommandInput, options?: __HttpHandlerOptions): Promise<GetStageCommandOutput>;
@@ -112,6 +156,54 @@ export interface IVSRealTime {
   ): void;
 
   /**
+   * @see {@link GetStageSessionCommand}
+   */
+  getStageSession(
+    args: GetStageSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStageSessionCommandOutput>;
+  getStageSession(args: GetStageSessionCommandInput, cb: (err: any, data?: GetStageSessionCommandOutput) => void): void;
+  getStageSession(
+    args: GetStageSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStageSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListParticipantEventsCommand}
+   */
+  listParticipantEvents(
+    args: ListParticipantEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListParticipantEventsCommandOutput>;
+  listParticipantEvents(
+    args: ListParticipantEventsCommandInput,
+    cb: (err: any, data?: ListParticipantEventsCommandOutput) => void
+  ): void;
+  listParticipantEvents(
+    args: ListParticipantEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListParticipantEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListParticipantsCommand}
+   */
+  listParticipants(
+    args: ListParticipantsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListParticipantsCommandOutput>;
+  listParticipants(
+    args: ListParticipantsCommandInput,
+    cb: (err: any, data?: ListParticipantsCommandOutput) => void
+  ): void;
+  listParticipants(
+    args: ListParticipantsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListParticipantsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListStagesCommand}
    */
   listStages(args: ListStagesCommandInput, options?: __HttpHandlerOptions): Promise<ListStagesCommandOutput>;
@@ -120,6 +212,23 @@ export interface IVSRealTime {
     args: ListStagesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListStagesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListStageSessionsCommand}
+   */
+  listStageSessions(
+    args: ListStageSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStageSessionsCommandOutput>;
+  listStageSessions(
+    args: ListStageSessionsCommandInput,
+    cb: (err: any, data?: ListStageSessionsCommandOutput) => void
+  ): void;
+  listStageSessions(
+    args: ListStageSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStageSessionsCommandOutput) => void
   ): void;
 
   /**
@@ -182,7 +291,24 @@ export interface IVSRealTime {
  * 	  API and an AWS EventBridge event stream for responses. JSON is used for both requests and responses,
  * 	  including errors.
  *     </p>
- *          <p>Terminology: The IVS stage API sometimes is referred to as the IVS RealTime API.</p>
+ *          <p>Terminology:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The IVS stage API sometimes is referred to as the IVS <i>RealTime</i>
+ *           API.</p>
+ *             </li>
+ *             <li>
+ *                <p>A <i>participant token</i> is an authorization token used to publish/subscribe
+ *           to a stage.</p>
+ *             </li>
+ *             <li>
+ *                <p>A <i>participant object</i> represents participants
+ *           (people) in the stage and contains information about them. When a token is created, it
+ *           includes a participant ID; when a participant uses that token to join a stage, the
+ *           participant is associated with that participant ID There is a 1:1 mapping between
+ *           participant tokens and participants.</p>
+ *             </li>
+ *          </ul>
  *          <p>
  *             <b>Resources</b>
  *          </p>
@@ -230,11 +356,35 @@ export interface IVSRealTime {
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>GetParticipant</a> — Gets information about the specified
+ *           participant token.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>GetStage</a> — Gets information for the specified stage.</p>
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>GetStageSession</a> — Gets information for the specified stage
+ *           session.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListParticipantEvents</a> — Lists events for a specified
+ *           participant that occurred during a specified stage session.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListParticipants</a> — Lists all participants in a specified stage
+ *           session.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>ListStages</a> — Gets summary information about all stages in your account, in the AWS region where the API request is processed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListStageSessions</a> — Gets all sessions for a specified stage.</p>
  *             </li>
  *             <li>
  *                <p>
