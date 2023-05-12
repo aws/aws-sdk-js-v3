@@ -57,8 +57,8 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  *
  * ```
  *
- * @param GetInstanceCommandInput - {@link GetInstanceCommandInput}
- * @returns {@link GetInstanceCommandOutput}
+ * @param GetInstanceRequest - {@link GetInstanceRequest}
+ * @returns {@link GetInstanceResponse}
  * @see {@link GetInstanceCommandInput} for command's `input` shape.
  * @see {@link GetInstanceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.

@@ -56,8 +56,8 @@ export interface UpdateDevicePolicyConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateDevicePolicyConfigurationCommandInput - {@link UpdateDevicePolicyConfigurationCommandInput}
- * @returns {@link UpdateDevicePolicyConfigurationCommandOutput}
+ * @param UpdateDevicePolicyConfigurationRequest - {@link UpdateDevicePolicyConfigurationRequest}
+ * @returns {@link UpdateDevicePolicyConfigurationResponse}
  * @see {@link UpdateDevicePolicyConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateDevicePolicyConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

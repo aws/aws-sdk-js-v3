@@ -63,8 +63,8 @@ export interface DescribeAgentStatusCommandOutput extends DescribeAgentStatusRes
  *
  * ```
  *
- * @param DescribeAgentStatusCommandInput - {@link DescribeAgentStatusCommandInput}
- * @returns {@link DescribeAgentStatusCommandOutput}
+ * @param DescribeAgentStatusRequest - {@link DescribeAgentStatusRequest}
+ * @returns {@link DescribeAgentStatusResponse}
  * @see {@link DescribeAgentStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeAgentStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

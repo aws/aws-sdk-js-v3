@@ -73,8 +73,8 @@ export interface DescribeStackDriftDetectionStatusCommandOutput
  *
  * ```
  *
- * @param DescribeStackDriftDetectionStatusCommandInput - {@link DescribeStackDriftDetectionStatusCommandInput}
- * @returns {@link DescribeStackDriftDetectionStatusCommandOutput}
+ * @param DescribeStackDriftDetectionStatusInput - {@link DescribeStackDriftDetectionStatusInput}
+ * @returns {@link DescribeStackDriftDetectionStatusOutput}
  * @see {@link DescribeStackDriftDetectionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeStackDriftDetectionStatusCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

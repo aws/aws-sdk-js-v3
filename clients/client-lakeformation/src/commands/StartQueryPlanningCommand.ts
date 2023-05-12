@@ -64,8 +64,8 @@ export interface StartQueryPlanningCommandOutput extends StartQueryPlanningRespo
  *
  * ```
  *
- * @param StartQueryPlanningCommandInput - {@link StartQueryPlanningCommandInput}
- * @returns {@link StartQueryPlanningCommandOutput}
+ * @param StartQueryPlanningRequest - {@link StartQueryPlanningRequest}
+ * @returns {@link StartQueryPlanningResponse}
  * @see {@link StartQueryPlanningCommandInput} for command's `input` shape.
  * @see {@link StartQueryPlanningCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

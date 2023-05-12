@@ -52,8 +52,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
+ * @param ListTagsForResourceRequest - {@link ListTagsForResourceRequest}
+ * @returns {@link ListTagsForResourceResponse}
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

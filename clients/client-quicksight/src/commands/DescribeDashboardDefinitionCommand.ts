@@ -4392,8 +4392,8 @@ export interface DescribeDashboardDefinitionCommandOutput
  *
  * ```
  *
- * @param DescribeDashboardDefinitionCommandInput - {@link DescribeDashboardDefinitionCommandInput}
- * @returns {@link DescribeDashboardDefinitionCommandOutput}
+ * @param DescribeDashboardDefinitionRequest - {@link DescribeDashboardDefinitionRequest}
+ * @returns {@link DescribeDashboardDefinitionResponse}
  * @see {@link DescribeDashboardDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeDashboardDefinitionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

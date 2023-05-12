@@ -72,8 +72,8 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  *
  * ```
  *
- * @param UpdateMonitorCommandInput - {@link UpdateMonitorCommandInput}
- * @returns {@link UpdateMonitorCommandOutput}
+ * @param UpdateMonitorInput - {@link UpdateMonitorInput}
+ * @returns {@link UpdateMonitorOutput}
  * @see {@link UpdateMonitorCommandInput} for command's `input` shape.
  * @see {@link UpdateMonitorCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.

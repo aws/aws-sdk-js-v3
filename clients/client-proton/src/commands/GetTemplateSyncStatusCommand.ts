@@ -112,8 +112,8 @@ export interface GetTemplateSyncStatusCommandOutput extends GetTemplateSyncStatu
  *
  * ```
  *
- * @param GetTemplateSyncStatusCommandInput - {@link GetTemplateSyncStatusCommandInput}
- * @returns {@link GetTemplateSyncStatusCommandOutput}
+ * @param GetTemplateSyncStatusInput - {@link GetTemplateSyncStatusInput}
+ * @returns {@link GetTemplateSyncStatusOutput}
  * @see {@link GetTemplateSyncStatusCommandInput} for command's `input` shape.
  * @see {@link GetTemplateSyncStatusCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

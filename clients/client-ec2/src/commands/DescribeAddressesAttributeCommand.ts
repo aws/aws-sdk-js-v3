@@ -68,8 +68,8 @@ export interface DescribeAddressesAttributeCommandOutput extends DescribeAddress
  *
  * ```
  *
- * @param DescribeAddressesAttributeCommandInput - {@link DescribeAddressesAttributeCommandInput}
- * @returns {@link DescribeAddressesAttributeCommandOutput}
+ * @param DescribeAddressesAttributeRequest - {@link DescribeAddressesAttributeRequest}
+ * @returns {@link DescribeAddressesAttributeResult}
  * @see {@link DescribeAddressesAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeAddressesAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

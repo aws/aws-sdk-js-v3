@@ -64,8 +64,8 @@ export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutGroupPolicyCommandInput - {@link PutGroupPolicyCommandInput}
- * @returns {@link PutGroupPolicyCommandOutput}
+ * @param PutGroupPolicyRequest - {@link PutGroupPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link PutGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link PutGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

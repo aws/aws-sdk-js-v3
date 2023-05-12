@@ -92,8 +92,8 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResponse, __M
  *
  * ```
  *
- * @param UpdateFunctionCommandInput - {@link UpdateFunctionCommandInput}
- * @returns {@link UpdateFunctionCommandOutput}
+ * @param UpdateFunctionRequest - {@link UpdateFunctionRequest}
+ * @returns {@link UpdateFunctionResponse}
  * @see {@link UpdateFunctionCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

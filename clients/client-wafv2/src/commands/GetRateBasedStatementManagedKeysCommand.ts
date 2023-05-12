@@ -83,8 +83,8 @@ export interface GetRateBasedStatementManagedKeysCommandOutput
  *
  * ```
  *
- * @param GetRateBasedStatementManagedKeysCommandInput - {@link GetRateBasedStatementManagedKeysCommandInput}
- * @returns {@link GetRateBasedStatementManagedKeysCommandOutput}
+ * @param GetRateBasedStatementManagedKeysRequest - {@link GetRateBasedStatementManagedKeysRequest}
+ * @returns {@link GetRateBasedStatementManagedKeysResponse}
  * @see {@link GetRateBasedStatementManagedKeysCommandInput} for command's `input` shape.
  * @see {@link GetRateBasedStatementManagedKeysCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

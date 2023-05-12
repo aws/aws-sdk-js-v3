@@ -316,8 +316,8 @@ export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __Met
  *
  * ```
  *
- * @param RecognizeTextCommandInput - {@link RecognizeTextCommandInput}
- * @returns {@link RecognizeTextCommandOutput}
+ * @param RecognizeTextRequest - {@link RecognizeTextRequest}
+ * @returns {@link RecognizeTextResponse}
  * @see {@link RecognizeTextCommandInput} for command's `input` shape.
  * @see {@link RecognizeTextCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.

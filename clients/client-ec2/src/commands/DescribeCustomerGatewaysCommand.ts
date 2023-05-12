@@ -79,8 +79,8 @@ export interface DescribeCustomerGatewaysCommandOutput extends DescribeCustomerG
  *
  * ```
  *
- * @param DescribeCustomerGatewaysCommandInput - {@link DescribeCustomerGatewaysCommandInput}
- * @returns {@link DescribeCustomerGatewaysCommandOutput}
+ * @param DescribeCustomerGatewaysRequest - {@link DescribeCustomerGatewaysRequest}
+ * @returns {@link DescribeCustomerGatewaysResult}
  * @see {@link DescribeCustomerGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomerGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

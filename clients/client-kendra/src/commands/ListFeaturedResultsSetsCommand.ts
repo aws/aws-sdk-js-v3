@@ -63,8 +63,8 @@ export interface ListFeaturedResultsSetsCommandOutput extends ListFeaturedResult
  *
  * ```
  *
- * @param ListFeaturedResultsSetsCommandInput - {@link ListFeaturedResultsSetsCommandInput}
- * @returns {@link ListFeaturedResultsSetsCommandOutput}
+ * @param ListFeaturedResultsSetsRequest - {@link ListFeaturedResultsSetsRequest}
+ * @returns {@link ListFeaturedResultsSetsResponse}
  * @see {@link ListFeaturedResultsSetsCommandInput} for command's `input` shape.
  * @see {@link ListFeaturedResultsSetsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

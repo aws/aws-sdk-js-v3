@@ -69,8 +69,8 @@ export interface ListEventTypesCommandOutput extends ListEventTypesResult, __Met
  *
  * ```
  *
- * @param ListEventTypesCommandInput - {@link ListEventTypesCommandInput}
- * @returns {@link ListEventTypesCommandOutput}
+ * @param ListEventTypesRequest - {@link ListEventTypesRequest}
+ * @returns {@link ListEventTypesResult}
  * @see {@link ListEventTypesCommandInput} for command's `input` shape.
  * @see {@link ListEventTypesCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.

@@ -108,8 +108,8 @@ export interface UpdateResourceSetCommandOutput extends UpdateResourceSetRespons
  *
  * ```
  *
- * @param UpdateResourceSetCommandInput - {@link UpdateResourceSetCommandInput}
- * @returns {@link UpdateResourceSetCommandOutput}
+ * @param UpdateResourceSetRequest - {@link UpdateResourceSetRequest}
+ * @returns {@link UpdateResourceSetResponse}
  * @see {@link UpdateResourceSetCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceSetCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

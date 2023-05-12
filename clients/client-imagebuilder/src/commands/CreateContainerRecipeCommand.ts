@@ -104,8 +104,8 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  *
  * ```
  *
- * @param CreateContainerRecipeCommandInput - {@link CreateContainerRecipeCommandInput}
- * @returns {@link CreateContainerRecipeCommandOutput}
+ * @param CreateContainerRecipeRequest - {@link CreateContainerRecipeRequest}
+ * @returns {@link CreateContainerRecipeResponse}
  * @see {@link CreateContainerRecipeCommandInput} for command's `input` shape.
  * @see {@link CreateContainerRecipeCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

@@ -61,8 +61,8 @@ export interface CreateWorkspaceApiKeyCommandOutput extends CreateWorkspaceApiKe
  *
  * ```
  *
- * @param CreateWorkspaceApiKeyCommandInput - {@link CreateWorkspaceApiKeyCommandInput}
- * @returns {@link CreateWorkspaceApiKeyCommandOutput}
+ * @param CreateWorkspaceApiKeyRequest - {@link CreateWorkspaceApiKeyRequest}
+ * @returns {@link CreateWorkspaceApiKeyResponse}
  * @see {@link CreateWorkspaceApiKeyCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspaceApiKeyCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.

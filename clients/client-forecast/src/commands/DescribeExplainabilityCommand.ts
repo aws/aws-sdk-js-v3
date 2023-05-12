@@ -79,8 +79,8 @@ export interface DescribeExplainabilityCommandOutput extends DescribeExplainabil
  *
  * ```
  *
- * @param DescribeExplainabilityCommandInput - {@link DescribeExplainabilityCommandInput}
- * @returns {@link DescribeExplainabilityCommandOutput}
+ * @param DescribeExplainabilityRequest - {@link DescribeExplainabilityRequest}
+ * @returns {@link DescribeExplainabilityResponse}
  * @see {@link DescribeExplainabilityCommandInput} for command's `input` shape.
  * @see {@link DescribeExplainabilityCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

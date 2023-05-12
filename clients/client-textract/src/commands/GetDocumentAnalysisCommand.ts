@@ -173,8 +173,8 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  *
  * ```
  *
- * @param GetDocumentAnalysisCommandInput - {@link GetDocumentAnalysisCommandInput}
- * @returns {@link GetDocumentAnalysisCommandOutput}
+ * @param GetDocumentAnalysisRequest - {@link GetDocumentAnalysisRequest}
+ * @returns {@link GetDocumentAnalysisResponse}
  * @see {@link GetDocumentAnalysisCommandInput} for command's `input` shape.
  * @see {@link GetDocumentAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.

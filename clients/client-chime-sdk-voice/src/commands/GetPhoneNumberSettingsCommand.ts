@@ -50,8 +50,8 @@ export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSetti
  *
  * ```
  *
- * @param GetPhoneNumberSettingsCommandInput - {@link GetPhoneNumberSettingsCommandInput}
- * @returns {@link GetPhoneNumberSettingsCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetPhoneNumberSettingsResponse}
  * @see {@link GetPhoneNumberSettingsCommandInput} for command's `input` shape.
  * @see {@link GetPhoneNumberSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

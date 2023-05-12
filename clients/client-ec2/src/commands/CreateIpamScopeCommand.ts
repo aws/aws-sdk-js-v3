@@ -82,8 +82,8 @@ export interface CreateIpamScopeCommandOutput extends CreateIpamScopeResult, __M
  *
  * ```
  *
- * @param CreateIpamScopeCommandInput - {@link CreateIpamScopeCommandInput}
- * @returns {@link CreateIpamScopeCommandOutput}
+ * @param CreateIpamScopeRequest - {@link CreateIpamScopeRequest}
+ * @returns {@link CreateIpamScopeResult}
  * @see {@link CreateIpamScopeCommandInput} for command's `input` shape.
  * @see {@link CreateIpamScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

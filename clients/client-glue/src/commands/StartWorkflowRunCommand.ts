@@ -53,8 +53,8 @@ export interface StartWorkflowRunCommandOutput extends StartWorkflowRunResponse,
  *
  * ```
  *
- * @param StartWorkflowRunCommandInput - {@link StartWorkflowRunCommandInput}
- * @returns {@link StartWorkflowRunCommandOutput}
+ * @param StartWorkflowRunRequest - {@link StartWorkflowRunRequest}
+ * @returns {@link StartWorkflowRunResponse}
  * @see {@link StartWorkflowRunCommandInput} for command's `input` shape.
  * @see {@link StartWorkflowRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

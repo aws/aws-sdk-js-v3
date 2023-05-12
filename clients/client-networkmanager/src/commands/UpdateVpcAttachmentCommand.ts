@@ -98,8 +98,8 @@ export interface UpdateVpcAttachmentCommandOutput extends UpdateVpcAttachmentRes
  *
  * ```
  *
- * @param UpdateVpcAttachmentCommandInput - {@link UpdateVpcAttachmentCommandInput}
- * @returns {@link UpdateVpcAttachmentCommandOutput}
+ * @param UpdateVpcAttachmentRequest - {@link UpdateVpcAttachmentRequest}
+ * @returns {@link UpdateVpcAttachmentResponse}
  * @see {@link UpdateVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link UpdateVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

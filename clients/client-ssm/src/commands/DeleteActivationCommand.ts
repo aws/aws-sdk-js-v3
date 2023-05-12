@@ -50,8 +50,8 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  *
  * ```
  *
- * @param DeleteActivationCommandInput - {@link DeleteActivationCommandInput}
- * @returns {@link DeleteActivationCommandOutput}
+ * @param DeleteActivationRequest - {@link DeleteActivationRequest}
+ * @returns {@link DeleteActivationResult}
  * @see {@link DeleteActivationCommandInput} for command's `input` shape.
  * @see {@link DeleteActivationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

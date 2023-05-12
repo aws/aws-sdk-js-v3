@@ -90,8 +90,8 @@ export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersio
  *
  * ```
  *
- * @param CreatePlatformVersionCommandInput - {@link CreatePlatformVersionCommandInput}
- * @returns {@link CreatePlatformVersionCommandOutput}
+ * @param CreatePlatformVersionRequest - {@link CreatePlatformVersionRequest}
+ * @returns {@link CreatePlatformVersionResult}
  * @see {@link CreatePlatformVersionCommandInput} for command's `input` shape.
  * @see {@link CreatePlatformVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

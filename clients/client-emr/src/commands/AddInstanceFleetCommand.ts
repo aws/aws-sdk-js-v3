@@ -126,8 +126,8 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  *
  * ```
  *
- * @param AddInstanceFleetCommandInput - {@link AddInstanceFleetCommandInput}
- * @returns {@link AddInstanceFleetCommandOutput}
+ * @param AddInstanceFleetInput - {@link AddInstanceFleetInput}
+ * @returns {@link AddInstanceFleetOutput}
  * @see {@link AddInstanceFleetCommandInput} for command's `input` shape.
  * @see {@link AddInstanceFleetCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

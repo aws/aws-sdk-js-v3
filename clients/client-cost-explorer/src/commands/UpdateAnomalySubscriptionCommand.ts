@@ -130,8 +130,8 @@ export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySub
  *
  * ```
  *
- * @param UpdateAnomalySubscriptionCommandInput - {@link UpdateAnomalySubscriptionCommandInput}
- * @returns {@link UpdateAnomalySubscriptionCommandOutput}
+ * @param UpdateAnomalySubscriptionRequest - {@link UpdateAnomalySubscriptionRequest}
+ * @returns {@link UpdateAnomalySubscriptionResponse}
  * @see {@link UpdateAnomalySubscriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateAnomalySubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

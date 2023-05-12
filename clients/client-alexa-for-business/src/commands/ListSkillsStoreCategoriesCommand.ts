@@ -57,8 +57,8 @@ export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreC
  *
  * ```
  *
- * @param ListSkillsStoreCategoriesCommandInput - {@link ListSkillsStoreCategoriesCommandInput}
- * @returns {@link ListSkillsStoreCategoriesCommandOutput}
+ * @param ListSkillsStoreCategoriesRequest - {@link ListSkillsStoreCategoriesRequest}
+ * @returns {@link ListSkillsStoreCategoriesResponse}
  * @see {@link ListSkillsStoreCategoriesCommandInput} for command's `input` shape.
  * @see {@link ListSkillsStoreCategoriesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

@@ -68,8 +68,8 @@ export interface StartBgpFailoverTestCommandOutput extends StartBgpFailoverTestR
  *
  * ```
  *
- * @param StartBgpFailoverTestCommandInput - {@link StartBgpFailoverTestCommandInput}
- * @returns {@link StartBgpFailoverTestCommandOutput}
+ * @param StartBgpFailoverTestRequest - {@link StartBgpFailoverTestRequest}
+ * @returns {@link StartBgpFailoverTestResponse}
  * @see {@link StartBgpFailoverTestCommandInput} for command's `input` shape.
  * @see {@link StartBgpFailoverTestCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

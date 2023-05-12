@@ -51,8 +51,8 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  *
  * ```
  *
- * @param RemoveTagsCommandInput - {@link RemoveTagsCommandInput}
- * @returns {@link RemoveTagsCommandOutput}
+ * @param RemoveTagsInput - {@link RemoveTagsInput}
+ * @returns {@link RemoveTagsOutput}
  * @see {@link RemoveTagsCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.

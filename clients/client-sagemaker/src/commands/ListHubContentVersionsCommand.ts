@@ -79,8 +79,8 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  *
  * ```
  *
- * @param ListHubContentVersionsCommandInput - {@link ListHubContentVersionsCommandInput}
- * @returns {@link ListHubContentVersionsCommandOutput}
+ * @param ListHubContentVersionsRequest - {@link ListHubContentVersionsRequest}
+ * @returns {@link ListHubContentVersionsResponse}
  * @see {@link ListHubContentVersionsCommandInput} for command's `input` shape.
  * @see {@link ListHubContentVersionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

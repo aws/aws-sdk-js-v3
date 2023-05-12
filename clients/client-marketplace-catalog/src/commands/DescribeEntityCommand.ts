@@ -59,8 +59,8 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  *
  * ```
  *
- * @param DescribeEntityCommandInput - {@link DescribeEntityCommandInput}
- * @returns {@link DescribeEntityCommandOutput}
+ * @param DescribeEntityRequest - {@link DescribeEntityRequest}
+ * @returns {@link DescribeEntityResponse}
  * @see {@link DescribeEntityCommandInput} for command's `input` shape.
  * @see {@link DescribeEntityCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.

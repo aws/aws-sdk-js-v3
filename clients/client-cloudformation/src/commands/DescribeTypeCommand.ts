@@ -96,8 +96,8 @@ export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __Metadat
  *
  * ```
  *
- * @param DescribeTypeCommandInput - {@link DescribeTypeCommandInput}
- * @returns {@link DescribeTypeCommandOutput}
+ * @param DescribeTypeInput - {@link DescribeTypeInput}
+ * @returns {@link DescribeTypeOutput}
  * @see {@link DescribeTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

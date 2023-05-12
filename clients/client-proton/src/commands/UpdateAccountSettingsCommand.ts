@@ -66,8 +66,8 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  *
  * ```
  *
- * @param UpdateAccountSettingsCommandInput - {@link UpdateAccountSettingsCommandInput}
- * @returns {@link UpdateAccountSettingsCommandOutput}
+ * @param UpdateAccountSettingsInput - {@link UpdateAccountSettingsInput}
+ * @returns {@link UpdateAccountSettingsOutput}
  * @see {@link UpdateAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

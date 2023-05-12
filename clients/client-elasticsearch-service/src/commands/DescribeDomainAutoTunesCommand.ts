@@ -69,8 +69,8 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  *
  * ```
  *
- * @param DescribeDomainAutoTunesCommandInput - {@link DescribeDomainAutoTunesCommandInput}
- * @returns {@link DescribeDomainAutoTunesCommandOutput}
+ * @param DescribeDomainAutoTunesRequest - {@link DescribeDomainAutoTunesRequest}
+ * @returns {@link DescribeDomainAutoTunesResponse}
  * @see {@link DescribeDomainAutoTunesCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainAutoTunesCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

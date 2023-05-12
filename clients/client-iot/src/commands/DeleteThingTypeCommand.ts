@@ -51,8 +51,8 @@ export interface DeleteThingTypeCommandOutput extends DeleteThingTypeResponse, _
  *
  * ```
  *
- * @param DeleteThingTypeCommandInput - {@link DeleteThingTypeCommandInput}
- * @returns {@link DeleteThingTypeCommandOutput}
+ * @param DeleteThingTypeRequest - {@link DeleteThingTypeRequest}
+ * @returns {@link DeleteThingTypeResponse}
  * @see {@link DeleteThingTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteThingTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

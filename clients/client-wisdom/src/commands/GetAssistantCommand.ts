@@ -63,8 +63,8 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  *
  * ```
  *
- * @param GetAssistantCommandInput - {@link GetAssistantCommandInput}
- * @returns {@link GetAssistantCommandOutput}
+ * @param GetAssistantRequest - {@link GetAssistantRequest}
+ * @returns {@link GetAssistantResponse}
  * @see {@link GetAssistantCommandInput} for command's `input` shape.
  * @see {@link GetAssistantCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

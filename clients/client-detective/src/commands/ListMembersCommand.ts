@@ -84,8 +84,8 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  *
  * ```
  *
- * @param ListMembersCommandInput - {@link ListMembersCommandInput}
- * @returns {@link ListMembersCommandOutput}
+ * @param ListMembersRequest - {@link ListMembersRequest}
+ * @returns {@link ListMembersResponse}
  * @see {@link ListMembersCommandInput} for command's `input` shape.
  * @see {@link ListMembersCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

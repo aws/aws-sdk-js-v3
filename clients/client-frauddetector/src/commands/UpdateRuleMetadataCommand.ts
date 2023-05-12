@@ -53,8 +53,8 @@ export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResul
  *
  * ```
  *
- * @param UpdateRuleMetadataCommandInput - {@link UpdateRuleMetadataCommandInput}
- * @returns {@link UpdateRuleMetadataCommandOutput}
+ * @param UpdateRuleMetadataRequest - {@link UpdateRuleMetadataRequest}
+ * @returns {@link UpdateRuleMetadataResult}
  * @see {@link UpdateRuleMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleMetadataCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

@@ -284,8 +284,8 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  *
  * ```
  *
- * @param DescribeDataSourceCommandInput - {@link DescribeDataSourceCommandInput}
- * @returns {@link DescribeDataSourceCommandOutput}
+ * @param DescribeDataSourceRequest - {@link DescribeDataSourceRequest}
+ * @returns {@link DescribeDataSourceResponse}
  * @see {@link DescribeDataSourceCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSourceCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

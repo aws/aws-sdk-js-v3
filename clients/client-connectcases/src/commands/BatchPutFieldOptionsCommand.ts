@@ -65,8 +65,8 @@ export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsR
  *
  * ```
  *
- * @param BatchPutFieldOptionsCommandInput - {@link BatchPutFieldOptionsCommandInput}
- * @returns {@link BatchPutFieldOptionsCommandOutput}
+ * @param BatchPutFieldOptionsRequest - {@link BatchPutFieldOptionsRequest}
+ * @returns {@link BatchPutFieldOptionsResponse}
  * @see {@link BatchPutFieldOptionsCommandInput} for command's `input` shape.
  * @see {@link BatchPutFieldOptionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

@@ -68,8 +68,8 @@ export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __M
  *
  * ```
  *
- * @param ListHumanLoopsCommandInput - {@link ListHumanLoopsCommandInput}
- * @returns {@link ListHumanLoopsCommandOutput}
+ * @param ListHumanLoopsRequest - {@link ListHumanLoopsRequest}
+ * @returns {@link ListHumanLoopsResponse}
  * @see {@link ListHumanLoopsCommandInput} for command's `input` shape.
  * @see {@link ListHumanLoopsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DeleteDimensionCommandOutput extends DeleteDimensionResponse, _
  *
  * ```
  *
- * @param DeleteDimensionCommandInput - {@link DeleteDimensionCommandInput}
- * @returns {@link DeleteDimensionCommandOutput}
+ * @param DeleteDimensionRequest - {@link DeleteDimensionRequest}
+ * @returns {@link DeleteDimensionResponse}
  * @see {@link DeleteDimensionCommandInput} for command's `input` shape.
  * @see {@link DeleteDimensionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

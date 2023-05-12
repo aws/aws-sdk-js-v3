@@ -85,8 +85,8 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  *
  * ```
  *
- * @param AttachLoadBalancerTargetGroupsCommandInput - {@link AttachLoadBalancerTargetGroupsCommandInput}
- * @returns {@link AttachLoadBalancerTargetGroupsCommandOutput}
+ * @param AttachLoadBalancerTargetGroupsType - {@link AttachLoadBalancerTargetGroupsType}
+ * @returns {@link AttachLoadBalancerTargetGroupsResultType}
  * @see {@link AttachLoadBalancerTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link AttachLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

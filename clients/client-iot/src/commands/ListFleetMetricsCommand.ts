@@ -58,8 +58,8 @@ export interface ListFleetMetricsCommandOutput extends ListFleetMetricsResponse,
  *
  * ```
  *
- * @param ListFleetMetricsCommandInput - {@link ListFleetMetricsCommandInput}
- * @returns {@link ListFleetMetricsCommandOutput}
+ * @param ListFleetMetricsRequest - {@link ListFleetMetricsRequest}
+ * @returns {@link ListFleetMetricsResponse}
  * @see {@link ListFleetMetricsCommandInput} for command's `input` shape.
  * @see {@link ListFleetMetricsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

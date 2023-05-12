@@ -91,8 +91,8 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  *
  * ```
  *
- * @param DescribeDashboardCommandInput - {@link DescribeDashboardCommandInput}
- * @returns {@link DescribeDashboardCommandOutput}
+ * @param DescribeDashboardRequest - {@link DescribeDashboardRequest}
+ * @returns {@link DescribeDashboardResponse}
  * @see {@link DescribeDashboardCommandInput} for command's `input` shape.
  * @see {@link DescribeDashboardCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

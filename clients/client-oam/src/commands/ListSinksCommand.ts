@@ -58,8 +58,8 @@ export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBeare
  *
  * ```
  *
- * @param ListSinksCommandInput - {@link ListSinksCommandInput}
- * @returns {@link ListSinksCommandOutput}
+ * @param ListSinksInput - {@link ListSinksInput}
+ * @returns {@link ListSinksOutput}
  * @see {@link ListSinksCommandInput} for command's `input` shape.
  * @see {@link ListSinksCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.

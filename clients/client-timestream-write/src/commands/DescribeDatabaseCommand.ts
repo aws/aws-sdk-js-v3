@@ -61,8 +61,8 @@ export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse,
  *
  * ```
  *
- * @param DescribeDatabaseCommandInput - {@link DescribeDatabaseCommandInput}
- * @returns {@link DescribeDatabaseCommandOutput}
+ * @param DescribeDatabaseRequest - {@link DescribeDatabaseRequest}
+ * @returns {@link DescribeDatabaseResponse}
  * @see {@link DescribeDatabaseCommandInput} for command's `input` shape.
  * @see {@link DescribeDatabaseCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.

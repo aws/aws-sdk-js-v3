@@ -49,8 +49,8 @@ export interface DeleteDocumentCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDocumentCommandInput - {@link DeleteDocumentCommandInput}
- * @returns {@link DeleteDocumentCommandOutput}
+ * @param DeleteDocumentRequest - {@link DeleteDocumentRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDocumentCommandInput} for command's `input` shape.
  * @see {@link DeleteDocumentCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

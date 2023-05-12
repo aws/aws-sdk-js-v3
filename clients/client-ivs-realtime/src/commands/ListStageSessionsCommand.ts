@@ -59,8 +59,8 @@ export interface ListStageSessionsCommandOutput extends ListStageSessionsRespons
  *
  * ```
  *
- * @param ListStageSessionsCommandInput - {@link ListStageSessionsCommandInput}
- * @returns {@link ListStageSessionsCommandOutput}
+ * @param ListStageSessionsRequest - {@link ListStageSessionsRequest}
+ * @returns {@link ListStageSessionsResponse}
  * @see {@link ListStageSessionsCommandInput} for command's `input` shape.
  * @see {@link ListStageSessionsCommandOutput} for command's `response` shape.
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.

@@ -123,8 +123,8 @@ export interface ListManagedEndpointsCommandOutput extends ListManagedEndpointsR
  *
  * ```
  *
- * @param ListManagedEndpointsCommandInput - {@link ListManagedEndpointsCommandInput}
- * @returns {@link ListManagedEndpointsCommandOutput}
+ * @param ListManagedEndpointsRequest - {@link ListManagedEndpointsRequest}
+ * @returns {@link ListManagedEndpointsResponse}
  * @see {@link ListManagedEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListManagedEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.

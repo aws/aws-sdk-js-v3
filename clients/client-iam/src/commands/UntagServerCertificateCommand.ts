@@ -60,8 +60,8 @@ export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UntagServerCertificateCommandInput - {@link UntagServerCertificateCommandInput}
- * @returns {@link UntagServerCertificateCommandOutput}
+ * @param UntagServerCertificateRequest - {@link UntagServerCertificateRequest}
+ * @returns {@link Unit}
  * @see {@link UntagServerCertificateCommandInput} for command's `input` shape.
  * @see {@link UntagServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

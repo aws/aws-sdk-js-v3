@@ -73,8 +73,8 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  *
  * ```
  *
- * @param ShutdownGatewayCommandInput - {@link ShutdownGatewayCommandInput}
- * @returns {@link ShutdownGatewayCommandOutput}
+ * @param ShutdownGatewayInput - {@link ShutdownGatewayInput}
+ * @returns {@link ShutdownGatewayOutput}
  * @see {@link ShutdownGatewayCommandInput} for command's `input` shape.
  * @see {@link ShutdownGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

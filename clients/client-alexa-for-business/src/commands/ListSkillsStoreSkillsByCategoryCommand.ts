@@ -96,8 +96,8 @@ export interface ListSkillsStoreSkillsByCategoryCommandOutput
  *
  * ```
  *
- * @param ListSkillsStoreSkillsByCategoryCommandInput - {@link ListSkillsStoreSkillsByCategoryCommandInput}
- * @returns {@link ListSkillsStoreSkillsByCategoryCommandOutput}
+ * @param ListSkillsStoreSkillsByCategoryRequest - {@link ListSkillsStoreSkillsByCategoryRequest}
+ * @returns {@link ListSkillsStoreSkillsByCategoryResponse}
  * @see {@link ListSkillsStoreSkillsByCategoryCommandInput} for command's `input` shape.
  * @see {@link ListSkillsStoreSkillsByCategoryCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

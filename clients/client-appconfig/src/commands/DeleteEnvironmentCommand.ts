@@ -50,8 +50,8 @@ export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
- * @returns {@link DeleteEnvironmentCommandOutput}
+ * @param DeleteEnvironmentRequest - {@link DeleteEnvironmentRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

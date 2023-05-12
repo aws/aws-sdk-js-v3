@@ -99,8 +99,8 @@ export interface DescribeDeviceEc2InstancesCommandOutput extends DescribeDeviceE
  *
  * ```
  *
- * @param DescribeDeviceEc2InstancesCommandInput - {@link DescribeDeviceEc2InstancesCommandInput}
- * @returns {@link DescribeDeviceEc2InstancesCommandOutput}
+ * @param DescribeDeviceEc2Input - {@link DescribeDeviceEc2Input}
+ * @returns {@link DescribeDeviceEc2Output}
  * @see {@link DescribeDeviceEc2InstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeDeviceEc2InstancesCommandOutput} for command's `response` shape.
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.

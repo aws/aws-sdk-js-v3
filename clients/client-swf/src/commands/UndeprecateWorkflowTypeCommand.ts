@@ -93,8 +93,8 @@ export interface UndeprecateWorkflowTypeCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param UndeprecateWorkflowTypeCommandInput - {@link UndeprecateWorkflowTypeCommandInput}
- * @returns {@link UndeprecateWorkflowTypeCommandOutput}
+ * @param UndeprecateWorkflowTypeInput - {@link UndeprecateWorkflowTypeInput}
+ * @returns {@link Unit}
  * @see {@link UndeprecateWorkflowTypeCommandInput} for command's `input` shape.
  * @see {@link UndeprecateWorkflowTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

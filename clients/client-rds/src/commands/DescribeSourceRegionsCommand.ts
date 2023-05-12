@@ -75,8 +75,8 @@ export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage,
  *
  * ```
  *
- * @param DescribeSourceRegionsCommandInput - {@link DescribeSourceRegionsCommandInput}
- * @returns {@link DescribeSourceRegionsCommandOutput}
+ * @param DescribeSourceRegionsMessage - {@link DescribeSourceRegionsMessage}
+ * @returns {@link SourceRegionMessage}
  * @see {@link DescribeSourceRegionsCommandInput} for command's `input` shape.
  * @see {@link DescribeSourceRegionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

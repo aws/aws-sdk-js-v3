@@ -58,8 +58,8 @@ export interface UpdateDirectConnectGatewayCommandOutput extends UpdateDirectCon
  *
  * ```
  *
- * @param UpdateDirectConnectGatewayCommandInput - {@link UpdateDirectConnectGatewayCommandInput}
- * @returns {@link UpdateDirectConnectGatewayCommandOutput}
+ * @param UpdateDirectConnectGatewayRequest - {@link UpdateDirectConnectGatewayRequest}
+ * @returns {@link UpdateDirectConnectGatewayResponse}
  * @see {@link UpdateDirectConnectGatewayCommandInput} for command's `input` shape.
  * @see {@link UpdateDirectConnectGatewayCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

@@ -70,8 +70,8 @@ export interface GetEventActionCommandOutput extends GetEventActionResponse, __M
  *
  * ```
  *
- * @param GetEventActionCommandInput - {@link GetEventActionCommandInput}
- * @returns {@link GetEventActionCommandOutput}
+ * @param GetEventActionRequest - {@link GetEventActionRequest}
+ * @returns {@link GetEventActionResponse}
  * @see {@link GetEventActionCommandInput} for command's `input` shape.
  * @see {@link GetEventActionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

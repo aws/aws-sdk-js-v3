@@ -106,8 +106,8 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
  *
  * ```
  *
- * @param UpdateSecurityGroupRuleDescriptionsIngressCommandInput - {@link UpdateSecurityGroupRuleDescriptionsIngressCommandInput}
- * @returns {@link UpdateSecurityGroupRuleDescriptionsIngressCommandOutput}
+ * @param UpdateSecurityGroupRuleDescriptionsIngressRequest - {@link UpdateSecurityGroupRuleDescriptionsIngressRequest}
+ * @returns {@link UpdateSecurityGroupRuleDescriptionsIngressResult}
  * @see {@link UpdateSecurityGroupRuleDescriptionsIngressCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityGroupRuleDescriptionsIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

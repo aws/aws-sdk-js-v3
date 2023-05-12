@@ -51,8 +51,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  *
  * ```
  *
- * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
- * @returns {@link UntagResourceCommandOutput}
+ * @param UntagResourceRequest - {@link UntagResourceRequest}
+ * @returns {@link UntagResourceResult}
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

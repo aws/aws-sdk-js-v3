@@ -64,8 +64,8 @@ export interface UpdateUsageLimitCommandOutput extends UpdateUsageLimitResponse,
  *
  * ```
  *
- * @param UpdateUsageLimitCommandInput - {@link UpdateUsageLimitCommandInput}
- * @returns {@link UpdateUsageLimitCommandOutput}
+ * @param UpdateUsageLimitRequest - {@link UpdateUsageLimitRequest}
+ * @returns {@link UpdateUsageLimitResponse}
  * @see {@link UpdateUsageLimitCommandInput} for command's `input` shape.
  * @see {@link UpdateUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

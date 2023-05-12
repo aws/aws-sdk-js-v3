@@ -61,8 +61,8 @@ export interface DeleteVpcPeeringAuthorizationCommandOutput
  *
  * ```
  *
- * @param DeleteVpcPeeringAuthorizationCommandInput - {@link DeleteVpcPeeringAuthorizationCommandInput}
- * @returns {@link DeleteVpcPeeringAuthorizationCommandOutput}
+ * @param DeleteVpcPeeringAuthorizationInput - {@link DeleteVpcPeeringAuthorizationInput}
+ * @returns {@link DeleteVpcPeeringAuthorizationOutput}
  * @see {@link DeleteVpcPeeringAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcPeeringAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

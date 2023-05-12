@@ -54,8 +54,8 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DetachPolicyCommandInput - {@link DetachPolicyCommandInput}
- * @returns {@link DetachPolicyCommandOutput}
+ * @param DetachPolicyRequest - {@link DetachPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link DetachPolicyCommandInput} for command's `input` shape.
  * @see {@link DetachPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

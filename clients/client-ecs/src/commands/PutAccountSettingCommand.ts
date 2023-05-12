@@ -87,8 +87,8 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  *
  * ```
  *
- * @param PutAccountSettingCommandInput - {@link PutAccountSettingCommandInput}
- * @returns {@link PutAccountSettingCommandOutput}
+ * @param PutAccountSettingRequest - {@link PutAccountSettingRequest}
+ * @returns {@link PutAccountSettingResponse}
  * @see {@link PutAccountSettingCommandInput} for command's `input` shape.
  * @see {@link PutAccountSettingCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

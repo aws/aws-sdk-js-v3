@@ -50,8 +50,8 @@ export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareO
  *
  * ```
  *
- * @param RejectPortfolioShareCommandInput - {@link RejectPortfolioShareCommandInput}
- * @returns {@link RejectPortfolioShareCommandOutput}
+ * @param RejectPortfolioShareInput - {@link RejectPortfolioShareInput}
+ * @returns {@link RejectPortfolioShareOutput}
  * @see {@link RejectPortfolioShareCommandInput} for command's `input` shape.
  * @see {@link RejectPortfolioShareCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

@@ -56,8 +56,8 @@ export interface ListSchedulingPoliciesCommandOutput extends ListSchedulingPolic
  *
  * ```
  *
- * @param ListSchedulingPoliciesCommandInput - {@link ListSchedulingPoliciesCommandInput}
- * @returns {@link ListSchedulingPoliciesCommandOutput}
+ * @param ListSchedulingPoliciesRequest - {@link ListSchedulingPoliciesRequest}
+ * @returns {@link ListSchedulingPoliciesResponse}
  * @see {@link ListSchedulingPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListSchedulingPoliciesCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

@@ -90,8 +90,8 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerResul
  *
  * ```
  *
- * @param CreateLoadBalancerCommandInput - {@link CreateLoadBalancerCommandInput}
- * @returns {@link CreateLoadBalancerCommandOutput}
+ * @param CreateLoadBalancerRequest - {@link CreateLoadBalancerRequest}
+ * @returns {@link CreateLoadBalancerResult}
  * @see {@link CreateLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

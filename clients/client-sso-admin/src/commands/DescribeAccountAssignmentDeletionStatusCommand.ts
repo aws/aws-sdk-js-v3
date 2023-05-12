@@ -70,8 +70,8 @@ export interface DescribeAccountAssignmentDeletionStatusCommandOutput
  *
  * ```
  *
- * @param DescribeAccountAssignmentDeletionStatusCommandInput - {@link DescribeAccountAssignmentDeletionStatusCommandInput}
- * @returns {@link DescribeAccountAssignmentDeletionStatusCommandOutput}
+ * @param DescribeAccountAssignmentDeletionStatusRequest - {@link DescribeAccountAssignmentDeletionStatusRequest}
+ * @returns {@link DescribeAccountAssignmentDeletionStatusResponse}
  * @see {@link DescribeAccountAssignmentDeletionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAssignmentDeletionStatusCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

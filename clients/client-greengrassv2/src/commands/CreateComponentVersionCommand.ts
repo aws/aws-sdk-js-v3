@@ -196,8 +196,8 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *
  * ```
  *
- * @param CreateComponentVersionCommandInput - {@link CreateComponentVersionCommandInput}
- * @returns {@link CreateComponentVersionCommandOutput}
+ * @param CreateComponentVersionRequest - {@link CreateComponentVersionRequest}
+ * @returns {@link CreateComponentVersionResponse}
  * @see {@link CreateComponentVersionCommandInput} for command's `input` shape.
  * @see {@link CreateComponentVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

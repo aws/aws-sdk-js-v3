@@ -61,8 +61,8 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
  *
  * ```
  *
- * @param CreateReplicationJobCommandInput - {@link CreateReplicationJobCommandInput}
- * @returns {@link CreateReplicationJobCommandOutput}
+ * @param CreateReplicationJobRequest - {@link CreateReplicationJobRequest}
+ * @returns {@link CreateReplicationJobResponse}
  * @see {@link CreateReplicationJobCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationJobCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

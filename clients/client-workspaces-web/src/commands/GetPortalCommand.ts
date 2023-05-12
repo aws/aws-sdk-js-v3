@@ -65,8 +65,8 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  *
  * ```
  *
- * @param GetPortalCommandInput - {@link GetPortalCommandInput}
- * @returns {@link GetPortalCommandOutput}
+ * @param GetPortalRequest - {@link GetPortalRequest}
+ * @returns {@link GetPortalResponse}
  * @see {@link GetPortalCommandInput} for command's `input` shape.
  * @see {@link GetPortalCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

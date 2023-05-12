@@ -50,8 +50,8 @@ export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param EnableStageTransitionCommandInput - {@link EnableStageTransitionCommandInput}
- * @returns {@link EnableStageTransitionCommandOutput}
+ * @param EnableStageTransitionInput - {@link EnableStageTransitionInput}
+ * @returns {@link Unit}
  * @see {@link EnableStageTransitionCommandInput} for command's `input` shape.
  * @see {@link EnableStageTransitionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

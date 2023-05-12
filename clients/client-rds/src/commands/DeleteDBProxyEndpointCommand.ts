@@ -68,8 +68,8 @@ export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpoin
  *
  * ```
  *
- * @param DeleteDBProxyEndpointCommandInput - {@link DeleteDBProxyEndpointCommandInput}
- * @returns {@link DeleteDBProxyEndpointCommandOutput}
+ * @param DeleteDBProxyEndpointRequest - {@link DeleteDBProxyEndpointRequest}
+ * @returns {@link DeleteDBProxyEndpointResponse}
  * @see {@link DeleteDBProxyEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteDBProxyEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

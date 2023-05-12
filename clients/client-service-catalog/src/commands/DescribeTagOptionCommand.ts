@@ -56,8 +56,8 @@ export interface DescribeTagOptionCommandOutput extends DescribeTagOptionOutput,
  *
  * ```
  *
- * @param DescribeTagOptionCommandInput - {@link DescribeTagOptionCommandInput}
- * @returns {@link DescribeTagOptionCommandOutput}
+ * @param DescribeTagOptionInput - {@link DescribeTagOptionInput}
+ * @returns {@link DescribeTagOptionOutput}
  * @see {@link DescribeTagOptionCommandInput} for command's `input` shape.
  * @see {@link DescribeTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

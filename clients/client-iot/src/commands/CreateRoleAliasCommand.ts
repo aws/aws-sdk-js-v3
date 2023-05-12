@@ -60,8 +60,8 @@ export interface CreateRoleAliasCommandOutput extends CreateRoleAliasResponse, _
  *
  * ```
  *
- * @param CreateRoleAliasCommandInput - {@link CreateRoleAliasCommandInput}
- * @returns {@link CreateRoleAliasCommandOutput}
+ * @param CreateRoleAliasRequest - {@link CreateRoleAliasRequest}
+ * @returns {@link CreateRoleAliasResponse}
  * @see {@link CreateRoleAliasCommandInput} for command's `input` shape.
  * @see {@link CreateRoleAliasCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

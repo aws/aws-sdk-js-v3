@@ -111,8 +111,8 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  *
  * ```
  *
- * @param SearchSecurityProfilesCommandInput - {@link SearchSecurityProfilesCommandInput}
- * @returns {@link SearchSecurityProfilesCommandOutput}
+ * @param SearchSecurityProfilesRequest - {@link SearchSecurityProfilesRequest}
+ * @returns {@link SearchSecurityProfilesResponse}
  * @see {@link SearchSecurityProfilesCommandInput} for command's `input` shape.
  * @see {@link SearchSecurityProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

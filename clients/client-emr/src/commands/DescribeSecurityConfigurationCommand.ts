@@ -58,8 +58,8 @@ export interface DescribeSecurityConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeSecurityConfigurationCommandInput - {@link DescribeSecurityConfigurationCommandInput}
- * @returns {@link DescribeSecurityConfigurationCommandOutput}
+ * @param DescribeSecurityConfigurationInput - {@link DescribeSecurityConfigurationInput}
+ * @returns {@link DescribeSecurityConfigurationOutput}
  * @see {@link DescribeSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

@@ -73,8 +73,8 @@ export interface GetPricingPlanCommandOutput extends GetPricingPlanResponse, __M
  *
  * ```
  *
- * @param GetPricingPlanCommandInput - {@link GetPricingPlanCommandInput}
- * @returns {@link GetPricingPlanCommandOutput}
+ * @param GetPricingPlanRequest - {@link GetPricingPlanRequest}
+ * @returns {@link GetPricingPlanResponse}
  * @see {@link GetPricingPlanCommandInput} for command's `input` shape.
  * @see {@link GetPricingPlanCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

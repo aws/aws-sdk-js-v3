@@ -58,8 +58,8 @@ export interface DeleteSubscriptionNotificationConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteSubscriptionNotificationConfigurationCommandInput - {@link DeleteSubscriptionNotificationConfigurationCommandInput}
- * @returns {@link DeleteSubscriptionNotificationConfigurationCommandOutput}
+ * @param DeleteSubscriptionNotificationConfigurationRequest - {@link DeleteSubscriptionNotificationConfigurationRequest}
+ * @returns {@link DeleteSubscriptionNotificationConfigurationResponse}
  * @see {@link DeleteSubscriptionNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriptionNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

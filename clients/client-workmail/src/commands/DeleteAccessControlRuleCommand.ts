@@ -52,8 +52,8 @@ export interface DeleteAccessControlRuleCommandOutput extends DeleteAccessContro
  *
  * ```
  *
- * @param DeleteAccessControlRuleCommandInput - {@link DeleteAccessControlRuleCommandInput}
- * @returns {@link DeleteAccessControlRuleCommandOutput}
+ * @param DeleteAccessControlRuleRequest - {@link DeleteAccessControlRuleRequest}
+ * @returns {@link DeleteAccessControlRuleResponse}
  * @see {@link DeleteAccessControlRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessControlRuleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

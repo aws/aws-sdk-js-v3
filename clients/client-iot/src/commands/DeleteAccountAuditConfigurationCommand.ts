@@ -56,8 +56,8 @@ export interface DeleteAccountAuditConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteAccountAuditConfigurationCommandInput - {@link DeleteAccountAuditConfigurationCommandInput}
- * @returns {@link DeleteAccountAuditConfigurationCommandOutput}
+ * @param DeleteAccountAuditConfigurationRequest - {@link DeleteAccountAuditConfigurationRequest}
+ * @returns {@link DeleteAccountAuditConfigurationResponse}
  * @see {@link DeleteAccountAuditConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountAuditConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

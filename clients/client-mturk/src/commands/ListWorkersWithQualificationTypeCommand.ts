@@ -75,8 +75,8 @@ export interface ListWorkersWithQualificationTypeCommandOutput
  *
  * ```
  *
- * @param ListWorkersWithQualificationTypeCommandInput - {@link ListWorkersWithQualificationTypeCommandInput}
- * @returns {@link ListWorkersWithQualificationTypeCommandOutput}
+ * @param ListWorkersWithQualificationTypeRequest - {@link ListWorkersWithQualificationTypeRequest}
+ * @returns {@link ListWorkersWithQualificationTypeResponse}
  * @see {@link ListWorkersWithQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link ListWorkersWithQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

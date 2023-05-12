@@ -57,8 +57,8 @@ export interface ListClassificationScopesCommandOutput extends ListClassificatio
  *
  * ```
  *
- * @param ListClassificationScopesCommandInput - {@link ListClassificationScopesCommandInput}
- * @returns {@link ListClassificationScopesCommandOutput}
+ * @param ListClassificationScopesRequest - {@link ListClassificationScopesRequest}
+ * @returns {@link ListClassificationScopesResponse}
  * @see {@link ListClassificationScopesCommandInput} for command's `input` shape.
  * @see {@link ListClassificationScopesCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

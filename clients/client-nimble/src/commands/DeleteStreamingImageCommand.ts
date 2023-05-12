@@ -77,8 +77,8 @@ export interface DeleteStreamingImageCommandOutput extends DeleteStreamingImageR
  *
  * ```
  *
- * @param DeleteStreamingImageCommandInput - {@link DeleteStreamingImageCommandInput}
- * @returns {@link DeleteStreamingImageCommandOutput}
+ * @param DeleteStreamingImageRequest - {@link DeleteStreamingImageRequest}
+ * @returns {@link DeleteStreamingImageResponse}
  * @see {@link DeleteStreamingImageCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamingImageCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

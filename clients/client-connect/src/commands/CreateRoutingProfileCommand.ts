@@ -76,8 +76,8 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  *
  * ```
  *
- * @param CreateRoutingProfileCommandInput - {@link CreateRoutingProfileCommandInput}
- * @returns {@link CreateRoutingProfileCommandOutput}
+ * @param CreateRoutingProfileRequest - {@link CreateRoutingProfileRequest}
+ * @returns {@link CreateRoutingProfileResponse}
  * @see {@link CreateRoutingProfileCommandInput} for command's `input` shape.
  * @see {@link CreateRoutingProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

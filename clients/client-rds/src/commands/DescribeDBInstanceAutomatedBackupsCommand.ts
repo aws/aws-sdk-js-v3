@@ -112,8 +112,8 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
  *
  * ```
  *
- * @param DescribeDBInstanceAutomatedBackupsCommandInput - {@link DescribeDBInstanceAutomatedBackupsCommandInput}
- * @returns {@link DescribeDBInstanceAutomatedBackupsCommandOutput}
+ * @param DescribeDBInstanceAutomatedBackupsMessage - {@link DescribeDBInstanceAutomatedBackupsMessage}
+ * @returns {@link DBInstanceAutomatedBackupMessage}
  * @see {@link DescribeDBInstanceAutomatedBackupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBInstanceAutomatedBackupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

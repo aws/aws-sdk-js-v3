@@ -97,8 +97,8 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  *
  * ```
  *
- * @param CreateSizeConstraintSetCommandInput - {@link CreateSizeConstraintSetCommandInput}
- * @returns {@link CreateSizeConstraintSetCommandOutput}
+ * @param CreateSizeConstraintSetRequest - {@link CreateSizeConstraintSetRequest}
+ * @returns {@link CreateSizeConstraintSetResponse}
  * @see {@link CreateSizeConstraintSetCommandInput} for command's `input` shape.
  * @see {@link CreateSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

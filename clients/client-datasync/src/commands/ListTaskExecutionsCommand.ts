@@ -58,8 +58,8 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  *
  * ```
  *
- * @param ListTaskExecutionsCommandInput - {@link ListTaskExecutionsCommandInput}
- * @returns {@link ListTaskExecutionsCommandOutput}
+ * @param ListTaskExecutionsRequest - {@link ListTaskExecutionsRequest}
+ * @returns {@link ListTaskExecutionsResponse}
  * @see {@link ListTaskExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListTaskExecutionsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

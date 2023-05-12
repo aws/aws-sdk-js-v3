@@ -212,8 +212,8 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *
  * ```
  *
- * @param UpdateAssetModelCommandInput - {@link UpdateAssetModelCommandInput}
- * @returns {@link UpdateAssetModelCommandOutput}
+ * @param UpdateAssetModelRequest - {@link UpdateAssetModelRequest}
+ * @returns {@link UpdateAssetModelResponse}
  * @see {@link UpdateAssetModelCommandInput} for command's `input` shape.
  * @see {@link UpdateAssetModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

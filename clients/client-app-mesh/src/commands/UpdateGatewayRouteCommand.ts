@@ -391,8 +391,8 @@ export interface UpdateGatewayRouteCommandOutput extends UpdateGatewayRouteOutpu
  *
  * ```
  *
- * @param UpdateGatewayRouteCommandInput - {@link UpdateGatewayRouteCommandInput}
- * @returns {@link UpdateGatewayRouteCommandOutput}
+ * @param UpdateGatewayRouteInput - {@link UpdateGatewayRouteInput}
+ * @returns {@link UpdateGatewayRouteOutput}
  * @see {@link UpdateGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

@@ -72,8 +72,8 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  *
  * ```
  *
- * @param CreateAssistantCommandInput - {@link CreateAssistantCommandInput}
- * @returns {@link CreateAssistantCommandOutput}
+ * @param CreateAssistantRequest - {@link CreateAssistantRequest}
+ * @returns {@link CreateAssistantResponse}
  * @see {@link CreateAssistantCommandInput} for command's `input` shape.
  * @see {@link CreateAssistantCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

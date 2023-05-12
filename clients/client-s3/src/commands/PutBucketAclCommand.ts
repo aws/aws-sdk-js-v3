@@ -267,8 +267,8 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutBucketAclCommandInput - {@link PutBucketAclCommandInput}
- * @returns {@link PutBucketAclCommandOutput}
+ * @param PutBucketAclRequest - {@link PutBucketAclRequest}
+ * @returns {@link Unit}
  * @see {@link PutBucketAclCommandInput} for command's `input` shape.
  * @see {@link PutBucketAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

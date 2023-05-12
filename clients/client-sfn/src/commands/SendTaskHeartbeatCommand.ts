@@ -62,8 +62,8 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  *
  * ```
  *
- * @param SendTaskHeartbeatCommandInput - {@link SendTaskHeartbeatCommandInput}
- * @returns {@link SendTaskHeartbeatCommandOutput}
+ * @param SendTaskHeartbeatInput - {@link SendTaskHeartbeatInput}
+ * @returns {@link SendTaskHeartbeatOutput}
  * @see {@link SendTaskHeartbeatCommandInput} for command's `input` shape.
  * @see {@link SendTaskHeartbeatCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

@@ -51,8 +51,8 @@ export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationRe
  *
  * ```
  *
- * @param DeleteEvaluationResultsCommandInput - {@link DeleteEvaluationResultsCommandInput}
- * @returns {@link DeleteEvaluationResultsCommandOutput}
+ * @param DeleteEvaluationResultsRequest - {@link DeleteEvaluationResultsRequest}
+ * @returns {@link DeleteEvaluationResultsResponse}
  * @see {@link DeleteEvaluationResultsCommandInput} for command's `input` shape.
  * @see {@link DeleteEvaluationResultsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

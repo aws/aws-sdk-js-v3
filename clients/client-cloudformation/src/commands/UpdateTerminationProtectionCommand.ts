@@ -57,8 +57,8 @@ export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminat
  *
  * ```
  *
- * @param UpdateTerminationProtectionCommandInput - {@link UpdateTerminationProtectionCommandInput}
- * @returns {@link UpdateTerminationProtectionCommandOutput}
+ * @param UpdateTerminationProtectionInput - {@link UpdateTerminationProtectionInput}
+ * @returns {@link UpdateTerminationProtectionOutput}
  * @see {@link UpdateTerminationProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateTerminationProtectionCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

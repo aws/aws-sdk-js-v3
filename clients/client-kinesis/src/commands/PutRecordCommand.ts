@@ -96,8 +96,8 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *
  * ```
  *
- * @param PutRecordCommandInput - {@link PutRecordCommandInput}
- * @returns {@link PutRecordCommandOutput}
+ * @param PutRecordInput - {@link PutRecordInput}
+ * @returns {@link PutRecordOutput}
  * @see {@link PutRecordCommandInput} for command's `input` shape.
  * @see {@link PutRecordCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

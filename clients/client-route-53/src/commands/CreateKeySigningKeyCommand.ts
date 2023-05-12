@@ -80,8 +80,8 @@ export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyRes
  *
  * ```
  *
- * @param CreateKeySigningKeyCommandInput - {@link CreateKeySigningKeyCommandInput}
- * @returns {@link CreateKeySigningKeyCommandOutput}
+ * @param CreateKeySigningKeyRequest - {@link CreateKeySigningKeyRequest}
+ * @returns {@link CreateKeySigningKeyResponse}
  * @see {@link CreateKeySigningKeyCommandInput} for command's `input` shape.
  * @see {@link CreateKeySigningKeyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

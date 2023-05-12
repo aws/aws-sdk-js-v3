@@ -61,8 +61,8 @@ export interface ListThesauriCommandOutput extends ListThesauriResponse, __Metad
  *
  * ```
  *
- * @param ListThesauriCommandInput - {@link ListThesauriCommandInput}
- * @returns {@link ListThesauriCommandOutput}
+ * @param ListThesauriRequest - {@link ListThesauriRequest}
+ * @returns {@link ListThesauriResponse}
  * @see {@link ListThesauriCommandInput} for command's `input` shape.
  * @see {@link ListThesauriCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

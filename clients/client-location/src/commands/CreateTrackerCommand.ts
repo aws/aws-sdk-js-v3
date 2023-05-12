@@ -61,8 +61,8 @@ export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __Met
  *
  * ```
  *
- * @param CreateTrackerCommandInput - {@link CreateTrackerCommandInput}
- * @returns {@link CreateTrackerCommandOutput}
+ * @param CreateTrackerRequest - {@link CreateTrackerRequest}
+ * @returns {@link CreateTrackerResponse}
  * @see {@link CreateTrackerCommandInput} for command's `input` shape.
  * @see {@link CreateTrackerCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

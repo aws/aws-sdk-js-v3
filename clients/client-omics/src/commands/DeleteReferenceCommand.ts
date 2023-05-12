@@ -49,8 +49,8 @@ export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, _
  *
  * ```
  *
- * @param DeleteReferenceCommandInput - {@link DeleteReferenceCommandInput}
- * @returns {@link DeleteReferenceCommandOutput}
+ * @param DeleteReferenceRequest - {@link DeleteReferenceRequest}
+ * @returns {@link DeleteReferenceResponse}
  * @see {@link DeleteReferenceCommandInput} for command's `input` shape.
  * @see {@link DeleteReferenceCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

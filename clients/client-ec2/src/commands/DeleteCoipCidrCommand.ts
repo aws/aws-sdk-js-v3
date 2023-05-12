@@ -58,8 +58,8 @@ export interface DeleteCoipCidrCommandOutput extends DeleteCoipCidrResult, __Met
  *
  * ```
  *
- * @param DeleteCoipCidrCommandInput - {@link DeleteCoipCidrCommandInput}
- * @returns {@link DeleteCoipCidrCommandOutput}
+ * @param DeleteCoipCidrRequest - {@link DeleteCoipCidrRequest}
+ * @returns {@link DeleteCoipCidrResult}
  * @see {@link DeleteCoipCidrCommandInput} for command's `input` shape.
  * @see {@link DeleteCoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

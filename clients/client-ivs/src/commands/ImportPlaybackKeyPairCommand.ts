@@ -65,8 +65,8 @@ export interface ImportPlaybackKeyPairCommandOutput extends ImportPlaybackKeyPai
  *
  * ```
  *
- * @param ImportPlaybackKeyPairCommandInput - {@link ImportPlaybackKeyPairCommandInput}
- * @returns {@link ImportPlaybackKeyPairCommandOutput}
+ * @param ImportPlaybackKeyPairRequest - {@link ImportPlaybackKeyPairRequest}
+ * @returns {@link ImportPlaybackKeyPairResponse}
  * @see {@link ImportPlaybackKeyPairCommandInput} for command's `input` shape.
  * @see {@link ImportPlaybackKeyPairCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

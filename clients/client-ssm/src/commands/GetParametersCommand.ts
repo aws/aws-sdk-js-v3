@@ -72,8 +72,8 @@ export interface GetParametersCommandOutput extends GetParametersResult, __Metad
  *
  * ```
  *
- * @param GetParametersCommandInput - {@link GetParametersCommandInput}
- * @returns {@link GetParametersCommandOutput}
+ * @param GetParametersRequest - {@link GetParametersRequest}
+ * @returns {@link GetParametersResult}
  * @see {@link GetParametersCommandInput} for command's `input` shape.
  * @see {@link GetParametersCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

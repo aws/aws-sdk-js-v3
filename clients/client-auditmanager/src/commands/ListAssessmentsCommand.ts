@@ -83,8 +83,8 @@ export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, _
  *
  * ```
  *
- * @param ListAssessmentsCommandInput - {@link ListAssessmentsCommandInput}
- * @returns {@link ListAssessmentsCommandOutput}
+ * @param ListAssessmentsRequest - {@link ListAssessmentsRequest}
+ * @returns {@link ListAssessmentsResponse}
  * @see {@link ListAssessmentsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

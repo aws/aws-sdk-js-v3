@@ -183,8 +183,8 @@ export interface DescribeAutoMLJobV2CommandOutput extends DescribeAutoMLJobV2Res
  *
  * ```
  *
- * @param DescribeAutoMLJobV2CommandInput - {@link DescribeAutoMLJobV2CommandInput}
- * @returns {@link DescribeAutoMLJobV2CommandOutput}
+ * @param DescribeAutoMLJobV2Request - {@link DescribeAutoMLJobV2Request}
+ * @returns {@link DescribeAutoMLJobV2Response}
  * @see {@link DescribeAutoMLJobV2CommandInput} for command's `input` shape.
  * @see {@link DescribeAutoMLJobV2CommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

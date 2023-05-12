@@ -120,8 +120,8 @@ export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, _
  *
  * ```
  *
- * @param PutTraceSegmentsCommandInput - {@link PutTraceSegmentsCommandInput}
- * @returns {@link PutTraceSegmentsCommandOutput}
+ * @param PutTraceSegmentsRequest - {@link PutTraceSegmentsRequest}
+ * @returns {@link PutTraceSegmentsResult}
  * @see {@link PutTraceSegmentsCommandInput} for command's `input` shape.
  * @see {@link PutTraceSegmentsCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

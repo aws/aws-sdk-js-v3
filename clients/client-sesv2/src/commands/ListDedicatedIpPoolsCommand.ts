@@ -55,8 +55,8 @@ export interface ListDedicatedIpPoolsCommandOutput extends ListDedicatedIpPoolsR
  *
  * ```
  *
- * @param ListDedicatedIpPoolsCommandInput - {@link ListDedicatedIpPoolsCommandInput}
- * @returns {@link ListDedicatedIpPoolsCommandOutput}
+ * @param ListDedicatedIpPoolsRequest - {@link ListDedicatedIpPoolsRequest}
+ * @returns {@link ListDedicatedIpPoolsResponse}
  * @see {@link ListDedicatedIpPoolsCommandInput} for command's `input` shape.
  * @see {@link ListDedicatedIpPoolsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

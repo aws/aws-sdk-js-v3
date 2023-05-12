@@ -68,8 +68,8 @@ export interface ListSecurityConfigsCommandOutput extends ListSecurityConfigsRes
  *
  * ```
  *
- * @param ListSecurityConfigsCommandInput - {@link ListSecurityConfigsCommandInput}
- * @returns {@link ListSecurityConfigsCommandOutput}
+ * @param ListSecurityConfigsRequest - {@link ListSecurityConfigsRequest}
+ * @returns {@link ListSecurityConfigsResponse}
  * @see {@link ListSecurityConfigsCommandInput} for command's `input` shape.
  * @see {@link ListSecurityConfigsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

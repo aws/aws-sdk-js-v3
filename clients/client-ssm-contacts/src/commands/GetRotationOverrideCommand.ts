@@ -58,8 +58,8 @@ export interface GetRotationOverrideCommandOutput extends GetRotationOverrideRes
  *
  * ```
  *
- * @param GetRotationOverrideCommandInput - {@link GetRotationOverrideCommandInput}
- * @returns {@link GetRotationOverrideCommandOutput}
+ * @param GetRotationOverrideRequest - {@link GetRotationOverrideRequest}
+ * @returns {@link GetRotationOverrideResult}
  * @see {@link GetRotationOverrideCommandInput} for command's `input` shape.
  * @see {@link GetRotationOverrideCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

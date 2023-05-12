@@ -52,8 +52,8 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  *
  * ```
  *
- * @param DeleteNotificationConfigurationCommandInput - {@link DeleteNotificationConfigurationCommandInput}
- * @returns {@link DeleteNotificationConfigurationCommandOutput}
+ * @param DeleteNotificationConfigurationType - {@link DeleteNotificationConfigurationType}
+ * @returns {@link Unit}
  * @see {@link DeleteNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

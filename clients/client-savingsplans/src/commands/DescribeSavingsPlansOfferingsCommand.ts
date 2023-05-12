@@ -114,8 +114,8 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  *
  * ```
  *
- * @param DescribeSavingsPlansOfferingsCommandInput - {@link DescribeSavingsPlansOfferingsCommandInput}
- * @returns {@link DescribeSavingsPlansOfferingsCommandOutput}
+ * @param DescribeSavingsPlansOfferingsRequest - {@link DescribeSavingsPlansOfferingsRequest}
+ * @returns {@link DescribeSavingsPlansOfferingsResponse}
  * @see {@link DescribeSavingsPlansOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeSavingsPlansOfferingsCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.

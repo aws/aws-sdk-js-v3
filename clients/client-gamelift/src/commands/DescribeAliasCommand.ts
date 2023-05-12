@@ -71,8 +71,8 @@ export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __Metad
  *
  * ```
  *
- * @param DescribeAliasCommandInput - {@link DescribeAliasCommandInput}
- * @returns {@link DescribeAliasCommandOutput}
+ * @param DescribeAliasInput - {@link DescribeAliasInput}
+ * @returns {@link DescribeAliasOutput}
  * @see {@link DescribeAliasCommandInput} for command's `input` shape.
  * @see {@link DescribeAliasCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

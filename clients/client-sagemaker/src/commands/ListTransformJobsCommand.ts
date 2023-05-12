@@ -70,8 +70,8 @@ export interface ListTransformJobsCommandOutput extends ListTransformJobsRespons
  *
  * ```
  *
- * @param ListTransformJobsCommandInput - {@link ListTransformJobsCommandInput}
- * @returns {@link ListTransformJobsCommandOutput}
+ * @param ListTransformJobsRequest - {@link ListTransformJobsRequest}
+ * @returns {@link ListTransformJobsResponse}
  * @see {@link ListTransformJobsCommandInput} for command's `input` shape.
  * @see {@link ListTransformJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

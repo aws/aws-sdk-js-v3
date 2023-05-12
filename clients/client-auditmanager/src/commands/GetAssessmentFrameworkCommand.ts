@@ -107,8 +107,8 @@ export interface GetAssessmentFrameworkCommandOutput extends GetAssessmentFramew
  *
  * ```
  *
- * @param GetAssessmentFrameworkCommandInput - {@link GetAssessmentFrameworkCommandInput}
- * @returns {@link GetAssessmentFrameworkCommandOutput}
+ * @param GetAssessmentFrameworkRequest - {@link GetAssessmentFrameworkRequest}
+ * @returns {@link GetAssessmentFrameworkResponse}
  * @see {@link GetAssessmentFrameworkCommandInput} for command's `input` shape.
  * @see {@link GetAssessmentFrameworkCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

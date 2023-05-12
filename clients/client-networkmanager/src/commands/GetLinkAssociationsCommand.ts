@@ -63,8 +63,8 @@ export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsRes
  *
  * ```
  *
- * @param GetLinkAssociationsCommandInput - {@link GetLinkAssociationsCommandInput}
- * @returns {@link GetLinkAssociationsCommandOutput}
+ * @param GetLinkAssociationsRequest - {@link GetLinkAssociationsRequest}
+ * @returns {@link GetLinkAssociationsResponse}
  * @see {@link GetLinkAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetLinkAssociationsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

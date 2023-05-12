@@ -79,8 +79,8 @@ export interface AddBridgeOutputsCommandOutput extends AddBridgeOutputsResponse,
  *
  * ```
  *
- * @param AddBridgeOutputsCommandInput - {@link AddBridgeOutputsCommandInput}
- * @returns {@link AddBridgeOutputsCommandOutput}
+ * @param AddBridgeOutputsRequest - {@link AddBridgeOutputsRequest}
+ * @returns {@link AddBridgeOutputsResponse}
  * @see {@link AddBridgeOutputsCommandInput} for command's `input` shape.
  * @see {@link AddBridgeOutputsCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

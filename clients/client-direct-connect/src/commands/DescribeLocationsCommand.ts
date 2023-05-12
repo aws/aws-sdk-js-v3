@@ -64,8 +64,8 @@ export interface DescribeLocationsCommandOutput extends Locations, __MetadataBea
  *
  * ```
  *
- * @param DescribeLocationsCommandInput - {@link DescribeLocationsCommandInput}
- * @returns {@link DescribeLocationsCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link Locations}
  * @see {@link DescribeLocationsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

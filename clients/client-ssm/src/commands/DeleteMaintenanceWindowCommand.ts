@@ -50,8 +50,8 @@ export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceW
  *
  * ```
  *
- * @param DeleteMaintenanceWindowCommandInput - {@link DeleteMaintenanceWindowCommandInput}
- * @returns {@link DeleteMaintenanceWindowCommandOutput}
+ * @param DeleteMaintenanceWindowRequest - {@link DeleteMaintenanceWindowRequest}
+ * @returns {@link DeleteMaintenanceWindowResult}
  * @see {@link DeleteMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link DeleteMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

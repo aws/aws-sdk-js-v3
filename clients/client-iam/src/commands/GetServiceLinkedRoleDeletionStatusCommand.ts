@@ -73,8 +73,8 @@ export interface GetServiceLinkedRoleDeletionStatusCommandOutput
  *
  * ```
  *
- * @param GetServiceLinkedRoleDeletionStatusCommandInput - {@link GetServiceLinkedRoleDeletionStatusCommandInput}
- * @returns {@link GetServiceLinkedRoleDeletionStatusCommandOutput}
+ * @param GetServiceLinkedRoleDeletionStatusRequest - {@link GetServiceLinkedRoleDeletionStatusRequest}
+ * @returns {@link GetServiceLinkedRoleDeletionStatusResponse}
  * @see {@link GetServiceLinkedRoleDeletionStatusCommandInput} for command's `input` shape.
  * @see {@link GetServiceLinkedRoleDeletionStatusCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

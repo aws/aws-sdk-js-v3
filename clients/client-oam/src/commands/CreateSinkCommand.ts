@@ -64,8 +64,8 @@ export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBea
  *
  * ```
  *
- * @param CreateSinkCommandInput - {@link CreateSinkCommandInput}
- * @returns {@link CreateSinkCommandOutput}
+ * @param CreateSinkInput - {@link CreateSinkInput}
+ * @returns {@link CreateSinkOutput}
  * @see {@link CreateSinkCommandInput} for command's `input` shape.
  * @see {@link CreateSinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.

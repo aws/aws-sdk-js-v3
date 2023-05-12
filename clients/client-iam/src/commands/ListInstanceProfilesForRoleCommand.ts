@@ -101,8 +101,8 @@ export interface ListInstanceProfilesForRoleCommandOutput
  *
  * ```
  *
- * @param ListInstanceProfilesForRoleCommandInput - {@link ListInstanceProfilesForRoleCommandInput}
- * @returns {@link ListInstanceProfilesForRoleCommandOutput}
+ * @param ListInstanceProfilesForRoleRequest - {@link ListInstanceProfilesForRoleRequest}
+ * @returns {@link ListInstanceProfilesForRoleResponse}
  * @see {@link ListInstanceProfilesForRoleCommandInput} for command's `input` shape.
  * @see {@link ListInstanceProfilesForRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

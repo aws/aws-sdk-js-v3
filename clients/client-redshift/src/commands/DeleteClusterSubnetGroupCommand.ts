@@ -48,8 +48,8 @@ export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DeleteClusterSubnetGroupCommandInput - {@link DeleteClusterSubnetGroupCommandInput}
- * @returns {@link DeleteClusterSubnetGroupCommandOutput}
+ * @param DeleteClusterSubnetGroupMessage - {@link DeleteClusterSubnetGroupMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteClusterSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

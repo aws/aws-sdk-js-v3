@@ -53,8 +53,8 @@ export interface ResetFpgaImageAttributeCommandOutput extends ResetFpgaImageAttr
  *
  * ```
  *
- * @param ResetFpgaImageAttributeCommandInput - {@link ResetFpgaImageAttributeCommandInput}
- * @returns {@link ResetFpgaImageAttributeCommandOutput}
+ * @param ResetFpgaImageAttributeRequest - {@link ResetFpgaImageAttributeRequest}
+ * @returns {@link ResetFpgaImageAttributeResult}
  * @see {@link ResetFpgaImageAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetFpgaImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

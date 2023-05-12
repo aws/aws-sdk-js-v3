@@ -88,8 +88,8 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  *
  * ```
  *
- * @param CreateWorkspaceBundleCommandInput - {@link CreateWorkspaceBundleCommandInput}
- * @returns {@link CreateWorkspaceBundleCommandOutput}
+ * @param CreateWorkspaceBundleRequest - {@link CreateWorkspaceBundleRequest}
+ * @returns {@link CreateWorkspaceBundleResult}
  * @see {@link CreateWorkspaceBundleCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspaceBundleCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

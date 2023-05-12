@@ -72,8 +72,8 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  *
  * ```
  *
- * @param ListTapePoolsCommandInput - {@link ListTapePoolsCommandInput}
- * @returns {@link ListTapePoolsCommandOutput}
+ * @param ListTapePoolsInput - {@link ListTapePoolsInput}
+ * @returns {@link ListTapePoolsOutput}
  * @see {@link ListTapePoolsCommandInput} for command's `input` shape.
  * @see {@link ListTapePoolsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

@@ -64,8 +64,8 @@ export interface PutJobSuccessResultCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutJobSuccessResultCommandInput - {@link PutJobSuccessResultCommandInput}
- * @returns {@link PutJobSuccessResultCommandOutput}
+ * @param PutJobSuccessResultInput - {@link PutJobSuccessResultInput}
+ * @returns {@link Unit}
  * @see {@link PutJobSuccessResultCommandInput} for command's `input` shape.
  * @see {@link PutJobSuccessResultCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

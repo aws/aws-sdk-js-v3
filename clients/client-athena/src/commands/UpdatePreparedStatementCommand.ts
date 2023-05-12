@@ -51,8 +51,8 @@ export interface UpdatePreparedStatementCommandOutput extends UpdatePreparedStat
  *
  * ```
  *
- * @param UpdatePreparedStatementCommandInput - {@link UpdatePreparedStatementCommandInput}
- * @returns {@link UpdatePreparedStatementCommandOutput}
+ * @param UpdatePreparedStatementInput - {@link UpdatePreparedStatementInput}
+ * @returns {@link UpdatePreparedStatementOutput}
  * @see {@link UpdatePreparedStatementCommandInput} for command's `input` shape.
  * @see {@link UpdatePreparedStatementCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

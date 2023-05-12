@@ -63,8 +63,8 @@ export interface ListFieldOptionsCommandOutput extends ListFieldOptionsResponse,
  *
  * ```
  *
- * @param ListFieldOptionsCommandInput - {@link ListFieldOptionsCommandInput}
- * @returns {@link ListFieldOptionsCommandOutput}
+ * @param ListFieldOptionsRequest - {@link ListFieldOptionsRequest}
+ * @returns {@link ListFieldOptionsResponse}
  * @see {@link ListFieldOptionsCommandInput} for command's `input` shape.
  * @see {@link ListFieldOptionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

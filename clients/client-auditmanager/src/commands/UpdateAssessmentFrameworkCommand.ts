@@ -121,8 +121,8 @@ export interface UpdateAssessmentFrameworkCommandOutput extends UpdateAssessment
  *
  * ```
  *
- * @param UpdateAssessmentFrameworkCommandInput - {@link UpdateAssessmentFrameworkCommandInput}
- * @returns {@link UpdateAssessmentFrameworkCommandOutput}
+ * @param UpdateAssessmentFrameworkRequest - {@link UpdateAssessmentFrameworkRequest}
+ * @returns {@link UpdateAssessmentFrameworkResponse}
  * @see {@link UpdateAssessmentFrameworkCommandInput} for command's `input` shape.
  * @see {@link UpdateAssessmentFrameworkCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

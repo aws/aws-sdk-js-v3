@@ -105,8 +105,8 @@ export interface ListAnswersCommandOutput extends ListAnswersOutput, __MetadataB
  *
  * ```
  *
- * @param ListAnswersCommandInput - {@link ListAnswersCommandInput}
- * @returns {@link ListAnswersCommandOutput}
+ * @param ListAnswersInput - {@link ListAnswersInput}
+ * @returns {@link ListAnswersOutput}
  * @see {@link ListAnswersCommandInput} for command's `input` shape.
  * @see {@link ListAnswersCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

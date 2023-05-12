@@ -64,8 +64,8 @@ export interface DeleteVpcConnectorCommandOutput extends DeleteVpcConnectorRespo
  *
  * ```
  *
- * @param DeleteVpcConnectorCommandInput - {@link DeleteVpcConnectorCommandInput}
- * @returns {@link DeleteVpcConnectorCommandOutput}
+ * @param DeleteVpcConnectorRequest - {@link DeleteVpcConnectorRequest}
+ * @returns {@link DeleteVpcConnectorResponse}
  * @see {@link DeleteVpcConnectorCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcConnectorCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

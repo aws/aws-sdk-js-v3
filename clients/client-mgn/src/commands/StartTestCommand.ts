@@ -108,8 +108,8 @@ export interface StartTestCommandOutput extends StartTestResponse, __MetadataBea
  *
  * ```
  *
- * @param StartTestCommandInput - {@link StartTestCommandInput}
- * @returns {@link StartTestCommandOutput}
+ * @param StartTestRequest - {@link StartTestRequest}
+ * @returns {@link StartTestResponse}
  * @see {@link StartTestCommandInput} for command's `input` shape.
  * @see {@link StartTestCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

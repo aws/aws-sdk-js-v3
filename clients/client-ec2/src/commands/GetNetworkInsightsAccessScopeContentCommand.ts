@@ -160,8 +160,8 @@ export interface GetNetworkInsightsAccessScopeContentCommandOutput
  *
  * ```
  *
- * @param GetNetworkInsightsAccessScopeContentCommandInput - {@link GetNetworkInsightsAccessScopeContentCommandInput}
- * @returns {@link GetNetworkInsightsAccessScopeContentCommandOutput}
+ * @param GetNetworkInsightsAccessScopeContentRequest - {@link GetNetworkInsightsAccessScopeContentRequest}
+ * @returns {@link GetNetworkInsightsAccessScopeContentResult}
  * @see {@link GetNetworkInsightsAccessScopeContentCommandInput} for command's `input` shape.
  * @see {@link GetNetworkInsightsAccessScopeContentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

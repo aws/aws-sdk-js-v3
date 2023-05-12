@@ -102,8 +102,8 @@ export interface UpdateControlCommandOutput extends UpdateControlResponse, __Met
  *
  * ```
  *
- * @param UpdateControlCommandInput - {@link UpdateControlCommandInput}
- * @returns {@link UpdateControlCommandOutput}
+ * @param UpdateControlRequest - {@link UpdateControlRequest}
+ * @returns {@link UpdateControlResponse}
  * @see {@link UpdateControlCommandInput} for command's `input` shape.
  * @see {@link UpdateControlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

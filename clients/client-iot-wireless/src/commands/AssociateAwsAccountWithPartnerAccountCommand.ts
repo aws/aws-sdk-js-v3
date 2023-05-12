@@ -75,8 +75,8 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
  *
  * ```
  *
- * @param AssociateAwsAccountWithPartnerAccountCommandInput - {@link AssociateAwsAccountWithPartnerAccountCommandInput}
- * @returns {@link AssociateAwsAccountWithPartnerAccountCommandOutput}
+ * @param AssociateAwsAccountWithPartnerAccountRequest - {@link AssociateAwsAccountWithPartnerAccountRequest}
+ * @returns {@link AssociateAwsAccountWithPartnerAccountResponse}
  * @see {@link AssociateAwsAccountWithPartnerAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateAwsAccountWithPartnerAccountCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

@@ -59,8 +59,8 @@ export interface ListMeetingTagsCommandOutput extends ListMeetingTagsResponse, _
  *
  * ```
  *
- * @param ListMeetingTagsCommandInput - {@link ListMeetingTagsCommandInput}
- * @returns {@link ListMeetingTagsCommandOutput}
+ * @param ListMeetingTagsRequest - {@link ListMeetingTagsRequest}
+ * @returns {@link ListMeetingTagsResponse}
  * @see {@link ListMeetingTagsCommandInput} for command's `input` shape.
  * @see {@link ListMeetingTagsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

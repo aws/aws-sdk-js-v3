@@ -57,8 +57,8 @@ export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolR
  *
  * ```
  *
- * @param PutDedicatedIpInPoolCommandInput - {@link PutDedicatedIpInPoolCommandInput}
- * @returns {@link PutDedicatedIpInPoolCommandOutput}
+ * @param PutDedicatedIpInPoolRequest - {@link PutDedicatedIpInPoolRequest}
+ * @returns {@link PutDedicatedIpInPoolResponse}
  * @see {@link PutDedicatedIpInPoolCommandInput} for command's `input` shape.
  * @see {@link PutDedicatedIpInPoolCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

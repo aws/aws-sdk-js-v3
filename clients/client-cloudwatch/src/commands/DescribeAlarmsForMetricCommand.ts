@@ -132,8 +132,8 @@ export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForM
  *
  * ```
  *
- * @param DescribeAlarmsForMetricCommandInput - {@link DescribeAlarmsForMetricCommandInput}
- * @returns {@link DescribeAlarmsForMetricCommandOutput}
+ * @param DescribeAlarmsForMetricInput - {@link DescribeAlarmsForMetricInput}
+ * @returns {@link DescribeAlarmsForMetricOutput}
  * @see {@link DescribeAlarmsForMetricCommandInput} for command's `input` shape.
  * @see {@link DescribeAlarmsForMetricCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

@@ -60,8 +60,8 @@ export interface ListMitigationActionsCommandOutput extends ListMitigationAction
  *
  * ```
  *
- * @param ListMitigationActionsCommandInput - {@link ListMitigationActionsCommandInput}
- * @returns {@link ListMitigationActionsCommandOutput}
+ * @param ListMitigationActionsRequest - {@link ListMitigationActionsRequest}
+ * @returns {@link ListMitigationActionsResponse}
  * @see {@link ListMitigationActionsCommandInput} for command's `input` shape.
  * @see {@link ListMitigationActionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

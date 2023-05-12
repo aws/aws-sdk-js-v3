@@ -114,8 +114,8 @@ export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConfli
  *
  * ```
  *
- * @param DescribeMergeConflictsCommandInput - {@link DescribeMergeConflictsCommandInput}
- * @returns {@link DescribeMergeConflictsCommandOutput}
+ * @param DescribeMergeConflictsInput - {@link DescribeMergeConflictsInput}
+ * @returns {@link DescribeMergeConflictsOutput}
  * @see {@link DescribeMergeConflictsCommandInput} for command's `input` shape.
  * @see {@link DescribeMergeConflictsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

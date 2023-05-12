@@ -80,8 +80,8 @@ export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBea
  *
  * ```
  *
- * @param GetMLModelCommandInput - {@link GetMLModelCommandInput}
- * @returns {@link GetMLModelCommandOutput}
+ * @param GetMLModelInput - {@link GetMLModelInput}
+ * @returns {@link GetMLModelOutput}
  * @see {@link GetMLModelCommandInput} for command's `input` shape.
  * @see {@link GetMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

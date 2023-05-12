@@ -127,8 +127,8 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  *
  * ```
  *
- * @param UpdateLaunchConfigurationCommandInput - {@link UpdateLaunchConfigurationCommandInput}
- * @returns {@link UpdateLaunchConfigurationCommandOutput}
+ * @param UpdateLaunchConfigurationRequest - {@link UpdateLaunchConfigurationRequest}
+ * @returns {@link LaunchConfiguration}
  * @see {@link UpdateLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

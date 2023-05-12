@@ -51,8 +51,8 @@ export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, _
  *
  * ```
  *
- * @param GetSchemaAsJsonCommandInput - {@link GetSchemaAsJsonCommandInput}
- * @returns {@link GetSchemaAsJsonCommandOutput}
+ * @param GetSchemaAsJsonRequest - {@link GetSchemaAsJsonRequest}
+ * @returns {@link GetSchemaAsJsonResponse}
  * @see {@link GetSchemaAsJsonCommandInput} for command's `input` shape.
  * @see {@link GetSchemaAsJsonCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

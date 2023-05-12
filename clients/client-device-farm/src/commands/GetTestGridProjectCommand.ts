@@ -64,8 +64,8 @@ export interface GetTestGridProjectCommandOutput extends GetTestGridProjectResul
  *
  * ```
  *
- * @param GetTestGridProjectCommandInput - {@link GetTestGridProjectCommandInput}
- * @returns {@link GetTestGridProjectCommandOutput}
+ * @param GetTestGridProjectRequest - {@link GetTestGridProjectRequest}
+ * @returns {@link GetTestGridProjectResult}
  * @see {@link GetTestGridProjectCommandInput} for command's `input` shape.
  * @see {@link GetTestGridProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

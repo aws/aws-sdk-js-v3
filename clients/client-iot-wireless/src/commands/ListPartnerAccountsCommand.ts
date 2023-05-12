@@ -62,8 +62,8 @@ export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsRes
  *
  * ```
  *
- * @param ListPartnerAccountsCommandInput - {@link ListPartnerAccountsCommandInput}
- * @returns {@link ListPartnerAccountsCommandOutput}
+ * @param ListPartnerAccountsRequest - {@link ListPartnerAccountsRequest}
+ * @returns {@link ListPartnerAccountsResponse}
  * @see {@link ListPartnerAccountsCommandInput} for command's `input` shape.
  * @see {@link ListPartnerAccountsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

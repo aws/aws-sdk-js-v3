@@ -72,8 +72,8 @@ export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, _
  *
  * ```
  *
- * @param ListEphemeridesCommandInput - {@link ListEphemeridesCommandInput}
- * @returns {@link ListEphemeridesCommandOutput}
+ * @param ListEphemeridesRequest - {@link ListEphemeridesRequest}
+ * @returns {@link ListEphemeridesResponse}
  * @see {@link ListEphemeridesCommandInput} for command's `input` shape.
  * @see {@link ListEphemeridesCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

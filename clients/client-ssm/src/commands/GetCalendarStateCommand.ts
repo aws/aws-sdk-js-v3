@@ -63,8 +63,8 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  *
  * ```
  *
- * @param GetCalendarStateCommandInput - {@link GetCalendarStateCommandInput}
- * @returns {@link GetCalendarStateCommandOutput}
+ * @param GetCalendarStateRequest - {@link GetCalendarStateRequest}
+ * @returns {@link GetCalendarStateResponse}
  * @see {@link GetCalendarStateCommandInput} for command's `input` shape.
  * @see {@link GetCalendarStateCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

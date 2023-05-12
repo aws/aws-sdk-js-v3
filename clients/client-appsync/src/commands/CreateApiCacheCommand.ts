@@ -62,8 +62,8 @@ export interface CreateApiCacheCommandOutput extends CreateApiCacheResponse, __M
  *
  * ```
  *
- * @param CreateApiCacheCommandInput - {@link CreateApiCacheCommandInput}
- * @returns {@link CreateApiCacheCommandOutput}
+ * @param CreateApiCacheRequest - {@link CreateApiCacheRequest}
+ * @returns {@link CreateApiCacheResponse}
  * @see {@link CreateApiCacheCommandInput} for command's `input` shape.
  * @see {@link CreateApiCacheCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

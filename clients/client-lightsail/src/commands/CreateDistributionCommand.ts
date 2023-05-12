@@ -184,8 +184,8 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  *
  * ```
  *
- * @param CreateDistributionCommandInput - {@link CreateDistributionCommandInput}
- * @returns {@link CreateDistributionCommandOutput}
+ * @param CreateDistributionRequest - {@link CreateDistributionRequest}
+ * @returns {@link CreateDistributionResult}
  * @see {@link CreateDistributionCommandInput} for command's `input` shape.
  * @see {@link CreateDistributionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -100,8 +100,8 @@ export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVers
  *
  * ```
  *
- * @param UpdateNodegroupVersionCommandInput - {@link UpdateNodegroupVersionCommandInput}
- * @returns {@link UpdateNodegroupVersionCommandOutput}
+ * @param UpdateNodegroupVersionRequest - {@link UpdateNodegroupVersionRequest}
+ * @returns {@link UpdateNodegroupVersionResponse}
  * @see {@link UpdateNodegroupVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateNodegroupVersionCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

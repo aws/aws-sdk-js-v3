@@ -63,8 +63,8 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  *
  * ```
  *
- * @param CreateFleetCommandInput - {@link CreateFleetCommandInput}
- * @returns {@link CreateFleetCommandOutput}
+ * @param CreateFleetRequest - {@link CreateFleetRequest}
+ * @returns {@link CreateFleetResponse}
  * @see {@link CreateFleetCommandInput} for command's `input` shape.
  * @see {@link CreateFleetCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

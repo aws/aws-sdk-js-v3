@@ -74,8 +74,8 @@ export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
  *
  * ```
  *
- * @param DeleteLocalGatewayRouteTableVpcAssociationCommandInput - {@link DeleteLocalGatewayRouteTableVpcAssociationCommandInput}
- * @returns {@link DeleteLocalGatewayRouteTableVpcAssociationCommandOutput}
+ * @param DeleteLocalGatewayRouteTableVpcAssociationRequest - {@link DeleteLocalGatewayRouteTableVpcAssociationRequest}
+ * @returns {@link DeleteLocalGatewayRouteTableVpcAssociationResult}
  * @see {@link DeleteLocalGatewayRouteTableVpcAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteLocalGatewayRouteTableVpcAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

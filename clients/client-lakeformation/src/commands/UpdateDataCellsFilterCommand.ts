@@ -66,8 +66,8 @@ export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilte
  *
  * ```
  *
- * @param UpdateDataCellsFilterCommandInput - {@link UpdateDataCellsFilterCommandInput}
- * @returns {@link UpdateDataCellsFilterCommandOutput}
+ * @param UpdateDataCellsFilterRequest - {@link UpdateDataCellsFilterRequest}
+ * @returns {@link UpdateDataCellsFilterResponse}
  * @see {@link UpdateDataCellsFilterCommandInput} for command's `input` shape.
  * @see {@link UpdateDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

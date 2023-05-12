@@ -77,8 +77,8 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  *
  * ```
  *
- * @param DescribeTableCommandInput - {@link DescribeTableCommandInput}
- * @returns {@link DescribeTableCommandOutput}
+ * @param DescribeTableRequest - {@link DescribeTableRequest}
+ * @returns {@link DescribeTableResponse}
  * @see {@link DescribeTableCommandInput} for command's `input` shape.
  * @see {@link DescribeTableCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.

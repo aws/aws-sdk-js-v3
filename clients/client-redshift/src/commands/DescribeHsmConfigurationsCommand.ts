@@ -82,8 +82,8 @@ export interface DescribeHsmConfigurationsCommandOutput extends HsmConfiguration
  *
  * ```
  *
- * @param DescribeHsmConfigurationsCommandInput - {@link DescribeHsmConfigurationsCommandInput}
- * @returns {@link DescribeHsmConfigurationsCommandOutput}
+ * @param DescribeHsmConfigurationsMessage - {@link DescribeHsmConfigurationsMessage}
+ * @returns {@link HsmConfigurationMessage}
  * @see {@link DescribeHsmConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeHsmConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

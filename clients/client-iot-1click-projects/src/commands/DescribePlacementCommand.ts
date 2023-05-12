@@ -63,8 +63,8 @@ export interface DescribePlacementCommandOutput extends DescribePlacementRespons
  *
  * ```
  *
- * @param DescribePlacementCommandInput - {@link DescribePlacementCommandInput}
- * @returns {@link DescribePlacementCommandOutput}
+ * @param DescribePlacementRequest - {@link DescribePlacementRequest}
+ * @returns {@link DescribePlacementResponse}
  * @see {@link DescribePlacementCommandInput} for command's `input` shape.
  * @see {@link DescribePlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.

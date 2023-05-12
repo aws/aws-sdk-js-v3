@@ -51,8 +51,8 @@ export interface RevokeIpRulesCommandOutput extends RevokeIpRulesResult, __Metad
  *
  * ```
  *
- * @param RevokeIpRulesCommandInput - {@link RevokeIpRulesCommandInput}
- * @returns {@link RevokeIpRulesCommandOutput}
+ * @param RevokeIpRulesRequest - {@link RevokeIpRulesRequest}
+ * @returns {@link RevokeIpRulesResult}
  * @see {@link RevokeIpRulesCommandInput} for command's `input` shape.
  * @see {@link RevokeIpRulesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

@@ -67,8 +67,8 @@ export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsR
  *
  * ```
  *
- * @param AdminSetUserSettingsCommandInput - {@link AdminSetUserSettingsCommandInput}
- * @returns {@link AdminSetUserSettingsCommandOutput}
+ * @param AdminSetUserSettingsRequest - {@link AdminSetUserSettingsRequest}
+ * @returns {@link AdminSetUserSettingsResponse}
  * @see {@link AdminSetUserSettingsCommandInput} for command's `input` shape.
  * @see {@link AdminSetUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

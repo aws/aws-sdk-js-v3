@@ -61,8 +61,8 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
  *
  * ```
  *
- * @param ListConfigurationRevisionsCommandInput - {@link ListConfigurationRevisionsCommandInput}
- * @returns {@link ListConfigurationRevisionsCommandOutput}
+ * @param ListConfigurationRevisionsRequest - {@link ListConfigurationRevisionsRequest}
+ * @returns {@link ListConfigurationRevisionsResponse}
  * @see {@link ListConfigurationRevisionsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationRevisionsCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.

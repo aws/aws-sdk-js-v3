@@ -69,8 +69,8 @@ export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBea
  *
  * ```
  *
- * @param GetCommentCommandInput - {@link GetCommentCommandInput}
- * @returns {@link GetCommentCommandOutput}
+ * @param GetCommentInput - {@link GetCommentInput}
+ * @returns {@link GetCommentOutput}
  * @see {@link GetCommentCommandInput} for command's `input` shape.
  * @see {@link GetCommentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

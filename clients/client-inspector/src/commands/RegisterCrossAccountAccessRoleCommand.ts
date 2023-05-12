@@ -52,8 +52,8 @@ export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataB
  *
  * ```
  *
- * @param RegisterCrossAccountAccessRoleCommandInput - {@link RegisterCrossAccountAccessRoleCommandInput}
- * @returns {@link RegisterCrossAccountAccessRoleCommandOutput}
+ * @param RegisterCrossAccountAccessRoleRequest - {@link RegisterCrossAccountAccessRoleRequest}
+ * @returns {@link Unit}
  * @see {@link RegisterCrossAccountAccessRoleCommandInput} for command's `input` shape.
  * @see {@link RegisterCrossAccountAccessRoleCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

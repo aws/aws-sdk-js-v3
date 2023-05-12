@@ -69,8 +69,8 @@ export interface StopGUISessionCommandOutput extends StopGUISessionResult, __Met
  *
  * ```
  *
- * @param StopGUISessionCommandInput - {@link StopGUISessionCommandInput}
- * @returns {@link StopGUISessionCommandOutput}
+ * @param StopGUISessionRequest - {@link StopGUISessionRequest}
+ * @returns {@link StopGUISessionResult}
  * @see {@link StopGUISessionCommandInput} for command's `input` shape.
  * @see {@link StopGUISessionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

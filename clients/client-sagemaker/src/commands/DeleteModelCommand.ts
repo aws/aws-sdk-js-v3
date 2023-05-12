@@ -51,8 +51,8 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteModelCommandInput - {@link DeleteModelCommandInput}
- * @returns {@link DeleteModelCommandOutput}
+ * @param DeleteModelInput - {@link DeleteModelInput}
+ * @returns {@link Unit}
  * @see {@link DeleteModelCommandInput} for command's `input` shape.
  * @see {@link DeleteModelCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

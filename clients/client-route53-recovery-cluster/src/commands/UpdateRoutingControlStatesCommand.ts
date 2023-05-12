@@ -93,8 +93,8 @@ export interface UpdateRoutingControlStatesCommandOutput extends UpdateRoutingCo
  *
  * ```
  *
- * @param UpdateRoutingControlStatesCommandInput - {@link UpdateRoutingControlStatesCommandInput}
- * @returns {@link UpdateRoutingControlStatesCommandOutput}
+ * @param UpdateRoutingControlStatesRequest - {@link UpdateRoutingControlStatesRequest}
+ * @returns {@link UpdateRoutingControlStatesResponse}
  * @see {@link UpdateRoutingControlStatesCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingControlStatesCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for Route53RecoveryClusterClient's `config` shape.

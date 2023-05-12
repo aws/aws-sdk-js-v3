@@ -80,8 +80,8 @@ export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  *
  * ```
  *
- * @param CreateDBClusterEndpointCommandInput - {@link CreateDBClusterEndpointCommandInput}
- * @returns {@link CreateDBClusterEndpointCommandOutput}
+ * @param CreateDBClusterEndpointMessage - {@link CreateDBClusterEndpointMessage}
+ * @returns {@link DBClusterEndpoint}
  * @see {@link CreateDBClusterEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

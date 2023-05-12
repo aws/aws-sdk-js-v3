@@ -68,8 +68,8 @@ export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNamese
  *
  * ```
  *
- * @param UpdateDomainNameserversCommandInput - {@link UpdateDomainNameserversCommandInput}
- * @returns {@link UpdateDomainNameserversCommandOutput}
+ * @param UpdateDomainNameserversRequest - {@link UpdateDomainNameserversRequest}
+ * @returns {@link UpdateDomainNameserversResponse}
  * @see {@link UpdateDomainNameserversCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainNameserversCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

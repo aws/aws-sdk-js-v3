@@ -60,8 +60,8 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  *
  * ```
  *
- * @param DeregisterTargetsCommandInput - {@link DeregisterTargetsCommandInput}
- * @returns {@link DeregisterTargetsCommandOutput}
+ * @param DeregisterTargetsInput - {@link DeregisterTargetsInput}
+ * @returns {@link DeregisterTargetsOutput}
  * @see {@link DeregisterTargetsCommandInput} for command's `input` shape.
  * @see {@link DeregisterTargetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

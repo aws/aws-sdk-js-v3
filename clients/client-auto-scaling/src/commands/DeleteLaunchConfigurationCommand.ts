@@ -50,8 +50,8 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param DeleteLaunchConfigurationCommandInput - {@link DeleteLaunchConfigurationCommandInput}
- * @returns {@link DeleteLaunchConfigurationCommandOutput}
+ * @param LaunchConfigurationNameType - {@link LaunchConfigurationNameType}
+ * @returns {@link Unit}
  * @see {@link DeleteLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

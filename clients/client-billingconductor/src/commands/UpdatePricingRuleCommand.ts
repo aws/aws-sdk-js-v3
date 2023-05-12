@@ -82,8 +82,8 @@ export interface UpdatePricingRuleCommandOutput extends UpdatePricingRuleOutput,
  *
  * ```
  *
- * @param UpdatePricingRuleCommandInput - {@link UpdatePricingRuleCommandInput}
- * @returns {@link UpdatePricingRuleCommandOutput}
+ * @param UpdatePricingRuleInput - {@link UpdatePricingRuleInput}
+ * @returns {@link UpdatePricingRuleOutput}
  * @see {@link UpdatePricingRuleCommandInput} for command's `input` shape.
  * @see {@link UpdatePricingRuleCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

@@ -59,8 +59,8 @@ export interface UpdateIpRestrictionCommandOutput extends UpdateIpRestrictionRes
  *
  * ```
  *
- * @param UpdateIpRestrictionCommandInput - {@link UpdateIpRestrictionCommandInput}
- * @returns {@link UpdateIpRestrictionCommandOutput}
+ * @param UpdateIpRestrictionRequest - {@link UpdateIpRestrictionRequest}
+ * @returns {@link UpdateIpRestrictionResponse}
  * @see {@link UpdateIpRestrictionCommandInput} for command's `input` shape.
  * @see {@link UpdateIpRestrictionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

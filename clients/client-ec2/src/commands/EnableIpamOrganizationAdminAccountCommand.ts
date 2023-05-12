@@ -60,8 +60,8 @@ export interface EnableIpamOrganizationAdminAccountCommandOutput
  *
  * ```
  *
- * @param EnableIpamOrganizationAdminAccountCommandInput - {@link EnableIpamOrganizationAdminAccountCommandInput}
- * @returns {@link EnableIpamOrganizationAdminAccountCommandOutput}
+ * @param EnableIpamOrganizationAdminAccountRequest - {@link EnableIpamOrganizationAdminAccountRequest}
+ * @returns {@link EnableIpamOrganizationAdminAccountResult}
  * @see {@link EnableIpamOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link EnableIpamOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

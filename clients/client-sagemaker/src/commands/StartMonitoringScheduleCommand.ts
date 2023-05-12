@@ -52,8 +52,8 @@ export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param StartMonitoringScheduleCommandInput - {@link StartMonitoringScheduleCommandInput}
- * @returns {@link StartMonitoringScheduleCommandOutput}
+ * @param StartMonitoringScheduleRequest - {@link StartMonitoringScheduleRequest}
+ * @returns {@link Unit}
  * @see {@link StartMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link StartMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

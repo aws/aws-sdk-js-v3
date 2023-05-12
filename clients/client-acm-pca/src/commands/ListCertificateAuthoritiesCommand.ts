@@ -166,8 +166,8 @@ export interface ListCertificateAuthoritiesCommandOutput extends ListCertificate
  *
  * ```
  *
- * @param ListCertificateAuthoritiesCommandInput - {@link ListCertificateAuthoritiesCommandInput}
- * @returns {@link ListCertificateAuthoritiesCommandOutput}
+ * @param ListCertificateAuthoritiesRequest - {@link ListCertificateAuthoritiesRequest}
+ * @returns {@link ListCertificateAuthoritiesResponse}
  * @see {@link ListCertificateAuthoritiesCommandInput} for command's `input` shape.
  * @see {@link ListCertificateAuthoritiesCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

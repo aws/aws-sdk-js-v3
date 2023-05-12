@@ -60,8 +60,8 @@ export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse,
  *
  * ```
  *
- * @param SetSMSAttributesCommandInput - {@link SetSMSAttributesCommandInput}
- * @returns {@link SetSMSAttributesCommandOutput}
+ * @param SetSMSAttributesInput - {@link SetSMSAttributesInput}
+ * @returns {@link SetSMSAttributesResponse}
  * @see {@link SetSMSAttributesCommandInput} for command's `input` shape.
  * @see {@link SetSMSAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

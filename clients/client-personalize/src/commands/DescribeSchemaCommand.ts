@@ -58,8 +58,8 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  *
  * ```
  *
- * @param DescribeSchemaCommandInput - {@link DescribeSchemaCommandInput}
- * @returns {@link DescribeSchemaCommandOutput}
+ * @param DescribeSchemaRequest - {@link DescribeSchemaRequest}
+ * @returns {@link DescribeSchemaResponse}
  * @see {@link DescribeSchemaCommandInput} for command's `input` shape.
  * @see {@link DescribeSchemaCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

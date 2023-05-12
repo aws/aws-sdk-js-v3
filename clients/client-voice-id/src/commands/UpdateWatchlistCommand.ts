@@ -67,8 +67,8 @@ export interface UpdateWatchlistCommandOutput extends UpdateWatchlistResponse, _
  *
  * ```
  *
- * @param UpdateWatchlistCommandInput - {@link UpdateWatchlistCommandInput}
- * @returns {@link UpdateWatchlistCommandOutput}
+ * @param UpdateWatchlistRequest - {@link UpdateWatchlistRequest}
+ * @returns {@link UpdateWatchlistResponse}
  * @see {@link UpdateWatchlistCommandInput} for command's `input` shape.
  * @see {@link UpdateWatchlistCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

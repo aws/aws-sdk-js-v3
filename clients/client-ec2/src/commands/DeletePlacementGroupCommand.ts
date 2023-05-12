@@ -51,8 +51,8 @@ export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeletePlacementGroupCommandInput - {@link DeletePlacementGroupCommandInput}
- * @returns {@link DeletePlacementGroupCommandOutput}
+ * @param DeletePlacementGroupRequest - {@link DeletePlacementGroupRequest}
+ * @returns {@link Unit}
  * @see {@link DeletePlacementGroupCommandInput} for command's `input` shape.
  * @see {@link DeletePlacementGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

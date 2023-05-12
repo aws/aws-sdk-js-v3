@@ -59,8 +59,8 @@ export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPol
  *
  * ```
  *
- * @param GetDataRetrievalPolicyCommandInput - {@link GetDataRetrievalPolicyCommandInput}
- * @returns {@link GetDataRetrievalPolicyCommandOutput}
+ * @param GetDataRetrievalPolicyInput - {@link GetDataRetrievalPolicyInput}
+ * @returns {@link GetDataRetrievalPolicyOutput}
  * @see {@link GetDataRetrievalPolicyCommandInput} for command's `input` shape.
  * @see {@link GetDataRetrievalPolicyCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

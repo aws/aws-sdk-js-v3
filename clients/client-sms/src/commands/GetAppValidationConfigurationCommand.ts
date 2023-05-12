@@ -111,8 +111,8 @@ export interface GetAppValidationConfigurationCommandOutput
  *
  * ```
  *
- * @param GetAppValidationConfigurationCommandInput - {@link GetAppValidationConfigurationCommandInput}
- * @returns {@link GetAppValidationConfigurationCommandOutput}
+ * @param GetAppValidationConfigurationRequest - {@link GetAppValidationConfigurationRequest}
+ * @returns {@link GetAppValidationConfigurationResponse}
  * @see {@link GetAppValidationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAppValidationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

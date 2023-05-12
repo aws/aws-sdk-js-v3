@@ -67,8 +67,8 @@ export interface DeleteTransitGatewayPolicyTableCommandOutput
  *
  * ```
  *
- * @param DeleteTransitGatewayPolicyTableCommandInput - {@link DeleteTransitGatewayPolicyTableCommandInput}
- * @returns {@link DeleteTransitGatewayPolicyTableCommandOutput}
+ * @param DeleteTransitGatewayPolicyTableRequest - {@link DeleteTransitGatewayPolicyTableRequest}
+ * @returns {@link DeleteTransitGatewayPolicyTableResult}
  * @see {@link DeleteTransitGatewayPolicyTableCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayPolicyTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

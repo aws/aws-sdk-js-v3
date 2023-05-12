@@ -49,8 +49,8 @@ export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteStreamKeyCommandInput - {@link DeleteStreamKeyCommandInput}
- * @returns {@link DeleteStreamKeyCommandOutput}
+ * @param DeleteStreamKeyRequest - {@link DeleteStreamKeyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteStreamKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamKeyCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

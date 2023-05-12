@@ -87,8 +87,8 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  *
  * ```
  *
- * @param DescribeDhcpOptionsCommandInput - {@link DescribeDhcpOptionsCommandInput}
- * @returns {@link DescribeDhcpOptionsCommandOutput}
+ * @param DescribeDhcpOptionsRequest - {@link DescribeDhcpOptionsRequest}
+ * @returns {@link DescribeDhcpOptionsResult}
  * @see {@link DescribeDhcpOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

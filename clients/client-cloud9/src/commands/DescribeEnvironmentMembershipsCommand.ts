@@ -70,8 +70,8 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  *
  * ```
  *
- * @param DescribeEnvironmentMembershipsCommandInput - {@link DescribeEnvironmentMembershipsCommandInput}
- * @returns {@link DescribeEnvironmentMembershipsCommandOutput}
+ * @param DescribeEnvironmentMembershipsRequest - {@link DescribeEnvironmentMembershipsRequest}
+ * @returns {@link DescribeEnvironmentMembershipsResult}
  * @see {@link DescribeEnvironmentMembershipsCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentMembershipsCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.

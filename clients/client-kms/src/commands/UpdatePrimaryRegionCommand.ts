@@ -113,8 +113,8 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdatePrimaryRegionCommandInput - {@link UpdatePrimaryRegionCommandInput}
- * @returns {@link UpdatePrimaryRegionCommandOutput}
+ * @param UpdatePrimaryRegionRequest - {@link UpdatePrimaryRegionRequest}
+ * @returns {@link Unit}
  * @see {@link UpdatePrimaryRegionCommandInput} for command's `input` shape.
  * @see {@link UpdatePrimaryRegionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

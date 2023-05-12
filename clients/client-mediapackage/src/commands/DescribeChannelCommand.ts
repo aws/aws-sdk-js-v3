@@ -72,8 +72,8 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  *
  * ```
  *
- * @param DescribeChannelCommandInput - {@link DescribeChannelCommandInput}
- * @returns {@link DescribeChannelCommandOutput}
+ * @param DescribeChannelRequest - {@link DescribeChannelRequest}
+ * @returns {@link DescribeChannelResponse}
  * @see {@link DescribeChannelCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.

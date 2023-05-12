@@ -68,8 +68,8 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  *
  * ```
  *
- * @param ListTemplateVersionsCommandInput - {@link ListTemplateVersionsCommandInput}
- * @returns {@link ListTemplateVersionsCommandOutput}
+ * @param ListTemplateVersionsRequest - {@link ListTemplateVersionsRequest}
+ * @returns {@link ListTemplateVersionsResponse}
  * @see {@link ListTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link ListTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

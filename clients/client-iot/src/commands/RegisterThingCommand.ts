@@ -60,8 +60,8 @@ export interface RegisterThingCommandOutput extends RegisterThingResponse, __Met
  *
  * ```
  *
- * @param RegisterThingCommandInput - {@link RegisterThingCommandInput}
- * @returns {@link RegisterThingCommandOutput}
+ * @param RegisterThingRequest - {@link RegisterThingRequest}
+ * @returns {@link RegisterThingResponse}
  * @see {@link RegisterThingCommandInput} for command's `input` shape.
  * @see {@link RegisterThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -60,8 +60,8 @@ export interface CreateServiceSyncConfigCommandOutput extends CreateServiceSyncC
  *
  * ```
  *
- * @param CreateServiceSyncConfigCommandInput - {@link CreateServiceSyncConfigCommandInput}
- * @returns {@link CreateServiceSyncConfigCommandOutput}
+ * @param CreateServiceSyncConfigInput - {@link CreateServiceSyncConfigInput}
+ * @returns {@link CreateServiceSyncConfigOutput}
  * @see {@link CreateServiceSyncConfigCommandInput} for command's `input` shape.
  * @see {@link CreateServiceSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

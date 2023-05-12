@@ -48,8 +48,8 @@ export interface DeleteFrameworkCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteFrameworkCommandInput - {@link DeleteFrameworkCommandInput}
- * @returns {@link DeleteFrameworkCommandOutput}
+ * @param DeleteFrameworkInput - {@link DeleteFrameworkInput}
+ * @returns {@link Unit}
  * @see {@link DeleteFrameworkCommandInput} for command's `input` shape.
  * @see {@link DeleteFrameworkCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

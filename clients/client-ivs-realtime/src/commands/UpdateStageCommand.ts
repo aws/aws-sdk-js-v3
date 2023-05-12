@@ -58,8 +58,8 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  *
  * ```
  *
- * @param UpdateStageCommandInput - {@link UpdateStageCommandInput}
- * @returns {@link UpdateStageCommandOutput}
+ * @param UpdateStageRequest - {@link UpdateStageRequest}
+ * @returns {@link UpdateStageResponse}
  * @see {@link UpdateStageCommandInput} for command's `input` shape.
  * @see {@link UpdateStageCommandOutput} for command's `response` shape.
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.

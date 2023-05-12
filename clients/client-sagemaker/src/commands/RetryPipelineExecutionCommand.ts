@@ -54,8 +54,8 @@ export interface RetryPipelineExecutionCommandOutput extends RetryPipelineExecut
  *
  * ```
  *
- * @param RetryPipelineExecutionCommandInput - {@link RetryPipelineExecutionCommandInput}
- * @returns {@link RetryPipelineExecutionCommandOutput}
+ * @param RetryPipelineExecutionRequest - {@link RetryPipelineExecutionRequest}
+ * @returns {@link RetryPipelineExecutionResponse}
  * @see {@link RetryPipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link RetryPipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

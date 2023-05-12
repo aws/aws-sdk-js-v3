@@ -92,8 +92,8 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  *
  * ```
  *
- * @param GetParametersForImportCommandInput - {@link GetParametersForImportCommandInput}
- * @returns {@link GetParametersForImportCommandOutput}
+ * @param GetParametersForImportRequest - {@link GetParametersForImportRequest}
+ * @returns {@link GetParametersForImportResponse}
  * @see {@link GetParametersForImportCommandInput} for command's `input` shape.
  * @see {@link GetParametersForImportCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

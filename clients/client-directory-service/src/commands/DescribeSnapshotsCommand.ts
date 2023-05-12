@@ -71,8 +71,8 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  *
  * ```
  *
- * @param DescribeSnapshotsCommandInput - {@link DescribeSnapshotsCommandInput}
- * @returns {@link DescribeSnapshotsCommandOutput}
+ * @param DescribeSnapshotsRequest - {@link DescribeSnapshotsRequest}
+ * @returns {@link DescribeSnapshotsResult}
  * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

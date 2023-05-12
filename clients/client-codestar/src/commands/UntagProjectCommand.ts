@@ -51,8 +51,8 @@ export interface UntagProjectCommandOutput extends UntagProjectResult, __Metadat
  *
  * ```
  *
- * @param UntagProjectCommandInput - {@link UntagProjectCommandInput}
- * @returns {@link UntagProjectCommandOutput}
+ * @param UntagProjectRequest - {@link UntagProjectRequest}
+ * @returns {@link UntagProjectResult}
  * @see {@link UntagProjectCommandInput} for command's `input` shape.
  * @see {@link UntagProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.

@@ -113,8 +113,8 @@ export interface GrantPermissionsCommandOutput extends GrantPermissionsResponse,
  *
  * ```
  *
- * @param GrantPermissionsCommandInput - {@link GrantPermissionsCommandInput}
- * @returns {@link GrantPermissionsCommandOutput}
+ * @param GrantPermissionsRequest - {@link GrantPermissionsRequest}
+ * @returns {@link GrantPermissionsResponse}
  * @see {@link GrantPermissionsCommandInput} for command's `input` shape.
  * @see {@link GrantPermissionsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

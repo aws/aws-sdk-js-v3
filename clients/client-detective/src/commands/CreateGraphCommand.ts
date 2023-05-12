@@ -67,8 +67,8 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  *
  * ```
  *
- * @param CreateGraphCommandInput - {@link CreateGraphCommandInput}
- * @returns {@link CreateGraphCommandOutput}
+ * @param CreateGraphRequest - {@link CreateGraphRequest}
+ * @returns {@link CreateGraphResponse}
  * @see {@link CreateGraphCommandInput} for command's `input` shape.
  * @see {@link CreateGraphCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

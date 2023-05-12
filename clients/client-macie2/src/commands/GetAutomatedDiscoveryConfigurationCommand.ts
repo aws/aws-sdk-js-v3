@@ -61,8 +61,8 @@ export interface GetAutomatedDiscoveryConfigurationCommandOutput
  *
  * ```
  *
- * @param GetAutomatedDiscoveryConfigurationCommandInput - {@link GetAutomatedDiscoveryConfigurationCommandInput}
- * @returns {@link GetAutomatedDiscoveryConfigurationCommandOutput}
+ * @param GetAutomatedDiscoveryConfigurationRequest - {@link GetAutomatedDiscoveryConfigurationRequest}
+ * @returns {@link GetAutomatedDiscoveryConfigurationResponse}
  * @see {@link GetAutomatedDiscoveryConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAutomatedDiscoveryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

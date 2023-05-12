@@ -71,8 +71,8 @@ export interface DescribeIdentityProviderCommandOutput extends DescribeIdentityP
  *
  * ```
  *
- * @param DescribeIdentityProviderCommandInput - {@link DescribeIdentityProviderCommandInput}
- * @returns {@link DescribeIdentityProviderCommandOutput}
+ * @param DescribeIdentityProviderRequest - {@link DescribeIdentityProviderRequest}
+ * @returns {@link DescribeIdentityProviderResponse}
  * @see {@link DescribeIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

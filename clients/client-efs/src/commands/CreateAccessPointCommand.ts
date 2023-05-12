@@ -112,8 +112,8 @@ export interface CreateAccessPointCommandOutput extends AccessPointDescription, 
  *
  * ```
  *
- * @param CreateAccessPointCommandInput - {@link CreateAccessPointCommandInput}
- * @returns {@link CreateAccessPointCommandOutput}
+ * @param CreateAccessPointRequest - {@link CreateAccessPointRequest}
+ * @returns {@link AccessPointDescription}
  * @see {@link CreateAccessPointCommandInput} for command's `input` shape.
  * @see {@link CreateAccessPointCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

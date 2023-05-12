@@ -58,8 +58,8 @@ export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param UpdateRescoreExecutionPlanCommandInput - {@link UpdateRescoreExecutionPlanCommandInput}
- * @returns {@link UpdateRescoreExecutionPlanCommandOutput}
+ * @param UpdateRescoreExecutionPlanRequest - {@link UpdateRescoreExecutionPlanRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateRescoreExecutionPlanCommandInput} for command's `input` shape.
  * @see {@link UpdateRescoreExecutionPlanCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.

@@ -78,8 +78,8 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  *
  * ```
  *
- * @param DetachInstancesCommandInput - {@link DetachInstancesCommandInput}
- * @returns {@link DetachInstancesCommandOutput}
+ * @param DetachInstancesQuery - {@link DetachInstancesQuery}
+ * @returns {@link DetachInstancesAnswer}
  * @see {@link DetachInstancesCommandInput} for command's `input` shape.
  * @see {@link DetachInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

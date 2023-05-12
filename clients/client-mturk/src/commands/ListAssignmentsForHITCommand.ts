@@ -98,8 +98,8 @@ export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHI
  *
  * ```
  *
- * @param ListAssignmentsForHITCommandInput - {@link ListAssignmentsForHITCommandInput}
- * @returns {@link ListAssignmentsForHITCommandOutput}
+ * @param ListAssignmentsForHITRequest - {@link ListAssignmentsForHITRequest}
+ * @returns {@link ListAssignmentsForHITResponse}
  * @see {@link ListAssignmentsForHITCommandInput} for command's `input` shape.
  * @see {@link ListAssignmentsForHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

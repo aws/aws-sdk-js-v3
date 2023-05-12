@@ -57,8 +57,8 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
  *
  * ```
  *
- * @param ListRuleNamesByTargetCommandInput - {@link ListRuleNamesByTargetCommandInput}
- * @returns {@link ListRuleNamesByTargetCommandOutput}
+ * @param ListRuleNamesByTargetRequest - {@link ListRuleNamesByTargetRequest}
+ * @returns {@link ListRuleNamesByTargetResponse}
  * @see {@link ListRuleNamesByTargetCommandInput} for command's `input` shape.
  * @see {@link ListRuleNamesByTargetCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

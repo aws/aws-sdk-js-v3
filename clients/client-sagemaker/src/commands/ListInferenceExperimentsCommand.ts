@@ -77,8 +77,8 @@ export interface ListInferenceExperimentsCommandOutput extends ListInferenceExpe
  *
  * ```
  *
- * @param ListInferenceExperimentsCommandInput - {@link ListInferenceExperimentsCommandInput}
- * @returns {@link ListInferenceExperimentsCommandOutput}
+ * @param ListInferenceExperimentsRequest - {@link ListInferenceExperimentsRequest}
+ * @returns {@link ListInferenceExperimentsResponse}
  * @see {@link ListInferenceExperimentsCommandInput} for command's `input` shape.
  * @see {@link ListInferenceExperimentsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

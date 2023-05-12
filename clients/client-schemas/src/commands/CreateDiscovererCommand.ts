@@ -63,8 +63,8 @@ export interface CreateDiscovererCommandOutput extends CreateDiscovererResponse,
  *
  * ```
  *
- * @param CreateDiscovererCommandInput - {@link CreateDiscovererCommandInput}
- * @returns {@link CreateDiscovererCommandOutput}
+ * @param CreateDiscovererRequest - {@link CreateDiscovererRequest}
+ * @returns {@link CreateDiscovererResponse}
  * @see {@link CreateDiscovererCommandInput} for command's `input` shape.
  * @see {@link CreateDiscovererCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

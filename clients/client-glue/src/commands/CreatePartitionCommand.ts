@@ -116,8 +116,8 @@ export interface CreatePartitionCommandOutput extends CreatePartitionResponse, _
  *
  * ```
  *
- * @param CreatePartitionCommandInput - {@link CreatePartitionCommandInput}
- * @returns {@link CreatePartitionCommandOutput}
+ * @param CreatePartitionRequest - {@link CreatePartitionRequest}
+ * @returns {@link CreatePartitionResponse}
  * @see {@link CreatePartitionCommandInput} for command's `input` shape.
  * @see {@link CreatePartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

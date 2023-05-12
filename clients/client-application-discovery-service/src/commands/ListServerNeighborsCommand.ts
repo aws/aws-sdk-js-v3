@@ -71,8 +71,8 @@ export interface ListServerNeighborsCommandOutput extends ListServerNeighborsRes
  *
  * ```
  *
- * @param ListServerNeighborsCommandInput - {@link ListServerNeighborsCommandInput}
- * @returns {@link ListServerNeighborsCommandOutput}
+ * @param ListServerNeighborsRequest - {@link ListServerNeighborsRequest}
+ * @returns {@link ListServerNeighborsResponse}
  * @see {@link ListServerNeighborsCommandInput} for command's `input` shape.
  * @see {@link ListServerNeighborsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

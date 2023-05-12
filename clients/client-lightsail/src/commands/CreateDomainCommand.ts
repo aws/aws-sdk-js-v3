@@ -74,8 +74,8 @@ export interface CreateDomainCommandOutput extends CreateDomainResult, __Metadat
  *
  * ```
  *
- * @param CreateDomainCommandInput - {@link CreateDomainCommandInput}
- * @returns {@link CreateDomainCommandOutput}
+ * @param CreateDomainRequest - {@link CreateDomainRequest}
+ * @returns {@link CreateDomainResult}
  * @see {@link CreateDomainCommandInput} for command's `input` shape.
  * @see {@link CreateDomainCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

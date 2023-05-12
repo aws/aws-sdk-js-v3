@@ -56,8 +56,8 @@ export interface UpdateDetectorVersionMetadataCommandOutput
  *
  * ```
  *
- * @param UpdateDetectorVersionMetadataCommandInput - {@link UpdateDetectorVersionMetadataCommandInput}
- * @returns {@link UpdateDetectorVersionMetadataCommandOutput}
+ * @param UpdateDetectorVersionMetadataRequest - {@link UpdateDetectorVersionMetadataRequest}
+ * @returns {@link UpdateDetectorVersionMetadataResult}
  * @see {@link UpdateDetectorVersionMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorVersionMetadataCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

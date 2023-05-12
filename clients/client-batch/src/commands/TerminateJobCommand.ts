@@ -51,8 +51,8 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  *
  * ```
  *
- * @param TerminateJobCommandInput - {@link TerminateJobCommandInput}
- * @returns {@link TerminateJobCommandOutput}
+ * @param TerminateJobRequest - {@link TerminateJobRequest}
+ * @returns {@link TerminateJobResponse}
  * @see {@link TerminateJobCommandInput} for command's `input` shape.
  * @see {@link TerminateJobCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

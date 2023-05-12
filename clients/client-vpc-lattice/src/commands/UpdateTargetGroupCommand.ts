@@ -89,8 +89,8 @@ export interface UpdateTargetGroupCommandOutput extends UpdateTargetGroupRespons
  *
  * ```
  *
- * @param UpdateTargetGroupCommandInput - {@link UpdateTargetGroupCommandInput}
- * @returns {@link UpdateTargetGroupCommandOutput}
+ * @param UpdateTargetGroupRequest - {@link UpdateTargetGroupRequest}
+ * @returns {@link UpdateTargetGroupResponse}
  * @see {@link UpdateTargetGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

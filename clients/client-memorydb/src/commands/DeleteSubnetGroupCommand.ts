@@ -63,8 +63,8 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  *
  * ```
  *
- * @param DeleteSubnetGroupCommandInput - {@link DeleteSubnetGroupCommandInput}
- * @returns {@link DeleteSubnetGroupCommandOutput}
+ * @param DeleteSubnetGroupRequest - {@link DeleteSubnetGroupRequest}
+ * @returns {@link DeleteSubnetGroupResponse}
  * @see {@link DeleteSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

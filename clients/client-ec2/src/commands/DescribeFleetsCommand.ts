@@ -402,8 +402,8 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  *
  * ```
  *
- * @param DescribeFleetsCommandInput - {@link DescribeFleetsCommandInput}
- * @returns {@link DescribeFleetsCommandOutput}
+ * @param DescribeFleetsRequest - {@link DescribeFleetsRequest}
+ * @returns {@link DescribeFleetsResult}
  * @see {@link DescribeFleetsCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

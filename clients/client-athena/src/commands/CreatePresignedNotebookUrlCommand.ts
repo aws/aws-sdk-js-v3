@@ -56,8 +56,8 @@ export interface CreatePresignedNotebookUrlCommandOutput extends CreatePresigned
  *
  * ```
  *
- * @param CreatePresignedNotebookUrlCommandInput - {@link CreatePresignedNotebookUrlCommandInput}
- * @returns {@link CreatePresignedNotebookUrlCommandOutput}
+ * @param CreatePresignedNotebookUrlRequest - {@link CreatePresignedNotebookUrlRequest}
+ * @returns {@link CreatePresignedNotebookUrlResponse}
  * @see {@link CreatePresignedNotebookUrlCommandInput} for command's `input` shape.
  * @see {@link CreatePresignedNotebookUrlCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

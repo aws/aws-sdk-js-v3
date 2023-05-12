@@ -71,8 +71,8 @@ export interface CreateHostedConfigurationVersionCommandOutput extends HostedCon
  *
  * ```
  *
- * @param CreateHostedConfigurationVersionCommandInput - {@link CreateHostedConfigurationVersionCommandInput}
- * @returns {@link CreateHostedConfigurationVersionCommandOutput}
+ * @param CreateHostedConfigurationVersionRequest - {@link CreateHostedConfigurationVersionRequest}
+ * @returns {@link HostedConfigurationVersion}
  * @see {@link CreateHostedConfigurationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateHostedConfigurationVersionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

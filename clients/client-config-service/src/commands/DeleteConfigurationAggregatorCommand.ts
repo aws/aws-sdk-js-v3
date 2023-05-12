@@ -52,8 +52,8 @@ export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBe
  *
  * ```
  *
- * @param DeleteConfigurationAggregatorCommandInput - {@link DeleteConfigurationAggregatorCommandInput}
- * @returns {@link DeleteConfigurationAggregatorCommandOutput}
+ * @param DeleteConfigurationAggregatorRequest - {@link DeleteConfigurationAggregatorRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteConfigurationAggregatorCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationAggregatorCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

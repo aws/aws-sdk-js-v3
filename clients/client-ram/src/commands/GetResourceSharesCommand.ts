@@ -86,8 +86,8 @@ export interface GetResourceSharesCommandOutput extends GetResourceSharesRespons
  *
  * ```
  *
- * @param GetResourceSharesCommandInput - {@link GetResourceSharesCommandInput}
- * @returns {@link GetResourceSharesCommandOutput}
+ * @param GetResourceSharesRequest - {@link GetResourceSharesRequest}
+ * @returns {@link GetResourceSharesResponse}
  * @see {@link GetResourceSharesCommandInput} for command's `input` shape.
  * @see {@link GetResourceSharesCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

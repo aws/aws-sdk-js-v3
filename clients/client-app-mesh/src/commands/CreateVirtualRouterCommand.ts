@@ -100,8 +100,8 @@ export interface CreateVirtualRouterCommandOutput extends CreateVirtualRouterOut
  *
  * ```
  *
- * @param CreateVirtualRouterCommandInput - {@link CreateVirtualRouterCommandInput}
- * @returns {@link CreateVirtualRouterCommandOutput}
+ * @param CreateVirtualRouterInput - {@link CreateVirtualRouterInput}
+ * @returns {@link CreateVirtualRouterOutput}
  * @see {@link CreateVirtualRouterCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualRouterCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

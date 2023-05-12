@@ -77,8 +77,8 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *
  * ```
  *
- * @param ListFindingsCommandInput - {@link ListFindingsCommandInput}
- * @returns {@link ListFindingsCommandOutput}
+ * @param ListFindingsRequest - {@link ListFindingsRequest}
+ * @returns {@link ListFindingsResponse}
  * @see {@link ListFindingsCommandInput} for command's `input` shape.
  * @see {@link ListFindingsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

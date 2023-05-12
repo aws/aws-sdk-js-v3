@@ -94,8 +94,8 @@ export interface DescribeScheduledInstancesCommandOutput extends DescribeSchedul
  *
  * ```
  *
- * @param DescribeScheduledInstancesCommandInput - {@link DescribeScheduledInstancesCommandInput}
- * @returns {@link DescribeScheduledInstancesCommandOutput}
+ * @param DescribeScheduledInstancesRequest - {@link DescribeScheduledInstancesRequest}
+ * @returns {@link DescribeScheduledInstancesResult}
  * @see {@link DescribeScheduledInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

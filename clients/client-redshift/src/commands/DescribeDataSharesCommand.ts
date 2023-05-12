@@ -70,8 +70,8 @@ export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResul
  *
  * ```
  *
- * @param DescribeDataSharesCommandInput - {@link DescribeDataSharesCommandInput}
- * @returns {@link DescribeDataSharesCommandOutput}
+ * @param DescribeDataSharesMessage - {@link DescribeDataSharesMessage}
+ * @returns {@link DescribeDataSharesResult}
  * @see {@link DescribeDataSharesCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSharesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

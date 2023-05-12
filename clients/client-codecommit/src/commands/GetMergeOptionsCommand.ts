@@ -61,8 +61,8 @@ export interface GetMergeOptionsCommandOutput extends GetMergeOptionsOutput, __M
  *
  * ```
  *
- * @param GetMergeOptionsCommandInput - {@link GetMergeOptionsCommandInput}
- * @returns {@link GetMergeOptionsCommandOutput}
+ * @param GetMergeOptionsInput - {@link GetMergeOptionsInput}
+ * @returns {@link GetMergeOptionsOutput}
  * @see {@link GetMergeOptionsCommandInput} for command's `input` shape.
  * @see {@link GetMergeOptionsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

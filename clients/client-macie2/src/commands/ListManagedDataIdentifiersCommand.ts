@@ -56,8 +56,8 @@ export interface ListManagedDataIdentifiersCommandOutput extends ListManagedData
  *
  * ```
  *
- * @param ListManagedDataIdentifiersCommandInput - {@link ListManagedDataIdentifiersCommandInput}
- * @returns {@link ListManagedDataIdentifiersCommandOutput}
+ * @param ListManagedDataIdentifiersRequest - {@link ListManagedDataIdentifiersRequest}
+ * @returns {@link ListManagedDataIdentifiersResponse}
  * @see {@link ListManagedDataIdentifiersCommandInput} for command's `input` shape.
  * @see {@link ListManagedDataIdentifiersCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

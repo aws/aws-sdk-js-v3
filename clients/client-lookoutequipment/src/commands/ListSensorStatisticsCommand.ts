@@ -96,8 +96,8 @@ export interface ListSensorStatisticsCommandOutput extends ListSensorStatisticsR
  *
  * ```
  *
- * @param ListSensorStatisticsCommandInput - {@link ListSensorStatisticsCommandInput}
- * @returns {@link ListSensorStatisticsCommandOutput}
+ * @param ListSensorStatisticsRequest - {@link ListSensorStatisticsRequest}
+ * @returns {@link ListSensorStatisticsResponse}
  * @see {@link ListSensorStatisticsCommandInput} for command's `input` shape.
  * @see {@link ListSensorStatisticsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

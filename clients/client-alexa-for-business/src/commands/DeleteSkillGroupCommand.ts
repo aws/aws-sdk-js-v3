@@ -48,8 +48,8 @@ export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse,
  *
  * ```
  *
- * @param DeleteSkillGroupCommandInput - {@link DeleteSkillGroupCommandInput}
- * @returns {@link DeleteSkillGroupCommandOutput}
+ * @param DeleteSkillGroupRequest - {@link DeleteSkillGroupRequest}
+ * @returns {@link DeleteSkillGroupResponse}
  * @see {@link DeleteSkillGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

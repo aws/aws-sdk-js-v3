@@ -69,8 +69,8 @@ export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJob
  *
  * ```
  *
- * @param ListDataIngestionJobsCommandInput - {@link ListDataIngestionJobsCommandInput}
- * @returns {@link ListDataIngestionJobsCommandOutput}
+ * @param ListDataIngestionJobsRequest - {@link ListDataIngestionJobsRequest}
+ * @returns {@link ListDataIngestionJobsResponse}
  * @see {@link ListDataIngestionJobsCommandInput} for command's `input` shape.
  * @see {@link ListDataIngestionJobsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

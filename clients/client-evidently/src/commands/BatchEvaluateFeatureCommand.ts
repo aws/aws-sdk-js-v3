@@ -86,8 +86,8 @@ export interface BatchEvaluateFeatureCommandOutput extends BatchEvaluateFeatureR
  *
  * ```
  *
- * @param BatchEvaluateFeatureCommandInput - {@link BatchEvaluateFeatureCommandInput}
- * @returns {@link BatchEvaluateFeatureCommandOutput}
+ * @param BatchEvaluateFeatureRequest - {@link BatchEvaluateFeatureRequest}
+ * @returns {@link BatchEvaluateFeatureResponse}
  * @see {@link BatchEvaluateFeatureCommandInput} for command's `input` shape.
  * @see {@link BatchEvaluateFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

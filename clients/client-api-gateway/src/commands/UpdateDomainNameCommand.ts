@@ -89,8 +89,8 @@ export interface UpdateDomainNameCommandOutput extends DomainName, __MetadataBea
  *
  * ```
  *
- * @param UpdateDomainNameCommandInput - {@link UpdateDomainNameCommandInput}
- * @returns {@link UpdateDomainNameCommandOutput}
+ * @param UpdateDomainNameRequest - {@link UpdateDomainNameRequest}
+ * @returns {@link DomainName}
  * @see {@link UpdateDomainNameCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainNameCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

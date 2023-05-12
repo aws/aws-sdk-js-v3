@@ -51,8 +51,8 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  *
  * ```
  *
- * @param DisconnectParticipantCommandInput - {@link DisconnectParticipantCommandInput}
- * @returns {@link DisconnectParticipantCommandOutput}
+ * @param DisconnectParticipantRequest - {@link DisconnectParticipantRequest}
+ * @returns {@link DisconnectParticipantResponse}
  * @see {@link DisconnectParticipantCommandInput} for command's `input` shape.
  * @see {@link DisconnectParticipantCommandOutput} for command's `response` shape.
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.

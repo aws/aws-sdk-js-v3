@@ -48,8 +48,8 @@ export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCa
  *
  * ```
  *
- * @param InvalidateProjectCacheCommandInput - {@link InvalidateProjectCacheCommandInput}
- * @returns {@link InvalidateProjectCacheCommandOutput}
+ * @param InvalidateProjectCacheInput - {@link InvalidateProjectCacheInput}
+ * @returns {@link InvalidateProjectCacheOutput}
  * @see {@link InvalidateProjectCacheCommandInput} for command's `input` shape.
  * @see {@link InvalidateProjectCacheCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

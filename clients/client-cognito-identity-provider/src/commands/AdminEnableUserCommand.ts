@@ -59,8 +59,8 @@ export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, _
  *
  * ```
  *
- * @param AdminEnableUserCommandInput - {@link AdminEnableUserCommandInput}
- * @returns {@link AdminEnableUserCommandOutput}
+ * @param AdminEnableUserRequest - {@link AdminEnableUserRequest}
+ * @returns {@link AdminEnableUserResponse}
  * @see {@link AdminEnableUserCommandInput} for command's `input` shape.
  * @see {@link AdminEnableUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

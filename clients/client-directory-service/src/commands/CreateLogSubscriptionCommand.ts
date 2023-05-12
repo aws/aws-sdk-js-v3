@@ -50,8 +50,8 @@ export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptio
  *
  * ```
  *
- * @param CreateLogSubscriptionCommandInput - {@link CreateLogSubscriptionCommandInput}
- * @returns {@link CreateLogSubscriptionCommandOutput}
+ * @param CreateLogSubscriptionRequest - {@link CreateLogSubscriptionRequest}
+ * @returns {@link CreateLogSubscriptionResult}
  * @see {@link CreateLogSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateLogSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

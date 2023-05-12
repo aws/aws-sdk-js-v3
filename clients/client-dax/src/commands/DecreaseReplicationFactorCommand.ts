@@ -114,8 +114,8 @@ export interface DecreaseReplicationFactorCommandOutput extends DecreaseReplicat
  *
  * ```
  *
- * @param DecreaseReplicationFactorCommandInput - {@link DecreaseReplicationFactorCommandInput}
- * @returns {@link DecreaseReplicationFactorCommandOutput}
+ * @param DecreaseReplicationFactorRequest - {@link DecreaseReplicationFactorRequest}
+ * @returns {@link DecreaseReplicationFactorResponse}
  * @see {@link DecreaseReplicationFactorCommandInput} for command's `input` shape.
  * @see {@link DecreaseReplicationFactorCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.

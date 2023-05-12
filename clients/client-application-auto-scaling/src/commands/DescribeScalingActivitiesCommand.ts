@@ -86,8 +86,8 @@ export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingA
  *
  * ```
  *
- * @param DescribeScalingActivitiesCommandInput - {@link DescribeScalingActivitiesCommandInput}
- * @returns {@link DescribeScalingActivitiesCommandOutput}
+ * @param DescribeScalingActivitiesRequest - {@link DescribeScalingActivitiesRequest}
+ * @returns {@link DescribeScalingActivitiesResponse}
  * @see {@link DescribeScalingActivitiesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingActivitiesCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.

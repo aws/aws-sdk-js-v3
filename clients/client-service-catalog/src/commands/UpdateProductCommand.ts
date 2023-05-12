@@ -119,8 +119,8 @@ export interface UpdateProductCommandOutput extends UpdateProductOutput, __Metad
  *
  * ```
  *
- * @param UpdateProductCommandInput - {@link UpdateProductCommandInput}
- * @returns {@link UpdateProductCommandOutput}
+ * @param UpdateProductInput - {@link UpdateProductInput}
+ * @returns {@link UpdateProductOutput}
  * @see {@link UpdateProductCommandInput} for command's `input` shape.
  * @see {@link UpdateProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

@@ -87,8 +87,8 @@ export interface DescribeRecommendationExportJobsCommandOutput
  *
  * ```
  *
- * @param DescribeRecommendationExportJobsCommandInput - {@link DescribeRecommendationExportJobsCommandInput}
- * @returns {@link DescribeRecommendationExportJobsCommandOutput}
+ * @param DescribeRecommendationExportJobsRequest - {@link DescribeRecommendationExportJobsRequest}
+ * @returns {@link DescribeRecommendationExportJobsResponse}
  * @see {@link DescribeRecommendationExportJobsCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommendationExportJobsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

@@ -718,8 +718,8 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  *
  * ```
  *
- * @param ModifyEndpointCommandInput - {@link ModifyEndpointCommandInput}
- * @returns {@link ModifyEndpointCommandOutput}
+ * @param ModifyEndpointMessage - {@link ModifyEndpointMessage}
+ * @returns {@link ModifyEndpointResponse}
  * @see {@link ModifyEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyEndpointCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

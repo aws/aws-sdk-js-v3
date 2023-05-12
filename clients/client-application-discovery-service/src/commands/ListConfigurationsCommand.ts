@@ -78,8 +78,8 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  *
  * ```
  *
- * @param ListConfigurationsCommandInput - {@link ListConfigurationsCommandInput}
- * @returns {@link ListConfigurationsCommandOutput}
+ * @param ListConfigurationsRequest - {@link ListConfigurationsRequest}
+ * @returns {@link ListConfigurationsResponse}
  * @see {@link ListConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

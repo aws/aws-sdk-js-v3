@@ -52,8 +52,8 @@ export interface DeleteEarthObservationJobCommandOutput extends DeleteEarthObser
  *
  * ```
  *
- * @param DeleteEarthObservationJobCommandInput - {@link DeleteEarthObservationJobCommandInput}
- * @returns {@link DeleteEarthObservationJobCommandOutput}
+ * @param DeleteEarthObservationJobInput - {@link DeleteEarthObservationJobInput}
+ * @returns {@link DeleteEarthObservationJobOutput}
  * @see {@link DeleteEarthObservationJobCommandInput} for command's `input` shape.
  * @see {@link DeleteEarthObservationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.

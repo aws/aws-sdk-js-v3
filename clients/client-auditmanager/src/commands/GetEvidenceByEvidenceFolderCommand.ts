@@ -86,8 +86,8 @@ export interface GetEvidenceByEvidenceFolderCommandOutput
  *
  * ```
  *
- * @param GetEvidenceByEvidenceFolderCommandInput - {@link GetEvidenceByEvidenceFolderCommandInput}
- * @returns {@link GetEvidenceByEvidenceFolderCommandOutput}
+ * @param GetEvidenceByEvidenceFolderRequest - {@link GetEvidenceByEvidenceFolderRequest}
+ * @returns {@link GetEvidenceByEvidenceFolderResponse}
  * @see {@link GetEvidenceByEvidenceFolderCommandInput} for command's `input` shape.
  * @see {@link GetEvidenceByEvidenceFolderCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

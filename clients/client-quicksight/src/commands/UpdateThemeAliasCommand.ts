@@ -59,8 +59,8 @@ export interface UpdateThemeAliasCommandOutput extends UpdateThemeAliasResponse,
  *
  * ```
  *
- * @param UpdateThemeAliasCommandInput - {@link UpdateThemeAliasCommandInput}
- * @returns {@link UpdateThemeAliasCommandOutput}
+ * @param UpdateThemeAliasRequest - {@link UpdateThemeAliasRequest}
+ * @returns {@link UpdateThemeAliasResponse}
  * @see {@link UpdateThemeAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateThemeAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

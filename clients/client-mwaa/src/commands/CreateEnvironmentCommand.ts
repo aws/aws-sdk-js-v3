@@ -107,8 +107,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *
  * ```
  *
- * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
- * @returns {@link CreateEnvironmentCommandOutput}
+ * @param CreateEnvironmentInput - {@link CreateEnvironmentInput}
+ * @returns {@link CreateEnvironmentOutput}
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.

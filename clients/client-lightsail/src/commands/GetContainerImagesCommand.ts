@@ -62,8 +62,8 @@ export interface GetContainerImagesCommandOutput extends GetContainerImagesResul
  *
  * ```
  *
- * @param GetContainerImagesCommandInput - {@link GetContainerImagesCommandInput}
- * @returns {@link GetContainerImagesCommandOutput}
+ * @param GetContainerImagesRequest - {@link GetContainerImagesRequest}
+ * @returns {@link GetContainerImagesResult}
  * @see {@link GetContainerImagesCommandInput} for command's `input` shape.
  * @see {@link GetContainerImagesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

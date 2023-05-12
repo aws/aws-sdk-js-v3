@@ -63,8 +63,8 @@ export interface AssociateFraudsterCommandOutput extends AssociateFraudsterRespo
  *
  * ```
  *
- * @param AssociateFraudsterCommandInput - {@link AssociateFraudsterCommandInput}
- * @returns {@link AssociateFraudsterCommandOutput}
+ * @param AssociateFraudsterRequest - {@link AssociateFraudsterRequest}
+ * @returns {@link AssociateFraudsterResponse}
  * @see {@link AssociateFraudsterCommandInput} for command's `input` shape.
  * @see {@link AssociateFraudsterCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

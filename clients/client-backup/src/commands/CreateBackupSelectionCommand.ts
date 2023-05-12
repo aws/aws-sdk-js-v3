@@ -97,8 +97,8 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  *
  * ```
  *
- * @param CreateBackupSelectionCommandInput - {@link CreateBackupSelectionCommandInput}
- * @returns {@link CreateBackupSelectionCommandOutput}
+ * @param CreateBackupSelectionInput - {@link CreateBackupSelectionInput}
+ * @returns {@link CreateBackupSelectionOutput}
  * @see {@link CreateBackupSelectionCommandInput} for command's `input` shape.
  * @see {@link CreateBackupSelectionCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

@@ -109,8 +109,8 @@ export interface AssociateLicenseCommandOutput extends AssociateLicenseResponse,
  *
  * ```
  *
- * @param AssociateLicenseCommandInput - {@link AssociateLicenseCommandInput}
- * @returns {@link AssociateLicenseCommandOutput}
+ * @param AssociateLicenseRequest - {@link AssociateLicenseRequest}
+ * @returns {@link AssociateLicenseResponse}
  * @see {@link AssociateLicenseCommandInput} for command's `input` shape.
  * @see {@link AssociateLicenseCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.

@@ -137,8 +137,8 @@ export interface GetTraceGraphCommandOutput extends GetTraceGraphResult, __Metad
  *
  * ```
  *
- * @param GetTraceGraphCommandInput - {@link GetTraceGraphCommandInput}
- * @returns {@link GetTraceGraphCommandOutput}
+ * @param GetTraceGraphRequest - {@link GetTraceGraphRequest}
+ * @returns {@link GetTraceGraphResult}
  * @see {@link GetTraceGraphCommandInput} for command's `input` shape.
  * @see {@link GetTraceGraphCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

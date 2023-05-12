@@ -92,8 +92,8 @@ export interface DescribeIpamResourceDiscoveryAssociationsCommandOutput
  *
  * ```
  *
- * @param DescribeIpamResourceDiscoveryAssociationsCommandInput - {@link DescribeIpamResourceDiscoveryAssociationsCommandInput}
- * @returns {@link DescribeIpamResourceDiscoveryAssociationsCommandOutput}
+ * @param DescribeIpamResourceDiscoveryAssociationsRequest - {@link DescribeIpamResourceDiscoveryAssociationsRequest}
+ * @returns {@link DescribeIpamResourceDiscoveryAssociationsResult}
  * @see {@link DescribeIpamResourceDiscoveryAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeIpamResourceDiscoveryAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

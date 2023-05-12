@@ -54,8 +54,8 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  *
  * ```
  *
- * @param PutLexiconCommandInput - {@link PutLexiconCommandInput}
- * @returns {@link PutLexiconCommandOutput}
+ * @param PutLexiconInput - {@link PutLexiconInput}
+ * @returns {@link PutLexiconOutput}
  * @see {@link PutLexiconCommandInput} for command's `input` shape.
  * @see {@link PutLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.

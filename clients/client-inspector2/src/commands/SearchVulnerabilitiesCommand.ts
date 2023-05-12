@@ -108,8 +108,8 @@ export interface SearchVulnerabilitiesCommandOutput extends SearchVulnerabilitie
  *
  * ```
  *
- * @param SearchVulnerabilitiesCommandInput - {@link SearchVulnerabilitiesCommandInput}
- * @returns {@link SearchVulnerabilitiesCommandOutput}
+ * @param SearchVulnerabilitiesRequest - {@link SearchVulnerabilitiesRequest}
+ * @returns {@link SearchVulnerabilitiesResponse}
  * @see {@link SearchVulnerabilitiesCommandInput} for command's `input` shape.
  * @see {@link SearchVulnerabilitiesCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

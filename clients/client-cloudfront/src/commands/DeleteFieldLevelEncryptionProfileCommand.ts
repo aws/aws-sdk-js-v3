@@ -52,8 +52,8 @@ export interface DeleteFieldLevelEncryptionProfileCommandOutput extends __Metada
  *
  * ```
  *
- * @param DeleteFieldLevelEncryptionProfileCommandInput - {@link DeleteFieldLevelEncryptionProfileCommandInput}
- * @returns {@link DeleteFieldLevelEncryptionProfileCommandOutput}
+ * @param DeleteFieldLevelEncryptionProfileRequest - {@link DeleteFieldLevelEncryptionProfileRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteFieldLevelEncryptionProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteFieldLevelEncryptionProfileCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

@@ -80,8 +80,8 @@ export interface DescribeWorkteamCommandOutput extends DescribeWorkteamResponse,
  *
  * ```
  *
- * @param DescribeWorkteamCommandInput - {@link DescribeWorkteamCommandInput}
- * @returns {@link DescribeWorkteamCommandOutput}
+ * @param DescribeWorkteamRequest - {@link DescribeWorkteamRequest}
+ * @returns {@link DescribeWorkteamResponse}
  * @see {@link DescribeWorkteamCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

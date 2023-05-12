@@ -86,8 +86,8 @@ export interface AcceptDirectConnectGatewayAssociationProposalCommandOutput
  *
  * ```
  *
- * @param AcceptDirectConnectGatewayAssociationProposalCommandInput - {@link AcceptDirectConnectGatewayAssociationProposalCommandInput}
- * @returns {@link AcceptDirectConnectGatewayAssociationProposalCommandOutput}
+ * @param AcceptDirectConnectGatewayAssociationProposalRequest - {@link AcceptDirectConnectGatewayAssociationProposalRequest}
+ * @returns {@link AcceptDirectConnectGatewayAssociationProposalResult}
  * @see {@link AcceptDirectConnectGatewayAssociationProposalCommandInput} for command's `input` shape.
  * @see {@link AcceptDirectConnectGatewayAssociationProposalCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

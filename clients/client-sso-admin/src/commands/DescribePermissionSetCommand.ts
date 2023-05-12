@@ -58,8 +58,8 @@ export interface DescribePermissionSetCommandOutput extends DescribePermissionSe
  *
  * ```
  *
- * @param DescribePermissionSetCommandInput - {@link DescribePermissionSetCommandInput}
- * @returns {@link DescribePermissionSetCommandOutput}
+ * @param DescribePermissionSetRequest - {@link DescribePermissionSetRequest}
+ * @returns {@link DescribePermissionSetResponse}
  * @see {@link DescribePermissionSetCommandInput} for command's `input` shape.
  * @see {@link DescribePermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

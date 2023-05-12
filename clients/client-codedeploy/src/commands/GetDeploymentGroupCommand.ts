@@ -213,8 +213,8 @@ export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutpu
  *
  * ```
  *
- * @param GetDeploymentGroupCommandInput - {@link GetDeploymentGroupCommandInput}
- * @returns {@link GetDeploymentGroupCommandOutput}
+ * @param GetDeploymentGroupInput - {@link GetDeploymentGroupInput}
+ * @returns {@link GetDeploymentGroupOutput}
  * @see {@link GetDeploymentGroupCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

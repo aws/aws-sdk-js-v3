@@ -91,8 +91,8 @@ export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse,
  *
  * ```
  *
- * @param DescribeOpsItemsCommandInput - {@link DescribeOpsItemsCommandInput}
- * @returns {@link DescribeOpsItemsCommandOutput}
+ * @param DescribeOpsItemsRequest - {@link DescribeOpsItemsRequest}
+ * @returns {@link DescribeOpsItemsResponse}
  * @see {@link DescribeOpsItemsCommandInput} for command's `input` shape.
  * @see {@link DescribeOpsItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

@@ -82,8 +82,8 @@ export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsRes
  *
  * ```
  *
- * @param CopyPackageVersionsCommandInput - {@link CopyPackageVersionsCommandInput}
- * @returns {@link CopyPackageVersionsCommandOutput}
+ * @param CopyPackageVersionsRequest - {@link CopyPackageVersionsRequest}
+ * @returns {@link CopyPackageVersionsResult}
  * @see {@link CopyPackageVersionsCommandInput} for command's `input` shape.
  * @see {@link CopyPackageVersionsCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

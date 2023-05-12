@@ -72,8 +72,8 @@ export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteO
  *
  * ```
  *
- * @param NotifyObjectCompleteCommandInput - {@link NotifyObjectCompleteCommandInput}
- * @returns {@link NotifyObjectCompleteCommandOutput}
+ * @param NotifyObjectCompleteInput - {@link NotifyObjectCompleteInput}
+ * @returns {@link NotifyObjectCompleteOutput}
  * @see {@link NotifyObjectCompleteCommandInput} for command's `input` shape.
  * @see {@link NotifyObjectCompleteCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.

@@ -104,8 +104,8 @@ export interface GetDataflowEndpointGroupCommandOutput extends GetDataflowEndpoi
  *
  * ```
  *
- * @param GetDataflowEndpointGroupCommandInput - {@link GetDataflowEndpointGroupCommandInput}
- * @returns {@link GetDataflowEndpointGroupCommandOutput}
+ * @param GetDataflowEndpointGroupRequest - {@link GetDataflowEndpointGroupRequest}
+ * @returns {@link GetDataflowEndpointGroupResponse}
  * @see {@link GetDataflowEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link GetDataflowEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

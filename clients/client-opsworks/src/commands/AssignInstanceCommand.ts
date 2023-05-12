@@ -68,8 +68,8 @@ export interface AssignInstanceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AssignInstanceCommandInput - {@link AssignInstanceCommandInput}
- * @returns {@link AssignInstanceCommandOutput}
+ * @param AssignInstanceRequest - {@link AssignInstanceRequest}
+ * @returns {@link Unit}
  * @see {@link AssignInstanceCommandInput} for command's `input` shape.
  * @see {@link AssignInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

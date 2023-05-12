@@ -55,8 +55,8 @@ export interface PutAccountSuppressionAttributesCommandOutput
  *
  * ```
  *
- * @param PutAccountSuppressionAttributesCommandInput - {@link PutAccountSuppressionAttributesCommandInput}
- * @returns {@link PutAccountSuppressionAttributesCommandOutput}
+ * @param PutAccountSuppressionAttributesRequest - {@link PutAccountSuppressionAttributesRequest}
+ * @returns {@link PutAccountSuppressionAttributesResponse}
  * @see {@link PutAccountSuppressionAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountSuppressionAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteAppMonitorCommandOutput extends DeleteAppMonitorResponse,
  *
  * ```
  *
- * @param DeleteAppMonitorCommandInput - {@link DeleteAppMonitorCommandInput}
- * @returns {@link DeleteAppMonitorCommandOutput}
+ * @param DeleteAppMonitorRequest - {@link DeleteAppMonitorRequest}
+ * @returns {@link DeleteAppMonitorResponse}
  * @see {@link DeleteAppMonitorCommandInput} for command's `input` shape.
  * @see {@link DeleteAppMonitorCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.

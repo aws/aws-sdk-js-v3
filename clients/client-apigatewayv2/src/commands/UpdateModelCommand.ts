@@ -59,8 +59,8 @@ export interface UpdateModelCommandOutput extends UpdateModelResponse, __Metadat
  *
  * ```
  *
- * @param UpdateModelCommandInput - {@link UpdateModelCommandInput}
- * @returns {@link UpdateModelCommandOutput}
+ * @param UpdateModelRequest - {@link UpdateModelRequest}
+ * @returns {@link UpdateModelResponse}
  * @see {@link UpdateModelCommandInput} for command's `input` shape.
  * @see {@link UpdateModelCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

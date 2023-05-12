@@ -167,8 +167,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *
  * ```
  *
- * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
- * @returns {@link UpdateApplicationCommandOutput}
+ * @param UpdateApplicationRequest - {@link UpdateApplicationRequest}
+ * @returns {@link UpdateApplicationResponse}
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.

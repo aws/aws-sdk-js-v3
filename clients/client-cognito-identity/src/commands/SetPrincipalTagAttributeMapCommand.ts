@@ -63,8 +63,8 @@ export interface SetPrincipalTagAttributeMapCommandOutput
  *
  * ```
  *
- * @param SetPrincipalTagAttributeMapCommandInput - {@link SetPrincipalTagAttributeMapCommandInput}
- * @returns {@link SetPrincipalTagAttributeMapCommandOutput}
+ * @param SetPrincipalTagAttributeMapInput - {@link SetPrincipalTagAttributeMapInput}
+ * @returns {@link SetPrincipalTagAttributeMapResponse}
  * @see {@link SetPrincipalTagAttributeMapCommandInput} for command's `input` shape.
  * @see {@link SetPrincipalTagAttributeMapCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.

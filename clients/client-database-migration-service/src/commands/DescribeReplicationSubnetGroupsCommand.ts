@@ -88,8 +88,8 @@ export interface DescribeReplicationSubnetGroupsCommandOutput
  *
  * ```
  *
- * @param DescribeReplicationSubnetGroupsCommandInput - {@link DescribeReplicationSubnetGroupsCommandInput}
- * @returns {@link DescribeReplicationSubnetGroupsCommandOutput}
+ * @param DescribeReplicationSubnetGroupsMessage - {@link DescribeReplicationSubnetGroupsMessage}
+ * @returns {@link DescribeReplicationSubnetGroupsResponse}
  * @see {@link DescribeReplicationSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

@@ -54,8 +54,8 @@ export interface StartServerCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StartServerCommandInput - {@link StartServerCommandInput}
- * @returns {@link StartServerCommandOutput}
+ * @param StartServerRequest - {@link StartServerRequest}
+ * @returns {@link Unit}
  * @see {@link StartServerCommandInput} for command's `input` shape.
  * @see {@link StartServerCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

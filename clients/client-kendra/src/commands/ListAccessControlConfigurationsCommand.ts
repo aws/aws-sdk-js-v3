@@ -65,8 +65,8 @@ export interface ListAccessControlConfigurationsCommandOutput
  *
  * ```
  *
- * @param ListAccessControlConfigurationsCommandInput - {@link ListAccessControlConfigurationsCommandInput}
- * @returns {@link ListAccessControlConfigurationsCommandOutput}
+ * @param ListAccessControlConfigurationsRequest - {@link ListAccessControlConfigurationsRequest}
+ * @returns {@link ListAccessControlConfigurationsResponse}
  * @see {@link ListAccessControlConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListAccessControlConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

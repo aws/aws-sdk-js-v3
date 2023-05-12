@@ -161,8 +161,8 @@ export interface FinalizeCutoverCommandOutput extends SourceServer, __MetadataBe
  *
  * ```
  *
- * @param FinalizeCutoverCommandInput - {@link FinalizeCutoverCommandInput}
- * @returns {@link FinalizeCutoverCommandOutput}
+ * @param FinalizeCutoverRequest - {@link FinalizeCutoverRequest}
+ * @returns {@link SourceServer}
  * @see {@link FinalizeCutoverCommandInput} for command's `input` shape.
  * @see {@link FinalizeCutoverCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

@@ -53,8 +53,8 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAccessKeyCommandInput - {@link DeleteAccessKeyCommandInput}
- * @returns {@link DeleteAccessKeyCommandOutput}
+ * @param DeleteAccessKeyRequest - {@link DeleteAccessKeyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAccessKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __Met
  *
  * ```
  *
- * @param DeleteNotebookCommandInput - {@link DeleteNotebookCommandInput}
- * @returns {@link DeleteNotebookCommandOutput}
+ * @param DeleteNotebookInput - {@link DeleteNotebookInput}
+ * @returns {@link DeleteNotebookOutput}
  * @see {@link DeleteNotebookCommandInput} for command's `input` shape.
  * @see {@link DeleteNotebookCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

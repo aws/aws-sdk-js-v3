@@ -56,8 +56,8 @@ export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AdminForgetDeviceCommandInput - {@link AdminForgetDeviceCommandInput}
- * @returns {@link AdminForgetDeviceCommandOutput}
+ * @param AdminForgetDeviceRequest - {@link AdminForgetDeviceRequest}
+ * @returns {@link Unit}
  * @see {@link AdminForgetDeviceCommandInput} for command's `input` shape.
  * @see {@link AdminForgetDeviceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

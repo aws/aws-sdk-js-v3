@@ -74,8 +74,8 @@ export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryR
  *
  * ```
  *
- * @param DescribeFleetHistoryCommandInput - {@link DescribeFleetHistoryCommandInput}
- * @returns {@link DescribeFleetHistoryCommandOutput}
+ * @param DescribeFleetHistoryRequest - {@link DescribeFleetHistoryRequest}
+ * @returns {@link DescribeFleetHistoryResult}
  * @see {@link DescribeFleetHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetHistoryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

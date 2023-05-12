@@ -111,8 +111,8 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
  *
  * ```
  *
- * @param DescribeOptionGroupsCommandInput - {@link DescribeOptionGroupsCommandInput}
- * @returns {@link DescribeOptionGroupsCommandOutput}
+ * @param DescribeOptionGroupsMessage - {@link DescribeOptionGroupsMessage}
+ * @returns {@link OptionGroups}
  * @see {@link DescribeOptionGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeOptionGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

@@ -66,8 +66,8 @@ export interface ListDelegatedServicesForAccountCommandOutput
  *
  * ```
  *
- * @param ListDelegatedServicesForAccountCommandInput - {@link ListDelegatedServicesForAccountCommandInput}
- * @returns {@link ListDelegatedServicesForAccountCommandOutput}
+ * @param ListDelegatedServicesForAccountRequest - {@link ListDelegatedServicesForAccountRequest}
+ * @returns {@link ListDelegatedServicesForAccountResponse}
  * @see {@link ListDelegatedServicesForAccountCommandInput} for command's `input` shape.
  * @see {@link ListDelegatedServicesForAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

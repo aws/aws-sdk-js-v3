@@ -71,8 +71,8 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  *
  * ```
  *
- * @param CreateFolderCommandInput - {@link CreateFolderCommandInput}
- * @returns {@link CreateFolderCommandOutput}
+ * @param CreateFolderRequest - {@link CreateFolderRequest}
+ * @returns {@link CreateFolderResponse}
  * @see {@link CreateFolderCommandInput} for command's `input` shape.
  * @see {@link CreateFolderCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

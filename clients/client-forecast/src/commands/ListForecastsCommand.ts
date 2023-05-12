@@ -75,8 +75,8 @@ export interface ListForecastsCommandOutput extends ListForecastsResponse, __Met
  *
  * ```
  *
- * @param ListForecastsCommandInput - {@link ListForecastsCommandInput}
- * @returns {@link ListForecastsCommandOutput}
+ * @param ListForecastsRequest - {@link ListForecastsRequest}
+ * @returns {@link ListForecastsResponse}
  * @see {@link ListForecastsCommandInput} for command's `input` shape.
  * @see {@link ListForecastsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

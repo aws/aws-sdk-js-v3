@@ -78,8 +78,8 @@ export interface DescribeVPCConnectionCommandOutput extends DescribeVPCConnectio
  *
  * ```
  *
- * @param DescribeVPCConnectionCommandInput - {@link DescribeVPCConnectionCommandInput}
- * @returns {@link DescribeVPCConnectionCommandOutput}
+ * @param DescribeVPCConnectionRequest - {@link DescribeVPCConnectionRequest}
+ * @returns {@link DescribeVPCConnectionResponse}
  * @see {@link DescribeVPCConnectionCommandInput} for command's `input` shape.
  * @see {@link DescribeVPCConnectionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

@@ -70,8 +70,8 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  *
  * ```
  *
- * @param GetChangeCommandInput - {@link GetChangeCommandInput}
- * @returns {@link GetChangeCommandOutput}
+ * @param GetChangeRequest - {@link GetChangeRequest}
+ * @returns {@link GetChangeResponse}
  * @see {@link GetChangeCommandInput} for command's `input` shape.
  * @see {@link GetChangeCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

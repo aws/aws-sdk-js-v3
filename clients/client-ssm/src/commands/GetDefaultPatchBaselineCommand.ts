@@ -54,8 +54,8 @@ export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBas
  *
  * ```
  *
- * @param GetDefaultPatchBaselineCommandInput - {@link GetDefaultPatchBaselineCommandInput}
- * @returns {@link GetDefaultPatchBaselineCommandOutput}
+ * @param GetDefaultPatchBaselineRequest - {@link GetDefaultPatchBaselineRequest}
+ * @returns {@link GetDefaultPatchBaselineResult}
  * @see {@link GetDefaultPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link GetDefaultPatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

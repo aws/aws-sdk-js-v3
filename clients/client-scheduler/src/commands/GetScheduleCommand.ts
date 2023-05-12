@@ -142,8 +142,8 @@ export interface GetScheduleCommandOutput extends GetScheduleOutput, __MetadataB
  *
  * ```
  *
- * @param GetScheduleCommandInput - {@link GetScheduleCommandInput}
- * @returns {@link GetScheduleCommandOutput}
+ * @param GetScheduleInput - {@link GetScheduleInput}
+ * @returns {@link GetScheduleOutput}
  * @see {@link GetScheduleCommandInput} for command's `input` shape.
  * @see {@link GetScheduleCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.

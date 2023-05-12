@@ -70,8 +70,8 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  *
  * ```
  *
- * @param RemoveTargetsCommandInput - {@link RemoveTargetsCommandInput}
- * @returns {@link RemoveTargetsCommandOutput}
+ * @param RemoveTargetsRequest - {@link RemoveTargetsRequest}
+ * @returns {@link RemoveTargetsResponse}
  * @see {@link RemoveTargetsCommandInput} for command's `input` shape.
  * @see {@link RemoveTargetsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

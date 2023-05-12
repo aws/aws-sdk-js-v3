@@ -56,8 +56,8 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  *
  * ```
  *
- * @param DisassociateServiceRoleFromAccountCommandInput - {@link DisassociateServiceRoleFromAccountCommandInput}
- * @returns {@link DisassociateServiceRoleFromAccountCommandOutput}
+ * @param DisassociateServiceRoleFromAccountRequest - {@link DisassociateServiceRoleFromAccountRequest}
+ * @returns {@link DisassociateServiceRoleFromAccountResponse}
  * @see {@link DisassociateServiceRoleFromAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateServiceRoleFromAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

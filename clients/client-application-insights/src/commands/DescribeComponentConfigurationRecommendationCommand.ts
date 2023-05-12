@@ -65,8 +65,8 @@ export interface DescribeComponentConfigurationRecommendationCommandOutput
  *
  * ```
  *
- * @param DescribeComponentConfigurationRecommendationCommandInput - {@link DescribeComponentConfigurationRecommendationCommandInput}
- * @returns {@link DescribeComponentConfigurationRecommendationCommandOutput}
+ * @param DescribeComponentConfigurationRecommendationRequest - {@link DescribeComponentConfigurationRecommendationRequest}
+ * @returns {@link DescribeComponentConfigurationRecommendationResponse}
  * @see {@link DescribeComponentConfigurationRecommendationCommandInput} for command's `input` shape.
  * @see {@link DescribeComponentConfigurationRecommendationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.

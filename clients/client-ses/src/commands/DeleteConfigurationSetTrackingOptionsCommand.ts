@@ -66,8 +66,8 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput
  *
  * ```
  *
- * @param DeleteConfigurationSetTrackingOptionsCommandInput - {@link DeleteConfigurationSetTrackingOptionsCommandInput}
- * @returns {@link DeleteConfigurationSetTrackingOptionsCommandOutput}
+ * @param DeleteConfigurationSetTrackingOptionsRequest - {@link DeleteConfigurationSetTrackingOptionsRequest}
+ * @returns {@link DeleteConfigurationSetTrackingOptionsResponse}
  * @see {@link DeleteConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

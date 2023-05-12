@@ -51,8 +51,8 @@ export interface UpdateEventLabelCommandOutput extends UpdateEventLabelResult, _
  *
  * ```
  *
- * @param UpdateEventLabelCommandInput - {@link UpdateEventLabelCommandInput}
- * @returns {@link UpdateEventLabelCommandOutput}
+ * @param UpdateEventLabelRequest - {@link UpdateEventLabelRequest}
+ * @returns {@link UpdateEventLabelResult}
  * @see {@link UpdateEventLabelCommandInput} for command's `input` shape.
  * @see {@link UpdateEventLabelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

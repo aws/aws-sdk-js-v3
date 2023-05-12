@@ -72,8 +72,8 @@ export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDi
  *
  * ```
  *
- * @param DescribeSharedDirectoriesCommandInput - {@link DescribeSharedDirectoriesCommandInput}
- * @returns {@link DescribeSharedDirectoriesCommandOutput}
+ * @param DescribeSharedDirectoriesRequest - {@link DescribeSharedDirectoriesRequest}
+ * @returns {@link DescribeSharedDirectoriesResult}
  * @see {@link DescribeSharedDirectoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeSharedDirectoriesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

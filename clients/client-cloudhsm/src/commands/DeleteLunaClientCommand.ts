@@ -60,8 +60,8 @@ export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse,
  *
  * ```
  *
- * @param DeleteLunaClientCommandInput - {@link DeleteLunaClientCommandInput}
- * @returns {@link DeleteLunaClientCommandOutput}
+ * @param DeleteLunaClientRequest - {@link DeleteLunaClientRequest}
+ * @returns {@link DeleteLunaClientResponse}
  * @see {@link DeleteLunaClientCommandInput} for command's `input` shape.
  * @see {@link DeleteLunaClientCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.

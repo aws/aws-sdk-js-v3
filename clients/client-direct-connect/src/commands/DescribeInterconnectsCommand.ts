@@ -73,8 +73,8 @@ export interface DescribeInterconnectsCommandOutput extends Interconnects, __Met
  *
  * ```
  *
- * @param DescribeInterconnectsCommandInput - {@link DescribeInterconnectsCommandInput}
- * @returns {@link DescribeInterconnectsCommandOutput}
+ * @param DescribeInterconnectsRequest - {@link DescribeInterconnectsRequest}
+ * @returns {@link Interconnects}
  * @see {@link DescribeInterconnectsCommandInput} for command's `input` shape.
  * @see {@link DescribeInterconnectsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

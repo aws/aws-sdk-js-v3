@@ -62,8 +62,8 @@ export interface MigrateWorkspaceCommandOutput extends MigrateWorkspaceResult, _
  *
  * ```
  *
- * @param MigrateWorkspaceCommandInput - {@link MigrateWorkspaceCommandInput}
- * @returns {@link MigrateWorkspaceCommandOutput}
+ * @param MigrateWorkspaceRequest - {@link MigrateWorkspaceRequest}
+ * @returns {@link MigrateWorkspaceResult}
  * @see {@link MigrateWorkspaceCommandInput} for command's `input` shape.
  * @see {@link MigrateWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

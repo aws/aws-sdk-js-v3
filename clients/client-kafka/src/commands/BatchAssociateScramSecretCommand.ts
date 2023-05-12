@@ -60,8 +60,8 @@ export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateSc
  *
  * ```
  *
- * @param BatchAssociateScramSecretCommandInput - {@link BatchAssociateScramSecretCommandInput}
- * @returns {@link BatchAssociateScramSecretCommandOutput}
+ * @param BatchAssociateScramSecretRequest - {@link BatchAssociateScramSecretRequest}
+ * @returns {@link BatchAssociateScramSecretResponse}
  * @see {@link BatchAssociateScramSecretCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateScramSecretCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

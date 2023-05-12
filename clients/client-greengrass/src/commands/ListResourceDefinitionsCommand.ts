@@ -65,8 +65,8 @@ export interface ListResourceDefinitionsCommandOutput extends ListResourceDefini
  *
  * ```
  *
- * @param ListResourceDefinitionsCommandInput - {@link ListResourceDefinitionsCommandInput}
- * @returns {@link ListResourceDefinitionsCommandOutput}
+ * @param ListResourceDefinitionsRequest - {@link ListResourceDefinitionsRequest}
+ * @returns {@link ListResourceDefinitionsResponse}
  * @see {@link ListResourceDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListResourceDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

@@ -68,8 +68,8 @@ export interface ListSubscriptionDefinitionVersionsCommandOutput
  *
  * ```
  *
- * @param ListSubscriptionDefinitionVersionsCommandInput - {@link ListSubscriptionDefinitionVersionsCommandInput}
- * @returns {@link ListSubscriptionDefinitionVersionsCommandOutput}
+ * @param ListSubscriptionDefinitionVersionsRequest - {@link ListSubscriptionDefinitionVersionsRequest}
+ * @returns {@link ListSubscriptionDefinitionVersionsResponse}
  * @see {@link ListSubscriptionDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListSubscriptionDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

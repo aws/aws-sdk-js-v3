@@ -81,8 +81,8 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  *
  * ```
  *
- * @param DescribePendingMaintenanceActionsCommandInput - {@link DescribePendingMaintenanceActionsCommandInput}
- * @returns {@link DescribePendingMaintenanceActionsCommandOutput}
+ * @param DescribePendingMaintenanceActionsMessage - {@link DescribePendingMaintenanceActionsMessage}
+ * @returns {@link PendingMaintenanceActionsMessage}
  * @see {@link DescribePendingMaintenanceActionsCommandInput} for command's `input` shape.
  * @see {@link DescribePendingMaintenanceActionsCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

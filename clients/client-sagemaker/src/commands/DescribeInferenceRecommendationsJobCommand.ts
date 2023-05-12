@@ -184,8 +184,8 @@ export interface DescribeInferenceRecommendationsJobCommandOutput
  *
  * ```
  *
- * @param DescribeInferenceRecommendationsJobCommandInput - {@link DescribeInferenceRecommendationsJobCommandInput}
- * @returns {@link DescribeInferenceRecommendationsJobCommandOutput}
+ * @param DescribeInferenceRecommendationsJobRequest - {@link DescribeInferenceRecommendationsJobRequest}
+ * @returns {@link DescribeInferenceRecommendationsJobResponse}
  * @see {@link DescribeInferenceRecommendationsJobCommandInput} for command's `input` shape.
  * @see {@link DescribeInferenceRecommendationsJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

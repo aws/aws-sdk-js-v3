@@ -88,8 +88,8 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  *
  * ```
  *
- * @param InvokeCommandInput - {@link InvokeCommandInput}
- * @returns {@link InvokeCommandOutput}
+ * @param InvocationRequest - {@link InvocationRequest}
+ * @returns {@link InvocationResponse}
  * @see {@link InvokeCommandInput} for command's `input` shape.
  * @see {@link InvokeCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

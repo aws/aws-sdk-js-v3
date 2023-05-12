@@ -68,8 +68,8 @@ export interface PutAccessPointPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutAccessPointPolicyCommandInput - {@link PutAccessPointPolicyCommandInput}
- * @returns {@link PutAccessPointPolicyCommandOutput}
+ * @param PutAccessPointPolicyRequest - {@link PutAccessPointPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link PutAccessPointPolicyCommandInput} for command's `input` shape.
  * @see {@link PutAccessPointPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

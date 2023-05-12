@@ -73,8 +73,8 @@ export interface DeleteRelationalDatabaseCommandOutput extends DeleteRelationalD
  *
  * ```
  *
- * @param DeleteRelationalDatabaseCommandInput - {@link DeleteRelationalDatabaseCommandInput}
- * @returns {@link DeleteRelationalDatabaseCommandOutput}
+ * @param DeleteRelationalDatabaseRequest - {@link DeleteRelationalDatabaseRequest}
+ * @returns {@link DeleteRelationalDatabaseResult}
  * @see {@link DeleteRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link DeleteRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

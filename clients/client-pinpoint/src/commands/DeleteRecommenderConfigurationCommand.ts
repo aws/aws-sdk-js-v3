@@ -70,8 +70,8 @@ export interface DeleteRecommenderConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteRecommenderConfigurationCommandInput - {@link DeleteRecommenderConfigurationCommandInput}
- * @returns {@link DeleteRecommenderConfigurationCommandOutput}
+ * @param DeleteRecommenderConfigurationRequest - {@link DeleteRecommenderConfigurationRequest}
+ * @returns {@link DeleteRecommenderConfigurationResponse}
  * @see {@link DeleteRecommenderConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteRecommenderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

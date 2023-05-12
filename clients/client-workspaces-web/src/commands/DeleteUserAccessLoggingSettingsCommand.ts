@@ -53,8 +53,8 @@ export interface DeleteUserAccessLoggingSettingsCommandOutput
  *
  * ```
  *
- * @param DeleteUserAccessLoggingSettingsCommandInput - {@link DeleteUserAccessLoggingSettingsCommandInput}
- * @returns {@link DeleteUserAccessLoggingSettingsCommandOutput}
+ * @param DeleteUserAccessLoggingSettingsRequest - {@link DeleteUserAccessLoggingSettingsRequest}
+ * @returns {@link DeleteUserAccessLoggingSettingsResponse}
  * @see {@link DeleteUserAccessLoggingSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

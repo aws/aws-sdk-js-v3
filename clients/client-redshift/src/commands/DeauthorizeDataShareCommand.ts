@@ -63,8 +63,8 @@ export interface DeauthorizeDataShareCommandOutput extends DataShare, __Metadata
  *
  * ```
  *
- * @param DeauthorizeDataShareCommandInput - {@link DeauthorizeDataShareCommandInput}
- * @returns {@link DeauthorizeDataShareCommandOutput}
+ * @param DeauthorizeDataShareMessage - {@link DeauthorizeDataShareMessage}
+ * @returns {@link DataShare}
  * @see {@link DeauthorizeDataShareCommandInput} for command's `input` shape.
  * @see {@link DeauthorizeDataShareCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

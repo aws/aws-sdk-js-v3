@@ -50,8 +50,8 @@ export interface DeleteUserDefinedFunctionCommandOutput extends DeleteUserDefine
  *
  * ```
  *
- * @param DeleteUserDefinedFunctionCommandInput - {@link DeleteUserDefinedFunctionCommandInput}
- * @returns {@link DeleteUserDefinedFunctionCommandOutput}
+ * @param DeleteUserDefinedFunctionRequest - {@link DeleteUserDefinedFunctionRequest}
+ * @returns {@link DeleteUserDefinedFunctionResponse}
  * @see {@link DeleteUserDefinedFunctionCommandInput} for command's `input` shape.
  * @see {@link DeleteUserDefinedFunctionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

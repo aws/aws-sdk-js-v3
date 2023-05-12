@@ -54,8 +54,8 @@ export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerM
  *
  * ```
  *
- * @param DescribeCustomerMetadataCommandInput - {@link DescribeCustomerMetadataCommandInput}
- * @returns {@link DescribeCustomerMetadataCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link DescribeCustomerMetadataResponse}
  * @see {@link DescribeCustomerMetadataCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomerMetadataCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

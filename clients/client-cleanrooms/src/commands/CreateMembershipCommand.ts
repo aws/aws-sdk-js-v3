@@ -70,8 +70,8 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  *
  * ```
  *
- * @param CreateMembershipCommandInput - {@link CreateMembershipCommandInput}
- * @returns {@link CreateMembershipCommandOutput}
+ * @param CreateMembershipInput - {@link CreateMembershipInput}
+ * @returns {@link CreateMembershipOutput}
  * @see {@link CreateMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateMembershipCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

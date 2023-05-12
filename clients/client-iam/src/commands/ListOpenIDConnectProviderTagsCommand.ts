@@ -68,8 +68,8 @@ export interface ListOpenIDConnectProviderTagsCommandOutput
  *
  * ```
  *
- * @param ListOpenIDConnectProviderTagsCommandInput - {@link ListOpenIDConnectProviderTagsCommandInput}
- * @returns {@link ListOpenIDConnectProviderTagsCommandOutput}
+ * @param ListOpenIDConnectProviderTagsRequest - {@link ListOpenIDConnectProviderTagsRequest}
+ * @returns {@link ListOpenIDConnectProviderTagsResponse}
  * @see {@link ListOpenIDConnectProviderTagsCommandInput} for command's `input` shape.
  * @see {@link ListOpenIDConnectProviderTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

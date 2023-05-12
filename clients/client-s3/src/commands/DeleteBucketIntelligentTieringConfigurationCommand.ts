@@ -74,8 +74,8 @@ export interface DeleteBucketIntelligentTieringConfigurationCommandOutput extend
  *
  * ```
  *
- * @param DeleteBucketIntelligentTieringConfigurationCommandInput - {@link DeleteBucketIntelligentTieringConfigurationCommandInput}
- * @returns {@link DeleteBucketIntelligentTieringConfigurationCommandOutput}
+ * @param DeleteBucketIntelligentTieringConfigurationRequest - {@link DeleteBucketIntelligentTieringConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteBucketIntelligentTieringConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketIntelligentTieringConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

@@ -62,8 +62,8 @@ export interface ListSlackWorkspaceConfigurationsCommandOutput
  *
  * ```
  *
- * @param ListSlackWorkspaceConfigurationsCommandInput - {@link ListSlackWorkspaceConfigurationsCommandInput}
- * @returns {@link ListSlackWorkspaceConfigurationsCommandOutput}
+ * @param ListSlackWorkspaceConfigurationsRequest - {@link ListSlackWorkspaceConfigurationsRequest}
+ * @returns {@link ListSlackWorkspaceConfigurationsResult}
  * @see {@link ListSlackWorkspaceConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListSlackWorkspaceConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.

@@ -50,8 +50,8 @@ export interface DeleteEntityTypeCommandOutput extends DeleteEntityTypeResult, _
  *
  * ```
  *
- * @param DeleteEntityTypeCommandInput - {@link DeleteEntityTypeCommandInput}
- * @returns {@link DeleteEntityTypeCommandOutput}
+ * @param DeleteEntityTypeRequest - {@link DeleteEntityTypeRequest}
+ * @returns {@link DeleteEntityTypeResult}
  * @see {@link DeleteEntityTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteEntityTypeCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

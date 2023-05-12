@@ -58,8 +58,8 @@ export interface AttachVolumeCommandOutput extends AttachVolumeOutput, __Metadat
  *
  * ```
  *
- * @param AttachVolumeCommandInput - {@link AttachVolumeCommandInput}
- * @returns {@link AttachVolumeCommandOutput}
+ * @param AttachVolumeInput - {@link AttachVolumeInput}
+ * @returns {@link AttachVolumeOutput}
  * @see {@link AttachVolumeCommandInput} for command's `input` shape.
  * @see {@link AttachVolumeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

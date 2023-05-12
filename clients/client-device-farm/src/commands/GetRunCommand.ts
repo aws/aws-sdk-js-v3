@@ -146,8 +146,8 @@ export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
  *
  * ```
  *
- * @param GetRunCommandInput - {@link GetRunCommandInput}
- * @returns {@link GetRunCommandOutput}
+ * @param GetRunRequest - {@link GetRunRequest}
+ * @returns {@link GetRunResult}
  * @see {@link GetRunCommandInput} for command's `input` shape.
  * @see {@link GetRunCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

@@ -63,8 +63,8 @@ export interface ListEulaAcceptancesCommandOutput extends ListEulaAcceptancesRes
  *
  * ```
  *
- * @param ListEulaAcceptancesCommandInput - {@link ListEulaAcceptancesCommandInput}
- * @returns {@link ListEulaAcceptancesCommandOutput}
+ * @param ListEulaAcceptancesRequest - {@link ListEulaAcceptancesRequest}
+ * @returns {@link ListEulaAcceptancesResponse}
  * @see {@link ListEulaAcceptancesCommandInput} for command's `input` shape.
  * @see {@link ListEulaAcceptancesCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

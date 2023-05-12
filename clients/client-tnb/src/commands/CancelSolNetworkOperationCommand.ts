@@ -49,8 +49,8 @@ export interface CancelSolNetworkOperationCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param CancelSolNetworkOperationCommandInput - {@link CancelSolNetworkOperationCommandInput}
- * @returns {@link CancelSolNetworkOperationCommandOutput}
+ * @param CancelSolNetworkOperationInput - {@link CancelSolNetworkOperationInput}
+ * @returns {@link Unit}
  * @see {@link CancelSolNetworkOperationCommandInput} for command's `input` shape.
  * @see {@link CancelSolNetworkOperationCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

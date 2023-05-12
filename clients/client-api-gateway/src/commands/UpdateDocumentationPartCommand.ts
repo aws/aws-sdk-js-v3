@@ -67,8 +67,8 @@ export interface UpdateDocumentationPartCommandOutput extends DocumentationPart,
  *
  * ```
  *
- * @param UpdateDocumentationPartCommandInput - {@link UpdateDocumentationPartCommandInput}
- * @returns {@link UpdateDocumentationPartCommandOutput}
+ * @param UpdateDocumentationPartRequest - {@link UpdateDocumentationPartRequest}
+ * @returns {@link DocumentationPart}
  * @see {@link UpdateDocumentationPartCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentationPartCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

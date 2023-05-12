@@ -95,8 +95,8 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  *
  * ```
  *
- * @param DescribeLoadBalancerTargetGroupsCommandInput - {@link DescribeLoadBalancerTargetGroupsCommandInput}
- * @returns {@link DescribeLoadBalancerTargetGroupsCommandOutput}
+ * @param DescribeLoadBalancerTargetGroupsRequest - {@link DescribeLoadBalancerTargetGroupsRequest}
+ * @returns {@link DescribeLoadBalancerTargetGroupsResponse}
  * @see {@link DescribeLoadBalancerTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

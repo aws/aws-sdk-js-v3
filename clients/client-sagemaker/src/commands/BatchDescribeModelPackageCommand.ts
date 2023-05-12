@@ -100,8 +100,8 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  *
  * ```
  *
- * @param BatchDescribeModelPackageCommandInput - {@link BatchDescribeModelPackageCommandInput}
- * @returns {@link BatchDescribeModelPackageCommandOutput}
+ * @param BatchDescribeModelPackageInput - {@link BatchDescribeModelPackageInput}
+ * @returns {@link BatchDescribeModelPackageOutput}
  * @see {@link BatchDescribeModelPackageCommandInput} for command's `input` shape.
  * @see {@link BatchDescribeModelPackageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

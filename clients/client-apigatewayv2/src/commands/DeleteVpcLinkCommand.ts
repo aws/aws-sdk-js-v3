@@ -48,8 +48,8 @@ export interface DeleteVpcLinkCommandOutput extends DeleteVpcLinkResponse, __Met
  *
  * ```
  *
- * @param DeleteVpcLinkCommandInput - {@link DeleteVpcLinkCommandInput}
- * @returns {@link DeleteVpcLinkCommandOutput}
+ * @param DeleteVpcLinkRequest - {@link DeleteVpcLinkRequest}
+ * @returns {@link DeleteVpcLinkResponse}
  * @see {@link DeleteVpcLinkCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcLinkCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

@@ -177,8 +177,8 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  *
  * ```
  *
- * @param UpdateDeploymentGroupCommandInput - {@link UpdateDeploymentGroupCommandInput}
- * @returns {@link UpdateDeploymentGroupCommandOutput}
+ * @param UpdateDeploymentGroupInput - {@link UpdateDeploymentGroupInput}
+ * @returns {@link UpdateDeploymentGroupOutput}
  * @see {@link UpdateDeploymentGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateDeploymentGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

@@ -331,8 +331,8 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *
  * ```
  *
- * @param ModifyDBInstanceCommandInput - {@link ModifyDBInstanceCommandInput}
- * @returns {@link ModifyDBInstanceCommandOutput}
+ * @param ModifyDBInstanceMessage - {@link ModifyDBInstanceMessage}
+ * @returns {@link ModifyDBInstanceResult}
  * @see {@link ModifyDBInstanceCommandInput} for command's `input` shape.
  * @see {@link ModifyDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

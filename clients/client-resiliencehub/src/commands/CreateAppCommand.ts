@@ -86,8 +86,8 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  *
  * ```
  *
- * @param CreateAppCommandInput - {@link CreateAppCommandInput}
- * @returns {@link CreateAppCommandOutput}
+ * @param CreateAppRequest - {@link CreateAppRequest}
+ * @returns {@link CreateAppResponse}
  * @see {@link CreateAppCommandInput} for command's `input` shape.
  * @see {@link CreateAppCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

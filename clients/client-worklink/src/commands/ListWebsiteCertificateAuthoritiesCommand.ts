@@ -70,8 +70,8 @@ export interface ListWebsiteCertificateAuthoritiesCommandOutput
  *
  * ```
  *
- * @param ListWebsiteCertificateAuthoritiesCommandInput - {@link ListWebsiteCertificateAuthoritiesCommandInput}
- * @returns {@link ListWebsiteCertificateAuthoritiesCommandOutput}
+ * @param ListWebsiteCertificateAuthoritiesRequest - {@link ListWebsiteCertificateAuthoritiesRequest}
+ * @returns {@link ListWebsiteCertificateAuthoritiesResponse}
  * @see {@link ListWebsiteCertificateAuthoritiesCommandInput} for command's `input` shape.
  * @see {@link ListWebsiteCertificateAuthoritiesCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

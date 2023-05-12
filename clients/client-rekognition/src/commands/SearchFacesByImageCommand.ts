@@ -122,8 +122,8 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  *
  * ```
  *
- * @param SearchFacesByImageCommandInput - {@link SearchFacesByImageCommandInput}
- * @returns {@link SearchFacesByImageCommandOutput}
+ * @param SearchFacesByImageRequest - {@link SearchFacesByImageRequest}
+ * @returns {@link SearchFacesByImageResponse}
  * @see {@link SearchFacesByImageCommandInput} for command's `input` shape.
  * @see {@link SearchFacesByImageCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

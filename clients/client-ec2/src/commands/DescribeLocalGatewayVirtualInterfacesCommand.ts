@@ -90,8 +90,8 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
  *
  * ```
  *
- * @param DescribeLocalGatewayVirtualInterfacesCommandInput - {@link DescribeLocalGatewayVirtualInterfacesCommandInput}
- * @returns {@link DescribeLocalGatewayVirtualInterfacesCommandOutput}
+ * @param DescribeLocalGatewayVirtualInterfacesRequest - {@link DescribeLocalGatewayVirtualInterfacesRequest}
+ * @returns {@link DescribeLocalGatewayVirtualInterfacesResult}
  * @see {@link DescribeLocalGatewayVirtualInterfacesCommandInput} for command's `input` shape.
  * @see {@link DescribeLocalGatewayVirtualInterfacesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -72,8 +72,8 @@ export interface UpdateLiveSourceCommandOutput extends UpdateLiveSourceResponse,
  *
  * ```
  *
- * @param UpdateLiveSourceCommandInput - {@link UpdateLiveSourceCommandInput}
- * @returns {@link UpdateLiveSourceCommandOutput}
+ * @param UpdateLiveSourceRequest - {@link UpdateLiveSourceRequest}
+ * @returns {@link UpdateLiveSourceResponse}
  * @see {@link UpdateLiveSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateLiveSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

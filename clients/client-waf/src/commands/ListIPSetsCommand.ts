@@ -65,8 +65,8 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  *
  * ```
  *
- * @param ListIPSetsCommandInput - {@link ListIPSetsCommandInput}
- * @returns {@link ListIPSetsCommandOutput}
+ * @param ListIPSetsRequest - {@link ListIPSetsRequest}
+ * @returns {@link ListIPSetsResponse}
  * @see {@link ListIPSetsCommandInput} for command's `input` shape.
  * @see {@link ListIPSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

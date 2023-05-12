@@ -66,8 +66,8 @@ export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer 
  *
  * ```
  *
- * @param PutChunkCommandInput - {@link PutChunkCommandInput}
- * @returns {@link PutChunkCommandOutput}
+ * @param PutChunkInput - {@link PutChunkInput}
+ * @returns {@link PutChunkOutput}
  * @see {@link PutChunkCommandInput} for command's `input` shape.
  * @see {@link PutChunkCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.

@@ -85,8 +85,8 @@ export interface ListRxNormInferenceJobsCommandOutput extends ListRxNormInferenc
  *
  * ```
  *
- * @param ListRxNormInferenceJobsCommandInput - {@link ListRxNormInferenceJobsCommandInput}
- * @returns {@link ListRxNormInferenceJobsCommandOutput}
+ * @param ListRxNormInferenceJobsRequest - {@link ListRxNormInferenceJobsRequest}
+ * @returns {@link ListRxNormInferenceJobsResponse}
  * @see {@link ListRxNormInferenceJobsCommandInput} for command's `input` shape.
  * @see {@link ListRxNormInferenceJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

@@ -101,8 +101,8 @@ export interface ReadPipelineCommandOutput extends ReadPipelineResponse, __Metad
  *
  * ```
  *
- * @param ReadPipelineCommandInput - {@link ReadPipelineCommandInput}
- * @returns {@link ReadPipelineCommandOutput}
+ * @param ReadPipelineRequest - {@link ReadPipelineRequest}
+ * @returns {@link ReadPipelineResponse}
  * @see {@link ReadPipelineCommandInput} for command's `input` shape.
  * @see {@link ReadPipelineCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.

@@ -62,8 +62,8 @@ export interface DescribeTopicPermissionsCommandOutput extends DescribeTopicPerm
  *
  * ```
  *
- * @param DescribeTopicPermissionsCommandInput - {@link DescribeTopicPermissionsCommandInput}
- * @returns {@link DescribeTopicPermissionsCommandOutput}
+ * @param DescribeTopicPermissionsRequest - {@link DescribeTopicPermissionsRequest}
+ * @returns {@link DescribeTopicPermissionsResponse}
  * @see {@link DescribeTopicPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeTopicPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

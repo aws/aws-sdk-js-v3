@@ -55,8 +55,8 @@ export interface DescribeAutoScalingNotificationTypesCommandOutput
  *
  * ```
  *
- * @param DescribeAutoScalingNotificationTypesCommandInput - {@link DescribeAutoScalingNotificationTypesCommandInput}
- * @returns {@link DescribeAutoScalingNotificationTypesCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link DescribeAutoScalingNotificationTypesAnswer}
  * @see {@link DescribeAutoScalingNotificationTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingNotificationTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

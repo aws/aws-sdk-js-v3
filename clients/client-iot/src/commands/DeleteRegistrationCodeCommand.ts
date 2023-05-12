@@ -47,8 +47,8 @@ export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationC
  *
  * ```
  *
- * @param DeleteRegistrationCodeCommandInput - {@link DeleteRegistrationCodeCommandInput}
- * @returns {@link DeleteRegistrationCodeCommandOutput}
+ * @param DeleteRegistrationCodeRequest - {@link DeleteRegistrationCodeRequest}
+ * @returns {@link DeleteRegistrationCodeResponse}
  * @see {@link DeleteRegistrationCodeCommandInput} for command's `input` shape.
  * @see {@link DeleteRegistrationCodeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

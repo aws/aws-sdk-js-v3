@@ -71,8 +71,8 @@ export interface CreateLoggerDefinitionCommandOutput extends CreateLoggerDefinit
  *
  * ```
  *
- * @param CreateLoggerDefinitionCommandInput - {@link CreateLoggerDefinitionCommandInput}
- * @returns {@link CreateLoggerDefinitionCommandOutput}
+ * @param CreateLoggerDefinitionRequest - {@link CreateLoggerDefinitionRequest}
+ * @returns {@link CreateLoggerDefinitionResponse}
  * @see {@link CreateLoggerDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateLoggerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

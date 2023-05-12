@@ -142,8 +142,8 @@ export interface GetAnomalySubscriptionsCommandOutput extends GetAnomalySubscrip
  *
  * ```
  *
- * @param GetAnomalySubscriptionsCommandInput - {@link GetAnomalySubscriptionsCommandInput}
- * @returns {@link GetAnomalySubscriptionsCommandOutput}
+ * @param GetAnomalySubscriptionsRequest - {@link GetAnomalySubscriptionsRequest}
+ * @returns {@link GetAnomalySubscriptionsResponse}
  * @see {@link GetAnomalySubscriptionsCommandInput} for command's `input` shape.
  * @see {@link GetAnomalySubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

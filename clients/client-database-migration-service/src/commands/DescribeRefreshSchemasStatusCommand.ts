@@ -65,8 +65,8 @@ export interface DescribeRefreshSchemasStatusCommandOutput
  *
  * ```
  *
- * @param DescribeRefreshSchemasStatusCommandInput - {@link DescribeRefreshSchemasStatusCommandInput}
- * @returns {@link DescribeRefreshSchemasStatusCommandOutput}
+ * @param DescribeRefreshSchemasStatusMessage - {@link DescribeRefreshSchemasStatusMessage}
+ * @returns {@link DescribeRefreshSchemasStatusResponse}
  * @see {@link DescribeRefreshSchemasStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeRefreshSchemasStatusCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

@@ -54,8 +54,8 @@ export interface GetVerifiedAccessGroupPolicyCommandOutput
  *
  * ```
  *
- * @param GetVerifiedAccessGroupPolicyCommandInput - {@link GetVerifiedAccessGroupPolicyCommandInput}
- * @returns {@link GetVerifiedAccessGroupPolicyCommandOutput}
+ * @param GetVerifiedAccessGroupPolicyRequest - {@link GetVerifiedAccessGroupPolicyRequest}
+ * @returns {@link GetVerifiedAccessGroupPolicyResult}
  * @see {@link GetVerifiedAccessGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link GetVerifiedAccessGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

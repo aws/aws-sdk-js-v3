@@ -77,8 +77,8 @@ export interface StartInstanceCommandOutput extends StartInstanceResult, __Metad
  *
  * ```
  *
- * @param StartInstanceCommandInput - {@link StartInstanceCommandInput}
- * @returns {@link StartInstanceCommandOutput}
+ * @param StartInstanceRequest - {@link StartInstanceRequest}
+ * @returns {@link StartInstanceResult}
  * @see {@link StartInstanceCommandInput} for command's `input` shape.
  * @see {@link StartInstanceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

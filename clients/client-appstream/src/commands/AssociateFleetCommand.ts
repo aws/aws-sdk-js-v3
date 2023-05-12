@@ -49,8 +49,8 @@ export interface AssociateFleetCommandOutput extends AssociateFleetResult, __Met
  *
  * ```
  *
- * @param AssociateFleetCommandInput - {@link AssociateFleetCommandInput}
- * @returns {@link AssociateFleetCommandOutput}
+ * @param AssociateFleetRequest - {@link AssociateFleetRequest}
+ * @returns {@link AssociateFleetResult}
  * @see {@link AssociateFleetCommandInput} for command's `input` shape.
  * @see {@link AssociateFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

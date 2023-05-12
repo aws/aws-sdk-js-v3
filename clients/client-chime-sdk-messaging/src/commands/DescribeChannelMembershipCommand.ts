@@ -80,8 +80,8 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  *
  * ```
  *
- * @param DescribeChannelMembershipCommandInput - {@link DescribeChannelMembershipCommandInput}
- * @returns {@link DescribeChannelMembershipCommandOutput}
+ * @param DescribeChannelMembershipRequest - {@link DescribeChannelMembershipRequest}
+ * @returns {@link DescribeChannelMembershipResponse}
  * @see {@link DescribeChannelMembershipCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

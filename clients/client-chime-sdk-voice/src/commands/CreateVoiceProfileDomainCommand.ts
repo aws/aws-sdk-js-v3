@@ -82,8 +82,8 @@ export interface CreateVoiceProfileDomainCommandOutput extends CreateVoiceProfil
  *
  * ```
  *
- * @param CreateVoiceProfileDomainCommandInput - {@link CreateVoiceProfileDomainCommandInput}
- * @returns {@link CreateVoiceProfileDomainCommandOutput}
+ * @param CreateVoiceProfileDomainRequest - {@link CreateVoiceProfileDomainRequest}
+ * @returns {@link CreateVoiceProfileDomainResponse}
  * @see {@link CreateVoiceProfileDomainCommandInput} for command's `input` shape.
  * @see {@link CreateVoiceProfileDomainCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

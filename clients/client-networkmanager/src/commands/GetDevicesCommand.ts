@@ -86,8 +86,8 @@ export interface GetDevicesCommandOutput extends GetDevicesResponse, __MetadataB
  *
  * ```
  *
- * @param GetDevicesCommandInput - {@link GetDevicesCommandInput}
- * @returns {@link GetDevicesCommandOutput}
+ * @param GetDevicesRequest - {@link GetDevicesRequest}
+ * @returns {@link GetDevicesResponse}
  * @see {@link GetDevicesCommandInput} for command's `input` shape.
  * @see {@link GetDevicesCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

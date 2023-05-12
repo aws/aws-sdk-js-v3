@@ -117,8 +117,8 @@ export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response,
  *
  * ```
  *
- * @param DetectEntitiesV2CommandInput - {@link DetectEntitiesV2CommandInput}
- * @returns {@link DetectEntitiesV2CommandOutput}
+ * @param DetectEntitiesV2Request - {@link DetectEntitiesV2Request}
+ * @returns {@link DetectEntitiesV2Response}
  * @see {@link DetectEntitiesV2CommandInput} for command's `input` shape.
  * @see {@link DetectEntitiesV2CommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

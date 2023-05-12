@@ -66,8 +66,8 @@ export interface BatchDeleteFeaturedResultsSetCommandOutput
  *
  * ```
  *
- * @param BatchDeleteFeaturedResultsSetCommandInput - {@link BatchDeleteFeaturedResultsSetCommandInput}
- * @returns {@link BatchDeleteFeaturedResultsSetCommandOutput}
+ * @param BatchDeleteFeaturedResultsSetRequest - {@link BatchDeleteFeaturedResultsSetRequest}
+ * @returns {@link BatchDeleteFeaturedResultsSetResponse}
  * @see {@link BatchDeleteFeaturedResultsSetCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteFeaturedResultsSetCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

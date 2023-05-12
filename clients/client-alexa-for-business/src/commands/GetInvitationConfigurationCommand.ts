@@ -53,8 +53,8 @@ export interface GetInvitationConfigurationCommandOutput extends GetInvitationCo
  *
  * ```
  *
- * @param GetInvitationConfigurationCommandInput - {@link GetInvitationConfigurationCommandInput}
- * @returns {@link GetInvitationConfigurationCommandOutput}
+ * @param GetInvitationConfigurationRequest - {@link GetInvitationConfigurationRequest}
+ * @returns {@link GetInvitationConfigurationResponse}
  * @see {@link GetInvitationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetInvitationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

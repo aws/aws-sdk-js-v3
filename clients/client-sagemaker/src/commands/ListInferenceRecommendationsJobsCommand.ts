@@ -78,8 +78,8 @@ export interface ListInferenceRecommendationsJobsCommandOutput
  *
  * ```
  *
- * @param ListInferenceRecommendationsJobsCommandInput - {@link ListInferenceRecommendationsJobsCommandInput}
- * @returns {@link ListInferenceRecommendationsJobsCommandOutput}
+ * @param ListInferenceRecommendationsJobsRequest - {@link ListInferenceRecommendationsJobsRequest}
+ * @returns {@link ListInferenceRecommendationsJobsResponse}
  * @see {@link ListInferenceRecommendationsJobsCommandInput} for command's `input` shape.
  * @see {@link ListInferenceRecommendationsJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

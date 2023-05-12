@@ -67,8 +67,8 @@ export interface UpdateSubscriptionsToEventBridgeCommandOutput
  *
  * ```
  *
- * @param UpdateSubscriptionsToEventBridgeCommandInput - {@link UpdateSubscriptionsToEventBridgeCommandInput}
- * @returns {@link UpdateSubscriptionsToEventBridgeCommandOutput}
+ * @param UpdateSubscriptionsToEventBridgeMessage - {@link UpdateSubscriptionsToEventBridgeMessage}
+ * @returns {@link UpdateSubscriptionsToEventBridgeResponse}
  * @see {@link UpdateSubscriptionsToEventBridgeCommandInput} for command's `input` shape.
  * @see {@link UpdateSubscriptionsToEventBridgeCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

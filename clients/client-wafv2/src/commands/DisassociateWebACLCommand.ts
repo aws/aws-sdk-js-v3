@@ -52,8 +52,8 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  *
  * ```
  *
- * @param DisassociateWebACLCommandInput - {@link DisassociateWebACLCommandInput}
- * @returns {@link DisassociateWebACLCommandOutput}
+ * @param DisassociateWebACLRequest - {@link DisassociateWebACLRequest}
+ * @returns {@link DisassociateWebACLResponse}
  * @see {@link DisassociateWebACLCommandInput} for command's `input` shape.
  * @see {@link DisassociateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

@@ -49,8 +49,8 @@ export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicR
  *
  * ```
  *
- * @param DeregisterEventTopicCommandInput - {@link DeregisterEventTopicCommandInput}
- * @returns {@link DeregisterEventTopicCommandOutput}
+ * @param DeregisterEventTopicRequest - {@link DeregisterEventTopicRequest}
+ * @returns {@link DeregisterEventTopicResult}
  * @see {@link DeregisterEventTopicCommandInput} for command's `input` shape.
  * @see {@link DeregisterEventTopicCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

@@ -91,8 +91,8 @@ export interface DescribeVerifiedAccessInstancesCommandOutput
  *
  * ```
  *
- * @param DescribeVerifiedAccessInstancesCommandInput - {@link DescribeVerifiedAccessInstancesCommandInput}
- * @returns {@link DescribeVerifiedAccessInstancesCommandOutput}
+ * @param DescribeVerifiedAccessInstancesRequest - {@link DescribeVerifiedAccessInstancesRequest}
+ * @returns {@link DescribeVerifiedAccessInstancesResult}
  * @see {@link DescribeVerifiedAccessInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeVerifiedAccessInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

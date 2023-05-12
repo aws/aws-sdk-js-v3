@@ -83,8 +83,8 @@ export interface CreateMobileDeviceAccessRuleCommandOutput
  *
  * ```
  *
- * @param CreateMobileDeviceAccessRuleCommandInput - {@link CreateMobileDeviceAccessRuleCommandInput}
- * @returns {@link CreateMobileDeviceAccessRuleCommandOutput}
+ * @param CreateMobileDeviceAccessRuleRequest - {@link CreateMobileDeviceAccessRuleRequest}
+ * @returns {@link CreateMobileDeviceAccessRuleResponse}
  * @see {@link CreateMobileDeviceAccessRuleCommandInput} for command's `input` shape.
  * @see {@link CreateMobileDeviceAccessRuleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

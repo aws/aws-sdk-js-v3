@@ -60,8 +60,8 @@ export interface CreateProtectionGroupCommandOutput extends CreateProtectionGrou
  *
  * ```
  *
- * @param CreateProtectionGroupCommandInput - {@link CreateProtectionGroupCommandInput}
- * @returns {@link CreateProtectionGroupCommandOutput}
+ * @param CreateProtectionGroupRequest - {@link CreateProtectionGroupRequest}
+ * @returns {@link CreateProtectionGroupResponse}
  * @see {@link CreateProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link CreateProtectionGroupCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

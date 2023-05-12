@@ -136,8 +136,8 @@ export interface CreateStorageVirtualMachineCommandOutput
  *
  * ```
  *
- * @param CreateStorageVirtualMachineCommandInput - {@link CreateStorageVirtualMachineCommandInput}
- * @returns {@link CreateStorageVirtualMachineCommandOutput}
+ * @param CreateStorageVirtualMachineRequest - {@link CreateStorageVirtualMachineRequest}
+ * @returns {@link CreateStorageVirtualMachineResponse}
  * @see {@link CreateStorageVirtualMachineCommandInput} for command's `input` shape.
  * @see {@link CreateStorageVirtualMachineCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

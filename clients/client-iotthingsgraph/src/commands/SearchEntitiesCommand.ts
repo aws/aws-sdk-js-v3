@@ -77,8 +77,8 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  *
  * ```
  *
- * @param SearchEntitiesCommandInput - {@link SearchEntitiesCommandInput}
- * @returns {@link SearchEntitiesCommandOutput}
+ * @param SearchEntitiesRequest - {@link SearchEntitiesRequest}
+ * @returns {@link SearchEntitiesResponse}
  * @see {@link SearchEntitiesCommandInput} for command's `input` shape.
  * @see {@link SearchEntitiesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

@@ -57,8 +57,8 @@ export interface DescribeOrganizationConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeOrganizationConfigurationCommandInput - {@link DescribeOrganizationConfigurationCommandInput}
- * @returns {@link DescribeOrganizationConfigurationCommandOutput}
+ * @param DescribeOrganizationConfigurationRequest - {@link DescribeOrganizationConfigurationRequest}
+ * @returns {@link DescribeOrganizationConfigurationResponse}
  * @see {@link DescribeOrganizationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

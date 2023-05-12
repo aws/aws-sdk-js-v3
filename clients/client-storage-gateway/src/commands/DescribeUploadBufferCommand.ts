@@ -59,8 +59,8 @@ export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferO
  *
  * ```
  *
- * @param DescribeUploadBufferCommandInput - {@link DescribeUploadBufferCommandInput}
- * @returns {@link DescribeUploadBufferCommandOutput}
+ * @param DescribeUploadBufferInput - {@link DescribeUploadBufferInput}
+ * @returns {@link DescribeUploadBufferOutput}
  * @see {@link DescribeUploadBufferCommandInput} for command's `input` shape.
  * @see {@link DescribeUploadBufferCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

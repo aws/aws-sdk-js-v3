@@ -54,8 +54,8 @@ export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetRes
  *
  * ```
  *
- * @param CloneReceiptRuleSetCommandInput - {@link CloneReceiptRuleSetCommandInput}
- * @returns {@link CloneReceiptRuleSetCommandOutput}
+ * @param CloneReceiptRuleSetRequest - {@link CloneReceiptRuleSetRequest}
+ * @returns {@link CloneReceiptRuleSetResponse}
  * @see {@link CloneReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link CloneReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

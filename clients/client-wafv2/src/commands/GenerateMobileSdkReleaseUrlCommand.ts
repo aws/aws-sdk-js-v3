@@ -55,8 +55,8 @@ export interface GenerateMobileSdkReleaseUrlCommandOutput
  *
  * ```
  *
- * @param GenerateMobileSdkReleaseUrlCommandInput - {@link GenerateMobileSdkReleaseUrlCommandInput}
- * @returns {@link GenerateMobileSdkReleaseUrlCommandOutput}
+ * @param GenerateMobileSdkReleaseUrlRequest - {@link GenerateMobileSdkReleaseUrlRequest}
+ * @returns {@link GenerateMobileSdkReleaseUrlResponse}
  * @see {@link GenerateMobileSdkReleaseUrlCommandInput} for command's `input` shape.
  * @see {@link GenerateMobileSdkReleaseUrlCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

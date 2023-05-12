@@ -57,8 +57,8 @@ export interface ListTargetResourceTypesCommandOutput extends ListTargetResource
  *
  * ```
  *
- * @param ListTargetResourceTypesCommandInput - {@link ListTargetResourceTypesCommandInput}
- * @returns {@link ListTargetResourceTypesCommandOutput}
+ * @param ListTargetResourceTypesRequest - {@link ListTargetResourceTypesRequest}
+ * @returns {@link ListTargetResourceTypesResponse}
  * @see {@link ListTargetResourceTypesCommandInput} for command's `input` shape.
  * @see {@link ListTargetResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.

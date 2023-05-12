@@ -61,8 +61,8 @@ export interface ModifySelfservicePermissionsCommandOutput
  *
  * ```
  *
- * @param ModifySelfservicePermissionsCommandInput - {@link ModifySelfservicePermissionsCommandInput}
- * @returns {@link ModifySelfservicePermissionsCommandOutput}
+ * @param ModifySelfservicePermissionsRequest - {@link ModifySelfservicePermissionsRequest}
+ * @returns {@link ModifySelfservicePermissionsResult}
  * @see {@link ModifySelfservicePermissionsCommandInput} for command's `input` shape.
  * @see {@link ModifySelfservicePermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

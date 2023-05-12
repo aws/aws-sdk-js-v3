@@ -65,8 +65,8 @@ export interface ListNotificationsCommandOutput extends ListNotificationsOutput,
  *
  * ```
  *
- * @param ListNotificationsCommandInput - {@link ListNotificationsCommandInput}
- * @returns {@link ListNotificationsCommandOutput}
+ * @param ListNotificationsInput - {@link ListNotificationsInput}
+ * @returns {@link ListNotificationsOutput}
  * @see {@link ListNotificationsCommandInput} for command's `input` shape.
  * @see {@link ListNotificationsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

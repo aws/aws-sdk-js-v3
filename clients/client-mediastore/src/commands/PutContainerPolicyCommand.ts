@@ -55,8 +55,8 @@ export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutpu
  *
  * ```
  *
- * @param PutContainerPolicyCommandInput - {@link PutContainerPolicyCommandInput}
- * @returns {@link PutContainerPolicyCommandOutput}
+ * @param PutContainerPolicyInput - {@link PutContainerPolicyInput}
+ * @returns {@link PutContainerPolicyOutput}
  * @see {@link PutContainerPolicyCommandInput} for command's `input` shape.
  * @see {@link PutContainerPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.

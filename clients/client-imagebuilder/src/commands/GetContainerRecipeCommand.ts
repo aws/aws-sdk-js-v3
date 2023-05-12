@@ -105,8 +105,8 @@ export interface GetContainerRecipeCommandOutput extends GetContainerRecipeRespo
  *
  * ```
  *
- * @param GetContainerRecipeCommandInput - {@link GetContainerRecipeCommandInput}
- * @returns {@link GetContainerRecipeCommandOutput}
+ * @param GetContainerRecipeRequest - {@link GetContainerRecipeRequest}
+ * @returns {@link GetContainerRecipeResponse}
  * @see {@link GetContainerRecipeCommandInput} for command's `input` shape.
  * @see {@link GetContainerRecipeCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

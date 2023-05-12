@@ -60,8 +60,8 @@ export interface ListAttachedPoliciesCommandOutput extends ListAttachedPoliciesR
  *
  * ```
  *
- * @param ListAttachedPoliciesCommandInput - {@link ListAttachedPoliciesCommandInput}
- * @returns {@link ListAttachedPoliciesCommandOutput}
+ * @param ListAttachedPoliciesRequest - {@link ListAttachedPoliciesRequest}
+ * @returns {@link ListAttachedPoliciesResponse}
  * @see {@link ListAttachedPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAttachedPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

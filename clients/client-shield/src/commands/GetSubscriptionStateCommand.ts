@@ -48,8 +48,8 @@ export interface GetSubscriptionStateCommandOutput extends GetSubscriptionStateR
  *
  * ```
  *
- * @param GetSubscriptionStateCommandInput - {@link GetSubscriptionStateCommandInput}
- * @returns {@link GetSubscriptionStateCommandOutput}
+ * @param GetSubscriptionStateRequest - {@link GetSubscriptionStateRequest}
+ * @returns {@link GetSubscriptionStateResponse}
  * @see {@link GetSubscriptionStateCommandInput} for command's `input` shape.
  * @see {@link GetSubscriptionStateCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

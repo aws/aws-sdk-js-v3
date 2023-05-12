@@ -58,8 +58,8 @@ export interface DeleteBackendEnvironmentCommandOutput extends DeleteBackendEnvi
  *
  * ```
  *
- * @param DeleteBackendEnvironmentCommandInput - {@link DeleteBackendEnvironmentCommandInput}
- * @returns {@link DeleteBackendEnvironmentCommandOutput}
+ * @param DeleteBackendEnvironmentRequest - {@link DeleteBackendEnvironmentRequest}
+ * @returns {@link DeleteBackendEnvironmentResult}
  * @see {@link DeleteBackendEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteBackendEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

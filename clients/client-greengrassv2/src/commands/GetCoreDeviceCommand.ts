@@ -85,8 +85,8 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
  *
  * ```
  *
- * @param GetCoreDeviceCommandInput - {@link GetCoreDeviceCommandInput}
- * @returns {@link GetCoreDeviceCommandOutput}
+ * @param GetCoreDeviceRequest - {@link GetCoreDeviceRequest}
+ * @returns {@link GetCoreDeviceResponse}
  * @see {@link GetCoreDeviceCommandInput} for command's `input` shape.
  * @see {@link GetCoreDeviceCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

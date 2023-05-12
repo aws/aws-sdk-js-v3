@@ -157,8 +157,8 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *
  * ```
  *
- * @param UpdateDecoderManifestCommandInput - {@link UpdateDecoderManifestCommandInput}
- * @returns {@link UpdateDecoderManifestCommandOutput}
+ * @param UpdateDecoderManifestRequest - {@link UpdateDecoderManifestRequest}
+ * @returns {@link UpdateDecoderManifestResponse}
  * @see {@link UpdateDecoderManifestCommandInput} for command's `input` shape.
  * @see {@link UpdateDecoderManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

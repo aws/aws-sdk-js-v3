@@ -95,8 +95,8 @@ export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataB
  *
  * ```
  *
- * @param ListPricesCommandInput - {@link ListPricesCommandInput}
- * @returns {@link ListPricesCommandOutput}
+ * @param ListPricesRequest - {@link ListPricesRequest}
+ * @returns {@link ListPricesResponse}
  * @see {@link ListPricesCommandInput} for command's `input` shape.
  * @see {@link ListPricesCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

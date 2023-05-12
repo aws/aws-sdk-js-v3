@@ -77,8 +77,8 @@ export interface ListLayersCommandOutput extends ListLayersResponse, __MetadataB
  *
  * ```
  *
- * @param ListLayersCommandInput - {@link ListLayersCommandInput}
- * @returns {@link ListLayersCommandOutput}
+ * @param ListLayersRequest - {@link ListLayersRequest}
+ * @returns {@link ListLayersResponse}
  * @see {@link ListLayersCommandInput} for command's `input` shape.
  * @see {@link ListLayersCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

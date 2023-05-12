@@ -66,8 +66,8 @@ export interface CancelServiceSoftwareUpdateCommandOutput
  *
  * ```
  *
- * @param CancelServiceSoftwareUpdateCommandInput - {@link CancelServiceSoftwareUpdateCommandInput}
- * @returns {@link CancelServiceSoftwareUpdateCommandOutput}
+ * @param CancelServiceSoftwareUpdateRequest - {@link CancelServiceSoftwareUpdateRequest}
+ * @returns {@link CancelServiceSoftwareUpdateResponse}
  * @see {@link CancelServiceSoftwareUpdateCommandInput} for command's `input` shape.
  * @see {@link CancelServiceSoftwareUpdateCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

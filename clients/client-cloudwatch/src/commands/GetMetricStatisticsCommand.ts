@@ -127,8 +127,8 @@ export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOut
  *
  * ```
  *
- * @param GetMetricStatisticsCommandInput - {@link GetMetricStatisticsCommandInput}
- * @returns {@link GetMetricStatisticsCommandOutput}
+ * @param GetMetricStatisticsInput - {@link GetMetricStatisticsInput}
+ * @returns {@link GetMetricStatisticsOutput}
  * @see {@link GetMetricStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetMetricStatisticsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

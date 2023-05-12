@@ -73,8 +73,8 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *
  * ```
  *
- * @param CreateConfigurationSetCommandInput - {@link CreateConfigurationSetCommandInput}
- * @returns {@link CreateConfigurationSetCommandOutput}
+ * @param CreateConfigurationSetRequest - {@link CreateConfigurationSetRequest}
+ * @returns {@link CreateConfigurationSetResult}
  * @see {@link CreateConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

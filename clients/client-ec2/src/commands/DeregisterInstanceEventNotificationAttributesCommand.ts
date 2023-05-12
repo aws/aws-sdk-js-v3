@@ -71,8 +71,8 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput
  *
  * ```
  *
- * @param DeregisterInstanceEventNotificationAttributesCommandInput - {@link DeregisterInstanceEventNotificationAttributesCommandInput}
- * @returns {@link DeregisterInstanceEventNotificationAttributesCommandOutput}
+ * @param DeregisterInstanceEventNotificationAttributesRequest - {@link DeregisterInstanceEventNotificationAttributesRequest}
+ * @returns {@link DeregisterInstanceEventNotificationAttributesResult}
  * @see {@link DeregisterInstanceEventNotificationAttributesCommandInput} for command's `input` shape.
  * @see {@link DeregisterInstanceEventNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

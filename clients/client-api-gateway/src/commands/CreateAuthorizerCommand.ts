@@ -72,8 +72,8 @@ export interface CreateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  *
  * ```
  *
- * @param CreateAuthorizerCommandInput - {@link CreateAuthorizerCommandInput}
- * @returns {@link CreateAuthorizerCommandOutput}
+ * @param CreateAuthorizerRequest - {@link CreateAuthorizerRequest}
+ * @returns {@link Authorizer}
  * @see {@link CreateAuthorizerCommandInput} for command's `input` shape.
  * @see {@link CreateAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

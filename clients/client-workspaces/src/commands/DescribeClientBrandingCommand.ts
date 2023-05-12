@@ -110,8 +110,8 @@ export interface DescribeClientBrandingCommandOutput extends DescribeClientBrand
  *
  * ```
  *
- * @param DescribeClientBrandingCommandInput - {@link DescribeClientBrandingCommandInput}
- * @returns {@link DescribeClientBrandingCommandOutput}
+ * @param DescribeClientBrandingRequest - {@link DescribeClientBrandingRequest}
+ * @returns {@link DescribeClientBrandingResult}
  * @see {@link DescribeClientBrandingCommandInput} for command's `input` shape.
  * @see {@link DescribeClientBrandingCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

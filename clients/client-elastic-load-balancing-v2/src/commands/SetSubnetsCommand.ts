@@ -86,8 +86,8 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  *
  * ```
  *
- * @param SetSubnetsCommandInput - {@link SetSubnetsCommandInput}
- * @returns {@link SetSubnetsCommandOutput}
+ * @param SetSubnetsInput - {@link SetSubnetsInput}
+ * @returns {@link SetSubnetsOutput}
  * @see {@link SetSubnetsCommandInput} for command's `input` shape.
  * @see {@link SetSubnetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

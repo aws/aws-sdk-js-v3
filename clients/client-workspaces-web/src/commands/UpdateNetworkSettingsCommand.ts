@@ -70,8 +70,8 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  *
  * ```
  *
- * @param UpdateNetworkSettingsCommandInput - {@link UpdateNetworkSettingsCommandInput}
- * @returns {@link UpdateNetworkSettingsCommandOutput}
+ * @param UpdateNetworkSettingsRequest - {@link UpdateNetworkSettingsRequest}
+ * @returns {@link UpdateNetworkSettingsResponse}
  * @see {@link UpdateNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

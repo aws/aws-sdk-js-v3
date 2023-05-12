@@ -63,8 +63,8 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  *
  * ```
  *
- * @param ListFiltersCommandInput - {@link ListFiltersCommandInput}
- * @returns {@link ListFiltersCommandOutput}
+ * @param ListFiltersRequest - {@link ListFiltersRequest}
+ * @returns {@link ListFiltersResponse}
  * @see {@link ListFiltersCommandInput} for command's `input` shape.
  * @see {@link ListFiltersCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

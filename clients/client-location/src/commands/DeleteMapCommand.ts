@@ -52,8 +52,8 @@ export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBea
  *
  * ```
  *
- * @param DeleteMapCommandInput - {@link DeleteMapCommandInput}
- * @returns {@link DeleteMapCommandOutput}
+ * @param DeleteMapRequest - {@link DeleteMapRequest}
+ * @returns {@link DeleteMapResponse}
  * @see {@link DeleteMapCommandInput} for command's `input` shape.
  * @see {@link DeleteMapCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

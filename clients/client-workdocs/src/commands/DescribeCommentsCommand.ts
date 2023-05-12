@@ -94,8 +94,8 @@ export interface DescribeCommentsCommandOutput extends DescribeCommentsResponse,
  *
  * ```
  *
- * @param DescribeCommentsCommandInput - {@link DescribeCommentsCommandInput}
- * @returns {@link DescribeCommentsCommandOutput}
+ * @param DescribeCommentsRequest - {@link DescribeCommentsRequest}
+ * @returns {@link DescribeCommentsResponse}
  * @see {@link DescribeCommentsCommandInput} for command's `input` shape.
  * @see {@link DescribeCommentsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

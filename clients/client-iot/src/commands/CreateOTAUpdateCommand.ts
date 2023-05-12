@@ -149,8 +149,8 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  *
  * ```
  *
- * @param CreateOTAUpdateCommandInput - {@link CreateOTAUpdateCommandInput}
- * @returns {@link CreateOTAUpdateCommandOutput}
+ * @param CreateOTAUpdateRequest - {@link CreateOTAUpdateRequest}
+ * @returns {@link CreateOTAUpdateResponse}
  * @see {@link CreateOTAUpdateCommandInput} for command's `input` shape.
  * @see {@link CreateOTAUpdateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

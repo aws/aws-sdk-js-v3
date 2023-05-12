@@ -334,8 +334,8 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *
  * ```
  *
- * @param RunTaskCommandInput - {@link RunTaskCommandInput}
- * @returns {@link RunTaskCommandOutput}
+ * @param RunTaskRequest - {@link RunTaskRequest}
+ * @returns {@link RunTaskResponse}
  * @see {@link RunTaskCommandInput} for command's `input` shape.
  * @see {@link RunTaskCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

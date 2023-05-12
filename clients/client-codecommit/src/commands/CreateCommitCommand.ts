@@ -100,8 +100,8 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  *
  * ```
  *
- * @param CreateCommitCommandInput - {@link CreateCommitCommandInput}
- * @returns {@link CreateCommitCommandOutput}
+ * @param CreateCommitInput - {@link CreateCommitInput}
+ * @returns {@link CreateCommitOutput}
  * @see {@link CreateCommitCommandInput} for command's `input` shape.
  * @see {@link CreateCommitCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

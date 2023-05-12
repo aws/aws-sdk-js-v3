@@ -55,8 +55,8 @@ export interface GetOrganizationAdminAccountCommandOutput
  *
  * ```
  *
- * @param GetOrganizationAdminAccountCommandInput - {@link GetOrganizationAdminAccountCommandInput}
- * @returns {@link GetOrganizationAdminAccountCommandOutput}
+ * @param GetOrganizationAdminAccountRequest - {@link GetOrganizationAdminAccountRequest}
+ * @returns {@link GetOrganizationAdminAccountResponse}
  * @see {@link GetOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

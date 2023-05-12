@@ -60,8 +60,8 @@ export interface GetApiMappingsCommandOutput extends GetApiMappingsResponse, __M
  *
  * ```
  *
- * @param GetApiMappingsCommandInput - {@link GetApiMappingsCommandInput}
- * @returns {@link GetApiMappingsCommandOutput}
+ * @param GetApiMappingsRequest - {@link GetApiMappingsRequest}
+ * @returns {@link GetApiMappingsResponse}
  * @see {@link GetApiMappingsCommandInput} for command's `input` shape.
  * @see {@link GetApiMappingsCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

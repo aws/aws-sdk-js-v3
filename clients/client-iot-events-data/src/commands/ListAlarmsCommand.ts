@@ -63,8 +63,8 @@ export interface ListAlarmsCommandOutput extends ListAlarmsResponse, __MetadataB
  *
  * ```
  *
- * @param ListAlarmsCommandInput - {@link ListAlarmsCommandInput}
- * @returns {@link ListAlarmsCommandOutput}
+ * @param ListAlarmsRequest - {@link ListAlarmsRequest}
+ * @returns {@link ListAlarmsResponse}
  * @see {@link ListAlarmsCommandInput} for command's `input` shape.
  * @see {@link ListAlarmsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.

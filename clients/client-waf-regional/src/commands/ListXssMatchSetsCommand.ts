@@ -65,8 +65,8 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  *
  * ```
  *
- * @param ListXssMatchSetsCommandInput - {@link ListXssMatchSetsCommandInput}
- * @returns {@link ListXssMatchSetsCommandOutput}
+ * @param ListXssMatchSetsRequest - {@link ListXssMatchSetsRequest}
+ * @returns {@link ListXssMatchSetsResponse}
  * @see {@link ListXssMatchSetsCommandInput} for command's `input` shape.
  * @see {@link ListXssMatchSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

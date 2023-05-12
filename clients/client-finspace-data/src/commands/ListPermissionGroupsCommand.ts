@@ -68,8 +68,8 @@ export interface ListPermissionGroupsCommandOutput extends ListPermissionGroupsR
  *
  * ```
  *
- * @param ListPermissionGroupsCommandInput - {@link ListPermissionGroupsCommandInput}
- * @returns {@link ListPermissionGroupsCommandOutput}
+ * @param ListPermissionGroupsRequest - {@link ListPermissionGroupsRequest}
+ * @returns {@link ListPermissionGroupsResponse}
  * @see {@link ListPermissionGroupsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionGroupsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

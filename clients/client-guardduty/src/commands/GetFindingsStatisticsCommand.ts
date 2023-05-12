@@ -83,8 +83,8 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  *
  * ```
  *
- * @param GetFindingsStatisticsCommandInput - {@link GetFindingsStatisticsCommandInput}
- * @returns {@link GetFindingsStatisticsCommandOutput}
+ * @param GetFindingsStatisticsRequest - {@link GetFindingsStatisticsRequest}
+ * @returns {@link GetFindingsStatisticsResponse}
  * @see {@link GetFindingsStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetFindingsStatisticsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

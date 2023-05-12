@@ -52,8 +52,8 @@ export interface UntagRoleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UntagRoleCommandInput - {@link UntagRoleCommandInput}
- * @returns {@link UntagRoleCommandOutput}
+ * @param UntagRoleRequest - {@link UntagRoleRequest}
+ * @returns {@link Unit}
  * @see {@link UntagRoleCommandInput} for command's `input` shape.
  * @see {@link UntagRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

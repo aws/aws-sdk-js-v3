@@ -155,8 +155,8 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *
  * ```
  *
- * @param CalculateRouteMatrixCommandInput - {@link CalculateRouteMatrixCommandInput}
- * @returns {@link CalculateRouteMatrixCommandOutput}
+ * @param CalculateRouteMatrixRequest - {@link CalculateRouteMatrixRequest}
+ * @returns {@link CalculateRouteMatrixResponse}
  * @see {@link CalculateRouteMatrixCommandInput} for command's `input` shape.
  * @see {@link CalculateRouteMatrixCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

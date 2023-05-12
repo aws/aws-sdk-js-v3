@@ -52,8 +52,8 @@ export interface StopBackupJobCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopBackupJobCommandInput - {@link StopBackupJobCommandInput}
- * @returns {@link StopBackupJobCommandOutput}
+ * @param StopBackupJobInput - {@link StopBackupJobInput}
+ * @returns {@link Unit}
  * @see {@link StopBackupJobCommandInput} for command's `input` shape.
  * @see {@link StopBackupJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

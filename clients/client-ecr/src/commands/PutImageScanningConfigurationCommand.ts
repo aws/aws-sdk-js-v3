@@ -68,8 +68,8 @@ export interface PutImageScanningConfigurationCommandOutput
  *
  * ```
  *
- * @param PutImageScanningConfigurationCommandInput - {@link PutImageScanningConfigurationCommandInput}
- * @returns {@link PutImageScanningConfigurationCommandOutput}
+ * @param PutImageScanningConfigurationRequest - {@link PutImageScanningConfigurationRequest}
+ * @returns {@link PutImageScanningConfigurationResponse}
  * @see {@link PutImageScanningConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutImageScanningConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

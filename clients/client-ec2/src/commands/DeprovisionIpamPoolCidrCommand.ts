@@ -61,8 +61,8 @@ export interface DeprovisionIpamPoolCidrCommandOutput extends DeprovisionIpamPoo
  *
  * ```
  *
- * @param DeprovisionIpamPoolCidrCommandInput - {@link DeprovisionIpamPoolCidrCommandInput}
- * @returns {@link DeprovisionIpamPoolCidrCommandOutput}
+ * @param DeprovisionIpamPoolCidrRequest - {@link DeprovisionIpamPoolCidrRequest}
+ * @returns {@link DeprovisionIpamPoolCidrResult}
  * @see {@link DeprovisionIpamPoolCidrCommandInput} for command's `input` shape.
  * @see {@link DeprovisionIpamPoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

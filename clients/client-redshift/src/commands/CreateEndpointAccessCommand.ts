@@ -81,8 +81,8 @@ export interface CreateEndpointAccessCommandOutput extends EndpointAccess, __Met
  *
  * ```
  *
- * @param CreateEndpointAccessCommandInput - {@link CreateEndpointAccessCommandInput}
- * @returns {@link CreateEndpointAccessCommandOutput}
+ * @param CreateEndpointAccessMessage - {@link CreateEndpointAccessMessage}
+ * @returns {@link EndpointAccess}
  * @see {@link CreateEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

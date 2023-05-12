@@ -49,8 +49,8 @@ export interface DeleteListenerCommandOutput extends DeleteListenerResponse, __M
  *
  * ```
  *
- * @param DeleteListenerCommandInput - {@link DeleteListenerCommandInput}
- * @returns {@link DeleteListenerCommandOutput}
+ * @param DeleteListenerRequest - {@link DeleteListenerRequest}
+ * @returns {@link DeleteListenerResponse}
  * @see {@link DeleteListenerCommandInput} for command's `input` shape.
  * @see {@link DeleteListenerCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

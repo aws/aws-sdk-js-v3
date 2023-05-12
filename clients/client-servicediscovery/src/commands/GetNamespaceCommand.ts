@@ -70,8 +70,8 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  *
  * ```
  *
- * @param GetNamespaceCommandInput - {@link GetNamespaceCommandInput}
- * @returns {@link GetNamespaceCommandOutput}
+ * @param GetNamespaceRequest - {@link GetNamespaceRequest}
+ * @returns {@link GetNamespaceResponse}
  * @see {@link GetNamespaceCommandInput} for command's `input` shape.
  * @see {@link GetNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.

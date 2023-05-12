@@ -78,8 +78,8 @@ export interface UpdateTopicPermissionsCommandOutput extends UpdateTopicPermissi
  *
  * ```
  *
- * @param UpdateTopicPermissionsCommandInput - {@link UpdateTopicPermissionsCommandInput}
- * @returns {@link UpdateTopicPermissionsCommandOutput}
+ * @param UpdateTopicPermissionsRequest - {@link UpdateTopicPermissionsRequest}
+ * @returns {@link UpdateTopicPermissionsResponse}
  * @see {@link UpdateTopicPermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateTopicPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

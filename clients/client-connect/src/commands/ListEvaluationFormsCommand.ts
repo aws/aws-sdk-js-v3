@@ -67,8 +67,8 @@ export interface ListEvaluationFormsCommandOutput extends ListEvaluationFormsRes
  *
  * ```
  *
- * @param ListEvaluationFormsCommandInput - {@link ListEvaluationFormsCommandInput}
- * @returns {@link ListEvaluationFormsCommandOutput}
+ * @param ListEvaluationFormsRequest - {@link ListEvaluationFormsRequest}
+ * @returns {@link ListEvaluationFormsResponse}
  * @see {@link ListEvaluationFormsCommandInput} for command's `input` shape.
  * @see {@link ListEvaluationFormsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

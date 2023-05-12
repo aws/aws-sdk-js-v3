@@ -372,8 +372,8 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  *
  * ```
  *
- * @param DescribeJobDefinitionsCommandInput - {@link DescribeJobDefinitionsCommandInput}
- * @returns {@link DescribeJobDefinitionsCommandOutput}
+ * @param DescribeJobDefinitionsRequest - {@link DescribeJobDefinitionsRequest}
+ * @returns {@link DescribeJobDefinitionsResponse}
  * @see {@link DescribeJobDefinitionsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

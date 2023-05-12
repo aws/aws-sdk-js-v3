@@ -683,8 +683,8 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  *
  * ```
  *
- * @param CreateDistributionWithTagsCommandInput - {@link CreateDistributionWithTagsCommandInput}
- * @returns {@link CreateDistributionWithTagsCommandOutput}
+ * @param CreateDistributionWithTagsRequest - {@link CreateDistributionWithTagsRequest}
+ * @returns {@link CreateDistributionWithTagsResult}
  * @see {@link CreateDistributionWithTagsCommandInput} for command's `input` shape.
  * @see {@link CreateDistributionWithTagsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

@@ -59,8 +59,8 @@ export interface GetInstanceOnboardingJobStatusCommandOutput
  *
  * ```
  *
- * @param GetInstanceOnboardingJobStatusCommandInput - {@link GetInstanceOnboardingJobStatusCommandInput}
- * @returns {@link GetInstanceOnboardingJobStatusCommandOutput}
+ * @param GetInstanceOnboardingJobStatusRequest - {@link GetInstanceOnboardingJobStatusRequest}
+ * @returns {@link GetInstanceOnboardingJobStatusResponse}
  * @see {@link GetInstanceOnboardingJobStatusCommandInput} for command's `input` shape.
  * @see {@link GetInstanceOnboardingJobStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

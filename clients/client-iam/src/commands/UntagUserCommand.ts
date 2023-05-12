@@ -52,8 +52,8 @@ export interface UntagUserCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UntagUserCommandInput - {@link UntagUserCommandInput}
- * @returns {@link UntagUserCommandOutput}
+ * @param UntagUserRequest - {@link UntagUserRequest}
+ * @returns {@link Unit}
  * @see {@link UntagUserCommandInput} for command's `input` shape.
  * @see {@link UntagUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -67,8 +67,8 @@ export interface ListUsageTotalsCommandOutput extends ListUsageTotalsResponse, _
  *
  * ```
  *
- * @param ListUsageTotalsCommandInput - {@link ListUsageTotalsCommandInput}
- * @returns {@link ListUsageTotalsCommandOutput}
+ * @param ListUsageTotalsRequest - {@link ListUsageTotalsRequest}
+ * @returns {@link ListUsageTotalsResponse}
  * @see {@link ListUsageTotalsCommandInput} for command's `input` shape.
  * @see {@link ListUsageTotalsCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

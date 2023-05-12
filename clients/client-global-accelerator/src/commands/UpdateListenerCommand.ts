@@ -72,8 +72,8 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  *
  * ```
  *
- * @param UpdateListenerCommandInput - {@link UpdateListenerCommandInput}
- * @returns {@link UpdateListenerCommandOutput}
+ * @param UpdateListenerRequest - {@link UpdateListenerRequest}
+ * @returns {@link UpdateListenerResponse}
  * @see {@link UpdateListenerCommandInput} for command's `input` shape.
  * @see {@link UpdateListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

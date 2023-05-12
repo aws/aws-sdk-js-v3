@@ -73,8 +73,8 @@ export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCi
  *
  * ```
  *
- * @param DisassociateVpcCidrBlockCommandInput - {@link DisassociateVpcCidrBlockCommandInput}
- * @returns {@link DisassociateVpcCidrBlockCommandOutput}
+ * @param DisassociateVpcCidrBlockRequest - {@link DisassociateVpcCidrBlockRequest}
+ * @returns {@link DisassociateVpcCidrBlockResult}
  * @see {@link DisassociateVpcCidrBlockCommandInput} for command's `input` shape.
  * @see {@link DisassociateVpcCidrBlockCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

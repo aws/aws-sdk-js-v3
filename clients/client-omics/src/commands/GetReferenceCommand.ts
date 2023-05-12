@@ -59,8 +59,8 @@ export interface GetReferenceCommandOutput
  *
  * ```
  *
- * @param GetReferenceCommandInput - {@link GetReferenceCommandInput}
- * @returns {@link GetReferenceCommandOutput}
+ * @param GetReferenceRequest - {@link GetReferenceRequest}
+ * @returns {@link GetReferenceResponse}
  * @see {@link GetReferenceCommandInput} for command's `input` shape.
  * @see {@link GetReferenceCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

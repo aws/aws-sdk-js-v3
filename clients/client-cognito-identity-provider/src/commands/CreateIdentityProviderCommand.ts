@@ -81,8 +81,8 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  *
  * ```
  *
- * @param CreateIdentityProviderCommandInput - {@link CreateIdentityProviderCommandInput}
- * @returns {@link CreateIdentityProviderCommandOutput}
+ * @param CreateIdentityProviderRequest - {@link CreateIdentityProviderRequest}
+ * @returns {@link CreateIdentityProviderResponse}
  * @see {@link CreateIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link CreateIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

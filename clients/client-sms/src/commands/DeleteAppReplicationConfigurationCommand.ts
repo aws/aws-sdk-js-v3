@@ -56,8 +56,8 @@ export interface DeleteAppReplicationConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteAppReplicationConfigurationCommandInput - {@link DeleteAppReplicationConfigurationCommandInput}
- * @returns {@link DeleteAppReplicationConfigurationCommandOutput}
+ * @param DeleteAppReplicationConfigurationRequest - {@link DeleteAppReplicationConfigurationRequest}
+ * @returns {@link DeleteAppReplicationConfigurationResponse}
  * @see {@link DeleteAppReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAppReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

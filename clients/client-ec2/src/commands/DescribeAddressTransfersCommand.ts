@@ -65,8 +65,8 @@ export interface DescribeAddressTransfersCommandOutput extends DescribeAddressTr
  *
  * ```
  *
- * @param DescribeAddressTransfersCommandInput - {@link DescribeAddressTransfersCommandInput}
- * @returns {@link DescribeAddressTransfersCommandOutput}
+ * @param DescribeAddressTransfersRequest - {@link DescribeAddressTransfersRequest}
+ * @returns {@link DescribeAddressTransfersResult}
  * @see {@link DescribeAddressTransfersCommandInput} for command's `input` shape.
  * @see {@link DescribeAddressTransfersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -52,8 +52,8 @@ export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlow
  *
  * ```
  *
- * @param UpdateContactFlowContentCommandInput - {@link UpdateContactFlowContentCommandInput}
- * @returns {@link UpdateContactFlowContentCommandOutput}
+ * @param UpdateContactFlowContentRequest - {@link UpdateContactFlowContentRequest}
+ * @returns {@link UpdateContactFlowContentResponse}
  * @see {@link UpdateContactFlowContentCommandInput} for command's `input` shape.
  * @see {@link UpdateContactFlowContentCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

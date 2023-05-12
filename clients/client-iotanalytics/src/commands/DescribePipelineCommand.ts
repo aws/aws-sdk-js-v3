@@ -127,8 +127,8 @@ export interface DescribePipelineCommandOutput extends DescribePipelineResponse,
  *
  * ```
  *
- * @param DescribePipelineCommandInput - {@link DescribePipelineCommandInput}
- * @returns {@link DescribePipelineCommandOutput}
+ * @param DescribePipelineRequest - {@link DescribePipelineRequest}
+ * @returns {@link DescribePipelineResponse}
  * @see {@link DescribePipelineCommandInput} for command's `input` shape.
  * @see {@link DescribePipelineCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

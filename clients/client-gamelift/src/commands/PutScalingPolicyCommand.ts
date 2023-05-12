@@ -118,8 +118,8 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  *
  * ```
  *
- * @param PutScalingPolicyCommandInput - {@link PutScalingPolicyCommandInput}
- * @returns {@link PutScalingPolicyCommandOutput}
+ * @param PutScalingPolicyInput - {@link PutScalingPolicyInput}
+ * @returns {@link PutScalingPolicyOutput}
  * @see {@link PutScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

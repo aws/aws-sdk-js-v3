@@ -81,8 +81,8 @@ export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeR
  *
  * ```
  *
- * @param GetProfileObjectTypeCommandInput - {@link GetProfileObjectTypeCommandInput}
- * @returns {@link GetProfileObjectTypeCommandOutput}
+ * @param GetProfileObjectTypeRequest - {@link GetProfileObjectTypeRequest}
+ * @returns {@link GetProfileObjectTypeResponse}
  * @see {@link GetProfileObjectTypeCommandInput} for command's `input` shape.
  * @see {@link GetProfileObjectTypeCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

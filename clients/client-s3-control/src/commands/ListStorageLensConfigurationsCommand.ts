@@ -74,8 +74,8 @@ export interface ListStorageLensConfigurationsCommandOutput
  *
  * ```
  *
- * @param ListStorageLensConfigurationsCommandInput - {@link ListStorageLensConfigurationsCommandInput}
- * @returns {@link ListStorageLensConfigurationsCommandOutput}
+ * @param ListStorageLensConfigurationsRequest - {@link ListStorageLensConfigurationsRequest}
+ * @returns {@link ListStorageLensConfigurationsResult}
  * @see {@link ListStorageLensConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListStorageLensConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

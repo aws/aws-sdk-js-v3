@@ -170,8 +170,8 @@ export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnecti
  *
  * ```
  *
- * @param DescribeVpnConnectionsCommandInput - {@link DescribeVpnConnectionsCommandInput}
- * @returns {@link DescribeVpnConnectionsCommandOutput}
+ * @param DescribeVpnConnectionsRequest - {@link DescribeVpnConnectionsRequest}
+ * @returns {@link DescribeVpnConnectionsResult}
  * @see {@link DescribeVpnConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpnConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -79,8 +79,8 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CreatePermissionCommandInput - {@link CreatePermissionCommandInput}
- * @returns {@link CreatePermissionCommandOutput}
+ * @param CreatePermissionRequest - {@link CreatePermissionRequest}
+ * @returns {@link Unit}
  * @see {@link CreatePermissionCommandInput} for command's `input` shape.
  * @see {@link CreatePermissionCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

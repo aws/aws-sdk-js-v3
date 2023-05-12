@@ -58,8 +58,8 @@ export interface ListMailDomainsCommandOutput extends ListMailDomainsResponse, _
  *
  * ```
  *
- * @param ListMailDomainsCommandInput - {@link ListMailDomainsCommandInput}
- * @returns {@link ListMailDomainsCommandOutput}
+ * @param ListMailDomainsRequest - {@link ListMailDomainsRequest}
+ * @returns {@link ListMailDomainsResponse}
  * @see {@link ListMailDomainsCommandInput} for command's `input` shape.
  * @see {@link ListMailDomainsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

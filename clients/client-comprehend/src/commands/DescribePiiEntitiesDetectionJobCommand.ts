@@ -89,8 +89,8 @@ export interface DescribePiiEntitiesDetectionJobCommandOutput
  *
  * ```
  *
- * @param DescribePiiEntitiesDetectionJobCommandInput - {@link DescribePiiEntitiesDetectionJobCommandInput}
- * @returns {@link DescribePiiEntitiesDetectionJobCommandOutput}
+ * @param DescribePiiEntitiesDetectionJobRequest - {@link DescribePiiEntitiesDetectionJobRequest}
+ * @returns {@link DescribePiiEntitiesDetectionJobResponse}
  * @see {@link DescribePiiEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribePiiEntitiesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

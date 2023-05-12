@@ -55,8 +55,8 @@ export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __M
  *
  * ```
  *
- * @param CreateCliTokenCommandInput - {@link CreateCliTokenCommandInput}
- * @returns {@link CreateCliTokenCommandOutput}
+ * @param CreateCliTokenRequest - {@link CreateCliTokenRequest}
+ * @returns {@link CreateCliTokenResponse}
  * @see {@link CreateCliTokenCommandInput} for command's `input` shape.
  * @see {@link CreateCliTokenCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.

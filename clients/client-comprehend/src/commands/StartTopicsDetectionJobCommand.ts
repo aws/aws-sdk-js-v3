@@ -86,8 +86,8 @@ export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetecti
  *
  * ```
  *
- * @param StartTopicsDetectionJobCommandInput - {@link StartTopicsDetectionJobCommandInput}
- * @returns {@link StartTopicsDetectionJobCommandOutput}
+ * @param StartTopicsDetectionJobRequest - {@link StartTopicsDetectionJobRequest}
+ * @returns {@link StartTopicsDetectionJobResponse}
  * @see {@link StartTopicsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartTopicsDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

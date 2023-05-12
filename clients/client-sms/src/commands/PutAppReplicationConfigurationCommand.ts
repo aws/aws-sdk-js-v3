@@ -87,8 +87,8 @@ export interface PutAppReplicationConfigurationCommandOutput
  *
  * ```
  *
- * @param PutAppReplicationConfigurationCommandInput - {@link PutAppReplicationConfigurationCommandInput}
- * @returns {@link PutAppReplicationConfigurationCommandOutput}
+ * @param PutAppReplicationConfigurationRequest - {@link PutAppReplicationConfigurationRequest}
+ * @returns {@link PutAppReplicationConfigurationResponse}
  * @see {@link PutAppReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutAppReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

@@ -99,8 +99,8 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  *
  * ```
  *
- * @param CreateImageCommandInput - {@link CreateImageCommandInput}
- * @returns {@link CreateImageCommandOutput}
+ * @param CreateImageRequest - {@link CreateImageRequest}
+ * @returns {@link CreateImageResult}
  * @see {@link CreateImageCommandInput} for command's `input` shape.
  * @see {@link CreateImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

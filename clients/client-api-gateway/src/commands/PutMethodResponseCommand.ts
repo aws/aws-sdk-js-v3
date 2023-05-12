@@ -65,8 +65,8 @@ export interface PutMethodResponseCommandOutput extends MethodResponse, __Metada
  *
  * ```
  *
- * @param PutMethodResponseCommandInput - {@link PutMethodResponseCommandInput}
- * @returns {@link PutMethodResponseCommandOutput}
+ * @param PutMethodResponseRequest - {@link PutMethodResponseRequest}
+ * @returns {@link MethodResponse}
  * @see {@link PutMethodResponseCommandInput} for command's `input` shape.
  * @see {@link PutMethodResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

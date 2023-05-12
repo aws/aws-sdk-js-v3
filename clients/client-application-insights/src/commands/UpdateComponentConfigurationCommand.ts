@@ -64,8 +64,8 @@ export interface UpdateComponentConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateComponentConfigurationCommandInput - {@link UpdateComponentConfigurationCommandInput}
- * @returns {@link UpdateComponentConfigurationCommandOutput}
+ * @param UpdateComponentConfigurationRequest - {@link UpdateComponentConfigurationRequest}
+ * @returns {@link UpdateComponentConfigurationResponse}
  * @see {@link UpdateComponentConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateComponentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.

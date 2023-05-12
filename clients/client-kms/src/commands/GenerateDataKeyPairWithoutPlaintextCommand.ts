@@ -130,8 +130,8 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *
  * ```
  *
- * @param GenerateDataKeyPairWithoutPlaintextCommandInput - {@link GenerateDataKeyPairWithoutPlaintextCommandInput}
- * @returns {@link GenerateDataKeyPairWithoutPlaintextCommandOutput}
+ * @param GenerateDataKeyPairWithoutPlaintextRequest - {@link GenerateDataKeyPairWithoutPlaintextRequest}
+ * @returns {@link GenerateDataKeyPairWithoutPlaintextResponse}
  * @see {@link GenerateDataKeyPairWithoutPlaintextCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyPairWithoutPlaintextCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

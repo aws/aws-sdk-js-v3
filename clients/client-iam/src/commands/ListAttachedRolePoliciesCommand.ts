@@ -69,8 +69,8 @@ export interface ListAttachedRolePoliciesCommandOutput extends ListAttachedRoleP
  *
  * ```
  *
- * @param ListAttachedRolePoliciesCommandInput - {@link ListAttachedRolePoliciesCommandInput}
- * @returns {@link ListAttachedRolePoliciesCommandOutput}
+ * @param ListAttachedRolePoliciesRequest - {@link ListAttachedRolePoliciesRequest}
+ * @returns {@link ListAttachedRolePoliciesResponse}
  * @see {@link ListAttachedRolePoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAttachedRolePoliciesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

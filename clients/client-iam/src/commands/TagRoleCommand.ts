@@ -98,8 +98,8 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param TagRoleCommandInput - {@link TagRoleCommandInput}
- * @returns {@link TagRoleCommandOutput}
+ * @param TagRoleRequest - {@link TagRoleRequest}
+ * @returns {@link Unit}
  * @see {@link TagRoleCommandInput} for command's `input` shape.
  * @see {@link TagRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

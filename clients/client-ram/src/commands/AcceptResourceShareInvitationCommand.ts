@@ -81,8 +81,8 @@ export interface AcceptResourceShareInvitationCommandOutput
  *
  * ```
  *
- * @param AcceptResourceShareInvitationCommandInput - {@link AcceptResourceShareInvitationCommandInput}
- * @returns {@link AcceptResourceShareInvitationCommandOutput}
+ * @param AcceptResourceShareInvitationRequest - {@link AcceptResourceShareInvitationRequest}
+ * @returns {@link AcceptResourceShareInvitationResponse}
  * @see {@link AcceptResourceShareInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptResourceShareInvitationCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

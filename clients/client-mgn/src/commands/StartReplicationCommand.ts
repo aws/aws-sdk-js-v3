@@ -161,8 +161,8 @@ export interface StartReplicationCommandOutput extends SourceServer, __MetadataB
  *
  * ```
  *
- * @param StartReplicationCommandInput - {@link StartReplicationCommandInput}
- * @returns {@link StartReplicationCommandOutput}
+ * @param StartReplicationRequest - {@link StartReplicationRequest}
+ * @returns {@link SourceServer}
  * @see {@link StartReplicationCommandInput} for command's `input` shape.
  * @see {@link StartReplicationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

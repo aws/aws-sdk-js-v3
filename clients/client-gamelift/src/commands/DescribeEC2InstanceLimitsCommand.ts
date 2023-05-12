@@ -112,8 +112,8 @@ export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2Insta
  *
  * ```
  *
- * @param DescribeEC2InstanceLimitsCommandInput - {@link DescribeEC2InstanceLimitsCommandInput}
- * @returns {@link DescribeEC2InstanceLimitsCommandOutput}
+ * @param DescribeEC2InstanceLimitsInput - {@link DescribeEC2InstanceLimitsInput}
+ * @returns {@link DescribeEC2InstanceLimitsOutput}
  * @see {@link DescribeEC2InstanceLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeEC2InstanceLimitsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

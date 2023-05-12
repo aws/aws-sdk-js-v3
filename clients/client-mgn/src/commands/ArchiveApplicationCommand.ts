@@ -66,8 +66,8 @@ export interface ArchiveApplicationCommandOutput extends Application, __Metadata
  *
  * ```
  *
- * @param ArchiveApplicationCommandInput - {@link ArchiveApplicationCommandInput}
- * @returns {@link ArchiveApplicationCommandOutput}
+ * @param ArchiveApplicationRequest - {@link ArchiveApplicationRequest}
+ * @returns {@link Application}
  * @see {@link ArchiveApplicationCommandInput} for command's `input` shape.
  * @see {@link ArchiveApplicationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

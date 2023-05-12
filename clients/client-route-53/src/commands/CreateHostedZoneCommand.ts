@@ -154,8 +154,8 @@ export interface CreateHostedZoneCommandOutput extends CreateHostedZoneResponse,
  *
  * ```
  *
- * @param CreateHostedZoneCommandInput - {@link CreateHostedZoneCommandInput}
- * @returns {@link CreateHostedZoneCommandOutput}
+ * @param CreateHostedZoneRequest - {@link CreateHostedZoneRequest}
+ * @returns {@link CreateHostedZoneResponse}
  * @see {@link CreateHostedZoneCommandInput} for command's `input` shape.
  * @see {@link CreateHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

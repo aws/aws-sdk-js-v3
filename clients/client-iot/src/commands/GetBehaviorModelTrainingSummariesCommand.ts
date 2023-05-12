@@ -73,8 +73,8 @@ export interface GetBehaviorModelTrainingSummariesCommandOutput
  *
  * ```
  *
- * @param GetBehaviorModelTrainingSummariesCommandInput - {@link GetBehaviorModelTrainingSummariesCommandInput}
- * @returns {@link GetBehaviorModelTrainingSummariesCommandOutput}
+ * @param GetBehaviorModelTrainingSummariesRequest - {@link GetBehaviorModelTrainingSummariesRequest}
+ * @returns {@link GetBehaviorModelTrainingSummariesResponse}
  * @see {@link GetBehaviorModelTrainingSummariesCommandInput} for command's `input` shape.
  * @see {@link GetBehaviorModelTrainingSummariesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

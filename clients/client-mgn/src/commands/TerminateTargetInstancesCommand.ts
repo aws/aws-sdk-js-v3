@@ -108,8 +108,8 @@ export interface TerminateTargetInstancesCommandOutput extends TerminateTargetIn
  *
  * ```
  *
- * @param TerminateTargetInstancesCommandInput - {@link TerminateTargetInstancesCommandInput}
- * @returns {@link TerminateTargetInstancesCommandOutput}
+ * @param TerminateTargetInstancesRequest - {@link TerminateTargetInstancesRequest}
+ * @returns {@link TerminateTargetInstancesResponse}
  * @see {@link TerminateTargetInstancesCommandInput} for command's `input` shape.
  * @see {@link TerminateTargetInstancesCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

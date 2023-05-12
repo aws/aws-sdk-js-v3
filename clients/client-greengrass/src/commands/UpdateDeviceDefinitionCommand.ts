@@ -49,8 +49,8 @@ export interface UpdateDeviceDefinitionCommandOutput extends UpdateDeviceDefinit
  *
  * ```
  *
- * @param UpdateDeviceDefinitionCommandInput - {@link UpdateDeviceDefinitionCommandInput}
- * @returns {@link UpdateDeviceDefinitionCommandOutput}
+ * @param UpdateDeviceDefinitionRequest - {@link UpdateDeviceDefinitionRequest}
+ * @returns {@link UpdateDeviceDefinitionResponse}
  * @see {@link UpdateDeviceDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

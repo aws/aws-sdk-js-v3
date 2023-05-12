@@ -80,8 +80,8 @@ export interface CreateDirectoryConfigCommandOutput extends CreateDirectoryConfi
  *
  * ```
  *
- * @param CreateDirectoryConfigCommandInput - {@link CreateDirectoryConfigCommandInput}
- * @returns {@link CreateDirectoryConfigCommandOutput}
+ * @param CreateDirectoryConfigRequest - {@link CreateDirectoryConfigRequest}
+ * @returns {@link CreateDirectoryConfigResult}
  * @see {@link CreateDirectoryConfigCommandInput} for command's `input` shape.
  * @see {@link CreateDirectoryConfigCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

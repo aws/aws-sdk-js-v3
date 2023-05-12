@@ -138,8 +138,8 @@ export interface GetCostForecastCommandOutput extends GetCostForecastResponse, _
  *
  * ```
  *
- * @param GetCostForecastCommandInput - {@link GetCostForecastCommandInput}
- * @returns {@link GetCostForecastCommandOutput}
+ * @param GetCostForecastRequest - {@link GetCostForecastRequest}
+ * @returns {@link GetCostForecastResponse}
  * @see {@link GetCostForecastCommandInput} for command's `input` shape.
  * @see {@link GetCostForecastCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

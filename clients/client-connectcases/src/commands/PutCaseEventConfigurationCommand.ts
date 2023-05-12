@@ -63,8 +63,8 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  *
  * ```
  *
- * @param PutCaseEventConfigurationCommandInput - {@link PutCaseEventConfigurationCommandInput}
- * @returns {@link PutCaseEventConfigurationCommandOutput}
+ * @param PutCaseEventConfigurationRequest - {@link PutCaseEventConfigurationRequest}
+ * @returns {@link PutCaseEventConfigurationResponse}
  * @see {@link PutCaseEventConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutCaseEventConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

@@ -54,8 +54,8 @@ export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOut
  *
  * ```
  *
- * @param UpdateVTLDeviceTypeCommandInput - {@link UpdateVTLDeviceTypeCommandInput}
- * @returns {@link UpdateVTLDeviceTypeCommandOutput}
+ * @param UpdateVTLDeviceTypeInput - {@link UpdateVTLDeviceTypeInput}
+ * @returns {@link UpdateVTLDeviceTypeOutput}
  * @see {@link UpdateVTLDeviceTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateVTLDeviceTypeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

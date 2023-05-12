@@ -113,8 +113,8 @@ export interface CreateTransitGatewayCommandOutput extends CreateTransitGatewayR
  *
  * ```
  *
- * @param CreateTransitGatewayCommandInput - {@link CreateTransitGatewayCommandInput}
- * @returns {@link CreateTransitGatewayCommandOutput}
+ * @param CreateTransitGatewayRequest - {@link CreateTransitGatewayRequest}
+ * @returns {@link CreateTransitGatewayResult}
  * @see {@link CreateTransitGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

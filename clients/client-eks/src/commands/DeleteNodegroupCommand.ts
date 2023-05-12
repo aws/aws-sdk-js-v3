@@ -120,8 +120,8 @@ export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, _
  *
  * ```
  *
- * @param DeleteNodegroupCommandInput - {@link DeleteNodegroupCommandInput}
- * @returns {@link DeleteNodegroupCommandOutput}
+ * @param DeleteNodegroupRequest - {@link DeleteNodegroupRequest}
+ * @returns {@link DeleteNodegroupResponse}
  * @see {@link DeleteNodegroupCommandInput} for command's `input` shape.
  * @see {@link DeleteNodegroupCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

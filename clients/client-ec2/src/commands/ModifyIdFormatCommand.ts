@@ -72,8 +72,8 @@ export interface ModifyIdFormatCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ModifyIdFormatCommandInput - {@link ModifyIdFormatCommandInput}
- * @returns {@link ModifyIdFormatCommandOutput}
+ * @param ModifyIdFormatRequest - {@link ModifyIdFormatRequest}
+ * @returns {@link Unit}
  * @see {@link ModifyIdFormatCommandInput} for command's `input` shape.
  * @see {@link ModifyIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

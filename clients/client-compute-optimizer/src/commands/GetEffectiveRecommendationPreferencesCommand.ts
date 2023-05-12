@@ -67,8 +67,8 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  *
  * ```
  *
- * @param GetEffectiveRecommendationPreferencesCommandInput - {@link GetEffectiveRecommendationPreferencesCommandInput}
- * @returns {@link GetEffectiveRecommendationPreferencesCommandOutput}
+ * @param GetEffectiveRecommendationPreferencesRequest - {@link GetEffectiveRecommendationPreferencesRequest}
+ * @returns {@link GetEffectiveRecommendationPreferencesResponse}
  * @see {@link GetEffectiveRecommendationPreferencesCommandInput} for command's `input` shape.
  * @see {@link GetEffectiveRecommendationPreferencesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

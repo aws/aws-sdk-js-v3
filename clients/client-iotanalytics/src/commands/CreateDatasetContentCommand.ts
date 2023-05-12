@@ -52,8 +52,8 @@ export interface CreateDatasetContentCommandOutput extends CreateDatasetContentR
  *
  * ```
  *
- * @param CreateDatasetContentCommandInput - {@link CreateDatasetContentCommandInput}
- * @returns {@link CreateDatasetContentCommandOutput}
+ * @param CreateDatasetContentRequest - {@link CreateDatasetContentRequest}
+ * @returns {@link CreateDatasetContentResponse}
  * @see {@link CreateDatasetContentCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetContentCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

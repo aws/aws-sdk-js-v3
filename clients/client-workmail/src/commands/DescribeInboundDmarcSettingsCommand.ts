@@ -55,8 +55,8 @@ export interface DescribeInboundDmarcSettingsCommandOutput
  *
  * ```
  *
- * @param DescribeInboundDmarcSettingsCommandInput - {@link DescribeInboundDmarcSettingsCommandInput}
- * @returns {@link DescribeInboundDmarcSettingsCommandOutput}
+ * @param DescribeInboundDmarcSettingsRequest - {@link DescribeInboundDmarcSettingsRequest}
+ * @returns {@link DescribeInboundDmarcSettingsResponse}
  * @see {@link DescribeInboundDmarcSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeInboundDmarcSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

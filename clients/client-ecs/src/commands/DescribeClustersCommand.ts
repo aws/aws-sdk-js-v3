@@ -130,8 +130,8 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  *
  * ```
  *
- * @param DescribeClustersCommandInput - {@link DescribeClustersCommandInput}
- * @returns {@link DescribeClustersCommandOutput}
+ * @param DescribeClustersRequest - {@link DescribeClustersRequest}
+ * @returns {@link DescribeClustersResponse}
  * @see {@link DescribeClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeClustersCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

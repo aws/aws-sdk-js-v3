@@ -79,8 +79,8 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput
  *
  * ```
  *
- * @param UpdateLaunchConfigurationTemplateCommandInput - {@link UpdateLaunchConfigurationTemplateCommandInput}
- * @returns {@link UpdateLaunchConfigurationTemplateCommandOutput}
+ * @param UpdateLaunchConfigurationTemplateRequest - {@link UpdateLaunchConfigurationTemplateRequest}
+ * @returns {@link UpdateLaunchConfigurationTemplateResponse}
  * @see {@link UpdateLaunchConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateLaunchConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

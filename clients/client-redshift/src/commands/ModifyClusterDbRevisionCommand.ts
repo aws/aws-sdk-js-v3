@@ -222,8 +222,8 @@ export interface ModifyClusterDbRevisionCommandOutput extends ModifyClusterDbRev
  *
  * ```
  *
- * @param ModifyClusterDbRevisionCommandInput - {@link ModifyClusterDbRevisionCommandInput}
- * @returns {@link ModifyClusterDbRevisionCommandOutput}
+ * @param ModifyClusterDbRevisionMessage - {@link ModifyClusterDbRevisionMessage}
+ * @returns {@link ModifyClusterDbRevisionResult}
  * @see {@link ModifyClusterDbRevisionCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterDbRevisionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

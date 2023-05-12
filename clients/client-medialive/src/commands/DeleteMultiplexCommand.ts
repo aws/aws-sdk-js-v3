@@ -74,8 +74,8 @@ export interface DeleteMultiplexCommandOutput extends DeleteMultiplexResponse, _
  *
  * ```
  *
- * @param DeleteMultiplexCommandInput - {@link DeleteMultiplexCommandInput}
- * @returns {@link DeleteMultiplexCommandOutput}
+ * @param DeleteMultiplexRequest - {@link DeleteMultiplexRequest}
+ * @returns {@link DeleteMultiplexResponse}
  * @see {@link DeleteMultiplexCommandInput} for command's `input` shape.
  * @see {@link DeleteMultiplexCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

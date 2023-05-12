@@ -68,8 +68,8 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  *
  * ```
  *
- * @param CreateDatabaseCommandInput - {@link CreateDatabaseCommandInput}
- * @returns {@link CreateDatabaseCommandOutput}
+ * @param CreateDatabaseRequest - {@link CreateDatabaseRequest}
+ * @returns {@link CreateDatabaseResponse}
  * @see {@link CreateDatabaseCommandInput} for command's `input` shape.
  * @see {@link CreateDatabaseCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.

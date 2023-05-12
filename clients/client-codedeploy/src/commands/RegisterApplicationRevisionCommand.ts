@@ -71,8 +71,8 @@ export interface RegisterApplicationRevisionCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param RegisterApplicationRevisionCommandInput - {@link RegisterApplicationRevisionCommandInput}
- * @returns {@link RegisterApplicationRevisionCommandOutput}
+ * @param RegisterApplicationRevisionInput - {@link RegisterApplicationRevisionInput}
+ * @returns {@link Unit}
  * @see {@link RegisterApplicationRevisionCommandInput} for command's `input` shape.
  * @see {@link RegisterApplicationRevisionCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

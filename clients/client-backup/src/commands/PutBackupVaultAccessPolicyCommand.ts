@@ -51,8 +51,8 @@ export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param PutBackupVaultAccessPolicyCommandInput - {@link PutBackupVaultAccessPolicyCommandInput}
- * @returns {@link PutBackupVaultAccessPolicyCommandOutput}
+ * @param PutBackupVaultAccessPolicyInput - {@link PutBackupVaultAccessPolicyInput}
+ * @returns {@link Unit}
  * @see {@link PutBackupVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link PutBackupVaultAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

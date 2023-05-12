@@ -63,8 +63,8 @@ export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSof
  *
  * ```
  *
- * @param StartServiceSoftwareUpdateCommandInput - {@link StartServiceSoftwareUpdateCommandInput}
- * @returns {@link StartServiceSoftwareUpdateCommandOutput}
+ * @param StartServiceSoftwareUpdateRequest - {@link StartServiceSoftwareUpdateRequest}
+ * @returns {@link StartServiceSoftwareUpdateResponse}
  * @see {@link StartServiceSoftwareUpdateCommandInput} for command's `input` shape.
  * @see {@link StartServiceSoftwareUpdateCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

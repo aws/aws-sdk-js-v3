@@ -56,8 +56,8 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  *
  * ```
  *
- * @param DeleteParameterGroupCommandInput - {@link DeleteParameterGroupCommandInput}
- * @returns {@link DeleteParameterGroupCommandOutput}
+ * @param DeleteParameterGroupRequest - {@link DeleteParameterGroupRequest}
+ * @returns {@link DeleteParameterGroupResponse}
  * @see {@link DeleteParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

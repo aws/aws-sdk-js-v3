@@ -50,8 +50,8 @@ export interface DisassociateApprovedOriginCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DisassociateApprovedOriginCommandInput - {@link DisassociateApprovedOriginCommandInput}
- * @returns {@link DisassociateApprovedOriginCommandOutput}
+ * @param DisassociateApprovedOriginRequest - {@link DisassociateApprovedOriginRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateApprovedOriginCommandInput} for command's `input` shape.
  * @see {@link DisassociateApprovedOriginCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -56,8 +56,8 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
  *
  * ```
  *
- * @param DisassociateOpsItemRelatedItemCommandInput - {@link DisassociateOpsItemRelatedItemCommandInput}
- * @returns {@link DisassociateOpsItemRelatedItemCommandOutput}
+ * @param DisassociateOpsItemRelatedItemRequest - {@link DisassociateOpsItemRelatedItemRequest}
+ * @returns {@link DisassociateOpsItemRelatedItemResponse}
  * @see {@link DisassociateOpsItemRelatedItemCommandInput} for command's `input` shape.
  * @see {@link DisassociateOpsItemRelatedItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

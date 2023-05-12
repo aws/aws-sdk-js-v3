@@ -75,8 +75,8 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  *
  * ```
  *
- * @param DescribeCertificateCommandInput - {@link DescribeCertificateCommandInput}
- * @returns {@link DescribeCertificateCommandOutput}
+ * @param DescribeCertificateRequest - {@link DescribeCertificateRequest}
+ * @returns {@link DescribeCertificateResponse}
  * @see {@link DescribeCertificateCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -69,8 +69,8 @@ export interface ListTestGridSessionArtifactsCommandOutput
  *
  * ```
  *
- * @param ListTestGridSessionArtifactsCommandInput - {@link ListTestGridSessionArtifactsCommandInput}
- * @returns {@link ListTestGridSessionArtifactsCommandOutput}
+ * @param ListTestGridSessionArtifactsRequest - {@link ListTestGridSessionArtifactsRequest}
+ * @returns {@link ListTestGridSessionArtifactsResult}
  * @see {@link ListTestGridSessionArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListTestGridSessionArtifactsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

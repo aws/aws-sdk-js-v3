@@ -73,8 +73,8 @@ export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, _
  *
  * ```
  *
- * @param StartDeviceSyncCommandInput - {@link StartDeviceSyncCommandInput}
- * @returns {@link StartDeviceSyncCommandOutput}
+ * @param StartDeviceSyncRequest - {@link StartDeviceSyncRequest}
+ * @returns {@link StartDeviceSyncResponse}
  * @see {@link StartDeviceSyncCommandInput} for command's `input` shape.
  * @see {@link StartDeviceSyncCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

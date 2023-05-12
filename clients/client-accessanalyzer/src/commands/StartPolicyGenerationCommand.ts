@@ -67,8 +67,8 @@ export interface StartPolicyGenerationCommandOutput extends StartPolicyGeneratio
  *
  * ```
  *
- * @param StartPolicyGenerationCommandInput - {@link StartPolicyGenerationCommandInput}
- * @returns {@link StartPolicyGenerationCommandOutput}
+ * @param StartPolicyGenerationRequest - {@link StartPolicyGenerationRequest}
+ * @returns {@link StartPolicyGenerationResponse}
  * @see {@link StartPolicyGenerationCommandInput} for command's `input` shape.
  * @see {@link StartPolicyGenerationCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

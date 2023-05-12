@@ -106,8 +106,8 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  *
  * ```
  *
- * @param DescribeAttackCommandInput - {@link DescribeAttackCommandInput}
- * @returns {@link DescribeAttackCommandOutput}
+ * @param DescribeAttackRequest - {@link DescribeAttackRequest}
+ * @returns {@link DescribeAttackResponse}
  * @see {@link DescribeAttackCommandInput} for command's `input` shape.
  * @see {@link DescribeAttackCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

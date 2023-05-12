@@ -87,8 +87,8 @@ export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, _
  *
  * ```
  *
- * @param UpdateNamespaceCommandInput - {@link UpdateNamespaceCommandInput}
- * @returns {@link UpdateNamespaceCommandOutput}
+ * @param UpdateNamespaceRequest - {@link UpdateNamespaceRequest}
+ * @returns {@link UpdateNamespaceResponse}
  * @see {@link UpdateNamespaceCommandInput} for command's `input` shape.
  * @see {@link UpdateNamespaceCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

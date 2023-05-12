@@ -53,8 +53,8 @@ export interface UpdateRunGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateRunGroupCommandInput - {@link UpdateRunGroupCommandInput}
- * @returns {@link UpdateRunGroupCommandOutput}
+ * @param UpdateRunGroupRequest - {@link UpdateRunGroupRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateRunGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateRunGroupCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

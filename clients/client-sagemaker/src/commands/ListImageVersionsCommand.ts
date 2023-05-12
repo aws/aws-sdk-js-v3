@@ -70,8 +70,8 @@ export interface ListImageVersionsCommandOutput extends ListImageVersionsRespons
  *
  * ```
  *
- * @param ListImageVersionsCommandInput - {@link ListImageVersionsCommandInput}
- * @returns {@link ListImageVersionsCommandOutput}
+ * @param ListImageVersionsRequest - {@link ListImageVersionsRequest}
+ * @returns {@link ListImageVersionsResponse}
  * @see {@link ListImageVersionsCommandInput} for command's `input` shape.
  * @see {@link ListImageVersionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

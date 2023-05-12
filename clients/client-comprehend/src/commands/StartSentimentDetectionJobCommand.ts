@@ -87,8 +87,8 @@ export interface StartSentimentDetectionJobCommandOutput extends StartSentimentD
  *
  * ```
  *
- * @param StartSentimentDetectionJobCommandInput - {@link StartSentimentDetectionJobCommandInput}
- * @returns {@link StartSentimentDetectionJobCommandOutput}
+ * @param StartSentimentDetectionJobRequest - {@link StartSentimentDetectionJobRequest}
+ * @returns {@link StartSentimentDetectionJobResponse}
  * @see {@link StartSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartSentimentDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

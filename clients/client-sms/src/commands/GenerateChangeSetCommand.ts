@@ -55,8 +55,8 @@ export interface GenerateChangeSetCommandOutput extends GenerateChangeSetRespons
  *
  * ```
  *
- * @param GenerateChangeSetCommandInput - {@link GenerateChangeSetCommandInput}
- * @returns {@link GenerateChangeSetCommandOutput}
+ * @param GenerateChangeSetRequest - {@link GenerateChangeSetRequest}
+ * @returns {@link GenerateChangeSetResponse}
  * @see {@link GenerateChangeSetCommandInput} for command's `input` shape.
  * @see {@link GenerateChangeSetCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

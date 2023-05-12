@@ -59,8 +59,8 @@ export interface UpdateModelCardCommandOutput extends UpdateModelCardResponse, _
  *
  * ```
  *
- * @param UpdateModelCardCommandInput - {@link UpdateModelCardCommandInput}
- * @returns {@link UpdateModelCardCommandOutput}
+ * @param UpdateModelCardRequest - {@link UpdateModelCardRequest}
+ * @returns {@link UpdateModelCardResponse}
  * @see {@link UpdateModelCardCommandInput} for command's `input` shape.
  * @see {@link UpdateModelCardCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

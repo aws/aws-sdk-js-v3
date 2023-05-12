@@ -69,8 +69,8 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
  *
  * ```
  *
- * @param DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput - {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput}
- * @returns {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput}
+ * @param DisassociatePhoneNumbersFromVoiceConnectorGroupRequest - {@link DisassociatePhoneNumbersFromVoiceConnectorGroupRequest}
+ * @returns {@link DisassociatePhoneNumbersFromVoiceConnectorGroupResponse}
  * @see {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

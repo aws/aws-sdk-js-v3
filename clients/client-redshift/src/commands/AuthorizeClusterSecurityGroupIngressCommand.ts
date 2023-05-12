@@ -110,8 +110,8 @@ export interface AuthorizeClusterSecurityGroupIngressCommandOutput
  *
  * ```
  *
- * @param AuthorizeClusterSecurityGroupIngressCommandInput - {@link AuthorizeClusterSecurityGroupIngressCommandInput}
- * @returns {@link AuthorizeClusterSecurityGroupIngressCommandOutput}
+ * @param AuthorizeClusterSecurityGroupIngressMessage - {@link AuthorizeClusterSecurityGroupIngressMessage}
+ * @returns {@link AuthorizeClusterSecurityGroupIngressResult}
  * @see {@link AuthorizeClusterSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link AuthorizeClusterSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

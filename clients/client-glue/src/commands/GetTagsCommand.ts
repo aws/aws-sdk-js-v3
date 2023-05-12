@@ -52,8 +52,8 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  *
  * ```
  *
- * @param GetTagsCommandInput - {@link GetTagsCommandInput}
- * @returns {@link GetTagsCommandOutput}
+ * @param GetTagsRequest - {@link GetTagsRequest}
+ * @returns {@link GetTagsResponse}
  * @see {@link GetTagsCommandInput} for command's `input` shape.
  * @see {@link GetTagsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

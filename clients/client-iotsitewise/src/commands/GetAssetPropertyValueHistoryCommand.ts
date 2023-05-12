@@ -91,8 +91,8 @@ export interface GetAssetPropertyValueHistoryCommandOutput
  *
  * ```
  *
- * @param GetAssetPropertyValueHistoryCommandInput - {@link GetAssetPropertyValueHistoryCommandInput}
- * @returns {@link GetAssetPropertyValueHistoryCommandOutput}
+ * @param GetAssetPropertyValueHistoryRequest - {@link GetAssetPropertyValueHistoryRequest}
+ * @returns {@link GetAssetPropertyValueHistoryResponse}
  * @see {@link GetAssetPropertyValueHistoryCommandInput} for command's `input` shape.
  * @see {@link GetAssetPropertyValueHistoryCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

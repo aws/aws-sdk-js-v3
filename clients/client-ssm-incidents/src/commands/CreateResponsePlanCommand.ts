@@ -111,8 +111,8 @@ export interface CreateResponsePlanCommandOutput extends CreateResponsePlanOutpu
  *
  * ```
  *
- * @param CreateResponsePlanCommandInput - {@link CreateResponsePlanCommandInput}
- * @returns {@link CreateResponsePlanCommandOutput}
+ * @param CreateResponsePlanInput - {@link CreateResponsePlanInput}
+ * @returns {@link CreateResponsePlanOutput}
  * @see {@link CreateResponsePlanCommandInput} for command's `input` shape.
  * @see {@link CreateResponsePlanCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

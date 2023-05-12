@@ -50,8 +50,8 @@ export interface StopTriggerCommandOutput extends StopTriggerResponse, __Metadat
  *
  * ```
  *
- * @param StopTriggerCommandInput - {@link StopTriggerCommandInput}
- * @returns {@link StopTriggerCommandOutput}
+ * @param StopTriggerRequest - {@link StopTriggerRequest}
+ * @returns {@link StopTriggerResponse}
  * @see {@link StopTriggerCommandInput} for command's `input` shape.
  * @see {@link StopTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

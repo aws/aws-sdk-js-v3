@@ -64,8 +64,8 @@ export interface ListBotAliasesCommandOutput extends ListBotAliasesResponse, __M
  *
  * ```
  *
- * @param ListBotAliasesCommandInput - {@link ListBotAliasesCommandInput}
- * @returns {@link ListBotAliasesCommandOutput}
+ * @param ListBotAliasesRequest - {@link ListBotAliasesRequest}
+ * @returns {@link ListBotAliasesResponse}
  * @see {@link ListBotAliasesCommandInput} for command's `input` shape.
  * @see {@link ListBotAliasesCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

@@ -68,8 +68,8 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
  *
  * ```
  *
- * @param GetRecoveryGroupReadinessSummaryCommandInput - {@link GetRecoveryGroupReadinessSummaryCommandInput}
- * @returns {@link GetRecoveryGroupReadinessSummaryCommandOutput}
+ * @param GetRecoveryGroupReadinessSummaryRequest - {@link GetRecoveryGroupReadinessSummaryRequest}
+ * @returns {@link GetRecoveryGroupReadinessSummaryResponse}
  * @see {@link GetRecoveryGroupReadinessSummaryCommandInput} for command's `input` shape.
  * @see {@link GetRecoveryGroupReadinessSummaryCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

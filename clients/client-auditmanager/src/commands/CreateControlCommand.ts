@@ -103,8 +103,8 @@ export interface CreateControlCommandOutput extends CreateControlResponse, __Met
  *
  * ```
  *
- * @param CreateControlCommandInput - {@link CreateControlCommandInput}
- * @returns {@link CreateControlCommandOutput}
+ * @param CreateControlRequest - {@link CreateControlRequest}
+ * @returns {@link CreateControlResponse}
  * @see {@link CreateControlCommandInput} for command's `input` shape.
  * @see {@link CreateControlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

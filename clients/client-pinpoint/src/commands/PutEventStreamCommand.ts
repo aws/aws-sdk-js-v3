@@ -61,8 +61,8 @@ export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __M
  *
  * ```
  *
- * @param PutEventStreamCommandInput - {@link PutEventStreamCommandInput}
- * @returns {@link PutEventStreamCommandOutput}
+ * @param PutEventStreamRequest - {@link PutEventStreamRequest}
+ * @returns {@link PutEventStreamResponse}
  * @see {@link PutEventStreamCommandInput} for command's `input` shape.
  * @see {@link PutEventStreamCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

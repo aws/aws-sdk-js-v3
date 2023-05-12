@@ -122,8 +122,8 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  *
  * ```
  *
- * @param GetConfigCommandInput - {@link GetConfigCommandInput}
- * @returns {@link GetConfigCommandOutput}
+ * @param GetConfigRequest - {@link GetConfigRequest}
+ * @returns {@link GetConfigResponse}
  * @see {@link GetConfigCommandInput} for command's `input` shape.
  * @see {@link GetConfigCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

@@ -65,8 +65,8 @@ export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __Metadat
  *
  * ```
  *
- * @param GetTagValuesCommandInput - {@link GetTagValuesCommandInput}
- * @returns {@link GetTagValuesCommandOutput}
+ * @param GetTagValuesInput - {@link GetTagValuesInput}
+ * @returns {@link GetTagValuesOutput}
  * @see {@link GetTagValuesCommandInput} for command's `input` shape.
  * @see {@link GetTagValuesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.

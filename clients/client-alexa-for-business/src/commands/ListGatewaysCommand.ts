@@ -63,8 +63,8 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  *
  * ```
  *
- * @param ListGatewaysCommandInput - {@link ListGatewaysCommandInput}
- * @returns {@link ListGatewaysCommandOutput}
+ * @param ListGatewaysRequest - {@link ListGatewaysRequest}
+ * @returns {@link ListGatewaysResponse}
  * @see {@link ListGatewaysCommandInput} for command's `input` shape.
  * @see {@link ListGatewaysCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolic
  *
  * ```
  *
- * @param DeleteContainerPolicyCommandInput - {@link DeleteContainerPolicyCommandInput}
- * @returns {@link DeleteContainerPolicyCommandOutput}
+ * @param DeleteContainerPolicyInput - {@link DeleteContainerPolicyInput}
+ * @returns {@link DeleteContainerPolicyOutput}
  * @see {@link DeleteContainerPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.

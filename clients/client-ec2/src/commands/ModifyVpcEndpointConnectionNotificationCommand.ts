@@ -65,8 +65,8 @@ export interface ModifyVpcEndpointConnectionNotificationCommandOutput
  *
  * ```
  *
- * @param ModifyVpcEndpointConnectionNotificationCommandInput - {@link ModifyVpcEndpointConnectionNotificationCommandInput}
- * @returns {@link ModifyVpcEndpointConnectionNotificationCommandOutput}
+ * @param ModifyVpcEndpointConnectionNotificationRequest - {@link ModifyVpcEndpointConnectionNotificationRequest}
+ * @returns {@link ModifyVpcEndpointConnectionNotificationResult}
  * @see {@link ModifyVpcEndpointConnectionNotificationCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcEndpointConnectionNotificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

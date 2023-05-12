@@ -80,8 +80,8 @@ export interface SearchDataSetsCommandOutput extends SearchDataSetsResponse, __M
  *
  * ```
  *
- * @param SearchDataSetsCommandInput - {@link SearchDataSetsCommandInput}
- * @returns {@link SearchDataSetsCommandOutput}
+ * @param SearchDataSetsRequest - {@link SearchDataSetsRequest}
+ * @returns {@link SearchDataSetsResponse}
  * @see {@link SearchDataSetsCommandInput} for command's `input` shape.
  * @see {@link SearchDataSetsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

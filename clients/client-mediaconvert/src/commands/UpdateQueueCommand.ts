@@ -76,8 +76,8 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  *
  * ```
  *
- * @param UpdateQueueCommandInput - {@link UpdateQueueCommandInput}
- * @returns {@link UpdateQueueCommandOutput}
+ * @param UpdateQueueRequest - {@link UpdateQueueRequest}
+ * @returns {@link UpdateQueueResponse}
  * @see {@link UpdateQueueCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.

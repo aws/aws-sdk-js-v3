@@ -70,8 +70,8 @@ export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, _
  *
  * ```
  *
- * @param ListMultiplexesCommandInput - {@link ListMultiplexesCommandInput}
- * @returns {@link ListMultiplexesCommandOutput}
+ * @param ListMultiplexesRequest - {@link ListMultiplexesRequest}
+ * @returns {@link ListMultiplexesResponse}
  * @see {@link ListMultiplexesCommandInput} for command's `input` shape.
  * @see {@link ListMultiplexesCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

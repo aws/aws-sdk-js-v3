@@ -78,8 +78,8 @@ export interface StartFailbackLaunchCommandOutput extends StartFailbackLaunchRes
  *
  * ```
  *
- * @param StartFailbackLaunchCommandInput - {@link StartFailbackLaunchCommandInput}
- * @returns {@link StartFailbackLaunchCommandOutput}
+ * @param StartFailbackLaunchRequest - {@link StartFailbackLaunchRequest}
+ * @returns {@link StartFailbackLaunchResponse}
  * @see {@link StartFailbackLaunchCommandInput} for command's `input` shape.
  * @see {@link StartFailbackLaunchCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

@@ -83,8 +83,8 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, _
  *
  * ```
  *
- * @param PurchaseOfferingCommandInput - {@link PurchaseOfferingCommandInput}
- * @returns {@link PurchaseOfferingCommandOutput}
+ * @param PurchaseOfferingRequest - {@link PurchaseOfferingRequest}
+ * @returns {@link PurchaseOfferingResult}
  * @see {@link PurchaseOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseOfferingCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

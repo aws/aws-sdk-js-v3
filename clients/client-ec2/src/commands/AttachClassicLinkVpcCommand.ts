@@ -64,8 +64,8 @@ export interface AttachClassicLinkVpcCommandOutput extends AttachClassicLinkVpcR
  *
  * ```
  *
- * @param AttachClassicLinkVpcCommandInput - {@link AttachClassicLinkVpcCommandInput}
- * @returns {@link AttachClassicLinkVpcCommandOutput}
+ * @param AttachClassicLinkVpcRequest - {@link AttachClassicLinkVpcRequest}
+ * @returns {@link AttachClassicLinkVpcResult}
  * @see {@link AttachClassicLinkVpcCommandInput} for command's `input` shape.
  * @see {@link AttachClassicLinkVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

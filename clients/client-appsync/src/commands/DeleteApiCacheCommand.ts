@@ -48,8 +48,8 @@ export interface DeleteApiCacheCommandOutput extends DeleteApiCacheResponse, __M
  *
  * ```
  *
- * @param DeleteApiCacheCommandInput - {@link DeleteApiCacheCommandInput}
- * @returns {@link DeleteApiCacheCommandOutput}
+ * @param DeleteApiCacheRequest - {@link DeleteApiCacheRequest}
+ * @returns {@link DeleteApiCacheResponse}
  * @see {@link DeleteApiCacheCommandInput} for command's `input` shape.
  * @see {@link DeleteApiCacheCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

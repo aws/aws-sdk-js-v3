@@ -53,8 +53,8 @@ export interface PutRecommendationFeedbackCommandOutput extends PutRecommendatio
  *
  * ```
  *
- * @param PutRecommendationFeedbackCommandInput - {@link PutRecommendationFeedbackCommandInput}
- * @returns {@link PutRecommendationFeedbackCommandOutput}
+ * @param PutRecommendationFeedbackRequest - {@link PutRecommendationFeedbackRequest}
+ * @returns {@link PutRecommendationFeedbackResponse}
  * @see {@link PutRecommendationFeedbackCommandInput} for command's `input` shape.
  * @see {@link PutRecommendationFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.

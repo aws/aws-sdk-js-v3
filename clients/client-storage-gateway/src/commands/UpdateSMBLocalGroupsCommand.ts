@@ -56,8 +56,8 @@ export interface UpdateSMBLocalGroupsCommandOutput extends UpdateSMBLocalGroupsO
  *
  * ```
  *
- * @param UpdateSMBLocalGroupsCommandInput - {@link UpdateSMBLocalGroupsCommandInput}
- * @returns {@link UpdateSMBLocalGroupsCommandOutput}
+ * @param UpdateSMBLocalGroupsInput - {@link UpdateSMBLocalGroupsInput}
+ * @returns {@link UpdateSMBLocalGroupsOutput}
  * @see {@link UpdateSMBLocalGroupsCommandInput} for command's `input` shape.
  * @see {@link UpdateSMBLocalGroupsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

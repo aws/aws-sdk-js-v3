@@ -64,8 +64,8 @@ export interface StartModelCommandOutput extends StartModelResponse, __MetadataB
  *
  * ```
  *
- * @param StartModelCommandInput - {@link StartModelCommandInput}
- * @returns {@link StartModelCommandOutput}
+ * @param StartModelRequest - {@link StartModelRequest}
+ * @returns {@link StartModelResponse}
  * @see {@link StartModelCommandInput} for command's `input` shape.
  * @see {@link StartModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.

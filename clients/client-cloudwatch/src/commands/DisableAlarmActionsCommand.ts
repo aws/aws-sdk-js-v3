@@ -51,8 +51,8 @@ export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DisableAlarmActionsCommandInput - {@link DisableAlarmActionsCommandInput}
- * @returns {@link DisableAlarmActionsCommandOutput}
+ * @param DisableAlarmActionsInput - {@link DisableAlarmActionsInput}
+ * @returns {@link Unit}
  * @see {@link DisableAlarmActionsCommandInput} for command's `input` shape.
  * @see {@link DisableAlarmActionsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

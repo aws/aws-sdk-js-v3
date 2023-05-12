@@ -67,8 +67,8 @@ export interface ListWorldsCommandOutput extends ListWorldsResponse, __MetadataB
  *
  * ```
  *
- * @param ListWorldsCommandInput - {@link ListWorldsCommandInput}
- * @returns {@link ListWorldsCommandOutput}
+ * @param ListWorldsRequest - {@link ListWorldsRequest}
+ * @returns {@link ListWorldsResponse}
  * @see {@link ListWorldsCommandInput} for command's `input` shape.
  * @see {@link ListWorldsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

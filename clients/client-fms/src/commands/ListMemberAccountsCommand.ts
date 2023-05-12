@@ -56,8 +56,8 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsRespo
  *
  * ```
  *
- * @param ListMemberAccountsCommandInput - {@link ListMemberAccountsCommandInput}
- * @returns {@link ListMemberAccountsCommandOutput}
+ * @param ListMemberAccountsRequest - {@link ListMemberAccountsRequest}
+ * @returns {@link ListMemberAccountsResponse}
  * @see {@link ListMemberAccountsCommandInput} for command's `input` shape.
  * @see {@link ListMemberAccountsCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

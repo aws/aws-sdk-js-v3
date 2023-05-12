@@ -55,8 +55,8 @@ export interface DescribeTransactionCommandOutput extends DescribeTransactionRes
  *
  * ```
  *
- * @param DescribeTransactionCommandInput - {@link DescribeTransactionCommandInput}
- * @returns {@link DescribeTransactionCommandOutput}
+ * @param DescribeTransactionRequest - {@link DescribeTransactionRequest}
+ * @returns {@link DescribeTransactionResponse}
  * @see {@link DescribeTransactionCommandInput} for command's `input` shape.
  * @see {@link DescribeTransactionCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

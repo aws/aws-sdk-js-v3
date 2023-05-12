@@ -50,8 +50,8 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateWorkspaceAliasCommandInput - {@link UpdateWorkspaceAliasCommandInput}
- * @returns {@link UpdateWorkspaceAliasCommandOutput}
+ * @param UpdateWorkspaceAliasRequest - {@link UpdateWorkspaceAliasRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateWorkspaceAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceAliasCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.

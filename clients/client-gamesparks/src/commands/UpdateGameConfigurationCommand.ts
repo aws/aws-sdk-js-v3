@@ -68,8 +68,8 @@ export interface UpdateGameConfigurationCommandOutput extends UpdateGameConfigur
  *
  * ```
  *
- * @param UpdateGameConfigurationCommandInput - {@link UpdateGameConfigurationCommandInput}
- * @returns {@link UpdateGameConfigurationCommandOutput}
+ * @param UpdateGameConfigurationRequest - {@link UpdateGameConfigurationRequest}
+ * @returns {@link UpdateGameConfigurationResult}
  * @see {@link UpdateGameConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateGameConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

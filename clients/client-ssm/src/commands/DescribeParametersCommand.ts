@@ -101,8 +101,8 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  *
  * ```
  *
- * @param DescribeParametersCommandInput - {@link DescribeParametersCommandInput}
- * @returns {@link DescribeParametersCommandOutput}
+ * @param DescribeParametersRequest - {@link DescribeParametersRequest}
+ * @returns {@link DescribeParametersResult}
  * @see {@link DescribeParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeParametersCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

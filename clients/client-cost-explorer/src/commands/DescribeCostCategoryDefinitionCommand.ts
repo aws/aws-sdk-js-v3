@@ -168,8 +168,8 @@ export interface DescribeCostCategoryDefinitionCommandOutput
  *
  * ```
  *
- * @param DescribeCostCategoryDefinitionCommandInput - {@link DescribeCostCategoryDefinitionCommandInput}
- * @returns {@link DescribeCostCategoryDefinitionCommandOutput}
+ * @param DescribeCostCategoryDefinitionRequest - {@link DescribeCostCategoryDefinitionRequest}
+ * @returns {@link DescribeCostCategoryDefinitionResponse}
  * @see {@link DescribeCostCategoryDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeCostCategoryDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

@@ -54,8 +54,8 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  *
  * ```
  *
- * @param GetConfigurationCommandInput - {@link GetConfigurationCommandInput}
- * @returns {@link GetConfigurationCommandOutput}
+ * @param GetConfigurationRequest - {@link GetConfigurationRequest}
+ * @returns {@link GetConfigurationResponse}
  * @see {@link GetConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

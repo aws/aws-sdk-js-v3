@@ -60,8 +60,8 @@ export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJo
  *
  * ```
  *
- * @param StartMailboxExportJobCommandInput - {@link StartMailboxExportJobCommandInput}
- * @returns {@link StartMailboxExportJobCommandOutput}
+ * @param StartMailboxExportJobRequest - {@link StartMailboxExportJobRequest}
+ * @returns {@link StartMailboxExportJobResponse}
  * @see {@link StartMailboxExportJobCommandInput} for command's `input` shape.
  * @see {@link StartMailboxExportJobCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

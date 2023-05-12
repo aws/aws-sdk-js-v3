@@ -123,8 +123,8 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  *
  * ```
  *
- * @param PutComplianceItemsCommandInput - {@link PutComplianceItemsCommandInput}
- * @returns {@link PutComplianceItemsCommandOutput}
+ * @param PutComplianceItemsRequest - {@link PutComplianceItemsRequest}
+ * @returns {@link PutComplianceItemsResult}
  * @see {@link PutComplianceItemsCommandInput} for command's `input` shape.
  * @see {@link PutComplianceItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

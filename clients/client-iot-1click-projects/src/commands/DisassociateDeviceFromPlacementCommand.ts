@@ -59,8 +59,8 @@ export interface DisassociateDeviceFromPlacementCommandOutput
  *
  * ```
  *
- * @param DisassociateDeviceFromPlacementCommandInput - {@link DisassociateDeviceFromPlacementCommandInput}
- * @returns {@link DisassociateDeviceFromPlacementCommandOutput}
+ * @param DisassociateDeviceFromPlacementRequest - {@link DisassociateDeviceFromPlacementRequest}
+ * @returns {@link DisassociateDeviceFromPlacementResponse}
  * @see {@link DisassociateDeviceFromPlacementCommandInput} for command's `input` shape.
  * @see {@link DisassociateDeviceFromPlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.

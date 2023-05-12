@@ -64,8 +64,8 @@ export interface DeleteUtterancesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteUtterancesCommandInput - {@link DeleteUtterancesCommandInput}
- * @returns {@link DeleteUtterancesCommandOutput}
+ * @param DeleteUtterancesRequest - {@link DeleteUtterancesRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteUtterancesCommandInput} for command's `input` shape.
  * @see {@link DeleteUtterancesCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

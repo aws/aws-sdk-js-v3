@@ -78,8 +78,8 @@ export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTarg
  *
  * ```
  *
- * @param ModifyDBProxyTargetGroupCommandInput - {@link ModifyDBProxyTargetGroupCommandInput}
- * @returns {@link ModifyDBProxyTargetGroupCommandOutput}
+ * @param ModifyDBProxyTargetGroupRequest - {@link ModifyDBProxyTargetGroupRequest}
+ * @returns {@link ModifyDBProxyTargetGroupResponse}
  * @see {@link ModifyDBProxyTargetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBProxyTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

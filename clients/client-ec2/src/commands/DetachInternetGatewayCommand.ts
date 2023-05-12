@@ -52,8 +52,8 @@ export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DetachInternetGatewayCommandInput - {@link DetachInternetGatewayCommandInput}
- * @returns {@link DetachInternetGatewayCommandOutput}
+ * @param DetachInternetGatewayRequest - {@link DetachInternetGatewayRequest}
+ * @returns {@link Unit}
  * @see {@link DetachInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link DetachInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

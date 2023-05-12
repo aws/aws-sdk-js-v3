@@ -51,8 +51,8 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDBSubnetGroupCommandInput - {@link DeleteDBSubnetGroupCommandInput}
- * @returns {@link DeleteDBSubnetGroupCommandOutput}
+ * @param DeleteDBSubnetGroupMessage - {@link DeleteDBSubnetGroupMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteDBSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

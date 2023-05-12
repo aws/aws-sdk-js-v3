@@ -86,8 +86,8 @@ export interface UpdateKnowledgeBaseTemplateUriCommandOutput
  *
  * ```
  *
- * @param UpdateKnowledgeBaseTemplateUriCommandInput - {@link UpdateKnowledgeBaseTemplateUriCommandInput}
- * @returns {@link UpdateKnowledgeBaseTemplateUriCommandOutput}
+ * @param UpdateKnowledgeBaseTemplateUriRequest - {@link UpdateKnowledgeBaseTemplateUriRequest}
+ * @returns {@link UpdateKnowledgeBaseTemplateUriResponse}
  * @see {@link UpdateKnowledgeBaseTemplateUriCommandInput} for command's `input` shape.
  * @see {@link UpdateKnowledgeBaseTemplateUriCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

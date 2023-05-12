@@ -73,8 +73,8 @@ export interface UpdateAssessmentFrameworkShareCommandOutput
  *
  * ```
  *
- * @param UpdateAssessmentFrameworkShareCommandInput - {@link UpdateAssessmentFrameworkShareCommandInput}
- * @returns {@link UpdateAssessmentFrameworkShareCommandOutput}
+ * @param UpdateAssessmentFrameworkShareRequest - {@link UpdateAssessmentFrameworkShareRequest}
+ * @returns {@link UpdateAssessmentFrameworkShareResponse}
  * @see {@link UpdateAssessmentFrameworkShareCommandInput} for command's `input` shape.
  * @see {@link UpdateAssessmentFrameworkShareCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

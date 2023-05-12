@@ -57,8 +57,8 @@ export interface CancelMaintenanceWindowExecutionCommandOutput
  *
  * ```
  *
- * @param CancelMaintenanceWindowExecutionCommandInput - {@link CancelMaintenanceWindowExecutionCommandInput}
- * @returns {@link CancelMaintenanceWindowExecutionCommandOutput}
+ * @param CancelMaintenanceWindowExecutionRequest - {@link CancelMaintenanceWindowExecutionRequest}
+ * @returns {@link CancelMaintenanceWindowExecutionResult}
  * @see {@link CancelMaintenanceWindowExecutionCommandInput} for command's `input` shape.
  * @see {@link CancelMaintenanceWindowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

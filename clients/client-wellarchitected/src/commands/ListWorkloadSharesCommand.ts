@@ -64,8 +64,8 @@ export interface ListWorkloadSharesCommandOutput extends ListWorkloadSharesOutpu
  *
  * ```
  *
- * @param ListWorkloadSharesCommandInput - {@link ListWorkloadSharesCommandInput}
- * @returns {@link ListWorkloadSharesCommandOutput}
+ * @param ListWorkloadSharesInput - {@link ListWorkloadSharesInput}
+ * @returns {@link ListWorkloadSharesOutput}
  * @see {@link ListWorkloadSharesCommandInput} for command's `input` shape.
  * @see {@link ListWorkloadSharesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

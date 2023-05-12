@@ -57,8 +57,8 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput
  *
  * ```
  *
- * @param DeregisterOrganizationDelegatedAdminCommandInput - {@link DeregisterOrganizationDelegatedAdminCommandInput}
- * @returns {@link DeregisterOrganizationDelegatedAdminCommandOutput}
+ * @param DeregisterOrganizationDelegatedAdminRequest - {@link DeregisterOrganizationDelegatedAdminRequest}
+ * @returns {@link DeregisterOrganizationDelegatedAdminResponse}
  * @see {@link DeregisterOrganizationDelegatedAdminCommandInput} for command's `input` shape.
  * @see {@link DeregisterOrganizationDelegatedAdminCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

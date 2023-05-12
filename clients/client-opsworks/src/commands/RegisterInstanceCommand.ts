@@ -77,8 +77,8 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, _
  *
  * ```
  *
- * @param RegisterInstanceCommandInput - {@link RegisterInstanceCommandInput}
- * @returns {@link RegisterInstanceCommandOutput}
+ * @param RegisterInstanceRequest - {@link RegisterInstanceRequest}
+ * @returns {@link RegisterInstanceResult}
  * @see {@link RegisterInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

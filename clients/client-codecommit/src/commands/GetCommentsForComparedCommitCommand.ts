@@ -95,8 +95,8 @@ export interface GetCommentsForComparedCommitCommandOutput
  *
  * ```
  *
- * @param GetCommentsForComparedCommitCommandInput - {@link GetCommentsForComparedCommitCommandInput}
- * @returns {@link GetCommentsForComparedCommitCommandOutput}
+ * @param GetCommentsForComparedCommitInput - {@link GetCommentsForComparedCommitInput}
+ * @returns {@link GetCommentsForComparedCommitOutput}
  * @see {@link GetCommentsForComparedCommitCommandInput} for command's `input` shape.
  * @see {@link GetCommentsForComparedCommitCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

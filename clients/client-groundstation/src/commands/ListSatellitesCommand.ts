@@ -67,8 +67,8 @@ export interface ListSatellitesCommandOutput extends ListSatellitesResponse, __M
  *
  * ```
  *
- * @param ListSatellitesCommandInput - {@link ListSatellitesCommandInput}
- * @returns {@link ListSatellitesCommandOutput}
+ * @param ListSatellitesRequest - {@link ListSatellitesRequest}
+ * @returns {@link ListSatellitesResponse}
  * @see {@link ListSatellitesCommandInput} for command's `input` shape.
  * @see {@link ListSatellitesCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

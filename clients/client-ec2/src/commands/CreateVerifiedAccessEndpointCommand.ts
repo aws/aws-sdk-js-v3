@@ -128,8 +128,8 @@ export interface CreateVerifiedAccessEndpointCommandOutput
  *
  * ```
  *
- * @param CreateVerifiedAccessEndpointCommandInput - {@link CreateVerifiedAccessEndpointCommandInput}
- * @returns {@link CreateVerifiedAccessEndpointCommandOutput}
+ * @param CreateVerifiedAccessEndpointRequest - {@link CreateVerifiedAccessEndpointRequest}
+ * @returns {@link CreateVerifiedAccessEndpointResult}
  * @see {@link CreateVerifiedAccessEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateVerifiedAccessEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

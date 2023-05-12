@@ -92,8 +92,8 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
  *
  * ```
  *
- * @param CreateAddonCommandInput - {@link CreateAddonCommandInput}
- * @returns {@link CreateAddonCommandOutput}
+ * @param CreateAddonRequest - {@link CreateAddonRequest}
+ * @returns {@link CreateAddonResponse}
  * @see {@link CreateAddonCommandInput} for command's `input` shape.
  * @see {@link CreateAddonCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

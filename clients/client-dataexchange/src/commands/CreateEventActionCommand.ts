@@ -86,8 +86,8 @@ export interface CreateEventActionCommandOutput extends CreateEventActionRespons
  *
  * ```
  *
- * @param CreateEventActionCommandInput - {@link CreateEventActionCommandInput}
- * @returns {@link CreateEventActionCommandOutput}
+ * @param CreateEventActionRequest - {@link CreateEventActionRequest}
+ * @returns {@link CreateEventActionResponse}
  * @see {@link CreateEventActionCommandInput} for command's `input` shape.
  * @see {@link CreateEventActionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

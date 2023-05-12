@@ -73,8 +73,8 @@ export interface BatchAssociateUserStackCommandOutput extends BatchAssociateUser
  *
  * ```
  *
- * @param BatchAssociateUserStackCommandInput - {@link BatchAssociateUserStackCommandInput}
- * @returns {@link BatchAssociateUserStackCommandOutput}
+ * @param BatchAssociateUserStackRequest - {@link BatchAssociateUserStackRequest}
+ * @returns {@link BatchAssociateUserStackResult}
  * @see {@link BatchAssociateUserStackCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateUserStackCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

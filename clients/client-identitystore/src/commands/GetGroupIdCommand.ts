@@ -61,8 +61,8 @@ export interface GetGroupIdCommandOutput extends GetGroupIdResponse, __MetadataB
  *
  * ```
  *
- * @param GetGroupIdCommandInput - {@link GetGroupIdCommandInput}
- * @returns {@link GetGroupIdCommandOutput}
+ * @param GetGroupIdRequest - {@link GetGroupIdRequest}
+ * @returns {@link GetGroupIdResponse}
  * @see {@link GetGroupIdCommandInput} for command's `input` shape.
  * @see {@link GetGroupIdCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.

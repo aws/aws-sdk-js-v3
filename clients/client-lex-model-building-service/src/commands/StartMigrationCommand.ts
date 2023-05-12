@@ -68,8 +68,8 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  *
  * ```
  *
- * @param StartMigrationCommandInput - {@link StartMigrationCommandInput}
- * @returns {@link StartMigrationCommandOutput}
+ * @param StartMigrationRequest - {@link StartMigrationRequest}
+ * @returns {@link StartMigrationResponse}
  * @see {@link StartMigrationCommandInput} for command's `input` shape.
  * @see {@link StartMigrationCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

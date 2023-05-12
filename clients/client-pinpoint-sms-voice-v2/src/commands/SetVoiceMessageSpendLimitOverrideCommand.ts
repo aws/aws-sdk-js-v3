@@ -61,8 +61,8 @@ export interface SetVoiceMessageSpendLimitOverrideCommandOutput
  *
  * ```
  *
- * @param SetVoiceMessageSpendLimitOverrideCommandInput - {@link SetVoiceMessageSpendLimitOverrideCommandInput}
- * @returns {@link SetVoiceMessageSpendLimitOverrideCommandOutput}
+ * @param SetVoiceMessageSpendLimitOverrideRequest - {@link SetVoiceMessageSpendLimitOverrideRequest}
+ * @returns {@link SetVoiceMessageSpendLimitOverrideResult}
  * @see {@link SetVoiceMessageSpendLimitOverrideCommandInput} for command's `input` shape.
  * @see {@link SetVoiceMessageSpendLimitOverrideCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

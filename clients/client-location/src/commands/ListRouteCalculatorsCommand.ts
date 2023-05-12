@@ -61,8 +61,8 @@ export interface ListRouteCalculatorsCommandOutput extends ListRouteCalculatorsR
  *
  * ```
  *
- * @param ListRouteCalculatorsCommandInput - {@link ListRouteCalculatorsCommandInput}
- * @returns {@link ListRouteCalculatorsCommandOutput}
+ * @param ListRouteCalculatorsRequest - {@link ListRouteCalculatorsRequest}
+ * @returns {@link ListRouteCalculatorsResponse}
  * @see {@link ListRouteCalculatorsCommandInput} for command's `input` shape.
  * @see {@link ListRouteCalculatorsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

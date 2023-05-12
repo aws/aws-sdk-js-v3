@@ -104,8 +104,8 @@ export interface UpdateFlywheelCommandOutput extends UpdateFlywheelResponse, __M
  *
  * ```
  *
- * @param UpdateFlywheelCommandInput - {@link UpdateFlywheelCommandInput}
- * @returns {@link UpdateFlywheelCommandOutput}
+ * @param UpdateFlywheelRequest - {@link UpdateFlywheelRequest}
+ * @returns {@link UpdateFlywheelResponse}
  * @see {@link UpdateFlywheelCommandInput} for command's `input` shape.
  * @see {@link UpdateFlywheelCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

@@ -74,8 +74,8 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  *
  * ```
  *
- * @param ListStatementsCommandInput - {@link ListStatementsCommandInput}
- * @returns {@link ListStatementsCommandOutput}
+ * @param ListStatementsRequest - {@link ListStatementsRequest}
+ * @returns {@link ListStatementsResponse}
  * @see {@link ListStatementsCommandInput} for command's `input` shape.
  * @see {@link ListStatementsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

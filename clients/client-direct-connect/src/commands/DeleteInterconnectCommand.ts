@@ -54,8 +54,8 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  *
  * ```
  *
- * @param DeleteInterconnectCommandInput - {@link DeleteInterconnectCommandInput}
- * @returns {@link DeleteInterconnectCommandOutput}
+ * @param DeleteInterconnectRequest - {@link DeleteInterconnectRequest}
+ * @returns {@link DeleteInterconnectResponse}
  * @see {@link DeleteInterconnectCommandInput} for command's `input` shape.
  * @see {@link DeleteInterconnectCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

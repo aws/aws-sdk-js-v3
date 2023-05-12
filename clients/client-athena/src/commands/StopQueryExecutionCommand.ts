@@ -52,8 +52,8 @@ export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutpu
  *
  * ```
  *
- * @param StopQueryExecutionCommandInput - {@link StopQueryExecutionCommandInput}
- * @returns {@link StopQueryExecutionCommandOutput}
+ * @param StopQueryExecutionInput - {@link StopQueryExecutionInput}
+ * @returns {@link StopQueryExecutionOutput}
  * @see {@link StopQueryExecutionCommandInput} for command's `input` shape.
  * @see {@link StopQueryExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

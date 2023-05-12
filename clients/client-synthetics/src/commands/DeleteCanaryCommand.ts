@@ -81,8 +81,8 @@ export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __Metad
  *
  * ```
  *
- * @param DeleteCanaryCommandInput - {@link DeleteCanaryCommandInput}
- * @returns {@link DeleteCanaryCommandOutput}
+ * @param DeleteCanaryRequest - {@link DeleteCanaryRequest}
+ * @returns {@link DeleteCanaryResponse}
  * @see {@link DeleteCanaryCommandInput} for command's `input` shape.
  * @see {@link DeleteCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.

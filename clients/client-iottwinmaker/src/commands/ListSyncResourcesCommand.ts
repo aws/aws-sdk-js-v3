@@ -76,8 +76,8 @@ export interface ListSyncResourcesCommandOutput extends ListSyncResourcesRespons
  *
  * ```
  *
- * @param ListSyncResourcesCommandInput - {@link ListSyncResourcesCommandInput}
- * @returns {@link ListSyncResourcesCommandOutput}
+ * @param ListSyncResourcesRequest - {@link ListSyncResourcesRequest}
+ * @returns {@link ListSyncResourcesResponse}
  * @see {@link ListSyncResourcesCommandInput} for command's `input` shape.
  * @see {@link ListSyncResourcesCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

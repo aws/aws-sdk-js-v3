@@ -52,8 +52,8 @@ export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, _
  *
  * ```
  *
- * @param UpdateEvaluationCommandInput - {@link UpdateEvaluationCommandInput}
- * @returns {@link UpdateEvaluationCommandOutput}
+ * @param UpdateEvaluationInput - {@link UpdateEvaluationInput}
+ * @returns {@link UpdateEvaluationOutput}
  * @see {@link UpdateEvaluationCommandInput} for command's `input` shape.
  * @see {@link UpdateEvaluationCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

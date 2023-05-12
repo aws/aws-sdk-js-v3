@@ -56,8 +56,8 @@ export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataB
  *
  * ```
  *
- * @param PublishTypeCommandInput - {@link PublishTypeCommandInput}
- * @returns {@link PublishTypeCommandOutput}
+ * @param PublishTypeInput - {@link PublishTypeInput}
+ * @returns {@link PublishTypeOutput}
  * @see {@link PublishTypeCommandInput} for command's `input` shape.
  * @see {@link PublishTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

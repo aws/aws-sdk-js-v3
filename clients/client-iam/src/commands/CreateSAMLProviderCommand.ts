@@ -80,8 +80,8 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  *
  * ```
  *
- * @param CreateSAMLProviderCommandInput - {@link CreateSAMLProviderCommandInput}
- * @returns {@link CreateSAMLProviderCommandOutput}
+ * @param CreateSAMLProviderRequest - {@link CreateSAMLProviderRequest}
+ * @returns {@link CreateSAMLProviderResponse}
  * @see {@link CreateSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link CreateSAMLProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

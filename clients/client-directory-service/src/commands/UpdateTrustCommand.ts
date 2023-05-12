@@ -53,8 +53,8 @@ export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataB
  *
  * ```
  *
- * @param UpdateTrustCommandInput - {@link UpdateTrustCommandInput}
- * @returns {@link UpdateTrustCommandOutput}
+ * @param UpdateTrustRequest - {@link UpdateTrustRequest}
+ * @returns {@link UpdateTrustResult}
  * @see {@link UpdateTrustCommandInput} for command's `input` shape.
  * @see {@link UpdateTrustCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

@@ -62,8 +62,8 @@ export interface UpdateNetworkResourceMetadataCommandOutput
  *
  * ```
  *
- * @param UpdateNetworkResourceMetadataCommandInput - {@link UpdateNetworkResourceMetadataCommandInput}
- * @returns {@link UpdateNetworkResourceMetadataCommandOutput}
+ * @param UpdateNetworkResourceMetadataRequest - {@link UpdateNetworkResourceMetadataRequest}
+ * @returns {@link UpdateNetworkResourceMetadataResponse}
  * @see {@link UpdateNetworkResourceMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkResourceMetadataCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

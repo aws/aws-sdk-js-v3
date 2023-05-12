@@ -180,8 +180,8 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *
  * ```
  *
- * @param UpdateDomainCommandInput - {@link UpdateDomainCommandInput}
- * @returns {@link UpdateDomainCommandOutput}
+ * @param UpdateDomainRequest - {@link UpdateDomainRequest}
+ * @returns {@link UpdateDomainResponse}
  * @see {@link UpdateDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

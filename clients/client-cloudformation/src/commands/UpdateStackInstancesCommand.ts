@@ -99,8 +99,8 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  *
  * ```
  *
- * @param UpdateStackInstancesCommandInput - {@link UpdateStackInstancesCommandInput}
- * @returns {@link UpdateStackInstancesCommandOutput}
+ * @param UpdateStackInstancesInput - {@link UpdateStackInstancesInput}
+ * @returns {@link UpdateStackInstancesOutput}
  * @see {@link UpdateStackInstancesCommandInput} for command's `input` shape.
  * @see {@link UpdateStackInstancesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

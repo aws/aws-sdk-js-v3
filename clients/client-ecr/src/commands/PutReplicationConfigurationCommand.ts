@@ -96,8 +96,8 @@ export interface PutReplicationConfigurationCommandOutput
  *
  * ```
  *
- * @param PutReplicationConfigurationCommandInput - {@link PutReplicationConfigurationCommandInput}
- * @returns {@link PutReplicationConfigurationCommandOutput}
+ * @param PutReplicationConfigurationRequest - {@link PutReplicationConfigurationRequest}
+ * @returns {@link PutReplicationConfigurationResponse}
  * @see {@link PutReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

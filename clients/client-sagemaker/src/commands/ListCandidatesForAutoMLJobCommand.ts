@@ -114,8 +114,8 @@ export interface ListCandidatesForAutoMLJobCommandOutput extends ListCandidatesF
  *
  * ```
  *
- * @param ListCandidatesForAutoMLJobCommandInput - {@link ListCandidatesForAutoMLJobCommandInput}
- * @returns {@link ListCandidatesForAutoMLJobCommandOutput}
+ * @param ListCandidatesForAutoMLJobRequest - {@link ListCandidatesForAutoMLJobRequest}
+ * @returns {@link ListCandidatesForAutoMLJobResponse}
  * @see {@link ListCandidatesForAutoMLJobCommandInput} for command's `input` shape.
  * @see {@link ListCandidatesForAutoMLJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -153,8 +153,8 @@ export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsRes
  *
  * ```
  *
- * @param DescribeIndexFieldsCommandInput - {@link DescribeIndexFieldsCommandInput}
- * @returns {@link DescribeIndexFieldsCommandOutput}
+ * @param DescribeIndexFieldsRequest - {@link DescribeIndexFieldsRequest}
+ * @returns {@link DescribeIndexFieldsResponse}
  * @see {@link DescribeIndexFieldsCommandInput} for command's `input` shape.
  * @see {@link DescribeIndexFieldsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

@@ -51,8 +51,8 @@ export interface PutSchemaFromJsonCommandOutput extends PutSchemaFromJsonRespons
  *
  * ```
  *
- * @param PutSchemaFromJsonCommandInput - {@link PutSchemaFromJsonCommandInput}
- * @returns {@link PutSchemaFromJsonCommandOutput}
+ * @param PutSchemaFromJsonRequest - {@link PutSchemaFromJsonRequest}
+ * @returns {@link PutSchemaFromJsonResponse}
  * @see {@link PutSchemaFromJsonCommandInput} for command's `input` shape.
  * @see {@link PutSchemaFromJsonCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

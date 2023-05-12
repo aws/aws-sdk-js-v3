@@ -66,8 +66,8 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  *
  * ```
  *
- * @param DescribeEventCategoriesCommandInput - {@link DescribeEventCategoriesCommandInput}
- * @returns {@link DescribeEventCategoriesCommandOutput}
+ * @param DescribeEventCategoriesMessage - {@link DescribeEventCategoriesMessage}
+ * @returns {@link EventCategoriesMessage}
  * @see {@link DescribeEventCategoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

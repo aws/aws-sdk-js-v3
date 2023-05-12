@@ -53,8 +53,8 @@ export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param UpdatePhoneNumberSettingsCommandInput - {@link UpdatePhoneNumberSettingsCommandInput}
- * @returns {@link UpdatePhoneNumberSettingsCommandOutput}
+ * @param UpdatePhoneNumberSettingsRequest - {@link UpdatePhoneNumberSettingsRequest}
+ * @returns {@link Unit}
  * @see {@link UpdatePhoneNumberSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdatePhoneNumberSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

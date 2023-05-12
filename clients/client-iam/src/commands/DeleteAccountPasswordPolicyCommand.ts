@@ -45,8 +45,8 @@ export interface DeleteAccountPasswordPolicyCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param DeleteAccountPasswordPolicyCommandInput - {@link DeleteAccountPasswordPolicyCommandInput}
- * @returns {@link DeleteAccountPasswordPolicyCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link Unit}
  * @see {@link DeleteAccountPasswordPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountPasswordPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

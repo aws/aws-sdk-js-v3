@@ -52,8 +52,8 @@ export interface DeleteAppInstanceStreamingConfigurationsCommandOutput extends _
  *
  * ```
  *
- * @param DeleteAppInstanceStreamingConfigurationsCommandInput - {@link DeleteAppInstanceStreamingConfigurationsCommandInput}
- * @returns {@link DeleteAppInstanceStreamingConfigurationsCommandOutput}
+ * @param DeleteAppInstanceStreamingConfigurationsRequest - {@link DeleteAppInstanceStreamingConfigurationsRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAppInstanceStreamingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DeleteAppInstanceStreamingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

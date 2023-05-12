@@ -71,8 +71,8 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
  *
  * ```
  *
- * @param ListPermissionSetProvisioningStatusCommandInput - {@link ListPermissionSetProvisioningStatusCommandInput}
- * @returns {@link ListPermissionSetProvisioningStatusCommandOutput}
+ * @param ListPermissionSetProvisioningStatusRequest - {@link ListPermissionSetProvisioningStatusRequest}
+ * @returns {@link ListPermissionSetProvisioningStatusResponse}
  * @see {@link ListPermissionSetProvisioningStatusCommandInput} for command's `input` shape.
  * @see {@link ListPermissionSetProvisioningStatusCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

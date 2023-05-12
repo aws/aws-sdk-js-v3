@@ -52,8 +52,8 @@ export interface UpdatePermissionSetCommandOutput extends UpdatePermissionSetRes
  *
  * ```
  *
- * @param UpdatePermissionSetCommandInput - {@link UpdatePermissionSetCommandInput}
- * @returns {@link UpdatePermissionSetCommandOutput}
+ * @param UpdatePermissionSetRequest - {@link UpdatePermissionSetRequest}
+ * @returns {@link UpdatePermissionSetResponse}
  * @see {@link UpdatePermissionSetCommandInput} for command's `input` shape.
  * @see {@link UpdatePermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

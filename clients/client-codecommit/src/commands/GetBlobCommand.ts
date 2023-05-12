@@ -51,8 +51,8 @@ export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param GetBlobCommandInput - {@link GetBlobCommandInput}
- * @returns {@link GetBlobCommandOutput}
+ * @param GetBlobInput - {@link GetBlobInput}
+ * @returns {@link GetBlobOutput}
  * @see {@link GetBlobCommandInput} for command's `input` shape.
  * @see {@link GetBlobCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

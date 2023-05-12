@@ -70,8 +70,8 @@ export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEnd
  *
  * ```
  *
- * @param ModifyDBClusterEndpointCommandInput - {@link ModifyDBClusterEndpointCommandInput}
- * @returns {@link ModifyDBClusterEndpointCommandOutput}
+ * @param ModifyDBClusterEndpointMessage - {@link ModifyDBClusterEndpointMessage}
+ * @returns {@link ModifyDBClusterEndpointOutput}
  * @see {@link ModifyDBClusterEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

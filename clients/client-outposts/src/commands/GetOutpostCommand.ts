@@ -65,8 +65,8 @@ export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBea
  *
  * ```
  *
- * @param GetOutpostCommandInput - {@link GetOutpostCommandInput}
- * @returns {@link GetOutpostCommandOutput}
+ * @param GetOutpostInput - {@link GetOutpostInput}
+ * @returns {@link GetOutpostOutput}
  * @see {@link GetOutpostCommandInput} for command's `input` shape.
  * @see {@link GetOutpostCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

@@ -58,8 +58,8 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  *
  * ```
  *
- * @param DeleteAccountCommandInput - {@link DeleteAccountCommandInput}
- * @returns {@link DeleteAccountCommandOutput}
+ * @param DeleteAccountRequest - {@link DeleteAccountRequest}
+ * @returns {@link DeleteAccountResponse}
  * @see {@link DeleteAccountCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

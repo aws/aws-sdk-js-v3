@@ -121,8 +121,8 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  *
  * ```
  *
- * @param ListPresetsCommandInput - {@link ListPresetsCommandInput}
- * @returns {@link ListPresetsCommandOutput}
+ * @param ListPresetsRequest - {@link ListPresetsRequest}
+ * @returns {@link ListPresetsResponse}
  * @see {@link ListPresetsCommandInput} for command's `input` shape.
  * @see {@link ListPresetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.

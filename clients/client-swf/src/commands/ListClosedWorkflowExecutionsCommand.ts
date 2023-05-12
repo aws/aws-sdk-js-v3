@@ -148,8 +148,8 @@ export interface ListClosedWorkflowExecutionsCommandOutput extends WorkflowExecu
  *
  * ```
  *
- * @param ListClosedWorkflowExecutionsCommandInput - {@link ListClosedWorkflowExecutionsCommandInput}
- * @returns {@link ListClosedWorkflowExecutionsCommandOutput}
+ * @param ListClosedWorkflowExecutionsInput - {@link ListClosedWorkflowExecutionsInput}
+ * @returns {@link WorkflowExecutionInfos}
  * @see {@link ListClosedWorkflowExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListClosedWorkflowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

@@ -54,8 +54,8 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DeleteApplicationVersionCommandInput - {@link DeleteApplicationVersionCommandInput}
- * @returns {@link DeleteApplicationVersionCommandOutput}
+ * @param DeleteApplicationVersionMessage - {@link DeleteApplicationVersionMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

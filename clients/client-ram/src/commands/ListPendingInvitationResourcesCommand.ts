@@ -73,8 +73,8 @@ export interface ListPendingInvitationResourcesCommandOutput
  *
  * ```
  *
- * @param ListPendingInvitationResourcesCommandInput - {@link ListPendingInvitationResourcesCommandInput}
- * @returns {@link ListPendingInvitationResourcesCommandOutput}
+ * @param ListPendingInvitationResourcesRequest - {@link ListPendingInvitationResourcesRequest}
+ * @returns {@link ListPendingInvitationResourcesResponse}
  * @see {@link ListPendingInvitationResourcesCommandInput} for command's `input` shape.
  * @see {@link ListPendingInvitationResourcesCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

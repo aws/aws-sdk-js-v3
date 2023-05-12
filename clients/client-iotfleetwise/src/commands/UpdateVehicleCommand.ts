@@ -57,8 +57,8 @@ export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __Met
  *
  * ```
  *
- * @param UpdateVehicleCommandInput - {@link UpdateVehicleCommandInput}
- * @returns {@link UpdateVehicleCommandOutput}
+ * @param UpdateVehicleRequest - {@link UpdateVehicleRequest}
+ * @returns {@link UpdateVehicleResponse}
  * @see {@link UpdateVehicleCommandInput} for command's `input` shape.
  * @see {@link UpdateVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

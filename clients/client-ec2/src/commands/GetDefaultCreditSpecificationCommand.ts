@@ -59,8 +59,8 @@ export interface GetDefaultCreditSpecificationCommandOutput
  *
  * ```
  *
- * @param GetDefaultCreditSpecificationCommandInput - {@link GetDefaultCreditSpecificationCommandInput}
- * @returns {@link GetDefaultCreditSpecificationCommandOutput}
+ * @param GetDefaultCreditSpecificationRequest - {@link GetDefaultCreditSpecificationRequest}
+ * @returns {@link GetDefaultCreditSpecificationResult}
  * @see {@link GetDefaultCreditSpecificationCommandInput} for command's `input` shape.
  * @see {@link GetDefaultCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

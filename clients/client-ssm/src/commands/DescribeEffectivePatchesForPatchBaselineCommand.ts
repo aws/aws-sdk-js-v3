@@ -102,8 +102,8 @@ export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
  *
  * ```
  *
- * @param DescribeEffectivePatchesForPatchBaselineCommandInput - {@link DescribeEffectivePatchesForPatchBaselineCommandInput}
- * @returns {@link DescribeEffectivePatchesForPatchBaselineCommandOutput}
+ * @param DescribeEffectivePatchesForPatchBaselineRequest - {@link DescribeEffectivePatchesForPatchBaselineRequest}
+ * @returns {@link DescribeEffectivePatchesForPatchBaselineResult}
  * @see {@link DescribeEffectivePatchesForPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link DescribeEffectivePatchesForPatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

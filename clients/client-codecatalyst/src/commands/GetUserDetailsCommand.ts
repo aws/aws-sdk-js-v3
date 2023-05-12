@@ -58,8 +58,8 @@ export interface GetUserDetailsCommandOutput extends GetUserDetailsResponse, __M
  *
  * ```
  *
- * @param GetUserDetailsCommandInput - {@link GetUserDetailsCommandInput}
- * @returns {@link GetUserDetailsCommandOutput}
+ * @param GetUserDetailsRequest - {@link GetUserDetailsRequest}
+ * @returns {@link GetUserDetailsResponse}
  * @see {@link GetUserDetailsCommandInput} for command's `input` shape.
  * @see {@link GetUserDetailsCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

@@ -113,8 +113,8 @@ export interface GetPushTemplateCommandOutput extends GetPushTemplateResponse, _
  *
  * ```
  *
- * @param GetPushTemplateCommandInput - {@link GetPushTemplateCommandInput}
- * @returns {@link GetPushTemplateCommandOutput}
+ * @param GetPushTemplateRequest - {@link GetPushTemplateRequest}
+ * @returns {@link GetPushTemplateResponse}
  * @see {@link GetPushTemplateCommandInput} for command's `input` shape.
  * @see {@link GetPushTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

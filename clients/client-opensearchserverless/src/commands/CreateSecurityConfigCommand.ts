@@ -78,8 +78,8 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  *
  * ```
  *
- * @param CreateSecurityConfigCommandInput - {@link CreateSecurityConfigCommandInput}
- * @returns {@link CreateSecurityConfigCommandOutput}
+ * @param CreateSecurityConfigRequest - {@link CreateSecurityConfigRequest}
+ * @returns {@link CreateSecurityConfigResponse}
  * @see {@link CreateSecurityConfigCommandInput} for command's `input` shape.
  * @see {@link CreateSecurityConfigCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

@@ -52,8 +52,8 @@ export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataB
  *
  * ```
  *
- * @param DeleteElasticsearchServiceRoleCommandInput - {@link DeleteElasticsearchServiceRoleCommandInput}
- * @returns {@link DeleteElasticsearchServiceRoleCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link Unit}
  * @see {@link DeleteElasticsearchServiceRoleCommandInput} for command's `input` shape.
  * @see {@link DeleteElasticsearchServiceRoleCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

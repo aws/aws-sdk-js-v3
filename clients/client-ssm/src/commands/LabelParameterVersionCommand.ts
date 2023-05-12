@@ -93,8 +93,8 @@ export interface LabelParameterVersionCommandOutput extends LabelParameterVersio
  *
  * ```
  *
- * @param LabelParameterVersionCommandInput - {@link LabelParameterVersionCommandInput}
- * @returns {@link LabelParameterVersionCommandOutput}
+ * @param LabelParameterVersionRequest - {@link LabelParameterVersionRequest}
+ * @returns {@link LabelParameterVersionResult}
  * @see {@link LabelParameterVersionCommandInput} for command's `input` shape.
  * @see {@link LabelParameterVersionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

@@ -98,8 +98,8 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  *
  * ```
  *
- * @param CreatePlatformApplicationCommandInput - {@link CreatePlatformApplicationCommandInput}
- * @returns {@link CreatePlatformApplicationCommandOutput}
+ * @param CreatePlatformApplicationInput - {@link CreatePlatformApplicationInput}
+ * @returns {@link CreatePlatformApplicationResponse}
  * @see {@link CreatePlatformApplicationCommandInput} for command's `input` shape.
  * @see {@link CreatePlatformApplicationCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

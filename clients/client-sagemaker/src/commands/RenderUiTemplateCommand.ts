@@ -63,8 +63,8 @@ export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse,
  *
  * ```
  *
- * @param RenderUiTemplateCommandInput - {@link RenderUiTemplateCommandInput}
- * @returns {@link RenderUiTemplateCommandOutput}
+ * @param RenderUiTemplateRequest - {@link RenderUiTemplateRequest}
+ * @returns {@link RenderUiTemplateResponse}
  * @see {@link RenderUiTemplateCommandInput} for command's `input` shape.
  * @see {@link RenderUiTemplateCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

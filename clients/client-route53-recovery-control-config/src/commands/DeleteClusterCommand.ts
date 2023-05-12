@@ -52,8 +52,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  *
  * ```
  *
- * @param DeleteClusterCommandInput - {@link DeleteClusterCommandInput}
- * @returns {@link DeleteClusterCommandOutput}
+ * @param DeleteClusterRequest - {@link DeleteClusterRequest}
+ * @returns {@link DeleteClusterResponse}
  * @see {@link DeleteClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

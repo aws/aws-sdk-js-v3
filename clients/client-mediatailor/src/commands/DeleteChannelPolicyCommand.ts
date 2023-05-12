@@ -48,8 +48,8 @@ export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyRes
  *
  * ```
  *
- * @param DeleteChannelPolicyCommandInput - {@link DeleteChannelPolicyCommandInput}
- * @returns {@link DeleteChannelPolicyCommandOutput}
+ * @param DeleteChannelPolicyRequest - {@link DeleteChannelPolicyRequest}
+ * @returns {@link DeleteChannelPolicyResponse}
  * @see {@link DeleteChannelPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

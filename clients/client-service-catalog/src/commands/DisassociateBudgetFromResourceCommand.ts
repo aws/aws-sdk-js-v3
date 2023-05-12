@@ -54,8 +54,8 @@ export interface DisassociateBudgetFromResourceCommandOutput
  *
  * ```
  *
- * @param DisassociateBudgetFromResourceCommandInput - {@link DisassociateBudgetFromResourceCommandInput}
- * @returns {@link DisassociateBudgetFromResourceCommandOutput}
+ * @param DisassociateBudgetFromResourceInput - {@link DisassociateBudgetFromResourceInput}
+ * @returns {@link DisassociateBudgetFromResourceOutput}
  * @see {@link DisassociateBudgetFromResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateBudgetFromResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

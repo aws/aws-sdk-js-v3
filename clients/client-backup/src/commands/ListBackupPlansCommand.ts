@@ -74,8 +74,8 @@ export interface ListBackupPlansCommandOutput extends ListBackupPlansOutput, __M
  *
  * ```
  *
- * @param ListBackupPlansCommandInput - {@link ListBackupPlansCommandInput}
- * @returns {@link ListBackupPlansCommandOutput}
+ * @param ListBackupPlansInput - {@link ListBackupPlansInput}
+ * @returns {@link ListBackupPlansOutput}
  * @see {@link ListBackupPlansCommandInput} for command's `input` shape.
  * @see {@link ListBackupPlansCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

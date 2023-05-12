@@ -61,8 +61,8 @@ export interface CreateUserDefinedFunctionCommandOutput extends CreateUserDefine
  *
  * ```
  *
- * @param CreateUserDefinedFunctionCommandInput - {@link CreateUserDefinedFunctionCommandInput}
- * @returns {@link CreateUserDefinedFunctionCommandOutput}
+ * @param CreateUserDefinedFunctionRequest - {@link CreateUserDefinedFunctionRequest}
+ * @returns {@link CreateUserDefinedFunctionResponse}
  * @see {@link CreateUserDefinedFunctionCommandInput} for command's `input` shape.
  * @see {@link CreateUserDefinedFunctionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

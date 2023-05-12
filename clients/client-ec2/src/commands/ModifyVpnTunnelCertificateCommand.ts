@@ -157,8 +157,8 @@ export interface ModifyVpnTunnelCertificateCommandOutput extends ModifyVpnTunnel
  *
  * ```
  *
- * @param ModifyVpnTunnelCertificateCommandInput - {@link ModifyVpnTunnelCertificateCommandInput}
- * @returns {@link ModifyVpnTunnelCertificateCommandOutput}
+ * @param ModifyVpnTunnelCertificateRequest - {@link ModifyVpnTunnelCertificateRequest}
+ * @returns {@link ModifyVpnTunnelCertificateResult}
  * @see {@link ModifyVpnTunnelCertificateCommandInput} for command's `input` shape.
  * @see {@link ModifyVpnTunnelCertificateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

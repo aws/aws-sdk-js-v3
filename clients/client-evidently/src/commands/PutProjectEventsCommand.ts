@@ -65,8 +65,8 @@ export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse,
  *
  * ```
  *
- * @param PutProjectEventsCommandInput - {@link PutProjectEventsCommandInput}
- * @returns {@link PutProjectEventsCommandOutput}
+ * @param PutProjectEventsRequest - {@link PutProjectEventsRequest}
+ * @returns {@link PutProjectEventsResponse}
  * @see {@link PutProjectEventsCommandInput} for command's `input` shape.
  * @see {@link PutProjectEventsCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

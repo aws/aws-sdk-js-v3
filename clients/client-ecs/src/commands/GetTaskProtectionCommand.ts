@@ -66,8 +66,8 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  *
  * ```
  *
- * @param GetTaskProtectionCommandInput - {@link GetTaskProtectionCommandInput}
- * @returns {@link GetTaskProtectionCommandOutput}
+ * @param GetTaskProtectionRequest - {@link GetTaskProtectionRequest}
+ * @returns {@link GetTaskProtectionResponse}
  * @see {@link GetTaskProtectionCommandInput} for command's `input` shape.
  * @see {@link GetTaskProtectionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

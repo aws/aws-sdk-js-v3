@@ -60,8 +60,8 @@ export interface DescribeMediaStorageConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeMediaStorageConfigurationCommandInput - {@link DescribeMediaStorageConfigurationCommandInput}
- * @returns {@link DescribeMediaStorageConfigurationCommandOutput}
+ * @param DescribeMediaStorageConfigurationInput - {@link DescribeMediaStorageConfigurationInput}
+ * @returns {@link DescribeMediaStorageConfigurationOutput}
  * @see {@link DescribeMediaStorageConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeMediaStorageConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

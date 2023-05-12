@@ -58,8 +58,8 @@ export interface DeleteThemeAliasCommandOutput extends DeleteThemeAliasResponse,
  *
  * ```
  *
- * @param DeleteThemeAliasCommandInput - {@link DeleteThemeAliasCommandInput}
- * @returns {@link DeleteThemeAliasCommandOutput}
+ * @param DeleteThemeAliasRequest - {@link DeleteThemeAliasRequest}
+ * @returns {@link DeleteThemeAliasResponse}
  * @see {@link DeleteThemeAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteThemeAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

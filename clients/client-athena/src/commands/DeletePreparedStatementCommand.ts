@@ -50,8 +50,8 @@ export interface DeletePreparedStatementCommandOutput extends DeletePreparedStat
  *
  * ```
  *
- * @param DeletePreparedStatementCommandInput - {@link DeletePreparedStatementCommandInput}
- * @returns {@link DeletePreparedStatementCommandOutput}
+ * @param DeletePreparedStatementInput - {@link DeletePreparedStatementInput}
+ * @returns {@link DeletePreparedStatementOutput}
  * @see {@link DeletePreparedStatementCommandInput} for command's `input` shape.
  * @see {@link DeletePreparedStatementCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

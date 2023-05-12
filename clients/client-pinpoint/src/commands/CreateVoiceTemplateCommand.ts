@@ -64,8 +64,8 @@ export interface CreateVoiceTemplateCommandOutput extends CreateVoiceTemplateRes
  *
  * ```
  *
- * @param CreateVoiceTemplateCommandInput - {@link CreateVoiceTemplateCommandInput}
- * @returns {@link CreateVoiceTemplateCommandOutput}
+ * @param CreateVoiceTemplateRequest - {@link CreateVoiceTemplateRequest}
+ * @returns {@link CreateVoiceTemplateResponse}
  * @see {@link CreateVoiceTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateVoiceTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

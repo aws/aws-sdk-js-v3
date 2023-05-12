@@ -61,8 +61,8 @@ export interface GetQueryStatisticsCommandOutput extends GetQueryStatisticsRespo
  *
  * ```
  *
- * @param GetQueryStatisticsCommandInput - {@link GetQueryStatisticsCommandInput}
- * @returns {@link GetQueryStatisticsCommandOutput}
+ * @param GetQueryStatisticsRequest - {@link GetQueryStatisticsRequest}
+ * @returns {@link GetQueryStatisticsResponse}
  * @see {@link GetQueryStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetQueryStatisticsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

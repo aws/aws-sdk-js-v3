@@ -63,8 +63,8 @@ export interface UpdateRevisionCommandOutput extends UpdateRevisionResponse, __M
  *
  * ```
  *
- * @param UpdateRevisionCommandInput - {@link UpdateRevisionCommandInput}
- * @returns {@link UpdateRevisionCommandOutput}
+ * @param UpdateRevisionRequest - {@link UpdateRevisionRequest}
+ * @returns {@link UpdateRevisionResponse}
  * @see {@link UpdateRevisionCommandInput} for command's `input` shape.
  * @see {@link UpdateRevisionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

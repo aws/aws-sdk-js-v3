@@ -53,8 +53,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  *
  * ```
  *
- * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
- * @returns {@link DeleteRuleCommandOutput}
+ * @param DeleteRuleInput - {@link DeleteRuleInput}
+ * @returns {@link DeleteRuleOutput}
  * @see {@link DeleteRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

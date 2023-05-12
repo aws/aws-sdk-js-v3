@@ -146,8 +146,8 @@ export interface DeleteIndexFieldCommandOutput extends DeleteIndexFieldResponse,
  *
  * ```
  *
- * @param DeleteIndexFieldCommandInput - {@link DeleteIndexFieldCommandInput}
- * @returns {@link DeleteIndexFieldCommandOutput}
+ * @param DeleteIndexFieldRequest - {@link DeleteIndexFieldRequest}
+ * @returns {@link DeleteIndexFieldResponse}
  * @see {@link DeleteIndexFieldCommandInput} for command's `input` shape.
  * @see {@link DeleteIndexFieldCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

@@ -69,8 +69,8 @@ export interface PutCoreNetworkPolicyCommandOutput extends PutCoreNetworkPolicyR
  *
  * ```
  *
- * @param PutCoreNetworkPolicyCommandInput - {@link PutCoreNetworkPolicyCommandInput}
- * @returns {@link PutCoreNetworkPolicyCommandOutput}
+ * @param PutCoreNetworkPolicyRequest - {@link PutCoreNetworkPolicyRequest}
+ * @returns {@link PutCoreNetworkPolicyResponse}
  * @see {@link PutCoreNetworkPolicyCommandInput} for command's `input` shape.
  * @see {@link PutCoreNetworkPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

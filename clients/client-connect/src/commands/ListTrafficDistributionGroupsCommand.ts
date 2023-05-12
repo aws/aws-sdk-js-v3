@@ -66,8 +66,8 @@ export interface ListTrafficDistributionGroupsCommandOutput
  *
  * ```
  *
- * @param ListTrafficDistributionGroupsCommandInput - {@link ListTrafficDistributionGroupsCommandInput}
- * @returns {@link ListTrafficDistributionGroupsCommandOutput}
+ * @param ListTrafficDistributionGroupsRequest - {@link ListTrafficDistributionGroupsRequest}
+ * @returns {@link ListTrafficDistributionGroupsResponse}
  * @see {@link ListTrafficDistributionGroupsCommandInput} for command's `input` shape.
  * @see {@link ListTrafficDistributionGroupsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

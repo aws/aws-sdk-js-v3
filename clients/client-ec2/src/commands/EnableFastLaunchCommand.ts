@@ -83,8 +83,8 @@ export interface EnableFastLaunchCommandOutput extends EnableFastLaunchResult, _
  *
  * ```
  *
- * @param EnableFastLaunchCommandInput - {@link EnableFastLaunchCommandInput}
- * @returns {@link EnableFastLaunchCommandOutput}
+ * @param EnableFastLaunchRequest - {@link EnableFastLaunchRequest}
+ * @returns {@link EnableFastLaunchResult}
  * @see {@link EnableFastLaunchCommandInput} for command's `input` shape.
  * @see {@link EnableFastLaunchCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

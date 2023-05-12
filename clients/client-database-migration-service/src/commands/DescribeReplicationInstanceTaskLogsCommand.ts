@@ -72,8 +72,8 @@ export interface DescribeReplicationInstanceTaskLogsCommandOutput
  *
  * ```
  *
- * @param DescribeReplicationInstanceTaskLogsCommandInput - {@link DescribeReplicationInstanceTaskLogsCommandInput}
- * @returns {@link DescribeReplicationInstanceTaskLogsCommandOutput}
+ * @param DescribeReplicationInstanceTaskLogsMessage - {@link DescribeReplicationInstanceTaskLogsMessage}
+ * @returns {@link DescribeReplicationInstanceTaskLogsResponse}
  * @see {@link DescribeReplicationInstanceTaskLogsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationInstanceTaskLogsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

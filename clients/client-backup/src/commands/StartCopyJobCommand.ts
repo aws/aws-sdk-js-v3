@@ -61,8 +61,8 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  *
  * ```
  *
- * @param StartCopyJobCommandInput - {@link StartCopyJobCommandInput}
- * @returns {@link StartCopyJobCommandOutput}
+ * @param StartCopyJobInput - {@link StartCopyJobInput}
+ * @returns {@link StartCopyJobOutput}
  * @see {@link StartCopyJobCommandInput} for command's `input` shape.
  * @see {@link StartCopyJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

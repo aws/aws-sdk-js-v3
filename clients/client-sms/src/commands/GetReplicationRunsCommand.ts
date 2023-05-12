@@ -116,8 +116,8 @@ export interface GetReplicationRunsCommandOutput extends GetReplicationRunsRespo
  *
  * ```
  *
- * @param GetReplicationRunsCommandInput - {@link GetReplicationRunsCommandInput}
- * @returns {@link GetReplicationRunsCommandOutput}
+ * @param GetReplicationRunsRequest - {@link GetReplicationRunsRequest}
+ * @returns {@link GetReplicationRunsResponse}
  * @see {@link GetReplicationRunsCommandInput} for command's `input` shape.
  * @see {@link GetReplicationRunsCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

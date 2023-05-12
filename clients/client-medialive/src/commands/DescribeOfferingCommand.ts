@@ -69,8 +69,8 @@ export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse,
  *
  * ```
  *
- * @param DescribeOfferingCommandInput - {@link DescribeOfferingCommandInput}
- * @returns {@link DescribeOfferingCommandOutput}
+ * @param DescribeOfferingRequest - {@link DescribeOfferingRequest}
+ * @returns {@link DescribeOfferingResponse}
  * @see {@link DescribeOfferingCommandInput} for command's `input` shape.
  * @see {@link DescribeOfferingCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

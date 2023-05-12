@@ -74,8 +74,8 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
  *
  * ```
  *
- * @param DescribeLoadBalancerPoliciesCommandInput - {@link DescribeLoadBalancerPoliciesCommandInput}
- * @returns {@link DescribeLoadBalancerPoliciesCommandOutput}
+ * @param DescribeLoadBalancerPoliciesInput - {@link DescribeLoadBalancerPoliciesInput}
+ * @returns {@link DescribeLoadBalancerPoliciesOutput}
  * @see {@link DescribeLoadBalancerPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancerPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

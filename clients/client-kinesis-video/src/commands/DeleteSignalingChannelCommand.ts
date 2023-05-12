@@ -51,8 +51,8 @@ export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChan
  *
  * ```
  *
- * @param DeleteSignalingChannelCommandInput - {@link DeleteSignalingChannelCommandInput}
- * @returns {@link DeleteSignalingChannelCommandOutput}
+ * @param DeleteSignalingChannelInput - {@link DeleteSignalingChannelInput}
+ * @returns {@link DeleteSignalingChannelOutput}
  * @see {@link DeleteSignalingChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteSignalingChannelCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

@@ -66,8 +66,8 @@ export interface ListSubjectsCommandOutput extends ListSubjectsResponse, __Metad
  *
  * ```
  *
- * @param ListSubjectsCommandInput - {@link ListSubjectsCommandInput}
- * @returns {@link ListSubjectsCommandOutput}
+ * @param ListRequest - {@link ListRequest}
+ * @returns {@link ListSubjectsResponse}
  * @see {@link ListSubjectsCommandInput} for command's `input` shape.
  * @see {@link ListSubjectsCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

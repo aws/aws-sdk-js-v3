@@ -70,8 +70,8 @@ export interface GetChangesetCommandOutput extends GetChangesetResponse, __Metad
  *
  * ```
  *
- * @param GetChangesetCommandInput - {@link GetChangesetCommandInput}
- * @returns {@link GetChangesetCommandOutput}
+ * @param GetChangesetRequest - {@link GetChangesetRequest}
+ * @returns {@link GetChangesetResponse}
  * @see {@link GetChangesetCommandInput} for command's `input` shape.
  * @see {@link GetChangesetCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

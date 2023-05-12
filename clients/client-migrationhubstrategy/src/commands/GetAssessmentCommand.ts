@@ -73,8 +73,8 @@ export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __Met
  *
  * ```
  *
- * @param GetAssessmentCommandInput - {@link GetAssessmentCommandInput}
- * @returns {@link GetAssessmentCommandOutput}
+ * @param GetAssessmentRequest - {@link GetAssessmentRequest}
+ * @returns {@link GetAssessmentResponse}
  * @see {@link GetAssessmentCommandInput} for command's `input` shape.
  * @see {@link GetAssessmentCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

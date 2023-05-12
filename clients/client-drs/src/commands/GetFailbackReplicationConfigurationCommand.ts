@@ -61,8 +61,8 @@ export interface GetFailbackReplicationConfigurationCommandOutput
  *
  * ```
  *
- * @param GetFailbackReplicationConfigurationCommandInput - {@link GetFailbackReplicationConfigurationCommandInput}
- * @returns {@link GetFailbackReplicationConfigurationCommandOutput}
+ * @param GetFailbackReplicationConfigurationRequest - {@link GetFailbackReplicationConfigurationRequest}
+ * @returns {@link GetFailbackReplicationConfigurationResponse}
  * @see {@link GetFailbackReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetFailbackReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

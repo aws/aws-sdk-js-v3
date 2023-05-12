@@ -92,8 +92,8 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  *
  * ```
  *
- * @param DescribeGlobalTableCommandInput - {@link DescribeGlobalTableCommandInput}
- * @returns {@link DescribeGlobalTableCommandOutput}
+ * @param DescribeGlobalTableInput - {@link DescribeGlobalTableInput}
+ * @returns {@link DescribeGlobalTableOutput}
  * @see {@link DescribeGlobalTableCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

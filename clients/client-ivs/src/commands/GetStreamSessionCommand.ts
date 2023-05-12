@@ -112,8 +112,8 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  *
  * ```
  *
- * @param GetStreamSessionCommandInput - {@link GetStreamSessionCommandInput}
- * @returns {@link GetStreamSessionCommandOutput}
+ * @param GetStreamSessionRequest - {@link GetStreamSessionRequest}
+ * @returns {@link GetStreamSessionResponse}
  * @see {@link GetStreamSessionCommandInput} for command's `input` shape.
  * @see {@link GetStreamSessionCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

@@ -75,8 +75,8 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  *
  * ```
  *
- * @param ListProfilesCommandInput - {@link ListProfilesCommandInput}
- * @returns {@link ListProfilesCommandOutput}
+ * @param ListRequest - {@link ListRequest}
+ * @returns {@link ListProfilesResponse}
  * @see {@link ListProfilesCommandInput} for command's `input` shape.
  * @see {@link ListProfilesCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

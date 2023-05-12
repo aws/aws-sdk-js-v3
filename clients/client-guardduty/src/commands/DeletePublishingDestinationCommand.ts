@@ -54,8 +54,8 @@ export interface DeletePublishingDestinationCommandOutput
  *
  * ```
  *
- * @param DeletePublishingDestinationCommandInput - {@link DeletePublishingDestinationCommandInput}
- * @returns {@link DeletePublishingDestinationCommandOutput}
+ * @param DeletePublishingDestinationRequest - {@link DeletePublishingDestinationRequest}
+ * @returns {@link DeletePublishingDestinationResponse}
  * @see {@link DeletePublishingDestinationCommandInput} for command's `input` shape.
  * @see {@link DeletePublishingDestinationCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

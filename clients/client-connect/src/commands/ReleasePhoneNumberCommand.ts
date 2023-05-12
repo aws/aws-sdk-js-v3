@@ -57,8 +57,8 @@ export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ReleasePhoneNumberCommandInput - {@link ReleasePhoneNumberCommandInput}
- * @returns {@link ReleasePhoneNumberCommandOutput}
+ * @param ReleasePhoneNumberRequest - {@link ReleasePhoneNumberRequest}
+ * @returns {@link Unit}
  * @see {@link ReleasePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link ReleasePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

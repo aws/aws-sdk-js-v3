@@ -50,8 +50,8 @@ export interface DisassociateHealthCheckCommandOutput extends DisassociateHealth
  *
  * ```
  *
- * @param DisassociateHealthCheckCommandInput - {@link DisassociateHealthCheckCommandInput}
- * @returns {@link DisassociateHealthCheckCommandOutput}
+ * @param DisassociateHealthCheckRequest - {@link DisassociateHealthCheckRequest}
+ * @returns {@link DisassociateHealthCheckResponse}
  * @see {@link DisassociateHealthCheckCommandInput} for command's `input` shape.
  * @see {@link DisassociateHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

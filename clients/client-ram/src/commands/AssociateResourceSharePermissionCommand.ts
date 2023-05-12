@@ -63,8 +63,8 @@ export interface AssociateResourceSharePermissionCommandOutput
  *
  * ```
  *
- * @param AssociateResourceSharePermissionCommandInput - {@link AssociateResourceSharePermissionCommandInput}
- * @returns {@link AssociateResourceSharePermissionCommandOutput}
+ * @param AssociateResourceSharePermissionRequest - {@link AssociateResourceSharePermissionRequest}
+ * @returns {@link AssociateResourceSharePermissionResponse}
  * @see {@link AssociateResourceSharePermissionCommandInput} for command's `input` shape.
  * @see {@link AssociateResourceSharePermissionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

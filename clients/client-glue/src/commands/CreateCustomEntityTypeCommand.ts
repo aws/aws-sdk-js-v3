@@ -55,8 +55,8 @@ export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityT
  *
  * ```
  *
- * @param CreateCustomEntityTypeCommandInput - {@link CreateCustomEntityTypeCommandInput}
- * @returns {@link CreateCustomEntityTypeCommandOutput}
+ * @param CreateCustomEntityTypeRequest - {@link CreateCustomEntityTypeRequest}
+ * @returns {@link CreateCustomEntityTypeResponse}
  * @see {@link CreateCustomEntityTypeCommandInput} for command's `input` shape.
  * @see {@link CreateCustomEntityTypeCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

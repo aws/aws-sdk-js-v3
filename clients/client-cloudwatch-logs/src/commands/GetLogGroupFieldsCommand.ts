@@ -71,8 +71,8 @@ export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsRespons
  *
  * ```
  *
- * @param GetLogGroupFieldsCommandInput - {@link GetLogGroupFieldsCommandInput}
- * @returns {@link GetLogGroupFieldsCommandOutput}
+ * @param GetLogGroupFieldsRequest - {@link GetLogGroupFieldsRequest}
+ * @returns {@link GetLogGroupFieldsResponse}
  * @see {@link GetLogGroupFieldsCommandInput} for command's `input` shape.
  * @see {@link GetLogGroupFieldsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

@@ -65,8 +65,8 @@ export interface ListOriginationNumbersCommandOutput extends ListOriginationNumb
  *
  * ```
  *
- * @param ListOriginationNumbersCommandInput - {@link ListOriginationNumbersCommandInput}
- * @returns {@link ListOriginationNumbersCommandOutput}
+ * @param ListOriginationNumbersRequest - {@link ListOriginationNumbersRequest}
+ * @returns {@link ListOriginationNumbersResult}
  * @see {@link ListOriginationNumbersCommandInput} for command's `input` shape.
  * @see {@link ListOriginationNumbersCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

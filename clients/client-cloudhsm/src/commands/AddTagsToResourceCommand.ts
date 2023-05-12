@@ -68,8 +68,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  *
  * ```
  *
- * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
- * @returns {@link AddTagsToResourceCommandOutput}
+ * @param AddTagsToResourceRequest - {@link AddTagsToResourceRequest}
+ * @returns {@link AddTagsToResourceResponse}
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.

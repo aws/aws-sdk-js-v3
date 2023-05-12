@@ -55,8 +55,8 @@ export interface TagAttendeeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param TagAttendeeCommandInput - {@link TagAttendeeCommandInput}
- * @returns {@link TagAttendeeCommandOutput}
+ * @param TagAttendeeRequest - {@link TagAttendeeRequest}
+ * @returns {@link Unit}
  * @see {@link TagAttendeeCommandInput} for command's `input` shape.
  * @see {@link TagAttendeeCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

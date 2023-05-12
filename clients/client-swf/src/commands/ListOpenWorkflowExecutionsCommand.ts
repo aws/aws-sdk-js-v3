@@ -138,8 +138,8 @@ export interface ListOpenWorkflowExecutionsCommandOutput extends WorkflowExecuti
  *
  * ```
  *
- * @param ListOpenWorkflowExecutionsCommandInput - {@link ListOpenWorkflowExecutionsCommandInput}
- * @returns {@link ListOpenWorkflowExecutionsCommandOutput}
+ * @param ListOpenWorkflowExecutionsInput - {@link ListOpenWorkflowExecutionsInput}
+ * @returns {@link WorkflowExecutionInfos}
  * @see {@link ListOpenWorkflowExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListOpenWorkflowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

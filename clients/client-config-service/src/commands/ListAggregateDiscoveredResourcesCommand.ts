@@ -76,8 +76,8 @@ export interface ListAggregateDiscoveredResourcesCommandOutput
  *
  * ```
  *
- * @param ListAggregateDiscoveredResourcesCommandInput - {@link ListAggregateDiscoveredResourcesCommandInput}
- * @returns {@link ListAggregateDiscoveredResourcesCommandOutput}
+ * @param ListAggregateDiscoveredResourcesRequest - {@link ListAggregateDiscoveredResourcesRequest}
+ * @returns {@link ListAggregateDiscoveredResourcesResponse}
  * @see {@link ListAggregateDiscoveredResourcesCommandInput} for command's `input` shape.
  * @see {@link ListAggregateDiscoveredResourcesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

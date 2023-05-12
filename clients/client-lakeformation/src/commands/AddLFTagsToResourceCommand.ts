@@ -128,8 +128,8 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  *
  * ```
  *
- * @param AddLFTagsToResourceCommandInput - {@link AddLFTagsToResourceCommandInput}
- * @returns {@link AddLFTagsToResourceCommandOutput}
+ * @param AddLFTagsToResourceRequest - {@link AddLFTagsToResourceRequest}
+ * @returns {@link AddLFTagsToResourceResponse}
  * @see {@link AddLFTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddLFTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

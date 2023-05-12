@@ -67,8 +67,8 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  *
  * ```
  *
- * @param ListTasksCommandInput - {@link ListTasksCommandInput}
- * @returns {@link ListTasksCommandOutput}
+ * @param ListTasksRequest - {@link ListTasksRequest}
+ * @returns {@link ListTasksResponse}
  * @see {@link ListTasksCommandInput} for command's `input` shape.
  * @see {@link ListTasksCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

@@ -111,8 +111,8 @@ export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecut
  *
  * ```
  *
- * @param CountOpenWorkflowExecutionsCommandInput - {@link CountOpenWorkflowExecutionsCommandInput}
- * @returns {@link CountOpenWorkflowExecutionsCommandOutput}
+ * @param CountOpenWorkflowExecutionsInput - {@link CountOpenWorkflowExecutionsInput}
+ * @returns {@link WorkflowExecutionCount}
  * @see {@link CountOpenWorkflowExecutionsCommandInput} for command's `input` shape.
  * @see {@link CountOpenWorkflowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

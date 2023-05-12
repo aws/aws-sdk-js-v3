@@ -53,8 +53,8 @@ export interface UpdateConditionalForwarderCommandOutput extends UpdateCondition
  *
  * ```
  *
- * @param UpdateConditionalForwarderCommandInput - {@link UpdateConditionalForwarderCommandInput}
- * @returns {@link UpdateConditionalForwarderCommandOutput}
+ * @param UpdateConditionalForwarderRequest - {@link UpdateConditionalForwarderRequest}
+ * @returns {@link UpdateConditionalForwarderResult}
  * @see {@link UpdateConditionalForwarderCommandInput} for command's `input` shape.
  * @see {@link UpdateConditionalForwarderCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

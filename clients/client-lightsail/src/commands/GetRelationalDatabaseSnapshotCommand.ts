@@ -79,8 +79,8 @@ export interface GetRelationalDatabaseSnapshotCommandOutput
  *
  * ```
  *
- * @param GetRelationalDatabaseSnapshotCommandInput - {@link GetRelationalDatabaseSnapshotCommandInput}
- * @returns {@link GetRelationalDatabaseSnapshotCommandOutput}
+ * @param GetRelationalDatabaseSnapshotRequest - {@link GetRelationalDatabaseSnapshotRequest}
+ * @returns {@link GetRelationalDatabaseSnapshotResult}
  * @see {@link GetRelationalDatabaseSnapshotCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

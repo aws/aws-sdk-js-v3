@@ -78,8 +78,8 @@ export interface DescribeApplicationVersionsCommandOutput
  *
  * ```
  *
- * @param DescribeApplicationVersionsCommandInput - {@link DescribeApplicationVersionsCommandInput}
- * @returns {@link DescribeApplicationVersionsCommandOutput}
+ * @param DescribeApplicationVersionsMessage - {@link DescribeApplicationVersionsMessage}
+ * @returns {@link ApplicationVersionDescriptionsMessage}
  * @see {@link DescribeApplicationVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

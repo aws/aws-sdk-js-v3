@@ -68,8 +68,8 @@ export interface GetTrustAnchorCommandOutput extends TrustAnchorDetailResponse, 
  *
  * ```
  *
- * @param GetTrustAnchorCommandInput - {@link GetTrustAnchorCommandInput}
- * @returns {@link GetTrustAnchorCommandOutput}
+ * @param ScalarTrustAnchorRequest - {@link ScalarTrustAnchorRequest}
+ * @returns {@link TrustAnchorDetailResponse}
  * @see {@link GetTrustAnchorCommandInput} for command's `input` shape.
  * @see {@link GetTrustAnchorCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

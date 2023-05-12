@@ -80,8 +80,8 @@ export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutPrincipalMappingCommandInput - {@link PutPrincipalMappingCommandInput}
- * @returns {@link PutPrincipalMappingCommandOutput}
+ * @param PutPrincipalMappingRequest - {@link PutPrincipalMappingRequest}
+ * @returns {@link Unit}
  * @see {@link PutPrincipalMappingCommandInput} for command's `input` shape.
  * @see {@link PutPrincipalMappingCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

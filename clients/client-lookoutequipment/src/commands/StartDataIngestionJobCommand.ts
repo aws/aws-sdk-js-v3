@@ -61,8 +61,8 @@ export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJo
  *
  * ```
  *
- * @param StartDataIngestionJobCommandInput - {@link StartDataIngestionJobCommandInput}
- * @returns {@link StartDataIngestionJobCommandOutput}
+ * @param StartDataIngestionJobRequest - {@link StartDataIngestionJobRequest}
+ * @returns {@link StartDataIngestionJobResponse}
  * @see {@link StartDataIngestionJobCommandInput} for command's `input` shape.
  * @see {@link StartDataIngestionJobCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

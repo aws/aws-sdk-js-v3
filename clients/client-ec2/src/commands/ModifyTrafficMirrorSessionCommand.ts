@@ -76,8 +76,8 @@ export interface ModifyTrafficMirrorSessionCommandOutput extends ModifyTrafficMi
  *
  * ```
  *
- * @param ModifyTrafficMirrorSessionCommandInput - {@link ModifyTrafficMirrorSessionCommandInput}
- * @returns {@link ModifyTrafficMirrorSessionCommandOutput}
+ * @param ModifyTrafficMirrorSessionRequest - {@link ModifyTrafficMirrorSessionRequest}
+ * @returns {@link ModifyTrafficMirrorSessionResult}
  * @see {@link ModifyTrafficMirrorSessionCommandInput} for command's `input` shape.
  * @see {@link ModifyTrafficMirrorSessionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

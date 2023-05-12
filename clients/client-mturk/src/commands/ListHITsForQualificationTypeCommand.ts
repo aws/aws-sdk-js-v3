@@ -104,8 +104,8 @@ export interface ListHITsForQualificationTypeCommandOutput
  *
  * ```
  *
- * @param ListHITsForQualificationTypeCommandInput - {@link ListHITsForQualificationTypeCommandInput}
- * @returns {@link ListHITsForQualificationTypeCommandOutput}
+ * @param ListHITsForQualificationTypeRequest - {@link ListHITsForQualificationTypeRequest}
+ * @returns {@link ListHITsForQualificationTypeResponse}
  * @see {@link ListHITsForQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link ListHITsForQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

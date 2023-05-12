@@ -62,8 +62,8 @@ export interface ListLabelGroupsCommandOutput extends ListLabelGroupsResponse, _
  *
  * ```
  *
- * @param ListLabelGroupsCommandInput - {@link ListLabelGroupsCommandInput}
- * @returns {@link ListLabelGroupsCommandOutput}
+ * @param ListLabelGroupsRequest - {@link ListLabelGroupsRequest}
+ * @returns {@link ListLabelGroupsResponse}
  * @see {@link ListLabelGroupsCommandInput} for command's `input` shape.
  * @see {@link ListLabelGroupsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

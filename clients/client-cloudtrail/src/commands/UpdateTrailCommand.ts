@@ -77,8 +77,8 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  *
  * ```
  *
- * @param UpdateTrailCommandInput - {@link UpdateTrailCommandInput}
- * @returns {@link UpdateTrailCommandOutput}
+ * @param UpdateTrailRequest - {@link UpdateTrailRequest}
+ * @returns {@link UpdateTrailResponse}
  * @see {@link UpdateTrailCommandInput} for command's `input` shape.
  * @see {@link UpdateTrailCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

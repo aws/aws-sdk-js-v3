@@ -59,8 +59,8 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  *
  * ```
  *
- * @param DescribeUserProfileCommandInput - {@link DescribeUserProfileCommandInput}
- * @returns {@link DescribeUserProfileCommandOutput}
+ * @param DescribeUserProfileRequest - {@link DescribeUserProfileRequest}
+ * @returns {@link DescribeUserProfileResult}
  * @see {@link DescribeUserProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeUserProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.

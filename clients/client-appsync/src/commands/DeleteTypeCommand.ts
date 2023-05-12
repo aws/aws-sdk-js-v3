@@ -49,8 +49,8 @@ export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataB
  *
  * ```
  *
- * @param DeleteTypeCommandInput - {@link DeleteTypeCommandInput}
- * @returns {@link DeleteTypeCommandOutput}
+ * @param DeleteTypeRequest - {@link DeleteTypeRequest}
+ * @returns {@link DeleteTypeResponse}
  * @see {@link DeleteTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteTypeCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

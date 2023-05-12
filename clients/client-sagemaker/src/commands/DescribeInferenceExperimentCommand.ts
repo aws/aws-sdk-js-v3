@@ -107,8 +107,8 @@ export interface DescribeInferenceExperimentCommandOutput
  *
  * ```
  *
- * @param DescribeInferenceExperimentCommandInput - {@link DescribeInferenceExperimentCommandInput}
- * @returns {@link DescribeInferenceExperimentCommandOutput}
+ * @param DescribeInferenceExperimentRequest - {@link DescribeInferenceExperimentRequest}
+ * @returns {@link DescribeInferenceExperimentResponse}
  * @see {@link DescribeInferenceExperimentCommandInput} for command's `input` shape.
  * @see {@link DescribeInferenceExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -89,8 +89,8 @@ export interface ExportEC2InstanceRecommendationsCommandOutput
  *
  * ```
  *
- * @param ExportEC2InstanceRecommendationsCommandInput - {@link ExportEC2InstanceRecommendationsCommandInput}
- * @returns {@link ExportEC2InstanceRecommendationsCommandOutput}
+ * @param ExportEC2InstanceRecommendationsRequest - {@link ExportEC2InstanceRecommendationsRequest}
+ * @returns {@link ExportEC2InstanceRecommendationsResponse}
  * @see {@link ExportEC2InstanceRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ExportEC2InstanceRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

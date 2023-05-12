@@ -69,8 +69,8 @@ export interface CreateRestoreImageTaskCommandOutput extends CreateRestoreImageT
  *
  * ```
  *
- * @param CreateRestoreImageTaskCommandInput - {@link CreateRestoreImageTaskCommandInput}
- * @returns {@link CreateRestoreImageTaskCommandOutput}
+ * @param CreateRestoreImageTaskRequest - {@link CreateRestoreImageTaskRequest}
+ * @returns {@link CreateRestoreImageTaskResult}
  * @see {@link CreateRestoreImageTaskCommandInput} for command's `input` shape.
  * @see {@link CreateRestoreImageTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

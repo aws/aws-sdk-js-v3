@@ -64,8 +64,8 @@ export interface UpdateTopicRefreshScheduleCommandOutput extends UpdateTopicRefr
  *
  * ```
  *
- * @param UpdateTopicRefreshScheduleCommandInput - {@link UpdateTopicRefreshScheduleCommandInput}
- * @returns {@link UpdateTopicRefreshScheduleCommandOutput}
+ * @param UpdateTopicRefreshScheduleRequest - {@link UpdateTopicRefreshScheduleRequest}
+ * @returns {@link UpdateTopicRefreshScheduleResponse}
  * @see {@link UpdateTopicRefreshScheduleCommandInput} for command's `input` shape.
  * @see {@link UpdateTopicRefreshScheduleCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

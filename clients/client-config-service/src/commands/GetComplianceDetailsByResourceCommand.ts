@@ -83,8 +83,8 @@ export interface GetComplianceDetailsByResourceCommandOutput
  *
  * ```
  *
- * @param GetComplianceDetailsByResourceCommandInput - {@link GetComplianceDetailsByResourceCommandInput}
- * @returns {@link GetComplianceDetailsByResourceCommandOutput}
+ * @param GetComplianceDetailsByResourceRequest - {@link GetComplianceDetailsByResourceRequest}
+ * @returns {@link GetComplianceDetailsByResourceResponse}
  * @see {@link GetComplianceDetailsByResourceCommandInput} for command's `input` shape.
  * @see {@link GetComplianceDetailsByResourceCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

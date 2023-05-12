@@ -92,8 +92,8 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  *
  * ```
  *
- * @param DescribeEventSubscriptionsCommandInput - {@link DescribeEventSubscriptionsCommandInput}
- * @returns {@link DescribeEventSubscriptionsCommandOutput}
+ * @param DescribeEventSubscriptionsMessage - {@link DescribeEventSubscriptionsMessage}
+ * @returns {@link EventSubscriptionsMessage}
  * @see {@link DescribeEventSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

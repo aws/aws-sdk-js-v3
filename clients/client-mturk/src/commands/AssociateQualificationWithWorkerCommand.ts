@@ -76,8 +76,8 @@ export interface AssociateQualificationWithWorkerCommandOutput
  *
  * ```
  *
- * @param AssociateQualificationWithWorkerCommandInput - {@link AssociateQualificationWithWorkerCommandInput}
- * @returns {@link AssociateQualificationWithWorkerCommandOutput}
+ * @param AssociateQualificationWithWorkerRequest - {@link AssociateQualificationWithWorkerRequest}
+ * @returns {@link AssociateQualificationWithWorkerResponse}
  * @see {@link AssociateQualificationWithWorkerCommandInput} for command's `input` shape.
  * @see {@link AssociateQualificationWithWorkerCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

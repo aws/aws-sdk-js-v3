@@ -61,8 +61,8 @@ export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __M
  *
  * ```
  *
- * @param DeleteDatabaseCommandInput - {@link DeleteDatabaseCommandInput}
- * @returns {@link DeleteDatabaseCommandOutput}
+ * @param DeleteDatabaseRequest - {@link DeleteDatabaseRequest}
+ * @returns {@link DeleteDatabaseResponse}
  * @see {@link DeleteDatabaseCommandInput} for command's `input` shape.
  * @see {@link DeleteDatabaseCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

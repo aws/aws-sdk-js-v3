@@ -97,8 +97,8 @@ export interface DescribeCompilationJobCommandOutput extends DescribeCompilation
  *
  * ```
  *
- * @param DescribeCompilationJobCommandInput - {@link DescribeCompilationJobCommandInput}
- * @returns {@link DescribeCompilationJobCommandOutput}
+ * @param DescribeCompilationJobRequest - {@link DescribeCompilationJobRequest}
+ * @returns {@link DescribeCompilationJobResponse}
  * @see {@link DescribeCompilationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeCompilationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

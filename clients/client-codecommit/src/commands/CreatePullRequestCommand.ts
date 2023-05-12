@@ -100,8 +100,8 @@ export interface CreatePullRequestCommandOutput extends CreatePullRequestOutput,
  *
  * ```
  *
- * @param CreatePullRequestCommandInput - {@link CreatePullRequestCommandInput}
- * @returns {@link CreatePullRequestCommandOutput}
+ * @param CreatePullRequestInput - {@link CreatePullRequestInput}
+ * @returns {@link CreatePullRequestOutput}
  * @see {@link CreatePullRequestCommandInput} for command's `input` shape.
  * @see {@link CreatePullRequestCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

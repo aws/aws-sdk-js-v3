@@ -77,8 +77,8 @@ export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse,
  *
  * ```
  *
- * @param ResetJobBookmarkCommandInput - {@link ResetJobBookmarkCommandInput}
- * @returns {@link ResetJobBookmarkCommandOutput}
+ * @param ResetJobBookmarkRequest - {@link ResetJobBookmarkRequest}
+ * @returns {@link ResetJobBookmarkResponse}
  * @see {@link ResetJobBookmarkCommandInput} for command's `input` shape.
  * @see {@link ResetJobBookmarkCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

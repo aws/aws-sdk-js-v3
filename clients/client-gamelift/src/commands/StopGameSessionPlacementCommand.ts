@@ -87,8 +87,8 @@ export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPl
  *
  * ```
  *
- * @param StopGameSessionPlacementCommandInput - {@link StopGameSessionPlacementCommandInput}
- * @returns {@link StopGameSessionPlacementCommandOutput}
+ * @param StopGameSessionPlacementInput - {@link StopGameSessionPlacementInput}
+ * @returns {@link StopGameSessionPlacementOutput}
  * @see {@link StopGameSessionPlacementCommandInput} for command's `input` shape.
  * @see {@link StopGameSessionPlacementCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

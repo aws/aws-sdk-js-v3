@@ -53,8 +53,8 @@ export interface GetContactAttributesCommandOutput extends GetContactAttributesR
  *
  * ```
  *
- * @param GetContactAttributesCommandInput - {@link GetContactAttributesCommandInput}
- * @returns {@link GetContactAttributesCommandOutput}
+ * @param GetContactAttributesRequest - {@link GetContactAttributesRequest}
+ * @returns {@link GetContactAttributesResponse}
  * @see {@link GetContactAttributesCommandInput} for command's `input` shape.
  * @see {@link GetContactAttributesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

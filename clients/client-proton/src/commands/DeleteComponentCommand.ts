@@ -72,8 +72,8 @@ export interface DeleteComponentCommandOutput extends DeleteComponentOutput, __M
  *
  * ```
  *
- * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
- * @returns {@link DeleteComponentCommandOutput}
+ * @param DeleteComponentInput - {@link DeleteComponentInput}
+ * @returns {@link DeleteComponentOutput}
  * @see {@link DeleteComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteComponentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

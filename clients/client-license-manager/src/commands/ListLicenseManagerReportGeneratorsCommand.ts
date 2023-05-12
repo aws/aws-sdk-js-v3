@@ -101,8 +101,8 @@ export interface ListLicenseManagerReportGeneratorsCommandOutput
  *
  * ```
  *
- * @param ListLicenseManagerReportGeneratorsCommandInput - {@link ListLicenseManagerReportGeneratorsCommandInput}
- * @returns {@link ListLicenseManagerReportGeneratorsCommandOutput}
+ * @param ListLicenseManagerReportGeneratorsRequest - {@link ListLicenseManagerReportGeneratorsRequest}
+ * @returns {@link ListLicenseManagerReportGeneratorsResponse}
  * @see {@link ListLicenseManagerReportGeneratorsCommandInput} for command's `input` shape.
  * @see {@link ListLicenseManagerReportGeneratorsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

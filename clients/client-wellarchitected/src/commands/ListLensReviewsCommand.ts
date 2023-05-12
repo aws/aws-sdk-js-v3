@@ -68,8 +68,8 @@ export interface ListLensReviewsCommandOutput extends ListLensReviewsOutput, __M
  *
  * ```
  *
- * @param ListLensReviewsCommandInput - {@link ListLensReviewsCommandInput}
- * @returns {@link ListLensReviewsCommandOutput}
+ * @param ListLensReviewsInput - {@link ListLensReviewsInput}
+ * @returns {@link ListLensReviewsOutput}
  * @see {@link ListLensReviewsCommandInput} for command's `input` shape.
  * @see {@link ListLensReviewsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

@@ -113,8 +113,8 @@ export interface ListLaunchesCommandOutput extends ListLaunchesResponse, __Metad
  *
  * ```
  *
- * @param ListLaunchesCommandInput - {@link ListLaunchesCommandInput}
- * @returns {@link ListLaunchesCommandOutput}
+ * @param ListLaunchesRequest - {@link ListLaunchesRequest}
+ * @returns {@link ListLaunchesResponse}
  * @see {@link ListLaunchesCommandInput} for command's `input` shape.
  * @see {@link ListLaunchesCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

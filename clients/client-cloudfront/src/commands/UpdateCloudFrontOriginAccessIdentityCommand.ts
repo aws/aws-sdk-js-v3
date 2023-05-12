@@ -71,8 +71,8 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
  *
  * ```
  *
- * @param UpdateCloudFrontOriginAccessIdentityCommandInput - {@link UpdateCloudFrontOriginAccessIdentityCommandInput}
- * @returns {@link UpdateCloudFrontOriginAccessIdentityCommandOutput}
+ * @param UpdateCloudFrontOriginAccessIdentityRequest - {@link UpdateCloudFrontOriginAccessIdentityRequest}
+ * @returns {@link UpdateCloudFrontOriginAccessIdentityResult}
  * @see {@link UpdateCloudFrontOriginAccessIdentityCommandInput} for command's `input` shape.
  * @see {@link UpdateCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

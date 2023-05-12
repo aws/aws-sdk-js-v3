@@ -64,8 +64,8 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
  *
  * ```
  *
- * @param DeleteApplicationCloudWatchLoggingOptionCommandInput - {@link DeleteApplicationCloudWatchLoggingOptionCommandInput}
- * @returns {@link DeleteApplicationCloudWatchLoggingOptionCommandOutput}
+ * @param DeleteApplicationCloudWatchLoggingOptionRequest - {@link DeleteApplicationCloudWatchLoggingOptionRequest}
+ * @returns {@link DeleteApplicationCloudWatchLoggingOptionResponse}
  * @see {@link DeleteApplicationCloudWatchLoggingOptionCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationCloudWatchLoggingOptionCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.

@@ -57,8 +57,8 @@ export interface GetSolNetworkPackageDescriptorCommandOutput
  *
  * ```
  *
- * @param GetSolNetworkPackageDescriptorCommandInput - {@link GetSolNetworkPackageDescriptorCommandInput}
- * @returns {@link GetSolNetworkPackageDescriptorCommandOutput}
+ * @param GetSolNetworkPackageDescriptorInput - {@link GetSolNetworkPackageDescriptorInput}
+ * @returns {@link GetSolNetworkPackageDescriptorOutput}
  * @see {@link GetSolNetworkPackageDescriptorCommandInput} for command's `input` shape.
  * @see {@link GetSolNetworkPackageDescriptorCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

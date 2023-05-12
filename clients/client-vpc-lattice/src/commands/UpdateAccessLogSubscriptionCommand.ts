@@ -60,8 +60,8 @@ export interface UpdateAccessLogSubscriptionCommandOutput
  *
  * ```
  *
- * @param UpdateAccessLogSubscriptionCommandInput - {@link UpdateAccessLogSubscriptionCommandInput}
- * @returns {@link UpdateAccessLogSubscriptionCommandOutput}
+ * @param UpdateAccessLogSubscriptionRequest - {@link UpdateAccessLogSubscriptionRequest}
+ * @returns {@link UpdateAccessLogSubscriptionResponse}
  * @see {@link UpdateAccessLogSubscriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessLogSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

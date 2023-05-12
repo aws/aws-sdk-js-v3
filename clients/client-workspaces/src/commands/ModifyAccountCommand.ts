@@ -50,8 +50,8 @@ export interface ModifyAccountCommandOutput extends ModifyAccountResult, __Metad
  *
  * ```
  *
- * @param ModifyAccountCommandInput - {@link ModifyAccountCommandInput}
- * @returns {@link ModifyAccountCommandOutput}
+ * @param ModifyAccountRequest - {@link ModifyAccountRequest}
+ * @returns {@link ModifyAccountResult}
  * @see {@link ModifyAccountCommandInput} for command's `input` shape.
  * @see {@link ModifyAccountCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

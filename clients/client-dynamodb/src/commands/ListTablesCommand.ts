@@ -56,8 +56,8 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  *
  * ```
  *
- * @param ListTablesCommandInput - {@link ListTablesCommandInput}
- * @returns {@link ListTablesCommandOutput}
+ * @param ListTablesInput - {@link ListTablesInput}
+ * @returns {@link ListTablesOutput}
  * @see {@link ListTablesCommandInput} for command's `input` shape.
  * @see {@link ListTablesCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

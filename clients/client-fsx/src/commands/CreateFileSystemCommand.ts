@@ -683,8 +683,8 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  *
  * ```
  *
- * @param CreateFileSystemCommandInput - {@link CreateFileSystemCommandInput}
- * @returns {@link CreateFileSystemCommandOutput}
+ * @param CreateFileSystemRequest - {@link CreateFileSystemRequest}
+ * @returns {@link CreateFileSystemResponse}
  * @see {@link CreateFileSystemCommandInput} for command's `input` shape.
  * @see {@link CreateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

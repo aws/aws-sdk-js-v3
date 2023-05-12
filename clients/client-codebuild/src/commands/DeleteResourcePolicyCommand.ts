@@ -48,8 +48,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  *
  * ```
  *
- * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
- * @returns {@link DeleteResourcePolicyCommandOutput}
+ * @param DeleteResourcePolicyInput - {@link DeleteResourcePolicyInput}
+ * @returns {@link DeleteResourcePolicyOutput}
  * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

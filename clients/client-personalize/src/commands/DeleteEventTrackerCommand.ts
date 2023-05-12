@@ -50,8 +50,8 @@ export interface DeleteEventTrackerCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteEventTrackerCommandInput - {@link DeleteEventTrackerCommandInput}
- * @returns {@link DeleteEventTrackerCommandOutput}
+ * @param DeleteEventTrackerRequest - {@link DeleteEventTrackerRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteEventTrackerCommandInput} for command's `input` shape.
  * @see {@link DeleteEventTrackerCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

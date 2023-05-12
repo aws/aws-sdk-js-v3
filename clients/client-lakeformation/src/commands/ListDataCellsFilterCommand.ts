@@ -78,8 +78,8 @@ export interface ListDataCellsFilterCommandOutput extends ListDataCellsFilterRes
  *
  * ```
  *
- * @param ListDataCellsFilterCommandInput - {@link ListDataCellsFilterCommandInput}
- * @returns {@link ListDataCellsFilterCommandOutput}
+ * @param ListDataCellsFilterRequest - {@link ListDataCellsFilterRequest}
+ * @returns {@link ListDataCellsFilterResponse}
  * @see {@link ListDataCellsFilterCommandInput} for command's `input` shape.
  * @see {@link ListDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

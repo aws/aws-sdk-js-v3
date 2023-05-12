@@ -362,8 +362,8 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  *
  * ```
  *
- * @param CreateFormCommandInput - {@link CreateFormCommandInput}
- * @returns {@link CreateFormCommandOutput}
+ * @param CreateFormRequest - {@link CreateFormRequest}
+ * @returns {@link CreateFormResponse}
  * @see {@link CreateFormCommandInput} for command's `input` shape.
  * @see {@link CreateFormCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

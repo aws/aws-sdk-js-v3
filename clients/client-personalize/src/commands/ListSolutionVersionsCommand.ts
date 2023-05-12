@@ -63,8 +63,8 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  *
  * ```
  *
- * @param ListSolutionVersionsCommandInput - {@link ListSolutionVersionsCommandInput}
- * @returns {@link ListSolutionVersionsCommandOutput}
+ * @param ListSolutionVersionsRequest - {@link ListSolutionVersionsRequest}
+ * @returns {@link ListSolutionVersionsResponse}
  * @see {@link ListSolutionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListSolutionVersionsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

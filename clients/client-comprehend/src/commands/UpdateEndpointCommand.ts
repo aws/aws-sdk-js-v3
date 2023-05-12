@@ -55,8 +55,8 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  *
  * ```
  *
- * @param UpdateEndpointCommandInput - {@link UpdateEndpointCommandInput}
- * @returns {@link UpdateEndpointCommandOutput}
+ * @param UpdateEndpointRequest - {@link UpdateEndpointRequest}
+ * @returns {@link UpdateEndpointResponse}
  * @see {@link UpdateEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

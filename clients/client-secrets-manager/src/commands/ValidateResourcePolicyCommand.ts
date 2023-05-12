@@ -78,8 +78,8 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  *
  * ```
  *
- * @param ValidateResourcePolicyCommandInput - {@link ValidateResourcePolicyCommandInput}
- * @returns {@link ValidateResourcePolicyCommandOutput}
+ * @param ValidateResourcePolicyRequest - {@link ValidateResourcePolicyRequest}
+ * @returns {@link ValidateResourcePolicyResponse}
  * @see {@link ValidateResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link ValidateResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

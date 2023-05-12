@@ -48,8 +48,8 @@ export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput,
  *
  * ```
  *
- * @param DeleteDataCatalogCommandInput - {@link DeleteDataCatalogCommandInput}
- * @returns {@link DeleteDataCatalogCommandOutput}
+ * @param DeleteDataCatalogInput - {@link DeleteDataCatalogInput}
+ * @returns {@link DeleteDataCatalogOutput}
  * @see {@link DeleteDataCatalogCommandInput} for command's `input` shape.
  * @see {@link DeleteDataCatalogCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

@@ -70,8 +70,8 @@ export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __Metad
  *
  * ```
  *
- * @param SearchGroupsCommandInput - {@link SearchGroupsCommandInput}
- * @returns {@link SearchGroupsCommandOutput}
+ * @param SearchGroupsRequest - {@link SearchGroupsRequest}
+ * @returns {@link SearchGroupsResponse}
  * @see {@link SearchGroupsCommandInput} for command's `input` shape.
  * @see {@link SearchGroupsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

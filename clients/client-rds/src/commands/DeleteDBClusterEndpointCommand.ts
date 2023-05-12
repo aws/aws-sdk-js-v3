@@ -66,8 +66,8 @@ export interface DeleteDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  *
  * ```
  *
- * @param DeleteDBClusterEndpointCommandInput - {@link DeleteDBClusterEndpointCommandInput}
- * @returns {@link DeleteDBClusterEndpointCommandOutput}
+ * @param DeleteDBClusterEndpointMessage - {@link DeleteDBClusterEndpointMessage}
+ * @returns {@link DBClusterEndpoint}
  * @see {@link DeleteDBClusterEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

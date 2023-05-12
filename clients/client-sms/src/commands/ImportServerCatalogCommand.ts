@@ -49,8 +49,8 @@ export interface ImportServerCatalogCommandOutput extends ImportServerCatalogRes
  *
  * ```
  *
- * @param ImportServerCatalogCommandInput - {@link ImportServerCatalogCommandInput}
- * @returns {@link ImportServerCatalogCommandOutput}
+ * @param ImportServerCatalogRequest - {@link ImportServerCatalogRequest}
+ * @returns {@link ImportServerCatalogResponse}
  * @see {@link ImportServerCatalogCommandInput} for command's `input` shape.
  * @see {@link ImportServerCatalogCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

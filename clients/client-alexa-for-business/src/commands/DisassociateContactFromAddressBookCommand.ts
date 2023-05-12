@@ -57,8 +57,8 @@ export interface DisassociateContactFromAddressBookCommandOutput
  *
  * ```
  *
- * @param DisassociateContactFromAddressBookCommandInput - {@link DisassociateContactFromAddressBookCommandInput}
- * @returns {@link DisassociateContactFromAddressBookCommandOutput}
+ * @param DisassociateContactFromAddressBookRequest - {@link DisassociateContactFromAddressBookRequest}
+ * @returns {@link DisassociateContactFromAddressBookResponse}
  * @see {@link DisassociateContactFromAddressBookCommandInput} for command's `input` shape.
  * @see {@link DisassociateContactFromAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

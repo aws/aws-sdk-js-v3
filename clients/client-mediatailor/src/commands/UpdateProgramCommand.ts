@@ -131,8 +131,8 @@ export interface UpdateProgramCommandOutput extends UpdateProgramResponse, __Met
  *
  * ```
  *
- * @param UpdateProgramCommandInput - {@link UpdateProgramCommandInput}
- * @returns {@link UpdateProgramCommandOutput}
+ * @param UpdateProgramRequest - {@link UpdateProgramRequest}
+ * @returns {@link UpdateProgramResponse}
  * @see {@link UpdateProgramCommandInput} for command's `input` shape.
  * @see {@link UpdateProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

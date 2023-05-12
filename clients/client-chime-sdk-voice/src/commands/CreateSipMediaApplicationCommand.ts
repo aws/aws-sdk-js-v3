@@ -80,8 +80,8 @@ export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaAp
  *
  * ```
  *
- * @param CreateSipMediaApplicationCommandInput - {@link CreateSipMediaApplicationCommandInput}
- * @returns {@link CreateSipMediaApplicationCommandOutput}
+ * @param CreateSipMediaApplicationRequest - {@link CreateSipMediaApplicationRequest}
+ * @returns {@link CreateSipMediaApplicationResponse}
  * @see {@link CreateSipMediaApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateSipMediaApplicationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

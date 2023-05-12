@@ -48,8 +48,8 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  *
  * ```
  *
- * @param StartChannelCommandInput - {@link StartChannelCommandInput}
- * @returns {@link StartChannelCommandOutput}
+ * @param StartChannelRequest - {@link StartChannelRequest}
+ * @returns {@link StartChannelResponse}
  * @see {@link StartChannelCommandInput} for command's `input` shape.
  * @see {@link StartChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

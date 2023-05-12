@@ -56,8 +56,8 @@ export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupRespo
  *
  * ```
  *
- * @param UpdateDatasetGroupCommandInput - {@link UpdateDatasetGroupCommandInput}
- * @returns {@link UpdateDatasetGroupCommandOutput}
+ * @param UpdateDatasetGroupRequest - {@link UpdateDatasetGroupRequest}
+ * @returns {@link UpdateDatasetGroupResponse}
  * @see {@link UpdateDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasetGroupCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

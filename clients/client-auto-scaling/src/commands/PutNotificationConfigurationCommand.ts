@@ -60,8 +60,8 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  *
  * ```
  *
- * @param PutNotificationConfigurationCommandInput - {@link PutNotificationConfigurationCommandInput}
- * @returns {@link PutNotificationConfigurationCommandOutput}
+ * @param PutNotificationConfigurationType - {@link PutNotificationConfigurationType}
+ * @returns {@link Unit}
  * @see {@link PutNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

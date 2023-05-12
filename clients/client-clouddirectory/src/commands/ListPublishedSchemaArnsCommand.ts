@@ -55,8 +55,8 @@ export interface ListPublishedSchemaArnsCommandOutput extends ListPublishedSchem
  *
  * ```
  *
- * @param ListPublishedSchemaArnsCommandInput - {@link ListPublishedSchemaArnsCommandInput}
- * @returns {@link ListPublishedSchemaArnsCommandOutput}
+ * @param ListPublishedSchemaArnsRequest - {@link ListPublishedSchemaArnsRequest}
+ * @returns {@link ListPublishedSchemaArnsResponse}
  * @see {@link ListPublishedSchemaArnsCommandInput} for command's `input` shape.
  * @see {@link ListPublishedSchemaArnsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

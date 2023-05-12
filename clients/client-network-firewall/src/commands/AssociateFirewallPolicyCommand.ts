@@ -60,8 +60,8 @@ export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallP
  *
  * ```
  *
- * @param AssociateFirewallPolicyCommandInput - {@link AssociateFirewallPolicyCommandInput}
- * @returns {@link AssociateFirewallPolicyCommandOutput}
+ * @param AssociateFirewallPolicyRequest - {@link AssociateFirewallPolicyRequest}
+ * @returns {@link AssociateFirewallPolicyResponse}
  * @see {@link AssociateFirewallPolicyCommandInput} for command's `input` shape.
  * @see {@link AssociateFirewallPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

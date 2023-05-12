@@ -54,8 +54,8 @@ export interface AssociateSkillWithSkillGroupCommandOutput
  *
  * ```
  *
- * @param AssociateSkillWithSkillGroupCommandInput - {@link AssociateSkillWithSkillGroupCommandInput}
- * @returns {@link AssociateSkillWithSkillGroupCommandOutput}
+ * @param AssociateSkillWithSkillGroupRequest - {@link AssociateSkillWithSkillGroupRequest}
+ * @returns {@link AssociateSkillWithSkillGroupResponse}
  * @see {@link AssociateSkillWithSkillGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateSkillWithSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

@@ -135,8 +135,8 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  *
  * ```
  *
- * @param UpdateCrawlerCommandInput - {@link UpdateCrawlerCommandInput}
- * @returns {@link UpdateCrawlerCommandOutput}
+ * @param UpdateCrawlerRequest - {@link UpdateCrawlerRequest}
+ * @returns {@link UpdateCrawlerResponse}
  * @see {@link UpdateCrawlerCommandInput} for command's `input` shape.
  * @see {@link UpdateCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

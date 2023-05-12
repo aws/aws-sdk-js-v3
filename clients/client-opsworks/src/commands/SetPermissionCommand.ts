@@ -58,8 +58,8 @@ export interface SetPermissionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetPermissionCommandInput - {@link SetPermissionCommandInput}
- * @returns {@link SetPermissionCommandOutput}
+ * @param SetPermissionRequest - {@link SetPermissionRequest}
+ * @returns {@link Unit}
  * @see {@link SetPermissionCommandInput} for command's `input` shape.
  * @see {@link SetPermissionCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

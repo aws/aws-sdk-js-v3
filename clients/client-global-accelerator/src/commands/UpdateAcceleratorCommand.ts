@@ -88,8 +88,8 @@ export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorRespons
  *
  * ```
  *
- * @param UpdateAcceleratorCommandInput - {@link UpdateAcceleratorCommandInput}
- * @returns {@link UpdateAcceleratorCommandOutput}
+ * @param UpdateAcceleratorRequest - {@link UpdateAcceleratorRequest}
+ * @returns {@link UpdateAcceleratorResponse}
  * @see {@link UpdateAcceleratorCommandInput} for command's `input` shape.
  * @see {@link UpdateAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

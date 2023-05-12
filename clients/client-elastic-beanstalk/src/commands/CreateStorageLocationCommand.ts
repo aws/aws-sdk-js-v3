@@ -52,8 +52,8 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  *
  * ```
  *
- * @param CreateStorageLocationCommandInput - {@link CreateStorageLocationCommandInput}
- * @returns {@link CreateStorageLocationCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link CreateStorageLocationResultMessage}
  * @see {@link CreateStorageLocationCommandInput} for command's `input` shape.
  * @see {@link CreateStorageLocationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

@@ -98,8 +98,8 @@ export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __Met
  *
  * ```
  *
- * @param GetMLTaskRunsCommandInput - {@link GetMLTaskRunsCommandInput}
- * @returns {@link GetMLTaskRunsCommandOutput}
+ * @param GetMLTaskRunsRequest - {@link GetMLTaskRunsRequest}
+ * @returns {@link GetMLTaskRunsResponse}
  * @see {@link GetMLTaskRunsCommandInput} for command's `input` shape.
  * @see {@link GetMLTaskRunsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

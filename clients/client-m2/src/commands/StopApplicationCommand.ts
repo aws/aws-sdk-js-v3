@@ -49,8 +49,8 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  *
  * ```
  *
- * @param StopApplicationCommandInput - {@link StopApplicationCommandInput}
- * @returns {@link StopApplicationCommandOutput}
+ * @param StopApplicationRequest - {@link StopApplicationRequest}
+ * @returns {@link StopApplicationResponse}
  * @see {@link StopApplicationCommandInput} for command's `input` shape.
  * @see {@link StopApplicationCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

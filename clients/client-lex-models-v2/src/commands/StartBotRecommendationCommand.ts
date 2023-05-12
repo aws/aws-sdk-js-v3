@@ -113,8 +113,8 @@ export interface StartBotRecommendationCommandOutput extends StartBotRecommendat
  *
  * ```
  *
- * @param StartBotRecommendationCommandInput - {@link StartBotRecommendationCommandInput}
- * @returns {@link StartBotRecommendationCommandOutput}
+ * @param StartBotRecommendationRequest - {@link StartBotRecommendationRequest}
+ * @returns {@link StartBotRecommendationResponse}
  * @see {@link StartBotRecommendationCommandInput} for command's `input` shape.
  * @see {@link StartBotRecommendationCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

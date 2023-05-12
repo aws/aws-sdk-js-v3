@@ -65,8 +65,8 @@ export interface DescribeKinesisStreamingDestinationCommandOutput
  *
  * ```
  *
- * @param DescribeKinesisStreamingDestinationCommandInput - {@link DescribeKinesisStreamingDestinationCommandInput}
- * @returns {@link DescribeKinesisStreamingDestinationCommandOutput}
+ * @param DescribeKinesisStreamingDestinationInput - {@link DescribeKinesisStreamingDestinationInput}
+ * @returns {@link DescribeKinesisStreamingDestinationOutput}
  * @see {@link DescribeKinesisStreamingDestinationCommandInput} for command's `input` shape.
  * @see {@link DescribeKinesisStreamingDestinationCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

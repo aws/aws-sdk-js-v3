@@ -58,8 +58,8 @@ export interface DescribeDimensionCommandOutput extends DescribeDimensionRespons
  *
  * ```
  *
- * @param DescribeDimensionCommandInput - {@link DescribeDimensionCommandInput}
- * @returns {@link DescribeDimensionCommandOutput}
+ * @param DescribeDimensionRequest - {@link DescribeDimensionRequest}
+ * @returns {@link DescribeDimensionResponse}
  * @see {@link DescribeDimensionCommandInput} for command's `input` shape.
  * @see {@link DescribeDimensionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

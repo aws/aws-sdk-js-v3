@@ -55,8 +55,8 @@ export interface AddProfilePermissionCommandOutput extends AddProfilePermissionR
  *
  * ```
  *
- * @param AddProfilePermissionCommandInput - {@link AddProfilePermissionCommandInput}
- * @returns {@link AddProfilePermissionCommandOutput}
+ * @param AddProfilePermissionRequest - {@link AddProfilePermissionRequest}
+ * @returns {@link AddProfilePermissionResponse}
  * @see {@link AddProfilePermissionCommandInput} for command's `input` shape.
  * @see {@link AddProfilePermissionCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.

@@ -152,8 +152,8 @@ export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult,
  *
  * ```
  *
- * @param CreateCachePolicyCommandInput - {@link CreateCachePolicyCommandInput}
- * @returns {@link CreateCachePolicyCommandOutput}
+ * @param CreateCachePolicyRequest - {@link CreateCachePolicyRequest}
+ * @returns {@link CreateCachePolicyResult}
  * @see {@link CreateCachePolicyCommandInput} for command's `input` shape.
  * @see {@link CreateCachePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

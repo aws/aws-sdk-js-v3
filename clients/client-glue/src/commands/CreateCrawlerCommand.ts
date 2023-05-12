@@ -138,8 +138,8 @@ export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __Met
  *
  * ```
  *
- * @param CreateCrawlerCommandInput - {@link CreateCrawlerCommandInput}
- * @returns {@link CreateCrawlerCommandOutput}
+ * @param CreateCrawlerRequest - {@link CreateCrawlerRequest}
+ * @returns {@link CreateCrawlerResponse}
  * @see {@link CreateCrawlerCommandInput} for command's `input` shape.
  * @see {@link CreateCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

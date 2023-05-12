@@ -69,8 +69,8 @@ export interface CreateCustomDataIdentifierCommandOutput extends CreateCustomDat
  *
  * ```
  *
- * @param CreateCustomDataIdentifierCommandInput - {@link CreateCustomDataIdentifierCommandInput}
- * @returns {@link CreateCustomDataIdentifierCommandOutput}
+ * @param CreateCustomDataIdentifierRequest - {@link CreateCustomDataIdentifierRequest}
+ * @returns {@link CreateCustomDataIdentifierResponse}
  * @see {@link CreateCustomDataIdentifierCommandInput} for command's `input` shape.
  * @see {@link CreateCustomDataIdentifierCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

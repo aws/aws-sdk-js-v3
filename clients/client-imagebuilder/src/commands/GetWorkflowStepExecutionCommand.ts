@@ -67,8 +67,8 @@ export interface GetWorkflowStepExecutionCommandOutput extends GetWorkflowStepEx
  *
  * ```
  *
- * @param GetWorkflowStepExecutionCommandInput - {@link GetWorkflowStepExecutionCommandInput}
- * @returns {@link GetWorkflowStepExecutionCommandOutput}
+ * @param GetWorkflowStepExecutionRequest - {@link GetWorkflowStepExecutionRequest}
+ * @returns {@link GetWorkflowStepExecutionResponse}
  * @see {@link GetWorkflowStepExecutionCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowStepExecutionCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

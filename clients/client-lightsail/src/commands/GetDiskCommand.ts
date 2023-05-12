@@ -86,8 +86,8 @@ export interface GetDiskCommandOutput extends GetDiskResult, __MetadataBearer {}
  *
  * ```
  *
- * @param GetDiskCommandInput - {@link GetDiskCommandInput}
- * @returns {@link GetDiskCommandOutput}
+ * @param GetDiskRequest - {@link GetDiskRequest}
+ * @returns {@link GetDiskResult}
  * @see {@link GetDiskCommandInput} for command's `input` shape.
  * @see {@link GetDiskCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

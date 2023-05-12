@@ -95,8 +95,8 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  *
  * ```
  *
- * @param UpdateComputeEnvironmentCommandInput - {@link UpdateComputeEnvironmentCommandInput}
- * @returns {@link UpdateComputeEnvironmentCommandOutput}
+ * @param UpdateComputeEnvironmentRequest - {@link UpdateComputeEnvironmentRequest}
+ * @returns {@link UpdateComputeEnvironmentResponse}
  * @see {@link UpdateComputeEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateComputeEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

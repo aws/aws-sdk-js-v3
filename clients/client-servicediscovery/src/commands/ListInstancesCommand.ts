@@ -61,8 +61,8 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  *
  * ```
  *
- * @param ListInstancesCommandInput - {@link ListInstancesCommandInput}
- * @returns {@link ListInstancesCommandOutput}
+ * @param ListInstancesRequest - {@link ListInstancesRequest}
+ * @returns {@link ListInstancesResponse}
  * @see {@link ListInstancesCommandInput} for command's `input` shape.
  * @see {@link ListInstancesCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.

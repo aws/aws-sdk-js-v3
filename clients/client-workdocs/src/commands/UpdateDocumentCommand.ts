@@ -53,8 +53,8 @@ export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateDocumentCommandInput - {@link UpdateDocumentCommandInput}
- * @returns {@link UpdateDocumentCommandOutput}
+ * @param UpdateDocumentRequest - {@link UpdateDocumentRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateDocumentCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

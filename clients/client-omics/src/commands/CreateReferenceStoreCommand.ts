@@ -67,8 +67,8 @@ export interface CreateReferenceStoreCommandOutput extends CreateReferenceStoreR
  *
  * ```
  *
- * @param CreateReferenceStoreCommandInput - {@link CreateReferenceStoreCommandInput}
- * @returns {@link CreateReferenceStoreCommandOutput}
+ * @param CreateReferenceStoreRequest - {@link CreateReferenceStoreRequest}
+ * @returns {@link CreateReferenceStoreResponse}
  * @see {@link CreateReferenceStoreCommandInput} for command's `input` shape.
  * @see {@link CreateReferenceStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

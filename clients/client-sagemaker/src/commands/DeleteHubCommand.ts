@@ -51,8 +51,8 @@ export interface DeleteHubCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteHubCommandInput - {@link DeleteHubCommandInput}
- * @returns {@link DeleteHubCommandOutput}
+ * @param DeleteHubRequest - {@link DeleteHubRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteHubCommandInput} for command's `input` shape.
  * @see {@link DeleteHubCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

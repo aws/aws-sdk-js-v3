@@ -49,8 +49,8 @@ export interface DeleteRequestValidatorCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRequestValidatorCommandInput - {@link DeleteRequestValidatorCommandInput}
- * @returns {@link DeleteRequestValidatorCommandOutput}
+ * @param DeleteRequestValidatorRequest - {@link DeleteRequestValidatorRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRequestValidatorCommandInput} for command's `input` shape.
  * @see {@link DeleteRequestValidatorCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

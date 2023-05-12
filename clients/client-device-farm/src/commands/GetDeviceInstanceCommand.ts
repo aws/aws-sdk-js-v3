@@ -68,8 +68,8 @@ export interface GetDeviceInstanceCommandOutput extends GetDeviceInstanceResult,
  *
  * ```
  *
- * @param GetDeviceInstanceCommandInput - {@link GetDeviceInstanceCommandInput}
- * @returns {@link GetDeviceInstanceCommandOutput}
+ * @param GetDeviceInstanceRequest - {@link GetDeviceInstanceRequest}
+ * @returns {@link GetDeviceInstanceResult}
  * @see {@link GetDeviceInstanceCommandInput} for command's `input` shape.
  * @see {@link GetDeviceInstanceCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

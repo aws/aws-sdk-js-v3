@@ -100,8 +100,8 @@ export interface DeleteUserEndpointsCommandOutput extends DeleteUserEndpointsRes
  *
  * ```
  *
- * @param DeleteUserEndpointsCommandInput - {@link DeleteUserEndpointsCommandInput}
- * @returns {@link DeleteUserEndpointsCommandOutput}
+ * @param DeleteUserEndpointsRequest - {@link DeleteUserEndpointsRequest}
+ * @returns {@link DeleteUserEndpointsResponse}
  * @see {@link DeleteUserEndpointsCommandInput} for command's `input` shape.
  * @see {@link DeleteUserEndpointsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

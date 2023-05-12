@@ -82,8 +82,8 @@ export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileRes
  *
  * ```
  *
- * @param CreateDeviceProfileCommandInput - {@link CreateDeviceProfileCommandInput}
- * @returns {@link CreateDeviceProfileCommandOutput}
+ * @param CreateDeviceProfileRequest - {@link CreateDeviceProfileRequest}
+ * @returns {@link CreateDeviceProfileResponse}
  * @see {@link CreateDeviceProfileCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

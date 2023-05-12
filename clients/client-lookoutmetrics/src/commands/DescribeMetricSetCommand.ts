@@ -167,8 +167,8 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  *
  * ```
  *
- * @param DescribeMetricSetCommandInput - {@link DescribeMetricSetCommandInput}
- * @returns {@link DescribeMetricSetCommandOutput}
+ * @param DescribeMetricSetRequest - {@link DescribeMetricSetRequest}
+ * @returns {@link DescribeMetricSetResponse}
  * @see {@link DescribeMetricSetCommandInput} for command's `input` shape.
  * @see {@link DescribeMetricSetCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

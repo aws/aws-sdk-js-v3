@@ -58,8 +58,8 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
  *
  * ```
  *
- * @param UpdateDestinationCommandInput - {@link UpdateDestinationCommandInput}
- * @returns {@link UpdateDestinationCommandOutput}
+ * @param UpdateDestinationRequest - {@link UpdateDestinationRequest}
+ * @returns {@link UpdateDestinationResponse}
  * @see {@link UpdateDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

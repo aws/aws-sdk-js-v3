@@ -116,8 +116,8 @@ export interface CreateMultiplexProgramCommandOutput extends CreateMultiplexProg
  *
  * ```
  *
- * @param CreateMultiplexProgramCommandInput - {@link CreateMultiplexProgramCommandInput}
- * @returns {@link CreateMultiplexProgramCommandOutput}
+ * @param CreateMultiplexProgramRequest - {@link CreateMultiplexProgramRequest}
+ * @returns {@link CreateMultiplexProgramResponse}
  * @see {@link CreateMultiplexProgramCommandInput} for command's `input` shape.
  * @see {@link CreateMultiplexProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

@@ -82,8 +82,8 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  *
  * ```
  *
- * @param GetControlCommandInput - {@link GetControlCommandInput}
- * @returns {@link GetControlCommandOutput}
+ * @param GetControlRequest - {@link GetControlRequest}
+ * @returns {@link GetControlResponse}
  * @see {@link GetControlCommandInput} for command's `input` shape.
  * @see {@link GetControlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

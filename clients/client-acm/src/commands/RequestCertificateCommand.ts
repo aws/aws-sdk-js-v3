@@ -87,8 +87,8 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  *
  * ```
  *
- * @param RequestCertificateCommandInput - {@link RequestCertificateCommandInput}
- * @returns {@link RequestCertificateCommandOutput}
+ * @param RequestCertificateRequest - {@link RequestCertificateRequest}
+ * @returns {@link RequestCertificateResponse}
  * @see {@link RequestCertificateCommandInput} for command's `input` shape.
  * @see {@link RequestCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.

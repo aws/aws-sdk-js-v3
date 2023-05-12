@@ -160,8 +160,8 @@ export interface GetFaceDetectionCommandOutput extends GetFaceDetectionResponse,
  *
  * ```
  *
- * @param GetFaceDetectionCommandInput - {@link GetFaceDetectionCommandInput}
- * @returns {@link GetFaceDetectionCommandOutput}
+ * @param GetFaceDetectionRequest - {@link GetFaceDetectionRequest}
+ * @returns {@link GetFaceDetectionResponse}
  * @see {@link GetFaceDetectionCommandInput} for command's `input` shape.
  * @see {@link GetFaceDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

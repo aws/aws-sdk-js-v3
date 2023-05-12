@@ -146,8 +146,8 @@ export interface ProvisionProductCommandOutput extends ProvisionProductOutput, _
  *
  * ```
  *
- * @param ProvisionProductCommandInput - {@link ProvisionProductCommandInput}
- * @returns {@link ProvisionProductCommandOutput}
+ * @param ProvisionProductInput - {@link ProvisionProductInput}
+ * @returns {@link ProvisionProductOutput}
  * @see {@link ProvisionProductCommandInput} for command's `input` shape.
  * @see {@link ProvisionProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

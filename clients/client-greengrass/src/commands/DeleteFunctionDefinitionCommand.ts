@@ -48,8 +48,8 @@ export interface DeleteFunctionDefinitionCommandOutput extends DeleteFunctionDef
  *
  * ```
  *
- * @param DeleteFunctionDefinitionCommandInput - {@link DeleteFunctionDefinitionCommandInput}
- * @returns {@link DeleteFunctionDefinitionCommandOutput}
+ * @param DeleteFunctionDefinitionRequest - {@link DeleteFunctionDefinitionRequest}
+ * @returns {@link DeleteFunctionDefinitionResponse}
  * @see {@link DeleteFunctionDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

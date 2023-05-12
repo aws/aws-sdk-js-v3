@@ -69,8 +69,8 @@ export interface UpdateIntegrationResponseCommandOutput extends IntegrationRespo
  *
  * ```
  *
- * @param UpdateIntegrationResponseCommandInput - {@link UpdateIntegrationResponseCommandInput}
- * @returns {@link UpdateIntegrationResponseCommandOutput}
+ * @param UpdateIntegrationResponseRequest - {@link UpdateIntegrationResponseRequest}
+ * @returns {@link IntegrationResponse}
  * @see {@link UpdateIntegrationResponseCommandInput} for command's `input` shape.
  * @see {@link UpdateIntegrationResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

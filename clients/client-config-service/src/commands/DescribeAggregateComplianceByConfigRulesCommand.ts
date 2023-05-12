@@ -88,8 +88,8 @@ export interface DescribeAggregateComplianceByConfigRulesCommandOutput
  *
  * ```
  *
- * @param DescribeAggregateComplianceByConfigRulesCommandInput - {@link DescribeAggregateComplianceByConfigRulesCommandInput}
- * @returns {@link DescribeAggregateComplianceByConfigRulesCommandOutput}
+ * @param DescribeAggregateComplianceByConfigRulesRequest - {@link DescribeAggregateComplianceByConfigRulesRequest}
+ * @returns {@link DescribeAggregateComplianceByConfigRulesResponse}
  * @see {@link DescribeAggregateComplianceByConfigRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeAggregateComplianceByConfigRulesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

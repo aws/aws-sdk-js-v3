@@ -64,8 +64,8 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  *
  * ```
  *
- * @param CompleteAttachmentUploadCommandInput - {@link CompleteAttachmentUploadCommandInput}
- * @returns {@link CompleteAttachmentUploadCommandOutput}
+ * @param CompleteAttachmentUploadRequest - {@link CompleteAttachmentUploadRequest}
+ * @returns {@link CompleteAttachmentUploadResponse}
  * @see {@link CompleteAttachmentUploadCommandInput} for command's `input` shape.
  * @see {@link CompleteAttachmentUploadCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.

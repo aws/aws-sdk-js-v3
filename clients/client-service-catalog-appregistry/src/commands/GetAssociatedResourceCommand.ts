@@ -67,8 +67,8 @@ export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourc
  *
  * ```
  *
- * @param GetAssociatedResourceCommandInput - {@link GetAssociatedResourceCommandInput}
- * @returns {@link GetAssociatedResourceCommandOutput}
+ * @param GetAssociatedResourceRequest - {@link GetAssociatedResourceRequest}
+ * @returns {@link GetAssociatedResourceResponse}
  * @see {@link GetAssociatedResourceCommandInput} for command's `input` shape.
  * @see {@link GetAssociatedResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.

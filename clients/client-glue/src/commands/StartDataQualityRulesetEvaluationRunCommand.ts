@@ -79,8 +79,8 @@ export interface StartDataQualityRulesetEvaluationRunCommandOutput
  *
  * ```
  *
- * @param StartDataQualityRulesetEvaluationRunCommandInput - {@link StartDataQualityRulesetEvaluationRunCommandInput}
- * @returns {@link StartDataQualityRulesetEvaluationRunCommandOutput}
+ * @param StartDataQualityRulesetEvaluationRunRequest - {@link StartDataQualityRulesetEvaluationRunRequest}
+ * @returns {@link StartDataQualityRulesetEvaluationRunResponse}
  * @see {@link StartDataQualityRulesetEvaluationRunCommandInput} for command's `input` shape.
  * @see {@link StartDataQualityRulesetEvaluationRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

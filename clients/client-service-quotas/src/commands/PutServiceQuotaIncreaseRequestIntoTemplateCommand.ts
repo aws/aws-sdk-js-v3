@@ -71,8 +71,8 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
  *
  * ```
  *
- * @param PutServiceQuotaIncreaseRequestIntoTemplateCommandInput - {@link PutServiceQuotaIncreaseRequestIntoTemplateCommandInput}
- * @returns {@link PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput}
+ * @param PutServiceQuotaIncreaseRequestIntoTemplateRequest - {@link PutServiceQuotaIncreaseRequestIntoTemplateRequest}
+ * @returns {@link PutServiceQuotaIncreaseRequestIntoTemplateResponse}
  * @see {@link PutServiceQuotaIncreaseRequestIntoTemplateCommandInput} for command's `input` shape.
  * @see {@link PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.

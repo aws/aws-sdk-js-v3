@@ -69,8 +69,8 @@ export interface ListWhatIfAnalysesCommandOutput extends ListWhatIfAnalysesRespo
  *
  * ```
  *
- * @param ListWhatIfAnalysesCommandInput - {@link ListWhatIfAnalysesCommandInput}
- * @returns {@link ListWhatIfAnalysesCommandOutput}
+ * @param ListWhatIfAnalysesRequest - {@link ListWhatIfAnalysesRequest}
+ * @returns {@link ListWhatIfAnalysesResponse}
  * @see {@link ListWhatIfAnalysesCommandInput} for command's `input` shape.
  * @see {@link ListWhatIfAnalysesCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

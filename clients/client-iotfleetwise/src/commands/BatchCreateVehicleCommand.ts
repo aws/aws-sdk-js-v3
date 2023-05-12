@@ -85,8 +85,8 @@ export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleRespo
  *
  * ```
  *
- * @param BatchCreateVehicleCommandInput - {@link BatchCreateVehicleCommandInput}
- * @returns {@link BatchCreateVehicleCommandOutput}
+ * @param BatchCreateVehicleRequest - {@link BatchCreateVehicleRequest}
+ * @returns {@link BatchCreateVehicleResponse}
  * @see {@link BatchCreateVehicleCommandInput} for command's `input` shape.
  * @see {@link BatchCreateVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

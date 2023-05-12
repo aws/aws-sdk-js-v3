@@ -55,8 +55,8 @@ export interface DisassociateDelegateFromResourceCommandOutput
  *
  * ```
  *
- * @param DisassociateDelegateFromResourceCommandInput - {@link DisassociateDelegateFromResourceCommandInput}
- * @returns {@link DisassociateDelegateFromResourceCommandOutput}
+ * @param DisassociateDelegateFromResourceRequest - {@link DisassociateDelegateFromResourceRequest}
+ * @returns {@link DisassociateDelegateFromResourceResponse}
  * @see {@link DisassociateDelegateFromResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateDelegateFromResourceCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

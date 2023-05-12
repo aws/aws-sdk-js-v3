@@ -69,8 +69,8 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  *
  * ```
  *
- * @param ListPortalsCommandInput - {@link ListPortalsCommandInput}
- * @returns {@link ListPortalsCommandOutput}
+ * @param ListPortalsRequest - {@link ListPortalsRequest}
+ * @returns {@link ListPortalsResponse}
  * @see {@link ListPortalsCommandInput} for command's `input` shape.
  * @see {@link ListPortalsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

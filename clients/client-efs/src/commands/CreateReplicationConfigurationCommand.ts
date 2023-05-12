@@ -155,8 +155,8 @@ export interface CreateReplicationConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateReplicationConfigurationCommandInput - {@link CreateReplicationConfigurationCommandInput}
- * @returns {@link CreateReplicationConfigurationCommandOutput}
+ * @param CreateReplicationConfigurationRequest - {@link CreateReplicationConfigurationRequest}
+ * @returns {@link ReplicationConfigurationDescription}
  * @see {@link CreateReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

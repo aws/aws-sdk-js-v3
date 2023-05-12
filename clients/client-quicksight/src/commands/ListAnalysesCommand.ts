@@ -64,8 +64,8 @@ export interface ListAnalysesCommandOutput extends ListAnalysesResponse, __Metad
  *
  * ```
  *
- * @param ListAnalysesCommandInput - {@link ListAnalysesCommandInput}
- * @returns {@link ListAnalysesCommandOutput}
+ * @param ListAnalysesRequest - {@link ListAnalysesRequest}
+ * @returns {@link ListAnalysesResponse}
  * @see {@link ListAnalysesCommandInput} for command's `input` shape.
  * @see {@link ListAnalysesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

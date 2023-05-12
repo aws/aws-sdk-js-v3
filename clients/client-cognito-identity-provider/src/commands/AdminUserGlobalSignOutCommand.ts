@@ -64,8 +64,8 @@ export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSign
  *
  * ```
  *
- * @param AdminUserGlobalSignOutCommandInput - {@link AdminUserGlobalSignOutCommandInput}
- * @returns {@link AdminUserGlobalSignOutCommandOutput}
+ * @param AdminUserGlobalSignOutRequest - {@link AdminUserGlobalSignOutRequest}
+ * @returns {@link AdminUserGlobalSignOutResponse}
  * @see {@link AdminUserGlobalSignOutCommandInput} for command's `input` shape.
  * @see {@link AdminUserGlobalSignOutCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

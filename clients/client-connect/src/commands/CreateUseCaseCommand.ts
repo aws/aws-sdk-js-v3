@@ -56,8 +56,8 @@ export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __Met
  *
  * ```
  *
- * @param CreateUseCaseCommandInput - {@link CreateUseCaseCommandInput}
- * @returns {@link CreateUseCaseCommandOutput}
+ * @param CreateUseCaseRequest - {@link CreateUseCaseRequest}
+ * @returns {@link CreateUseCaseResponse}
  * @see {@link CreateUseCaseCommandInput} for command's `input` shape.
  * @see {@link CreateUseCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

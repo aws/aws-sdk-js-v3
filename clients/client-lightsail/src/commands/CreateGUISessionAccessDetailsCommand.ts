@@ -71,8 +71,8 @@ export interface CreateGUISessionAccessDetailsCommandOutput
  *
  * ```
  *
- * @param CreateGUISessionAccessDetailsCommandInput - {@link CreateGUISessionAccessDetailsCommandInput}
- * @returns {@link CreateGUISessionAccessDetailsCommandOutput}
+ * @param CreateGUISessionAccessDetailsRequest - {@link CreateGUISessionAccessDetailsRequest}
+ * @returns {@link CreateGUISessionAccessDetailsResult}
  * @see {@link CreateGUISessionAccessDetailsCommandInput} for command's `input` shape.
  * @see {@link CreateGUISessionAccessDetailsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

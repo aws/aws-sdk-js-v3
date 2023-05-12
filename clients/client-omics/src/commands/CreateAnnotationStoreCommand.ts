@@ -95,8 +95,8 @@ export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStor
  *
  * ```
  *
- * @param CreateAnnotationStoreCommandInput - {@link CreateAnnotationStoreCommandInput}
- * @returns {@link CreateAnnotationStoreCommandOutput}
+ * @param CreateAnnotationStoreRequest - {@link CreateAnnotationStoreRequest}
+ * @returns {@link CreateAnnotationStoreResponse}
  * @see {@link CreateAnnotationStoreCommandInput} for command's `input` shape.
  * @see {@link CreateAnnotationStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

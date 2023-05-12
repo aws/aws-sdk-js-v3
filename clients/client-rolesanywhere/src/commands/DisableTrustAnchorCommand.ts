@@ -68,8 +68,8 @@ export interface DisableTrustAnchorCommandOutput extends TrustAnchorDetailRespon
  *
  * ```
  *
- * @param DisableTrustAnchorCommandInput - {@link DisableTrustAnchorCommandInput}
- * @returns {@link DisableTrustAnchorCommandOutput}
+ * @param ScalarTrustAnchorRequest - {@link ScalarTrustAnchorRequest}
+ * @returns {@link TrustAnchorDetailResponse}
  * @see {@link DisableTrustAnchorCommandInput} for command's `input` shape.
  * @see {@link DisableTrustAnchorCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

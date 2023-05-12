@@ -53,8 +53,8 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  *
  * ```
  *
- * @param DeleteRepositoryPolicyCommandInput - {@link DeleteRepositoryPolicyCommandInput}
- * @returns {@link DeleteRepositoryPolicyCommandOutput}
+ * @param DeleteRepositoryPolicyRequest - {@link DeleteRepositoryPolicyRequest}
+ * @returns {@link DeleteRepositoryPolicyResponse}
  * @see {@link DeleteRepositoryPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRepositoryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

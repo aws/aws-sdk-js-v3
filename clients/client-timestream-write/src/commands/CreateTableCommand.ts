@@ -100,8 +100,8 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *
  * ```
  *
- * @param CreateTableCommandInput - {@link CreateTableCommandInput}
- * @returns {@link CreateTableCommandOutput}
+ * @param CreateTableRequest - {@link CreateTableRequest}
+ * @returns {@link CreateTableResponse}
  * @see {@link CreateTableCommandInput} for command's `input` shape.
  * @see {@link CreateTableCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.

@@ -110,8 +110,8 @@ export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult,
  *
  * ```
  *
- * @param ListCachePoliciesCommandInput - {@link ListCachePoliciesCommandInput}
- * @returns {@link ListCachePoliciesCommandOutput}
+ * @param ListCachePoliciesRequest - {@link ListCachePoliciesRequest}
+ * @returns {@link ListCachePoliciesResult}
  * @see {@link ListCachePoliciesCommandInput} for command's `input` shape.
  * @see {@link ListCachePoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

@@ -85,8 +85,8 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  *
  * ```
  *
- * @param CreateModelVersionCommandInput - {@link CreateModelVersionCommandInput}
- * @returns {@link CreateModelVersionCommandOutput}
+ * @param CreateModelVersionRequest - {@link CreateModelVersionRequest}
+ * @returns {@link CreateModelVersionResult}
  * @see {@link CreateModelVersionCommandInput} for command's `input` shape.
  * @see {@link CreateModelVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

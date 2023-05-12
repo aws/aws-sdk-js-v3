@@ -66,8 +66,8 @@ export interface ListFormsCommandOutput extends ListFormsResponse, __MetadataBea
  *
  * ```
  *
- * @param ListFormsCommandInput - {@link ListFormsCommandInput}
- * @returns {@link ListFormsCommandOutput}
+ * @param ListFormsRequest - {@link ListFormsRequest}
+ * @returns {@link ListFormsResponse}
  * @see {@link ListFormsCommandInput} for command's `input` shape.
  * @see {@link ListFormsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

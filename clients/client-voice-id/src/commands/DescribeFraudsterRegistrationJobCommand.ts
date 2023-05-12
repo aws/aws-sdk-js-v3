@@ -89,8 +89,8 @@ export interface DescribeFraudsterRegistrationJobCommandOutput
  *
  * ```
  *
- * @param DescribeFraudsterRegistrationJobCommandInput - {@link DescribeFraudsterRegistrationJobCommandInput}
- * @returns {@link DescribeFraudsterRegistrationJobCommandOutput}
+ * @param DescribeFraudsterRegistrationJobRequest - {@link DescribeFraudsterRegistrationJobRequest}
+ * @returns {@link DescribeFraudsterRegistrationJobResponse}
  * @see {@link DescribeFraudsterRegistrationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeFraudsterRegistrationJobCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

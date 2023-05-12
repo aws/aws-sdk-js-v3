@@ -49,8 +49,8 @@ export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, _
  *
  * ```
  *
- * @param StopWorkflowRunCommandInput - {@link StopWorkflowRunCommandInput}
- * @returns {@link StopWorkflowRunCommandOutput}
+ * @param StopWorkflowRunRequest - {@link StopWorkflowRunRequest}
+ * @returns {@link StopWorkflowRunResponse}
  * @see {@link StopWorkflowRunCommandInput} for command's `input` shape.
  * @see {@link StopWorkflowRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

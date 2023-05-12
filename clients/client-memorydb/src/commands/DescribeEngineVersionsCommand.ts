@@ -61,8 +61,8 @@ export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersi
  *
  * ```
  *
- * @param DescribeEngineVersionsCommandInput - {@link DescribeEngineVersionsCommandInput}
- * @returns {@link DescribeEngineVersionsCommandOutput}
+ * @param DescribeEngineVersionsRequest - {@link DescribeEngineVersionsRequest}
+ * @returns {@link DescribeEngineVersionsResponse}
  * @see {@link DescribeEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

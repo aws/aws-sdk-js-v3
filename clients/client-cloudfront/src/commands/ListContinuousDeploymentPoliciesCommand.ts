@@ -96,8 +96,8 @@ export interface ListContinuousDeploymentPoliciesCommandOutput
  *
  * ```
  *
- * @param ListContinuousDeploymentPoliciesCommandInput - {@link ListContinuousDeploymentPoliciesCommandInput}
- * @returns {@link ListContinuousDeploymentPoliciesCommandOutput}
+ * @param ListContinuousDeploymentPoliciesRequest - {@link ListContinuousDeploymentPoliciesRequest}
+ * @returns {@link ListContinuousDeploymentPoliciesResult}
  * @see {@link ListContinuousDeploymentPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListContinuousDeploymentPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

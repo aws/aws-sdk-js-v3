@@ -89,8 +89,8 @@ export interface DescribeEdgeConfigurationCommandOutput extends DescribeEdgeConf
  *
  * ```
  *
- * @param DescribeEdgeConfigurationCommandInput - {@link DescribeEdgeConfigurationCommandInput}
- * @returns {@link DescribeEdgeConfigurationCommandOutput}
+ * @param DescribeEdgeConfigurationInput - {@link DescribeEdgeConfigurationInput}
+ * @returns {@link DescribeEdgeConfigurationOutput}
  * @see {@link DescribeEdgeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeEdgeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

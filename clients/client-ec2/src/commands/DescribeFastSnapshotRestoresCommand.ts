@@ -77,8 +77,8 @@ export interface DescribeFastSnapshotRestoresCommandOutput
  *
  * ```
  *
- * @param DescribeFastSnapshotRestoresCommandInput - {@link DescribeFastSnapshotRestoresCommandInput}
- * @returns {@link DescribeFastSnapshotRestoresCommandOutput}
+ * @param DescribeFastSnapshotRestoresRequest - {@link DescribeFastSnapshotRestoresRequest}
+ * @returns {@link DescribeFastSnapshotRestoresResult}
  * @see {@link DescribeFastSnapshotRestoresCommandInput} for command's `input` shape.
  * @see {@link DescribeFastSnapshotRestoresCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

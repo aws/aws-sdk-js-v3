@@ -60,8 +60,8 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
  *
  * ```
  *
- * @param DescribeLocationSmbCommandInput - {@link DescribeLocationSmbCommandInput}
- * @returns {@link DescribeLocationSmbCommandOutput}
+ * @param DescribeLocationSmbRequest - {@link DescribeLocationSmbRequest}
+ * @returns {@link DescribeLocationSmbResponse}
  * @see {@link DescribeLocationSmbCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationSmbCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

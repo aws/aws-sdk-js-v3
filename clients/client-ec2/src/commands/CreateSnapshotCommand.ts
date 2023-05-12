@@ -109,8 +109,8 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  *
  * ```
  *
- * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
- * @returns {@link CreateSnapshotCommandOutput}
+ * @param CreateSnapshotRequest - {@link CreateSnapshotRequest}
+ * @returns {@link Snapshot}
  * @see {@link CreateSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -73,8 +73,8 @@ export interface DescribeEventCategoriesCommandOutput extends DescribeEventCateg
  *
  * ```
  *
- * @param DescribeEventCategoriesCommandInput - {@link DescribeEventCategoriesCommandInput}
- * @returns {@link DescribeEventCategoriesCommandOutput}
+ * @param DescribeEventCategoriesMessage - {@link DescribeEventCategoriesMessage}
+ * @returns {@link DescribeEventCategoriesResponse}
  * @see {@link DescribeEventCategoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

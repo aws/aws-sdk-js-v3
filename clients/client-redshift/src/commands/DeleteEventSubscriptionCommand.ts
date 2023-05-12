@@ -48,8 +48,8 @@ export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DeleteEventSubscriptionCommandInput - {@link DeleteEventSubscriptionCommandInput}
- * @returns {@link DeleteEventSubscriptionCommandOutput}
+ * @param DeleteEventSubscriptionMessage - {@link DeleteEventSubscriptionMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

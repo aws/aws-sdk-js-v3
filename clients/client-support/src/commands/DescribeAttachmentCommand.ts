@@ -71,8 +71,8 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  *
  * ```
  *
- * @param DescribeAttachmentCommandInput - {@link DescribeAttachmentCommandInput}
- * @returns {@link DescribeAttachmentCommandOutput}
+ * @param DescribeAttachmentRequest - {@link DescribeAttachmentRequest}
+ * @returns {@link DescribeAttachmentResponse}
  * @see {@link DescribeAttachmentCommandInput} for command's `input` shape.
  * @see {@link DescribeAttachmentCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.

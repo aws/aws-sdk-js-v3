@@ -82,8 +82,8 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  *
  * ```
  *
- * @param StartRecoveryCommandInput - {@link StartRecoveryCommandInput}
- * @returns {@link StartRecoveryCommandOutput}
+ * @param StartRecoveryRequest - {@link StartRecoveryRequest}
+ * @returns {@link StartRecoveryResponse}
  * @see {@link StartRecoveryCommandInput} for command's `input` shape.
  * @see {@link StartRecoveryCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

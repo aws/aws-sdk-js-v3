@@ -51,8 +51,8 @@ export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeRespo
  *
  * ```
  *
- * @param DeprecateThingTypeCommandInput - {@link DeprecateThingTypeCommandInput}
- * @returns {@link DeprecateThingTypeCommandOutput}
+ * @param DeprecateThingTypeRequest - {@link DeprecateThingTypeRequest}
+ * @returns {@link DeprecateThingTypeResponse}
  * @see {@link DeprecateThingTypeCommandInput} for command's `input` shape.
  * @see {@link DeprecateThingTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -78,8 +78,8 @@ export interface ListSuitesCommandOutput extends ListSuitesResult, __MetadataBea
  *
  * ```
  *
- * @param ListSuitesCommandInput - {@link ListSuitesCommandInput}
- * @returns {@link ListSuitesCommandOutput}
+ * @param ListSuitesRequest - {@link ListSuitesRequest}
+ * @returns {@link ListSuitesResult}
  * @see {@link ListSuitesCommandInput} for command's `input` shape.
  * @see {@link ListSuitesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

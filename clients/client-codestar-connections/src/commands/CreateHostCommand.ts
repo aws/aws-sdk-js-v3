@@ -85,8 +85,8 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  *
  * ```
  *
- * @param CreateHostCommandInput - {@link CreateHostCommandInput}
- * @returns {@link CreateHostCommandOutput}
+ * @param CreateHostInput - {@link CreateHostInput}
+ * @returns {@link CreateHostOutput}
  * @see {@link CreateHostCommandInput} for command's `input` shape.
  * @see {@link CreateHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.

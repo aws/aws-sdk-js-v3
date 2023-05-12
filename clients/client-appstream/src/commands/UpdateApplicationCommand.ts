@@ -88,8 +88,8 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationResult,
  *
  * ```
  *
- * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
- * @returns {@link UpdateApplicationCommandOutput}
+ * @param UpdateApplicationRequest - {@link UpdateApplicationRequest}
+ * @returns {@link UpdateApplicationResult}
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

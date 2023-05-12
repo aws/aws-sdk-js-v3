@@ -74,8 +74,8 @@ export interface DisassociateEntitiesFromExperienceCommandOutput
  *
  * ```
  *
- * @param DisassociateEntitiesFromExperienceCommandInput - {@link DisassociateEntitiesFromExperienceCommandInput}
- * @returns {@link DisassociateEntitiesFromExperienceCommandOutput}
+ * @param DisassociateEntitiesFromExperienceRequest - {@link DisassociateEntitiesFromExperienceRequest}
+ * @returns {@link DisassociateEntitiesFromExperienceResponse}
  * @see {@link DisassociateEntitiesFromExperienceCommandInput} for command's `input` shape.
  * @see {@link DisassociateEntitiesFromExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

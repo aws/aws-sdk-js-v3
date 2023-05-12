@@ -72,8 +72,8 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  *
  * ```
  *
- * @param CreateFirewallRuleCommandInput - {@link CreateFirewallRuleCommandInput}
- * @returns {@link CreateFirewallRuleCommandOutput}
+ * @param CreateFirewallRuleRequest - {@link CreateFirewallRuleRequest}
+ * @returns {@link CreateFirewallRuleResponse}
  * @see {@link CreateFirewallRuleCommandInput} for command's `input` shape.
  * @see {@link CreateFirewallRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

@@ -71,8 +71,8 @@ export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyR
  *
  * ```
  *
- * @param DeleteFirewallPolicyCommandInput - {@link DeleteFirewallPolicyCommandInput}
- * @returns {@link DeleteFirewallPolicyCommandOutput}
+ * @param DeleteFirewallPolicyRequest - {@link DeleteFirewallPolicyRequest}
+ * @returns {@link DeleteFirewallPolicyResponse}
  * @see {@link DeleteFirewallPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

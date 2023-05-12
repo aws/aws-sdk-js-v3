@@ -580,8 +580,8 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *
  * ```
  *
- * @param RegisterTaskDefinitionCommandInput - {@link RegisterTaskDefinitionCommandInput}
- * @returns {@link RegisterTaskDefinitionCommandOutput}
+ * @param RegisterTaskDefinitionRequest - {@link RegisterTaskDefinitionRequest}
+ * @returns {@link RegisterTaskDefinitionResponse}
  * @see {@link RegisterTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link RegisterTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

@@ -116,8 +116,8 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  *
  * ```
  *
- * @param UpdateRateBasedRuleCommandInput - {@link UpdateRateBasedRuleCommandInput}
- * @returns {@link UpdateRateBasedRuleCommandOutput}
+ * @param UpdateRateBasedRuleRequest - {@link UpdateRateBasedRuleRequest}
+ * @returns {@link UpdateRateBasedRuleResponse}
  * @see {@link UpdateRateBasedRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateRateBasedRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

@@ -52,8 +52,8 @@ export interface DeleteNamedQueryCommandOutput extends DeleteNamedQueryOutput, _
  *
  * ```
  *
- * @param DeleteNamedQueryCommandInput - {@link DeleteNamedQueryCommandInput}
- * @returns {@link DeleteNamedQueryCommandOutput}
+ * @param DeleteNamedQueryInput - {@link DeleteNamedQueryInput}
+ * @returns {@link DeleteNamedQueryOutput}
  * @see {@link DeleteNamedQueryCommandInput} for command's `input` shape.
  * @see {@link DeleteNamedQueryCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

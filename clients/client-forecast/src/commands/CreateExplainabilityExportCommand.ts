@@ -77,8 +77,8 @@ export interface CreateExplainabilityExportCommandOutput extends CreateExplainab
  *
  * ```
  *
- * @param CreateExplainabilityExportCommandInput - {@link CreateExplainabilityExportCommandInput}
- * @returns {@link CreateExplainabilityExportCommandOutput}
+ * @param CreateExplainabilityExportRequest - {@link CreateExplainabilityExportRequest}
+ * @returns {@link CreateExplainabilityExportResponse}
  * @see {@link CreateExplainabilityExportCommandInput} for command's `input` shape.
  * @see {@link CreateExplainabilityExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

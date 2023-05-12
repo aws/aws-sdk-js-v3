@@ -51,8 +51,8 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  *
  * ```
  *
- * @param DeleteFlowCommandInput - {@link DeleteFlowCommandInput}
- * @returns {@link DeleteFlowCommandOutput}
+ * @param DeleteFlowRequest - {@link DeleteFlowRequest}
+ * @returns {@link DeleteFlowResponse}
  * @see {@link DeleteFlowCommandInput} for command's `input` shape.
  * @see {@link DeleteFlowCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

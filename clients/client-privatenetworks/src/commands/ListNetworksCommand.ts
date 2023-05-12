@@ -67,8 +67,8 @@ export interface ListNetworksCommandOutput extends ListNetworksResponse, __Metad
  *
  * ```
  *
- * @param ListNetworksCommandInput - {@link ListNetworksCommandInput}
- * @returns {@link ListNetworksCommandOutput}
+ * @param ListNetworksRequest - {@link ListNetworksRequest}
+ * @returns {@link ListNetworksResponse}
  * @see {@link ListNetworksCommandInput} for command's `input` shape.
  * @see {@link ListNetworksCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

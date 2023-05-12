@@ -48,8 +48,8 @@ export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopNotebookExecutionCommandInput - {@link StopNotebookExecutionCommandInput}
- * @returns {@link StopNotebookExecutionCommandOutput}
+ * @param StopNotebookExecutionInput - {@link StopNotebookExecutionInput}
+ * @returns {@link Unit}
  * @see {@link StopNotebookExecutionCommandInput} for command's `input` shape.
  * @see {@link StopNotebookExecutionCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

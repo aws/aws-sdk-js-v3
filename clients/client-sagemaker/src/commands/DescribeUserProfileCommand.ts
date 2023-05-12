@@ -142,8 +142,8 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  *
  * ```
  *
- * @param DescribeUserProfileCommandInput - {@link DescribeUserProfileCommandInput}
- * @returns {@link DescribeUserProfileCommandOutput}
+ * @param DescribeUserProfileRequest - {@link DescribeUserProfileRequest}
+ * @returns {@link DescribeUserProfileResponse}
  * @see {@link DescribeUserProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeUserProfileCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

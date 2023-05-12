@@ -54,8 +54,8 @@ export interface DeleteVoiceConnectorOriginationCommandOutput extends __Metadata
  *
  * ```
  *
- * @param DeleteVoiceConnectorOriginationCommandInput - {@link DeleteVoiceConnectorOriginationCommandInput}
- * @returns {@link DeleteVoiceConnectorOriginationCommandOutput}
+ * @param DeleteVoiceConnectorOriginationRequest - {@link DeleteVoiceConnectorOriginationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVoiceConnectorOriginationCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorOriginationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

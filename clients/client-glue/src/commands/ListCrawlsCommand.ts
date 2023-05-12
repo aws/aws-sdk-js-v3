@@ -88,8 +88,8 @@ export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataB
  *
  * ```
  *
- * @param ListCrawlsCommandInput - {@link ListCrawlsCommandInput}
- * @returns {@link ListCrawlsCommandOutput}
+ * @param ListCrawlsRequest - {@link ListCrawlsRequest}
+ * @returns {@link ListCrawlsResponse}
  * @see {@link ListCrawlsCommandInput} for command's `input` shape.
  * @see {@link ListCrawlsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

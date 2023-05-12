@@ -263,8 +263,8 @@ export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __M
  *
  * ```
  *
- * @param RetryBuildBatchCommandInput - {@link RetryBuildBatchCommandInput}
- * @returns {@link RetryBuildBatchCommandOutput}
+ * @param RetryBuildBatchInput - {@link RetryBuildBatchInput}
+ * @returns {@link RetryBuildBatchOutput}
  * @see {@link RetryBuildBatchCommandInput} for command's `input` shape.
  * @see {@link RetryBuildBatchCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

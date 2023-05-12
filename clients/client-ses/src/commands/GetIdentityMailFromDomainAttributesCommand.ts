@@ -69,8 +69,8 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  *
  * ```
  *
- * @param GetIdentityMailFromDomainAttributesCommandInput - {@link GetIdentityMailFromDomainAttributesCommandInput}
- * @returns {@link GetIdentityMailFromDomainAttributesCommandOutput}
+ * @param GetIdentityMailFromDomainAttributesRequest - {@link GetIdentityMailFromDomainAttributesRequest}
+ * @returns {@link GetIdentityMailFromDomainAttributesResponse}
  * @see {@link GetIdentityMailFromDomainAttributesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityMailFromDomainAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

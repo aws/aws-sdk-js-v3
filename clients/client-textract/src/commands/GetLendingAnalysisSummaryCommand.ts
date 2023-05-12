@@ -102,8 +102,8 @@ export interface GetLendingAnalysisSummaryCommandOutput extends GetLendingAnalys
  *
  * ```
  *
- * @param GetLendingAnalysisSummaryCommandInput - {@link GetLendingAnalysisSummaryCommandInput}
- * @returns {@link GetLendingAnalysisSummaryCommandOutput}
+ * @param GetLendingAnalysisSummaryRequest - {@link GetLendingAnalysisSummaryRequest}
+ * @returns {@link GetLendingAnalysisSummaryResponse}
  * @see {@link GetLendingAnalysisSummaryCommandInput} for command's `input` shape.
  * @see {@link GetLendingAnalysisSummaryCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.

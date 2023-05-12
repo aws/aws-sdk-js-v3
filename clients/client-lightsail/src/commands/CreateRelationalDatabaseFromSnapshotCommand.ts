@@ -95,8 +95,8 @@ export interface CreateRelationalDatabaseFromSnapshotCommandOutput
  *
  * ```
  *
- * @param CreateRelationalDatabaseFromSnapshotCommandInput - {@link CreateRelationalDatabaseFromSnapshotCommandInput}
- * @returns {@link CreateRelationalDatabaseFromSnapshotCommandOutput}
+ * @param CreateRelationalDatabaseFromSnapshotRequest - {@link CreateRelationalDatabaseFromSnapshotRequest}
+ * @returns {@link CreateRelationalDatabaseFromSnapshotResult}
  * @see {@link CreateRelationalDatabaseFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateRelationalDatabaseFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

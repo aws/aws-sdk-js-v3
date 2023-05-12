@@ -78,8 +78,8 @@ export interface UpdatePermissionsCommandOutput extends UpdatePermissionsRespons
  *
  * ```
  *
- * @param UpdatePermissionsCommandInput - {@link UpdatePermissionsCommandInput}
- * @returns {@link UpdatePermissionsCommandOutput}
+ * @param UpdatePermissionsRequest - {@link UpdatePermissionsRequest}
+ * @returns {@link UpdatePermissionsResponse}
  * @see {@link UpdatePermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdatePermissionsCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.

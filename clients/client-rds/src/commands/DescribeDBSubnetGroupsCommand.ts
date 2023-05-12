@@ -86,8 +86,8 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  *
  * ```
  *
- * @param DescribeDBSubnetGroupsCommandInput - {@link DescribeDBSubnetGroupsCommandInput}
- * @returns {@link DescribeDBSubnetGroupsCommandOutput}
+ * @param DescribeDBSubnetGroupsMessage - {@link DescribeDBSubnetGroupsMessage}
+ * @returns {@link DBSubnetGroupMessage}
  * @see {@link DescribeDBSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

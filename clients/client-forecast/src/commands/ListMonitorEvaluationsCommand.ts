@@ -89,8 +89,8 @@ export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluati
  *
  * ```
  *
- * @param ListMonitorEvaluationsCommandInput - {@link ListMonitorEvaluationsCommandInput}
- * @returns {@link ListMonitorEvaluationsCommandOutput}
+ * @param ListMonitorEvaluationsRequest - {@link ListMonitorEvaluationsRequest}
+ * @returns {@link ListMonitorEvaluationsResponse}
  * @see {@link ListMonitorEvaluationsCommandInput} for command's `input` shape.
  * @see {@link ListMonitorEvaluationsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

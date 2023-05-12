@@ -434,8 +434,8 @@ export interface ListJourneysCommandOutput extends ListJourneysResponse, __Metad
  *
  * ```
  *
- * @param ListJourneysCommandInput - {@link ListJourneysCommandInput}
- * @returns {@link ListJourneysCommandOutput}
+ * @param ListJourneysRequest - {@link ListJourneysRequest}
+ * @returns {@link ListJourneysResponse}
  * @see {@link ListJourneysCommandInput} for command's `input` shape.
  * @see {@link ListJourneysCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

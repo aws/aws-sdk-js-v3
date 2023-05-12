@@ -66,8 +66,8 @@ export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateR
  *
  * ```
  *
- * @param DeleteLaunchTemplateCommandInput - {@link DeleteLaunchTemplateCommandInput}
- * @returns {@link DeleteLaunchTemplateCommandOutput}
+ * @param DeleteLaunchTemplateRequest - {@link DeleteLaunchTemplateRequest}
+ * @returns {@link DeleteLaunchTemplateResult}
  * @see {@link DeleteLaunchTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

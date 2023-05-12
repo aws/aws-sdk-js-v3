@@ -107,8 +107,8 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput
  *
  * ```
  *
- * @param GetTimeSeriesServiceStatisticsCommandInput - {@link GetTimeSeriesServiceStatisticsCommandInput}
- * @returns {@link GetTimeSeriesServiceStatisticsCommandOutput}
+ * @param GetTimeSeriesServiceStatisticsRequest - {@link GetTimeSeriesServiceStatisticsRequest}
+ * @returns {@link GetTimeSeriesServiceStatisticsResult}
  * @see {@link GetTimeSeriesServiceStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetTimeSeriesServiceStatisticsCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

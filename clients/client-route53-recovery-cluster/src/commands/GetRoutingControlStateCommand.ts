@@ -86,8 +86,8 @@ export interface GetRoutingControlStateCommandOutput extends GetRoutingControlSt
  *
  * ```
  *
- * @param GetRoutingControlStateCommandInput - {@link GetRoutingControlStateCommandInput}
- * @returns {@link GetRoutingControlStateCommandOutput}
+ * @param GetRoutingControlStateRequest - {@link GetRoutingControlStateRequest}
+ * @returns {@link GetRoutingControlStateResponse}
  * @see {@link GetRoutingControlStateCommandInput} for command's `input` shape.
  * @see {@link GetRoutingControlStateCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for Route53RecoveryClusterClient's `config` shape.

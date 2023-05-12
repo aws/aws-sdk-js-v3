@@ -61,8 +61,8 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  *
  * ```
  *
- * @param GetInsightSelectorsCommandInput - {@link GetInsightSelectorsCommandInput}
- * @returns {@link GetInsightSelectorsCommandOutput}
+ * @param GetInsightSelectorsRequest - {@link GetInsightSelectorsRequest}
+ * @returns {@link GetInsightSelectorsResponse}
  * @see {@link GetInsightSelectorsCommandInput} for command's `input` shape.
  * @see {@link GetInsightSelectorsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

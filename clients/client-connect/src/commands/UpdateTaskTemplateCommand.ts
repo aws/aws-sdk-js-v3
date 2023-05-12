@@ -155,8 +155,8 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  *
  * ```
  *
- * @param UpdateTaskTemplateCommandInput - {@link UpdateTaskTemplateCommandInput}
- * @returns {@link UpdateTaskTemplateCommandOutput}
+ * @param UpdateTaskTemplateRequest - {@link UpdateTaskTemplateRequest}
+ * @returns {@link UpdateTaskTemplateResponse}
  * @see {@link UpdateTaskTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

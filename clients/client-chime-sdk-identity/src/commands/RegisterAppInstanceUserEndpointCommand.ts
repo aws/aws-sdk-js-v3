@@ -70,8 +70,8 @@ export interface RegisterAppInstanceUserEndpointCommandOutput
  *
  * ```
  *
- * @param RegisterAppInstanceUserEndpointCommandInput - {@link RegisterAppInstanceUserEndpointCommandInput}
- * @returns {@link RegisterAppInstanceUserEndpointCommandOutput}
+ * @param RegisterAppInstanceUserEndpointRequest - {@link RegisterAppInstanceUserEndpointRequest}
+ * @returns {@link RegisterAppInstanceUserEndpointResponse}
  * @see {@link RegisterAppInstanceUserEndpointCommandInput} for command's `input` shape.
  * @see {@link RegisterAppInstanceUserEndpointCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.

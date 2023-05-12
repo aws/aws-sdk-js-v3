@@ -60,8 +60,8 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
  *
  * ```
  *
- * @param ListDirectoriesCommandInput - {@link ListDirectoriesCommandInput}
- * @returns {@link ListDirectoriesCommandOutput}
+ * @param ListDirectoriesRequest - {@link ListDirectoriesRequest}
+ * @returns {@link ListDirectoriesResponse}
  * @see {@link ListDirectoriesCommandInput} for command's `input` shape.
  * @see {@link ListDirectoriesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

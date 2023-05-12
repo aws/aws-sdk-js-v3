@@ -71,8 +71,8 @@ export interface ListCodeRepositoriesCommandOutput extends ListCodeRepositoriesO
  *
  * ```
  *
- * @param ListCodeRepositoriesCommandInput - {@link ListCodeRepositoriesCommandInput}
- * @returns {@link ListCodeRepositoriesCommandOutput}
+ * @param ListCodeRepositoriesInput - {@link ListCodeRepositoriesInput}
+ * @returns {@link ListCodeRepositoriesOutput}
  * @see {@link ListCodeRepositoriesCommandInput} for command's `input` shape.
  * @see {@link ListCodeRepositoriesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

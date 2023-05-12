@@ -52,8 +52,8 @@ export interface AssociateDelegateToResourceCommandOutput
  *
  * ```
  *
- * @param AssociateDelegateToResourceCommandInput - {@link AssociateDelegateToResourceCommandInput}
- * @returns {@link AssociateDelegateToResourceCommandOutput}
+ * @param AssociateDelegateToResourceRequest - {@link AssociateDelegateToResourceRequest}
+ * @returns {@link AssociateDelegateToResourceResponse}
  * @see {@link AssociateDelegateToResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateDelegateToResourceCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

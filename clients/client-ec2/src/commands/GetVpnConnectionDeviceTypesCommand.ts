@@ -63,8 +63,8 @@ export interface GetVpnConnectionDeviceTypesCommandOutput extends GetVpnConnecti
  *
  * ```
  *
- * @param GetVpnConnectionDeviceTypesCommandInput - {@link GetVpnConnectionDeviceTypesCommandInput}
- * @returns {@link GetVpnConnectionDeviceTypesCommandOutput}
+ * @param GetVpnConnectionDeviceTypesRequest - {@link GetVpnConnectionDeviceTypesRequest}
+ * @returns {@link GetVpnConnectionDeviceTypesResult}
  * @see {@link GetVpnConnectionDeviceTypesCommandInput} for command's `input` shape.
  * @see {@link GetVpnConnectionDeviceTypesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

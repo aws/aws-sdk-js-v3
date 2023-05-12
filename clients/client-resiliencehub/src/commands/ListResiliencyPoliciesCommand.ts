@@ -76,8 +76,8 @@ export interface ListResiliencyPoliciesCommandOutput extends ListResiliencyPolic
  *
  * ```
  *
- * @param ListResiliencyPoliciesCommandInput - {@link ListResiliencyPoliciesCommandInput}
- * @returns {@link ListResiliencyPoliciesCommandOutput}
+ * @param ListResiliencyPoliciesRequest - {@link ListResiliencyPoliciesRequest}
+ * @returns {@link ListResiliencyPoliciesResponse}
  * @see {@link ListResiliencyPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListResiliencyPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

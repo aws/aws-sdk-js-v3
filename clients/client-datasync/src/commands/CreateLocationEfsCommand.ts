@@ -67,8 +67,8 @@ export interface CreateLocationEfsCommandOutput extends CreateLocationEfsRespons
  *
  * ```
  *
- * @param CreateLocationEfsCommandInput - {@link CreateLocationEfsCommandInput}
- * @returns {@link CreateLocationEfsCommandOutput}
+ * @param CreateLocationEfsRequest - {@link CreateLocationEfsRequest}
+ * @returns {@link CreateLocationEfsResponse}
  * @see {@link CreateLocationEfsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationEfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

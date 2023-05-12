@@ -72,8 +72,8 @@ export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointS
  *
  * ```
  *
- * @param DescribeEndpointSettingsCommandInput - {@link DescribeEndpointSettingsCommandInput}
- * @returns {@link DescribeEndpointSettingsCommandOutput}
+ * @param DescribeEndpointSettingsMessage - {@link DescribeEndpointSettingsMessage}
+ * @returns {@link DescribeEndpointSettingsResponse}
  * @see {@link DescribeEndpointSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointSettingsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

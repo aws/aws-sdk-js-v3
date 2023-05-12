@@ -48,8 +48,8 @@ export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __M
  *
  * ```
  *
- * @param DeleteKeyspaceCommandInput - {@link DeleteKeyspaceCommandInput}
- * @returns {@link DeleteKeyspaceCommandOutput}
+ * @param DeleteKeyspaceRequest - {@link DeleteKeyspaceRequest}
+ * @returns {@link DeleteKeyspaceResponse}
  * @see {@link DeleteKeyspaceCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyspaceCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.

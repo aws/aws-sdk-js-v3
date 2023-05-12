@@ -52,8 +52,8 @@ export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataRes
  *
  * ```
  *
- * @param UpdateFleetMetadataCommandInput - {@link UpdateFleetMetadataCommandInput}
- * @returns {@link UpdateFleetMetadataCommandOutput}
+ * @param UpdateFleetMetadataRequest - {@link UpdateFleetMetadataRequest}
+ * @returns {@link UpdateFleetMetadataResponse}
  * @see {@link UpdateFleetMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteAssistantCommandOutput extends DeleteAssistantResponse, _
  *
  * ```
  *
- * @param DeleteAssistantCommandInput - {@link DeleteAssistantCommandInput}
- * @returns {@link DeleteAssistantCommandOutput}
+ * @param DeleteAssistantRequest - {@link DeleteAssistantRequest}
+ * @returns {@link DeleteAssistantResponse}
  * @see {@link DeleteAssistantCommandInput} for command's `input` shape.
  * @see {@link DeleteAssistantCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

@@ -70,8 +70,8 @@ export interface ListThingTypesCommandOutput extends ListThingTypesResponse, __M
  *
  * ```
  *
- * @param ListThingTypesCommandInput - {@link ListThingTypesCommandInput}
- * @returns {@link ListThingTypesCommandOutput}
+ * @param ListThingTypesRequest - {@link ListThingTypesRequest}
+ * @returns {@link ListThingTypesResponse}
  * @see {@link ListThingTypesCommandInput} for command's `input` shape.
  * @see {@link ListThingTypesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

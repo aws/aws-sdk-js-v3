@@ -60,8 +60,8 @@ export interface DeregisterImageCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeregisterImageCommandInput - {@link DeregisterImageCommandInput}
- * @returns {@link DeregisterImageCommandOutput}
+ * @param DeregisterImageRequest - {@link DeregisterImageRequest}
+ * @returns {@link Unit}
  * @see {@link DeregisterImageCommandInput} for command's `input` shape.
  * @see {@link DeregisterImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

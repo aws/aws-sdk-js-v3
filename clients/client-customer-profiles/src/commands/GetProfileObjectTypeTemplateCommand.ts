@@ -82,8 +82,8 @@ export interface GetProfileObjectTypeTemplateCommandOutput
  *
  * ```
  *
- * @param GetProfileObjectTypeTemplateCommandInput - {@link GetProfileObjectTypeTemplateCommandInput}
- * @returns {@link GetProfileObjectTypeTemplateCommandOutput}
+ * @param GetProfileObjectTypeTemplateRequest - {@link GetProfileObjectTypeTemplateRequest}
+ * @returns {@link GetProfileObjectTypeTemplateResponse}
  * @see {@link GetProfileObjectTypeTemplateCommandInput} for command's `input` shape.
  * @see {@link GetProfileObjectTypeTemplateCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

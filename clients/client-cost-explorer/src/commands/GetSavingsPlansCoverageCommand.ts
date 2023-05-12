@@ -181,8 +181,8 @@ export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCov
  *
  * ```
  *
- * @param GetSavingsPlansCoverageCommandInput - {@link GetSavingsPlansCoverageCommandInput}
- * @returns {@link GetSavingsPlansCoverageCommandOutput}
+ * @param GetSavingsPlansCoverageRequest - {@link GetSavingsPlansCoverageRequest}
+ * @returns {@link GetSavingsPlansCoverageResponse}
  * @see {@link GetSavingsPlansCoverageCommandInput} for command's `input` shape.
  * @see {@link GetSavingsPlansCoverageCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

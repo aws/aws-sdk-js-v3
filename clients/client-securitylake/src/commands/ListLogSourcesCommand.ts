@@ -78,8 +78,8 @@ export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __M
  *
  * ```
  *
- * @param ListLogSourcesCommandInput - {@link ListLogSourcesCommandInput}
- * @returns {@link ListLogSourcesCommandOutput}
+ * @param ListLogSourcesRequest - {@link ListLogSourcesRequest}
+ * @returns {@link ListLogSourcesResponse}
  * @see {@link ListLogSourcesCommandInput} for command's `input` shape.
  * @see {@link ListLogSourcesCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

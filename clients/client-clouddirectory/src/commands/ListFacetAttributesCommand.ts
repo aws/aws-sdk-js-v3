@@ -82,8 +82,8 @@ export interface ListFacetAttributesCommandOutput extends ListFacetAttributesRes
  *
  * ```
  *
- * @param ListFacetAttributesCommandInput - {@link ListFacetAttributesCommandInput}
- * @returns {@link ListFacetAttributesCommandOutput}
+ * @param ListFacetAttributesRequest - {@link ListFacetAttributesRequest}
+ * @returns {@link ListFacetAttributesResponse}
  * @see {@link ListFacetAttributesCommandInput} for command's `input` shape.
  * @see {@link ListFacetAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

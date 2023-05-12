@@ -60,8 +60,8 @@ export interface GetRetainedMessageCommandOutput extends GetRetainedMessageRespo
  *
  * ```
  *
- * @param GetRetainedMessageCommandInput - {@link GetRetainedMessageCommandInput}
- * @returns {@link GetRetainedMessageCommandOutput}
+ * @param GetRetainedMessageRequest - {@link GetRetainedMessageRequest}
+ * @returns {@link GetRetainedMessageResponse}
  * @see {@link GetRetainedMessageCommandInput} for command's `input` shape.
  * @see {@link GetRetainedMessageCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.

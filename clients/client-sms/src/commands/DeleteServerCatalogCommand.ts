@@ -46,8 +46,8 @@ export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogRes
  *
  * ```
  *
- * @param DeleteServerCatalogCommandInput - {@link DeleteServerCatalogCommandInput}
- * @returns {@link DeleteServerCatalogCommandOutput}
+ * @param DeleteServerCatalogRequest - {@link DeleteServerCatalogRequest}
+ * @returns {@link DeleteServerCatalogResponse}
  * @see {@link DeleteServerCatalogCommandInput} for command's `input` shape.
  * @see {@link DeleteServerCatalogCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

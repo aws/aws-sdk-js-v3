@@ -52,8 +52,8 @@ export interface RemoveBridgeOutputCommandOutput extends RemoveBridgeOutputRespo
  *
  * ```
  *
- * @param RemoveBridgeOutputCommandInput - {@link RemoveBridgeOutputCommandInput}
- * @returns {@link RemoveBridgeOutputCommandOutput}
+ * @param RemoveBridgeOutputRequest - {@link RemoveBridgeOutputRequest}
+ * @returns {@link RemoveBridgeOutputResponse}
  * @see {@link RemoveBridgeOutputCommandInput} for command's `input` shape.
  * @see {@link RemoveBridgeOutputCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

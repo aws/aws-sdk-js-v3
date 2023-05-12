@@ -100,8 +100,8 @@ export interface DescribeObservationCommandOutput extends DescribeObservationRes
  *
  * ```
  *
- * @param DescribeObservationCommandInput - {@link DescribeObservationCommandInput}
- * @returns {@link DescribeObservationCommandOutput}
+ * @param DescribeObservationRequest - {@link DescribeObservationRequest}
+ * @returns {@link DescribeObservationResponse}
  * @see {@link DescribeObservationCommandInput} for command's `input` shape.
  * @see {@link DescribeObservationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.

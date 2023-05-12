@@ -70,8 +70,8 @@ export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRule
  *
  * ```
  *
- * @param CreateFirewallRuleGroupCommandInput - {@link CreateFirewallRuleGroupCommandInput}
- * @returns {@link CreateFirewallRuleGroupCommandOutput}
+ * @param CreateFirewallRuleGroupRequest - {@link CreateFirewallRuleGroupRequest}
+ * @returns {@link CreateFirewallRuleGroupResponse}
  * @see {@link CreateFirewallRuleGroupCommandInput} for command's `input` shape.
  * @see {@link CreateFirewallRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

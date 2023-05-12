@@ -50,8 +50,8 @@ export interface DeleteSecurityProfileCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteSecurityProfileCommandInput - {@link DeleteSecurityProfileCommandInput}
- * @returns {@link DeleteSecurityProfileCommandOutput}
+ * @param DeleteSecurityProfileRequest - {@link DeleteSecurityProfileRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

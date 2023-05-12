@@ -65,8 +65,8 @@ export interface DeleteAccessPointPolicyCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DeleteAccessPointPolicyCommandInput - {@link DeleteAccessPointPolicyCommandInput}
- * @returns {@link DeleteAccessPointPolicyCommandOutput}
+ * @param DeleteAccessPointPolicyRequest - {@link DeleteAccessPointPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAccessPointPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPointPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

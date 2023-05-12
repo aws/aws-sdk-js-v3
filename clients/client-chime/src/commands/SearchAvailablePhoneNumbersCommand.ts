@@ -73,8 +73,8 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  *
  * ```
  *
- * @param SearchAvailablePhoneNumbersCommandInput - {@link SearchAvailablePhoneNumbersCommandInput}
- * @returns {@link SearchAvailablePhoneNumbersCommandOutput}
+ * @param SearchAvailablePhoneNumbersRequest - {@link SearchAvailablePhoneNumbersRequest}
+ * @returns {@link SearchAvailablePhoneNumbersResponse}
  * @see {@link SearchAvailablePhoneNumbersCommandInput} for command's `input` shape.
  * @see {@link SearchAvailablePhoneNumbersCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

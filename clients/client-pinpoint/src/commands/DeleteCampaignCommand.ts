@@ -430,8 +430,8 @@ export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __M
  *
  * ```
  *
- * @param DeleteCampaignCommandInput - {@link DeleteCampaignCommandInput}
- * @returns {@link DeleteCampaignCommandOutput}
+ * @param DeleteCampaignRequest - {@link DeleteCampaignRequest}
+ * @returns {@link DeleteCampaignResponse}
  * @see {@link DeleteCampaignCommandInput} for command's `input` shape.
  * @see {@link DeleteCampaignCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

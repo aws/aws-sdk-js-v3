@@ -59,8 +59,8 @@ export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __Metad
  *
  * ```
  *
- * @param CreateGatewayCommandInput - {@link CreateGatewayCommandInput}
- * @returns {@link CreateGatewayCommandOutput}
+ * @param CreateGatewayInput - {@link CreateGatewayInput}
+ * @returns {@link CreateGatewayOutput}
  * @see {@link CreateGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateGatewayCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

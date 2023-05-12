@@ -798,8 +798,8 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *
  * ```
  *
- * @param CheckCapacityCommandInput - {@link CheckCapacityCommandInput}
- * @returns {@link CheckCapacityCommandOutput}
+ * @param CheckCapacityRequest - {@link CheckCapacityRequest}
+ * @returns {@link CheckCapacityResponse}
  * @see {@link CheckCapacityCommandInput} for command's `input` shape.
  * @see {@link CheckCapacityCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

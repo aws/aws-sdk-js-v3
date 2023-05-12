@@ -53,8 +53,8 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ExecutePolicyCommandInput - {@link ExecutePolicyCommandInput}
- * @returns {@link ExecutePolicyCommandOutput}
+ * @param ExecutePolicyType - {@link ExecutePolicyType}
+ * @returns {@link Unit}
  * @see {@link ExecutePolicyCommandInput} for command's `input` shape.
  * @see {@link ExecutePolicyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

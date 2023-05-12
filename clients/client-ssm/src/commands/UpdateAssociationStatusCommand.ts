@@ -163,8 +163,8 @@ export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationS
  *
  * ```
  *
- * @param UpdateAssociationStatusCommandInput - {@link UpdateAssociationStatusCommandInput}
- * @returns {@link UpdateAssociationStatusCommandOutput}
+ * @param UpdateAssociationStatusRequest - {@link UpdateAssociationStatusRequest}
+ * @returns {@link UpdateAssociationStatusResult}
  * @see {@link UpdateAssociationStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateAssociationStatusCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

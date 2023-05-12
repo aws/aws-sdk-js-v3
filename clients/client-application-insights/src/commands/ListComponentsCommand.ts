@@ -71,8 +71,8 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  *
  * ```
  *
- * @param ListComponentsCommandInput - {@link ListComponentsCommandInput}
- * @returns {@link ListComponentsCommandOutput}
+ * @param ListComponentsRequest - {@link ListComponentsRequest}
+ * @returns {@link ListComponentsResponse}
  * @see {@link ListComponentsCommandInput} for command's `input` shape.
  * @see {@link ListComponentsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.

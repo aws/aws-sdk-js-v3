@@ -58,8 +58,8 @@ export interface GetTemplateSyncConfigCommandOutput extends GetTemplateSyncConfi
  *
  * ```
  *
- * @param GetTemplateSyncConfigCommandInput - {@link GetTemplateSyncConfigCommandInput}
- * @returns {@link GetTemplateSyncConfigCommandOutput}
+ * @param GetTemplateSyncConfigInput - {@link GetTemplateSyncConfigInput}
+ * @returns {@link GetTemplateSyncConfigOutput}
  * @see {@link GetTemplateSyncConfigCommandInput} for command's `input` shape.
  * @see {@link GetTemplateSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

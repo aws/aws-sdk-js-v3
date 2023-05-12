@@ -81,8 +81,8 @@ export interface ListTableRowsCommandOutput extends ListTableRowsResult, __Metad
  *
  * ```
  *
- * @param ListTableRowsCommandInput - {@link ListTableRowsCommandInput}
- * @returns {@link ListTableRowsCommandOutput}
+ * @param ListTableRowsRequest - {@link ListTableRowsRequest}
+ * @returns {@link ListTableRowsResult}
  * @see {@link ListTableRowsCommandInput} for command's `input` shape.
  * @see {@link ListTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.

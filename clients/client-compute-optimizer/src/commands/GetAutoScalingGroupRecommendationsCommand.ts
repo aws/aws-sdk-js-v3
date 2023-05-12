@@ -138,7 +138,7 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //         },
  * //       },
  * //       inferredWorkloadTypes: [ // InferredWorkloadTypes
- * //         "AmazonEmr" || "ApacheCassandra" || "ApacheHadoop" || "Memcached" || "Nginx" || "PostgreSql" || "Redis" || "Kafka",
+ * //         "AmazonEmr" || "ApacheCassandra" || "ApacheHadoop" || "Memcached" || "Nginx" || "PostgreSql" || "Redis" || "Kafka" || "SQLServer",
  * //       ],
  * //     },
  * //   ],
@@ -153,8 +153,8 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  *
  * ```
  *
- * @param GetAutoScalingGroupRecommendationsCommandInput - {@link GetAutoScalingGroupRecommendationsCommandInput}
- * @returns {@link GetAutoScalingGroupRecommendationsCommandOutput}
+ * @param GetAutoScalingGroupRecommendationsRequest - {@link GetAutoScalingGroupRecommendationsRequest}
+ * @returns {@link GetAutoScalingGroupRecommendationsResponse}
  * @see {@link GetAutoScalingGroupRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetAutoScalingGroupRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

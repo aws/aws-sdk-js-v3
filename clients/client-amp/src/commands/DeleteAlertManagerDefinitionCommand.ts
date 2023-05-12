@@ -52,8 +52,8 @@ export interface DeleteAlertManagerDefinitionCommandOutput extends __MetadataBea
  *
  * ```
  *
- * @param DeleteAlertManagerDefinitionCommandInput - {@link DeleteAlertManagerDefinitionCommandInput}
- * @returns {@link DeleteAlertManagerDefinitionCommandOutput}
+ * @param DeleteAlertManagerDefinitionRequest - {@link DeleteAlertManagerDefinitionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAlertManagerDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteAlertManagerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.

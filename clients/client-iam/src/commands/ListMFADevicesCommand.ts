@@ -65,8 +65,8 @@ export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __M
  *
  * ```
  *
- * @param ListMFADevicesCommandInput - {@link ListMFADevicesCommandInput}
- * @returns {@link ListMFADevicesCommandOutput}
+ * @param ListMFADevicesRequest - {@link ListMFADevicesRequest}
+ * @returns {@link ListMFADevicesResponse}
  * @see {@link ListMFADevicesCommandInput} for command's `input` shape.
  * @see {@link ListMFADevicesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

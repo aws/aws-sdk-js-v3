@@ -69,8 +69,8 @@ export interface StartGUISessionCommandOutput extends StartGUISessionResult, __M
  *
  * ```
  *
- * @param StartGUISessionCommandInput - {@link StartGUISessionCommandInput}
- * @returns {@link StartGUISessionCommandOutput}
+ * @param StartGUISessionRequest - {@link StartGUISessionRequest}
+ * @returns {@link StartGUISessionResult}
  * @see {@link StartGUISessionCommandInput} for command's `input` shape.
  * @see {@link StartGUISessionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

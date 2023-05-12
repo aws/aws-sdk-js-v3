@@ -60,8 +60,8 @@ export interface GetExtensionAssociationCommandOutput extends ExtensionAssociati
  *
  * ```
  *
- * @param GetExtensionAssociationCommandInput - {@link GetExtensionAssociationCommandInput}
- * @returns {@link GetExtensionAssociationCommandOutput}
+ * @param GetExtensionAssociationRequest - {@link GetExtensionAssociationRequest}
+ * @returns {@link ExtensionAssociation}
  * @see {@link GetExtensionAssociationCommandInput} for command's `input` shape.
  * @see {@link GetExtensionAssociationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

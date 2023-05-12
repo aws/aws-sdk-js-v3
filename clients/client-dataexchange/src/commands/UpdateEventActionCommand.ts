@@ -82,8 +82,8 @@ export interface UpdateEventActionCommandOutput extends UpdateEventActionRespons
  *
  * ```
  *
- * @param UpdateEventActionCommandInput - {@link UpdateEventActionCommandInput}
- * @returns {@link UpdateEventActionCommandOutput}
+ * @param UpdateEventActionRequest - {@link UpdateEventActionRequest}
+ * @returns {@link UpdateEventActionResponse}
  * @see {@link UpdateEventActionCommandInput} for command's `input` shape.
  * @see {@link UpdateEventActionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

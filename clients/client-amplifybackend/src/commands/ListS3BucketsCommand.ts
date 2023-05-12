@@ -56,8 +56,8 @@ export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __Met
  *
  * ```
  *
- * @param ListS3BucketsCommandInput - {@link ListS3BucketsCommandInput}
- * @returns {@link ListS3BucketsCommandOutput}
+ * @param ListS3BucketsRequest - {@link ListS3BucketsRequest}
+ * @returns {@link ListS3BucketsResponse}
  * @see {@link ListS3BucketsCommandInput} for command's `input` shape.
  * @see {@link ListS3BucketsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

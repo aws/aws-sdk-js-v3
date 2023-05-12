@@ -83,8 +83,8 @@ export interface GetCampaignDateRangeKpiCommandOutput extends GetCampaignDateRan
  *
  * ```
  *
- * @param GetCampaignDateRangeKpiCommandInput - {@link GetCampaignDateRangeKpiCommandInput}
- * @returns {@link GetCampaignDateRangeKpiCommandOutput}
+ * @param GetCampaignDateRangeKpiRequest - {@link GetCampaignDateRangeKpiRequest}
+ * @returns {@link GetCampaignDateRangeKpiResponse}
  * @see {@link GetCampaignDateRangeKpiCommandInput} for command's `input` shape.
  * @see {@link GetCampaignDateRangeKpiCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

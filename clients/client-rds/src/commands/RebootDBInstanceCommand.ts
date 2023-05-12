@@ -270,8 +270,8 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  *
  * ```
  *
- * @param RebootDBInstanceCommandInput - {@link RebootDBInstanceCommandInput}
- * @returns {@link RebootDBInstanceCommandOutput}
+ * @param RebootDBInstanceMessage - {@link RebootDBInstanceMessage}
+ * @returns {@link RebootDBInstanceResult}
  * @see {@link RebootDBInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

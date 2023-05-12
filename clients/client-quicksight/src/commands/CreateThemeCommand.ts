@@ -127,8 +127,8 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  *
  * ```
  *
- * @param CreateThemeCommandInput - {@link CreateThemeCommandInput}
- * @returns {@link CreateThemeCommandOutput}
+ * @param CreateThemeRequest - {@link CreateThemeRequest}
+ * @returns {@link CreateThemeResponse}
  * @see {@link CreateThemeCommandInput} for command's `input` shape.
  * @see {@link CreateThemeCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

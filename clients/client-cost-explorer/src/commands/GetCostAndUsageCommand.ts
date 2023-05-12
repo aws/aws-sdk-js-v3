@@ -179,8 +179,8 @@ export interface GetCostAndUsageCommandOutput extends GetCostAndUsageResponse, _
  *
  * ```
  *
- * @param GetCostAndUsageCommandInput - {@link GetCostAndUsageCommandInput}
- * @returns {@link GetCostAndUsageCommandOutput}
+ * @param GetCostAndUsageRequest - {@link GetCostAndUsageRequest}
+ * @returns {@link GetCostAndUsageResponse}
  * @see {@link GetCostAndUsageCommandInput} for command's `input` shape.
  * @see {@link GetCostAndUsageCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

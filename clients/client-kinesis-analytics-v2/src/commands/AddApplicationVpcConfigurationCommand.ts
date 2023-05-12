@@ -91,8 +91,8 @@ export interface AddApplicationVpcConfigurationCommandOutput
  *
  * ```
  *
- * @param AddApplicationVpcConfigurationCommandInput - {@link AddApplicationVpcConfigurationCommandInput}
- * @returns {@link AddApplicationVpcConfigurationCommandOutput}
+ * @param AddApplicationVpcConfigurationRequest - {@link AddApplicationVpcConfigurationRequest}
+ * @returns {@link AddApplicationVpcConfigurationResponse}
  * @see {@link AddApplicationVpcConfigurationCommandInput} for command's `input` shape.
  * @see {@link AddApplicationVpcConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.

@@ -90,8 +90,8 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  *
  * ```
  *
- * @param GetDomainStatisticsReportCommandInput - {@link GetDomainStatisticsReportCommandInput}
- * @returns {@link GetDomainStatisticsReportCommandOutput}
+ * @param GetDomainStatisticsReportRequest - {@link GetDomainStatisticsReportRequest}
+ * @returns {@link GetDomainStatisticsReportResponse}
  * @see {@link GetDomainStatisticsReportCommandInput} for command's `input` shape.
  * @see {@link GetDomainStatisticsReportCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

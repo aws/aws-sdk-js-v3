@@ -69,8 +69,8 @@ export interface ListAttachedGroupPoliciesCommandOutput extends ListAttachedGrou
  *
  * ```
  *
- * @param ListAttachedGroupPoliciesCommandInput - {@link ListAttachedGroupPoliciesCommandInput}
- * @returns {@link ListAttachedGroupPoliciesCommandOutput}
+ * @param ListAttachedGroupPoliciesRequest - {@link ListAttachedGroupPoliciesRequest}
+ * @returns {@link ListAttachedGroupPoliciesResponse}
  * @see {@link ListAttachedGroupPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAttachedGroupPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

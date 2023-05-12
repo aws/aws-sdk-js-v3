@@ -116,8 +116,8 @@ export interface CreateIpamPoolCommandOutput extends CreateIpamPoolResult, __Met
  *
  * ```
  *
- * @param CreateIpamPoolCommandInput - {@link CreateIpamPoolCommandInput}
- * @returns {@link CreateIpamPoolCommandOutput}
+ * @param CreateIpamPoolRequest - {@link CreateIpamPoolRequest}
+ * @returns {@link CreateIpamPoolResult}
  * @see {@link CreateIpamPoolCommandInput} for command's `input` shape.
  * @see {@link CreateIpamPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

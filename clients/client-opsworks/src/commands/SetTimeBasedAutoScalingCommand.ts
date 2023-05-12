@@ -74,8 +74,8 @@ export interface SetTimeBasedAutoScalingCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param SetTimeBasedAutoScalingCommandInput - {@link SetTimeBasedAutoScalingCommandInput}
- * @returns {@link SetTimeBasedAutoScalingCommandOutput}
+ * @param SetTimeBasedAutoScalingRequest - {@link SetTimeBasedAutoScalingRequest}
+ * @returns {@link Unit}
  * @see {@link SetTimeBasedAutoScalingCommandInput} for command's `input` shape.
  * @see {@link SetTimeBasedAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

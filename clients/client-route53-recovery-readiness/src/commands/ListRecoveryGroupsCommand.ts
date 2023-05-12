@@ -67,8 +67,8 @@ export interface ListRecoveryGroupsCommandOutput extends ListRecoveryGroupsRespo
  *
  * ```
  *
- * @param ListRecoveryGroupsCommandInput - {@link ListRecoveryGroupsCommandInput}
- * @returns {@link ListRecoveryGroupsCommandOutput}
+ * @param ListRecoveryGroupsRequest - {@link ListRecoveryGroupsRequest}
+ * @returns {@link ListRecoveryGroupsResponse}
  * @see {@link ListRecoveryGroupsCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryGroupsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

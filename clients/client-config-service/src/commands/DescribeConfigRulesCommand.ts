@@ -97,8 +97,8 @@ export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesRes
  *
  * ```
  *
- * @param DescribeConfigRulesCommandInput - {@link DescribeConfigRulesCommandInput}
- * @returns {@link DescribeConfigRulesCommandOutput}
+ * @param DescribeConfigRulesRequest - {@link DescribeConfigRulesRequest}
+ * @returns {@link DescribeConfigRulesResponse}
  * @see {@link DescribeConfigRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigRulesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

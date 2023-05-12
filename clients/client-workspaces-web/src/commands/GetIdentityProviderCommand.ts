@@ -61,8 +61,8 @@ export interface GetIdentityProviderCommandOutput extends GetIdentityProviderRes
  *
  * ```
  *
- * @param GetIdentityProviderCommandInput - {@link GetIdentityProviderCommandInput}
- * @returns {@link GetIdentityProviderCommandOutput}
+ * @param GetIdentityProviderRequest - {@link GetIdentityProviderRequest}
+ * @returns {@link GetIdentityProviderResponse}
  * @see {@link GetIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link GetIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

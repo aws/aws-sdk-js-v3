@@ -125,8 +125,8 @@ export interface DescribeBudgetActionHistoriesCommandOutput
  *
  * ```
  *
- * @param DescribeBudgetActionHistoriesCommandInput - {@link DescribeBudgetActionHistoriesCommandInput}
- * @returns {@link DescribeBudgetActionHistoriesCommandOutput}
+ * @param DescribeBudgetActionHistoriesRequest - {@link DescribeBudgetActionHistoriesRequest}
+ * @returns {@link DescribeBudgetActionHistoriesResponse}
  * @see {@link DescribeBudgetActionHistoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetActionHistoriesCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

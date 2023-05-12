@@ -55,8 +55,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
+ * @param ListTagsForResourceRequest - {@link ListTagsForResourceRequest}
+ * @returns {@link ListTagsForResourceResponse}
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.

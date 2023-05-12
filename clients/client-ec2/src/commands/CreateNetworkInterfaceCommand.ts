@@ -187,8 +187,8 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  *
  * ```
  *
- * @param CreateNetworkInterfaceCommandInput - {@link CreateNetworkInterfaceCommandInput}
- * @returns {@link CreateNetworkInterfaceCommandOutput}
+ * @param CreateNetworkInterfaceRequest - {@link CreateNetworkInterfaceRequest}
+ * @returns {@link CreateNetworkInterfaceResult}
  * @see {@link CreateNetworkInterfaceCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

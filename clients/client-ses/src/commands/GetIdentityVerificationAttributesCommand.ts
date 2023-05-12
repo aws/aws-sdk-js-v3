@@ -80,8 +80,8 @@ export interface GetIdentityVerificationAttributesCommandOutput
  *
  * ```
  *
- * @param GetIdentityVerificationAttributesCommandInput - {@link GetIdentityVerificationAttributesCommandInput}
- * @returns {@link GetIdentityVerificationAttributesCommandOutput}
+ * @param GetIdentityVerificationAttributesRequest - {@link GetIdentityVerificationAttributesRequest}
+ * @returns {@link GetIdentityVerificationAttributesResponse}
  * @see {@link GetIdentityVerificationAttributesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityVerificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

@@ -72,8 +72,8 @@ export interface ValidateSolFunctionPackageContentCommandOutput
  *
  * ```
  *
- * @param ValidateSolFunctionPackageContentCommandInput - {@link ValidateSolFunctionPackageContentCommandInput}
- * @returns {@link ValidateSolFunctionPackageContentCommandOutput}
+ * @param ValidateSolFunctionPackageContentInput - {@link ValidateSolFunctionPackageContentInput}
+ * @returns {@link ValidateSolFunctionPackageContentOutput}
  * @see {@link ValidateSolFunctionPackageContentCommandInput} for command's `input` shape.
  * @see {@link ValidateSolFunctionPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

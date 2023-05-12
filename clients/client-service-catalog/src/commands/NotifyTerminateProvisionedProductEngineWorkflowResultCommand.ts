@@ -64,8 +64,8 @@ export interface NotifyTerminateProvisionedProductEngineWorkflowResultCommandOut
  *
  * ```
  *
- * @param NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput - {@link NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput}
- * @returns {@link NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput}
+ * @param NotifyTerminateProvisionedProductEngineWorkflowResultInput - {@link NotifyTerminateProvisionedProductEngineWorkflowResultInput}
+ * @returns {@link NotifyTerminateProvisionedProductEngineWorkflowResultOutput}
  * @see {@link NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput} for command's `input` shape.
  * @see {@link NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DisableRadiusCommandOutput extends DisableRadiusResult, __Metad
  *
  * ```
  *
- * @param DisableRadiusCommandInput - {@link DisableRadiusCommandInput}
- * @returns {@link DisableRadiusCommandOutput}
+ * @param DisableRadiusRequest - {@link DisableRadiusRequest}
+ * @returns {@link DisableRadiusResult}
  * @see {@link DisableRadiusCommandInput} for command's `input` shape.
  * @see {@link DisableRadiusCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

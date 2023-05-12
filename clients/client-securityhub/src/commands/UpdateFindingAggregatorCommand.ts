@@ -61,8 +61,8 @@ export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggre
  *
  * ```
  *
- * @param UpdateFindingAggregatorCommandInput - {@link UpdateFindingAggregatorCommandInput}
- * @returns {@link UpdateFindingAggregatorCommandOutput}
+ * @param UpdateFindingAggregatorRequest - {@link UpdateFindingAggregatorRequest}
+ * @returns {@link UpdateFindingAggregatorResponse}
  * @see {@link UpdateFindingAggregatorCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingAggregatorCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

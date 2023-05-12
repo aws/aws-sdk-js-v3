@@ -50,8 +50,8 @@ export interface DeregisterMailDomainCommandOutput extends DeregisterMailDomainR
  *
  * ```
  *
- * @param DeregisterMailDomainCommandInput - {@link DeregisterMailDomainCommandInput}
- * @returns {@link DeregisterMailDomainCommandOutput}
+ * @param DeregisterMailDomainRequest - {@link DeregisterMailDomainRequest}
+ * @returns {@link DeregisterMailDomainResponse}
  * @see {@link DeregisterMailDomainCommandInput} for command's `input` shape.
  * @see {@link DeregisterMailDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

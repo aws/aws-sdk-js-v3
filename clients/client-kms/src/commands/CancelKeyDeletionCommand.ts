@@ -62,8 +62,8 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  *
  * ```
  *
- * @param CancelKeyDeletionCommandInput - {@link CancelKeyDeletionCommandInput}
- * @returns {@link CancelKeyDeletionCommandOutput}
+ * @param CancelKeyDeletionRequest - {@link CancelKeyDeletionRequest}
+ * @returns {@link CancelKeyDeletionResponse}
  * @see {@link CancelKeyDeletionCommandInput} for command's `input` shape.
  * @see {@link CancelKeyDeletionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

@@ -3885,8 +3885,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *
  * ```
  *
- * @param BatchImportFindingsCommandInput - {@link BatchImportFindingsCommandInput}
- * @returns {@link BatchImportFindingsCommandOutput}
+ * @param BatchImportFindingsRequest - {@link BatchImportFindingsRequest}
+ * @returns {@link BatchImportFindingsResponse}
  * @see {@link BatchImportFindingsCommandInput} for command's `input` shape.
  * @see {@link BatchImportFindingsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

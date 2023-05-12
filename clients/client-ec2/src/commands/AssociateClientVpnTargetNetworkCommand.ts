@@ -63,8 +63,8 @@ export interface AssociateClientVpnTargetNetworkCommandOutput
  *
  * ```
  *
- * @param AssociateClientVpnTargetNetworkCommandInput - {@link AssociateClientVpnTargetNetworkCommandInput}
- * @returns {@link AssociateClientVpnTargetNetworkCommandOutput}
+ * @param AssociateClientVpnTargetNetworkRequest - {@link AssociateClientVpnTargetNetworkRequest}
+ * @returns {@link AssociateClientVpnTargetNetworkResult}
  * @see {@link AssociateClientVpnTargetNetworkCommandInput} for command's `input` shape.
  * @see {@link AssociateClientVpnTargetNetworkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

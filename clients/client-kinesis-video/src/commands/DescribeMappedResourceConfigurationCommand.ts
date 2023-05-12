@@ -69,8 +69,8 @@ export interface DescribeMappedResourceConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeMappedResourceConfigurationCommandInput - {@link DescribeMappedResourceConfigurationCommandInput}
- * @returns {@link DescribeMappedResourceConfigurationCommandOutput}
+ * @param DescribeMappedResourceConfigurationInput - {@link DescribeMappedResourceConfigurationInput}
+ * @returns {@link DescribeMappedResourceConfigurationOutput}
  * @see {@link DescribeMappedResourceConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeMappedResourceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

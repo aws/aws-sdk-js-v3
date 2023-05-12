@@ -100,8 +100,8 @@ export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse,
  *
  * ```
  *
- * @param GetUserEndpointsCommandInput - {@link GetUserEndpointsCommandInput}
- * @returns {@link GetUserEndpointsCommandOutput}
+ * @param GetUserEndpointsRequest - {@link GetUserEndpointsRequest}
+ * @returns {@link GetUserEndpointsResponse}
  * @see {@link GetUserEndpointsCommandInput} for command's `input` shape.
  * @see {@link GetUserEndpointsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

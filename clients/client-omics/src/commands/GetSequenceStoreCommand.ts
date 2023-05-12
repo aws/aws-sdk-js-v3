@@ -59,8 +59,8 @@ export interface GetSequenceStoreCommandOutput extends GetSequenceStoreResponse,
  *
  * ```
  *
- * @param GetSequenceStoreCommandInput - {@link GetSequenceStoreCommandInput}
- * @returns {@link GetSequenceStoreCommandOutput}
+ * @param GetSequenceStoreRequest - {@link GetSequenceStoreRequest}
+ * @returns {@link GetSequenceStoreResponse}
  * @see {@link GetSequenceStoreCommandInput} for command's `input` shape.
  * @see {@link GetSequenceStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

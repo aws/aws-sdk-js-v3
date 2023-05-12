@@ -75,8 +75,8 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  *
  * ```
  *
- * @param CreateExportTaskCommandInput - {@link CreateExportTaskCommandInput}
- * @returns {@link CreateExportTaskCommandOutput}
+ * @param CreateExportTaskRequest - {@link CreateExportTaskRequest}
+ * @returns {@link CreateExportTaskResponse}
  * @see {@link CreateExportTaskCommandInput} for command's `input` shape.
  * @see {@link CreateExportTaskCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

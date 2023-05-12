@@ -74,8 +74,8 @@ export interface RestoreManagedPrefixListVersionCommandOutput
  *
  * ```
  *
- * @param RestoreManagedPrefixListVersionCommandInput - {@link RestoreManagedPrefixListVersionCommandInput}
- * @returns {@link RestoreManagedPrefixListVersionCommandOutput}
+ * @param RestoreManagedPrefixListVersionRequest - {@link RestoreManagedPrefixListVersionRequest}
+ * @returns {@link RestoreManagedPrefixListVersionResult}
  * @see {@link RestoreManagedPrefixListVersionCommandInput} for command's `input` shape.
  * @see {@link RestoreManagedPrefixListVersionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

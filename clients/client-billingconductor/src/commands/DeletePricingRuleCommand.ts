@@ -50,8 +50,8 @@ export interface DeletePricingRuleCommandOutput extends DeletePricingRuleOutput,
  *
  * ```
  *
- * @param DeletePricingRuleCommandInput - {@link DeletePricingRuleCommandInput}
- * @returns {@link DeletePricingRuleCommandOutput}
+ * @param DeletePricingRuleInput - {@link DeletePricingRuleInput}
+ * @returns {@link DeletePricingRuleOutput}
  * @see {@link DeletePricingRuleCommandInput} for command's `input` shape.
  * @see {@link DeletePricingRuleCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

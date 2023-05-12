@@ -53,8 +53,8 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  *
  * ```
  *
- * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
- * @returns {@link ListApplicationsCommandOutput}
+ * @param ListApplicationsInput - {@link ListApplicationsInput}
+ * @returns {@link ListApplicationsOutput}
  * @see {@link ListApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

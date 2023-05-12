@@ -57,8 +57,8 @@ export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __Met
  *
  * ```
  *
- * @param ListKeyspacesCommandInput - {@link ListKeyspacesCommandInput}
- * @returns {@link ListKeyspacesCommandOutput}
+ * @param ListKeyspacesRequest - {@link ListKeyspacesRequest}
+ * @returns {@link ListKeyspacesResponse}
  * @see {@link ListKeyspacesCommandInput} for command's `input` shape.
  * @see {@link ListKeyspacesCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.

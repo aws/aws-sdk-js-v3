@@ -60,8 +60,8 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  *
  * ```
  *
- * @param UpdateJobQueueCommandInput - {@link UpdateJobQueueCommandInput}
- * @returns {@link UpdateJobQueueCommandOutput}
+ * @param UpdateJobQueueRequest - {@link UpdateJobQueueRequest}
+ * @returns {@link UpdateJobQueueResponse}
  * @see {@link UpdateJobQueueCommandInput} for command's `input` shape.
  * @see {@link UpdateJobQueueCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

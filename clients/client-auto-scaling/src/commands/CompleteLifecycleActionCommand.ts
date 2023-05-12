@@ -89,8 +89,8 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  *
  * ```
  *
- * @param CompleteLifecycleActionCommandInput - {@link CompleteLifecycleActionCommandInput}
- * @returns {@link CompleteLifecycleActionCommandOutput}
+ * @param CompleteLifecycleActionType - {@link CompleteLifecycleActionType}
+ * @returns {@link CompleteLifecycleActionAnswer}
  * @see {@link CompleteLifecycleActionCommandInput} for command's `input` shape.
  * @see {@link CompleteLifecycleActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

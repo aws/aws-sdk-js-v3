@@ -67,8 +67,8 @@ export interface ListCoreNetworksCommandOutput extends ListCoreNetworksResponse,
  *
  * ```
  *
- * @param ListCoreNetworksCommandInput - {@link ListCoreNetworksCommandInput}
- * @returns {@link ListCoreNetworksCommandOutput}
+ * @param ListCoreNetworksRequest - {@link ListCoreNetworksRequest}
+ * @returns {@link ListCoreNetworksResponse}
  * @see {@link ListCoreNetworksCommandInput} for command's `input` shape.
  * @see {@link ListCoreNetworksCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

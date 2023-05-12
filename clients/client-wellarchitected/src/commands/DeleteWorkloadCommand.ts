@@ -49,8 +49,8 @@ export interface DeleteWorkloadCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteWorkloadCommandInput - {@link DeleteWorkloadCommandInput}
- * @returns {@link DeleteWorkloadCommandOutput}
+ * @param DeleteWorkloadInput - {@link DeleteWorkloadInput}
+ * @returns {@link Unit}
  * @see {@link DeleteWorkloadCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkloadCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

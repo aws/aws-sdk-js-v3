@@ -139,8 +139,8 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  *
  * ```
  *
- * @param CreateScheduleCommandInput - {@link CreateScheduleCommandInput}
- * @returns {@link CreateScheduleCommandOutput}
+ * @param CreateScheduleInput - {@link CreateScheduleInput}
+ * @returns {@link CreateScheduleOutput}
  * @see {@link CreateScheduleCommandInput} for command's `input` shape.
  * @see {@link CreateScheduleCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.

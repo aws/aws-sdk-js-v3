@@ -72,8 +72,8 @@ export interface BatchGetPreparedStatementCommandOutput extends BatchGetPrepared
  *
  * ```
  *
- * @param BatchGetPreparedStatementCommandInput - {@link BatchGetPreparedStatementCommandInput}
- * @returns {@link BatchGetPreparedStatementCommandOutput}
+ * @param BatchGetPreparedStatementInput - {@link BatchGetPreparedStatementInput}
+ * @returns {@link BatchGetPreparedStatementOutput}
  * @see {@link BatchGetPreparedStatementCommandInput} for command's `input` shape.
  * @see {@link BatchGetPreparedStatementCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

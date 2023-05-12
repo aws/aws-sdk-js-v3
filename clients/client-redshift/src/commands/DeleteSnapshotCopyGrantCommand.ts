@@ -48,8 +48,8 @@ export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DeleteSnapshotCopyGrantCommandInput - {@link DeleteSnapshotCopyGrantCommandInput}
- * @returns {@link DeleteSnapshotCopyGrantCommandOutput}
+ * @param DeleteSnapshotCopyGrantMessage - {@link DeleteSnapshotCopyGrantMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteSnapshotCopyGrantCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCopyGrantCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

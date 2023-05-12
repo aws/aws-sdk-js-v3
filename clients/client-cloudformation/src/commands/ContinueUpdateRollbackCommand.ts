@@ -62,8 +62,8 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  *
  * ```
  *
- * @param ContinueUpdateRollbackCommandInput - {@link ContinueUpdateRollbackCommandInput}
- * @returns {@link ContinueUpdateRollbackCommandOutput}
+ * @param ContinueUpdateRollbackInput - {@link ContinueUpdateRollbackInput}
+ * @returns {@link ContinueUpdateRollbackOutput}
  * @see {@link ContinueUpdateRollbackCommandInput} for command's `input` shape.
  * @see {@link ContinueUpdateRollbackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

@@ -61,8 +61,8 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *
  * ```
  *
- * @param ListAccountsCommandInput - {@link ListAccountsCommandInput}
- * @returns {@link ListAccountsCommandOutput}
+ * @param ListAccountsRequest - {@link ListAccountsRequest}
+ * @returns {@link ListAccountsResponse}
  * @see {@link ListAccountsCommandInput} for command's `input` shape.
  * @see {@link ListAccountsCommandOutput} for command's `response` shape.
  * @see {@link SSOClientResolvedConfig | config} for SSOClient's `config` shape.

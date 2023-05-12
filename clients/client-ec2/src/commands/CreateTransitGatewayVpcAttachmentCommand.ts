@@ -100,8 +100,8 @@ export interface CreateTransitGatewayVpcAttachmentCommandOutput
  *
  * ```
  *
- * @param CreateTransitGatewayVpcAttachmentCommandInput - {@link CreateTransitGatewayVpcAttachmentCommandInput}
- * @returns {@link CreateTransitGatewayVpcAttachmentCommandOutput}
+ * @param CreateTransitGatewayVpcAttachmentRequest - {@link CreateTransitGatewayVpcAttachmentRequest}
+ * @returns {@link CreateTransitGatewayVpcAttachmentResult}
  * @see {@link CreateTransitGatewayVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -4375,8 +4375,8 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *
  * ```
  *
- * @param UpdateAnalysisCommandInput - {@link UpdateAnalysisCommandInput}
- * @returns {@link UpdateAnalysisCommandOutput}
+ * @param UpdateAnalysisRequest - {@link UpdateAnalysisRequest}
+ * @returns {@link UpdateAnalysisResponse}
  * @see {@link UpdateAnalysisCommandInput} for command's `input` shape.
  * @see {@link UpdateAnalysisCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

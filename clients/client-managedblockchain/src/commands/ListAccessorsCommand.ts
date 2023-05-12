@@ -65,8 +65,8 @@ export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __Metad
  *
  * ```
  *
- * @param ListAccessorsCommandInput - {@link ListAccessorsCommandInput}
- * @returns {@link ListAccessorsCommandOutput}
+ * @param ListAccessorsInput - {@link ListAccessorsInput}
+ * @returns {@link ListAccessorsOutput}
  * @see {@link ListAccessorsCommandInput} for command's `input` shape.
  * @see {@link ListAccessorsCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

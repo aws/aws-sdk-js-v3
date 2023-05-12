@@ -104,8 +104,8 @@ export interface UpdateQualificationTypeCommandOutput extends UpdateQualificatio
  *
  * ```
  *
- * @param UpdateQualificationTypeCommandInput - {@link UpdateQualificationTypeCommandInput}
- * @returns {@link UpdateQualificationTypeCommandOutput}
+ * @param UpdateQualificationTypeRequest - {@link UpdateQualificationTypeRequest}
+ * @returns {@link UpdateQualificationTypeResponse}
  * @see {@link UpdateQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

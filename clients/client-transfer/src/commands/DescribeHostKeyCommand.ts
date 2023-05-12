@@ -64,8 +64,8 @@ export interface DescribeHostKeyCommandOutput extends DescribeHostKeyResponse, _
  *
  * ```
  *
- * @param DescribeHostKeyCommandInput - {@link DescribeHostKeyCommandInput}
- * @returns {@link DescribeHostKeyCommandOutput}
+ * @param DescribeHostKeyRequest - {@link DescribeHostKeyRequest}
+ * @returns {@link DescribeHostKeyResponse}
  * @see {@link DescribeHostKeyCommandInput} for command's `input` shape.
  * @see {@link DescribeHostKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

@@ -87,8 +87,8 @@ export interface CreateComponentCommandOutput extends CreateComponentOutput, __M
  *
  * ```
  *
- * @param CreateComponentCommandInput - {@link CreateComponentCommandInput}
- * @returns {@link CreateComponentCommandOutput}
+ * @param CreateComponentInput - {@link CreateComponentInput}
+ * @returns {@link CreateComponentOutput}
  * @see {@link CreateComponentCommandInput} for command's `input` shape.
  * @see {@link CreateComponentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

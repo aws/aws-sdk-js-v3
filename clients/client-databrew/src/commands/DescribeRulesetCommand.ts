@@ -81,8 +81,8 @@ export interface DescribeRulesetCommandOutput extends DescribeRulesetResponse, _
  *
  * ```
  *
- * @param DescribeRulesetCommandInput - {@link DescribeRulesetCommandInput}
- * @returns {@link DescribeRulesetCommandOutput}
+ * @param DescribeRulesetRequest - {@link DescribeRulesetRequest}
+ * @returns {@link DescribeRulesetResponse}
  * @see {@link DescribeRulesetCommandInput} for command's `input` shape.
  * @see {@link DescribeRulesetCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

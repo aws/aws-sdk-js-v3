@@ -112,8 +112,8 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  *
  * ```
  *
- * @param GenerateServiceLastAccessedDetailsCommandInput - {@link GenerateServiceLastAccessedDetailsCommandInput}
- * @returns {@link GenerateServiceLastAccessedDetailsCommandOutput}
+ * @param GenerateServiceLastAccessedDetailsRequest - {@link GenerateServiceLastAccessedDetailsRequest}
+ * @returns {@link GenerateServiceLastAccessedDetailsResponse}
  * @see {@link GenerateServiceLastAccessedDetailsCommandInput} for command's `input` shape.
  * @see {@link GenerateServiceLastAccessedDetailsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

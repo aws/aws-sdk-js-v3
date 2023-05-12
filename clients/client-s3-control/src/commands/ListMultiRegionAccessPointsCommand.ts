@@ -103,8 +103,8 @@ export interface ListMultiRegionAccessPointsCommandOutput extends ListMultiRegio
  *
  * ```
  *
- * @param ListMultiRegionAccessPointsCommandInput - {@link ListMultiRegionAccessPointsCommandInput}
- * @returns {@link ListMultiRegionAccessPointsCommandOutput}
+ * @param ListMultiRegionAccessPointsRequest - {@link ListMultiRegionAccessPointsRequest}
+ * @returns {@link ListMultiRegionAccessPointsResult}
  * @see {@link ListMultiRegionAccessPointsCommandInput} for command's `input` shape.
  * @see {@link ListMultiRegionAccessPointsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

@@ -68,8 +68,8 @@ export interface CreateGlobalNetworkCommandOutput extends CreateGlobalNetworkRes
  *
  * ```
  *
- * @param CreateGlobalNetworkCommandInput - {@link CreateGlobalNetworkCommandInput}
- * @returns {@link CreateGlobalNetworkCommandOutput}
+ * @param CreateGlobalNetworkRequest - {@link CreateGlobalNetworkRequest}
+ * @returns {@link CreateGlobalNetworkResponse}
  * @see {@link CreateGlobalNetworkCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

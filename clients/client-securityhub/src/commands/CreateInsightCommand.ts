@@ -305,8 +305,8 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *
  * ```
  *
- * @param CreateInsightCommandInput - {@link CreateInsightCommandInput}
- * @returns {@link CreateInsightCommandOutput}
+ * @param CreateInsightRequest - {@link CreateInsightRequest}
+ * @returns {@link CreateInsightResponse}
  * @see {@link CreateInsightCommandInput} for command's `input` shape.
  * @see {@link CreateInsightCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

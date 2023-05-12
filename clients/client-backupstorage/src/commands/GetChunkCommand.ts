@@ -57,8 +57,8 @@ export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutp
  *
  * ```
  *
- * @param GetChunkCommandInput - {@link GetChunkCommandInput}
- * @returns {@link GetChunkCommandOutput}
+ * @param GetChunkInput - {@link GetChunkInput}
+ * @returns {@link GetChunkOutput}
  * @see {@link GetChunkCommandInput} for command's `input` shape.
  * @see {@link GetChunkCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.

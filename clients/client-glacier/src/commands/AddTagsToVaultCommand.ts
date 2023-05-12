@@ -57,8 +57,8 @@ export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AddTagsToVaultCommandInput - {@link AddTagsToVaultCommandInput}
- * @returns {@link AddTagsToVaultCommandOutput}
+ * @param AddTagsToVaultInput - {@link AddTagsToVaultInput}
+ * @returns {@link Unit}
  * @see {@link AddTagsToVaultCommandInput} for command's `input` shape.
  * @see {@link AddTagsToVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

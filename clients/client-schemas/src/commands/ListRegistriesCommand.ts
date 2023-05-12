@@ -62,8 +62,8 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  *
  * ```
  *
- * @param ListRegistriesCommandInput - {@link ListRegistriesCommandInput}
- * @returns {@link ListRegistriesCommandOutput}
+ * @param ListRegistriesRequest - {@link ListRegistriesRequest}
+ * @returns {@link ListRegistriesResponse}
  * @see {@link ListRegistriesCommandInput} for command's `input` shape.
  * @see {@link ListRegistriesCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

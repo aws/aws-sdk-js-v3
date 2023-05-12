@@ -65,8 +65,8 @@ export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, _
  *
  * ```
  *
- * @param SetUserSettingsCommandInput - {@link SetUserSettingsCommandInput}
- * @returns {@link SetUserSettingsCommandOutput}
+ * @param SetUserSettingsRequest - {@link SetUserSettingsRequest}
+ * @returns {@link SetUserSettingsResponse}
  * @see {@link SetUserSettingsCommandInput} for command's `input` shape.
  * @see {@link SetUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

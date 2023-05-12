@@ -154,8 +154,8 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  *
  * ```
  *
- * @param GetMetricDataCommandInput - {@link GetMetricDataCommandInput}
- * @returns {@link GetMetricDataCommandOutput}
+ * @param GetMetricDataInput - {@link GetMetricDataInput}
+ * @returns {@link GetMetricDataOutput}
  * @see {@link GetMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetMetricDataCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

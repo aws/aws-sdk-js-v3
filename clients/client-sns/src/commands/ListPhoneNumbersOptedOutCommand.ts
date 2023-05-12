@@ -60,8 +60,8 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
  *
  * ```
  *
- * @param ListPhoneNumbersOptedOutCommandInput - {@link ListPhoneNumbersOptedOutCommandInput}
- * @returns {@link ListPhoneNumbersOptedOutCommandOutput}
+ * @param ListPhoneNumbersOptedOutInput - {@link ListPhoneNumbersOptedOutInput}
+ * @returns {@link ListPhoneNumbersOptedOutResponse}
  * @see {@link ListPhoneNumbersOptedOutCommandInput} for command's `input` shape.
  * @see {@link ListPhoneNumbersOptedOutCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

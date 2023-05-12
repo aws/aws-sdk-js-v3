@@ -81,8 +81,8 @@ export interface ListTypedLinkFacetAttributesCommandOutput
  *
  * ```
  *
- * @param ListTypedLinkFacetAttributesCommandInput - {@link ListTypedLinkFacetAttributesCommandInput}
- * @returns {@link ListTypedLinkFacetAttributesCommandOutput}
+ * @param ListTypedLinkFacetAttributesRequest - {@link ListTypedLinkFacetAttributesRequest}
+ * @returns {@link ListTypedLinkFacetAttributesResponse}
  * @see {@link ListTypedLinkFacetAttributesCommandInput} for command's `input` shape.
  * @see {@link ListTypedLinkFacetAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

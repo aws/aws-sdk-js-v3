@@ -49,8 +49,8 @@ export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __M
  *
  * ```
  *
- * @param GetAccountAliasCommandInput - {@link GetAccountAliasCommandInput}
- * @returns {@link GetAccountAliasCommandOutput}
+ * @param GetAccountAliasRequest - {@link GetAccountAliasRequest}
+ * @returns {@link GetAccountAliasResult}
  * @see {@link GetAccountAliasCommandInput} for command's `input` shape.
  * @see {@link GetAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.

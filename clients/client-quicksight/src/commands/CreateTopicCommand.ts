@@ -306,8 +306,8 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *
  * ```
  *
- * @param CreateTopicCommandInput - {@link CreateTopicCommandInput}
- * @returns {@link CreateTopicCommandOutput}
+ * @param CreateTopicRequest - {@link CreateTopicRequest}
+ * @returns {@link CreateTopicResponse}
  * @see {@link CreateTopicCommandInput} for command's `input` shape.
  * @see {@link CreateTopicCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DeleteTopicRuleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteTopicRuleCommandInput - {@link DeleteTopicRuleCommandInput}
- * @returns {@link DeleteTopicRuleCommandOutput}
+ * @param DeleteTopicRuleRequest - {@link DeleteTopicRuleRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteTopicRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteTopicRuleCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

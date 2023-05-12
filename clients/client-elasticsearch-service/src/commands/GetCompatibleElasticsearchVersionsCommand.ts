@@ -76,8 +76,8 @@ export interface GetCompatibleElasticsearchVersionsCommandOutput
  *
  * ```
  *
- * @param GetCompatibleElasticsearchVersionsCommandInput - {@link GetCompatibleElasticsearchVersionsCommandInput}
- * @returns {@link GetCompatibleElasticsearchVersionsCommandOutput}
+ * @param GetCompatibleElasticsearchVersionsRequest - {@link GetCompatibleElasticsearchVersionsRequest}
+ * @returns {@link GetCompatibleElasticsearchVersionsResponse}
  * @see {@link GetCompatibleElasticsearchVersionsCommandInput} for command's `input` shape.
  * @see {@link GetCompatibleElasticsearchVersionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

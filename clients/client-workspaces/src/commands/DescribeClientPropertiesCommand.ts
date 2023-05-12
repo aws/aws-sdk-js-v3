@@ -60,8 +60,8 @@ export interface DescribeClientPropertiesCommandOutput extends DescribeClientPro
  *
  * ```
  *
- * @param DescribeClientPropertiesCommandInput - {@link DescribeClientPropertiesCommandInput}
- * @returns {@link DescribeClientPropertiesCommandOutput}
+ * @param DescribeClientPropertiesRequest - {@link DescribeClientPropertiesRequest}
+ * @returns {@link DescribeClientPropertiesResult}
  * @see {@link DescribeClientPropertiesCommandInput} for command's `input` shape.
  * @see {@link DescribeClientPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

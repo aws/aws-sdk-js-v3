@@ -81,8 +81,8 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  *
  * ```
  *
- * @param GetPersonalizedRankingCommandInput - {@link GetPersonalizedRankingCommandInput}
- * @returns {@link GetPersonalizedRankingCommandOutput}
+ * @param GetPersonalizedRankingRequest - {@link GetPersonalizedRankingRequest}
+ * @returns {@link GetPersonalizedRankingResponse}
  * @see {@link GetPersonalizedRankingCommandInput} for command's `input` shape.
  * @see {@link GetPersonalizedRankingCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeRuntimeClientResolvedConfig | config} for PersonalizeRuntimeClient's `config` shape.

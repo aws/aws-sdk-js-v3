@@ -58,8 +58,8 @@ export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ResendValidationEmailCommandInput - {@link ResendValidationEmailCommandInput}
- * @returns {@link ResendValidationEmailCommandOutput}
+ * @param ResendValidationEmailRequest - {@link ResendValidationEmailRequest}
+ * @returns {@link Unit}
  * @see {@link ResendValidationEmailCommandInput} for command's `input` shape.
  * @see {@link ResendValidationEmailCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.

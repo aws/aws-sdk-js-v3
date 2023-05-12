@@ -71,8 +71,8 @@ export interface UpdateApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateApiKeyCommandInput - {@link UpdateApiKeyCommandInput}
- * @returns {@link UpdateApiKeyCommandOutput}
+ * @param UpdateApiKeyRequest - {@link UpdateApiKeyRequest}
+ * @returns {@link ApiKey}
  * @see {@link UpdateApiKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateApiKeyCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

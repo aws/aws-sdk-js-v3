@@ -71,8 +71,8 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  *
  * ```
  *
- * @param AssociateCreatedArtifactCommandInput - {@link AssociateCreatedArtifactCommandInput}
- * @returns {@link AssociateCreatedArtifactCommandOutput}
+ * @param AssociateCreatedArtifactRequest - {@link AssociateCreatedArtifactRequest}
+ * @returns {@link AssociateCreatedArtifactResult}
  * @see {@link AssociateCreatedArtifactCommandInput} for command's `input` shape.
  * @see {@link AssociateCreatedArtifactCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.

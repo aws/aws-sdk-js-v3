@@ -53,8 +53,8 @@ export interface ResetDeploymentsCommandOutput extends ResetDeploymentsResponse,
  *
  * ```
  *
- * @param ResetDeploymentsCommandInput - {@link ResetDeploymentsCommandInput}
- * @returns {@link ResetDeploymentsCommandOutput}
+ * @param ResetDeploymentsRequest - {@link ResetDeploymentsRequest}
+ * @returns {@link ResetDeploymentsResponse}
  * @see {@link ResetDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ResetDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

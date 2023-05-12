@@ -169,8 +169,8 @@ export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceSe
  *
  * ```
  *
- * @param UpdateSourceServerReplicationTypeCommandInput - {@link UpdateSourceServerReplicationTypeCommandInput}
- * @returns {@link UpdateSourceServerReplicationTypeCommandOutput}
+ * @param UpdateSourceServerReplicationTypeRequest - {@link UpdateSourceServerReplicationTypeRequest}
+ * @returns {@link SourceServer}
  * @see {@link UpdateSourceServerReplicationTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateSourceServerReplicationTypeCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

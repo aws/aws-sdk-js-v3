@@ -140,8 +140,8 @@ export interface UpdateConfiguredTableAnalysisRuleCommandOutput
  *
  * ```
  *
- * @param UpdateConfiguredTableAnalysisRuleCommandInput - {@link UpdateConfiguredTableAnalysisRuleCommandInput}
- * @returns {@link UpdateConfiguredTableAnalysisRuleCommandOutput}
+ * @param UpdateConfiguredTableAnalysisRuleInput - {@link UpdateConfiguredTableAnalysisRuleInput}
+ * @returns {@link UpdateConfiguredTableAnalysisRuleOutput}
  * @see {@link UpdateConfiguredTableAnalysisRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateConfiguredTableAnalysisRuleCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

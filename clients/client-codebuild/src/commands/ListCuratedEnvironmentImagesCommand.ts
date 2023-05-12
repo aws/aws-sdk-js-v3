@@ -71,8 +71,8 @@ export interface ListCuratedEnvironmentImagesCommandOutput
  *
  * ```
  *
- * @param ListCuratedEnvironmentImagesCommandInput - {@link ListCuratedEnvironmentImagesCommandInput}
- * @returns {@link ListCuratedEnvironmentImagesCommandOutput}
+ * @param ListCuratedEnvironmentImagesInput - {@link ListCuratedEnvironmentImagesInput}
+ * @returns {@link ListCuratedEnvironmentImagesOutput}
  * @see {@link ListCuratedEnvironmentImagesCommandInput} for command's `input` shape.
  * @see {@link ListCuratedEnvironmentImagesCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

@@ -128,8 +128,8 @@ export interface ListBucketAnalyticsConfigurationsCommandOutput
  *
  * ```
  *
- * @param ListBucketAnalyticsConfigurationsCommandInput - {@link ListBucketAnalyticsConfigurationsCommandInput}
- * @returns {@link ListBucketAnalyticsConfigurationsCommandOutput}
+ * @param ListBucketAnalyticsConfigurationsRequest - {@link ListBucketAnalyticsConfigurationsRequest}
+ * @returns {@link ListBucketAnalyticsConfigurationsOutput}
  * @see {@link ListBucketAnalyticsConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListBucketAnalyticsConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

@@ -71,8 +71,8 @@ export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesR
  *
  * ```
  *
- * @param ListInventoryEntriesCommandInput - {@link ListInventoryEntriesCommandInput}
- * @returns {@link ListInventoryEntriesCommandOutput}
+ * @param ListInventoryEntriesRequest - {@link ListInventoryEntriesRequest}
+ * @returns {@link ListInventoryEntriesResult}
  * @see {@link ListInventoryEntriesCommandInput} for command's `input` shape.
  * @see {@link ListInventoryEntriesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

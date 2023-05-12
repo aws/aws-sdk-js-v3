@@ -93,8 +93,8 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  *
  * ```
  *
- * @param UpdateDomainNameCommandInput - {@link UpdateDomainNameCommandInput}
- * @returns {@link UpdateDomainNameCommandOutput}
+ * @param UpdateDomainNameRequest - {@link UpdateDomainNameRequest}
+ * @returns {@link UpdateDomainNameResponse}
  * @see {@link UpdateDomainNameCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainNameCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

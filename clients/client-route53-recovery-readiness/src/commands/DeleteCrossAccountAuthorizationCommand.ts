@@ -57,8 +57,8 @@ export interface DeleteCrossAccountAuthorizationCommandOutput
  *
  * ```
  *
- * @param DeleteCrossAccountAuthorizationCommandInput - {@link DeleteCrossAccountAuthorizationCommandInput}
- * @returns {@link DeleteCrossAccountAuthorizationCommandOutput}
+ * @param DeleteCrossAccountAuthorizationRequest - {@link DeleteCrossAccountAuthorizationRequest}
+ * @returns {@link DeleteCrossAccountAuthorizationResponse}
  * @see {@link DeleteCrossAccountAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteCrossAccountAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

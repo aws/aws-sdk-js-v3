@@ -66,8 +66,8 @@ export interface TerminateSolNetworkInstanceCommandOutput extends TerminateSolNe
  *
  * ```
  *
- * @param TerminateSolNetworkInstanceCommandInput - {@link TerminateSolNetworkInstanceCommandInput}
- * @returns {@link TerminateSolNetworkInstanceCommandOutput}
+ * @param TerminateSolNetworkInstanceInput - {@link TerminateSolNetworkInstanceInput}
+ * @returns {@link TerminateSolNetworkInstanceOutput}
  * @see {@link TerminateSolNetworkInstanceCommandInput} for command's `input` shape.
  * @see {@link TerminateSolNetworkInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

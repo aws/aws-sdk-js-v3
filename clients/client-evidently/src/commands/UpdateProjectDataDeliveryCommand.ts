@@ -90,8 +90,8 @@ export interface UpdateProjectDataDeliveryCommandOutput extends UpdateProjectDat
  *
  * ```
  *
- * @param UpdateProjectDataDeliveryCommandInput - {@link UpdateProjectDataDeliveryCommandInput}
- * @returns {@link UpdateProjectDataDeliveryCommandOutput}
+ * @param UpdateProjectDataDeliveryRequest - {@link UpdateProjectDataDeliveryRequest}
+ * @returns {@link UpdateProjectDataDeliveryResponse}
  * @see {@link UpdateProjectDataDeliveryCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectDataDeliveryCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

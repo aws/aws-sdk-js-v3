@@ -51,8 +51,8 @@ export interface DeleteWarmPoolCommandOutput extends DeleteWarmPoolAnswer, __Met
  *
  * ```
  *
- * @param DeleteWarmPoolCommandInput - {@link DeleteWarmPoolCommandInput}
- * @returns {@link DeleteWarmPoolCommandOutput}
+ * @param DeleteWarmPoolType - {@link DeleteWarmPoolType}
+ * @returns {@link DeleteWarmPoolAnswer}
  * @see {@link DeleteWarmPoolCommandInput} for command's `input` shape.
  * @see {@link DeleteWarmPoolCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

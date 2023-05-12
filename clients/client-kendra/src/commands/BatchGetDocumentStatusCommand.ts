@@ -90,8 +90,8 @@ export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentSta
  *
  * ```
  *
- * @param BatchGetDocumentStatusCommandInput - {@link BatchGetDocumentStatusCommandInput}
- * @returns {@link BatchGetDocumentStatusCommandOutput}
+ * @param BatchGetDocumentStatusRequest - {@link BatchGetDocumentStatusRequest}
+ * @returns {@link BatchGetDocumentStatusResponse}
  * @see {@link BatchGetDocumentStatusCommandInput} for command's `input` shape.
  * @see {@link BatchGetDocumentStatusCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

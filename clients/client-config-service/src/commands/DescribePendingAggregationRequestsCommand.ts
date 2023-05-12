@@ -65,8 +65,8 @@ export interface DescribePendingAggregationRequestsCommandOutput
  *
  * ```
  *
- * @param DescribePendingAggregationRequestsCommandInput - {@link DescribePendingAggregationRequestsCommandInput}
- * @returns {@link DescribePendingAggregationRequestsCommandOutput}
+ * @param DescribePendingAggregationRequestsRequest - {@link DescribePendingAggregationRequestsRequest}
+ * @returns {@link DescribePendingAggregationRequestsResponse}
  * @see {@link DescribePendingAggregationRequestsCommandInput} for command's `input` shape.
  * @see {@link DescribePendingAggregationRequestsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

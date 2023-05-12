@@ -50,8 +50,8 @@ export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataB
  *
  * ```
  *
- * @param UpdateRoleCommandInput - {@link UpdateRoleCommandInput}
- * @returns {@link UpdateRoleCommandOutput}
+ * @param UpdateRoleRequest - {@link UpdateRoleRequest}
+ * @returns {@link UpdateRoleResponse}
  * @see {@link UpdateRoleCommandInput} for command's `input` shape.
  * @see {@link UpdateRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

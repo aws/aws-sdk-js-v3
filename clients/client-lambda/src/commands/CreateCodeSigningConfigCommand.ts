@@ -73,8 +73,8 @@ export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningC
  *
  * ```
  *
- * @param CreateCodeSigningConfigCommandInput - {@link CreateCodeSigningConfigCommandInput}
- * @returns {@link CreateCodeSigningConfigCommandOutput}
+ * @param CreateCodeSigningConfigRequest - {@link CreateCodeSigningConfigRequest}
+ * @returns {@link CreateCodeSigningConfigResponse}
  * @see {@link CreateCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link CreateCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

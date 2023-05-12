@@ -67,8 +67,8 @@ export interface CreateRobotCommandOutput extends CreateRobotResponse, __Metadat
  *
  * ```
  *
- * @param CreateRobotCommandInput - {@link CreateRobotCommandInput}
- * @returns {@link CreateRobotCommandOutput}
+ * @param CreateRobotRequest - {@link CreateRobotRequest}
+ * @returns {@link CreateRobotResponse}
  * @see {@link CreateRobotCommandInput} for command's `input` shape.
  * @see {@link CreateRobotCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

@@ -89,8 +89,8 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param TagPolicyCommandInput - {@link TagPolicyCommandInput}
- * @returns {@link TagPolicyCommandOutput}
+ * @param TagPolicyRequest - {@link TagPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link TagPolicyCommandInput} for command's `input` shape.
  * @see {@link TagPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

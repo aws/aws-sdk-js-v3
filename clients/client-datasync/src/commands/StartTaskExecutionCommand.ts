@@ -93,8 +93,8 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  *
  * ```
  *
- * @param StartTaskExecutionCommandInput - {@link StartTaskExecutionCommandInput}
- * @returns {@link StartTaskExecutionCommandOutput}
+ * @param StartTaskExecutionRequest - {@link StartTaskExecutionRequest}
+ * @returns {@link StartTaskExecutionResponse}
  * @see {@link StartTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link StartTaskExecutionCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

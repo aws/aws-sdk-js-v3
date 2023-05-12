@@ -82,8 +82,8 @@ export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlac
  *
  * ```
  *
- * @param ModifyInstancePlacementCommandInput - {@link ModifyInstancePlacementCommandInput}
- * @returns {@link ModifyInstancePlacementCommandOutput}
+ * @param ModifyInstancePlacementRequest - {@link ModifyInstancePlacementRequest}
+ * @returns {@link ModifyInstancePlacementResult}
  * @see {@link ModifyInstancePlacementCommandInput} for command's `input` shape.
  * @see {@link ModifyInstancePlacementCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

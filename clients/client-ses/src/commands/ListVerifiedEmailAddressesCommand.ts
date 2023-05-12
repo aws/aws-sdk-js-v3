@@ -51,8 +51,8 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  *
  * ```
  *
- * @param ListVerifiedEmailAddressesCommandInput - {@link ListVerifiedEmailAddressesCommandInput}
- * @returns {@link ListVerifiedEmailAddressesCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link ListVerifiedEmailAddressesResponse}
  * @see {@link ListVerifiedEmailAddressesCommandInput} for command's `input` shape.
  * @see {@link ListVerifiedEmailAddressesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

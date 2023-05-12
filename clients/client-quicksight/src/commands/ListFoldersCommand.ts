@@ -64,8 +64,8 @@ export interface ListFoldersCommandOutput extends ListFoldersResponse, __Metadat
  *
  * ```
  *
- * @param ListFoldersCommandInput - {@link ListFoldersCommandInput}
- * @returns {@link ListFoldersCommandOutput}
+ * @param ListFoldersRequest - {@link ListFoldersRequest}
+ * @returns {@link ListFoldersResponse}
  * @see {@link ListFoldersCommandInput} for command's `input` shape.
  * @see {@link ListFoldersCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

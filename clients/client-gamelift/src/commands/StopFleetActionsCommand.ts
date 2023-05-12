@@ -81,8 +81,8 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  *
  * ```
  *
- * @param StopFleetActionsCommandInput - {@link StopFleetActionsCommandInput}
- * @returns {@link StopFleetActionsCommandOutput}
+ * @param StopFleetActionsInput - {@link StopFleetActionsInput}
+ * @returns {@link StopFleetActionsOutput}
  * @see {@link StopFleetActionsCommandInput} for command's `input` shape.
  * @see {@link StopFleetActionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

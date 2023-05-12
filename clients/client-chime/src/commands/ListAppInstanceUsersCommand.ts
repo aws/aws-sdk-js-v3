@@ -67,8 +67,8 @@ export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersR
  *
  * ```
  *
- * @param ListAppInstanceUsersCommandInput - {@link ListAppInstanceUsersCommandInput}
- * @returns {@link ListAppInstanceUsersCommandOutput}
+ * @param ListAppInstanceUsersRequest - {@link ListAppInstanceUsersRequest}
+ * @returns {@link ListAppInstanceUsersResponse}
  * @see {@link ListAppInstanceUsersCommandInput} for command's `input` shape.
  * @see {@link ListAppInstanceUsersCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

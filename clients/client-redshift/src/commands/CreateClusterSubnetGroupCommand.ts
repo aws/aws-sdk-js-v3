@@ -91,8 +91,8 @@ export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubn
  *
  * ```
  *
- * @param CreateClusterSubnetGroupCommandInput - {@link CreateClusterSubnetGroupCommandInput}
- * @returns {@link CreateClusterSubnetGroupCommandOutput}
+ * @param CreateClusterSubnetGroupMessage - {@link CreateClusterSubnetGroupMessage}
+ * @returns {@link CreateClusterSubnetGroupResult}
  * @see {@link CreateClusterSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateClusterSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

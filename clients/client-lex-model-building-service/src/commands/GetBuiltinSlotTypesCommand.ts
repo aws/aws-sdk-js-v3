@@ -71,8 +71,8 @@ export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesRes
  *
  * ```
  *
- * @param GetBuiltinSlotTypesCommandInput - {@link GetBuiltinSlotTypesCommandInput}
- * @returns {@link GetBuiltinSlotTypesCommandOutput}
+ * @param GetBuiltinSlotTypesRequest - {@link GetBuiltinSlotTypesRequest}
+ * @returns {@link GetBuiltinSlotTypesResponse}
  * @see {@link GetBuiltinSlotTypesCommandInput} for command's `input` shape.
  * @see {@link GetBuiltinSlotTypesCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

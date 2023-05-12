@@ -75,8 +75,8 @@ export interface CreateLiveSourceCommandOutput extends CreateLiveSourceResponse,
  *
  * ```
  *
- * @param CreateLiveSourceCommandInput - {@link CreateLiveSourceCommandInput}
- * @returns {@link CreateLiveSourceCommandOutput}
+ * @param CreateLiveSourceRequest - {@link CreateLiveSourceRequest}
+ * @returns {@link CreateLiveSourceResponse}
  * @see {@link CreateLiveSourceCommandInput} for command's `input` shape.
  * @see {@link CreateLiveSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

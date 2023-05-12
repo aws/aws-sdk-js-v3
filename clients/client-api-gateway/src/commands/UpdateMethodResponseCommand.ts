@@ -67,8 +67,8 @@ export interface UpdateMethodResponseCommandOutput extends MethodResponse, __Met
  *
  * ```
  *
- * @param UpdateMethodResponseCommandInput - {@link UpdateMethodResponseCommandInput}
- * @returns {@link UpdateMethodResponseCommandOutput}
+ * @param UpdateMethodResponseRequest - {@link UpdateMethodResponseRequest}
+ * @returns {@link MethodResponse}
  * @see {@link UpdateMethodResponseCommandInput} for command's `input` shape.
  * @see {@link UpdateMethodResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

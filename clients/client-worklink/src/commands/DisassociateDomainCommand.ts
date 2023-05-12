@@ -51,8 +51,8 @@ export interface DisassociateDomainCommandOutput extends DisassociateDomainRespo
  *
  * ```
  *
- * @param DisassociateDomainCommandInput - {@link DisassociateDomainCommandInput}
- * @returns {@link DisassociateDomainCommandOutput}
+ * @param DisassociateDomainRequest - {@link DisassociateDomainRequest}
+ * @returns {@link DisassociateDomainResponse}
  * @see {@link DisassociateDomainCommandInput} for command's `input` shape.
  * @see {@link DisassociateDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

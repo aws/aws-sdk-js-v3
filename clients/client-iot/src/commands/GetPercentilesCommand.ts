@@ -70,8 +70,8 @@ export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __M
  *
  * ```
  *
- * @param GetPercentilesCommandInput - {@link GetPercentilesCommandInput}
- * @returns {@link GetPercentilesCommandOutput}
+ * @param GetPercentilesRequest - {@link GetPercentilesRequest}
+ * @returns {@link GetPercentilesResponse}
  * @see {@link GetPercentilesCommandInput} for command's `input` shape.
  * @see {@link GetPercentilesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

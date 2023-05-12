@@ -66,8 +66,8 @@ export interface ListVoiceProfilesCommandOutput extends ListVoiceProfilesRespons
  *
  * ```
  *
- * @param ListVoiceProfilesCommandInput - {@link ListVoiceProfilesCommandInput}
- * @returns {@link ListVoiceProfilesCommandOutput}
+ * @param ListVoiceProfilesRequest - {@link ListVoiceProfilesRequest}
+ * @returns {@link ListVoiceProfilesResponse}
  * @see {@link ListVoiceProfilesCommandInput} for command's `input` shape.
  * @see {@link ListVoiceProfilesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

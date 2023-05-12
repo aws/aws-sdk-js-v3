@@ -48,8 +48,8 @@ export interface DeleteLocationCommandOutput extends DeleteLocationResponse, __M
  *
  * ```
  *
- * @param DeleteLocationCommandInput - {@link DeleteLocationCommandInput}
- * @returns {@link DeleteLocationCommandOutput}
+ * @param DeleteLocationRequest - {@link DeleteLocationRequest}
+ * @returns {@link DeleteLocationResponse}
  * @see {@link DeleteLocationCommandInput} for command's `input` shape.
  * @see {@link DeleteLocationCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

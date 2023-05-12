@@ -70,8 +70,8 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsResponse, _
  *
  * ```
  *
- * @param RegisterTargetsCommandInput - {@link RegisterTargetsCommandInput}
- * @returns {@link RegisterTargetsCommandOutput}
+ * @param RegisterTargetsRequest - {@link RegisterTargetsRequest}
+ * @returns {@link RegisterTargetsResponse}
  * @see {@link RegisterTargetsCommandInput} for command's `input` shape.
  * @see {@link RegisterTargetsCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

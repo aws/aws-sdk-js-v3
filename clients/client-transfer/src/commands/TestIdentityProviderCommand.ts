@@ -99,8 +99,8 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  *
  * ```
  *
- * @param TestIdentityProviderCommandInput - {@link TestIdentityProviderCommandInput}
- * @returns {@link TestIdentityProviderCommandOutput}
+ * @param TestIdentityProviderRequest - {@link TestIdentityProviderRequest}
+ * @returns {@link TestIdentityProviderResponse}
  * @see {@link TestIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link TestIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

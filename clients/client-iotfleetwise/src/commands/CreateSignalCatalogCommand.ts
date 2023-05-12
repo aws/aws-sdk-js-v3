@@ -103,8 +103,8 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *
  * ```
  *
- * @param CreateSignalCatalogCommandInput - {@link CreateSignalCatalogCommandInput}
- * @returns {@link CreateSignalCatalogCommandOutput}
+ * @param CreateSignalCatalogRequest - {@link CreateSignalCatalogRequest}
+ * @returns {@link CreateSignalCatalogResponse}
  * @see {@link CreateSignalCatalogCommandInput} for command's `input` shape.
  * @see {@link CreateSignalCatalogCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

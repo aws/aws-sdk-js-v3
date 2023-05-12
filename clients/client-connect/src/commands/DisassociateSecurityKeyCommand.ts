@@ -50,8 +50,8 @@ export interface DisassociateSecurityKeyCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DisassociateSecurityKeyCommandInput - {@link DisassociateSecurityKeyCommandInput}
- * @returns {@link DisassociateSecurityKeyCommandOutput}
+ * @param DisassociateSecurityKeyRequest - {@link DisassociateSecurityKeyRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateSecurityKeyCommandInput} for command's `input` shape.
  * @see {@link DisassociateSecurityKeyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

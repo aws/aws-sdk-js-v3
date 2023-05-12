@@ -72,8 +72,8 @@ export interface ListReportJobsCommandOutput extends ListReportJobsOutput, __Met
  *
  * ```
  *
- * @param ListReportJobsCommandInput - {@link ListReportJobsCommandInput}
- * @returns {@link ListReportJobsCommandOutput}
+ * @param ListReportJobsInput - {@link ListReportJobsInput}
+ * @returns {@link ListReportJobsOutput}
  * @see {@link ListReportJobsCommandInput} for command's `input` shape.
  * @see {@link ListReportJobsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

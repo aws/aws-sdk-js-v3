@@ -257,8 +257,8 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *
  * ```
  *
- * @param UploadPartCopyCommandInput - {@link UploadPartCopyCommandInput}
- * @returns {@link UploadPartCopyCommandOutput}
+ * @param UploadPartCopyRequest - {@link UploadPartCopyRequest}
+ * @returns {@link UploadPartCopyOutput}
  * @see {@link UploadPartCopyCommandInput} for command's `input` shape.
  * @see {@link UploadPartCopyCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

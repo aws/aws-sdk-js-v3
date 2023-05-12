@@ -101,8 +101,8 @@ export interface GetNetworkResourceCommandOutput extends GetNetworkResourceRespo
  *
  * ```
  *
- * @param GetNetworkResourceCommandInput - {@link GetNetworkResourceCommandInput}
- * @returns {@link GetNetworkResourceCommandOutput}
+ * @param GetNetworkResourceRequest - {@link GetNetworkResourceRequest}
+ * @returns {@link GetNetworkResourceResponse}
  * @see {@link GetNetworkResourceCommandInput} for command's `input` shape.
  * @see {@link GetNetworkResourceCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

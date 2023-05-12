@@ -55,8 +55,8 @@ export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteChannelBanCommandInput - {@link DeleteChannelBanCommandInput}
- * @returns {@link DeleteChannelBanCommandOutput}
+ * @param DeleteChannelBanRequest - {@link DeleteChannelBanRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteChannelBanCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelBanCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

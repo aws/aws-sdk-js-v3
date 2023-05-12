@@ -56,8 +56,8 @@ export interface UpdateCertificateCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateCertificateCommandInput - {@link UpdateCertificateCommandInput}
- * @returns {@link UpdateCertificateCommandOutput}
+ * @param UpdateCertificateRequest - {@link UpdateCertificateRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateCertificateCommandInput} for command's `input` shape.
  * @see {@link UpdateCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

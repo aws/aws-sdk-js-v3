@@ -48,8 +48,8 @@ export interface DeleteUsagePlanCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteUsagePlanCommandInput - {@link DeleteUsagePlanCommandInput}
- * @returns {@link DeleteUsagePlanCommandOutput}
+ * @param DeleteUsagePlanRequest - {@link DeleteUsagePlanRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteUsagePlanCommandInput} for command's `input` shape.
  * @see {@link DeleteUsagePlanCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

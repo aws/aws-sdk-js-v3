@@ -70,8 +70,8 @@ export interface GetViewCommandOutput extends GetViewOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param GetViewCommandInput - {@link GetViewCommandInput}
- * @returns {@link GetViewCommandOutput}
+ * @param GetViewInput - {@link GetViewInput}
+ * @returns {@link GetViewOutput}
  * @see {@link GetViewCommandInput} for command's `input` shape.
  * @see {@link GetViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

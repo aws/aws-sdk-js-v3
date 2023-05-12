@@ -110,8 +110,8 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  *
  * ```
  *
- * @param CreateClusterSnapshotCommandInput - {@link CreateClusterSnapshotCommandInput}
- * @returns {@link CreateClusterSnapshotCommandOutput}
+ * @param CreateClusterSnapshotMessage - {@link CreateClusterSnapshotMessage}
+ * @returns {@link CreateClusterSnapshotResult}
  * @see {@link CreateClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

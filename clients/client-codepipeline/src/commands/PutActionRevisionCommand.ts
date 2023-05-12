@@ -58,8 +58,8 @@ export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput,
  *
  * ```
  *
- * @param PutActionRevisionCommandInput - {@link PutActionRevisionCommandInput}
- * @returns {@link PutActionRevisionCommandOutput}
+ * @param PutActionRevisionInput - {@link PutActionRevisionInput}
+ * @returns {@link PutActionRevisionOutput}
  * @see {@link PutActionRevisionCommandInput} for command's `input` shape.
  * @see {@link PutActionRevisionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

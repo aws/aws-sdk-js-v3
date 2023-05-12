@@ -71,8 +71,8 @@ export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataR
  *
  * ```
  *
- * @param GetReferenceMetadataCommandInput - {@link GetReferenceMetadataCommandInput}
- * @returns {@link GetReferenceMetadataCommandOutput}
+ * @param GetReferenceMetadataRequest - {@link GetReferenceMetadataRequest}
+ * @returns {@link GetReferenceMetadataResponse}
  * @see {@link GetReferenceMetadataCommandInput} for command's `input` shape.
  * @see {@link GetReferenceMetadataCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

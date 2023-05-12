@@ -56,8 +56,8 @@ export interface GetDeleteEventsByEventTypeStatusCommandOutput
  *
  * ```
  *
- * @param GetDeleteEventsByEventTypeStatusCommandInput - {@link GetDeleteEventsByEventTypeStatusCommandInput}
- * @returns {@link GetDeleteEventsByEventTypeStatusCommandOutput}
+ * @param GetDeleteEventsByEventTypeStatusRequest - {@link GetDeleteEventsByEventTypeStatusRequest}
+ * @returns {@link GetDeleteEventsByEventTypeStatusResult}
  * @see {@link GetDeleteEventsByEventTypeStatusCommandInput} for command's `input` shape.
  * @see {@link GetDeleteEventsByEventTypeStatusCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

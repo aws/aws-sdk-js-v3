@@ -274,8 +274,8 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *
  * ```
  *
- * @param CreateReplicationGroupCommandInput - {@link CreateReplicationGroupCommandInput}
- * @returns {@link CreateReplicationGroupCommandOutput}
+ * @param CreateReplicationGroupMessage - {@link CreateReplicationGroupMessage}
+ * @returns {@link CreateReplicationGroupResult}
  * @see {@link CreateReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

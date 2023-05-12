@@ -204,8 +204,8 @@ export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecogn
  *
  * ```
  *
- * @param GetCelebrityRecognitionCommandInput - {@link GetCelebrityRecognitionCommandInput}
- * @returns {@link GetCelebrityRecognitionCommandOutput}
+ * @param GetCelebrityRecognitionRequest - {@link GetCelebrityRecognitionRequest}
+ * @returns {@link GetCelebrityRecognitionResponse}
  * @see {@link GetCelebrityRecognitionCommandInput} for command's `input` shape.
  * @see {@link GetCelebrityRecognitionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

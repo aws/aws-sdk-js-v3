@@ -64,8 +64,8 @@ export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse,
  *
  * ```
  *
- * @param ListAgentStatusesCommandInput - {@link ListAgentStatusesCommandInput}
- * @returns {@link ListAgentStatusesCommandOutput}
+ * @param ListAgentStatusRequest - {@link ListAgentStatusRequest}
+ * @returns {@link ListAgentStatusResponse}
  * @see {@link ListAgentStatusesCommandInput} for command's `input` shape.
  * @see {@link ListAgentStatusesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

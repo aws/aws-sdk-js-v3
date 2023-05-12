@@ -127,8 +127,8 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  *
  * ```
  *
- * @param CreateTargetGroupCommandInput - {@link CreateTargetGroupCommandInput}
- * @returns {@link CreateTargetGroupCommandOutput}
+ * @param CreateTargetGroupInput - {@link CreateTargetGroupInput}
+ * @returns {@link CreateTargetGroupOutput}
  * @see {@link CreateTargetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

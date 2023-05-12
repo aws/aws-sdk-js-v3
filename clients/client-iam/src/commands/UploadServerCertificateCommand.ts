@@ -100,8 +100,8 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  *
  * ```
  *
- * @param UploadServerCertificateCommandInput - {@link UploadServerCertificateCommandInput}
- * @returns {@link UploadServerCertificateCommandOutput}
+ * @param UploadServerCertificateRequest - {@link UploadServerCertificateRequest}
+ * @returns {@link UploadServerCertificateResponse}
  * @see {@link UploadServerCertificateCommandInput} for command's `input` shape.
  * @see {@link UploadServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

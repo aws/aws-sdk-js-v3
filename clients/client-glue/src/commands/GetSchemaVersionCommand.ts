@@ -65,8 +65,8 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  *
  * ```
  *
- * @param GetSchemaVersionCommandInput - {@link GetSchemaVersionCommandInput}
- * @returns {@link GetSchemaVersionCommandOutput}
+ * @param GetSchemaVersionInput - {@link GetSchemaVersionInput}
+ * @returns {@link GetSchemaVersionResponse}
  * @see {@link GetSchemaVersionCommandInput} for command's `input` shape.
  * @see {@link GetSchemaVersionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

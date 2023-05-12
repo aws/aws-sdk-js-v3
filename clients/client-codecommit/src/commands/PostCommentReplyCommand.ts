@@ -67,8 +67,8 @@ export interface PostCommentReplyCommandOutput extends PostCommentReplyOutput, _
  *
  * ```
  *
- * @param PostCommentReplyCommandInput - {@link PostCommentReplyCommandInput}
- * @returns {@link PostCommentReplyCommandOutput}
+ * @param PostCommentReplyInput - {@link PostCommentReplyInput}
+ * @returns {@link PostCommentReplyOutput}
  * @see {@link PostCommentReplyCommandInput} for command's `input` shape.
  * @see {@link PostCommentReplyCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

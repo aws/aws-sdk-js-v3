@@ -47,8 +47,8 @@ export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResul
  *
  * ```
  *
- * @param DeleteAccountAliasCommandInput - {@link DeleteAccountAliasCommandInput}
- * @returns {@link DeleteAccountAliasCommandOutput}
+ * @param DeleteAccountAliasRequest - {@link DeleteAccountAliasRequest}
+ * @returns {@link DeleteAccountAliasResult}
  * @see {@link DeleteAccountAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.

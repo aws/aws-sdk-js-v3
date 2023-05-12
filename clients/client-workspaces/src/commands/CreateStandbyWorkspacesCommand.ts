@@ -87,8 +87,8 @@ export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorks
  *
  * ```
  *
- * @param CreateStandbyWorkspacesCommandInput - {@link CreateStandbyWorkspacesCommandInput}
- * @returns {@link CreateStandbyWorkspacesCommandOutput}
+ * @param CreateStandbyWorkspacesRequest - {@link CreateStandbyWorkspacesRequest}
+ * @returns {@link CreateStandbyWorkspacesResult}
  * @see {@link CreateStandbyWorkspacesCommandInput} for command's `input` shape.
  * @see {@link CreateStandbyWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

@@ -58,8 +58,8 @@ export interface ListFuotaTasksCommandOutput extends ListFuotaTasksResponse, __M
  *
  * ```
  *
- * @param ListFuotaTasksCommandInput - {@link ListFuotaTasksCommandInput}
- * @returns {@link ListFuotaTasksCommandOutput}
+ * @param ListFuotaTasksRequest - {@link ListFuotaTasksRequest}
+ * @returns {@link ListFuotaTasksResponse}
  * @see {@link ListFuotaTasksCommandInput} for command's `input` shape.
  * @see {@link ListFuotaTasksCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

@@ -107,8 +107,8 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  *
  * ```
  *
- * @param ModifyVerifiedAccessEndpointCommandInput - {@link ModifyVerifiedAccessEndpointCommandInput}
- * @returns {@link ModifyVerifiedAccessEndpointCommandOutput}
+ * @param ModifyVerifiedAccessEndpointRequest - {@link ModifyVerifiedAccessEndpointRequest}
+ * @returns {@link ModifyVerifiedAccessEndpointResult}
  * @see {@link ModifyVerifiedAccessEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyVerifiedAccessEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

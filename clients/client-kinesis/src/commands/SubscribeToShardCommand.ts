@@ -136,8 +136,8 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  *
  * ```
  *
- * @param SubscribeToShardCommandInput - {@link SubscribeToShardCommandInput}
- * @returns {@link SubscribeToShardCommandOutput}
+ * @param SubscribeToShardInput - {@link SubscribeToShardInput}
+ * @returns {@link SubscribeToShardOutput}
  * @see {@link SubscribeToShardCommandInput} for command's `input` shape.
  * @see {@link SubscribeToShardCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

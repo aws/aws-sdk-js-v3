@@ -85,8 +85,8 @@ export interface DescribeTrialCommandOutput extends DescribeTrialResponse, __Met
  *
  * ```
  *
- * @param DescribeTrialCommandInput - {@link DescribeTrialCommandInput}
- * @returns {@link DescribeTrialCommandOutput}
+ * @param DescribeTrialRequest - {@link DescribeTrialRequest}
+ * @returns {@link DescribeTrialResponse}
  * @see {@link DescribeTrialCommandInput} for command's `input` shape.
  * @see {@link DescribeTrialCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

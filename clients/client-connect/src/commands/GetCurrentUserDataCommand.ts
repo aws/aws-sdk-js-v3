@@ -135,8 +135,8 @@ export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataRespo
  *
  * ```
  *
- * @param GetCurrentUserDataCommandInput - {@link GetCurrentUserDataCommandInput}
- * @returns {@link GetCurrentUserDataCommandOutput}
+ * @param GetCurrentUserDataRequest - {@link GetCurrentUserDataRequest}
+ * @returns {@link GetCurrentUserDataResponse}
  * @see {@link GetCurrentUserDataCommandInput} for command's `input` shape.
  * @see {@link GetCurrentUserDataCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

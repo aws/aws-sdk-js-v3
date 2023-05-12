@@ -58,8 +58,8 @@ export interface StartRecommendationsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StartRecommendationsCommandInput - {@link StartRecommendationsCommandInput}
- * @returns {@link StartRecommendationsCommandOutput}
+ * @param StartRecommendationsRequest - {@link StartRecommendationsRequest}
+ * @returns {@link Unit}
  * @see {@link StartRecommendationsCommandInput} for command's `input` shape.
  * @see {@link StartRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

@@ -75,8 +75,8 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  *
  * ```
  *
- * @param UpdateSecretVersionStageCommandInput - {@link UpdateSecretVersionStageCommandInput}
- * @returns {@link UpdateSecretVersionStageCommandOutput}
+ * @param UpdateSecretVersionStageRequest - {@link UpdateSecretVersionStageRequest}
+ * @returns {@link UpdateSecretVersionStageResponse}
  * @see {@link UpdateSecretVersionStageCommandInput} for command's `input` shape.
  * @see {@link UpdateSecretVersionStageCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

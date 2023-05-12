@@ -85,8 +85,8 @@ export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __
  *
  * ```
  *
- * @param DescribeExportTasksCommandInput - {@link DescribeExportTasksCommandInput}
- * @returns {@link DescribeExportTasksCommandOutput}
+ * @param DescribeExportTasksMessage - {@link DescribeExportTasksMessage}
+ * @returns {@link ExportTasksMessage}
  * @see {@link DescribeExportTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeExportTasksCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

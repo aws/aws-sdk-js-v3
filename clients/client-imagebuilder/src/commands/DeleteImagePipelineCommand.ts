@@ -51,8 +51,8 @@ export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineRes
  *
  * ```
  *
- * @param DeleteImagePipelineCommandInput - {@link DeleteImagePipelineCommandInput}
- * @returns {@link DeleteImagePipelineCommandOutput}
+ * @param DeleteImagePipelineRequest - {@link DeleteImagePipelineRequest}
+ * @returns {@link DeleteImagePipelineResponse}
  * @see {@link DeleteImagePipelineCommandInput} for command's `input` shape.
  * @see {@link DeleteImagePipelineCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

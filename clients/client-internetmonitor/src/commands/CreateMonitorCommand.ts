@@ -73,8 +73,8 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  *
  * ```
  *
- * @param CreateMonitorCommandInput - {@link CreateMonitorCommandInput}
- * @returns {@link CreateMonitorCommandOutput}
+ * @param CreateMonitorInput - {@link CreateMonitorInput}
+ * @returns {@link CreateMonitorOutput}
  * @see {@link CreateMonitorCommandInput} for command's `input` shape.
  * @see {@link CreateMonitorCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.

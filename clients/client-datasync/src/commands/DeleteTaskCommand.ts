@@ -48,8 +48,8 @@ export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataB
  *
  * ```
  *
- * @param DeleteTaskCommandInput - {@link DeleteTaskCommandInput}
- * @returns {@link DeleteTaskCommandOutput}
+ * @param DeleteTaskRequest - {@link DeleteTaskRequest}
+ * @returns {@link DeleteTaskResponse}
  * @see {@link DeleteTaskCommandInput} for command's `input` shape.
  * @see {@link DeleteTaskCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

@@ -64,8 +64,8 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
  *
  * ```
  *
- * @param SetIdentityHeadersInNotificationsEnabledCommandInput - {@link SetIdentityHeadersInNotificationsEnabledCommandInput}
- * @returns {@link SetIdentityHeadersInNotificationsEnabledCommandOutput}
+ * @param SetIdentityHeadersInNotificationsEnabledRequest - {@link SetIdentityHeadersInNotificationsEnabledRequest}
+ * @returns {@link SetIdentityHeadersInNotificationsEnabledResponse}
  * @see {@link SetIdentityHeadersInNotificationsEnabledCommandInput} for command's `input` shape.
  * @see {@link SetIdentityHeadersInNotificationsEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

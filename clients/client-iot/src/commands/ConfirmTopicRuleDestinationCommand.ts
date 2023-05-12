@@ -57,8 +57,8 @@ export interface ConfirmTopicRuleDestinationCommandOutput
  *
  * ```
  *
- * @param ConfirmTopicRuleDestinationCommandInput - {@link ConfirmTopicRuleDestinationCommandInput}
- * @returns {@link ConfirmTopicRuleDestinationCommandOutput}
+ * @param ConfirmTopicRuleDestinationRequest - {@link ConfirmTopicRuleDestinationRequest}
+ * @returns {@link ConfirmTopicRuleDestinationResponse}
  * @see {@link ConfirmTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link ConfirmTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

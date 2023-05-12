@@ -48,8 +48,8 @@ export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateRespons
  *
  * ```
  *
- * @param DeleteJobTemplateCommandInput - {@link DeleteJobTemplateCommandInput}
- * @returns {@link DeleteJobTemplateCommandOutput}
+ * @param DeleteJobTemplateRequest - {@link DeleteJobTemplateRequest}
+ * @returns {@link DeleteJobTemplateResponse}
  * @see {@link DeleteJobTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.

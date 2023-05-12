@@ -167,8 +167,8 @@ export interface StartMedicalTranscriptionJobCommandOutput
  *
  * ```
  *
- * @param StartMedicalTranscriptionJobCommandInput - {@link StartMedicalTranscriptionJobCommandInput}
- * @returns {@link StartMedicalTranscriptionJobCommandOutput}
+ * @param StartMedicalTranscriptionJobRequest - {@link StartMedicalTranscriptionJobRequest}
+ * @returns {@link StartMedicalTranscriptionJobResponse}
  * @see {@link StartMedicalTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link StartMedicalTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

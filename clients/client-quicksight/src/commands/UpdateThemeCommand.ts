@@ -110,8 +110,8 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  *
  * ```
  *
- * @param UpdateThemeCommandInput - {@link UpdateThemeCommandInput}
- * @returns {@link UpdateThemeCommandOutput}
+ * @param UpdateThemeRequest - {@link UpdateThemeRequest}
+ * @returns {@link UpdateThemeResponse}
  * @see {@link UpdateThemeCommandInput} for command's `input` shape.
  * @see {@link UpdateThemeCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

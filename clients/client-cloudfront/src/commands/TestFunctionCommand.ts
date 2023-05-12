@@ -88,8 +88,8 @@ export interface TestFunctionCommandOutput extends TestFunctionResult, __Metadat
  *
  * ```
  *
- * @param TestFunctionCommandInput - {@link TestFunctionCommandInput}
- * @returns {@link TestFunctionCommandOutput}
+ * @param TestFunctionRequest - {@link TestFunctionRequest}
+ * @returns {@link TestFunctionResult}
  * @see {@link TestFunctionCommandInput} for command's `input` shape.
  * @see {@link TestFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

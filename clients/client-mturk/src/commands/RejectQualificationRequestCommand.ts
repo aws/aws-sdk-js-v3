@@ -55,8 +55,8 @@ export interface RejectQualificationRequestCommandOutput extends RejectQualifica
  *
  * ```
  *
- * @param RejectQualificationRequestCommandInput - {@link RejectQualificationRequestCommandInput}
- * @returns {@link RejectQualificationRequestCommandOutput}
+ * @param RejectQualificationRequestRequest - {@link RejectQualificationRequestRequest}
+ * @returns {@link RejectQualificationRequestResponse}
  * @see {@link RejectQualificationRequestCommandInput} for command's `input` shape.
  * @see {@link RejectQualificationRequestCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

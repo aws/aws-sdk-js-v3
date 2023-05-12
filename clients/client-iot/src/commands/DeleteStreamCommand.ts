@@ -49,8 +49,8 @@ export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __Metad
  *
  * ```
  *
- * @param DeleteStreamCommandInput - {@link DeleteStreamCommandInput}
- * @returns {@link DeleteStreamCommandOutput}
+ * @param DeleteStreamRequest - {@link DeleteStreamRequest}
+ * @returns {@link DeleteStreamResponse}
  * @see {@link DeleteStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

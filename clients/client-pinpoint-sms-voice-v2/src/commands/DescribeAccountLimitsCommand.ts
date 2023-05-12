@@ -69,8 +69,8 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  *
  * ```
  *
- * @param DescribeAccountLimitsCommandInput - {@link DescribeAccountLimitsCommandInput}
- * @returns {@link DescribeAccountLimitsCommandOutput}
+ * @param DescribeAccountLimitsRequest - {@link DescribeAccountLimitsRequest}
+ * @returns {@link DescribeAccountLimitsResult}
  * @see {@link DescribeAccountLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

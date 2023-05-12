@@ -80,8 +80,8 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DisableKeyRotationCommandInput - {@link DisableKeyRotationCommandInput}
- * @returns {@link DisableKeyRotationCommandOutput}
+ * @param DisableKeyRotationRequest - {@link DisableKeyRotationRequest}
+ * @returns {@link Unit}
  * @see {@link DisableKeyRotationCommandInput} for command's `input` shape.
  * @see {@link DisableKeyRotationCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

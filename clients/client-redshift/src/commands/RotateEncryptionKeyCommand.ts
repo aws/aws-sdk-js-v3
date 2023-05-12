@@ -220,8 +220,8 @@ export interface RotateEncryptionKeyCommandOutput extends RotateEncryptionKeyRes
  *
  * ```
  *
- * @param RotateEncryptionKeyCommandInput - {@link RotateEncryptionKeyCommandInput}
- * @returns {@link RotateEncryptionKeyCommandOutput}
+ * @param RotateEncryptionKeyMessage - {@link RotateEncryptionKeyMessage}
+ * @returns {@link RotateEncryptionKeyResult}
  * @see {@link RotateEncryptionKeyCommandInput} for command's `input` shape.
  * @see {@link RotateEncryptionKeyCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

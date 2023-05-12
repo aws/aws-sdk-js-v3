@@ -57,8 +57,8 @@ export interface DeleteDataSetRefreshPropertiesCommandOutput
  *
  * ```
  *
- * @param DeleteDataSetRefreshPropertiesCommandInput - {@link DeleteDataSetRefreshPropertiesCommandInput}
- * @returns {@link DeleteDataSetRefreshPropertiesCommandOutput}
+ * @param DeleteDataSetRefreshPropertiesRequest - {@link DeleteDataSetRefreshPropertiesRequest}
+ * @returns {@link DeleteDataSetRefreshPropertiesResponse}
  * @see {@link DeleteDataSetRefreshPropertiesCommandInput} for command's `input` shape.
  * @see {@link DeleteDataSetRefreshPropertiesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

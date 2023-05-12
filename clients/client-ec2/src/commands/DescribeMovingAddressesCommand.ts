@@ -69,8 +69,8 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  *
  * ```
  *
- * @param DescribeMovingAddressesCommandInput - {@link DescribeMovingAddressesCommandInput}
- * @returns {@link DescribeMovingAddressesCommandOutput}
+ * @param DescribeMovingAddressesRequest - {@link DescribeMovingAddressesRequest}
+ * @returns {@link DescribeMovingAddressesResult}
  * @see {@link DescribeMovingAddressesCommandInput} for command's `input` shape.
  * @see {@link DescribeMovingAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

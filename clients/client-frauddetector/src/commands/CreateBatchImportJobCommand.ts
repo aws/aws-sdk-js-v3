@@ -58,8 +58,8 @@ export interface CreateBatchImportJobCommandOutput extends CreateBatchImportJobR
  *
  * ```
  *
- * @param CreateBatchImportJobCommandInput - {@link CreateBatchImportJobCommandInput}
- * @returns {@link CreateBatchImportJobCommandOutput}
+ * @param CreateBatchImportJobRequest - {@link CreateBatchImportJobRequest}
+ * @returns {@link CreateBatchImportJobResult}
  * @see {@link CreateBatchImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateBatchImportJobCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

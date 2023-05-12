@@ -360,8 +360,8 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *
  * ```
  *
- * @param GetFindingsCommandInput - {@link GetFindingsCommandInput}
- * @returns {@link GetFindingsCommandOutput}
+ * @param GetFindingsRequest - {@link GetFindingsRequest}
+ * @returns {@link GetFindingsResponse}
  * @see {@link GetFindingsCommandInput} for command's `input` shape.
  * @see {@link GetFindingsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

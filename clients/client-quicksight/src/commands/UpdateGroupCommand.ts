@@ -60,8 +60,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  *
  * ```
  *
- * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
- * @returns {@link UpdateGroupCommandOutput}
+ * @param UpdateGroupRequest - {@link UpdateGroupRequest}
+ * @returns {@link UpdateGroupResponse}
  * @see {@link UpdateGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

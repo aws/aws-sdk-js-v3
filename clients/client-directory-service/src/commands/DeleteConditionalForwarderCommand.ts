@@ -50,8 +50,8 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  *
  * ```
  *
- * @param DeleteConditionalForwarderCommandInput - {@link DeleteConditionalForwarderCommandInput}
- * @returns {@link DeleteConditionalForwarderCommandOutput}
+ * @param DeleteConditionalForwarderRequest - {@link DeleteConditionalForwarderRequest}
+ * @returns {@link DeleteConditionalForwarderResult}
  * @see {@link DeleteConditionalForwarderCommandInput} for command's `input` shape.
  * @see {@link DeleteConditionalForwarderCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

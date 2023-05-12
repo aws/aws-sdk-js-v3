@@ -48,8 +48,8 @@ export interface DeleteClusterPolicyCommandOutput extends DeleteClusterPolicyRes
  *
  * ```
  *
- * @param DeleteClusterPolicyCommandInput - {@link DeleteClusterPolicyCommandInput}
- * @returns {@link DeleteClusterPolicyCommandOutput}
+ * @param DeleteClusterPolicyRequest - {@link DeleteClusterPolicyRequest}
+ * @returns {@link DeleteClusterPolicyResponse}
  * @see {@link DeleteClusterPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterPolicyCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

@@ -85,8 +85,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  *
  * ```
  *
- * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
- * @returns {@link UpdateEnvironmentCommandOutput}
+ * @param UpdateEnvironmentRequest - {@link UpdateEnvironmentRequest}
+ * @returns {@link UpdateEnvironmentResponse}
  * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.

@@ -55,8 +55,8 @@ export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthC
  *
  * ```
  *
- * @param RetrieveDomainAuthCodeCommandInput - {@link RetrieveDomainAuthCodeCommandInput}
- * @returns {@link RetrieveDomainAuthCodeCommandOutput}
+ * @param RetrieveDomainAuthCodeRequest - {@link RetrieveDomainAuthCodeRequest}
+ * @returns {@link RetrieveDomainAuthCodeResponse}
  * @see {@link RetrieveDomainAuthCodeCommandInput} for command's `input` shape.
  * @see {@link RetrieveDomainAuthCodeCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

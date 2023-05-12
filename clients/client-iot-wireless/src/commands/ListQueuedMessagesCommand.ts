@@ -73,8 +73,8 @@ export interface ListQueuedMessagesCommandOutput extends ListQueuedMessagesRespo
  *
  * ```
  *
- * @param ListQueuedMessagesCommandInput - {@link ListQueuedMessagesCommandInput}
- * @returns {@link ListQueuedMessagesCommandOutput}
+ * @param ListQueuedMessagesRequest - {@link ListQueuedMessagesRequest}
+ * @returns {@link ListQueuedMessagesResponse}
  * @see {@link ListQueuedMessagesCommandInput} for command's `input` shape.
  * @see {@link ListQueuedMessagesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

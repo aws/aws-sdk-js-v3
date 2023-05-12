@@ -493,8 +493,8 @@ export interface PollForDecisionTaskCommandOutput extends DecisionTask, __Metada
  *
  * ```
  *
- * @param PollForDecisionTaskCommandInput - {@link PollForDecisionTaskCommandInput}
- * @returns {@link PollForDecisionTaskCommandOutput}
+ * @param PollForDecisionTaskInput - {@link PollForDecisionTaskInput}
+ * @returns {@link DecisionTask}
  * @see {@link PollForDecisionTaskCommandInput} for command's `input` shape.
  * @see {@link PollForDecisionTaskCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

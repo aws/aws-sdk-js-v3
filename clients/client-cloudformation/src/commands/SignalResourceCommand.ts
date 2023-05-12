@@ -56,8 +56,8 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SignalResourceCommandInput - {@link SignalResourceCommandInput}
- * @returns {@link SignalResourceCommandOutput}
+ * @param SignalResourceInput - {@link SignalResourceInput}
+ * @returns {@link Unit}
  * @see {@link SignalResourceCommandInput} for command's `input` shape.
  * @see {@link SignalResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

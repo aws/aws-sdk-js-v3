@@ -67,8 +67,8 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  *
  * ```
  *
- * @param GetApplicationCommandInput - {@link GetApplicationCommandInput}
- * @returns {@link GetApplicationCommandOutput}
+ * @param GetApplicationInput - {@link GetApplicationInput}
+ * @returns {@link GetApplicationOutput}
  * @see {@link GetApplicationCommandInput} for command's `input` shape.
  * @see {@link GetApplicationCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.

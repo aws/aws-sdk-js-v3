@@ -71,8 +71,8 @@ export interface ListConferenceProvidersCommandOutput extends ListConferenceProv
  *
  * ```
  *
- * @param ListConferenceProvidersCommandInput - {@link ListConferenceProvidersCommandInput}
- * @returns {@link ListConferenceProvidersCommandOutput}
+ * @param ListConferenceProvidersRequest - {@link ListConferenceProvidersRequest}
+ * @returns {@link ListConferenceProvidersResponse}
  * @see {@link ListConferenceProvidersCommandInput} for command's `input` shape.
  * @see {@link ListConferenceProvidersCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

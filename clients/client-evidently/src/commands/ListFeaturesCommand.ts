@@ -73,8 +73,8 @@ export interface ListFeaturesCommandOutput extends ListFeaturesResponse, __Metad
  *
  * ```
  *
- * @param ListFeaturesCommandInput - {@link ListFeaturesCommandInput}
- * @returns {@link ListFeaturesCommandOutput}
+ * @param ListFeaturesRequest - {@link ListFeaturesRequest}
+ * @returns {@link ListFeaturesResponse}
  * @see {@link ListFeaturesCommandInput} for command's `input` shape.
  * @see {@link ListFeaturesCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

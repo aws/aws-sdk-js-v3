@@ -64,8 +64,8 @@ export interface ListBatchInferenceJobsCommandOutput extends ListBatchInferenceJ
  *
  * ```
  *
- * @param ListBatchInferenceJobsCommandInput - {@link ListBatchInferenceJobsCommandInput}
- * @returns {@link ListBatchInferenceJobsCommandOutput}
+ * @param ListBatchInferenceJobsRequest - {@link ListBatchInferenceJobsRequest}
+ * @returns {@link ListBatchInferenceJobsResponse}
  * @see {@link ListBatchInferenceJobsCommandInput} for command's `input` shape.
  * @see {@link ListBatchInferenceJobsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

@@ -67,8 +67,8 @@ export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __M
  *
  * ```
  *
- * @param CreateDataViewCommandInput - {@link CreateDataViewCommandInput}
- * @returns {@link CreateDataViewCommandOutput}
+ * @param CreateDataViewRequest - {@link CreateDataViewRequest}
+ * @returns {@link CreateDataViewResponse}
  * @see {@link CreateDataViewCommandInput} for command's `input` shape.
  * @see {@link CreateDataViewCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

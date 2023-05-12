@@ -66,8 +66,8 @@ export interface DisassociateIamInstanceProfileCommandOutput
  *
  * ```
  *
- * @param DisassociateIamInstanceProfileCommandInput - {@link DisassociateIamInstanceProfileCommandInput}
- * @returns {@link DisassociateIamInstanceProfileCommandOutput}
+ * @param DisassociateIamInstanceProfileRequest - {@link DisassociateIamInstanceProfileRequest}
+ * @returns {@link DisassociateIamInstanceProfileResult}
  * @see {@link DisassociateIamInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link DisassociateIamInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

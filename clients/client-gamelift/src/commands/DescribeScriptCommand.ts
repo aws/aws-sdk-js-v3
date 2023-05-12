@@ -77,8 +77,8 @@ export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __Met
  *
  * ```
  *
- * @param DescribeScriptCommandInput - {@link DescribeScriptCommandInput}
- * @returns {@link DescribeScriptCommandOutput}
+ * @param DescribeScriptInput - {@link DescribeScriptInput}
+ * @returns {@link DescribeScriptOutput}
  * @see {@link DescribeScriptCommandInput} for command's `input` shape.
  * @see {@link DescribeScriptCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

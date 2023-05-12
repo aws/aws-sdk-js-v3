@@ -84,8 +84,8 @@ export interface ListInfrastructureConfigurationsCommandOutput
  *
  * ```
  *
- * @param ListInfrastructureConfigurationsCommandInput - {@link ListInfrastructureConfigurationsCommandInput}
- * @returns {@link ListInfrastructureConfigurationsCommandOutput}
+ * @param ListInfrastructureConfigurationsRequest - {@link ListInfrastructureConfigurationsRequest}
+ * @returns {@link ListInfrastructureConfigurationsResponse}
  * @see {@link ListInfrastructureConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListInfrastructureConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

@@ -60,8 +60,8 @@ export interface UpdateTrafficPolicyCommentCommandOutput extends UpdateTrafficPo
  *
  * ```
  *
- * @param UpdateTrafficPolicyCommentCommandInput - {@link UpdateTrafficPolicyCommentCommandInput}
- * @returns {@link UpdateTrafficPolicyCommentCommandOutput}
+ * @param UpdateTrafficPolicyCommentRequest - {@link UpdateTrafficPolicyCommentRequest}
+ * @returns {@link UpdateTrafficPolicyCommentResponse}
  * @see {@link UpdateTrafficPolicyCommentCommandInput} for command's `input` shape.
  * @see {@link UpdateTrafficPolicyCommentCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

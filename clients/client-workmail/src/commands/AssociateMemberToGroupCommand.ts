@@ -50,8 +50,8 @@ export interface AssociateMemberToGroupCommandOutput extends AssociateMemberToGr
  *
  * ```
  *
- * @param AssociateMemberToGroupCommandInput - {@link AssociateMemberToGroupCommandInput}
- * @returns {@link AssociateMemberToGroupCommandOutput}
+ * @param AssociateMemberToGroupRequest - {@link AssociateMemberToGroupRequest}
+ * @returns {@link AssociateMemberToGroupResponse}
  * @see {@link AssociateMemberToGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateMemberToGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

@@ -63,8 +63,8 @@ export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRa
  *
  * ```
  *
- * @param UpdateBandwidthRateLimitCommandInput - {@link UpdateBandwidthRateLimitCommandInput}
- * @returns {@link UpdateBandwidthRateLimitCommandOutput}
+ * @param UpdateBandwidthRateLimitInput - {@link UpdateBandwidthRateLimitInput}
+ * @returns {@link UpdateBandwidthRateLimitOutput}
  * @see {@link UpdateBandwidthRateLimitCommandInput} for command's `input` shape.
  * @see {@link UpdateBandwidthRateLimitCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

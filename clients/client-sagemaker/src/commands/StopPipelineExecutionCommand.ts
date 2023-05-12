@@ -73,8 +73,8 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  *
  * ```
  *
- * @param StopPipelineExecutionCommandInput - {@link StopPipelineExecutionCommandInput}
- * @returns {@link StopPipelineExecutionCommandOutput}
+ * @param StopPipelineExecutionRequest - {@link StopPipelineExecutionRequest}
+ * @returns {@link StopPipelineExecutionResponse}
  * @see {@link StopPipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link StopPipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

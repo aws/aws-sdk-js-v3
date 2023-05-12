@@ -64,8 +64,8 @@ export interface CreateEdgeDeploymentStageCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param CreateEdgeDeploymentStageCommandInput - {@link CreateEdgeDeploymentStageCommandInput}
- * @returns {@link CreateEdgeDeploymentStageCommandOutput}
+ * @param CreateEdgeDeploymentStageRequest - {@link CreateEdgeDeploymentStageRequest}
+ * @returns {@link Unit}
  * @see {@link CreateEdgeDeploymentStageCommandInput} for command's `input` shape.
  * @see {@link CreateEdgeDeploymentStageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

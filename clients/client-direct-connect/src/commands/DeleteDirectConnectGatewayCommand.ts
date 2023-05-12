@@ -59,8 +59,8 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  *
  * ```
  *
- * @param DeleteDirectConnectGatewayCommandInput - {@link DeleteDirectConnectGatewayCommandInput}
- * @returns {@link DeleteDirectConnectGatewayCommandOutput}
+ * @param DeleteDirectConnectGatewayRequest - {@link DeleteDirectConnectGatewayRequest}
+ * @returns {@link DeleteDirectConnectGatewayResult}
  * @see {@link DeleteDirectConnectGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectConnectGatewayCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

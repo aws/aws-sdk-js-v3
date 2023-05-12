@@ -60,8 +60,8 @@ export interface UpdateReplicationSetCommandOutput extends UpdateReplicationSetO
  *
  * ```
  *
- * @param UpdateReplicationSetCommandInput - {@link UpdateReplicationSetCommandInput}
- * @returns {@link UpdateReplicationSetCommandOutput}
+ * @param UpdateReplicationSetInput - {@link UpdateReplicationSetInput}
+ * @returns {@link UpdateReplicationSetOutput}
  * @see {@link UpdateReplicationSetCommandInput} for command's `input` shape.
  * @see {@link UpdateReplicationSetCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

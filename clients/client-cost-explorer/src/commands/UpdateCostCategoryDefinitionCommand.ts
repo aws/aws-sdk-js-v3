@@ -155,8 +155,8 @@ export interface UpdateCostCategoryDefinitionCommandOutput
  *
  * ```
  *
- * @param UpdateCostCategoryDefinitionCommandInput - {@link UpdateCostCategoryDefinitionCommandInput}
- * @returns {@link UpdateCostCategoryDefinitionCommandOutput}
+ * @param UpdateCostCategoryDefinitionRequest - {@link UpdateCostCategoryDefinitionRequest}
+ * @returns {@link UpdateCostCategoryDefinitionResponse}
  * @see {@link UpdateCostCategoryDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateCostCategoryDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

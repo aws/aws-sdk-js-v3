@@ -58,8 +58,8 @@ export interface CreateAPIKeyCommandOutput extends CreateAPIKeyResponse, __Metad
  *
  * ```
  *
- * @param CreateAPIKeyCommandInput - {@link CreateAPIKeyCommandInput}
- * @returns {@link CreateAPIKeyCommandOutput}
+ * @param CreateAPIKeyRequest - {@link CreateAPIKeyRequest}
+ * @returns {@link CreateAPIKeyResponse}
  * @see {@link CreateAPIKeyCommandInput} for command's `input` shape.
  * @see {@link CreateAPIKeyCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

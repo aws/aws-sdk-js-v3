@@ -106,8 +106,8 @@ export interface DeleteAppCommandOutput extends DeleteAppResult, __MetadataBeare
  *
  * ```
  *
- * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
- * @returns {@link DeleteAppCommandOutput}
+ * @param DeleteAppRequest - {@link DeleteAppRequest}
+ * @returns {@link DeleteAppResult}
  * @see {@link DeleteAppCommandInput} for command's `input` shape.
  * @see {@link DeleteAppCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

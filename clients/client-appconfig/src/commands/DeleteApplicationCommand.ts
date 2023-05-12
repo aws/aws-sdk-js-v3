@@ -49,8 +49,8 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
- * @returns {@link DeleteApplicationCommandOutput}
+ * @param DeleteApplicationRequest - {@link DeleteApplicationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

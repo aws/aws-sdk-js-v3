@@ -49,8 +49,8 @@ export interface DeleteMitigationActionCommandOutput extends DeleteMitigationAct
  *
  * ```
  *
- * @param DeleteMitigationActionCommandInput - {@link DeleteMitigationActionCommandInput}
- * @returns {@link DeleteMitigationActionCommandOutput}
+ * @param DeleteMitigationActionRequest - {@link DeleteMitigationActionRequest}
+ * @returns {@link DeleteMitigationActionResponse}
  * @see {@link DeleteMitigationActionCommandInput} for command's `input` shape.
  * @see {@link DeleteMitigationActionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

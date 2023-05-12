@@ -81,8 +81,8 @@ export interface ListFirewallRuleGroupAssociationsCommandOutput
  *
  * ```
  *
- * @param ListFirewallRuleGroupAssociationsCommandInput - {@link ListFirewallRuleGroupAssociationsCommandInput}
- * @returns {@link ListFirewallRuleGroupAssociationsCommandOutput}
+ * @param ListFirewallRuleGroupAssociationsRequest - {@link ListFirewallRuleGroupAssociationsRequest}
+ * @returns {@link ListFirewallRuleGroupAssociationsResponse}
  * @see {@link ListFirewallRuleGroupAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListFirewallRuleGroupAssociationsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

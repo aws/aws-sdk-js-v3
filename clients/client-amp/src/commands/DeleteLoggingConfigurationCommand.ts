@@ -49,8 +49,8 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DeleteLoggingConfigurationCommandInput - {@link DeleteLoggingConfigurationCommandInput}
- * @returns {@link DeleteLoggingConfigurationCommandOutput}
+ * @param DeleteLoggingConfigurationRequest - {@link DeleteLoggingConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.

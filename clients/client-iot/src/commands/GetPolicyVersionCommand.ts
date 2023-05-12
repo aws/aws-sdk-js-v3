@@ -59,8 +59,8 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  *
  * ```
  *
- * @param GetPolicyVersionCommandInput - {@link GetPolicyVersionCommandInput}
- * @returns {@link GetPolicyVersionCommandOutput}
+ * @param GetPolicyVersionRequest - {@link GetPolicyVersionRequest}
+ * @returns {@link GetPolicyVersionResponse}
  * @see {@link GetPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link GetPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

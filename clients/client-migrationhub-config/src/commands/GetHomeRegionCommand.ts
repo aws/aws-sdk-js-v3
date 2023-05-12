@@ -56,8 +56,8 @@ export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __Metad
  *
  * ```
  *
- * @param GetHomeRegionCommandInput - {@link GetHomeRegionCommandInput}
- * @returns {@link GetHomeRegionCommandOutput}
+ * @param GetHomeRegionRequest - {@link GetHomeRegionRequest}
+ * @returns {@link GetHomeRegionResult}
  * @see {@link GetHomeRegionCommandInput} for command's `input` shape.
  * @see {@link GetHomeRegionCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubConfigClientResolvedConfig | config} for MigrationHubConfigClient's `config` shape.

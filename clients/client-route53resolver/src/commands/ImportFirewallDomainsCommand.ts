@@ -70,8 +70,8 @@ export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomain
  *
  * ```
  *
- * @param ImportFirewallDomainsCommandInput - {@link ImportFirewallDomainsCommandInput}
- * @returns {@link ImportFirewallDomainsCommandOutput}
+ * @param ImportFirewallDomainsRequest - {@link ImportFirewallDomainsRequest}
+ * @returns {@link ImportFirewallDomainsResponse}
  * @see {@link ImportFirewallDomainsCommandInput} for command's `input` shape.
  * @see {@link ImportFirewallDomainsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

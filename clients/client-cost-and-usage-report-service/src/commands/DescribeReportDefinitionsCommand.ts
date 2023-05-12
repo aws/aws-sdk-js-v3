@@ -75,8 +75,8 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
  *
  * ```
  *
- * @param DescribeReportDefinitionsCommandInput - {@link DescribeReportDefinitionsCommandInput}
- * @returns {@link DescribeReportDefinitionsCommandOutput}
+ * @param DescribeReportDefinitionsRequest - {@link DescribeReportDefinitionsRequest}
+ * @returns {@link DescribeReportDefinitionsResponse}
  * @see {@link DescribeReportDefinitionsCommandInput} for command's `input` shape.
  * @see {@link DescribeReportDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.

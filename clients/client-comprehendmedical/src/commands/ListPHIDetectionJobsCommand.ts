@@ -86,8 +86,8 @@ export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsR
  *
  * ```
  *
- * @param ListPHIDetectionJobsCommandInput - {@link ListPHIDetectionJobsCommandInput}
- * @returns {@link ListPHIDetectionJobsCommandOutput}
+ * @param ListPHIDetectionJobsRequest - {@link ListPHIDetectionJobsRequest}
+ * @returns {@link ListPHIDetectionJobsResponse}
  * @see {@link ListPHIDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListPHIDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

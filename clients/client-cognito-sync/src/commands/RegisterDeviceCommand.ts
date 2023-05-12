@@ -97,8 +97,8 @@ export interface RegisterDeviceCommandOutput extends RegisterDeviceResponse, __M
  *
  * ```
  *
- * @param RegisterDeviceCommandInput - {@link RegisterDeviceCommandInput}
- * @returns {@link RegisterDeviceCommandOutput}
+ * @param RegisterDeviceRequest - {@link RegisterDeviceRequest}
+ * @returns {@link RegisterDeviceResponse}
  * @see {@link RegisterDeviceCommandInput} for command's `input` shape.
  * @see {@link RegisterDeviceCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.

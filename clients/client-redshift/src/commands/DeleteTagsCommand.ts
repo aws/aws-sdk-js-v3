@@ -52,8 +52,8 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
- * @returns {@link DeleteTagsCommandOutput}
+ * @param DeleteTagsMessage - {@link DeleteTagsMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteTagsCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

@@ -57,8 +57,8 @@ export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
  *
  * ```
  *
- * @param DeleteDatalakeExceptionsSubscriptionCommandInput - {@link DeleteDatalakeExceptionsSubscriptionCommandInput}
- * @returns {@link DeleteDatalakeExceptionsSubscriptionCommandOutput}
+ * @param DeleteDatalakeExceptionsSubscriptionRequest - {@link DeleteDatalakeExceptionsSubscriptionRequest}
+ * @returns {@link DeleteDatalakeExceptionsSubscriptionResponse}
  * @see {@link DeleteDatalakeExceptionsSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteDatalakeExceptionsSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

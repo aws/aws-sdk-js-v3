@@ -109,8 +109,8 @@ export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, _
  *
  * ```
  *
- * @param GetTaskTemplateCommandInput - {@link GetTaskTemplateCommandInput}
- * @returns {@link GetTaskTemplateCommandOutput}
+ * @param GetTaskTemplateRequest - {@link GetTaskTemplateRequest}
+ * @returns {@link GetTaskTemplateResponse}
  * @see {@link GetTaskTemplateCommandInput} for command's `input` shape.
  * @see {@link GetTaskTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

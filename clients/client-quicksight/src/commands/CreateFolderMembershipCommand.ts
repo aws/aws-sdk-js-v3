@@ -58,8 +58,8 @@ export interface CreateFolderMembershipCommandOutput extends CreateFolderMembers
  *
  * ```
  *
- * @param CreateFolderMembershipCommandInput - {@link CreateFolderMembershipCommandInput}
- * @returns {@link CreateFolderMembershipCommandOutput}
+ * @param CreateFolderMembershipRequest - {@link CreateFolderMembershipRequest}
+ * @returns {@link CreateFolderMembershipResponse}
  * @see {@link CreateFolderMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateFolderMembershipCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

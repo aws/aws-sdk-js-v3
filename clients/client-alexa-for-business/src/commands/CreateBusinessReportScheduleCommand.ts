@@ -72,8 +72,8 @@ export interface CreateBusinessReportScheduleCommandOutput
  *
  * ```
  *
- * @param CreateBusinessReportScheduleCommandInput - {@link CreateBusinessReportScheduleCommandInput}
- * @returns {@link CreateBusinessReportScheduleCommandOutput}
+ * @param CreateBusinessReportScheduleRequest - {@link CreateBusinessReportScheduleRequest}
+ * @returns {@link CreateBusinessReportScheduleResponse}
  * @see {@link CreateBusinessReportScheduleCommandInput} for command's `input` shape.
  * @see {@link CreateBusinessReportScheduleCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

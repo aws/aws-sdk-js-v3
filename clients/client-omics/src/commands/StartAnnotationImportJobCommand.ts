@@ -79,8 +79,8 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  *
  * ```
  *
- * @param StartAnnotationImportJobCommandInput - {@link StartAnnotationImportJobCommandInput}
- * @returns {@link StartAnnotationImportJobCommandOutput}
+ * @param StartAnnotationImportRequest - {@link StartAnnotationImportRequest}
+ * @returns {@link StartAnnotationImportResponse}
  * @see {@link StartAnnotationImportJobCommandInput} for command's `input` shape.
  * @see {@link StartAnnotationImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

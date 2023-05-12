@@ -108,8 +108,8 @@ export interface ListCommandInvocationsCommandOutput extends ListCommandInvocati
  *
  * ```
  *
- * @param ListCommandInvocationsCommandInput - {@link ListCommandInvocationsCommandInput}
- * @returns {@link ListCommandInvocationsCommandOutput}
+ * @param ListCommandInvocationsRequest - {@link ListCommandInvocationsRequest}
+ * @returns {@link ListCommandInvocationsResult}
  * @see {@link ListCommandInvocationsCommandInput} for command's `input` shape.
  * @see {@link ListCommandInvocationsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

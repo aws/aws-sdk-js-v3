@@ -65,8 +65,8 @@ export interface ListVehiclesCommandOutput extends ListVehiclesResponse, __Metad
  *
  * ```
  *
- * @param ListVehiclesCommandInput - {@link ListVehiclesCommandInput}
- * @returns {@link ListVehiclesCommandOutput}
+ * @param ListVehiclesRequest - {@link ListVehiclesRequest}
+ * @returns {@link ListVehiclesResponse}
  * @see {@link ListVehiclesCommandInput} for command's `input` shape.
  * @see {@link ListVehiclesCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

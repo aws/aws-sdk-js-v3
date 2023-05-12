@@ -52,8 +52,8 @@ export interface StartTriggerCommandOutput extends StartTriggerResponse, __Metad
  *
  * ```
  *
- * @param StartTriggerCommandInput - {@link StartTriggerCommandInput}
- * @returns {@link StartTriggerCommandOutput}
+ * @param StartTriggerRequest - {@link StartTriggerRequest}
+ * @returns {@link StartTriggerResponse}
  * @see {@link StartTriggerCommandInput} for command's `input` shape.
  * @see {@link StartTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

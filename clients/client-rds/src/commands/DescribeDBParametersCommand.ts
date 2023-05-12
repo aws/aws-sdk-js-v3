@@ -78,8 +78,8 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  *
  * ```
  *
- * @param DescribeDBParametersCommandInput - {@link DescribeDBParametersCommandInput}
- * @returns {@link DescribeDBParametersCommandOutput}
+ * @param DescribeDBParametersMessage - {@link DescribeDBParametersMessage}
+ * @returns {@link DBParameterGroupDetails}
  * @see {@link DescribeDBParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBParametersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

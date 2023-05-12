@@ -107,8 +107,8 @@ export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataB
  *
  * ```
  *
- * @param GetMatchesCommandInput - {@link GetMatchesCommandInput}
- * @returns {@link GetMatchesCommandOutput}
+ * @param GetMatchesRequest - {@link GetMatchesRequest}
+ * @returns {@link GetMatchesResponse}
  * @see {@link GetMatchesCommandInput} for command's `input` shape.
  * @see {@link GetMatchesCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

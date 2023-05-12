@@ -79,8 +79,8 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResult, __Metad
  *
  * ```
  *
- * @param ListFunctionsCommandInput - {@link ListFunctionsCommandInput}
- * @returns {@link ListFunctionsCommandOutput}
+ * @param ListFunctionsRequest - {@link ListFunctionsRequest}
+ * @returns {@link ListFunctionsResult}
  * @see {@link ListFunctionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

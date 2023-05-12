@@ -90,8 +90,8 @@ export interface DeleteStreamingSessionCommandOutput extends DeleteStreamingSess
  *
  * ```
  *
- * @param DeleteStreamingSessionCommandInput - {@link DeleteStreamingSessionCommandInput}
- * @returns {@link DeleteStreamingSessionCommandOutput}
+ * @param DeleteStreamingSessionRequest - {@link DeleteStreamingSessionRequest}
+ * @returns {@link DeleteStreamingSessionResponse}
  * @see {@link DeleteStreamingSessionCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamingSessionCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

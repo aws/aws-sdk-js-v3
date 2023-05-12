@@ -51,8 +51,8 @@ export interface DeleteLaunchProfileMemberCommandOutput extends DeleteLaunchProf
  *
  * ```
  *
- * @param DeleteLaunchProfileMemberCommandInput - {@link DeleteLaunchProfileMemberCommandInput}
- * @returns {@link DeleteLaunchProfileMemberCommandOutput}
+ * @param DeleteLaunchProfileMemberRequest - {@link DeleteLaunchProfileMemberRequest}
+ * @returns {@link DeleteLaunchProfileMemberResponse}
  * @see {@link DeleteLaunchProfileMemberCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchProfileMemberCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

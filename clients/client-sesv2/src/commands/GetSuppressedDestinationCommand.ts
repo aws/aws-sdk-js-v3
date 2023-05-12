@@ -59,8 +59,8 @@ export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDest
  *
  * ```
  *
- * @param GetSuppressedDestinationCommandInput - {@link GetSuppressedDestinationCommandInput}
- * @returns {@link GetSuppressedDestinationCommandOutput}
+ * @param GetSuppressedDestinationRequest - {@link GetSuppressedDestinationRequest}
+ * @returns {@link GetSuppressedDestinationResponse}
  * @see {@link GetSuppressedDestinationCommandInput} for command's `input` shape.
  * @see {@link GetSuppressedDestinationCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

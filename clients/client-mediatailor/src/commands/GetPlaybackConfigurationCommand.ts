@@ -99,8 +99,8 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
  *
  * ```
  *
- * @param GetPlaybackConfigurationCommandInput - {@link GetPlaybackConfigurationCommandInput}
- * @returns {@link GetPlaybackConfigurationCommandOutput}
+ * @param GetPlaybackConfigurationRequest - {@link GetPlaybackConfigurationRequest}
+ * @returns {@link GetPlaybackConfigurationResponse}
  * @see {@link GetPlaybackConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetPlaybackConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

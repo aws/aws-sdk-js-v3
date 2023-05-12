@@ -76,8 +76,8 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  *
  * ```
  *
- * @param InvokeWithResponseStreamCommandInput - {@link InvokeWithResponseStreamCommandInput}
- * @returns {@link InvokeWithResponseStreamCommandOutput}
+ * @param InvokeWithResponseStreamRequest - {@link InvokeWithResponseStreamRequest}
+ * @returns {@link InvokeWithResponseStreamResponse}
  * @see {@link InvokeWithResponseStreamCommandInput} for command's `input` shape.
  * @see {@link InvokeWithResponseStreamCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

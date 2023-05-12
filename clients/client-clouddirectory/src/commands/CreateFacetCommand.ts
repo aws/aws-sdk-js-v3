@@ -81,8 +81,8 @@ export interface CreateFacetCommandOutput extends CreateFacetResponse, __Metadat
  *
  * ```
  *
- * @param CreateFacetCommandInput - {@link CreateFacetCommandInput}
- * @returns {@link CreateFacetCommandOutput}
+ * @param CreateFacetRequest - {@link CreateFacetRequest}
+ * @returns {@link CreateFacetResponse}
  * @see {@link CreateFacetCommandInput} for command's `input` shape.
  * @see {@link CreateFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

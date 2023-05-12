@@ -59,8 +59,8 @@ export interface DescribeConfigurationRevisionCommandOutput
  *
  * ```
  *
- * @param DescribeConfigurationRevisionCommandInput - {@link DescribeConfigurationRevisionCommandInput}
- * @returns {@link DescribeConfigurationRevisionCommandOutput}
+ * @param DescribeConfigurationRevisionRequest - {@link DescribeConfigurationRevisionRequest}
+ * @returns {@link DescribeConfigurationRevisionResponse}
  * @see {@link DescribeConfigurationRevisionCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationRevisionCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.

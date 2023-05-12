@@ -48,8 +48,8 @@ export interface DeleteGameCommandOutput extends DeleteGameResult, __MetadataBea
  *
  * ```
  *
- * @param DeleteGameCommandInput - {@link DeleteGameCommandInput}
- * @returns {@link DeleteGameCommandOutput}
+ * @param DeleteGameRequest - {@link DeleteGameRequest}
+ * @returns {@link DeleteGameResult}
  * @see {@link DeleteGameCommandInput} for command's `input` shape.
  * @see {@link DeleteGameCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

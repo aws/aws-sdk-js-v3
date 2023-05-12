@@ -102,8 +102,8 @@ export interface DescribeTransitGatewayConnectPeersCommandOutput
  *
  * ```
  *
- * @param DescribeTransitGatewayConnectPeersCommandInput - {@link DescribeTransitGatewayConnectPeersCommandInput}
- * @returns {@link DescribeTransitGatewayConnectPeersCommandOutput}
+ * @param DescribeTransitGatewayConnectPeersRequest - {@link DescribeTransitGatewayConnectPeersRequest}
+ * @returns {@link DescribeTransitGatewayConnectPeersResult}
  * @see {@link DescribeTransitGatewayConnectPeersCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayConnectPeersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

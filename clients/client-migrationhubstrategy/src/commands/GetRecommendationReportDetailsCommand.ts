@@ -69,8 +69,8 @@ export interface GetRecommendationReportDetailsCommandOutput
  *
  * ```
  *
- * @param GetRecommendationReportDetailsCommandInput - {@link GetRecommendationReportDetailsCommandInput}
- * @returns {@link GetRecommendationReportDetailsCommandOutput}
+ * @param GetRecommendationReportDetailsRequest - {@link GetRecommendationReportDetailsRequest}
+ * @returns {@link GetRecommendationReportDetailsResponse}
  * @see {@link GetRecommendationReportDetailsCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationReportDetailsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

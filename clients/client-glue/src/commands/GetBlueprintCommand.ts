@@ -69,8 +69,8 @@ export interface GetBlueprintCommandOutput extends GetBlueprintResponse, __Metad
  *
  * ```
  *
- * @param GetBlueprintCommandInput - {@link GetBlueprintCommandInput}
- * @returns {@link GetBlueprintCommandOutput}
+ * @param GetBlueprintRequest - {@link GetBlueprintRequest}
+ * @returns {@link GetBlueprintResponse}
  * @see {@link GetBlueprintCommandInput} for command's `input` shape.
  * @see {@link GetBlueprintCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

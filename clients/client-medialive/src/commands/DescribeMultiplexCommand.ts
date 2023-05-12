@@ -74,8 +74,8 @@ export interface DescribeMultiplexCommandOutput extends DescribeMultiplexRespons
  *
  * ```
  *
- * @param DescribeMultiplexCommandInput - {@link DescribeMultiplexCommandInput}
- * @returns {@link DescribeMultiplexCommandOutput}
+ * @param DescribeMultiplexRequest - {@link DescribeMultiplexRequest}
+ * @returns {@link DescribeMultiplexResponse}
  * @see {@link DescribeMultiplexCommandInput} for command's `input` shape.
  * @see {@link DescribeMultiplexCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

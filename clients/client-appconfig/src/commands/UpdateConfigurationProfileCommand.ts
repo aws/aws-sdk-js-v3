@@ -77,8 +77,8 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
  *
  * ```
  *
- * @param UpdateConfigurationProfileCommandInput - {@link UpdateConfigurationProfileCommandInput}
- * @returns {@link UpdateConfigurationProfileCommandOutput}
+ * @param UpdateConfigurationProfileRequest - {@link UpdateConfigurationProfileRequest}
+ * @returns {@link ConfigurationProfile}
  * @see {@link UpdateConfigurationProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

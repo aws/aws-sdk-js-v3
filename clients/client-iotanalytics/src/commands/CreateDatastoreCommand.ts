@@ -105,8 +105,8 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  *
  * ```
  *
- * @param CreateDatastoreCommandInput - {@link CreateDatastoreCommandInput}
- * @returns {@link CreateDatastoreCommandOutput}
+ * @param CreateDatastoreRequest - {@link CreateDatastoreRequest}
+ * @returns {@link CreateDatastoreResponse}
  * @see {@link CreateDatastoreCommandInput} for command's `input` shape.
  * @see {@link CreateDatastoreCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

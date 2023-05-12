@@ -48,8 +48,8 @@ export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionRespo
  *
  * ```
  *
- * @param DeleteSubscriptionCommandInput - {@link DeleteSubscriptionCommandInput}
- * @returns {@link DeleteSubscriptionCommandOutput}
+ * @param DeleteSubscriptionRequest - {@link DeleteSubscriptionRequest}
+ * @returns {@link DeleteSubscriptionResponse}
  * @see {@link DeleteSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

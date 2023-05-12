@@ -146,8 +146,8 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  *
  * ```
  *
- * @param UpdateWorkspaceCommandInput - {@link UpdateWorkspaceCommandInput}
- * @returns {@link UpdateWorkspaceCommandOutput}
+ * @param UpdateWorkspaceRequest - {@link UpdateWorkspaceRequest}
+ * @returns {@link UpdateWorkspaceResponse}
  * @see {@link UpdateWorkspaceCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.

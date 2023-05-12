@@ -66,8 +66,8 @@ export interface ListSegmentsCommandOutput extends ListSegmentsResponse, __Metad
  *
  * ```
  *
- * @param ListSegmentsCommandInput - {@link ListSegmentsCommandInput}
- * @returns {@link ListSegmentsCommandOutput}
+ * @param ListSegmentsRequest - {@link ListSegmentsRequest}
+ * @returns {@link ListSegmentsResponse}
  * @see {@link ListSegmentsCommandInput} for command's `input` shape.
  * @see {@link ListSegmentsCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

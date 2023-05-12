@@ -93,8 +93,8 @@ export interface UpdateSiteRackPhysicalPropertiesCommandOutput
  *
  * ```
  *
- * @param UpdateSiteRackPhysicalPropertiesCommandInput - {@link UpdateSiteRackPhysicalPropertiesCommandInput}
- * @returns {@link UpdateSiteRackPhysicalPropertiesCommandOutput}
+ * @param UpdateSiteRackPhysicalPropertiesInput - {@link UpdateSiteRackPhysicalPropertiesInput}
+ * @returns {@link UpdateSiteRackPhysicalPropertiesOutput}
  * @see {@link UpdateSiteRackPhysicalPropertiesCommandInput} for command's `input` shape.
  * @see {@link UpdateSiteRackPhysicalPropertiesCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

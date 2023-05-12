@@ -115,8 +115,8 @@ export interface GetRouteAnalysisCommandOutput extends GetRouteAnalysisResponse,
  *
  * ```
  *
- * @param GetRouteAnalysisCommandInput - {@link GetRouteAnalysisCommandInput}
- * @returns {@link GetRouteAnalysisCommandOutput}
+ * @param GetRouteAnalysisRequest - {@link GetRouteAnalysisRequest}
+ * @returns {@link GetRouteAnalysisResponse}
  * @see {@link GetRouteAnalysisCommandInput} for command's `input` shape.
  * @see {@link GetRouteAnalysisCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

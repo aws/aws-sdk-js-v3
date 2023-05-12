@@ -54,8 +54,8 @@ export interface DisableVpcClassicLinkCommandOutput extends DisableVpcClassicLin
  *
  * ```
  *
- * @param DisableVpcClassicLinkCommandInput - {@link DisableVpcClassicLinkCommandInput}
- * @returns {@link DisableVpcClassicLinkCommandOutput}
+ * @param DisableVpcClassicLinkRequest - {@link DisableVpcClassicLinkRequest}
+ * @returns {@link DisableVpcClassicLinkResult}
  * @see {@link DisableVpcClassicLinkCommandInput} for command's `input` shape.
  * @see {@link DisableVpcClassicLinkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

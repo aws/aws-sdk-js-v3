@@ -162,8 +162,8 @@ export interface CreateHealthCheckCommandOutput extends CreateHealthCheckRespons
  *
  * ```
  *
- * @param CreateHealthCheckCommandInput - {@link CreateHealthCheckCommandInput}
- * @returns {@link CreateHealthCheckCommandOutput}
+ * @param CreateHealthCheckRequest - {@link CreateHealthCheckRequest}
+ * @returns {@link CreateHealthCheckResponse}
  * @see {@link CreateHealthCheckCommandInput} for command's `input` shape.
  * @see {@link CreateHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

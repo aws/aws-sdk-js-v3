@@ -52,8 +52,8 @@ export interface RegisterPackageVersionCommandOutput extends RegisterPackageVers
  *
  * ```
  *
- * @param RegisterPackageVersionCommandInput - {@link RegisterPackageVersionCommandInput}
- * @returns {@link RegisterPackageVersionCommandOutput}
+ * @param RegisterPackageVersionRequest - {@link RegisterPackageVersionRequest}
+ * @returns {@link RegisterPackageVersionResponse}
  * @see {@link RegisterPackageVersionCommandInput} for command's `input` shape.
  * @see {@link RegisterPackageVersionCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

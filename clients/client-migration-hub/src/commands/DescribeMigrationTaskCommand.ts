@@ -66,8 +66,8 @@ export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTas
  *
  * ```
  *
- * @param DescribeMigrationTaskCommandInput - {@link DescribeMigrationTaskCommandInput}
- * @returns {@link DescribeMigrationTaskCommandOutput}
+ * @param DescribeMigrationTaskRequest - {@link DescribeMigrationTaskRequest}
+ * @returns {@link DescribeMigrationTaskResult}
  * @see {@link DescribeMigrationTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeMigrationTaskCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.

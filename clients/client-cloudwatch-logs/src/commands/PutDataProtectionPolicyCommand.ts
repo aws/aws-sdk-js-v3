@@ -67,8 +67,8 @@ export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionP
  *
  * ```
  *
- * @param PutDataProtectionPolicyCommandInput - {@link PutDataProtectionPolicyCommandInput}
- * @returns {@link PutDataProtectionPolicyCommandOutput}
+ * @param PutDataProtectionPolicyRequest - {@link PutDataProtectionPolicyRequest}
+ * @returns {@link PutDataProtectionPolicyResponse}
  * @see {@link PutDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

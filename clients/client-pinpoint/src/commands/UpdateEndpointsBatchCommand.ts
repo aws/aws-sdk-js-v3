@@ -100,8 +100,8 @@ export interface UpdateEndpointsBatchCommandOutput extends UpdateEndpointsBatchR
  *
  * ```
  *
- * @param UpdateEndpointsBatchCommandInput - {@link UpdateEndpointsBatchCommandInput}
- * @returns {@link UpdateEndpointsBatchCommandOutput}
+ * @param UpdateEndpointsBatchRequest - {@link UpdateEndpointsBatchRequest}
+ * @returns {@link UpdateEndpointsBatchResponse}
  * @see {@link UpdateEndpointsBatchCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointsBatchCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

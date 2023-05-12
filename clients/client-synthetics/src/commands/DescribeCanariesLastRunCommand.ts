@@ -82,8 +82,8 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  *
  * ```
  *
- * @param DescribeCanariesLastRunCommandInput - {@link DescribeCanariesLastRunCommandInput}
- * @returns {@link DescribeCanariesLastRunCommandOutput}
+ * @param DescribeCanariesLastRunRequest - {@link DescribeCanariesLastRunRequest}
+ * @returns {@link DescribeCanariesLastRunResponse}
  * @see {@link DescribeCanariesLastRunCommandInput} for command's `input` shape.
  * @see {@link DescribeCanariesLastRunCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.

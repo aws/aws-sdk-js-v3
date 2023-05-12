@@ -65,8 +65,8 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  *
  * ```
  *
- * @param ListPluginsCommandInput - {@link ListPluginsCommandInput}
- * @returns {@link ListPluginsCommandOutput}
+ * @param ListPluginsRequest - {@link ListPluginsRequest}
+ * @returns {@link ListPluginsResponse}
  * @see {@link ListPluginsCommandInput} for command's `input` shape.
  * @see {@link ListPluginsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

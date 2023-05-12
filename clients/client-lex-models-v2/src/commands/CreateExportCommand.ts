@@ -95,8 +95,8 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  *
  * ```
  *
- * @param CreateExportCommandInput - {@link CreateExportCommandInput}
- * @returns {@link CreateExportCommandOutput}
+ * @param CreateExportRequest - {@link CreateExportRequest}
+ * @returns {@link CreateExportResponse}
  * @see {@link CreateExportCommandInput} for command's `input` shape.
  * @see {@link CreateExportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

@@ -80,8 +80,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  *
  * ```
  *
- * @param AddTagsToResourceCommandInput - {@link AddTagsToResourceCommandInput}
- * @returns {@link AddTagsToResourceCommandOutput}
+ * @param AddTagsToResourceInput - {@link AddTagsToResourceInput}
+ * @returns {@link AddTagsToResourceOutput}
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

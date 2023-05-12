@@ -70,8 +70,8 @@ export interface ListObjectParentPathsCommandOutput extends ListObjectParentPath
  *
  * ```
  *
- * @param ListObjectParentPathsCommandInput - {@link ListObjectParentPathsCommandInput}
- * @returns {@link ListObjectParentPathsCommandOutput}
+ * @param ListObjectParentPathsRequest - {@link ListObjectParentPathsRequest}
+ * @returns {@link ListObjectParentPathsResponse}
  * @see {@link ListObjectParentPathsCommandInput} for command's `input` shape.
  * @see {@link ListObjectParentPathsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

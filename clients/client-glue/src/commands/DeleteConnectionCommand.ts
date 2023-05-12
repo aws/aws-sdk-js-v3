@@ -49,8 +49,8 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  *
  * ```
  *
- * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
- * @returns {@link DeleteConnectionCommandOutput}
+ * @param DeleteConnectionRequest - {@link DeleteConnectionRequest}
+ * @returns {@link DeleteConnectionResponse}
  * @see {@link DeleteConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

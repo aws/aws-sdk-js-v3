@@ -62,8 +62,8 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  *
  * ```
  *
- * @param TestConnectionCommandInput - {@link TestConnectionCommandInput}
- * @returns {@link TestConnectionCommandOutput}
+ * @param TestConnectionMessage - {@link TestConnectionMessage}
+ * @returns {@link TestConnectionResponse}
  * @see {@link TestConnectionCommandInput} for command's `input` shape.
  * @see {@link TestConnectionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

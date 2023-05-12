@@ -74,8 +74,8 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  *
  * ```
  *
- * @param DescribeJobQueuesCommandInput - {@link DescribeJobQueuesCommandInput}
- * @returns {@link DescribeJobQueuesCommandOutput}
+ * @param DescribeJobQueuesRequest - {@link DescribeJobQueuesRequest}
+ * @returns {@link DescribeJobQueuesResponse}
  * @see {@link DescribeJobQueuesCommandInput} for command's `input` shape.
  * @see {@link DescribeJobQueuesCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

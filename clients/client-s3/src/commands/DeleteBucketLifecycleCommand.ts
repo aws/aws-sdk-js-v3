@@ -71,8 +71,8 @@ export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteBucketLifecycleCommandInput - {@link DeleteBucketLifecycleCommandInput}
- * @returns {@link DeleteBucketLifecycleCommandOutput}
+ * @param DeleteBucketLifecycleRequest - {@link DeleteBucketLifecycleRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteBucketLifecycleCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketLifecycleCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

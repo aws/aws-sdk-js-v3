@@ -51,8 +51,8 @@ export interface RevokeDomainAccessCommandOutput extends RevokeDomainAccessRespo
  *
  * ```
  *
- * @param RevokeDomainAccessCommandInput - {@link RevokeDomainAccessCommandInput}
- * @returns {@link RevokeDomainAccessCommandOutput}
+ * @param RevokeDomainAccessRequest - {@link RevokeDomainAccessRequest}
+ * @returns {@link RevokeDomainAccessResponse}
  * @see {@link RevokeDomainAccessCommandInput} for command's `input` shape.
  * @see {@link RevokeDomainAccessCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

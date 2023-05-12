@@ -83,8 +83,8 @@ export interface DescribeScheduledActionsCommandOutput extends DescribeScheduled
  *
  * ```
  *
- * @param DescribeScheduledActionsCommandInput - {@link DescribeScheduledActionsCommandInput}
- * @returns {@link DescribeScheduledActionsCommandOutput}
+ * @param DescribeScheduledActionsRequest - {@link DescribeScheduledActionsRequest}
+ * @returns {@link DescribeScheduledActionsResponse}
  * @see {@link DescribeScheduledActionsCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduledActionsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.

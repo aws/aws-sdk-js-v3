@@ -109,8 +109,8 @@ export interface DescribeInstanceEventWindowsCommandOutput
  *
  * ```
  *
- * @param DescribeInstanceEventWindowsCommandInput - {@link DescribeInstanceEventWindowsCommandInput}
- * @returns {@link DescribeInstanceEventWindowsCommandOutput}
+ * @param DescribeInstanceEventWindowsRequest - {@link DescribeInstanceEventWindowsRequest}
+ * @returns {@link DescribeInstanceEventWindowsResult}
  * @see {@link DescribeInstanceEventWindowsCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceEventWindowsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

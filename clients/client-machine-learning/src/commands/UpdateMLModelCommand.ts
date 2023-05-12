@@ -53,8 +53,8 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
  *
  * ```
  *
- * @param UpdateMLModelCommandInput - {@link UpdateMLModelCommandInput}
- * @returns {@link UpdateMLModelCommandOutput}
+ * @param UpdateMLModelInput - {@link UpdateMLModelInput}
+ * @returns {@link UpdateMLModelOutput}
  * @see {@link UpdateMLModelCommandInput} for command's `input` shape.
  * @see {@link UpdateMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

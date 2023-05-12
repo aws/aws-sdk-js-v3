@@ -65,8 +65,8 @@ export interface GetBucketsAggregationCommandOutput extends GetBucketsAggregatio
  *
  * ```
  *
- * @param GetBucketsAggregationCommandInput - {@link GetBucketsAggregationCommandInput}
- * @returns {@link GetBucketsAggregationCommandOutput}
+ * @param GetBucketsAggregationRequest - {@link GetBucketsAggregationRequest}
+ * @returns {@link GetBucketsAggregationResponse}
  * @see {@link GetBucketsAggregationCommandInput} for command's `input` shape.
  * @see {@link GetBucketsAggregationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

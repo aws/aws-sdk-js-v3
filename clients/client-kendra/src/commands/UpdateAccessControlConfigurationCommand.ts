@@ -94,8 +94,8 @@ export interface UpdateAccessControlConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateAccessControlConfigurationCommandInput - {@link UpdateAccessControlConfigurationCommandInput}
- * @returns {@link UpdateAccessControlConfigurationCommandOutput}
+ * @param UpdateAccessControlConfigurationRequest - {@link UpdateAccessControlConfigurationRequest}
+ * @returns {@link UpdateAccessControlConfigurationResponse}
  * @see {@link UpdateAccessControlConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessControlConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

@@ -116,8 +116,8 @@ export interface DescribeAuditMitigationActionsTaskCommandOutput
  *
  * ```
  *
- * @param DescribeAuditMitigationActionsTaskCommandInput - {@link DescribeAuditMitigationActionsTaskCommandInput}
- * @returns {@link DescribeAuditMitigationActionsTaskCommandOutput}
+ * @param DescribeAuditMitigationActionsTaskRequest - {@link DescribeAuditMitigationActionsTaskRequest}
+ * @returns {@link DescribeAuditMitigationActionsTaskResponse}
  * @see {@link DescribeAuditMitigationActionsTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeAuditMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

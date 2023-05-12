@@ -101,8 +101,8 @@ export interface GetStreamingDistributionCommandOutput extends GetStreamingDistr
  *
  * ```
  *
- * @param GetStreamingDistributionCommandInput - {@link GetStreamingDistributionCommandInput}
- * @returns {@link GetStreamingDistributionCommandOutput}
+ * @param GetStreamingDistributionRequest - {@link GetStreamingDistributionRequest}
+ * @returns {@link GetStreamingDistributionResult}
  * @see {@link GetStreamingDistributionCommandInput} for command's `input` shape.
  * @see {@link GetStreamingDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

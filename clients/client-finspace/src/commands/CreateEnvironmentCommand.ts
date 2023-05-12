@@ -80,8 +80,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *
  * ```
  *
- * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
- * @returns {@link CreateEnvironmentCommandOutput}
+ * @param CreateEnvironmentRequest - {@link CreateEnvironmentRequest}
+ * @returns {@link CreateEnvironmentResponse}
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.

@@ -155,8 +155,8 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  *
  * ```
  *
- * @param RegisterClusterCommandInput - {@link RegisterClusterCommandInput}
- * @returns {@link RegisterClusterCommandOutput}
+ * @param RegisterClusterRequest - {@link RegisterClusterRequest}
+ * @returns {@link RegisterClusterResponse}
  * @see {@link RegisterClusterCommandInput} for command's `input` shape.
  * @see {@link RegisterClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

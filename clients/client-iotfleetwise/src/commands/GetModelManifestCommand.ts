@@ -56,8 +56,8 @@ export interface GetModelManifestCommandOutput extends GetModelManifestResponse,
  *
  * ```
  *
- * @param GetModelManifestCommandInput - {@link GetModelManifestCommandInput}
- * @returns {@link GetModelManifestCommandOutput}
+ * @param GetModelManifestRequest - {@link GetModelManifestRequest}
+ * @returns {@link GetModelManifestResponse}
  * @see {@link GetModelManifestCommandInput} for command's `input` shape.
  * @see {@link GetModelManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

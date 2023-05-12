@@ -55,8 +55,8 @@ export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __M
  *
  * ```
  *
- * @param SendTaskSuccessCommandInput - {@link SendTaskSuccessCommandInput}
- * @returns {@link SendTaskSuccessCommandOutput}
+ * @param SendTaskSuccessInput - {@link SendTaskSuccessInput}
+ * @returns {@link SendTaskSuccessOutput}
  * @see {@link SendTaskSuccessCommandInput} for command's `input` shape.
  * @see {@link SendTaskSuccessCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

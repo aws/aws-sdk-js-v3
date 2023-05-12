@@ -48,8 +48,8 @@ export interface DeleteReferenceStoreCommandOutput extends DeleteReferenceStoreR
  *
  * ```
  *
- * @param DeleteReferenceStoreCommandInput - {@link DeleteReferenceStoreCommandInput}
- * @returns {@link DeleteReferenceStoreCommandOutput}
+ * @param DeleteReferenceStoreRequest - {@link DeleteReferenceStoreRequest}
+ * @returns {@link DeleteReferenceStoreResponse}
  * @see {@link DeleteReferenceStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteReferenceStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

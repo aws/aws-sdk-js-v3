@@ -66,8 +66,8 @@ export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __Metad
  *
  * ```
  *
- * @param ListRunTasksCommandInput - {@link ListRunTasksCommandInput}
- * @returns {@link ListRunTasksCommandOutput}
+ * @param ListRunTasksRequest - {@link ListRunTasksRequest}
+ * @returns {@link ListRunTasksResponse}
  * @see {@link ListRunTasksCommandInput} for command's `input` shape.
  * @see {@link ListRunTasksCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

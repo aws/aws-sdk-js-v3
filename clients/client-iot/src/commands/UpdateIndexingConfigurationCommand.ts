@@ -91,8 +91,8 @@ export interface UpdateIndexingConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateIndexingConfigurationCommandInput - {@link UpdateIndexingConfigurationCommandInput}
- * @returns {@link UpdateIndexingConfigurationCommandOutput}
+ * @param UpdateIndexingConfigurationRequest - {@link UpdateIndexingConfigurationRequest}
+ * @returns {@link UpdateIndexingConfigurationResponse}
  * @see {@link UpdateIndexingConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateIndexingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

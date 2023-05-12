@@ -68,8 +68,8 @@ export interface PutDataSetRefreshPropertiesCommandOutput
  *
  * ```
  *
- * @param PutDataSetRefreshPropertiesCommandInput - {@link PutDataSetRefreshPropertiesCommandInput}
- * @returns {@link PutDataSetRefreshPropertiesCommandOutput}
+ * @param PutDataSetRefreshPropertiesRequest - {@link PutDataSetRefreshPropertiesRequest}
+ * @returns {@link PutDataSetRefreshPropertiesResponse}
  * @see {@link PutDataSetRefreshPropertiesCommandInput} for command's `input` shape.
  * @see {@link PutDataSetRefreshPropertiesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

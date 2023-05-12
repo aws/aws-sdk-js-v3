@@ -79,8 +79,8 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  *
  * ```
  *
- * @param CreateCacheParameterGroupCommandInput - {@link CreateCacheParameterGroupCommandInput}
- * @returns {@link CreateCacheParameterGroupCommandOutput}
+ * @param CreateCacheParameterGroupMessage - {@link CreateCacheParameterGroupMessage}
+ * @returns {@link CreateCacheParameterGroupResult}
  * @see {@link CreateCacheParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

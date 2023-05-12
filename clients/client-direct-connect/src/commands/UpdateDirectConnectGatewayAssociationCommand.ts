@@ -90,8 +90,8 @@ export interface UpdateDirectConnectGatewayAssociationCommandOutput
  *
  * ```
  *
- * @param UpdateDirectConnectGatewayAssociationCommandInput - {@link UpdateDirectConnectGatewayAssociationCommandInput}
- * @returns {@link UpdateDirectConnectGatewayAssociationCommandOutput}
+ * @param UpdateDirectConnectGatewayAssociationRequest - {@link UpdateDirectConnectGatewayAssociationRequest}
+ * @returns {@link UpdateDirectConnectGatewayAssociationResult}
  * @see {@link UpdateDirectConnectGatewayAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateDirectConnectGatewayAssociationCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

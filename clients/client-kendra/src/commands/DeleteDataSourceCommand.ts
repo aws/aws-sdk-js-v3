@@ -52,8 +52,8 @@ export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDataSourceCommandInput - {@link DeleteDataSourceCommandInput}
- * @returns {@link DeleteDataSourceCommandOutput}
+ * @param DeleteDataSourceRequest - {@link DeleteDataSourceRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDataSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteDataSourceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

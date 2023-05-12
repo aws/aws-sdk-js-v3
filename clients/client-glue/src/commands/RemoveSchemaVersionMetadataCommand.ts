@@ -72,8 +72,8 @@ export interface RemoveSchemaVersionMetadataCommandOutput
  *
  * ```
  *
- * @param RemoveSchemaVersionMetadataCommandInput - {@link RemoveSchemaVersionMetadataCommandInput}
- * @returns {@link RemoveSchemaVersionMetadataCommandOutput}
+ * @param RemoveSchemaVersionMetadataInput - {@link RemoveSchemaVersionMetadataInput}
+ * @returns {@link RemoveSchemaVersionMetadataResponse}
  * @see {@link RemoveSchemaVersionMetadataCommandInput} for command's `input` shape.
  * @see {@link RemoveSchemaVersionMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

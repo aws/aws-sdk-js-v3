@@ -54,8 +54,8 @@ export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOut
  *
  * ```
  *
- * @param ListReplicationSetsCommandInput - {@link ListReplicationSetsCommandInput}
- * @returns {@link ListReplicationSetsCommandOutput}
+ * @param ListReplicationSetsInput - {@link ListReplicationSetsInput}
+ * @returns {@link ListReplicationSetsOutput}
  * @see {@link ListReplicationSetsCommandInput} for command's `input` shape.
  * @see {@link ListReplicationSetsCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

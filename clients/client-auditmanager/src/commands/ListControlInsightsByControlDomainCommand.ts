@@ -79,8 +79,8 @@ export interface ListControlInsightsByControlDomainCommandOutput
  *
  * ```
  *
- * @param ListControlInsightsByControlDomainCommandInput - {@link ListControlInsightsByControlDomainCommandInput}
- * @returns {@link ListControlInsightsByControlDomainCommandOutput}
+ * @param ListControlInsightsByControlDomainRequest - {@link ListControlInsightsByControlDomainRequest}
+ * @returns {@link ListControlInsightsByControlDomainResponse}
  * @see {@link ListControlInsightsByControlDomainCommandInput} for command's `input` shape.
  * @see {@link ListControlInsightsByControlDomainCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

@@ -72,8 +72,8 @@ export interface BatchGetRumMetricDefinitionsCommandOutput
  *
  * ```
  *
- * @param BatchGetRumMetricDefinitionsCommandInput - {@link BatchGetRumMetricDefinitionsCommandInput}
- * @returns {@link BatchGetRumMetricDefinitionsCommandOutput}
+ * @param BatchGetRumMetricDefinitionsRequest - {@link BatchGetRumMetricDefinitionsRequest}
+ * @returns {@link BatchGetRumMetricDefinitionsResponse}
  * @see {@link BatchGetRumMetricDefinitionsCommandInput} for command's `input` shape.
  * @see {@link BatchGetRumMetricDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.

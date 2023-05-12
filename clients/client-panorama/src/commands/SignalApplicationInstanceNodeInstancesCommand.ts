@@ -65,8 +65,8 @@ export interface SignalApplicationInstanceNodeInstancesCommandOutput
  *
  * ```
  *
- * @param SignalApplicationInstanceNodeInstancesCommandInput - {@link SignalApplicationInstanceNodeInstancesCommandInput}
- * @returns {@link SignalApplicationInstanceNodeInstancesCommandOutput}
+ * @param SignalApplicationInstanceNodeInstancesRequest - {@link SignalApplicationInstanceNodeInstancesRequest}
+ * @returns {@link SignalApplicationInstanceNodeInstancesResponse}
  * @see {@link SignalApplicationInstanceNodeInstancesCommandInput} for command's `input` shape.
  * @see {@link SignalApplicationInstanceNodeInstancesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

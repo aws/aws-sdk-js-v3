@@ -62,8 +62,8 @@ export interface UpdateRoutingProfileConcurrencyCommandOutput extends __Metadata
  *
  * ```
  *
- * @param UpdateRoutingProfileConcurrencyCommandInput - {@link UpdateRoutingProfileConcurrencyCommandInput}
- * @returns {@link UpdateRoutingProfileConcurrencyCommandOutput}
+ * @param UpdateRoutingProfileConcurrencyRequest - {@link UpdateRoutingProfileConcurrencyRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateRoutingProfileConcurrencyCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingProfileConcurrencyCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

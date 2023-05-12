@@ -92,8 +92,8 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  *
  * ```
  *
- * @param CreateLoadBalancerCommandInput - {@link CreateLoadBalancerCommandInput}
- * @returns {@link CreateLoadBalancerCommandOutput}
+ * @param CreateAccessPointInput - {@link CreateAccessPointInput}
+ * @returns {@link CreateAccessPointOutput}
  * @see {@link CreateLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

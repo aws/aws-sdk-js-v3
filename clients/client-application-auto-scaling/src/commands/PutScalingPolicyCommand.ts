@@ -145,8 +145,8 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  *
  * ```
  *
- * @param PutScalingPolicyCommandInput - {@link PutScalingPolicyCommandInput}
- * @returns {@link PutScalingPolicyCommandOutput}
+ * @param PutScalingPolicyRequest - {@link PutScalingPolicyRequest}
+ * @returns {@link PutScalingPolicyResponse}
  * @see {@link PutScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.

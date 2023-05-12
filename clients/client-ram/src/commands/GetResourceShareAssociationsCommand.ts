@@ -77,8 +77,8 @@ export interface GetResourceShareAssociationsCommandOutput
  *
  * ```
  *
- * @param GetResourceShareAssociationsCommandInput - {@link GetResourceShareAssociationsCommandInput}
- * @returns {@link GetResourceShareAssociationsCommandOutput}
+ * @param GetResourceShareAssociationsRequest - {@link GetResourceShareAssociationsRequest}
+ * @returns {@link GetResourceShareAssociationsResponse}
  * @see {@link GetResourceShareAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetResourceShareAssociationsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

@@ -139,8 +139,8 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateVpcEndpointServiceConfigurationCommandInput - {@link CreateVpcEndpointServiceConfigurationCommandInput}
- * @returns {@link CreateVpcEndpointServiceConfigurationCommandOutput}
+ * @param CreateVpcEndpointServiceConfigurationRequest - {@link CreateVpcEndpointServiceConfigurationRequest}
+ * @returns {@link CreateVpcEndpointServiceConfigurationResult}
  * @see {@link CreateVpcEndpointServiceConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateVpcEndpointServiceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

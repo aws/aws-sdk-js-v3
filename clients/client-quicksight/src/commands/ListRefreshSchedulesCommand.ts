@@ -69,8 +69,8 @@ export interface ListRefreshSchedulesCommandOutput extends ListRefreshSchedulesR
  *
  * ```
  *
- * @param ListRefreshSchedulesCommandInput - {@link ListRefreshSchedulesCommandInput}
- * @returns {@link ListRefreshSchedulesCommandOutput}
+ * @param ListRefreshSchedulesRequest - {@link ListRefreshSchedulesRequest}
+ * @returns {@link ListRefreshSchedulesResponse}
  * @see {@link ListRefreshSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListRefreshSchedulesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

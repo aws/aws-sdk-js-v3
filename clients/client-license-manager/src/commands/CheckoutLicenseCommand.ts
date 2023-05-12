@@ -79,8 +79,8 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
  *
  * ```
  *
- * @param CheckoutLicenseCommandInput - {@link CheckoutLicenseCommandInput}
- * @returns {@link CheckoutLicenseCommandOutput}
+ * @param CheckoutLicenseRequest - {@link CheckoutLicenseRequest}
+ * @returns {@link CheckoutLicenseResponse}
  * @see {@link CheckoutLicenseCommandInput} for command's `input` shape.
  * @see {@link CheckoutLicenseCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

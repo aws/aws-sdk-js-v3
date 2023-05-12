@@ -62,8 +62,8 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  *
  * ```
  *
- * @param ExchangeCodeForTokenCommandInput - {@link ExchangeCodeForTokenCommandInput}
- * @returns {@link ExchangeCodeForTokenCommandOutput}
+ * @param ExchangeCodeForTokenRequest - {@link ExchangeCodeForTokenRequest}
+ * @returns {@link ExchangeCodeForTokenResponse}
  * @see {@link ExchangeCodeForTokenCommandInput} for command's `input` shape.
  * @see {@link ExchangeCodeForTokenCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

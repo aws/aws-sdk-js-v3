@@ -68,8 +68,8 @@ export interface DescribeVpcIngressConnectionCommandOutput
  *
  * ```
  *
- * @param DescribeVpcIngressConnectionCommandInput - {@link DescribeVpcIngressConnectionCommandInput}
- * @returns {@link DescribeVpcIngressConnectionCommandOutput}
+ * @param DescribeVpcIngressConnectionRequest - {@link DescribeVpcIngressConnectionRequest}
+ * @returns {@link DescribeVpcIngressConnectionResponse}
  * @see {@link DescribeVpcIngressConnectionCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcIngressConnectionCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

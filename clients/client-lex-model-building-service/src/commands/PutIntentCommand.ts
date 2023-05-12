@@ -314,8 +314,8 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *
  * ```
  *
- * @param PutIntentCommandInput - {@link PutIntentCommandInput}
- * @returns {@link PutIntentCommandOutput}
+ * @param PutIntentRequest - {@link PutIntentRequest}
+ * @returns {@link PutIntentResponse}
  * @see {@link PutIntentCommandInput} for command's `input` shape.
  * @see {@link PutIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

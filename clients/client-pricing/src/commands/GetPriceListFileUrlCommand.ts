@@ -59,8 +59,8 @@ export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlRes
  *
  * ```
  *
- * @param GetPriceListFileUrlCommandInput - {@link GetPriceListFileUrlCommandInput}
- * @returns {@link GetPriceListFileUrlCommandOutput}
+ * @param GetPriceListFileUrlRequest - {@link GetPriceListFileUrlRequest}
+ * @returns {@link GetPriceListFileUrlResponse}
  * @see {@link GetPriceListFileUrlCommandInput} for command's `input` shape.
  * @see {@link GetPriceListFileUrlCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.

@@ -78,8 +78,8 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  *
  * ```
  *
- * @param CreateWorkteamCommandInput - {@link CreateWorkteamCommandInput}
- * @returns {@link CreateWorkteamCommandOutput}
+ * @param CreateWorkteamRequest - {@link CreateWorkteamRequest}
+ * @returns {@link CreateWorkteamResponse}
  * @see {@link CreateWorkteamCommandInput} for command's `input` shape.
  * @see {@link CreateWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -63,8 +63,8 @@ export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFee
  *
  * ```
  *
- * @param UpdateAuthEventFeedbackCommandInput - {@link UpdateAuthEventFeedbackCommandInput}
- * @returns {@link UpdateAuthEventFeedbackCommandOutput}
+ * @param UpdateAuthEventFeedbackRequest - {@link UpdateAuthEventFeedbackRequest}
+ * @returns {@link UpdateAuthEventFeedbackResponse}
  * @see {@link UpdateAuthEventFeedbackCommandInput} for command's `input` shape.
  * @see {@link UpdateAuthEventFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

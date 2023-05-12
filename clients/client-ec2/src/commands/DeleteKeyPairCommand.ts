@@ -50,8 +50,8 @@ export interface DeleteKeyPairCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteKeyPairCommandInput - {@link DeleteKeyPairCommandInput}
- * @returns {@link DeleteKeyPairCommandOutput}
+ * @param DeleteKeyPairRequest - {@link DeleteKeyPairRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteKeyPairCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyPairCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

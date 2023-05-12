@@ -64,8 +64,8 @@ export interface DescribeFeatureTransformationCommandOutput
  *
  * ```
  *
- * @param DescribeFeatureTransformationCommandInput - {@link DescribeFeatureTransformationCommandInput}
- * @returns {@link DescribeFeatureTransformationCommandOutput}
+ * @param DescribeFeatureTransformationRequest - {@link DescribeFeatureTransformationRequest}
+ * @returns {@link DescribeFeatureTransformationResponse}
  * @see {@link DescribeFeatureTransformationCommandInput} for command's `input` shape.
  * @see {@link DescribeFeatureTransformationCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

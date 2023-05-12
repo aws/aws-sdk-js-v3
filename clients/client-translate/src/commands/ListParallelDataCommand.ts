@@ -80,8 +80,8 @@ export interface ListParallelDataCommandOutput extends ListParallelDataResponse,
  *
  * ```
  *
- * @param ListParallelDataCommandInput - {@link ListParallelDataCommandInput}
- * @returns {@link ListParallelDataCommandOutput}
+ * @param ListParallelDataRequest - {@link ListParallelDataRequest}
+ * @returns {@link ListParallelDataResponse}
  * @see {@link ListParallelDataCommandInput} for command's `input` shape.
  * @see {@link ListParallelDataCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.

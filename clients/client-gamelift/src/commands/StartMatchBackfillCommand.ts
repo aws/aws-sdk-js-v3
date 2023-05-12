@@ -153,8 +153,8 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  *
  * ```
  *
- * @param StartMatchBackfillCommandInput - {@link StartMatchBackfillCommandInput}
- * @returns {@link StartMatchBackfillCommandOutput}
+ * @param StartMatchBackfillInput - {@link StartMatchBackfillInput}
+ * @returns {@link StartMatchBackfillOutput}
  * @see {@link StartMatchBackfillCommandInput} for command's `input` shape.
  * @see {@link StartMatchBackfillCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

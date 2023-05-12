@@ -73,8 +73,8 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  *
  * ```
  *
- * @param ListParentsCommandInput - {@link ListParentsCommandInput}
- * @returns {@link ListParentsCommandOutput}
+ * @param ListParentsRequest - {@link ListParentsRequest}
+ * @returns {@link ListParentsResponse}
  * @see {@link ListParentsCommandInput} for command's `input` shape.
  * @see {@link ListParentsCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

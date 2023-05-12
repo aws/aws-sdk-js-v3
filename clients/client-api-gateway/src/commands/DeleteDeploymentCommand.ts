@@ -49,8 +49,8 @@ export interface DeleteDeploymentCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDeploymentCommandInput - {@link DeleteDeploymentCommandInput}
- * @returns {@link DeleteDeploymentCommandOutput}
+ * @param DeleteDeploymentRequest - {@link DeleteDeploymentRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDeploymentCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

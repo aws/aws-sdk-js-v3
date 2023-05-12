@@ -65,8 +65,8 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  *
  * ```
  *
- * @param DeleteEventSubscriptionCommandInput - {@link DeleteEventSubscriptionCommandInput}
- * @returns {@link DeleteEventSubscriptionCommandOutput}
+ * @param DeleteEventSubscriptionMessage - {@link DeleteEventSubscriptionMessage}
+ * @returns {@link DeleteEventSubscriptionResult}
  * @see {@link DeleteEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

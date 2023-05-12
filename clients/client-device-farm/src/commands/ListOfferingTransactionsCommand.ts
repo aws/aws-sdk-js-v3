@@ -84,8 +84,8 @@ export interface ListOfferingTransactionsCommandOutput extends ListOfferingTrans
  *
  * ```
  *
- * @param ListOfferingTransactionsCommandInput - {@link ListOfferingTransactionsCommandInput}
- * @returns {@link ListOfferingTransactionsCommandOutput}
+ * @param ListOfferingTransactionsRequest - {@link ListOfferingTransactionsRequest}
+ * @returns {@link ListOfferingTransactionsResult}
  * @see {@link ListOfferingTransactionsCommandInput} for command's `input` shape.
  * @see {@link ListOfferingTransactionsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

@@ -84,8 +84,8 @@ export interface ListFieldLevelEncryptionProfilesCommandOutput
  *
  * ```
  *
- * @param ListFieldLevelEncryptionProfilesCommandInput - {@link ListFieldLevelEncryptionProfilesCommandInput}
- * @returns {@link ListFieldLevelEncryptionProfilesCommandOutput}
+ * @param ListFieldLevelEncryptionProfilesRequest - {@link ListFieldLevelEncryptionProfilesRequest}
+ * @returns {@link ListFieldLevelEncryptionProfilesResult}
  * @see {@link ListFieldLevelEncryptionProfilesCommandInput} for command's `input` shape.
  * @see {@link ListFieldLevelEncryptionProfilesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

@@ -65,8 +65,8 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutRecordCommandInput - {@link PutRecordCommandInput}
- * @returns {@link PutRecordCommandOutput}
+ * @param PutRecordRequest - {@link PutRecordRequest}
+ * @returns {@link Unit}
  * @see {@link PutRecordCommandInput} for command's `input` shape.
  * @see {@link PutRecordCommandOutput} for command's `response` shape.
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.

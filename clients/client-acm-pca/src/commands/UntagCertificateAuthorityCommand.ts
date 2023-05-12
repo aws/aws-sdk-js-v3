@@ -58,8 +58,8 @@ export interface UntagCertificateAuthorityCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param UntagCertificateAuthorityCommandInput - {@link UntagCertificateAuthorityCommandInput}
- * @returns {@link UntagCertificateAuthorityCommandOutput}
+ * @param UntagCertificateAuthorityRequest - {@link UntagCertificateAuthorityRequest}
+ * @returns {@link Unit}
  * @see {@link UntagCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link UntagCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

@@ -84,8 +84,8 @@ export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssig
  *
  * ```
  *
- * @param CreateAccountAssignmentCommandInput - {@link CreateAccountAssignmentCommandInput}
- * @returns {@link CreateAccountAssignmentCommandOutput}
+ * @param CreateAccountAssignmentRequest - {@link CreateAccountAssignmentRequest}
+ * @returns {@link CreateAccountAssignmentResponse}
  * @see {@link CreateAccountAssignmentCommandInput} for command's `input` shape.
  * @see {@link CreateAccountAssignmentCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

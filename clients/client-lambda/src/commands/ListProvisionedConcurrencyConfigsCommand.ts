@@ -71,8 +71,8 @@ export interface ListProvisionedConcurrencyConfigsCommandOutput
  *
  * ```
  *
- * @param ListProvisionedConcurrencyConfigsCommandInput - {@link ListProvisionedConcurrencyConfigsCommandInput}
- * @returns {@link ListProvisionedConcurrencyConfigsCommandOutput}
+ * @param ListProvisionedConcurrencyConfigsRequest - {@link ListProvisionedConcurrencyConfigsRequest}
+ * @returns {@link ListProvisionedConcurrencyConfigsResponse}
  * @see {@link ListProvisionedConcurrencyConfigsCommandInput} for command's `input` shape.
  * @see {@link ListProvisionedConcurrencyConfigsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

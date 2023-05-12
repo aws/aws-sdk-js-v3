@@ -58,8 +58,8 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  *
  * ```
  *
- * @param GetCallerIdentityCommandInput - {@link GetCallerIdentityCommandInput}
- * @returns {@link GetCallerIdentityCommandOutput}
+ * @param GetCallerIdentityRequest - {@link GetCallerIdentityRequest}
+ * @returns {@link GetCallerIdentityResponse}
  * @see {@link GetCallerIdentityCommandInput} for command's `input` shape.
  * @see {@link GetCallerIdentityCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.

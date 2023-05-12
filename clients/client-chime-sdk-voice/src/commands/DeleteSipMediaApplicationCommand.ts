@@ -48,8 +48,8 @@ export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param DeleteSipMediaApplicationCommandInput - {@link DeleteSipMediaApplicationCommandInput}
- * @returns {@link DeleteSipMediaApplicationCommandOutput}
+ * @param DeleteSipMediaApplicationRequest - {@link DeleteSipMediaApplicationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteSipMediaApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteSipMediaApplicationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

@@ -56,8 +56,8 @@ export interface DeleteNetworkAnalyzerConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteNetworkAnalyzerConfigurationCommandInput - {@link DeleteNetworkAnalyzerConfigurationCommandInput}
- * @returns {@link DeleteNetworkAnalyzerConfigurationCommandOutput}
+ * @param DeleteNetworkAnalyzerConfigurationRequest - {@link DeleteNetworkAnalyzerConfigurationRequest}
+ * @returns {@link DeleteNetworkAnalyzerConfigurationResponse}
  * @see {@link DeleteNetworkAnalyzerConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkAnalyzerConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

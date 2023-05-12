@@ -68,8 +68,8 @@ export interface ListTemplateStepGroupsCommandOutput extends ListTemplateStepGro
  *
  * ```
  *
- * @param ListTemplateStepGroupsCommandInput - {@link ListTemplateStepGroupsCommandInput}
- * @returns {@link ListTemplateStepGroupsCommandOutput}
+ * @param ListTemplateStepGroupsRequest - {@link ListTemplateStepGroupsRequest}
+ * @returns {@link ListTemplateStepGroupsResponse}
  * @see {@link ListTemplateStepGroupsCommandInput} for command's `input` shape.
  * @see {@link ListTemplateStepGroupsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

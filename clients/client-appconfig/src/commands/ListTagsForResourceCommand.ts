@@ -52,8 +52,8 @@ export interface ListTagsForResourceCommandOutput extends ResourceTags, __Metada
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
+ * @param ListTagsForResourceRequest - {@link ListTagsForResourceRequest}
+ * @returns {@link ResourceTags}
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

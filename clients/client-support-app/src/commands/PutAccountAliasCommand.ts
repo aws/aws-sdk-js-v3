@@ -50,8 +50,8 @@ export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __M
  *
  * ```
  *
- * @param PutAccountAliasCommandInput - {@link PutAccountAliasCommandInput}
- * @returns {@link PutAccountAliasCommandOutput}
+ * @param PutAccountAliasRequest - {@link PutAccountAliasRequest}
+ * @returns {@link PutAccountAliasResult}
  * @see {@link PutAccountAliasCommandInput} for command's `input` shape.
  * @see {@link PutAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.

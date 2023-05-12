@@ -72,8 +72,8 @@ export interface DeleteStreamCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteStreamCommandInput - {@link DeleteStreamCommandInput}
- * @returns {@link DeleteStreamCommandOutput}
+ * @param DeleteStreamInput - {@link DeleteStreamInput}
+ * @returns {@link Unit}
  * @see {@link DeleteStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

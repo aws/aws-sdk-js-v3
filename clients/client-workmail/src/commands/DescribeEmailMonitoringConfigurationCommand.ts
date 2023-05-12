@@ -59,8 +59,8 @@ export interface DescribeEmailMonitoringConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeEmailMonitoringConfigurationCommandInput - {@link DescribeEmailMonitoringConfigurationCommandInput}
- * @returns {@link DescribeEmailMonitoringConfigurationCommandOutput}
+ * @param DescribeEmailMonitoringConfigurationRequest - {@link DescribeEmailMonitoringConfigurationRequest}
+ * @returns {@link DescribeEmailMonitoringConfigurationResponse}
  * @see {@link DescribeEmailMonitoringConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeEmailMonitoringConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

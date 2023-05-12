@@ -61,8 +61,8 @@ export interface DeleteTagsCommandOutput extends DeleteTagsResponse, __MetadataB
  *
  * ```
  *
- * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
- * @returns {@link DeleteTagsCommandOutput}
+ * @param DeleteTagsRequest - {@link DeleteTagsRequest}
+ * @returns {@link DeleteTagsResponse}
  * @see {@link DeleteTagsCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

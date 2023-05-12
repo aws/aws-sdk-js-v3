@@ -53,8 +53,8 @@ export interface GetSolutionMetricsCommandOutput extends GetSolutionMetricsRespo
  *
  * ```
  *
- * @param GetSolutionMetricsCommandInput - {@link GetSolutionMetricsCommandInput}
- * @returns {@link GetSolutionMetricsCommandOutput}
+ * @param GetSolutionMetricsRequest - {@link GetSolutionMetricsRequest}
+ * @returns {@link GetSolutionMetricsResponse}
  * @see {@link GetSolutionMetricsCommandInput} for command's `input` shape.
  * @see {@link GetSolutionMetricsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

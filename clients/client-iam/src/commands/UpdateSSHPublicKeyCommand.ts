@@ -56,8 +56,8 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateSSHPublicKeyCommandInput - {@link UpdateSSHPublicKeyCommandInput}
- * @returns {@link UpdateSSHPublicKeyCommandOutput}
+ * @param UpdateSSHPublicKeyRequest - {@link UpdateSSHPublicKeyRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

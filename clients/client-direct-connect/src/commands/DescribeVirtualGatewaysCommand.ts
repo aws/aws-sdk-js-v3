@@ -54,8 +54,8 @@ export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, _
  *
  * ```
  *
- * @param DescribeVirtualGatewaysCommandInput - {@link DescribeVirtualGatewaysCommandInput}
- * @returns {@link DescribeVirtualGatewaysCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link VirtualGateways}
  * @see {@link DescribeVirtualGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualGatewaysCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

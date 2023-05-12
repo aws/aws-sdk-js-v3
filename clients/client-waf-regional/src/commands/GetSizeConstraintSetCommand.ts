@@ -72,8 +72,8 @@ export interface GetSizeConstraintSetCommandOutput extends GetSizeConstraintSetR
  *
  * ```
  *
- * @param GetSizeConstraintSetCommandInput - {@link GetSizeConstraintSetCommandInput}
- * @returns {@link GetSizeConstraintSetCommandOutput}
+ * @param GetSizeConstraintSetRequest - {@link GetSizeConstraintSetRequest}
+ * @returns {@link GetSizeConstraintSetResponse}
  * @see {@link GetSizeConstraintSetCommandInput} for command's `input` shape.
  * @see {@link GetSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

@@ -65,8 +65,8 @@ export interface ListDeviceDefinitionsCommandOutput extends ListDeviceDefinition
  *
  * ```
  *
- * @param ListDeviceDefinitionsCommandInput - {@link ListDeviceDefinitionsCommandInput}
- * @returns {@link ListDeviceDefinitionsCommandOutput}
+ * @param ListDeviceDefinitionsRequest - {@link ListDeviceDefinitionsRequest}
+ * @returns {@link ListDeviceDefinitionsResponse}
  * @see {@link ListDeviceDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListDeviceDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

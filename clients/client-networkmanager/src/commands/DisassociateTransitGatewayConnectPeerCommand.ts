@@ -66,8 +66,8 @@ export interface DisassociateTransitGatewayConnectPeerCommandOutput
  *
  * ```
  *
- * @param DisassociateTransitGatewayConnectPeerCommandInput - {@link DisassociateTransitGatewayConnectPeerCommandInput}
- * @returns {@link DisassociateTransitGatewayConnectPeerCommandOutput}
+ * @param DisassociateTransitGatewayConnectPeerRequest - {@link DisassociateTransitGatewayConnectPeerRequest}
+ * @returns {@link DisassociateTransitGatewayConnectPeerResponse}
  * @see {@link DisassociateTransitGatewayConnectPeerCommandInput} for command's `input` shape.
  * @see {@link DisassociateTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

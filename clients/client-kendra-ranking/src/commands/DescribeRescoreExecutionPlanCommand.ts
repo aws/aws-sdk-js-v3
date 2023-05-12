@@ -67,8 +67,8 @@ export interface DescribeRescoreExecutionPlanCommandOutput
  *
  * ```
  *
- * @param DescribeRescoreExecutionPlanCommandInput - {@link DescribeRescoreExecutionPlanCommandInput}
- * @returns {@link DescribeRescoreExecutionPlanCommandOutput}
+ * @param DescribeRescoreExecutionPlanRequest - {@link DescribeRescoreExecutionPlanRequest}
+ * @returns {@link DescribeRescoreExecutionPlanResponse}
  * @see {@link DescribeRescoreExecutionPlanCommandInput} for command's `input` shape.
  * @see {@link DescribeRescoreExecutionPlanCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.

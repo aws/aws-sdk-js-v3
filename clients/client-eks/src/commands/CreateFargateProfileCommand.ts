@@ -115,8 +115,8 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  *
  * ```
  *
- * @param CreateFargateProfileCommandInput - {@link CreateFargateProfileCommandInput}
- * @returns {@link CreateFargateProfileCommandOutput}
+ * @param CreateFargateProfileRequest - {@link CreateFargateProfileRequest}
+ * @returns {@link CreateFargateProfileResponse}
  * @see {@link CreateFargateProfileCommandInput} for command's `input` shape.
  * @see {@link CreateFargateProfileCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

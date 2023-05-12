@@ -185,8 +185,8 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *
  * ```
  *
- * @param RestoreDBClusterToPointInTimeCommandInput - {@link RestoreDBClusterToPointInTimeCommandInput}
- * @returns {@link RestoreDBClusterToPointInTimeCommandOutput}
+ * @param RestoreDBClusterToPointInTimeMessage - {@link RestoreDBClusterToPointInTimeMessage}
+ * @returns {@link RestoreDBClusterToPointInTimeResult}
  * @see {@link RestoreDBClusterToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

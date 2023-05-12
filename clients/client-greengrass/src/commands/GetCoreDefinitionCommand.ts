@@ -59,8 +59,8 @@ export interface GetCoreDefinitionCommandOutput extends GetCoreDefinitionRespons
  *
  * ```
  *
- * @param GetCoreDefinitionCommandInput - {@link GetCoreDefinitionCommandInput}
- * @returns {@link GetCoreDefinitionCommandOutput}
+ * @param GetCoreDefinitionRequest - {@link GetCoreDefinitionRequest}
+ * @returns {@link GetCoreDefinitionResponse}
  * @see {@link GetCoreDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetCoreDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

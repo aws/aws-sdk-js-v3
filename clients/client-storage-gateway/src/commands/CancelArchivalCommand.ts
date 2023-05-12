@@ -52,8 +52,8 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  *
  * ```
  *
- * @param CancelArchivalCommandInput - {@link CancelArchivalCommandInput}
- * @returns {@link CancelArchivalCommandOutput}
+ * @param CancelArchivalInput - {@link CancelArchivalInput}
+ * @returns {@link CancelArchivalOutput}
  * @see {@link CancelArchivalCommandInput} for command's `input` shape.
  * @see {@link CancelArchivalCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

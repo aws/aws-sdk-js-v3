@@ -69,8 +69,8 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
  *
  * ```
  *
- * @param GetGeofenceCommandInput - {@link GetGeofenceCommandInput}
- * @returns {@link GetGeofenceCommandOutput}
+ * @param GetGeofenceRequest - {@link GetGeofenceRequest}
+ * @returns {@link GetGeofenceResponse}
  * @see {@link GetGeofenceCommandInput} for command's `input` shape.
  * @see {@link GetGeofenceCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

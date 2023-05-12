@@ -213,8 +213,8 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  *
  * ```
  *
- * @param UpdateFunctionConfigurationCommandInput - {@link UpdateFunctionConfigurationCommandInput}
- * @returns {@link UpdateFunctionConfigurationCommandOutput}
+ * @param UpdateFunctionConfigurationRequest - {@link UpdateFunctionConfigurationRequest}
+ * @returns {@link FunctionConfiguration}
  * @see {@link UpdateFunctionConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

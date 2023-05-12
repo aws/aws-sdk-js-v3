@@ -54,8 +54,8 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  *
  * ```
  *
- * @param GetServiceSettingsCommandInput - {@link GetServiceSettingsCommandInput}
- * @returns {@link GetServiceSettingsCommandOutput}
+ * @param GetServiceSettingsRequest - {@link GetServiceSettingsRequest}
+ * @returns {@link GetServiceSettingsResponse}
  * @see {@link GetServiceSettingsCommandInput} for command's `input` shape.
  * @see {@link GetServiceSettingsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

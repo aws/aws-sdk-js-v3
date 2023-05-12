@@ -51,8 +51,8 @@ export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param DeleteConnectInstanceConfigCommandInput - {@link DeleteConnectInstanceConfigCommandInput}
- * @returns {@link DeleteConnectInstanceConfigCommandOutput}
+ * @param DeleteConnectInstanceConfigRequest - {@link DeleteConnectInstanceConfigRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteConnectInstanceConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectInstanceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

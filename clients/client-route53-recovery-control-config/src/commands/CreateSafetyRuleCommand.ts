@@ -118,8 +118,8 @@ export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse,
  *
  * ```
  *
- * @param CreateSafetyRuleCommandInput - {@link CreateSafetyRuleCommandInput}
- * @returns {@link CreateSafetyRuleCommandOutput}
+ * @param CreateSafetyRuleRequest - {@link CreateSafetyRuleRequest}
+ * @returns {@link CreateSafetyRuleResponse}
  * @see {@link CreateSafetyRuleCommandInput} for command's `input` shape.
  * @see {@link CreateSafetyRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

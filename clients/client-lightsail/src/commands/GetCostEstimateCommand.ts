@@ -76,8 +76,8 @@ export interface GetCostEstimateCommandOutput extends GetCostEstimateResult, __M
  *
  * ```
  *
- * @param GetCostEstimateCommandInput - {@link GetCostEstimateCommandInput}
- * @returns {@link GetCostEstimateCommandOutput}
+ * @param GetCostEstimateRequest - {@link GetCostEstimateRequest}
+ * @returns {@link GetCostEstimateResult}
  * @see {@link GetCostEstimateCommandInput} for command's `input` shape.
  * @see {@link GetCostEstimateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

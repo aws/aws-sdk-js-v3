@@ -64,8 +64,8 @@ export interface BatchAcknowledgeAlarmCommandOutput extends BatchAcknowledgeAlar
  *
  * ```
  *
- * @param BatchAcknowledgeAlarmCommandInput - {@link BatchAcknowledgeAlarmCommandInput}
- * @returns {@link BatchAcknowledgeAlarmCommandOutput}
+ * @param BatchAcknowledgeAlarmRequest - {@link BatchAcknowledgeAlarmRequest}
+ * @returns {@link BatchAcknowledgeAlarmResponse}
  * @see {@link BatchAcknowledgeAlarmCommandInput} for command's `input` shape.
  * @see {@link BatchAcknowledgeAlarmCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.

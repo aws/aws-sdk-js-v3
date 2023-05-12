@@ -80,8 +80,8 @@ export interface DescribeBotVersionCommandOutput extends DescribeBotVersionRespo
  *
  * ```
  *
- * @param DescribeBotVersionCommandInput - {@link DescribeBotVersionCommandInput}
- * @returns {@link DescribeBotVersionCommandOutput}
+ * @param DescribeBotVersionRequest - {@link DescribeBotVersionRequest}
+ * @returns {@link DescribeBotVersionResponse}
  * @see {@link DescribeBotVersionCommandInput} for command's `input` shape.
  * @see {@link DescribeBotVersionCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

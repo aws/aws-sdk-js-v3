@@ -84,8 +84,8 @@ export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesRes
  *
  * ```
  *
- * @param TerminateWorkspacesCommandInput - {@link TerminateWorkspacesCommandInput}
- * @returns {@link TerminateWorkspacesCommandOutput}
+ * @param TerminateWorkspacesRequest - {@link TerminateWorkspacesRequest}
+ * @returns {@link TerminateWorkspacesResult}
  * @see {@link TerminateWorkspacesCommandInput} for command's `input` shape.
  * @see {@link TerminateWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

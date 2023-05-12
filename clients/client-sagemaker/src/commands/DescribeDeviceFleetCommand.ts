@@ -62,8 +62,8 @@ export interface DescribeDeviceFleetCommandOutput extends DescribeDeviceFleetRes
  *
  * ```
  *
- * @param DescribeDeviceFleetCommandInput - {@link DescribeDeviceFleetCommandInput}
- * @returns {@link DescribeDeviceFleetCommandOutput}
+ * @param DescribeDeviceFleetRequest - {@link DescribeDeviceFleetRequest}
+ * @returns {@link DescribeDeviceFleetResponse}
  * @see {@link DescribeDeviceFleetCommandInput} for command's `input` shape.
  * @see {@link DescribeDeviceFleetCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

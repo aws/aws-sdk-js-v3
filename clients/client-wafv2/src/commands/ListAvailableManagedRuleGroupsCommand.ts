@@ -67,8 +67,8 @@ export interface ListAvailableManagedRuleGroupsCommandOutput
  *
  * ```
  *
- * @param ListAvailableManagedRuleGroupsCommandInput - {@link ListAvailableManagedRuleGroupsCommandInput}
- * @returns {@link ListAvailableManagedRuleGroupsCommandOutput}
+ * @param ListAvailableManagedRuleGroupsRequest - {@link ListAvailableManagedRuleGroupsRequest}
+ * @returns {@link ListAvailableManagedRuleGroupsResponse}
  * @see {@link ListAvailableManagedRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAvailableManagedRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

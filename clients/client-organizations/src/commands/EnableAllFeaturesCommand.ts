@@ -103,8 +103,8 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *
  * ```
  *
- * @param EnableAllFeaturesCommandInput - {@link EnableAllFeaturesCommandInput}
- * @returns {@link EnableAllFeaturesCommandOutput}
+ * @param EnableAllFeaturesRequest - {@link EnableAllFeaturesRequest}
+ * @returns {@link EnableAllFeaturesResponse}
  * @see {@link EnableAllFeaturesCommandInput} for command's `input` shape.
  * @see {@link EnableAllFeaturesCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

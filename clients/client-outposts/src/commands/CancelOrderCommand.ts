@@ -48,8 +48,8 @@ export interface CancelOrderCommandOutput extends CancelOrderOutput, __MetadataB
  *
  * ```
  *
- * @param CancelOrderCommandInput - {@link CancelOrderCommandInput}
- * @returns {@link CancelOrderCommandOutput}
+ * @param CancelOrderInput - {@link CancelOrderInput}
+ * @returns {@link CancelOrderOutput}
  * @see {@link CancelOrderCommandInput} for command's `input` shape.
  * @see {@link CancelOrderCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

@@ -73,8 +73,8 @@ export interface CreatePackagingGroupCommandOutput extends CreatePackagingGroupR
  *
  * ```
  *
- * @param CreatePackagingGroupCommandInput - {@link CreatePackagingGroupCommandInput}
- * @returns {@link CreatePackagingGroupCommandOutput}
+ * @param CreatePackagingGroupRequest - {@link CreatePackagingGroupRequest}
+ * @returns {@link CreatePackagingGroupResponse}
  * @see {@link CreatePackagingGroupCommandInput} for command's `input` shape.
  * @see {@link CreatePackagingGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.

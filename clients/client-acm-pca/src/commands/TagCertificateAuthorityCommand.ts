@@ -68,8 +68,8 @@ export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param TagCertificateAuthorityCommandInput - {@link TagCertificateAuthorityCommandInput}
- * @returns {@link TagCertificateAuthorityCommandOutput}
+ * @param TagCertificateAuthorityRequest - {@link TagCertificateAuthorityRequest}
+ * @returns {@link Unit}
  * @see {@link TagCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link TagCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

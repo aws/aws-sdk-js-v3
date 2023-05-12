@@ -98,8 +98,8 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
  *
  * ```
  *
- * @param GetInterpolatedAssetPropertyValuesCommandInput - {@link GetInterpolatedAssetPropertyValuesCommandInput}
- * @returns {@link GetInterpolatedAssetPropertyValuesCommandOutput}
+ * @param GetInterpolatedAssetPropertyValuesRequest - {@link GetInterpolatedAssetPropertyValuesRequest}
+ * @returns {@link GetInterpolatedAssetPropertyValuesResponse}
  * @see {@link GetInterpolatedAssetPropertyValuesCommandInput} for command's `input` shape.
  * @see {@link GetInterpolatedAssetPropertyValuesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

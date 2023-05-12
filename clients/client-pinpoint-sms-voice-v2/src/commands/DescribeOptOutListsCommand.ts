@@ -70,8 +70,8 @@ export interface DescribeOptOutListsCommandOutput extends DescribeOptOutListsRes
  *
  * ```
  *
- * @param DescribeOptOutListsCommandInput - {@link DescribeOptOutListsCommandInput}
- * @returns {@link DescribeOptOutListsCommandOutput}
+ * @param DescribeOptOutListsRequest - {@link DescribeOptOutListsRequest}
+ * @returns {@link DescribeOptOutListsResult}
  * @see {@link DescribeOptOutListsCommandInput} for command's `input` shape.
  * @see {@link DescribeOptOutListsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

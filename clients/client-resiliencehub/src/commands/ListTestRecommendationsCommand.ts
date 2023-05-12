@@ -76,8 +76,8 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  *
  * ```
  *
- * @param ListTestRecommendationsCommandInput - {@link ListTestRecommendationsCommandInput}
- * @returns {@link ListTestRecommendationsCommandOutput}
+ * @param ListTestRecommendationsRequest - {@link ListTestRecommendationsRequest}
+ * @returns {@link ListTestRecommendationsResponse}
  * @see {@link ListTestRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListTestRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

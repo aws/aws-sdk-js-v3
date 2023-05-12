@@ -91,8 +91,8 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  *
  * ```
  *
- * @param ListClustersCommandInput - {@link ListClustersCommandInput}
- * @returns {@link ListClustersCommandOutput}
+ * @param ListClustersInput - {@link ListClustersInput}
+ * @returns {@link ListClustersOutput}
  * @see {@link ListClustersCommandInput} for command's `input` shape.
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

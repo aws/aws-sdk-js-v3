@@ -137,8 +137,8 @@ export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBea
  *
  * ```
  *
- * @param AnalyzeIDCommandInput - {@link AnalyzeIDCommandInput}
- * @returns {@link AnalyzeIDCommandOutput}
+ * @param AnalyzeIDRequest - {@link AnalyzeIDRequest}
+ * @returns {@link AnalyzeIDResponse}
  * @see {@link AnalyzeIDCommandInput} for command's `input` shape.
  * @see {@link AnalyzeIDCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.

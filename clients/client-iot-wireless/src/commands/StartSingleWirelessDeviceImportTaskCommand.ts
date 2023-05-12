@@ -70,8 +70,8 @@ export interface StartSingleWirelessDeviceImportTaskCommandOutput
  *
  * ```
  *
- * @param StartSingleWirelessDeviceImportTaskCommandInput - {@link StartSingleWirelessDeviceImportTaskCommandInput}
- * @returns {@link StartSingleWirelessDeviceImportTaskCommandOutput}
+ * @param StartSingleWirelessDeviceImportTaskRequest - {@link StartSingleWirelessDeviceImportTaskRequest}
+ * @returns {@link StartSingleWirelessDeviceImportTaskResponse}
  * @see {@link StartSingleWirelessDeviceImportTaskCommandInput} for command's `input` shape.
  * @see {@link StartSingleWirelessDeviceImportTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

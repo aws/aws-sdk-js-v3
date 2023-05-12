@@ -63,8 +63,8 @@ export interface GetSensitiveDataOccurrencesCommandOutput
  *
  * ```
  *
- * @param GetSensitiveDataOccurrencesCommandInput - {@link GetSensitiveDataOccurrencesCommandInput}
- * @returns {@link GetSensitiveDataOccurrencesCommandOutput}
+ * @param GetSensitiveDataOccurrencesRequest - {@link GetSensitiveDataOccurrencesRequest}
+ * @returns {@link GetSensitiveDataOccurrencesResponse}
  * @see {@link GetSensitiveDataOccurrencesCommandInput} for command's `input` shape.
  * @see {@link GetSensitiveDataOccurrencesCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

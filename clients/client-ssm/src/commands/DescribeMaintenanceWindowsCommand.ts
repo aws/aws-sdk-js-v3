@@ -79,8 +79,8 @@ export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMainten
  *
  * ```
  *
- * @param DescribeMaintenanceWindowsCommandInput - {@link DescribeMaintenanceWindowsCommandInput}
- * @returns {@link DescribeMaintenanceWindowsCommandOutput}
+ * @param DescribeMaintenanceWindowsRequest - {@link DescribeMaintenanceWindowsRequest}
+ * @returns {@link DescribeMaintenanceWindowsResult}
  * @see {@link DescribeMaintenanceWindowsCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

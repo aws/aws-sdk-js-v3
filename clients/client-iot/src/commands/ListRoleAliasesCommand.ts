@@ -56,8 +56,8 @@ export interface ListRoleAliasesCommandOutput extends ListRoleAliasesResponse, _
  *
  * ```
  *
- * @param ListRoleAliasesCommandInput - {@link ListRoleAliasesCommandInput}
- * @returns {@link ListRoleAliasesCommandOutput}
+ * @param ListRoleAliasesRequest - {@link ListRoleAliasesRequest}
+ * @returns {@link ListRoleAliasesResponse}
  * @see {@link ListRoleAliasesCommandInput} for command's `input` shape.
  * @see {@link ListRoleAliasesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

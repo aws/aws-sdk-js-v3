@@ -61,8 +61,8 @@ export interface ListExtensionsCommandOutput extends ListExtensionsResult, __Met
  *
  * ```
  *
- * @param ListExtensionsCommandInput - {@link ListExtensionsCommandInput}
- * @returns {@link ListExtensionsCommandOutput}
+ * @param ListExtensionsRequest - {@link ListExtensionsRequest}
+ * @returns {@link ListExtensionsResult}
  * @see {@link ListExtensionsCommandInput} for command's `input` shape.
  * @see {@link ListExtensionsCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

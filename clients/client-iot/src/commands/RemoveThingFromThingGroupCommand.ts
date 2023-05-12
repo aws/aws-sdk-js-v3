@@ -57,8 +57,8 @@ export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromT
  *
  * ```
  *
- * @param RemoveThingFromThingGroupCommandInput - {@link RemoveThingFromThingGroupCommandInput}
- * @returns {@link RemoveThingFromThingGroupCommandOutput}
+ * @param RemoveThingFromThingGroupRequest - {@link RemoveThingFromThingGroupRequest}
+ * @returns {@link RemoveThingFromThingGroupResponse}
  * @see {@link RemoveThingFromThingGroupCommandInput} for command's `input` shape.
  * @see {@link RemoveThingFromThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

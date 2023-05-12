@@ -204,8 +204,8 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  *
  * ```
  *
- * @param DescribeAssetModelCommandInput - {@link DescribeAssetModelCommandInput}
- * @returns {@link DescribeAssetModelCommandOutput}
+ * @param DescribeAssetModelRequest - {@link DescribeAssetModelRequest}
+ * @returns {@link DescribeAssetModelResponse}
  * @see {@link DescribeAssetModelCommandInput} for command's `input` shape.
  * @see {@link DescribeAssetModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

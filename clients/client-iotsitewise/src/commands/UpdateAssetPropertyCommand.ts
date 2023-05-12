@@ -58,8 +58,8 @@ export interface UpdateAssetPropertyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateAssetPropertyCommandInput - {@link UpdateAssetPropertyCommandInput}
- * @returns {@link UpdateAssetPropertyCommandOutput}
+ * @param UpdateAssetPropertyRequest - {@link UpdateAssetPropertyRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateAssetPropertyCommandInput} for command's `input` shape.
  * @see {@link UpdateAssetPropertyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

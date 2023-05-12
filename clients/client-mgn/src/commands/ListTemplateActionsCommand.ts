@@ -85,8 +85,8 @@ export interface ListTemplateActionsCommandOutput extends ListTemplateActionsRes
  *
  * ```
  *
- * @param ListTemplateActionsCommandInput - {@link ListTemplateActionsCommandInput}
- * @returns {@link ListTemplateActionsCommandOutput}
+ * @param ListTemplateActionsRequest - {@link ListTemplateActionsRequest}
+ * @returns {@link ListTemplateActionsResponse}
  * @see {@link ListTemplateActionsCommandInput} for command's `input` shape.
  * @see {@link ListTemplateActionsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

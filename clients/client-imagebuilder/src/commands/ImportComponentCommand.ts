@@ -65,8 +65,8 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
  *
  * ```
  *
- * @param ImportComponentCommandInput - {@link ImportComponentCommandInput}
- * @returns {@link ImportComponentCommandOutput}
+ * @param ImportComponentRequest - {@link ImportComponentRequest}
+ * @returns {@link ImportComponentResponse}
  * @see {@link ImportComponentCommandInput} for command's `input` shape.
  * @see {@link ImportComponentCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

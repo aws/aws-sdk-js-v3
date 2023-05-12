@@ -92,8 +92,8 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  *
  * ```
  *
- * @param RecordLifecycleActionHeartbeatCommandInput - {@link RecordLifecycleActionHeartbeatCommandInput}
- * @returns {@link RecordLifecycleActionHeartbeatCommandOutput}
+ * @param RecordLifecycleActionHeartbeatType - {@link RecordLifecycleActionHeartbeatType}
+ * @returns {@link RecordLifecycleActionHeartbeatAnswer}
  * @see {@link RecordLifecycleActionHeartbeatCommandInput} for command's `input` shape.
  * @see {@link RecordLifecycleActionHeartbeatCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

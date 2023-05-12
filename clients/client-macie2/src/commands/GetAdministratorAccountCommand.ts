@@ -53,8 +53,8 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  *
  * ```
  *
- * @param GetAdministratorAccountCommandInput - {@link GetAdministratorAccountCommandInput}
- * @returns {@link GetAdministratorAccountCommandOutput}
+ * @param GetAdministratorAccountRequest - {@link GetAdministratorAccountRequest}
+ * @returns {@link GetAdministratorAccountResponse}
  * @see {@link GetAdministratorAccountCommandInput} for command's `input` shape.
  * @see {@link GetAdministratorAccountCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

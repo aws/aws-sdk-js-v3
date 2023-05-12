@@ -75,8 +75,8 @@ export interface DescribeIdFormatCommandOutput extends DescribeIdFormatResult, _
  *
  * ```
  *
- * @param DescribeIdFormatCommandInput - {@link DescribeIdFormatCommandInput}
- * @returns {@link DescribeIdFormatCommandOutput}
+ * @param DescribeIdFormatRequest - {@link DescribeIdFormatRequest}
+ * @returns {@link DescribeIdFormatResult}
  * @see {@link DescribeIdFormatCommandInput} for command's `input` shape.
  * @see {@link DescribeIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

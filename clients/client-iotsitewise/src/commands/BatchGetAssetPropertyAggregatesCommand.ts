@@ -112,8 +112,8 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
  *
  * ```
  *
- * @param BatchGetAssetPropertyAggregatesCommandInput - {@link BatchGetAssetPropertyAggregatesCommandInput}
- * @returns {@link BatchGetAssetPropertyAggregatesCommandOutput}
+ * @param BatchGetAssetPropertyAggregatesRequest - {@link BatchGetAssetPropertyAggregatesRequest}
+ * @returns {@link BatchGetAssetPropertyAggregatesResponse}
  * @see {@link BatchGetAssetPropertyAggregatesCommandInput} for command's `input` shape.
  * @see {@link BatchGetAssetPropertyAggregatesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

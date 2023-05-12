@@ -112,8 +112,8 @@ export interface UpdatePushTemplateCommandOutput extends UpdatePushTemplateRespo
  *
  * ```
  *
- * @param UpdatePushTemplateCommandInput - {@link UpdatePushTemplateCommandInput}
- * @returns {@link UpdatePushTemplateCommandOutput}
+ * @param UpdatePushTemplateRequest - {@link UpdatePushTemplateRequest}
+ * @returns {@link UpdatePushTemplateResponse}
  * @see {@link UpdatePushTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdatePushTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

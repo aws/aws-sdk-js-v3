@@ -118,8 +118,8 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  *
  * ```
  *
- * @param RestoreTableCommandInput - {@link RestoreTableCommandInput}
- * @returns {@link RestoreTableCommandOutput}
+ * @param RestoreTableRequest - {@link RestoreTableRequest}
+ * @returns {@link RestoreTableResponse}
  * @see {@link RestoreTableCommandInput} for command's `input` shape.
  * @see {@link RestoreTableCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.

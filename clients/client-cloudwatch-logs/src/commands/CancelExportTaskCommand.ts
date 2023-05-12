@@ -49,8 +49,8 @@ export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CancelExportTaskCommandInput - {@link CancelExportTaskCommandInput}
- * @returns {@link CancelExportTaskCommandOutput}
+ * @param CancelExportTaskRequest - {@link CancelExportTaskRequest}
+ * @returns {@link Unit}
  * @see {@link CancelExportTaskCommandInput} for command's `input` shape.
  * @see {@link CancelExportTaskCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

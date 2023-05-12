@@ -64,8 +64,8 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  *
  * ```
  *
- * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
- * @returns {@link UpdateGroupCommandOutput}
+ * @param UpdateGroupRequest - {@link UpdateGroupRequest}
+ * @returns {@link UpdateGroupResult}
  * @see {@link UpdateGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

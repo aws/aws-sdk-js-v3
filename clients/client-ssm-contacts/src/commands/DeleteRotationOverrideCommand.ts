@@ -49,8 +49,8 @@ export interface DeleteRotationOverrideCommandOutput extends DeleteRotationOverr
  *
  * ```
  *
- * @param DeleteRotationOverrideCommandInput - {@link DeleteRotationOverrideCommandInput}
- * @returns {@link DeleteRotationOverrideCommandOutput}
+ * @param DeleteRotationOverrideRequest - {@link DeleteRotationOverrideRequest}
+ * @returns {@link DeleteRotationOverrideResult}
  * @see {@link DeleteRotationOverrideCommandInput} for command's `input` shape.
  * @see {@link DeleteRotationOverrideCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

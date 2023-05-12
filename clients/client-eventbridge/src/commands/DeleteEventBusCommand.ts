@@ -49,8 +49,8 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteEventBusCommandInput - {@link DeleteEventBusCommandInput}
- * @returns {@link DeleteEventBusCommandOutput}
+ * @param DeleteEventBusRequest - {@link DeleteEventBusRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteEventBusCommandInput} for command's `input` shape.
  * @see {@link DeleteEventBusCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

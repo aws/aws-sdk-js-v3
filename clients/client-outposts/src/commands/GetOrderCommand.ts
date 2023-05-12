@@ -81,8 +81,8 @@ export interface GetOrderCommandOutput extends GetOrderOutput, __MetadataBearer 
  *
  * ```
  *
- * @param GetOrderCommandInput - {@link GetOrderCommandInput}
- * @returns {@link GetOrderCommandOutput}
+ * @param GetOrderInput - {@link GetOrderInput}
+ * @returns {@link GetOrderOutput}
  * @see {@link GetOrderCommandInput} for command's `input` shape.
  * @see {@link GetOrderCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

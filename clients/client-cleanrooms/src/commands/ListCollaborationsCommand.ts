@@ -66,8 +66,8 @@ export interface ListCollaborationsCommandOutput extends ListCollaborationsOutpu
  *
  * ```
  *
- * @param ListCollaborationsCommandInput - {@link ListCollaborationsCommandInput}
- * @returns {@link ListCollaborationsCommandOutput}
+ * @param ListCollaborationsInput - {@link ListCollaborationsInput}
+ * @returns {@link ListCollaborationsOutput}
  * @see {@link ListCollaborationsCommandInput} for command's `input` shape.
  * @see {@link ListCollaborationsCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

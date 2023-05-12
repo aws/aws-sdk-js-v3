@@ -60,8 +60,8 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  *
  * ```
  *
- * @param PutIdentityPolicyCommandInput - {@link PutIdentityPolicyCommandInput}
- * @returns {@link PutIdentityPolicyCommandOutput}
+ * @param PutIdentityPolicyRequest - {@link PutIdentityPolicyRequest}
+ * @returns {@link PutIdentityPolicyResponse}
  * @see {@link PutIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link PutIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

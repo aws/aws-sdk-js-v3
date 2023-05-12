@@ -60,8 +60,8 @@ export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __Met
  *
  * ```
  *
- * @param GetMapSpritesCommandInput - {@link GetMapSpritesCommandInput}
- * @returns {@link GetMapSpritesCommandOutput}
+ * @param GetMapSpritesRequest - {@link GetMapSpritesRequest}
+ * @returns {@link GetMapSpritesResponse}
  * @see {@link GetMapSpritesCommandInput} for command's `input` shape.
  * @see {@link GetMapSpritesCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

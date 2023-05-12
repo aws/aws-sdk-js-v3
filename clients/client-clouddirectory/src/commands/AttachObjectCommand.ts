@@ -67,8 +67,8 @@ export interface AttachObjectCommandOutput extends AttachObjectResponse, __Metad
  *
  * ```
  *
- * @param AttachObjectCommandInput - {@link AttachObjectCommandInput}
- * @returns {@link AttachObjectCommandOutput}
+ * @param AttachObjectRequest - {@link AttachObjectRequest}
+ * @returns {@link AttachObjectResponse}
  * @see {@link AttachObjectCommandInput} for command's `input` shape.
  * @see {@link AttachObjectCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

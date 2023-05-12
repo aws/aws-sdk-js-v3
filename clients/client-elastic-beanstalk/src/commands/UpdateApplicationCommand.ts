@@ -82,8 +82,8 @@ export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMe
  *
  * ```
  *
- * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
- * @returns {@link UpdateApplicationCommandOutput}
+ * @param UpdateApplicationMessage - {@link UpdateApplicationMessage}
+ * @returns {@link ApplicationDescriptionMessage}
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

@@ -68,8 +68,8 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  *
  * ```
  *
- * @param ListApplicationVersionsCommandInput - {@link ListApplicationVersionsCommandInput}
- * @returns {@link ListApplicationVersionsCommandOutput}
+ * @param ListApplicationVersionsRequest - {@link ListApplicationVersionsRequest}
+ * @returns {@link ListApplicationVersionsResponse}
  * @see {@link ListApplicationVersionsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationVersionsCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.

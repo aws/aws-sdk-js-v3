@@ -54,8 +54,8 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param SetDefaultPolicyVersionCommandInput - {@link SetDefaultPolicyVersionCommandInput}
- * @returns {@link SetDefaultPolicyVersionCommandOutput}
+ * @param SetDefaultPolicyVersionRequest - {@link SetDefaultPolicyVersionRequest}
+ * @returns {@link Unit}
  * @see {@link SetDefaultPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link SetDefaultPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -78,8 +78,8 @@ export interface AdminListDevicesCommandOutput extends AdminListDevicesResponse,
  *
  * ```
  *
- * @param AdminListDevicesCommandInput - {@link AdminListDevicesCommandInput}
- * @returns {@link AdminListDevicesCommandOutput}
+ * @param AdminListDevicesRequest - {@link AdminListDevicesRequest}
+ * @returns {@link AdminListDevicesResponse}
  * @see {@link AdminListDevicesCommandInput} for command's `input` shape.
  * @see {@link AdminListDevicesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

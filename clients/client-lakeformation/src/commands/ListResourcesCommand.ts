@@ -68,8 +68,8 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  *
  * ```
  *
- * @param ListResourcesCommandInput - {@link ListResourcesCommandInput}
- * @returns {@link ListResourcesCommandOutput}
+ * @param ListResourcesRequest - {@link ListResourcesRequest}
+ * @returns {@link ListResourcesResponse}
  * @see {@link ListResourcesCommandInput} for command's `input` shape.
  * @see {@link ListResourcesCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

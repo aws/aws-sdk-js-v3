@@ -75,8 +75,8 @@ export interface UpdateFindingsFilterCommandOutput extends UpdateFindingsFilterR
  *
  * ```
  *
- * @param UpdateFindingsFilterCommandInput - {@link UpdateFindingsFilterCommandInput}
- * @returns {@link UpdateFindingsFilterCommandOutput}
+ * @param UpdateFindingsFilterRequest - {@link UpdateFindingsFilterRequest}
+ * @returns {@link UpdateFindingsFilterResponse}
  * @see {@link UpdateFindingsFilterCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingsFilterCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

@@ -203,8 +203,8 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  *
  * ```
  *
- * @param CreateMountTargetCommandInput - {@link CreateMountTargetCommandInput}
- * @returns {@link CreateMountTargetCommandOutput}
+ * @param CreateMountTargetRequest - {@link CreateMountTargetRequest}
+ * @returns {@link MountTargetDescription}
  * @see {@link CreateMountTargetCommandInput} for command's `input` shape.
  * @see {@link CreateMountTargetCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

@@ -72,8 +72,8 @@ export interface DisassociateFileSystemAliasesCommandOutput
  *
  * ```
  *
- * @param DisassociateFileSystemAliasesCommandInput - {@link DisassociateFileSystemAliasesCommandInput}
- * @returns {@link DisassociateFileSystemAliasesCommandOutput}
+ * @param DisassociateFileSystemAliasesRequest - {@link DisassociateFileSystemAliasesRequest}
+ * @returns {@link DisassociateFileSystemAliasesResponse}
  * @see {@link DisassociateFileSystemAliasesCommandInput} for command's `input` shape.
  * @see {@link DisassociateFileSystemAliasesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

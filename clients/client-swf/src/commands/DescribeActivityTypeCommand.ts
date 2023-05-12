@@ -111,8 +111,8 @@ export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, _
  *
  * ```
  *
- * @param DescribeActivityTypeCommandInput - {@link DescribeActivityTypeCommandInput}
- * @returns {@link DescribeActivityTypeCommandOutput}
+ * @param DescribeActivityTypeInput - {@link DescribeActivityTypeInput}
+ * @returns {@link ActivityTypeDetail}
  * @see {@link DescribeActivityTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeActivityTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

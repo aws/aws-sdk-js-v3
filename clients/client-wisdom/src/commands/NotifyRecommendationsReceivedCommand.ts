@@ -69,8 +69,8 @@ export interface NotifyRecommendationsReceivedCommandOutput
  *
  * ```
  *
- * @param NotifyRecommendationsReceivedCommandInput - {@link NotifyRecommendationsReceivedCommandInput}
- * @returns {@link NotifyRecommendationsReceivedCommandOutput}
+ * @param NotifyRecommendationsReceivedRequest - {@link NotifyRecommendationsReceivedRequest}
+ * @returns {@link NotifyRecommendationsReceivedResponse}
  * @see {@link NotifyRecommendationsReceivedCommandInput} for command's `input` shape.
  * @see {@link NotifyRecommendationsReceivedCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

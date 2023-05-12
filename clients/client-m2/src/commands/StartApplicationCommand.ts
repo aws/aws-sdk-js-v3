@@ -48,8 +48,8 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  *
  * ```
  *
- * @param StartApplicationCommandInput - {@link StartApplicationCommandInput}
- * @returns {@link StartApplicationCommandOutput}
+ * @param StartApplicationRequest - {@link StartApplicationRequest}
+ * @returns {@link StartApplicationResponse}
  * @see {@link StartApplicationCommandInput} for command's `input` shape.
  * @see {@link StartApplicationCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

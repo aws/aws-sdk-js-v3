@@ -109,8 +109,8 @@ export interface ListLicenseConfigurationsCommandOutput extends ListLicenseConfi
  *
  * ```
  *
- * @param ListLicenseConfigurationsCommandInput - {@link ListLicenseConfigurationsCommandInput}
- * @returns {@link ListLicenseConfigurationsCommandOutput}
+ * @param ListLicenseConfigurationsRequest - {@link ListLicenseConfigurationsRequest}
+ * @returns {@link ListLicenseConfigurationsResponse}
  * @see {@link ListLicenseConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListLicenseConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

@@ -49,8 +49,8 @@ export interface ExtendTransactionCommandOutput extends ExtendTransactionRespons
  *
  * ```
  *
- * @param ExtendTransactionCommandInput - {@link ExtendTransactionCommandInput}
- * @returns {@link ExtendTransactionCommandOutput}
+ * @param ExtendTransactionRequest - {@link ExtendTransactionRequest}
+ * @returns {@link ExtendTransactionResponse}
  * @see {@link ExtendTransactionCommandInput} for command's `input` shape.
  * @see {@link ExtendTransactionCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

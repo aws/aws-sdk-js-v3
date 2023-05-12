@@ -65,8 +65,8 @@ export interface ListBundlesCommandOutput extends ListBundlesResult, __MetadataB
  *
  * ```
  *
- * @param ListBundlesCommandInput - {@link ListBundlesCommandInput}
- * @returns {@link ListBundlesCommandOutput}
+ * @param ListBundlesRequest - {@link ListBundlesRequest}
+ * @returns {@link ListBundlesResult}
  * @see {@link ListBundlesCommandInput} for command's `input` shape.
  * @see {@link ListBundlesCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.

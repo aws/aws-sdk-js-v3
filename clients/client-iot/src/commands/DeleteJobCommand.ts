@@ -58,8 +58,8 @@ export interface DeleteJobCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteJobCommandInput - {@link DeleteJobCommandInput}
- * @returns {@link DeleteJobCommandOutput}
+ * @param DeleteJobRequest - {@link DeleteJobRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteJobCommandInput} for command's `input` shape.
  * @see {@link DeleteJobCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

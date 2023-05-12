@@ -58,8 +58,8 @@ export interface StopReplicationToReplicaCommandOutput extends StopReplicationTo
  *
  * ```
  *
- * @param StopReplicationToReplicaCommandInput - {@link StopReplicationToReplicaCommandInput}
- * @returns {@link StopReplicationToReplicaCommandOutput}
+ * @param StopReplicationToReplicaRequest - {@link StopReplicationToReplicaRequest}
+ * @returns {@link StopReplicationToReplicaResponse}
  * @see {@link StopReplicationToReplicaCommandInput} for command's `input` shape.
  * @see {@link StopReplicationToReplicaCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

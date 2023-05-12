@@ -52,8 +52,8 @@ export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCol
  *
  * ```
  *
- * @param DeleteGeofenceCollectionCommandInput - {@link DeleteGeofenceCollectionCommandInput}
- * @returns {@link DeleteGeofenceCollectionCommandOutput}
+ * @param DeleteGeofenceCollectionRequest - {@link DeleteGeofenceCollectionRequest}
+ * @returns {@link DeleteGeofenceCollectionResponse}
  * @see {@link DeleteGeofenceCollectionCommandInput} for command's `input` shape.
  * @see {@link DeleteGeofenceCollectionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

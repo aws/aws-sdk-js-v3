@@ -111,8 +111,8 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *
  * ```
  *
- * @param GetPublicKeyCommandInput - {@link GetPublicKeyCommandInput}
- * @returns {@link GetPublicKeyCommandOutput}
+ * @param GetPublicKeyRequest - {@link GetPublicKeyRequest}
+ * @returns {@link GetPublicKeyResponse}
  * @see {@link GetPublicKeyCommandInput} for command's `input` shape.
  * @see {@link GetPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

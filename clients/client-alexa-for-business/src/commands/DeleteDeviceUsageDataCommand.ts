@@ -51,8 +51,8 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
  *
  * ```
  *
- * @param DeleteDeviceUsageDataCommandInput - {@link DeleteDeviceUsageDataCommandInput}
- * @returns {@link DeleteDeviceUsageDataCommandOutput}
+ * @param DeleteDeviceUsageDataRequest - {@link DeleteDeviceUsageDataRequest}
+ * @returns {@link DeleteDeviceUsageDataResponse}
  * @see {@link DeleteDeviceUsageDataCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceUsageDataCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

@@ -51,8 +51,8 @@ export interface GenerateCredentialReportCommandOutput extends GenerateCredentia
  *
  * ```
  *
- * @param GenerateCredentialReportCommandInput - {@link GenerateCredentialReportCommandInput}
- * @returns {@link GenerateCredentialReportCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GenerateCredentialReportResponse}
  * @see {@link GenerateCredentialReportCommandInput} for command's `input` shape.
  * @see {@link GenerateCredentialReportCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

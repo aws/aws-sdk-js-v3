@@ -88,8 +88,8 @@ export interface CreateManagedPrefixListCommandOutput extends CreateManagedPrefi
  *
  * ```
  *
- * @param CreateManagedPrefixListCommandInput - {@link CreateManagedPrefixListCommandInput}
- * @returns {@link CreateManagedPrefixListCommandOutput}
+ * @param CreateManagedPrefixListRequest - {@link CreateManagedPrefixListRequest}
+ * @returns {@link CreateManagedPrefixListResult}
  * @see {@link CreateManagedPrefixListCommandInput} for command's `input` shape.
  * @see {@link CreateManagedPrefixListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -82,8 +82,8 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  *
  * ```
  *
- * @param DescribeKeyPairsCommandInput - {@link DescribeKeyPairsCommandInput}
- * @returns {@link DescribeKeyPairsCommandOutput}
+ * @param DescribeKeyPairsRequest - {@link DescribeKeyPairsRequest}
+ * @returns {@link DescribeKeyPairsResult}
  * @see {@link DescribeKeyPairsCommandInput} for command's `input` shape.
  * @see {@link DescribeKeyPairsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

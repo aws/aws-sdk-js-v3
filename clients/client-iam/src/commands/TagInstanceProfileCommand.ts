@@ -89,8 +89,8 @@ export interface TagInstanceProfileCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param TagInstanceProfileCommandInput - {@link TagInstanceProfileCommandInput}
- * @returns {@link TagInstanceProfileCommandOutput}
+ * @param TagInstanceProfileRequest - {@link TagInstanceProfileRequest}
+ * @returns {@link Unit}
  * @see {@link TagInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link TagInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

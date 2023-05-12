@@ -66,8 +66,8 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  *
  * ```
  *
- * @param PutScheduledUpdateGroupActionCommandInput - {@link PutScheduledUpdateGroupActionCommandInput}
- * @returns {@link PutScheduledUpdateGroupActionCommandOutput}
+ * @param PutScheduledUpdateGroupActionType - {@link PutScheduledUpdateGroupActionType}
+ * @returns {@link Unit}
  * @see {@link PutScheduledUpdateGroupActionCommandInput} for command's `input` shape.
  * @see {@link PutScheduledUpdateGroupActionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

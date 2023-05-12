@@ -70,8 +70,8 @@ export interface DeleteAuditSuppressionCommandOutput extends DeleteAuditSuppress
  *
  * ```
  *
- * @param DeleteAuditSuppressionCommandInput - {@link DeleteAuditSuppressionCommandInput}
- * @returns {@link DeleteAuditSuppressionCommandOutput}
+ * @param DeleteAuditSuppressionRequest - {@link DeleteAuditSuppressionRequest}
+ * @returns {@link DeleteAuditSuppressionResponse}
  * @see {@link DeleteAuditSuppressionCommandInput} for command's `input` shape.
  * @see {@link DeleteAuditSuppressionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

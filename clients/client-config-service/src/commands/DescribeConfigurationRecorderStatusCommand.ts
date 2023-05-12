@@ -78,8 +78,8 @@ export interface DescribeConfigurationRecorderStatusCommandOutput
  *
  * ```
  *
- * @param DescribeConfigurationRecorderStatusCommandInput - {@link DescribeConfigurationRecorderStatusCommandInput}
- * @returns {@link DescribeConfigurationRecorderStatusCommandOutput}
+ * @param DescribeConfigurationRecorderStatusRequest - {@link DescribeConfigurationRecorderStatusRequest}
+ * @returns {@link DescribeConfigurationRecorderStatusResponse}
  * @see {@link DescribeConfigurationRecorderStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationRecorderStatusCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

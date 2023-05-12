@@ -55,8 +55,8 @@ export interface GetModelCommandOutput extends GetModelResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetModelCommandInput - {@link GetModelCommandInput}
- * @returns {@link GetModelCommandOutput}
+ * @param GetModelRequest - {@link GetModelRequest}
+ * @returns {@link GetModelResponse}
  * @see {@link GetModelCommandInput} for command's `input` shape.
  * @see {@link GetModelCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

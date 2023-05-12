@@ -65,8 +65,8 @@ export interface DeleteLocalGatewayRouteCommandOutput extends DeleteLocalGateway
  *
  * ```
  *
- * @param DeleteLocalGatewayRouteCommandInput - {@link DeleteLocalGatewayRouteCommandInput}
- * @returns {@link DeleteLocalGatewayRouteCommandOutput}
+ * @param DeleteLocalGatewayRouteRequest - {@link DeleteLocalGatewayRouteRequest}
+ * @returns {@link DeleteLocalGatewayRouteResult}
  * @see {@link DeleteLocalGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteLocalGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

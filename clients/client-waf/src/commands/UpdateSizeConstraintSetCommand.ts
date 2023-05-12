@@ -115,8 +115,8 @@ export interface UpdateSizeConstraintSetCommandOutput extends UpdateSizeConstrai
  *
  * ```
  *
- * @param UpdateSizeConstraintSetCommandInput - {@link UpdateSizeConstraintSetCommandInput}
- * @returns {@link UpdateSizeConstraintSetCommandOutput}
+ * @param UpdateSizeConstraintSetRequest - {@link UpdateSizeConstraintSetRequest}
+ * @returns {@link UpdateSizeConstraintSetResponse}
  * @see {@link UpdateSizeConstraintSetCommandInput} for command's `input` shape.
  * @see {@link UpdateSizeConstraintSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

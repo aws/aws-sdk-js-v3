@@ -97,8 +97,8 @@ export interface DescribeGameSessionPlacementCommandOutput
  *
  * ```
  *
- * @param DescribeGameSessionPlacementCommandInput - {@link DescribeGameSessionPlacementCommandInput}
- * @returns {@link DescribeGameSessionPlacementCommandOutput}
+ * @param DescribeGameSessionPlacementInput - {@link DescribeGameSessionPlacementInput}
+ * @returns {@link DescribeGameSessionPlacementOutput}
  * @see {@link DescribeGameSessionPlacementCommandInput} for command's `input` shape.
  * @see {@link DescribeGameSessionPlacementCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

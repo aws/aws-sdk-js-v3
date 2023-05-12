@@ -114,8 +114,8 @@ export interface DisassociateVPCFromHostedZoneCommandOutput
  *
  * ```
  *
- * @param DisassociateVPCFromHostedZoneCommandInput - {@link DisassociateVPCFromHostedZoneCommandInput}
- * @returns {@link DisassociateVPCFromHostedZoneCommandOutput}
+ * @param DisassociateVPCFromHostedZoneRequest - {@link DisassociateVPCFromHostedZoneRequest}
+ * @returns {@link DisassociateVPCFromHostedZoneResponse}
  * @see {@link DisassociateVPCFromHostedZoneCommandInput} for command's `input` shape.
  * @see {@link DisassociateVPCFromHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

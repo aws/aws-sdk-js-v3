@@ -81,8 +81,8 @@ export interface DescribeApplicationsCommandOutput extends ApplicationDescriptio
  *
  * ```
  *
- * @param DescribeApplicationsCommandInput - {@link DescribeApplicationsCommandInput}
- * @returns {@link DescribeApplicationsCommandOutput}
+ * @param DescribeApplicationsMessage - {@link DescribeApplicationsMessage}
+ * @returns {@link ApplicationDescriptionsMessage}
  * @see {@link DescribeApplicationsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

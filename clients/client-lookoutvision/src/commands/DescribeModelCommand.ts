@@ -83,8 +83,8 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  *
  * ```
  *
- * @param DescribeModelCommandInput - {@link DescribeModelCommandInput}
- * @returns {@link DescribeModelCommandOutput}
+ * @param DescribeModelRequest - {@link DescribeModelRequest}
+ * @returns {@link DescribeModelResponse}
  * @see {@link DescribeModelCommandInput} for command's `input` shape.
  * @see {@link DescribeModelCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.

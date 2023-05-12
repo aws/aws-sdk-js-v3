@@ -65,8 +65,8 @@ export interface ListNotebookMetadataCommandOutput extends ListNotebookMetadataO
  *
  * ```
  *
- * @param ListNotebookMetadataCommandInput - {@link ListNotebookMetadataCommandInput}
- * @returns {@link ListNotebookMetadataCommandOutput}
+ * @param ListNotebookMetadataInput - {@link ListNotebookMetadataInput}
+ * @returns {@link ListNotebookMetadataOutput}
  * @see {@link ListNotebookMetadataCommandInput} for command's `input` shape.
  * @see {@link ListNotebookMetadataCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

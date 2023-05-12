@@ -62,8 +62,8 @@ export interface ListMulticastGroupsByFuotaTaskCommandOutput
  *
  * ```
  *
- * @param ListMulticastGroupsByFuotaTaskCommandInput - {@link ListMulticastGroupsByFuotaTaskCommandInput}
- * @returns {@link ListMulticastGroupsByFuotaTaskCommandOutput}
+ * @param ListMulticastGroupsByFuotaTaskRequest - {@link ListMulticastGroupsByFuotaTaskRequest}
+ * @returns {@link ListMulticastGroupsByFuotaTaskResponse}
  * @see {@link ListMulticastGroupsByFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link ListMulticastGroupsByFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

@@ -68,8 +68,8 @@ export interface StartRxNormInferenceJobCommandOutput extends StartRxNormInferen
  *
  * ```
  *
- * @param StartRxNormInferenceJobCommandInput - {@link StartRxNormInferenceJobCommandInput}
- * @returns {@link StartRxNormInferenceJobCommandOutput}
+ * @param StartRxNormInferenceJobRequest - {@link StartRxNormInferenceJobRequest}
+ * @returns {@link StartRxNormInferenceJobResponse}
  * @see {@link StartRxNormInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StartRxNormInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

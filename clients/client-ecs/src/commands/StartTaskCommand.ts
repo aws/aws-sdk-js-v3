@@ -289,8 +289,8 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *
  * ```
  *
- * @param StartTaskCommandInput - {@link StartTaskCommandInput}
- * @returns {@link StartTaskCommandOutput}
+ * @param StartTaskRequest - {@link StartTaskRequest}
+ * @returns {@link StartTaskResponse}
  * @see {@link StartTaskCommandInput} for command's `input` shape.
  * @see {@link StartTaskCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

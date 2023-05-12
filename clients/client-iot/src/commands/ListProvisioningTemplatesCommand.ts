@@ -63,8 +63,8 @@ export interface ListProvisioningTemplatesCommandOutput extends ListProvisioning
  *
  * ```
  *
- * @param ListProvisioningTemplatesCommandInput - {@link ListProvisioningTemplatesCommandInput}
- * @returns {@link ListProvisioningTemplatesCommandOutput}
+ * @param ListProvisioningTemplatesRequest - {@link ListProvisioningTemplatesRequest}
+ * @returns {@link ListProvisioningTemplatesResponse}
  * @see {@link ListProvisioningTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListProvisioningTemplatesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

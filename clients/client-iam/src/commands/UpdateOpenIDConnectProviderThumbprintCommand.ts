@@ -77,8 +77,8 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
  *
  * ```
  *
- * @param UpdateOpenIDConnectProviderThumbprintCommandInput - {@link UpdateOpenIDConnectProviderThumbprintCommandInput}
- * @returns {@link UpdateOpenIDConnectProviderThumbprintCommandOutput}
+ * @param UpdateOpenIDConnectProviderThumbprintRequest - {@link UpdateOpenIDConnectProviderThumbprintRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateOpenIDConnectProviderThumbprintCommandInput} for command's `input` shape.
  * @see {@link UpdateOpenIDConnectProviderThumbprintCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -221,8 +221,8 @@ export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJo
  *
  * ```
  *
- * @param StartTranscriptionJobCommandInput - {@link StartTranscriptionJobCommandInput}
- * @returns {@link StartTranscriptionJobCommandOutput}
+ * @param StartTranscriptionJobRequest - {@link StartTranscriptionJobRequest}
+ * @returns {@link StartTranscriptionJobResponse}
  * @see {@link StartTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link StartTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

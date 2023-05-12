@@ -81,8 +81,8 @@ export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBea
  *
  * ```
  *
- * @param UpdateMeshCommandInput - {@link UpdateMeshCommandInput}
- * @returns {@link UpdateMeshCommandOutput}
+ * @param UpdateMeshInput - {@link UpdateMeshInput}
+ * @returns {@link UpdateMeshOutput}
  * @see {@link UpdateMeshCommandInput} for command's `input` shape.
  * @see {@link UpdateMeshCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

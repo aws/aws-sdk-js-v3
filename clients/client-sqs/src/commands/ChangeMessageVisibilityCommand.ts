@@ -82,8 +82,8 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param ChangeMessageVisibilityCommandInput - {@link ChangeMessageVisibilityCommandInput}
- * @returns {@link ChangeMessageVisibilityCommandOutput}
+ * @param ChangeMessageVisibilityRequest - {@link ChangeMessageVisibilityRequest}
+ * @returns {@link Unit}
  * @see {@link ChangeMessageVisibilityCommandInput} for command's `input` shape.
  * @see {@link ChangeMessageVisibilityCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.

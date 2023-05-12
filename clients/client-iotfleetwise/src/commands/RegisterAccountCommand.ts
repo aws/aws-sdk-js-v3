@@ -75,8 +75,8 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  *
  * ```
  *
- * @param RegisterAccountCommandInput - {@link RegisterAccountCommandInput}
- * @returns {@link RegisterAccountCommandOutput}
+ * @param RegisterAccountRequest - {@link RegisterAccountRequest}
+ * @returns {@link RegisterAccountResponse}
  * @see {@link RegisterAccountCommandInput} for command's `input` shape.
  * @see {@link RegisterAccountCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

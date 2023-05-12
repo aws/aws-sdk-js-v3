@@ -67,8 +67,8 @@ export interface GetArchitectureRecommendationsCommandOutput
  *
  * ```
  *
- * @param GetArchitectureRecommendationsCommandInput - {@link GetArchitectureRecommendationsCommandInput}
- * @returns {@link GetArchitectureRecommendationsCommandOutput}
+ * @param GetArchitectureRecommendationsRequest - {@link GetArchitectureRecommendationsRequest}
+ * @returns {@link GetArchitectureRecommendationsResponse}
  * @see {@link GetArchitectureRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetArchitectureRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

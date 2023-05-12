@@ -66,8 +66,8 @@ export interface GetSnapshotCommandOutput extends GetSnapshotResult, __MetadataB
  *
  * ```
  *
- * @param GetSnapshotCommandInput - {@link GetSnapshotCommandInput}
- * @returns {@link GetSnapshotCommandOutput}
+ * @param GetSnapshotRequest - {@link GetSnapshotRequest}
+ * @returns {@link GetSnapshotResult}
  * @see {@link GetSnapshotCommandInput} for command's `input` shape.
  * @see {@link GetSnapshotCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

@@ -60,8 +60,8 @@ export interface StartReadSetActivationJobCommandOutput extends StartReadSetActi
  *
  * ```
  *
- * @param StartReadSetActivationJobCommandInput - {@link StartReadSetActivationJobCommandInput}
- * @returns {@link StartReadSetActivationJobCommandOutput}
+ * @param StartReadSetActivationJobRequest - {@link StartReadSetActivationJobRequest}
+ * @returns {@link StartReadSetActivationJobResponse}
  * @see {@link StartReadSetActivationJobCommandInput} for command's `input` shape.
  * @see {@link StartReadSetActivationJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

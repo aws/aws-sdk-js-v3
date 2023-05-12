@@ -72,8 +72,8 @@ export interface ListDistributionsByCachePolicyIdCommandOutput
  *
  * ```
  *
- * @param ListDistributionsByCachePolicyIdCommandInput - {@link ListDistributionsByCachePolicyIdCommandInput}
- * @returns {@link ListDistributionsByCachePolicyIdCommandOutput}
+ * @param ListDistributionsByCachePolicyIdRequest - {@link ListDistributionsByCachePolicyIdRequest}
+ * @returns {@link ListDistributionsByCachePolicyIdResult}
  * @see {@link ListDistributionsByCachePolicyIdCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByCachePolicyIdCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

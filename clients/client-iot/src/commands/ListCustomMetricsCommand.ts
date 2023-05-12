@@ -57,8 +57,8 @@ export interface ListCustomMetricsCommandOutput extends ListCustomMetricsRespons
  *
  * ```
  *
- * @param ListCustomMetricsCommandInput - {@link ListCustomMetricsCommandInput}
- * @returns {@link ListCustomMetricsCommandOutput}
+ * @param ListCustomMetricsRequest - {@link ListCustomMetricsRequest}
+ * @returns {@link ListCustomMetricsResponse}
  * @see {@link ListCustomMetricsCommandInput} for command's `input` shape.
  * @see {@link ListCustomMetricsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -76,8 +76,8 @@ export interface ListMedicalTranscriptionJobsCommandOutput
  *
  * ```
  *
- * @param ListMedicalTranscriptionJobsCommandInput - {@link ListMedicalTranscriptionJobsCommandInput}
- * @returns {@link ListMedicalTranscriptionJobsCommandOutput}
+ * @param ListMedicalTranscriptionJobsRequest - {@link ListMedicalTranscriptionJobsRequest}
+ * @returns {@link ListMedicalTranscriptionJobsResponse}
  * @see {@link ListMedicalTranscriptionJobsCommandInput} for command's `input` shape.
  * @see {@link ListMedicalTranscriptionJobsCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

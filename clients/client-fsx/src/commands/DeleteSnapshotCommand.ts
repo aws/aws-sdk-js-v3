@@ -56,8 +56,8 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  *
  * ```
  *
- * @param DeleteSnapshotCommandInput - {@link DeleteSnapshotCommandInput}
- * @returns {@link DeleteSnapshotCommandOutput}
+ * @param DeleteSnapshotRequest - {@link DeleteSnapshotRequest}
+ * @returns {@link DeleteSnapshotResponse}
  * @see {@link DeleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

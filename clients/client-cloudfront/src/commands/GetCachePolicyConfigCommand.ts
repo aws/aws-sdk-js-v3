@@ -93,8 +93,8 @@ export interface GetCachePolicyConfigCommandOutput extends GetCachePolicyConfigR
  *
  * ```
  *
- * @param GetCachePolicyConfigCommandInput - {@link GetCachePolicyConfigCommandInput}
- * @returns {@link GetCachePolicyConfigCommandOutput}
+ * @param GetCachePolicyConfigRequest - {@link GetCachePolicyConfigRequest}
+ * @returns {@link GetCachePolicyConfigResult}
  * @see {@link GetCachePolicyConfigCommandInput} for command's `input` shape.
  * @see {@link GetCachePolicyConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

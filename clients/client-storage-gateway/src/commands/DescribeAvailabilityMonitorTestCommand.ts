@@ -59,8 +59,8 @@ export interface DescribeAvailabilityMonitorTestCommandOutput
  *
  * ```
  *
- * @param DescribeAvailabilityMonitorTestCommandInput - {@link DescribeAvailabilityMonitorTestCommandInput}
- * @returns {@link DescribeAvailabilityMonitorTestCommandOutput}
+ * @param DescribeAvailabilityMonitorTestInput - {@link DescribeAvailabilityMonitorTestInput}
+ * @returns {@link DescribeAvailabilityMonitorTestOutput}
  * @see {@link DescribeAvailabilityMonitorTestCommandInput} for command's `input` shape.
  * @see {@link DescribeAvailabilityMonitorTestCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

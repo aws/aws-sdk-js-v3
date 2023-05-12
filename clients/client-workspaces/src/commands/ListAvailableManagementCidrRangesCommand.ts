@@ -67,8 +67,8 @@ export interface ListAvailableManagementCidrRangesCommandOutput
  *
  * ```
  *
- * @param ListAvailableManagementCidrRangesCommandInput - {@link ListAvailableManagementCidrRangesCommandInput}
- * @returns {@link ListAvailableManagementCidrRangesCommandOutput}
+ * @param ListAvailableManagementCidrRangesRequest - {@link ListAvailableManagementCidrRangesRequest}
+ * @returns {@link ListAvailableManagementCidrRangesResult}
  * @see {@link ListAvailableManagementCidrRangesCommandInput} for command's `input` shape.
  * @see {@link ListAvailableManagementCidrRangesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

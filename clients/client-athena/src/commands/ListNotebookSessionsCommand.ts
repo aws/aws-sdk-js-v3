@@ -61,8 +61,8 @@ export interface ListNotebookSessionsCommandOutput extends ListNotebookSessionsR
  *
  * ```
  *
- * @param ListNotebookSessionsCommandInput - {@link ListNotebookSessionsCommandInput}
- * @returns {@link ListNotebookSessionsCommandOutput}
+ * @param ListNotebookSessionsRequest - {@link ListNotebookSessionsRequest}
+ * @returns {@link ListNotebookSessionsResponse}
  * @see {@link ListNotebookSessionsCommandInput} for command's `input` shape.
  * @see {@link ListNotebookSessionsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

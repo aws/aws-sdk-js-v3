@@ -56,8 +56,8 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryCommandOutput ext
  *
  * ```
  *
- * @param DisassociateApprovalRuleTemplateFromRepositoryCommandInput - {@link DisassociateApprovalRuleTemplateFromRepositoryCommandInput}
- * @returns {@link DisassociateApprovalRuleTemplateFromRepositoryCommandOutput}
+ * @param DisassociateApprovalRuleTemplateFromRepositoryInput - {@link DisassociateApprovalRuleTemplateFromRepositoryInput}
+ * @returns {@link Unit}
  * @see {@link DisassociateApprovalRuleTemplateFromRepositoryCommandInput} for command's `input` shape.
  * @see {@link DisassociateApprovalRuleTemplateFromRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

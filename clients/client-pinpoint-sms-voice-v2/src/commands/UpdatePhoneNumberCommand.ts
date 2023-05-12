@@ -79,8 +79,8 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResult,
  *
  * ```
  *
- * @param UpdatePhoneNumberCommandInput - {@link UpdatePhoneNumberCommandInput}
- * @returns {@link UpdatePhoneNumberCommandOutput}
+ * @param UpdatePhoneNumberRequest - {@link UpdatePhoneNumberRequest}
+ * @returns {@link UpdatePhoneNumberResult}
  * @see {@link UpdatePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link UpdatePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

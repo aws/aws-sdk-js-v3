@@ -65,8 +65,8 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
  *
  * ```
  *
- * @param AuthorizeDataShareCommandInput - {@link AuthorizeDataShareCommandInput}
- * @returns {@link AuthorizeDataShareCommandOutput}
+ * @param AuthorizeDataShareMessage - {@link AuthorizeDataShareMessage}
+ * @returns {@link DataShare}
  * @see {@link AuthorizeDataShareCommandInput} for command's `input` shape.
  * @see {@link AuthorizeDataShareCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

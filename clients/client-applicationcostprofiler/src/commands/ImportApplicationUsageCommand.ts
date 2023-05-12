@@ -61,8 +61,8 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  *
  * ```
  *
- * @param ImportApplicationUsageCommandInput - {@link ImportApplicationUsageCommandInput}
- * @returns {@link ImportApplicationUsageCommandOutput}
+ * @param ImportApplicationUsageRequest - {@link ImportApplicationUsageRequest}
+ * @returns {@link ImportApplicationUsageResult}
  * @see {@link ImportApplicationUsageCommandInput} for command's `input` shape.
  * @see {@link ImportApplicationUsageCommandOutput} for command's `response` shape.
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.

@@ -54,8 +54,8 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
  *
  * ```
  *
- * @param GetSnapshotLimitsCommandInput - {@link GetSnapshotLimitsCommandInput}
- * @returns {@link GetSnapshotLimitsCommandOutput}
+ * @param GetSnapshotLimitsRequest - {@link GetSnapshotLimitsRequest}
+ * @returns {@link GetSnapshotLimitsResult}
  * @see {@link GetSnapshotLimitsCommandInput} for command's `input` shape.
  * @see {@link GetSnapshotLimitsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

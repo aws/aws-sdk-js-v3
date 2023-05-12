@@ -48,8 +48,8 @@ export interface DeleteSiteCommandOutput extends DeleteSiteOutput, __MetadataBea
  *
  * ```
  *
- * @param DeleteSiteCommandInput - {@link DeleteSiteCommandInput}
- * @returns {@link DeleteSiteCommandOutput}
+ * @param DeleteSiteInput - {@link DeleteSiteInput}
+ * @returns {@link DeleteSiteOutput}
  * @see {@link DeleteSiteCommandInput} for command's `input` shape.
  * @see {@link DeleteSiteCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

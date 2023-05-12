@@ -54,8 +54,8 @@ export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ResumeProcessesCommandInput - {@link ResumeProcessesCommandInput}
- * @returns {@link ResumeProcessesCommandOutput}
+ * @param ScalingProcessQuery - {@link ScalingProcessQuery}
+ * @returns {@link Unit}
  * @see {@link ResumeProcessesCommandInput} for command's `input` shape.
  * @see {@link ResumeProcessesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

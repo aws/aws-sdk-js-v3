@@ -80,8 +80,8 @@ export interface DeleteBucketAnalyticsConfigurationCommandOutput extends __Metad
  *
  * ```
  *
- * @param DeleteBucketAnalyticsConfigurationCommandInput - {@link DeleteBucketAnalyticsConfigurationCommandInput}
- * @returns {@link DeleteBucketAnalyticsConfigurationCommandOutput}
+ * @param DeleteBucketAnalyticsConfigurationRequest - {@link DeleteBucketAnalyticsConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteBucketAnalyticsConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketAnalyticsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

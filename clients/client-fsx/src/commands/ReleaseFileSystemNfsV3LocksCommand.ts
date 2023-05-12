@@ -514,8 +514,8 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  *
  * ```
  *
- * @param ReleaseFileSystemNfsV3LocksCommandInput - {@link ReleaseFileSystemNfsV3LocksCommandInput}
- * @returns {@link ReleaseFileSystemNfsV3LocksCommandOutput}
+ * @param ReleaseFileSystemNfsV3LocksRequest - {@link ReleaseFileSystemNfsV3LocksRequest}
+ * @returns {@link ReleaseFileSystemNfsV3LocksResponse}
  * @see {@link ReleaseFileSystemNfsV3LocksCommandInput} for command's `input` shape.
  * @see {@link ReleaseFileSystemNfsV3LocksCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

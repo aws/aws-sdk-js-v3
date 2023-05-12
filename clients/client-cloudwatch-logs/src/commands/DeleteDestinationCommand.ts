@@ -50,8 +50,8 @@ export interface DeleteDestinationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDestinationCommandInput - {@link DeleteDestinationCommandInput}
- * @returns {@link DeleteDestinationCommandOutput}
+ * @param DeleteDestinationRequest - {@link DeleteDestinationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteDestinationCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

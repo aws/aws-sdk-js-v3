@@ -60,8 +60,8 @@ export interface DisconnectPlayerCommandOutput extends DisconnectPlayerResult, _
  *
  * ```
  *
- * @param DisconnectPlayerCommandInput - {@link DisconnectPlayerCommandInput}
- * @returns {@link DisconnectPlayerCommandOutput}
+ * @param DisconnectPlayerRequest - {@link DisconnectPlayerRequest}
+ * @returns {@link DisconnectPlayerResult}
  * @see {@link DisconnectPlayerCommandInput} for command's `input` shape.
  * @see {@link DisconnectPlayerCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

@@ -78,8 +78,8 @@ export interface ListForecastExportJobsCommandOutput extends ListForecastExportJ
  *
  * ```
  *
- * @param ListForecastExportJobsCommandInput - {@link ListForecastExportJobsCommandInput}
- * @returns {@link ListForecastExportJobsCommandOutput}
+ * @param ListForecastExportJobsRequest - {@link ListForecastExportJobsRequest}
+ * @returns {@link ListForecastExportJobsResponse}
  * @see {@link ListForecastExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListForecastExportJobsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

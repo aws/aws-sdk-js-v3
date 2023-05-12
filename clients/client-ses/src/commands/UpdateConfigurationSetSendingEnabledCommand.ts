@@ -57,8 +57,8 @@ export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __Met
  *
  * ```
  *
- * @param UpdateConfigurationSetSendingEnabledCommandInput - {@link UpdateConfigurationSetSendingEnabledCommandInput}
- * @returns {@link UpdateConfigurationSetSendingEnabledCommandOutput}
+ * @param UpdateConfigurationSetSendingEnabledRequest - {@link UpdateConfigurationSetSendingEnabledRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateConfigurationSetSendingEnabledCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

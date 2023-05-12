@@ -54,8 +54,8 @@ export interface DisableImportFindingsForProductCommandOutput
  *
  * ```
  *
- * @param DisableImportFindingsForProductCommandInput - {@link DisableImportFindingsForProductCommandInput}
- * @returns {@link DisableImportFindingsForProductCommandOutput}
+ * @param DisableImportFindingsForProductRequest - {@link DisableImportFindingsForProductRequest}
+ * @returns {@link DisableImportFindingsForProductResponse}
  * @see {@link DisableImportFindingsForProductCommandInput} for command's `input` shape.
  * @see {@link DisableImportFindingsForProductCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

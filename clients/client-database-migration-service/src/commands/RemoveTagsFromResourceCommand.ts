@@ -60,8 +60,8 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  *
  * ```
  *
- * @param RemoveTagsFromResourceCommandInput - {@link RemoveTagsFromResourceCommandInput}
- * @returns {@link RemoveTagsFromResourceCommandOutput}
+ * @param RemoveTagsFromResourceMessage - {@link RemoveTagsFromResourceMessage}
+ * @returns {@link RemoveTagsFromResourceResponse}
  * @see {@link RemoveTagsFromResourceCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

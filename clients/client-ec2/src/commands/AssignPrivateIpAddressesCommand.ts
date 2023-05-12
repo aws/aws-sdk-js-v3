@@ -84,8 +84,8 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  *
  * ```
  *
- * @param AssignPrivateIpAddressesCommandInput - {@link AssignPrivateIpAddressesCommandInput}
- * @returns {@link AssignPrivateIpAddressesCommandOutput}
+ * @param AssignPrivateIpAddressesRequest - {@link AssignPrivateIpAddressesRequest}
+ * @returns {@link AssignPrivateIpAddressesResult}
  * @see {@link AssignPrivateIpAddressesCommandInput} for command's `input` shape.
  * @see {@link AssignPrivateIpAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

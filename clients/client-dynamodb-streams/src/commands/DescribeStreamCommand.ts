@@ -84,8 +84,8 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  *
  * ```
  *
- * @param DescribeStreamCommandInput - {@link DescribeStreamCommandInput}
- * @returns {@link DescribeStreamCommandOutput}
+ * @param DescribeStreamInput - {@link DescribeStreamInput}
+ * @returns {@link DescribeStreamOutput}
  * @see {@link DescribeStreamCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBStreamsClientResolvedConfig | config} for DynamoDBStreamsClient's `config` shape.

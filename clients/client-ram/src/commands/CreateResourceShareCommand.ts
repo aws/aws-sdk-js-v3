@@ -91,8 +91,8 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  *
  * ```
  *
- * @param CreateResourceShareCommandInput - {@link CreateResourceShareCommandInput}
- * @returns {@link CreateResourceShareCommandOutput}
+ * @param CreateResourceShareRequest - {@link CreateResourceShareRequest}
+ * @returns {@link CreateResourceShareResponse}
  * @see {@link CreateResourceShareCommandInput} for command's `input` shape.
  * @see {@link CreateResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

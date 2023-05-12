@@ -73,8 +73,8 @@ export interface DescribeAggregateIdFormatCommandOutput extends DescribeAggregat
  *
  * ```
  *
- * @param DescribeAggregateIdFormatCommandInput - {@link DescribeAggregateIdFormatCommandInput}
- * @returns {@link DescribeAggregateIdFormatCommandOutput}
+ * @param DescribeAggregateIdFormatRequest - {@link DescribeAggregateIdFormatRequest}
+ * @returns {@link DescribeAggregateIdFormatResult}
  * @see {@link DescribeAggregateIdFormatCommandInput} for command's `input` shape.
  * @see {@link DescribeAggregateIdFormatCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

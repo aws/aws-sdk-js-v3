@@ -100,8 +100,8 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  *
  * ```
  *
- * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
- * @returns {@link CreateApplicationCommandOutput}
+ * @param CreateApplicationMessage - {@link CreateApplicationMessage}
+ * @returns {@link ApplicationDescriptionMessage}
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

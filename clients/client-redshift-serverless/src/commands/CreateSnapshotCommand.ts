@@ -90,8 +90,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  *
  * ```
  *
- * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
- * @returns {@link CreateSnapshotCommandOutput}
+ * @param CreateSnapshotRequest - {@link CreateSnapshotRequest}
+ * @returns {@link CreateSnapshotResponse}
  * @see {@link CreateSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

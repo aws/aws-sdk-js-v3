@@ -73,8 +73,8 @@ export interface CreateOriginAccessControlCommandOutput extends CreateOriginAcce
  *
  * ```
  *
- * @param CreateOriginAccessControlCommandInput - {@link CreateOriginAccessControlCommandInput}
- * @returns {@link CreateOriginAccessControlCommandOutput}
+ * @param CreateOriginAccessControlRequest - {@link CreateOriginAccessControlRequest}
+ * @returns {@link CreateOriginAccessControlResult}
  * @see {@link CreateOriginAccessControlCommandInput} for command's `input` shape.
  * @see {@link CreateOriginAccessControlCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

@@ -48,8 +48,8 @@ export interface CancelWorldGenerationJobCommandOutput extends CancelWorldGenera
  *
  * ```
  *
- * @param CancelWorldGenerationJobCommandInput - {@link CancelWorldGenerationJobCommandInput}
- * @returns {@link CancelWorldGenerationJobCommandOutput}
+ * @param CancelWorldGenerationJobRequest - {@link CancelWorldGenerationJobRequest}
+ * @returns {@link CancelWorldGenerationJobResponse}
  * @see {@link CancelWorldGenerationJobCommandInput} for command's `input` shape.
  * @see {@link CancelWorldGenerationJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

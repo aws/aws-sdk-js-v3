@@ -63,8 +63,8 @@ export interface DescribeSignalingChannelCommandOutput extends DescribeSignaling
  *
  * ```
  *
- * @param DescribeSignalingChannelCommandInput - {@link DescribeSignalingChannelCommandInput}
- * @returns {@link DescribeSignalingChannelCommandOutput}
+ * @param DescribeSignalingChannelInput - {@link DescribeSignalingChannelInput}
+ * @returns {@link DescribeSignalingChannelOutput}
  * @see {@link DescribeSignalingChannelCommandInput} for command's `input` shape.
  * @see {@link DescribeSignalingChannelCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

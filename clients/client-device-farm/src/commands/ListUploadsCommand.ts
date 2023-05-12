@@ -66,8 +66,8 @@ export interface ListUploadsCommandOutput extends ListUploadsResult, __MetadataB
  *
  * ```
  *
- * @param ListUploadsCommandInput - {@link ListUploadsCommandInput}
- * @returns {@link ListUploadsCommandOutput}
+ * @param ListUploadsRequest - {@link ListUploadsRequest}
+ * @returns {@link ListUploadsResult}
  * @see {@link ListUploadsCommandInput} for command's `input` shape.
  * @see {@link ListUploadsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

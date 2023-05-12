@@ -52,8 +52,8 @@ export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param UpdateUserSecurityProfilesCommandInput - {@link UpdateUserSecurityProfilesCommandInput}
- * @returns {@link UpdateUserSecurityProfilesCommandOutput}
+ * @param UpdateUserSecurityProfilesRequest - {@link UpdateUserSecurityProfilesRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateUserSecurityProfilesCommandInput} for command's `input` shape.
  * @see {@link UpdateUserSecurityProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

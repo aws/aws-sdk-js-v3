@@ -60,8 +60,8 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  *
  * ```
  *
- * @param DescribeBandwidthRateLimitCommandInput - {@link DescribeBandwidthRateLimitCommandInput}
- * @returns {@link DescribeBandwidthRateLimitCommandOutput}
+ * @param DescribeBandwidthRateLimitInput - {@link DescribeBandwidthRateLimitInput}
+ * @returns {@link DescribeBandwidthRateLimitOutput}
  * @see {@link DescribeBandwidthRateLimitCommandInput} for command's `input` shape.
  * @see {@link DescribeBandwidthRateLimitCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

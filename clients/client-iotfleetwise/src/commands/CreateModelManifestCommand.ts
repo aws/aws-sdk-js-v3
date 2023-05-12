@@ -65,8 +65,8 @@ export interface CreateModelManifestCommandOutput extends CreateModelManifestRes
  *
  * ```
  *
- * @param CreateModelManifestCommandInput - {@link CreateModelManifestCommandInput}
- * @returns {@link CreateModelManifestCommandOutput}
+ * @param CreateModelManifestRequest - {@link CreateModelManifestRequest}
+ * @returns {@link CreateModelManifestResponse}
  * @see {@link CreateModelManifestCommandInput} for command's `input` shape.
  * @see {@link CreateModelManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

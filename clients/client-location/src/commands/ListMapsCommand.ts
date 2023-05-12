@@ -61,8 +61,8 @@ export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBeare
  *
  * ```
  *
- * @param ListMapsCommandInput - {@link ListMapsCommandInput}
- * @returns {@link ListMapsCommandOutput}
+ * @param ListMapsRequest - {@link ListMapsRequest}
+ * @returns {@link ListMapsResponse}
  * @see {@link ListMapsCommandInput} for command's `input` shape.
  * @see {@link ListMapsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

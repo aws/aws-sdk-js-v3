@@ -88,8 +88,8 @@ export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFro
  *
  * ```
  *
- * @param CreateDataSourceFromS3CommandInput - {@link CreateDataSourceFromS3CommandInput}
- * @returns {@link CreateDataSourceFromS3CommandOutput}
+ * @param CreateDataSourceFromS3Input - {@link CreateDataSourceFromS3Input}
+ * @returns {@link CreateDataSourceFromS3Output}
  * @see {@link CreateDataSourceFromS3CommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceFromS3CommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

@@ -59,8 +59,8 @@ export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, _
  *
  * ```
  *
- * @param ModifyVpcTenancyCommandInput - {@link ModifyVpcTenancyCommandInput}
- * @returns {@link ModifyVpcTenancyCommandOutput}
+ * @param ModifyVpcTenancyRequest - {@link ModifyVpcTenancyRequest}
+ * @returns {@link ModifyVpcTenancyResult}
  * @see {@link ModifyVpcTenancyCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcTenancyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

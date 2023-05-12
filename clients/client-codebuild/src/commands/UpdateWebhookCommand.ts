@@ -82,8 +82,8 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  *
  * ```
  *
- * @param UpdateWebhookCommandInput - {@link UpdateWebhookCommandInput}
- * @returns {@link UpdateWebhookCommandOutput}
+ * @param UpdateWebhookInput - {@link UpdateWebhookInput}
+ * @returns {@link UpdateWebhookOutput}
  * @see {@link UpdateWebhookCommandInput} for command's `input` shape.
  * @see {@link UpdateWebhookCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

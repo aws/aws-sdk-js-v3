@@ -86,8 +86,8 @@ export interface RespondActivityTaskCanceledCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param RespondActivityTaskCanceledCommandInput - {@link RespondActivityTaskCanceledCommandInput}
- * @returns {@link RespondActivityTaskCanceledCommandOutput}
+ * @param RespondActivityTaskCanceledInput - {@link RespondActivityTaskCanceledInput}
+ * @returns {@link Unit}
  * @see {@link RespondActivityTaskCanceledCommandInput} for command's `input` shape.
  * @see {@link RespondActivityTaskCanceledCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

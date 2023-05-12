@@ -93,8 +93,8 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  *
  * ```
  *
- * @param CreateUnreferencedMergeCommitCommandInput - {@link CreateUnreferencedMergeCommitCommandInput}
- * @returns {@link CreateUnreferencedMergeCommitCommandOutput}
+ * @param CreateUnreferencedMergeCommitInput - {@link CreateUnreferencedMergeCommitInput}
+ * @returns {@link CreateUnreferencedMergeCommitOutput}
  * @see {@link CreateUnreferencedMergeCommitCommandInput} for command's `input` shape.
  * @see {@link CreateUnreferencedMergeCommitCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

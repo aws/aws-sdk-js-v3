@@ -71,8 +71,8 @@ export interface ListNotificationChannelsCommandOutput extends ListNotificationC
  *
  * ```
  *
- * @param ListNotificationChannelsCommandInput - {@link ListNotificationChannelsCommandInput}
- * @returns {@link ListNotificationChannelsCommandOutput}
+ * @param ListNotificationChannelsRequest - {@link ListNotificationChannelsRequest}
+ * @returns {@link ListNotificationChannelsResponse}
  * @see {@link ListNotificationChannelsCommandInput} for command's `input` shape.
  * @see {@link ListNotificationChannelsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

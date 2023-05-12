@@ -59,8 +59,8 @@ export interface GetTrafficDistributionCommandOutput extends GetTrafficDistribut
  *
  * ```
  *
- * @param GetTrafficDistributionCommandInput - {@link GetTrafficDistributionCommandInput}
- * @returns {@link GetTrafficDistributionCommandOutput}
+ * @param GetTrafficDistributionRequest - {@link GetTrafficDistributionRequest}
+ * @returns {@link GetTrafficDistributionResponse}
  * @see {@link GetTrafficDistributionCommandInput} for command's `input` shape.
  * @see {@link GetTrafficDistributionCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

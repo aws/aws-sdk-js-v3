@@ -69,8 +69,8 @@ export interface ListVPCAssociationAuthorizationsCommandOutput
  *
  * ```
  *
- * @param ListVPCAssociationAuthorizationsCommandInput - {@link ListVPCAssociationAuthorizationsCommandInput}
- * @returns {@link ListVPCAssociationAuthorizationsCommandOutput}
+ * @param ListVPCAssociationAuthorizationsRequest - {@link ListVPCAssociationAuthorizationsRequest}
+ * @returns {@link ListVPCAssociationAuthorizationsResponse}
  * @see {@link ListVPCAssociationAuthorizationsCommandInput} for command's `input` shape.
  * @see {@link ListVPCAssociationAuthorizationsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

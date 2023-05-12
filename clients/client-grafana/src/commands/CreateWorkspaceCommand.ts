@@ -151,8 +151,8 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  *
  * ```
  *
- * @param CreateWorkspaceCommandInput - {@link CreateWorkspaceCommandInput}
- * @returns {@link CreateWorkspaceCommandOutput}
+ * @param CreateWorkspaceRequest - {@link CreateWorkspaceRequest}
+ * @returns {@link CreateWorkspaceResponse}
  * @see {@link CreateWorkspaceCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspaceCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.

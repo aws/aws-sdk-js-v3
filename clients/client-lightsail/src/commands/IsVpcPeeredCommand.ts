@@ -48,8 +48,8 @@ export interface IsVpcPeeredCommandOutput extends IsVpcPeeredResult, __MetadataB
  *
  * ```
  *
- * @param IsVpcPeeredCommandInput - {@link IsVpcPeeredCommandInput}
- * @returns {@link IsVpcPeeredCommandOutput}
+ * @param IsVpcPeeredRequest - {@link IsVpcPeeredRequest}
+ * @returns {@link IsVpcPeeredResult}
  * @see {@link IsVpcPeeredCommandInput} for command's `input` shape.
  * @see {@link IsVpcPeeredCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

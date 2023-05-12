@@ -80,8 +80,8 @@ export interface ListRasterDataCollectionsCommandOutput extends ListRasterDataCo
  *
  * ```
  *
- * @param ListRasterDataCollectionsCommandInput - {@link ListRasterDataCollectionsCommandInput}
- * @returns {@link ListRasterDataCollectionsCommandOutput}
+ * @param ListRasterDataCollectionsInput - {@link ListRasterDataCollectionsInput}
+ * @returns {@link ListRasterDataCollectionsOutput}
  * @see {@link ListRasterDataCollectionsCommandInput} for command's `input` shape.
  * @see {@link ListRasterDataCollectionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.

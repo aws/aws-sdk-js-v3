@@ -71,8 +71,8 @@ export interface ListRepositoriesInDomainCommandOutput extends ListRepositoriesI
  *
  * ```
  *
- * @param ListRepositoriesInDomainCommandInput - {@link ListRepositoriesInDomainCommandInput}
- * @returns {@link ListRepositoriesInDomainCommandOutput}
+ * @param ListRepositoriesInDomainRequest - {@link ListRepositoriesInDomainRequest}
+ * @returns {@link ListRepositoriesInDomainResult}
  * @see {@link ListRepositoriesInDomainCommandInput} for command's `input` shape.
  * @see {@link ListRepositoriesInDomainCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

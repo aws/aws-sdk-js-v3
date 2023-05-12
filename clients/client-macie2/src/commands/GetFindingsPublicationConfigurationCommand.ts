@@ -59,8 +59,8 @@ export interface GetFindingsPublicationConfigurationCommandOutput
  *
  * ```
  *
- * @param GetFindingsPublicationConfigurationCommandInput - {@link GetFindingsPublicationConfigurationCommandInput}
- * @returns {@link GetFindingsPublicationConfigurationCommandOutput}
+ * @param GetFindingsPublicationConfigurationRequest - {@link GetFindingsPublicationConfigurationRequest}
+ * @returns {@link GetFindingsPublicationConfigurationResponse}
  * @see {@link GetFindingsPublicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetFindingsPublicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

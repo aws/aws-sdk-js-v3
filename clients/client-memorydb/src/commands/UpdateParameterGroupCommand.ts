@@ -61,8 +61,8 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  *
  * ```
  *
- * @param UpdateParameterGroupCommandInput - {@link UpdateParameterGroupCommandInput}
- * @returns {@link UpdateParameterGroupCommandOutput}
+ * @param UpdateParameterGroupRequest - {@link UpdateParameterGroupRequest}
+ * @returns {@link UpdateParameterGroupResponse}
  * @see {@link UpdateParameterGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

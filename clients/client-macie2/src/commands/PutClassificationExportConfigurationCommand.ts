@@ -70,8 +70,8 @@ export interface PutClassificationExportConfigurationCommandOutput
  *
  * ```
  *
- * @param PutClassificationExportConfigurationCommandInput - {@link PutClassificationExportConfigurationCommandInput}
- * @returns {@link PutClassificationExportConfigurationCommandOutput}
+ * @param PutClassificationExportConfigurationRequest - {@link PutClassificationExportConfigurationRequest}
+ * @returns {@link PutClassificationExportConfigurationResponse}
  * @see {@link PutClassificationExportConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutClassificationExportConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

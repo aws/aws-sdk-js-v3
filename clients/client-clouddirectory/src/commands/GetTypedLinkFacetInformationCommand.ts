@@ -58,8 +58,8 @@ export interface GetTypedLinkFacetInformationCommandOutput
  *
  * ```
  *
- * @param GetTypedLinkFacetInformationCommandInput - {@link GetTypedLinkFacetInformationCommandInput}
- * @returns {@link GetTypedLinkFacetInformationCommandOutput}
+ * @param GetTypedLinkFacetInformationRequest - {@link GetTypedLinkFacetInformationRequest}
+ * @returns {@link GetTypedLinkFacetInformationResponse}
  * @see {@link GetTypedLinkFacetInformationCommandInput} for command's `input` shape.
  * @see {@link GetTypedLinkFacetInformationCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

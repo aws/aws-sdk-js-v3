@@ -68,8 +68,8 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
  *
  * ```
  *
- * @param ListHostedConfigurationVersionsCommandInput - {@link ListHostedConfigurationVersionsCommandInput}
- * @returns {@link ListHostedConfigurationVersionsCommandOutput}
+ * @param ListHostedConfigurationVersionsRequest - {@link ListHostedConfigurationVersionsRequest}
+ * @returns {@link HostedConfigurationVersions}
  * @see {@link ListHostedConfigurationVersionsCommandInput} for command's `input` shape.
  * @see {@link ListHostedConfigurationVersionsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

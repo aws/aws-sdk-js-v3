@@ -63,8 +63,8 @@ export interface BatchCreateRoomMembershipCommandOutput extends BatchCreateRoomM
  *
  * ```
  *
- * @param BatchCreateRoomMembershipCommandInput - {@link BatchCreateRoomMembershipCommandInput}
- * @returns {@link BatchCreateRoomMembershipCommandOutput}
+ * @param BatchCreateRoomMembershipRequest - {@link BatchCreateRoomMembershipRequest}
+ * @returns {@link BatchCreateRoomMembershipResponse}
  * @see {@link BatchCreateRoomMembershipCommandInput} for command's `input` shape.
  * @see {@link BatchCreateRoomMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

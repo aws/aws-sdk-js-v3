@@ -51,8 +51,8 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
  *
  * ```
  *
- * @param GetSoftwareUpdatesCommandInput - {@link GetSoftwareUpdatesCommandInput}
- * @returns {@link GetSoftwareUpdatesCommandOutput}
+ * @param GetSoftwareUpdatesRequest - {@link GetSoftwareUpdatesRequest}
+ * @returns {@link GetSoftwareUpdatesResult}
  * @see {@link GetSoftwareUpdatesCommandInput} for command's `input` shape.
  * @see {@link GetSoftwareUpdatesCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

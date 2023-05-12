@@ -138,8 +138,8 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
  *
  * ```
  *
- * @param DescribeJobCommandInput - {@link DescribeJobCommandInput}
- * @returns {@link DescribeJobCommandOutput}
+ * @param DescribeJobRequest - {@link DescribeJobRequest}
+ * @returns {@link DescribeJobResponse}
  * @see {@link DescribeJobCommandInput} for command's `input` shape.
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

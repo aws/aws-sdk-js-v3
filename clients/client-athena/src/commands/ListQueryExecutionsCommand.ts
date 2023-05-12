@@ -61,8 +61,8 @@ export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOut
  *
  * ```
  *
- * @param ListQueryExecutionsCommandInput - {@link ListQueryExecutionsCommandInput}
- * @returns {@link ListQueryExecutionsCommandOutput}
+ * @param ListQueryExecutionsInput - {@link ListQueryExecutionsInput}
+ * @returns {@link ListQueryExecutionsOutput}
  * @see {@link ListQueryExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListQueryExecutionsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

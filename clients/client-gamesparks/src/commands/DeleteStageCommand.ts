@@ -49,8 +49,8 @@ export interface DeleteStageCommandOutput extends DeleteStageResult, __MetadataB
  *
  * ```
  *
- * @param DeleteStageCommandInput - {@link DeleteStageCommandInput}
- * @returns {@link DeleteStageCommandOutput}
+ * @param DeleteStageRequest - {@link DeleteStageRequest}
+ * @returns {@link DeleteStageResult}
  * @see {@link DeleteStageCommandInput} for command's `input` shape.
  * @see {@link DeleteStageCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

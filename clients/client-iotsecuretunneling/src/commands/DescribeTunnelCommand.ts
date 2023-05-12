@@ -85,8 +85,8 @@ export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __M
  *
  * ```
  *
- * @param DescribeTunnelCommandInput - {@link DescribeTunnelCommandInput}
- * @returns {@link DescribeTunnelCommandOutput}
+ * @param DescribeTunnelRequest - {@link DescribeTunnelRequest}
+ * @returns {@link DescribeTunnelResponse}
  * @see {@link DescribeTunnelCommandInput} for command's `input` shape.
  * @see {@link DescribeTunnelCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.

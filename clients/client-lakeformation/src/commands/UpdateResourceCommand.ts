@@ -50,8 +50,8 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  *
  * ```
  *
- * @param UpdateResourceCommandInput - {@link UpdateResourceCommandInput}
- * @returns {@link UpdateResourceCommandOutput}
+ * @param UpdateResourceRequest - {@link UpdateResourceRequest}
+ * @returns {@link UpdateResourceResponse}
  * @see {@link UpdateResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

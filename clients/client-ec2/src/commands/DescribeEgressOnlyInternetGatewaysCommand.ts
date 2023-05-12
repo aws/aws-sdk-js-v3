@@ -88,8 +88,8 @@ export interface DescribeEgressOnlyInternetGatewaysCommandOutput
  *
  * ```
  *
- * @param DescribeEgressOnlyInternetGatewaysCommandInput - {@link DescribeEgressOnlyInternetGatewaysCommandInput}
- * @returns {@link DescribeEgressOnlyInternetGatewaysCommandOutput}
+ * @param DescribeEgressOnlyInternetGatewaysRequest - {@link DescribeEgressOnlyInternetGatewaysRequest}
+ * @returns {@link DescribeEgressOnlyInternetGatewaysResult}
  * @see {@link DescribeEgressOnlyInternetGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeEgressOnlyInternetGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

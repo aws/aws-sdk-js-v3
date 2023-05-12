@@ -72,8 +72,8 @@ export interface PutAppInstanceUserExpirationSettingsCommandOutput
  *
  * ```
  *
- * @param PutAppInstanceUserExpirationSettingsCommandInput - {@link PutAppInstanceUserExpirationSettingsCommandInput}
- * @returns {@link PutAppInstanceUserExpirationSettingsCommandOutput}
+ * @param PutAppInstanceUserExpirationSettingsRequest - {@link PutAppInstanceUserExpirationSettingsRequest}
+ * @returns {@link PutAppInstanceUserExpirationSettingsResponse}
  * @see {@link PutAppInstanceUserExpirationSettingsCommandInput} for command's `input` shape.
  * @see {@link PutAppInstanceUserExpirationSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.

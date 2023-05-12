@@ -57,8 +57,8 @@ export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConne
  *
  * ```
  *
- * @param ListOpenIDConnectProvidersCommandInput - {@link ListOpenIDConnectProvidersCommandInput}
- * @returns {@link ListOpenIDConnectProvidersCommandOutput}
+ * @param ListOpenIDConnectProvidersRequest - {@link ListOpenIDConnectProvidersRequest}
+ * @returns {@link ListOpenIDConnectProvidersResponse}
  * @see {@link ListOpenIDConnectProvidersCommandInput} for command's `input` shape.
  * @see {@link ListOpenIDConnectProvidersCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

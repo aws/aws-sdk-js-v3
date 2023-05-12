@@ -55,8 +55,8 @@ export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __Met
  *
  * ```
  *
- * @param DeleteVehicleCommandInput - {@link DeleteVehicleCommandInput}
- * @returns {@link DeleteVehicleCommandOutput}
+ * @param DeleteVehicleRequest - {@link DeleteVehicleRequest}
+ * @returns {@link DeleteVehicleResponse}
  * @see {@link DeleteVehicleCommandInput} for command's `input` shape.
  * @see {@link DeleteVehicleCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

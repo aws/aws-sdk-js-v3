@@ -57,8 +57,8 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  *
  * ```
  *
- * @param DescribeRegionSettingsCommandInput - {@link DescribeRegionSettingsCommandInput}
- * @returns {@link DescribeRegionSettingsCommandOutput}
+ * @param DescribeRegionSettingsInput - {@link DescribeRegionSettingsInput}
+ * @returns {@link DescribeRegionSettingsOutput}
  * @see {@link DescribeRegionSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeRegionSettingsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

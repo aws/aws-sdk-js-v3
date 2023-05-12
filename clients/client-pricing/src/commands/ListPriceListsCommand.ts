@@ -77,8 +77,8 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  *
  * ```
  *
- * @param ListPriceListsCommandInput - {@link ListPriceListsCommandInput}
- * @returns {@link ListPriceListsCommandOutput}
+ * @param ListPriceListsRequest - {@link ListPriceListsRequest}
+ * @returns {@link ListPriceListsResponse}
  * @see {@link ListPriceListsCommandInput} for command's `input` shape.
  * @see {@link ListPriceListsCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.

@@ -76,8 +76,8 @@ export interface DescribeChannelFlowCommandOutput extends DescribeChannelFlowRes
  *
  * ```
  *
- * @param DescribeChannelFlowCommandInput - {@link DescribeChannelFlowCommandInput}
- * @returns {@link DescribeChannelFlowCommandOutput}
+ * @param DescribeChannelFlowRequest - {@link DescribeChannelFlowRequest}
+ * @returns {@link DescribeChannelFlowResponse}
  * @see {@link DescribeChannelFlowCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

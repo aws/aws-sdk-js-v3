@@ -94,8 +94,8 @@ export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __Met
  *
  * ```
  *
- * @param DescribeSpaceCommandInput - {@link DescribeSpaceCommandInput}
- * @returns {@link DescribeSpaceCommandOutput}
+ * @param DescribeSpaceRequest - {@link DescribeSpaceRequest}
+ * @returns {@link DescribeSpaceResponse}
  * @see {@link DescribeSpaceCommandInput} for command's `input` shape.
  * @see {@link DescribeSpaceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

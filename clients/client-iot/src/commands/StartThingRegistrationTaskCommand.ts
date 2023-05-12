@@ -54,8 +54,8 @@ export interface StartThingRegistrationTaskCommandOutput extends StartThingRegis
  *
  * ```
  *
- * @param StartThingRegistrationTaskCommandInput - {@link StartThingRegistrationTaskCommandInput}
- * @returns {@link StartThingRegistrationTaskCommandOutput}
+ * @param StartThingRegistrationTaskRequest - {@link StartThingRegistrationTaskRequest}
+ * @returns {@link StartThingRegistrationTaskResponse}
  * @see {@link StartThingRegistrationTaskCommandInput} for command's `input` shape.
  * @see {@link StartThingRegistrationTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

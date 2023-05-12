@@ -60,8 +60,8 @@ export interface AssociateUserAccessLoggingSettingsCommandOutput
  *
  * ```
  *
- * @param AssociateUserAccessLoggingSettingsCommandInput - {@link AssociateUserAccessLoggingSettingsCommandInput}
- * @returns {@link AssociateUserAccessLoggingSettingsCommandOutput}
+ * @param AssociateUserAccessLoggingSettingsRequest - {@link AssociateUserAccessLoggingSettingsRequest}
+ * @returns {@link AssociateUserAccessLoggingSettingsResponse}
  * @see {@link AssociateUserAccessLoggingSettingsCommandInput} for command's `input` shape.
  * @see {@link AssociateUserAccessLoggingSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

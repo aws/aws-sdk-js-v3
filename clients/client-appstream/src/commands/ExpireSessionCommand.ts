@@ -48,8 +48,8 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResult, __Metad
  *
  * ```
  *
- * @param ExpireSessionCommandInput - {@link ExpireSessionCommandInput}
- * @returns {@link ExpireSessionCommandOutput}
+ * @param ExpireSessionRequest - {@link ExpireSessionRequest}
+ * @returns {@link ExpireSessionResult}
  * @see {@link ExpireSessionCommandInput} for command's `input` shape.
  * @see {@link ExpireSessionCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

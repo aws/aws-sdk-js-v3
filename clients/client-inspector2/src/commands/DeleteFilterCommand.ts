@@ -50,8 +50,8 @@ export interface DeleteFilterCommandOutput extends DeleteFilterResponse, __Metad
  *
  * ```
  *
- * @param DeleteFilterCommandInput - {@link DeleteFilterCommandInput}
- * @returns {@link DeleteFilterCommandOutput}
+ * @param DeleteFilterRequest - {@link DeleteFilterRequest}
+ * @returns {@link DeleteFilterResponse}
  * @see {@link DeleteFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteFilterCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

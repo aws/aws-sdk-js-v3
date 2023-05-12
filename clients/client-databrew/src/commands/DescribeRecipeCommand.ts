@@ -82,8 +82,8 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  *
  * ```
  *
- * @param DescribeRecipeCommandInput - {@link DescribeRecipeCommandInput}
- * @returns {@link DescribeRecipeCommandOutput}
+ * @param DescribeRecipeRequest - {@link DescribeRecipeRequest}
+ * @returns {@link DescribeRecipeResponse}
  * @see {@link DescribeRecipeCommandInput} for command's `input` shape.
  * @see {@link DescribeRecipeCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

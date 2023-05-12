@@ -64,8 +64,8 @@ export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCata
  *
  * ```
  *
- * @param GetRepositoryCatalogDataCommandInput - {@link GetRepositoryCatalogDataCommandInput}
- * @returns {@link GetRepositoryCatalogDataCommandOutput}
+ * @param GetRepositoryCatalogDataRequest - {@link GetRepositoryCatalogDataRequest}
+ * @returns {@link GetRepositoryCatalogDataResponse}
  * @see {@link GetRepositoryCatalogDataCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryCatalogDataCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.

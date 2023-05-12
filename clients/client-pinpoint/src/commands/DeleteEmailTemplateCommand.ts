@@ -54,8 +54,8 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  *
  * ```
  *
- * @param DeleteEmailTemplateCommandInput - {@link DeleteEmailTemplateCommandInput}
- * @returns {@link DeleteEmailTemplateCommandOutput}
+ * @param DeleteEmailTemplateRequest - {@link DeleteEmailTemplateRequest}
+ * @returns {@link DeleteEmailTemplateResponse}
  * @see {@link DeleteEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

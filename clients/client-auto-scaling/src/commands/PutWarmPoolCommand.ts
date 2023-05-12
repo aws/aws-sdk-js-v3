@@ -63,8 +63,8 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  *
  * ```
  *
- * @param PutWarmPoolCommandInput - {@link PutWarmPoolCommandInput}
- * @returns {@link PutWarmPoolCommandOutput}
+ * @param PutWarmPoolType - {@link PutWarmPoolType}
+ * @returns {@link PutWarmPoolAnswer}
  * @see {@link PutWarmPoolCommandInput} for command's `input` shape.
  * @see {@link PutWarmPoolCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

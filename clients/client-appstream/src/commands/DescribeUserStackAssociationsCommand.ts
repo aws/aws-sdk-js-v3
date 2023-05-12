@@ -80,8 +80,8 @@ export interface DescribeUserStackAssociationsCommandOutput
  *
  * ```
  *
- * @param DescribeUserStackAssociationsCommandInput - {@link DescribeUserStackAssociationsCommandInput}
- * @returns {@link DescribeUserStackAssociationsCommandOutput}
+ * @param DescribeUserStackAssociationsRequest - {@link DescribeUserStackAssociationsRequest}
+ * @returns {@link DescribeUserStackAssociationsResult}
  * @see {@link DescribeUserStackAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeUserStackAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

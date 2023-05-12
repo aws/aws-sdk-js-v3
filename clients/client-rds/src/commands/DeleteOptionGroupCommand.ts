@@ -48,8 +48,8 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteOptionGroupCommandInput - {@link DeleteOptionGroupCommandInput}
- * @returns {@link DeleteOptionGroupCommandOutput}
+ * @param DeleteOptionGroupMessage - {@link DeleteOptionGroupMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteOptionGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

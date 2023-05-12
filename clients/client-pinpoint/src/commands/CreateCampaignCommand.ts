@@ -793,8 +793,8 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *
  * ```
  *
- * @param CreateCampaignCommandInput - {@link CreateCampaignCommandInput}
- * @returns {@link CreateCampaignCommandOutput}
+ * @param CreateCampaignRequest - {@link CreateCampaignRequest}
+ * @returns {@link CreateCampaignResponse}
  * @see {@link CreateCampaignCommandInput} for command's `input` shape.
  * @see {@link CreateCampaignCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

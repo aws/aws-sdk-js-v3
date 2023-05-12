@@ -81,8 +81,8 @@ export interface DescribeUserHierarchyStructureCommandOutput
  *
  * ```
  *
- * @param DescribeUserHierarchyStructureCommandInput - {@link DescribeUserHierarchyStructureCommandInput}
- * @returns {@link DescribeUserHierarchyStructureCommandOutput}
+ * @param DescribeUserHierarchyStructureRequest - {@link DescribeUserHierarchyStructureRequest}
+ * @returns {@link DescribeUserHierarchyStructureResponse}
  * @see {@link DescribeUserHierarchyStructureCommandInput} for command's `input` shape.
  * @see {@link DescribeUserHierarchyStructureCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

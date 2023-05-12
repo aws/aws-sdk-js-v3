@@ -105,8 +105,8 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutpu
  *
  * ```
  *
- * @param DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput - {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput}
- * @returns {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput}
+ * @param DescribeVerifiedAccessInstanceLoggingConfigurationsRequest - {@link DescribeVerifiedAccessInstanceLoggingConfigurationsRequest}
+ * @returns {@link DescribeVerifiedAccessInstanceLoggingConfigurationsResult}
  * @see {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

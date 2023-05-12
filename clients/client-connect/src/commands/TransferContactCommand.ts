@@ -79,8 +79,8 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  *
  * ```
  *
- * @param TransferContactCommandInput - {@link TransferContactCommandInput}
- * @returns {@link TransferContactCommandOutput}
+ * @param TransferContactRequest - {@link TransferContactRequest}
+ * @returns {@link TransferContactResponse}
  * @see {@link TransferContactCommandInput} for command's `input` shape.
  * @see {@link TransferContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -145,8 +145,8 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  *
  * ```
  *
- * @param DescribeContainerInstancesCommandInput - {@link DescribeContainerInstancesCommandInput}
- * @returns {@link DescribeContainerInstancesCommandOutput}
+ * @param DescribeContainerInstancesRequest - {@link DescribeContainerInstancesRequest}
+ * @returns {@link DescribeContainerInstancesResponse}
  * @see {@link DescribeContainerInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeContainerInstancesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

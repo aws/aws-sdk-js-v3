@@ -78,8 +78,8 @@ export interface GetServersCommandOutput extends GetServersResponse, __MetadataB
  *
  * ```
  *
- * @param GetServersCommandInput - {@link GetServersCommandInput}
- * @returns {@link GetServersCommandOutput}
+ * @param GetServersRequest - {@link GetServersRequest}
+ * @returns {@link GetServersResponse}
  * @see {@link GetServersCommandInput} for command's `input` shape.
  * @see {@link GetServersCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

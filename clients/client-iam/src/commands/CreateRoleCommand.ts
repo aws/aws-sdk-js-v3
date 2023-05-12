@@ -88,8 +88,8 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  *
  * ```
  *
- * @param CreateRoleCommandInput - {@link CreateRoleCommandInput}
- * @returns {@link CreateRoleCommandOutput}
+ * @param CreateRoleRequest - {@link CreateRoleRequest}
+ * @returns {@link CreateRoleResponse}
  * @see {@link CreateRoleCommandInput} for command's `input` shape.
  * @see {@link CreateRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

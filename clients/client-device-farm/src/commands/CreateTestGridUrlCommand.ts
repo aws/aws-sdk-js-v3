@@ -57,8 +57,8 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
  *
  * ```
  *
- * @param CreateTestGridUrlCommandInput - {@link CreateTestGridUrlCommandInput}
- * @returns {@link CreateTestGridUrlCommandOutput}
+ * @param CreateTestGridUrlRequest - {@link CreateTestGridUrlRequest}
+ * @returns {@link CreateTestGridUrlResult}
  * @see {@link CreateTestGridUrlCommandInput} for command's `input` shape.
  * @see {@link CreateTestGridUrlCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

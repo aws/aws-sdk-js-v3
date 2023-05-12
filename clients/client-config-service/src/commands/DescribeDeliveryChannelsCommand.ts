@@ -69,8 +69,8 @@ export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryC
  *
  * ```
  *
- * @param DescribeDeliveryChannelsCommandInput - {@link DescribeDeliveryChannelsCommandInput}
- * @returns {@link DescribeDeliveryChannelsCommandOutput}
+ * @param DescribeDeliveryChannelsRequest - {@link DescribeDeliveryChannelsRequest}
+ * @returns {@link DescribeDeliveryChannelsResponse}
  * @see {@link DescribeDeliveryChannelsCommandInput} for command's `input` shape.
  * @see {@link DescribeDeliveryChannelsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

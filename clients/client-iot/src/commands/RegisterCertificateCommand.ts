@@ -57,8 +57,8 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  *
  * ```
  *
- * @param RegisterCertificateCommandInput - {@link RegisterCertificateCommandInput}
- * @returns {@link RegisterCertificateCommandOutput}
+ * @param RegisterCertificateRequest - {@link RegisterCertificateRequest}
+ * @returns {@link RegisterCertificateResponse}
  * @see {@link RegisterCertificateCommandInput} for command's `input` shape.
  * @see {@link RegisterCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

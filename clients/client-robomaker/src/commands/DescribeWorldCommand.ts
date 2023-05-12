@@ -57,8 +57,8 @@ export interface DescribeWorldCommandOutput extends DescribeWorldResponse, __Met
  *
  * ```
  *
- * @param DescribeWorldCommandInput - {@link DescribeWorldCommandInput}
- * @returns {@link DescribeWorldCommandOutput}
+ * @param DescribeWorldRequest - {@link DescribeWorldRequest}
+ * @returns {@link DescribeWorldResponse}
  * @see {@link DescribeWorldCommandInput} for command's `input` shape.
  * @see {@link DescribeWorldCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

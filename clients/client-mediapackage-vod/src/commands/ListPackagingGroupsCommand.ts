@@ -70,8 +70,8 @@ export interface ListPackagingGroupsCommandOutput extends ListPackagingGroupsRes
  *
  * ```
  *
- * @param ListPackagingGroupsCommandInput - {@link ListPackagingGroupsCommandInput}
- * @returns {@link ListPackagingGroupsCommandOutput}
+ * @param ListPackagingGroupsRequest - {@link ListPackagingGroupsRequest}
+ * @returns {@link ListPackagingGroupsResponse}
  * @see {@link ListPackagingGroupsCommandInput} for command's `input` shape.
  * @see {@link ListPackagingGroupsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.

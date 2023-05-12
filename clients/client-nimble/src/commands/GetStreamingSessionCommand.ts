@@ -87,8 +87,8 @@ export interface GetStreamingSessionCommandOutput extends GetStreamingSessionRes
  *
  * ```
  *
- * @param GetStreamingSessionCommandInput - {@link GetStreamingSessionCommandInput}
- * @returns {@link GetStreamingSessionCommandOutput}
+ * @param GetStreamingSessionRequest - {@link GetStreamingSessionRequest}
+ * @returns {@link GetStreamingSessionResponse}
  * @see {@link GetStreamingSessionCommandInput} for command's `input` shape.
  * @see {@link GetStreamingSessionCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

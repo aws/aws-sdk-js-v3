@@ -81,8 +81,8 @@ export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __Met
  *
  * ```
  *
- * @param ListDataViewsCommandInput - {@link ListDataViewsCommandInput}
- * @returns {@link ListDataViewsCommandOutput}
+ * @param ListDataViewsRequest - {@link ListDataViewsRequest}
+ * @returns {@link ListDataViewsResponse}
  * @see {@link ListDataViewsCommandInput} for command's `input` shape.
  * @see {@link ListDataViewsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

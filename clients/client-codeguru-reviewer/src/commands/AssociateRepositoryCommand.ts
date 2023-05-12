@@ -123,8 +123,8 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  *
  * ```
  *
- * @param AssociateRepositoryCommandInput - {@link AssociateRepositoryCommandInput}
- * @returns {@link AssociateRepositoryCommandOutput}
+ * @param AssociateRepositoryRequest - {@link AssociateRepositoryRequest}
+ * @returns {@link AssociateRepositoryResponse}
  * @see {@link AssociateRepositoryCommandInput} for command's `input` shape.
  * @see {@link AssociateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.

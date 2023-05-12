@@ -79,8 +79,8 @@ export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse,
  *
  * ```
  *
- * @param ListMetricValuesCommandInput - {@link ListMetricValuesCommandInput}
- * @returns {@link ListMetricValuesCommandOutput}
+ * @param ListMetricValuesRequest - {@link ListMetricValuesRequest}
+ * @returns {@link ListMetricValuesResponse}
  * @see {@link ListMetricValuesCommandInput} for command's `input` shape.
  * @see {@link ListMetricValuesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -66,8 +66,8 @@ export interface ListTableStorageOptimizersCommandOutput extends ListTableStorag
  *
  * ```
  *
- * @param ListTableStorageOptimizersCommandInput - {@link ListTableStorageOptimizersCommandInput}
- * @returns {@link ListTableStorageOptimizersCommandOutput}
+ * @param ListTableStorageOptimizersRequest - {@link ListTableStorageOptimizersRequest}
+ * @returns {@link ListTableStorageOptimizersResponse}
  * @see {@link ListTableStorageOptimizersCommandInput} for command's `input` shape.
  * @see {@link ListTableStorageOptimizersCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

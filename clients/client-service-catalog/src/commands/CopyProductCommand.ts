@@ -68,8 +68,8 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  *
  * ```
  *
- * @param CopyProductCommandInput - {@link CopyProductCommandInput}
- * @returns {@link CopyProductCommandOutput}
+ * @param CopyProductInput - {@link CopyProductInput}
+ * @returns {@link CopyProductOutput}
  * @see {@link CopyProductCommandInput} for command's `input` shape.
  * @see {@link CopyProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

@@ -61,8 +61,8 @@ export interface DescribeFileSystemAliasesCommandOutput extends DescribeFileSyst
  *
  * ```
  *
- * @param DescribeFileSystemAliasesCommandInput - {@link DescribeFileSystemAliasesCommandInput}
- * @returns {@link DescribeFileSystemAliasesCommandOutput}
+ * @param DescribeFileSystemAliasesRequest - {@link DescribeFileSystemAliasesRequest}
+ * @returns {@link DescribeFileSystemAliasesResponse}
  * @see {@link DescribeFileSystemAliasesCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemAliasesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

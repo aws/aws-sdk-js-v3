@@ -73,8 +73,8 @@ export interface CreateResourceServerCommandOutput extends CreateResourceServerR
  *
  * ```
  *
- * @param CreateResourceServerCommandInput - {@link CreateResourceServerCommandInput}
- * @returns {@link CreateResourceServerCommandOutput}
+ * @param CreateResourceServerRequest - {@link CreateResourceServerRequest}
+ * @returns {@link CreateResourceServerResponse}
  * @see {@link CreateResourceServerCommandInput} for command's `input` shape.
  * @see {@link CreateResourceServerCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

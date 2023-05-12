@@ -59,8 +59,8 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  *
  * ```
  *
- * @param UpdateEnrollmentStatusCommandInput - {@link UpdateEnrollmentStatusCommandInput}
- * @returns {@link UpdateEnrollmentStatusCommandOutput}
+ * @param UpdateEnrollmentStatusRequest - {@link UpdateEnrollmentStatusRequest}
+ * @returns {@link UpdateEnrollmentStatusResponse}
  * @see {@link UpdateEnrollmentStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateEnrollmentStatusCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

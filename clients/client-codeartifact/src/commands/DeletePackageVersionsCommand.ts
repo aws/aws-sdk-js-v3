@@ -74,8 +74,8 @@ export interface DeletePackageVersionsCommandOutput extends DeletePackageVersion
  *
  * ```
  *
- * @param DeletePackageVersionsCommandInput - {@link DeletePackageVersionsCommandInput}
- * @returns {@link DeletePackageVersionsCommandOutput}
+ * @param DeletePackageVersionsRequest - {@link DeletePackageVersionsRequest}
+ * @returns {@link DeletePackageVersionsResult}
  * @see {@link DeletePackageVersionsCommandInput} for command's `input` shape.
  * @see {@link DeletePackageVersionsCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

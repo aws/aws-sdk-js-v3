@@ -195,8 +195,8 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  *
  * ```
  *
- * @param CreatePredictorCommandInput - {@link CreatePredictorCommandInput}
- * @returns {@link CreatePredictorCommandOutput}
+ * @param CreatePredictorRequest - {@link CreatePredictorRequest}
+ * @returns {@link CreatePredictorResponse}
  * @see {@link CreatePredictorCommandInput} for command's `input` shape.
  * @see {@link CreatePredictorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

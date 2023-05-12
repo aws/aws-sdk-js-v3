@@ -55,8 +55,8 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  *
  * ```
  *
- * @param UpdateRegistryCommandInput - {@link UpdateRegistryCommandInput}
- * @returns {@link UpdateRegistryCommandOutput}
+ * @param UpdateRegistryInput - {@link UpdateRegistryInput}
+ * @returns {@link UpdateRegistryResponse}
  * @see {@link UpdateRegistryCommandInput} for command's `input` shape.
  * @see {@link UpdateRegistryCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

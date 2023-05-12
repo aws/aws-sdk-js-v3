@@ -70,8 +70,8 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *
  * ```
  *
- * @param CreateProjectCommandInput - {@link CreateProjectCommandInput}
- * @returns {@link CreateProjectCommandOutput}
+ * @param CreateProjectInput - {@link CreateProjectInput}
+ * @returns {@link CreateProjectOutput}
  * @see {@link CreateProjectCommandInput} for command's `input` shape.
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

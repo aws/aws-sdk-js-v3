@@ -50,8 +50,8 @@ export interface DeleteLabelGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteLabelGroupCommandInput - {@link DeleteLabelGroupCommandInput}
- * @returns {@link DeleteLabelGroupCommandOutput}
+ * @param DeleteLabelGroupRequest - {@link DeleteLabelGroupRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteLabelGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteLabelGroupCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

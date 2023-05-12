@@ -124,8 +124,8 @@ export interface ListAssociationVersionsCommandOutput extends ListAssociationVer
  *
  * ```
  *
- * @param ListAssociationVersionsCommandInput - {@link ListAssociationVersionsCommandInput}
- * @returns {@link ListAssociationVersionsCommandOutput}
+ * @param ListAssociationVersionsRequest - {@link ListAssociationVersionsRequest}
+ * @returns {@link ListAssociationVersionsResult}
  * @see {@link ListAssociationVersionsCommandInput} for command's `input` shape.
  * @see {@link ListAssociationVersionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

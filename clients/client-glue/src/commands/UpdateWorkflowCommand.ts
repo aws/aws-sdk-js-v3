@@ -55,8 +55,8 @@ export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __M
  *
  * ```
  *
- * @param UpdateWorkflowCommandInput - {@link UpdateWorkflowCommandInput}
- * @returns {@link UpdateWorkflowCommandOutput}
+ * @param UpdateWorkflowRequest - {@link UpdateWorkflowRequest}
+ * @returns {@link UpdateWorkflowResponse}
  * @see {@link UpdateWorkflowCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkflowCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

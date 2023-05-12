@@ -103,14 +103,25 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * //         low: Number("long"),
  * //         veryLow: Number("long"),
  * //       },
+ * //       inferredWorkloadSavings: [ // InferredWorkloadSavings
+ * //         { // InferredWorkloadSaving
+ * //           inferredWorkloadTypes: [ // InferredWorkloadTypes
+ * //             "AmazonEmr" || "ApacheCassandra" || "ApacheHadoop" || "Memcached" || "Nginx" || "PostgreSql" || "Redis" || "Kafka" || "SQLServer",
+ * //           ],
+ * //           estimatedMonthlySavings: {
+ * //             currency: "USD" || "CNY",
+ * //             value: Number("double"),
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param GetRecommendationSummariesCommandInput - {@link GetRecommendationSummariesCommandInput}
- * @returns {@link GetRecommendationSummariesCommandOutput}
+ * @param GetRecommendationSummariesRequest - {@link GetRecommendationSummariesRequest}
+ * @returns {@link GetRecommendationSummariesResponse}
  * @see {@link GetRecommendationSummariesCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationSummariesCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

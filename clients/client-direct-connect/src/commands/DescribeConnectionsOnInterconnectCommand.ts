@@ -96,8 +96,8 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  *
  * ```
  *
- * @param DescribeConnectionsOnInterconnectCommandInput - {@link DescribeConnectionsOnInterconnectCommandInput}
- * @returns {@link DescribeConnectionsOnInterconnectCommandOutput}
+ * @param DescribeConnectionsOnInterconnectRequest - {@link DescribeConnectionsOnInterconnectRequest}
+ * @returns {@link Connections}
  * @see {@link DescribeConnectionsOnInterconnectCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionsOnInterconnectCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

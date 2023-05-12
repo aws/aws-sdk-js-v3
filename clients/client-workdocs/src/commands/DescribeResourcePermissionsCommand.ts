@@ -75,8 +75,8 @@ export interface DescribeResourcePermissionsCommandOutput
  *
  * ```
  *
- * @param DescribeResourcePermissionsCommandInput - {@link DescribeResourcePermissionsCommandInput}
- * @returns {@link DescribeResourcePermissionsCommandOutput}
+ * @param DescribeResourcePermissionsRequest - {@link DescribeResourcePermissionsRequest}
+ * @returns {@link DescribeResourcePermissionsResponse}
  * @see {@link DescribeResourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

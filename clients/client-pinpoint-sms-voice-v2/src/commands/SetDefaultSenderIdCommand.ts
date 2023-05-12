@@ -60,8 +60,8 @@ export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResul
  *
  * ```
  *
- * @param SetDefaultSenderIdCommandInput - {@link SetDefaultSenderIdCommandInput}
- * @returns {@link SetDefaultSenderIdCommandOutput}
+ * @param SetDefaultSenderIdRequest - {@link SetDefaultSenderIdRequest}
+ * @returns {@link SetDefaultSenderIdResult}
  * @see {@link SetDefaultSenderIdCommandInput} for command's `input` shape.
  * @see {@link SetDefaultSenderIdCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

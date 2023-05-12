@@ -56,8 +56,8 @@ export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
  *
  * ```
  *
- * @param DescribeLoaCommandInput - {@link DescribeLoaCommandInput}
- * @returns {@link DescribeLoaCommandOutput}
+ * @param DescribeLoaRequest - {@link DescribeLoaRequest}
+ * @returns {@link Loa}
  * @see {@link DescribeLoaCommandInput} for command's `input` shape.
  * @see {@link DescribeLoaCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

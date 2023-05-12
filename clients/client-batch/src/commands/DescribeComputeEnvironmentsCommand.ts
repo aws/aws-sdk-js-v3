@@ -125,8 +125,8 @@ export interface DescribeComputeEnvironmentsCommandOutput
  *
  * ```
  *
- * @param DescribeComputeEnvironmentsCommandInput - {@link DescribeComputeEnvironmentsCommandInput}
- * @returns {@link DescribeComputeEnvironmentsCommandOutput}
+ * @param DescribeComputeEnvironmentsRequest - {@link DescribeComputeEnvironmentsRequest}
+ * @returns {@link DescribeComputeEnvironmentsResponse}
  * @see {@link DescribeComputeEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeComputeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

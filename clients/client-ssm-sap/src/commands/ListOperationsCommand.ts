@@ -76,8 +76,8 @@ export interface ListOperationsCommandOutput extends ListOperationsOutput, __Met
  *
  * ```
  *
- * @param ListOperationsCommandInput - {@link ListOperationsCommandInput}
- * @returns {@link ListOperationsCommandOutput}
+ * @param ListOperationsInput - {@link ListOperationsInput}
+ * @returns {@link ListOperationsOutput}
  * @see {@link ListOperationsCommandInput} for command's `input` shape.
  * @see {@link ListOperationsCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.

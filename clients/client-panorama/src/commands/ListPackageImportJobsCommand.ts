@@ -61,8 +61,8 @@ export interface ListPackageImportJobsCommandOutput extends ListPackageImportJob
  *
  * ```
  *
- * @param ListPackageImportJobsCommandInput - {@link ListPackageImportJobsCommandInput}
- * @returns {@link ListPackageImportJobsCommandOutput}
+ * @param ListPackageImportJobsRequest - {@link ListPackageImportJobsRequest}
+ * @returns {@link ListPackageImportJobsResponse}
  * @see {@link ListPackageImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListPackageImportJobsCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

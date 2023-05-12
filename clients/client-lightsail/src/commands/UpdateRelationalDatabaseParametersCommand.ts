@@ -97,8 +97,8 @@ export interface UpdateRelationalDatabaseParametersCommandOutput
  *
  * ```
  *
- * @param UpdateRelationalDatabaseParametersCommandInput - {@link UpdateRelationalDatabaseParametersCommandInput}
- * @returns {@link UpdateRelationalDatabaseParametersCommandOutput}
+ * @param UpdateRelationalDatabaseParametersRequest - {@link UpdateRelationalDatabaseParametersRequest}
+ * @returns {@link UpdateRelationalDatabaseParametersResult}
  * @see {@link UpdateRelationalDatabaseParametersCommandInput} for command's `input` shape.
  * @see {@link UpdateRelationalDatabaseParametersCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

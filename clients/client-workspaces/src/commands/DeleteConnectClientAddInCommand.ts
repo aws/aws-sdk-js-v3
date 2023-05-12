@@ -50,8 +50,8 @@ export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClie
  *
  * ```
  *
- * @param DeleteConnectClientAddInCommandInput - {@link DeleteConnectClientAddInCommandInput}
- * @returns {@link DeleteConnectClientAddInCommandOutput}
+ * @param DeleteConnectClientAddInRequest - {@link DeleteConnectClientAddInRequest}
+ * @returns {@link DeleteConnectClientAddInResult}
  * @see {@link DeleteConnectClientAddInCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectClientAddInCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

@@ -75,8 +75,8 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  *
  * ```
  *
- * @param CreateAttendeeCommandInput - {@link CreateAttendeeCommandInput}
- * @returns {@link CreateAttendeeCommandOutput}
+ * @param CreateAttendeeRequest - {@link CreateAttendeeRequest}
+ * @returns {@link CreateAttendeeResponse}
  * @see {@link CreateAttendeeCommandInput} for command's `input` shape.
  * @see {@link CreateAttendeeCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.

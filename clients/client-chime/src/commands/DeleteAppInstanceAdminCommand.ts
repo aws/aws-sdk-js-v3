@@ -49,8 +49,8 @@ export interface DeleteAppInstanceAdminCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAppInstanceAdminCommandInput - {@link DeleteAppInstanceAdminCommandInput}
- * @returns {@link DeleteAppInstanceAdminCommandOutput}
+ * @param DeleteAppInstanceAdminRequest - {@link DeleteAppInstanceAdminRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAppInstanceAdminCommandInput} for command's `input` shape.
  * @see {@link DeleteAppInstanceAdminCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

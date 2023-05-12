@@ -77,8 +77,8 @@ export interface ListSimulationApplicationsCommandOutput extends ListSimulationA
  *
  * ```
  *
- * @param ListSimulationApplicationsCommandInput - {@link ListSimulationApplicationsCommandInput}
- * @returns {@link ListSimulationApplicationsCommandOutput}
+ * @param ListSimulationApplicationsRequest - {@link ListSimulationApplicationsRequest}
+ * @returns {@link ListSimulationApplicationsResponse}
  * @see {@link ListSimulationApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListSimulationApplicationsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

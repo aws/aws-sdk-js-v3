@@ -52,8 +52,8 @@ export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersio
  *
  * ```
  *
- * @param SetTypeDefaultVersionCommandInput - {@link SetTypeDefaultVersionCommandInput}
- * @returns {@link SetTypeDefaultVersionCommandOutput}
+ * @param SetTypeDefaultVersionInput - {@link SetTypeDefaultVersionInput}
+ * @returns {@link SetTypeDefaultVersionOutput}
  * @see {@link SetTypeDefaultVersionCommandInput} for command's `input` shape.
  * @see {@link SetTypeDefaultVersionCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

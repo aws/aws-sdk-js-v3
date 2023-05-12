@@ -79,8 +79,8 @@ export interface DescribeExperimentCommandOutput extends DescribeExperimentRespo
  *
  * ```
  *
- * @param DescribeExperimentCommandInput - {@link DescribeExperimentCommandInput}
- * @returns {@link DescribeExperimentCommandOutput}
+ * @param DescribeExperimentRequest - {@link DescribeExperimentRequest}
+ * @returns {@link DescribeExperimentResponse}
  * @see {@link DescribeExperimentCommandInput} for command's `input` shape.
  * @see {@link DescribeExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

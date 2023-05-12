@@ -79,8 +79,8 @@ export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsR
  *
  * ```
  *
- * @param GetFindingStatisticsCommandInput - {@link GetFindingStatisticsCommandInput}
- * @returns {@link GetFindingStatisticsCommandOutput}
+ * @param GetFindingStatisticsRequest - {@link GetFindingStatisticsRequest}
+ * @returns {@link GetFindingStatisticsResponse}
  * @see {@link GetFindingStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetFindingStatisticsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

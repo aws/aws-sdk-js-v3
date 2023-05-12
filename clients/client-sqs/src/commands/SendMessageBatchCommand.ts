@@ -121,8 +121,8 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  *
  * ```
  *
- * @param SendMessageBatchCommandInput - {@link SendMessageBatchCommandInput}
- * @returns {@link SendMessageBatchCommandOutput}
+ * @param SendMessageBatchRequest - {@link SendMessageBatchRequest}
+ * @returns {@link SendMessageBatchResult}
  * @see {@link SendMessageBatchCommandInput} for command's `input` shape.
  * @see {@link SendMessageBatchCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.

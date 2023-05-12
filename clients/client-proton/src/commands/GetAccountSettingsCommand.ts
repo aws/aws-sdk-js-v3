@@ -57,8 +57,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  *
  * ```
  *
- * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
- * @returns {@link GetAccountSettingsCommandOutput}
+ * @param GetAccountSettingsInput - {@link GetAccountSettingsInput}
+ * @returns {@link GetAccountSettingsOutput}
  * @see {@link GetAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link GetAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

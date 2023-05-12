@@ -75,8 +75,8 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  *
  * ```
  *
- * @param ListPipelineExecutionsCommandInput - {@link ListPipelineExecutionsCommandInput}
- * @returns {@link ListPipelineExecutionsCommandOutput}
+ * @param ListPipelineExecutionsInput - {@link ListPipelineExecutionsInput}
+ * @returns {@link ListPipelineExecutionsOutput}
  * @see {@link ListPipelineExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListPipelineExecutionsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

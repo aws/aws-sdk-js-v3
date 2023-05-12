@@ -145,8 +145,8 @@ export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __M
  *
  * ```
  *
- * @param GetServiceGraphCommandInput - {@link GetServiceGraphCommandInput}
- * @returns {@link GetServiceGraphCommandOutput}
+ * @param GetServiceGraphRequest - {@link GetServiceGraphRequest}
+ * @returns {@link GetServiceGraphResult}
  * @see {@link GetServiceGraphCommandInput} for command's `input` shape.
  * @see {@link GetServiceGraphCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

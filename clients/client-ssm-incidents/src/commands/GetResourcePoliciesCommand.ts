@@ -59,8 +59,8 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesOut
  *
  * ```
  *
- * @param GetResourcePoliciesCommandInput - {@link GetResourcePoliciesCommandInput}
- * @returns {@link GetResourcePoliciesCommandOutput}
+ * @param GetResourcePoliciesInput - {@link GetResourcePoliciesInput}
+ * @returns {@link GetResourcePoliciesOutput}
  * @see {@link GetResourcePoliciesCommandInput} for command's `input` shape.
  * @see {@link GetResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

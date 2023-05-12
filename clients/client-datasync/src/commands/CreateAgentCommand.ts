@@ -75,8 +75,8 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  *
  * ```
  *
- * @param CreateAgentCommandInput - {@link CreateAgentCommandInput}
- * @returns {@link CreateAgentCommandOutput}
+ * @param CreateAgentRequest - {@link CreateAgentRequest}
+ * @returns {@link CreateAgentResponse}
  * @see {@link CreateAgentCommandInput} for command's `input` shape.
  * @see {@link CreateAgentCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

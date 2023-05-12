@@ -56,8 +56,8 @@ export interface GetStudioMemberCommandOutput extends GetStudioMemberResponse, _
  *
  * ```
  *
- * @param GetStudioMemberCommandInput - {@link GetStudioMemberCommandInput}
- * @returns {@link GetStudioMemberCommandOutput}
+ * @param GetStudioMemberRequest - {@link GetStudioMemberRequest}
+ * @returns {@link GetStudioMemberResponse}
  * @see {@link GetStudioMemberCommandInput} for command's `input` shape.
  * @see {@link GetStudioMemberCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

@@ -71,8 +71,8 @@ export interface DisableProfileCommandOutput extends ProfileDetailResponse, __Me
  *
  * ```
  *
- * @param DisableProfileCommandInput - {@link DisableProfileCommandInput}
- * @returns {@link DisableProfileCommandOutput}
+ * @param ScalarProfileRequest - {@link ScalarProfileRequest}
+ * @returns {@link ProfileDetailResponse}
  * @see {@link DisableProfileCommandInput} for command's `input` shape.
  * @see {@link DisableProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

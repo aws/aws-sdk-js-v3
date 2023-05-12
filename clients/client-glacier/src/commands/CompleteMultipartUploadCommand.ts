@@ -93,8 +93,8 @@ export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOut
  *
  * ```
  *
- * @param CompleteMultipartUploadCommandInput - {@link CompleteMultipartUploadCommandInput}
- * @returns {@link CompleteMultipartUploadCommandOutput}
+ * @param CompleteMultipartUploadInput - {@link CompleteMultipartUploadInput}
+ * @returns {@link ArchiveCreationOutput}
  * @see {@link CompleteMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link CompleteMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

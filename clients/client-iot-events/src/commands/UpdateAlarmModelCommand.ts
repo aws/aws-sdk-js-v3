@@ -200,8 +200,8 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  *
  * ```
  *
- * @param UpdateAlarmModelCommandInput - {@link UpdateAlarmModelCommandInput}
- * @returns {@link UpdateAlarmModelCommandOutput}
+ * @param UpdateAlarmModelRequest - {@link UpdateAlarmModelRequest}
+ * @returns {@link UpdateAlarmModelResponse}
  * @see {@link UpdateAlarmModelCommandInput} for command's `input` shape.
  * @see {@link UpdateAlarmModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.

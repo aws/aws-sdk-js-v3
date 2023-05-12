@@ -58,8 +58,8 @@ export interface EnableImportFindingsForProductCommandOutput
  *
  * ```
  *
- * @param EnableImportFindingsForProductCommandInput - {@link EnableImportFindingsForProductCommandInput}
- * @returns {@link EnableImportFindingsForProductCommandOutput}
+ * @param EnableImportFindingsForProductRequest - {@link EnableImportFindingsForProductRequest}
+ * @returns {@link EnableImportFindingsForProductResponse}
  * @see {@link EnableImportFindingsForProductCommandInput} for command's `input` shape.
  * @see {@link EnableImportFindingsForProductCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

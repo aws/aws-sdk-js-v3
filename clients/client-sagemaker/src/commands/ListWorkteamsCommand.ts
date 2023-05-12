@@ -87,8 +87,8 @@ export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __Met
  *
  * ```
  *
- * @param ListWorkteamsCommandInput - {@link ListWorkteamsCommandInput}
- * @returns {@link ListWorkteamsCommandOutput}
+ * @param ListWorkteamsRequest - {@link ListWorkteamsRequest}
+ * @returns {@link ListWorkteamsResponse}
  * @see {@link ListWorkteamsCommandInput} for command's `input` shape.
  * @see {@link ListWorkteamsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

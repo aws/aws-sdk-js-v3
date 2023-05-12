@@ -56,8 +56,8 @@ export interface DeleteChannelFlowCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteChannelFlowCommandInput - {@link DeleteChannelFlowCommandInput}
- * @returns {@link DeleteChannelFlowCommandOutput}
+ * @param DeleteChannelFlowRequest - {@link DeleteChannelFlowRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteChannelFlowCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

@@ -99,8 +99,8 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  *
  * ```
  *
- * @param UpdateEndpointCommandInput - {@link UpdateEndpointCommandInput}
- * @returns {@link UpdateEndpointCommandOutput}
+ * @param UpdateEndpointInput - {@link UpdateEndpointInput}
+ * @returns {@link UpdateEndpointOutput}
  * @see {@link UpdateEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

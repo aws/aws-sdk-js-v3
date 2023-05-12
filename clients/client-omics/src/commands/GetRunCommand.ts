@@ -80,8 +80,8 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  *
  * ```
  *
- * @param GetRunCommandInput - {@link GetRunCommandInput}
- * @returns {@link GetRunCommandOutput}
+ * @param GetRunRequest - {@link GetRunRequest}
+ * @returns {@link GetRunResponse}
  * @see {@link GetRunCommandInput} for command's `input` shape.
  * @see {@link GetRunCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

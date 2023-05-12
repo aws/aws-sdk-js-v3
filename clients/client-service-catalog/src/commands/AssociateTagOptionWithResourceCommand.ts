@@ -54,8 +54,8 @@ export interface AssociateTagOptionWithResourceCommandOutput
  *
  * ```
  *
- * @param AssociateTagOptionWithResourceCommandInput - {@link AssociateTagOptionWithResourceCommandInput}
- * @returns {@link AssociateTagOptionWithResourceCommandOutput}
+ * @param AssociateTagOptionWithResourceInput - {@link AssociateTagOptionWithResourceInput}
+ * @returns {@link AssociateTagOptionWithResourceOutput}
  * @see {@link AssociateTagOptionWithResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateTagOptionWithResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

@@ -50,8 +50,8 @@ export interface DeleteMethodCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteMethodCommandInput - {@link DeleteMethodCommandInput}
- * @returns {@link DeleteMethodCommandOutput}
+ * @param DeleteMethodRequest - {@link DeleteMethodRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteMethodCommandInput} for command's `input` shape.
  * @see {@link DeleteMethodCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

@@ -68,8 +68,8 @@ export interface StartSNOMEDCTInferenceJobCommandOutput extends StartSNOMEDCTInf
  *
  * ```
  *
- * @param StartSNOMEDCTInferenceJobCommandInput - {@link StartSNOMEDCTInferenceJobCommandInput}
- * @returns {@link StartSNOMEDCTInferenceJobCommandOutput}
+ * @param StartSNOMEDCTInferenceJobRequest - {@link StartSNOMEDCTInferenceJobRequest}
+ * @returns {@link StartSNOMEDCTInferenceJobResponse}
  * @see {@link StartSNOMEDCTInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StartSNOMEDCTInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

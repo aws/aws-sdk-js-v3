@@ -124,8 +124,8 @@ export interface UpdateStorageVirtualMachineCommandOutput
  *
  * ```
  *
- * @param UpdateStorageVirtualMachineCommandInput - {@link UpdateStorageVirtualMachineCommandInput}
- * @returns {@link UpdateStorageVirtualMachineCommandOutput}
+ * @param UpdateStorageVirtualMachineRequest - {@link UpdateStorageVirtualMachineRequest}
+ * @returns {@link UpdateStorageVirtualMachineResponse}
  * @see {@link UpdateStorageVirtualMachineCommandInput} for command's `input` shape.
  * @see {@link UpdateStorageVirtualMachineCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

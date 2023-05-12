@@ -46,8 +46,8 @@ export interface DisableMacieCommandOutput extends DisableMacieResponse, __Metad
  *
  * ```
  *
- * @param DisableMacieCommandInput - {@link DisableMacieCommandInput}
- * @returns {@link DisableMacieCommandOutput}
+ * @param DisableMacieRequest - {@link DisableMacieRequest}
+ * @returns {@link DisableMacieResponse}
  * @see {@link DisableMacieCommandInput} for command's `input` shape.
  * @see {@link DisableMacieCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

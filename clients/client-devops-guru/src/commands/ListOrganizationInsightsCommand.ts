@@ -148,8 +148,8 @@ export interface ListOrganizationInsightsCommandOutput extends ListOrganizationI
  *
  * ```
  *
- * @param ListOrganizationInsightsCommandInput - {@link ListOrganizationInsightsCommandInput}
- * @returns {@link ListOrganizationInsightsCommandOutput}
+ * @param ListOrganizationInsightsRequest - {@link ListOrganizationInsightsRequest}
+ * @returns {@link ListOrganizationInsightsResponse}
  * @see {@link ListOrganizationInsightsCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationInsightsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

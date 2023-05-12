@@ -61,8 +61,8 @@ export interface GetUsagePlanKeysCommandOutput extends UsagePlanKeys, __Metadata
  *
  * ```
  *
- * @param GetUsagePlanKeysCommandInput - {@link GetUsagePlanKeysCommandInput}
- * @returns {@link GetUsagePlanKeysCommandOutput}
+ * @param GetUsagePlanKeysRequest - {@link GetUsagePlanKeysRequest}
+ * @returns {@link UsagePlanKeys}
  * @see {@link GetUsagePlanKeysCommandInput} for command's `input` shape.
  * @see {@link GetUsagePlanKeysCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

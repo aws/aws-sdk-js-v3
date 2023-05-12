@@ -65,8 +65,8 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  *
  * ```
  *
- * @param ListSchemaVersionsCommandInput - {@link ListSchemaVersionsCommandInput}
- * @returns {@link ListSchemaVersionsCommandOutput}
+ * @param ListSchemaVersionsInput - {@link ListSchemaVersionsInput}
+ * @returns {@link ListSchemaVersionsResponse}
  * @see {@link ListSchemaVersionsCommandInput} for command's `input` shape.
  * @see {@link ListSchemaVersionsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

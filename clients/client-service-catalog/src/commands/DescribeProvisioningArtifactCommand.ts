@@ -73,8 +73,8 @@ export interface DescribeProvisioningArtifactCommandOutput
  *
  * ```
  *
- * @param DescribeProvisioningArtifactCommandInput - {@link DescribeProvisioningArtifactCommandInput}
- * @returns {@link DescribeProvisioningArtifactCommandOutput}
+ * @param DescribeProvisioningArtifactInput - {@link DescribeProvisioningArtifactInput}
+ * @returns {@link DescribeProvisioningArtifactOutput}
  * @see {@link DescribeProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

@@ -82,8 +82,8 @@ export interface DescribeRecommendationLimitationsCommandOutput
  *
  * ```
  *
- * @param DescribeRecommendationLimitationsCommandInput - {@link DescribeRecommendationLimitationsCommandInput}
- * @returns {@link DescribeRecommendationLimitationsCommandOutput}
+ * @param DescribeRecommendationLimitationsRequest - {@link DescribeRecommendationLimitationsRequest}
+ * @returns {@link DescribeRecommendationLimitationsResponse}
  * @see {@link DescribeRecommendationLimitationsCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommendationLimitationsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

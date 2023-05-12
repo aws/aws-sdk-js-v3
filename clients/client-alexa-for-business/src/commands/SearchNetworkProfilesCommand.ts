@@ -78,8 +78,8 @@ export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfile
  *
  * ```
  *
- * @param SearchNetworkProfilesCommandInput - {@link SearchNetworkProfilesCommandInput}
- * @returns {@link SearchNetworkProfilesCommandOutput}
+ * @param SearchNetworkProfilesRequest - {@link SearchNetworkProfilesRequest}
+ * @returns {@link SearchNetworkProfilesResponse}
  * @see {@link SearchNetworkProfilesCommandInput} for command's `input` shape.
  * @see {@link SearchNetworkProfilesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

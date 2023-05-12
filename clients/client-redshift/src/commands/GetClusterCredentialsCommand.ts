@@ -80,8 +80,8 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  *
  * ```
  *
- * @param GetClusterCredentialsCommandInput - {@link GetClusterCredentialsCommandInput}
- * @returns {@link GetClusterCredentialsCommandOutput}
+ * @param GetClusterCredentialsMessage - {@link GetClusterCredentialsMessage}
+ * @returns {@link ClusterCredentials}
  * @see {@link GetClusterCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetClusterCredentialsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

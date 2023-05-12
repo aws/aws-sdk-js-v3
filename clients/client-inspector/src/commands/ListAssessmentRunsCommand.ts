@@ -83,8 +83,8 @@ export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsRespo
  *
  * ```
  *
- * @param ListAssessmentRunsCommandInput - {@link ListAssessmentRunsCommandInput}
- * @returns {@link ListAssessmentRunsCommandOutput}
+ * @param ListAssessmentRunsRequest - {@link ListAssessmentRunsRequest}
+ * @returns {@link ListAssessmentRunsResponse}
  * @see {@link ListAssessmentRunsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentRunsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

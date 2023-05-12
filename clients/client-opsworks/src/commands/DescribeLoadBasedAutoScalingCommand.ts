@@ -92,8 +92,8 @@ export interface DescribeLoadBasedAutoScalingCommandOutput
  *
  * ```
  *
- * @param DescribeLoadBasedAutoScalingCommandInput - {@link DescribeLoadBasedAutoScalingCommandInput}
- * @returns {@link DescribeLoadBasedAutoScalingCommandOutput}
+ * @param DescribeLoadBasedAutoScalingRequest - {@link DescribeLoadBasedAutoScalingRequest}
+ * @returns {@link DescribeLoadBasedAutoScalingResult}
  * @see {@link DescribeLoadBasedAutoScalingCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBasedAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

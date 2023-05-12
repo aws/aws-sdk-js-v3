@@ -57,8 +57,8 @@ export interface GetEventStreamCommandOutput extends GetEventStreamResponse, __M
  *
  * ```
  *
- * @param GetEventStreamCommandInput - {@link GetEventStreamCommandInput}
- * @returns {@link GetEventStreamCommandOutput}
+ * @param GetEventStreamRequest - {@link GetEventStreamRequest}
+ * @returns {@link GetEventStreamResponse}
  * @see {@link GetEventStreamCommandInput} for command's `input` shape.
  * @see {@link GetEventStreamCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

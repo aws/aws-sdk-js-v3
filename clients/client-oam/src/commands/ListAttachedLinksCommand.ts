@@ -63,8 +63,8 @@ export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput,
  *
  * ```
  *
- * @param ListAttachedLinksCommandInput - {@link ListAttachedLinksCommandInput}
- * @returns {@link ListAttachedLinksCommandOutput}
+ * @param ListAttachedLinksInput - {@link ListAttachedLinksInput}
+ * @returns {@link ListAttachedLinksOutput}
  * @see {@link ListAttachedLinksCommandInput} for command's `input` shape.
  * @see {@link ListAttachedLinksCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.

@@ -50,8 +50,8 @@ export interface DeleteCustomEntityTypeCommandOutput extends DeleteCustomEntityT
  *
  * ```
  *
- * @param DeleteCustomEntityTypeCommandInput - {@link DeleteCustomEntityTypeCommandInput}
- * @returns {@link DeleteCustomEntityTypeCommandOutput}
+ * @param DeleteCustomEntityTypeRequest - {@link DeleteCustomEntityTypeRequest}
+ * @returns {@link DeleteCustomEntityTypeResponse}
  * @see {@link DeleteCustomEntityTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomEntityTypeCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

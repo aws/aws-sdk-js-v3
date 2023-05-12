@@ -86,8 +86,8 @@ export interface DescribeHandshakeCommandOutput extends DescribeHandshakeRespons
  *
  * ```
  *
- * @param DescribeHandshakeCommandInput - {@link DescribeHandshakeCommandInput}
- * @returns {@link DescribeHandshakeCommandOutput}
+ * @param DescribeHandshakeRequest - {@link DescribeHandshakeRequest}
+ * @returns {@link DescribeHandshakeResponse}
  * @see {@link DescribeHandshakeCommandInput} for command's `input` shape.
  * @see {@link DescribeHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

@@ -60,8 +60,8 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
  *
  * ```
  *
- * @param RefreshTokenCommandInput - {@link RefreshTokenCommandInput}
- * @returns {@link RefreshTokenCommandOutput}
+ * @param RefreshTokenRequest - {@link RefreshTokenRequest}
+ * @returns {@link RefreshTokenResponse}
  * @see {@link RefreshTokenCommandInput} for command's `input` shape.
  * @see {@link RefreshTokenCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

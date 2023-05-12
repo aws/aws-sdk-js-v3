@@ -63,8 +63,8 @@ export interface DeleteUserCommandOutput extends User, __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteUserCommandInput - {@link DeleteUserCommandInput}
- * @returns {@link DeleteUserCommandOutput}
+ * @param DeleteUserMessage - {@link DeleteUserMessage}
+ * @returns {@link User}
  * @see {@link DeleteUserCommandInput} for command's `input` shape.
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

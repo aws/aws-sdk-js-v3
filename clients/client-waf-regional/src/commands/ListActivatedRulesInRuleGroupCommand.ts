@@ -83,8 +83,8 @@ export interface ListActivatedRulesInRuleGroupCommandOutput
  *
  * ```
  *
- * @param ListActivatedRulesInRuleGroupCommandInput - {@link ListActivatedRulesInRuleGroupCommandInput}
- * @returns {@link ListActivatedRulesInRuleGroupCommandOutput}
+ * @param ListActivatedRulesInRuleGroupRequest - {@link ListActivatedRulesInRuleGroupRequest}
+ * @returns {@link ListActivatedRulesInRuleGroupResponse}
  * @see {@link ListActivatedRulesInRuleGroupCommandInput} for command's `input` shape.
  * @see {@link ListActivatedRulesInRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

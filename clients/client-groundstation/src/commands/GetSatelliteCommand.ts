@@ -61,8 +61,8 @@ export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __Metad
  *
  * ```
  *
- * @param GetSatelliteCommandInput - {@link GetSatelliteCommandInput}
- * @returns {@link GetSatelliteCommandOutput}
+ * @param GetSatelliteRequest - {@link GetSatelliteRequest}
+ * @returns {@link GetSatelliteResponse}
  * @see {@link GetSatelliteCommandInput} for command's `input` shape.
  * @see {@link GetSatelliteCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

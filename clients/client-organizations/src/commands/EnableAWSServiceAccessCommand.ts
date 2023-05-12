@@ -67,8 +67,8 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param EnableAWSServiceAccessCommandInput - {@link EnableAWSServiceAccessCommandInput}
- * @returns {@link EnableAWSServiceAccessCommandOutput}
+ * @param EnableAWSServiceAccessRequest - {@link EnableAWSServiceAccessRequest}
+ * @returns {@link Unit}
  * @see {@link EnableAWSServiceAccessCommandInput} for command's `input` shape.
  * @see {@link EnableAWSServiceAccessCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

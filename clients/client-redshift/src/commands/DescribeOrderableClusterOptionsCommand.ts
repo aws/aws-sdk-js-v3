@@ -83,8 +83,8 @@ export interface DescribeOrderableClusterOptionsCommandOutput
  *
  * ```
  *
- * @param DescribeOrderableClusterOptionsCommandInput - {@link DescribeOrderableClusterOptionsCommandInput}
- * @returns {@link DescribeOrderableClusterOptionsCommandOutput}
+ * @param DescribeOrderableClusterOptionsMessage - {@link DescribeOrderableClusterOptionsMessage}
+ * @returns {@link OrderableClusterOptionsMessage}
  * @see {@link DescribeOrderableClusterOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOrderableClusterOptionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

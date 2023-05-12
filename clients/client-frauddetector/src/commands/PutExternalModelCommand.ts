@@ -73,8 +73,8 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
  *
  * ```
  *
- * @param PutExternalModelCommandInput - {@link PutExternalModelCommandInput}
- * @returns {@link PutExternalModelCommandOutput}
+ * @param PutExternalModelRequest - {@link PutExternalModelRequest}
+ * @returns {@link PutExternalModelResult}
  * @see {@link PutExternalModelCommandInput} for command's `input` shape.
  * @see {@link PutExternalModelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

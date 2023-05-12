@@ -67,8 +67,8 @@ export interface DescribeRegistriesCommandOutput extends DescribeRegistriesRespo
  *
  * ```
  *
- * @param DescribeRegistriesCommandInput - {@link DescribeRegistriesCommandInput}
- * @returns {@link DescribeRegistriesCommandOutput}
+ * @param DescribeRegistriesRequest - {@link DescribeRegistriesRequest}
+ * @returns {@link DescribeRegistriesResponse}
  * @see {@link DescribeRegistriesCommandInput} for command's `input` shape.
  * @see {@link DescribeRegistriesCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.

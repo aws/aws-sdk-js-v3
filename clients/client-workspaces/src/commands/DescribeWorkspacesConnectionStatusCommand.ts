@@ -69,8 +69,8 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput
  *
  * ```
  *
- * @param DescribeWorkspacesConnectionStatusCommandInput - {@link DescribeWorkspacesConnectionStatusCommandInput}
- * @returns {@link DescribeWorkspacesConnectionStatusCommandOutput}
+ * @param DescribeWorkspacesConnectionStatusRequest - {@link DescribeWorkspacesConnectionStatusRequest}
+ * @returns {@link DescribeWorkspacesConnectionStatusResult}
  * @see {@link DescribeWorkspacesConnectionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspacesConnectionStatusCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

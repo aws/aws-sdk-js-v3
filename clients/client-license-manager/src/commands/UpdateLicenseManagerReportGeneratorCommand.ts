@@ -72,8 +72,8 @@ export interface UpdateLicenseManagerReportGeneratorCommandOutput
  *
  * ```
  *
- * @param UpdateLicenseManagerReportGeneratorCommandInput - {@link UpdateLicenseManagerReportGeneratorCommandInput}
- * @returns {@link UpdateLicenseManagerReportGeneratorCommandOutput}
+ * @param UpdateLicenseManagerReportGeneratorRequest - {@link UpdateLicenseManagerReportGeneratorRequest}
+ * @returns {@link UpdateLicenseManagerReportGeneratorResponse}
  * @see {@link UpdateLicenseManagerReportGeneratorCommandInput} for command's `input` shape.
  * @see {@link UpdateLicenseManagerReportGeneratorCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

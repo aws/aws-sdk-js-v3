@@ -121,8 +121,8 @@ export interface DescribeAppAssessmentCommandOutput extends DescribeAppAssessmen
  *
  * ```
  *
- * @param DescribeAppAssessmentCommandInput - {@link DescribeAppAssessmentCommandInput}
- * @returns {@link DescribeAppAssessmentCommandOutput}
+ * @param DescribeAppAssessmentRequest - {@link DescribeAppAssessmentRequest}
+ * @returns {@link DescribeAppAssessmentResponse}
  * @see {@link DescribeAppAssessmentCommandInput} for command's `input` shape.
  * @see {@link DescribeAppAssessmentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

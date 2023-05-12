@@ -59,8 +59,8 @@ export interface BatchAssociateResourceCommandOutput extends BatchAssociateResou
  *
  * ```
  *
- * @param BatchAssociateResourceCommandInput - {@link BatchAssociateResourceCommandInput}
- * @returns {@link BatchAssociateResourceCommandOutput}
+ * @param BatchAssociateResourceRequest - {@link BatchAssociateResourceRequest}
+ * @returns {@link BatchAssociateResourceResponse}
  * @see {@link BatchAssociateResourceCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateResourceCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

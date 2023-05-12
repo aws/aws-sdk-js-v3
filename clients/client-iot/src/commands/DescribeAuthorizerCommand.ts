@@ -64,8 +64,8 @@ export interface DescribeAuthorizerCommandOutput extends DescribeAuthorizerRespo
  *
  * ```
  *
- * @param DescribeAuthorizerCommandInput - {@link DescribeAuthorizerCommandInput}
- * @returns {@link DescribeAuthorizerCommandOutput}
+ * @param DescribeAuthorizerRequest - {@link DescribeAuthorizerRequest}
+ * @returns {@link DescribeAuthorizerResponse}
  * @see {@link DescribeAuthorizerCommandInput} for command's `input` shape.
  * @see {@link DescribeAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

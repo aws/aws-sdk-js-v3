@@ -91,8 +91,8 @@ export interface GetUserAttributeVerificationCodeCommandOutput
  *
  * ```
  *
- * @param GetUserAttributeVerificationCodeCommandInput - {@link GetUserAttributeVerificationCodeCommandInput}
- * @returns {@link GetUserAttributeVerificationCodeCommandOutput}
+ * @param GetUserAttributeVerificationCodeRequest - {@link GetUserAttributeVerificationCodeRequest}
+ * @returns {@link GetUserAttributeVerificationCodeResponse}
  * @see {@link GetUserAttributeVerificationCodeCommandInput} for command's `input` shape.
  * @see {@link GetUserAttributeVerificationCodeCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

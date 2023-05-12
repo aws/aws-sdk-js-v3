@@ -51,8 +51,8 @@ export interface PublishAppVersionCommandOutput extends PublishAppVersionRespons
  *
  * ```
  *
- * @param PublishAppVersionCommandInput - {@link PublishAppVersionCommandInput}
- * @returns {@link PublishAppVersionCommandOutput}
+ * @param PublishAppVersionRequest - {@link PublishAppVersionRequest}
+ * @returns {@link PublishAppVersionResponse}
  * @see {@link PublishAppVersionCommandInput} for command's `input` shape.
  * @see {@link PublishAppVersionCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

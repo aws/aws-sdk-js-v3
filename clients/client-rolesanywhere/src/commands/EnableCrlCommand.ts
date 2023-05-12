@@ -63,8 +63,8 @@ export interface EnableCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  *
  * ```
  *
- * @param EnableCrlCommandInput - {@link EnableCrlCommandInput}
- * @returns {@link EnableCrlCommandOutput}
+ * @param ScalarCrlRequest - {@link ScalarCrlRequest}
+ * @returns {@link CrlDetailResponse}
  * @see {@link EnableCrlCommandInput} for command's `input` shape.
  * @see {@link EnableCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

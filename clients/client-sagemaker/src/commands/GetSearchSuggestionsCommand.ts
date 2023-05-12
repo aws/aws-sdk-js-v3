@@ -62,8 +62,8 @@ export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsR
  *
  * ```
  *
- * @param GetSearchSuggestionsCommandInput - {@link GetSearchSuggestionsCommandInput}
- * @returns {@link GetSearchSuggestionsCommandOutput}
+ * @param GetSearchSuggestionsRequest - {@link GetSearchSuggestionsRequest}
+ * @returns {@link GetSearchSuggestionsResponse}
  * @see {@link GetSearchSuggestionsCommandInput} for command's `input` shape.
  * @see {@link GetSearchSuggestionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

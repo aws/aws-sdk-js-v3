@@ -79,8 +79,8 @@ export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResul
  *
  * ```
  *
- * @param DeleteMessageBatchCommandInput - {@link DeleteMessageBatchCommandInput}
- * @returns {@link DeleteMessageBatchCommandOutput}
+ * @param DeleteMessageBatchRequest - {@link DeleteMessageBatchRequest}
+ * @returns {@link DeleteMessageBatchResult}
  * @see {@link DeleteMessageBatchCommandInput} for command's `input` shape.
  * @see {@link DeleteMessageBatchCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.

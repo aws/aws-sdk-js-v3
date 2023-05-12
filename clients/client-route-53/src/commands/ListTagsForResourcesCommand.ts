@@ -66,8 +66,8 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  *
  * ```
  *
- * @param ListTagsForResourcesCommandInput - {@link ListTagsForResourcesCommandInput}
- * @returns {@link ListTagsForResourcesCommandOutput}
+ * @param ListTagsForResourcesRequest - {@link ListTagsForResourcesRequest}
+ * @returns {@link ListTagsForResourcesResponse}
  * @see {@link ListTagsForResourcesCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourcesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

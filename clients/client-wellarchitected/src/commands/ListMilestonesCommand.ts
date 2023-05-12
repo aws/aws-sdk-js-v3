@@ -74,8 +74,8 @@ export interface ListMilestonesCommandOutput extends ListMilestonesOutput, __Met
  *
  * ```
  *
- * @param ListMilestonesCommandInput - {@link ListMilestonesCommandInput}
- * @returns {@link ListMilestonesCommandOutput}
+ * @param ListMilestonesInput - {@link ListMilestonesInput}
+ * @returns {@link ListMilestonesOutput}
  * @see {@link ListMilestonesCommandInput} for command's `input` shape.
  * @see {@link ListMilestonesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

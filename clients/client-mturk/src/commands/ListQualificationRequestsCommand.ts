@@ -70,8 +70,8 @@ export interface ListQualificationRequestsCommandOutput extends ListQualificatio
  *
  * ```
  *
- * @param ListQualificationRequestsCommandInput - {@link ListQualificationRequestsCommandInput}
- * @returns {@link ListQualificationRequestsCommandOutput}
+ * @param ListQualificationRequestsRequest - {@link ListQualificationRequestsRequest}
+ * @returns {@link ListQualificationRequestsResponse}
  * @see {@link ListQualificationRequestsCommandInput} for command's `input` shape.
  * @see {@link ListQualificationRequestsCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

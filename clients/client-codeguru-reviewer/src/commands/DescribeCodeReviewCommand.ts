@@ -105,8 +105,8 @@ export interface DescribeCodeReviewCommandOutput extends DescribeCodeReviewRespo
  *
  * ```
  *
- * @param DescribeCodeReviewCommandInput - {@link DescribeCodeReviewCommandInput}
- * @returns {@link DescribeCodeReviewCommandOutput}
+ * @param DescribeCodeReviewRequest - {@link DescribeCodeReviewRequest}
+ * @returns {@link DescribeCodeReviewResponse}
  * @see {@link DescribeCodeReviewCommandInput} for command's `input` shape.
  * @see {@link DescribeCodeReviewCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.

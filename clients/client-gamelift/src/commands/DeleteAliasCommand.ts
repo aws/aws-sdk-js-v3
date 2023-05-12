@@ -56,8 +56,8 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAliasCommandInput - {@link DeleteAliasCommandInput}
- * @returns {@link DeleteAliasCommandOutput}
+ * @param DeleteAliasInput - {@link DeleteAliasInput}
+ * @returns {@link Unit}
  * @see {@link DeleteAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAliasCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

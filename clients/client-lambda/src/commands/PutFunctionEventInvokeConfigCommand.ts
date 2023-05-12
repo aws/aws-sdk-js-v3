@@ -85,8 +85,8 @@ export interface PutFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  *
  * ```
  *
- * @param PutFunctionEventInvokeConfigCommandInput - {@link PutFunctionEventInvokeConfigCommandInput}
- * @returns {@link PutFunctionEventInvokeConfigCommandOutput}
+ * @param PutFunctionEventInvokeConfigRequest - {@link PutFunctionEventInvokeConfigRequest}
+ * @returns {@link FunctionEventInvokeConfig}
  * @see {@link PutFunctionEventInvokeConfigCommandInput} for command's `input` shape.
  * @see {@link PutFunctionEventInvokeConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

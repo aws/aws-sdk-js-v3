@@ -69,8 +69,8 @@ export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __Metad
  *
  * ```
  *
- * @param UpdateRecipeCommandInput - {@link UpdateRecipeCommandInput}
- * @returns {@link UpdateRecipeCommandOutput}
+ * @param UpdateRecipeRequest - {@link UpdateRecipeRequest}
+ * @returns {@link UpdateRecipeResponse}
  * @see {@link UpdateRecipeCommandInput} for command's `input` shape.
  * @see {@link UpdateRecipeCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

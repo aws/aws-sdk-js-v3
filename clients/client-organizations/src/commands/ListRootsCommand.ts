@@ -81,8 +81,8 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *
  * ```
  *
- * @param ListRootsCommandInput - {@link ListRootsCommandInput}
- * @returns {@link ListRootsCommandOutput}
+ * @param ListRootsRequest - {@link ListRootsRequest}
+ * @returns {@link ListRootsResponse}
  * @see {@link ListRootsCommandInput} for command's `input` shape.
  * @see {@link ListRootsCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

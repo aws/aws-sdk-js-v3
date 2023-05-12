@@ -82,8 +82,8 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResponse,
  *
  * ```
  *
- * @param ListAssociationsCommandInput - {@link ListAssociationsCommandInput}
- * @returns {@link ListAssociationsCommandOutput}
+ * @param ListAssociationsRequest - {@link ListAssociationsRequest}
+ * @returns {@link ListAssociationsResponse}
  * @see {@link ListAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -63,8 +63,8 @@ export interface DisassociateResourceSharePermissionCommandOutput
  *
  * ```
  *
- * @param DisassociateResourceSharePermissionCommandInput - {@link DisassociateResourceSharePermissionCommandInput}
- * @returns {@link DisassociateResourceSharePermissionCommandOutput}
+ * @param DisassociateResourceSharePermissionRequest - {@link DisassociateResourceSharePermissionRequest}
+ * @returns {@link DisassociateResourceSharePermissionResponse}
  * @see {@link DisassociateResourceSharePermissionCommandInput} for command's `input` shape.
  * @see {@link DisassociateResourceSharePermissionCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

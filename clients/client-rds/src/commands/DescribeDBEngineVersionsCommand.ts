@@ -148,8 +148,8 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  *
  * ```
  *
- * @param DescribeDBEngineVersionsCommandInput - {@link DescribeDBEngineVersionsCommandInput}
- * @returns {@link DescribeDBEngineVersionsCommandOutput}
+ * @param DescribeDBEngineVersionsMessage - {@link DescribeDBEngineVersionsMessage}
+ * @returns {@link DBEngineVersionMessage}
  * @see {@link DescribeDBEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

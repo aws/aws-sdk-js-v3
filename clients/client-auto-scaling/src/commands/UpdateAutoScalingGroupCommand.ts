@@ -210,8 +210,8 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateAutoScalingGroupCommandInput - {@link UpdateAutoScalingGroupCommandInput}
- * @returns {@link UpdateAutoScalingGroupCommandOutput}
+ * @param UpdateAutoScalingGroupType - {@link UpdateAutoScalingGroupType}
+ * @returns {@link Unit}
  * @see {@link UpdateAutoScalingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

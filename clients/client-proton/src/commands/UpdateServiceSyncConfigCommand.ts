@@ -60,8 +60,8 @@ export interface UpdateServiceSyncConfigCommandOutput extends UpdateServiceSyncC
  *
  * ```
  *
- * @param UpdateServiceSyncConfigCommandInput - {@link UpdateServiceSyncConfigCommandInput}
- * @returns {@link UpdateServiceSyncConfigCommandOutput}
+ * @param UpdateServiceSyncConfigInput - {@link UpdateServiceSyncConfigInput}
+ * @returns {@link UpdateServiceSyncConfigOutput}
  * @see {@link UpdateServiceSyncConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

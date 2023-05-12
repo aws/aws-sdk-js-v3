@@ -73,8 +73,8 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
  *
  * ```
  *
- * @param DescribeAffectedAccountsForOrganizationCommandInput - {@link DescribeAffectedAccountsForOrganizationCommandInput}
- * @returns {@link DescribeAffectedAccountsForOrganizationCommandOutput}
+ * @param DescribeAffectedAccountsForOrganizationRequest - {@link DescribeAffectedAccountsForOrganizationRequest}
+ * @returns {@link DescribeAffectedAccountsForOrganizationResponse}
  * @see {@link DescribeAffectedAccountsForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeAffectedAccountsForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.

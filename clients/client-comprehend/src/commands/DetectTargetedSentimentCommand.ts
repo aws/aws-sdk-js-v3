@@ -82,8 +82,8 @@ export interface DetectTargetedSentimentCommandOutput extends DetectTargetedSent
  *
  * ```
  *
- * @param DetectTargetedSentimentCommandInput - {@link DetectTargetedSentimentCommandInput}
- * @returns {@link DetectTargetedSentimentCommandOutput}
+ * @param DetectTargetedSentimentRequest - {@link DetectTargetedSentimentRequest}
+ * @returns {@link DetectTargetedSentimentResponse}
  * @see {@link DetectTargetedSentimentCommandInput} for command's `input` shape.
  * @see {@link DetectTargetedSentimentCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

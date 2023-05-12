@@ -54,8 +54,8 @@ export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDet
  *
  * ```
  *
- * @param StopEntitiesDetectionV2JobCommandInput - {@link StopEntitiesDetectionV2JobCommandInput}
- * @returns {@link StopEntitiesDetectionV2JobCommandOutput}
+ * @param StopEntitiesDetectionV2JobRequest - {@link StopEntitiesDetectionV2JobRequest}
+ * @returns {@link StopEntitiesDetectionV2JobResponse}
  * @see {@link StopEntitiesDetectionV2JobCommandInput} for command's `input` shape.
  * @see {@link StopEntitiesDetectionV2JobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

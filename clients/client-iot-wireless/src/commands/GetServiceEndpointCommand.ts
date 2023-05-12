@@ -52,8 +52,8 @@ export interface GetServiceEndpointCommandOutput extends GetServiceEndpointRespo
  *
  * ```
  *
- * @param GetServiceEndpointCommandInput - {@link GetServiceEndpointCommandInput}
- * @returns {@link GetServiceEndpointCommandOutput}
+ * @param GetServiceEndpointRequest - {@link GetServiceEndpointRequest}
+ * @returns {@link GetServiceEndpointResponse}
  * @see {@link GetServiceEndpointCommandInput} for command's `input` shape.
  * @see {@link GetServiceEndpointCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

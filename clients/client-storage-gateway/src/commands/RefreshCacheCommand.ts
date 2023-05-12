@@ -104,8 +104,8 @@ export interface RefreshCacheCommandOutput extends RefreshCacheOutput, __Metadat
  *
  * ```
  *
- * @param RefreshCacheCommandInput - {@link RefreshCacheCommandInput}
- * @returns {@link RefreshCacheCommandOutput}
+ * @param RefreshCacheInput - {@link RefreshCacheInput}
+ * @returns {@link RefreshCacheOutput}
  * @see {@link RefreshCacheCommandInput} for command's `input` shape.
  * @see {@link RefreshCacheCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

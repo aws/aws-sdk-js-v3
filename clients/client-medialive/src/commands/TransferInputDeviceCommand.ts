@@ -51,8 +51,8 @@ export interface TransferInputDeviceCommandOutput extends TransferInputDeviceRes
  *
  * ```
  *
- * @param TransferInputDeviceCommandInput - {@link TransferInputDeviceCommandInput}
- * @returns {@link TransferInputDeviceCommandOutput}
+ * @param TransferInputDeviceRequest - {@link TransferInputDeviceRequest}
+ * @returns {@link TransferInputDeviceResponse}
  * @see {@link TransferInputDeviceCommandInput} for command's `input` shape.
  * @see {@link TransferInputDeviceCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

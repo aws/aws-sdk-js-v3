@@ -58,8 +58,8 @@ export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesR
  *
  * ```
  *
- * @param ListResourcePoliciesCommandInput - {@link ListResourcePoliciesCommandInput}
- * @returns {@link ListResourcePoliciesCommandOutput}
+ * @param ListResourcePoliciesRequest - {@link ListResourcePoliciesRequest}
+ * @returns {@link ListResourcePoliciesResult}
  * @see {@link ListResourcePoliciesCommandInput} for command's `input` shape.
  * @see {@link ListResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

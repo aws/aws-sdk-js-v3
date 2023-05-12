@@ -57,8 +57,8 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
  *
  * ```
  *
- * @param CheckDomainTransferabilityCommandInput - {@link CheckDomainTransferabilityCommandInput}
- * @returns {@link CheckDomainTransferabilityCommandOutput}
+ * @param CheckDomainTransferabilityRequest - {@link CheckDomainTransferabilityRequest}
+ * @returns {@link CheckDomainTransferabilityResponse}
  * @see {@link CheckDomainTransferabilityCommandInput} for command's `input` shape.
  * @see {@link CheckDomainTransferabilityCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

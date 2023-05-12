@@ -55,8 +55,8 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteStackCommandInput - {@link DeleteStackCommandInput}
- * @returns {@link DeleteStackCommandOutput}
+ * @param DeleteStackInput - {@link DeleteStackInput}
+ * @returns {@link Unit}
  * @see {@link DeleteStackCommandInput} for command's `input` shape.
  * @see {@link DeleteStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

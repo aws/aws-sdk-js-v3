@@ -61,8 +61,8 @@ export interface ListMobileSdkReleasesCommandOutput extends ListMobileSdkRelease
  *
  * ```
  *
- * @param ListMobileSdkReleasesCommandInput - {@link ListMobileSdkReleasesCommandInput}
- * @returns {@link ListMobileSdkReleasesCommandOutput}
+ * @param ListMobileSdkReleasesRequest - {@link ListMobileSdkReleasesRequest}
+ * @returns {@link ListMobileSdkReleasesResponse}
  * @see {@link ListMobileSdkReleasesCommandInput} for command's `input` shape.
  * @see {@link ListMobileSdkReleasesCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

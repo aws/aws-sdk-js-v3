@@ -99,8 +99,8 @@ export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOut
  *
  * ```
  *
- * @param GetResourcesSummaryCommandInput - {@link GetResourcesSummaryCommandInput}
- * @returns {@link GetResourcesSummaryCommandOutput}
+ * @param GetResourcesSummaryInput - {@link GetResourcesSummaryInput}
+ * @returns {@link GetResourcesSummaryOutput}
  * @see {@link GetResourcesSummaryCommandInput} for command's `input` shape.
  * @see {@link GetResourcesSummaryCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

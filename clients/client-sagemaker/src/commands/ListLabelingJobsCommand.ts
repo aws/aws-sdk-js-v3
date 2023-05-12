@@ -98,8 +98,8 @@ export interface ListLabelingJobsCommandOutput extends ListLabelingJobsResponse,
  *
  * ```
  *
- * @param ListLabelingJobsCommandInput - {@link ListLabelingJobsCommandInput}
- * @returns {@link ListLabelingJobsCommandOutput}
+ * @param ListLabelingJobsRequest - {@link ListLabelingJobsRequest}
+ * @returns {@link ListLabelingJobsResponse}
  * @see {@link ListLabelingJobsCommandInput} for command's `input` shape.
  * @see {@link ListLabelingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -111,8 +111,8 @@ export interface DescribeConversionTasksCommandOutput extends DescribeConversion
  *
  * ```
  *
- * @param DescribeConversionTasksCommandInput - {@link DescribeConversionTasksCommandInput}
- * @returns {@link DescribeConversionTasksCommandOutput}
+ * @param DescribeConversionTasksRequest - {@link DescribeConversionTasksRequest}
+ * @returns {@link DescribeConversionTasksResult}
  * @see {@link DescribeConversionTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeConversionTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

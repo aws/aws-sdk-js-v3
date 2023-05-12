@@ -83,8 +83,8 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  *
  * ```
  *
- * @param GetLifecyclePolicyPreviewCommandInput - {@link GetLifecyclePolicyPreviewCommandInput}
- * @returns {@link GetLifecyclePolicyPreviewCommandOutput}
+ * @param GetLifecyclePolicyPreviewRequest - {@link GetLifecyclePolicyPreviewRequest}
+ * @returns {@link GetLifecyclePolicyPreviewResponse}
  * @see {@link GetLifecyclePolicyPreviewCommandInput} for command's `input` shape.
  * @see {@link GetLifecyclePolicyPreviewCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

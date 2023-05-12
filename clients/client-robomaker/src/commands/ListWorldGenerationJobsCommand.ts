@@ -73,8 +73,8 @@ export interface ListWorldGenerationJobsCommandOutput extends ListWorldGeneratio
  *
  * ```
  *
- * @param ListWorldGenerationJobsCommandInput - {@link ListWorldGenerationJobsCommandInput}
- * @returns {@link ListWorldGenerationJobsCommandOutput}
+ * @param ListWorldGenerationJobsRequest - {@link ListWorldGenerationJobsRequest}
+ * @returns {@link ListWorldGenerationJobsResponse}
  * @see {@link ListWorldGenerationJobsCommandInput} for command's `input` shape.
  * @see {@link ListWorldGenerationJobsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

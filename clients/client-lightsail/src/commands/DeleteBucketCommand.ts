@@ -73,8 +73,8 @@ export interface DeleteBucketCommandOutput extends DeleteBucketResult, __Metadat
  *
  * ```
  *
- * @param DeleteBucketCommandInput - {@link DeleteBucketCommandInput}
- * @returns {@link DeleteBucketCommandOutput}
+ * @param DeleteBucketRequest - {@link DeleteBucketRequest}
+ * @returns {@link DeleteBucketResult}
  * @see {@link DeleteBucketCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

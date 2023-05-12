@@ -358,8 +358,8 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *
  * ```
  *
- * @param RegisterJobDefinitionCommandInput - {@link RegisterJobDefinitionCommandInput}
- * @returns {@link RegisterJobDefinitionCommandOutput}
+ * @param RegisterJobDefinitionRequest - {@link RegisterJobDefinitionRequest}
+ * @returns {@link RegisterJobDefinitionResponse}
  * @see {@link RegisterJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link RegisterJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

@@ -68,8 +68,8 @@ export interface DescribeFpgaImageAttributeCommandOutput extends DescribeFpgaIma
  *
  * ```
  *
- * @param DescribeFpgaImageAttributeCommandInput - {@link DescribeFpgaImageAttributeCommandInput}
- * @returns {@link DescribeFpgaImageAttributeCommandOutput}
+ * @param DescribeFpgaImageAttributeRequest - {@link DescribeFpgaImageAttributeRequest}
+ * @returns {@link DescribeFpgaImageAttributeResult}
  * @see {@link DescribeFpgaImageAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeFpgaImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -57,8 +57,8 @@ export interface AssociateElasticIpCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AssociateElasticIpCommandInput - {@link AssociateElasticIpCommandInput}
- * @returns {@link AssociateElasticIpCommandOutput}
+ * @param AssociateElasticIpRequest - {@link AssociateElasticIpRequest}
+ * @returns {@link Unit}
  * @see {@link AssociateElasticIpCommandInput} for command's `input` shape.
  * @see {@link AssociateElasticIpCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

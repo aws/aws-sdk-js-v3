@@ -58,8 +58,8 @@ export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __M
  *
  * ```
  *
- * @param UpdateTagOptionCommandInput - {@link UpdateTagOptionCommandInput}
- * @returns {@link UpdateTagOptionCommandOutput}
+ * @param UpdateTagOptionInput - {@link UpdateTagOptionInput}
+ * @returns {@link UpdateTagOptionOutput}
  * @see {@link UpdateTagOptionCommandInput} for command's `input` shape.
  * @see {@link UpdateTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

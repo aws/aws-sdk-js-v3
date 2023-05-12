@@ -53,8 +53,8 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param RegisterOnPremisesInstanceCommandInput - {@link RegisterOnPremisesInstanceCommandInput}
- * @returns {@link RegisterOnPremisesInstanceCommandOutput}
+ * @param RegisterOnPremisesInstanceInput - {@link RegisterOnPremisesInstanceInput}
+ * @returns {@link Unit}
  * @see {@link RegisterOnPremisesInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterOnPremisesInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

@@ -68,8 +68,8 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  *
  * ```
  *
- * @param AssociatePackageCommandInput - {@link AssociatePackageCommandInput}
- * @returns {@link AssociatePackageCommandOutput}
+ * @param AssociatePackageRequest - {@link AssociatePackageRequest}
+ * @returns {@link AssociatePackageResponse}
  * @see {@link AssociatePackageCommandInput} for command's `input` shape.
  * @see {@link AssociatePackageCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

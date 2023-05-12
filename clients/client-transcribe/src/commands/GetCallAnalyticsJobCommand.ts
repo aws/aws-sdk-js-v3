@@ -110,8 +110,8 @@ export interface GetCallAnalyticsJobCommandOutput extends GetCallAnalyticsJobRes
  *
  * ```
  *
- * @param GetCallAnalyticsJobCommandInput - {@link GetCallAnalyticsJobCommandInput}
- * @returns {@link GetCallAnalyticsJobCommandOutput}
+ * @param GetCallAnalyticsJobRequest - {@link GetCallAnalyticsJobRequest}
+ * @returns {@link GetCallAnalyticsJobResponse}
  * @see {@link GetCallAnalyticsJobCommandInput} for command's `input` shape.
  * @see {@link GetCallAnalyticsJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

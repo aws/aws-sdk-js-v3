@@ -88,8 +88,8 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
  *
  * ```
  *
- * @param ListComponentBuildVersionsCommandInput - {@link ListComponentBuildVersionsCommandInput}
- * @returns {@link ListComponentBuildVersionsCommandOutput}
+ * @param ListComponentBuildVersionsRequest - {@link ListComponentBuildVersionsRequest}
+ * @returns {@link ListComponentBuildVersionsResponse}
  * @see {@link ListComponentBuildVersionsCommandInput} for command's `input` shape.
  * @see {@link ListComponentBuildVersionsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

@@ -64,8 +64,8 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  *
  * ```
  *
- * @param GetProductsCommandInput - {@link GetProductsCommandInput}
- * @returns {@link GetProductsCommandOutput}
+ * @param GetProductsRequest - {@link GetProductsRequest}
+ * @returns {@link GetProductsResponse}
  * @see {@link GetProductsCommandInput} for command's `input` shape.
  * @see {@link GetProductsCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.

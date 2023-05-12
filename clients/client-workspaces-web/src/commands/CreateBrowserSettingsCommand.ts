@@ -67,8 +67,8 @@ export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSetting
  *
  * ```
  *
- * @param CreateBrowserSettingsCommandInput - {@link CreateBrowserSettingsCommandInput}
- * @returns {@link CreateBrowserSettingsCommandOutput}
+ * @param CreateBrowserSettingsRequest - {@link CreateBrowserSettingsRequest}
+ * @returns {@link CreateBrowserSettingsResponse}
  * @see {@link CreateBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link CreateBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

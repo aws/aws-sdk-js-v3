@@ -121,8 +121,8 @@ export interface CreateTrafficMirrorFilterCommandOutput extends CreateTrafficMir
  *
  * ```
  *
- * @param CreateTrafficMirrorFilterCommandInput - {@link CreateTrafficMirrorFilterCommandInput}
- * @returns {@link CreateTrafficMirrorFilterCommandOutput}
+ * @param CreateTrafficMirrorFilterRequest - {@link CreateTrafficMirrorFilterRequest}
+ * @returns {@link CreateTrafficMirrorFilterResult}
  * @see {@link CreateTrafficMirrorFilterCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficMirrorFilterCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -71,8 +71,8 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  *
  * ```
  *
- * @param UpdateFirewallRuleCommandInput - {@link UpdateFirewallRuleCommandInput}
- * @returns {@link UpdateFirewallRuleCommandOutput}
+ * @param UpdateFirewallRuleRequest - {@link UpdateFirewallRuleRequest}
+ * @returns {@link UpdateFirewallRuleResponse}
  * @see {@link UpdateFirewallRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

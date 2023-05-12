@@ -58,8 +58,8 @@ export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput
  *
  * ```
  *
- * @param DeletePermissionsBoundaryFromPermissionSetCommandInput - {@link DeletePermissionsBoundaryFromPermissionSetCommandInput}
- * @returns {@link DeletePermissionsBoundaryFromPermissionSetCommandOutput}
+ * @param DeletePermissionsBoundaryFromPermissionSetRequest - {@link DeletePermissionsBoundaryFromPermissionSetRequest}
+ * @returns {@link DeletePermissionsBoundaryFromPermissionSetResponse}
  * @see {@link DeletePermissionsBoundaryFromPermissionSetCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionsBoundaryFromPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

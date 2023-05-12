@@ -60,8 +60,8 @@ export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __M
  *
  * ```
  *
- * @param StartRestoreJobCommandInput - {@link StartRestoreJobCommandInput}
- * @returns {@link StartRestoreJobCommandOutput}
+ * @param StartRestoreJobInput - {@link StartRestoreJobInput}
+ * @returns {@link StartRestoreJobOutput}
  * @see {@link StartRestoreJobCommandInput} for command's `input` shape.
  * @see {@link StartRestoreJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

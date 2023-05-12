@@ -52,8 +52,8 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionOutput, _
  *
  * ```
  *
- * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
- * @returns {@link DeleteConnectionCommandOutput}
+ * @param DeleteConnectionInput - {@link DeleteConnectionInput}
+ * @returns {@link DeleteConnectionOutput}
  * @see {@link DeleteConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectionCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.

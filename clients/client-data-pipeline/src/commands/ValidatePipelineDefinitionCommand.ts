@@ -247,8 +247,8 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  *
  * ```
  *
- * @param ValidatePipelineDefinitionCommandInput - {@link ValidatePipelineDefinitionCommandInput}
- * @returns {@link ValidatePipelineDefinitionCommandOutput}
+ * @param ValidatePipelineDefinitionInput - {@link ValidatePipelineDefinitionInput}
+ * @returns {@link ValidatePipelineDefinitionOutput}
  * @see {@link ValidatePipelineDefinitionCommandInput} for command's `input` shape.
  * @see {@link ValidatePipelineDefinitionCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.

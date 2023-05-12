@@ -87,8 +87,8 @@ export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput
  *
  * ```
  *
- * @param RebalanceSlotsInGlobalReplicationGroupCommandInput - {@link RebalanceSlotsInGlobalReplicationGroupCommandInput}
- * @returns {@link RebalanceSlotsInGlobalReplicationGroupCommandOutput}
+ * @param RebalanceSlotsInGlobalReplicationGroupMessage - {@link RebalanceSlotsInGlobalReplicationGroupMessage}
+ * @returns {@link RebalanceSlotsInGlobalReplicationGroupResult}
  * @see {@link RebalanceSlotsInGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link RebalanceSlotsInGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

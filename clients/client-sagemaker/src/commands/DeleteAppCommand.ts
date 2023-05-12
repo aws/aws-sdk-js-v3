@@ -52,8 +52,8 @@ export interface DeleteAppCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
- * @returns {@link DeleteAppCommandOutput}
+ * @param DeleteAppRequest - {@link DeleteAppRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAppCommandInput} for command's `input` shape.
  * @see {@link DeleteAppCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

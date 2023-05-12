@@ -84,8 +84,8 @@ export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyR
  *
  * ```
  *
- * @param PutApplicationPolicyCommandInput - {@link PutApplicationPolicyCommandInput}
- * @returns {@link PutApplicationPolicyCommandOutput}
+ * @param PutApplicationPolicyRequest - {@link PutApplicationPolicyRequest}
+ * @returns {@link PutApplicationPolicyResponse}
  * @see {@link PutApplicationPolicyCommandInput} for command's `input` shape.
  * @see {@link PutApplicationPolicyCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.

@@ -58,8 +58,8 @@ export interface GetSolFunctionPackageContentCommandOutput
  *
  * ```
  *
- * @param GetSolFunctionPackageContentCommandInput - {@link GetSolFunctionPackageContentCommandInput}
- * @returns {@link GetSolFunctionPackageContentCommandOutput}
+ * @param GetSolFunctionPackageContentInput - {@link GetSolFunctionPackageContentInput}
+ * @returns {@link GetSolFunctionPackageContentOutput}
  * @see {@link GetSolFunctionPackageContentCommandInput} for command's `input` shape.
  * @see {@link GetSolFunctionPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

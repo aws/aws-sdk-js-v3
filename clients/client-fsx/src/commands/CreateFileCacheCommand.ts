@@ -157,8 +157,8 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  *
  * ```
  *
- * @param CreateFileCacheCommandInput - {@link CreateFileCacheCommandInput}
- * @returns {@link CreateFileCacheCommandOutput}
+ * @param CreateFileCacheRequest - {@link CreateFileCacheRequest}
+ * @returns {@link CreateFileCacheResponse}
  * @see {@link CreateFileCacheCommandInput} for command's `input` shape.
  * @see {@link CreateFileCacheCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

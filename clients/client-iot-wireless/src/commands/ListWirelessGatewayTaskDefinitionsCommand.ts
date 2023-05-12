@@ -78,8 +78,8 @@ export interface ListWirelessGatewayTaskDefinitionsCommandOutput
  *
  * ```
  *
- * @param ListWirelessGatewayTaskDefinitionsCommandInput - {@link ListWirelessGatewayTaskDefinitionsCommandInput}
- * @returns {@link ListWirelessGatewayTaskDefinitionsCommandOutput}
+ * @param ListWirelessGatewayTaskDefinitionsRequest - {@link ListWirelessGatewayTaskDefinitionsRequest}
+ * @returns {@link ListWirelessGatewayTaskDefinitionsResponse}
  * @see {@link ListWirelessGatewayTaskDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListWirelessGatewayTaskDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

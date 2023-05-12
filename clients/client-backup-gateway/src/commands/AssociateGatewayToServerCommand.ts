@@ -52,8 +52,8 @@ export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayT
  *
  * ```
  *
- * @param AssociateGatewayToServerCommandInput - {@link AssociateGatewayToServerCommandInput}
- * @returns {@link AssociateGatewayToServerCommandOutput}
+ * @param AssociateGatewayToServerInput - {@link AssociateGatewayToServerInput}
+ * @returns {@link AssociateGatewayToServerOutput}
  * @see {@link AssociateGatewayToServerCommandInput} for command's `input` shape.
  * @see {@link AssociateGatewayToServerCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

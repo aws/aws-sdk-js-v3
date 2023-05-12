@@ -69,8 +69,8 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  *
  * ```
  *
- * @param ListDeviceEventsCommandInput - {@link ListDeviceEventsCommandInput}
- * @returns {@link ListDeviceEventsCommandOutput}
+ * @param ListDeviceEventsRequest - {@link ListDeviceEventsRequest}
+ * @returns {@link ListDeviceEventsResponse}
  * @see {@link ListDeviceEventsCommandInput} for command's `input` shape.
  * @see {@link ListDeviceEventsCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.

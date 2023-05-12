@@ -242,8 +242,8 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  *
  * ```
  *
- * @param BatchGetProjectsCommandInput - {@link BatchGetProjectsCommandInput}
- * @returns {@link BatchGetProjectsCommandOutput}
+ * @param BatchGetProjectsInput - {@link BatchGetProjectsInput}
+ * @returns {@link BatchGetProjectsOutput}
  * @see {@link BatchGetProjectsCommandInput} for command's `input` shape.
  * @see {@link BatchGetProjectsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

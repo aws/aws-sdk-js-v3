@@ -64,8 +64,8 @@ export interface ListExtensionsCommandOutput extends Extensions, __MetadataBeare
  *
  * ```
  *
- * @param ListExtensionsCommandInput - {@link ListExtensionsCommandInput}
- * @returns {@link ListExtensionsCommandOutput}
+ * @param ListExtensionsRequest - {@link ListExtensionsRequest}
+ * @returns {@link Extensions}
  * @see {@link ListExtensionsCommandInput} for command's `input` shape.
  * @see {@link ListExtensionsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

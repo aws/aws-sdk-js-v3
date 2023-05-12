@@ -58,8 +58,8 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  *
  * ```
  *
- * @param CreateDomainNameCommandInput - {@link CreateDomainNameCommandInput}
- * @returns {@link CreateDomainNameCommandOutput}
+ * @param CreateDomainNameRequest - {@link CreateDomainNameRequest}
+ * @returns {@link CreateDomainNameResponse}
  * @see {@link CreateDomainNameCommandInput} for command's `input` shape.
  * @see {@link CreateDomainNameCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

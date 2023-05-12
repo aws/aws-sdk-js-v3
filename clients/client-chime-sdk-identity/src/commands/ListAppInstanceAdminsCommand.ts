@@ -66,8 +66,8 @@ export interface ListAppInstanceAdminsCommandOutput extends ListAppInstanceAdmin
  *
  * ```
  *
- * @param ListAppInstanceAdminsCommandInput - {@link ListAppInstanceAdminsCommandInput}
- * @returns {@link ListAppInstanceAdminsCommandOutput}
+ * @param ListAppInstanceAdminsRequest - {@link ListAppInstanceAdminsRequest}
+ * @returns {@link ListAppInstanceAdminsResponse}
  * @see {@link ListAppInstanceAdminsCommandInput} for command's `input` shape.
  * @see {@link ListAppInstanceAdminsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.

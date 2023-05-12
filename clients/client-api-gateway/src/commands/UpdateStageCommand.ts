@@ -102,8 +102,8 @@ export interface UpdateStageCommandOutput extends Stage, __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateStageCommandInput - {@link UpdateStageCommandInput}
- * @returns {@link UpdateStageCommandOutput}
+ * @param UpdateStageRequest - {@link UpdateStageRequest}
+ * @returns {@link Stage}
  * @see {@link UpdateStageCommandInput} for command's `input` shape.
  * @see {@link UpdateStageCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

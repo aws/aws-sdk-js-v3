@@ -60,8 +60,8 @@ export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse,
  *
  * ```
  *
- * @param ListSecurityKeysCommandInput - {@link ListSecurityKeysCommandInput}
- * @returns {@link ListSecurityKeysCommandOutput}
+ * @param ListSecurityKeysRequest - {@link ListSecurityKeysRequest}
+ * @returns {@link ListSecurityKeysResponse}
  * @see {@link ListSecurityKeysCommandInput} for command's `input` shape.
  * @see {@link ListSecurityKeysCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

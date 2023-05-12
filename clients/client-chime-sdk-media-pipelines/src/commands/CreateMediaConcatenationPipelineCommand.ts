@@ -158,8 +158,8 @@ export interface CreateMediaConcatenationPipelineCommandOutput
  *
  * ```
  *
- * @param CreateMediaConcatenationPipelineCommandInput - {@link CreateMediaConcatenationPipelineCommandInput}
- * @returns {@link CreateMediaConcatenationPipelineCommandOutput}
+ * @param CreateMediaConcatenationPipelineRequest - {@link CreateMediaConcatenationPipelineRequest}
+ * @returns {@link CreateMediaConcatenationPipelineResponse}
  * @see {@link CreateMediaConcatenationPipelineCommandInput} for command's `input` shape.
  * @see {@link CreateMediaConcatenationPipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.

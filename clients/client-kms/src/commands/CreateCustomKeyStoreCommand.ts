@@ -153,8 +153,8 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *
  * ```
  *
- * @param CreateCustomKeyStoreCommandInput - {@link CreateCustomKeyStoreCommandInput}
- * @returns {@link CreateCustomKeyStoreCommandOutput}
+ * @param CreateCustomKeyStoreRequest - {@link CreateCustomKeyStoreRequest}
+ * @returns {@link CreateCustomKeyStoreResponse}
  * @see {@link CreateCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link CreateCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

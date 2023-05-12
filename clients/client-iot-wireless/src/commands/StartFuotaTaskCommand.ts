@@ -51,8 +51,8 @@ export interface StartFuotaTaskCommandOutput extends StartFuotaTaskResponse, __M
  *
  * ```
  *
- * @param StartFuotaTaskCommandInput - {@link StartFuotaTaskCommandInput}
- * @returns {@link StartFuotaTaskCommandOutput}
+ * @param StartFuotaTaskRequest - {@link StartFuotaTaskRequest}
+ * @returns {@link StartFuotaTaskResponse}
  * @see {@link StartFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link StartFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

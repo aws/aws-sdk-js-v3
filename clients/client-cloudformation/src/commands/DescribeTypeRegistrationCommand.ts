@@ -63,8 +63,8 @@ export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegis
  *
  * ```
  *
- * @param DescribeTypeRegistrationCommandInput - {@link DescribeTypeRegistrationCommandInput}
- * @returns {@link DescribeTypeRegistrationCommandOutput}
+ * @param DescribeTypeRegistrationInput - {@link DescribeTypeRegistrationInput}
+ * @returns {@link DescribeTypeRegistrationOutput}
  * @see {@link DescribeTypeRegistrationCommandInput} for command's `input` shape.
  * @see {@link DescribeTypeRegistrationCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

@@ -83,8 +83,8 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  *
  * ```
  *
- * @param BatchGetCollectionCommandInput - {@link BatchGetCollectionCommandInput}
- * @returns {@link BatchGetCollectionCommandOutput}
+ * @param BatchGetCollectionRequest - {@link BatchGetCollectionRequest}
+ * @returns {@link BatchGetCollectionResponse}
  * @see {@link BatchGetCollectionCommandInput} for command's `input` shape.
  * @see {@link BatchGetCollectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

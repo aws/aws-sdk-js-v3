@@ -64,8 +64,8 @@ export interface ListConstraintsForPortfolioCommandOutput extends ListConstraint
  *
  * ```
  *
- * @param ListConstraintsForPortfolioCommandInput - {@link ListConstraintsForPortfolioCommandInput}
- * @returns {@link ListConstraintsForPortfolioCommandOutput}
+ * @param ListConstraintsForPortfolioInput - {@link ListConstraintsForPortfolioInput}
+ * @returns {@link ListConstraintsForPortfolioOutput}
  * @see {@link ListConstraintsForPortfolioCommandInput} for command's `input` shape.
  * @see {@link ListConstraintsForPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

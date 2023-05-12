@@ -154,8 +154,8 @@ export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
  *
  * ```
  *
- * @param CreateLagCommandInput - {@link CreateLagCommandInput}
- * @returns {@link CreateLagCommandOutput}
+ * @param CreateLagRequest - {@link CreateLagRequest}
+ * @returns {@link Lag}
  * @see {@link CreateLagCommandInput} for command's `input` shape.
  * @see {@link CreateLagCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

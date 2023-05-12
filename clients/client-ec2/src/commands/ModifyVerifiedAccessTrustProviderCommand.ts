@@ -99,8 +99,8 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  *
  * ```
  *
- * @param ModifyVerifiedAccessTrustProviderCommandInput - {@link ModifyVerifiedAccessTrustProviderCommandInput}
- * @returns {@link ModifyVerifiedAccessTrustProviderCommandOutput}
+ * @param ModifyVerifiedAccessTrustProviderRequest - {@link ModifyVerifiedAccessTrustProviderRequest}
+ * @returns {@link ModifyVerifiedAccessTrustProviderResult}
  * @see {@link ModifyVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
  * @see {@link ModifyVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

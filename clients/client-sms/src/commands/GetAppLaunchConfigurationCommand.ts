@@ -97,8 +97,8 @@ export interface GetAppLaunchConfigurationCommandOutput extends GetAppLaunchConf
  *
  * ```
  *
- * @param GetAppLaunchConfigurationCommandInput - {@link GetAppLaunchConfigurationCommandInput}
- * @returns {@link GetAppLaunchConfigurationCommandOutput}
+ * @param GetAppLaunchConfigurationRequest - {@link GetAppLaunchConfigurationRequest}
+ * @returns {@link GetAppLaunchConfigurationResponse}
  * @see {@link GetAppLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAppLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

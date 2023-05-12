@@ -165,8 +165,8 @@ export interface DescribeConnectorProfilesCommandOutput extends DescribeConnecto
  *
  * ```
  *
- * @param DescribeConnectorProfilesCommandInput - {@link DescribeConnectorProfilesCommandInput}
- * @returns {@link DescribeConnectorProfilesCommandOutput}
+ * @param DescribeConnectorProfilesRequest - {@link DescribeConnectorProfilesRequest}
+ * @returns {@link DescribeConnectorProfilesResponse}
  * @see {@link DescribeConnectorProfilesCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectorProfilesCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.

@@ -90,8 +90,8 @@ export interface PutInstancePublicPortsCommandOutput extends PutInstancePublicPo
  *
  * ```
  *
- * @param PutInstancePublicPortsCommandInput - {@link PutInstancePublicPortsCommandInput}
- * @returns {@link PutInstancePublicPortsCommandOutput}
+ * @param PutInstancePublicPortsRequest - {@link PutInstancePublicPortsRequest}
+ * @returns {@link PutInstancePublicPortsResult}
  * @see {@link PutInstancePublicPortsCommandInput} for command's `input` shape.
  * @see {@link PutInstancePublicPortsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -99,8 +99,8 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
  *
  * ```
  *
- * @param ValidateSecurityProfileBehaviorsCommandInput - {@link ValidateSecurityProfileBehaviorsCommandInput}
- * @returns {@link ValidateSecurityProfileBehaviorsCommandOutput}
+ * @param ValidateSecurityProfileBehaviorsRequest - {@link ValidateSecurityProfileBehaviorsRequest}
+ * @returns {@link ValidateSecurityProfileBehaviorsResponse}
  * @see {@link ValidateSecurityProfileBehaviorsCommandInput} for command's `input` shape.
  * @see {@link ValidateSecurityProfileBehaviorsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

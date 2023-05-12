@@ -75,8 +75,8 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput
  *
  * ```
  *
- * @param ReplaceIamInstanceProfileAssociationCommandInput - {@link ReplaceIamInstanceProfileAssociationCommandInput}
- * @returns {@link ReplaceIamInstanceProfileAssociationCommandOutput}
+ * @param ReplaceIamInstanceProfileAssociationRequest - {@link ReplaceIamInstanceProfileAssociationRequest}
+ * @returns {@link ReplaceIamInstanceProfileAssociationResult}
  * @see {@link ReplaceIamInstanceProfileAssociationCommandInput} for command's `input` shape.
  * @see {@link ReplaceIamInstanceProfileAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

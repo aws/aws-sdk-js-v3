@@ -68,8 +68,8 @@ export interface CreateLoggerDefinitionVersionCommandOutput
  *
  * ```
  *
- * @param CreateLoggerDefinitionVersionCommandInput - {@link CreateLoggerDefinitionVersionCommandInput}
- * @returns {@link CreateLoggerDefinitionVersionCommandOutput}
+ * @param CreateLoggerDefinitionVersionRequest - {@link CreateLoggerDefinitionVersionRequest}
+ * @returns {@link CreateLoggerDefinitionVersionResponse}
  * @see {@link CreateLoggerDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateLoggerDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

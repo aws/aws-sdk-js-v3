@@ -67,8 +67,8 @@ export interface StartPHIDetectionJobCommandOutput extends StartPHIDetectionJobR
  *
  * ```
  *
- * @param StartPHIDetectionJobCommandInput - {@link StartPHIDetectionJobCommandInput}
- * @returns {@link StartPHIDetectionJobCommandOutput}
+ * @param StartPHIDetectionJobRequest - {@link StartPHIDetectionJobRequest}
+ * @returns {@link StartPHIDetectionJobResponse}
  * @see {@link StartPHIDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartPHIDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

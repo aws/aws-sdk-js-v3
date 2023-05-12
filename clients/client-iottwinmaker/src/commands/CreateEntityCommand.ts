@@ -145,8 +145,8 @@ export interface CreateEntityCommandOutput extends CreateEntityResponse, __Metad
  *
  * ```
  *
- * @param CreateEntityCommandInput - {@link CreateEntityCommandInput}
- * @returns {@link CreateEntityCommandOutput}
+ * @param CreateEntityRequest - {@link CreateEntityRequest}
+ * @returns {@link CreateEntityResponse}
  * @see {@link CreateEntityCommandInput} for command's `input` shape.
  * @see {@link CreateEntityCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

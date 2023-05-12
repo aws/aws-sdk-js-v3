@@ -55,8 +55,8 @@ export interface DeleteModelManifestCommandOutput extends DeleteModelManifestRes
  *
  * ```
  *
- * @param DeleteModelManifestCommandInput - {@link DeleteModelManifestCommandInput}
- * @returns {@link DeleteModelManifestCommandOutput}
+ * @param DeleteModelManifestRequest - {@link DeleteModelManifestRequest}
+ * @returns {@link DeleteModelManifestResponse}
  * @see {@link DeleteModelManifestCommandInput} for command's `input` shape.
  * @see {@link DeleteModelManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

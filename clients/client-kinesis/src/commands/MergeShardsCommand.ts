@@ -91,8 +91,8 @@ export interface MergeShardsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param MergeShardsCommandInput - {@link MergeShardsCommandInput}
- * @returns {@link MergeShardsCommandOutput}
+ * @param MergeShardsInput - {@link MergeShardsInput}
+ * @returns {@link Unit}
  * @see {@link MergeShardsCommandInput} for command's `input` shape.
  * @see {@link MergeShardsCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

@@ -270,8 +270,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *
  * ```
  *
- * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
- * @returns {@link CreateClusterCommandOutput}
+ * @param CreateClusterMessage - {@link CreateClusterMessage}
+ * @returns {@link CreateClusterResult}
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

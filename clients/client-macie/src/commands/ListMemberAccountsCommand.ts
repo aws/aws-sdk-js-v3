@@ -57,8 +57,8 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResul
  *
  * ```
  *
- * @param ListMemberAccountsCommandInput - {@link ListMemberAccountsCommandInput}
- * @returns {@link ListMemberAccountsCommandOutput}
+ * @param ListMemberAccountsRequest - {@link ListMemberAccountsRequest}
+ * @returns {@link ListMemberAccountsResult}
  * @see {@link ListMemberAccountsCommandInput} for command's `input` shape.
  * @see {@link ListMemberAccountsCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.

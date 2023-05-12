@@ -59,8 +59,8 @@ export interface GetDocumentationVersionsCommandOutput extends DocumentationVers
  *
  * ```
  *
- * @param GetDocumentationVersionsCommandInput - {@link GetDocumentationVersionsCommandInput}
- * @returns {@link GetDocumentationVersionsCommandOutput}
+ * @param GetDocumentationVersionsRequest - {@link GetDocumentationVersionsRequest}
+ * @returns {@link DocumentationVersions}
  * @see {@link GetDocumentationVersionsCommandInput} for command's `input` shape.
  * @see {@link GetDocumentationVersionsCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

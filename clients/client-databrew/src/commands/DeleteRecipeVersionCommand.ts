@@ -52,8 +52,8 @@ export interface DeleteRecipeVersionCommandOutput extends DeleteRecipeVersionRes
  *
  * ```
  *
- * @param DeleteRecipeVersionCommandInput - {@link DeleteRecipeVersionCommandInput}
- * @returns {@link DeleteRecipeVersionCommandOutput}
+ * @param DeleteRecipeVersionRequest - {@link DeleteRecipeVersionRequest}
+ * @returns {@link DeleteRecipeVersionResponse}
  * @see {@link DeleteRecipeVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteRecipeVersionCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

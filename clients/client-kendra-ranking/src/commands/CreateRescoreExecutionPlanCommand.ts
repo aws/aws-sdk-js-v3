@@ -71,8 +71,8 @@ export interface CreateRescoreExecutionPlanCommandOutput extends CreateRescoreEx
  *
  * ```
  *
- * @param CreateRescoreExecutionPlanCommandInput - {@link CreateRescoreExecutionPlanCommandInput}
- * @returns {@link CreateRescoreExecutionPlanCommandOutput}
+ * @param CreateRescoreExecutionPlanRequest - {@link CreateRescoreExecutionPlanRequest}
+ * @returns {@link CreateRescoreExecutionPlanResponse}
  * @see {@link CreateRescoreExecutionPlanCommandInput} for command's `input` shape.
  * @see {@link CreateRescoreExecutionPlanCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.

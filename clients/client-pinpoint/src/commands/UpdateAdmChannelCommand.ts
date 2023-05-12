@@ -66,8 +66,8 @@ export interface UpdateAdmChannelCommandOutput extends UpdateAdmChannelResponse,
  *
  * ```
  *
- * @param UpdateAdmChannelCommandInput - {@link UpdateAdmChannelCommandInput}
- * @returns {@link UpdateAdmChannelCommandOutput}
+ * @param UpdateAdmChannelRequest - {@link UpdateAdmChannelRequest}
+ * @returns {@link UpdateAdmChannelResponse}
  * @see {@link UpdateAdmChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateAdmChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

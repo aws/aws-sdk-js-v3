@@ -66,8 +66,8 @@ export interface CreateNotificationCommandOutput extends CreateNotificationRespo
  *
  * ```
  *
- * @param CreateNotificationCommandInput - {@link CreateNotificationCommandInput}
- * @returns {@link CreateNotificationCommandOutput}
+ * @param CreateNotificationRequest - {@link CreateNotificationRequest}
+ * @returns {@link CreateNotificationResponse}
  * @see {@link CreateNotificationCommandInput} for command's `input` shape.
  * @see {@link CreateNotificationCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

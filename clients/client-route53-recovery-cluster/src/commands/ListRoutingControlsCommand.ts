@@ -96,8 +96,8 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  *
  * ```
  *
- * @param ListRoutingControlsCommandInput - {@link ListRoutingControlsCommandInput}
- * @returns {@link ListRoutingControlsCommandOutput}
+ * @param ListRoutingControlsRequest - {@link ListRoutingControlsRequest}
+ * @returns {@link ListRoutingControlsResponse}
  * @see {@link ListRoutingControlsCommandInput} for command's `input` shape.
  * @see {@link ListRoutingControlsCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for Route53RecoveryClusterClient's `config` shape.

@@ -51,8 +51,8 @@ export interface DeleteComponentTypeCommandOutput extends DeleteComponentTypeRes
  *
  * ```
  *
- * @param DeleteComponentTypeCommandInput - {@link DeleteComponentTypeCommandInput}
- * @returns {@link DeleteComponentTypeCommandOutput}
+ * @param DeleteComponentTypeRequest - {@link DeleteComponentTypeRequest}
+ * @returns {@link DeleteComponentTypeResponse}
  * @see {@link DeleteComponentTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteComponentTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

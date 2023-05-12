@@ -120,8 +120,8 @@ export interface PutBucketMetricsConfigurationCommandOutput extends __MetadataBe
  *
  * ```
  *
- * @param PutBucketMetricsConfigurationCommandInput - {@link PutBucketMetricsConfigurationCommandInput}
- * @returns {@link PutBucketMetricsConfigurationCommandOutput}
+ * @param PutBucketMetricsConfigurationRequest - {@link PutBucketMetricsConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link PutBucketMetricsConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketMetricsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

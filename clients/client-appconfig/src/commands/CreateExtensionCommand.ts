@@ -99,8 +99,8 @@ export interface CreateExtensionCommandOutput extends Extension, __MetadataBeare
  *
  * ```
  *
- * @param CreateExtensionCommandInput - {@link CreateExtensionCommandInput}
- * @returns {@link CreateExtensionCommandOutput}
+ * @param CreateExtensionRequest - {@link CreateExtensionRequest}
+ * @returns {@link Extension}
  * @see {@link CreateExtensionCommandInput} for command's `input` shape.
  * @see {@link CreateExtensionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

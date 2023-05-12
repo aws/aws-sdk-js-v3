@@ -52,8 +52,8 @@ export interface DeregisterPackageVersionCommandOutput extends DeregisterPackage
  *
  * ```
  *
- * @param DeregisterPackageVersionCommandInput - {@link DeregisterPackageVersionCommandInput}
- * @returns {@link DeregisterPackageVersionCommandOutput}
+ * @param DeregisterPackageVersionRequest - {@link DeregisterPackageVersionRequest}
+ * @returns {@link DeregisterPackageVersionResponse}
  * @see {@link DeregisterPackageVersionCommandInput} for command's `input` shape.
  * @see {@link DeregisterPackageVersionCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

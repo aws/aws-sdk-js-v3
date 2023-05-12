@@ -58,8 +58,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  *
  * ```
  *
- * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
- * @returns {@link GetAccountSettingsCommandOutput}
+ * @param GetAccountSettingsRequest - {@link GetAccountSettingsRequest}
+ * @returns {@link GetAccountSettingsResponse}
  * @see {@link GetAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link GetAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

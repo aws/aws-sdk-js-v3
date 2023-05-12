@@ -52,8 +52,8 @@ export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __Metadat
  *
  * ```
  *
- * @param DeleteFieldLevelEncryptionConfigCommandInput - {@link DeleteFieldLevelEncryptionConfigCommandInput}
- * @returns {@link DeleteFieldLevelEncryptionConfigCommandOutput}
+ * @param DeleteFieldLevelEncryptionConfigRequest - {@link DeleteFieldLevelEncryptionConfigRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteFieldLevelEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteFieldLevelEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

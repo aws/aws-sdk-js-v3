@@ -74,8 +74,8 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  *
  * ```
  *
- * @param CreatePublicDnsNamespaceCommandInput - {@link CreatePublicDnsNamespaceCommandInput}
- * @returns {@link CreatePublicDnsNamespaceCommandOutput}
+ * @param CreatePublicDnsNamespaceRequest - {@link CreatePublicDnsNamespaceRequest}
+ * @returns {@link CreatePublicDnsNamespaceResponse}
  * @see {@link CreatePublicDnsNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreatePublicDnsNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.

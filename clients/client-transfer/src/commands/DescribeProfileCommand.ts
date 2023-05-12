@@ -64,8 +64,8 @@ export interface DescribeProfileCommandOutput extends DescribeProfileResponse, _
  *
  * ```
  *
- * @param DescribeProfileCommandInput - {@link DescribeProfileCommandInput}
- * @returns {@link DescribeProfileCommandOutput}
+ * @param DescribeProfileRequest - {@link DescribeProfileRequest}
+ * @returns {@link DescribeProfileResponse}
  * @see {@link DescribeProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeProfileCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

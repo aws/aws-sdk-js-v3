@@ -64,8 +64,8 @@ export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescri
  *
  * ```
  *
- * @param PutFileSystemPolicyCommandInput - {@link PutFileSystemPolicyCommandInput}
- * @returns {@link PutFileSystemPolicyCommandOutput}
+ * @param PutFileSystemPolicyRequest - {@link PutFileSystemPolicyRequest}
+ * @returns {@link FileSystemPolicyDescription}
  * @see {@link PutFileSystemPolicyCommandInput} for command's `input` shape.
  * @see {@link PutFileSystemPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

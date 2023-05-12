@@ -58,8 +58,8 @@ export interface CreateConnectionAliasCommandOutput extends CreateConnectionAlia
  *
  * ```
  *
- * @param CreateConnectionAliasCommandInput - {@link CreateConnectionAliasCommandInput}
- * @returns {@link CreateConnectionAliasCommandOutput}
+ * @param CreateConnectionAliasRequest - {@link CreateConnectionAliasRequest}
+ * @returns {@link CreateConnectionAliasResult}
  * @see {@link CreateConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link CreateConnectionAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

@@ -81,8 +81,8 @@ export interface DetachInstancesFromLoadBalancerCommandOutput
  *
  * ```
  *
- * @param DetachInstancesFromLoadBalancerCommandInput - {@link DetachInstancesFromLoadBalancerCommandInput}
- * @returns {@link DetachInstancesFromLoadBalancerCommandOutput}
+ * @param DetachInstancesFromLoadBalancerRequest - {@link DetachInstancesFromLoadBalancerRequest}
+ * @returns {@link DetachInstancesFromLoadBalancerResult}
  * @see {@link DetachInstancesFromLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DetachInstancesFromLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

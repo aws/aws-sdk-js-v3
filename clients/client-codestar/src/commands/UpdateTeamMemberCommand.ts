@@ -57,8 +57,8 @@ export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, _
  *
  * ```
  *
- * @param UpdateTeamMemberCommandInput - {@link UpdateTeamMemberCommandInput}
- * @returns {@link UpdateTeamMemberCommandOutput}
+ * @param UpdateTeamMemberRequest - {@link UpdateTeamMemberRequest}
+ * @returns {@link UpdateTeamMemberResult}
  * @see {@link UpdateTeamMemberCommandInput} for command's `input` shape.
  * @see {@link UpdateTeamMemberCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.

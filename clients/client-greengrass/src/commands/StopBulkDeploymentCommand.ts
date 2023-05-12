@@ -48,8 +48,8 @@ export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentRespo
  *
  * ```
  *
- * @param StopBulkDeploymentCommandInput - {@link StopBulkDeploymentCommandInput}
- * @returns {@link StopBulkDeploymentCommandOutput}
+ * @param StopBulkDeploymentRequest - {@link StopBulkDeploymentRequest}
+ * @returns {@link StopBulkDeploymentResponse}
  * @see {@link StopBulkDeploymentCommandInput} for command's `input` shape.
  * @see {@link StopBulkDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

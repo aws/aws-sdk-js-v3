@@ -94,8 +94,8 @@ export interface UpdateServiceTemplateVersionCommandOutput
  *
  * ```
  *
- * @param UpdateServiceTemplateVersionCommandInput - {@link UpdateServiceTemplateVersionCommandInput}
- * @returns {@link UpdateServiceTemplateVersionCommandOutput}
+ * @param UpdateServiceTemplateVersionInput - {@link UpdateServiceTemplateVersionInput}
+ * @returns {@link UpdateServiceTemplateVersionOutput}
  * @see {@link UpdateServiceTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

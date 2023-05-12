@@ -56,8 +56,8 @@ export interface ChangePasswordCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ChangePasswordCommandInput - {@link ChangePasswordCommandInput}
- * @returns {@link ChangePasswordCommandOutput}
+ * @param ChangePasswordRequest - {@link ChangePasswordRequest}
+ * @returns {@link Unit}
  * @see {@link ChangePasswordCommandInput} for command's `input` shape.
  * @see {@link ChangePasswordCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

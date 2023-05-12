@@ -66,8 +66,8 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
  *
  * ```
  *
- * @param ApplySecurityGroupsToLoadBalancerCommandInput - {@link ApplySecurityGroupsToLoadBalancerCommandInput}
- * @returns {@link ApplySecurityGroupsToLoadBalancerCommandOutput}
+ * @param ApplySecurityGroupsToLoadBalancerInput - {@link ApplySecurityGroupsToLoadBalancerInput}
+ * @returns {@link ApplySecurityGroupsToLoadBalancerOutput}
  * @see {@link ApplySecurityGroupsToLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link ApplySecurityGroupsToLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

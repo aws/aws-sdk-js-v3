@@ -73,8 +73,8 @@ export interface AllocateHostsCommandOutput extends AllocateHostsResult, __Metad
  *
  * ```
  *
- * @param AllocateHostsCommandInput - {@link AllocateHostsCommandInput}
- * @returns {@link AllocateHostsCommandOutput}
+ * @param AllocateHostsRequest - {@link AllocateHostsRequest}
+ * @returns {@link AllocateHostsResult}
  * @see {@link AllocateHostsCommandInput} for command's `input` shape.
  * @see {@link AllocateHostsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

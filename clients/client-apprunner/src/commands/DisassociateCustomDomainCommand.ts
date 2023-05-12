@@ -75,8 +75,8 @@ export interface DisassociateCustomDomainCommandOutput extends DisassociateCusto
  *
  * ```
  *
- * @param DisassociateCustomDomainCommandInput - {@link DisassociateCustomDomainCommandInput}
- * @returns {@link DisassociateCustomDomainCommandOutput}
+ * @param DisassociateCustomDomainRequest - {@link DisassociateCustomDomainRequest}
+ * @returns {@link DisassociateCustomDomainResponse}
  * @see {@link DisassociateCustomDomainCommandInput} for command's `input` shape.
  * @see {@link DisassociateCustomDomainCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

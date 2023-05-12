@@ -75,8 +75,8 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  *
  * ```
  *
- * @param LookupDeveloperIdentityCommandInput - {@link LookupDeveloperIdentityCommandInput}
- * @returns {@link LookupDeveloperIdentityCommandOutput}
+ * @param LookupDeveloperIdentityInput - {@link LookupDeveloperIdentityInput}
+ * @returns {@link LookupDeveloperIdentityResponse}
  * @see {@link LookupDeveloperIdentityCommandInput} for command's `input` shape.
  * @see {@link LookupDeveloperIdentityCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.

@@ -63,8 +63,8 @@ export interface CreateListCommandOutput extends CreateListResult, __MetadataBea
  *
  * ```
  *
- * @param CreateListCommandInput - {@link CreateListCommandInput}
- * @returns {@link CreateListCommandOutput}
+ * @param CreateListRequest - {@link CreateListRequest}
+ * @returns {@link CreateListResult}
  * @see {@link CreateListCommandInput} for command's `input` shape.
  * @see {@link CreateListCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

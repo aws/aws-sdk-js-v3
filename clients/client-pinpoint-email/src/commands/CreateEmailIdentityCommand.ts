@@ -77,8 +77,8 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  *
  * ```
  *
- * @param CreateEmailIdentityCommandInput - {@link CreateEmailIdentityCommandInput}
- * @returns {@link CreateEmailIdentityCommandOutput}
+ * @param CreateEmailIdentityRequest - {@link CreateEmailIdentityRequest}
+ * @returns {@link CreateEmailIdentityResponse}
  * @see {@link CreateEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link CreateEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

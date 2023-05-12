@@ -164,8 +164,8 @@ export interface GetComponentTypeCommandOutput extends GetComponentTypeResponse,
  *
  * ```
  *
- * @param GetComponentTypeCommandInput - {@link GetComponentTypeCommandInput}
- * @returns {@link GetComponentTypeCommandOutput}
+ * @param GetComponentTypeRequest - {@link GetComponentTypeRequest}
+ * @returns {@link GetComponentTypeResponse}
  * @see {@link GetComponentTypeCommandInput} for command's `input` shape.
  * @see {@link GetComponentTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

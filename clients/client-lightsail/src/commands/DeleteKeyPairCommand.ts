@@ -74,8 +74,8 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  *
  * ```
  *
- * @param DeleteKeyPairCommandInput - {@link DeleteKeyPairCommandInput}
- * @returns {@link DeleteKeyPairCommandOutput}
+ * @param DeleteKeyPairRequest - {@link DeleteKeyPairRequest}
+ * @returns {@link DeleteKeyPairResult}
  * @see {@link DeleteKeyPairCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyPairCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

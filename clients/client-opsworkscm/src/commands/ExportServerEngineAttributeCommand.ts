@@ -79,8 +79,8 @@ export interface ExportServerEngineAttributeCommandOutput
  *
  * ```
  *
- * @param ExportServerEngineAttributeCommandInput - {@link ExportServerEngineAttributeCommandInput}
- * @returns {@link ExportServerEngineAttributeCommandOutput}
+ * @param ExportServerEngineAttributeRequest - {@link ExportServerEngineAttributeRequest}
+ * @returns {@link ExportServerEngineAttributeResponse}
  * @see {@link ExportServerEngineAttributeCommandInput} for command's `input` shape.
  * @see {@link ExportServerEngineAttributeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.

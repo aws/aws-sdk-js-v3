@@ -80,8 +80,8 @@ export interface ListSlotTypesCommandOutput extends ListSlotTypesResponse, __Met
  *
  * ```
  *
- * @param ListSlotTypesCommandInput - {@link ListSlotTypesCommandInput}
- * @returns {@link ListSlotTypesCommandOutput}
+ * @param ListSlotTypesRequest - {@link ListSlotTypesRequest}
+ * @returns {@link ListSlotTypesResponse}
  * @see {@link ListSlotTypesCommandInput} for command's `input` shape.
  * @see {@link ListSlotTypesCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

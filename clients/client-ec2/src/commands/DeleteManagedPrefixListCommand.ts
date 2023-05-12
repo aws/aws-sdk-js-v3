@@ -67,8 +67,8 @@ export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefi
  *
  * ```
  *
- * @param DeleteManagedPrefixListCommandInput - {@link DeleteManagedPrefixListCommandInput}
- * @returns {@link DeleteManagedPrefixListCommandOutput}
+ * @param DeleteManagedPrefixListRequest - {@link DeleteManagedPrefixListRequest}
+ * @returns {@link DeleteManagedPrefixListResult}
  * @see {@link DeleteManagedPrefixListCommandInput} for command's `input` shape.
  * @see {@link DeleteManagedPrefixListCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

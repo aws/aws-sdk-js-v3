@@ -461,8 +461,8 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
  *
  * ```
  *
- * @param GetTopicRuleCommandInput - {@link GetTopicRuleCommandInput}
- * @returns {@link GetTopicRuleCommandOutput}
+ * @param GetTopicRuleRequest - {@link GetTopicRuleRequest}
+ * @returns {@link GetTopicRuleResponse}
  * @see {@link GetTopicRuleCommandInput} for command's `input` shape.
  * @see {@link GetTopicRuleCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

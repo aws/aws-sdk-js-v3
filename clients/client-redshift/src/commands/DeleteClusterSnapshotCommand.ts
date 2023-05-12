@@ -104,8 +104,8 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  *
  * ```
  *
- * @param DeleteClusterSnapshotCommandInput - {@link DeleteClusterSnapshotCommandInput}
- * @returns {@link DeleteClusterSnapshotCommandOutput}
+ * @param DeleteClusterSnapshotMessage - {@link DeleteClusterSnapshotMessage}
+ * @returns {@link DeleteClusterSnapshotResult}
  * @see {@link DeleteClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

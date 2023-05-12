@@ -68,8 +68,8 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  *
  * ```
  *
- * @param ListAgentsCommandInput - {@link ListAgentsCommandInput}
- * @returns {@link ListAgentsCommandOutput}
+ * @param ListAgentsRequest - {@link ListAgentsRequest}
+ * @returns {@link ListAgentsResponse}
  * @see {@link ListAgentsCommandInput} for command's `input` shape.
  * @see {@link ListAgentsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

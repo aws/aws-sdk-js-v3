@@ -61,8 +61,8 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  *
  * ```
  *
- * @param CreateImageCommandInput - {@link CreateImageCommandInput}
- * @returns {@link CreateImageCommandOutput}
+ * @param CreateImageRequest - {@link CreateImageRequest}
+ * @returns {@link CreateImageResponse}
  * @see {@link CreateImageCommandInput} for command's `input` shape.
  * @see {@link CreateImageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

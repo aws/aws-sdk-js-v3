@@ -134,8 +134,8 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  *
  * ```
  *
- * @param ConnectCustomKeyStoreCommandInput - {@link ConnectCustomKeyStoreCommandInput}
- * @returns {@link ConnectCustomKeyStoreCommandOutput}
+ * @param ConnectCustomKeyStoreRequest - {@link ConnectCustomKeyStoreRequest}
+ * @returns {@link ConnectCustomKeyStoreResponse}
  * @see {@link ConnectCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link ConnectCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

@@ -82,8 +82,8 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  *
  * ```
  *
- * @param DescribePlacementGroupsCommandInput - {@link DescribePlacementGroupsCommandInput}
- * @returns {@link DescribePlacementGroupsCommandOutput}
+ * @param DescribePlacementGroupsRequest - {@link DescribePlacementGroupsRequest}
+ * @returns {@link DescribePlacementGroupsResult}
  * @see {@link DescribePlacementGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribePlacementGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

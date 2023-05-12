@@ -67,8 +67,8 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  *
  * ```
  *
- * @param GetRecordingConfigurationCommandInput - {@link GetRecordingConfigurationCommandInput}
- * @returns {@link GetRecordingConfigurationCommandOutput}
+ * @param GetRecordingConfigurationRequest - {@link GetRecordingConfigurationRequest}
+ * @returns {@link GetRecordingConfigurationResponse}
  * @see {@link GetRecordingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetRecordingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

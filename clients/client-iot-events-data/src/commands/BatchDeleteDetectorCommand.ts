@@ -62,8 +62,8 @@ export interface BatchDeleteDetectorCommandOutput extends BatchDeleteDetectorRes
  *
  * ```
  *
- * @param BatchDeleteDetectorCommandInput - {@link BatchDeleteDetectorCommandInput}
- * @returns {@link BatchDeleteDetectorCommandOutput}
+ * @param BatchDeleteDetectorRequest - {@link BatchDeleteDetectorRequest}
+ * @returns {@link BatchDeleteDetectorResponse}
  * @see {@link BatchDeleteDetectorCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteDetectorCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.

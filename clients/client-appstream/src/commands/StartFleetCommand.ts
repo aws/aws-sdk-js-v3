@@ -48,8 +48,8 @@ export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBea
  *
  * ```
  *
- * @param StartFleetCommandInput - {@link StartFleetCommandInput}
- * @returns {@link StartFleetCommandOutput}
+ * @param StartFleetRequest - {@link StartFleetRequest}
+ * @returns {@link StartFleetResult}
  * @see {@link StartFleetCommandInput} for command's `input` shape.
  * @see {@link StartFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

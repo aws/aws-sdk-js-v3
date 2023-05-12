@@ -66,8 +66,8 @@ export interface UpdateStreamCommandOutput extends UpdateStreamResponse, __Metad
  *
  * ```
  *
- * @param UpdateStreamCommandInput - {@link UpdateStreamCommandInput}
- * @returns {@link UpdateStreamCommandOutput}
+ * @param UpdateStreamRequest - {@link UpdateStreamRequest}
+ * @returns {@link UpdateStreamResponse}
  * @see {@link UpdateStreamCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -110,8 +110,8 @@ export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput,
  *
  * ```
  *
- * @param GetQueryExecutionCommandInput - {@link GetQueryExecutionCommandInput}
- * @returns {@link GetQueryExecutionCommandOutput}
+ * @param GetQueryExecutionInput - {@link GetQueryExecutionInput}
+ * @returns {@link GetQueryExecutionOutput}
  * @see {@link GetQueryExecutionCommandInput} for command's `input` shape.
  * @see {@link GetQueryExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

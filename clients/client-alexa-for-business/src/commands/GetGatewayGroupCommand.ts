@@ -54,8 +54,8 @@ export interface GetGatewayGroupCommandOutput extends GetGatewayGroupResponse, _
  *
  * ```
  *
- * @param GetGatewayGroupCommandInput - {@link GetGatewayGroupCommandInput}
- * @returns {@link GetGatewayGroupCommandOutput}
+ * @param GetGatewayGroupRequest - {@link GetGatewayGroupRequest}
+ * @returns {@link GetGatewayGroupResponse}
  * @see {@link GetGatewayGroupCommandInput} for command's `input` shape.
  * @see {@link GetGatewayGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

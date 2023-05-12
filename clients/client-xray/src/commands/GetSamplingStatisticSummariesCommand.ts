@@ -64,8 +64,8 @@ export interface GetSamplingStatisticSummariesCommandOutput
  *
  * ```
  *
- * @param GetSamplingStatisticSummariesCommandInput - {@link GetSamplingStatisticSummariesCommandInput}
- * @returns {@link GetSamplingStatisticSummariesCommandOutput}
+ * @param GetSamplingStatisticSummariesRequest - {@link GetSamplingStatisticSummariesRequest}
+ * @returns {@link GetSamplingStatisticSummariesResult}
  * @see {@link GetSamplingStatisticSummariesCommandInput} for command's `input` shape.
  * @see {@link GetSamplingStatisticSummariesCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

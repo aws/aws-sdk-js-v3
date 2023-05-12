@@ -53,8 +53,8 @@ export interface SetDefaultAuthorizerCommandOutput extends SetDefaultAuthorizerR
  *
  * ```
  *
- * @param SetDefaultAuthorizerCommandInput - {@link SetDefaultAuthorizerCommandInput}
- * @returns {@link SetDefaultAuthorizerCommandOutput}
+ * @param SetDefaultAuthorizerRequest - {@link SetDefaultAuthorizerRequest}
+ * @returns {@link SetDefaultAuthorizerResponse}
  * @see {@link SetDefaultAuthorizerCommandInput} for command's `input` shape.
  * @see {@link SetDefaultAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

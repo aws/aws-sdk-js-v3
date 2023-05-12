@@ -129,8 +129,8 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  *
  * ```
  *
- * @param ListJobTemplatesCommandInput - {@link ListJobTemplatesCommandInput}
- * @returns {@link ListJobTemplatesCommandOutput}
+ * @param ListJobTemplatesRequest - {@link ListJobTemplatesRequest}
+ * @returns {@link ListJobTemplatesResponse}
  * @see {@link ListJobTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListJobTemplatesCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.

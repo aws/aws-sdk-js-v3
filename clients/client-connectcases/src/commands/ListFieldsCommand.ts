@@ -61,8 +61,8 @@ export interface ListFieldsCommandOutput extends ListFieldsResponse, __MetadataB
  *
  * ```
  *
- * @param ListFieldsCommandInput - {@link ListFieldsCommandInput}
- * @returns {@link ListFieldsCommandOutput}
+ * @param ListFieldsRequest - {@link ListFieldsRequest}
+ * @returns {@link ListFieldsResponse}
  * @see {@link ListFieldsCommandInput} for command's `input` shape.
  * @see {@link ListFieldsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

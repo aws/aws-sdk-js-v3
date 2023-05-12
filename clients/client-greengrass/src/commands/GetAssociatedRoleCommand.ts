@@ -51,8 +51,8 @@ export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleRespons
  *
  * ```
  *
- * @param GetAssociatedRoleCommandInput - {@link GetAssociatedRoleCommandInput}
- * @returns {@link GetAssociatedRoleCommandOutput}
+ * @param GetAssociatedRoleRequest - {@link GetAssociatedRoleRequest}
+ * @returns {@link GetAssociatedRoleResponse}
  * @see {@link GetAssociatedRoleCommandInput} for command's `input` shape.
  * @see {@link GetAssociatedRoleCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

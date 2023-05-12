@@ -69,8 +69,8 @@ export interface DescribeServiceActionExecutionParametersCommandOutput
  *
  * ```
  *
- * @param DescribeServiceActionExecutionParametersCommandInput - {@link DescribeServiceActionExecutionParametersCommandInput}
- * @returns {@link DescribeServiceActionExecutionParametersCommandOutput}
+ * @param DescribeServiceActionExecutionParametersInput - {@link DescribeServiceActionExecutionParametersInput}
+ * @returns {@link DescribeServiceActionExecutionParametersOutput}
  * @see {@link DescribeServiceActionExecutionParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceActionExecutionParametersCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

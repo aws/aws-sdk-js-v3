@@ -60,8 +60,8 @@ export interface RestoreSnapshotTierCommandOutput extends RestoreSnapshotTierRes
  *
  * ```
  *
- * @param RestoreSnapshotTierCommandInput - {@link RestoreSnapshotTierCommandInput}
- * @returns {@link RestoreSnapshotTierCommandOutput}
+ * @param RestoreSnapshotTierRequest - {@link RestoreSnapshotTierRequest}
+ * @returns {@link RestoreSnapshotTierResult}
  * @see {@link RestoreSnapshotTierCommandInput} for command's `input` shape.
  * @see {@link RestoreSnapshotTierCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

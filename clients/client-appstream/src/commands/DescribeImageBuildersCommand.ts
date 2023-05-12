@@ -103,8 +103,8 @@ export interface DescribeImageBuildersCommandOutput extends DescribeImageBuilder
  *
  * ```
  *
- * @param DescribeImageBuildersCommandInput - {@link DescribeImageBuildersCommandInput}
- * @returns {@link DescribeImageBuildersCommandOutput}
+ * @param DescribeImageBuildersRequest - {@link DescribeImageBuildersRequest}
+ * @returns {@link DescribeImageBuildersResult}
  * @see {@link DescribeImageBuildersCommandInput} for command's `input` shape.
  * @see {@link DescribeImageBuildersCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

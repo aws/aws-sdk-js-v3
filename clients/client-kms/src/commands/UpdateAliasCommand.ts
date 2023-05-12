@@ -111,8 +111,8 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateAliasCommandInput - {@link UpdateAliasCommandInput}
- * @returns {@link UpdateAliasCommandOutput}
+ * @param UpdateAliasRequest - {@link UpdateAliasRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateAliasCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

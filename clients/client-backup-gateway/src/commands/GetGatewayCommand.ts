@@ -65,8 +65,8 @@ export interface GetGatewayCommandOutput extends GetGatewayOutput, __MetadataBea
  *
  * ```
  *
- * @param GetGatewayCommandInput - {@link GetGatewayCommandInput}
- * @returns {@link GetGatewayCommandOutput}
+ * @param GetGatewayInput - {@link GetGatewayInput}
+ * @returns {@link GetGatewayOutput}
  * @see {@link GetGatewayCommandInput} for command's `input` shape.
  * @see {@link GetGatewayCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

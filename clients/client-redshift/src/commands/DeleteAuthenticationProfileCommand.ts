@@ -50,8 +50,8 @@ export interface DeleteAuthenticationProfileCommandOutput extends DeleteAuthenti
  *
  * ```
  *
- * @param DeleteAuthenticationProfileCommandInput - {@link DeleteAuthenticationProfileCommandInput}
- * @returns {@link DeleteAuthenticationProfileCommandOutput}
+ * @param DeleteAuthenticationProfileMessage - {@link DeleteAuthenticationProfileMessage}
+ * @returns {@link DeleteAuthenticationProfileResult}
  * @see {@link DeleteAuthenticationProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteAuthenticationProfileCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

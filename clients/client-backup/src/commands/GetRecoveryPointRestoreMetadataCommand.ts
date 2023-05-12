@@ -64,8 +64,8 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  *
  * ```
  *
- * @param GetRecoveryPointRestoreMetadataCommandInput - {@link GetRecoveryPointRestoreMetadataCommandInput}
- * @returns {@link GetRecoveryPointRestoreMetadataCommandOutput}
+ * @param GetRecoveryPointRestoreMetadataInput - {@link GetRecoveryPointRestoreMetadataInput}
+ * @returns {@link GetRecoveryPointRestoreMetadataOutput}
  * @see {@link GetRecoveryPointRestoreMetadataCommandInput} for command's `input` shape.
  * @see {@link GetRecoveryPointRestoreMetadataCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

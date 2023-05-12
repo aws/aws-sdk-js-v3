@@ -206,8 +206,8 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  *
  * ```
  *
- * @param ModifyCacheClusterCommandInput - {@link ModifyCacheClusterCommandInput}
- * @returns {@link ModifyCacheClusterCommandOutput}
+ * @param ModifyCacheClusterMessage - {@link ModifyCacheClusterMessage}
+ * @returns {@link ModifyCacheClusterResult}
  * @see {@link ModifyCacheClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

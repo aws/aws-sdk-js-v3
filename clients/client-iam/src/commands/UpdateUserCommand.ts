@@ -62,8 +62,8 @@ export interface UpdateUserCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateUserCommandInput - {@link UpdateUserCommandInput}
- * @returns {@link UpdateUserCommandOutput}
+ * @param UpdateUserRequest - {@link UpdateUserRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateUserCommandInput} for command's `input` shape.
  * @see {@link UpdateUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

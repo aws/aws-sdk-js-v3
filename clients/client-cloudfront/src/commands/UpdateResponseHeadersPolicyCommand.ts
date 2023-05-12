@@ -241,8 +241,8 @@ export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponse
  *
  * ```
  *
- * @param UpdateResponseHeadersPolicyCommandInput - {@link UpdateResponseHeadersPolicyCommandInput}
- * @returns {@link UpdateResponseHeadersPolicyCommandOutput}
+ * @param UpdateResponseHeadersPolicyRequest - {@link UpdateResponseHeadersPolicyRequest}
+ * @returns {@link UpdateResponseHeadersPolicyResult}
  * @see {@link UpdateResponseHeadersPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateResponseHeadersPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

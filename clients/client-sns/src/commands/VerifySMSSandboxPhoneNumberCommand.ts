@@ -58,8 +58,8 @@ export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandb
  *
  * ```
  *
- * @param VerifySMSSandboxPhoneNumberCommandInput - {@link VerifySMSSandboxPhoneNumberCommandInput}
- * @returns {@link VerifySMSSandboxPhoneNumberCommandOutput}
+ * @param VerifySMSSandboxPhoneNumberInput - {@link VerifySMSSandboxPhoneNumberInput}
+ * @returns {@link VerifySMSSandboxPhoneNumberResult}
  * @see {@link VerifySMSSandboxPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link VerifySMSSandboxPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

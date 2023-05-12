@@ -86,8 +86,8 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  *
  * ```
  *
- * @param UpdateKeyGroupCommandInput - {@link UpdateKeyGroupCommandInput}
- * @returns {@link UpdateKeyGroupCommandOutput}
+ * @param UpdateKeyGroupRequest - {@link UpdateKeyGroupRequest}
+ * @returns {@link UpdateKeyGroupResult}
  * @see {@link UpdateKeyGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

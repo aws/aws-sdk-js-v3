@@ -51,8 +51,8 @@ export interface DeleteExperienceCommandOutput extends DeleteExperienceResponse,
  *
  * ```
  *
- * @param DeleteExperienceCommandInput - {@link DeleteExperienceCommandInput}
- * @returns {@link DeleteExperienceCommandOutput}
+ * @param DeleteExperienceRequest - {@link DeleteExperienceRequest}
+ * @returns {@link DeleteExperienceResponse}
  * @see {@link DeleteExperienceCommandInput} for command's `input` shape.
  * @see {@link DeleteExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

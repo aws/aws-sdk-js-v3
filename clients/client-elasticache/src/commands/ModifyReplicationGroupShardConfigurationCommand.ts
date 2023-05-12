@@ -195,8 +195,8 @@ export interface ModifyReplicationGroupShardConfigurationCommandOutput
  *
  * ```
  *
- * @param ModifyReplicationGroupShardConfigurationCommandInput - {@link ModifyReplicationGroupShardConfigurationCommandInput}
- * @returns {@link ModifyReplicationGroupShardConfigurationCommandOutput}
+ * @param ModifyReplicationGroupShardConfigurationMessage - {@link ModifyReplicationGroupShardConfigurationMessage}
+ * @returns {@link ModifyReplicationGroupShardConfigurationResult}
  * @see {@link ModifyReplicationGroupShardConfigurationCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationGroupShardConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

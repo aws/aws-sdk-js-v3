@@ -80,8 +80,8 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *
  * ```
  *
- * @param ListEntitiesCommandInput - {@link ListEntitiesCommandInput}
- * @returns {@link ListEntitiesCommandOutput}
+ * @param ListEntitiesRequest - {@link ListEntitiesRequest}
+ * @returns {@link ListEntitiesResponse}
  * @see {@link ListEntitiesCommandInput} for command's `input` shape.
  * @see {@link ListEntitiesCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.

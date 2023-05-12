@@ -78,8 +78,8 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  *
  * ```
  *
- * @param AssociateSoftwareTokenCommandInput - {@link AssociateSoftwareTokenCommandInput}
- * @returns {@link AssociateSoftwareTokenCommandOutput}
+ * @param AssociateSoftwareTokenRequest - {@link AssociateSoftwareTokenRequest}
+ * @returns {@link AssociateSoftwareTokenResponse}
  * @see {@link AssociateSoftwareTokenCommandInput} for command's `input` shape.
  * @see {@link AssociateSoftwareTokenCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

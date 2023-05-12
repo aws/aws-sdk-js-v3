@@ -54,8 +54,8 @@ export interface CreateActionTargetCommandOutput extends CreateActionTargetRespo
  *
  * ```
  *
- * @param CreateActionTargetCommandInput - {@link CreateActionTargetCommandInput}
- * @returns {@link CreateActionTargetCommandOutput}
+ * @param CreateActionTargetRequest - {@link CreateActionTargetRequest}
+ * @returns {@link CreateActionTargetResponse}
  * @see {@link CreateActionTargetCommandInput} for command's `input` shape.
  * @see {@link CreateActionTargetCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

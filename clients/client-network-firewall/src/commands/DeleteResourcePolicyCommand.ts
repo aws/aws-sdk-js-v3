@@ -48,8 +48,8 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  *
  * ```
  *
- * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
- * @returns {@link DeleteResourcePolicyCommandOutput}
+ * @param DeleteResourcePolicyRequest - {@link DeleteResourcePolicyRequest}
+ * @returns {@link DeleteResourcePolicyResponse}
  * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

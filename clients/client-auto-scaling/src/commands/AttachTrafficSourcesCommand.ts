@@ -77,8 +77,8 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  *
  * ```
  *
- * @param AttachTrafficSourcesCommandInput - {@link AttachTrafficSourcesCommandInput}
- * @returns {@link AttachTrafficSourcesCommandOutput}
+ * @param AttachTrafficSourcesType - {@link AttachTrafficSourcesType}
+ * @returns {@link AttachTrafficSourcesResultType}
  * @see {@link AttachTrafficSourcesCommandInput} for command's `input` shape.
  * @see {@link AttachTrafficSourcesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

@@ -89,8 +89,8 @@ export interface CreateRobotApplicationCommandOutput extends CreateRobotApplicat
  *
  * ```
  *
- * @param CreateRobotApplicationCommandInput - {@link CreateRobotApplicationCommandInput}
- * @returns {@link CreateRobotApplicationCommandOutput}
+ * @param CreateRobotApplicationRequest - {@link CreateRobotApplicationRequest}
+ * @returns {@link CreateRobotApplicationResponse}
  * @see {@link CreateRobotApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateRobotApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

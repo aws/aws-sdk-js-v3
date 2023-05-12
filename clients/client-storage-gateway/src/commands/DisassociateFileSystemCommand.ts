@@ -53,8 +53,8 @@ export interface DisassociateFileSystemCommandOutput extends DisassociateFileSys
  *
  * ```
  *
- * @param DisassociateFileSystemCommandInput - {@link DisassociateFileSystemCommandInput}
- * @returns {@link DisassociateFileSystemCommandOutput}
+ * @param DisassociateFileSystemInput - {@link DisassociateFileSystemInput}
+ * @returns {@link DisassociateFileSystemOutput}
  * @see {@link DisassociateFileSystemCommandInput} for command's `input` shape.
  * @see {@link DisassociateFileSystemCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

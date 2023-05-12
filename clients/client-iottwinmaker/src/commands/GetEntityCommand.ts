@@ -164,8 +164,8 @@ export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBea
  *
  * ```
  *
- * @param GetEntityCommandInput - {@link GetEntityCommandInput}
- * @returns {@link GetEntityCommandOutput}
+ * @param GetEntityRequest - {@link GetEntityRequest}
+ * @returns {@link GetEntityResponse}
  * @see {@link GetEntityCommandInput} for command's `input` shape.
  * @see {@link GetEntityCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

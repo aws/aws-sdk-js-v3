@@ -60,8 +60,8 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  *
  * ```
  *
- * @param JoinDomainCommandInput - {@link JoinDomainCommandInput}
- * @returns {@link JoinDomainCommandOutput}
+ * @param JoinDomainInput - {@link JoinDomainInput}
+ * @returns {@link JoinDomainOutput}
  * @see {@link JoinDomainCommandInput} for command's `input` shape.
  * @see {@link JoinDomainCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

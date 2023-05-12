@@ -56,8 +56,8 @@ export interface DeleteResourceShareCommandOutput extends DeleteResourceShareRes
  *
  * ```
  *
- * @param DeleteResourceShareCommandInput - {@link DeleteResourceShareCommandInput}
- * @returns {@link DeleteResourceShareCommandOutput}
+ * @param DeleteResourceShareRequest - {@link DeleteResourceShareRequest}
+ * @returns {@link DeleteResourceShareResponse}
  * @see {@link DeleteResourceShareCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

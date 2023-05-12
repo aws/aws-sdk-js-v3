@@ -91,8 +91,8 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  *
  * ```
  *
- * @param CreateAccountCustomizationCommandInput - {@link CreateAccountCustomizationCommandInput}
- * @returns {@link CreateAccountCustomizationCommandOutput}
+ * @param CreateAccountCustomizationRequest - {@link CreateAccountCustomizationRequest}
+ * @returns {@link CreateAccountCustomizationResponse}
  * @see {@link CreateAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link CreateAccountCustomizationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

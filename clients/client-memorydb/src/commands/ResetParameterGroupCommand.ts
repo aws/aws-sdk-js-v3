@@ -59,8 +59,8 @@ export interface ResetParameterGroupCommandOutput extends ResetParameterGroupRes
  *
  * ```
  *
- * @param ResetParameterGroupCommandInput - {@link ResetParameterGroupCommandInput}
- * @returns {@link ResetParameterGroupCommandOutput}
+ * @param ResetParameterGroupRequest - {@link ResetParameterGroupRequest}
+ * @returns {@link ResetParameterGroupResponse}
  * @see {@link ResetParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

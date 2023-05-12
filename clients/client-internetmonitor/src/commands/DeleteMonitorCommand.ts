@@ -48,8 +48,8 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  *
  * ```
  *
- * @param DeleteMonitorCommandInput - {@link DeleteMonitorCommandInput}
- * @returns {@link DeleteMonitorCommandOutput}
+ * @param DeleteMonitorInput - {@link DeleteMonitorInput}
+ * @returns {@link DeleteMonitorOutput}
  * @see {@link DeleteMonitorCommandInput} for command's `input` shape.
  * @see {@link DeleteMonitorCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.

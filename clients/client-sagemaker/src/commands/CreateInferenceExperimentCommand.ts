@@ -113,8 +113,8 @@ export interface CreateInferenceExperimentCommandOutput extends CreateInferenceE
  *
  * ```
  *
- * @param CreateInferenceExperimentCommandInput - {@link CreateInferenceExperimentCommandInput}
- * @returns {@link CreateInferenceExperimentCommandOutput}
+ * @param CreateInferenceExperimentRequest - {@link CreateInferenceExperimentRequest}
+ * @returns {@link CreateInferenceExperimentResponse}
  * @see {@link CreateInferenceExperimentCommandInput} for command's `input` shape.
  * @see {@link CreateInferenceExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

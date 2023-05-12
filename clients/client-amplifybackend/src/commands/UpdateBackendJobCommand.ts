@@ -61,8 +61,8 @@ export interface UpdateBackendJobCommandOutput extends UpdateBackendJobResponse,
  *
  * ```
  *
- * @param UpdateBackendJobCommandInput - {@link UpdateBackendJobCommandInput}
- * @returns {@link UpdateBackendJobCommandOutput}
+ * @param UpdateBackendJobRequest - {@link UpdateBackendJobRequest}
+ * @returns {@link UpdateBackendJobResponse}
  * @see {@link UpdateBackendJobCommandInput} for command's `input` shape.
  * @see {@link UpdateBackendJobCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

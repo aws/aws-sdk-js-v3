@@ -74,8 +74,8 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  *
  * ```
  *
- * @param PutGroupConfigurationCommandInput - {@link PutGroupConfigurationCommandInput}
- * @returns {@link PutGroupConfigurationCommandOutput}
+ * @param PutGroupConfigurationInput - {@link PutGroupConfigurationInput}
+ * @returns {@link PutGroupConfigurationOutput}
  * @see {@link PutGroupConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutGroupConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

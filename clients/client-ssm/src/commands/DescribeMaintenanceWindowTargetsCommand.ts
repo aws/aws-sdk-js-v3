@@ -87,8 +87,8 @@ export interface DescribeMaintenanceWindowTargetsCommandOutput
  *
  * ```
  *
- * @param DescribeMaintenanceWindowTargetsCommandInput - {@link DescribeMaintenanceWindowTargetsCommandInput}
- * @returns {@link DescribeMaintenanceWindowTargetsCommandOutput}
+ * @param DescribeMaintenanceWindowTargetsRequest - {@link DescribeMaintenanceWindowTargetsRequest}
+ * @returns {@link DescribeMaintenanceWindowTargetsResult}
  * @see {@link DescribeMaintenanceWindowTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowTargetsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

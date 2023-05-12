@@ -92,8 +92,8 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *
  * ```
  *
- * @param PutSecretValueCommandInput - {@link PutSecretValueCommandInput}
- * @returns {@link PutSecretValueCommandOutput}
+ * @param PutSecretValueRequest - {@link PutSecretValueRequest}
+ * @returns {@link PutSecretValueResponse}
  * @see {@link PutSecretValueCommandInput} for command's `input` shape.
  * @see {@link PutSecretValueCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

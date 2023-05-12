@@ -68,8 +68,8 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
  *
  * ```
  *
- * @param DisassociatePersonasFromEntitiesCommandInput - {@link DisassociatePersonasFromEntitiesCommandInput}
- * @returns {@link DisassociatePersonasFromEntitiesCommandOutput}
+ * @param DisassociatePersonasFromEntitiesRequest - {@link DisassociatePersonasFromEntitiesRequest}
+ * @returns {@link DisassociatePersonasFromEntitiesResponse}
  * @see {@link DisassociatePersonasFromEntitiesCommandInput} for command's `input` shape.
  * @see {@link DisassociatePersonasFromEntitiesCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

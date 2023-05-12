@@ -64,8 +64,8 @@ export interface UpdateUploadCommandOutput extends UpdateUploadResult, __Metadat
  *
  * ```
  *
- * @param UpdateUploadCommandInput - {@link UpdateUploadCommandInput}
- * @returns {@link UpdateUploadCommandOutput}
+ * @param UpdateUploadRequest - {@link UpdateUploadRequest}
+ * @returns {@link UpdateUploadResult}
  * @see {@link UpdateUploadCommandInput} for command's `input` shape.
  * @see {@link UpdateUploadCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

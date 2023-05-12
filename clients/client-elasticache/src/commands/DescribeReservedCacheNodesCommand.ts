@@ -80,8 +80,8 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  *
  * ```
  *
- * @param DescribeReservedCacheNodesCommandInput - {@link DescribeReservedCacheNodesCommandInput}
- * @returns {@link DescribeReservedCacheNodesCommandOutput}
+ * @param DescribeReservedCacheNodesMessage - {@link DescribeReservedCacheNodesMessage}
+ * @returns {@link ReservedCacheNodeMessage}
  * @see {@link DescribeReservedCacheNodesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedCacheNodesCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

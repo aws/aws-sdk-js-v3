@@ -123,8 +123,8 @@ export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __Met
  *
  * ```
  *
- * @param UpdateTriggerCommandInput - {@link UpdateTriggerCommandInput}
- * @returns {@link UpdateTriggerCommandOutput}
+ * @param UpdateTriggerRequest - {@link UpdateTriggerRequest}
+ * @returns {@link UpdateTriggerResponse}
  * @see {@link UpdateTriggerCommandInput} for command's `input` shape.
  * @see {@link UpdateTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

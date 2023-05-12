@@ -80,8 +80,8 @@ export interface PurchaseReservedNodesOfferingCommandOutput
  *
  * ```
  *
- * @param PurchaseReservedNodesOfferingCommandInput - {@link PurchaseReservedNodesOfferingCommandInput}
- * @returns {@link PurchaseReservedNodesOfferingCommandOutput}
+ * @param PurchaseReservedNodesOfferingRequest - {@link PurchaseReservedNodesOfferingRequest}
+ * @returns {@link PurchaseReservedNodesOfferingResponse}
  * @see {@link PurchaseReservedNodesOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedNodesOfferingCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

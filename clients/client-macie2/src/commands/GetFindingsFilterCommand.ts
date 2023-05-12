@@ -77,8 +77,8 @@ export interface GetFindingsFilterCommandOutput extends GetFindingsFilterRespons
  *
  * ```
  *
- * @param GetFindingsFilterCommandInput - {@link GetFindingsFilterCommandInput}
- * @returns {@link GetFindingsFilterCommandOutput}
+ * @param GetFindingsFilterRequest - {@link GetFindingsFilterRequest}
+ * @returns {@link GetFindingsFilterResponse}
  * @see {@link GetFindingsFilterCommandInput} for command's `input` shape.
  * @see {@link GetFindingsFilterCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

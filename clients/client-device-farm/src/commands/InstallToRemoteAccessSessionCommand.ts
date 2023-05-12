@@ -73,8 +73,8 @@ export interface InstallToRemoteAccessSessionCommandOutput
  *
  * ```
  *
- * @param InstallToRemoteAccessSessionCommandInput - {@link InstallToRemoteAccessSessionCommandInput}
- * @returns {@link InstallToRemoteAccessSessionCommandOutput}
+ * @param InstallToRemoteAccessSessionRequest - {@link InstallToRemoteAccessSessionRequest}
+ * @returns {@link InstallToRemoteAccessSessionResult}
  * @see {@link InstallToRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link InstallToRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

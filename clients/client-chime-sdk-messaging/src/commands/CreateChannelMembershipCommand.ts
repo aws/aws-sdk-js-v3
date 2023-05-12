@@ -100,8 +100,8 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  *
  * ```
  *
- * @param CreateChannelMembershipCommandInput - {@link CreateChannelMembershipCommandInput}
- * @returns {@link CreateChannelMembershipCommandOutput}
+ * @param CreateChannelMembershipRequest - {@link CreateChannelMembershipRequest}
+ * @returns {@link CreateChannelMembershipResponse}
  * @see {@link CreateChannelMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateChannelMembershipCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

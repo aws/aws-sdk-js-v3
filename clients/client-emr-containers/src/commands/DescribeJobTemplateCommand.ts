@@ -123,8 +123,8 @@ export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateRes
  *
  * ```
  *
- * @param DescribeJobTemplateCommandInput - {@link DescribeJobTemplateCommandInput}
- * @returns {@link DescribeJobTemplateCommandOutput}
+ * @param DescribeJobTemplateRequest - {@link DescribeJobTemplateRequest}
+ * @returns {@link DescribeJobTemplateResponse}
  * @see {@link DescribeJobTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.

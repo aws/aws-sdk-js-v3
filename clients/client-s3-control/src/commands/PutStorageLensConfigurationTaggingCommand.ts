@@ -72,8 +72,8 @@ export interface PutStorageLensConfigurationTaggingCommandOutput
  *
  * ```
  *
- * @param PutStorageLensConfigurationTaggingCommandInput - {@link PutStorageLensConfigurationTaggingCommandInput}
- * @returns {@link PutStorageLensConfigurationTaggingCommandOutput}
+ * @param PutStorageLensConfigurationTaggingRequest - {@link PutStorageLensConfigurationTaggingRequest}
+ * @returns {@link PutStorageLensConfigurationTaggingResult}
  * @see {@link PutStorageLensConfigurationTaggingCommandInput} for command's `input` shape.
  * @see {@link PutStorageLensConfigurationTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

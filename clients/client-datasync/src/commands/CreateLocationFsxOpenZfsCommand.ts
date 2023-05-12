@@ -83,8 +83,8 @@ export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsx
  *
  * ```
  *
- * @param CreateLocationFsxOpenZfsCommandInput - {@link CreateLocationFsxOpenZfsCommandInput}
- * @returns {@link CreateLocationFsxOpenZfsCommandOutput}
+ * @param CreateLocationFsxOpenZfsRequest - {@link CreateLocationFsxOpenZfsRequest}
+ * @returns {@link CreateLocationFsxOpenZfsResponse}
  * @see {@link CreateLocationFsxOpenZfsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationFsxOpenZfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

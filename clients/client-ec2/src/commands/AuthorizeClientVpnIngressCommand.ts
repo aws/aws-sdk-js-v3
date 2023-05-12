@@ -61,8 +61,8 @@ export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientV
  *
  * ```
  *
- * @param AuthorizeClientVpnIngressCommandInput - {@link AuthorizeClientVpnIngressCommandInput}
- * @returns {@link AuthorizeClientVpnIngressCommandOutput}
+ * @param AuthorizeClientVpnIngressRequest - {@link AuthorizeClientVpnIngressRequest}
+ * @returns {@link AuthorizeClientVpnIngressResult}
  * @see {@link AuthorizeClientVpnIngressCommandInput} for command's `input` shape.
  * @see {@link AuthorizeClientVpnIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -90,8 +90,8 @@ export interface RegisterSlackWorkspaceForOrganizationCommandOutput
  *
  * ```
  *
- * @param RegisterSlackWorkspaceForOrganizationCommandInput - {@link RegisterSlackWorkspaceForOrganizationCommandInput}
- * @returns {@link RegisterSlackWorkspaceForOrganizationCommandOutput}
+ * @param RegisterSlackWorkspaceForOrganizationRequest - {@link RegisterSlackWorkspaceForOrganizationRequest}
+ * @returns {@link RegisterSlackWorkspaceForOrganizationResult}
  * @see {@link RegisterSlackWorkspaceForOrganizationCommandInput} for command's `input` shape.
  * @see {@link RegisterSlackWorkspaceForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.

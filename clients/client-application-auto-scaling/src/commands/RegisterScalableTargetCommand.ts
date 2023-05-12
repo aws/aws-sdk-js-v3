@@ -98,8 +98,8 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  *
  * ```
  *
- * @param RegisterScalableTargetCommandInput - {@link RegisterScalableTargetCommandInput}
- * @returns {@link RegisterScalableTargetCommandOutput}
+ * @param RegisterScalableTargetRequest - {@link RegisterScalableTargetRequest}
+ * @returns {@link RegisterScalableTargetResponse}
  * @see {@link RegisterScalableTargetCommandInput} for command's `input` shape.
  * @see {@link RegisterScalableTargetCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
@@ -132,7 +132,12 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  *   "ServiceNamespace": "ecs"
  * };
  * const command = new RegisterScalableTargetCommand(input);
- * await client.send(command);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ScalableTargetARN": "arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123"
+ * }
+ * *\/
  * // example id: to-register-a-new-scalable-target-1470864910380
  * ```
  *

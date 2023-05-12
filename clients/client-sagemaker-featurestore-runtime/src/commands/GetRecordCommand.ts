@@ -65,8 +65,8 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  *
  * ```
  *
- * @param GetRecordCommandInput - {@link GetRecordCommandInput}
- * @returns {@link GetRecordCommandOutput}
+ * @param GetRecordRequest - {@link GetRecordRequest}
+ * @returns {@link GetRecordResponse}
  * @see {@link GetRecordCommandInput} for command's `input` shape.
  * @see {@link GetRecordCommandOutput} for command's `response` shape.
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.

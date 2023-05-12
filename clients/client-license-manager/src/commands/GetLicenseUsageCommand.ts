@@ -59,8 +59,8 @@ export interface GetLicenseUsageCommandOutput extends GetLicenseUsageResponse, _
  *
  * ```
  *
- * @param GetLicenseUsageCommandInput - {@link GetLicenseUsageCommandInput}
- * @returns {@link GetLicenseUsageCommandOutput}
+ * @param GetLicenseUsageRequest - {@link GetLicenseUsageRequest}
+ * @returns {@link GetLicenseUsageResponse}
  * @see {@link GetLicenseUsageCommandInput} for command's `input` shape.
  * @see {@link GetLicenseUsageCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

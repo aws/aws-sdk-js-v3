@@ -84,8 +84,8 @@ export interface AssociateResolverEndpointIpAddressCommandOutput
  *
  * ```
  *
- * @param AssociateResolverEndpointIpAddressCommandInput - {@link AssociateResolverEndpointIpAddressCommandInput}
- * @returns {@link AssociateResolverEndpointIpAddressCommandOutput}
+ * @param AssociateResolverEndpointIpAddressRequest - {@link AssociateResolverEndpointIpAddressRequest}
+ * @returns {@link AssociateResolverEndpointIpAddressResponse}
  * @see {@link AssociateResolverEndpointIpAddressCommandInput} for command's `input` shape.
  * @see {@link AssociateResolverEndpointIpAddressCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

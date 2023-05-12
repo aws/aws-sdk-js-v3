@@ -51,8 +51,8 @@ export interface DeleteListCommandOutput extends DeleteListResult, __MetadataBea
  *
  * ```
  *
- * @param DeleteListCommandInput - {@link DeleteListCommandInput}
- * @returns {@link DeleteListCommandOutput}
+ * @param DeleteListRequest - {@link DeleteListRequest}
+ * @returns {@link DeleteListResult}
  * @see {@link DeleteListCommandInput} for command's `input` shape.
  * @see {@link DeleteListCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

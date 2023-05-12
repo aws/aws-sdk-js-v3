@@ -74,8 +74,8 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  *
  * ```
  *
- * @param DescribeReplayCommandInput - {@link DescribeReplayCommandInput}
- * @returns {@link DescribeReplayCommandOutput}
+ * @param DescribeReplayRequest - {@link DescribeReplayRequest}
+ * @returns {@link DescribeReplayResponse}
  * @see {@link DescribeReplayCommandInput} for command's `input` shape.
  * @see {@link DescribeReplayCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

@@ -51,8 +51,8 @@ export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __Met
  *
  * ```
  *
- * @param GetStackPolicyCommandInput - {@link GetStackPolicyCommandInput}
- * @returns {@link GetStackPolicyCommandOutput}
+ * @param GetStackPolicyInput - {@link GetStackPolicyInput}
+ * @returns {@link GetStackPolicyOutput}
  * @see {@link GetStackPolicyCommandInput} for command's `input` shape.
  * @see {@link GetStackPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

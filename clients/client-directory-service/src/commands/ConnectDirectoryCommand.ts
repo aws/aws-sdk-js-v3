@@ -78,8 +78,8 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  *
  * ```
  *
- * @param ConnectDirectoryCommandInput - {@link ConnectDirectoryCommandInput}
- * @returns {@link ConnectDirectoryCommandOutput}
+ * @param ConnectDirectoryRequest - {@link ConnectDirectoryRequest}
+ * @returns {@link ConnectDirectoryResult}
  * @see {@link ConnectDirectoryCommandInput} for command's `input` shape.
  * @see {@link ConnectDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

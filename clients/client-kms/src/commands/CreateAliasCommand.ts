@@ -105,8 +105,8 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CreateAliasCommandInput - {@link CreateAliasCommandInput}
- * @returns {@link CreateAliasCommandOutput}
+ * @param CreateAliasRequest - {@link CreateAliasRequest}
+ * @returns {@link Unit}
  * @see {@link CreateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

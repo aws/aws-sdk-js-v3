@@ -78,8 +78,8 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  *
  * ```
  *
- * @param VerifyMacCommandInput - {@link VerifyMacCommandInput}
- * @returns {@link VerifyMacCommandOutput}
+ * @param VerifyMacRequest - {@link VerifyMacRequest}
+ * @returns {@link VerifyMacResponse}
  * @see {@link VerifyMacCommandInput} for command's `input` shape.
  * @see {@link VerifyMacCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

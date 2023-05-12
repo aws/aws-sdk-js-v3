@@ -77,8 +77,8 @@ export interface ListAuditMitigationActionsExecutionsCommandOutput
  *
  * ```
  *
- * @param ListAuditMitigationActionsExecutionsCommandInput - {@link ListAuditMitigationActionsExecutionsCommandInput}
- * @returns {@link ListAuditMitigationActionsExecutionsCommandOutput}
+ * @param ListAuditMitigationActionsExecutionsRequest - {@link ListAuditMitigationActionsExecutionsRequest}
+ * @returns {@link ListAuditMitigationActionsExecutionsResponse}
  * @see {@link ListAuditMitigationActionsExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListAuditMitigationActionsExecutionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

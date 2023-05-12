@@ -76,8 +76,8 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteArchiveCommandInput - {@link DeleteArchiveCommandInput}
- * @returns {@link DeleteArchiveCommandOutput}
+ * @param DeleteArchiveInput - {@link DeleteArchiveInput}
+ * @returns {@link Unit}
  * @see {@link DeleteArchiveCommandInput} for command's `input` shape.
  * @see {@link DeleteArchiveCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

@@ -69,8 +69,8 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
  *
  * ```
  *
- * @param NotifyResourceDeploymentStatusChangeCommandInput - {@link NotifyResourceDeploymentStatusChangeCommandInput}
- * @returns {@link NotifyResourceDeploymentStatusChangeCommandOutput}
+ * @param NotifyResourceDeploymentStatusChangeInput - {@link NotifyResourceDeploymentStatusChangeInput}
+ * @returns {@link NotifyResourceDeploymentStatusChangeOutput}
  * @see {@link NotifyResourceDeploymentStatusChangeCommandInput} for command's `input` shape.
  * @see {@link NotifyResourceDeploymentStatusChangeCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

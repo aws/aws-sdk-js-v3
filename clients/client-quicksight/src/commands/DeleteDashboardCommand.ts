@@ -55,8 +55,8 @@ export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, _
  *
  * ```
  *
- * @param DeleteDashboardCommandInput - {@link DeleteDashboardCommandInput}
- * @returns {@link DeleteDashboardCommandOutput}
+ * @param DeleteDashboardRequest - {@link DeleteDashboardRequest}
+ * @returns {@link DeleteDashboardResponse}
  * @see {@link DeleteDashboardCommandInput} for command's `input` shape.
  * @see {@link DeleteDashboardCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

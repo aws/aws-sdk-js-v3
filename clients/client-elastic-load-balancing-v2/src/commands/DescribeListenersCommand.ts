@@ -139,8 +139,8 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  *
  * ```
  *
- * @param DescribeListenersCommandInput - {@link DescribeListenersCommandInput}
- * @returns {@link DescribeListenersCommandOutput}
+ * @param DescribeListenersInput - {@link DescribeListenersInput}
+ * @returns {@link DescribeListenersOutput}
  * @see {@link DescribeListenersCommandInput} for command's `input` shape.
  * @see {@link DescribeListenersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

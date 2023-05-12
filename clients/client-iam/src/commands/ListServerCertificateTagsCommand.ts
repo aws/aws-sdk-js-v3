@@ -68,8 +68,8 @@ export interface ListServerCertificateTagsCommandOutput extends ListServerCertif
  *
  * ```
  *
- * @param ListServerCertificateTagsCommandInput - {@link ListServerCertificateTagsCommandInput}
- * @returns {@link ListServerCertificateTagsCommandOutput}
+ * @param ListServerCertificateTagsRequest - {@link ListServerCertificateTagsRequest}
+ * @returns {@link ListServerCertificateTagsResponse}
  * @see {@link ListServerCertificateTagsCommandInput} for command's `input` shape.
  * @see {@link ListServerCertificateTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

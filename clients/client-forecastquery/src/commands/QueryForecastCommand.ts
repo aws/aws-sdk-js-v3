@@ -76,8 +76,8 @@ export interface QueryForecastCommandOutput extends QueryForecastResponse, __Met
  *
  * ```
  *
- * @param QueryForecastCommandInput - {@link QueryForecastCommandInput}
- * @returns {@link QueryForecastCommandOutput}
+ * @param QueryForecastRequest - {@link QueryForecastRequest}
+ * @returns {@link QueryForecastResponse}
  * @see {@link QueryForecastCommandInput} for command's `input` shape.
  * @see {@link QueryForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastqueryClientResolvedConfig | config} for ForecastqueryClient's `config` shape.

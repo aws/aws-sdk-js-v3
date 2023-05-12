@@ -63,8 +63,8 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  *
  * ```
  *
- * @param AssociateRouteTableCommandInput - {@link AssociateRouteTableCommandInput}
- * @returns {@link AssociateRouteTableCommandOutput}
+ * @param AssociateRouteTableRequest - {@link AssociateRouteTableRequest}
+ * @returns {@link AssociateRouteTableResult}
  * @see {@link AssociateRouteTableCommandInput} for command's `input` shape.
  * @see {@link AssociateRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

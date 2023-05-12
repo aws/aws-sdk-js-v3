@@ -77,8 +77,8 @@ export interface GetReadSetImportJobCommandOutput extends GetReadSetImportJobRes
  *
  * ```
  *
- * @param GetReadSetImportJobCommandInput - {@link GetReadSetImportJobCommandInput}
- * @returns {@link GetReadSetImportJobCommandOutput}
+ * @param GetReadSetImportJobRequest - {@link GetReadSetImportJobRequest}
+ * @returns {@link GetReadSetImportJobResponse}
  * @see {@link GetReadSetImportJobCommandInput} for command's `input` shape.
  * @see {@link GetReadSetImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

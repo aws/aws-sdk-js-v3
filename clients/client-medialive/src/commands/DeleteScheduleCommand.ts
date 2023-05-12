@@ -48,8 +48,8 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  *
  * ```
  *
- * @param DeleteScheduleCommandInput - {@link DeleteScheduleCommandInput}
- * @returns {@link DeleteScheduleCommandOutput}
+ * @param DeleteScheduleRequest - {@link DeleteScheduleRequest}
+ * @returns {@link DeleteScheduleResponse}
  * @see {@link DeleteScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduleCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

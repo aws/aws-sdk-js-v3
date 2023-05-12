@@ -78,8 +78,8 @@ export interface GetLogLevelsByResourceTypesCommandOutput
  *
  * ```
  *
- * @param GetLogLevelsByResourceTypesCommandInput - {@link GetLogLevelsByResourceTypesCommandInput}
- * @returns {@link GetLogLevelsByResourceTypesCommandOutput}
+ * @param GetLogLevelsByResourceTypesRequest - {@link GetLogLevelsByResourceTypesRequest}
+ * @returns {@link GetLogLevelsByResourceTypesResponse}
  * @see {@link GetLogLevelsByResourceTypesCommandInput} for command's `input` shape.
  * @see {@link GetLogLevelsByResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

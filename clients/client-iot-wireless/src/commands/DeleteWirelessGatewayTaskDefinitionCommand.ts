@@ -56,8 +56,8 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
  *
  * ```
  *
- * @param DeleteWirelessGatewayTaskDefinitionCommandInput - {@link DeleteWirelessGatewayTaskDefinitionCommandInput}
- * @returns {@link DeleteWirelessGatewayTaskDefinitionCommandOutput}
+ * @param DeleteWirelessGatewayTaskDefinitionRequest - {@link DeleteWirelessGatewayTaskDefinitionRequest}
+ * @returns {@link DeleteWirelessGatewayTaskDefinitionResponse}
  * @see {@link DeleteWirelessGatewayTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteWirelessGatewayTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

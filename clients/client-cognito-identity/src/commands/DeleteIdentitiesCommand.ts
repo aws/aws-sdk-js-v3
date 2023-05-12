@@ -60,8 +60,8 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  *
  * ```
  *
- * @param DeleteIdentitiesCommandInput - {@link DeleteIdentitiesCommandInput}
- * @returns {@link DeleteIdentitiesCommandOutput}
+ * @param DeleteIdentitiesInput - {@link DeleteIdentitiesInput}
+ * @returns {@link DeleteIdentitiesResponse}
  * @see {@link DeleteIdentitiesCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.

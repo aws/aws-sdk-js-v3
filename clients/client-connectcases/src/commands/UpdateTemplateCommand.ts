@@ -64,8 +64,8 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *
  * ```
  *
- * @param UpdateTemplateCommandInput - {@link UpdateTemplateCommandInput}
- * @returns {@link UpdateTemplateCommandOutput}
+ * @param UpdateTemplateRequest - {@link UpdateTemplateRequest}
+ * @returns {@link UpdateTemplateResponse}
  * @see {@link UpdateTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

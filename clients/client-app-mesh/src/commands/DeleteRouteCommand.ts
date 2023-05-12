@@ -271,8 +271,8 @@ export interface DeleteRouteCommandOutput extends DeleteRouteOutput, __MetadataB
  *
  * ```
  *
- * @param DeleteRouteCommandInput - {@link DeleteRouteCommandInput}
- * @returns {@link DeleteRouteCommandOutput}
+ * @param DeleteRouteInput - {@link DeleteRouteInput}
+ * @returns {@link DeleteRouteOutput}
  * @see {@link DeleteRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

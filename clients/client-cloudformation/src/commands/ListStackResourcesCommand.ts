@@ -71,8 +71,8 @@ export interface ListStackResourcesCommandOutput extends ListStackResourcesOutpu
  *
  * ```
  *
- * @param ListStackResourcesCommandInput - {@link ListStackResourcesCommandInput}
- * @returns {@link ListStackResourcesCommandOutput}
+ * @param ListStackResourcesInput - {@link ListStackResourcesInput}
+ * @returns {@link ListStackResourcesOutput}
  * @see {@link ListStackResourcesCommandInput} for command's `input` shape.
  * @see {@link ListStackResourcesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

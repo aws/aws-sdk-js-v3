@@ -70,8 +70,8 @@ export interface UpdateCustomRoutingAcceleratorAttributesCommandOutput
  *
  * ```
  *
- * @param UpdateCustomRoutingAcceleratorAttributesCommandInput - {@link UpdateCustomRoutingAcceleratorAttributesCommandInput}
- * @returns {@link UpdateCustomRoutingAcceleratorAttributesCommandOutput}
+ * @param UpdateCustomRoutingAcceleratorAttributesRequest - {@link UpdateCustomRoutingAcceleratorAttributesRequest}
+ * @returns {@link UpdateCustomRoutingAcceleratorAttributesResponse}
  * @see {@link UpdateCustomRoutingAcceleratorAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomRoutingAcceleratorAttributesCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

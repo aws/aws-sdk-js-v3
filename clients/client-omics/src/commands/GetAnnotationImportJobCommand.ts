@@ -86,8 +86,8 @@ export interface GetAnnotationImportJobCommandOutput extends GetAnnotationImport
  *
  * ```
  *
- * @param GetAnnotationImportJobCommandInput - {@link GetAnnotationImportJobCommandInput}
- * @returns {@link GetAnnotationImportJobCommandOutput}
+ * @param GetAnnotationImportRequest - {@link GetAnnotationImportRequest}
+ * @returns {@link GetAnnotationImportResponse}
  * @see {@link GetAnnotationImportJobCommandInput} for command's `input` shape.
  * @see {@link GetAnnotationImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

@@ -90,8 +90,8 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
  *
  * ```
  *
- * @param DescribeTrustedAdvisorChecksCommandInput - {@link DescribeTrustedAdvisorChecksCommandInput}
- * @returns {@link DescribeTrustedAdvisorChecksCommandOutput}
+ * @param DescribeTrustedAdvisorChecksRequest - {@link DescribeTrustedAdvisorChecksRequest}
+ * @returns {@link DescribeTrustedAdvisorChecksResponse}
  * @see {@link DescribeTrustedAdvisorChecksCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustedAdvisorChecksCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.

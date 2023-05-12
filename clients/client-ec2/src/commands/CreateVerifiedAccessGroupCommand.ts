@@ -83,8 +83,8 @@ export interface CreateVerifiedAccessGroupCommandOutput extends CreateVerifiedAc
  *
  * ```
  *
- * @param CreateVerifiedAccessGroupCommandInput - {@link CreateVerifiedAccessGroupCommandInput}
- * @returns {@link CreateVerifiedAccessGroupCommandOutput}
+ * @param CreateVerifiedAccessGroupRequest - {@link CreateVerifiedAccessGroupRequest}
+ * @returns {@link CreateVerifiedAccessGroupResult}
  * @see {@link CreateVerifiedAccessGroupCommandInput} for command's `input` shape.
  * @see {@link CreateVerifiedAccessGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -81,8 +81,8 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
  *
  * ```
  *
- * @param BatchAssociateClientDeviceWithCoreDeviceCommandInput - {@link BatchAssociateClientDeviceWithCoreDeviceCommandInput}
- * @returns {@link BatchAssociateClientDeviceWithCoreDeviceCommandOutput}
+ * @param BatchAssociateClientDeviceWithCoreDeviceRequest - {@link BatchAssociateClientDeviceWithCoreDeviceRequest}
+ * @returns {@link BatchAssociateClientDeviceWithCoreDeviceResponse}
  * @see {@link BatchAssociateClientDeviceWithCoreDeviceCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateClientDeviceWithCoreDeviceCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

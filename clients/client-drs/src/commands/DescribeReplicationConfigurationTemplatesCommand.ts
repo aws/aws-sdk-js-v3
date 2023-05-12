@@ -99,8 +99,8 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
  *
  * ```
  *
- * @param DescribeReplicationConfigurationTemplatesCommandInput - {@link DescribeReplicationConfigurationTemplatesCommandInput}
- * @returns {@link DescribeReplicationConfigurationTemplatesCommandOutput}
+ * @param DescribeReplicationConfigurationTemplatesRequest - {@link DescribeReplicationConfigurationTemplatesRequest}
+ * @returns {@link DescribeReplicationConfigurationTemplatesResponse}
  * @see {@link DescribeReplicationConfigurationTemplatesCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationConfigurationTemplatesCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

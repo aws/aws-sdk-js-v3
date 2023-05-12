@@ -50,8 +50,8 @@ export interface DeleteResourceConfigCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteResourceConfigCommandInput - {@link DeleteResourceConfigCommandInput}
- * @returns {@link DeleteResourceConfigCommandOutput}
+ * @param DeleteResourceConfigRequest - {@link DeleteResourceConfigRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteResourceConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

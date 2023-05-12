@@ -56,8 +56,8 @@ export interface UpdateThesaurusCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateThesaurusCommandInput - {@link UpdateThesaurusCommandInput}
- * @returns {@link UpdateThesaurusCommandOutput}
+ * @param UpdateThesaurusRequest - {@link UpdateThesaurusRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateThesaurusCommandInput} for command's `input` shape.
  * @see {@link UpdateThesaurusCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

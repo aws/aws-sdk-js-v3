@@ -58,8 +58,8 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
  *
  * ```
  *
- * @param PurchaseReservedInstanceOfferingCommandInput - {@link PurchaseReservedInstanceOfferingCommandInput}
- * @returns {@link PurchaseReservedInstanceOfferingCommandOutput}
+ * @param PurchaseReservedInstanceOfferingRequest - {@link PurchaseReservedInstanceOfferingRequest}
+ * @returns {@link PurchaseReservedInstanceOfferingResponse}
  * @see {@link PurchaseReservedInstanceOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedInstanceOfferingCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

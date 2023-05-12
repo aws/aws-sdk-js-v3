@@ -108,8 +108,8 @@ export interface StartCutoverCommandOutput extends StartCutoverResponse, __Metad
  *
  * ```
  *
- * @param StartCutoverCommandInput - {@link StartCutoverCommandInput}
- * @returns {@link StartCutoverCommandOutput}
+ * @param StartCutoverRequest - {@link StartCutoverRequest}
+ * @returns {@link StartCutoverResponse}
  * @see {@link StartCutoverCommandInput} for command's `input` shape.
  * @see {@link StartCutoverCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

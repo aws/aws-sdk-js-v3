@@ -95,8 +95,8 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  *
  * ```
  *
- * @param CreateResolverEndpointCommandInput - {@link CreateResolverEndpointCommandInput}
- * @returns {@link CreateResolverEndpointCommandOutput}
+ * @param CreateResolverEndpointRequest - {@link CreateResolverEndpointRequest}
+ * @returns {@link CreateResolverEndpointResponse}
  * @see {@link CreateResolverEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateResolverEndpointCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

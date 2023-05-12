@@ -91,8 +91,8 @@ export interface GetScreenDataCommandOutput extends GetScreenDataResult, __Metad
  *
  * ```
  *
- * @param GetScreenDataCommandInput - {@link GetScreenDataCommandInput}
- * @returns {@link GetScreenDataCommandOutput}
+ * @param GetScreenDataRequest - {@link GetScreenDataRequest}
+ * @returns {@link GetScreenDataResult}
  * @see {@link GetScreenDataCommandInput} for command's `input` shape.
  * @see {@link GetScreenDataCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.

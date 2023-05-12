@@ -50,8 +50,8 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  *
  * ```
  *
- * @param DeleteTrailCommandInput - {@link DeleteTrailCommandInput}
- * @returns {@link DeleteTrailCommandOutput}
+ * @param DeleteTrailRequest - {@link DeleteTrailRequest}
+ * @returns {@link DeleteTrailResponse}
  * @see {@link DeleteTrailCommandInput} for command's `input` shape.
  * @see {@link DeleteTrailCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

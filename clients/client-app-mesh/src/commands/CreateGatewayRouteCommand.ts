@@ -400,8 +400,8 @@ export interface CreateGatewayRouteCommandOutput extends CreateGatewayRouteOutpu
  *
  * ```
  *
- * @param CreateGatewayRouteCommandInput - {@link CreateGatewayRouteCommandInput}
- * @returns {@link CreateGatewayRouteCommandOutput}
+ * @param CreateGatewayRouteInput - {@link CreateGatewayRouteInput}
+ * @returns {@link CreateGatewayRouteOutput}
  * @see {@link CreateGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link CreateGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

@@ -198,8 +198,8 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  *
  * ```
  *
- * @param DescribeTableCommandInput - {@link DescribeTableCommandInput}
- * @returns {@link DescribeTableCommandOutput}
+ * @param DescribeTableInput - {@link DescribeTableInput}
+ * @returns {@link DescribeTableOutput}
  * @see {@link DescribeTableCommandInput} for command's `input` shape.
  * @see {@link DescribeTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

@@ -89,8 +89,8 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  *
  * ```
  *
- * @param UpdateIdentityProviderSettingsCommandInput - {@link UpdateIdentityProviderSettingsCommandInput}
- * @returns {@link UpdateIdentityProviderSettingsCommandOutput}
+ * @param UpdateIdentityProviderSettingsRequest - {@link UpdateIdentityProviderSettingsRequest}
+ * @returns {@link UpdateIdentityProviderSettingsResponse}
  * @see {@link UpdateIdentityProviderSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateIdentityProviderSettingsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.

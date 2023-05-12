@@ -184,8 +184,8 @@ export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __M
  *
  * ```
  *
- * @param GetWorkflowRunCommandInput - {@link GetWorkflowRunCommandInput}
- * @returns {@link GetWorkflowRunCommandOutput}
+ * @param GetWorkflowRunRequest - {@link GetWorkflowRunRequest}
+ * @returns {@link GetWorkflowRunResponse}
  * @see {@link GetWorkflowRunCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

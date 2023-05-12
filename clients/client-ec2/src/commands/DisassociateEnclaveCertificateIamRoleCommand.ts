@@ -65,8 +65,8 @@ export interface DisassociateEnclaveCertificateIamRoleCommandOutput
  *
  * ```
  *
- * @param DisassociateEnclaveCertificateIamRoleCommandInput - {@link DisassociateEnclaveCertificateIamRoleCommandInput}
- * @returns {@link DisassociateEnclaveCertificateIamRoleCommandOutput}
+ * @param DisassociateEnclaveCertificateIamRoleRequest - {@link DisassociateEnclaveCertificateIamRoleRequest}
+ * @returns {@link DisassociateEnclaveCertificateIamRoleResult}
  * @see {@link DisassociateEnclaveCertificateIamRoleCommandInput} for command's `input` shape.
  * @see {@link DisassociateEnclaveCertificateIamRoleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

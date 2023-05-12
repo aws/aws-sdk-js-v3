@@ -70,8 +70,8 @@ export interface DescribeConnectionAliasPermissionsCommandOutput
  *
  * ```
  *
- * @param DescribeConnectionAliasPermissionsCommandInput - {@link DescribeConnectionAliasPermissionsCommandInput}
- * @returns {@link DescribeConnectionAliasPermissionsCommandOutput}
+ * @param DescribeConnectionAliasPermissionsRequest - {@link DescribeConnectionAliasPermissionsRequest}
+ * @returns {@link DescribeConnectionAliasPermissionsResult}
  * @see {@link DescribeConnectionAliasPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionAliasPermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

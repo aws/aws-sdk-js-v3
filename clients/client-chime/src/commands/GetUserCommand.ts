@@ -72,8 +72,8 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  *
  * ```
  *
- * @param GetUserCommandInput - {@link GetUserCommandInput}
- * @returns {@link GetUserCommandOutput}
+ * @param GetUserRequest - {@link GetUserRequest}
+ * @returns {@link GetUserResponse}
  * @see {@link GetUserCommandInput} for command's `input` shape.
  * @see {@link GetUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

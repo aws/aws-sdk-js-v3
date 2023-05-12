@@ -70,8 +70,8 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  *
  * ```
  *
- * @param AdminSetUserMFAPreferenceCommandInput - {@link AdminSetUserMFAPreferenceCommandInput}
- * @returns {@link AdminSetUserMFAPreferenceCommandOutput}
+ * @param AdminSetUserMFAPreferenceRequest - {@link AdminSetUserMFAPreferenceRequest}
+ * @returns {@link AdminSetUserMFAPreferenceResponse}
  * @see {@link AdminSetUserMFAPreferenceCommandInput} for command's `input` shape.
  * @see {@link AdminSetUserMFAPreferenceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

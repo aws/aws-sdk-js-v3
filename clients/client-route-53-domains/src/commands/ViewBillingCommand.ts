@@ -62,8 +62,8 @@ export interface ViewBillingCommandOutput extends ViewBillingResponse, __Metadat
  *
  * ```
  *
- * @param ViewBillingCommandInput - {@link ViewBillingCommandInput}
- * @returns {@link ViewBillingCommandOutput}
+ * @param ViewBillingRequest - {@link ViewBillingRequest}
+ * @returns {@link ViewBillingResponse}
  * @see {@link ViewBillingCommandInput} for command's `input` shape.
  * @see {@link ViewBillingCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

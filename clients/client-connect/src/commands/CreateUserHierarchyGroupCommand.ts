@@ -56,8 +56,8 @@ export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarc
  *
  * ```
  *
- * @param CreateUserHierarchyGroupCommandInput - {@link CreateUserHierarchyGroupCommandInput}
- * @returns {@link CreateUserHierarchyGroupCommandOutput}
+ * @param CreateUserHierarchyGroupRequest - {@link CreateUserHierarchyGroupRequest}
+ * @returns {@link CreateUserHierarchyGroupResponse}
  * @see {@link CreateUserHierarchyGroupCommandInput} for command's `input` shape.
  * @see {@link CreateUserHierarchyGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

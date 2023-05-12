@@ -136,8 +136,8 @@ export interface CreateNetworkSiteCommandOutput extends CreateNetworkSiteRespons
  *
  * ```
  *
- * @param CreateNetworkSiteCommandInput - {@link CreateNetworkSiteCommandInput}
- * @returns {@link CreateNetworkSiteCommandOutput}
+ * @param CreateNetworkSiteRequest - {@link CreateNetworkSiteRequest}
+ * @returns {@link CreateNetworkSiteResponse}
  * @see {@link CreateNetworkSiteCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkSiteCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

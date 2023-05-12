@@ -162,8 +162,8 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  *
  * ```
  *
- * @param CreateLabelingJobCommandInput - {@link CreateLabelingJobCommandInput}
- * @returns {@link CreateLabelingJobCommandOutput}
+ * @param CreateLabelingJobRequest - {@link CreateLabelingJobRequest}
+ * @returns {@link CreateLabelingJobResponse}
  * @see {@link CreateLabelingJobCommandInput} for command's `input` shape.
  * @see {@link CreateLabelingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -79,8 +79,8 @@ export interface DisableCommandOutput extends DisableResponse, __MetadataBearer 
  *
  * ```
  *
- * @param DisableCommandInput - {@link DisableCommandInput}
- * @returns {@link DisableCommandOutput}
+ * @param DisableRequest - {@link DisableRequest}
+ * @returns {@link DisableResponse}
  * @see {@link DisableCommandInput} for command's `input` shape.
  * @see {@link DisableCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

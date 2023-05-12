@@ -51,8 +51,8 @@ export interface GetComponentPolicyCommandOutput extends GetComponentPolicyRespo
  *
  * ```
  *
- * @param GetComponentPolicyCommandInput - {@link GetComponentPolicyCommandInput}
- * @returns {@link GetComponentPolicyCommandOutput}
+ * @param GetComponentPolicyRequest - {@link GetComponentPolicyRequest}
+ * @returns {@link GetComponentPolicyResponse}
  * @see {@link GetComponentPolicyCommandInput} for command's `input` shape.
  * @see {@link GetComponentPolicyCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

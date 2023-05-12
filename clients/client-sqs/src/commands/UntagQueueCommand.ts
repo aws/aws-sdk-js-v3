@@ -57,8 +57,8 @@ export interface UntagQueueCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UntagQueueCommandInput - {@link UntagQueueCommandInput}
- * @returns {@link UntagQueueCommandOutput}
+ * @param UntagQueueRequest - {@link UntagQueueRequest}
+ * @returns {@link Unit}
  * @see {@link UntagQueueCommandInput} for command's `input` shape.
  * @see {@link UntagQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.

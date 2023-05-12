@@ -76,8 +76,8 @@ export interface ListAutoMLJobsCommandOutput extends ListAutoMLJobsResponse, __M
  *
  * ```
  *
- * @param ListAutoMLJobsCommandInput - {@link ListAutoMLJobsCommandInput}
- * @returns {@link ListAutoMLJobsCommandOutput}
+ * @param ListAutoMLJobsRequest - {@link ListAutoMLJobsRequest}
+ * @returns {@link ListAutoMLJobsResponse}
  * @see {@link ListAutoMLJobsCommandInput} for command's `input` shape.
  * @see {@link ListAutoMLJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

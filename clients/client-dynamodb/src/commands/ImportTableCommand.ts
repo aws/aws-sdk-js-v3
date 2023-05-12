@@ -187,8 +187,8 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  *
  * ```
  *
- * @param ImportTableCommandInput - {@link ImportTableCommandInput}
- * @returns {@link ImportTableCommandOutput}
+ * @param ImportTableInput - {@link ImportTableInput}
+ * @returns {@link ImportTableOutput}
  * @see {@link ImportTableCommandInput} for command's `input` shape.
  * @see {@link ImportTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

@@ -77,8 +77,8 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  *
  * ```
  *
- * @param UpdateWorkspaceImagePermissionCommandInput - {@link UpdateWorkspaceImagePermissionCommandInput}
- * @returns {@link UpdateWorkspaceImagePermissionCommandOutput}
+ * @param UpdateWorkspaceImagePermissionRequest - {@link UpdateWorkspaceImagePermissionRequest}
+ * @returns {@link UpdateWorkspaceImagePermissionResult}
  * @see {@link UpdateWorkspaceImagePermissionCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceImagePermissionCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

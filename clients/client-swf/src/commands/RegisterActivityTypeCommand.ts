@@ -105,8 +105,8 @@ export interface RegisterActivityTypeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RegisterActivityTypeCommandInput - {@link RegisterActivityTypeCommandInput}
- * @returns {@link RegisterActivityTypeCommandOutput}
+ * @param RegisterActivityTypeInput - {@link RegisterActivityTypeInput}
+ * @returns {@link Unit}
  * @see {@link RegisterActivityTypeCommandInput} for command's `input` shape.
  * @see {@link RegisterActivityTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

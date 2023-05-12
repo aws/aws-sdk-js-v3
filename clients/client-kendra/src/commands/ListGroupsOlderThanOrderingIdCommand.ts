@@ -68,8 +68,8 @@ export interface ListGroupsOlderThanOrderingIdCommandOutput
  *
  * ```
  *
- * @param ListGroupsOlderThanOrderingIdCommandInput - {@link ListGroupsOlderThanOrderingIdCommandInput}
- * @returns {@link ListGroupsOlderThanOrderingIdCommandOutput}
+ * @param ListGroupsOlderThanOrderingIdRequest - {@link ListGroupsOlderThanOrderingIdRequest}
+ * @returns {@link ListGroupsOlderThanOrderingIdResponse}
  * @see {@link ListGroupsOlderThanOrderingIdCommandInput} for command's `input` shape.
  * @see {@link ListGroupsOlderThanOrderingIdCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

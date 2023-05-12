@@ -62,8 +62,8 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  *
  * ```
  *
- * @param BatchPutMessageCommandInput - {@link BatchPutMessageCommandInput}
- * @returns {@link BatchPutMessageCommandOutput}
+ * @param BatchPutMessageRequest - {@link BatchPutMessageRequest}
+ * @returns {@link BatchPutMessageResponse}
  * @see {@link BatchPutMessageCommandInput} for command's `input` shape.
  * @see {@link BatchPutMessageCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

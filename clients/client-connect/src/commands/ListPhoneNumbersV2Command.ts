@@ -74,8 +74,8 @@ export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Respo
  *
  * ```
  *
- * @param ListPhoneNumbersV2CommandInput - {@link ListPhoneNumbersV2CommandInput}
- * @returns {@link ListPhoneNumbersV2CommandOutput}
+ * @param ListPhoneNumbersV2Request - {@link ListPhoneNumbersV2Request}
+ * @returns {@link ListPhoneNumbersV2Response}
  * @see {@link ListPhoneNumbersV2CommandInput} for command's `input` shape.
  * @see {@link ListPhoneNumbersV2CommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

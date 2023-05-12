@@ -106,8 +106,8 @@ export interface StartFraudsterRegistrationJobCommandOutput
  *
  * ```
  *
- * @param StartFraudsterRegistrationJobCommandInput - {@link StartFraudsterRegistrationJobCommandInput}
- * @returns {@link StartFraudsterRegistrationJobCommandOutput}
+ * @param StartFraudsterRegistrationJobRequest - {@link StartFraudsterRegistrationJobRequest}
+ * @returns {@link StartFraudsterRegistrationJobResponse}
  * @see {@link StartFraudsterRegistrationJobCommandInput} for command's `input` shape.
  * @see {@link StartFraudsterRegistrationJobCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

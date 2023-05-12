@@ -128,8 +128,8 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  *
  * ```
  *
- * @param DescribeClusterCommandInput - {@link DescribeClusterCommandInput}
- * @returns {@link DescribeClusterCommandOutput}
+ * @param DescribeClusterRequest - {@link DescribeClusterRequest}
+ * @returns {@link DescribeClusterResult}
  * @see {@link DescribeClusterCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

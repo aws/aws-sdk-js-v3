@@ -69,8 +69,8 @@ export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, _
  *
  * ```
  *
- * @param DescribeFunctionCommandInput - {@link DescribeFunctionCommandInput}
- * @returns {@link DescribeFunctionCommandOutput}
+ * @param DescribeFunctionRequest - {@link DescribeFunctionRequest}
+ * @returns {@link DescribeFunctionResult}
  * @see {@link DescribeFunctionCommandInput} for command's `input` shape.
  * @see {@link DescribeFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

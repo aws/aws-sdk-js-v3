@@ -57,8 +57,8 @@ export interface GetQueryLoggingConfigCommandOutput extends GetQueryLoggingConfi
  *
  * ```
  *
- * @param GetQueryLoggingConfigCommandInput - {@link GetQueryLoggingConfigCommandInput}
- * @returns {@link GetQueryLoggingConfigCommandOutput}
+ * @param GetQueryLoggingConfigRequest - {@link GetQueryLoggingConfigRequest}
+ * @returns {@link GetQueryLoggingConfigResponse}
  * @see {@link GetQueryLoggingConfigCommandInput} for command's `input` shape.
  * @see {@link GetQueryLoggingConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

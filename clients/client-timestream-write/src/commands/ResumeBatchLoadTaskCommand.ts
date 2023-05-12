@@ -50,8 +50,8 @@ export interface ResumeBatchLoadTaskCommandOutput extends ResumeBatchLoadTaskRes
  *
  * ```
  *
- * @param ResumeBatchLoadTaskCommandInput - {@link ResumeBatchLoadTaskCommandInput}
- * @returns {@link ResumeBatchLoadTaskCommandOutput}
+ * @param ResumeBatchLoadTaskRequest - {@link ResumeBatchLoadTaskRequest}
+ * @returns {@link ResumeBatchLoadTaskResponse}
  * @see {@link ResumeBatchLoadTaskCommandInput} for command's `input` shape.
  * @see {@link ResumeBatchLoadTaskCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.

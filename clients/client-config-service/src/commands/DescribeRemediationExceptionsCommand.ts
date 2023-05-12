@@ -79,8 +79,8 @@ export interface DescribeRemediationExceptionsCommandOutput
  *
  * ```
  *
- * @param DescribeRemediationExceptionsCommandInput - {@link DescribeRemediationExceptionsCommandInput}
- * @returns {@link DescribeRemediationExceptionsCommandOutput}
+ * @param DescribeRemediationExceptionsRequest - {@link DescribeRemediationExceptionsRequest}
+ * @returns {@link DescribeRemediationExceptionsResponse}
  * @see {@link DescribeRemediationExceptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeRemediationExceptionsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

@@ -50,8 +50,8 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayResponse, __Met
  *
  * ```
  *
- * @param DeleteGatewayCommandInput - {@link DeleteGatewayCommandInput}
- * @returns {@link DeleteGatewayCommandOutput}
+ * @param DeleteGatewayRequest - {@link DeleteGatewayRequest}
+ * @returns {@link DeleteGatewayResponse}
  * @see {@link DeleteGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

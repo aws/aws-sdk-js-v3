@@ -113,8 +113,8 @@ export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, _
  *
  * ```
  *
- * @param ListCodeReviewsCommandInput - {@link ListCodeReviewsCommandInput}
- * @returns {@link ListCodeReviewsCommandOutput}
+ * @param ListCodeReviewsRequest - {@link ListCodeReviewsRequest}
+ * @returns {@link ListCodeReviewsResponse}
  * @see {@link ListCodeReviewsCommandInput} for command's `input` shape.
  * @see {@link ListCodeReviewsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.

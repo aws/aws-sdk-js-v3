@@ -315,8 +315,8 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *
  * ```
  *
- * @param UpdateFlowCommandInput - {@link UpdateFlowCommandInput}
- * @returns {@link UpdateFlowCommandOutput}
+ * @param UpdateFlowRequest - {@link UpdateFlowRequest}
+ * @returns {@link UpdateFlowResponse}
  * @see {@link UpdateFlowCommandInput} for command's `input` shape.
  * @see {@link UpdateFlowCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.

@@ -55,8 +55,8 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  *
  * ```
  *
- * @param DescribeActivityCommandInput - {@link DescribeActivityCommandInput}
- * @returns {@link DescribeActivityCommandOutput}
+ * @param DescribeActivityInput - {@link DescribeActivityInput}
+ * @returns {@link DescribeActivityOutput}
  * @see {@link DescribeActivityCommandInput} for command's `input` shape.
  * @see {@link DescribeActivityCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

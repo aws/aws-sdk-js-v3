@@ -50,8 +50,8 @@ export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RebuildEnvironmentCommandInput - {@link RebuildEnvironmentCommandInput}
- * @returns {@link RebuildEnvironmentCommandOutput}
+ * @param RebuildEnvironmentMessage - {@link RebuildEnvironmentMessage}
+ * @returns {@link Unit}
  * @see {@link RebuildEnvironmentCommandInput} for command's `input` shape.
  * @see {@link RebuildEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

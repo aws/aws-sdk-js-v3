@@ -62,8 +62,8 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  *
  * ```
  *
- * @param DescribeParametersCommandInput - {@link DescribeParametersCommandInput}
- * @returns {@link DescribeParametersCommandOutput}
+ * @param DescribeParametersRequest - {@link DescribeParametersRequest}
+ * @returns {@link DescribeParametersResponse}
  * @see {@link DescribeParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeParametersCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

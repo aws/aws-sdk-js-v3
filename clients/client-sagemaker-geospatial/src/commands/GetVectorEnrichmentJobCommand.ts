@@ -94,8 +94,8 @@ export interface GetVectorEnrichmentJobCommandOutput extends GetVectorEnrichment
  *
  * ```
  *
- * @param GetVectorEnrichmentJobCommandInput - {@link GetVectorEnrichmentJobCommandInput}
- * @returns {@link GetVectorEnrichmentJobCommandOutput}
+ * @param GetVectorEnrichmentJobInput - {@link GetVectorEnrichmentJobInput}
+ * @returns {@link GetVectorEnrichmentJobOutput}
  * @see {@link GetVectorEnrichmentJobCommandInput} for command's `input` shape.
  * @see {@link GetVectorEnrichmentJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.

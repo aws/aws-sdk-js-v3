@@ -82,8 +82,8 @@ export interface UpdateResourceCommandOutput extends UpdateResourceOutput, __Met
  *
  * ```
  *
- * @param UpdateResourceCommandInput - {@link UpdateResourceCommandInput}
- * @returns {@link UpdateResourceCommandOutput}
+ * @param UpdateResourceInput - {@link UpdateResourceInput}
+ * @returns {@link UpdateResourceOutput}
  * @see {@link UpdateResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.

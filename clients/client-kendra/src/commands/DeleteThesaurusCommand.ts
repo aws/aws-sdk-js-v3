@@ -50,8 +50,8 @@ export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteThesaurusCommandInput - {@link DeleteThesaurusCommandInput}
- * @returns {@link DeleteThesaurusCommandOutput}
+ * @param DeleteThesaurusRequest - {@link DeleteThesaurusRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteThesaurusCommandInput} for command's `input` shape.
  * @see {@link DeleteThesaurusCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

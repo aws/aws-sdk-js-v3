@@ -76,8 +76,8 @@ export interface DescribeDomainConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeDomainConfigurationCommandInput - {@link DescribeDomainConfigurationCommandInput}
- * @returns {@link DescribeDomainConfigurationCommandOutput}
+ * @param DescribeDomainConfigurationRequest - {@link DescribeDomainConfigurationRequest}
+ * @returns {@link DescribeDomainConfigurationResponse}
  * @see {@link DescribeDomainConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

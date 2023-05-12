@@ -85,8 +85,8 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  *
  * ```
  *
- * @param UpdateSubscriberCommandInput - {@link UpdateSubscriberCommandInput}
- * @returns {@link UpdateSubscriberCommandOutput}
+ * @param UpdateSubscriberRequest - {@link UpdateSubscriberRequest}
+ * @returns {@link UpdateSubscriberResponse}
  * @see {@link UpdateSubscriberCommandInput} for command's `input` shape.
  * @see {@link UpdateSubscriberCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

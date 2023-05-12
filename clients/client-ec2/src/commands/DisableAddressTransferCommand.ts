@@ -58,8 +58,8 @@ export interface DisableAddressTransferCommandOutput extends DisableAddressTrans
  *
  * ```
  *
- * @param DisableAddressTransferCommandInput - {@link DisableAddressTransferCommandInput}
- * @returns {@link DisableAddressTransferCommandOutput}
+ * @param DisableAddressTransferRequest - {@link DisableAddressTransferRequest}
+ * @returns {@link DisableAddressTransferResult}
  * @see {@link DisableAddressTransferCommandInput} for command's `input` shape.
  * @see {@link DisableAddressTransferCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

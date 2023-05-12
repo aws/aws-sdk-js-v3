@@ -87,8 +87,8 @@ export interface ListSNOMEDCTInferenceJobsCommandOutput extends ListSNOMEDCTInfe
  *
  * ```
  *
- * @param ListSNOMEDCTInferenceJobsCommandInput - {@link ListSNOMEDCTInferenceJobsCommandInput}
- * @returns {@link ListSNOMEDCTInferenceJobsCommandOutput}
+ * @param ListSNOMEDCTInferenceJobsRequest - {@link ListSNOMEDCTInferenceJobsRequest}
+ * @returns {@link ListSNOMEDCTInferenceJobsResponse}
  * @see {@link ListSNOMEDCTInferenceJobsCommandInput} for command's `input` shape.
  * @see {@link ListSNOMEDCTInferenceJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

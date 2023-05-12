@@ -101,8 +101,8 @@ export interface PutAppsListCommandOutput extends PutAppsListResponse, __Metadat
  *
  * ```
  *
- * @param PutAppsListCommandInput - {@link PutAppsListCommandInput}
- * @returns {@link PutAppsListCommandOutput}
+ * @param PutAppsListRequest - {@link PutAppsListRequest}
+ * @returns {@link PutAppsListResponse}
  * @see {@link PutAppsListCommandInput} for command's `input` shape.
  * @see {@link PutAppsListCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

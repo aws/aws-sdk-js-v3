@@ -48,8 +48,8 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
  *
  * ```
  *
- * @param DeleteArchiveCommandInput - {@link DeleteArchiveCommandInput}
- * @returns {@link DeleteArchiveCommandOutput}
+ * @param DeleteArchiveRequest - {@link DeleteArchiveRequest}
+ * @returns {@link DeleteArchiveResponse}
  * @see {@link DeleteArchiveCommandInput} for command's `input` shape.
  * @see {@link DeleteArchiveCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

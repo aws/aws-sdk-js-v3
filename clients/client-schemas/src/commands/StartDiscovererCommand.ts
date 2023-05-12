@@ -51,8 +51,8 @@ export interface StartDiscovererCommandOutput extends StartDiscovererResponse, _
  *
  * ```
  *
- * @param StartDiscovererCommandInput - {@link StartDiscovererCommandInput}
- * @returns {@link StartDiscovererCommandOutput}
+ * @param StartDiscovererRequest - {@link StartDiscovererRequest}
+ * @returns {@link StartDiscovererResponse}
  * @see {@link StartDiscovererCommandInput} for command's `input` shape.
  * @see {@link StartDiscovererCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

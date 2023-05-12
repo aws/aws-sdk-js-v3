@@ -71,8 +71,8 @@ export interface EnableProfileCommandOutput extends ProfileDetailResponse, __Met
  *
  * ```
  *
- * @param EnableProfileCommandInput - {@link EnableProfileCommandInput}
- * @returns {@link EnableProfileCommandOutput}
+ * @param ScalarProfileRequest - {@link ScalarProfileRequest}
+ * @returns {@link ProfileDetailResponse}
  * @see {@link EnableProfileCommandInput} for command's `input` shape.
  * @see {@link EnableProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

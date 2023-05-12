@@ -144,8 +144,8 @@ export interface DescribeAutomationStepExecutionsCommandOutput
  *
  * ```
  *
- * @param DescribeAutomationStepExecutionsCommandInput - {@link DescribeAutomationStepExecutionsCommandInput}
- * @returns {@link DescribeAutomationStepExecutionsCommandOutput}
+ * @param DescribeAutomationStepExecutionsRequest - {@link DescribeAutomationStepExecutionsRequest}
+ * @returns {@link DescribeAutomationStepExecutionsResult}
  * @see {@link DescribeAutomationStepExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAutomationStepExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

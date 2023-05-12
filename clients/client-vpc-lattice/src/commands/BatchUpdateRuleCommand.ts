@@ -145,8 +145,8 @@ export interface BatchUpdateRuleCommandOutput extends BatchUpdateRuleResponse, _
  *
  * ```
  *
- * @param BatchUpdateRuleCommandInput - {@link BatchUpdateRuleCommandInput}
- * @returns {@link BatchUpdateRuleCommandOutput}
+ * @param BatchUpdateRuleRequest - {@link BatchUpdateRuleRequest}
+ * @returns {@link BatchUpdateRuleResponse}
  * @see {@link BatchUpdateRuleCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateRuleCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

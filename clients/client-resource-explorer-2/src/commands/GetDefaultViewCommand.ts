@@ -53,8 +53,8 @@ export interface GetDefaultViewCommandOutput extends GetDefaultViewOutput, __Met
  *
  * ```
  *
- * @param GetDefaultViewCommandInput - {@link GetDefaultViewCommandInput}
- * @returns {@link GetDefaultViewCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetDefaultViewOutput}
  * @see {@link GetDefaultViewCommandInput} for command's `input` shape.
  * @see {@link GetDefaultViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

@@ -67,8 +67,8 @@ export interface StartImageScanCommandOutput extends StartImageScanResponse, __M
  *
  * ```
  *
- * @param StartImageScanCommandInput - {@link StartImageScanCommandInput}
- * @returns {@link StartImageScanCommandOutput}
+ * @param StartImageScanRequest - {@link StartImageScanRequest}
+ * @returns {@link StartImageScanResponse}
  * @see {@link StartImageScanCommandInput} for command's `input` shape.
  * @see {@link StartImageScanCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

@@ -64,8 +64,8 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
  *
  * ```
  *
- * @param ListProjectPoliciesCommandInput - {@link ListProjectPoliciesCommandInput}
- * @returns {@link ListProjectPoliciesCommandOutput}
+ * @param ListProjectPoliciesRequest - {@link ListProjectPoliciesRequest}
+ * @returns {@link ListProjectPoliciesResponse}
  * @see {@link ListProjectPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListProjectPoliciesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

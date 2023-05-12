@@ -53,8 +53,8 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  *
  * ```
  *
- * @param RestoreFromSnapshotCommandInput - {@link RestoreFromSnapshotCommandInput}
- * @returns {@link RestoreFromSnapshotCommandOutput}
+ * @param RestoreFromSnapshotRequest - {@link RestoreFromSnapshotRequest}
+ * @returns {@link RestoreFromSnapshotResult}
  * @see {@link RestoreFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

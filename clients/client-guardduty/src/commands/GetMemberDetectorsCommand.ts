@@ -108,8 +108,8 @@ export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsRespo
  *
  * ```
  *
- * @param GetMemberDetectorsCommandInput - {@link GetMemberDetectorsCommandInput}
- * @returns {@link GetMemberDetectorsCommandOutput}
+ * @param GetMemberDetectorsRequest - {@link GetMemberDetectorsRequest}
+ * @returns {@link GetMemberDetectorsResponse}
  * @see {@link GetMemberDetectorsCommandInput} for command's `input` shape.
  * @see {@link GetMemberDetectorsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

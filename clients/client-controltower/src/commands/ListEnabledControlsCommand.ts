@@ -58,8 +58,8 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  *
  * ```
  *
- * @param ListEnabledControlsCommandInput - {@link ListEnabledControlsCommandInput}
- * @returns {@link ListEnabledControlsCommandOutput}
+ * @param ListEnabledControlsInput - {@link ListEnabledControlsInput}
+ * @returns {@link ListEnabledControlsOutput}
  * @see {@link ListEnabledControlsCommandInput} for command's `input` shape.
  * @see {@link ListEnabledControlsCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.

@@ -61,8 +61,8 @@ export interface DisassociateChannelFlowCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DisassociateChannelFlowCommandInput - {@link DisassociateChannelFlowCommandInput}
- * @returns {@link DisassociateChannelFlowCommandOutput}
+ * @param DisassociateChannelFlowRequest - {@link DisassociateChannelFlowRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateChannelFlowCommandInput} for command's `input` shape.
  * @see {@link DisassociateChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

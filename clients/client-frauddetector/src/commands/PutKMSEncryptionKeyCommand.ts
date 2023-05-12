@@ -48,8 +48,8 @@ export interface PutKMSEncryptionKeyCommandOutput extends PutKMSEncryptionKeyRes
  *
  * ```
  *
- * @param PutKMSEncryptionKeyCommandInput - {@link PutKMSEncryptionKeyCommandInput}
- * @returns {@link PutKMSEncryptionKeyCommandOutput}
+ * @param PutKMSEncryptionKeyRequest - {@link PutKMSEncryptionKeyRequest}
+ * @returns {@link PutKMSEncryptionKeyResult}
  * @see {@link PutKMSEncryptionKeyCommandInput} for command's `input` shape.
  * @see {@link PutKMSEncryptionKeyCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

@@ -95,8 +95,8 @@ export interface GetNodeCommandOutput extends GetNodeOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param GetNodeCommandInput - {@link GetNodeCommandInput}
- * @returns {@link GetNodeCommandOutput}
+ * @param GetNodeInput - {@link GetNodeInput}
+ * @returns {@link GetNodeOutput}
  * @see {@link GetNodeCommandInput} for command's `input` shape.
  * @see {@link GetNodeCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

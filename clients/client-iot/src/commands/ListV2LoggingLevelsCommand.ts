@@ -62,8 +62,8 @@ export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsRes
  *
  * ```
  *
- * @param ListV2LoggingLevelsCommandInput - {@link ListV2LoggingLevelsCommandInput}
- * @returns {@link ListV2LoggingLevelsCommandOutput}
+ * @param ListV2LoggingLevelsRequest - {@link ListV2LoggingLevelsRequest}
+ * @returns {@link ListV2LoggingLevelsResponse}
  * @see {@link ListV2LoggingLevelsCommandInput} for command's `input` shape.
  * @see {@link ListV2LoggingLevelsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

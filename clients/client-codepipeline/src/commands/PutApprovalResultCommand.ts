@@ -58,8 +58,8 @@ export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput,
  *
  * ```
  *
- * @param PutApprovalResultCommandInput - {@link PutApprovalResultCommandInput}
- * @returns {@link PutApprovalResultCommandOutput}
+ * @param PutApprovalResultInput - {@link PutApprovalResultInput}
+ * @returns {@link PutApprovalResultOutput}
  * @see {@link PutApprovalResultCommandInput} for command's `input` shape.
  * @see {@link PutApprovalResultCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

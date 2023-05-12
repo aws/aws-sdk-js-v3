@@ -71,8 +71,8 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
  *
  * ```
  *
- * @param CreateNetworkProfileCommandInput - {@link CreateNetworkProfileCommandInput}
- * @returns {@link CreateNetworkProfileCommandOutput}
+ * @param CreateNetworkProfileRequest - {@link CreateNetworkProfileRequest}
+ * @returns {@link CreateNetworkProfileResponse}
  * @see {@link CreateNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

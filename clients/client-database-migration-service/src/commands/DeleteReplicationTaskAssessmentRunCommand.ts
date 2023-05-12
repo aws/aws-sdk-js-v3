@@ -81,8 +81,8 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
  *
  * ```
  *
- * @param DeleteReplicationTaskAssessmentRunCommandInput - {@link DeleteReplicationTaskAssessmentRunCommandInput}
- * @returns {@link DeleteReplicationTaskAssessmentRunCommandOutput}
+ * @param DeleteReplicationTaskAssessmentRunMessage - {@link DeleteReplicationTaskAssessmentRunMessage}
+ * @returns {@link DeleteReplicationTaskAssessmentRunResponse}
  * @see {@link DeleteReplicationTaskAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationTaskAssessmentRunCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

@@ -57,8 +57,8 @@ export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKa
  *
  * ```
  *
- * @param GetCompatibleKafkaVersionsCommandInput - {@link GetCompatibleKafkaVersionsCommandInput}
- * @returns {@link GetCompatibleKafkaVersionsCommandOutput}
+ * @param GetCompatibleKafkaVersionsRequest - {@link GetCompatibleKafkaVersionsRequest}
+ * @returns {@link GetCompatibleKafkaVersionsResponse}
  * @see {@link GetCompatibleKafkaVersionsCommandInput} for command's `input` shape.
  * @see {@link GetCompatibleKafkaVersionsCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

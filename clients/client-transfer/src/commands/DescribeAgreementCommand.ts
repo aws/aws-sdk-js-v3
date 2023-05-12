@@ -67,8 +67,8 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementRespons
  *
  * ```
  *
- * @param DescribeAgreementCommandInput - {@link DescribeAgreementCommandInput}
- * @returns {@link DescribeAgreementCommandOutput}
+ * @param DescribeAgreementRequest - {@link DescribeAgreementRequest}
+ * @returns {@link DescribeAgreementResponse}
  * @see {@link DescribeAgreementCommandInput} for command's `input` shape.
  * @see {@link DescribeAgreementCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

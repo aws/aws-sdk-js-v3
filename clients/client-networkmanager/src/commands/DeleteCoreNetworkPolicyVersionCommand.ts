@@ -71,8 +71,8 @@ export interface DeleteCoreNetworkPolicyVersionCommandOutput
  *
  * ```
  *
- * @param DeleteCoreNetworkPolicyVersionCommandInput - {@link DeleteCoreNetworkPolicyVersionCommandInput}
- * @returns {@link DeleteCoreNetworkPolicyVersionCommandOutput}
+ * @param DeleteCoreNetworkPolicyVersionRequest - {@link DeleteCoreNetworkPolicyVersionRequest}
+ * @returns {@link DeleteCoreNetworkPolicyVersionResponse}
  * @see {@link DeleteCoreNetworkPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteCoreNetworkPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

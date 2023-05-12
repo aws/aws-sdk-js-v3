@@ -48,8 +48,8 @@ export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutpu
  *
  * ```
  *
- * @param DeleteMetricStreamCommandInput - {@link DeleteMetricStreamCommandInput}
- * @returns {@link DeleteMetricStreamCommandOutput}
+ * @param DeleteMetricStreamInput - {@link DeleteMetricStreamInput}
+ * @returns {@link DeleteMetricStreamOutput}
  * @see {@link DeleteMetricStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteMetricStreamCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyR
  *
  * ```
  *
- * @param DeleteRegistryPolicyCommandInput - {@link DeleteRegistryPolicyCommandInput}
- * @returns {@link DeleteRegistryPolicyCommandOutput}
+ * @param DeleteRegistryPolicyRequest - {@link DeleteRegistryPolicyRequest}
+ * @returns {@link DeleteRegistryPolicyResponse}
  * @see {@link DeleteRegistryPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRegistryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

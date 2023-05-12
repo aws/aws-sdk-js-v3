@@ -72,8 +72,8 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  *
  * ```
  *
- * @param DescribeAutoScalingInstancesCommandInput - {@link DescribeAutoScalingInstancesCommandInput}
- * @returns {@link DescribeAutoScalingInstancesCommandOutput}
+ * @param DescribeAutoScalingInstancesType - {@link DescribeAutoScalingInstancesType}
+ * @returns {@link AutoScalingInstancesType}
  * @see {@link DescribeAutoScalingInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

@@ -50,8 +50,8 @@ export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DetachNetworkInterfaceCommandInput - {@link DetachNetworkInterfaceCommandInput}
- * @returns {@link DetachNetworkInterfaceCommandOutput}
+ * @param DetachNetworkInterfaceRequest - {@link DetachNetworkInterfaceRequest}
+ * @returns {@link Unit}
  * @see {@link DetachNetworkInterfaceCommandInput} for command's `input` shape.
  * @see {@link DetachNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

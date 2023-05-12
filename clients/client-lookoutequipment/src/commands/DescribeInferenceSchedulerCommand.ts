@@ -80,8 +80,8 @@ export interface DescribeInferenceSchedulerCommandOutput extends DescribeInferen
  *
  * ```
  *
- * @param DescribeInferenceSchedulerCommandInput - {@link DescribeInferenceSchedulerCommandInput}
- * @returns {@link DescribeInferenceSchedulerCommandOutput}
+ * @param DescribeInferenceSchedulerRequest - {@link DescribeInferenceSchedulerRequest}
+ * @returns {@link DescribeInferenceSchedulerResponse}
  * @see {@link DescribeInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link DescribeInferenceSchedulerCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

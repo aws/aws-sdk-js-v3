@@ -70,8 +70,8 @@ export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomai
  *
  * ```
  *
- * @param ListPackagesForDomainCommandInput - {@link ListPackagesForDomainCommandInput}
- * @returns {@link ListPackagesForDomainCommandOutput}
+ * @param ListPackagesForDomainRequest - {@link ListPackagesForDomainRequest}
+ * @returns {@link ListPackagesForDomainResponse}
  * @see {@link ListPackagesForDomainCommandInput} for command's `input` shape.
  * @see {@link ListPackagesForDomainCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

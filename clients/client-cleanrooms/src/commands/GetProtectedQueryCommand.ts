@@ -87,8 +87,8 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  *
  * ```
  *
- * @param GetProtectedQueryCommandInput - {@link GetProtectedQueryCommandInput}
- * @returns {@link GetProtectedQueryCommandOutput}
+ * @param GetProtectedQueryInput - {@link GetProtectedQueryInput}
+ * @returns {@link GetProtectedQueryOutput}
  * @see {@link GetProtectedQueryCommandInput} for command's `input` shape.
  * @see {@link GetProtectedQueryCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

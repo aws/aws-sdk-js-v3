@@ -60,8 +60,8 @@ export interface GetVoiceConnectorCommandOutput extends GetVoiceConnectorRespons
  *
  * ```
  *
- * @param GetVoiceConnectorCommandInput - {@link GetVoiceConnectorCommandInput}
- * @returns {@link GetVoiceConnectorCommandOutput}
+ * @param GetVoiceConnectorRequest - {@link GetVoiceConnectorRequest}
+ * @returns {@link GetVoiceConnectorResponse}
  * @see {@link GetVoiceConnectorCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

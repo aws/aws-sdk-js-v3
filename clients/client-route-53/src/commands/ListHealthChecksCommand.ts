@@ -107,8 +107,8 @@ export interface ListHealthChecksCommandOutput extends ListHealthChecksResponse,
  *
  * ```
  *
- * @param ListHealthChecksCommandInput - {@link ListHealthChecksCommandInput}
- * @returns {@link ListHealthChecksCommandOutput}
+ * @param ListHealthChecksRequest - {@link ListHealthChecksRequest}
+ * @returns {@link ListHealthChecksResponse}
  * @see {@link ListHealthChecksCommandInput} for command's `input` shape.
  * @see {@link ListHealthChecksCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

@@ -65,8 +65,8 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  *
  * ```
  *
- * @param ListAllowedNodeTypeModificationsCommandInput - {@link ListAllowedNodeTypeModificationsCommandInput}
- * @returns {@link ListAllowedNodeTypeModificationsCommandOutput}
+ * @param ListAllowedNodeTypeModificationsMessage - {@link ListAllowedNodeTypeModificationsMessage}
+ * @returns {@link AllowedNodeTypeModificationsMessage}
  * @see {@link ListAllowedNodeTypeModificationsCommandInput} for command's `input` shape.
  * @see {@link ListAllowedNodeTypeModificationsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

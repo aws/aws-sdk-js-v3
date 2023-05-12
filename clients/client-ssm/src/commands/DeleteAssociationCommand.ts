@@ -56,8 +56,8 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationResult,
  *
  * ```
  *
- * @param DeleteAssociationCommandInput - {@link DeleteAssociationCommandInput}
- * @returns {@link DeleteAssociationCommandOutput}
+ * @param DeleteAssociationRequest - {@link DeleteAssociationRequest}
+ * @returns {@link DeleteAssociationResult}
  * @see {@link DeleteAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteAssociationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

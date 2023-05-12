@@ -94,8 +94,8 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
  *
  * ```
  *
- * @param DescribeStackResourceDriftsCommandInput - {@link DescribeStackResourceDriftsCommandInput}
- * @returns {@link DescribeStackResourceDriftsCommandOutput}
+ * @param DescribeStackResourceDriftsInput - {@link DescribeStackResourceDriftsInput}
+ * @returns {@link DescribeStackResourceDriftsOutput}
  * @see {@link DescribeStackResourceDriftsCommandInput} for command's `input` shape.
  * @see {@link DescribeStackResourceDriftsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

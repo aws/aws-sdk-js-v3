@@ -74,8 +74,8 @@ export interface StartReadSetImportJobCommandOutput extends StartReadSetImportJo
  *
  * ```
  *
- * @param StartReadSetImportJobCommandInput - {@link StartReadSetImportJobCommandInput}
- * @returns {@link StartReadSetImportJobCommandOutput}
+ * @param StartReadSetImportJobRequest - {@link StartReadSetImportJobRequest}
+ * @returns {@link StartReadSetImportJobResponse}
  * @see {@link StartReadSetImportJobCommandInput} for command's `input` shape.
  * @see {@link StartReadSetImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

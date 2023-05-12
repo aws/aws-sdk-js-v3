@@ -97,8 +97,8 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  *
  * ```
  *
- * @param CreateImageRecipeCommandInput - {@link CreateImageRecipeCommandInput}
- * @returns {@link CreateImageRecipeCommandOutput}
+ * @param CreateImageRecipeRequest - {@link CreateImageRecipeRequest}
+ * @returns {@link CreateImageRecipeResponse}
  * @see {@link CreateImageRecipeCommandInput} for command's `input` shape.
  * @see {@link CreateImageRecipeCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

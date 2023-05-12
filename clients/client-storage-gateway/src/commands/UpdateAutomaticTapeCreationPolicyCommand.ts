@@ -72,8 +72,8 @@ export interface UpdateAutomaticTapeCreationPolicyCommandOutput
  *
  * ```
  *
- * @param UpdateAutomaticTapeCreationPolicyCommandInput - {@link UpdateAutomaticTapeCreationPolicyCommandInput}
- * @returns {@link UpdateAutomaticTapeCreationPolicyCommandOutput}
+ * @param UpdateAutomaticTapeCreationPolicyInput - {@link UpdateAutomaticTapeCreationPolicyInput}
+ * @returns {@link UpdateAutomaticTapeCreationPolicyOutput}
  * @see {@link UpdateAutomaticTapeCreationPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateAutomaticTapeCreationPolicyCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

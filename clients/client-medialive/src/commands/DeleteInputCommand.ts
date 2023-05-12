@@ -48,8 +48,8 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  *
  * ```
  *
- * @param DeleteInputCommandInput - {@link DeleteInputCommandInput}
- * @returns {@link DeleteInputCommandOutput}
+ * @param DeleteInputRequest - {@link DeleteInputRequest}
+ * @returns {@link DeleteInputResponse}
  * @see {@link DeleteInputCommandInput} for command's `input` shape.
  * @see {@link DeleteInputCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

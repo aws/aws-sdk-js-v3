@@ -62,8 +62,8 @@ export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsRespo
  *
  * ```
  *
- * @param GetNetworkSettingsCommandInput - {@link GetNetworkSettingsCommandInput}
- * @returns {@link GetNetworkSettingsCommandOutput}
+ * @param GetNetworkSettingsRequest - {@link GetNetworkSettingsRequest}
+ * @returns {@link GetNetworkSettingsResponse}
  * @see {@link GetNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link GetNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

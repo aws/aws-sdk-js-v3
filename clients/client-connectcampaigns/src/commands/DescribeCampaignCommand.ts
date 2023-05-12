@@ -74,8 +74,8 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  *
  * ```
  *
- * @param DescribeCampaignCommandInput - {@link DescribeCampaignCommandInput}
- * @returns {@link DescribeCampaignCommandOutput}
+ * @param DescribeCampaignRequest - {@link DescribeCampaignRequest}
+ * @returns {@link DescribeCampaignResponse}
  * @see {@link DescribeCampaignCommandInput} for command's `input` shape.
  * @see {@link DescribeCampaignCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

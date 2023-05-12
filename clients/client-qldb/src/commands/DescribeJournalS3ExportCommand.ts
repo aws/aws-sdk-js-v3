@@ -76,8 +76,8 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
  *
  * ```
  *
- * @param DescribeJournalS3ExportCommandInput - {@link DescribeJournalS3ExportCommandInput}
- * @returns {@link DescribeJournalS3ExportCommandOutput}
+ * @param DescribeJournalS3ExportRequest - {@link DescribeJournalS3ExportRequest}
+ * @returns {@link DescribeJournalS3ExportResponse}
  * @see {@link DescribeJournalS3ExportCommandInput} for command's `input` shape.
  * @see {@link DescribeJournalS3ExportCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.

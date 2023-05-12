@@ -123,8 +123,8 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  *
  * ```
  *
- * @param SearchPlaceIndexForTextCommandInput - {@link SearchPlaceIndexForTextCommandInput}
- * @returns {@link SearchPlaceIndexForTextCommandOutput}
+ * @param SearchPlaceIndexForTextRequest - {@link SearchPlaceIndexForTextRequest}
+ * @returns {@link SearchPlaceIndexForTextResponse}
  * @see {@link SearchPlaceIndexForTextCommandInput} for command's `input` shape.
  * @see {@link SearchPlaceIndexForTextCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

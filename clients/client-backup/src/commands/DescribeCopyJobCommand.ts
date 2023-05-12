@@ -79,8 +79,8 @@ export interface DescribeCopyJobCommandOutput extends DescribeCopyJobOutput, __M
  *
  * ```
  *
- * @param DescribeCopyJobCommandInput - {@link DescribeCopyJobCommandInput}
- * @returns {@link DescribeCopyJobCommandOutput}
+ * @param DescribeCopyJobInput - {@link DescribeCopyJobInput}
+ * @returns {@link DescribeCopyJobOutput}
  * @see {@link DescribeCopyJobCommandInput} for command's `input` shape.
  * @see {@link DescribeCopyJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

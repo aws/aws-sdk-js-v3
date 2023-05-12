@@ -109,8 +109,8 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  *
  * ```
  *
- * @param ListCoverageStatisticsCommandInput - {@link ListCoverageStatisticsCommandInput}
- * @returns {@link ListCoverageStatisticsCommandOutput}
+ * @param ListCoverageStatisticsRequest - {@link ListCoverageStatisticsRequest}
+ * @returns {@link ListCoverageStatisticsResponse}
  * @see {@link ListCoverageStatisticsCommandInput} for command's `input` shape.
  * @see {@link ListCoverageStatisticsCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

@@ -93,8 +93,8 @@ export interface ListSafetyRulesCommandOutput extends ListSafetyRulesResponse, _
  *
  * ```
  *
- * @param ListSafetyRulesCommandInput - {@link ListSafetyRulesCommandInput}
- * @returns {@link ListSafetyRulesCommandOutput}
+ * @param ListSafetyRulesRequest - {@link ListSafetyRulesRequest}
+ * @returns {@link ListSafetyRulesResponse}
  * @see {@link ListSafetyRulesCommandInput} for command's `input` shape.
  * @see {@link ListSafetyRulesCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

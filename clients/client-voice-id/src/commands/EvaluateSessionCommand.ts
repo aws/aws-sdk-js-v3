@@ -93,8 +93,8 @@ export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, _
  *
  * ```
  *
- * @param EvaluateSessionCommandInput - {@link EvaluateSessionCommandInput}
- * @returns {@link EvaluateSessionCommandOutput}
+ * @param EvaluateSessionRequest - {@link EvaluateSessionRequest}
+ * @returns {@link EvaluateSessionResponse}
  * @see {@link EvaluateSessionCommandInput} for command's `input` shape.
  * @see {@link EvaluateSessionCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

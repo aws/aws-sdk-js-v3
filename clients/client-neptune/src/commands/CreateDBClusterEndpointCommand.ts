@@ -77,8 +77,8 @@ export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEnd
  *
  * ```
  *
- * @param CreateDBClusterEndpointCommandInput - {@link CreateDBClusterEndpointCommandInput}
- * @returns {@link CreateDBClusterEndpointCommandOutput}
+ * @param CreateDBClusterEndpointMessage - {@link CreateDBClusterEndpointMessage}
+ * @returns {@link CreateDBClusterEndpointOutput}
  * @see {@link CreateDBClusterEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

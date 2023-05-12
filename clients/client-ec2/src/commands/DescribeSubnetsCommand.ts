@@ -108,8 +108,8 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  *
  * ```
  *
- * @param DescribeSubnetsCommandInput - {@link DescribeSubnetsCommandInput}
- * @returns {@link DescribeSubnetsCommandOutput}
+ * @param DescribeSubnetsRequest - {@link DescribeSubnetsRequest}
+ * @returns {@link DescribeSubnetsResult}
  * @see {@link DescribeSubnetsCommandInput} for command's `input` shape.
  * @see {@link DescribeSubnetsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

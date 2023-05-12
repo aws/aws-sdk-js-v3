@@ -87,8 +87,8 @@ export interface GetImagePipelineCommandOutput extends GetImagePipelineResponse,
  *
  * ```
  *
- * @param GetImagePipelineCommandInput - {@link GetImagePipelineCommandInput}
- * @returns {@link GetImagePipelineCommandOutput}
+ * @param GetImagePipelineRequest - {@link GetImagePipelineRequest}
+ * @returns {@link GetImagePipelineResponse}
  * @see {@link GetImagePipelineCommandInput} for command's `input` shape.
  * @see {@link GetImagePipelineCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

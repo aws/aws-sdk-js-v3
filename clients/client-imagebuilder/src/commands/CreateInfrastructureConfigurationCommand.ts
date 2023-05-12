@@ -90,8 +90,8 @@ export interface CreateInfrastructureConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateInfrastructureConfigurationCommandInput - {@link CreateInfrastructureConfigurationCommandInput}
- * @returns {@link CreateInfrastructureConfigurationCommandOutput}
+ * @param CreateInfrastructureConfigurationRequest - {@link CreateInfrastructureConfigurationRequest}
+ * @returns {@link CreateInfrastructureConfigurationResponse}
  * @see {@link CreateInfrastructureConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateInfrastructureConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

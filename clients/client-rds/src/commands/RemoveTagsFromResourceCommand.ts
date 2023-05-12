@@ -55,8 +55,8 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RemoveTagsFromResourceCommandInput - {@link RemoveTagsFromResourceCommandInput}
- * @returns {@link RemoveTagsFromResourceCommandOutput}
+ * @param RemoveTagsFromResourceMessage - {@link RemoveTagsFromResourceMessage}
+ * @returns {@link Unit}
  * @see {@link RemoveTagsFromResourceCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

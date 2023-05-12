@@ -75,8 +75,8 @@ export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDire
  *
  * ```
  *
- * @param DescribeUpdateDirectoryCommandInput - {@link DescribeUpdateDirectoryCommandInput}
- * @returns {@link DescribeUpdateDirectoryCommandOutput}
+ * @param DescribeUpdateDirectoryRequest - {@link DescribeUpdateDirectoryRequest}
+ * @returns {@link DescribeUpdateDirectoryResult}
  * @see {@link DescribeUpdateDirectoryCommandInput} for command's `input` shape.
  * @see {@link DescribeUpdateDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

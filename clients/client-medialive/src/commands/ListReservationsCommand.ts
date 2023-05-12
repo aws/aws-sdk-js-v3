@@ -96,8 +96,8 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
  *
  * ```
  *
- * @param ListReservationsCommandInput - {@link ListReservationsCommandInput}
- * @returns {@link ListReservationsCommandOutput}
+ * @param ListReservationsRequest - {@link ListReservationsRequest}
+ * @returns {@link ListReservationsResponse}
  * @see {@link ListReservationsCommandInput} for command's `input` shape.
  * @see {@link ListReservationsCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

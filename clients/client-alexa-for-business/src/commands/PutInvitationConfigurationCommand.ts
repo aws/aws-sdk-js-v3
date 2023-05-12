@@ -53,8 +53,8 @@ export interface PutInvitationConfigurationCommandOutput extends PutInvitationCo
  *
  * ```
  *
- * @param PutInvitationConfigurationCommandInput - {@link PutInvitationConfigurationCommandInput}
- * @returns {@link PutInvitationConfigurationCommandOutput}
+ * @param PutInvitationConfigurationRequest - {@link PutInvitationConfigurationRequest}
+ * @returns {@link PutInvitationConfigurationResponse}
  * @see {@link PutInvitationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutInvitationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

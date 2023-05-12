@@ -75,8 +75,8 @@ export interface DescribeFlywheelIterationCommandOutput extends DescribeFlywheel
  *
  * ```
  *
- * @param DescribeFlywheelIterationCommandInput - {@link DescribeFlywheelIterationCommandInput}
- * @returns {@link DescribeFlywheelIterationCommandOutput}
+ * @param DescribeFlywheelIterationRequest - {@link DescribeFlywheelIterationRequest}
+ * @returns {@link DescribeFlywheelIterationResponse}
  * @see {@link DescribeFlywheelIterationCommandInput} for command's `input` shape.
  * @see {@link DescribeFlywheelIterationCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

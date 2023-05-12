@@ -111,8 +111,8 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  *
  * ```
  *
- * @param PutProfileObjectTypeCommandInput - {@link PutProfileObjectTypeCommandInput}
- * @returns {@link PutProfileObjectTypeCommandOutput}
+ * @param PutProfileObjectTypeRequest - {@link PutProfileObjectTypeRequest}
+ * @returns {@link PutProfileObjectTypeResponse}
  * @see {@link PutProfileObjectTypeCommandInput} for command's `input` shape.
  * @see {@link PutProfileObjectTypeCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

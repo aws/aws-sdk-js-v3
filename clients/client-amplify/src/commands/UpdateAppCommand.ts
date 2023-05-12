@@ -153,8 +153,8 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  *
  * ```
  *
- * @param UpdateAppCommandInput - {@link UpdateAppCommandInput}
- * @returns {@link UpdateAppCommandOutput}
+ * @param UpdateAppRequest - {@link UpdateAppRequest}
+ * @returns {@link UpdateAppResult}
  * @see {@link UpdateAppCommandInput} for command's `input` shape.
  * @see {@link UpdateAppCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

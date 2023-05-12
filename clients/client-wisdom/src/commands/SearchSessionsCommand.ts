@@ -69,8 +69,8 @@ export interface SearchSessionsCommandOutput extends SearchSessionsResponse, __M
  *
  * ```
  *
- * @param SearchSessionsCommandInput - {@link SearchSessionsCommandInput}
- * @returns {@link SearchSessionsCommandOutput}
+ * @param SearchSessionsRequest - {@link SearchSessionsRequest}
+ * @returns {@link SearchSessionsResponse}
  * @see {@link SearchSessionsCommandInput} for command's `input` shape.
  * @see {@link SearchSessionsCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

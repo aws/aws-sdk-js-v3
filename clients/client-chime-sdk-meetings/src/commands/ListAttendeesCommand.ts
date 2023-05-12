@@ -72,8 +72,8 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  *
  * ```
  *
- * @param ListAttendeesCommandInput - {@link ListAttendeesCommandInput}
- * @returns {@link ListAttendeesCommandOutput}
+ * @param ListAttendeesRequest - {@link ListAttendeesRequest}
+ * @returns {@link ListAttendeesResponse}
  * @see {@link ListAttendeesCommandInput} for command's `input` shape.
  * @see {@link ListAttendeesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.

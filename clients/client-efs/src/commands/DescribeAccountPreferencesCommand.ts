@@ -58,8 +58,8 @@ export interface DescribeAccountPreferencesCommandOutput extends DescribeAccount
  *
  * ```
  *
- * @param DescribeAccountPreferencesCommandInput - {@link DescribeAccountPreferencesCommandInput}
- * @returns {@link DescribeAccountPreferencesCommandOutput}
+ * @param DescribeAccountPreferencesRequest - {@link DescribeAccountPreferencesRequest}
+ * @returns {@link DescribeAccountPreferencesResponse}
  * @see {@link DescribeAccountPreferencesCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountPreferencesCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

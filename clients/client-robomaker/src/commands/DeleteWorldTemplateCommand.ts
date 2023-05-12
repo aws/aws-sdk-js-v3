@@ -48,8 +48,8 @@ export interface DeleteWorldTemplateCommandOutput extends DeleteWorldTemplateRes
  *
  * ```
  *
- * @param DeleteWorldTemplateCommandInput - {@link DeleteWorldTemplateCommandInput}
- * @returns {@link DeleteWorldTemplateCommandOutput}
+ * @param DeleteWorldTemplateRequest - {@link DeleteWorldTemplateRequest}
+ * @returns {@link DeleteWorldTemplateResponse}
  * @see {@link DeleteWorldTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteWorldTemplateCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

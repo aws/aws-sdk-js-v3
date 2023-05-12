@@ -68,8 +68,8 @@ export interface DescribeDomainEndpointOptionsCommandOutput
  *
  * ```
  *
- * @param DescribeDomainEndpointOptionsCommandInput - {@link DescribeDomainEndpointOptionsCommandInput}
- * @returns {@link DescribeDomainEndpointOptionsCommandOutput}
+ * @param DescribeDomainEndpointOptionsRequest - {@link DescribeDomainEndpointOptionsRequest}
+ * @returns {@link DescribeDomainEndpointOptionsResponse}
  * @see {@link DescribeDomainEndpointOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainEndpointOptionsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

@@ -82,8 +82,8 @@ export interface AttachLoadBalancerTlsCertificateCommandOutput
  *
  * ```
  *
- * @param AttachLoadBalancerTlsCertificateCommandInput - {@link AttachLoadBalancerTlsCertificateCommandInput}
- * @returns {@link AttachLoadBalancerTlsCertificateCommandOutput}
+ * @param AttachLoadBalancerTlsCertificateRequest - {@link AttachLoadBalancerTlsCertificateRequest}
+ * @returns {@link AttachLoadBalancerTlsCertificateResult}
  * @see {@link AttachLoadBalancerTlsCertificateCommandInput} for command's `input` shape.
  * @see {@link AttachLoadBalancerTlsCertificateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

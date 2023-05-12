@@ -86,8 +86,8 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  *
  * ```
  *
- * @param DescribeLoadBalancerAttributesCommandInput - {@link DescribeLoadBalancerAttributesCommandInput}
- * @returns {@link DescribeLoadBalancerAttributesCommandOutput}
+ * @param DescribeLoadBalancerAttributesInput - {@link DescribeLoadBalancerAttributesInput}
+ * @returns {@link DescribeLoadBalancerAttributesOutput}
  * @see {@link DescribeLoadBalancerAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancerAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

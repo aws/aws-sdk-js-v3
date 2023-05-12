@@ -124,8 +124,8 @@ export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobRes
  *
  * ```
  *
- * @param CreateDeploymentJobCommandInput - {@link CreateDeploymentJobCommandInput}
- * @returns {@link CreateDeploymentJobCommandOutput}
+ * @param CreateDeploymentJobRequest - {@link CreateDeploymentJobRequest}
+ * @returns {@link CreateDeploymentJobResponse}
  * @see {@link CreateDeploymentJobCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

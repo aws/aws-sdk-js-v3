@@ -137,9 +137,15 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //         },
  * //       },
  * //       inferredWorkloadTypes: [ // InferredWorkloadTypes
- * //         "AmazonEmr" || "ApacheCassandra" || "ApacheHadoop" || "Memcached" || "Nginx" || "PostgreSql" || "Redis" || "Kafka",
+ * //         "AmazonEmr" || "ApacheCassandra" || "ApacheHadoop" || "Memcached" || "Nginx" || "PostgreSql" || "Redis" || "Kafka" || "SQLServer",
  * //       ],
  * //       instanceState: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
+ * //       tags: [ // Tags
+ * //         { // Tag
+ * //           key: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   errors: [ // GetRecommendationErrors
@@ -153,8 +159,8 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  *
  * ```
  *
- * @param GetEC2InstanceRecommendationsCommandInput - {@link GetEC2InstanceRecommendationsCommandInput}
- * @returns {@link GetEC2InstanceRecommendationsCommandOutput}
+ * @param GetEC2InstanceRecommendationsRequest - {@link GetEC2InstanceRecommendationsRequest}
+ * @returns {@link GetEC2InstanceRecommendationsResponse}
  * @see {@link GetEC2InstanceRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetEC2InstanceRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

@@ -58,8 +58,8 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  *
  * ```
  *
- * @param AuthorizeVpcEndpointAccessCommandInput - {@link AuthorizeVpcEndpointAccessCommandInput}
- * @returns {@link AuthorizeVpcEndpointAccessCommandOutput}
+ * @param AuthorizeVpcEndpointAccessRequest - {@link AuthorizeVpcEndpointAccessRequest}
+ * @returns {@link AuthorizeVpcEndpointAccessResponse}
  * @see {@link AuthorizeVpcEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link AuthorizeVpcEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

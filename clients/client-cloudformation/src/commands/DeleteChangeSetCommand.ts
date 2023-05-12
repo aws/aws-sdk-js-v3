@@ -56,8 +56,8 @@ export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __M
  *
  * ```
  *
- * @param DeleteChangeSetCommandInput - {@link DeleteChangeSetCommandInput}
- * @returns {@link DeleteChangeSetCommandOutput}
+ * @param DeleteChangeSetInput - {@link DeleteChangeSetInput}
+ * @returns {@link DeleteChangeSetOutput}
  * @see {@link DeleteChangeSetCommandInput} for command's `input` shape.
  * @see {@link DeleteChangeSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

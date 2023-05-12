@@ -52,8 +52,8 @@ export interface RemoveFlowMediaStreamCommandOutput extends RemoveFlowMediaStrea
  *
  * ```
  *
- * @param RemoveFlowMediaStreamCommandInput - {@link RemoveFlowMediaStreamCommandInput}
- * @returns {@link RemoveFlowMediaStreamCommandOutput}
+ * @param RemoveFlowMediaStreamRequest - {@link RemoveFlowMediaStreamRequest}
+ * @returns {@link RemoveFlowMediaStreamResponse}
  * @see {@link RemoveFlowMediaStreamCommandInput} for command's `input` shape.
  * @see {@link RemoveFlowMediaStreamCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

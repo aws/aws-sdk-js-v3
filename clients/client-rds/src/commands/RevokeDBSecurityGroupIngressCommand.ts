@@ -85,8 +85,8 @@ export interface RevokeDBSecurityGroupIngressCommandOutput
  *
  * ```
  *
- * @param RevokeDBSecurityGroupIngressCommandInput - {@link RevokeDBSecurityGroupIngressCommandInput}
- * @returns {@link RevokeDBSecurityGroupIngressCommandOutput}
+ * @param RevokeDBSecurityGroupIngressMessage - {@link RevokeDBSecurityGroupIngressMessage}
+ * @returns {@link RevokeDBSecurityGroupIngressResult}
  * @see {@link RevokeDBSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeDBSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

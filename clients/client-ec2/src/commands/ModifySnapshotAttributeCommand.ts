@@ -78,8 +78,8 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param ModifySnapshotAttributeCommandInput - {@link ModifySnapshotAttributeCommandInput}
- * @returns {@link ModifySnapshotAttributeCommandOutput}
+ * @param ModifySnapshotAttributeRequest - {@link ModifySnapshotAttributeRequest}
+ * @returns {@link Unit}
  * @see {@link ModifySnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifySnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

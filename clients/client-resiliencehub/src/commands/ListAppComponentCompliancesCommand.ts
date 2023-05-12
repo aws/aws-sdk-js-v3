@@ -89,8 +89,8 @@ export interface ListAppComponentCompliancesCommandOutput
  *
  * ```
  *
- * @param ListAppComponentCompliancesCommandInput - {@link ListAppComponentCompliancesCommandInput}
- * @returns {@link ListAppComponentCompliancesCommandOutput}
+ * @param ListAppComponentCompliancesRequest - {@link ListAppComponentCompliancesRequest}
+ * @returns {@link ListAppComponentCompliancesResponse}
  * @see {@link ListAppComponentCompliancesCommandInput} for command's `input` shape.
  * @see {@link ListAppComponentCompliancesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

@@ -65,8 +65,8 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  *
  * ```
  *
- * @param CreateTokenCommandInput - {@link CreateTokenCommandInput}
- * @returns {@link CreateTokenCommandOutput}
+ * @param CreateTokenRequest - {@link CreateTokenRequest}
+ * @returns {@link CreateTokenResponse}
  * @see {@link CreateTokenCommandInput} for command's `input` shape.
  * @see {@link CreateTokenCommandOutput} for command's `response` shape.
  * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.

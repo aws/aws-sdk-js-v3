@@ -120,8 +120,8 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  *
  * ```
  *
- * @param CreateConfigurationProfileCommandInput - {@link CreateConfigurationProfileCommandInput}
- * @returns {@link CreateConfigurationProfileCommandOutput}
+ * @param CreateConfigurationProfileRequest - {@link CreateConfigurationProfileRequest}
+ * @returns {@link ConfigurationProfile}
  * @see {@link CreateConfigurationProfileCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

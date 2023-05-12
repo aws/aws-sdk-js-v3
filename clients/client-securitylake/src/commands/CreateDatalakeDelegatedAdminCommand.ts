@@ -55,8 +55,8 @@ export interface CreateDatalakeDelegatedAdminCommandOutput
  *
  * ```
  *
- * @param CreateDatalakeDelegatedAdminCommandInput - {@link CreateDatalakeDelegatedAdminCommandInput}
- * @returns {@link CreateDatalakeDelegatedAdminCommandOutput}
+ * @param CreateDatalakeDelegatedAdminRequest - {@link CreateDatalakeDelegatedAdminRequest}
+ * @returns {@link CreateDatalakeDelegatedAdminResponse}
  * @see {@link CreateDatalakeDelegatedAdminCommandInput} for command's `input` shape.
  * @see {@link CreateDatalakeDelegatedAdminCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

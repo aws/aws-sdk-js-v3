@@ -80,8 +80,8 @@ export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBea
  *
  * ```
  *
- * @param GetBundlesCommandInput - {@link GetBundlesCommandInput}
- * @returns {@link GetBundlesCommandOutput}
+ * @param GetBundlesRequest - {@link GetBundlesRequest}
+ * @returns {@link GetBundlesResult}
  * @see {@link GetBundlesCommandInput} for command's `input` shape.
  * @see {@link GetBundlesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -80,8 +80,8 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutSubscriptionFilterCommandInput - {@link PutSubscriptionFilterCommandInput}
- * @returns {@link PutSubscriptionFilterCommandOutput}
+ * @param PutSubscriptionFilterRequest - {@link PutSubscriptionFilterRequest}
+ * @returns {@link Unit}
  * @see {@link PutSubscriptionFilterCommandInput} for command's `input` shape.
  * @see {@link PutSubscriptionFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

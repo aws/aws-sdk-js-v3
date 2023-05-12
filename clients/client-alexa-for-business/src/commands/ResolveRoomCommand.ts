@@ -64,8 +64,8 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
  *
  * ```
  *
- * @param ResolveRoomCommandInput - {@link ResolveRoomCommandInput}
- * @returns {@link ResolveRoomCommandOutput}
+ * @param ResolveRoomRequest - {@link ResolveRoomRequest}
+ * @returns {@link ResolveRoomResponse}
  * @see {@link ResolveRoomCommandInput} for command's `input` shape.
  * @see {@link ResolveRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

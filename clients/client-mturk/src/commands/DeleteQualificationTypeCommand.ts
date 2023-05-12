@@ -66,8 +66,8 @@ export interface DeleteQualificationTypeCommandOutput extends DeleteQualificatio
  *
  * ```
  *
- * @param DeleteQualificationTypeCommandInput - {@link DeleteQualificationTypeCommandInput}
- * @returns {@link DeleteQualificationTypeCommandOutput}
+ * @param DeleteQualificationTypeRequest - {@link DeleteQualificationTypeRequest}
+ * @returns {@link DeleteQualificationTypeResponse}
  * @see {@link DeleteQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

@@ -62,8 +62,8 @@ export interface DescribeLogPatternCommandOutput extends DescribeLogPatternRespo
  *
  * ```
  *
- * @param DescribeLogPatternCommandInput - {@link DescribeLogPatternCommandInput}
- * @returns {@link DescribeLogPatternCommandOutput}
+ * @param DescribeLogPatternRequest - {@link DescribeLogPatternRequest}
+ * @returns {@link DescribeLogPatternResponse}
  * @see {@link DescribeLogPatternCommandInput} for command's `input` shape.
  * @see {@link DescribeLogPatternCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.

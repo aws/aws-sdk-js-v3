@@ -86,8 +86,8 @@ export interface DescribeDeploymentsCommandOutput extends DescribeDeploymentsRes
  *
  * ```
  *
- * @param DescribeDeploymentsCommandInput - {@link DescribeDeploymentsCommandInput}
- * @returns {@link DescribeDeploymentsCommandOutput}
+ * @param DescribeDeploymentsRequest - {@link DescribeDeploymentsRequest}
+ * @returns {@link DescribeDeploymentsResult}
  * @see {@link DescribeDeploymentsCommandInput} for command's `input` shape.
  * @see {@link DescribeDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

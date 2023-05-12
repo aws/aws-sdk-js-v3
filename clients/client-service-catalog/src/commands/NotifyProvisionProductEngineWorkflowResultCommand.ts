@@ -77,8 +77,8 @@ export interface NotifyProvisionProductEngineWorkflowResultCommandOutput
  *
  * ```
  *
- * @param NotifyProvisionProductEngineWorkflowResultCommandInput - {@link NotifyProvisionProductEngineWorkflowResultCommandInput}
- * @returns {@link NotifyProvisionProductEngineWorkflowResultCommandOutput}
+ * @param NotifyProvisionProductEngineWorkflowResultInput - {@link NotifyProvisionProductEngineWorkflowResultInput}
+ * @returns {@link NotifyProvisionProductEngineWorkflowResultOutput}
  * @see {@link NotifyProvisionProductEngineWorkflowResultCommandInput} for command's `input` shape.
  * @see {@link NotifyProvisionProductEngineWorkflowResultCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

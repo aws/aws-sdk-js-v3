@@ -50,8 +50,8 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupRespo
  *
  * ```
  *
- * @param DeleteBillingGroupCommandInput - {@link DeleteBillingGroupCommandInput}
- * @returns {@link DeleteBillingGroupCommandOutput}
+ * @param DeleteBillingGroupRequest - {@link DeleteBillingGroupRequest}
+ * @returns {@link DeleteBillingGroupResponse}
  * @see {@link DeleteBillingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

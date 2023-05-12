@@ -59,8 +59,8 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  *
  * ```
  *
- * @param DescribeOrganizationCommandInput - {@link DescribeOrganizationCommandInput}
- * @returns {@link DescribeOrganizationCommandOutput}
+ * @param DescribeOrganizationRequest - {@link DescribeOrganizationRequest}
+ * @returns {@link DescribeOrganizationResponse}
  * @see {@link DescribeOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

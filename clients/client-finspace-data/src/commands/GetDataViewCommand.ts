@@ -75,8 +75,8 @@ export interface GetDataViewCommandOutput extends GetDataViewResponse, __Metadat
  *
  * ```
  *
- * @param GetDataViewCommandInput - {@link GetDataViewCommandInput}
- * @returns {@link GetDataViewCommandOutput}
+ * @param GetDataViewRequest - {@link GetDataViewRequest}
+ * @returns {@link GetDataViewResponse}
  * @see {@link GetDataViewCommandInput} for command's `input` shape.
  * @see {@link GetDataViewCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

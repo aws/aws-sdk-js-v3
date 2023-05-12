@@ -114,8 +114,8 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  *
  * ```
  *
- * @param TagResourcesCommandInput - {@link TagResourcesCommandInput}
- * @returns {@link TagResourcesCommandOutput}
+ * @param TagResourcesInput - {@link TagResourcesInput}
+ * @returns {@link TagResourcesOutput}
  * @see {@link TagResourcesCommandInput} for command's `input` shape.
  * @see {@link TagResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.

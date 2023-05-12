@@ -71,8 +71,8 @@ export interface ListRelatedItemsCommandOutput extends ListRelatedItemsOutput, _
  *
  * ```
  *
- * @param ListRelatedItemsCommandInput - {@link ListRelatedItemsCommandInput}
- * @returns {@link ListRelatedItemsCommandOutput}
+ * @param ListRelatedItemsInput - {@link ListRelatedItemsInput}
+ * @returns {@link ListRelatedItemsOutput}
  * @see {@link ListRelatedItemsCommandInput} for command's `input` shape.
  * @see {@link ListRelatedItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

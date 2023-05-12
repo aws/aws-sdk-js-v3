@@ -75,8 +75,8 @@ export interface ValidateConfigurationSettingsCommandOutput
  *
  * ```
  *
- * @param ValidateConfigurationSettingsCommandInput - {@link ValidateConfigurationSettingsCommandInput}
- * @returns {@link ValidateConfigurationSettingsCommandOutput}
+ * @param ValidateConfigurationSettingsMessage - {@link ValidateConfigurationSettingsMessage}
+ * @returns {@link ConfigurationSettingsValidationMessages}
  * @see {@link ValidateConfigurationSettingsCommandInput} for command's `input` shape.
  * @see {@link ValidateConfigurationSettingsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

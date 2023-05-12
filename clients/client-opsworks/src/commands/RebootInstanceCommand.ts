@@ -54,8 +54,8 @@ export interface RebootInstanceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RebootInstanceCommandInput - {@link RebootInstanceCommandInput}
- * @returns {@link RebootInstanceCommandOutput}
+ * @param RebootInstanceRequest - {@link RebootInstanceRequest}
+ * @returns {@link Unit}
  * @see {@link RebootInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

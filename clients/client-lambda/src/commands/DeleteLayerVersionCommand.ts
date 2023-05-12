@@ -51,8 +51,8 @@ export interface DeleteLayerVersionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteLayerVersionCommandInput - {@link DeleteLayerVersionCommandInput}
- * @returns {@link DeleteLayerVersionCommandOutput}
+ * @param DeleteLayerVersionRequest - {@link DeleteLayerVersionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteLayerVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteLayerVersionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

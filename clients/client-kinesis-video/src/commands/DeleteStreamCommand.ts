@@ -58,8 +58,8 @@ export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __Metadat
  *
  * ```
  *
- * @param DeleteStreamCommandInput - {@link DeleteStreamCommandInput}
- * @returns {@link DeleteStreamCommandOutput}
+ * @param DeleteStreamInput - {@link DeleteStreamInput}
+ * @returns {@link DeleteStreamOutput}
  * @see {@link DeleteStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

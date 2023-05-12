@@ -84,8 +84,8 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  *
  * ```
  *
- * @param DisposePackageVersionsCommandInput - {@link DisposePackageVersionsCommandInput}
- * @returns {@link DisposePackageVersionsCommandOutput}
+ * @param DisposePackageVersionsRequest - {@link DisposePackageVersionsRequest}
+ * @returns {@link DisposePackageVersionsResult}
  * @see {@link DisposePackageVersionsCommandInput} for command's `input` shape.
  * @see {@link DisposePackageVersionsCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

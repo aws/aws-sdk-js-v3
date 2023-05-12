@@ -53,8 +53,8 @@ export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __Metad
  *
  * ```
  *
- * @param CreateLabelsCommandInput - {@link CreateLabelsCommandInput}
- * @returns {@link CreateLabelsCommandOutput}
+ * @param CreateLabelsRequest - {@link CreateLabelsRequest}
+ * @returns {@link CreateLabelsResponse}
  * @see {@link CreateLabelsCommandInput} for command's `input` shape.
  * @see {@link CreateLabelsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

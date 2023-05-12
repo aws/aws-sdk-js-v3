@@ -59,8 +59,8 @@ export interface CreateAgentStatusCommandOutput extends CreateAgentStatusRespons
  *
  * ```
  *
- * @param CreateAgentStatusCommandInput - {@link CreateAgentStatusCommandInput}
- * @returns {@link CreateAgentStatusCommandOutput}
+ * @param CreateAgentStatusRequest - {@link CreateAgentStatusRequest}
+ * @returns {@link CreateAgentStatusResponse}
  * @see {@link CreateAgentStatusCommandInput} for command's `input` shape.
  * @see {@link CreateAgentStatusCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

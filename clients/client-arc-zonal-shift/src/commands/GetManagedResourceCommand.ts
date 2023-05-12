@@ -67,8 +67,8 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  *
  * ```
  *
- * @param GetManagedResourceCommandInput - {@link GetManagedResourceCommandInput}
- * @returns {@link GetManagedResourceCommandOutput}
+ * @param GetManagedResourceRequest - {@link GetManagedResourceRequest}
+ * @returns {@link GetManagedResourceResponse}
  * @see {@link GetManagedResourceCommandInput} for command's `input` shape.
  * @see {@link GetManagedResourceCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.

@@ -58,8 +58,8 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  *
  * ```
  *
- * @param InitiateLayerUploadCommandInput - {@link InitiateLayerUploadCommandInput}
- * @returns {@link InitiateLayerUploadCommandOutput}
+ * @param InitiateLayerUploadRequest - {@link InitiateLayerUploadRequest}
+ * @returns {@link InitiateLayerUploadResponse}
  * @see {@link InitiateLayerUploadCommandInput} for command's `input` shape.
  * @see {@link InitiateLayerUploadCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.

@@ -64,8 +64,8 @@ export interface ListAdminAccountsForOrganizationCommandOutput
  *
  * ```
  *
- * @param ListAdminAccountsForOrganizationCommandInput - {@link ListAdminAccountsForOrganizationCommandInput}
- * @returns {@link ListAdminAccountsForOrganizationCommandOutput}
+ * @param ListAdminAccountsForOrganizationRequest - {@link ListAdminAccountsForOrganizationRequest}
+ * @returns {@link ListAdminAccountsForOrganizationResponse}
  * @see {@link ListAdminAccountsForOrganizationCommandInput} for command's `input` shape.
  * @see {@link ListAdminAccountsForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

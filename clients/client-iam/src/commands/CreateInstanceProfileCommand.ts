@@ -99,8 +99,8 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  *
  * ```
  *
- * @param CreateInstanceProfileCommandInput - {@link CreateInstanceProfileCommandInput}
- * @returns {@link CreateInstanceProfileCommandOutput}
+ * @param CreateInstanceProfileRequest - {@link CreateInstanceProfileRequest}
+ * @returns {@link CreateInstanceProfileResponse}
  * @see {@link CreateInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

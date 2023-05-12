@@ -62,8 +62,8 @@ export interface GetMaintenanceWindowExecutionCommandOutput
  *
  * ```
  *
- * @param GetMaintenanceWindowExecutionCommandInput - {@link GetMaintenanceWindowExecutionCommandInput}
- * @returns {@link GetMaintenanceWindowExecutionCommandOutput}
+ * @param GetMaintenanceWindowExecutionRequest - {@link GetMaintenanceWindowExecutionRequest}
+ * @returns {@link GetMaintenanceWindowExecutionResult}
  * @see {@link GetMaintenanceWindowExecutionCommandInput} for command's `input` shape.
  * @see {@link GetMaintenanceWindowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

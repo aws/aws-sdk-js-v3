@@ -353,8 +353,8 @@ export interface UpdateElasticsearchDomainConfigCommandOutput
  *
  * ```
  *
- * @param UpdateElasticsearchDomainConfigCommandInput - {@link UpdateElasticsearchDomainConfigCommandInput}
- * @returns {@link UpdateElasticsearchDomainConfigCommandOutput}
+ * @param UpdateElasticsearchDomainConfigRequest - {@link UpdateElasticsearchDomainConfigRequest}
+ * @returns {@link UpdateElasticsearchDomainConfigResponse}
  * @see {@link UpdateElasticsearchDomainConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateElasticsearchDomainConfigCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

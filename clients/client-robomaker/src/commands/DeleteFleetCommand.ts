@@ -53,8 +53,8 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  *
  * ```
  *
- * @param DeleteFleetCommandInput - {@link DeleteFleetCommandInput}
- * @returns {@link DeleteFleetCommandOutput}
+ * @param DeleteFleetRequest - {@link DeleteFleetRequest}
+ * @returns {@link DeleteFleetResponse}
  * @see {@link DeleteFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

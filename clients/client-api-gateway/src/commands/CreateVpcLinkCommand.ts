@@ -67,8 +67,8 @@ export interface CreateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  *
  * ```
  *
- * @param CreateVpcLinkCommandInput - {@link CreateVpcLinkCommandInput}
- * @returns {@link CreateVpcLinkCommandOutput}
+ * @param CreateVpcLinkRequest - {@link CreateVpcLinkRequest}
+ * @returns {@link VpcLink}
  * @see {@link CreateVpcLinkCommandInput} for command's `input` shape.
  * @see {@link CreateVpcLinkCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

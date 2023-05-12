@@ -101,8 +101,8 @@ export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigur
  *
  * ```
  *
- * @param DescribeConfigurationSetsCommandInput - {@link DescribeConfigurationSetsCommandInput}
- * @returns {@link DescribeConfigurationSetsCommandOutput}
+ * @param DescribeConfigurationSetsRequest - {@link DescribeConfigurationSetsRequest}
+ * @returns {@link DescribeConfigurationSetsResult}
  * @see {@link DescribeConfigurationSetsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationSetsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

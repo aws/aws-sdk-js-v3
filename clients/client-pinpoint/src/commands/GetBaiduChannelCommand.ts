@@ -62,8 +62,8 @@ export interface GetBaiduChannelCommandOutput extends GetBaiduChannelResponse, _
  *
  * ```
  *
- * @param GetBaiduChannelCommandInput - {@link GetBaiduChannelCommandInput}
- * @returns {@link GetBaiduChannelCommandOutput}
+ * @param GetBaiduChannelRequest - {@link GetBaiduChannelRequest}
+ * @returns {@link GetBaiduChannelResponse}
  * @see {@link GetBaiduChannelCommandInput} for command's `input` shape.
  * @see {@link GetBaiduChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

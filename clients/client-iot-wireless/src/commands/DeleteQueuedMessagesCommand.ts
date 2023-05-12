@@ -50,8 +50,8 @@ export interface DeleteQueuedMessagesCommandOutput extends DeleteQueuedMessagesR
  *
  * ```
  *
- * @param DeleteQueuedMessagesCommandInput - {@link DeleteQueuedMessagesCommandInput}
- * @returns {@link DeleteQueuedMessagesCommandOutput}
+ * @param DeleteQueuedMessagesRequest - {@link DeleteQueuedMessagesRequest}
+ * @returns {@link DeleteQueuedMessagesResponse}
  * @see {@link DeleteQueuedMessagesCommandInput} for command's `input` shape.
  * @see {@link DeleteQueuedMessagesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

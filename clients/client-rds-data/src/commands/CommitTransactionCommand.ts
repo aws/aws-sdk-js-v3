@@ -53,8 +53,8 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  *
  * ```
  *
- * @param CommitTransactionCommandInput - {@link CommitTransactionCommandInput}
- * @returns {@link CommitTransactionCommandOutput}
+ * @param CommitTransactionRequest - {@link CommitTransactionRequest}
+ * @returns {@link CommitTransactionResponse}
  * @see {@link CommitTransactionCommandInput} for command's `input` shape.
  * @see {@link CommitTransactionCommandOutput} for command's `response` shape.
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.

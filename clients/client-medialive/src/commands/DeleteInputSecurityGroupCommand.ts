@@ -48,8 +48,8 @@ export interface DeleteInputSecurityGroupCommandOutput extends DeleteInputSecuri
  *
  * ```
  *
- * @param DeleteInputSecurityGroupCommandInput - {@link DeleteInputSecurityGroupCommandInput}
- * @returns {@link DeleteInputSecurityGroupCommandOutput}
+ * @param DeleteInputSecurityGroupRequest - {@link DeleteInputSecurityGroupRequest}
+ * @returns {@link DeleteInputSecurityGroupResponse}
  * @see {@link DeleteInputSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteInputSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

@@ -87,8 +87,8 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  *
  * ```
  *
- * @param CreateWebhookCommandInput - {@link CreateWebhookCommandInput}
- * @returns {@link CreateWebhookCommandOutput}
+ * @param CreateWebhookInput - {@link CreateWebhookInput}
+ * @returns {@link CreateWebhookOutput}
  * @see {@link CreateWebhookCommandInput} for command's `input` shape.
  * @see {@link CreateWebhookCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

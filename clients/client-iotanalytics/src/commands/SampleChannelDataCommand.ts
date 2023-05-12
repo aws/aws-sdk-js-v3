@@ -56,8 +56,8 @@ export interface SampleChannelDataCommandOutput extends SampleChannelDataRespons
  *
  * ```
  *
- * @param SampleChannelDataCommandInput - {@link SampleChannelDataCommandInput}
- * @returns {@link SampleChannelDataCommandOutput}
+ * @param SampleChannelDataRequest - {@link SampleChannelDataRequest}
+ * @returns {@link SampleChannelDataResponse}
  * @see {@link SampleChannelDataCommandInput} for command's `input` shape.
  * @see {@link SampleChannelDataCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

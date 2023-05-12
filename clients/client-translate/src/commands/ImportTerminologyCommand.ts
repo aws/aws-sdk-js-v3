@@ -102,8 +102,8 @@ export interface ImportTerminologyCommandOutput extends ImportTerminologyRespons
  *
  * ```
  *
- * @param ImportTerminologyCommandInput - {@link ImportTerminologyCommandInput}
- * @returns {@link ImportTerminologyCommandOutput}
+ * @param ImportTerminologyRequest - {@link ImportTerminologyRequest}
+ * @returns {@link ImportTerminologyResponse}
  * @see {@link ImportTerminologyCommandInput} for command's `input` shape.
  * @see {@link ImportTerminologyCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.

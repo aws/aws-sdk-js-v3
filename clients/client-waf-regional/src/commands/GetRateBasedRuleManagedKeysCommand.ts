@@ -66,8 +66,8 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
  *
  * ```
  *
- * @param GetRateBasedRuleManagedKeysCommandInput - {@link GetRateBasedRuleManagedKeysCommandInput}
- * @returns {@link GetRateBasedRuleManagedKeysCommandOutput}
+ * @param GetRateBasedRuleManagedKeysRequest - {@link GetRateBasedRuleManagedKeysRequest}
+ * @returns {@link GetRateBasedRuleManagedKeysResponse}
  * @see {@link GetRateBasedRuleManagedKeysCommandInput} for command's `input` shape.
  * @see {@link GetRateBasedRuleManagedKeysCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

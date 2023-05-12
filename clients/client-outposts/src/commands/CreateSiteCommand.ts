@@ -116,8 +116,8 @@ export interface CreateSiteCommandOutput extends CreateSiteOutput, __MetadataBea
  *
  * ```
  *
- * @param CreateSiteCommandInput - {@link CreateSiteCommandInput}
- * @returns {@link CreateSiteCommandOutput}
+ * @param CreateSiteInput - {@link CreateSiteInput}
+ * @returns {@link CreateSiteOutput}
  * @see {@link CreateSiteCommandInput} for command's `input` shape.
  * @see {@link CreateSiteCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

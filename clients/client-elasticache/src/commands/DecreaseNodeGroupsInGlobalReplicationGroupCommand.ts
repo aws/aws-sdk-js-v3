@@ -94,8 +94,8 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput
  *
  * ```
  *
- * @param DecreaseNodeGroupsInGlobalReplicationGroupCommandInput - {@link DecreaseNodeGroupsInGlobalReplicationGroupCommandInput}
- * @returns {@link DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput}
+ * @param DecreaseNodeGroupsInGlobalReplicationGroupMessage - {@link DecreaseNodeGroupsInGlobalReplicationGroupMessage}
+ * @returns {@link DecreaseNodeGroupsInGlobalReplicationGroupResult}
  * @see {@link DecreaseNodeGroupsInGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

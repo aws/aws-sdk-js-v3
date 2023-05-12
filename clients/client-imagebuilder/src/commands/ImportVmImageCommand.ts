@@ -68,8 +68,8 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  *
  * ```
  *
- * @param ImportVmImageCommandInput - {@link ImportVmImageCommandInput}
- * @returns {@link ImportVmImageCommandOutput}
+ * @param ImportVmImageRequest - {@link ImportVmImageRequest}
+ * @returns {@link ImportVmImageResponse}
  * @see {@link ImportVmImageCommandInput} for command's `input` shape.
  * @see {@link ImportVmImageCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

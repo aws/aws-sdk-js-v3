@@ -91,8 +91,8 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  *
  * ```
  *
- * @param ImportResourcesToDraftAppVersionCommandInput - {@link ImportResourcesToDraftAppVersionCommandInput}
- * @returns {@link ImportResourcesToDraftAppVersionCommandOutput}
+ * @param ImportResourcesToDraftAppVersionRequest - {@link ImportResourcesToDraftAppVersionRequest}
+ * @returns {@link ImportResourcesToDraftAppVersionResponse}
  * @see {@link ImportResourcesToDraftAppVersionCommandInput} for command's `input` shape.
  * @see {@link ImportResourcesToDraftAppVersionCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

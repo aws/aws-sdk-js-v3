@@ -68,8 +68,8 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  *
  * ```
  *
- * @param DeleteAnalysisCommandInput - {@link DeleteAnalysisCommandInput}
- * @returns {@link DeleteAnalysisCommandOutput}
+ * @param DeleteAnalysisRequest - {@link DeleteAnalysisRequest}
+ * @returns {@link DeleteAnalysisResponse}
  * @see {@link DeleteAnalysisCommandInput} for command's `input` shape.
  * @see {@link DeleteAnalysisCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

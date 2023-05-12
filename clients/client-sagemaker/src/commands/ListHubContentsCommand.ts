@@ -78,8 +78,8 @@ export interface ListHubContentsCommandOutput extends ListHubContentsResponse, _
  *
  * ```
  *
- * @param ListHubContentsCommandInput - {@link ListHubContentsCommandInput}
- * @returns {@link ListHubContentsCommandOutput}
+ * @param ListHubContentsRequest - {@link ListHubContentsRequest}
+ * @returns {@link ListHubContentsResponse}
  * @see {@link ListHubContentsCommandInput} for command's `input` shape.
  * @see {@link ListHubContentsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

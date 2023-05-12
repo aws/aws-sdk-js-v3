@@ -76,8 +76,8 @@ export interface UndeprecateDomainCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UndeprecateDomainCommandInput - {@link UndeprecateDomainCommandInput}
- * @returns {@link UndeprecateDomainCommandOutput}
+ * @param UndeprecateDomainInput - {@link UndeprecateDomainInput}
+ * @returns {@link Unit}
  * @see {@link UndeprecateDomainCommandInput} for command's `input` shape.
  * @see {@link UndeprecateDomainCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

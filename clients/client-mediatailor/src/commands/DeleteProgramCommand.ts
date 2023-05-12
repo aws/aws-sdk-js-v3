@@ -49,8 +49,8 @@ export interface DeleteProgramCommandOutput extends DeleteProgramResponse, __Met
  *
  * ```
  *
- * @param DeleteProgramCommandInput - {@link DeleteProgramCommandInput}
- * @returns {@link DeleteProgramCommandOutput}
+ * @param DeleteProgramRequest - {@link DeleteProgramRequest}
+ * @returns {@link DeleteProgramResponse}
  * @see {@link DeleteProgramCommandInput} for command's `input` shape.
  * @see {@link DeleteProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

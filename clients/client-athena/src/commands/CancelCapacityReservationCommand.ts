@@ -48,8 +48,8 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  *
  * ```
  *
- * @param CancelCapacityReservationCommandInput - {@link CancelCapacityReservationCommandInput}
- * @returns {@link CancelCapacityReservationCommandOutput}
+ * @param CancelCapacityReservationInput - {@link CancelCapacityReservationInput}
+ * @returns {@link CancelCapacityReservationOutput}
  * @see {@link CancelCapacityReservationCommandInput} for command's `input` shape.
  * @see {@link CancelCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

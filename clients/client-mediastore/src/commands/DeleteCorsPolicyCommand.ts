@@ -52,8 +52,8 @@ export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, _
  *
  * ```
  *
- * @param DeleteCorsPolicyCommandInput - {@link DeleteCorsPolicyCommandInput}
- * @returns {@link DeleteCorsPolicyCommandOutput}
+ * @param DeleteCorsPolicyInput - {@link DeleteCorsPolicyInput}
+ * @returns {@link DeleteCorsPolicyOutput}
  * @see {@link DeleteCorsPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteCorsPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.

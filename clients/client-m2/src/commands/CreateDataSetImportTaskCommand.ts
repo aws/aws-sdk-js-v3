@@ -94,8 +94,8 @@ export interface CreateDataSetImportTaskCommandOutput extends CreateDataSetImpor
  *
  * ```
  *
- * @param CreateDataSetImportTaskCommandInput - {@link CreateDataSetImportTaskCommandInput}
- * @returns {@link CreateDataSetImportTaskCommandOutput}
+ * @param CreateDataSetImportTaskRequest - {@link CreateDataSetImportTaskRequest}
+ * @returns {@link CreateDataSetImportTaskResponse}
  * @see {@link CreateDataSetImportTaskCommandInput} for command's `input` shape.
  * @see {@link CreateDataSetImportTaskCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

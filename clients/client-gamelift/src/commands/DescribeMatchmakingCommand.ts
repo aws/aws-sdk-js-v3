@@ -118,8 +118,8 @@ export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOut
  *
  * ```
  *
- * @param DescribeMatchmakingCommandInput - {@link DescribeMatchmakingCommandInput}
- * @returns {@link DescribeMatchmakingCommandOutput}
+ * @param DescribeMatchmakingInput - {@link DescribeMatchmakingInput}
+ * @returns {@link DescribeMatchmakingOutput}
  * @see {@link DescribeMatchmakingCommandInput} for command's `input` shape.
  * @see {@link DescribeMatchmakingCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

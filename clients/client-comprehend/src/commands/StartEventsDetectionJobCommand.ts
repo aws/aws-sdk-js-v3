@@ -79,8 +79,8 @@ export interface StartEventsDetectionJobCommandOutput extends StartEventsDetecti
  *
  * ```
  *
- * @param StartEventsDetectionJobCommandInput - {@link StartEventsDetectionJobCommandInput}
- * @returns {@link StartEventsDetectionJobCommandOutput}
+ * @param StartEventsDetectionJobRequest - {@link StartEventsDetectionJobRequest}
+ * @returns {@link StartEventsDetectionJobResponse}
  * @see {@link StartEventsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartEventsDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

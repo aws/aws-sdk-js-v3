@@ -118,8 +118,8 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
  *
  * ```
  *
- * @param UpdateReplicationConfigurationTemplateCommandInput - {@link UpdateReplicationConfigurationTemplateCommandInput}
- * @returns {@link UpdateReplicationConfigurationTemplateCommandOutput}
+ * @param UpdateReplicationConfigurationTemplateRequest - {@link UpdateReplicationConfigurationTemplateRequest}
+ * @returns {@link ReplicationConfigurationTemplate}
  * @see {@link UpdateReplicationConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateReplicationConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

@@ -63,8 +63,8 @@ export interface EnableEbsEncryptionByDefaultCommandOutput
  *
  * ```
  *
- * @param EnableEbsEncryptionByDefaultCommandInput - {@link EnableEbsEncryptionByDefaultCommandInput}
- * @returns {@link EnableEbsEncryptionByDefaultCommandOutput}
+ * @param EnableEbsEncryptionByDefaultRequest - {@link EnableEbsEncryptionByDefaultRequest}
+ * @returns {@link EnableEbsEncryptionByDefaultResult}
  * @see {@link EnableEbsEncryptionByDefaultCommandInput} for command's `input` shape.
  * @see {@link EnableEbsEncryptionByDefaultCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -64,8 +64,8 @@ export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterS
  *
  * ```
  *
- * @param ListDeadLetterSourceQueuesCommandInput - {@link ListDeadLetterSourceQueuesCommandInput}
- * @returns {@link ListDeadLetterSourceQueuesCommandOutput}
+ * @param ListDeadLetterSourceQueuesRequest - {@link ListDeadLetterSourceQueuesRequest}
+ * @returns {@link ListDeadLetterSourceQueuesResult}
  * @see {@link ListDeadLetterSourceQueuesCommandInput} for command's `input` shape.
  * @see {@link ListDeadLetterSourceQueuesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.

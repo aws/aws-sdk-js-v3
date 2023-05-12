@@ -84,8 +84,8 @@ export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublic
  *
  * ```
  *
- * @param OpenInstancePublicPortsCommandInput - {@link OpenInstancePublicPortsCommandInput}
- * @returns {@link OpenInstancePublicPortsCommandOutput}
+ * @param OpenInstancePublicPortsRequest - {@link OpenInstancePublicPortsRequest}
+ * @returns {@link OpenInstancePublicPortsResult}
  * @see {@link OpenInstancePublicPortsCommandInput} for command's `input` shape.
  * @see {@link OpenInstancePublicPortsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

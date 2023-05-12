@@ -57,8 +57,8 @@ export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteSecurityGroupCommandInput - {@link DeleteSecurityGroupCommandInput}
- * @returns {@link DeleteSecurityGroupCommandOutput}
+ * @param DeleteSecurityGroupRequest - {@link DeleteSecurityGroupRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

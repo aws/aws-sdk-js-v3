@@ -67,8 +67,8 @@ export interface ListAgreementsCommandOutput extends ListAgreementsResponse, __M
  *
  * ```
  *
- * @param ListAgreementsCommandInput - {@link ListAgreementsCommandInput}
- * @returns {@link ListAgreementsCommandOutput}
+ * @param ListAgreementsRequest - {@link ListAgreementsRequest}
+ * @returns {@link ListAgreementsResponse}
  * @see {@link ListAgreementsCommandInput} for command's `input` shape.
  * @see {@link ListAgreementsCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

@@ -60,8 +60,8 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  *
  * ```
  *
- * @param ListMonitorsCommandInput - {@link ListMonitorsCommandInput}
- * @returns {@link ListMonitorsCommandOutput}
+ * @param ListMonitorsInput - {@link ListMonitorsInput}
+ * @returns {@link ListMonitorsOutput}
  * @see {@link ListMonitorsCommandInput} for command's `input` shape.
  * @see {@link ListMonitorsCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.

@@ -78,8 +78,8 @@ export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleRes
  *
  * ```
  *
- * @param DeleteRateBasedRuleCommandInput - {@link DeleteRateBasedRuleCommandInput}
- * @returns {@link DeleteRateBasedRuleCommandOutput}
+ * @param DeleteRateBasedRuleRequest - {@link DeleteRateBasedRuleRequest}
+ * @returns {@link DeleteRateBasedRuleResponse}
  * @see {@link DeleteRateBasedRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRateBasedRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

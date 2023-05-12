@@ -78,8 +78,8 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  *
  * ```
  *
- * @param CreateAccessPolicyCommandInput - {@link CreateAccessPolicyCommandInput}
- * @returns {@link CreateAccessPolicyCommandOutput}
+ * @param CreateAccessPolicyRequest - {@link CreateAccessPolicyRequest}
+ * @returns {@link CreateAccessPolicyResponse}
  * @see {@link CreateAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

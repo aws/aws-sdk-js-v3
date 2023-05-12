@@ -110,8 +110,8 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  *
  * ```
  *
- * @param CreateDatasetImportJobCommandInput - {@link CreateDatasetImportJobCommandInput}
- * @returns {@link CreateDatasetImportJobCommandOutput}
+ * @param CreateDatasetImportJobRequest - {@link CreateDatasetImportJobRequest}
+ * @returns {@link CreateDatasetImportJobResponse}
  * @see {@link CreateDatasetImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetImportJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

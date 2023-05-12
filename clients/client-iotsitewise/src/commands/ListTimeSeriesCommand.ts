@@ -67,8 +67,8 @@ export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __M
  *
  * ```
  *
- * @param ListTimeSeriesCommandInput - {@link ListTimeSeriesCommandInput}
- * @returns {@link ListTimeSeriesCommandOutput}
+ * @param ListTimeSeriesRequest - {@link ListTimeSeriesRequest}
+ * @returns {@link ListTimeSeriesResponse}
  * @see {@link ListTimeSeriesCommandInput} for command's `input` shape.
  * @see {@link ListTimeSeriesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

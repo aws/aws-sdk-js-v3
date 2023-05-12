@@ -56,8 +56,8 @@ export interface DeleteDistributionConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteDistributionConfigurationCommandInput - {@link DeleteDistributionConfigurationCommandInput}
- * @returns {@link DeleteDistributionConfigurationCommandOutput}
+ * @param DeleteDistributionConfigurationRequest - {@link DeleteDistributionConfigurationRequest}
+ * @returns {@link DeleteDistributionConfigurationResponse}
  * @see {@link DeleteDistributionConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteDistributionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

@@ -65,8 +65,8 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  *
  * ```
  *
- * @param ListOperationsCommandInput - {@link ListOperationsCommandInput}
- * @returns {@link ListOperationsCommandOutput}
+ * @param ListOperationsRequest - {@link ListOperationsRequest}
+ * @returns {@link ListOperationsResponse}
  * @see {@link ListOperationsCommandInput} for command's `input` shape.
  * @see {@link ListOperationsCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

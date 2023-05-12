@@ -80,8 +80,8 @@ export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __M
  *
  * ```
  *
- * @param ListIngestionsCommandInput - {@link ListIngestionsCommandInput}
- * @returns {@link ListIngestionsCommandOutput}
+ * @param ListIngestionsRequest - {@link ListIngestionsRequest}
+ * @returns {@link ListIngestionsResponse}
  * @see {@link ListIngestionsCommandInput} for command's `input` shape.
  * @see {@link ListIngestionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

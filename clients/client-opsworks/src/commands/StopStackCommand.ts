@@ -53,8 +53,8 @@ export interface StopStackCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopStackCommandInput - {@link StopStackCommandInput}
- * @returns {@link StopStackCommandOutput}
+ * @param StopStackRequest - {@link StopStackRequest}
+ * @returns {@link Unit}
  * @see {@link StopStackCommandInput} for command's `input` shape.
  * @see {@link StopStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

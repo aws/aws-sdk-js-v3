@@ -53,8 +53,8 @@ export interface DeleteSuppressedDestinationCommandOutput
  *
  * ```
  *
- * @param DeleteSuppressedDestinationCommandInput - {@link DeleteSuppressedDestinationCommandInput}
- * @returns {@link DeleteSuppressedDestinationCommandOutput}
+ * @param DeleteSuppressedDestinationRequest - {@link DeleteSuppressedDestinationRequest}
+ * @returns {@link DeleteSuppressedDestinationResponse}
  * @see {@link DeleteSuppressedDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteSuppressedDestinationCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

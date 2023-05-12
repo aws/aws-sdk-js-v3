@@ -59,8 +59,8 @@ export interface DeleteUserAttributesCommandOutput extends DeleteUserAttributesR
  *
  * ```
  *
- * @param DeleteUserAttributesCommandInput - {@link DeleteUserAttributesCommandInput}
- * @returns {@link DeleteUserAttributesCommandOutput}
+ * @param DeleteUserAttributesRequest - {@link DeleteUserAttributesRequest}
+ * @returns {@link DeleteUserAttributesResponse}
  * @see {@link DeleteUserAttributesCommandInput} for command's `input` shape.
  * @see {@link DeleteUserAttributesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

@@ -112,8 +112,8 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  *
  * ```
  *
- * @param DescribeDBSnapshotsCommandInput - {@link DescribeDBSnapshotsCommandInput}
- * @returns {@link DescribeDBSnapshotsCommandOutput}
+ * @param DescribeDBSnapshotsMessage - {@link DescribeDBSnapshotsMessage}
+ * @returns {@link DBSnapshotMessage}
  * @see {@link DescribeDBSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

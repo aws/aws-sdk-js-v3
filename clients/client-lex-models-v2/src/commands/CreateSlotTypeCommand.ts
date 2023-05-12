@@ -141,8 +141,8 @@ export interface CreateSlotTypeCommandOutput extends CreateSlotTypeResponse, __M
  *
  * ```
  *
- * @param CreateSlotTypeCommandInput - {@link CreateSlotTypeCommandInput}
- * @returns {@link CreateSlotTypeCommandOutput}
+ * @param CreateSlotTypeRequest - {@link CreateSlotTypeRequest}
+ * @returns {@link CreateSlotTypeResponse}
  * @see {@link CreateSlotTypeCommandInput} for command's `input` shape.
  * @see {@link CreateSlotTypeCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

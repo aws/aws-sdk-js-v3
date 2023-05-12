@@ -199,8 +199,8 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  *
  * ```
  *
- * @param CompareFacesCommandInput - {@link CompareFacesCommandInput}
- * @returns {@link CompareFacesCommandOutput}
+ * @param CompareFacesRequest - {@link CompareFacesRequest}
+ * @returns {@link CompareFacesResponse}
  * @see {@link CompareFacesCommandInput} for command's `input` shape.
  * @see {@link CompareFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

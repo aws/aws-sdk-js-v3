@@ -81,8 +81,8 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  *
  * ```
  *
- * @param ListCreateAccountStatusCommandInput - {@link ListCreateAccountStatusCommandInput}
- * @returns {@link ListCreateAccountStatusCommandOutput}
+ * @param ListCreateAccountStatusRequest - {@link ListCreateAccountStatusRequest}
+ * @returns {@link ListCreateAccountStatusResponse}
  * @see {@link ListCreateAccountStatusCommandInput} for command's `input` shape.
  * @see {@link ListCreateAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

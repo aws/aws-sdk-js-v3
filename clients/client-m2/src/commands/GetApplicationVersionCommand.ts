@@ -57,8 +57,8 @@ export interface GetApplicationVersionCommandOutput extends GetApplicationVersio
  *
  * ```
  *
- * @param GetApplicationVersionCommandInput - {@link GetApplicationVersionCommandInput}
- * @returns {@link GetApplicationVersionCommandOutput}
+ * @param GetApplicationVersionRequest - {@link GetApplicationVersionRequest}
+ * @returns {@link GetApplicationVersionResponse}
  * @see {@link GetApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link GetApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

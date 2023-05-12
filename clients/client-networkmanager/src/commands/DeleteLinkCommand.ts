@@ -72,8 +72,8 @@ export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataB
  *
  * ```
  *
- * @param DeleteLinkCommandInput - {@link DeleteLinkCommandInput}
- * @returns {@link DeleteLinkCommandOutput}
+ * @param DeleteLinkRequest - {@link DeleteLinkRequest}
+ * @returns {@link DeleteLinkResponse}
  * @see {@link DeleteLinkCommandInput} for command's `input` shape.
  * @see {@link DeleteLinkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

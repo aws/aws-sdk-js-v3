@@ -64,8 +64,8 @@ export interface CreateUploadCommandOutput extends CreateUploadResult, __Metadat
  *
  * ```
  *
- * @param CreateUploadCommandInput - {@link CreateUploadCommandInput}
- * @returns {@link CreateUploadCommandOutput}
+ * @param CreateUploadRequest - {@link CreateUploadRequest}
+ * @returns {@link CreateUploadResult}
  * @see {@link CreateUploadCommandInput} for command's `input` shape.
  * @see {@link CreateUploadCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

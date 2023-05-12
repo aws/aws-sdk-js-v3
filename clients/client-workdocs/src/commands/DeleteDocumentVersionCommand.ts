@@ -51,8 +51,8 @@ export interface DeleteDocumentVersionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDocumentVersionCommandInput - {@link DeleteDocumentVersionCommandInput}
- * @returns {@link DeleteDocumentVersionCommandOutput}
+ * @param DeleteDocumentVersionRequest - {@link DeleteDocumentVersionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDocumentVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteDocumentVersionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

@@ -61,8 +61,8 @@ export interface StopSolutionVersionCreationCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param StopSolutionVersionCreationCommandInput - {@link StopSolutionVersionCreationCommandInput}
- * @returns {@link StopSolutionVersionCreationCommandOutput}
+ * @param StopSolutionVersionCreationRequest - {@link StopSolutionVersionCreationRequest}
+ * @returns {@link Unit}
  * @see {@link StopSolutionVersionCreationCommandInput} for command's `input` shape.
  * @see {@link StopSolutionVersionCreationCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

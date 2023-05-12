@@ -50,8 +50,8 @@ export interface StartTransactionCommandOutput extends StartTransactionResponse,
  *
  * ```
  *
- * @param StartTransactionCommandInput - {@link StartTransactionCommandInput}
- * @returns {@link StartTransactionCommandOutput}
+ * @param StartTransactionRequest - {@link StartTransactionRequest}
+ * @returns {@link StartTransactionResponse}
  * @see {@link StartTransactionCommandInput} for command's `input` shape.
  * @see {@link StartTransactionCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

@@ -60,8 +60,8 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  *
  * ```
  *
- * @param ListLocationsCommandInput - {@link ListLocationsCommandInput}
- * @returns {@link ListLocationsCommandOutput}
+ * @param ListLocationsInput - {@link ListLocationsInput}
+ * @returns {@link ListLocationsOutput}
  * @see {@link ListLocationsCommandInput} for command's `input` shape.
  * @see {@link ListLocationsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

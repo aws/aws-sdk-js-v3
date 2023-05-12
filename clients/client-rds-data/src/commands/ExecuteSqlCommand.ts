@@ -124,8 +124,8 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  *
  * ```
  *
- * @param ExecuteSqlCommandInput - {@link ExecuteSqlCommandInput}
- * @returns {@link ExecuteSqlCommandOutput}
+ * @param ExecuteSqlRequest - {@link ExecuteSqlRequest}
+ * @returns {@link ExecuteSqlResponse}
  * @see {@link ExecuteSqlCommandInput} for command's `input` shape.
  * @see {@link ExecuteSqlCommandOutput} for command's `response` shape.
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.

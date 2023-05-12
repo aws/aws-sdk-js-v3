@@ -68,8 +68,8 @@ export interface DeleteVaultCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteVaultCommandInput - {@link DeleteVaultCommandInput}
- * @returns {@link DeleteVaultCommandOutput}
+ * @param DeleteVaultInput - {@link DeleteVaultInput}
+ * @returns {@link Unit}
  * @see {@link DeleteVaultCommandInput} for command's `input` shape.
  * @see {@link DeleteVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

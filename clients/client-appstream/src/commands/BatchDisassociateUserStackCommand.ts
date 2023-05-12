@@ -73,8 +73,8 @@ export interface BatchDisassociateUserStackCommandOutput extends BatchDisassocia
  *
  * ```
  *
- * @param BatchDisassociateUserStackCommandInput - {@link BatchDisassociateUserStackCommandInput}
- * @returns {@link BatchDisassociateUserStackCommandOutput}
+ * @param BatchDisassociateUserStackRequest - {@link BatchDisassociateUserStackRequest}
+ * @returns {@link BatchDisassociateUserStackResult}
  * @see {@link BatchDisassociateUserStackCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateUserStackCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

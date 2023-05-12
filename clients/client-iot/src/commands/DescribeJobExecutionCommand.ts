@@ -69,8 +69,8 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  *
  * ```
  *
- * @param DescribeJobExecutionCommandInput - {@link DescribeJobExecutionCommandInput}
- * @returns {@link DescribeJobExecutionCommandOutput}
+ * @param DescribeJobExecutionRequest - {@link DescribeJobExecutionRequest}
+ * @returns {@link DescribeJobExecutionResponse}
  * @see {@link DescribeJobExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -52,8 +52,8 @@ export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __M
  *
  * ```
  *
- * @param SubmitFeedbackCommandInput - {@link SubmitFeedbackCommandInput}
- * @returns {@link SubmitFeedbackCommandOutput}
+ * @param SubmitFeedbackRequest - {@link SubmitFeedbackRequest}
+ * @returns {@link SubmitFeedbackResponse}
  * @see {@link SubmitFeedbackCommandInput} for command's `input` shape.
  * @see {@link SubmitFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

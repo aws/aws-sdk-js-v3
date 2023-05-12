@@ -70,8 +70,8 @@ export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __M
  *
  * ```
  *
- * @param GetXssMatchSetCommandInput - {@link GetXssMatchSetCommandInput}
- * @returns {@link GetXssMatchSetCommandOutput}
+ * @param GetXssMatchSetRequest - {@link GetXssMatchSetRequest}
+ * @returns {@link GetXssMatchSetResponse}
  * @see {@link GetXssMatchSetCommandInput} for command's `input` shape.
  * @see {@link GetXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

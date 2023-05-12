@@ -129,8 +129,8 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  *
  * ```
  *
- * @param GetLoggingConfigurationCommandInput - {@link GetLoggingConfigurationCommandInput}
- * @returns {@link GetLoggingConfigurationCommandOutput}
+ * @param GetLoggingConfigurationRequest - {@link GetLoggingConfigurationRequest}
+ * @returns {@link GetLoggingConfigurationResponse}
  * @see {@link GetLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

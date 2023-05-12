@@ -134,8 +134,8 @@ export interface UpdateTLSInspectionConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateTLSInspectionConfigurationCommandInput - {@link UpdateTLSInspectionConfigurationCommandInput}
- * @returns {@link UpdateTLSInspectionConfigurationCommandOutput}
+ * @param UpdateTLSInspectionConfigurationRequest - {@link UpdateTLSInspectionConfigurationRequest}
+ * @returns {@link UpdateTLSInspectionConfigurationResponse}
  * @see {@link UpdateTLSInspectionConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateTLSInspectionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

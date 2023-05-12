@@ -64,8 +64,8 @@ export interface GetEc2DeepInspectionConfigurationCommandOutput
  *
  * ```
  *
- * @param GetEc2DeepInspectionConfigurationCommandInput - {@link GetEc2DeepInspectionConfigurationCommandInput}
- * @returns {@link GetEc2DeepInspectionConfigurationCommandOutput}
+ * @param GetEc2DeepInspectionConfigurationRequest - {@link GetEc2DeepInspectionConfigurationRequest}
+ * @returns {@link GetEc2DeepInspectionConfigurationResponse}
  * @see {@link GetEc2DeepInspectionConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetEc2DeepInspectionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

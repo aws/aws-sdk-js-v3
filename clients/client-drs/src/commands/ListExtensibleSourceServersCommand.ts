@@ -73,8 +73,8 @@ export interface ListExtensibleSourceServersCommandOutput
  *
  * ```
  *
- * @param ListExtensibleSourceServersCommandInput - {@link ListExtensibleSourceServersCommandInput}
- * @returns {@link ListExtensibleSourceServersCommandOutput}
+ * @param ListExtensibleSourceServersRequest - {@link ListExtensibleSourceServersRequest}
+ * @returns {@link ListExtensibleSourceServersResponse}
  * @see {@link ListExtensibleSourceServersCommandInput} for command's `input` shape.
  * @see {@link ListExtensibleSourceServersCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

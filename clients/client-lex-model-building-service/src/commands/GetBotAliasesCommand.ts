@@ -82,8 +82,8 @@ export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __Met
  *
  * ```
  *
- * @param GetBotAliasesCommandInput - {@link GetBotAliasesCommandInput}
- * @returns {@link GetBotAliasesCommandOutput}
+ * @param GetBotAliasesRequest - {@link GetBotAliasesRequest}
+ * @returns {@link GetBotAliasesResponse}
  * @see {@link GetBotAliasesCommandInput} for command's `input` shape.
  * @see {@link GetBotAliasesCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

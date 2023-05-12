@@ -133,8 +133,8 @@ export interface GetEventPredictionMetadataCommandOutput extends GetEventPredict
  *
  * ```
  *
- * @param GetEventPredictionMetadataCommandInput - {@link GetEventPredictionMetadataCommandInput}
- * @returns {@link GetEventPredictionMetadataCommandOutput}
+ * @param GetEventPredictionMetadataRequest - {@link GetEventPredictionMetadataRequest}
+ * @returns {@link GetEventPredictionMetadataResult}
  * @see {@link GetEventPredictionMetadataCommandInput} for command's `input` shape.
  * @see {@link GetEventPredictionMetadataCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

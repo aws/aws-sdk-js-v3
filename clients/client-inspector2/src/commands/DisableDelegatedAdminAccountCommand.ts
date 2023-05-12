@@ -55,8 +55,8 @@ export interface DisableDelegatedAdminAccountCommandOutput
  *
  * ```
  *
- * @param DisableDelegatedAdminAccountCommandInput - {@link DisableDelegatedAdminAccountCommandInput}
- * @returns {@link DisableDelegatedAdminAccountCommandOutput}
+ * @param DisableDelegatedAdminAccountRequest - {@link DisableDelegatedAdminAccountRequest}
+ * @returns {@link DisableDelegatedAdminAccountResponse}
  * @see {@link DisableDelegatedAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DisableDelegatedAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

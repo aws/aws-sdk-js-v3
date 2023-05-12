@@ -65,8 +65,8 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
  *
  * ```
  *
- * @param UpdateProvisionedProductPropertiesCommandInput - {@link UpdateProvisionedProductPropertiesCommandInput}
- * @returns {@link UpdateProvisionedProductPropertiesCommandOutput}
+ * @param UpdateProvisionedProductPropertiesInput - {@link UpdateProvisionedProductPropertiesInput}
+ * @returns {@link UpdateProvisionedProductPropertiesOutput}
  * @see {@link UpdateProvisionedProductPropertiesCommandInput} for command's `input` shape.
  * @see {@link UpdateProvisionedProductPropertiesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

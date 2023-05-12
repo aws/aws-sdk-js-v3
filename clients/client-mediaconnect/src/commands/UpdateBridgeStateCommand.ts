@@ -52,8 +52,8 @@ export interface UpdateBridgeStateCommandOutput extends UpdateBridgeStateRespons
  *
  * ```
  *
- * @param UpdateBridgeStateCommandInput - {@link UpdateBridgeStateCommandInput}
- * @returns {@link UpdateBridgeStateCommandOutput}
+ * @param UpdateBridgeStateRequest - {@link UpdateBridgeStateRequest}
+ * @returns {@link UpdateBridgeStateResponse}
  * @see {@link UpdateBridgeStateCommandInput} for command's `input` shape.
  * @see {@link UpdateBridgeStateCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

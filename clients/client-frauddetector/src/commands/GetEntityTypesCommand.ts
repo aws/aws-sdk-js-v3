@@ -66,8 +66,8 @@ export interface GetEntityTypesCommandOutput extends GetEntityTypesResult, __Met
  *
  * ```
  *
- * @param GetEntityTypesCommandInput - {@link GetEntityTypesCommandInput}
- * @returns {@link GetEntityTypesCommandOutput}
+ * @param GetEntityTypesRequest - {@link GetEntityTypesRequest}
+ * @returns {@link GetEntityTypesResult}
  * @see {@link GetEntityTypesCommandInput} for command's `input` shape.
  * @see {@link GetEntityTypesCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

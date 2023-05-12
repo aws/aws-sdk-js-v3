@@ -67,8 +67,8 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  *
  * ```
  *
- * @param GetEnabledStandardsCommandInput - {@link GetEnabledStandardsCommandInput}
- * @returns {@link GetEnabledStandardsCommandOutput}
+ * @param GetEnabledStandardsRequest - {@link GetEnabledStandardsRequest}
+ * @returns {@link GetEnabledStandardsResponse}
  * @see {@link GetEnabledStandardsCommandInput} for command's `input` shape.
  * @see {@link GetEnabledStandardsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

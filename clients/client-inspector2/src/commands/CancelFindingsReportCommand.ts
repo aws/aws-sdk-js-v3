@@ -50,8 +50,8 @@ export interface CancelFindingsReportCommandOutput extends CancelFindingsReportR
  *
  * ```
  *
- * @param CancelFindingsReportCommandInput - {@link CancelFindingsReportCommandInput}
- * @returns {@link CancelFindingsReportCommandOutput}
+ * @param CancelFindingsReportRequest - {@link CancelFindingsReportRequest}
+ * @returns {@link CancelFindingsReportResponse}
  * @see {@link CancelFindingsReportCommandInput} for command's `input` shape.
  * @see {@link CancelFindingsReportCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

@@ -70,8 +70,8 @@ export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsRespo
  *
  * ```
  *
- * @param UpdateTableObjectsCommandInput - {@link UpdateTableObjectsCommandInput}
- * @returns {@link UpdateTableObjectsCommandOutput}
+ * @param UpdateTableObjectsRequest - {@link UpdateTableObjectsRequest}
+ * @returns {@link UpdateTableObjectsResponse}
  * @see {@link UpdateTableObjectsCommandInput} for command's `input` shape.
  * @see {@link UpdateTableObjectsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

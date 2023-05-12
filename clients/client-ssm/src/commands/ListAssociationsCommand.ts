@@ -94,8 +94,8 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  *
  * ```
  *
- * @param ListAssociationsCommandInput - {@link ListAssociationsCommandInput}
- * @returns {@link ListAssociationsCommandOutput}
+ * @param ListAssociationsRequest - {@link ListAssociationsRequest}
+ * @returns {@link ListAssociationsResult}
  * @see {@link ListAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

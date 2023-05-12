@@ -57,8 +57,8 @@ export interface ListAccountAliasesCommandOutput extends ListAccountAliasesRespo
  *
  * ```
  *
- * @param ListAccountAliasesCommandInput - {@link ListAccountAliasesCommandInput}
- * @returns {@link ListAccountAliasesCommandOutput}
+ * @param ListAccountAliasesRequest - {@link ListAccountAliasesRequest}
+ * @returns {@link ListAccountAliasesResponse}
  * @see {@link ListAccountAliasesCommandInput} for command's `input` shape.
  * @see {@link ListAccountAliasesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

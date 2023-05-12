@@ -213,8 +213,8 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  *
  * ```
  *
- * @param DescribeInstanceRefreshesCommandInput - {@link DescribeInstanceRefreshesCommandInput}
- * @returns {@link DescribeInstanceRefreshesCommandOutput}
+ * @param DescribeInstanceRefreshesType - {@link DescribeInstanceRefreshesType}
+ * @returns {@link DescribeInstanceRefreshesAnswer}
  * @see {@link DescribeInstanceRefreshesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceRefreshesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

@@ -83,8 +83,8 @@ export interface DescribeKeywordsCommandOutput extends DescribeKeywordsResult, _
  *
  * ```
  *
- * @param DescribeKeywordsCommandInput - {@link DescribeKeywordsCommandInput}
- * @returns {@link DescribeKeywordsCommandOutput}
+ * @param DescribeKeywordsRequest - {@link DescribeKeywordsRequest}
+ * @returns {@link DescribeKeywordsResult}
  * @see {@link DescribeKeywordsCommandInput} for command's `input` shape.
  * @see {@link DescribeKeywordsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

@@ -55,8 +55,8 @@ export interface StopContactRecordingCommandOutput extends StopContactRecordingR
  *
  * ```
  *
- * @param StopContactRecordingCommandInput - {@link StopContactRecordingCommandInput}
- * @returns {@link StopContactRecordingCommandOutput}
+ * @param StopContactRecordingRequest - {@link StopContactRecordingRequest}
+ * @returns {@link StopContactRecordingResponse}
  * @see {@link StopContactRecordingCommandInput} for command's `input` shape.
  * @see {@link StopContactRecordingCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -62,8 +62,8 @@ export interface ListTransactionsCommandOutput extends ListTransactionsResponse,
  *
  * ```
  *
- * @param ListTransactionsCommandInput - {@link ListTransactionsCommandInput}
- * @returns {@link ListTransactionsCommandOutput}
+ * @param ListTransactionsRequest - {@link ListTransactionsRequest}
+ * @returns {@link ListTransactionsResponse}
  * @see {@link ListTransactionsCommandInput} for command's `input` shape.
  * @see {@link ListTransactionsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

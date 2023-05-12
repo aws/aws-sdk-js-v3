@@ -142,8 +142,8 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *
  * ```
  *
- * @param ListCoverageCommandInput - {@link ListCoverageCommandInput}
- * @returns {@link ListCoverageCommandOutput}
+ * @param ListCoverageRequest - {@link ListCoverageRequest}
+ * @returns {@link ListCoverageResponse}
  * @see {@link ListCoverageCommandInput} for command's `input` shape.
  * @see {@link ListCoverageCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

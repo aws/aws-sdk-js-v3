@@ -58,8 +58,8 @@ export interface DescribeCodeRepositoryCommandOutput extends DescribeCodeReposit
  *
  * ```
  *
- * @param DescribeCodeRepositoryCommandInput - {@link DescribeCodeRepositoryCommandInput}
- * @returns {@link DescribeCodeRepositoryCommandOutput}
+ * @param DescribeCodeRepositoryInput - {@link DescribeCodeRepositoryInput}
+ * @returns {@link DescribeCodeRepositoryOutput}
  * @see {@link DescribeCodeRepositoryCommandInput} for command's `input` shape.
  * @see {@link DescribeCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

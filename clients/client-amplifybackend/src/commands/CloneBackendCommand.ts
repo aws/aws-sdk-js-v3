@@ -57,8 +57,8 @@ export interface CloneBackendCommandOutput extends CloneBackendResponse, __Metad
  *
  * ```
  *
- * @param CloneBackendCommandInput - {@link CloneBackendCommandInput}
- * @returns {@link CloneBackendCommandOutput}
+ * @param CloneBackendRequest - {@link CloneBackendRequest}
+ * @returns {@link CloneBackendResponse}
  * @see {@link CloneBackendCommandInput} for command's `input` shape.
  * @see {@link CloneBackendCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

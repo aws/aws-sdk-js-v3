@@ -80,8 +80,8 @@ export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProvi
  *
  * ```
  *
- * @param UpdateIdentityProviderCommandInput - {@link UpdateIdentityProviderCommandInput}
- * @returns {@link UpdateIdentityProviderCommandOutput}
+ * @param UpdateIdentityProviderRequest - {@link UpdateIdentityProviderRequest}
+ * @returns {@link UpdateIdentityProviderResponse}
  * @see {@link UpdateIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

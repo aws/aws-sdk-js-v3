@@ -198,8 +198,8 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *
  * ```
  *
- * @param PutBucketLifecycleConfigurationCommandInput - {@link PutBucketLifecycleConfigurationCommandInput}
- * @returns {@link PutBucketLifecycleConfigurationCommandOutput}
+ * @param PutBucketLifecycleConfigurationRequest - {@link PutBucketLifecycleConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link PutBucketLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

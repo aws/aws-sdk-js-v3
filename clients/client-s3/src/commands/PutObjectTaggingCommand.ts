@@ -154,8 +154,8 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *
  * ```
  *
- * @param PutObjectTaggingCommandInput - {@link PutObjectTaggingCommandInput}
- * @returns {@link PutObjectTaggingCommandOutput}
+ * @param PutObjectTaggingRequest - {@link PutObjectTaggingRequest}
+ * @returns {@link PutObjectTaggingOutput}
  * @see {@link PutObjectTaggingCommandInput} for command's `input` shape.
  * @see {@link PutObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

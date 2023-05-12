@@ -59,8 +59,8 @@ export interface UpdateWorldTemplateCommandOutput extends UpdateWorldTemplateRes
  *
  * ```
  *
- * @param UpdateWorldTemplateCommandInput - {@link UpdateWorldTemplateCommandInput}
- * @returns {@link UpdateWorldTemplateCommandOutput}
+ * @param UpdateWorldTemplateRequest - {@link UpdateWorldTemplateRequest}
+ * @returns {@link UpdateWorldTemplateResponse}
  * @see {@link UpdateWorldTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateWorldTemplateCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

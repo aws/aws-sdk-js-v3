@@ -61,8 +61,8 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DeleteVaultNotificationsCommandInput - {@link DeleteVaultNotificationsCommandInput}
- * @returns {@link DeleteVaultNotificationsCommandOutput}
+ * @param DeleteVaultNotificationsInput - {@link DeleteVaultNotificationsInput}
+ * @returns {@link Unit}
  * @see {@link DeleteVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link DeleteVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

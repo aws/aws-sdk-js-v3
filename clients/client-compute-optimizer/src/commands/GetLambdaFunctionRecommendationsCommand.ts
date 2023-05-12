@@ -111,14 +111,20 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
  * //         },
  * //       ],
  * //       currentPerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
+ * //       tags: [ // Tags
+ * //         { // Tag
+ * //           key: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param GetLambdaFunctionRecommendationsCommandInput - {@link GetLambdaFunctionRecommendationsCommandInput}
- * @returns {@link GetLambdaFunctionRecommendationsCommandOutput}
+ * @param GetLambdaFunctionRecommendationsRequest - {@link GetLambdaFunctionRecommendationsRequest}
+ * @returns {@link GetLambdaFunctionRecommendationsResponse}
  * @see {@link GetLambdaFunctionRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetLambdaFunctionRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

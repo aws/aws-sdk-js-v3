@@ -60,8 +60,8 @@ export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinit
  *
  * ```
  *
- * @param ListCoreDefinitionVersionsCommandInput - {@link ListCoreDefinitionVersionsCommandInput}
- * @returns {@link ListCoreDefinitionVersionsCommandOutput}
+ * @param ListCoreDefinitionVersionsRequest - {@link ListCoreDefinitionVersionsRequest}
+ * @returns {@link ListCoreDefinitionVersionsResponse}
  * @see {@link ListCoreDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListCoreDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

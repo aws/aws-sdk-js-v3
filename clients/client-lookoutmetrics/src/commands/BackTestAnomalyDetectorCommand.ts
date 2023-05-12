@@ -48,8 +48,8 @@ export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDet
  *
  * ```
  *
- * @param BackTestAnomalyDetectorCommandInput - {@link BackTestAnomalyDetectorCommandInput}
- * @returns {@link BackTestAnomalyDetectorCommandOutput}
+ * @param BackTestAnomalyDetectorRequest - {@link BackTestAnomalyDetectorRequest}
+ * @returns {@link BackTestAnomalyDetectorResponse}
  * @see {@link BackTestAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link BackTestAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

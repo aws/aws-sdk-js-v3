@@ -57,8 +57,8 @@ export interface DisassociateBotCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DisassociateBotCommandInput - {@link DisassociateBotCommandInput}
- * @returns {@link DisassociateBotCommandOutput}
+ * @param DisassociateBotRequest - {@link DisassociateBotRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateBotCommandInput} for command's `input` shape.
  * @see {@link DisassociateBotCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

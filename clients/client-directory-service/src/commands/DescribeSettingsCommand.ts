@@ -70,8 +70,8 @@ export interface DescribeSettingsCommandOutput extends DescribeSettingsResult, _
  *
  * ```
  *
- * @param DescribeSettingsCommandInput - {@link DescribeSettingsCommandInput}
- * @returns {@link DescribeSettingsCommandOutput}
+ * @param DescribeSettingsRequest - {@link DescribeSettingsRequest}
+ * @returns {@link DescribeSettingsResult}
  * @see {@link DescribeSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeSettingsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

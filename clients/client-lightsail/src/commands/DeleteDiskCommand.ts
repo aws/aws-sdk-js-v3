@@ -76,8 +76,8 @@ export interface DeleteDiskCommandOutput extends DeleteDiskResult, __MetadataBea
  *
  * ```
  *
- * @param DeleteDiskCommandInput - {@link DeleteDiskCommandInput}
- * @returns {@link DeleteDiskCommandOutput}
+ * @param DeleteDiskRequest - {@link DeleteDiskRequest}
+ * @returns {@link DeleteDiskResult}
  * @see {@link DeleteDiskCommandInput} for command's `input` shape.
  * @see {@link DeleteDiskCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -52,8 +52,8 @@ export interface DeleteReceiptRuleCommandOutput extends DeleteReceiptRuleRespons
  *
  * ```
  *
- * @param DeleteReceiptRuleCommandInput - {@link DeleteReceiptRuleCommandInput}
- * @returns {@link DeleteReceiptRuleCommandOutput}
+ * @param DeleteReceiptRuleRequest - {@link DeleteReceiptRuleRequest}
+ * @returns {@link DeleteReceiptRuleResponse}
  * @see {@link DeleteReceiptRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

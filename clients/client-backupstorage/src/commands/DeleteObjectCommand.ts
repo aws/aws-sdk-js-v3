@@ -49,8 +49,8 @@ export interface DeleteObjectCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteObjectCommandInput - {@link DeleteObjectCommandInput}
- * @returns {@link DeleteObjectCommandOutput}
+ * @param DeleteObjectInput - {@link DeleteObjectInput}
+ * @returns {@link Unit}
  * @see {@link DeleteObjectCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.

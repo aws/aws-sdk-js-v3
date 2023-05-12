@@ -58,8 +58,8 @@ export interface StartCalculationExecutionCommandOutput extends StartCalculation
  *
  * ```
  *
- * @param StartCalculationExecutionCommandInput - {@link StartCalculationExecutionCommandInput}
- * @returns {@link StartCalculationExecutionCommandOutput}
+ * @param StartCalculationExecutionRequest - {@link StartCalculationExecutionRequest}
+ * @returns {@link StartCalculationExecutionResponse}
  * @see {@link StartCalculationExecutionCommandInput} for command's `input` shape.
  * @see {@link StartCalculationExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

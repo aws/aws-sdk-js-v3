@@ -48,8 +48,8 @@ export interface DeleteAlertCommandOutput extends DeleteAlertResponse, __Metadat
  *
  * ```
  *
- * @param DeleteAlertCommandInput - {@link DeleteAlertCommandInput}
- * @returns {@link DeleteAlertCommandOutput}
+ * @param DeleteAlertRequest - {@link DeleteAlertRequest}
+ * @returns {@link DeleteAlertResponse}
  * @see {@link DeleteAlertCommandInput} for command's `input` shape.
  * @see {@link DeleteAlertCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

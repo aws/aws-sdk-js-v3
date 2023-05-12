@@ -76,8 +76,8 @@ export interface DescribePHIDetectionJobCommandOutput extends DescribePHIDetecti
  *
  * ```
  *
- * @param DescribePHIDetectionJobCommandInput - {@link DescribePHIDetectionJobCommandInput}
- * @returns {@link DescribePHIDetectionJobCommandOutput}
+ * @param DescribePHIDetectionJobRequest - {@link DescribePHIDetectionJobRequest}
+ * @returns {@link DescribePHIDetectionJobResponse}
  * @see {@link DescribePHIDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribePHIDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

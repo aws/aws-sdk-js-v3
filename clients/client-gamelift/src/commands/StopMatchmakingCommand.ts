@@ -66,8 +66,8 @@ export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __M
  *
  * ```
  *
- * @param StopMatchmakingCommandInput - {@link StopMatchmakingCommandInput}
- * @returns {@link StopMatchmakingCommandOutput}
+ * @param StopMatchmakingInput - {@link StopMatchmakingInput}
+ * @returns {@link StopMatchmakingOutput}
  * @see {@link StopMatchmakingCommandInput} for command's `input` shape.
  * @see {@link StopMatchmakingCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

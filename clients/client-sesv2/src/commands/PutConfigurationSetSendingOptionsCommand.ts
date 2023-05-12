@@ -58,8 +58,8 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
  *
  * ```
  *
- * @param PutConfigurationSetSendingOptionsCommandInput - {@link PutConfigurationSetSendingOptionsCommandInput}
- * @returns {@link PutConfigurationSetSendingOptionsCommandOutput}
+ * @param PutConfigurationSetSendingOptionsRequest - {@link PutConfigurationSetSendingOptionsRequest}
+ * @returns {@link PutConfigurationSetSendingOptionsResponse}
  * @see {@link PutConfigurationSetSendingOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetSendingOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

@@ -71,8 +71,8 @@ export interface CreateRouteResponseCommandOutput extends CreateRouteResponseRes
  *
  * ```
  *
- * @param CreateRouteResponseCommandInput - {@link CreateRouteResponseCommandInput}
- * @returns {@link CreateRouteResponseCommandOutput}
+ * @param CreateRouteResponseRequest - {@link CreateRouteResponseRequest}
+ * @returns {@link CreateRouteResponseResponse}
  * @see {@link CreateRouteResponseCommandInput} for command's `input` shape.
  * @see {@link CreateRouteResponseCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

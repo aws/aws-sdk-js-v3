@@ -100,8 +100,8 @@ export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutpu
  *
  * ```
  *
- * @param CreateNFSFileShareCommandInput - {@link CreateNFSFileShareCommandInput}
- * @returns {@link CreateNFSFileShareCommandOutput}
+ * @param CreateNFSFileShareInput - {@link CreateNFSFileShareInput}
+ * @returns {@link CreateNFSFileShareOutput}
  * @see {@link CreateNFSFileShareCommandInput} for command's `input` shape.
  * @see {@link CreateNFSFileShareCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

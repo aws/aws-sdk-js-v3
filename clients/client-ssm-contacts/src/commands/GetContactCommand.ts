@@ -75,8 +75,8 @@ export interface GetContactCommandOutput extends GetContactResult, __MetadataBea
  *
  * ```
  *
- * @param GetContactCommandInput - {@link GetContactCommandInput}
- * @returns {@link GetContactCommandOutput}
+ * @param GetContactRequest - {@link GetContactRequest}
+ * @returns {@link GetContactResult}
  * @see {@link GetContactCommandInput} for command's `input` shape.
  * @see {@link GetContactCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

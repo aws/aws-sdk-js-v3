@@ -116,8 +116,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  *
  * ```
  *
- * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
- * @returns {@link UpdateClusterCommandOutput}
+ * @param UpdateClusterRequest - {@link UpdateClusterRequest}
+ * @returns {@link UpdateClusterResult}
  * @see {@link UpdateClusterCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

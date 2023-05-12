@@ -97,8 +97,8 @@ export interface GetClassifiersCommandOutput extends GetClassifiersResponse, __M
  *
  * ```
  *
- * @param GetClassifiersCommandInput - {@link GetClassifiersCommandInput}
- * @returns {@link GetClassifiersCommandOutput}
+ * @param GetClassifiersRequest - {@link GetClassifiersRequest}
+ * @returns {@link GetClassifiersResponse}
  * @see {@link GetClassifiersCommandInput} for command's `input` shape.
  * @see {@link GetClassifiersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

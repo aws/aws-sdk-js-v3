@@ -84,8 +84,8 @@ export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicens
  *
  * ```
  *
- * @param CheckoutBorrowLicenseCommandInput - {@link CheckoutBorrowLicenseCommandInput}
- * @returns {@link CheckoutBorrowLicenseCommandOutput}
+ * @param CheckoutBorrowLicenseRequest - {@link CheckoutBorrowLicenseRequest}
+ * @returns {@link CheckoutBorrowLicenseResponse}
  * @see {@link CheckoutBorrowLicenseCommandInput} for command's `input` shape.
  * @see {@link CheckoutBorrowLicenseCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

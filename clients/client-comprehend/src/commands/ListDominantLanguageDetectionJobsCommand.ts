@@ -101,8 +101,8 @@ export interface ListDominantLanguageDetectionJobsCommandOutput
  *
  * ```
  *
- * @param ListDominantLanguageDetectionJobsCommandInput - {@link ListDominantLanguageDetectionJobsCommandInput}
- * @returns {@link ListDominantLanguageDetectionJobsCommandOutput}
+ * @param ListDominantLanguageDetectionJobsRequest - {@link ListDominantLanguageDetectionJobsRequest}
+ * @returns {@link ListDominantLanguageDetectionJobsResponse}
  * @see {@link ListDominantLanguageDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListDominantLanguageDetectionJobsCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

@@ -133,8 +133,8 @@ export interface BatchUpdateClusterCommandOutput extends BatchUpdateClusterRespo
  *
  * ```
  *
- * @param BatchUpdateClusterCommandInput - {@link BatchUpdateClusterCommandInput}
- * @returns {@link BatchUpdateClusterCommandOutput}
+ * @param BatchUpdateClusterRequest - {@link BatchUpdateClusterRequest}
+ * @returns {@link BatchUpdateClusterResponse}
  * @see {@link BatchUpdateClusterCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

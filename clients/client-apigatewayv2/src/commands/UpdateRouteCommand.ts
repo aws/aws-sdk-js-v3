@@ -90,8 +90,8 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResult, __MetadataB
  *
  * ```
  *
- * @param UpdateRouteCommandInput - {@link UpdateRouteCommandInput}
- * @returns {@link UpdateRouteCommandOutput}
+ * @param UpdateRouteRequest - {@link UpdateRouteRequest}
+ * @returns {@link UpdateRouteResult}
  * @see {@link UpdateRouteCommandInput} for command's `input` shape.
  * @see {@link UpdateRouteCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

@@ -56,8 +56,8 @@ export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __M
  *
  * ```
  *
- * @param PutCodeBindingCommandInput - {@link PutCodeBindingCommandInput}
- * @returns {@link PutCodeBindingCommandOutput}
+ * @param PutCodeBindingRequest - {@link PutCodeBindingRequest}
+ * @returns {@link PutCodeBindingResponse}
  * @see {@link PutCodeBindingCommandInput} for command's `input` shape.
  * @see {@link PutCodeBindingCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

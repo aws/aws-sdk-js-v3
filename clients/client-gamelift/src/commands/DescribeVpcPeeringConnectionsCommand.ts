@@ -80,8 +80,8 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
  *
  * ```
  *
- * @param DescribeVpcPeeringConnectionsCommandInput - {@link DescribeVpcPeeringConnectionsCommandInput}
- * @returns {@link DescribeVpcPeeringConnectionsCommandOutput}
+ * @param DescribeVpcPeeringConnectionsInput - {@link DescribeVpcPeeringConnectionsInput}
+ * @returns {@link DescribeVpcPeeringConnectionsOutput}
  * @see {@link DescribeVpcPeeringConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcPeeringConnectionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

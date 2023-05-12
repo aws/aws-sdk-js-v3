@@ -60,8 +60,8 @@ export interface StartDiscoveryJobCommandOutput extends StartDiscoveryJobRespons
  *
  * ```
  *
- * @param StartDiscoveryJobCommandInput - {@link StartDiscoveryJobCommandInput}
- * @returns {@link StartDiscoveryJobCommandOutput}
+ * @param StartDiscoveryJobRequest - {@link StartDiscoveryJobRequest}
+ * @returns {@link StartDiscoveryJobResponse}
  * @see {@link StartDiscoveryJobCommandInput} for command's `input` shape.
  * @see {@link StartDiscoveryJobCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

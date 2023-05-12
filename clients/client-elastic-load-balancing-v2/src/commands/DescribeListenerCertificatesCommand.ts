@@ -71,8 +71,8 @@ export interface DescribeListenerCertificatesCommandOutput
  *
  * ```
  *
- * @param DescribeListenerCertificatesCommandInput - {@link DescribeListenerCertificatesCommandInput}
- * @returns {@link DescribeListenerCertificatesCommandOutput}
+ * @param DescribeListenerCertificatesInput - {@link DescribeListenerCertificatesInput}
+ * @returns {@link DescribeListenerCertificatesOutput}
  * @see {@link DescribeListenerCertificatesCommandInput} for command's `input` shape.
  * @see {@link DescribeListenerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

@@ -58,8 +58,8 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
  *
  * ```
  *
- * @param ChangePasswordCommandInput - {@link ChangePasswordCommandInput}
- * @returns {@link ChangePasswordCommandOutput}
+ * @param ChangePasswordRequest - {@link ChangePasswordRequest}
+ * @returns {@link ChangePasswordResponse}
  * @see {@link ChangePasswordCommandInput} for command's `input` shape.
  * @see {@link ChangePasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

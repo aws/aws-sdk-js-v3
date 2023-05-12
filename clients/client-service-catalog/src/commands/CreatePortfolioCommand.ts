@@ -74,8 +74,8 @@ export interface CreatePortfolioCommandOutput extends CreatePortfolioOutput, __M
  *
  * ```
  *
- * @param CreatePortfolioCommandInput - {@link CreatePortfolioCommandInput}
- * @returns {@link CreatePortfolioCommandOutput}
+ * @param CreatePortfolioInput - {@link CreatePortfolioInput}
+ * @returns {@link CreatePortfolioOutput}
  * @see {@link CreatePortfolioCommandInput} for command's `input` shape.
  * @see {@link CreatePortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

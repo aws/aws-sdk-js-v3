@@ -98,8 +98,8 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CloseAccountCommandInput - {@link CloseAccountCommandInput}
- * @returns {@link CloseAccountCommandOutput}
+ * @param CloseAccountRequest - {@link CloseAccountRequest}
+ * @returns {@link Unit}
  * @see {@link CloseAccountCommandInput} for command's `input` shape.
  * @see {@link CloseAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

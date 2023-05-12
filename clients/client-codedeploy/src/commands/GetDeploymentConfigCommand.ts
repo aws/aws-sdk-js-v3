@@ -70,8 +70,8 @@ export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOut
  *
  * ```
  *
- * @param GetDeploymentConfigCommandInput - {@link GetDeploymentConfigCommandInput}
- * @returns {@link GetDeploymentConfigCommandOutput}
+ * @param GetDeploymentConfigInput - {@link GetDeploymentConfigInput}
+ * @returns {@link GetDeploymentConfigOutput}
  * @see {@link GetDeploymentConfigCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentConfigCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

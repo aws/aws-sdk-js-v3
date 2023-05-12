@@ -57,8 +57,8 @@ export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __Met
  *
  * ```
  *
- * @param AssociateLinkCommandInput - {@link AssociateLinkCommandInput}
- * @returns {@link AssociateLinkCommandOutput}
+ * @param AssociateLinkRequest - {@link AssociateLinkRequest}
+ * @returns {@link AssociateLinkResponse}
  * @see {@link AssociateLinkCommandInput} for command's `input` shape.
  * @see {@link AssociateLinkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

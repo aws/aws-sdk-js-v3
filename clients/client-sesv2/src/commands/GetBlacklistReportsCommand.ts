@@ -60,8 +60,8 @@ export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsRes
  *
  * ```
  *
- * @param GetBlacklistReportsCommandInput - {@link GetBlacklistReportsCommandInput}
- * @returns {@link GetBlacklistReportsCommandOutput}
+ * @param GetBlacklistReportsRequest - {@link GetBlacklistReportsRequest}
+ * @returns {@link GetBlacklistReportsResponse}
  * @see {@link GetBlacklistReportsCommandInput} for command's `input` shape.
  * @see {@link GetBlacklistReportsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

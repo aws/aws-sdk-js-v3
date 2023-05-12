@@ -86,8 +86,8 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  *
  * ```
  *
- * @param StartTextTranslationJobCommandInput - {@link StartTextTranslationJobCommandInput}
- * @returns {@link StartTextTranslationJobCommandOutput}
+ * @param StartTextTranslationJobRequest - {@link StartTextTranslationJobRequest}
+ * @returns {@link StartTextTranslationJobResponse}
  * @see {@link StartTextTranslationJobCommandInput} for command's `input` shape.
  * @see {@link StartTextTranslationJobCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.

@@ -64,8 +64,8 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *
  * ```
  *
- * @param CreatePolicyCommandInput - {@link CreatePolicyCommandInput}
- * @returns {@link CreatePolicyCommandOutput}
+ * @param CreatePolicyRequest - {@link CreatePolicyRequest}
+ * @returns {@link CreatePolicyResponse}
  * @see {@link CreatePolicyCommandInput} for command's `input` shape.
  * @see {@link CreatePolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

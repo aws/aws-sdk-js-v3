@@ -56,8 +56,8 @@ export interface UpdateAuditStreamConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateAuditStreamConfigurationCommandInput - {@link UpdateAuditStreamConfigurationCommandInput}
- * @returns {@link UpdateAuditStreamConfigurationCommandOutput}
+ * @param UpdateAuditStreamConfigurationRequest - {@link UpdateAuditStreamConfigurationRequest}
+ * @returns {@link UpdateAuditStreamConfigurationResponse}
  * @see {@link UpdateAuditStreamConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateAuditStreamConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

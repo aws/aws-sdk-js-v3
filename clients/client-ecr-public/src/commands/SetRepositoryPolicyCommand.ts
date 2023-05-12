@@ -57,8 +57,8 @@ export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyRes
  *
  * ```
  *
- * @param SetRepositoryPolicyCommandInput - {@link SetRepositoryPolicyCommandInput}
- * @returns {@link SetRepositoryPolicyCommandOutput}
+ * @param SetRepositoryPolicyRequest - {@link SetRepositoryPolicyRequest}
+ * @returns {@link SetRepositoryPolicyResponse}
  * @see {@link SetRepositoryPolicyCommandInput} for command's `input` shape.
  * @see {@link SetRepositoryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.

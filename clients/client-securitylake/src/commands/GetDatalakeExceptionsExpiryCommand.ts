@@ -55,8 +55,8 @@ export interface GetDatalakeExceptionsExpiryCommandOutput
  *
  * ```
  *
- * @param GetDatalakeExceptionsExpiryCommandInput - {@link GetDatalakeExceptionsExpiryCommandInput}
- * @returns {@link GetDatalakeExceptionsExpiryCommandOutput}
+ * @param GetDatalakeExceptionsExpiryRequest - {@link GetDatalakeExceptionsExpiryRequest}
+ * @returns {@link GetDatalakeExceptionsExpiryResponse}
  * @see {@link GetDatalakeExceptionsExpiryCommandInput} for command's `input` shape.
  * @see {@link GetDatalakeExceptionsExpiryCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

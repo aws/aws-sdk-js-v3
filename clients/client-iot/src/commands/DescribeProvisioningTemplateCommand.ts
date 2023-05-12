@@ -69,8 +69,8 @@ export interface DescribeProvisioningTemplateCommandOutput
  *
  * ```
  *
- * @param DescribeProvisioningTemplateCommandInput - {@link DescribeProvisioningTemplateCommandInput}
- * @returns {@link DescribeProvisioningTemplateCommandOutput}
+ * @param DescribeProvisioningTemplateRequest - {@link DescribeProvisioningTemplateRequest}
+ * @returns {@link DescribeProvisioningTemplateResponse}
  * @see {@link DescribeProvisioningTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisioningTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

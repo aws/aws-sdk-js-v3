@@ -160,8 +160,8 @@ export interface UpdateMetricSetCommandOutput extends UpdateMetricSetResponse, _
  *
  * ```
  *
- * @param UpdateMetricSetCommandInput - {@link UpdateMetricSetCommandInput}
- * @returns {@link UpdateMetricSetCommandOutput}
+ * @param UpdateMetricSetRequest - {@link UpdateMetricSetRequest}
+ * @returns {@link UpdateMetricSetResponse}
  * @see {@link UpdateMetricSetCommandInput} for command's `input` shape.
  * @see {@link UpdateMetricSetCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

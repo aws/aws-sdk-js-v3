@@ -55,8 +55,8 @@ export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxy
  *
  * ```
  *
- * @param DeregisterDBProxyTargetsCommandInput - {@link DeregisterDBProxyTargetsCommandInput}
- * @returns {@link DeregisterDBProxyTargetsCommandOutput}
+ * @param DeregisterDBProxyTargetsRequest - {@link DeregisterDBProxyTargetsRequest}
+ * @returns {@link DeregisterDBProxyTargetsResponse}
  * @see {@link DeregisterDBProxyTargetsCommandInput} for command's `input` shape.
  * @see {@link DeregisterDBProxyTargetsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

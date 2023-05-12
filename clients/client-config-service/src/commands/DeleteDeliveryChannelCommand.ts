@@ -50,8 +50,8 @@ export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDeliveryChannelCommandInput - {@link DeleteDeliveryChannelCommandInput}
- * @returns {@link DeleteDeliveryChannelCommandOutput}
+ * @param DeleteDeliveryChannelRequest - {@link DeleteDeliveryChannelRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDeliveryChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteDeliveryChannelCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

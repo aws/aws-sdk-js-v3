@@ -51,8 +51,8 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
  *
  * ```
  *
- * @param PutLoggingOptionsCommandInput - {@link PutLoggingOptionsCommandInput}
- * @returns {@link PutLoggingOptionsCommandOutput}
+ * @param PutLoggingOptionsRequest - {@link PutLoggingOptionsRequest}
+ * @returns {@link PutLoggingOptionsResponse}
  * @see {@link PutLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link PutLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

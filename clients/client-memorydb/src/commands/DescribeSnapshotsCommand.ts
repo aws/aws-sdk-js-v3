@@ -92,8 +92,8 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  *
  * ```
  *
- * @param DescribeSnapshotsCommandInput - {@link DescribeSnapshotsCommandInput}
- * @returns {@link DescribeSnapshotsCommandOutput}
+ * @param DescribeSnapshotsRequest - {@link DescribeSnapshotsRequest}
+ * @returns {@link DescribeSnapshotsResponse}
  * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

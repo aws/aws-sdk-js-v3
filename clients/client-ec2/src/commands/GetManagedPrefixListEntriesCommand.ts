@@ -60,8 +60,8 @@ export interface GetManagedPrefixListEntriesCommandOutput extends GetManagedPref
  *
  * ```
  *
- * @param GetManagedPrefixListEntriesCommandInput - {@link GetManagedPrefixListEntriesCommandInput}
- * @returns {@link GetManagedPrefixListEntriesCommandOutput}
+ * @param GetManagedPrefixListEntriesRequest - {@link GetManagedPrefixListEntriesRequest}
+ * @returns {@link GetManagedPrefixListEntriesResult}
  * @see {@link GetManagedPrefixListEntriesCommandInput} for command's `input` shape.
  * @see {@link GetManagedPrefixListEntriesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

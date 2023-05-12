@@ -121,8 +121,8 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  *
  * ```
  *
- * @param CreateChangeSetCommandInput - {@link CreateChangeSetCommandInput}
- * @returns {@link CreateChangeSetCommandOutput}
+ * @param CreateChangeSetInput - {@link CreateChangeSetInput}
+ * @returns {@link CreateChangeSetOutput}
  * @see {@link CreateChangeSetCommandInput} for command's `input` shape.
  * @see {@link CreateChangeSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

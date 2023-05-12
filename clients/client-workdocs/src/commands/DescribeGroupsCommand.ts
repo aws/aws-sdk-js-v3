@@ -65,8 +65,8 @@ export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __M
  *
  * ```
  *
- * @param DescribeGroupsCommandInput - {@link DescribeGroupsCommandInput}
- * @returns {@link DescribeGroupsCommandOutput}
+ * @param DescribeGroupsRequest - {@link DescribeGroupsRequest}
+ * @returns {@link DescribeGroupsResponse}
  * @see {@link DescribeGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

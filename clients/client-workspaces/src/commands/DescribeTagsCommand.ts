@@ -55,8 +55,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  *
  * ```
  *
- * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
- * @returns {@link DescribeTagsCommandOutput}
+ * @param DescribeTagsRequest - {@link DescribeTagsRequest}
+ * @returns {@link DescribeTagsResult}
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

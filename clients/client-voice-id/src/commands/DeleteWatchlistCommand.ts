@@ -51,8 +51,8 @@ export interface DeleteWatchlistCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteWatchlistCommandInput - {@link DeleteWatchlistCommandInput}
- * @returns {@link DeleteWatchlistCommandOutput}
+ * @param DeleteWatchlistRequest - {@link DeleteWatchlistRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteWatchlistCommandInput} for command's `input` shape.
  * @see {@link DeleteWatchlistCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

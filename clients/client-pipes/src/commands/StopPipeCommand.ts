@@ -55,8 +55,8 @@ export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBeare
  *
  * ```
  *
- * @param StopPipeCommandInput - {@link StopPipeCommandInput}
- * @returns {@link StopPipeCommandOutput}
+ * @param StopPipeRequest - {@link StopPipeRequest}
+ * @returns {@link StopPipeResponse}
  * @see {@link StopPipeCommandInput} for command's `input` shape.
  * @see {@link StopPipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.

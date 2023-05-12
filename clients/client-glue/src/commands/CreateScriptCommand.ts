@@ -72,8 +72,8 @@ export interface CreateScriptCommandOutput extends CreateScriptResponse, __Metad
  *
  * ```
  *
- * @param CreateScriptCommandInput - {@link CreateScriptCommandInput}
- * @returns {@link CreateScriptCommandOutput}
+ * @param CreateScriptRequest - {@link CreateScriptRequest}
+ * @returns {@link CreateScriptResponse}
  * @see {@link CreateScriptCommandInput} for command's `input` shape.
  * @see {@link CreateScriptCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

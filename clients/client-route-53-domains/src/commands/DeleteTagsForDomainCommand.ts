@@ -53,8 +53,8 @@ export interface DeleteTagsForDomainCommandOutput extends DeleteTagsForDomainRes
  *
  * ```
  *
- * @param DeleteTagsForDomainCommandInput - {@link DeleteTagsForDomainCommandInput}
- * @returns {@link DeleteTagsForDomainCommandOutput}
+ * @param DeleteTagsForDomainRequest - {@link DeleteTagsForDomainRequest}
+ * @returns {@link DeleteTagsForDomainResponse}
  * @see {@link DeleteTagsForDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsForDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

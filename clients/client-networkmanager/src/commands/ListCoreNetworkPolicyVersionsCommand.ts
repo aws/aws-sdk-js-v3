@@ -67,8 +67,8 @@ export interface ListCoreNetworkPolicyVersionsCommandOutput
  *
  * ```
  *
- * @param ListCoreNetworkPolicyVersionsCommandInput - {@link ListCoreNetworkPolicyVersionsCommandInput}
- * @returns {@link ListCoreNetworkPolicyVersionsCommandOutput}
+ * @param ListCoreNetworkPolicyVersionsRequest - {@link ListCoreNetworkPolicyVersionsRequest}
+ * @returns {@link ListCoreNetworkPolicyVersionsResponse}
  * @see {@link ListCoreNetworkPolicyVersionsCommandInput} for command's `input` shape.
  * @see {@link ListCoreNetworkPolicyVersionsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

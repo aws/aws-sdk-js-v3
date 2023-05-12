@@ -68,8 +68,8 @@ export interface AllocateStaticIpCommandOutput extends AllocateStaticIpResult, _
  *
  * ```
  *
- * @param AllocateStaticIpCommandInput - {@link AllocateStaticIpCommandInput}
- * @returns {@link AllocateStaticIpCommandOutput}
+ * @param AllocateStaticIpRequest - {@link AllocateStaticIpRequest}
+ * @returns {@link AllocateStaticIpResult}
  * @see {@link AllocateStaticIpCommandInput} for command's `input` shape.
  * @see {@link AllocateStaticIpCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -130,8 +130,8 @@ export interface ListImageScanFindingAggregationsCommandOutput
  *
  * ```
  *
- * @param ListImageScanFindingAggregationsCommandInput - {@link ListImageScanFindingAggregationsCommandInput}
- * @returns {@link ListImageScanFindingAggregationsCommandOutput}
+ * @param ListImageScanFindingAggregationsRequest - {@link ListImageScanFindingAggregationsRequest}
+ * @returns {@link ListImageScanFindingAggregationsResponse}
  * @see {@link ListImageScanFindingAggregationsCommandInput} for command's `input` shape.
  * @see {@link ListImageScanFindingAggregationsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

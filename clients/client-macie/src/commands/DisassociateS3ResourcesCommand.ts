@@ -69,8 +69,8 @@ export interface DisassociateS3ResourcesCommandOutput extends DisassociateS3Reso
  *
  * ```
  *
- * @param DisassociateS3ResourcesCommandInput - {@link DisassociateS3ResourcesCommandInput}
- * @returns {@link DisassociateS3ResourcesCommandOutput}
+ * @param DisassociateS3ResourcesRequest - {@link DisassociateS3ResourcesRequest}
+ * @returns {@link DisassociateS3ResourcesResult}
  * @see {@link DisassociateS3ResourcesCommandInput} for command's `input` shape.
  * @see {@link DisassociateS3ResourcesCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.

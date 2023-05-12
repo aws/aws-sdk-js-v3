@@ -80,8 +80,8 @@ export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse,
  *
  * ```
  *
- * @param SendAnnouncementCommandInput - {@link SendAnnouncementCommandInput}
- * @returns {@link SendAnnouncementCommandOutput}
+ * @param SendAnnouncementRequest - {@link SendAnnouncementRequest}
+ * @returns {@link SendAnnouncementResponse}
  * @see {@link SendAnnouncementCommandInput} for command's `input` shape.
  * @see {@link SendAnnouncementCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

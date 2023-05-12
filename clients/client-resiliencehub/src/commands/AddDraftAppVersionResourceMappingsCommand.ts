@@ -93,8 +93,8 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  *
  * ```
  *
- * @param AddDraftAppVersionResourceMappingsCommandInput - {@link AddDraftAppVersionResourceMappingsCommandInput}
- * @returns {@link AddDraftAppVersionResourceMappingsCommandOutput}
+ * @param AddDraftAppVersionResourceMappingsRequest - {@link AddDraftAppVersionResourceMappingsRequest}
+ * @returns {@link AddDraftAppVersionResourceMappingsResponse}
  * @see {@link AddDraftAppVersionResourceMappingsCommandInput} for command's `input` shape.
  * @see {@link AddDraftAppVersionResourceMappingsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

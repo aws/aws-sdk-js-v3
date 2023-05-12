@@ -71,8 +71,8 @@ export interface GetServiceInstanceCommandOutput extends GetServiceInstanceOutpu
  *
  * ```
  *
- * @param GetServiceInstanceCommandInput - {@link GetServiceInstanceCommandInput}
- * @returns {@link GetServiceInstanceCommandOutput}
+ * @param GetServiceInstanceInput - {@link GetServiceInstanceInput}
+ * @returns {@link GetServiceInstanceOutput}
  * @see {@link GetServiceInstanceCommandInput} for command's `input` shape.
  * @see {@link GetServiceInstanceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

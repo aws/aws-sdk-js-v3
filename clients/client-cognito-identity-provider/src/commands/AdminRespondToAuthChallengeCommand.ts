@@ -121,8 +121,8 @@ export interface AdminRespondToAuthChallengeCommandOutput
  *
  * ```
  *
- * @param AdminRespondToAuthChallengeCommandInput - {@link AdminRespondToAuthChallengeCommandInput}
- * @returns {@link AdminRespondToAuthChallengeCommandOutput}
+ * @param AdminRespondToAuthChallengeRequest - {@link AdminRespondToAuthChallengeRequest}
+ * @returns {@link AdminRespondToAuthChallengeResponse}
  * @see {@link AdminRespondToAuthChallengeCommandInput} for command's `input` shape.
  * @see {@link AdminRespondToAuthChallengeCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

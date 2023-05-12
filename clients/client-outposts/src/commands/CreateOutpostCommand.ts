@@ -74,8 +74,8 @@ export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __Metad
  *
  * ```
  *
- * @param CreateOutpostCommandInput - {@link CreateOutpostCommandInput}
- * @returns {@link CreateOutpostCommandOutput}
+ * @param CreateOutpostInput - {@link CreateOutpostInput}
+ * @returns {@link CreateOutpostOutput}
  * @see {@link CreateOutpostCommandInput} for command's `input` shape.
  * @see {@link CreateOutpostCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

@@ -82,8 +82,8 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  *
  * ```
  *
- * @param ListPackageVersionsCommandInput - {@link ListPackageVersionsCommandInput}
- * @returns {@link ListPackageVersionsCommandOutput}
+ * @param ListPackageVersionsRequest - {@link ListPackageVersionsRequest}
+ * @returns {@link ListPackageVersionsResult}
  * @see {@link ListPackageVersionsCommandInput} for command's `input` shape.
  * @see {@link ListPackageVersionsCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

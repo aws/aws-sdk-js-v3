@@ -62,8 +62,8 @@ export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
  *
  * ```
  *
- * @param AssociateSigninDelegateGroupsWithAccountCommandInput - {@link AssociateSigninDelegateGroupsWithAccountCommandInput}
- * @returns {@link AssociateSigninDelegateGroupsWithAccountCommandOutput}
+ * @param AssociateSigninDelegateGroupsWithAccountRequest - {@link AssociateSigninDelegateGroupsWithAccountRequest}
+ * @returns {@link AssociateSigninDelegateGroupsWithAccountResponse}
  * @see {@link AssociateSigninDelegateGroupsWithAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateSigninDelegateGroupsWithAccountCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

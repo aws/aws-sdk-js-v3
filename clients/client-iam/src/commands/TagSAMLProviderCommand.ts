@@ -91,8 +91,8 @@ export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param TagSAMLProviderCommandInput - {@link TagSAMLProviderCommandInput}
- * @returns {@link TagSAMLProviderCommandOutput}
+ * @param TagSAMLProviderRequest - {@link TagSAMLProviderRequest}
+ * @returns {@link Unit}
  * @see {@link TagSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link TagSAMLProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -91,8 +91,8 @@ export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsR
  *
  * ```
  *
- * @param ListSigningPlatformsCommandInput - {@link ListSigningPlatformsCommandInput}
- * @returns {@link ListSigningPlatformsCommandOutput}
+ * @param ListSigningPlatformsRequest - {@link ListSigningPlatformsRequest}
+ * @returns {@link ListSigningPlatformsResponse}
  * @see {@link ListSigningPlatformsCommandInput} for command's `input` shape.
  * @see {@link ListSigningPlatformsCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.

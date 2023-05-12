@@ -57,8 +57,8 @@ export interface DeprovisionPublicIpv4PoolCidrCommandOutput
  *
  * ```
  *
- * @param DeprovisionPublicIpv4PoolCidrCommandInput - {@link DeprovisionPublicIpv4PoolCidrCommandInput}
- * @returns {@link DeprovisionPublicIpv4PoolCidrCommandOutput}
+ * @param DeprovisionPublicIpv4PoolCidrRequest - {@link DeprovisionPublicIpv4PoolCidrRequest}
+ * @returns {@link DeprovisionPublicIpv4PoolCidrResult}
  * @see {@link DeprovisionPublicIpv4PoolCidrCommandInput} for command's `input` shape.
  * @see {@link DeprovisionPublicIpv4PoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

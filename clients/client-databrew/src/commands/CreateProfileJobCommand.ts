@@ -132,8 +132,8 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  *
  * ```
  *
- * @param CreateProfileJobCommandInput - {@link CreateProfileJobCommandInput}
- * @returns {@link CreateProfileJobCommandOutput}
+ * @param CreateProfileJobRequest - {@link CreateProfileJobRequest}
+ * @returns {@link CreateProfileJobResponse}
  * @see {@link CreateProfileJobCommandInput} for command's `input` shape.
  * @see {@link CreateProfileJobCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

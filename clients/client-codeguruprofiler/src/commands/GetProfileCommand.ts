@@ -128,8 +128,8 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  *
  * ```
  *
- * @param GetProfileCommandInput - {@link GetProfileCommandInput}
- * @returns {@link GetProfileCommandOutput}
+ * @param GetProfileRequest - {@link GetProfileRequest}
+ * @returns {@link GetProfileResponse}
  * @see {@link GetProfileCommandInput} for command's `input` shape.
  * @see {@link GetProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

@@ -85,8 +85,8 @@ export interface DescribeTransitGatewayPolicyTablesCommandOutput
  *
  * ```
  *
- * @param DescribeTransitGatewayPolicyTablesCommandInput - {@link DescribeTransitGatewayPolicyTablesCommandInput}
- * @returns {@link DescribeTransitGatewayPolicyTablesCommandOutput}
+ * @param DescribeTransitGatewayPolicyTablesRequest - {@link DescribeTransitGatewayPolicyTablesRequest}
+ * @returns {@link DescribeTransitGatewayPolicyTablesResult}
  * @see {@link DescribeTransitGatewayPolicyTablesCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewayPolicyTablesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -264,7 +264,7 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //   lastRunExecutionDetails: { // ExecutionDetails
  * //     mostRecentExecutionMessage: "STRING_VALUE",
  * //     mostRecentExecutionTime: new Date("TIMESTAMP"),
- * //     mostRecentExecutionStatus: "InProgress" || "Successful" || "Error",
+ * //     mostRecentExecutionStatus: "InProgress" || "Successful" || "Error" || "CancelStarted" || "Canceled",
  * //   },
  * //   triggerConfig: { // TriggerConfig
  * //     triggerType: "Scheduled" || "Event" || "OnDemand", // required
@@ -333,12 +333,12 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //       tableRegistrationOutput: { // RegistrationOutput
  * //         message: "STRING_VALUE",
  * //         result: "STRING_VALUE",
- * //         status: "InProgress" || "Successful" || "Error",
+ * //         status: "InProgress" || "Successful" || "Error" || "CancelStarted" || "Canceled",
  * //       },
  * //       partitionRegistrationOutput: {
  * //         message: "STRING_VALUE",
  * //         result: "STRING_VALUE",
- * //         status: "InProgress" || "Successful" || "Error",
+ * //         status: "InProgress" || "Successful" || "Error" || "CancelStarted" || "Canceled",
  * //       },
  * //     },
  * //   ],
@@ -347,8 +347,8 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  *
  * ```
  *
- * @param DescribeFlowCommandInput - {@link DescribeFlowCommandInput}
- * @returns {@link DescribeFlowCommandOutput}
+ * @param DescribeFlowRequest - {@link DescribeFlowRequest}
+ * @returns {@link DescribeFlowResponse}
  * @see {@link DescribeFlowCommandInput} for command's `input` shape.
  * @see {@link DescribeFlowCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.

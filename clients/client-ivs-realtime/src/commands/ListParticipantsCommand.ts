@@ -65,8 +65,8 @@ export interface ListParticipantsCommandOutput extends ListParticipantsResponse,
  *
  * ```
  *
- * @param ListParticipantsCommandInput - {@link ListParticipantsCommandInput}
- * @returns {@link ListParticipantsCommandOutput}
+ * @param ListParticipantsRequest - {@link ListParticipantsRequest}
+ * @returns {@link ListParticipantsResponse}
  * @see {@link ListParticipantsCommandInput} for command's `input` shape.
  * @see {@link ListParticipantsCommandOutput} for command's `response` shape.
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.

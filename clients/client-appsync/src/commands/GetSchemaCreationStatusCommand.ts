@@ -51,8 +51,8 @@ export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationS
  *
  * ```
  *
- * @param GetSchemaCreationStatusCommandInput - {@link GetSchemaCreationStatusCommandInput}
- * @returns {@link GetSchemaCreationStatusCommandOutput}
+ * @param GetSchemaCreationStatusRequest - {@link GetSchemaCreationStatusRequest}
+ * @returns {@link GetSchemaCreationStatusResponse}
  * @see {@link GetSchemaCreationStatusCommandInput} for command's `input` shape.
  * @see {@link GetSchemaCreationStatusCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

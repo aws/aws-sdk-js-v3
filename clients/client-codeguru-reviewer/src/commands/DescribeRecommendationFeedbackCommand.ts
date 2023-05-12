@@ -66,8 +66,8 @@ export interface DescribeRecommendationFeedbackCommandOutput
  *
  * ```
  *
- * @param DescribeRecommendationFeedbackCommandInput - {@link DescribeRecommendationFeedbackCommandInput}
- * @returns {@link DescribeRecommendationFeedbackCommandOutput}
+ * @param DescribeRecommendationFeedbackRequest - {@link DescribeRecommendationFeedbackRequest}
+ * @returns {@link DescribeRecommendationFeedbackResponse}
  * @see {@link DescribeRecommendationFeedbackCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommendationFeedbackCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.

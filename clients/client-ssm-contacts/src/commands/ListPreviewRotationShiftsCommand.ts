@@ -121,8 +121,8 @@ export interface ListPreviewRotationShiftsCommandOutput extends ListPreviewRotat
  *
  * ```
  *
- * @param ListPreviewRotationShiftsCommandInput - {@link ListPreviewRotationShiftsCommandInput}
- * @returns {@link ListPreviewRotationShiftsCommandOutput}
+ * @param ListPreviewRotationShiftsRequest - {@link ListPreviewRotationShiftsRequest}
+ * @returns {@link ListPreviewRotationShiftsResult}
  * @see {@link ListPreviewRotationShiftsCommandInput} for command's `input` shape.
  * @see {@link ListPreviewRotationShiftsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

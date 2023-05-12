@@ -91,8 +91,8 @@ export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __Metadat
  *
  * ```
  *
- * @param GetBucketAclCommandInput - {@link GetBucketAclCommandInput}
- * @returns {@link GetBucketAclCommandOutput}
+ * @param GetBucketAclRequest - {@link GetBucketAclRequest}
+ * @returns {@link GetBucketAclOutput}
  * @see {@link GetBucketAclCommandInput} for command's `input` shape.
  * @see {@link GetBucketAclCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

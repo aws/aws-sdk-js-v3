@@ -76,8 +76,8 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  *
  * ```
  *
- * @param CreateDBSubnetGroupCommandInput - {@link CreateDBSubnetGroupCommandInput}
- * @returns {@link CreateDBSubnetGroupCommandOutput}
+ * @param CreateDBSubnetGroupMessage - {@link CreateDBSubnetGroupMessage}
+ * @returns {@link CreateDBSubnetGroupResult}
  * @see {@link CreateDBSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

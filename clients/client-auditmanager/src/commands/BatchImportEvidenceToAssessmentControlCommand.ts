@@ -95,8 +95,8 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
  *
  * ```
  *
- * @param BatchImportEvidenceToAssessmentControlCommandInput - {@link BatchImportEvidenceToAssessmentControlCommandInput}
- * @returns {@link BatchImportEvidenceToAssessmentControlCommandOutput}
+ * @param BatchImportEvidenceToAssessmentControlRequest - {@link BatchImportEvidenceToAssessmentControlRequest}
+ * @returns {@link BatchImportEvidenceToAssessmentControlResponse}
  * @see {@link BatchImportEvidenceToAssessmentControlCommandInput} for command's `input` shape.
  * @see {@link BatchImportEvidenceToAssessmentControlCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

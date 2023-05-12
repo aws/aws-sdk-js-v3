@@ -49,8 +49,8 @@ export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DeleteDataProtectionPolicyCommandInput - {@link DeleteDataProtectionPolicyCommandInput}
- * @returns {@link DeleteDataProtectionPolicyCommandOutput}
+ * @param DeleteDataProtectionPolicyRequest - {@link DeleteDataProtectionPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

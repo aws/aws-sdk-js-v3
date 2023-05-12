@@ -68,8 +68,8 @@ export interface StartICD10CMInferenceJobCommandOutput extends StartICD10CMInfer
  *
  * ```
  *
- * @param StartICD10CMInferenceJobCommandInput - {@link StartICD10CMInferenceJobCommandInput}
- * @returns {@link StartICD10CMInferenceJobCommandOutput}
+ * @param StartICD10CMInferenceJobRequest - {@link StartICD10CMInferenceJobRequest}
+ * @returns {@link StartICD10CMInferenceJobResponse}
  * @see {@link StartICD10CMInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StartICD10CMInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

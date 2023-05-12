@@ -120,8 +120,8 @@ export interface ListHealthEventsCommandOutput extends ListHealthEventsOutput, _
  *
  * ```
  *
- * @param ListHealthEventsCommandInput - {@link ListHealthEventsCommandInput}
- * @returns {@link ListHealthEventsCommandOutput}
+ * @param ListHealthEventsInput - {@link ListHealthEventsInput}
+ * @returns {@link ListHealthEventsOutput}
  * @see {@link ListHealthEventsCommandInput} for command's `input` shape.
  * @see {@link ListHealthEventsCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.

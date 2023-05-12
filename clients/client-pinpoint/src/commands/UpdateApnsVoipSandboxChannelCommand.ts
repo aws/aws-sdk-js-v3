@@ -78,8 +78,8 @@ export interface UpdateApnsVoipSandboxChannelCommandOutput
  *
  * ```
  *
- * @param UpdateApnsVoipSandboxChannelCommandInput - {@link UpdateApnsVoipSandboxChannelCommandInput}
- * @returns {@link UpdateApnsVoipSandboxChannelCommandOutput}
+ * @param UpdateApnsVoipSandboxChannelRequest - {@link UpdateApnsVoipSandboxChannelRequest}
+ * @returns {@link UpdateApnsVoipSandboxChannelResponse}
  * @see {@link UpdateApnsVoipSandboxChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateApnsVoipSandboxChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

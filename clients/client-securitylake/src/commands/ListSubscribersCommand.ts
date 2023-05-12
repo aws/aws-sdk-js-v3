@@ -80,8 +80,8 @@ export interface ListSubscribersCommandOutput extends ListSubscribersResponse, _
  *
  * ```
  *
- * @param ListSubscribersCommandInput - {@link ListSubscribersCommandInput}
- * @returns {@link ListSubscribersCommandOutput}
+ * @param ListSubscribersRequest - {@link ListSubscribersRequest}
+ * @returns {@link ListSubscribersResponse}
  * @see {@link ListSubscribersCommandInput} for command's `input` shape.
  * @see {@link ListSubscribersCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

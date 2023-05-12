@@ -82,8 +82,8 @@ export interface TerminateProvisionedProductCommandOutput extends TerminateProvi
  *
  * ```
  *
- * @param TerminateProvisionedProductCommandInput - {@link TerminateProvisionedProductCommandInput}
- * @returns {@link TerminateProvisionedProductCommandOutput}
+ * @param TerminateProvisionedProductInput - {@link TerminateProvisionedProductInput}
+ * @returns {@link TerminateProvisionedProductOutput}
  * @see {@link TerminateProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link TerminateProvisionedProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

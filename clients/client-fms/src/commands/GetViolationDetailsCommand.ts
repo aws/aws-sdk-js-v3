@@ -496,8 +496,8 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
  *
  * ```
  *
- * @param GetViolationDetailsCommandInput - {@link GetViolationDetailsCommandInput}
- * @returns {@link GetViolationDetailsCommandOutput}
+ * @param GetViolationDetailsRequest - {@link GetViolationDetailsRequest}
+ * @returns {@link GetViolationDetailsResponse}
  * @see {@link GetViolationDetailsCommandInput} for command's `input` shape.
  * @see {@link GetViolationDetailsCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

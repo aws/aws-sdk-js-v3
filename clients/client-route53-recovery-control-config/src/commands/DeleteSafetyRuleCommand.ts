@@ -52,8 +52,8 @@ export interface DeleteSafetyRuleCommandOutput extends DeleteSafetyRuleResponse,
  *
  * ```
  *
- * @param DeleteSafetyRuleCommandInput - {@link DeleteSafetyRuleCommandInput}
- * @returns {@link DeleteSafetyRuleCommandOutput}
+ * @param DeleteSafetyRuleRequest - {@link DeleteSafetyRuleRequest}
+ * @returns {@link DeleteSafetyRuleResponse}
  * @see {@link DeleteSafetyRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteSafetyRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

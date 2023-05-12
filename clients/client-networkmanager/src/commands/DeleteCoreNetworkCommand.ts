@@ -83,8 +83,8 @@ export interface DeleteCoreNetworkCommandOutput extends DeleteCoreNetworkRespons
  *
  * ```
  *
- * @param DeleteCoreNetworkCommandInput - {@link DeleteCoreNetworkCommandInput}
- * @returns {@link DeleteCoreNetworkCommandOutput}
+ * @param DeleteCoreNetworkRequest - {@link DeleteCoreNetworkRequest}
+ * @returns {@link DeleteCoreNetworkResponse}
  * @see {@link DeleteCoreNetworkCommandInput} for command's `input` shape.
  * @see {@link DeleteCoreNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

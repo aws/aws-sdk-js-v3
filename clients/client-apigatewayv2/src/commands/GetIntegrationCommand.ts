@@ -80,8 +80,8 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResult, __Met
  *
  * ```
  *
- * @param GetIntegrationCommandInput - {@link GetIntegrationCommandInput}
- * @returns {@link GetIntegrationCommandOutput}
+ * @param GetIntegrationRequest - {@link GetIntegrationRequest}
+ * @returns {@link GetIntegrationResult}
  * @see {@link GetIntegrationCommandInput} for command's `input` shape.
  * @see {@link GetIntegrationCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

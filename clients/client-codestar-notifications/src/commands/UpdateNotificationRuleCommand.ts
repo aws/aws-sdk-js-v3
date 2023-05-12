@@ -73,8 +73,8 @@ export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationR
  *
  * ```
  *
- * @param UpdateNotificationRuleCommandInput - {@link UpdateNotificationRuleCommandInput}
- * @returns {@link UpdateNotificationRuleCommandOutput}
+ * @param UpdateNotificationRuleRequest - {@link UpdateNotificationRuleRequest}
+ * @returns {@link UpdateNotificationRuleResult}
  * @see {@link UpdateNotificationRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateNotificationRuleCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.

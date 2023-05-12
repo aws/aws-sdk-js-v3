@@ -64,8 +64,8 @@ export interface UpdateServiceAccessPoliciesCommandOutput
  *
  * ```
  *
- * @param UpdateServiceAccessPoliciesCommandInput - {@link UpdateServiceAccessPoliciesCommandInput}
- * @returns {@link UpdateServiceAccessPoliciesCommandOutput}
+ * @param UpdateServiceAccessPoliciesRequest - {@link UpdateServiceAccessPoliciesRequest}
+ * @returns {@link UpdateServiceAccessPoliciesResponse}
  * @see {@link UpdateServiceAccessPoliciesCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceAccessPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

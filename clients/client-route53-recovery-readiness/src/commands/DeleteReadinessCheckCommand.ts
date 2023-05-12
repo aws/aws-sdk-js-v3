@@ -52,8 +52,8 @@ export interface DeleteReadinessCheckCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteReadinessCheckCommandInput - {@link DeleteReadinessCheckCommandInput}
- * @returns {@link DeleteReadinessCheckCommandOutput}
+ * @param DeleteReadinessCheckRequest - {@link DeleteReadinessCheckRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteReadinessCheckCommandInput} for command's `input` shape.
  * @see {@link DeleteReadinessCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

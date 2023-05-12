@@ -103,8 +103,8 @@ export interface GetInsightSummariesCommandOutput extends GetInsightSummariesRes
  *
  * ```
  *
- * @param GetInsightSummariesCommandInput - {@link GetInsightSummariesCommandInput}
- * @returns {@link GetInsightSummariesCommandOutput}
+ * @param GetInsightSummariesRequest - {@link GetInsightSummariesRequest}
+ * @returns {@link GetInsightSummariesResult}
  * @see {@link GetInsightSummariesCommandInput} for command's `input` shape.
  * @see {@link GetInsightSummariesCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

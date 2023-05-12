@@ -65,8 +65,8 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetGroupCommandInput - {@link GetGroupCommandInput}
- * @returns {@link GetGroupCommandOutput}
+ * @param GetGroupRequest - {@link GetGroupRequest}
+ * @returns {@link GetGroupResponse}
  * @see {@link GetGroupCommandInput} for command's `input` shape.
  * @see {@link GetGroupCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointRespons
  *
  * ```
  *
- * @param DeleteDevEndpointCommandInput - {@link DeleteDevEndpointCommandInput}
- * @returns {@link DeleteDevEndpointCommandOutput}
+ * @param DeleteDevEndpointRequest - {@link DeleteDevEndpointRequest}
+ * @returns {@link DeleteDevEndpointResponse}
  * @see {@link DeleteDevEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteDevEndpointCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

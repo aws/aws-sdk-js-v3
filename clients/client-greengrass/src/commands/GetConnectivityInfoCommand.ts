@@ -58,8 +58,8 @@ export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoRes
  *
  * ```
  *
- * @param GetConnectivityInfoCommandInput - {@link GetConnectivityInfoCommandInput}
- * @returns {@link GetConnectivityInfoCommandOutput}
+ * @param GetConnectivityInfoRequest - {@link GetConnectivityInfoRequest}
+ * @returns {@link GetConnectivityInfoResponse}
  * @see {@link GetConnectivityInfoCommandInput} for command's `input` shape.
  * @see {@link GetConnectivityInfoCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

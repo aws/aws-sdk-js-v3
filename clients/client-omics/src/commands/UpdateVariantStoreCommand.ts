@@ -59,8 +59,8 @@ export interface UpdateVariantStoreCommandOutput extends UpdateVariantStoreRespo
  *
  * ```
  *
- * @param UpdateVariantStoreCommandInput - {@link UpdateVariantStoreCommandInput}
- * @returns {@link UpdateVariantStoreCommandOutput}
+ * @param UpdateVariantStoreRequest - {@link UpdateVariantStoreRequest}
+ * @returns {@link UpdateVariantStoreResponse}
  * @see {@link UpdateVariantStoreCommandInput} for command's `input` shape.
  * @see {@link UpdateVariantStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

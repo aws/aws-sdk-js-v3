@@ -78,8 +78,8 @@ export interface ListFunctionUrlConfigsCommandOutput extends ListFunctionUrlConf
  *
  * ```
  *
- * @param ListFunctionUrlConfigsCommandInput - {@link ListFunctionUrlConfigsCommandInput}
- * @returns {@link ListFunctionUrlConfigsCommandOutput}
+ * @param ListFunctionUrlConfigsRequest - {@link ListFunctionUrlConfigsRequest}
+ * @returns {@link ListFunctionUrlConfigsResponse}
  * @see {@link ListFunctionUrlConfigsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionUrlConfigsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

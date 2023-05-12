@@ -69,8 +69,8 @@ export interface CreateTemplateSyncConfigCommandOutput extends CreateTemplateSyn
  *
  * ```
  *
- * @param CreateTemplateSyncConfigCommandInput - {@link CreateTemplateSyncConfigCommandInput}
- * @returns {@link CreateTemplateSyncConfigCommandOutput}
+ * @param CreateTemplateSyncConfigInput - {@link CreateTemplateSyncConfigInput}
+ * @returns {@link CreateTemplateSyncConfigOutput}
  * @see {@link CreateTemplateSyncConfigCommandInput} for command's `input` shape.
  * @see {@link CreateTemplateSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

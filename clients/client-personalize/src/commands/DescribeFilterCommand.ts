@@ -63,8 +63,8 @@ export interface DescribeFilterCommandOutput extends DescribeFilterResponse, __M
  *
  * ```
  *
- * @param DescribeFilterCommandInput - {@link DescribeFilterCommandInput}
- * @returns {@link DescribeFilterCommandOutput}
+ * @param DescribeFilterRequest - {@link DescribeFilterRequest}
+ * @returns {@link DescribeFilterResponse}
  * @see {@link DescribeFilterCommandInput} for command's `input` shape.
  * @see {@link DescribeFilterCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

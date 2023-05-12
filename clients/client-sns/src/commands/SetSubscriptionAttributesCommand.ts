@@ -51,8 +51,8 @@ export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param SetSubscriptionAttributesCommandInput - {@link SetSubscriptionAttributesCommandInput}
- * @returns {@link SetSubscriptionAttributesCommandOutput}
+ * @param SetSubscriptionAttributesInput - {@link SetSubscriptionAttributesInput}
+ * @returns {@link Unit}
  * @see {@link SetSubscriptionAttributesCommandInput} for command's `input` shape.
  * @see {@link SetSubscriptionAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

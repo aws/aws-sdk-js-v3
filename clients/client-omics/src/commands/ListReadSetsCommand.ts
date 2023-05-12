@@ -84,8 +84,8 @@ export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __Metad
  *
  * ```
  *
- * @param ListReadSetsCommandInput - {@link ListReadSetsCommandInput}
- * @returns {@link ListReadSetsCommandOutput}
+ * @param ListReadSetsRequest - {@link ListReadSetsRequest}
+ * @returns {@link ListReadSetsResponse}
  * @see {@link ListReadSetsCommandInput} for command's `input` shape.
  * @see {@link ListReadSetsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

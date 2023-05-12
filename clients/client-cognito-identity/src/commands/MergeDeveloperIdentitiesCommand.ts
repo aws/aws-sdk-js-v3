@@ -66,8 +66,8 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  *
  * ```
  *
- * @param MergeDeveloperIdentitiesCommandInput - {@link MergeDeveloperIdentitiesCommandInput}
- * @returns {@link MergeDeveloperIdentitiesCommandOutput}
+ * @param MergeDeveloperIdentitiesInput - {@link MergeDeveloperIdentitiesInput}
+ * @returns {@link MergeDeveloperIdentitiesResponse}
  * @see {@link MergeDeveloperIdentitiesCommandInput} for command's `input` shape.
  * @see {@link MergeDeveloperIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.

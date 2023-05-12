@@ -58,8 +58,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *
  * ```
  *
- * @param CreateDashboardCommandInput - {@link CreateDashboardCommandInput}
- * @returns {@link CreateDashboardCommandOutput}
+ * @param CreateDashboardRequest - {@link CreateDashboardRequest}
+ * @returns {@link CreateDashboardResponse}
  * @see {@link CreateDashboardCommandInput} for command's `input` shape.
  * @see {@link CreateDashboardCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

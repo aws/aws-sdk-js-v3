@@ -73,8 +73,8 @@ export interface StartAuditMitigationActionsTaskCommandOutput
  *
  * ```
  *
- * @param StartAuditMitigationActionsTaskCommandInput - {@link StartAuditMitigationActionsTaskCommandInput}
- * @returns {@link StartAuditMitigationActionsTaskCommandOutput}
+ * @param StartAuditMitigationActionsTaskRequest - {@link StartAuditMitigationActionsTaskRequest}
+ * @returns {@link StartAuditMitigationActionsTaskResponse}
  * @see {@link StartAuditMitigationActionsTaskCommandInput} for command's `input` shape.
  * @see {@link StartAuditMitigationActionsTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

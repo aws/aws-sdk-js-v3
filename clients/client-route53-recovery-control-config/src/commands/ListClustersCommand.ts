@@ -68,8 +68,8 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  *
  * ```
  *
- * @param ListClustersCommandInput - {@link ListClustersCommandInput}
- * @returns {@link ListClustersCommandOutput}
+ * @param ListClustersRequest - {@link ListClustersRequest}
+ * @returns {@link ListClustersResponse}
  * @see {@link ListClustersCommandInput} for command's `input` shape.
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

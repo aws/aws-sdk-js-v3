@@ -87,8 +87,8 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  *
  * ```
  *
- * @param ListKeysCommandInput - {@link ListKeysCommandInput}
- * @returns {@link ListKeysCommandOutput}
+ * @param ListKeysRequest - {@link ListKeysRequest}
+ * @returns {@link ListKeysResponse}
  * @see {@link ListKeysCommandInput} for command's `input` shape.
  * @see {@link ListKeysCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

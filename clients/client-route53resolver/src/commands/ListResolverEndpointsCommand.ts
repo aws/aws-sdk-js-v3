@@ -79,8 +79,8 @@ export interface ListResolverEndpointsCommandOutput extends ListResolverEndpoint
  *
  * ```
  *
- * @param ListResolverEndpointsCommandInput - {@link ListResolverEndpointsCommandInput}
- * @returns {@link ListResolverEndpointsCommandOutput}
+ * @param ListResolverEndpointsRequest - {@link ListResolverEndpointsRequest}
+ * @returns {@link ListResolverEndpointsResponse}
  * @see {@link ListResolverEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListResolverEndpointsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

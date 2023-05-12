@@ -55,8 +55,8 @@ export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, _
  *
  * ```
  *
- * @param DeleteEvaluationCommandInput - {@link DeleteEvaluationCommandInput}
- * @returns {@link DeleteEvaluationCommandOutput}
+ * @param DeleteEvaluationInput - {@link DeleteEvaluationInput}
+ * @returns {@link DeleteEvaluationOutput}
  * @see {@link DeleteEvaluationCommandInput} for command's `input` shape.
  * @see {@link DeleteEvaluationCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

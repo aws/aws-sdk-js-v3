@@ -48,8 +48,8 @@ export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param DeleteStudioLifecycleConfigCommandInput - {@link DeleteStudioLifecycleConfigCommandInput}
- * @returns {@link DeleteStudioLifecycleConfigCommandOutput}
+ * @param DeleteStudioLifecycleConfigRequest - {@link DeleteStudioLifecycleConfigRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteStudioLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteStudioLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

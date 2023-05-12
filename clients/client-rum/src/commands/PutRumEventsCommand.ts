@@ -70,8 +70,8 @@ export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __Metad
  *
  * ```
  *
- * @param PutRumEventsCommandInput - {@link PutRumEventsCommandInput}
- * @returns {@link PutRumEventsCommandOutput}
+ * @param PutRumEventsRequest - {@link PutRumEventsRequest}
+ * @returns {@link PutRumEventsResponse}
  * @see {@link PutRumEventsCommandInput} for command's `input` shape.
  * @see {@link PutRumEventsCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.

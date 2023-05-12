@@ -48,8 +48,8 @@ export interface DeleteContainerServiceCommandOutput extends DeleteContainerServ
  *
  * ```
  *
- * @param DeleteContainerServiceCommandInput - {@link DeleteContainerServiceCommandInput}
- * @returns {@link DeleteContainerServiceCommandOutput}
+ * @param DeleteContainerServiceRequest - {@link DeleteContainerServiceRequest}
+ * @returns {@link DeleteContainerServiceResult}
  * @see {@link DeleteContainerServiceCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerServiceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

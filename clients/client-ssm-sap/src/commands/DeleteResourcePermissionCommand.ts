@@ -52,8 +52,8 @@ export interface DeleteResourcePermissionCommandOutput extends DeleteResourcePer
  *
  * ```
  *
- * @param DeleteResourcePermissionCommandInput - {@link DeleteResourcePermissionCommandInput}
- * @returns {@link DeleteResourcePermissionCommandOutput}
+ * @param DeleteResourcePermissionInput - {@link DeleteResourcePermissionInput}
+ * @returns {@link DeleteResourcePermissionOutput}
  * @see {@link DeleteResourcePermissionCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePermissionCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.

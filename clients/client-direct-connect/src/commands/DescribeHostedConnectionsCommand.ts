@@ -91,8 +91,8 @@ export interface DescribeHostedConnectionsCommandOutput extends Connections, __M
  *
  * ```
  *
- * @param DescribeHostedConnectionsCommandInput - {@link DescribeHostedConnectionsCommandInput}
- * @returns {@link DescribeHostedConnectionsCommandOutput}
+ * @param DescribeHostedConnectionsRequest - {@link DescribeHostedConnectionsRequest}
+ * @returns {@link Connections}
  * @see {@link DescribeHostedConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeHostedConnectionsCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

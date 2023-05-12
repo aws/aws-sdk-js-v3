@@ -59,8 +59,8 @@ export interface UpdateWirelessGatewayCommandOutput extends UpdateWirelessGatewa
  *
  * ```
  *
- * @param UpdateWirelessGatewayCommandInput - {@link UpdateWirelessGatewayCommandInput}
- * @returns {@link UpdateWirelessGatewayCommandOutput}
+ * @param UpdateWirelessGatewayRequest - {@link UpdateWirelessGatewayRequest}
+ * @returns {@link UpdateWirelessGatewayResponse}
  * @see {@link UpdateWirelessGatewayCommandInput} for command's `input` shape.
  * @see {@link UpdateWirelessGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

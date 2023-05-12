@@ -65,8 +65,8 @@ export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataB
  *
  * ```
  *
- * @param GetAccessorCommandInput - {@link GetAccessorCommandInput}
- * @returns {@link GetAccessorCommandOutput}
+ * @param GetAccessorInput - {@link GetAccessorInput}
+ * @returns {@link GetAccessorOutput}
  * @see {@link GetAccessorCommandInput} for command's `input` shape.
  * @see {@link GetAccessorCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

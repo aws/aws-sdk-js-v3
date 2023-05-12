@@ -70,8 +70,8 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  *
  * ```
  *
- * @param CreateFHIRDatastoreCommandInput - {@link CreateFHIRDatastoreCommandInput}
- * @returns {@link CreateFHIRDatastoreCommandOutput}
+ * @param CreateFHIRDatastoreRequest - {@link CreateFHIRDatastoreRequest}
+ * @returns {@link CreateFHIRDatastoreResponse}
  * @see {@link CreateFHIRDatastoreCommandInput} for command's `input` shape.
  * @see {@link CreateFHIRDatastoreCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.

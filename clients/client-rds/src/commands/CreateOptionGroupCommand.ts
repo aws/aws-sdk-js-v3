@@ -106,8 +106,8 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
  *
  * ```
  *
- * @param CreateOptionGroupCommandInput - {@link CreateOptionGroupCommandInput}
- * @returns {@link CreateOptionGroupCommandOutput}
+ * @param CreateOptionGroupMessage - {@link CreateOptionGroupMessage}
+ * @returns {@link CreateOptionGroupResult}
  * @see {@link CreateOptionGroupCommandInput} for command's `input` shape.
  * @see {@link CreateOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

@@ -84,8 +84,8 @@ export interface QueryTableRowsCommandOutput extends QueryTableRowsResult, __Met
  *
  * ```
  *
- * @param QueryTableRowsCommandInput - {@link QueryTableRowsCommandInput}
- * @returns {@link QueryTableRowsCommandOutput}
+ * @param QueryTableRowsRequest - {@link QueryTableRowsRequest}
+ * @returns {@link QueryTableRowsResult}
  * @see {@link QueryTableRowsCommandInput} for command's `input` shape.
  * @see {@link QueryTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.

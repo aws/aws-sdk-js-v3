@@ -57,8 +57,8 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  *
  * ```
  *
- * @param CreateContactChannelCommandInput - {@link CreateContactChannelCommandInput}
- * @returns {@link CreateContactChannelCommandOutput}
+ * @param CreateContactChannelRequest - {@link CreateContactChannelRequest}
+ * @returns {@link CreateContactChannelResult}
  * @see {@link CreateContactChannelCommandInput} for command's `input` shape.
  * @see {@link CreateContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

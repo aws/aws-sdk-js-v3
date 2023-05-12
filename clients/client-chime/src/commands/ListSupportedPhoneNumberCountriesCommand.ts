@@ -65,8 +65,8 @@ export interface ListSupportedPhoneNumberCountriesCommandOutput
  *
  * ```
  *
- * @param ListSupportedPhoneNumberCountriesCommandInput - {@link ListSupportedPhoneNumberCountriesCommandInput}
- * @returns {@link ListSupportedPhoneNumberCountriesCommandOutput}
+ * @param ListSupportedPhoneNumberCountriesRequest - {@link ListSupportedPhoneNumberCountriesRequest}
+ * @returns {@link ListSupportedPhoneNumberCountriesResponse}
  * @see {@link ListSupportedPhoneNumberCountriesCommandInput} for command's `input` shape.
  * @see {@link ListSupportedPhoneNumberCountriesCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

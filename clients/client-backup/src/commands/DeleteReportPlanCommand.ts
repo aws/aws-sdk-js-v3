@@ -48,8 +48,8 @@ export interface DeleteReportPlanCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteReportPlanCommandInput - {@link DeleteReportPlanCommandInput}
- * @returns {@link DeleteReportPlanCommandOutput}
+ * @param DeleteReportPlanInput - {@link DeleteReportPlanInput}
+ * @returns {@link Unit}
  * @see {@link DeleteReportPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteReportPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

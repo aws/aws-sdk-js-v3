@@ -81,8 +81,8 @@ export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __M
  *
  * ```
  *
- * @param UpdateJobStatusCommandInput - {@link UpdateJobStatusCommandInput}
- * @returns {@link UpdateJobStatusCommandOutput}
+ * @param UpdateJobStatusRequest - {@link UpdateJobStatusRequest}
+ * @returns {@link UpdateJobStatusResult}
  * @see {@link UpdateJobStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateJobStatusCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

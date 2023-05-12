@@ -59,8 +59,8 @@ export interface GetMethodResponseCommandOutput extends MethodResponse, __Metada
  *
  * ```
  *
- * @param GetMethodResponseCommandInput - {@link GetMethodResponseCommandInput}
- * @returns {@link GetMethodResponseCommandOutput}
+ * @param GetMethodResponseRequest - {@link GetMethodResponseRequest}
+ * @returns {@link MethodResponse}
  * @see {@link GetMethodResponseCommandInput} for command's `input` shape.
  * @see {@link GetMethodResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

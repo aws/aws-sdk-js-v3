@@ -66,8 +66,8 @@ export interface GetReplicationSetCommandOutput extends GetReplicationSetOutput,
  *
  * ```
  *
- * @param GetReplicationSetCommandInput - {@link GetReplicationSetCommandInput}
- * @returns {@link GetReplicationSetCommandOutput}
+ * @param GetReplicationSetInput - {@link GetReplicationSetInput}
+ * @returns {@link GetReplicationSetOutput}
  * @see {@link GetReplicationSetCommandInput} for command's `input` shape.
  * @see {@link GetReplicationSetCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

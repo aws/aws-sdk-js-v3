@@ -87,8 +87,8 @@ export interface BatchCreateTableRowsCommandOutput extends BatchCreateTableRowsR
  *
  * ```
  *
- * @param BatchCreateTableRowsCommandInput - {@link BatchCreateTableRowsCommandInput}
- * @returns {@link BatchCreateTableRowsCommandOutput}
+ * @param BatchCreateTableRowsRequest - {@link BatchCreateTableRowsRequest}
+ * @returns {@link BatchCreateTableRowsResult}
  * @see {@link BatchCreateTableRowsCommandInput} for command's `input` shape.
  * @see {@link BatchCreateTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.

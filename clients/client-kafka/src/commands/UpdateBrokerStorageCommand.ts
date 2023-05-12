@@ -62,8 +62,8 @@ export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageRes
  *
  * ```
  *
- * @param UpdateBrokerStorageCommandInput - {@link UpdateBrokerStorageCommandInput}
- * @returns {@link UpdateBrokerStorageCommandOutput}
+ * @param UpdateBrokerStorageRequest - {@link UpdateBrokerStorageRequest}
+ * @returns {@link UpdateBrokerStorageResponse}
  * @see {@link UpdateBrokerStorageCommandInput} for command's `input` shape.
  * @see {@link UpdateBrokerStorageCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

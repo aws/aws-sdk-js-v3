@@ -103,8 +103,8 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  *
  * ```
  *
- * @param ListHostedZonesByVPCCommandInput - {@link ListHostedZonesByVPCCommandInput}
- * @returns {@link ListHostedZonesByVPCCommandOutput}
+ * @param ListHostedZonesByVPCRequest - {@link ListHostedZonesByVPCRequest}
+ * @returns {@link ListHostedZonesByVPCResponse}
  * @see {@link ListHostedZonesByVPCCommandInput} for command's `input` shape.
  * @see {@link ListHostedZonesByVPCCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

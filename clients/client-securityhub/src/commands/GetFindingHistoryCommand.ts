@@ -82,8 +82,8 @@ export interface GetFindingHistoryCommandOutput extends GetFindingHistoryRespons
  *
  * ```
  *
- * @param GetFindingHistoryCommandInput - {@link GetFindingHistoryCommandInput}
- * @returns {@link GetFindingHistoryCommandOutput}
+ * @param GetFindingHistoryRequest - {@link GetFindingHistoryRequest}
+ * @returns {@link GetFindingHistoryResponse}
  * @see {@link GetFindingHistoryCommandInput} for command's `input` shape.
  * @see {@link GetFindingHistoryCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

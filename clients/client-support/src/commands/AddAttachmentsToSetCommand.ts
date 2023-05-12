@@ -74,8 +74,8 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  *
  * ```
  *
- * @param AddAttachmentsToSetCommandInput - {@link AddAttachmentsToSetCommandInput}
- * @returns {@link AddAttachmentsToSetCommandOutput}
+ * @param AddAttachmentsToSetRequest - {@link AddAttachmentsToSetRequest}
+ * @returns {@link AddAttachmentsToSetResponse}
  * @see {@link AddAttachmentsToSetCommandInput} for command's `input` shape.
  * @see {@link AddAttachmentsToSetCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.

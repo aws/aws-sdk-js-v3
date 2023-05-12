@@ -81,8 +81,8 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  *
  * ```
  *
- * @param DeleteConfigurationSetCommandInput - {@link DeleteConfigurationSetCommandInput}
- * @returns {@link DeleteConfigurationSetCommandOutput}
+ * @param DeleteConfigurationSetRequest - {@link DeleteConfigurationSetRequest}
+ * @returns {@link DeleteConfigurationSetResult}
  * @see {@link DeleteConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

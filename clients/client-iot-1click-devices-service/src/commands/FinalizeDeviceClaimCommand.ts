@@ -61,8 +61,8 @@ export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimRes
  *
  * ```
  *
- * @param FinalizeDeviceClaimCommandInput - {@link FinalizeDeviceClaimCommandInput}
- * @returns {@link FinalizeDeviceClaimCommandOutput}
+ * @param FinalizeDeviceClaimRequest - {@link FinalizeDeviceClaimRequest}
+ * @returns {@link FinalizeDeviceClaimResponse}
  * @see {@link FinalizeDeviceClaimCommandInput} for command's `input` shape.
  * @see {@link FinalizeDeviceClaimCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.

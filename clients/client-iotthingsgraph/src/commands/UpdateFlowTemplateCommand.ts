@@ -63,8 +63,8 @@ export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateRespo
  *
  * ```
  *
- * @param UpdateFlowTemplateCommandInput - {@link UpdateFlowTemplateCommandInput}
- * @returns {@link UpdateFlowTemplateCommandOutput}
+ * @param UpdateFlowTemplateRequest - {@link UpdateFlowTemplateRequest}
+ * @returns {@link UpdateFlowTemplateResponse}
  * @see {@link UpdateFlowTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateFlowTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

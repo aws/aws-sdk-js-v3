@@ -49,8 +49,8 @@ export interface DeleteAuthorizerCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAuthorizerCommandInput - {@link DeleteAuthorizerCommandInput}
- * @returns {@link DeleteAuthorizerCommandOutput}
+ * @param DeleteAuthorizerRequest - {@link DeleteAuthorizerRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAuthorizerCommandInput} for command's `input` shape.
  * @see {@link DeleteAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

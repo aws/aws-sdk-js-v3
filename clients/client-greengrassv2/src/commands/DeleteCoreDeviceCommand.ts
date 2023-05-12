@@ -51,8 +51,8 @@ export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteCoreDeviceCommandInput - {@link DeleteCoreDeviceCommandInput}
- * @returns {@link DeleteCoreDeviceCommandOutput}
+ * @param DeleteCoreDeviceRequest - {@link DeleteCoreDeviceRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteCoreDeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteCoreDeviceCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

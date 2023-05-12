@@ -62,8 +62,8 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  *
  * ```
  *
- * @param StartWorkspacesCommandInput - {@link StartWorkspacesCommandInput}
- * @returns {@link StartWorkspacesCommandOutput}
+ * @param StartWorkspacesRequest - {@link StartWorkspacesRequest}
+ * @returns {@link StartWorkspacesResult}
  * @see {@link StartWorkspacesCommandInput} for command's `input` shape.
  * @see {@link StartWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

@@ -102,8 +102,8 @@ export interface ListInferenceRecommendationsJobStepsCommandOutput
  *
  * ```
  *
- * @param ListInferenceRecommendationsJobStepsCommandInput - {@link ListInferenceRecommendationsJobStepsCommandInput}
- * @returns {@link ListInferenceRecommendationsJobStepsCommandOutput}
+ * @param ListInferenceRecommendationsJobStepsRequest - {@link ListInferenceRecommendationsJobStepsRequest}
+ * @returns {@link ListInferenceRecommendationsJobStepsResponse}
  * @see {@link ListInferenceRecommendationsJobStepsCommandInput} for command's `input` shape.
  * @see {@link ListInferenceRecommendationsJobStepsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

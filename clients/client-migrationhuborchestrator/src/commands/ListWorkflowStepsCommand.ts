@@ -78,8 +78,8 @@ export interface ListWorkflowStepsCommandOutput extends ListWorkflowStepsRespons
  *
  * ```
  *
- * @param ListWorkflowStepsCommandInput - {@link ListWorkflowStepsCommandInput}
- * @returns {@link ListWorkflowStepsCommandOutput}
+ * @param ListWorkflowStepsRequest - {@link ListWorkflowStepsRequest}
+ * @returns {@link ListWorkflowStepsResponse}
  * @see {@link ListWorkflowStepsCommandInput} for command's `input` shape.
  * @see {@link ListWorkflowStepsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

@@ -79,8 +79,8 @@ export interface ListFHIRImportJobsCommandOutput extends ListFHIRImportJobsRespo
  *
  * ```
  *
- * @param ListFHIRImportJobsCommandInput - {@link ListFHIRImportJobsCommandInput}
- * @returns {@link ListFHIRImportJobsCommandOutput}
+ * @param ListFHIRImportJobsRequest - {@link ListFHIRImportJobsRequest}
+ * @returns {@link ListFHIRImportJobsResponse}
  * @see {@link ListFHIRImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListFHIRImportJobsCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.

@@ -71,8 +71,8 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
  *
  * ```
  *
- * @param GetServiceQuotaIncreaseRequestFromTemplateCommandInput - {@link GetServiceQuotaIncreaseRequestFromTemplateCommandInput}
- * @returns {@link GetServiceQuotaIncreaseRequestFromTemplateCommandOutput}
+ * @param GetServiceQuotaIncreaseRequestFromTemplateRequest - {@link GetServiceQuotaIncreaseRequestFromTemplateRequest}
+ * @returns {@link GetServiceQuotaIncreaseRequestFromTemplateResponse}
  * @see {@link GetServiceQuotaIncreaseRequestFromTemplateCommandInput} for command's `input` shape.
  * @see {@link GetServiceQuotaIncreaseRequestFromTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.

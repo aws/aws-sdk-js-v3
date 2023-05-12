@@ -94,8 +94,8 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  *
  * ```
  *
- * @param UpdateTaskProtectionCommandInput - {@link UpdateTaskProtectionCommandInput}
- * @returns {@link UpdateTaskProtectionCommandOutput}
+ * @param UpdateTaskProtectionRequest - {@link UpdateTaskProtectionRequest}
+ * @returns {@link UpdateTaskProtectionResponse}
  * @see {@link UpdateTaskProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskProtectionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

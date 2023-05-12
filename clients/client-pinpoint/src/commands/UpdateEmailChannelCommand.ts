@@ -73,8 +73,8 @@ export interface UpdateEmailChannelCommandOutput extends UpdateEmailChannelRespo
  *
  * ```
  *
- * @param UpdateEmailChannelCommandInput - {@link UpdateEmailChannelCommandInput}
- * @returns {@link UpdateEmailChannelCommandOutput}
+ * @param UpdateEmailChannelRequest - {@link UpdateEmailChannelRequest}
+ * @returns {@link UpdateEmailChannelResponse}
  * @see {@link UpdateEmailChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateEmailChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

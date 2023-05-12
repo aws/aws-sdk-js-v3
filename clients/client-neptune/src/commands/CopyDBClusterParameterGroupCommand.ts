@@ -63,8 +63,8 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  *
  * ```
  *
- * @param CopyDBClusterParameterGroupCommandInput - {@link CopyDBClusterParameterGroupCommandInput}
- * @returns {@link CopyDBClusterParameterGroupCommandOutput}
+ * @param CopyDBClusterParameterGroupMessage - {@link CopyDBClusterParameterGroupMessage}
+ * @returns {@link CopyDBClusterParameterGroupResult}
  * @see {@link CopyDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CopyDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

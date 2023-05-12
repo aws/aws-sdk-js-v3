@@ -64,8 +64,8 @@ export interface ListHostKeysCommandOutput extends ListHostKeysResponse, __Metad
  *
  * ```
  *
- * @param ListHostKeysCommandInput - {@link ListHostKeysCommandInput}
- * @returns {@link ListHostKeysCommandOutput}
+ * @param ListHostKeysRequest - {@link ListHostKeysRequest}
+ * @returns {@link ListHostKeysResponse}
  * @see {@link ListHostKeysCommandInput} for command's `input` shape.
  * @see {@link ListHostKeysCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

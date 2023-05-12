@@ -47,8 +47,8 @@ export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DisassociateAdminAccountCommandInput - {@link DisassociateAdminAccountCommandInput}
- * @returns {@link DisassociateAdminAccountCommandOutput}
+ * @param DisassociateAdminAccountRequest - {@link DisassociateAdminAccountRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

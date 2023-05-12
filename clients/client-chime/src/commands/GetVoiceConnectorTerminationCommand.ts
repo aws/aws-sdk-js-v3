@@ -69,8 +69,8 @@ export interface GetVoiceConnectorTerminationCommandOutput
  *
  * ```
  *
- * @param GetVoiceConnectorTerminationCommandInput - {@link GetVoiceConnectorTerminationCommandInput}
- * @returns {@link GetVoiceConnectorTerminationCommandOutput}
+ * @param GetVoiceConnectorTerminationRequest - {@link GetVoiceConnectorTerminationRequest}
+ * @returns {@link GetVoiceConnectorTerminationResponse}
  * @see {@link GetVoiceConnectorTerminationCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorTerminationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

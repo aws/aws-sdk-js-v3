@@ -79,8 +79,8 @@ export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressU
  *
  * ```
  *
- * @param DeleteProgressUpdateStreamCommandInput - {@link DeleteProgressUpdateStreamCommandInput}
- * @returns {@link DeleteProgressUpdateStreamCommandOutput}
+ * @param DeleteProgressUpdateStreamRequest - {@link DeleteProgressUpdateStreamRequest}
+ * @returns {@link DeleteProgressUpdateStreamResult}
  * @see {@link DeleteProgressUpdateStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteProgressUpdateStreamCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.

@@ -78,8 +78,8 @@ export interface CreateProfilingGroupCommandOutput extends CreateProfilingGroupR
  *
  * ```
  *
- * @param CreateProfilingGroupCommandInput - {@link CreateProfilingGroupCommandInput}
- * @returns {@link CreateProfilingGroupCommandOutput}
+ * @param CreateProfilingGroupRequest - {@link CreateProfilingGroupRequest}
+ * @returns {@link CreateProfilingGroupResponse}
  * @see {@link CreateProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateProfilingGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

@@ -68,8 +68,8 @@ export interface PhoneNumberValidateCommandOutput extends PhoneNumberValidateRes
  *
  * ```
  *
- * @param PhoneNumberValidateCommandInput - {@link PhoneNumberValidateCommandInput}
- * @returns {@link PhoneNumberValidateCommandOutput}
+ * @param PhoneNumberValidateRequest - {@link PhoneNumberValidateRequest}
+ * @returns {@link PhoneNumberValidateResponse}
  * @see {@link PhoneNumberValidateCommandInput} for command's `input` shape.
  * @see {@link PhoneNumberValidateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

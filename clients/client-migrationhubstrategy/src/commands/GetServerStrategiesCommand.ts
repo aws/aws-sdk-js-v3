@@ -69,8 +69,8 @@ export interface GetServerStrategiesCommandOutput extends GetServerStrategiesRes
  *
  * ```
  *
- * @param GetServerStrategiesCommandInput - {@link GetServerStrategiesCommandInput}
- * @returns {@link GetServerStrategiesCommandOutput}
+ * @param GetServerStrategiesRequest - {@link GetServerStrategiesRequest}
+ * @returns {@link GetServerStrategiesResponse}
  * @see {@link GetServerStrategiesCommandInput} for command's `input` shape.
  * @see {@link GetServerStrategiesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

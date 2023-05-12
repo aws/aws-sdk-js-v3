@@ -64,8 +64,8 @@ export interface ListStateMachinesCommandOutput extends ListStateMachinesOutput,
  *
  * ```
  *
- * @param ListStateMachinesCommandInput - {@link ListStateMachinesCommandInput}
- * @returns {@link ListStateMachinesCommandOutput}
+ * @param ListStateMachinesInput - {@link ListStateMachinesInput}
+ * @returns {@link ListStateMachinesOutput}
  * @see {@link ListStateMachinesCommandInput} for command's `input` shape.
  * @see {@link ListStateMachinesCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

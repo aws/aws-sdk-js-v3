@@ -48,8 +48,8 @@ export interface DeleteProjectCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
- * @returns {@link DeleteProjectCommandOutput}
+ * @param DeleteProjectInput - {@link DeleteProjectInput}
+ * @returns {@link Unit}
  * @see {@link DeleteProjectCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

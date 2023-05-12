@@ -121,8 +121,8 @@ export interface CountClosedWorkflowExecutionsCommandOutput extends WorkflowExec
  *
  * ```
  *
- * @param CountClosedWorkflowExecutionsCommandInput - {@link CountClosedWorkflowExecutionsCommandInput}
- * @returns {@link CountClosedWorkflowExecutionsCommandOutput}
+ * @param CountClosedWorkflowExecutionsInput - {@link CountClosedWorkflowExecutionsInput}
+ * @returns {@link WorkflowExecutionCount}
  * @see {@link CountClosedWorkflowExecutionsCommandInput} for command's `input` shape.
  * @see {@link CountClosedWorkflowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

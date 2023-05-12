@@ -75,8 +75,8 @@ export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetReq
  *
  * ```
  *
- * @param CancelSpotFleetRequestsCommandInput - {@link CancelSpotFleetRequestsCommandInput}
- * @returns {@link CancelSpotFleetRequestsCommandOutput}
+ * @param CancelSpotFleetRequestsRequest - {@link CancelSpotFleetRequestsRequest}
+ * @returns {@link CancelSpotFleetRequestsResponse}
  * @see {@link CancelSpotFleetRequestsCommandInput} for command's `input` shape.
  * @see {@link CancelSpotFleetRequestsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

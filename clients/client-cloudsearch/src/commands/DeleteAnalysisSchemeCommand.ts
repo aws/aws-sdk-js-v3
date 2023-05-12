@@ -70,8 +70,8 @@ export interface DeleteAnalysisSchemeCommandOutput extends DeleteAnalysisSchemeR
  *
  * ```
  *
- * @param DeleteAnalysisSchemeCommandInput - {@link DeleteAnalysisSchemeCommandInput}
- * @returns {@link DeleteAnalysisSchemeCommandOutput}
+ * @param DeleteAnalysisSchemeRequest - {@link DeleteAnalysisSchemeRequest}
+ * @returns {@link DeleteAnalysisSchemeResponse}
  * @see {@link DeleteAnalysisSchemeCommandInput} for command's `input` shape.
  * @see {@link DeleteAnalysisSchemeCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

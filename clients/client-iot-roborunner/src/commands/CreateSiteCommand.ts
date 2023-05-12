@@ -56,8 +56,8 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  *
  * ```
  *
- * @param CreateSiteCommandInput - {@link CreateSiteCommandInput}
- * @returns {@link CreateSiteCommandOutput}
+ * @param CreateSiteRequest - {@link CreateSiteRequest}
+ * @returns {@link CreateSiteResponse}
  * @see {@link CreateSiteCommandInput} for command's `input` shape.
  * @see {@link CreateSiteCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

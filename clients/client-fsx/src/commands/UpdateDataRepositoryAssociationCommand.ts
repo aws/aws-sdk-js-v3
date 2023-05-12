@@ -119,8 +119,8 @@ export interface UpdateDataRepositoryAssociationCommandOutput
  *
  * ```
  *
- * @param UpdateDataRepositoryAssociationCommandInput - {@link UpdateDataRepositoryAssociationCommandInput}
- * @returns {@link UpdateDataRepositoryAssociationCommandOutput}
+ * @param UpdateDataRepositoryAssociationRequest - {@link UpdateDataRepositoryAssociationRequest}
+ * @returns {@link UpdateDataRepositoryAssociationResponse}
  * @see {@link UpdateDataRepositoryAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateDataRepositoryAssociationCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

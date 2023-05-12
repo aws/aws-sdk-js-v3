@@ -57,8 +57,8 @@ export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse,
  *
  * ```
  *
- * @param PostAgentProfileCommandInput - {@link PostAgentProfileCommandInput}
- * @returns {@link PostAgentProfileCommandOutput}
+ * @param PostAgentProfileRequest - {@link PostAgentProfileRequest}
+ * @returns {@link PostAgentProfileResponse}
  * @see {@link PostAgentProfileCommandInput} for command's `input` shape.
  * @see {@link PostAgentProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

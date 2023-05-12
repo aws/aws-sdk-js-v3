@@ -91,8 +91,8 @@ export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param TagOpenIDConnectProviderCommandInput - {@link TagOpenIDConnectProviderCommandInput}
- * @returns {@link TagOpenIDConnectProviderCommandOutput}
+ * @param TagOpenIDConnectProviderRequest - {@link TagOpenIDConnectProviderRequest}
+ * @returns {@link Unit}
  * @see {@link TagOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link TagOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -72,8 +72,8 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
  *
  * ```
  *
- * @param ListCustomVerificationEmailTemplatesCommandInput - {@link ListCustomVerificationEmailTemplatesCommandInput}
- * @returns {@link ListCustomVerificationEmailTemplatesCommandOutput}
+ * @param ListCustomVerificationEmailTemplatesRequest - {@link ListCustomVerificationEmailTemplatesRequest}
+ * @returns {@link ListCustomVerificationEmailTemplatesResponse}
  * @see {@link ListCustomVerificationEmailTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListCustomVerificationEmailTemplatesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

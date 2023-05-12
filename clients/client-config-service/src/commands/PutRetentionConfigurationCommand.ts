@@ -63,8 +63,8 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  *
  * ```
  *
- * @param PutRetentionConfigurationCommandInput - {@link PutRetentionConfigurationCommandInput}
- * @returns {@link PutRetentionConfigurationCommandOutput}
+ * @param PutRetentionConfigurationRequest - {@link PutRetentionConfigurationRequest}
+ * @returns {@link PutRetentionConfigurationResponse}
  * @see {@link PutRetentionConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutRetentionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

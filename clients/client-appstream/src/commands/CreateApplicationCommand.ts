@@ -100,8 +100,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationResult,
  *
  * ```
  *
- * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
- * @returns {@link CreateApplicationCommandOutput}
+ * @param CreateApplicationRequest - {@link CreateApplicationRequest}
+ * @returns {@link CreateApplicationResult}
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

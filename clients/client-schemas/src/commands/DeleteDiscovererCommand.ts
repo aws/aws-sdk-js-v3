@@ -48,8 +48,8 @@ export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDiscovererCommandInput - {@link DeleteDiscovererCommandInput}
- * @returns {@link DeleteDiscovererCommandOutput}
+ * @param DeleteDiscovererRequest - {@link DeleteDiscovererRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDiscovererCommandInput} for command's `input` shape.
  * @see {@link DeleteDiscovererCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

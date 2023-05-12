@@ -141,8 +141,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *
  * ```
  *
- * @param CreateClusterCommandInput - {@link CreateClusterCommandInput}
- * @returns {@link CreateClusterCommandOutput}
+ * @param CreateClusterRequest - {@link CreateClusterRequest}
+ * @returns {@link CreateClusterResult}
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

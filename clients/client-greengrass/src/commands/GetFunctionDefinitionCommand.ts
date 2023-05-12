@@ -59,8 +59,8 @@ export interface GetFunctionDefinitionCommandOutput extends GetFunctionDefinitio
  *
  * ```
  *
- * @param GetFunctionDefinitionCommandInput - {@link GetFunctionDefinitionCommandInput}
- * @returns {@link GetFunctionDefinitionCommandOutput}
+ * @param GetFunctionDefinitionRequest - {@link GetFunctionDefinitionRequest}
+ * @returns {@link GetFunctionDefinitionResponse}
  * @see {@link GetFunctionDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetFunctionDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DeleteMetricFilterCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteMetricFilterCommandInput - {@link DeleteMetricFilterCommandInput}
- * @returns {@link DeleteMetricFilterCommandOutput}
+ * @param DeleteMetricFilterRequest - {@link DeleteMetricFilterRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteMetricFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteMetricFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

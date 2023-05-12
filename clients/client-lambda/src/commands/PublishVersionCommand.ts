@@ -156,8 +156,8 @@ export interface PublishVersionCommandOutput extends FunctionConfiguration, __Me
  *
  * ```
  *
- * @param PublishVersionCommandInput - {@link PublishVersionCommandInput}
- * @returns {@link PublishVersionCommandOutput}
+ * @param PublishVersionRequest - {@link PublishVersionRequest}
+ * @returns {@link FunctionConfiguration}
  * @see {@link PublishVersionCommandInput} for command's `input` shape.
  * @see {@link PublishVersionCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

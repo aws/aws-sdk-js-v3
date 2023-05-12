@@ -524,8 +524,8 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  *
  * ```
  *
- * @param DescribeVolumesCommandInput - {@link DescribeVolumesCommandInput}
- * @returns {@link DescribeVolumesCommandOutput}
+ * @param DescribeVolumesRequest - {@link DescribeVolumesRequest}
+ * @returns {@link DescribeVolumesResponse}
  * @see {@link DescribeVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

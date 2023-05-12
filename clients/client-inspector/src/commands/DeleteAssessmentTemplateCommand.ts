@@ -49,8 +49,8 @@ export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DeleteAssessmentTemplateCommandInput - {@link DeleteAssessmentTemplateCommandInput}
- * @returns {@link DeleteAssessmentTemplateCommandOutput}
+ * @param DeleteAssessmentTemplateRequest - {@link DeleteAssessmentTemplateRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAssessmentTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentTemplateCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

@@ -87,8 +87,8 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  *
  * ```
  *
- * @param ListChangeSetsCommandInput - {@link ListChangeSetsCommandInput}
- * @returns {@link ListChangeSetsCommandOutput}
+ * @param ListChangeSetsRequest - {@link ListChangeSetsRequest}
+ * @returns {@link ListChangeSetsResponse}
  * @see {@link ListChangeSetsCommandInput} for command's `input` shape.
  * @see {@link ListChangeSetsCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.

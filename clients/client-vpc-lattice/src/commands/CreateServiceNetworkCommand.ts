@@ -61,8 +61,8 @@ export interface CreateServiceNetworkCommandOutput extends CreateServiceNetworkR
  *
  * ```
  *
- * @param CreateServiceNetworkCommandInput - {@link CreateServiceNetworkCommandInput}
- * @returns {@link CreateServiceNetworkCommandOutput}
+ * @param CreateServiceNetworkRequest - {@link CreateServiceNetworkRequest}
+ * @returns {@link CreateServiceNetworkResponse}
  * @see {@link CreateServiceNetworkCommandInput} for command's `input` shape.
  * @see {@link CreateServiceNetworkCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

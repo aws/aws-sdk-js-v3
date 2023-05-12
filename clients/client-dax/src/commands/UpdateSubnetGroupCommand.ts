@@ -64,8 +64,8 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  *
  * ```
  *
- * @param UpdateSubnetGroupCommandInput - {@link UpdateSubnetGroupCommandInput}
- * @returns {@link UpdateSubnetGroupCommandOutput}
+ * @param UpdateSubnetGroupRequest - {@link UpdateSubnetGroupRequest}
+ * @returns {@link UpdateSubnetGroupResponse}
  * @see {@link UpdateSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.

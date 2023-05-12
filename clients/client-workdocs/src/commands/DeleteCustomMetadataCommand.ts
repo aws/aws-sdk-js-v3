@@ -58,8 +58,8 @@ export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataR
  *
  * ```
  *
- * @param DeleteCustomMetadataCommandInput - {@link DeleteCustomMetadataCommandInput}
- * @returns {@link DeleteCustomMetadataCommandOutput}
+ * @param DeleteCustomMetadataRequest - {@link DeleteCustomMetadataRequest}
+ * @returns {@link DeleteCustomMetadataResponse}
  * @see {@link DeleteCustomMetadataCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

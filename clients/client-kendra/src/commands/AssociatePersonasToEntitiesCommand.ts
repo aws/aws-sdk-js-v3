@@ -68,8 +68,8 @@ export interface AssociatePersonasToEntitiesCommandOutput
  *
  * ```
  *
- * @param AssociatePersonasToEntitiesCommandInput - {@link AssociatePersonasToEntitiesCommandInput}
- * @returns {@link AssociatePersonasToEntitiesCommandOutput}
+ * @param AssociatePersonasToEntitiesRequest - {@link AssociatePersonasToEntitiesRequest}
+ * @returns {@link AssociatePersonasToEntitiesResponse}
  * @see {@link AssociatePersonasToEntitiesCommandInput} for command's `input` shape.
  * @see {@link AssociatePersonasToEntitiesCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

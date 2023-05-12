@@ -92,8 +92,8 @@ export interface UpdateFileCacheCommandOutput extends UpdateFileCacheResponse, _
  *
  * ```
  *
- * @param UpdateFileCacheCommandInput - {@link UpdateFileCacheCommandInput}
- * @returns {@link UpdateFileCacheCommandOutput}
+ * @param UpdateFileCacheRequest - {@link UpdateFileCacheRequest}
+ * @returns {@link UpdateFileCacheResponse}
  * @see {@link UpdateFileCacheCommandInput} for command's `input` shape.
  * @see {@link UpdateFileCacheCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

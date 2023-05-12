@@ -51,8 +51,8 @@ export interface DeleteCommentCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteCommentCommandInput - {@link DeleteCommentCommandInput}
- * @returns {@link DeleteCommentCommandOutput}
+ * @param DeleteCommentRequest - {@link DeleteCommentRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteCommentCommandInput} for command's `input` shape.
  * @see {@link DeleteCommentCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

@@ -81,8 +81,8 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
  *
  * ```
  *
- * @param BatchGetRepositoryScanningConfigurationCommandInput - {@link BatchGetRepositoryScanningConfigurationCommandInput}
- * @returns {@link BatchGetRepositoryScanningConfigurationCommandOutput}
+ * @param BatchGetRepositoryScanningConfigurationRequest - {@link BatchGetRepositoryScanningConfigurationRequest}
+ * @returns {@link BatchGetRepositoryScanningConfigurationResponse}
  * @see {@link BatchGetRepositoryScanningConfigurationCommandInput} for command's `input` shape.
  * @see {@link BatchGetRepositoryScanningConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

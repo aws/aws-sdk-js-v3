@@ -72,8 +72,8 @@ export interface ListLayerVersionsCommandOutput extends ListLayerVersionsRespons
  *
  * ```
  *
- * @param ListLayerVersionsCommandInput - {@link ListLayerVersionsCommandInput}
- * @returns {@link ListLayerVersionsCommandOutput}
+ * @param ListLayerVersionsRequest - {@link ListLayerVersionsRequest}
+ * @returns {@link ListLayerVersionsResponse}
  * @see {@link ListLayerVersionsCommandInput} for command's `input` shape.
  * @see {@link ListLayerVersionsCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

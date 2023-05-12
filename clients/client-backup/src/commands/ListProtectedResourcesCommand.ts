@@ -61,8 +61,8 @@ export interface ListProtectedResourcesCommandOutput extends ListProtectedResour
  *
  * ```
  *
- * @param ListProtectedResourcesCommandInput - {@link ListProtectedResourcesCommandInput}
- * @returns {@link ListProtectedResourcesCommandOutput}
+ * @param ListProtectedResourcesInput - {@link ListProtectedResourcesInput}
+ * @returns {@link ListProtectedResourcesOutput}
  * @see {@link ListProtectedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListProtectedResourcesCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

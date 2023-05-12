@@ -50,8 +50,8 @@ export interface DeleteIntegrationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteIntegrationCommandInput - {@link DeleteIntegrationCommandInput}
- * @returns {@link DeleteIntegrationCommandOutput}
+ * @param DeleteIntegrationRequest - {@link DeleteIntegrationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteIntegrationCommandInput} for command's `input` shape.
  * @see {@link DeleteIntegrationCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

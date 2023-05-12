@@ -72,8 +72,8 @@ export interface CreateInputSecurityGroupCommandOutput extends CreateInputSecuri
  *
  * ```
  *
- * @param CreateInputSecurityGroupCommandInput - {@link CreateInputSecurityGroupCommandInput}
- * @returns {@link CreateInputSecurityGroupCommandOutput}
+ * @param CreateInputSecurityGroupRequest - {@link CreateInputSecurityGroupRequest}
+ * @returns {@link CreateInputSecurityGroupResponse}
  * @see {@link CreateInputSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link CreateInputSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

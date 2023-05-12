@@ -71,8 +71,8 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  *
  * ```
  *
- * @param EnablePolicyTypeCommandInput - {@link EnablePolicyTypeCommandInput}
- * @returns {@link EnablePolicyTypeCommandOutput}
+ * @param EnablePolicyTypeRequest - {@link EnablePolicyTypeRequest}
+ * @returns {@link EnablePolicyTypeResponse}
  * @see {@link EnablePolicyTypeCommandInput} for command's `input` shape.
  * @see {@link EnablePolicyTypeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

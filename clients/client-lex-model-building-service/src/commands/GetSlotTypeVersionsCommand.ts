@@ -75,8 +75,8 @@ export interface GetSlotTypeVersionsCommandOutput extends GetSlotTypeVersionsRes
  *
  * ```
  *
- * @param GetSlotTypeVersionsCommandInput - {@link GetSlotTypeVersionsCommandInput}
- * @returns {@link GetSlotTypeVersionsCommandOutput}
+ * @param GetSlotTypeVersionsRequest - {@link GetSlotTypeVersionsRequest}
+ * @returns {@link GetSlotTypeVersionsResponse}
  * @see {@link GetSlotTypeVersionsCommandInput} for command's `input` shape.
  * @see {@link GetSlotTypeVersionsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

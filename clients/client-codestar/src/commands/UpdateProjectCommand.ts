@@ -50,8 +50,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  *
  * ```
  *
- * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
- * @returns {@link UpdateProjectCommandOutput}
+ * @param UpdateProjectRequest - {@link UpdateProjectRequest}
+ * @returns {@link UpdateProjectResult}
  * @see {@link UpdateProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.

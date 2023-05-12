@@ -67,8 +67,8 @@ export interface ListSchedulesCommandOutput extends ListSchedulesOutput, __Metad
  *
  * ```
  *
- * @param ListSchedulesCommandInput - {@link ListSchedulesCommandInput}
- * @returns {@link ListSchedulesCommandOutput}
+ * @param ListSchedulesInput - {@link ListSchedulesInput}
+ * @returns {@link ListSchedulesOutput}
  * @see {@link ListSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListSchedulesCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.

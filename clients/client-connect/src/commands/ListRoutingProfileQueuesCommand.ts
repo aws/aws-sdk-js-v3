@@ -63,8 +63,8 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
  *
  * ```
  *
- * @param ListRoutingProfileQueuesCommandInput - {@link ListRoutingProfileQueuesCommandInput}
- * @returns {@link ListRoutingProfileQueuesCommandOutput}
+ * @param ListRoutingProfileQueuesRequest - {@link ListRoutingProfileQueuesRequest}
+ * @returns {@link ListRoutingProfileQueuesResponse}
  * @see {@link ListRoutingProfileQueuesCommandInput} for command's `input` shape.
  * @see {@link ListRoutingProfileQueuesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

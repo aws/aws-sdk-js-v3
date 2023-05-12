@@ -50,8 +50,8 @@ export interface CreateAliasCommandOutput extends CreateAliasResponse, __Metadat
  *
  * ```
  *
- * @param CreateAliasCommandInput - {@link CreateAliasCommandInput}
- * @returns {@link CreateAliasCommandOutput}
+ * @param CreateAliasRequest - {@link CreateAliasRequest}
+ * @returns {@link CreateAliasResponse}
  * @see {@link CreateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

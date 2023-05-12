@@ -86,8 +86,8 @@ export interface DescribeSnapshotSchedulesCommandOutput
  *
  * ```
  *
- * @param DescribeSnapshotSchedulesCommandInput - {@link DescribeSnapshotSchedulesCommandInput}
- * @returns {@link DescribeSnapshotSchedulesCommandOutput}
+ * @param DescribeSnapshotSchedulesMessage - {@link DescribeSnapshotSchedulesMessage}
+ * @returns {@link DescribeSnapshotSchedulesOutputMessage}
  * @see {@link DescribeSnapshotSchedulesCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotSchedulesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

@@ -48,8 +48,8 @@ export interface AssociateCertificateCommandOutput extends AssociateCertificateR
  *
  * ```
  *
- * @param AssociateCertificateCommandInput - {@link AssociateCertificateCommandInput}
- * @returns {@link AssociateCertificateCommandOutput}
+ * @param AssociateCertificateRequest - {@link AssociateCertificateRequest}
+ * @returns {@link AssociateCertificateResponse}
  * @see {@link AssociateCertificateCommandInput} for command's `input` shape.
  * @see {@link AssociateCertificateCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.

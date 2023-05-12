@@ -115,8 +115,8 @@ export interface CreateDataIntegrationCommandOutput extends CreateDataIntegratio
  *
  * ```
  *
- * @param CreateDataIntegrationCommandInput - {@link CreateDataIntegrationCommandInput}
- * @returns {@link CreateDataIntegrationCommandOutput}
+ * @param CreateDataIntegrationRequest - {@link CreateDataIntegrationRequest}
+ * @returns {@link CreateDataIntegrationResponse}
  * @see {@link CreateDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link CreateDataIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.

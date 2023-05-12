@@ -83,8 +83,8 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  *
  * ```
  *
- * @param UpdateSecretCommandInput - {@link UpdateSecretCommandInput}
- * @returns {@link UpdateSecretCommandOutput}
+ * @param UpdateSecretRequest - {@link UpdateSecretRequest}
+ * @returns {@link UpdateSecretResponse}
  * @see {@link UpdateSecretCommandInput} for command's `input` shape.
  * @see {@link UpdateSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

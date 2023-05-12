@@ -55,8 +55,8 @@ export interface GetMapGlyphsCommandOutput extends GetMapGlyphsResponse, __Metad
  *
  * ```
  *
- * @param GetMapGlyphsCommandInput - {@link GetMapGlyphsCommandInput}
- * @returns {@link GetMapGlyphsCommandOutput}
+ * @param GetMapGlyphsRequest - {@link GetMapGlyphsRequest}
+ * @returns {@link GetMapGlyphsResponse}
  * @see {@link GetMapGlyphsCommandInput} for command's `input` shape.
  * @see {@link GetMapGlyphsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

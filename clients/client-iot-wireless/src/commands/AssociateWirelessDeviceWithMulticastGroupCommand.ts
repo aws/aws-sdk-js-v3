@@ -58,8 +58,8 @@ export interface AssociateWirelessDeviceWithMulticastGroupCommandOutput
  *
  * ```
  *
- * @param AssociateWirelessDeviceWithMulticastGroupCommandInput - {@link AssociateWirelessDeviceWithMulticastGroupCommandInput}
- * @returns {@link AssociateWirelessDeviceWithMulticastGroupCommandOutput}
+ * @param AssociateWirelessDeviceWithMulticastGroupRequest - {@link AssociateWirelessDeviceWithMulticastGroupRequest}
+ * @returns {@link AssociateWirelessDeviceWithMulticastGroupResponse}
  * @see {@link AssociateWirelessDeviceWithMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateWirelessDeviceWithMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

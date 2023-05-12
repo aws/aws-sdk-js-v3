@@ -63,8 +63,8 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, _
  *
  * ```
  *
- * @param ListUserProfilesCommandInput - {@link ListUserProfilesCommandInput}
- * @returns {@link ListUserProfilesCommandOutput}
+ * @param ListUserProfilesRequest - {@link ListUserProfilesRequest}
+ * @returns {@link ListUserProfilesResult}
  * @see {@link ListUserProfilesCommandInput} for command's `input` shape.
  * @see {@link ListUserProfilesCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.

@@ -131,8 +131,8 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  *
  * ```
  *
- * @param UpdateDocumentCommandInput - {@link UpdateDocumentCommandInput}
- * @returns {@link UpdateDocumentCommandOutput}
+ * @param UpdateDocumentRequest - {@link UpdateDocumentRequest}
+ * @returns {@link UpdateDocumentResult}
  * @see {@link UpdateDocumentCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

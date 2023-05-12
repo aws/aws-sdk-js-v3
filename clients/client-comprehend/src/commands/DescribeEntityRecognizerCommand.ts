@@ -133,8 +133,8 @@ export interface DescribeEntityRecognizerCommandOutput extends DescribeEntityRec
  *
  * ```
  *
- * @param DescribeEntityRecognizerCommandInput - {@link DescribeEntityRecognizerCommandInput}
- * @returns {@link DescribeEntityRecognizerCommandOutput}
+ * @param DescribeEntityRecognizerRequest - {@link DescribeEntityRecognizerRequest}
+ * @returns {@link DescribeEntityRecognizerResponse}
  * @see {@link DescribeEntityRecognizerCommandInput} for command's `input` shape.
  * @see {@link DescribeEntityRecognizerCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

@@ -63,8 +63,8 @@ export interface GetCodeSigningConfigCommandOutput extends GetCodeSigningConfigR
  *
  * ```
  *
- * @param GetCodeSigningConfigCommandInput - {@link GetCodeSigningConfigCommandInput}
- * @returns {@link GetCodeSigningConfigCommandOutput}
+ * @param GetCodeSigningConfigRequest - {@link GetCodeSigningConfigRequest}
+ * @returns {@link GetCodeSigningConfigResponse}
  * @see {@link GetCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link GetCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

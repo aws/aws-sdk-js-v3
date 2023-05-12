@@ -84,8 +84,8 @@ export interface GetFlowLogsIntegrationTemplateCommandOutput
  *
  * ```
  *
- * @param GetFlowLogsIntegrationTemplateCommandInput - {@link GetFlowLogsIntegrationTemplateCommandInput}
- * @returns {@link GetFlowLogsIntegrationTemplateCommandOutput}
+ * @param GetFlowLogsIntegrationTemplateRequest - {@link GetFlowLogsIntegrationTemplateRequest}
+ * @returns {@link GetFlowLogsIntegrationTemplateResult}
  * @see {@link GetFlowLogsIntegrationTemplateCommandInput} for command's `input` shape.
  * @see {@link GetFlowLogsIntegrationTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

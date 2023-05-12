@@ -70,8 +70,8 @@ export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse,
  *
  * ```
  *
- * @param GetDataflowGraphCommandInput - {@link GetDataflowGraphCommandInput}
- * @returns {@link GetDataflowGraphCommandOutput}
+ * @param GetDataflowGraphRequest - {@link GetDataflowGraphRequest}
+ * @returns {@link GetDataflowGraphResponse}
  * @see {@link GetDataflowGraphCommandInput} for command's `input` shape.
  * @see {@link GetDataflowGraphCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

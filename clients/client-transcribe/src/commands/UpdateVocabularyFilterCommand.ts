@@ -59,8 +59,8 @@ export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFil
  *
  * ```
  *
- * @param UpdateVocabularyFilterCommandInput - {@link UpdateVocabularyFilterCommandInput}
- * @returns {@link UpdateVocabularyFilterCommandOutput}
+ * @param UpdateVocabularyFilterRequest - {@link UpdateVocabularyFilterRequest}
+ * @returns {@link UpdateVocabularyFilterResponse}
  * @see {@link UpdateVocabularyFilterCommandInput} for command's `input` shape.
  * @see {@link UpdateVocabularyFilterCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

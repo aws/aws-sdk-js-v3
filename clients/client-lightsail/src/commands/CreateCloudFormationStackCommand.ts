@@ -83,8 +83,8 @@ export interface CreateCloudFormationStackCommandOutput extends CreateCloudForma
  *
  * ```
  *
- * @param CreateCloudFormationStackCommandInput - {@link CreateCloudFormationStackCommandInput}
- * @returns {@link CreateCloudFormationStackCommandOutput}
+ * @param CreateCloudFormationStackRequest - {@link CreateCloudFormationStackRequest}
+ * @returns {@link CreateCloudFormationStackResult}
  * @see {@link CreateCloudFormationStackCommandInput} for command's `input` shape.
  * @see {@link CreateCloudFormationStackCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -64,8 +64,8 @@ export interface ListConfiguredTablesCommandOutput extends ListConfiguredTablesO
  *
  * ```
  *
- * @param ListConfiguredTablesCommandInput - {@link ListConfiguredTablesCommandInput}
- * @returns {@link ListConfiguredTablesCommandOutput}
+ * @param ListConfiguredTablesInput - {@link ListConfiguredTablesInput}
+ * @returns {@link ListConfiguredTablesOutput}
  * @see {@link ListConfiguredTablesCommandInput} for command's `input` shape.
  * @see {@link ListConfiguredTablesCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

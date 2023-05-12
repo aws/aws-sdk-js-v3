@@ -65,8 +65,8 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  *
  * ```
  *
- * @param UpdateContactAttributesCommandInput - {@link UpdateContactAttributesCommandInput}
- * @returns {@link UpdateContactAttributesCommandOutput}
+ * @param UpdateContactAttributesRequest - {@link UpdateContactAttributesRequest}
+ * @returns {@link UpdateContactAttributesResponse}
  * @see {@link UpdateContactAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateContactAttributesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

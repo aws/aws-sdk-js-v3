@@ -61,8 +61,8 @@ export interface PutProfileObjectCommandOutput extends PutProfileObjectResponse,
  *
  * ```
  *
- * @param PutProfileObjectCommandInput - {@link PutProfileObjectCommandInput}
- * @returns {@link PutProfileObjectCommandOutput}
+ * @param PutProfileObjectRequest - {@link PutProfileObjectRequest}
+ * @returns {@link PutProfileObjectResponse}
  * @see {@link PutProfileObjectCommandInput} for command's `input` shape.
  * @see {@link PutProfileObjectCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

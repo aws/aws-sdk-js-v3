@@ -144,8 +144,8 @@ export interface UpdateEntityCommandOutput extends UpdateEntityResponse, __Metad
  *
  * ```
  *
- * @param UpdateEntityCommandInput - {@link UpdateEntityCommandInput}
- * @returns {@link UpdateEntityCommandOutput}
+ * @param UpdateEntityRequest - {@link UpdateEntityRequest}
+ * @returns {@link UpdateEntityResponse}
  * @see {@link UpdateEntityCommandInput} for command's `input` shape.
  * @see {@link UpdateEntityCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

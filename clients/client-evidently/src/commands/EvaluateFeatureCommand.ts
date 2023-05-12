@@ -85,8 +85,8 @@ export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, _
  *
  * ```
  *
- * @param EvaluateFeatureCommandInput - {@link EvaluateFeatureCommandInput}
- * @returns {@link EvaluateFeatureCommandOutput}
+ * @param EvaluateFeatureRequest - {@link EvaluateFeatureRequest}
+ * @returns {@link EvaluateFeatureResponse}
  * @see {@link EvaluateFeatureCommandInput} for command's `input` shape.
  * @see {@link EvaluateFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

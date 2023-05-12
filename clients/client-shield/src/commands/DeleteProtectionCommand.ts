@@ -48,8 +48,8 @@ export interface DeleteProtectionCommandOutput extends DeleteProtectionResponse,
  *
  * ```
  *
- * @param DeleteProtectionCommandInput - {@link DeleteProtectionCommandInput}
- * @returns {@link DeleteProtectionCommandOutput}
+ * @param DeleteProtectionRequest - {@link DeleteProtectionRequest}
+ * @returns {@link DeleteProtectionResponse}
  * @see {@link DeleteProtectionCommandInput} for command's `input` shape.
  * @see {@link DeleteProtectionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

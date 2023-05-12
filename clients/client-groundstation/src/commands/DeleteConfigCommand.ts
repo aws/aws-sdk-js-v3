@@ -53,8 +53,8 @@ export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataB
  *
  * ```
  *
- * @param DeleteConfigCommandInput - {@link DeleteConfigCommandInput}
- * @returns {@link DeleteConfigCommandOutput}
+ * @param DeleteConfigRequest - {@link DeleteConfigRequest}
+ * @returns {@link ConfigIdResponse}
  * @see {@link DeleteConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

@@ -67,8 +67,8 @@ export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolic
  *
  * ```
  *
- * @param ListTrafficPolicyVersionsCommandInput - {@link ListTrafficPolicyVersionsCommandInput}
- * @returns {@link ListTrafficPolicyVersionsCommandOutput}
+ * @param ListTrafficPolicyVersionsRequest - {@link ListTrafficPolicyVersionsRequest}
+ * @returns {@link ListTrafficPolicyVersionsResponse}
  * @see {@link ListTrafficPolicyVersionsCommandInput} for command's `input` shape.
  * @see {@link ListTrafficPolicyVersionsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

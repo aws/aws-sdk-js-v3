@@ -88,8 +88,8 @@ export interface ListResolversCommandOutput extends ListResolversResponse, __Met
  *
  * ```
  *
- * @param ListResolversCommandInput - {@link ListResolversCommandInput}
- * @returns {@link ListResolversCommandOutput}
+ * @param ListResolversRequest - {@link ListResolversRequest}
+ * @returns {@link ListResolversResponse}
  * @see {@link ListResolversCommandInput} for command's `input` shape.
  * @see {@link ListResolversCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

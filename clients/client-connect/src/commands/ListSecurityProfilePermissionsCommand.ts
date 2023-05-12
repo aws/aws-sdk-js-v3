@@ -62,8 +62,8 @@ export interface ListSecurityProfilePermissionsCommandOutput
  *
  * ```
  *
- * @param ListSecurityProfilePermissionsCommandInput - {@link ListSecurityProfilePermissionsCommandInput}
- * @returns {@link ListSecurityProfilePermissionsCommandOutput}
+ * @param ListSecurityProfilePermissionsRequest - {@link ListSecurityProfilePermissionsRequest}
+ * @returns {@link ListSecurityProfilePermissionsResponse}
  * @see {@link ListSecurityProfilePermissionsCommandInput} for command's `input` shape.
  * @see {@link ListSecurityProfilePermissionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

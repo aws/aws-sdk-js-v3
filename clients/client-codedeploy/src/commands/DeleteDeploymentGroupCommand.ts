@@ -56,8 +56,8 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  *
  * ```
  *
- * @param DeleteDeploymentGroupCommandInput - {@link DeleteDeploymentGroupCommandInput}
- * @returns {@link DeleteDeploymentGroupCommandOutput}
+ * @param DeleteDeploymentGroupInput - {@link DeleteDeploymentGroupInput}
+ * @returns {@link DeleteDeploymentGroupOutput}
  * @see {@link DeleteDeploymentGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

@@ -71,8 +71,8 @@ export interface RestoreCoreNetworkPolicyVersionCommandOutput
  *
  * ```
  *
- * @param RestoreCoreNetworkPolicyVersionCommandInput - {@link RestoreCoreNetworkPolicyVersionCommandInput}
- * @returns {@link RestoreCoreNetworkPolicyVersionCommandOutput}
+ * @param RestoreCoreNetworkPolicyVersionRequest - {@link RestoreCoreNetworkPolicyVersionRequest}
+ * @returns {@link RestoreCoreNetworkPolicyVersionResponse}
  * @see {@link RestoreCoreNetworkPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link RestoreCoreNetworkPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

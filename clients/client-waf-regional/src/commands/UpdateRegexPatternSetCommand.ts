@@ -104,8 +104,8 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  *
  * ```
  *
- * @param UpdateRegexPatternSetCommandInput - {@link UpdateRegexPatternSetCommandInput}
- * @returns {@link UpdateRegexPatternSetCommandOutput}
+ * @param UpdateRegexPatternSetRequest - {@link UpdateRegexPatternSetRequest}
+ * @returns {@link UpdateRegexPatternSetResponse}
  * @see {@link UpdateRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link UpdateRegexPatternSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

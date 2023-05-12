@@ -76,8 +76,8 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  *
  * ```
  *
- * @param DescribeHapgCommandInput - {@link DescribeHapgCommandInput}
- * @returns {@link DescribeHapgCommandOutput}
+ * @param DescribeHapgRequest - {@link DescribeHapgRequest}
+ * @returns {@link DescribeHapgResponse}
  * @see {@link DescribeHapgCommandInput} for command's `input` shape.
  * @see {@link DescribeHapgCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.

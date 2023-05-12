@@ -56,8 +56,8 @@ export interface ImportBackendStorageCommandOutput extends ImportBackendStorageR
  *
  * ```
  *
- * @param ImportBackendStorageCommandInput - {@link ImportBackendStorageCommandInput}
- * @returns {@link ImportBackendStorageCommandOutput}
+ * @param ImportBackendStorageRequest - {@link ImportBackendStorageRequest}
+ * @returns {@link ImportBackendStorageResponse}
  * @see {@link ImportBackendStorageCommandInput} for command's `input` shape.
  * @see {@link ImportBackendStorageCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

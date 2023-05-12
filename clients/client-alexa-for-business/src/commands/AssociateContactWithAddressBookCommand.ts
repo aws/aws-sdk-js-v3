@@ -54,8 +54,8 @@ export interface AssociateContactWithAddressBookCommandOutput
  *
  * ```
  *
- * @param AssociateContactWithAddressBookCommandInput - {@link AssociateContactWithAddressBookCommandInput}
- * @returns {@link AssociateContactWithAddressBookCommandOutput}
+ * @param AssociateContactWithAddressBookRequest - {@link AssociateContactWithAddressBookRequest}
+ * @returns {@link AssociateContactWithAddressBookResponse}
  * @see {@link AssociateContactWithAddressBookCommandInput} for command's `input` shape.
  * @see {@link AssociateContactWithAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

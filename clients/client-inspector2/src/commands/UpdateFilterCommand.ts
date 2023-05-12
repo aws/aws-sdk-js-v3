@@ -173,8 +173,8 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  *
  * ```
  *
- * @param UpdateFilterCommandInput - {@link UpdateFilterCommandInput}
- * @returns {@link UpdateFilterCommandOutput}
+ * @param UpdateFilterRequest - {@link UpdateFilterRequest}
+ * @returns {@link UpdateFilterResponse}
  * @see {@link UpdateFilterCommandInput} for command's `input` shape.
  * @see {@link UpdateFilterCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

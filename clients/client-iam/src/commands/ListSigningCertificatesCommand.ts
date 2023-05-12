@@ -71,8 +71,8 @@ export interface ListSigningCertificatesCommandOutput extends ListSigningCertifi
  *
  * ```
  *
- * @param ListSigningCertificatesCommandInput - {@link ListSigningCertificatesCommandInput}
- * @returns {@link ListSigningCertificatesCommandOutput}
+ * @param ListSigningCertificatesRequest - {@link ListSigningCertificatesRequest}
+ * @returns {@link ListSigningCertificatesResponse}
  * @see {@link ListSigningCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListSigningCertificatesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

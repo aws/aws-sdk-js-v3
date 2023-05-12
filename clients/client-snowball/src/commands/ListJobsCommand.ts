@@ -66,8 +66,8 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  *
  * ```
  *
- * @param ListJobsCommandInput - {@link ListJobsCommandInput}
- * @returns {@link ListJobsCommandOutput}
+ * @param ListJobsRequest - {@link ListJobsRequest}
+ * @returns {@link ListJobsResult}
  * @see {@link ListJobsCommandInput} for command's `input` shape.
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

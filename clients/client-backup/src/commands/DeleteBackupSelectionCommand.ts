@@ -50,8 +50,8 @@ export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteBackupSelectionCommandInput - {@link DeleteBackupSelectionCommandInput}
- * @returns {@link DeleteBackupSelectionCommandOutput}
+ * @param DeleteBackupSelectionInput - {@link DeleteBackupSelectionInput}
+ * @returns {@link Unit}
  * @see {@link DeleteBackupSelectionCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupSelectionCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

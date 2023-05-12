@@ -65,8 +65,8 @@ export interface BatchAssociateProjectAssetsCommandOutput
  *
  * ```
  *
- * @param BatchAssociateProjectAssetsCommandInput - {@link BatchAssociateProjectAssetsCommandInput}
- * @returns {@link BatchAssociateProjectAssetsCommandOutput}
+ * @param BatchAssociateProjectAssetsRequest - {@link BatchAssociateProjectAssetsRequest}
+ * @returns {@link BatchAssociateProjectAssetsResponse}
  * @see {@link BatchAssociateProjectAssetsCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateProjectAssetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

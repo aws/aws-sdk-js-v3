@@ -112,8 +112,8 @@ export interface UpdateSqlInjectionMatchSetCommandOutput extends UpdateSqlInject
  *
  * ```
  *
- * @param UpdateSqlInjectionMatchSetCommandInput - {@link UpdateSqlInjectionMatchSetCommandInput}
- * @returns {@link UpdateSqlInjectionMatchSetCommandOutput}
+ * @param UpdateSqlInjectionMatchSetRequest - {@link UpdateSqlInjectionMatchSetRequest}
+ * @returns {@link UpdateSqlInjectionMatchSetResponse}
  * @see {@link UpdateSqlInjectionMatchSetCommandInput} for command's `input` shape.
  * @see {@link UpdateSqlInjectionMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

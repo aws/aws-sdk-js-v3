@@ -67,8 +67,8 @@ export interface DescribeApplicationFleetAssociationsCommandOutput
  *
  * ```
  *
- * @param DescribeApplicationFleetAssociationsCommandInput - {@link DescribeApplicationFleetAssociationsCommandInput}
- * @returns {@link DescribeApplicationFleetAssociationsCommandOutput}
+ * @param DescribeApplicationFleetAssociationsRequest - {@link DescribeApplicationFleetAssociationsRequest}
+ * @returns {@link DescribeApplicationFleetAssociationsResult}
  * @see {@link DescribeApplicationFleetAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationFleetAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

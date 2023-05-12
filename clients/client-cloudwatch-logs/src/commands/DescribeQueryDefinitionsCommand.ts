@@ -65,8 +65,8 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  *
  * ```
  *
- * @param DescribeQueryDefinitionsCommandInput - {@link DescribeQueryDefinitionsCommandInput}
- * @returns {@link DescribeQueryDefinitionsCommandOutput}
+ * @param DescribeQueryDefinitionsRequest - {@link DescribeQueryDefinitionsRequest}
+ * @returns {@link DescribeQueryDefinitionsResponse}
  * @see {@link DescribeQueryDefinitionsCommandInput} for command's `input` shape.
  * @see {@link DescribeQueryDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

@@ -70,8 +70,8 @@ export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionM
  *
  * ```
  *
- * @param PutSchemaVersionMetadataCommandInput - {@link PutSchemaVersionMetadataCommandInput}
- * @returns {@link PutSchemaVersionMetadataCommandOutput}
+ * @param PutSchemaVersionMetadataInput - {@link PutSchemaVersionMetadataInput}
+ * @returns {@link PutSchemaVersionMetadataResponse}
  * @see {@link PutSchemaVersionMetadataCommandInput} for command's `input` shape.
  * @see {@link PutSchemaVersionMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

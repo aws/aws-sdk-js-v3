@@ -57,8 +57,8 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
  *
  * ```
  *
- * @param DeleteProjectVersionCommandInput - {@link DeleteProjectVersionCommandInput}
- * @returns {@link DeleteProjectVersionCommandOutput}
+ * @param DeleteProjectVersionRequest - {@link DeleteProjectVersionRequest}
+ * @returns {@link DeleteProjectVersionResponse}
  * @see {@link DeleteProjectVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

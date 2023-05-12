@@ -85,8 +85,8 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
  *
  * ```
  *
- * @param ListEndpointsCommandInput - {@link ListEndpointsCommandInput}
- * @returns {@link ListEndpointsCommandOutput}
+ * @param ListEndpointsRequest - {@link ListEndpointsRequest}
+ * @returns {@link ListEndpointsResponse}
  * @see {@link ListEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

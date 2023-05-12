@@ -67,8 +67,8 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  *
  * ```
  *
- * @param ListArchivesCommandInput - {@link ListArchivesCommandInput}
- * @returns {@link ListArchivesCommandOutput}
+ * @param ListArchivesRequest - {@link ListArchivesRequest}
+ * @returns {@link ListArchivesResponse}
  * @see {@link ListArchivesCommandInput} for command's `input` shape.
  * @see {@link ListArchivesCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

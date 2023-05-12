@@ -61,8 +61,8 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  *
  * ```
  *
- * @param PutReportDefinitionCommandInput - {@link PutReportDefinitionCommandInput}
- * @returns {@link PutReportDefinitionCommandOutput}
+ * @param PutReportDefinitionRequest - {@link PutReportDefinitionRequest}
+ * @returns {@link PutReportDefinitionResult}
  * @see {@link PutReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link PutReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.

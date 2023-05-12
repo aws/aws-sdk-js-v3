@@ -61,8 +61,8 @@ export interface ListFunctionsByCodeSigningConfigCommandOutput
  *
  * ```
  *
- * @param ListFunctionsByCodeSigningConfigCommandInput - {@link ListFunctionsByCodeSigningConfigCommandInput}
- * @returns {@link ListFunctionsByCodeSigningConfigCommandOutput}
+ * @param ListFunctionsByCodeSigningConfigRequest - {@link ListFunctionsByCodeSigningConfigRequest}
+ * @returns {@link ListFunctionsByCodeSigningConfigResponse}
  * @see {@link ListFunctionsByCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link ListFunctionsByCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

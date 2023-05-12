@@ -68,8 +68,8 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  *
  * ```
  *
- * @param ListRunsCommandInput - {@link ListRunsCommandInput}
- * @returns {@link ListRunsCommandOutput}
+ * @param ListRunsRequest - {@link ListRunsRequest}
+ * @returns {@link ListRunsResponse}
  * @see {@link ListRunsCommandInput} for command's `input` shape.
  * @see {@link ListRunsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

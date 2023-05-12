@@ -55,8 +55,8 @@ export interface DescribeEventSourcesConfigCommandOutput extends DescribeEventSo
  *
  * ```
  *
- * @param DescribeEventSourcesConfigCommandInput - {@link DescribeEventSourcesConfigCommandInput}
- * @returns {@link DescribeEventSourcesConfigCommandOutput}
+ * @param DescribeEventSourcesConfigRequest - {@link DescribeEventSourcesConfigRequest}
+ * @returns {@link DescribeEventSourcesConfigResponse}
  * @see {@link DescribeEventSourcesConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeEventSourcesConfigCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

@@ -68,8 +68,8 @@ export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __Metadat
  *
  * ```
  *
- * @param ListTunnelsCommandInput - {@link ListTunnelsCommandInput}
- * @returns {@link ListTunnelsCommandOutput}
+ * @param ListTunnelsRequest - {@link ListTunnelsRequest}
+ * @returns {@link ListTunnelsResponse}
  * @see {@link ListTunnelsCommandInput} for command's `input` shape.
  * @see {@link ListTunnelsCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.

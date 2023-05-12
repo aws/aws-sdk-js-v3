@@ -107,8 +107,8 @@ export interface CreateStudioCommandOutput extends CreateStudioResponse, __Metad
  *
  * ```
  *
- * @param CreateStudioCommandInput - {@link CreateStudioCommandInput}
- * @returns {@link CreateStudioCommandOutput}
+ * @param CreateStudioRequest - {@link CreateStudioRequest}
+ * @returns {@link CreateStudioResponse}
  * @see {@link CreateStudioCommandInput} for command's `input` shape.
  * @see {@link CreateStudioCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

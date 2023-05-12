@@ -60,8 +60,8 @@ export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsR
  *
  * ```
  *
- * @param ListAssociatedGroupsCommandInput - {@link ListAssociatedGroupsCommandInput}
- * @returns {@link ListAssociatedGroupsCommandOutput}
+ * @param ListAssociatedGroupsRequest - {@link ListAssociatedGroupsRequest}
+ * @returns {@link ListAssociatedGroupsResponse}
  * @see {@link ListAssociatedGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedGroupsCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.

@@ -57,8 +57,8 @@ export interface StartPipelineReprocessingCommandOutput extends StartPipelineRep
  *
  * ```
  *
- * @param StartPipelineReprocessingCommandInput - {@link StartPipelineReprocessingCommandInput}
- * @returns {@link StartPipelineReprocessingCommandOutput}
+ * @param StartPipelineReprocessingRequest - {@link StartPipelineReprocessingRequest}
+ * @returns {@link StartPipelineReprocessingResponse}
  * @see {@link StartPipelineReprocessingCommandInput} for command's `input` shape.
  * @see {@link StartPipelineReprocessingCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

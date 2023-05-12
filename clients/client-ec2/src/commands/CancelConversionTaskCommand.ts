@@ -54,8 +54,8 @@ export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CancelConversionTaskCommandInput - {@link CancelConversionTaskCommandInput}
- * @returns {@link CancelConversionTaskCommandOutput}
+ * @param CancelConversionRequest - {@link CancelConversionRequest}
+ * @returns {@link Unit}
  * @see {@link CancelConversionTaskCommandInput} for command's `input` shape.
  * @see {@link CancelConversionTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

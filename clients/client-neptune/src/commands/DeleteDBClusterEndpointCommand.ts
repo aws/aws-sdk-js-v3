@@ -63,8 +63,8 @@ export interface DeleteDBClusterEndpointCommandOutput extends DeleteDBClusterEnd
  *
  * ```
  *
- * @param DeleteDBClusterEndpointCommandInput - {@link DeleteDBClusterEndpointCommandInput}
- * @returns {@link DeleteDBClusterEndpointCommandOutput}
+ * @param DeleteDBClusterEndpointMessage - {@link DeleteDBClusterEndpointMessage}
+ * @returns {@link DeleteDBClusterEndpointOutput}
  * @see {@link DeleteDBClusterEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

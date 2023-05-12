@@ -76,8 +76,8 @@ export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBeare
  *
  * ```
  *
- * @param LockRuleCommandInput - {@link LockRuleCommandInput}
- * @returns {@link LockRuleCommandOutput}
+ * @param LockRuleRequest - {@link LockRuleRequest}
+ * @returns {@link LockRuleResponse}
  * @see {@link LockRuleCommandInput} for command's `input` shape.
  * @see {@link LockRuleCommandOutput} for command's `response` shape.
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.

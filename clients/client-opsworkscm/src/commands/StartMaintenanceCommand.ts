@@ -102,8 +102,8 @@ export interface StartMaintenanceCommandOutput extends StartMaintenanceResponse,
  *
  * ```
  *
- * @param StartMaintenanceCommandInput - {@link StartMaintenanceCommandInput}
- * @returns {@link StartMaintenanceCommandOutput}
+ * @param StartMaintenanceRequest - {@link StartMaintenanceRequest}
+ * @returns {@link StartMaintenanceResponse}
  * @see {@link StartMaintenanceCommandInput} for command's `input` shape.
  * @see {@link StartMaintenanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.

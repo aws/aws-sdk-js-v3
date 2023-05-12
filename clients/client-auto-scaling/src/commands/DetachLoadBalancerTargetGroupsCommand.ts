@@ -73,8 +73,8 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput
  *
  * ```
  *
- * @param DetachLoadBalancerTargetGroupsCommandInput - {@link DetachLoadBalancerTargetGroupsCommandInput}
- * @returns {@link DetachLoadBalancerTargetGroupsCommandOutput}
+ * @param DetachLoadBalancerTargetGroupsType - {@link DetachLoadBalancerTargetGroupsType}
+ * @returns {@link DetachLoadBalancerTargetGroupsResultType}
  * @see {@link DetachLoadBalancerTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link DetachLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

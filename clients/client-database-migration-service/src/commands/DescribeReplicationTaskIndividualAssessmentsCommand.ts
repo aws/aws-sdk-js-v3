@@ -83,8 +83,8 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
  *
  * ```
  *
- * @param DescribeReplicationTaskIndividualAssessmentsCommandInput - {@link DescribeReplicationTaskIndividualAssessmentsCommandInput}
- * @returns {@link DescribeReplicationTaskIndividualAssessmentsCommandOutput}
+ * @param DescribeReplicationTaskIndividualAssessmentsMessage - {@link DescribeReplicationTaskIndividualAssessmentsMessage}
+ * @returns {@link DescribeReplicationTaskIndividualAssessmentsResponse}
  * @see {@link DescribeReplicationTaskIndividualAssessmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationTaskIndividualAssessmentsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

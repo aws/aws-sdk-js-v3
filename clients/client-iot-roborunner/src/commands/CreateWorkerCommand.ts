@@ -74,8 +74,8 @@ export interface CreateWorkerCommandOutput extends CreateWorkerResponse, __Metad
  *
  * ```
  *
- * @param CreateWorkerCommandInput - {@link CreateWorkerCommandInput}
- * @returns {@link CreateWorkerCommandOutput}
+ * @param CreateWorkerRequest - {@link CreateWorkerRequest}
+ * @returns {@link CreateWorkerResponse}
  * @see {@link CreateWorkerCommandInput} for command's `input` shape.
  * @see {@link CreateWorkerCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

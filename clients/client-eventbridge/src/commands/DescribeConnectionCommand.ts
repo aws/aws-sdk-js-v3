@@ -120,8 +120,8 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  *
  * ```
  *
- * @param DescribeConnectionCommandInput - {@link DescribeConnectionCommandInput}
- * @returns {@link DescribeConnectionCommandOutput}
+ * @param DescribeConnectionRequest - {@link DescribeConnectionRequest}
+ * @returns {@link DescribeConnectionResponse}
  * @see {@link DescribeConnectionCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

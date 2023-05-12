@@ -98,8 +98,8 @@ export interface CreateRotationCommandOutput extends CreateRotationResult, __Met
  *
  * ```
  *
- * @param CreateRotationCommandInput - {@link CreateRotationCommandInput}
- * @returns {@link CreateRotationCommandOutput}
+ * @param CreateRotationRequest - {@link CreateRotationRequest}
+ * @returns {@link CreateRotationResult}
  * @see {@link CreateRotationCommandInput} for command's `input` shape.
  * @see {@link CreateRotationCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

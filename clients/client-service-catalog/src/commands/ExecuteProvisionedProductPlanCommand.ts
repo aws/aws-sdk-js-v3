@@ -82,8 +82,8 @@ export interface ExecuteProvisionedProductPlanCommandOutput
  *
  * ```
  *
- * @param ExecuteProvisionedProductPlanCommandInput - {@link ExecuteProvisionedProductPlanCommandInput}
- * @returns {@link ExecuteProvisionedProductPlanCommandOutput}
+ * @param ExecuteProvisionedProductPlanInput - {@link ExecuteProvisionedProductPlanInput}
+ * @returns {@link ExecuteProvisionedProductPlanOutput}
  * @see {@link ExecuteProvisionedProductPlanCommandInput} for command's `input` shape.
  * @see {@link ExecuteProvisionedProductPlanCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

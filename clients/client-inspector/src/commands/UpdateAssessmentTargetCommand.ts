@@ -53,8 +53,8 @@ export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateAssessmentTargetCommandInput - {@link UpdateAssessmentTargetCommandInput}
- * @returns {@link UpdateAssessmentTargetCommandOutput}
+ * @param UpdateAssessmentTargetRequest - {@link UpdateAssessmentTargetRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateAssessmentTargetCommandInput} for command's `input` shape.
  * @see {@link UpdateAssessmentTargetCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

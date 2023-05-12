@@ -66,8 +66,8 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  *
  * ```
  *
- * @param CreateInstanceCommandInput - {@link CreateInstanceCommandInput}
- * @returns {@link CreateInstanceCommandOutput}
+ * @param CreateInstanceRequest - {@link CreateInstanceRequest}
+ * @returns {@link CreateInstanceResponse}
  * @see {@link CreateInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

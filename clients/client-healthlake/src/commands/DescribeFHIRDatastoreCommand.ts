@@ -69,8 +69,8 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  *
  * ```
  *
- * @param DescribeFHIRDatastoreCommandInput - {@link DescribeFHIRDatastoreCommandInput}
- * @returns {@link DescribeFHIRDatastoreCommandOutput}
+ * @param DescribeFHIRDatastoreRequest - {@link DescribeFHIRDatastoreRequest}
+ * @returns {@link DescribeFHIRDatastoreResponse}
  * @see {@link DescribeFHIRDatastoreCommandInput} for command's `input` shape.
  * @see {@link DescribeFHIRDatastoreCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.

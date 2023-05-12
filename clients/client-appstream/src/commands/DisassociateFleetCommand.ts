@@ -49,8 +49,8 @@ export interface DisassociateFleetCommandOutput extends DisassociateFleetResult,
  *
  * ```
  *
- * @param DisassociateFleetCommandInput - {@link DisassociateFleetCommandInput}
- * @returns {@link DisassociateFleetCommandOutput}
+ * @param DisassociateFleetRequest - {@link DisassociateFleetRequest}
+ * @returns {@link DisassociateFleetResult}
  * @see {@link DisassociateFleetCommandInput} for command's `input` shape.
  * @see {@link DisassociateFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

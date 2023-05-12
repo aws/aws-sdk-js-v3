@@ -64,8 +64,8 @@ export interface GetEnvironmentTemplateCommandOutput extends GetEnvironmentTempl
  *
  * ```
  *
- * @param GetEnvironmentTemplateCommandInput - {@link GetEnvironmentTemplateCommandInput}
- * @returns {@link GetEnvironmentTemplateCommandOutput}
+ * @param GetEnvironmentTemplateInput - {@link GetEnvironmentTemplateInput}
+ * @returns {@link GetEnvironmentTemplateOutput}
  * @see {@link GetEnvironmentTemplateCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

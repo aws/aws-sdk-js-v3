@@ -48,8 +48,8 @@ export interface DeleteAssessmentFrameworkCommandOutput extends DeleteAssessment
  *
  * ```
  *
- * @param DeleteAssessmentFrameworkCommandInput - {@link DeleteAssessmentFrameworkCommandInput}
- * @returns {@link DeleteAssessmentFrameworkCommandOutput}
+ * @param DeleteAssessmentFrameworkRequest - {@link DeleteAssessmentFrameworkRequest}
+ * @returns {@link DeleteAssessmentFrameworkResponse}
  * @see {@link DeleteAssessmentFrameworkCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentFrameworkCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

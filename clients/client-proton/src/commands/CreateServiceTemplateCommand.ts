@@ -80,8 +80,8 @@ export interface CreateServiceTemplateCommandOutput extends CreateServiceTemplat
  *
  * ```
  *
- * @param CreateServiceTemplateCommandInput - {@link CreateServiceTemplateCommandInput}
- * @returns {@link CreateServiceTemplateCommandOutput}
+ * @param CreateServiceTemplateInput - {@link CreateServiceTemplateInput}
+ * @returns {@link CreateServiceTemplateOutput}
  * @see {@link CreateServiceTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateServiceTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

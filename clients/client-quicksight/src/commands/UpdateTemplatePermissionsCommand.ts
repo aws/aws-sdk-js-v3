@@ -78,8 +78,8 @@ export interface UpdateTemplatePermissionsCommandOutput extends UpdateTemplatePe
  *
  * ```
  *
- * @param UpdateTemplatePermissionsCommandInput - {@link UpdateTemplatePermissionsCommandInput}
- * @returns {@link UpdateTemplatePermissionsCommandOutput}
+ * @param UpdateTemplatePermissionsRequest - {@link UpdateTemplatePermissionsRequest}
+ * @returns {@link UpdateTemplatePermissionsResponse}
  * @see {@link UpdateTemplatePermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateTemplatePermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

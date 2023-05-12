@@ -63,8 +63,8 @@ export interface DetectSentimentCommandOutput extends DetectSentimentResponse, _
  *
  * ```
  *
- * @param DetectSentimentCommandInput - {@link DetectSentimentCommandInput}
- * @returns {@link DetectSentimentCommandOutput}
+ * @param DetectSentimentRequest - {@link DetectSentimentRequest}
+ * @returns {@link DetectSentimentResponse}
  * @see {@link DetectSentimentCommandInput} for command's `input` shape.
  * @see {@link DetectSentimentCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

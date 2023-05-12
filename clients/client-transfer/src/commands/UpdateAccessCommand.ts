@@ -70,8 +70,8 @@ export interface UpdateAccessCommandOutput extends UpdateAccessResponse, __Metad
  *
  * ```
  *
- * @param UpdateAccessCommandInput - {@link UpdateAccessCommandInput}
- * @returns {@link UpdateAccessCommandOutput}
+ * @param UpdateAccessRequest - {@link UpdateAccessRequest}
+ * @returns {@link UpdateAccessResponse}
  * @see {@link UpdateAccessCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

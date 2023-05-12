@@ -61,8 +61,8 @@ export interface DescribeOrganizationConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeOrganizationConfigurationCommandInput - {@link DescribeOrganizationConfigurationCommandInput}
- * @returns {@link DescribeOrganizationConfigurationCommandOutput}
+ * @param DescribeOrganizationConfigurationRequest - {@link DescribeOrganizationConfigurationRequest}
+ * @returns {@link DescribeOrganizationConfigurationResponse}
  * @see {@link DescribeOrganizationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

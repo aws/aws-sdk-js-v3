@@ -50,8 +50,8 @@ export interface AssociateMemberCommandOutput extends AssociateMemberResponse, _
  *
  * ```
  *
- * @param AssociateMemberCommandInput - {@link AssociateMemberCommandInput}
- * @returns {@link AssociateMemberCommandOutput}
+ * @param AssociateMemberRequest - {@link AssociateMemberRequest}
+ * @returns {@link AssociateMemberResponse}
  * @see {@link AssociateMemberCommandInput} for command's `input` shape.
  * @see {@link AssociateMemberCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

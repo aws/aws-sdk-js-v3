@@ -83,8 +83,8 @@ export interface CreateTransitGatewayPeeringCommandOutput
  *
  * ```
  *
- * @param CreateTransitGatewayPeeringCommandInput - {@link CreateTransitGatewayPeeringCommandInput}
- * @returns {@link CreateTransitGatewayPeeringCommandOutput}
+ * @param CreateTransitGatewayPeeringRequest - {@link CreateTransitGatewayPeeringRequest}
+ * @returns {@link CreateTransitGatewayPeeringResponse}
  * @see {@link CreateTransitGatewayPeeringCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayPeeringCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

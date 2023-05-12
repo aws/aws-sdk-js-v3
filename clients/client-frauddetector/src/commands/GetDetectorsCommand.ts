@@ -67,8 +67,8 @@ export interface GetDetectorsCommandOutput extends GetDetectorsResult, __Metadat
  *
  * ```
  *
- * @param GetDetectorsCommandInput - {@link GetDetectorsCommandInput}
- * @returns {@link GetDetectorsCommandOutput}
+ * @param GetDetectorsRequest - {@link GetDetectorsRequest}
+ * @returns {@link GetDetectorsResult}
  * @see {@link GetDetectorsCommandInput} for command's `input` shape.
  * @see {@link GetDetectorsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

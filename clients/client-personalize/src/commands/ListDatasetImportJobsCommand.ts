@@ -68,8 +68,8 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  *
  * ```
  *
- * @param ListDatasetImportJobsCommandInput - {@link ListDatasetImportJobsCommandInput}
- * @returns {@link ListDatasetImportJobsCommandOutput}
+ * @param ListDatasetImportJobsRequest - {@link ListDatasetImportJobsRequest}
+ * @returns {@link ListDatasetImportJobsResponse}
  * @see {@link ListDatasetImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetImportJobsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

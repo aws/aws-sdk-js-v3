@@ -92,8 +92,8 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
  *
  * ```
  *
- * @param DeleteDBInstanceAutomatedBackupCommandInput - {@link DeleteDBInstanceAutomatedBackupCommandInput}
- * @returns {@link DeleteDBInstanceAutomatedBackupCommandOutput}
+ * @param DeleteDBInstanceAutomatedBackupMessage - {@link DeleteDBInstanceAutomatedBackupMessage}
+ * @returns {@link DeleteDBInstanceAutomatedBackupResult}
  * @see {@link DeleteDBInstanceAutomatedBackupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBInstanceAutomatedBackupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

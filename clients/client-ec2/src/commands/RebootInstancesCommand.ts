@@ -58,8 +58,8 @@ export interface RebootInstancesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RebootInstancesCommandInput - {@link RebootInstancesCommandInput}
- * @returns {@link RebootInstancesCommandOutput}
+ * @param RebootInstancesRequest - {@link RebootInstancesRequest}
+ * @returns {@link Unit}
  * @see {@link RebootInstancesCommandInput} for command's `input` shape.
  * @see {@link RebootInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

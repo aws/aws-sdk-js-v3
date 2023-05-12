@@ -91,8 +91,8 @@ export interface CreateViewCommandOutput extends CreateViewOutput, __MetadataBea
  *
  * ```
  *
- * @param CreateViewCommandInput - {@link CreateViewCommandInput}
- * @returns {@link CreateViewCommandOutput}
+ * @param CreateViewInput - {@link CreateViewInput}
+ * @returns {@link CreateViewOutput}
  * @see {@link CreateViewCommandInput} for command's `input` shape.
  * @see {@link CreateViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

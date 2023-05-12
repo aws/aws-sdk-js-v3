@@ -59,8 +59,8 @@ export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareO
  *
  * ```
  *
- * @param DeletePortfolioShareCommandInput - {@link DeletePortfolioShareCommandInput}
- * @returns {@link DeletePortfolioShareCommandOutput}
+ * @param DeletePortfolioShareInput - {@link DeletePortfolioShareInput}
+ * @returns {@link DeletePortfolioShareOutput}
  * @see {@link DeletePortfolioShareCommandInput} for command's `input` shape.
  * @see {@link DeletePortfolioShareCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

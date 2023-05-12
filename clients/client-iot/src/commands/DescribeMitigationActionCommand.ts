@@ -81,8 +81,8 @@ export interface DescribeMitigationActionCommandOutput extends DescribeMitigatio
  *
  * ```
  *
- * @param DescribeMitigationActionCommandInput - {@link DescribeMitigationActionCommandInput}
- * @returns {@link DescribeMitigationActionCommandOutput}
+ * @param DescribeMitigationActionRequest - {@link DescribeMitigationActionRequest}
+ * @returns {@link DescribeMitigationActionResponse}
  * @see {@link DescribeMitigationActionCommandInput} for command's `input` shape.
  * @see {@link DescribeMitigationActionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -66,8 +66,8 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
  *
  * ```
  *
- * @param ListApiKeysCommandInput - {@link ListApiKeysCommandInput}
- * @returns {@link ListApiKeysCommandOutput}
+ * @param ListApiKeysRequest - {@link ListApiKeysRequest}
+ * @returns {@link ListApiKeysResponse}
  * @see {@link ListApiKeysCommandInput} for command's `input` shape.
  * @see {@link ListApiKeysCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

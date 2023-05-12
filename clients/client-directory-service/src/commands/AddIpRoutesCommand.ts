@@ -62,8 +62,8 @@ export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataB
  *
  * ```
  *
- * @param AddIpRoutesCommandInput - {@link AddIpRoutesCommandInput}
- * @returns {@link AddIpRoutesCommandOutput}
+ * @param AddIpRoutesRequest - {@link AddIpRoutesRequest}
+ * @returns {@link AddIpRoutesResult}
  * @see {@link AddIpRoutesCommandInput} for command's `input` shape.
  * @see {@link AddIpRoutesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

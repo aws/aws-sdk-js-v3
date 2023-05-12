@@ -93,8 +93,8 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
  *
  * ```
  *
- * @param ListCopyJobsCommandInput - {@link ListCopyJobsCommandInput}
- * @returns {@link ListCopyJobsCommandOutput}
+ * @param ListCopyJobsInput - {@link ListCopyJobsInput}
+ * @returns {@link ListCopyJobsOutput}
  * @see {@link ListCopyJobsCommandInput} for command's `input` shape.
  * @see {@link ListCopyJobsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

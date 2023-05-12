@@ -69,8 +69,8 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  *
  * ```
  *
- * @param CreateUserSettingsCommandInput - {@link CreateUserSettingsCommandInput}
- * @returns {@link CreateUserSettingsCommandOutput}
+ * @param CreateUserSettingsRequest - {@link CreateUserSettingsRequest}
+ * @returns {@link CreateUserSettingsResponse}
  * @see {@link CreateUserSettingsCommandInput} for command's `input` shape.
  * @see {@link CreateUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

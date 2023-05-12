@@ -63,8 +63,8 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
  *
  * ```
  *
- * @param AssociateWebsiteCertificateAuthorityCommandInput - {@link AssociateWebsiteCertificateAuthorityCommandInput}
- * @returns {@link AssociateWebsiteCertificateAuthorityCommandOutput}
+ * @param AssociateWebsiteCertificateAuthorityRequest - {@link AssociateWebsiteCertificateAuthorityRequest}
+ * @returns {@link AssociateWebsiteCertificateAuthorityResponse}
  * @see {@link AssociateWebsiteCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link AssociateWebsiteCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

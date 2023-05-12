@@ -69,8 +69,8 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  *
  * ```
  *
- * @param DescribeDomainControllersCommandInput - {@link DescribeDomainControllersCommandInput}
- * @returns {@link DescribeDomainControllersCommandOutput}
+ * @param DescribeDomainControllersRequest - {@link DescribeDomainControllersRequest}
+ * @returns {@link DescribeDomainControllersResult}
  * @see {@link DescribeDomainControllersCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainControllersCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

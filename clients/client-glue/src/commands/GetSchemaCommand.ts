@@ -66,8 +66,8 @@ export interface GetSchemaCommandOutput extends GetSchemaResponse, __MetadataBea
  *
  * ```
  *
- * @param GetSchemaCommandInput - {@link GetSchemaCommandInput}
- * @returns {@link GetSchemaCommandOutput}
+ * @param GetSchemaInput - {@link GetSchemaInput}
+ * @returns {@link GetSchemaResponse}
  * @see {@link GetSchemaCommandInput} for command's `input` shape.
  * @see {@link GetSchemaCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

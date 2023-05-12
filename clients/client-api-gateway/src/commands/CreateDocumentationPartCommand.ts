@@ -66,8 +66,8 @@ export interface CreateDocumentationPartCommandOutput extends DocumentationPart,
  *
  * ```
  *
- * @param CreateDocumentationPartCommandInput - {@link CreateDocumentationPartCommandInput}
- * @returns {@link CreateDocumentationPartCommandOutput}
+ * @param CreateDocumentationPartRequest - {@link CreateDocumentationPartRequest}
+ * @returns {@link DocumentationPart}
  * @see {@link CreateDocumentationPartCommandInput} for command's `input` shape.
  * @see {@link CreateDocumentationPartCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

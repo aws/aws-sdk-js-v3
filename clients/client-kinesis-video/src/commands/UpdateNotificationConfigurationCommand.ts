@@ -60,8 +60,8 @@ export interface UpdateNotificationConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateNotificationConfigurationCommandInput - {@link UpdateNotificationConfigurationCommandInput}
- * @returns {@link UpdateNotificationConfigurationCommandOutput}
+ * @param UpdateNotificationConfigurationInput - {@link UpdateNotificationConfigurationInput}
+ * @returns {@link UpdateNotificationConfigurationOutput}
  * @see {@link UpdateNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

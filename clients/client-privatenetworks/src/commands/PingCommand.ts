@@ -48,8 +48,8 @@ export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
  *
  * ```
  *
- * @param PingCommandInput - {@link PingCommandInput}
- * @returns {@link PingCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link PingResponse}
  * @see {@link PingCommandInput} for command's `input` shape.
  * @see {@link PingCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

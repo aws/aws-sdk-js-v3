@@ -71,8 +71,8 @@ export interface ListServiceActionsForProvisioningArtifactCommandOutput
  *
  * ```
  *
- * @param ListServiceActionsForProvisioningArtifactCommandInput - {@link ListServiceActionsForProvisioningArtifactCommandInput}
- * @returns {@link ListServiceActionsForProvisioningArtifactCommandOutput}
+ * @param ListServiceActionsForProvisioningArtifactInput - {@link ListServiceActionsForProvisioningArtifactInput}
+ * @returns {@link ListServiceActionsForProvisioningArtifactOutput}
  * @see {@link ListServiceActionsForProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link ListServiceActionsForProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

@@ -76,8 +76,8 @@ export interface ListAvailableResourceDimensionsCommandOutput
  *
  * ```
  *
- * @param ListAvailableResourceDimensionsCommandInput - {@link ListAvailableResourceDimensionsCommandInput}
- * @returns {@link ListAvailableResourceDimensionsCommandOutput}
+ * @param ListAvailableResourceDimensionsRequest - {@link ListAvailableResourceDimensionsRequest}
+ * @returns {@link ListAvailableResourceDimensionsResponse}
  * @see {@link ListAvailableResourceDimensionsCommandInput} for command's `input` shape.
  * @see {@link ListAvailableResourceDimensionsCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDBParameterGroupCommandInput - {@link DeleteDBParameterGroupCommandInput}
- * @returns {@link DeleteDBParameterGroupCommandOutput}
+ * @param DeleteDBParameterGroupMessage - {@link DeleteDBParameterGroupMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

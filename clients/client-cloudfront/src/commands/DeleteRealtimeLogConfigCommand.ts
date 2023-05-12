@@ -55,8 +55,8 @@ export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DeleteRealtimeLogConfigCommandInput - {@link DeleteRealtimeLogConfigCommandInput}
- * @returns {@link DeleteRealtimeLogConfigCommandOutput}
+ * @param DeleteRealtimeLogConfigRequest - {@link DeleteRealtimeLogConfigRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

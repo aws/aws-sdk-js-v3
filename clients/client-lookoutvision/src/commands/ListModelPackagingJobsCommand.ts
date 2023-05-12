@@ -73,8 +73,8 @@ export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJ
  *
  * ```
  *
- * @param ListModelPackagingJobsCommandInput - {@link ListModelPackagingJobsCommandInput}
- * @returns {@link ListModelPackagingJobsCommandOutput}
+ * @param ListModelPackagingJobsRequest - {@link ListModelPackagingJobsRequest}
+ * @returns {@link ListModelPackagingJobsResponse}
  * @see {@link ListModelPackagingJobsCommandInput} for command's `input` shape.
  * @see {@link ListModelPackagingJobsCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.

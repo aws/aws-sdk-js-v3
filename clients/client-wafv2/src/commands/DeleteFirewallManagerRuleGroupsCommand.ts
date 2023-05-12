@@ -58,8 +58,8 @@ export interface DeleteFirewallManagerRuleGroupsCommandOutput
  *
  * ```
  *
- * @param DeleteFirewallManagerRuleGroupsCommandInput - {@link DeleteFirewallManagerRuleGroupsCommandInput}
- * @returns {@link DeleteFirewallManagerRuleGroupsCommandOutput}
+ * @param DeleteFirewallManagerRuleGroupsRequest - {@link DeleteFirewallManagerRuleGroupsRequest}
+ * @returns {@link DeleteFirewallManagerRuleGroupsResponse}
  * @see {@link DeleteFirewallManagerRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallManagerRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

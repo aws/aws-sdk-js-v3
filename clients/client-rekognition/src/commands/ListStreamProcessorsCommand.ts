@@ -57,8 +57,8 @@ export interface ListStreamProcessorsCommandOutput extends ListStreamProcessorsR
  *
  * ```
  *
- * @param ListStreamProcessorsCommandInput - {@link ListStreamProcessorsCommandInput}
- * @returns {@link ListStreamProcessorsCommandOutput}
+ * @param ListStreamProcessorsRequest - {@link ListStreamProcessorsRequest}
+ * @returns {@link ListStreamProcessorsResponse}
  * @see {@link ListStreamProcessorsCommandInput} for command's `input` shape.
  * @see {@link ListStreamProcessorsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

@@ -53,8 +53,8 @@ export interface DeleteNatGatewayCommandOutput extends DeleteNatGatewayResult, _
  *
  * ```
  *
- * @param DeleteNatGatewayCommandInput - {@link DeleteNatGatewayCommandInput}
- * @returns {@link DeleteNatGatewayCommandOutput}
+ * @param DeleteNatGatewayRequest - {@link DeleteNatGatewayRequest}
+ * @returns {@link DeleteNatGatewayResult}
  * @see {@link DeleteNatGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteNatGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

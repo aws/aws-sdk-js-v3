@@ -101,8 +101,8 @@ export interface CreateTaskTemplateCommandOutput extends CreateTaskTemplateRespo
  *
  * ```
  *
- * @param CreateTaskTemplateCommandInput - {@link CreateTaskTemplateCommandInput}
- * @returns {@link CreateTaskTemplateCommandOutput}
+ * @param CreateTaskTemplateRequest - {@link CreateTaskTemplateRequest}
+ * @returns {@link CreateTaskTemplateResponse}
  * @see {@link CreateTaskTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateTaskTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

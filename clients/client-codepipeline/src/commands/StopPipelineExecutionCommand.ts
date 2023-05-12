@@ -58,8 +58,8 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  *
  * ```
  *
- * @param StopPipelineExecutionCommandInput - {@link StopPipelineExecutionCommandInput}
- * @returns {@link StopPipelineExecutionCommandOutput}
+ * @param StopPipelineExecutionInput - {@link StopPipelineExecutionInput}
+ * @returns {@link StopPipelineExecutionOutput}
  * @see {@link StopPipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link StopPipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

@@ -77,8 +77,8 @@ export interface UpdateAppVersionAppComponentCommandOutput
  *
  * ```
  *
- * @param UpdateAppVersionAppComponentCommandInput - {@link UpdateAppVersionAppComponentCommandInput}
- * @returns {@link UpdateAppVersionAppComponentCommandOutput}
+ * @param UpdateAppVersionAppComponentRequest - {@link UpdateAppVersionAppComponentRequest}
+ * @returns {@link UpdateAppVersionAppComponentResponse}
  * @see {@link UpdateAppVersionAppComponentCommandInput} for command's `input` shape.
  * @see {@link UpdateAppVersionAppComponentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

@@ -58,8 +58,8 @@ export interface DescribeCustomMetricCommandOutput extends DescribeCustomMetricR
  *
  * ```
  *
- * @param DescribeCustomMetricCommandInput - {@link DescribeCustomMetricCommandInput}
- * @returns {@link DescribeCustomMetricCommandOutput}
+ * @param DescribeCustomMetricRequest - {@link DescribeCustomMetricRequest}
+ * @returns {@link DescribeCustomMetricResponse}
  * @see {@link DescribeCustomMetricCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomMetricCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

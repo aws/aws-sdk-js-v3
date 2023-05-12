@@ -65,8 +65,8 @@ export interface ListDeviceDefinitionVersionsCommandOutput
  *
  * ```
  *
- * @param ListDeviceDefinitionVersionsCommandInput - {@link ListDeviceDefinitionVersionsCommandInput}
- * @returns {@link ListDeviceDefinitionVersionsCommandOutput}
+ * @param ListDeviceDefinitionVersionsRequest - {@link ListDeviceDefinitionVersionsRequest}
+ * @returns {@link ListDeviceDefinitionVersionsResponse}
  * @see {@link ListDeviceDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListDeviceDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

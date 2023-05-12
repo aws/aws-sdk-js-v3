@@ -52,8 +52,8 @@ export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMem
  *
  * ```
  *
- * @param DisassociateTeamMemberCommandInput - {@link DisassociateTeamMemberCommandInput}
- * @returns {@link DisassociateTeamMemberCommandOutput}
+ * @param DisassociateTeamMemberRequest - {@link DisassociateTeamMemberRequest}
+ * @returns {@link DisassociateTeamMemberResult}
  * @see {@link DisassociateTeamMemberCommandInput} for command's `input` shape.
  * @see {@link DisassociateTeamMemberCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.

@@ -46,8 +46,8 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteOrganizationCommandInput - {@link DeleteOrganizationCommandInput}
- * @returns {@link DeleteOrganizationCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link Unit}
  * @see {@link DeleteOrganizationCommandInput} for command's `input` shape.
  * @see {@link DeleteOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

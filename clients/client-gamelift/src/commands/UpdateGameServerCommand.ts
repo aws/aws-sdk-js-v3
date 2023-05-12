@@ -102,8 +102,8 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  *
  * ```
  *
- * @param UpdateGameServerCommandInput - {@link UpdateGameServerCommandInput}
- * @returns {@link UpdateGameServerCommandOutput}
+ * @param UpdateGameServerInput - {@link UpdateGameServerInput}
+ * @returns {@link UpdateGameServerOutput}
  * @see {@link UpdateGameServerCommandInput} for command's `input` shape.
  * @see {@link UpdateGameServerCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

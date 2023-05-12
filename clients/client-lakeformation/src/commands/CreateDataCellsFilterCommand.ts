@@ -66,8 +66,8 @@ export interface CreateDataCellsFilterCommandOutput extends CreateDataCellsFilte
  *
  * ```
  *
- * @param CreateDataCellsFilterCommandInput - {@link CreateDataCellsFilterCommandInput}
- * @returns {@link CreateDataCellsFilterCommandOutput}
+ * @param CreateDataCellsFilterRequest - {@link CreateDataCellsFilterRequest}
+ * @returns {@link CreateDataCellsFilterResponse}
  * @see {@link CreateDataCellsFilterCommandInput} for command's `input` shape.
  * @see {@link CreateDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

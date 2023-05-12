@@ -67,8 +67,8 @@ export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBeare
  *
  * ```
  *
- * @param ListViewsCommandInput - {@link ListViewsCommandInput}
- * @returns {@link ListViewsCommandOutput}
+ * @param ListViewsInput - {@link ListViewsInput}
+ * @returns {@link ListViewsOutput}
  * @see {@link ListViewsCommandInput} for command's `input` shape.
  * @see {@link ListViewsCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

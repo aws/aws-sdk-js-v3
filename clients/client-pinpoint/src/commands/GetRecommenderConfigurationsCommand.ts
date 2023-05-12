@@ -76,8 +76,8 @@ export interface GetRecommenderConfigurationsCommandOutput
  *
  * ```
  *
- * @param GetRecommenderConfigurationsCommandInput - {@link GetRecommenderConfigurationsCommandInput}
- * @returns {@link GetRecommenderConfigurationsCommandOutput}
+ * @param GetRecommenderConfigurationsRequest - {@link GetRecommenderConfigurationsRequest}
+ * @returns {@link GetRecommenderConfigurationsResponse}
  * @see {@link GetRecommenderConfigurationsCommandInput} for command's `input` shape.
  * @see {@link GetRecommenderConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

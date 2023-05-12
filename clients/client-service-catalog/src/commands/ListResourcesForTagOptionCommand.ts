@@ -62,8 +62,8 @@ export interface ListResourcesForTagOptionCommandOutput extends ListResourcesFor
  *
  * ```
  *
- * @param ListResourcesForTagOptionCommandInput - {@link ListResourcesForTagOptionCommandInput}
- * @returns {@link ListResourcesForTagOptionCommandOutput}
+ * @param ListResourcesForTagOptionInput - {@link ListResourcesForTagOptionInput}
+ * @returns {@link ListResourcesForTagOptionOutput}
  * @see {@link ListResourcesForTagOptionCommandInput} for command's `input` shape.
  * @see {@link ListResourcesForTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

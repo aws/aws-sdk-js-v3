@@ -72,8 +72,8 @@ export interface GetBucketMetricDataCommandOutput extends GetBucketMetricDataRes
  *
  * ```
  *
- * @param GetBucketMetricDataCommandInput - {@link GetBucketMetricDataCommandInput}
- * @returns {@link GetBucketMetricDataCommandOutput}
+ * @param GetBucketMetricDataRequest - {@link GetBucketMetricDataRequest}
+ * @returns {@link GetBucketMetricDataResult}
  * @see {@link GetBucketMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetBucketMetricDataCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

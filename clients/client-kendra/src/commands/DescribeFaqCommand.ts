@@ -65,8 +65,8 @@ export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __Metadat
  *
  * ```
  *
- * @param DescribeFaqCommandInput - {@link DescribeFaqCommandInput}
- * @returns {@link DescribeFaqCommandOutput}
+ * @param DescribeFaqRequest - {@link DescribeFaqRequest}
+ * @returns {@link DescribeFaqResponse}
  * @see {@link DescribeFaqCommandInput} for command's `input` shape.
  * @see {@link DescribeFaqCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

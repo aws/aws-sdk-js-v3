@@ -279,8 +279,8 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  *
  * ```
  *
- * @param PromoteReadReplicaCommandInput - {@link PromoteReadReplicaCommandInput}
- * @returns {@link PromoteReadReplicaCommandOutput}
+ * @param PromoteReadReplicaMessage - {@link PromoteReadReplicaMessage}
+ * @returns {@link PromoteReadReplicaResult}
  * @see {@link PromoteReadReplicaCommandInput} for command's `input` shape.
  * @see {@link PromoteReadReplicaCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

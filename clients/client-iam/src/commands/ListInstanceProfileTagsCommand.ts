@@ -61,8 +61,8 @@ export interface ListInstanceProfileTagsCommandOutput extends ListInstanceProfil
  *
  * ```
  *
- * @param ListInstanceProfileTagsCommandInput - {@link ListInstanceProfileTagsCommandInput}
- * @returns {@link ListInstanceProfileTagsCommandOutput}
+ * @param ListInstanceProfileTagsRequest - {@link ListInstanceProfileTagsRequest}
+ * @returns {@link ListInstanceProfileTagsResponse}
  * @see {@link ListInstanceProfileTagsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceProfileTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

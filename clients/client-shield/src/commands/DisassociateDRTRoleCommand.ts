@@ -46,8 +46,8 @@ export interface DisassociateDRTRoleCommandOutput extends DisassociateDRTRoleRes
  *
  * ```
  *
- * @param DisassociateDRTRoleCommandInput - {@link DisassociateDRTRoleCommandInput}
- * @returns {@link DisassociateDRTRoleCommandOutput}
+ * @param DisassociateDRTRoleRequest - {@link DisassociateDRTRoleRequest}
+ * @returns {@link DisassociateDRTRoleResponse}
  * @see {@link DisassociateDRTRoleCommandInput} for command's `input` shape.
  * @see {@link DisassociateDRTRoleCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

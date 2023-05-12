@@ -52,8 +52,8 @@ export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __Metadat
  *
  * ```
  *
- * @param CreateLFTagCommandInput - {@link CreateLFTagCommandInput}
- * @returns {@link CreateLFTagCommandOutput}
+ * @param CreateLFTagRequest - {@link CreateLFTagRequest}
+ * @returns {@link CreateLFTagResponse}
  * @see {@link CreateLFTagCommandInput} for command's `input` shape.
  * @see {@link CreateLFTagCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

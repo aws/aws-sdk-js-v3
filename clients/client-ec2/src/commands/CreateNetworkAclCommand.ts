@@ -100,8 +100,8 @@ export interface CreateNetworkAclCommandOutput extends CreateNetworkAclResult, _
  *
  * ```
  *
- * @param CreateNetworkAclCommandInput - {@link CreateNetworkAclCommandInput}
- * @returns {@link CreateNetworkAclCommandOutput}
+ * @param CreateNetworkAclRequest - {@link CreateNetworkAclRequest}
+ * @returns {@link CreateNetworkAclResult}
  * @see {@link CreateNetworkAclCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkAclCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -64,8 +64,8 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  *
  * ```
  *
- * @param ListRecipesCommandInput - {@link ListRecipesCommandInput}
- * @returns {@link ListRecipesCommandOutput}
+ * @param ListRecipesRequest - {@link ListRecipesRequest}
+ * @returns {@link ListRecipesResponse}
  * @see {@link ListRecipesCommandInput} for command's `input` shape.
  * @see {@link ListRecipesCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

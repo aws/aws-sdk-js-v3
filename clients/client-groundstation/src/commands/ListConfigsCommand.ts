@@ -59,8 +59,8 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
  *
  * ```
  *
- * @param ListConfigsCommandInput - {@link ListConfigsCommandInput}
- * @returns {@link ListConfigsCommandOutput}
+ * @param ListConfigsRequest - {@link ListConfigsRequest}
+ * @returns {@link ListConfigsResponse}
  * @see {@link ListConfigsCommandInput} for command's `input` shape.
  * @see {@link ListConfigsCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

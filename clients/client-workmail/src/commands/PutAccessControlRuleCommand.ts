@@ -78,8 +78,8 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
  *
  * ```
  *
- * @param PutAccessControlRuleCommandInput - {@link PutAccessControlRuleCommandInput}
- * @returns {@link PutAccessControlRuleCommandOutput}
+ * @param PutAccessControlRuleRequest - {@link PutAccessControlRuleRequest}
+ * @returns {@link PutAccessControlRuleResponse}
  * @see {@link PutAccessControlRuleCommandInput} for command's `input` shape.
  * @see {@link PutAccessControlRuleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

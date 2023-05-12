@@ -61,8 +61,8 @@ export interface DescribeBundleCommandOutput extends DescribeBundleResult, __Met
  *
  * ```
  *
- * @param DescribeBundleCommandInput - {@link DescribeBundleCommandInput}
- * @returns {@link DescribeBundleCommandOutput}
+ * @param DescribeBundleRequest - {@link DescribeBundleRequest}
+ * @returns {@link DescribeBundleResult}
  * @see {@link DescribeBundleCommandInput} for command's `input` shape.
  * @see {@link DescribeBundleCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.

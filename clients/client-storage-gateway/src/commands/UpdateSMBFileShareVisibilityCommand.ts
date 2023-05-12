@@ -57,8 +57,8 @@ export interface UpdateSMBFileShareVisibilityCommandOutput
  *
  * ```
  *
- * @param UpdateSMBFileShareVisibilityCommandInput - {@link UpdateSMBFileShareVisibilityCommandInput}
- * @returns {@link UpdateSMBFileShareVisibilityCommandOutput}
+ * @param UpdateSMBFileShareVisibilityInput - {@link UpdateSMBFileShareVisibilityInput}
+ * @returns {@link UpdateSMBFileShareVisibilityOutput}
  * @see {@link UpdateSMBFileShareVisibilityCommandInput} for command's `input` shape.
  * @see {@link UpdateSMBFileShareVisibilityCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

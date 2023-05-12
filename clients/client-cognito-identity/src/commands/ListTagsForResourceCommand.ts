@@ -56,8 +56,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
+ * @param ListTagsForResourceInput - {@link ListTagsForResourceInput}
+ * @returns {@link ListTagsForResourceResponse}
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.

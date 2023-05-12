@@ -105,8 +105,8 @@ export interface DescribeAppsCommandOutput extends DescribeAppsResult, __Metadat
  *
  * ```
  *
- * @param DescribeAppsCommandInput - {@link DescribeAppsCommandInput}
- * @returns {@link DescribeAppsCommandOutput}
+ * @param DescribeAppsRequest - {@link DescribeAppsRequest}
+ * @returns {@link DescribeAppsResult}
  * @see {@link DescribeAppsCommandInput} for command's `input` shape.
  * @see {@link DescribeAppsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

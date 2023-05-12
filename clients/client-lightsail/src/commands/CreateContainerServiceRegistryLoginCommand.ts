@@ -80,8 +80,8 @@ export interface CreateContainerServiceRegistryLoginCommandOutput
  *
  * ```
  *
- * @param CreateContainerServiceRegistryLoginCommandInput - {@link CreateContainerServiceRegistryLoginCommandInput}
- * @returns {@link CreateContainerServiceRegistryLoginCommandOutput}
+ * @param CreateContainerServiceRegistryLoginRequest - {@link CreateContainerServiceRegistryLoginRequest}
+ * @returns {@link CreateContainerServiceRegistryLoginResult}
  * @see {@link CreateContainerServiceRegistryLoginCommandInput} for command's `input` shape.
  * @see {@link CreateContainerServiceRegistryLoginCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

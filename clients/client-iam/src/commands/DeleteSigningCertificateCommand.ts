@@ -53,8 +53,8 @@ export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DeleteSigningCertificateCommandInput - {@link DeleteSigningCertificateCommandInput}
- * @returns {@link DeleteSigningCertificateCommandOutput}
+ * @param DeleteSigningCertificateRequest - {@link DeleteSigningCertificateRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteSigningCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteSigningCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

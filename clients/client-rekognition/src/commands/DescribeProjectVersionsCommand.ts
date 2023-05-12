@@ -158,8 +158,8 @@ export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVer
  *
  * ```
  *
- * @param DescribeProjectVersionsCommandInput - {@link DescribeProjectVersionsCommandInput}
- * @returns {@link DescribeProjectVersionsCommandOutput}
+ * @param DescribeProjectVersionsRequest - {@link DescribeProjectVersionsRequest}
+ * @returns {@link DescribeProjectVersionsResponse}
  * @see {@link DescribeProjectVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectVersionsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

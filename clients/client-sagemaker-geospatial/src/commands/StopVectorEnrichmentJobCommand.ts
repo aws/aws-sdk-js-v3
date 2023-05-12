@@ -52,8 +52,8 @@ export interface StopVectorEnrichmentJobCommandOutput extends StopVectorEnrichme
  *
  * ```
  *
- * @param StopVectorEnrichmentJobCommandInput - {@link StopVectorEnrichmentJobCommandInput}
- * @returns {@link StopVectorEnrichmentJobCommandOutput}
+ * @param StopVectorEnrichmentJobInput - {@link StopVectorEnrichmentJobInput}
+ * @returns {@link StopVectorEnrichmentJobOutput}
  * @see {@link StopVectorEnrichmentJobCommandInput} for command's `input` shape.
  * @see {@link StopVectorEnrichmentJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.

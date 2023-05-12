@@ -57,8 +57,8 @@ export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreR
  *
  * ```
  *
- * @param DeleteEventDataStoreCommandInput - {@link DeleteEventDataStoreCommandInput}
- * @returns {@link DeleteEventDataStoreCommandOutput}
+ * @param DeleteEventDataStoreRequest - {@link DeleteEventDataStoreRequest}
+ * @returns {@link DeleteEventDataStoreResponse}
  * @see {@link DeleteEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

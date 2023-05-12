@@ -84,8 +84,8 @@ export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __Metadat
  *
  * ```
  *
- * @param DescribeHsmCommandInput - {@link DescribeHsmCommandInput}
- * @returns {@link DescribeHsmCommandOutput}
+ * @param DescribeHsmRequest - {@link DescribeHsmRequest}
+ * @returns {@link DescribeHsmResponse}
  * @see {@link DescribeHsmCommandInput} for command's `input` shape.
  * @see {@link DescribeHsmCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.

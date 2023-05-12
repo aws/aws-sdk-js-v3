@@ -65,8 +65,8 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  *
  * ```
  *
- * @param ListActionsCommandInput - {@link ListActionsCommandInput}
- * @returns {@link ListActionsCommandOutput}
+ * @param ListActionsRequest - {@link ListActionsRequest}
+ * @returns {@link ListActionsResponse}
  * @see {@link ListActionsCommandInput} for command's `input` shape.
  * @see {@link ListActionsCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.

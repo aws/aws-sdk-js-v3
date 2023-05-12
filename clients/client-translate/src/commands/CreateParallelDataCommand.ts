@@ -70,8 +70,8 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  *
  * ```
  *
- * @param CreateParallelDataCommandInput - {@link CreateParallelDataCommandInput}
- * @returns {@link CreateParallelDataCommandOutput}
+ * @param CreateParallelDataRequest - {@link CreateParallelDataRequest}
+ * @returns {@link CreateParallelDataResponse}
  * @see {@link CreateParallelDataCommandInput} for command's `input` shape.
  * @see {@link CreateParallelDataCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.

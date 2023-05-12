@@ -71,8 +71,8 @@ export interface GetTransitGatewayRegistrationsCommandOutput
  *
  * ```
  *
- * @param GetTransitGatewayRegistrationsCommandInput - {@link GetTransitGatewayRegistrationsCommandInput}
- * @returns {@link GetTransitGatewayRegistrationsCommandOutput}
+ * @param GetTransitGatewayRegistrationsRequest - {@link GetTransitGatewayRegistrationsRequest}
+ * @returns {@link GetTransitGatewayRegistrationsResponse}
  * @see {@link GetTransitGatewayRegistrationsCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayRegistrationsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

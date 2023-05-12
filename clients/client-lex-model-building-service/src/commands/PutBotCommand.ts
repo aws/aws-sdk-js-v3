@@ -163,8 +163,8 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  *
  * ```
  *
- * @param PutBotCommandInput - {@link PutBotCommandInput}
- * @returns {@link PutBotCommandOutput}
+ * @param PutBotRequest - {@link PutBotRequest}
+ * @returns {@link PutBotResponse}
  * @see {@link PutBotCommandInput} for command's `input` shape.
  * @see {@link PutBotCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

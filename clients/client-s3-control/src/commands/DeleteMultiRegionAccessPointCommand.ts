@@ -92,8 +92,8 @@ export interface DeleteMultiRegionAccessPointCommandOutput
  *
  * ```
  *
- * @param DeleteMultiRegionAccessPointCommandInput - {@link DeleteMultiRegionAccessPointCommandInput}
- * @returns {@link DeleteMultiRegionAccessPointCommandOutput}
+ * @param DeleteMultiRegionAccessPointRequest - {@link DeleteMultiRegionAccessPointRequest}
+ * @returns {@link DeleteMultiRegionAccessPointResult}
  * @see {@link DeleteMultiRegionAccessPointCommandInput} for command's `input` shape.
  * @see {@link DeleteMultiRegionAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

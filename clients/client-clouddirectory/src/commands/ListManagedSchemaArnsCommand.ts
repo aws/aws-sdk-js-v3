@@ -55,8 +55,8 @@ export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArn
  *
  * ```
  *
- * @param ListManagedSchemaArnsCommandInput - {@link ListManagedSchemaArnsCommandInput}
- * @returns {@link ListManagedSchemaArnsCommandOutput}
+ * @param ListManagedSchemaArnsRequest - {@link ListManagedSchemaArnsRequest}
+ * @returns {@link ListManagedSchemaArnsResponse}
  * @see {@link ListManagedSchemaArnsCommandInput} for command's `input` shape.
  * @see {@link ListManagedSchemaArnsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

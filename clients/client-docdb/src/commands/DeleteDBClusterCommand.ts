@@ -109,8 +109,8 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  *
  * ```
  *
- * @param DeleteDBClusterCommandInput - {@link DeleteDBClusterCommandInput}
- * @returns {@link DeleteDBClusterCommandOutput}
+ * @param DeleteDBClusterMessage - {@link DeleteDBClusterMessage}
+ * @returns {@link DeleteDBClusterResult}
  * @see {@link DeleteDBClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

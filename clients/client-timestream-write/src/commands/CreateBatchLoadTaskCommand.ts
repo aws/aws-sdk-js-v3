@@ -130,8 +130,8 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  *
  * ```
  *
- * @param CreateBatchLoadTaskCommandInput - {@link CreateBatchLoadTaskCommandInput}
- * @returns {@link CreateBatchLoadTaskCommandOutput}
+ * @param CreateBatchLoadTaskRequest - {@link CreateBatchLoadTaskRequest}
+ * @returns {@link CreateBatchLoadTaskResponse}
  * @see {@link CreateBatchLoadTaskCommandInput} for command's `input` shape.
  * @see {@link CreateBatchLoadTaskCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.

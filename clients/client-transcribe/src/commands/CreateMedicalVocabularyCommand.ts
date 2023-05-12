@@ -74,8 +74,8 @@ export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocab
  *
  * ```
  *
- * @param CreateMedicalVocabularyCommandInput - {@link CreateMedicalVocabularyCommandInput}
- * @returns {@link CreateMedicalVocabularyCommandOutput}
+ * @param CreateMedicalVocabularyRequest - {@link CreateMedicalVocabularyRequest}
+ * @returns {@link CreateMedicalVocabularyResponse}
  * @see {@link CreateMedicalVocabularyCommandInput} for command's `input` shape.
  * @see {@link CreateMedicalVocabularyCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

@@ -54,8 +54,8 @@ export interface DeleteFolderCommandOutput extends DeleteFolderResponse, __Metad
  *
  * ```
  *
- * @param DeleteFolderCommandInput - {@link DeleteFolderCommandInput}
- * @returns {@link DeleteFolderCommandOutput}
+ * @param DeleteFolderRequest - {@link DeleteFolderRequest}
+ * @returns {@link DeleteFolderResponse}
  * @see {@link DeleteFolderCommandInput} for command's `input` shape.
  * @see {@link DeleteFolderCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

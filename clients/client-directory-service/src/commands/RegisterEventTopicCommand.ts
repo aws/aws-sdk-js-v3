@@ -53,8 +53,8 @@ export interface RegisterEventTopicCommandOutput extends RegisterEventTopicResul
  *
  * ```
  *
- * @param RegisterEventTopicCommandInput - {@link RegisterEventTopicCommandInput}
- * @returns {@link RegisterEventTopicCommandOutput}
+ * @param RegisterEventTopicRequest - {@link RegisterEventTopicRequest}
+ * @returns {@link RegisterEventTopicResult}
  * @see {@link RegisterEventTopicCommandInput} for command's `input` shape.
  * @see {@link RegisterEventTopicCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

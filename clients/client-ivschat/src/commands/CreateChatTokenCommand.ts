@@ -71,8 +71,8 @@ export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, _
  *
  * ```
  *
- * @param CreateChatTokenCommandInput - {@link CreateChatTokenCommandInput}
- * @returns {@link CreateChatTokenCommandOutput}
+ * @param CreateChatTokenRequest - {@link CreateChatTokenRequest}
+ * @returns {@link CreateChatTokenResponse}
  * @see {@link CreateChatTokenCommandInput} for command's `input` shape.
  * @see {@link CreateChatTokenCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.

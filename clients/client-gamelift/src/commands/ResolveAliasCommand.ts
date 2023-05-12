@@ -57,8 +57,8 @@ export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __Metadat
  *
  * ```
  *
- * @param ResolveAliasCommandInput - {@link ResolveAliasCommandInput}
- * @returns {@link ResolveAliasCommandOutput}
+ * @param ResolveAliasInput - {@link ResolveAliasInput}
+ * @returns {@link ResolveAliasOutput}
  * @see {@link ResolveAliasCommandInput} for command's `input` shape.
  * @see {@link ResolveAliasCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

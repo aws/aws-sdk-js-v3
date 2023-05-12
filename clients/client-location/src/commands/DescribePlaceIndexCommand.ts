@@ -62,8 +62,8 @@ export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexRespo
  *
  * ```
  *
- * @param DescribePlaceIndexCommandInput - {@link DescribePlaceIndexCommandInput}
- * @returns {@link DescribePlaceIndexCommandOutput}
+ * @param DescribePlaceIndexRequest - {@link DescribePlaceIndexRequest}
+ * @returns {@link DescribePlaceIndexResponse}
  * @see {@link DescribePlaceIndexCommandInput} for command's `input` shape.
  * @see {@link DescribePlaceIndexCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

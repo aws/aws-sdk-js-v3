@@ -50,8 +50,8 @@ export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirector
  *
  * ```
  *
- * @param RejectSharedDirectoryCommandInput - {@link RejectSharedDirectoryCommandInput}
- * @returns {@link RejectSharedDirectoryCommandOutput}
+ * @param RejectSharedDirectoryRequest - {@link RejectSharedDirectoryRequest}
+ * @returns {@link RejectSharedDirectoryResult}
  * @see {@link RejectSharedDirectoryCommandInput} for command's `input` shape.
  * @see {@link RejectSharedDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

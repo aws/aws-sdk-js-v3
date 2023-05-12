@@ -64,8 +64,8 @@ export interface UpdateAppInstanceUserEndpointCommandOutput
  *
  * ```
  *
- * @param UpdateAppInstanceUserEndpointCommandInput - {@link UpdateAppInstanceUserEndpointCommandInput}
- * @returns {@link UpdateAppInstanceUserEndpointCommandOutput}
+ * @param UpdateAppInstanceUserEndpointRequest - {@link UpdateAppInstanceUserEndpointRequest}
+ * @returns {@link UpdateAppInstanceUserEndpointResponse}
  * @see {@link UpdateAppInstanceUserEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateAppInstanceUserEndpointCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.

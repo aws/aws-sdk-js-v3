@@ -122,8 +122,8 @@ export interface UpdateClusterSettingsCommandOutput extends UpdateClusterSetting
  *
  * ```
  *
- * @param UpdateClusterSettingsCommandInput - {@link UpdateClusterSettingsCommandInput}
- * @returns {@link UpdateClusterSettingsCommandOutput}
+ * @param UpdateClusterSettingsRequest - {@link UpdateClusterSettingsRequest}
+ * @returns {@link UpdateClusterSettingsResponse}
  * @see {@link UpdateClusterSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterSettingsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

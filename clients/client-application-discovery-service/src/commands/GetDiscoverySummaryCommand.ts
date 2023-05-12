@@ -93,8 +93,8 @@ export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryRes
  *
  * ```
  *
- * @param GetDiscoverySummaryCommandInput - {@link GetDiscoverySummaryCommandInput}
- * @returns {@link GetDiscoverySummaryCommandOutput}
+ * @param GetDiscoverySummaryRequest - {@link GetDiscoverySummaryRequest}
+ * @returns {@link GetDiscoverySummaryResponse}
  * @see {@link GetDiscoverySummaryCommandInput} for command's `input` shape.
  * @see {@link GetDiscoverySummaryCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

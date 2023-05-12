@@ -56,8 +56,8 @@ export interface ListThingsInBillingGroupCommandOutput extends ListThingsInBilli
  *
  * ```
  *
- * @param ListThingsInBillingGroupCommandInput - {@link ListThingsInBillingGroupCommandInput}
- * @returns {@link ListThingsInBillingGroupCommandOutput}
+ * @param ListThingsInBillingGroupRequest - {@link ListThingsInBillingGroupRequest}
+ * @returns {@link ListThingsInBillingGroupResponse}
  * @see {@link ListThingsInBillingGroupCommandInput} for command's `input` shape.
  * @see {@link ListThingsInBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

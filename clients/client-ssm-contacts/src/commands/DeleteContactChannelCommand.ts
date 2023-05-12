@@ -51,8 +51,8 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  *
  * ```
  *
- * @param DeleteContactChannelCommandInput - {@link DeleteContactChannelCommandInput}
- * @returns {@link DeleteContactChannelCommandOutput}
+ * @param DeleteContactChannelRequest - {@link DeleteContactChannelRequest}
+ * @returns {@link DeleteContactChannelResult}
  * @see {@link DeleteContactChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteContactChannelCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

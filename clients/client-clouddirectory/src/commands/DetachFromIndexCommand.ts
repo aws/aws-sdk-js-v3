@@ -56,8 +56,8 @@ export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, _
  *
  * ```
  *
- * @param DetachFromIndexCommandInput - {@link DetachFromIndexCommandInput}
- * @returns {@link DetachFromIndexCommandOutput}
+ * @param DetachFromIndexRequest - {@link DetachFromIndexRequest}
+ * @returns {@link DetachFromIndexResponse}
  * @see {@link DetachFromIndexCommandInput} for command's `input` shape.
  * @see {@link DetachFromIndexCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

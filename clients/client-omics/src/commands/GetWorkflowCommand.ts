@@ -79,8 +79,8 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  *
  * ```
  *
- * @param GetWorkflowCommandInput - {@link GetWorkflowCommandInput}
- * @returns {@link GetWorkflowCommandOutput}
+ * @param GetWorkflowRequest - {@link GetWorkflowRequest}
+ * @returns {@link GetWorkflowResponse}
  * @see {@link GetWorkflowCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

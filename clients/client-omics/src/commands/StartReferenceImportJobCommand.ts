@@ -66,8 +66,8 @@ export interface StartReferenceImportJobCommandOutput extends StartReferenceImpo
  *
  * ```
  *
- * @param StartReferenceImportJobCommandInput - {@link StartReferenceImportJobCommandInput}
- * @returns {@link StartReferenceImportJobCommandOutput}
+ * @param StartReferenceImportJobRequest - {@link StartReferenceImportJobRequest}
+ * @returns {@link StartReferenceImportJobResponse}
  * @see {@link StartReferenceImportJobCommandInput} for command's `input` shape.
  * @see {@link StartReferenceImportJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

@@ -58,8 +58,8 @@ export interface StopWorkflowCommandOutput extends StopMigrationWorkflowResponse
  *
  * ```
  *
- * @param StopWorkflowCommandInput - {@link StopWorkflowCommandInput}
- * @returns {@link StopWorkflowCommandOutput}
+ * @param StopMigrationWorkflowRequest - {@link StopMigrationWorkflowRequest}
+ * @returns {@link StopMigrationWorkflowResponse}
  * @see {@link StopWorkflowCommandInput} for command's `input` shape.
  * @see {@link StopWorkflowCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

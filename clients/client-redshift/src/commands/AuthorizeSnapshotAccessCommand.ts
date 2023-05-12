@@ -105,8 +105,8 @@ export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotA
  *
  * ```
  *
- * @param AuthorizeSnapshotAccessCommandInput - {@link AuthorizeSnapshotAccessCommandInput}
- * @returns {@link AuthorizeSnapshotAccessCommandOutput}
+ * @param AuthorizeSnapshotAccessMessage - {@link AuthorizeSnapshotAccessMessage}
+ * @returns {@link AuthorizeSnapshotAccessResult}
  * @see {@link AuthorizeSnapshotAccessCommandInput} for command's `input` shape.
  * @see {@link AuthorizeSnapshotAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

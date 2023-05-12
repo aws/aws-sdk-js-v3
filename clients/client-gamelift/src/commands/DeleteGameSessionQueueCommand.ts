@@ -49,8 +49,8 @@ export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQu
  *
  * ```
  *
- * @param DeleteGameSessionQueueCommandInput - {@link DeleteGameSessionQueueCommandInput}
- * @returns {@link DeleteGameSessionQueueCommandOutput}
+ * @param DeleteGameSessionQueueInput - {@link DeleteGameSessionQueueInput}
+ * @returns {@link DeleteGameSessionQueueOutput}
  * @see {@link DeleteGameSessionQueueCommandInput} for command's `input` shape.
  * @see {@link DeleteGameSessionQueueCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

@@ -69,8 +69,8 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RevokeCertificateCommandInput - {@link RevokeCertificateCommandInput}
- * @returns {@link RevokeCertificateCommandOutput}
+ * @param RevokeCertificateRequest - {@link RevokeCertificateRequest}
+ * @returns {@link Unit}
  * @see {@link RevokeCertificateCommandInput} for command's `input` shape.
  * @see {@link RevokeCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

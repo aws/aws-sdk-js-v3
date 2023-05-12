@@ -328,8 +328,8 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  *
  * ```
  *
- * @param DescribeLaunchTemplateVersionsCommandInput - {@link DescribeLaunchTemplateVersionsCommandInput}
- * @returns {@link DescribeLaunchTemplateVersionsCommandOutput}
+ * @param DescribeLaunchTemplateVersionsRequest - {@link DescribeLaunchTemplateVersionsRequest}
+ * @returns {@link DescribeLaunchTemplateVersionsResult}
  * @see {@link DescribeLaunchTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeLaunchTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

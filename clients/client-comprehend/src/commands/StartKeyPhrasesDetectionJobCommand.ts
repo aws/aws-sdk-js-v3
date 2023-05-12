@@ -89,8 +89,8 @@ export interface StartKeyPhrasesDetectionJobCommandOutput
  *
  * ```
  *
- * @param StartKeyPhrasesDetectionJobCommandInput - {@link StartKeyPhrasesDetectionJobCommandInput}
- * @returns {@link StartKeyPhrasesDetectionJobCommandOutput}
+ * @param StartKeyPhrasesDetectionJobRequest - {@link StartKeyPhrasesDetectionJobRequest}
+ * @returns {@link StartKeyPhrasesDetectionJobResponse}
  * @see {@link StartKeyPhrasesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartKeyPhrasesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

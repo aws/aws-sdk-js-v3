@@ -68,8 +68,8 @@ export interface GetAuthorizerCommandOutput extends GetAuthorizerResponse, __Met
  *
  * ```
  *
- * @param GetAuthorizerCommandInput - {@link GetAuthorizerCommandInput}
- * @returns {@link GetAuthorizerCommandOutput}
+ * @param GetAuthorizerRequest - {@link GetAuthorizerRequest}
+ * @returns {@link GetAuthorizerResponse}
  * @see {@link GetAuthorizerCommandInput} for command's `input` shape.
  * @see {@link GetAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

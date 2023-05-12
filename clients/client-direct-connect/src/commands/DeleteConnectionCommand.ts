@@ -86,8 +86,8 @@ export interface DeleteConnectionCommandOutput extends Connection, __MetadataBea
  *
  * ```
  *
- * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
- * @returns {@link DeleteConnectionCommandOutput}
+ * @param DeleteConnectionRequest - {@link DeleteConnectionRequest}
+ * @returns {@link Connection}
  * @see {@link DeleteConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectionCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

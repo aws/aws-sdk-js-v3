@@ -98,8 +98,8 @@ export interface GetMultiRegionAccessPointRoutesCommandOutput
  *
  * ```
  *
- * @param GetMultiRegionAccessPointRoutesCommandInput - {@link GetMultiRegionAccessPointRoutesCommandInput}
- * @returns {@link GetMultiRegionAccessPointRoutesCommandOutput}
+ * @param GetMultiRegionAccessPointRoutesRequest - {@link GetMultiRegionAccessPointRoutesRequest}
+ * @returns {@link GetMultiRegionAccessPointRoutesResult}
  * @see {@link GetMultiRegionAccessPointRoutesCommandInput} for command's `input` shape.
  * @see {@link GetMultiRegionAccessPointRoutesCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

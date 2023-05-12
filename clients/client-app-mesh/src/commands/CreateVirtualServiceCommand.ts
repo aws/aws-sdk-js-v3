@@ -100,8 +100,8 @@ export interface CreateVirtualServiceCommandOutput extends CreateVirtualServiceO
  *
  * ```
  *
- * @param CreateVirtualServiceCommandInput - {@link CreateVirtualServiceCommandInput}
- * @returns {@link CreateVirtualServiceCommandOutput}
+ * @param CreateVirtualServiceInput - {@link CreateVirtualServiceInput}
+ * @returns {@link CreateVirtualServiceOutput}
  * @see {@link CreateVirtualServiceCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualServiceCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

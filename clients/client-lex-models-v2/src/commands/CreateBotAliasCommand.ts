@@ -147,8 +147,8 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  *
  * ```
  *
- * @param CreateBotAliasCommandInput - {@link CreateBotAliasCommandInput}
- * @returns {@link CreateBotAliasCommandOutput}
+ * @param CreateBotAliasRequest - {@link CreateBotAliasRequest}
+ * @returns {@link CreateBotAliasResponse}
  * @see {@link CreateBotAliasCommandInput} for command's `input` shape.
  * @see {@link CreateBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

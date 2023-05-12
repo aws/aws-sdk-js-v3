@@ -138,8 +138,8 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  *
  * ```
  *
- * @param PutPlaybackConfigurationCommandInput - {@link PutPlaybackConfigurationCommandInput}
- * @returns {@link PutPlaybackConfigurationCommandOutput}
+ * @param PutPlaybackConfigurationRequest - {@link PutPlaybackConfigurationRequest}
+ * @returns {@link PutPlaybackConfigurationResponse}
  * @see {@link PutPlaybackConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutPlaybackConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

@@ -231,8 +231,8 @@ export interface GetReservationCoverageCommandOutput extends GetReservationCover
  *
  * ```
  *
- * @param GetReservationCoverageCommandInput - {@link GetReservationCoverageCommandInput}
- * @returns {@link GetReservationCoverageCommandOutput}
+ * @param GetReservationCoverageRequest - {@link GetReservationCoverageRequest}
+ * @returns {@link GetReservationCoverageResponse}
  * @see {@link GetReservationCoverageCommandInput} for command's `input` shape.
  * @see {@link GetReservationCoverageCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

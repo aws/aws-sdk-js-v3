@@ -86,8 +86,8 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  *
  * ```
  *
- * @param CreateAwsLogSourceCommandInput - {@link CreateAwsLogSourceCommandInput}
- * @returns {@link CreateAwsLogSourceCommandOutput}
+ * @param CreateAwsLogSourceRequest - {@link CreateAwsLogSourceRequest}
+ * @returns {@link CreateAwsLogSourceResponse}
  * @see {@link CreateAwsLogSourceCommandInput} for command's `input` shape.
  * @see {@link CreateAwsLogSourceCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

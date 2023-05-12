@@ -79,8 +79,8 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  *
  * ```
  *
- * @param MeterUsageCommandInput - {@link MeterUsageCommandInput}
- * @returns {@link MeterUsageCommandOutput}
+ * @param MeterUsageRequest - {@link MeterUsageRequest}
+ * @returns {@link MeterUsageResult}
  * @see {@link MeterUsageCommandInput} for command's `input` shape.
  * @see {@link MeterUsageCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.

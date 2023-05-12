@@ -55,8 +55,8 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  *
  * ```
  *
- * @param UpdateDirectorySetupCommandInput - {@link UpdateDirectorySetupCommandInput}
- * @returns {@link UpdateDirectorySetupCommandOutput}
+ * @param UpdateDirectorySetupRequest - {@link UpdateDirectorySetupRequest}
+ * @returns {@link UpdateDirectorySetupResult}
  * @see {@link UpdateDirectorySetupCommandInput} for command's `input` shape.
  * @see {@link UpdateDirectorySetupCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

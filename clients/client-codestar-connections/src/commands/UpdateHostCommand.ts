@@ -63,8 +63,8 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
  *
  * ```
  *
- * @param UpdateHostCommandInput - {@link UpdateHostCommandInput}
- * @returns {@link UpdateHostCommandOutput}
+ * @param UpdateHostInput - {@link UpdateHostInput}
+ * @returns {@link UpdateHostOutput}
  * @see {@link UpdateHostCommandInput} for command's `input` shape.
  * @see {@link UpdateHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.

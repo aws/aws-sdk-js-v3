@@ -57,8 +57,8 @@ export interface UpdatePlacementCommandOutput extends UpdatePlacementResponse, _
  *
  * ```
  *
- * @param UpdatePlacementCommandInput - {@link UpdatePlacementCommandInput}
- * @returns {@link UpdatePlacementCommandOutput}
+ * @param UpdatePlacementRequest - {@link UpdatePlacementRequest}
+ * @returns {@link UpdatePlacementResponse}
  * @see {@link UpdatePlacementCommandInput} for command's `input` shape.
  * @see {@link UpdatePlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.

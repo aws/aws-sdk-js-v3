@@ -49,8 +49,8 @@ export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeletePublicKeyCommandInput - {@link DeletePublicKeyCommandInput}
- * @returns {@link DeletePublicKeyCommandOutput}
+ * @param DeletePublicKeyRequest - {@link DeletePublicKeyRequest}
+ * @returns {@link Unit}
  * @see {@link DeletePublicKeyCommandInput} for command's `input` shape.
  * @see {@link DeletePublicKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

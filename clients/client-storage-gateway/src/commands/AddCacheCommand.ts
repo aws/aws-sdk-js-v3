@@ -57,8 +57,8 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
  *
  * ```
  *
- * @param AddCacheCommandInput - {@link AddCacheCommandInput}
- * @returns {@link AddCacheCommandOutput}
+ * @param AddCacheInput - {@link AddCacheInput}
+ * @returns {@link AddCacheOutput}
  * @see {@link AddCacheCommandInput} for command's `input` shape.
  * @see {@link AddCacheCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

@@ -67,8 +67,8 @@ export interface CreateSipMediaApplicationCallCommandOutput
  *
  * ```
  *
- * @param CreateSipMediaApplicationCallCommandInput - {@link CreateSipMediaApplicationCallCommandInput}
- * @returns {@link CreateSipMediaApplicationCallCommandOutput}
+ * @param CreateSipMediaApplicationCallRequest - {@link CreateSipMediaApplicationCallRequest}
+ * @returns {@link CreateSipMediaApplicationCallResponse}
  * @see {@link CreateSipMediaApplicationCallCommandInput} for command's `input` shape.
  * @see {@link CreateSipMediaApplicationCallCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

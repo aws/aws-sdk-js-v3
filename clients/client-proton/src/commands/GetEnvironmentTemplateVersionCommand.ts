@@ -73,8 +73,8 @@ export interface GetEnvironmentTemplateVersionCommandOutput
  *
  * ```
  *
- * @param GetEnvironmentTemplateVersionCommandInput - {@link GetEnvironmentTemplateVersionCommandInput}
- * @returns {@link GetEnvironmentTemplateVersionCommandOutput}
+ * @param GetEnvironmentTemplateVersionInput - {@link GetEnvironmentTemplateVersionInput}
+ * @returns {@link GetEnvironmentTemplateVersionOutput}
  * @see {@link GetEnvironmentTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

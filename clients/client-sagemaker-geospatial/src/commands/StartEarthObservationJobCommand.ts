@@ -363,8 +363,8 @@ export interface StartEarthObservationJobCommandOutput extends StartEarthObserva
  *
  * ```
  *
- * @param StartEarthObservationJobCommandInput - {@link StartEarthObservationJobCommandInput}
- * @returns {@link StartEarthObservationJobCommandOutput}
+ * @param StartEarthObservationJobInput - {@link StartEarthObservationJobInput}
+ * @returns {@link StartEarthObservationJobOutput}
  * @see {@link StartEarthObservationJobCommandInput} for command's `input` shape.
  * @see {@link StartEarthObservationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.

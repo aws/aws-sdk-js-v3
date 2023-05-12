@@ -68,8 +68,8 @@ export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFra
  *
  * ```
  *
- * @param ListAssessmentFrameworksCommandInput - {@link ListAssessmentFrameworksCommandInput}
- * @returns {@link ListAssessmentFrameworksCommandOutput}
+ * @param ListAssessmentFrameworksRequest - {@link ListAssessmentFrameworksRequest}
+ * @returns {@link ListAssessmentFrameworksResponse}
  * @see {@link ListAssessmentFrameworksCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentFrameworksCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

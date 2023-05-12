@@ -51,8 +51,8 @@ export interface GetResourcePermissionCommandOutput extends GetResourcePermissio
  *
  * ```
  *
- * @param GetResourcePermissionCommandInput - {@link GetResourcePermissionCommandInput}
- * @returns {@link GetResourcePermissionCommandOutput}
+ * @param GetResourcePermissionInput - {@link GetResourcePermissionInput}
+ * @returns {@link GetResourcePermissionOutput}
  * @see {@link GetResourcePermissionCommandInput} for command's `input` shape.
  * @see {@link GetResourcePermissionCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.

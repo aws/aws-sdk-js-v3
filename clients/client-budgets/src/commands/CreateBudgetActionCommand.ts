@@ -100,8 +100,8 @@ export interface CreateBudgetActionCommandOutput extends CreateBudgetActionRespo
  *
  * ```
  *
- * @param CreateBudgetActionCommandInput - {@link CreateBudgetActionCommandInput}
- * @returns {@link CreateBudgetActionCommandOutput}
+ * @param CreateBudgetActionRequest - {@link CreateBudgetActionRequest}
+ * @returns {@link CreateBudgetActionResponse}
  * @see {@link CreateBudgetActionCommandInput} for command's `input` shape.
  * @see {@link CreateBudgetActionCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

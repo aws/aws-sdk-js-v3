@@ -80,8 +80,8 @@ export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataB
  *
  * ```
  *
- * @param GetProjectCommandInput - {@link GetProjectCommandInput}
- * @returns {@link GetProjectCommandOutput}
+ * @param GetProjectRequest - {@link GetProjectRequest}
+ * @returns {@link GetProjectResponse}
  * @see {@link GetProjectCommandInput} for command's `input` shape.
  * @see {@link GetProjectCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

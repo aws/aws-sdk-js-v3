@@ -63,8 +63,8 @@ export interface GetVoiceConnectorLoggingConfigurationCommandOutput
  *
  * ```
  *
- * @param GetVoiceConnectorLoggingConfigurationCommandInput - {@link GetVoiceConnectorLoggingConfigurationCommandInput}
- * @returns {@link GetVoiceConnectorLoggingConfigurationCommandOutput}
+ * @param GetVoiceConnectorLoggingConfigurationRequest - {@link GetVoiceConnectorLoggingConfigurationRequest}
+ * @returns {@link GetVoiceConnectorLoggingConfigurationResponse}
  * @see {@link GetVoiceConnectorLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetVoiceConnectorLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

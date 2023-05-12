@@ -304,8 +304,8 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *
  * ```
  *
- * @param UpdateTableCommandInput - {@link UpdateTableCommandInput}
- * @returns {@link UpdateTableCommandOutput}
+ * @param UpdateTableInput - {@link UpdateTableInput}
+ * @returns {@link UpdateTableOutput}
  * @see {@link UpdateTableCommandInput} for command's `input` shape.
  * @see {@link UpdateTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

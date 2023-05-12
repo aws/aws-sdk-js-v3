@@ -160,8 +160,8 @@ export interface BatchGetCrawlersCommandOutput extends BatchGetCrawlersResponse,
  *
  * ```
  *
- * @param BatchGetCrawlersCommandInput - {@link BatchGetCrawlersCommandInput}
- * @returns {@link BatchGetCrawlersCommandOutput}
+ * @param BatchGetCrawlersRequest - {@link BatchGetCrawlersRequest}
+ * @returns {@link BatchGetCrawlersResponse}
  * @see {@link BatchGetCrawlersCommandInput} for command's `input` shape.
  * @see {@link BatchGetCrawlersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

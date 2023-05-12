@@ -127,8 +127,8 @@ export interface DescribeThemeCommandOutput extends DescribeThemeResponse, __Met
  *
  * ```
  *
- * @param DescribeThemeCommandInput - {@link DescribeThemeCommandInput}
- * @returns {@link DescribeThemeCommandOutput}
+ * @param DescribeThemeRequest - {@link DescribeThemeRequest}
+ * @returns {@link DescribeThemeResponse}
  * @see {@link DescribeThemeCommandInput} for command's `input` shape.
  * @see {@link DescribeThemeCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

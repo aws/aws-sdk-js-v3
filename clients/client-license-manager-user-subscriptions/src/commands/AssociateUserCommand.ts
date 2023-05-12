@@ -79,8 +79,8 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  *
  * ```
  *
- * @param AssociateUserCommandInput - {@link AssociateUserCommandInput}
- * @returns {@link AssociateUserCommandOutput}
+ * @param AssociateUserRequest - {@link AssociateUserRequest}
+ * @returns {@link AssociateUserResponse}
  * @see {@link AssociateUserCommandInput} for command's `input` shape.
  * @see {@link AssociateUserCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.

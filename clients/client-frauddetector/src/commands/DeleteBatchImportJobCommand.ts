@@ -48,8 +48,8 @@ export interface DeleteBatchImportJobCommandOutput extends DeleteBatchImportJobR
  *
  * ```
  *
- * @param DeleteBatchImportJobCommandInput - {@link DeleteBatchImportJobCommandInput}
- * @returns {@link DeleteBatchImportJobCommandOutput}
+ * @param DeleteBatchImportJobRequest - {@link DeleteBatchImportJobRequest}
+ * @returns {@link DeleteBatchImportJobResult}
  * @see {@link DeleteBatchImportJobCommandInput} for command's `input` shape.
  * @see {@link DeleteBatchImportJobCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

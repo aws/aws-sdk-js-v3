@@ -95,8 +95,8 @@ export interface CreateGlobalReplicationGroupCommandOutput
  *
  * ```
  *
- * @param CreateGlobalReplicationGroupCommandInput - {@link CreateGlobalReplicationGroupCommandInput}
- * @returns {@link CreateGlobalReplicationGroupCommandOutput}
+ * @param CreateGlobalReplicationGroupMessage - {@link CreateGlobalReplicationGroupMessage}
+ * @returns {@link CreateGlobalReplicationGroupResult}
  * @see {@link CreateGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

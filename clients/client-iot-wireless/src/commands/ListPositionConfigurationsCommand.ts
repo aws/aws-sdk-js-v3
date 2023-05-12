@@ -74,8 +74,8 @@ export interface ListPositionConfigurationsCommandOutput extends ListPositionCon
  *
  * ```
  *
- * @param ListPositionConfigurationsCommandInput - {@link ListPositionConfigurationsCommandInput}
- * @returns {@link ListPositionConfigurationsCommandOutput}
+ * @param ListPositionConfigurationsRequest - {@link ListPositionConfigurationsRequest}
+ * @returns {@link ListPositionConfigurationsResponse}
  * @see {@link ListPositionConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListPositionConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

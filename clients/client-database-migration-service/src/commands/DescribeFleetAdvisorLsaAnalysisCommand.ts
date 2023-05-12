@@ -67,8 +67,8 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
  *
  * ```
  *
- * @param DescribeFleetAdvisorLsaAnalysisCommandInput - {@link DescribeFleetAdvisorLsaAnalysisCommandInput}
- * @returns {@link DescribeFleetAdvisorLsaAnalysisCommandOutput}
+ * @param DescribeFleetAdvisorLsaAnalysisRequest - {@link DescribeFleetAdvisorLsaAnalysisRequest}
+ * @returns {@link DescribeFleetAdvisorLsaAnalysisResponse}
  * @see {@link DescribeFleetAdvisorLsaAnalysisCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetAdvisorLsaAnalysisCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

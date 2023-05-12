@@ -56,8 +56,8 @@ export interface DeleteClientBrandingCommandOutput extends DeleteClientBrandingR
  *
  * ```
  *
- * @param DeleteClientBrandingCommandInput - {@link DeleteClientBrandingCommandInput}
- * @returns {@link DeleteClientBrandingCommandOutput}
+ * @param DeleteClientBrandingRequest - {@link DeleteClientBrandingRequest}
+ * @returns {@link DeleteClientBrandingResult}
  * @see {@link DeleteClientBrandingCommandInput} for command's `input` shape.
  * @see {@link DeleteClientBrandingCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

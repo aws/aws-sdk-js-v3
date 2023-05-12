@@ -300,8 +300,8 @@ export interface UpdateTopicCommandOutput extends UpdateTopicResponse, __Metadat
  *
  * ```
  *
- * @param UpdateTopicCommandInput - {@link UpdateTopicCommandInput}
- * @returns {@link UpdateTopicCommandOutput}
+ * @param UpdateTopicRequest - {@link UpdateTopicRequest}
+ * @returns {@link UpdateTopicResponse}
  * @see {@link UpdateTopicCommandInput} for command's `input` shape.
  * @see {@link UpdateTopicCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

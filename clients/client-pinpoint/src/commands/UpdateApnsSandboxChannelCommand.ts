@@ -73,8 +73,8 @@ export interface UpdateApnsSandboxChannelCommandOutput extends UpdateApnsSandbox
  *
  * ```
  *
- * @param UpdateApnsSandboxChannelCommandInput - {@link UpdateApnsSandboxChannelCommandInput}
- * @returns {@link UpdateApnsSandboxChannelCommandOutput}
+ * @param UpdateApnsSandboxChannelRequest - {@link UpdateApnsSandboxChannelRequest}
+ * @returns {@link UpdateApnsSandboxChannelResponse}
  * @see {@link UpdateApnsSandboxChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateApnsSandboxChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

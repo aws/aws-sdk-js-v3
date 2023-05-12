@@ -52,8 +52,8 @@ export interface SignOutUserCommandOutput extends SignOutUserResponse, __Metadat
  *
  * ```
  *
- * @param SignOutUserCommandInput - {@link SignOutUserCommandInput}
- * @returns {@link SignOutUserCommandOutput}
+ * @param SignOutUserRequest - {@link SignOutUserRequest}
+ * @returns {@link SignOutUserResponse}
  * @see {@link SignOutUserCommandInput} for command's `input` shape.
  * @see {@link SignOutUserCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

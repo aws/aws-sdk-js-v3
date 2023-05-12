@@ -73,8 +73,8 @@ export interface ListExperienceEntitiesCommandOutput extends ListExperienceEntit
  *
  * ```
  *
- * @param ListExperienceEntitiesCommandInput - {@link ListExperienceEntitiesCommandInput}
- * @returns {@link ListExperienceEntitiesCommandOutput}
+ * @param ListExperienceEntitiesRequest - {@link ListExperienceEntitiesRequest}
+ * @returns {@link ListExperienceEntitiesResponse}
  * @see {@link ListExperienceEntitiesCommandInput} for command's `input` shape.
  * @see {@link ListExperienceEntitiesCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

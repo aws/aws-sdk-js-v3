@@ -119,8 +119,8 @@ export interface SearchQueuesCommandOutput extends SearchQueuesResponse, __Metad
  *
  * ```
  *
- * @param SearchQueuesCommandInput - {@link SearchQueuesCommandInput}
- * @returns {@link SearchQueuesCommandOutput}
+ * @param SearchQueuesRequest - {@link SearchQueuesRequest}
+ * @returns {@link SearchQueuesResponse}
  * @see {@link SearchQueuesCommandInput} for command's `input` shape.
  * @see {@link SearchQueuesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

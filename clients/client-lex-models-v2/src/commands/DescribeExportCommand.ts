@@ -74,8 +74,8 @@ export interface DescribeExportCommandOutput extends DescribeExportResponse, __M
  *
  * ```
  *
- * @param DescribeExportCommandInput - {@link DescribeExportCommandInput}
- * @returns {@link DescribeExportCommandOutput}
+ * @param DescribeExportRequest - {@link DescribeExportRequest}
+ * @returns {@link DescribeExportResponse}
  * @see {@link DescribeExportCommandInput} for command's `input` shape.
  * @see {@link DescribeExportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

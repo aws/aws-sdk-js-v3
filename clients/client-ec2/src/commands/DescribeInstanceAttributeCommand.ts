@@ -117,8 +117,8 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  *
  * ```
  *
- * @param DescribeInstanceAttributeCommandInput - {@link DescribeInstanceAttributeCommandInput}
- * @returns {@link DescribeInstanceAttributeCommandOutput}
+ * @param DescribeInstanceAttributeRequest - {@link DescribeInstanceAttributeRequest}
+ * @returns {@link InstanceAttribute}
  * @see {@link DescribeInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

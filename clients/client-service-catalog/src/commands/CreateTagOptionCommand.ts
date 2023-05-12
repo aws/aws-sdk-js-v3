@@ -57,8 +57,8 @@ export interface CreateTagOptionCommandOutput extends CreateTagOptionOutput, __M
  *
  * ```
  *
- * @param CreateTagOptionCommandInput - {@link CreateTagOptionCommandInput}
- * @returns {@link CreateTagOptionCommandOutput}
+ * @param CreateTagOptionInput - {@link CreateTagOptionInput}
+ * @returns {@link CreateTagOptionOutput}
  * @see {@link CreateTagOptionCommandInput} for command's `input` shape.
  * @see {@link CreateTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

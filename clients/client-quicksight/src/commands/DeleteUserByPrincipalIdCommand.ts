@@ -53,8 +53,8 @@ export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrinci
  *
  * ```
  *
- * @param DeleteUserByPrincipalIdCommandInput - {@link DeleteUserByPrincipalIdCommandInput}
- * @returns {@link DeleteUserByPrincipalIdCommandOutput}
+ * @param DeleteUserByPrincipalIdRequest - {@link DeleteUserByPrincipalIdRequest}
+ * @returns {@link DeleteUserByPrincipalIdResponse}
  * @see {@link DeleteUserByPrincipalIdCommandInput} for command's `input` shape.
  * @see {@link DeleteUserByPrincipalIdCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

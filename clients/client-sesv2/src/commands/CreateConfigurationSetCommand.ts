@@ -85,8 +85,8 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *
  * ```
  *
- * @param CreateConfigurationSetCommandInput - {@link CreateConfigurationSetCommandInput}
- * @returns {@link CreateConfigurationSetCommandOutput}
+ * @param CreateConfigurationSetRequest - {@link CreateConfigurationSetRequest}
+ * @returns {@link CreateConfigurationSetResponse}
  * @see {@link CreateConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

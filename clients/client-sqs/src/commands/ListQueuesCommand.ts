@@ -68,8 +68,8 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  *
  * ```
  *
- * @param ListQueuesCommandInput - {@link ListQueuesCommandInput}
- * @returns {@link ListQueuesCommandOutput}
+ * @param ListQueuesRequest - {@link ListQueuesRequest}
+ * @returns {@link ListQueuesResult}
  * @see {@link ListQueuesCommandInput} for command's `input` shape.
  * @see {@link ListQueuesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.

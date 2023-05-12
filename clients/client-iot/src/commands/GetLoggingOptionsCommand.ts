@@ -52,8 +52,8 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  *
  * ```
  *
- * @param GetLoggingOptionsCommandInput - {@link GetLoggingOptionsCommandInput}
- * @returns {@link GetLoggingOptionsCommandOutput}
+ * @param GetLoggingOptionsRequest - {@link GetLoggingOptionsRequest}
+ * @returns {@link GetLoggingOptionsResponse}
  * @see {@link GetLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link GetLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

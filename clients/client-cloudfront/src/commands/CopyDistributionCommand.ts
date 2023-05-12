@@ -395,8 +395,8 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  *
  * ```
  *
- * @param CopyDistributionCommandInput - {@link CopyDistributionCommandInput}
- * @returns {@link CopyDistributionCommandOutput}
+ * @param CopyDistributionRequest - {@link CopyDistributionRequest}
+ * @returns {@link CopyDistributionResult}
  * @see {@link CopyDistributionCommandInput} for command's `input` shape.
  * @see {@link CopyDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

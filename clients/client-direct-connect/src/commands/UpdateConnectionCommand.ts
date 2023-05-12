@@ -94,8 +94,8 @@ export interface UpdateConnectionCommandOutput extends Connection, __MetadataBea
  *
  * ```
  *
- * @param UpdateConnectionCommandInput - {@link UpdateConnectionCommandInput}
- * @returns {@link UpdateConnectionCommandOutput}
+ * @param UpdateConnectionRequest - {@link UpdateConnectionRequest}
+ * @returns {@link Connection}
  * @see {@link UpdateConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

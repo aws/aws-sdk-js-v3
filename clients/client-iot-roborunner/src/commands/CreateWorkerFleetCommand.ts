@@ -56,8 +56,8 @@ export interface CreateWorkerFleetCommandOutput extends CreateWorkerFleetRespons
  *
  * ```
  *
- * @param CreateWorkerFleetCommandInput - {@link CreateWorkerFleetCommandInput}
- * @returns {@link CreateWorkerFleetCommandOutput}
+ * @param CreateWorkerFleetRequest - {@link CreateWorkerFleetRequest}
+ * @returns {@link CreateWorkerFleetResponse}
  * @see {@link CreateWorkerFleetCommandInput} for command's `input` shape.
  * @see {@link CreateWorkerFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

@@ -91,8 +91,8 @@ export interface DescribeImportSnapshotTasksCommandOutput extends DescribeImport
  *
  * ```
  *
- * @param DescribeImportSnapshotTasksCommandInput - {@link DescribeImportSnapshotTasksCommandInput}
- * @returns {@link DescribeImportSnapshotTasksCommandOutput}
+ * @param DescribeImportSnapshotTasksRequest - {@link DescribeImportSnapshotTasksRequest}
+ * @returns {@link DescribeImportSnapshotTasksResult}
  * @see {@link DescribeImportSnapshotTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeImportSnapshotTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

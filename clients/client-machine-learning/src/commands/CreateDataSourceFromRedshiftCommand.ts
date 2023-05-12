@@ -105,8 +105,8 @@ export interface CreateDataSourceFromRedshiftCommandOutput
  *
  * ```
  *
- * @param CreateDataSourceFromRedshiftCommandInput - {@link CreateDataSourceFromRedshiftCommandInput}
- * @returns {@link CreateDataSourceFromRedshiftCommandOutput}
+ * @param CreateDataSourceFromRedshiftInput - {@link CreateDataSourceFromRedshiftInput}
+ * @returns {@link CreateDataSourceFromRedshiftOutput}
  * @see {@link CreateDataSourceFromRedshiftCommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceFromRedshiftCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

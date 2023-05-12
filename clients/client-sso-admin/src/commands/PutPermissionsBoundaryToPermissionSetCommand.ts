@@ -65,8 +65,8 @@ export interface PutPermissionsBoundaryToPermissionSetCommandOutput
  *
  * ```
  *
- * @param PutPermissionsBoundaryToPermissionSetCommandInput - {@link PutPermissionsBoundaryToPermissionSetCommandInput}
- * @returns {@link PutPermissionsBoundaryToPermissionSetCommandOutput}
+ * @param PutPermissionsBoundaryToPermissionSetRequest - {@link PutPermissionsBoundaryToPermissionSetRequest}
+ * @returns {@link PutPermissionsBoundaryToPermissionSetResponse}
  * @see {@link PutPermissionsBoundaryToPermissionSetCommandInput} for command's `input` shape.
  * @see {@link PutPermissionsBoundaryToPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

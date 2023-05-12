@@ -51,8 +51,8 @@ export interface StopInferenceRecommendationsJobCommandOutput extends __Metadata
  *
  * ```
  *
- * @param StopInferenceRecommendationsJobCommandInput - {@link StopInferenceRecommendationsJobCommandInput}
- * @returns {@link StopInferenceRecommendationsJobCommandOutput}
+ * @param StopInferenceRecommendationsJobRequest - {@link StopInferenceRecommendationsJobRequest}
+ * @returns {@link Unit}
  * @see {@link StopInferenceRecommendationsJobCommandInput} for command's `input` shape.
  * @see {@link StopInferenceRecommendationsJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -59,8 +59,8 @@ export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __Met
  *
  * ```
  *
- * @param GlobalSignOutCommandInput - {@link GlobalSignOutCommandInput}
- * @returns {@link GlobalSignOutCommandOutput}
+ * @param GlobalSignOutRequest - {@link GlobalSignOutRequest}
+ * @returns {@link GlobalSignOutResponse}
  * @see {@link GlobalSignOutCommandInput} for command's `input` shape.
  * @see {@link GlobalSignOutCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

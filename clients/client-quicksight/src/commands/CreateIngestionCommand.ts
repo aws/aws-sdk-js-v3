@@ -63,8 +63,8 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  *
  * ```
  *
- * @param CreateIngestionCommandInput - {@link CreateIngestionCommandInput}
- * @returns {@link CreateIngestionCommandOutput}
+ * @param CreateIngestionRequest - {@link CreateIngestionRequest}
+ * @returns {@link CreateIngestionResponse}
  * @see {@link CreateIngestionCommandInput} for command's `input` shape.
  * @see {@link CreateIngestionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

@@ -74,8 +74,8 @@ export interface DescribeEnvironmentManagedActionHistoryCommandOutput
  *
  * ```
  *
- * @param DescribeEnvironmentManagedActionHistoryCommandInput - {@link DescribeEnvironmentManagedActionHistoryCommandInput}
- * @returns {@link DescribeEnvironmentManagedActionHistoryCommandOutput}
+ * @param DescribeEnvironmentManagedActionHistoryRequest - {@link DescribeEnvironmentManagedActionHistoryRequest}
+ * @returns {@link DescribeEnvironmentManagedActionHistoryResult}
  * @see {@link DescribeEnvironmentManagedActionHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentManagedActionHistoryCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

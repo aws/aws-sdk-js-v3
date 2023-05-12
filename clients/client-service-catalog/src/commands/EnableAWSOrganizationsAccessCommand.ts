@@ -63,8 +63,8 @@ export interface EnableAWSOrganizationsAccessCommandOutput
  *
  * ```
  *
- * @param EnableAWSOrganizationsAccessCommandInput - {@link EnableAWSOrganizationsAccessCommandInput}
- * @returns {@link EnableAWSOrganizationsAccessCommandOutput}
+ * @param EnableAWSOrganizationsAccessInput - {@link EnableAWSOrganizationsAccessInput}
+ * @returns {@link EnableAWSOrganizationsAccessOutput}
  * @see {@link EnableAWSOrganizationsAccessCommandInput} for command's `input` shape.
  * @see {@link EnableAWSOrganizationsAccessCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

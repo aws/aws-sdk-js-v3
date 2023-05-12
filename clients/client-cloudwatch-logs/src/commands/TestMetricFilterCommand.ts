@@ -62,8 +62,8 @@ export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse,
  *
  * ```
  *
- * @param TestMetricFilterCommandInput - {@link TestMetricFilterCommandInput}
- * @returns {@link TestMetricFilterCommandOutput}
+ * @param TestMetricFilterRequest - {@link TestMetricFilterRequest}
+ * @returns {@link TestMetricFilterResponse}
  * @see {@link TestMetricFilterCommandInput} for command's `input` shape.
  * @see {@link TestMetricFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

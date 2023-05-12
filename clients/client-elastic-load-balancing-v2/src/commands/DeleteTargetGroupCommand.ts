@@ -56,8 +56,8 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  *
  * ```
  *
- * @param DeleteTargetGroupCommandInput - {@link DeleteTargetGroupCommandInput}
- * @returns {@link DeleteTargetGroupCommandOutput}
+ * @param DeleteTargetGroupInput - {@link DeleteTargetGroupInput}
+ * @returns {@link DeleteTargetGroupOutput}
  * @see {@link DeleteTargetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

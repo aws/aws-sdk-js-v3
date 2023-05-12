@@ -85,8 +85,8 @@ export interface CreateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  *
  * ```
  *
- * @param CreateEphemerisCommandInput - {@link CreateEphemerisCommandInput}
- * @returns {@link CreateEphemerisCommandOutput}
+ * @param CreateEphemerisRequest - {@link CreateEphemerisRequest}
+ * @returns {@link EphemerisIdResponse}
  * @see {@link CreateEphemerisCommandInput} for command's `input` shape.
  * @see {@link CreateEphemerisCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

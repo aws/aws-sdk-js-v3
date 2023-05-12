@@ -70,8 +70,8 @@ export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaAppli
  *
  * ```
  *
- * @param ListSipMediaApplicationsCommandInput - {@link ListSipMediaApplicationsCommandInput}
- * @returns {@link ListSipMediaApplicationsCommandOutput}
+ * @param ListSipMediaApplicationsRequest - {@link ListSipMediaApplicationsRequest}
+ * @returns {@link ListSipMediaApplicationsResponse}
  * @see {@link ListSipMediaApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListSipMediaApplicationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

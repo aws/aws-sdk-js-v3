@@ -67,8 +67,8 @@ export interface BatchDeleteDelegationByAssessmentCommandOutput
  *
  * ```
  *
- * @param BatchDeleteDelegationByAssessmentCommandInput - {@link BatchDeleteDelegationByAssessmentCommandInput}
- * @returns {@link BatchDeleteDelegationByAssessmentCommandOutput}
+ * @param BatchDeleteDelegationByAssessmentRequest - {@link BatchDeleteDelegationByAssessmentRequest}
+ * @returns {@link BatchDeleteDelegationByAssessmentResponse}
  * @see {@link BatchDeleteDelegationByAssessmentCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteDelegationByAssessmentCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

@@ -74,8 +74,8 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  *
  * ```
  *
- * @param SearchJobsCommandInput - {@link SearchJobsCommandInput}
- * @returns {@link SearchJobsCommandOutput}
+ * @param SearchJobsRequest - {@link SearchJobsRequest}
+ * @returns {@link SearchJobsResponse}
  * @see {@link SearchJobsCommandInput} for command's `input` shape.
  * @see {@link SearchJobsCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.

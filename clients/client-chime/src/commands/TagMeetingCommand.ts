@@ -54,8 +54,8 @@ export interface TagMeetingCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param TagMeetingCommandInput - {@link TagMeetingCommandInput}
- * @returns {@link TagMeetingCommandOutput}
+ * @param TagMeetingRequest - {@link TagMeetingRequest}
+ * @returns {@link Unit}
  * @see {@link TagMeetingCommandInput} for command's `input` shape.
  * @see {@link TagMeetingCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

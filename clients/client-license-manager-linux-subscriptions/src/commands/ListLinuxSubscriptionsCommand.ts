@@ -73,8 +73,8 @@ export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscripti
  *
  * ```
  *
- * @param ListLinuxSubscriptionsCommandInput - {@link ListLinuxSubscriptionsCommandInput}
- * @returns {@link ListLinuxSubscriptionsCommandOutput}
+ * @param ListLinuxSubscriptionsRequest - {@link ListLinuxSubscriptionsRequest}
+ * @returns {@link ListLinuxSubscriptionsResponse}
  * @see {@link ListLinuxSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListLinuxSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerLinuxSubscriptionsClientResolvedConfig | config} for LicenseManagerLinuxSubscriptionsClient's `config` shape.

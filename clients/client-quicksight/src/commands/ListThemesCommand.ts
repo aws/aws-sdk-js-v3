@@ -65,8 +65,8 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  *
  * ```
  *
- * @param ListThemesCommandInput - {@link ListThemesCommandInput}
- * @returns {@link ListThemesCommandOutput}
+ * @param ListThemesRequest - {@link ListThemesRequest}
+ * @returns {@link ListThemesResponse}
  * @see {@link ListThemesCommandInput} for command's `input` shape.
  * @see {@link ListThemesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

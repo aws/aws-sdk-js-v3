@@ -94,8 +94,8 @@ export interface GetExportSnapshotRecordsCommandOutput extends GetExportSnapshot
  *
  * ```
  *
- * @param GetExportSnapshotRecordsCommandInput - {@link GetExportSnapshotRecordsCommandInput}
- * @returns {@link GetExportSnapshotRecordsCommandOutput}
+ * @param GetExportSnapshotRecordsRequest - {@link GetExportSnapshotRecordsRequest}
+ * @returns {@link GetExportSnapshotRecordsResult}
  * @see {@link GetExportSnapshotRecordsCommandInput} for command's `input` shape.
  * @see {@link GetExportSnapshotRecordsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

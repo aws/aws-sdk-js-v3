@@ -60,8 +60,8 @@ export interface PutItemsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutItemsCommandInput - {@link PutItemsCommandInput}
- * @returns {@link PutItemsCommandOutput}
+ * @param PutItemsRequest - {@link PutItemsRequest}
+ * @returns {@link Unit}
  * @see {@link PutItemsCommandInput} for command's `input` shape.
  * @see {@link PutItemsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeEventsClientResolvedConfig | config} for PersonalizeEventsClient's `config` shape.

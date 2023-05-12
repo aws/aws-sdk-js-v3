@@ -218,8 +218,8 @@ export interface GetAccountAuthorizationDetailsCommandOutput
  *
  * ```
  *
- * @param GetAccountAuthorizationDetailsCommandInput - {@link GetAccountAuthorizationDetailsCommandInput}
- * @returns {@link GetAccountAuthorizationDetailsCommandOutput}
+ * @param GetAccountAuthorizationDetailsRequest - {@link GetAccountAuthorizationDetailsRequest}
+ * @returns {@link GetAccountAuthorizationDetailsResponse}
  * @see {@link GetAccountAuthorizationDetailsCommandInput} for command's `input` shape.
  * @see {@link GetAccountAuthorizationDetailsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

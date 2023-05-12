@@ -273,8 +273,8 @@ export interface ExportComponentsCommandOutput extends ExportComponentsResponse,
  *
  * ```
  *
- * @param ExportComponentsCommandInput - {@link ExportComponentsCommandInput}
- * @returns {@link ExportComponentsCommandOutput}
+ * @param ExportComponentsRequest - {@link ExportComponentsRequest}
+ * @returns {@link ExportComponentsResponse}
  * @see {@link ExportComponentsCommandInput} for command's `input` shape.
  * @see {@link ExportComponentsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

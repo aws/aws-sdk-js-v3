@@ -84,8 +84,8 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  *
  * ```
  *
- * @param BatchCreateAttendeeCommandInput - {@link BatchCreateAttendeeCommandInput}
- * @returns {@link BatchCreateAttendeeCommandOutput}
+ * @param BatchCreateAttendeeRequest - {@link BatchCreateAttendeeRequest}
+ * @returns {@link BatchCreateAttendeeResponse}
  * @see {@link BatchCreateAttendeeCommandInput} for command's `input` shape.
  * @see {@link BatchCreateAttendeeCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

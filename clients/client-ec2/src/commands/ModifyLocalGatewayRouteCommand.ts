@@ -67,8 +67,8 @@ export interface ModifyLocalGatewayRouteCommandOutput extends ModifyLocalGateway
  *
  * ```
  *
- * @param ModifyLocalGatewayRouteCommandInput - {@link ModifyLocalGatewayRouteCommandInput}
- * @returns {@link ModifyLocalGatewayRouteCommandOutput}
+ * @param ModifyLocalGatewayRouteRequest - {@link ModifyLocalGatewayRouteRequest}
+ * @returns {@link ModifyLocalGatewayRouteResult}
  * @see {@link ModifyLocalGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link ModifyLocalGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

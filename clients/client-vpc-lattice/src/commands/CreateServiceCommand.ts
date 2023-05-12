@@ -70,8 +70,8 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *
  * ```
  *
- * @param CreateServiceCommandInput - {@link CreateServiceCommandInput}
- * @returns {@link CreateServiceCommandOutput}
+ * @param CreateServiceRequest - {@link CreateServiceRequest}
+ * @returns {@link CreateServiceResponse}
  * @see {@link CreateServiceCommandInput} for command's `input` shape.
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

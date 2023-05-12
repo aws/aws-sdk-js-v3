@@ -59,8 +59,8 @@ export interface AssociatePhoneNumberWithUserCommandOutput
  *
  * ```
  *
- * @param AssociatePhoneNumberWithUserCommandInput - {@link AssociatePhoneNumberWithUserCommandInput}
- * @returns {@link AssociatePhoneNumberWithUserCommandOutput}
+ * @param AssociatePhoneNumberWithUserRequest - {@link AssociatePhoneNumberWithUserRequest}
+ * @returns {@link AssociatePhoneNumberWithUserResponse}
  * @see {@link AssociatePhoneNumberWithUserCommandInput} for command's `input` shape.
  * @see {@link AssociatePhoneNumberWithUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

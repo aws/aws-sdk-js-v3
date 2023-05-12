@@ -54,8 +54,8 @@ export interface UpdateRoleAliasCommandOutput extends UpdateRoleAliasResponse, _
  *
  * ```
  *
- * @param UpdateRoleAliasCommandInput - {@link UpdateRoleAliasCommandInput}
- * @returns {@link UpdateRoleAliasCommandOutput}
+ * @param UpdateRoleAliasRequest - {@link UpdateRoleAliasRequest}
+ * @returns {@link UpdateRoleAliasResponse}
  * @see {@link UpdateRoleAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateRoleAliasCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -59,8 +59,8 @@ export interface UpdateLaunchProfileMemberCommandOutput extends UpdateLaunchProf
  *
  * ```
  *
- * @param UpdateLaunchProfileMemberCommandInput - {@link UpdateLaunchProfileMemberCommandInput}
- * @returns {@link UpdateLaunchProfileMemberCommandOutput}
+ * @param UpdateLaunchProfileMemberRequest - {@link UpdateLaunchProfileMemberRequest}
+ * @returns {@link UpdateLaunchProfileMemberResponse}
  * @see {@link UpdateLaunchProfileMemberCommandInput} for command's `input` shape.
  * @see {@link UpdateLaunchProfileMemberCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

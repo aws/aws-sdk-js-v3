@@ -76,8 +76,8 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  *
  * ```
  *
- * @param PutSinkPolicyCommandInput - {@link PutSinkPolicyCommandInput}
- * @returns {@link PutSinkPolicyCommandOutput}
+ * @param PutSinkPolicyInput - {@link PutSinkPolicyInput}
+ * @returns {@link PutSinkPolicyOutput}
  * @see {@link PutSinkPolicyCommandInput} for command's `input` shape.
  * @see {@link PutSinkPolicyCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.

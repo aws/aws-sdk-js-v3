@@ -133,8 +133,8 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *
  * ```
  *
- * @param PutOrganizationConfigRuleCommandInput - {@link PutOrganizationConfigRuleCommandInput}
- * @returns {@link PutOrganizationConfigRuleCommandOutput}
+ * @param PutOrganizationConfigRuleRequest - {@link PutOrganizationConfigRuleRequest}
+ * @returns {@link PutOrganizationConfigRuleResponse}
  * @see {@link PutOrganizationConfigRuleCommandInput} for command's `input` shape.
  * @see {@link PutOrganizationConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

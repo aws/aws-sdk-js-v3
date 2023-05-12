@@ -50,8 +50,8 @@ export interface UpdateNotebookMetadataCommandOutput extends UpdateNotebookMetad
  *
  * ```
  *
- * @param UpdateNotebookMetadataCommandInput - {@link UpdateNotebookMetadataCommandInput}
- * @returns {@link UpdateNotebookMetadataCommandOutput}
+ * @param UpdateNotebookMetadataInput - {@link UpdateNotebookMetadataInput}
+ * @returns {@link UpdateNotebookMetadataOutput}
  * @see {@link UpdateNotebookMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateNotebookMetadataCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

@@ -97,8 +97,8 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  *
  * ```
  *
- * @param DescribeRecommenderCommandInput - {@link DescribeRecommenderCommandInput}
- * @returns {@link DescribeRecommenderCommandOutput}
+ * @param DescribeRecommenderRequest - {@link DescribeRecommenderRequest}
+ * @returns {@link DescribeRecommenderResponse}
  * @see {@link DescribeRecommenderCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

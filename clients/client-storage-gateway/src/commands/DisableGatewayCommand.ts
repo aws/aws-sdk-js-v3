@@ -58,8 +58,8 @@ export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __Met
  *
  * ```
  *
- * @param DisableGatewayCommandInput - {@link DisableGatewayCommandInput}
- * @returns {@link DisableGatewayCommandOutput}
+ * @param DisableGatewayInput - {@link DisableGatewayInput}
+ * @returns {@link DisableGatewayOutput}
  * @see {@link DisableGatewayCommandInput} for command's `input` shape.
  * @see {@link DisableGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

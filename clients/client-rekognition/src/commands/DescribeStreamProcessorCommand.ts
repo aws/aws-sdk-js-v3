@@ -106,8 +106,8 @@ export interface DescribeStreamProcessorCommandOutput extends DescribeStreamProc
  *
  * ```
  *
- * @param DescribeStreamProcessorCommandInput - {@link DescribeStreamProcessorCommandInput}
- * @returns {@link DescribeStreamProcessorCommandOutput}
+ * @param DescribeStreamProcessorRequest - {@link DescribeStreamProcessorRequest}
+ * @returns {@link DescribeStreamProcessorResponse}
  * @see {@link DescribeStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

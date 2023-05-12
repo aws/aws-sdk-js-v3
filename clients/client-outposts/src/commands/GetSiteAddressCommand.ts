@@ -65,8 +65,8 @@ export interface GetSiteAddressCommandOutput extends GetSiteAddressOutput, __Met
  *
  * ```
  *
- * @param GetSiteAddressCommandInput - {@link GetSiteAddressCommandInput}
- * @returns {@link GetSiteAddressCommandOutput}
+ * @param GetSiteAddressInput - {@link GetSiteAddressInput}
+ * @returns {@link GetSiteAddressOutput}
  * @see {@link GetSiteAddressCommandInput} for command's `input` shape.
  * @see {@link GetSiteAddressCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

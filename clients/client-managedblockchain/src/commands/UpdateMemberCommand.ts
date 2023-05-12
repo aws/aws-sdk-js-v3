@@ -63,8 +63,8 @@ export interface UpdateMemberCommandOutput extends UpdateMemberOutput, __Metadat
  *
  * ```
  *
- * @param UpdateMemberCommandInput - {@link UpdateMemberCommandInput}
- * @returns {@link UpdateMemberCommandOutput}
+ * @param UpdateMemberInput - {@link UpdateMemberInput}
+ * @returns {@link UpdateMemberOutput}
  * @see {@link UpdateMemberCommandInput} for command's `input` shape.
  * @see {@link UpdateMemberCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

@@ -60,8 +60,8 @@ export interface CreateBatchPredictionJobCommandOutput extends CreateBatchPredic
  *
  * ```
  *
- * @param CreateBatchPredictionJobCommandInput - {@link CreateBatchPredictionJobCommandInput}
- * @returns {@link CreateBatchPredictionJobCommandOutput}
+ * @param CreateBatchPredictionJobRequest - {@link CreateBatchPredictionJobRequest}
+ * @returns {@link CreateBatchPredictionJobResult}
  * @see {@link CreateBatchPredictionJobCommandInput} for command's `input` shape.
  * @see {@link CreateBatchPredictionJobCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

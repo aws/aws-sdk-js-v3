@@ -127,8 +127,8 @@ export interface SetIdentityPoolConfigurationCommandOutput
  *
  * ```
  *
- * @param SetIdentityPoolConfigurationCommandInput - {@link SetIdentityPoolConfigurationCommandInput}
- * @returns {@link SetIdentityPoolConfigurationCommandOutput}
+ * @param SetIdentityPoolConfigurationRequest - {@link SetIdentityPoolConfigurationRequest}
+ * @returns {@link SetIdentityPoolConfigurationResponse}
  * @see {@link SetIdentityPoolConfigurationCommandInput} for command's `input` shape.
  * @see {@link SetIdentityPoolConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.

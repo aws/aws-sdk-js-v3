@@ -67,8 +67,8 @@ export interface DescribeManagedJobTemplateCommandOutput extends DescribeManaged
  *
  * ```
  *
- * @param DescribeManagedJobTemplateCommandInput - {@link DescribeManagedJobTemplateCommandInput}
- * @returns {@link DescribeManagedJobTemplateCommandOutput}
+ * @param DescribeManagedJobTemplateRequest - {@link DescribeManagedJobTemplateRequest}
+ * @returns {@link DescribeManagedJobTemplateResponse}
  * @see {@link DescribeManagedJobTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeManagedJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

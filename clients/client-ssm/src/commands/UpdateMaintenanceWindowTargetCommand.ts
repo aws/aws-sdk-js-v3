@@ -110,8 +110,8 @@ export interface UpdateMaintenanceWindowTargetCommandOutput
  *
  * ```
  *
- * @param UpdateMaintenanceWindowTargetCommandInput - {@link UpdateMaintenanceWindowTargetCommandInput}
- * @returns {@link UpdateMaintenanceWindowTargetCommandOutput}
+ * @param UpdateMaintenanceWindowTargetRequest - {@link UpdateMaintenanceWindowTargetRequest}
+ * @returns {@link UpdateMaintenanceWindowTargetResult}
  * @see {@link UpdateMaintenanceWindowTargetCommandInput} for command's `input` shape.
  * @see {@link UpdateMaintenanceWindowTargetCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

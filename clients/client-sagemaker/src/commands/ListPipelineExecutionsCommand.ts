@@ -66,8 +66,8 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  *
  * ```
  *
- * @param ListPipelineExecutionsCommandInput - {@link ListPipelineExecutionsCommandInput}
- * @returns {@link ListPipelineExecutionsCommandOutput}
+ * @param ListPipelineExecutionsRequest - {@link ListPipelineExecutionsRequest}
+ * @returns {@link ListPipelineExecutionsResponse}
  * @see {@link ListPipelineExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListPipelineExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

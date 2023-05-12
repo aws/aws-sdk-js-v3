@@ -111,8 +111,8 @@ export interface DescribeProvisionedProductPlanCommandOutput
  *
  * ```
  *
- * @param DescribeProvisionedProductPlanCommandInput - {@link DescribeProvisionedProductPlanCommandInput}
- * @returns {@link DescribeProvisionedProductPlanCommandOutput}
+ * @param DescribeProvisionedProductPlanInput - {@link DescribeProvisionedProductPlanInput}
+ * @returns {@link DescribeProvisionedProductPlanOutput}
  * @see {@link DescribeProvisionedProductPlanCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisionedProductPlanCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

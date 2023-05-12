@@ -68,8 +68,8 @@ export interface GetVariantStoreCommandOutput extends GetVariantStoreResponse, _
  *
  * ```
  *
- * @param GetVariantStoreCommandInput - {@link GetVariantStoreCommandInput}
- * @returns {@link GetVariantStoreCommandOutput}
+ * @param GetVariantStoreRequest - {@link GetVariantStoreRequest}
+ * @returns {@link GetVariantStoreResponse}
  * @see {@link GetVariantStoreCommandInput} for command's `input` shape.
  * @see {@link GetVariantStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

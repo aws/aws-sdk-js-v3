@@ -58,8 +58,8 @@ export interface ListApplicationsCommandOutput extends Applications, __MetadataB
  *
  * ```
  *
- * @param ListApplicationsCommandInput - {@link ListApplicationsCommandInput}
- * @returns {@link ListApplicationsCommandOutput}
+ * @param ListApplicationsRequest - {@link ListApplicationsRequest}
+ * @returns {@link Applications}
  * @see {@link ListApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

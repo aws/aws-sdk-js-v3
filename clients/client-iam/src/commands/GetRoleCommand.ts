@@ -82,8 +82,8 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  *
  * ```
  *
- * @param GetRoleCommandInput - {@link GetRoleCommandInput}
- * @returns {@link GetRoleCommandOutput}
+ * @param GetRoleRequest - {@link GetRoleRequest}
+ * @returns {@link GetRoleResponse}
  * @see {@link GetRoleCommandInput} for command's `input` shape.
  * @see {@link GetRoleCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

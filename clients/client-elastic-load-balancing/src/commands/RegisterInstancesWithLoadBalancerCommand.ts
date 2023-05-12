@@ -84,8 +84,8 @@ export interface RegisterInstancesWithLoadBalancerCommandOutput extends Register
  *
  * ```
  *
- * @param RegisterInstancesWithLoadBalancerCommandInput - {@link RegisterInstancesWithLoadBalancerCommandInput}
- * @returns {@link RegisterInstancesWithLoadBalancerCommandOutput}
+ * @param RegisterEndPointsInput - {@link RegisterEndPointsInput}
+ * @returns {@link RegisterEndPointsOutput}
  * @see {@link RegisterInstancesWithLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link RegisterInstancesWithLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

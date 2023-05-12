@@ -68,8 +68,8 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  *
  * ```
  *
- * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
- * @returns {@link ListDeploymentsCommandOutput}
+ * @param ListDeploymentsRequest - {@link ListDeploymentsRequest}
+ * @returns {@link Deployments}
  * @see {@link ListDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

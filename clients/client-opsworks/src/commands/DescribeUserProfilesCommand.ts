@@ -64,8 +64,8 @@ export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesR
  *
  * ```
  *
- * @param DescribeUserProfilesCommandInput - {@link DescribeUserProfilesCommandInput}
- * @returns {@link DescribeUserProfilesCommandOutput}
+ * @param DescribeUserProfilesRequest - {@link DescribeUserProfilesRequest}
+ * @returns {@link DescribeUserProfilesResult}
  * @see {@link DescribeUserProfilesCommandInput} for command's `input` shape.
  * @see {@link DescribeUserProfilesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

@@ -66,8 +66,8 @@ export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  *
  * ```
  *
- * @param UnarchiveWaveCommandInput - {@link UnarchiveWaveCommandInput}
- * @returns {@link UnarchiveWaveCommandOutput}
+ * @param UnarchiveWaveRequest - {@link UnarchiveWaveRequest}
+ * @returns {@link Wave}
  * @see {@link UnarchiveWaveCommandInput} for command's `input` shape.
  * @see {@link UnarchiveWaveCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

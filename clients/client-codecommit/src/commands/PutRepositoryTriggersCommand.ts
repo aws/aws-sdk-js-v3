@@ -63,8 +63,8 @@ export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTrigger
  *
  * ```
  *
- * @param PutRepositoryTriggersCommandInput - {@link PutRepositoryTriggersCommandInput}
- * @returns {@link PutRepositoryTriggersCommandOutput}
+ * @param PutRepositoryTriggersInput - {@link PutRepositoryTriggersInput}
+ * @returns {@link PutRepositoryTriggersOutput}
  * @see {@link PutRepositoryTriggersCommandInput} for command's `input` shape.
  * @see {@link PutRepositoryTriggersCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

@@ -62,8 +62,8 @@ export interface SendCustomVerificationEmailCommandOutput
  *
  * ```
  *
- * @param SendCustomVerificationEmailCommandInput - {@link SendCustomVerificationEmailCommandInput}
- * @returns {@link SendCustomVerificationEmailCommandOutput}
+ * @param SendCustomVerificationEmailRequest - {@link SendCustomVerificationEmailRequest}
+ * @returns {@link SendCustomVerificationEmailResponse}
  * @see {@link SendCustomVerificationEmailCommandInput} for command's `input` shape.
  * @see {@link SendCustomVerificationEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

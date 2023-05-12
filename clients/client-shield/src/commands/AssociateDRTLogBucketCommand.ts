@@ -49,8 +49,8 @@ export interface AssociateDRTLogBucketCommandOutput extends AssociateDRTLogBucke
  *
  * ```
  *
- * @param AssociateDRTLogBucketCommandInput - {@link AssociateDRTLogBucketCommandInput}
- * @returns {@link AssociateDRTLogBucketCommandOutput}
+ * @param AssociateDRTLogBucketRequest - {@link AssociateDRTLogBucketRequest}
+ * @returns {@link AssociateDRTLogBucketResponse}
  * @see {@link AssociateDRTLogBucketCommandInput} for command's `input` shape.
  * @see {@link AssociateDRTLogBucketCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

@@ -73,8 +73,8 @@ export interface StartNextPendingJobExecutionCommandOutput
  *
  * ```
  *
- * @param StartNextPendingJobExecutionCommandInput - {@link StartNextPendingJobExecutionCommandInput}
- * @returns {@link StartNextPendingJobExecutionCommandOutput}
+ * @param StartNextPendingJobExecutionRequest - {@link StartNextPendingJobExecutionRequest}
+ * @returns {@link StartNextPendingJobExecutionResponse}
  * @see {@link StartNextPendingJobExecutionCommandInput} for command's `input` shape.
  * @see {@link StartNextPendingJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.

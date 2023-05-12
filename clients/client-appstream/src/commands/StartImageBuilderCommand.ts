@@ -97,8 +97,8 @@ export interface StartImageBuilderCommandOutput extends StartImageBuilderResult,
  *
  * ```
  *
- * @param StartImageBuilderCommandInput - {@link StartImageBuilderCommandInput}
- * @returns {@link StartImageBuilderCommandOutput}
+ * @param StartImageBuilderRequest - {@link StartImageBuilderRequest}
+ * @returns {@link StartImageBuilderResult}
  * @see {@link StartImageBuilderCommandInput} for command's `input` shape.
  * @see {@link StartImageBuilderCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

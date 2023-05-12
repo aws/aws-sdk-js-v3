@@ -82,8 +82,8 @@ export interface CreateEnvironmentAccountConnectionCommandOutput
  *
  * ```
  *
- * @param CreateEnvironmentAccountConnectionCommandInput - {@link CreateEnvironmentAccountConnectionCommandInput}
- * @returns {@link CreateEnvironmentAccountConnectionCommandOutput}
+ * @param CreateEnvironmentAccountConnectionInput - {@link CreateEnvironmentAccountConnectionInput}
+ * @returns {@link CreateEnvironmentAccountConnectionOutput}
  * @see {@link CreateEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

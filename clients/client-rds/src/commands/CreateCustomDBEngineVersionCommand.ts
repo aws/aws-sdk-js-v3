@@ -140,8 +140,8 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *
  * ```
  *
- * @param CreateCustomDBEngineVersionCommandInput - {@link CreateCustomDBEngineVersionCommandInput}
- * @returns {@link CreateCustomDBEngineVersionCommandOutput}
+ * @param CreateCustomDBEngineVersionMessage - {@link CreateCustomDBEngineVersionMessage}
+ * @returns {@link DBEngineVersion}
  * @see {@link CreateCustomDBEngineVersionCommandInput} for command's `input` shape.
  * @see {@link CreateCustomDBEngineVersionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

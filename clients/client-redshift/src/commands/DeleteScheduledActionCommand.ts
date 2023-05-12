@@ -49,8 +49,8 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteScheduledActionCommandInput - {@link DeleteScheduledActionCommandInput}
- * @returns {@link DeleteScheduledActionCommandOutput}
+ * @param DeleteScheduledActionMessage - {@link DeleteScheduledActionMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteScheduledActionCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

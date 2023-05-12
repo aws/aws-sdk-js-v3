@@ -247,8 +247,8 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  *
  * ```
  *
- * @param GetHLSStreamingSessionURLCommandInput - {@link GetHLSStreamingSessionURLCommandInput}
- * @returns {@link GetHLSStreamingSessionURLCommandOutput}
+ * @param GetHLSStreamingSessionURLInput - {@link GetHLSStreamingSessionURLInput}
+ * @returns {@link GetHLSStreamingSessionURLOutput}
  * @see {@link GetHLSStreamingSessionURLCommandInput} for command's `input` shape.
  * @see {@link GetHLSStreamingSessionURLCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.

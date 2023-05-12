@@ -255,8 +255,8 @@ export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionRes
  *
  * ```
  *
- * @param CreateVpnConnectionCommandInput - {@link CreateVpnConnectionCommandInput}
- * @returns {@link CreateVpnConnectionCommandOutput}
+ * @param CreateVpnConnectionRequest - {@link CreateVpnConnectionRequest}
+ * @returns {@link CreateVpnConnectionResult}
  * @see {@link CreateVpnConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateVpnConnectionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

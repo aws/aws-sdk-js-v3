@@ -74,8 +74,8 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  *
  * ```
  *
- * @param DescribeSessionsCommandInput - {@link DescribeSessionsCommandInput}
- * @returns {@link DescribeSessionsCommandOutput}
+ * @param DescribeSessionsRequest - {@link DescribeSessionsRequest}
+ * @returns {@link DescribeSessionsResult}
  * @see {@link DescribeSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeSessionsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

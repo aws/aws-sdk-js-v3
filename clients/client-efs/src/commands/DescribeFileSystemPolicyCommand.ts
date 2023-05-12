@@ -52,8 +52,8 @@ export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyD
  *
  * ```
  *
- * @param DescribeFileSystemPolicyCommandInput - {@link DescribeFileSystemPolicyCommandInput}
- * @returns {@link DescribeFileSystemPolicyCommandOutput}
+ * @param DescribeFileSystemPolicyRequest - {@link DescribeFileSystemPolicyRequest}
+ * @returns {@link FileSystemPolicyDescription}
  * @see {@link DescribeFileSystemPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

@@ -78,8 +78,8 @@ export interface CreateLicenseManagerReportGeneratorCommandOutput
  *
  * ```
  *
- * @param CreateLicenseManagerReportGeneratorCommandInput - {@link CreateLicenseManagerReportGeneratorCommandInput}
- * @returns {@link CreateLicenseManagerReportGeneratorCommandOutput}
+ * @param CreateLicenseManagerReportGeneratorRequest - {@link CreateLicenseManagerReportGeneratorRequest}
+ * @returns {@link CreateLicenseManagerReportGeneratorResponse}
  * @see {@link CreateLicenseManagerReportGeneratorCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseManagerReportGeneratorCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

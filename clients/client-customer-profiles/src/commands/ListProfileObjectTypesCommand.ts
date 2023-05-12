@@ -63,8 +63,8 @@ export interface ListProfileObjectTypesCommandOutput extends ListProfileObjectTy
  *
  * ```
  *
- * @param ListProfileObjectTypesCommandInput - {@link ListProfileObjectTypesCommandInput}
- * @returns {@link ListProfileObjectTypesCommandOutput}
+ * @param ListProfileObjectTypesRequest - {@link ListProfileObjectTypesRequest}
+ * @returns {@link ListProfileObjectTypesResponse}
  * @see {@link ListProfileObjectTypesCommandInput} for command's `input` shape.
  * @see {@link ListProfileObjectTypesCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

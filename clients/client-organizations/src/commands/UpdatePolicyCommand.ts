@@ -66,8 +66,8 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  *
  * ```
  *
- * @param UpdatePolicyCommandInput - {@link UpdatePolicyCommandInput}
- * @returns {@link UpdatePolicyCommandOutput}
+ * @param UpdatePolicyRequest - {@link UpdatePolicyRequest}
+ * @returns {@link UpdatePolicyResponse}
  * @see {@link UpdatePolicyCommandInput} for command's `input` shape.
  * @see {@link UpdatePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

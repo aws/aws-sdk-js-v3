@@ -64,8 +64,8 @@ export interface ListPlacementsCommandOutput extends ListPlacementsResponse, __M
  *
  * ```
  *
- * @param ListPlacementsCommandInput - {@link ListPlacementsCommandInput}
- * @returns {@link ListPlacementsCommandOutput}
+ * @param ListPlacementsRequest - {@link ListPlacementsRequest}
+ * @returns {@link ListPlacementsResponse}
  * @see {@link ListPlacementsCommandInput} for command's `input` shape.
  * @see {@link ListPlacementsCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.

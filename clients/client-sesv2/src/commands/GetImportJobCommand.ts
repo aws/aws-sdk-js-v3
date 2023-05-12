@@ -72,8 +72,8 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  *
  * ```
  *
- * @param GetImportJobCommandInput - {@link GetImportJobCommandInput}
- * @returns {@link GetImportJobCommandOutput}
+ * @param GetImportJobRequest - {@link GetImportJobRequest}
+ * @returns {@link GetImportJobResponse}
  * @see {@link GetImportJobCommandInput} for command's `input` shape.
  * @see {@link GetImportJobCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

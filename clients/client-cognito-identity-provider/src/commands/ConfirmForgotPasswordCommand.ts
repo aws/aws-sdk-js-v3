@@ -70,8 +70,8 @@ export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswor
  *
  * ```
  *
- * @param ConfirmForgotPasswordCommandInput - {@link ConfirmForgotPasswordCommandInput}
- * @returns {@link ConfirmForgotPasswordCommandOutput}
+ * @param ConfirmForgotPasswordRequest - {@link ConfirmForgotPasswordRequest}
+ * @returns {@link ConfirmForgotPasswordResponse}
  * @see {@link ConfirmForgotPasswordCommandInput} for command's `input` shape.
  * @see {@link ConfirmForgotPasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

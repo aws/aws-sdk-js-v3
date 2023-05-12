@@ -51,8 +51,8 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
  *
  * ```
  *
- * @param CheckDNSAvailabilityCommandInput - {@link CheckDNSAvailabilityCommandInput}
- * @returns {@link CheckDNSAvailabilityCommandOutput}
+ * @param CheckDNSAvailabilityMessage - {@link CheckDNSAvailabilityMessage}
+ * @returns {@link CheckDNSAvailabilityResultMessage}
  * @see {@link CheckDNSAvailabilityCommandInput} for command's `input` shape.
  * @see {@link CheckDNSAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

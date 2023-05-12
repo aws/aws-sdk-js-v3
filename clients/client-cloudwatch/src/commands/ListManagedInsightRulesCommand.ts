@@ -68,8 +68,8 @@ export interface ListManagedInsightRulesCommandOutput extends ListManagedInsight
  *
  * ```
  *
- * @param ListManagedInsightRulesCommandInput - {@link ListManagedInsightRulesCommandInput}
- * @returns {@link ListManagedInsightRulesCommandOutput}
+ * @param ListManagedInsightRulesInput - {@link ListManagedInsightRulesInput}
+ * @returns {@link ListManagedInsightRulesOutput}
  * @see {@link ListManagedInsightRulesCommandInput} for command's `input` shape.
  * @see {@link ListManagedInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

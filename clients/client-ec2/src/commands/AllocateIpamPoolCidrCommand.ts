@@ -70,8 +70,8 @@ export interface AllocateIpamPoolCidrCommandOutput extends AllocateIpamPoolCidrR
  *
  * ```
  *
- * @param AllocateIpamPoolCidrCommandInput - {@link AllocateIpamPoolCidrCommandInput}
- * @returns {@link AllocateIpamPoolCidrCommandOutput}
+ * @param AllocateIpamPoolCidrRequest - {@link AllocateIpamPoolCidrRequest}
+ * @returns {@link AllocateIpamPoolCidrResult}
  * @see {@link AllocateIpamPoolCidrCommandInput} for command's `input` shape.
  * @see {@link AllocateIpamPoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -65,8 +65,8 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  *
  * ```
  *
- * @param ListConfigurationSetsCommandInput - {@link ListConfigurationSetsCommandInput}
- * @returns {@link ListConfigurationSetsCommandOutput}
+ * @param ListConfigurationSetsRequest - {@link ListConfigurationSetsRequest}
+ * @returns {@link ListConfigurationSetsResponse}
  * @see {@link ListConfigurationSetsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationSetsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

@@ -194,8 +194,8 @@ export interface DescribeClassificationJobCommandOutput extends DescribeClassifi
  *
  * ```
  *
- * @param DescribeClassificationJobCommandInput - {@link DescribeClassificationJobCommandInput}
- * @returns {@link DescribeClassificationJobCommandOutput}
+ * @param DescribeClassificationJobRequest - {@link DescribeClassificationJobRequest}
+ * @returns {@link DescribeClassificationJobResponse}
  * @see {@link DescribeClassificationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeClassificationJobCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

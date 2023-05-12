@@ -67,8 +67,8 @@ export interface UpdateCellCommandOutput extends UpdateCellResponse, __MetadataB
  *
  * ```
  *
- * @param UpdateCellCommandInput - {@link UpdateCellCommandInput}
- * @returns {@link UpdateCellCommandOutput}
+ * @param UpdateCellRequest - {@link UpdateCellRequest}
+ * @returns {@link UpdateCellResponse}
  * @see {@link UpdateCellCommandInput} for command's `input` shape.
  * @see {@link UpdateCellCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

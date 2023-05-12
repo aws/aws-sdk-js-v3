@@ -81,8 +81,8 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  *
  * ```
  *
- * @param StartOutboundVoiceContactCommandInput - {@link StartOutboundVoiceContactCommandInput}
- * @returns {@link StartOutboundVoiceContactCommandOutput}
+ * @param StartOutboundVoiceContactRequest - {@link StartOutboundVoiceContactRequest}
+ * @returns {@link StartOutboundVoiceContactResponse}
  * @see {@link StartOutboundVoiceContactCommandInput} for command's `input` shape.
  * @see {@link StartOutboundVoiceContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

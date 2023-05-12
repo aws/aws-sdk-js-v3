@@ -81,8 +81,8 @@ export interface DescribeRepositoryAssociationCommandOutput
  *
  * ```
  *
- * @param DescribeRepositoryAssociationCommandInput - {@link DescribeRepositoryAssociationCommandInput}
- * @returns {@link DescribeRepositoryAssociationCommandOutput}
+ * @param DescribeRepositoryAssociationRequest - {@link DescribeRepositoryAssociationRequest}
+ * @returns {@link DescribeRepositoryAssociationResponse}
  * @see {@link DescribeRepositoryAssociationCommandInput} for command's `input` shape.
  * @see {@link DescribeRepositoryAssociationCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.

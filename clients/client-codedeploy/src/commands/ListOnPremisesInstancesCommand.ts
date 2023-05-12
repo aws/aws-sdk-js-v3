@@ -64,8 +64,8 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
  *
  * ```
  *
- * @param ListOnPremisesInstancesCommandInput - {@link ListOnPremisesInstancesCommandInput}
- * @returns {@link ListOnPremisesInstancesCommandOutput}
+ * @param ListOnPremisesInstancesInput - {@link ListOnPremisesInstancesInput}
+ * @returns {@link ListOnPremisesInstancesOutput}
  * @see {@link ListOnPremisesInstancesCommandInput} for command's `input` shape.
  * @see {@link ListOnPremisesInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

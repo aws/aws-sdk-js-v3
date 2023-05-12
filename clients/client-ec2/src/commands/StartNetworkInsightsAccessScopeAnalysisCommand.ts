@@ -89,8 +89,8 @@ export interface StartNetworkInsightsAccessScopeAnalysisCommandOutput
  *
  * ```
  *
- * @param StartNetworkInsightsAccessScopeAnalysisCommandInput - {@link StartNetworkInsightsAccessScopeAnalysisCommandInput}
- * @returns {@link StartNetworkInsightsAccessScopeAnalysisCommandOutput}
+ * @param StartNetworkInsightsAccessScopeAnalysisRequest - {@link StartNetworkInsightsAccessScopeAnalysisRequest}
+ * @returns {@link StartNetworkInsightsAccessScopeAnalysisResult}
  * @see {@link StartNetworkInsightsAccessScopeAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartNetworkInsightsAccessScopeAnalysisCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

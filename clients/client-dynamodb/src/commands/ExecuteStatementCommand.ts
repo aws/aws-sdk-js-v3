@@ -186,8 +186,8 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  *
  * ```
  *
- * @param ExecuteStatementCommandInput - {@link ExecuteStatementCommandInput}
- * @returns {@link ExecuteStatementCommandOutput}
+ * @param ExecuteStatementInput - {@link ExecuteStatementInput}
+ * @returns {@link ExecuteStatementOutput}
  * @see {@link ExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link ExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

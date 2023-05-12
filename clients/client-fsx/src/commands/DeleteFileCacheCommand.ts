@@ -63,8 +63,8 @@ export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, _
  *
  * ```
  *
- * @param DeleteFileCacheCommandInput - {@link DeleteFileCacheCommandInput}
- * @returns {@link DeleteFileCacheCommandOutput}
+ * @param DeleteFileCacheRequest - {@link DeleteFileCacheRequest}
+ * @returns {@link DeleteFileCacheResponse}
  * @see {@link DeleteFileCacheCommandInput} for command's `input` shape.
  * @see {@link DeleteFileCacheCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

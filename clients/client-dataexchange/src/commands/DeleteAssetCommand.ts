@@ -50,8 +50,8 @@ export interface DeleteAssetCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAssetCommandInput - {@link DeleteAssetCommandInput}
- * @returns {@link DeleteAssetCommandOutput}
+ * @param DeleteAssetRequest - {@link DeleteAssetRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAssetCommandInput} for command's `input` shape.
  * @see {@link DeleteAssetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

@@ -112,8 +112,8 @@ export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeS
  *
  * ```
  *
- * @param GetQueryRuntimeStatisticsCommandInput - {@link GetQueryRuntimeStatisticsCommandInput}
- * @returns {@link GetQueryRuntimeStatisticsCommandOutput}
+ * @param GetQueryRuntimeStatisticsInput - {@link GetQueryRuntimeStatisticsInput}
+ * @returns {@link GetQueryRuntimeStatisticsOutput}
  * @see {@link GetQueryRuntimeStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetQueryRuntimeStatisticsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

@@ -61,8 +61,8 @@ export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __Met
  *
  * ```
  *
- * @param AddProfileKeyCommandInput - {@link AddProfileKeyCommandInput}
- * @returns {@link AddProfileKeyCommandOutput}
+ * @param AddProfileKeyRequest - {@link AddProfileKeyRequest}
+ * @returns {@link AddProfileKeyResponse}
  * @see {@link AddProfileKeyCommandInput} for command's `input` shape.
  * @see {@link AddProfileKeyCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

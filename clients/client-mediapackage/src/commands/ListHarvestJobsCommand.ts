@@ -70,8 +70,8 @@ export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, _
  *
  * ```
  *
- * @param ListHarvestJobsCommandInput - {@link ListHarvestJobsCommandInput}
- * @returns {@link ListHarvestJobsCommandOutput}
+ * @param ListHarvestJobsRequest - {@link ListHarvestJobsRequest}
+ * @returns {@link ListHarvestJobsResponse}
  * @see {@link ListHarvestJobsCommandInput} for command's `input` shape.
  * @see {@link ListHarvestJobsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.

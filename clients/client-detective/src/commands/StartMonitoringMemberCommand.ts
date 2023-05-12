@@ -61,8 +61,8 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StartMonitoringMemberCommandInput - {@link StartMonitoringMemberCommandInput}
- * @returns {@link StartMonitoringMemberCommandOutput}
+ * @param StartMonitoringMemberRequest - {@link StartMonitoringMemberRequest}
+ * @returns {@link Unit}
  * @see {@link StartMonitoringMemberCommandInput} for command's `input` shape.
  * @see {@link StartMonitoringMemberCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

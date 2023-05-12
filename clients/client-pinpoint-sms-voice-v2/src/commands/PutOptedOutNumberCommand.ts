@@ -61,8 +61,8 @@ export interface PutOptedOutNumberCommandOutput extends PutOptedOutNumberResult,
  *
  * ```
  *
- * @param PutOptedOutNumberCommandInput - {@link PutOptedOutNumberCommandInput}
- * @returns {@link PutOptedOutNumberCommandOutput}
+ * @param PutOptedOutNumberRequest - {@link PutOptedOutNumberRequest}
+ * @returns {@link PutOptedOutNumberResult}
  * @see {@link PutOptedOutNumberCommandInput} for command's `input` shape.
  * @see {@link PutOptedOutNumberCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

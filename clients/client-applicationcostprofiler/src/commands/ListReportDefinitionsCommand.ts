@@ -70,8 +70,8 @@ export interface ListReportDefinitionsCommandOutput extends ListReportDefinition
  *
  * ```
  *
- * @param ListReportDefinitionsCommandInput - {@link ListReportDefinitionsCommandInput}
- * @returns {@link ListReportDefinitionsCommandOutput}
+ * @param ListReportDefinitionsRequest - {@link ListReportDefinitionsRequest}
+ * @returns {@link ListReportDefinitionsResult}
  * @see {@link ListReportDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListReportDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.

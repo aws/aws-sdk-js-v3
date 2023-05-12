@@ -66,8 +66,8 @@ export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioS
  *
  * ```
  *
- * @param DescribePortfolioSharesCommandInput - {@link DescribePortfolioSharesCommandInput}
- * @returns {@link DescribePortfolioSharesCommandOutput}
+ * @param DescribePortfolioSharesInput - {@link DescribePortfolioSharesInput}
+ * @returns {@link DescribePortfolioSharesOutput}
  * @see {@link DescribePortfolioSharesCommandInput} for command's `input` shape.
  * @see {@link DescribePortfolioSharesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

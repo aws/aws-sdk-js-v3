@@ -60,8 +60,8 @@ export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsO
  *
  * ```
  *
- * @param ListBootstrapActionsCommandInput - {@link ListBootstrapActionsCommandInput}
- * @returns {@link ListBootstrapActionsCommandOutput}
+ * @param ListBootstrapActionsInput - {@link ListBootstrapActionsInput}
+ * @returns {@link ListBootstrapActionsOutput}
  * @see {@link ListBootstrapActionsCommandInput} for command's `input` shape.
  * @see {@link ListBootstrapActionsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

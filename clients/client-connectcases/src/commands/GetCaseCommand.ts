@@ -71,8 +71,8 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  *
  * ```
  *
- * @param GetCaseCommandInput - {@link GetCaseCommandInput}
- * @returns {@link GetCaseCommandOutput}
+ * @param GetCaseRequest - {@link GetCaseRequest}
+ * @returns {@link GetCaseResponse}
  * @see {@link GetCaseCommandInput} for command's `input` shape.
  * @see {@link GetCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

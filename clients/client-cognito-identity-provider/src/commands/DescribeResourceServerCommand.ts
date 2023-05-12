@@ -66,8 +66,8 @@ export interface DescribeResourceServerCommandOutput extends DescribeResourceSer
  *
  * ```
  *
- * @param DescribeResourceServerCommandInput - {@link DescribeResourceServerCommandInput}
- * @returns {@link DescribeResourceServerCommandOutput}
+ * @param DescribeResourceServerRequest - {@link DescribeResourceServerRequest}
+ * @returns {@link DescribeResourceServerResponse}
  * @see {@link DescribeResourceServerCommandInput} for command's `input` shape.
  * @see {@link DescribeResourceServerCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

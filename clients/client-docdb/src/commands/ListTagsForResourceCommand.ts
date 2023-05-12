@@ -63,8 +63,8 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
+ * @param ListTagsForResourceMessage - {@link ListTagsForResourceMessage}
+ * @returns {@link TagListMessage}
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

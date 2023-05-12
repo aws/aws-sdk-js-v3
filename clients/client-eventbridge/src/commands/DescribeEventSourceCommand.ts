@@ -56,8 +56,8 @@ export interface DescribeEventSourceCommandOutput extends DescribeEventSourceRes
  *
  * ```
  *
- * @param DescribeEventSourceCommandInput - {@link DescribeEventSourceCommandInput}
- * @returns {@link DescribeEventSourceCommandOutput}
+ * @param DescribeEventSourceRequest - {@link DescribeEventSourceRequest}
+ * @returns {@link DescribeEventSourceResponse}
  * @see {@link DescribeEventSourceCommandInput} for command's `input` shape.
  * @see {@link DescribeEventSourceCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

@@ -100,8 +100,8 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  *
  * ```
  *
- * @param UpdateFleetCapacityCommandInput - {@link UpdateFleetCapacityCommandInput}
- * @returns {@link UpdateFleetCapacityCommandOutput}
+ * @param UpdateFleetCapacityInput - {@link UpdateFleetCapacityInput}
+ * @returns {@link UpdateFleetCapacityOutput}
  * @see {@link UpdateFleetCapacityCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetCapacityCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

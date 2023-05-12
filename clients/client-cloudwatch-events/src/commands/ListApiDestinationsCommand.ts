@@ -66,8 +66,8 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
  *
  * ```
  *
- * @param ListApiDestinationsCommandInput - {@link ListApiDestinationsCommandInput}
- * @returns {@link ListApiDestinationsCommandOutput}
+ * @param ListApiDestinationsRequest - {@link ListApiDestinationsRequest}
+ * @returns {@link ListApiDestinationsResponse}
  * @see {@link ListApiDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListApiDestinationsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

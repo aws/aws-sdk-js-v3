@@ -268,8 +268,8 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *
  * ```
  *
- * @param CreateTableCommandInput - {@link CreateTableCommandInput}
- * @returns {@link CreateTableCommandOutput}
+ * @param CreateTableInput - {@link CreateTableInput}
+ * @returns {@link CreateTableOutput}
  * @see {@link CreateTableCommandInput} for command's `input` shape.
  * @see {@link CreateTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

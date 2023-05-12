@@ -112,8 +112,8 @@ export interface UpdateResolverCommandOutput extends UpdateResolverResponse, __M
  *
  * ```
  *
- * @param UpdateResolverCommandInput - {@link UpdateResolverCommandInput}
- * @returns {@link UpdateResolverCommandOutput}
+ * @param UpdateResolverRequest - {@link UpdateResolverRequest}
+ * @returns {@link UpdateResolverResponse}
  * @see {@link UpdateResolverCommandInput} for command's `input` shape.
  * @see {@link UpdateResolverCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

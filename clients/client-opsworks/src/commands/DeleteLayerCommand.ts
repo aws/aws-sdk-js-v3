@@ -55,8 +55,8 @@ export interface DeleteLayerCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteLayerCommandInput - {@link DeleteLayerCommandInput}
- * @returns {@link DeleteLayerCommandOutput}
+ * @param DeleteLayerRequest - {@link DeleteLayerRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteLayerCommandInput} for command's `input` shape.
  * @see {@link DeleteLayerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

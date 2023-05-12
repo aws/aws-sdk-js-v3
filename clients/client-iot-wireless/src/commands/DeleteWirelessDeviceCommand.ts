@@ -48,8 +48,8 @@ export interface DeleteWirelessDeviceCommandOutput extends DeleteWirelessDeviceR
  *
  * ```
  *
- * @param DeleteWirelessDeviceCommandInput - {@link DeleteWirelessDeviceCommandInput}
- * @returns {@link DeleteWirelessDeviceCommandOutput}
+ * @param DeleteWirelessDeviceRequest - {@link DeleteWirelessDeviceRequest}
+ * @returns {@link DeleteWirelessDeviceResponse}
  * @see {@link DeleteWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteWirelessDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

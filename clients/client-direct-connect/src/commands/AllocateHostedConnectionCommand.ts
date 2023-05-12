@@ -98,8 +98,8 @@ export interface AllocateHostedConnectionCommandOutput extends Connection, __Met
  *
  * ```
  *
- * @param AllocateHostedConnectionCommandInput - {@link AllocateHostedConnectionCommandInput}
- * @returns {@link AllocateHostedConnectionCommandOutput}
+ * @param AllocateHostedConnectionRequest - {@link AllocateHostedConnectionRequest}
+ * @returns {@link Connection}
  * @see {@link AllocateHostedConnectionCommandInput} for command's `input` shape.
  * @see {@link AllocateHostedConnectionCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

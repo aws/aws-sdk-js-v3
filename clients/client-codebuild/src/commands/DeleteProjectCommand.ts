@@ -49,8 +49,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectOutput, __Metad
  *
  * ```
  *
- * @param DeleteProjectCommandInput - {@link DeleteProjectCommandInput}
- * @returns {@link DeleteProjectCommandOutput}
+ * @param DeleteProjectInput - {@link DeleteProjectInput}
+ * @returns {@link DeleteProjectOutput}
  * @see {@link DeleteProjectCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

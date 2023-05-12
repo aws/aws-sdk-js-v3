@@ -100,8 +100,8 @@ export interface DescribeReceiptRuleCommandOutput extends DescribeReceiptRuleRes
  *
  * ```
  *
- * @param DescribeReceiptRuleCommandInput - {@link DescribeReceiptRuleCommandInput}
- * @returns {@link DescribeReceiptRuleCommandOutput}
+ * @param DescribeReceiptRuleRequest - {@link DescribeReceiptRuleRequest}
+ * @returns {@link DescribeReceiptRuleResponse}
  * @see {@link DescribeReceiptRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

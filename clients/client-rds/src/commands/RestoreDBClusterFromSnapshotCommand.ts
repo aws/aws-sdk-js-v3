@@ -265,8 +265,8 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *
  * ```
  *
- * @param RestoreDBClusterFromSnapshotCommandInput - {@link RestoreDBClusterFromSnapshotCommandInput}
- * @returns {@link RestoreDBClusterFromSnapshotCommandOutput}
+ * @param RestoreDBClusterFromSnapshotMessage - {@link RestoreDBClusterFromSnapshotMessage}
+ * @returns {@link RestoreDBClusterFromSnapshotResult}
  * @see {@link RestoreDBClusterFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

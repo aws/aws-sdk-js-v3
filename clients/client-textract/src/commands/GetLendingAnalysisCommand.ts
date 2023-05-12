@@ -317,8 +317,8 @@ export interface GetLendingAnalysisCommandOutput extends GetLendingAnalysisRespo
  *
  * ```
  *
- * @param GetLendingAnalysisCommandInput - {@link GetLendingAnalysisCommandInput}
- * @returns {@link GetLendingAnalysisCommandOutput}
+ * @param GetLendingAnalysisRequest - {@link GetLendingAnalysisRequest}
+ * @returns {@link GetLendingAnalysisResponse}
  * @see {@link GetLendingAnalysisCommandInput} for command's `input` shape.
  * @see {@link GetLendingAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.

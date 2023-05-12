@@ -78,8 +78,8 @@ export interface ListResourceSharePermissionsCommandOutput
  *
  * ```
  *
- * @param ListResourceSharePermissionsCommandInput - {@link ListResourceSharePermissionsCommandInput}
- * @returns {@link ListResourceSharePermissionsCommandOutput}
+ * @param ListResourceSharePermissionsRequest - {@link ListResourceSharePermissionsRequest}
+ * @returns {@link ListResourceSharePermissionsResponse}
  * @see {@link ListResourceSharePermissionsCommandInput} for command's `input` shape.
  * @see {@link ListResourceSharePermissionsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

@@ -52,8 +52,8 @@ export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportRespons
  *
  * ```
  *
- * @param GetSuiteRunReportCommandInput - {@link GetSuiteRunReportCommandInput}
- * @returns {@link GetSuiteRunReportCommandOutput}
+ * @param GetSuiteRunReportRequest - {@link GetSuiteRunReportRequest}
+ * @returns {@link GetSuiteRunReportResponse}
  * @see {@link GetSuiteRunReportCommandInput} for command's `input` shape.
  * @see {@link GetSuiteRunReportCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.

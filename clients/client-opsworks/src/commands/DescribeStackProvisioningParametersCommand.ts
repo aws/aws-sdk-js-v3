@@ -66,8 +66,8 @@ export interface DescribeStackProvisioningParametersCommandOutput
  *
  * ```
  *
- * @param DescribeStackProvisioningParametersCommandInput - {@link DescribeStackProvisioningParametersCommandInput}
- * @returns {@link DescribeStackProvisioningParametersCommandOutput}
+ * @param DescribeStackProvisioningParametersRequest - {@link DescribeStackProvisioningParametersRequest}
+ * @returns {@link DescribeStackProvisioningParametersResult}
  * @see {@link DescribeStackProvisioningParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeStackProvisioningParametersCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

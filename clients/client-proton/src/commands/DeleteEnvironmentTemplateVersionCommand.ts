@@ -78,8 +78,8 @@ export interface DeleteEnvironmentTemplateVersionCommandOutput
  *
  * ```
  *
- * @param DeleteEnvironmentTemplateVersionCommandInput - {@link DeleteEnvironmentTemplateVersionCommandInput}
- * @returns {@link DeleteEnvironmentTemplateVersionCommandOutput}
+ * @param DeleteEnvironmentTemplateVersionInput - {@link DeleteEnvironmentTemplateVersionInput}
+ * @returns {@link DeleteEnvironmentTemplateVersionOutput}
  * @see {@link DeleteEnvironmentTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

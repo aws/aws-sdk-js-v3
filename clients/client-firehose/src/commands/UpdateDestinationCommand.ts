@@ -431,8 +431,8 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *
  * ```
  *
- * @param UpdateDestinationCommandInput - {@link UpdateDestinationCommandInput}
- * @returns {@link UpdateDestinationCommandOutput}
+ * @param UpdateDestinationInput - {@link UpdateDestinationInput}
+ * @returns {@link UpdateDestinationOutput}
  * @see {@link UpdateDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateDestinationCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.

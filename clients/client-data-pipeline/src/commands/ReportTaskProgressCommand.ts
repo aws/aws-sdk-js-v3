@@ -94,8 +94,8 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  *
  * ```
  *
- * @param ReportTaskProgressCommandInput - {@link ReportTaskProgressCommandInput}
- * @returns {@link ReportTaskProgressCommandOutput}
+ * @param ReportTaskProgressInput - {@link ReportTaskProgressInput}
+ * @returns {@link ReportTaskProgressOutput}
  * @see {@link ReportTaskProgressCommandInput} for command's `input` shape.
  * @see {@link ReportTaskProgressCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.

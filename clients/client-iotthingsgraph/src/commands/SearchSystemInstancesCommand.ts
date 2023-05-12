@@ -74,8 +74,8 @@ export interface SearchSystemInstancesCommandOutput extends SearchSystemInstance
  *
  * ```
  *
- * @param SearchSystemInstancesCommandInput - {@link SearchSystemInstancesCommandInput}
- * @returns {@link SearchSystemInstancesCommandOutput}
+ * @param SearchSystemInstancesRequest - {@link SearchSystemInstancesRequest}
+ * @returns {@link SearchSystemInstancesResponse}
  * @see {@link SearchSystemInstancesCommandInput} for command's `input` shape.
  * @see {@link SearchSystemInstancesCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

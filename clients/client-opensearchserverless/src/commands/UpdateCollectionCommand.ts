@@ -65,8 +65,8 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  *
  * ```
  *
- * @param UpdateCollectionCommandInput - {@link UpdateCollectionCommandInput}
- * @returns {@link UpdateCollectionCommandOutput}
+ * @param UpdateCollectionRequest - {@link UpdateCollectionRequest}
+ * @returns {@link UpdateCollectionResponse}
  * @see {@link UpdateCollectionCommandInput} for command's `input` shape.
  * @see {@link UpdateCollectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointR
  *
  * ```
  *
- * @param DeleteOriginEndpointCommandInput - {@link DeleteOriginEndpointCommandInput}
- * @returns {@link DeleteOriginEndpointCommandOutput}
+ * @param DeleteOriginEndpointRequest - {@link DeleteOriginEndpointRequest}
+ * @returns {@link DeleteOriginEndpointResponse}
  * @see {@link DeleteOriginEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteOriginEndpointCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.

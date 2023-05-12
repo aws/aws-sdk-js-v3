@@ -88,8 +88,8 @@ export interface DescribeTimeBasedAutoScalingCommandOutput
  *
  * ```
  *
- * @param DescribeTimeBasedAutoScalingCommandInput - {@link DescribeTimeBasedAutoScalingCommandInput}
- * @returns {@link DescribeTimeBasedAutoScalingCommandOutput}
+ * @param DescribeTimeBasedAutoScalingRequest - {@link DescribeTimeBasedAutoScalingRequest}
+ * @returns {@link DescribeTimeBasedAutoScalingResult}
  * @see {@link DescribeTimeBasedAutoScalingCommandInput} for command's `input` shape.
  * @see {@link DescribeTimeBasedAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

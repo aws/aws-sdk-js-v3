@@ -74,8 +74,8 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutpu
  *
  * ```
  *
- * @param BatchAssociateServiceActionWithProvisioningArtifactCommandInput - {@link BatchAssociateServiceActionWithProvisioningArtifactCommandInput}
- * @returns {@link BatchAssociateServiceActionWithProvisioningArtifactCommandOutput}
+ * @param BatchAssociateServiceActionWithProvisioningArtifactInput - {@link BatchAssociateServiceActionWithProvisioningArtifactInput}
+ * @returns {@link BatchAssociateServiceActionWithProvisioningArtifactOutput}
  * @see {@link BatchAssociateServiceActionWithProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateServiceActionWithProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

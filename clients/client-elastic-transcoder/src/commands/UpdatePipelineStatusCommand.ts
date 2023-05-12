@@ -101,8 +101,8 @@ export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusR
  *
  * ```
  *
- * @param UpdatePipelineStatusCommandInput - {@link UpdatePipelineStatusCommandInput}
- * @returns {@link UpdatePipelineStatusCommandOutput}
+ * @param UpdatePipelineStatusRequest - {@link UpdatePipelineStatusRequest}
+ * @returns {@link UpdatePipelineStatusResponse}
  * @see {@link UpdatePipelineStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineStatusCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.

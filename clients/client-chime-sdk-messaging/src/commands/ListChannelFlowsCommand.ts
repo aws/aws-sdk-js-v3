@@ -80,8 +80,8 @@ export interface ListChannelFlowsCommandOutput extends ListChannelFlowsResponse,
  *
  * ```
  *
- * @param ListChannelFlowsCommandInput - {@link ListChannelFlowsCommandInput}
- * @returns {@link ListChannelFlowsCommandOutput}
+ * @param ListChannelFlowsRequest - {@link ListChannelFlowsRequest}
+ * @returns {@link ListChannelFlowsResponse}
  * @see {@link ListChannelFlowsCommandInput} for command's `input` shape.
  * @see {@link ListChannelFlowsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

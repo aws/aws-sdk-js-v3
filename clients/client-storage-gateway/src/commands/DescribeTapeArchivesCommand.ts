@@ -75,8 +75,8 @@ export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesO
  *
  * ```
  *
- * @param DescribeTapeArchivesCommandInput - {@link DescribeTapeArchivesCommandInput}
- * @returns {@link DescribeTapeArchivesCommandOutput}
+ * @param DescribeTapeArchivesInput - {@link DescribeTapeArchivesInput}
+ * @returns {@link DescribeTapeArchivesOutput}
  * @see {@link DescribeTapeArchivesCommandInput} for command's `input` shape.
  * @see {@link DescribeTapeArchivesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

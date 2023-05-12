@@ -64,8 +64,8 @@ export interface PeerVpcCommandOutput extends PeerVpcResult, __MetadataBearer {}
  *
  * ```
  *
- * @param PeerVpcCommandInput - {@link PeerVpcCommandInput}
- * @returns {@link PeerVpcCommandOutput}
+ * @param PeerVpcRequest - {@link PeerVpcRequest}
+ * @returns {@link PeerVpcResult}
  * @see {@link PeerVpcCommandInput} for command's `input` shape.
  * @see {@link PeerVpcCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

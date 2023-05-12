@@ -48,8 +48,8 @@ export interface DeleteUserSettingsCommandOutput extends DeleteUserSettingsRespo
  *
  * ```
  *
- * @param DeleteUserSettingsCommandInput - {@link DeleteUserSettingsCommandInput}
- * @returns {@link DeleteUserSettingsCommandOutput}
+ * @param DeleteUserSettingsRequest - {@link DeleteUserSettingsRequest}
+ * @returns {@link DeleteUserSettingsResponse}
  * @see {@link DeleteUserSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

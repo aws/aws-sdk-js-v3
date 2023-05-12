@@ -89,8 +89,8 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  *
  * ```
  *
- * @param SearchRelatedItemsCommandInput - {@link SearchRelatedItemsCommandInput}
- * @returns {@link SearchRelatedItemsCommandOutput}
+ * @param SearchRelatedItemsRequest - {@link SearchRelatedItemsRequest}
+ * @returns {@link SearchRelatedItemsResponse}
  * @see {@link SearchRelatedItemsCommandInput} for command's `input` shape.
  * @see {@link SearchRelatedItemsCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

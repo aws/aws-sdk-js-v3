@@ -94,8 +94,8 @@ export interface DescribeTransitGatewaysCommandOutput extends DescribeTransitGat
  *
  * ```
  *
- * @param DescribeTransitGatewaysCommandInput - {@link DescribeTransitGatewaysCommandInput}
- * @returns {@link DescribeTransitGatewaysCommandOutput}
+ * @param DescribeTransitGatewaysRequest - {@link DescribeTransitGatewaysRequest}
+ * @returns {@link DescribeTransitGatewaysResult}
  * @see {@link DescribeTransitGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -70,8 +70,8 @@ export interface CreateStageCommandOutput extends CreateStageResult, __MetadataB
  *
  * ```
  *
- * @param CreateStageCommandInput - {@link CreateStageCommandInput}
- * @returns {@link CreateStageCommandOutput}
+ * @param CreateStageRequest - {@link CreateStageRequest}
+ * @returns {@link CreateStageResult}
  * @see {@link CreateStageCommandInput} for command's `input` shape.
  * @see {@link CreateStageCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

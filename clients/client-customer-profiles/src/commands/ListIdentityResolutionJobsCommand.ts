@@ -74,8 +74,8 @@ export interface ListIdentityResolutionJobsCommandOutput extends ListIdentityRes
  *
  * ```
  *
- * @param ListIdentityResolutionJobsCommandInput - {@link ListIdentityResolutionJobsCommandInput}
- * @returns {@link ListIdentityResolutionJobsCommandOutput}
+ * @param ListIdentityResolutionJobsRequest - {@link ListIdentityResolutionJobsRequest}
+ * @returns {@link ListIdentityResolutionJobsResponse}
  * @see {@link ListIdentityResolutionJobsCommandInput} for command's `input` shape.
  * @see {@link ListIdentityResolutionJobsCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

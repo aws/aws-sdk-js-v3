@@ -64,8 +64,8 @@ export interface CreateLogPatternCommandOutput extends CreateLogPatternResponse,
  *
  * ```
  *
- * @param CreateLogPatternCommandInput - {@link CreateLogPatternCommandInput}
- * @returns {@link CreateLogPatternCommandOutput}
+ * @param CreateLogPatternRequest - {@link CreateLogPatternRequest}
+ * @returns {@link CreateLogPatternResponse}
  * @see {@link CreateLogPatternCommandInput} for command's `input` shape.
  * @see {@link CreateLogPatternCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.

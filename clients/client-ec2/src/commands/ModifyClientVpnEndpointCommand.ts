@@ -80,8 +80,8 @@ export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEnd
  *
  * ```
  *
- * @param ModifyClientVpnEndpointCommandInput - {@link ModifyClientVpnEndpointCommandInput}
- * @returns {@link ModifyClientVpnEndpointCommandOutput}
+ * @param ModifyClientVpnEndpointRequest - {@link ModifyClientVpnEndpointRequest}
+ * @returns {@link ModifyClientVpnEndpointResult}
  * @see {@link ModifyClientVpnEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyClientVpnEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

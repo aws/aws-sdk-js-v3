@@ -64,8 +64,8 @@ export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationT
  *
  * ```
  *
- * @param ListCostAllocationTagsCommandInput - {@link ListCostAllocationTagsCommandInput}
- * @returns {@link ListCostAllocationTagsCommandOutput}
+ * @param ListCostAllocationTagsRequest - {@link ListCostAllocationTagsRequest}
+ * @returns {@link ListCostAllocationTagsResponse}
  * @see {@link ListCostAllocationTagsCommandInput} for command's `input` shape.
  * @see {@link ListCostAllocationTagsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

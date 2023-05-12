@@ -79,8 +79,8 @@ export interface GetTransitGatewayPolicyTableAssociationsCommandOutput
  *
  * ```
  *
- * @param GetTransitGatewayPolicyTableAssociationsCommandInput - {@link GetTransitGatewayPolicyTableAssociationsCommandInput}
- * @returns {@link GetTransitGatewayPolicyTableAssociationsCommandOutput}
+ * @param GetTransitGatewayPolicyTableAssociationsRequest - {@link GetTransitGatewayPolicyTableAssociationsRequest}
+ * @returns {@link GetTransitGatewayPolicyTableAssociationsResult}
  * @see {@link GetTransitGatewayPolicyTableAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayPolicyTableAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -72,8 +72,8 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  *
  * ```
  *
- * @param DeleteImageCommandInput - {@link DeleteImageCommandInput}
- * @returns {@link DeleteImageCommandOutput}
+ * @param DeleteImageRequest - {@link DeleteImageRequest}
+ * @returns {@link DeleteImageResponse}
  * @see {@link DeleteImageCommandInput} for command's `input` shape.
  * @see {@link DeleteImageCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

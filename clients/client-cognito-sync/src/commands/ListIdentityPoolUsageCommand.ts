@@ -119,8 +119,8 @@ export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsag
  *
  * ```
  *
- * @param ListIdentityPoolUsageCommandInput - {@link ListIdentityPoolUsageCommandInput}
- * @returns {@link ListIdentityPoolUsageCommandOutput}
+ * @param ListIdentityPoolUsageRequest - {@link ListIdentityPoolUsageRequest}
+ * @returns {@link ListIdentityPoolUsageResponse}
  * @see {@link ListIdentityPoolUsageCommandInput} for command's `input` shape.
  * @see {@link ListIdentityPoolUsageCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.

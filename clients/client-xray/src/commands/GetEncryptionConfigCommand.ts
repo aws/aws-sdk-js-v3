@@ -52,8 +52,8 @@ export interface GetEncryptionConfigCommandOutput extends GetEncryptionConfigRes
  *
  * ```
  *
- * @param GetEncryptionConfigCommandInput - {@link GetEncryptionConfigCommandInput}
- * @returns {@link GetEncryptionConfigCommandOutput}
+ * @param GetEncryptionConfigRequest - {@link GetEncryptionConfigRequest}
+ * @returns {@link GetEncryptionConfigResult}
  * @see {@link GetEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link GetEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

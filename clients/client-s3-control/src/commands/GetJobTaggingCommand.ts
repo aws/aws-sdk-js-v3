@@ -81,8 +81,8 @@ export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __Metad
  *
  * ```
  *
- * @param GetJobTaggingCommandInput - {@link GetJobTaggingCommandInput}
- * @returns {@link GetJobTaggingCommandOutput}
+ * @param GetJobTaggingRequest - {@link GetJobTaggingRequest}
+ * @returns {@link GetJobTaggingResult}
  * @see {@link GetJobTaggingCommandInput} for command's `input` shape.
  * @see {@link GetJobTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

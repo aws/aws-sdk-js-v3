@@ -80,8 +80,8 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  *
  * ```
  *
- * @param DescribeCacheSubnetGroupsCommandInput - {@link DescribeCacheSubnetGroupsCommandInput}
- * @returns {@link DescribeCacheSubnetGroupsCommandOutput}
+ * @param DescribeCacheSubnetGroupsMessage - {@link DescribeCacheSubnetGroupsMessage}
+ * @returns {@link CacheSubnetGroupMessage}
  * @see {@link DescribeCacheSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

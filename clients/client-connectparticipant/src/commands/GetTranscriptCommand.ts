@@ -106,8 +106,8 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  *
  * ```
  *
- * @param GetTranscriptCommandInput - {@link GetTranscriptCommandInput}
- * @returns {@link GetTranscriptCommandOutput}
+ * @param GetTranscriptRequest - {@link GetTranscriptRequest}
+ * @returns {@link GetTranscriptResponse}
  * @see {@link GetTranscriptCommandInput} for command's `input` shape.
  * @see {@link GetTranscriptCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.

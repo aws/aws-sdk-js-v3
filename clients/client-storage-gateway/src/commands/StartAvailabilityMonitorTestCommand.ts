@@ -62,8 +62,8 @@ export interface StartAvailabilityMonitorTestCommandOutput
  *
  * ```
  *
- * @param StartAvailabilityMonitorTestCommandInput - {@link StartAvailabilityMonitorTestCommandInput}
- * @returns {@link StartAvailabilityMonitorTestCommandOutput}
+ * @param StartAvailabilityMonitorTestInput - {@link StartAvailabilityMonitorTestInput}
+ * @returns {@link StartAvailabilityMonitorTestOutput}
  * @see {@link StartAvailabilityMonitorTestCommandInput} for command's `input` shape.
  * @see {@link StartAvailabilityMonitorTestCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

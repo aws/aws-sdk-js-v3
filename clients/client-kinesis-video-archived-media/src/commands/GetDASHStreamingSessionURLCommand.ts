@@ -213,8 +213,8 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  *
  * ```
  *
- * @param GetDASHStreamingSessionURLCommandInput - {@link GetDASHStreamingSessionURLCommandInput}
- * @returns {@link GetDASHStreamingSessionURLCommandOutput}
+ * @param GetDASHStreamingSessionURLInput - {@link GetDASHStreamingSessionURLInput}
+ * @returns {@link GetDASHStreamingSessionURLOutput}
  * @see {@link GetDASHStreamingSessionURLCommandInput} for command's `input` shape.
  * @see {@link GetDASHStreamingSessionURLCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.

@@ -67,8 +67,8 @@ export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
  *
  * ```
  *
- * @param ListThirdPartyFirewallFirewallPoliciesCommandInput - {@link ListThirdPartyFirewallFirewallPoliciesCommandInput}
- * @returns {@link ListThirdPartyFirewallFirewallPoliciesCommandOutput}
+ * @param ListThirdPartyFirewallFirewallPoliciesRequest - {@link ListThirdPartyFirewallFirewallPoliciesRequest}
+ * @returns {@link ListThirdPartyFirewallFirewallPoliciesResponse}
  * @see {@link ListThirdPartyFirewallFirewallPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListThirdPartyFirewallFirewallPoliciesCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

@@ -75,8 +75,8 @@ export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedPro
  *
  * ```
  *
- * @param ScanProvisionedProductsCommandInput - {@link ScanProvisionedProductsCommandInput}
- * @returns {@link ScanProvisionedProductsCommandOutput}
+ * @param ScanProvisionedProductsInput - {@link ScanProvisionedProductsInput}
+ * @returns {@link ScanProvisionedProductsOutput}
  * @see {@link ScanProvisionedProductsCommandInput} for command's `input` shape.
  * @see {@link ScanProvisionedProductsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

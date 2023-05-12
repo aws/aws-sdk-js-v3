@@ -62,8 +62,8 @@ export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBea
  *
  * ```
  *
- * @param ListMeshesCommandInput - {@link ListMeshesCommandInput}
- * @returns {@link ListMeshesCommandOutput}
+ * @param ListMeshesInput - {@link ListMeshesInput}
+ * @returns {@link ListMeshesOutput}
  * @see {@link ListMeshesCommandInput} for command's `input` shape.
  * @see {@link ListMeshesCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

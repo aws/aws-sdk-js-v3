@@ -58,8 +58,8 @@ export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesR
  *
  * ```
  *
- * @param ModifySamlPropertiesCommandInput - {@link ModifySamlPropertiesCommandInput}
- * @returns {@link ModifySamlPropertiesCommandOutput}
+ * @param ModifySamlPropertiesRequest - {@link ModifySamlPropertiesRequest}
+ * @returns {@link ModifySamlPropertiesResult}
  * @see {@link ModifySamlPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifySamlPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

@@ -61,8 +61,8 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  *
  * ```
  *
- * @param ListRegistriesCommandInput - {@link ListRegistriesCommandInput}
- * @returns {@link ListRegistriesCommandOutput}
+ * @param ListRegistriesInput - {@link ListRegistriesInput}
+ * @returns {@link ListRegistriesResponse}
  * @see {@link ListRegistriesCommandInput} for command's `input` shape.
  * @see {@link ListRegistriesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

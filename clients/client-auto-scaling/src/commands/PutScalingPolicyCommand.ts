@@ -204,8 +204,8 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *
  * ```
  *
- * @param PutScalingPolicyCommandInput - {@link PutScalingPolicyCommandInput}
- * @returns {@link PutScalingPolicyCommandOutput}
+ * @param PutScalingPolicyType - {@link PutScalingPolicyType}
+ * @returns {@link PolicyARNType}
  * @see {@link PutScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

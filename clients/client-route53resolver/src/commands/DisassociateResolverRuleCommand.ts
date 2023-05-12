@@ -62,8 +62,8 @@ export interface DisassociateResolverRuleCommandOutput extends DisassociateResol
  *
  * ```
  *
- * @param DisassociateResolverRuleCommandInput - {@link DisassociateResolverRuleCommandInput}
- * @returns {@link DisassociateResolverRuleCommandOutput}
+ * @param DisassociateResolverRuleRequest - {@link DisassociateResolverRuleRequest}
+ * @returns {@link DisassociateResolverRuleResponse}
  * @see {@link DisassociateResolverRuleCommandInput} for command's `input` shape.
  * @see {@link DisassociateResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

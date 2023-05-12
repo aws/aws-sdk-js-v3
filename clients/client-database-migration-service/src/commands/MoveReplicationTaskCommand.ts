@@ -90,8 +90,8 @@ export interface MoveReplicationTaskCommandOutput extends MoveReplicationTaskRes
  *
  * ```
  *
- * @param MoveReplicationTaskCommandInput - {@link MoveReplicationTaskCommandInput}
- * @returns {@link MoveReplicationTaskCommandOutput}
+ * @param MoveReplicationTaskMessage - {@link MoveReplicationTaskMessage}
+ * @returns {@link MoveReplicationTaskResponse}
  * @see {@link MoveReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link MoveReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

@@ -49,8 +49,8 @@ export interface UpdateResourceProfileCommandOutput extends UpdateResourceProfil
  *
  * ```
  *
- * @param UpdateResourceProfileCommandInput - {@link UpdateResourceProfileCommandInput}
- * @returns {@link UpdateResourceProfileCommandOutput}
+ * @param UpdateResourceProfileRequest - {@link UpdateResourceProfileRequest}
+ * @returns {@link UpdateResourceProfileResponse}
  * @see {@link UpdateResourceProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceProfileCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

@@ -55,8 +55,8 @@ export interface DeregisterInstanceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeregisterInstanceCommandInput - {@link DeregisterInstanceCommandInput}
- * @returns {@link DeregisterInstanceCommandOutput}
+ * @param DeregisterInstanceRequest - {@link DeregisterInstanceRequest}
+ * @returns {@link Unit}
  * @see {@link DeregisterInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

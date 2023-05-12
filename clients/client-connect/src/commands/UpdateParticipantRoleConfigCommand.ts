@@ -85,8 +85,8 @@ export interface UpdateParticipantRoleConfigCommandOutput
  *
  * ```
  *
- * @param UpdateParticipantRoleConfigCommandInput - {@link UpdateParticipantRoleConfigCommandInput}
- * @returns {@link UpdateParticipantRoleConfigCommandOutput}
+ * @param UpdateParticipantRoleConfigRequest - {@link UpdateParticipantRoleConfigRequest}
+ * @returns {@link UpdateParticipantRoleConfigResponse}
  * @see {@link UpdateParticipantRoleConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateParticipantRoleConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -60,8 +60,8 @@ export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSet
  *
  * ```
  *
- * @param DescribeAccountSettingsCommandInput - {@link DescribeAccountSettingsCommandInput}
- * @returns {@link DescribeAccountSettingsCommandOutput}
+ * @param DescribeAccountSettingsRequest - {@link DescribeAccountSettingsRequest}
+ * @returns {@link DescribeAccountSettingsResponse}
  * @see {@link DescribeAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

@@ -64,8 +64,8 @@ export interface AcceptVpcEndpointConnectionsCommandOutput
  *
  * ```
  *
- * @param AcceptVpcEndpointConnectionsCommandInput - {@link AcceptVpcEndpointConnectionsCommandInput}
- * @returns {@link AcceptVpcEndpointConnectionsCommandOutput}
+ * @param AcceptVpcEndpointConnectionsRequest - {@link AcceptVpcEndpointConnectionsRequest}
+ * @returns {@link AcceptVpcEndpointConnectionsResult}
  * @see {@link AcceptVpcEndpointConnectionsCommandInput} for command's `input` shape.
  * @see {@link AcceptVpcEndpointConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

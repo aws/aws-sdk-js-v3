@@ -83,8 +83,8 @@ export interface ListVPCConnectionsCommandOutput extends ListVPCConnectionsRespo
  *
  * ```
  *
- * @param ListVPCConnectionsCommandInput - {@link ListVPCConnectionsCommandInput}
- * @returns {@link ListVPCConnectionsCommandOutput}
+ * @param ListVPCConnectionsRequest - {@link ListVPCConnectionsRequest}
+ * @returns {@link ListVPCConnectionsResponse}
  * @see {@link ListVPCConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListVPCConnectionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

@@ -227,8 +227,8 @@ export interface RebootClusterCommandOutput extends RebootClusterResult, __Metad
  *
  * ```
  *
- * @param RebootClusterCommandInput - {@link RebootClusterCommandInput}
- * @returns {@link RebootClusterCommandOutput}
+ * @param RebootClusterMessage - {@link RebootClusterMessage}
+ * @returns {@link RebootClusterResult}
  * @see {@link RebootClusterCommandInput} for command's `input` shape.
  * @see {@link RebootClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

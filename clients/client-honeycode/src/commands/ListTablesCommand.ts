@@ -61,8 +61,8 @@ export interface ListTablesCommandOutput extends ListTablesResult, __MetadataBea
  *
  * ```
  *
- * @param ListTablesCommandInput - {@link ListTablesCommandInput}
- * @returns {@link ListTablesCommandOutput}
+ * @param ListTablesRequest - {@link ListTablesRequest}
+ * @returns {@link ListTablesResult}
  * @see {@link ListTablesCommandInput} for command's `input` shape.
  * @see {@link ListTablesCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.

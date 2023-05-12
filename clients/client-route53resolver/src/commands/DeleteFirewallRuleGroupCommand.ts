@@ -62,8 +62,8 @@ export interface DeleteFirewallRuleGroupCommandOutput extends DeleteFirewallRule
  *
  * ```
  *
- * @param DeleteFirewallRuleGroupCommandInput - {@link DeleteFirewallRuleGroupCommandInput}
- * @returns {@link DeleteFirewallRuleGroupCommandOutput}
+ * @param DeleteFirewallRuleGroupRequest - {@link DeleteFirewallRuleGroupRequest}
+ * @returns {@link DeleteFirewallRuleGroupResponse}
  * @see {@link DeleteFirewallRuleGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

@@ -105,8 +105,8 @@ export interface CreateMultiRegionAccessPointCommandOutput
  *
  * ```
  *
- * @param CreateMultiRegionAccessPointCommandInput - {@link CreateMultiRegionAccessPointCommandInput}
- * @returns {@link CreateMultiRegionAccessPointCommandOutput}
+ * @param CreateMultiRegionAccessPointRequest - {@link CreateMultiRegionAccessPointRequest}
+ * @returns {@link CreateMultiRegionAccessPointResult}
  * @see {@link CreateMultiRegionAccessPointCommandInput} for command's `input` shape.
  * @see {@link CreateMultiRegionAccessPointCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

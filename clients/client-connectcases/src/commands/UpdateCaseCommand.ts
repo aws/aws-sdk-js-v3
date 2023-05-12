@@ -62,8 +62,8 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  *
  * ```
  *
- * @param UpdateCaseCommandInput - {@link UpdateCaseCommandInput}
- * @returns {@link UpdateCaseCommandOutput}
+ * @param UpdateCaseRequest - {@link UpdateCaseRequest}
+ * @returns {@link UpdateCaseResponse}
  * @see {@link UpdateCaseCommandInput} for command's `input` shape.
  * @see {@link UpdateCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

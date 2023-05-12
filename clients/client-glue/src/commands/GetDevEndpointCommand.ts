@@ -87,8 +87,8 @@ export interface GetDevEndpointCommandOutput extends GetDevEndpointResponse, __M
  *
  * ```
  *
- * @param GetDevEndpointCommandInput - {@link GetDevEndpointCommandInput}
- * @returns {@link GetDevEndpointCommandOutput}
+ * @param GetDevEndpointRequest - {@link GetDevEndpointRequest}
+ * @returns {@link GetDevEndpointResponse}
  * @see {@link GetDevEndpointCommandInput} for command's `input` shape.
  * @see {@link GetDevEndpointCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

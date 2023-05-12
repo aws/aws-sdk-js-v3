@@ -72,8 +72,8 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  *
  * ```
  *
- * @param RegisterDBProxyTargetsCommandInput - {@link RegisterDBProxyTargetsCommandInput}
- * @returns {@link RegisterDBProxyTargetsCommandOutput}
+ * @param RegisterDBProxyTargetsRequest - {@link RegisterDBProxyTargetsRequest}
+ * @returns {@link RegisterDBProxyTargetsResponse}
  * @see {@link RegisterDBProxyTargetsCommandInput} for command's `input` shape.
  * @see {@link RegisterDBProxyTargetsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

@@ -125,8 +125,8 @@ export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportO
  *
  * ```
  *
- * @param GetInsightRuleReportCommandInput - {@link GetInsightRuleReportCommandInput}
- * @returns {@link GetInsightRuleReportCommandOutput}
+ * @param GetInsightRuleReportInput - {@link GetInsightRuleReportInput}
+ * @returns {@link GetInsightRuleReportOutput}
  * @see {@link GetInsightRuleReportCommandInput} for command's `input` shape.
  * @see {@link GetInsightRuleReportCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

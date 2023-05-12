@@ -54,8 +54,8 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  *
  * ```
  *
- * @param GetAccessTokenCommandInput - {@link GetAccessTokenCommandInput}
- * @returns {@link GetAccessTokenCommandOutput}
+ * @param GetAccessTokenRequest - {@link GetAccessTokenRequest}
+ * @returns {@link GetAccessTokenResponse}
  * @see {@link GetAccessTokenCommandInput} for command's `input` shape.
  * @see {@link GetAccessTokenCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

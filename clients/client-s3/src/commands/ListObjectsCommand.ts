@@ -120,8 +120,8 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  *
  * ```
  *
- * @param ListObjectsCommandInput - {@link ListObjectsCommandInput}
- * @returns {@link ListObjectsCommandOutput}
+ * @param ListObjectsRequest - {@link ListObjectsRequest}
+ * @returns {@link ListObjectsOutput}
  * @see {@link ListObjectsCommandInput} for command's `input` shape.
  * @see {@link ListObjectsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

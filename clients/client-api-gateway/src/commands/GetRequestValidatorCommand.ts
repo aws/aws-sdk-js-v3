@@ -54,8 +54,8 @@ export interface GetRequestValidatorCommandOutput extends RequestValidator, __Me
  *
  * ```
  *
- * @param GetRequestValidatorCommandInput - {@link GetRequestValidatorCommandInput}
- * @returns {@link GetRequestValidatorCommandOutput}
+ * @param GetRequestValidatorRequest - {@link GetRequestValidatorRequest}
+ * @returns {@link RequestValidator}
  * @see {@link GetRequestValidatorCommandInput} for command's `input` shape.
  * @see {@link GetRequestValidatorCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

@@ -177,8 +177,8 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *
  * ```
  *
- * @param CreateComputeEnvironmentCommandInput - {@link CreateComputeEnvironmentCommandInput}
- * @returns {@link CreateComputeEnvironmentCommandOutput}
+ * @param CreateComputeEnvironmentRequest - {@link CreateComputeEnvironmentRequest}
+ * @returns {@link CreateComputeEnvironmentResponse}
  * @see {@link CreateComputeEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateComputeEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

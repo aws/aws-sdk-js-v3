@@ -64,8 +64,8 @@ export interface GetMobileSdkReleaseCommandOutput extends GetMobileSdkReleaseRes
  *
  * ```
  *
- * @param GetMobileSdkReleaseCommandInput - {@link GetMobileSdkReleaseCommandInput}
- * @returns {@link GetMobileSdkReleaseCommandOutput}
+ * @param GetMobileSdkReleaseRequest - {@link GetMobileSdkReleaseRequest}
+ * @returns {@link GetMobileSdkReleaseResponse}
  * @see {@link GetMobileSdkReleaseCommandInput} for command's `input` shape.
  * @see {@link GetMobileSdkReleaseCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

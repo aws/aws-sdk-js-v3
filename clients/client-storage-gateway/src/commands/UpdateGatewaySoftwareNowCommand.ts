@@ -65,8 +65,8 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  *
  * ```
  *
- * @param UpdateGatewaySoftwareNowCommandInput - {@link UpdateGatewaySoftwareNowCommandInput}
- * @returns {@link UpdateGatewaySoftwareNowCommandOutput}
+ * @param UpdateGatewaySoftwareNowInput - {@link UpdateGatewaySoftwareNowInput}
+ * @returns {@link UpdateGatewaySoftwareNowOutput}
  * @see {@link UpdateGatewaySoftwareNowCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewaySoftwareNowCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

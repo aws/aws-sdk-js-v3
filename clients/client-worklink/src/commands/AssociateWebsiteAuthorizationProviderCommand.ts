@@ -63,8 +63,8 @@ export interface AssociateWebsiteAuthorizationProviderCommandOutput
  *
  * ```
  *
- * @param AssociateWebsiteAuthorizationProviderCommandInput - {@link AssociateWebsiteAuthorizationProviderCommandInput}
- * @returns {@link AssociateWebsiteAuthorizationProviderCommandOutput}
+ * @param AssociateWebsiteAuthorizationProviderRequest - {@link AssociateWebsiteAuthorizationProviderRequest}
+ * @returns {@link AssociateWebsiteAuthorizationProviderResponse}
  * @see {@link AssociateWebsiteAuthorizationProviderCommandInput} for command's `input` shape.
  * @see {@link AssociateWebsiteAuthorizationProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

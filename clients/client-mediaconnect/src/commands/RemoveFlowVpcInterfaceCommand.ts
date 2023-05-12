@@ -55,8 +55,8 @@ export interface RemoveFlowVpcInterfaceCommandOutput extends RemoveFlowVpcInterf
  *
  * ```
  *
- * @param RemoveFlowVpcInterfaceCommandInput - {@link RemoveFlowVpcInterfaceCommandInput}
- * @returns {@link RemoveFlowVpcInterfaceCommandOutput}
+ * @param RemoveFlowVpcInterfaceRequest - {@link RemoveFlowVpcInterfaceRequest}
+ * @returns {@link RemoveFlowVpcInterfaceResponse}
  * @see {@link RemoveFlowVpcInterfaceCommandInput} for command's `input` shape.
  * @see {@link RemoveFlowVpcInterfaceCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

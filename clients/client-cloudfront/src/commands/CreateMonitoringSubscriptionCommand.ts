@@ -67,8 +67,8 @@ export interface CreateMonitoringSubscriptionCommandOutput
  *
  * ```
  *
- * @param CreateMonitoringSubscriptionCommandInput - {@link CreateMonitoringSubscriptionCommandInput}
- * @returns {@link CreateMonitoringSubscriptionCommandOutput}
+ * @param CreateMonitoringSubscriptionRequest - {@link CreateMonitoringSubscriptionRequest}
+ * @returns {@link CreateMonitoringSubscriptionResult}
  * @see {@link CreateMonitoringSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateMonitoringSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

@@ -79,8 +79,8 @@ export interface StartNotebookExecutionCommandOutput extends StartNotebookExecut
  *
  * ```
  *
- * @param StartNotebookExecutionCommandInput - {@link StartNotebookExecutionCommandInput}
- * @returns {@link StartNotebookExecutionCommandOutput}
+ * @param StartNotebookExecutionInput - {@link StartNotebookExecutionInput}
+ * @returns {@link StartNotebookExecutionOutput}
  * @see {@link StartNotebookExecutionCommandInput} for command's `input` shape.
  * @see {@link StartNotebookExecutionCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

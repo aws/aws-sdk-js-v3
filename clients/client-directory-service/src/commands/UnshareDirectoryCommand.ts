@@ -54,8 +54,8 @@ export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, _
  *
  * ```
  *
- * @param UnshareDirectoryCommandInput - {@link UnshareDirectoryCommandInput}
- * @returns {@link UnshareDirectoryCommandOutput}
+ * @param UnshareDirectoryRequest - {@link UnshareDirectoryRequest}
+ * @returns {@link UnshareDirectoryResult}
  * @see {@link UnshareDirectoryCommandInput} for command's `input` shape.
  * @see {@link UnshareDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

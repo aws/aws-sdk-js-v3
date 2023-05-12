@@ -60,8 +60,8 @@ export interface GetBrowserSettingsCommandOutput extends GetBrowserSettingsRespo
  *
  * ```
  *
- * @param GetBrowserSettingsCommandInput - {@link GetBrowserSettingsCommandInput}
- * @returns {@link GetBrowserSettingsCommandOutput}
+ * @param GetBrowserSettingsRequest - {@link GetBrowserSettingsRequest}
+ * @returns {@link GetBrowserSettingsResponse}
  * @see {@link GetBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link GetBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

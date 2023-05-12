@@ -75,8 +75,8 @@ export interface ListStudiosCommandOutput extends ListStudiosResponse, __Metadat
  *
  * ```
  *
- * @param ListStudiosCommandInput - {@link ListStudiosCommandInput}
- * @returns {@link ListStudiosCommandOutput}
+ * @param ListStudiosRequest - {@link ListStudiosRequest}
+ * @returns {@link ListStudiosResponse}
  * @see {@link ListStudiosCommandInput} for command's `input` shape.
  * @see {@link ListStudiosCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

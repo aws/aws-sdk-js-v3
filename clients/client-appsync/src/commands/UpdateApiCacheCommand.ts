@@ -60,8 +60,8 @@ export interface UpdateApiCacheCommandOutput extends UpdateApiCacheResponse, __M
  *
  * ```
  *
- * @param UpdateApiCacheCommandInput - {@link UpdateApiCacheCommandInput}
- * @returns {@link UpdateApiCacheCommandOutput}
+ * @param UpdateApiCacheRequest - {@link UpdateApiCacheRequest}
+ * @returns {@link UpdateApiCacheResponse}
  * @see {@link UpdateApiCacheCommandInput} for command's `input` shape.
  * @see {@link UpdateApiCacheCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

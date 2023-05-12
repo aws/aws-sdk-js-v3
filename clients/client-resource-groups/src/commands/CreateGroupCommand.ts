@@ -127,8 +127,8 @@ export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataB
  *
  * ```
  *
- * @param CreateGroupCommandInput - {@link CreateGroupCommandInput}
- * @returns {@link CreateGroupCommandOutput}
+ * @param CreateGroupInput - {@link CreateGroupInput}
+ * @returns {@link CreateGroupOutput}
  * @see {@link CreateGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

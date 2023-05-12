@@ -86,8 +86,8 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  *
  * ```
  *
- * @param CreateChannelModeratorCommandInput - {@link CreateChannelModeratorCommandInput}
- * @returns {@link CreateChannelModeratorCommandOutput}
+ * @param CreateChannelModeratorRequest - {@link CreateChannelModeratorRequest}
+ * @returns {@link CreateChannelModeratorResponse}
  * @see {@link CreateChannelModeratorCommandInput} for command's `input` shape.
  * @see {@link CreateChannelModeratorCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

@@ -111,8 +111,8 @@ export interface DescribeAutoPredictorCommandOutput extends DescribeAutoPredicto
  *
  * ```
  *
- * @param DescribeAutoPredictorCommandInput - {@link DescribeAutoPredictorCommandInput}
- * @returns {@link DescribeAutoPredictorCommandOutput}
+ * @param DescribeAutoPredictorRequest - {@link DescribeAutoPredictorRequest}
+ * @returns {@link DescribeAutoPredictorResponse}
  * @see {@link DescribeAutoPredictorCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoPredictorCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

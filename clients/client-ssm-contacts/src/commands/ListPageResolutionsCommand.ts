@@ -62,8 +62,8 @@ export interface ListPageResolutionsCommandOutput extends ListPageResolutionsRes
  *
  * ```
  *
- * @param ListPageResolutionsCommandInput - {@link ListPageResolutionsCommandInput}
- * @returns {@link ListPageResolutionsCommandOutput}
+ * @param ListPageResolutionsRequest - {@link ListPageResolutionsRequest}
+ * @returns {@link ListPageResolutionsResult}
  * @see {@link ListPageResolutionsCommandInput} for command's `input` shape.
  * @see {@link ListPageResolutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

@@ -62,8 +62,8 @@ export interface CreateAccessTokenCommandOutput extends CreateAccessTokenRespons
  *
  * ```
  *
- * @param CreateAccessTokenCommandInput - {@link CreateAccessTokenCommandInput}
- * @returns {@link CreateAccessTokenCommandOutput}
+ * @param CreateAccessTokenRequest - {@link CreateAccessTokenRequest}
+ * @returns {@link CreateAccessTokenResponse}
  * @see {@link CreateAccessTokenCommandInput} for command's `input` shape.
  * @see {@link CreateAccessTokenCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

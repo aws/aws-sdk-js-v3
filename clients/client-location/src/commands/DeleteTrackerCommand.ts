@@ -53,8 +53,8 @@ export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __Met
  *
  * ```
  *
- * @param DeleteTrackerCommandInput - {@link DeleteTrackerCommandInput}
- * @returns {@link DeleteTrackerCommandOutput}
+ * @param DeleteTrackerRequest - {@link DeleteTrackerRequest}
+ * @returns {@link DeleteTrackerResponse}
  * @see {@link DeleteTrackerCommandInput} for command's `input` shape.
  * @see {@link DeleteTrackerCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

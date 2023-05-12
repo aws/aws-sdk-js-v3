@@ -48,8 +48,8 @@ export interface DeleteRecoveryInstanceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRecoveryInstanceCommandInput - {@link DeleteRecoveryInstanceCommandInput}
- * @returns {@link DeleteRecoveryInstanceCommandOutput}
+ * @param DeleteRecoveryInstanceRequest - {@link DeleteRecoveryInstanceRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRecoveryInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteRecoveryInstanceCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

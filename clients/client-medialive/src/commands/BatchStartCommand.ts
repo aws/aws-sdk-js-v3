@@ -69,8 +69,8 @@ export interface BatchStartCommandOutput extends BatchStartResponse, __MetadataB
  *
  * ```
  *
- * @param BatchStartCommandInput - {@link BatchStartCommandInput}
- * @returns {@link BatchStartCommandOutput}
+ * @param BatchStartRequest - {@link BatchStartRequest}
+ * @returns {@link BatchStartResponse}
  * @see {@link BatchStartCommandInput} for command's `input` shape.
  * @see {@link BatchStartCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

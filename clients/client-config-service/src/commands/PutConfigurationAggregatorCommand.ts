@@ -116,8 +116,8 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  *
  * ```
  *
- * @param PutConfigurationAggregatorCommandInput - {@link PutConfigurationAggregatorCommandInput}
- * @returns {@link PutConfigurationAggregatorCommandOutput}
+ * @param PutConfigurationAggregatorRequest - {@link PutConfigurationAggregatorRequest}
+ * @returns {@link PutConfigurationAggregatorResponse}
  * @see {@link PutConfigurationAggregatorCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationAggregatorCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

@@ -56,8 +56,8 @@ export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseRes
  *
  * ```
  *
- * @param DeleteKnowledgeBaseCommandInput - {@link DeleteKnowledgeBaseCommandInput}
- * @returns {@link DeleteKnowledgeBaseCommandOutput}
+ * @param DeleteKnowledgeBaseRequest - {@link DeleteKnowledgeBaseRequest}
+ * @returns {@link DeleteKnowledgeBaseResponse}
  * @see {@link DeleteKnowledgeBaseCommandInput} for command's `input` shape.
  * @see {@link DeleteKnowledgeBaseCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

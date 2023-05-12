@@ -93,8 +93,8 @@ export interface CancelServiceInstanceDeploymentCommandOutput
  *
  * ```
  *
- * @param CancelServiceInstanceDeploymentCommandInput - {@link CancelServiceInstanceDeploymentCommandInput}
- * @returns {@link CancelServiceInstanceDeploymentCommandOutput}
+ * @param CancelServiceInstanceDeploymentInput - {@link CancelServiceInstanceDeploymentInput}
+ * @returns {@link CancelServiceInstanceDeploymentOutput}
  * @see {@link CancelServiceInstanceDeploymentCommandInput} for command's `input` shape.
  * @see {@link CancelServiceInstanceDeploymentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

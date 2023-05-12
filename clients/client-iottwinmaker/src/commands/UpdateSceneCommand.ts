@@ -59,8 +59,8 @@ export interface UpdateSceneCommandOutput extends UpdateSceneResponse, __Metadat
  *
  * ```
  *
- * @param UpdateSceneCommandInput - {@link UpdateSceneCommandInput}
- * @returns {@link UpdateSceneCommandOutput}
+ * @param UpdateSceneRequest - {@link UpdateSceneRequest}
+ * @returns {@link UpdateSceneResponse}
  * @see {@link UpdateSceneCommandInput} for command's `input` shape.
  * @see {@link UpdateSceneCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

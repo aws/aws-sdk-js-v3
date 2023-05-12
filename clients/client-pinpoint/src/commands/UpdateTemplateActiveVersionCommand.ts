@@ -62,8 +62,8 @@ export interface UpdateTemplateActiveVersionCommandOutput
  *
  * ```
  *
- * @param UpdateTemplateActiveVersionCommandInput - {@link UpdateTemplateActiveVersionCommandInput}
- * @returns {@link UpdateTemplateActiveVersionCommandOutput}
+ * @param UpdateTemplateActiveVersionRequest - {@link UpdateTemplateActiveVersionRequest}
+ * @returns {@link UpdateTemplateActiveVersionResponse}
  * @see {@link UpdateTemplateActiveVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateTemplateActiveVersionCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

@@ -57,8 +57,8 @@ export interface GetServiceNetworkCommandOutput extends GetServiceNetworkRespons
  *
  * ```
  *
- * @param GetServiceNetworkCommandInput - {@link GetServiceNetworkCommandInput}
- * @returns {@link GetServiceNetworkCommandOutput}
+ * @param GetServiceNetworkRequest - {@link GetServiceNetworkRequest}
+ * @returns {@link GetServiceNetworkResponse}
  * @see {@link GetServiceNetworkCommandInput} for command's `input` shape.
  * @see {@link GetServiceNetworkCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

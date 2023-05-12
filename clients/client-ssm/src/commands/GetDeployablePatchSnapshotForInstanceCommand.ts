@@ -123,8 +123,8 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  *
  * ```
  *
- * @param GetDeployablePatchSnapshotForInstanceCommandInput - {@link GetDeployablePatchSnapshotForInstanceCommandInput}
- * @returns {@link GetDeployablePatchSnapshotForInstanceCommandOutput}
+ * @param GetDeployablePatchSnapshotForInstanceRequest - {@link GetDeployablePatchSnapshotForInstanceRequest}
+ * @returns {@link GetDeployablePatchSnapshotForInstanceResult}
  * @see {@link GetDeployablePatchSnapshotForInstanceCommandInput} for command's `input` shape.
  * @see {@link GetDeployablePatchSnapshotForInstanceCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

@@ -81,8 +81,8 @@ export interface DisassociateResolverQueryLogConfigCommandOutput
  *
  * ```
  *
- * @param DisassociateResolverQueryLogConfigCommandInput - {@link DisassociateResolverQueryLogConfigCommandInput}
- * @returns {@link DisassociateResolverQueryLogConfigCommandOutput}
+ * @param DisassociateResolverQueryLogConfigRequest - {@link DisassociateResolverQueryLogConfigRequest}
+ * @returns {@link DisassociateResolverQueryLogConfigResponse}
  * @see {@link DisassociateResolverQueryLogConfigCommandInput} for command's `input` shape.
  * @see {@link DisassociateResolverQueryLogConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

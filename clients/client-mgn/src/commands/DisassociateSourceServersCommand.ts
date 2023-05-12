@@ -51,8 +51,8 @@ export interface DisassociateSourceServersCommandOutput extends DisassociateSour
  *
  * ```
  *
- * @param DisassociateSourceServersCommandInput - {@link DisassociateSourceServersCommandInput}
- * @returns {@link DisassociateSourceServersCommandOutput}
+ * @param DisassociateSourceServersRequest - {@link DisassociateSourceServersRequest}
+ * @returns {@link DisassociateSourceServersResponse}
  * @see {@link DisassociateSourceServersCommandInput} for command's `input` shape.
  * @see {@link DisassociateSourceServersCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

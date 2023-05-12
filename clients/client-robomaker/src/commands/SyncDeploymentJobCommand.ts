@@ -86,8 +86,8 @@ export interface SyncDeploymentJobCommandOutput extends SyncDeploymentJobRespons
  *
  * ```
  *
- * @param SyncDeploymentJobCommandInput - {@link SyncDeploymentJobCommandInput}
- * @returns {@link SyncDeploymentJobCommandOutput}
+ * @param SyncDeploymentJobRequest - {@link SyncDeploymentJobRequest}
+ * @returns {@link SyncDeploymentJobResponse}
  * @see {@link SyncDeploymentJobCommandInput} for command's `input` shape.
  * @see {@link SyncDeploymentJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

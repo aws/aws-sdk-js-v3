@@ -81,8 +81,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  *
  * ```
  *
- * @param UpdateClusterCommandInput - {@link UpdateClusterCommandInput}
- * @returns {@link UpdateClusterCommandOutput}
+ * @param UpdateClusterInput - {@link UpdateClusterInput}
+ * @returns {@link UpdateClusterOutput}
  * @see {@link UpdateClusterCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.

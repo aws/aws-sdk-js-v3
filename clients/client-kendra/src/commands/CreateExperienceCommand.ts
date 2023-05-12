@@ -71,8 +71,8 @@ export interface CreateExperienceCommandOutput extends CreateExperienceResponse,
  *
  * ```
  *
- * @param CreateExperienceCommandInput - {@link CreateExperienceCommandInput}
- * @returns {@link CreateExperienceCommandOutput}
+ * @param CreateExperienceRequest - {@link CreateExperienceRequest}
+ * @returns {@link CreateExperienceResponse}
  * @see {@link CreateExperienceCommandInput} for command's `input` shape.
  * @see {@link CreateExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

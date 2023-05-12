@@ -51,8 +51,8 @@ export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __Metadat
  *
  * ```
  *
- * @param DeleteFacetCommandInput - {@link DeleteFacetCommandInput}
- * @returns {@link DeleteFacetCommandOutput}
+ * @param DeleteFacetRequest - {@link DeleteFacetRequest}
+ * @returns {@link DeleteFacetResponse}
  * @see {@link DeleteFacetCommandInput} for command's `input` shape.
  * @see {@link DeleteFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

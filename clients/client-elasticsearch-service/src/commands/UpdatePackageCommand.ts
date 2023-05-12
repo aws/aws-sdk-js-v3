@@ -73,8 +73,8 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  *
  * ```
  *
- * @param UpdatePackageCommandInput - {@link UpdatePackageCommandInput}
- * @returns {@link UpdatePackageCommandOutput}
+ * @param UpdatePackageRequest - {@link UpdatePackageRequest}
+ * @returns {@link UpdatePackageResponse}
  * @see {@link UpdatePackageCommandInput} for command's `input` shape.
  * @see {@link UpdatePackageCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

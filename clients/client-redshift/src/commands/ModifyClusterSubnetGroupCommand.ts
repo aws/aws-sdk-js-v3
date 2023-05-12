@@ -80,8 +80,8 @@ export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubn
  *
  * ```
  *
- * @param ModifyClusterSubnetGroupCommandInput - {@link ModifyClusterSubnetGroupCommandInput}
- * @returns {@link ModifyClusterSubnetGroupCommandOutput}
+ * @param ModifyClusterSubnetGroupMessage - {@link ModifyClusterSubnetGroupMessage}
+ * @returns {@link ModifyClusterSubnetGroupResult}
  * @see {@link ModifyClusterSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

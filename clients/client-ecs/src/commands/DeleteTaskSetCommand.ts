@@ -117,8 +117,8 @@ export interface DeleteTaskSetCommandOutput extends DeleteTaskSetResponse, __Met
  *
  * ```
  *
- * @param DeleteTaskSetCommandInput - {@link DeleteTaskSetCommandInput}
- * @returns {@link DeleteTaskSetCommandOutput}
+ * @param DeleteTaskSetRequest - {@link DeleteTaskSetRequest}
+ * @returns {@link DeleteTaskSetResponse}
  * @see {@link DeleteTaskSetCommandInput} for command's `input` shape.
  * @see {@link DeleteTaskSetCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

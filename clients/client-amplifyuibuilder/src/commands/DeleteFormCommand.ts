@@ -50,8 +50,8 @@ export interface DeleteFormCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteFormCommandInput - {@link DeleteFormCommandInput}
- * @returns {@link DeleteFormCommandOutput}
+ * @param DeleteFormRequest - {@link DeleteFormRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteFormCommandInput} for command's `input` shape.
  * @see {@link DeleteFormCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

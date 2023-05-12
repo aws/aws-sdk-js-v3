@@ -64,8 +64,8 @@ export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesRespons
  *
  * ```
  *
- * @param ListGroupPoliciesCommandInput - {@link ListGroupPoliciesCommandInput}
- * @returns {@link ListGroupPoliciesCommandOutput}
+ * @param ListGroupPoliciesRequest - {@link ListGroupPoliciesRequest}
+ * @returns {@link ListGroupPoliciesResponse}
  * @see {@link ListGroupPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListGroupPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

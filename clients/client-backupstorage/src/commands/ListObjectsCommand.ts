@@ -66,8 +66,8 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  *
  * ```
  *
- * @param ListObjectsCommandInput - {@link ListObjectsCommandInput}
- * @returns {@link ListObjectsCommandOutput}
+ * @param ListObjectsInput - {@link ListObjectsInput}
+ * @returns {@link ListObjectsOutput}
  * @see {@link ListObjectsCommandInput} for command's `input` shape.
  * @see {@link ListObjectsCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.

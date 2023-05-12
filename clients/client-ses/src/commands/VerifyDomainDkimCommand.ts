@@ -90,8 +90,8 @@ export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse,
  *
  * ```
  *
- * @param VerifyDomainDkimCommandInput - {@link VerifyDomainDkimCommandInput}
- * @returns {@link VerifyDomainDkimCommandOutput}
+ * @param VerifyDomainDkimRequest - {@link VerifyDomainDkimRequest}
+ * @returns {@link VerifyDomainDkimResponse}
  * @see {@link VerifyDomainDkimCommandInput} for command's `input` shape.
  * @see {@link VerifyDomainDkimCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

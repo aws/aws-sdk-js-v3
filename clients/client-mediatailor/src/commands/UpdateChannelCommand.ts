@@ -98,8 +98,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *
  * ```
  *
- * @param UpdateChannelCommandInput - {@link UpdateChannelCommandInput}
- * @returns {@link UpdateChannelCommandOutput}
+ * @param UpdateChannelRequest - {@link UpdateChannelRequest}
+ * @returns {@link UpdateChannelResponse}
  * @see {@link UpdateChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

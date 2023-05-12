@@ -49,8 +49,8 @@ export interface DeleteRetentionPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRetentionPolicyCommandInput - {@link DeleteRetentionPolicyCommandInput}
- * @returns {@link DeleteRetentionPolicyCommandOutput}
+ * @param DeleteRetentionPolicyRequest - {@link DeleteRetentionPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRetentionPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRetentionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

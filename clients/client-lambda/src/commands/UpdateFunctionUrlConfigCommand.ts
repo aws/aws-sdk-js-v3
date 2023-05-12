@@ -90,8 +90,8 @@ export interface UpdateFunctionUrlConfigCommandOutput extends UpdateFunctionUrlC
  *
  * ```
  *
- * @param UpdateFunctionUrlConfigCommandInput - {@link UpdateFunctionUrlConfigCommandInput}
- * @returns {@link UpdateFunctionUrlConfigCommandOutput}
+ * @param UpdateFunctionUrlConfigRequest - {@link UpdateFunctionUrlConfigRequest}
+ * @returns {@link UpdateFunctionUrlConfigResponse}
  * @see {@link UpdateFunctionUrlConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionUrlConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

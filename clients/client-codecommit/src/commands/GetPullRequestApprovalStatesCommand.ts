@@ -62,8 +62,8 @@ export interface GetPullRequestApprovalStatesCommandOutput
  *
  * ```
  *
- * @param GetPullRequestApprovalStatesCommandInput - {@link GetPullRequestApprovalStatesCommandInput}
- * @returns {@link GetPullRequestApprovalStatesCommandOutput}
+ * @param GetPullRequestApprovalStatesInput - {@link GetPullRequestApprovalStatesInput}
+ * @returns {@link GetPullRequestApprovalStatesOutput}
  * @see {@link GetPullRequestApprovalStatesCommandInput} for command's `input` shape.
  * @see {@link GetPullRequestApprovalStatesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

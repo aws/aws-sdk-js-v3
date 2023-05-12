@@ -92,8 +92,8 @@ export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsO
  *
  * ```
  *
- * @param DescribeTargetGroupsCommandInput - {@link DescribeTargetGroupsCommandInput}
- * @returns {@link DescribeTargetGroupsCommandOutput}
+ * @param DescribeTargetGroupsInput - {@link DescribeTargetGroupsInput}
+ * @returns {@link DescribeTargetGroupsOutput}
  * @see {@link DescribeTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

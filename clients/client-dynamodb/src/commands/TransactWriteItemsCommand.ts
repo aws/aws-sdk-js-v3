@@ -307,8 +307,8 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *
  * ```
  *
- * @param TransactWriteItemsCommandInput - {@link TransactWriteItemsCommandInput}
- * @returns {@link TransactWriteItemsCommandOutput}
+ * @param TransactWriteItemsInput - {@link TransactWriteItemsInput}
+ * @returns {@link TransactWriteItemsOutput}
  * @see {@link TransactWriteItemsCommandInput} for command's `input` shape.
  * @see {@link TransactWriteItemsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

@@ -69,8 +69,8 @@ export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __
  *
  * ```
  *
- * @param DescribeClusterTracksCommandInput - {@link DescribeClusterTracksCommandInput}
- * @returns {@link DescribeClusterTracksCommandOutput}
+ * @param DescribeClusterTracksMessage - {@link DescribeClusterTracksMessage}
+ * @returns {@link TrackListMessage}
  * @see {@link DescribeClusterTracksCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterTracksCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

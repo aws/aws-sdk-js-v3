@@ -241,8 +241,8 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  *
  * ```
  *
- * @param GetReservationPurchaseRecommendationCommandInput - {@link GetReservationPurchaseRecommendationCommandInput}
- * @returns {@link GetReservationPurchaseRecommendationCommandOutput}
+ * @param GetReservationPurchaseRecommendationRequest - {@link GetReservationPurchaseRecommendationRequest}
+ * @returns {@link GetReservationPurchaseRecommendationResponse}
  * @see {@link GetReservationPurchaseRecommendationCommandInput} for command's `input` shape.
  * @see {@link GetReservationPurchaseRecommendationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

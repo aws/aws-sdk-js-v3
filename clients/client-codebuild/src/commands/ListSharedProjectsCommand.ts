@@ -56,8 +56,8 @@ export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutpu
  *
  * ```
  *
- * @param ListSharedProjectsCommandInput - {@link ListSharedProjectsCommandInput}
- * @returns {@link ListSharedProjectsCommandOutput}
+ * @param ListSharedProjectsInput - {@link ListSharedProjectsInput}
+ * @returns {@link ListSharedProjectsOutput}
  * @see {@link ListSharedProjectsCommandInput} for command's `input` shape.
  * @see {@link ListSharedProjectsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

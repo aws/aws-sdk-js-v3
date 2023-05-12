@@ -49,8 +49,8 @@ export interface DisableRegionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DisableRegionCommandInput - {@link DisableRegionCommandInput}
- * @returns {@link DisableRegionCommandOutput}
+ * @param DisableRegionRequest - {@link DisableRegionRequest}
+ * @returns {@link Unit}
  * @see {@link DisableRegionCommandInput} for command's `input` shape.
  * @see {@link DisableRegionCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.

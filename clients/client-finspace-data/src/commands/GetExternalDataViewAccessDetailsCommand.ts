@@ -77,8 +77,8 @@ export interface GetExternalDataViewAccessDetailsCommandOutput
  *
  * ```
  *
- * @param GetExternalDataViewAccessDetailsCommandInput - {@link GetExternalDataViewAccessDetailsCommandInput}
- * @returns {@link GetExternalDataViewAccessDetailsCommandOutput}
+ * @param GetExternalDataViewAccessDetailsRequest - {@link GetExternalDataViewAccessDetailsRequest}
+ * @returns {@link GetExternalDataViewAccessDetailsResponse}
  * @see {@link GetExternalDataViewAccessDetailsCommandInput} for command's `input` shape.
  * @see {@link GetExternalDataViewAccessDetailsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

@@ -100,8 +100,8 @@ export interface DescribeIpamPoolsCommandOutput extends DescribeIpamPoolsResult,
  *
  * ```
  *
- * @param DescribeIpamPoolsCommandInput - {@link DescribeIpamPoolsCommandInput}
- * @returns {@link DescribeIpamPoolsCommandOutput}
+ * @param DescribeIpamPoolsRequest - {@link DescribeIpamPoolsRequest}
+ * @returns {@link DescribeIpamPoolsResult}
  * @see {@link DescribeIpamPoolsCommandInput} for command's `input` shape.
  * @see {@link DescribeIpamPoolsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

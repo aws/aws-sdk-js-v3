@@ -48,8 +48,8 @@ export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteSnapshotScheduleCommandInput - {@link DeleteSnapshotScheduleCommandInput}
- * @returns {@link DeleteSnapshotScheduleCommandOutput}
+ * @param DeleteSnapshotScheduleMessage - {@link DeleteSnapshotScheduleMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

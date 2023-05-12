@@ -110,8 +110,8 @@ export interface ListLicensesCommandOutput extends ListLicensesResponse, __Metad
  *
  * ```
  *
- * @param ListLicensesCommandInput - {@link ListLicensesCommandInput}
- * @returns {@link ListLicensesCommandOutput}
+ * @param ListLicensesRequest - {@link ListLicensesRequest}
+ * @returns {@link ListLicensesResponse}
  * @see {@link ListLicensesCommandInput} for command's `input` shape.
  * @see {@link ListLicensesCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

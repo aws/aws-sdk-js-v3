@@ -59,8 +59,8 @@ export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extend
  *
  * ```
  *
- * @param AssociateApprovalRuleTemplateWithRepositoryCommandInput - {@link AssociateApprovalRuleTemplateWithRepositoryCommandInput}
- * @returns {@link AssociateApprovalRuleTemplateWithRepositoryCommandOutput}
+ * @param AssociateApprovalRuleTemplateWithRepositoryInput - {@link AssociateApprovalRuleTemplateWithRepositoryInput}
+ * @returns {@link Unit}
  * @see {@link AssociateApprovalRuleTemplateWithRepositoryCommandInput} for command's `input` shape.
  * @see {@link AssociateApprovalRuleTemplateWithRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

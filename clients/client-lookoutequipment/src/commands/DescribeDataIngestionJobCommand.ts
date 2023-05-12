@@ -101,8 +101,8 @@ export interface DescribeDataIngestionJobCommandOutput extends DescribeDataInges
  *
  * ```
  *
- * @param DescribeDataIngestionJobCommandInput - {@link DescribeDataIngestionJobCommandInput}
- * @returns {@link DescribeDataIngestionJobCommandOutput}
+ * @param DescribeDataIngestionJobRequest - {@link DescribeDataIngestionJobRequest}
+ * @returns {@link DescribeDataIngestionJobResponse}
  * @see {@link DescribeDataIngestionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDataIngestionJobCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

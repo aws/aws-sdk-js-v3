@@ -93,8 +93,8 @@ export interface ConvertRecoveryPointToSnapshotCommandOutput
  *
  * ```
  *
- * @param ConvertRecoveryPointToSnapshotCommandInput - {@link ConvertRecoveryPointToSnapshotCommandInput}
- * @returns {@link ConvertRecoveryPointToSnapshotCommandOutput}
+ * @param ConvertRecoveryPointToSnapshotRequest - {@link ConvertRecoveryPointToSnapshotRequest}
+ * @returns {@link ConvertRecoveryPointToSnapshotResponse}
  * @see {@link ConvertRecoveryPointToSnapshotCommandInput} for command's `input` shape.
  * @see {@link ConvertRecoveryPointToSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

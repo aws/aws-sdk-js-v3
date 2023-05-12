@@ -162,8 +162,8 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
  *
  * ```
  *
- * @param CreateMonitoringScheduleCommandInput - {@link CreateMonitoringScheduleCommandInput}
- * @returns {@link CreateMonitoringScheduleCommandOutput}
+ * @param CreateMonitoringScheduleRequest - {@link CreateMonitoringScheduleRequest}
+ * @returns {@link CreateMonitoringScheduleResponse}
  * @see {@link CreateMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link CreateMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

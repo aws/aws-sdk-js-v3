@@ -60,8 +60,8 @@ export interface CreateInvitationsCommandOutput extends CreateInvitationsRespons
  *
  * ```
  *
- * @param CreateInvitationsCommandInput - {@link CreateInvitationsCommandInput}
- * @returns {@link CreateInvitationsCommandOutput}
+ * @param CreateInvitationsRequest - {@link CreateInvitationsRequest}
+ * @returns {@link CreateInvitationsResponse}
  * @see {@link CreateInvitationsCommandInput} for command's `input` shape.
  * @see {@link CreateInvitationsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

@@ -89,8 +89,8 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  *
  * ```
  *
- * @param CreateConfigurationSetEventDestinationCommandInput - {@link CreateConfigurationSetEventDestinationCommandInput}
- * @returns {@link CreateConfigurationSetEventDestinationCommandOutput}
+ * @param CreateConfigurationSetEventDestinationRequest - {@link CreateConfigurationSetEventDestinationRequest}
+ * @returns {@link CreateConfigurationSetEventDestinationResponse}
  * @see {@link CreateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

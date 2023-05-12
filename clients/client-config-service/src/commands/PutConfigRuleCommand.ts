@@ -134,8 +134,8 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutConfigRuleCommandInput - {@link PutConfigRuleCommandInput}
- * @returns {@link PutConfigRuleCommandOutput}
+ * @param PutConfigRuleRequest - {@link PutConfigRuleRequest}
+ * @returns {@link Unit}
  * @see {@link PutConfigRuleCommandInput} for command's `input` shape.
  * @see {@link PutConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

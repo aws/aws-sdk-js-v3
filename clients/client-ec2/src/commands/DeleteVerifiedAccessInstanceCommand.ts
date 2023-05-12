@@ -74,8 +74,8 @@ export interface DeleteVerifiedAccessInstanceCommandOutput
  *
  * ```
  *
- * @param DeleteVerifiedAccessInstanceCommandInput - {@link DeleteVerifiedAccessInstanceCommandInput}
- * @returns {@link DeleteVerifiedAccessInstanceCommandOutput}
+ * @param DeleteVerifiedAccessInstanceRequest - {@link DeleteVerifiedAccessInstanceRequest}
+ * @returns {@link DeleteVerifiedAccessInstanceResult}
  * @see {@link DeleteVerifiedAccessInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteVerifiedAccessInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -64,8 +64,8 @@ export interface DescribeLoggingConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeLoggingConfigurationCommandInput - {@link DescribeLoggingConfigurationCommandInput}
- * @returns {@link DescribeLoggingConfigurationCommandOutput}
+ * @param DescribeLoggingConfigurationRequest - {@link DescribeLoggingConfigurationRequest}
+ * @returns {@link DescribeLoggingConfigurationResponse}
  * @see {@link DescribeLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeLoggingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.

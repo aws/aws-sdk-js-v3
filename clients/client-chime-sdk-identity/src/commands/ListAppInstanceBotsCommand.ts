@@ -65,8 +65,8 @@ export interface ListAppInstanceBotsCommandOutput extends ListAppInstanceBotsRes
  *
  * ```
  *
- * @param ListAppInstanceBotsCommandInput - {@link ListAppInstanceBotsCommandInput}
- * @returns {@link ListAppInstanceBotsCommandOutput}
+ * @param ListAppInstanceBotsRequest - {@link ListAppInstanceBotsRequest}
+ * @returns {@link ListAppInstanceBotsResponse}
  * @see {@link ListAppInstanceBotsCommandInput} for command's `input` shape.
  * @see {@link ListAppInstanceBotsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.

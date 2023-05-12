@@ -56,8 +56,8 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  *
  * ```
  *
- * @param DescribeGroupMembershipCommandInput - {@link DescribeGroupMembershipCommandInput}
- * @returns {@link DescribeGroupMembershipCommandOutput}
+ * @param DescribeGroupMembershipRequest - {@link DescribeGroupMembershipRequest}
+ * @returns {@link DescribeGroupMembershipResponse}
  * @see {@link DescribeGroupMembershipCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupMembershipCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.

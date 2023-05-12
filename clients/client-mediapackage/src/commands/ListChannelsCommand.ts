@@ -78,8 +78,8 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  *
  * ```
  *
- * @param ListChannelsCommandInput - {@link ListChannelsCommandInput}
- * @returns {@link ListChannelsCommandOutput}
+ * @param ListChannelsRequest - {@link ListChannelsRequest}
+ * @returns {@link ListChannelsResponse}
  * @see {@link ListChannelsCommandInput} for command's `input` shape.
  * @see {@link ListChannelsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.

@@ -51,8 +51,8 @@ export interface AssociateLambdaFunctionCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param AssociateLambdaFunctionCommandInput - {@link AssociateLambdaFunctionCommandInput}
- * @returns {@link AssociateLambdaFunctionCommandOutput}
+ * @param AssociateLambdaFunctionRequest - {@link AssociateLambdaFunctionRequest}
+ * @returns {@link Unit}
  * @see {@link AssociateLambdaFunctionCommandInput} for command's `input` shape.
  * @see {@link AssociateLambdaFunctionCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

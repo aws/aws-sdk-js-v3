@@ -52,8 +52,8 @@ export interface DeleteWorkspaceApiKeyCommandOutput extends DeleteWorkspaceApiKe
  *
  * ```
  *
- * @param DeleteWorkspaceApiKeyCommandInput - {@link DeleteWorkspaceApiKeyCommandInput}
- * @returns {@link DeleteWorkspaceApiKeyCommandOutput}
+ * @param DeleteWorkspaceApiKeyRequest - {@link DeleteWorkspaceApiKeyRequest}
+ * @returns {@link DeleteWorkspaceApiKeyResponse}
  * @see {@link DeleteWorkspaceApiKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceApiKeyCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.

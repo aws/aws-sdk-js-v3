@@ -177,8 +177,8 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  *
  * ```
  *
- * @param CreateDeploymentGroupCommandInput - {@link CreateDeploymentGroupCommandInput}
- * @returns {@link CreateDeploymentGroupCommandOutput}
+ * @param CreateDeploymentGroupInput - {@link CreateDeploymentGroupInput}
+ * @returns {@link CreateDeploymentGroupOutput}
  * @see {@link CreateDeploymentGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

@@ -246,8 +246,8 @@ export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse,
  *
  * ```
  *
- * @param GetMediaPipelineCommandInput - {@link GetMediaPipelineCommandInput}
- * @returns {@link GetMediaPipelineCommandOutput}
+ * @param GetMediaPipelineRequest - {@link GetMediaPipelineRequest}
+ * @returns {@link GetMediaPipelineResponse}
  * @see {@link GetMediaPipelineCommandInput} for command's `input` shape.
  * @see {@link GetMediaPipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.

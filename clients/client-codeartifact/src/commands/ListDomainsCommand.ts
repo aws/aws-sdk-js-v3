@@ -63,8 +63,8 @@ export interface ListDomainsCommandOutput extends ListDomainsResult, __MetadataB
  *
  * ```
  *
- * @param ListDomainsCommandInput - {@link ListDomainsCommandInput}
- * @returns {@link ListDomainsCommandOutput}
+ * @param ListDomainsRequest - {@link ListDomainsRequest}
+ * @returns {@link ListDomainsResult}
  * @see {@link ListDomainsCommandInput} for command's `input` shape.
  * @see {@link ListDomainsCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

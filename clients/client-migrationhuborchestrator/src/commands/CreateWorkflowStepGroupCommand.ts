@@ -78,8 +78,8 @@ export interface CreateWorkflowStepGroupCommandOutput extends CreateWorkflowStep
  *
  * ```
  *
- * @param CreateWorkflowStepGroupCommandInput - {@link CreateWorkflowStepGroupCommandInput}
- * @returns {@link CreateWorkflowStepGroupCommandOutput}
+ * @param CreateWorkflowStepGroupRequest - {@link CreateWorkflowStepGroupRequest}
+ * @returns {@link CreateWorkflowStepGroupResponse}
  * @see {@link CreateWorkflowStepGroupCommandInput} for command's `input` shape.
  * @see {@link CreateWorkflowStepGroupCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

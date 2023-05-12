@@ -53,8 +53,8 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopTransformJobCommandInput - {@link StopTransformJobCommandInput}
- * @returns {@link StopTransformJobCommandOutput}
+ * @param StopTransformJobRequest - {@link StopTransformJobRequest}
+ * @returns {@link Unit}
  * @see {@link StopTransformJobCommandInput} for command's `input` shape.
  * @see {@link StopTransformJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

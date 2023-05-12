@@ -110,8 +110,8 @@ export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfig
  *
  * ```
  *
- * @param GetResourceConfigHistoryCommandInput - {@link GetResourceConfigHistoryCommandInput}
- * @returns {@link GetResourceConfigHistoryCommandOutput}
+ * @param GetResourceConfigHistoryRequest - {@link GetResourceConfigHistoryRequest}
+ * @returns {@link GetResourceConfigHistoryResponse}
  * @see {@link GetResourceConfigHistoryCommandInput} for command's `input` shape.
  * @see {@link GetResourceConfigHistoryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

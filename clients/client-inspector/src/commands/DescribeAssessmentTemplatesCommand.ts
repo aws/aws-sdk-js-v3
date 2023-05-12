@@ -80,8 +80,8 @@ export interface DescribeAssessmentTemplatesCommandOutput
  *
  * ```
  *
- * @param DescribeAssessmentTemplatesCommandInput - {@link DescribeAssessmentTemplatesCommandInput}
- * @returns {@link DescribeAssessmentTemplatesCommandOutput}
+ * @param DescribeAssessmentTemplatesRequest - {@link DescribeAssessmentTemplatesRequest}
+ * @returns {@link DescribeAssessmentTemplatesResponse}
  * @see {@link DescribeAssessmentTemplatesCommandInput} for command's `input` shape.
  * @see {@link DescribeAssessmentTemplatesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

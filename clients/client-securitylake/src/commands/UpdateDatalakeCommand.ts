@@ -66,8 +66,8 @@ export interface UpdateDatalakeCommandOutput extends UpdateDatalakeResponse, __M
  *
  * ```
  *
- * @param UpdateDatalakeCommandInput - {@link UpdateDatalakeCommandInput}
- * @returns {@link UpdateDatalakeCommandOutput}
+ * @param UpdateDatalakeRequest - {@link UpdateDatalakeRequest}
+ * @returns {@link UpdateDatalakeResponse}
  * @see {@link UpdateDatalakeCommandInput} for command's `input` shape.
  * @see {@link UpdateDatalakeCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

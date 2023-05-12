@@ -62,8 +62,8 @@ export interface ListLegalHoldsCommandOutput extends ListLegalHoldsOutput, __Met
  *
  * ```
  *
- * @param ListLegalHoldsCommandInput - {@link ListLegalHoldsCommandInput}
- * @returns {@link ListLegalHoldsCommandOutput}
+ * @param ListLegalHoldsInput - {@link ListLegalHoldsInput}
+ * @returns {@link ListLegalHoldsOutput}
  * @see {@link ListLegalHoldsCommandInput} for command's `input` shape.
  * @see {@link ListLegalHoldsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

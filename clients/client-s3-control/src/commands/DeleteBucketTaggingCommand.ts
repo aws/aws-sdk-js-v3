@@ -72,8 +72,8 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteBucketTaggingCommandInput - {@link DeleteBucketTaggingCommandInput}
- * @returns {@link DeleteBucketTaggingCommandOutput}
+ * @param DeleteBucketTaggingRequest - {@link DeleteBucketTaggingRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteBucketTaggingCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

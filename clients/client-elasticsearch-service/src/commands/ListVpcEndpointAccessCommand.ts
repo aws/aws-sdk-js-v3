@@ -62,8 +62,8 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  *
  * ```
  *
- * @param ListVpcEndpointAccessCommandInput - {@link ListVpcEndpointAccessCommandInput}
- * @returns {@link ListVpcEndpointAccessCommandOutput}
+ * @param ListVpcEndpointAccessRequest - {@link ListVpcEndpointAccessRequest}
+ * @returns {@link ListVpcEndpointAccessResponse}
  * @see {@link ListVpcEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link ListVpcEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

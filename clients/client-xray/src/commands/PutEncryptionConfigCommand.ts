@@ -55,8 +55,8 @@ export interface PutEncryptionConfigCommandOutput extends PutEncryptionConfigRes
  *
  * ```
  *
- * @param PutEncryptionConfigCommandInput - {@link PutEncryptionConfigCommandInput}
- * @returns {@link PutEncryptionConfigCommandOutput}
+ * @param PutEncryptionConfigRequest - {@link PutEncryptionConfigRequest}
+ * @returns {@link PutEncryptionConfigResult}
  * @see {@link PutEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link PutEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

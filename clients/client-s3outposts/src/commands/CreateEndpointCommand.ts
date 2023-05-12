@@ -71,8 +71,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResult, __Met
  *
  * ```
  *
- * @param CreateEndpointCommandInput - {@link CreateEndpointCommandInput}
- * @returns {@link CreateEndpointCommandOutput}
+ * @param CreateEndpointRequest - {@link CreateEndpointRequest}
+ * @returns {@link CreateEndpointResult}
  * @see {@link CreateEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateEndpointCommandOutput} for command's `response` shape.
  * @see {@link S3OutpostsClientResolvedConfig | config} for S3OutpostsClient's `config` shape.

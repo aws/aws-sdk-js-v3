@@ -144,8 +144,8 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
  *
  * ```
  *
- * @param DescribeTrustedAdvisorCheckResultCommandInput - {@link DescribeTrustedAdvisorCheckResultCommandInput}
- * @returns {@link DescribeTrustedAdvisorCheckResultCommandOutput}
+ * @param DescribeTrustedAdvisorCheckResultRequest - {@link DescribeTrustedAdvisorCheckResultRequest}
+ * @returns {@link DescribeTrustedAdvisorCheckResultResponse}
  * @see {@link DescribeTrustedAdvisorCheckResultCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustedAdvisorCheckResultCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.

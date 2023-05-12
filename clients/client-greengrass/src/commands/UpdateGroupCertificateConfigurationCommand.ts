@@ -61,8 +61,8 @@ export interface UpdateGroupCertificateConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateGroupCertificateConfigurationCommandInput - {@link UpdateGroupCertificateConfigurationCommandInput}
- * @returns {@link UpdateGroupCertificateConfigurationCommandOutput}
+ * @param UpdateGroupCertificateConfigurationRequest - {@link UpdateGroupCertificateConfigurationRequest}
+ * @returns {@link UpdateGroupCertificateConfigurationResponse}
  * @see {@link UpdateGroupCertificateConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCertificateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

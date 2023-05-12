@@ -98,8 +98,8 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
  *
  * ```
  *
- * @param DescribeTaskExecutionCommandInput - {@link DescribeTaskExecutionCommandInput}
- * @returns {@link DescribeTaskExecutionCommandOutput}
+ * @param DescribeTaskExecutionRequest - {@link DescribeTaskExecutionRequest}
+ * @returns {@link DescribeTaskExecutionResponse}
  * @see {@link DescribeTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeTaskExecutionCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

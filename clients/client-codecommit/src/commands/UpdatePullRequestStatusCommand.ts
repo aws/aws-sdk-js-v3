@@ -92,8 +92,8 @@ export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestS
  *
  * ```
  *
- * @param UpdatePullRequestStatusCommandInput - {@link UpdatePullRequestStatusCommandInput}
- * @returns {@link UpdatePullRequestStatusCommandOutput}
+ * @param UpdatePullRequestStatusInput - {@link UpdatePullRequestStatusInput}
+ * @returns {@link UpdatePullRequestStatusOutput}
  * @see {@link UpdatePullRequestStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePullRequestStatusCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

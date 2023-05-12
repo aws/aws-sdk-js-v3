@@ -55,8 +55,8 @@ export interface DeregisterWebhookWithThirdPartyCommandOutput
  *
  * ```
  *
- * @param DeregisterWebhookWithThirdPartyCommandInput - {@link DeregisterWebhookWithThirdPartyCommandInput}
- * @returns {@link DeregisterWebhookWithThirdPartyCommandOutput}
+ * @param DeregisterWebhookWithThirdPartyInput - {@link DeregisterWebhookWithThirdPartyInput}
+ * @returns {@link DeregisterWebhookWithThirdPartyOutput}
  * @see {@link DeregisterWebhookWithThirdPartyCommandInput} for command's `input` shape.
  * @see {@link DeregisterWebhookWithThirdPartyCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

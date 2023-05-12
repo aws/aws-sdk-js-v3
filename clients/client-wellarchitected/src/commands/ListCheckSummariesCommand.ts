@@ -73,8 +73,8 @@ export interface ListCheckSummariesCommandOutput extends ListCheckSummariesOutpu
  *
  * ```
  *
- * @param ListCheckSummariesCommandInput - {@link ListCheckSummariesCommandInput}
- * @returns {@link ListCheckSummariesCommandOutput}
+ * @param ListCheckSummariesInput - {@link ListCheckSummariesInput}
+ * @returns {@link ListCheckSummariesOutput}
  * @see {@link ListCheckSummariesCommandInput} for command's `input` shape.
  * @see {@link ListCheckSummariesCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

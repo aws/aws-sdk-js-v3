@@ -57,8 +57,8 @@ export interface CreateAliasCommandOutput extends CreateAliasResult, __MetadataB
  *
  * ```
  *
- * @param CreateAliasCommandInput - {@link CreateAliasCommandInput}
- * @returns {@link CreateAliasCommandOutput}
+ * @param CreateAliasRequest - {@link CreateAliasRequest}
+ * @returns {@link CreateAliasResult}
  * @see {@link CreateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

@@ -72,8 +72,8 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
  *
  * ```
  *
- * @param DescribeFargateProfileCommandInput - {@link DescribeFargateProfileCommandInput}
- * @returns {@link DescribeFargateProfileCommandOutput}
+ * @param DescribeFargateProfileRequest - {@link DescribeFargateProfileRequest}
+ * @returns {@link DescribeFargateProfileResponse}
  * @see {@link DescribeFargateProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeFargateProfileCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

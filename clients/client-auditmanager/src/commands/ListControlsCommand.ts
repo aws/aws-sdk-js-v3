@@ -62,8 +62,8 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  *
  * ```
  *
- * @param ListControlsCommandInput - {@link ListControlsCommandInput}
- * @returns {@link ListControlsCommandOutput}
+ * @param ListControlsRequest - {@link ListControlsRequest}
+ * @returns {@link ListControlsResponse}
  * @see {@link ListControlsCommandInput} for command's `input` shape.
  * @see {@link ListControlsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

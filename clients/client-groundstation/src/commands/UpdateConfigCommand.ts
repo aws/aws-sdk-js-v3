@@ -120,8 +120,8 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  *
  * ```
  *
- * @param UpdateConfigCommandInput - {@link UpdateConfigCommandInput}
- * @returns {@link UpdateConfigCommandOutput}
+ * @param UpdateConfigRequest - {@link UpdateConfigRequest}
+ * @returns {@link ConfigIdResponse}
  * @see {@link UpdateConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

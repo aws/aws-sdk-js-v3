@@ -135,8 +135,8 @@ export interface BatchUpdatePartitionCommandOutput extends BatchUpdatePartitionR
  *
  * ```
  *
- * @param BatchUpdatePartitionCommandInput - {@link BatchUpdatePartitionCommandInput}
- * @returns {@link BatchUpdatePartitionCommandOutput}
+ * @param BatchUpdatePartitionRequest - {@link BatchUpdatePartitionRequest}
+ * @returns {@link BatchUpdatePartitionResponse}
  * @see {@link BatchUpdatePartitionCommandInput} for command's `input` shape.
  * @see {@link BatchUpdatePartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

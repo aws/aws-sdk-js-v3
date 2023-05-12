@@ -78,8 +78,8 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  *
  * ```
  *
- * @param StartFleetActionsCommandInput - {@link StartFleetActionsCommandInput}
- * @returns {@link StartFleetActionsCommandOutput}
+ * @param StartFleetActionsInput - {@link StartFleetActionsInput}
+ * @returns {@link StartFleetActionsOutput}
  * @see {@link StartFleetActionsCommandInput} for command's `input` shape.
  * @see {@link StartFleetActionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

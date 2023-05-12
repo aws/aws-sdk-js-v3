@@ -58,8 +58,8 @@ export interface StartContinuousExportCommandOutput extends StartContinuousExpor
  *
  * ```
  *
- * @param StartContinuousExportCommandInput - {@link StartContinuousExportCommandInput}
- * @returns {@link StartContinuousExportCommandOutput}
+ * @param StartContinuousExportRequest - {@link StartContinuousExportRequest}
+ * @returns {@link StartContinuousExportResponse}
  * @see {@link StartContinuousExportCommandInput} for command's `input` shape.
  * @see {@link StartContinuousExportCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

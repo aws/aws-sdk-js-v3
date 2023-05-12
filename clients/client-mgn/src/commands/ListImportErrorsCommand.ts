@@ -66,8 +66,8 @@ export interface ListImportErrorsCommandOutput extends ListImportErrorsResponse,
  *
  * ```
  *
- * @param ListImportErrorsCommandInput - {@link ListImportErrorsCommandInput}
- * @returns {@link ListImportErrorsCommandOutput}
+ * @param ListImportErrorsRequest - {@link ListImportErrorsRequest}
+ * @returns {@link ListImportErrorsResponse}
  * @see {@link ListImportErrorsCommandInput} for command's `input` shape.
  * @see {@link ListImportErrorsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

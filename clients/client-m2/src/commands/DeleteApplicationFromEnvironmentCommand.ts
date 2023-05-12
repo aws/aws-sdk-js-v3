@@ -57,8 +57,8 @@ export interface DeleteApplicationFromEnvironmentCommandOutput
  *
  * ```
  *
- * @param DeleteApplicationFromEnvironmentCommandInput - {@link DeleteApplicationFromEnvironmentCommandInput}
- * @returns {@link DeleteApplicationFromEnvironmentCommandOutput}
+ * @param DeleteApplicationFromEnvironmentRequest - {@link DeleteApplicationFromEnvironmentRequest}
+ * @returns {@link DeleteApplicationFromEnvironmentResponse}
  * @see {@link DeleteApplicationFromEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationFromEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

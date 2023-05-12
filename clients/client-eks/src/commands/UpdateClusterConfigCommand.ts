@@ -121,8 +121,8 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *
  * ```
  *
- * @param UpdateClusterConfigCommandInput - {@link UpdateClusterConfigCommandInput}
- * @returns {@link UpdateClusterConfigCommandOutput}
+ * @param UpdateClusterConfigRequest - {@link UpdateClusterConfigRequest}
+ * @returns {@link UpdateClusterConfigResponse}
  * @see {@link UpdateClusterConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

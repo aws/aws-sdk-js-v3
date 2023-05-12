@@ -67,8 +67,8 @@ export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderRes
  *
  * ```
  *
- * @param GetPhoneNumberOrderCommandInput - {@link GetPhoneNumberOrderCommandInput}
- * @returns {@link GetPhoneNumberOrderCommandOutput}
+ * @param GetPhoneNumberOrderRequest - {@link GetPhoneNumberOrderRequest}
+ * @returns {@link GetPhoneNumberOrderResponse}
  * @see {@link GetPhoneNumberOrderCommandInput} for command's `input` shape.
  * @see {@link GetPhoneNumberOrderCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

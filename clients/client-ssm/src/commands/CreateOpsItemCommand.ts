@@ -89,8 +89,8 @@ export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __Met
  *
  * ```
  *
- * @param CreateOpsItemCommandInput - {@link CreateOpsItemCommandInput}
- * @returns {@link CreateOpsItemCommandOutput}
+ * @param CreateOpsItemRequest - {@link CreateOpsItemRequest}
+ * @returns {@link CreateOpsItemResponse}
  * @see {@link CreateOpsItemCommandInput} for command's `input` shape.
  * @see {@link CreateOpsItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

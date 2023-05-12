@@ -73,8 +73,8 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  *
  * ```
  *
- * @param ListVolumesCommandInput - {@link ListVolumesCommandInput}
- * @returns {@link ListVolumesCommandOutput}
+ * @param ListVolumesInput - {@link ListVolumesInput}
+ * @returns {@link ListVolumesOutput}
  * @see {@link ListVolumesCommandInput} for command's `input` shape.
  * @see {@link ListVolumesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

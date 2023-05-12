@@ -54,8 +54,8 @@ export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __Met
  *
  * ```
  *
- * @param CreateNotebookCommandInput - {@link CreateNotebookCommandInput}
- * @returns {@link CreateNotebookCommandOutput}
+ * @param CreateNotebookInput - {@link CreateNotebookInput}
+ * @returns {@link CreateNotebookOutput}
  * @see {@link CreateNotebookCommandInput} for command's `input` shape.
  * @see {@link CreateNotebookCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

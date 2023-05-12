@@ -53,8 +53,8 @@ export interface DeleteProfileObjectCommandOutput extends DeleteProfileObjectRes
  *
  * ```
  *
- * @param DeleteProfileObjectCommandInput - {@link DeleteProfileObjectCommandInput}
- * @returns {@link DeleteProfileObjectCommandOutput}
+ * @param DeleteProfileObjectRequest - {@link DeleteProfileObjectRequest}
+ * @returns {@link DeleteProfileObjectResponse}
  * @see {@link DeleteProfileObjectCommandInput} for command's `input` shape.
  * @see {@link DeleteProfileObjectCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

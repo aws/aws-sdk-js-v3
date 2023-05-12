@@ -459,8 +459,8 @@ export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ReplaceTopicRuleCommandInput - {@link ReplaceTopicRuleCommandInput}
- * @returns {@link ReplaceTopicRuleCommandOutput}
+ * @param ReplaceTopicRuleRequest - {@link ReplaceTopicRuleRequest}
+ * @returns {@link Unit}
  * @see {@link ReplaceTopicRuleCommandInput} for command's `input` shape.
  * @see {@link ReplaceTopicRuleCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -58,8 +58,8 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsRespo
  *
  * ```
  *
- * @param ListEngineVersionsCommandInput - {@link ListEngineVersionsCommandInput}
- * @returns {@link ListEngineVersionsCommandOutput}
+ * @param ListEngineVersionsRequest - {@link ListEngineVersionsRequest}
+ * @returns {@link ListEngineVersionsResponse}
  * @see {@link ListEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link ListEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

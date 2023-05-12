@@ -55,8 +55,8 @@ export interface DeleteContinuousDeploymentPolicyCommandOutput extends __Metadat
  *
  * ```
  *
- * @param DeleteContinuousDeploymentPolicyCommandInput - {@link DeleteContinuousDeploymentPolicyCommandInput}
- * @returns {@link DeleteContinuousDeploymentPolicyCommandOutput}
+ * @param DeleteContinuousDeploymentPolicyRequest - {@link DeleteContinuousDeploymentPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteContinuousDeploymentPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

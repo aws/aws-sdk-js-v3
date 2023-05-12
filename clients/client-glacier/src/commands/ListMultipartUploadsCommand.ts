@@ -87,8 +87,8 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  *
  * ```
  *
- * @param ListMultipartUploadsCommandInput - {@link ListMultipartUploadsCommandInput}
- * @returns {@link ListMultipartUploadsCommandOutput}
+ * @param ListMultipartUploadsInput - {@link ListMultipartUploadsInput}
+ * @returns {@link ListMultipartUploadsOutput}
  * @see {@link ListMultipartUploadsCommandInput} for command's `input` shape.
  * @see {@link ListMultipartUploadsCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

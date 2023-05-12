@@ -53,8 +53,8 @@ export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param CreateVpnConnectionRouteCommandInput - {@link CreateVpnConnectionRouteCommandInput}
- * @returns {@link CreateVpnConnectionRouteCommandOutput}
+ * @param CreateVpnConnectionRouteRequest - {@link CreateVpnConnectionRouteRequest}
+ * @returns {@link Unit}
  * @see {@link CreateVpnConnectionRouteCommandInput} for command's `input` shape.
  * @see {@link CreateVpnConnectionRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

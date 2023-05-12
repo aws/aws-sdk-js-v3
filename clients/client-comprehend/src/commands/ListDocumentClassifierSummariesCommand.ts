@@ -65,8 +65,8 @@ export interface ListDocumentClassifierSummariesCommandOutput
  *
  * ```
  *
- * @param ListDocumentClassifierSummariesCommandInput - {@link ListDocumentClassifierSummariesCommandInput}
- * @returns {@link ListDocumentClassifierSummariesCommandOutput}
+ * @param ListDocumentClassifierSummariesRequest - {@link ListDocumentClassifierSummariesRequest}
+ * @returns {@link ListDocumentClassifierSummariesResponse}
  * @see {@link ListDocumentClassifierSummariesCommandInput} for command's `input` shape.
  * @see {@link ListDocumentClassifierSummariesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

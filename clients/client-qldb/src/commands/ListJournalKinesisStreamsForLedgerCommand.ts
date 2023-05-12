@@ -84,8 +84,8 @@ export interface ListJournalKinesisStreamsForLedgerCommandOutput
  *
  * ```
  *
- * @param ListJournalKinesisStreamsForLedgerCommandInput - {@link ListJournalKinesisStreamsForLedgerCommandInput}
- * @returns {@link ListJournalKinesisStreamsForLedgerCommandOutput}
+ * @param ListJournalKinesisStreamsForLedgerRequest - {@link ListJournalKinesisStreamsForLedgerRequest}
+ * @returns {@link ListJournalKinesisStreamsForLedgerResponse}
  * @see {@link ListJournalKinesisStreamsForLedgerCommandInput} for command's `input` shape.
  * @see {@link ListJournalKinesisStreamsForLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.

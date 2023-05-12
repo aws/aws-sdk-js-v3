@@ -72,8 +72,8 @@ export interface GetMigrationsCommandOutput extends GetMigrationsResponse, __Met
  *
  * ```
  *
- * @param GetMigrationsCommandInput - {@link GetMigrationsCommandInput}
- * @returns {@link GetMigrationsCommandOutput}
+ * @param GetMigrationsRequest - {@link GetMigrationsRequest}
+ * @returns {@link GetMigrationsResponse}
  * @see {@link GetMigrationsCommandInput} for command's `input` shape.
  * @see {@link GetMigrationsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

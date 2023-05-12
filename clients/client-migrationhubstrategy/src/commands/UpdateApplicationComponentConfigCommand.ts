@@ -79,8 +79,8 @@ export interface UpdateApplicationComponentConfigCommandOutput
  *
  * ```
  *
- * @param UpdateApplicationComponentConfigCommandInput - {@link UpdateApplicationComponentConfigCommandInput}
- * @returns {@link UpdateApplicationComponentConfigCommandOutput}
+ * @param UpdateApplicationComponentConfigRequest - {@link UpdateApplicationComponentConfigRequest}
+ * @returns {@link UpdateApplicationComponentConfigResponse}
  * @see {@link UpdateApplicationComponentConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationComponentConfigCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

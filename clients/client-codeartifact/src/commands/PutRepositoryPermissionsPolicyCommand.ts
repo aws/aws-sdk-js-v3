@@ -70,8 +70,8 @@ export interface PutRepositoryPermissionsPolicyCommandOutput
  *
  * ```
  *
- * @param PutRepositoryPermissionsPolicyCommandInput - {@link PutRepositoryPermissionsPolicyCommandInput}
- * @returns {@link PutRepositoryPermissionsPolicyCommandOutput}
+ * @param PutRepositoryPermissionsPolicyRequest - {@link PutRepositoryPermissionsPolicyRequest}
+ * @returns {@link PutRepositoryPermissionsPolicyResult}
  * @see {@link PutRepositoryPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link PutRepositoryPermissionsPolicyCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

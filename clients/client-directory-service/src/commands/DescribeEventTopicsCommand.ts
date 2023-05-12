@@ -64,8 +64,8 @@ export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsRes
  *
  * ```
  *
- * @param DescribeEventTopicsCommandInput - {@link DescribeEventTopicsCommandInput}
- * @returns {@link DescribeEventTopicsCommandOutput}
+ * @param DescribeEventTopicsRequest - {@link DescribeEventTopicsRequest}
+ * @returns {@link DescribeEventTopicsResult}
  * @see {@link DescribeEventTopicsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventTopicsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

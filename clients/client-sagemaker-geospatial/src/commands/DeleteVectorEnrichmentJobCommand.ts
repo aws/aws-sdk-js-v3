@@ -52,8 +52,8 @@ export interface DeleteVectorEnrichmentJobCommandOutput extends DeleteVectorEnri
  *
  * ```
  *
- * @param DeleteVectorEnrichmentJobCommandInput - {@link DeleteVectorEnrichmentJobCommandInput}
- * @returns {@link DeleteVectorEnrichmentJobCommandOutput}
+ * @param DeleteVectorEnrichmentJobInput - {@link DeleteVectorEnrichmentJobInput}
+ * @returns {@link DeleteVectorEnrichmentJobOutput}
  * @see {@link DeleteVectorEnrichmentJobCommandInput} for command's `input` shape.
  * @see {@link DeleteVectorEnrichmentJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.

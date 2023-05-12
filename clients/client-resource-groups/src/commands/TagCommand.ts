@@ -74,8 +74,8 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param TagCommandInput - {@link TagCommandInput}
- * @returns {@link TagCommandOutput}
+ * @param TagInput - {@link TagInput}
+ * @returns {@link TagOutput}
  * @see {@link TagCommandInput} for command's `input` shape.
  * @see {@link TagCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

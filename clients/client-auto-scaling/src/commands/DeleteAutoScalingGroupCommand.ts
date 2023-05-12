@@ -63,8 +63,8 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAutoScalingGroupCommandInput - {@link DeleteAutoScalingGroupCommandInput}
- * @returns {@link DeleteAutoScalingGroupCommandOutput}
+ * @param DeleteAutoScalingGroupType - {@link DeleteAutoScalingGroupType}
+ * @returns {@link Unit}
  * @see {@link DeleteAutoScalingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

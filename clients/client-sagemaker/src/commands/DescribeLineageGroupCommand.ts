@@ -77,8 +77,8 @@ export interface DescribeLineageGroupCommandOutput extends DescribeLineageGroupR
  *
  * ```
  *
- * @param DescribeLineageGroupCommandInput - {@link DescribeLineageGroupCommandInput}
- * @returns {@link DescribeLineageGroupCommandOutput}
+ * @param DescribeLineageGroupRequest - {@link DescribeLineageGroupRequest}
+ * @returns {@link DescribeLineageGroupResponse}
  * @see {@link DescribeLineageGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeLineageGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

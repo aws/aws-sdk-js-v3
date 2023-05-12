@@ -69,8 +69,8 @@ export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssig
  *
  * ```
  *
- * @param DeleteAccountAssignmentCommandInput - {@link DeleteAccountAssignmentCommandInput}
- * @returns {@link DeleteAccountAssignmentCommandOutput}
+ * @param DeleteAccountAssignmentRequest - {@link DeleteAccountAssignmentRequest}
+ * @returns {@link DeleteAccountAssignmentResponse}
  * @see {@link DeleteAccountAssignmentCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountAssignmentCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

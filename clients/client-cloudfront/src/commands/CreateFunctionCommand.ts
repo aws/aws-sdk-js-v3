@@ -84,8 +84,8 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  *
  * ```
  *
- * @param CreateFunctionCommandInput - {@link CreateFunctionCommandInput}
- * @returns {@link CreateFunctionCommandOutput}
+ * @param CreateFunctionRequest - {@link CreateFunctionRequest}
+ * @returns {@link CreateFunctionResult}
  * @see {@link CreateFunctionCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

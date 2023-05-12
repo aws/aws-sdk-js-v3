@@ -70,8 +70,8 @@ export interface DeleteIpamResourceDiscoveryCommandOutput extends DeleteIpamReso
  *
  * ```
  *
- * @param DeleteIpamResourceDiscoveryCommandInput - {@link DeleteIpamResourceDiscoveryCommandInput}
- * @returns {@link DeleteIpamResourceDiscoveryCommandOutput}
+ * @param DeleteIpamResourceDiscoveryRequest - {@link DeleteIpamResourceDiscoveryRequest}
+ * @returns {@link DeleteIpamResourceDiscoveryResult}
  * @see {@link DeleteIpamResourceDiscoveryCommandInput} for command's `input` shape.
  * @see {@link DeleteIpamResourceDiscoveryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

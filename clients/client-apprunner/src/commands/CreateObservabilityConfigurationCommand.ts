@@ -83,8 +83,8 @@ export interface CreateObservabilityConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateObservabilityConfigurationCommandInput - {@link CreateObservabilityConfigurationCommandInput}
- * @returns {@link CreateObservabilityConfigurationCommandOutput}
+ * @param CreateObservabilityConfigurationRequest - {@link CreateObservabilityConfigurationRequest}
+ * @returns {@link CreateObservabilityConfigurationResponse}
  * @see {@link CreateObservabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateObservabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

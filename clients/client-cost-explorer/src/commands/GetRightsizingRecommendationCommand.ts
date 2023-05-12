@@ -271,8 +271,8 @@ export interface GetRightsizingRecommendationCommandOutput
  *
  * ```
  *
- * @param GetRightsizingRecommendationCommandInput - {@link GetRightsizingRecommendationCommandInput}
- * @returns {@link GetRightsizingRecommendationCommandOutput}
+ * @param GetRightsizingRecommendationRequest - {@link GetRightsizingRecommendationRequest}
+ * @returns {@link GetRightsizingRecommendationResponse}
  * @see {@link GetRightsizingRecommendationCommandInput} for command's `input` shape.
  * @see {@link GetRightsizingRecommendationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

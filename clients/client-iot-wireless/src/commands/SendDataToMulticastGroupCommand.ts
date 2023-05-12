@@ -56,8 +56,8 @@ export interface SendDataToMulticastGroupCommandOutput extends SendDataToMultica
  *
  * ```
  *
- * @param SendDataToMulticastGroupCommandInput - {@link SendDataToMulticastGroupCommandInput}
- * @returns {@link SendDataToMulticastGroupCommandOutput}
+ * @param SendDataToMulticastGroupRequest - {@link SendDataToMulticastGroupRequest}
+ * @returns {@link SendDataToMulticastGroupResponse}
  * @see {@link SendDataToMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link SendDataToMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

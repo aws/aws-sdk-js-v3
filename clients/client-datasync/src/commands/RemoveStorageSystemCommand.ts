@@ -49,8 +49,8 @@ export interface RemoveStorageSystemCommandOutput extends RemoveStorageSystemRes
  *
  * ```
  *
- * @param RemoveStorageSystemCommandInput - {@link RemoveStorageSystemCommandInput}
- * @returns {@link RemoveStorageSystemCommandOutput}
+ * @param RemoveStorageSystemRequest - {@link RemoveStorageSystemRequest}
+ * @returns {@link RemoveStorageSystemResponse}
  * @see {@link RemoveStorageSystemCommandInput} for command's `input` shape.
  * @see {@link RemoveStorageSystemCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

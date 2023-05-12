@@ -78,8 +78,8 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  *
  * ```
  *
- * @param EnterStandbyCommandInput - {@link EnterStandbyCommandInput}
- * @returns {@link EnterStandbyCommandOutput}
+ * @param EnterStandbyQuery - {@link EnterStandbyQuery}
+ * @returns {@link EnterStandbyAnswer}
  * @see {@link EnterStandbyCommandInput} for command's `input` shape.
  * @see {@link EnterStandbyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

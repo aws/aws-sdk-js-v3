@@ -52,8 +52,8 @@ export interface UntagInstanceProfileCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UntagInstanceProfileCommandInput - {@link UntagInstanceProfileCommandInput}
- * @returns {@link UntagInstanceProfileCommandOutput}
+ * @param UntagInstanceProfileRequest - {@link UntagInstanceProfileRequest}
+ * @returns {@link Unit}
  * @see {@link UntagInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link UntagInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

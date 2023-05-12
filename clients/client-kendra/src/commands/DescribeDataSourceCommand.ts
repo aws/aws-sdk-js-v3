@@ -615,8 +615,8 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  *
  * ```
  *
- * @param DescribeDataSourceCommandInput - {@link DescribeDataSourceCommandInput}
- * @returns {@link DescribeDataSourceCommandOutput}
+ * @param DescribeDataSourceRequest - {@link DescribeDataSourceRequest}
+ * @returns {@link DescribeDataSourceResponse}
  * @see {@link DescribeDataSourceCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSourceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

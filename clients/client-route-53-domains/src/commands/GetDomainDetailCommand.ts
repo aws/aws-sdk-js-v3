@@ -156,8 +156,8 @@ export interface GetDomainDetailCommandOutput extends GetDomainDetailResponse, _
  *
  * ```
  *
- * @param GetDomainDetailCommandInput - {@link GetDomainDetailCommandInput}
- * @returns {@link GetDomainDetailCommandOutput}
+ * @param GetDomainDetailRequest - {@link GetDomainDetailRequest}
+ * @returns {@link GetDomainDetailResponse}
  * @see {@link GetDomainDetailCommandInput} for command's `input` shape.
  * @see {@link GetDomainDetailCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

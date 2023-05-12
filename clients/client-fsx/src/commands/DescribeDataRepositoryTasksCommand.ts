@@ -112,8 +112,8 @@ export interface DescribeDataRepositoryTasksCommandOutput
  *
  * ```
  *
- * @param DescribeDataRepositoryTasksCommandInput - {@link DescribeDataRepositoryTasksCommandInput}
- * @returns {@link DescribeDataRepositoryTasksCommandOutput}
+ * @param DescribeDataRepositoryTasksRequest - {@link DescribeDataRepositoryTasksRequest}
+ * @returns {@link DescribeDataRepositoryTasksResponse}
  * @see {@link DescribeDataRepositoryTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeDataRepositoryTasksCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

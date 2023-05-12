@@ -52,8 +52,8 @@ export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBeare
  *
  * ```
  *
- * @param EnableSsoCommandInput - {@link EnableSsoCommandInput}
- * @returns {@link EnableSsoCommandOutput}
+ * @param EnableSsoRequest - {@link EnableSsoRequest}
+ * @returns {@link EnableSsoResult}
  * @see {@link EnableSsoCommandInput} for command's `input` shape.
  * @see {@link EnableSsoCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

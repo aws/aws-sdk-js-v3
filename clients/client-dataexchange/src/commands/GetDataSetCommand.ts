@@ -64,8 +64,8 @@ export interface GetDataSetCommandOutput extends GetDataSetResponse, __MetadataB
  *
  * ```
  *
- * @param GetDataSetCommandInput - {@link GetDataSetCommandInput}
- * @returns {@link GetDataSetCommandOutput}
+ * @param GetDataSetRequest - {@link GetDataSetRequest}
+ * @returns {@link GetDataSetResponse}
  * @see {@link GetDataSetCommandInput} for command's `input` shape.
  * @see {@link GetDataSetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

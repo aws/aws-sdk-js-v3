@@ -71,8 +71,8 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutDeliveryChannelCommandInput - {@link PutDeliveryChannelCommandInput}
- * @returns {@link PutDeliveryChannelCommandOutput}
+ * @param PutDeliveryChannelRequest - {@link PutDeliveryChannelRequest}
+ * @returns {@link Unit}
  * @see {@link PutDeliveryChannelCommandInput} for command's `input` shape.
  * @see {@link PutDeliveryChannelCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

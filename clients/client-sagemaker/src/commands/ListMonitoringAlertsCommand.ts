@@ -67,8 +67,8 @@ export interface ListMonitoringAlertsCommandOutput extends ListMonitoringAlertsR
  *
  * ```
  *
- * @param ListMonitoringAlertsCommandInput - {@link ListMonitoringAlertsCommandInput}
- * @returns {@link ListMonitoringAlertsCommandOutput}
+ * @param ListMonitoringAlertsRequest - {@link ListMonitoringAlertsRequest}
+ * @returns {@link ListMonitoringAlertsResponse}
  * @see {@link ListMonitoringAlertsCommandInput} for command's `input` shape.
  * @see {@link ListMonitoringAlertsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

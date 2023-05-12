@@ -48,8 +48,8 @@ export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterR
  *
  * ```
  *
- * @param DeleteFindingsFilterCommandInput - {@link DeleteFindingsFilterCommandInput}
- * @returns {@link DeleteFindingsFilterCommandOutput}
+ * @param DeleteFindingsFilterRequest - {@link DeleteFindingsFilterRequest}
+ * @returns {@link DeleteFindingsFilterResponse}
  * @see {@link DeleteFindingsFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteFindingsFilterCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

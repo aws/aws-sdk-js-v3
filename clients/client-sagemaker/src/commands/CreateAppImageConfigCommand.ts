@@ -71,8 +71,8 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  *
  * ```
  *
- * @param CreateAppImageConfigCommandInput - {@link CreateAppImageConfigCommandInput}
- * @returns {@link CreateAppImageConfigCommandOutput}
+ * @param CreateAppImageConfigRequest - {@link CreateAppImageConfigRequest}
+ * @returns {@link CreateAppImageConfigResponse}
  * @see {@link CreateAppImageConfigCommandInput} for command's `input` shape.
  * @see {@link CreateAppImageConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

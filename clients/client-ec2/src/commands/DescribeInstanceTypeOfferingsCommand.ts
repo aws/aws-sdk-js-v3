@@ -71,8 +71,8 @@ export interface DescribeInstanceTypeOfferingsCommandOutput
  *
  * ```
  *
- * @param DescribeInstanceTypeOfferingsCommandInput - {@link DescribeInstanceTypeOfferingsCommandInput}
- * @returns {@link DescribeInstanceTypeOfferingsCommandOutput}
+ * @param DescribeInstanceTypeOfferingsRequest - {@link DescribeInstanceTypeOfferingsRequest}
+ * @returns {@link DescribeInstanceTypeOfferingsResult}
  * @see {@link DescribeInstanceTypeOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceTypeOfferingsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

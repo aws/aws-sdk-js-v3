@@ -54,8 +54,8 @@ export interface PutComponentPolicyCommandOutput extends PutComponentPolicyRespo
  *
  * ```
  *
- * @param PutComponentPolicyCommandInput - {@link PutComponentPolicyCommandInput}
- * @returns {@link PutComponentPolicyCommandOutput}
+ * @param PutComponentPolicyRequest - {@link PutComponentPolicyRequest}
+ * @returns {@link PutComponentPolicyResponse}
  * @see {@link PutComponentPolicyCommandInput} for command's `input` shape.
  * @see {@link PutComponentPolicyCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

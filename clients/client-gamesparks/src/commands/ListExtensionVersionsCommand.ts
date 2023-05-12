@@ -65,8 +65,8 @@ export interface ListExtensionVersionsCommandOutput extends ListExtensionVersion
  *
  * ```
  *
- * @param ListExtensionVersionsCommandInput - {@link ListExtensionVersionsCommandInput}
- * @returns {@link ListExtensionVersionsCommandOutput}
+ * @param ListExtensionVersionsRequest - {@link ListExtensionVersionsRequest}
+ * @returns {@link ListExtensionVersionsResult}
  * @see {@link ListExtensionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListExtensionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

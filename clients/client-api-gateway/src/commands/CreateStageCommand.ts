@@ -114,8 +114,8 @@ export interface CreateStageCommandOutput extends Stage, __MetadataBearer {}
  *
  * ```
  *
- * @param CreateStageCommandInput - {@link CreateStageCommandInput}
- * @returns {@link CreateStageCommandOutput}
+ * @param CreateStageRequest - {@link CreateStageRequest}
+ * @returns {@link Stage}
  * @see {@link CreateStageCommandInput} for command's `input` shape.
  * @see {@link CreateStageCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

@@ -66,8 +66,8 @@ export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
  *
  * ```
  *
- * @param CancelDomainTransferToAnotherAwsAccountCommandInput - {@link CancelDomainTransferToAnotherAwsAccountCommandInput}
- * @returns {@link CancelDomainTransferToAnotherAwsAccountCommandOutput}
+ * @param CancelDomainTransferToAnotherAwsAccountRequest - {@link CancelDomainTransferToAnotherAwsAccountRequest}
+ * @returns {@link CancelDomainTransferToAnotherAwsAccountResponse}
  * @see {@link CancelDomainTransferToAnotherAwsAccountCommandInput} for command's `input` shape.
  * @see {@link CancelDomainTransferToAnotherAwsAccountCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

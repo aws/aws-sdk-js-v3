@@ -97,8 +97,8 @@ export interface StopInstancesCommandOutput extends StopInstancesResult, __Metad
  *
  * ```
  *
- * @param StopInstancesCommandInput - {@link StopInstancesCommandInput}
- * @returns {@link StopInstancesCommandOutput}
+ * @param StopInstancesRequest - {@link StopInstancesRequest}
+ * @returns {@link StopInstancesResult}
  * @see {@link StopInstancesCommandInput} for command's `input` shape.
  * @see {@link StopInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

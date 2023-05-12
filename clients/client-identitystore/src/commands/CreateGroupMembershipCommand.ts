@@ -55,8 +55,8 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  *
  * ```
  *
- * @param CreateGroupMembershipCommandInput - {@link CreateGroupMembershipCommandInput}
- * @returns {@link CreateGroupMembershipCommandOutput}
+ * @param CreateGroupMembershipRequest - {@link CreateGroupMembershipRequest}
+ * @returns {@link CreateGroupMembershipResponse}
  * @see {@link CreateGroupMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateGroupMembershipCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.

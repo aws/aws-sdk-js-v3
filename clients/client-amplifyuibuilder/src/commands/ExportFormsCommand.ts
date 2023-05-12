@@ -211,8 +211,8 @@ export interface ExportFormsCommandOutput extends ExportFormsResponse, __Metadat
  *
  * ```
  *
- * @param ExportFormsCommandInput - {@link ExportFormsCommandInput}
- * @returns {@link ExportFormsCommandOutput}
+ * @param ExportFormsRequest - {@link ExportFormsRequest}
+ * @returns {@link ExportFormsResponse}
  * @see {@link ExportFormsCommandInput} for command's `input` shape.
  * @see {@link ExportFormsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

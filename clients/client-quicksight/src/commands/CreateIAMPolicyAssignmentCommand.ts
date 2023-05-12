@@ -73,8 +73,8 @@ export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyA
  *
  * ```
  *
- * @param CreateIAMPolicyAssignmentCommandInput - {@link CreateIAMPolicyAssignmentCommandInput}
- * @returns {@link CreateIAMPolicyAssignmentCommandOutput}
+ * @param CreateIAMPolicyAssignmentRequest - {@link CreateIAMPolicyAssignmentRequest}
+ * @returns {@link CreateIAMPolicyAssignmentResponse}
  * @see {@link CreateIAMPolicyAssignmentCommandInput} for command's `input` shape.
  * @see {@link CreateIAMPolicyAssignmentCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

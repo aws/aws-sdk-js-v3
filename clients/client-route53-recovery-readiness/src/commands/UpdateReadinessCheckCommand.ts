@@ -60,8 +60,8 @@ export interface UpdateReadinessCheckCommandOutput extends UpdateReadinessCheckR
  *
  * ```
  *
- * @param UpdateReadinessCheckCommandInput - {@link UpdateReadinessCheckCommandInput}
- * @returns {@link UpdateReadinessCheckCommandOutput}
+ * @param UpdateReadinessCheckRequest - {@link UpdateReadinessCheckRequest}
+ * @returns {@link UpdateReadinessCheckResponse}
  * @see {@link UpdateReadinessCheckCommandInput} for command's `input` shape.
  * @see {@link UpdateReadinessCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

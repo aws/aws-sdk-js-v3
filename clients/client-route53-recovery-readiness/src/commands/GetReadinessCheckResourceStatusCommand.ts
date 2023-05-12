@@ -75,8 +75,8 @@ export interface GetReadinessCheckResourceStatusCommandOutput
  *
  * ```
  *
- * @param GetReadinessCheckResourceStatusCommandInput - {@link GetReadinessCheckResourceStatusCommandInput}
- * @returns {@link GetReadinessCheckResourceStatusCommandOutput}
+ * @param GetReadinessCheckResourceStatusRequest - {@link GetReadinessCheckResourceStatusRequest}
+ * @returns {@link GetReadinessCheckResourceStatusResponse}
  * @see {@link GetReadinessCheckResourceStatusCommandInput} for command's `input` shape.
  * @see {@link GetReadinessCheckResourceStatusCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

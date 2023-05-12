@@ -51,8 +51,8 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  *
  * ```
  *
- * @param CreateReceiptRuleSetCommandInput - {@link CreateReceiptRuleSetCommandInput}
- * @returns {@link CreateReceiptRuleSetCommandOutput}
+ * @param CreateReceiptRuleSetRequest - {@link CreateReceiptRuleSetRequest}
+ * @returns {@link CreateReceiptRuleSetResponse}
  * @see {@link CreateReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link CreateReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

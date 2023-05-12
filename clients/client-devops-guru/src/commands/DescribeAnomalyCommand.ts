@@ -300,8 +300,8 @@ export interface DescribeAnomalyCommandOutput extends DescribeAnomalyResponse, _
  *
  * ```
  *
- * @param DescribeAnomalyCommandInput - {@link DescribeAnomalyCommandInput}
- * @returns {@link DescribeAnomalyCommandOutput}
+ * @param DescribeAnomalyRequest - {@link DescribeAnomalyRequest}
+ * @returns {@link DescribeAnomalyResponse}
  * @see {@link DescribeAnomalyCommandInput} for command's `input` shape.
  * @see {@link DescribeAnomalyCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

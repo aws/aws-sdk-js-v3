@@ -71,8 +71,8 @@ export interface GetRouteCommandOutput extends GetRouteResult, __MetadataBearer 
  *
  * ```
  *
- * @param GetRouteCommandInput - {@link GetRouteCommandInput}
- * @returns {@link GetRouteCommandOutput}
+ * @param GetRouteRequest - {@link GetRouteRequest}
+ * @returns {@link GetRouteResult}
  * @see {@link GetRouteCommandInput} for command's `input` shape.
  * @see {@link GetRouteCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

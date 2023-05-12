@@ -79,8 +79,8 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  *
  * ```
  *
- * @param DeleteDeviceCommandInput - {@link DeleteDeviceCommandInput}
- * @returns {@link DeleteDeviceCommandOutput}
+ * @param DeleteDeviceRequest - {@link DeleteDeviceRequest}
+ * @returns {@link DeleteDeviceResponse}
  * @see {@link DeleteDeviceCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

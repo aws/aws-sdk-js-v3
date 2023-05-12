@@ -49,8 +49,8 @@ export interface GetRegistryPolicyCommandOutput extends GetRegistryPolicyRespons
  *
  * ```
  *
- * @param GetRegistryPolicyCommandInput - {@link GetRegistryPolicyCommandInput}
- * @returns {@link GetRegistryPolicyCommandOutput}
+ * @param GetRegistryPolicyRequest - {@link GetRegistryPolicyRequest}
+ * @returns {@link GetRegistryPolicyResponse}
  * @see {@link GetRegistryPolicyCommandInput} for command's `input` shape.
  * @see {@link GetRegistryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

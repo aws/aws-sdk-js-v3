@@ -51,8 +51,8 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  *
  * ```
  *
- * @param StartFlowCommandInput - {@link StartFlowCommandInput}
- * @returns {@link StartFlowCommandOutput}
+ * @param StartFlowRequest - {@link StartFlowRequest}
+ * @returns {@link StartFlowResponse}
  * @see {@link StartFlowCommandInput} for command's `input` shape.
  * @see {@link StartFlowCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

@@ -95,8 +95,8 @@ export interface DescribeNetworkInsightsAccessScopeAnalysesCommandOutput
  *
  * ```
  *
- * @param DescribeNetworkInsightsAccessScopeAnalysesCommandInput - {@link DescribeNetworkInsightsAccessScopeAnalysesCommandInput}
- * @returns {@link DescribeNetworkInsightsAccessScopeAnalysesCommandOutput}
+ * @param DescribeNetworkInsightsAccessScopeAnalysesRequest - {@link DescribeNetworkInsightsAccessScopeAnalysesRequest}
+ * @returns {@link DescribeNetworkInsightsAccessScopeAnalysesResult}
  * @see {@link DescribeNetworkInsightsAccessScopeAnalysesCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInsightsAccessScopeAnalysesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

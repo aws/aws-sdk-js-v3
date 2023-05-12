@@ -81,8 +81,8 @@ export interface SetLoadBasedAutoScalingCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param SetLoadBasedAutoScalingCommandInput - {@link SetLoadBasedAutoScalingCommandInput}
- * @returns {@link SetLoadBasedAutoScalingCommandOutput}
+ * @param SetLoadBasedAutoScalingRequest - {@link SetLoadBasedAutoScalingRequest}
+ * @returns {@link Unit}
  * @see {@link SetLoadBasedAutoScalingCommandInput} for command's `input` shape.
  * @see {@link SetLoadBasedAutoScalingCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

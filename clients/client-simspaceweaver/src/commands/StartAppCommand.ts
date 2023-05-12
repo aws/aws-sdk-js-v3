@@ -61,8 +61,8 @@ export interface StartAppCommandOutput extends StartAppOutput, __MetadataBearer 
  *
  * ```
  *
- * @param StartAppCommandInput - {@link StartAppCommandInput}
- * @returns {@link StartAppCommandOutput}
+ * @param StartAppInput - {@link StartAppInput}
+ * @returns {@link StartAppOutput}
  * @see {@link StartAppCommandInput} for command's `input` shape.
  * @see {@link StartAppCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.

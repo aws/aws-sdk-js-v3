@@ -76,8 +76,8 @@ export interface ListVectorEnrichmentJobsCommandOutput extends ListVectorEnrichm
  *
  * ```
  *
- * @param ListVectorEnrichmentJobsCommandInput - {@link ListVectorEnrichmentJobsCommandInput}
- * @returns {@link ListVectorEnrichmentJobsCommandOutput}
+ * @param ListVectorEnrichmentJobInput - {@link ListVectorEnrichmentJobInput}
+ * @returns {@link ListVectorEnrichmentJobOutput}
  * @see {@link ListVectorEnrichmentJobsCommandInput} for command's `input` shape.
  * @see {@link ListVectorEnrichmentJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.

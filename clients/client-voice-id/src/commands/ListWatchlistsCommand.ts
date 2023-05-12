@@ -67,8 +67,8 @@ export interface ListWatchlistsCommandOutput extends ListWatchlistsResponse, __M
  *
  * ```
  *
- * @param ListWatchlistsCommandInput - {@link ListWatchlistsCommandInput}
- * @returns {@link ListWatchlistsCommandOutput}
+ * @param ListWatchlistsRequest - {@link ListWatchlistsRequest}
+ * @returns {@link ListWatchlistsResponse}
  * @see {@link ListWatchlistsCommandInput} for command's `input` shape.
  * @see {@link ListWatchlistsCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

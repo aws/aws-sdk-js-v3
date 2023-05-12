@@ -77,8 +77,8 @@ export interface DescribeBudgetNotificationsForAccountCommandOutput
  *
  * ```
  *
- * @param DescribeBudgetNotificationsForAccountCommandInput - {@link DescribeBudgetNotificationsForAccountCommandInput}
- * @returns {@link DescribeBudgetNotificationsForAccountCommandOutput}
+ * @param DescribeBudgetNotificationsForAccountRequest - {@link DescribeBudgetNotificationsForAccountRequest}
+ * @returns {@link DescribeBudgetNotificationsForAccountResponse}
  * @see {@link DescribeBudgetNotificationsForAccountCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetNotificationsForAccountCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

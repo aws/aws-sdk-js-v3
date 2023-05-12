@@ -85,8 +85,8 @@ export interface UpdateStackCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateStackCommandInput - {@link UpdateStackCommandInput}
- * @returns {@link UpdateStackCommandOutput}
+ * @param UpdateStackRequest - {@link UpdateStackRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateStackCommandInput} for command's `input` shape.
  * @see {@link UpdateStackCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

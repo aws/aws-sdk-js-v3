@@ -53,8 +53,8 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  *
  * ```
  *
- * @param DeleteOrganizationCommandInput - {@link DeleteOrganizationCommandInput}
- * @returns {@link DeleteOrganizationCommandOutput}
+ * @param DeleteOrganizationRequest - {@link DeleteOrganizationRequest}
+ * @returns {@link DeleteOrganizationResponse}
  * @see {@link DeleteOrganizationCommandInput} for command's `input` shape.
  * @see {@link DeleteOrganizationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

@@ -396,8 +396,8 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *
  * ```
  *
- * @param RestoreObjectCommandInput - {@link RestoreObjectCommandInput}
- * @returns {@link RestoreObjectCommandOutput}
+ * @param RestoreObjectRequest - {@link RestoreObjectRequest}
+ * @returns {@link RestoreObjectOutput}
  * @see {@link RestoreObjectCommandInput} for command's `input` shape.
  * @see {@link RestoreObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

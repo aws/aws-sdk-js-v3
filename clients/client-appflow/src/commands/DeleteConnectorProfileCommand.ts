@@ -49,8 +49,8 @@ export interface DeleteConnectorProfileCommandOutput extends DeleteConnectorProf
  *
  * ```
  *
- * @param DeleteConnectorProfileCommandInput - {@link DeleteConnectorProfileCommandInput}
- * @returns {@link DeleteConnectorProfileCommandOutput}
+ * @param DeleteConnectorProfileRequest - {@link DeleteConnectorProfileRequest}
+ * @returns {@link DeleteConnectorProfileResponse}
  * @see {@link DeleteConnectorProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectorProfileCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.

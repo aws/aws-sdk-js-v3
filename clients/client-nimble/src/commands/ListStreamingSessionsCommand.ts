@@ -91,8 +91,8 @@ export interface ListStreamingSessionsCommandOutput extends ListStreamingSession
  *
  * ```
  *
- * @param ListStreamingSessionsCommandInput - {@link ListStreamingSessionsCommandInput}
- * @returns {@link ListStreamingSessionsCommandOutput}
+ * @param ListStreamingSessionsRequest - {@link ListStreamingSessionsRequest}
+ * @returns {@link ListStreamingSessionsResponse}
  * @see {@link ListStreamingSessionsCommandInput} for command's `input` shape.
  * @see {@link ListStreamingSessionsCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

@@ -72,8 +72,8 @@ export interface DescribeProvisionedProductCommandOutput extends DescribeProvisi
  *
  * ```
  *
- * @param DescribeProvisionedProductCommandInput - {@link DescribeProvisionedProductCommandInput}
- * @returns {@link DescribeProvisionedProductCommandOutput}
+ * @param DescribeProvisionedProductInput - {@link DescribeProvisionedProductInput}
+ * @returns {@link DescribeProvisionedProductOutput}
  * @see {@link DescribeProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisionedProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

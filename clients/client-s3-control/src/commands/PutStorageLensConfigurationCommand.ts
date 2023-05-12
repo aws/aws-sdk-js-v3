@@ -142,8 +142,8 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param PutStorageLensConfigurationCommandInput - {@link PutStorageLensConfigurationCommandInput}
- * @returns {@link PutStorageLensConfigurationCommandOutput}
+ * @param PutStorageLensConfigurationRequest - {@link PutStorageLensConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link PutStorageLensConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutStorageLensConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

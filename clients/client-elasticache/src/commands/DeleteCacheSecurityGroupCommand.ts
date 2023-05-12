@@ -51,8 +51,8 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DeleteCacheSecurityGroupCommandInput - {@link DeleteCacheSecurityGroupCommandInput}
- * @returns {@link DeleteCacheSecurityGroupCommandOutput}
+ * @param DeleteCacheSecurityGroupMessage - {@link DeleteCacheSecurityGroupMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteCacheSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteCacheSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

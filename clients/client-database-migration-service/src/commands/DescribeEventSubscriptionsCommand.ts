@@ -86,8 +86,8 @@ export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSu
  *
  * ```
  *
- * @param DescribeEventSubscriptionsCommandInput - {@link DescribeEventSubscriptionsCommandInput}
- * @returns {@link DescribeEventSubscriptionsCommandOutput}
+ * @param DescribeEventSubscriptionsMessage - {@link DescribeEventSubscriptionsMessage}
+ * @returns {@link DescribeEventSubscriptionsResponse}
  * @see {@link DescribeEventSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

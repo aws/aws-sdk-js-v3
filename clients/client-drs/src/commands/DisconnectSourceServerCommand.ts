@@ -148,8 +148,8 @@ export interface DisconnectSourceServerCommandOutput extends SourceServer, __Met
  *
  * ```
  *
- * @param DisconnectSourceServerCommandInput - {@link DisconnectSourceServerCommandInput}
- * @returns {@link DisconnectSourceServerCommandOutput}
+ * @param DisconnectSourceServerRequest - {@link DisconnectSourceServerRequest}
+ * @returns {@link SourceServer}
  * @see {@link DisconnectSourceServerCommandInput} for command's `input` shape.
  * @see {@link DisconnectSourceServerCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

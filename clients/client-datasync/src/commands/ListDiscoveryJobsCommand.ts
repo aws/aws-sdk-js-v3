@@ -59,8 +59,8 @@ export interface ListDiscoveryJobsCommandOutput extends ListDiscoveryJobsRespons
  *
  * ```
  *
- * @param ListDiscoveryJobsCommandInput - {@link ListDiscoveryJobsCommandInput}
- * @returns {@link ListDiscoveryJobsCommandOutput}
+ * @param ListDiscoveryJobsRequest - {@link ListDiscoveryJobsRequest}
+ * @returns {@link ListDiscoveryJobsResponse}
  * @see {@link ListDiscoveryJobsCommandInput} for command's `input` shape.
  * @see {@link ListDiscoveryJobsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

@@ -64,8 +64,8 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  *
  * ```
  *
- * @param GetExportCommandInput - {@link GetExportCommandInput}
- * @returns {@link GetExportCommandOutput}
+ * @param GetExportRequest - {@link GetExportRequest}
+ * @returns {@link GetExportResponse}
  * @see {@link GetExportCommandInput} for command's `input` shape.
  * @see {@link GetExportCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

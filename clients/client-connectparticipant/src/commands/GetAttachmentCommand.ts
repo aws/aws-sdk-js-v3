@@ -64,8 +64,8 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  *
  * ```
  *
- * @param GetAttachmentCommandInput - {@link GetAttachmentCommandInput}
- * @returns {@link GetAttachmentCommandOutput}
+ * @param GetAttachmentRequest - {@link GetAttachmentRequest}
+ * @returns {@link GetAttachmentResponse}
  * @see {@link GetAttachmentCommandInput} for command's `input` shape.
  * @see {@link GetAttachmentCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.

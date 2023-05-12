@@ -49,8 +49,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  *
  * ```
  *
- * @param DeleteEnvironmentCommandInput - {@link DeleteEnvironmentCommandInput}
- * @returns {@link DeleteEnvironmentCommandOutput}
+ * @param DeleteEnvironmentRequest - {@link DeleteEnvironmentRequest}
+ * @returns {@link DeleteEnvironmentResponse}
  * @see {@link DeleteEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

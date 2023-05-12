@@ -62,8 +62,8 @@ export interface CreateEventIntegrationCommandOutput extends CreateEventIntegrat
  *
  * ```
  *
- * @param CreateEventIntegrationCommandInput - {@link CreateEventIntegrationCommandInput}
- * @returns {@link CreateEventIntegrationCommandOutput}
+ * @param CreateEventIntegrationRequest - {@link CreateEventIntegrationRequest}
+ * @returns {@link CreateEventIntegrationResponse}
  * @see {@link CreateEventIntegrationCommandInput} for command's `input` shape.
  * @see {@link CreateEventIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.

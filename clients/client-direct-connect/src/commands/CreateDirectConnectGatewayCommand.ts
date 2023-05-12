@@ -63,8 +63,8 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  *
  * ```
  *
- * @param CreateDirectConnectGatewayCommandInput - {@link CreateDirectConnectGatewayCommandInput}
- * @returns {@link CreateDirectConnectGatewayCommandOutput}
+ * @param CreateDirectConnectGatewayRequest - {@link CreateDirectConnectGatewayRequest}
+ * @returns {@link CreateDirectConnectGatewayResult}
  * @see {@link CreateDirectConnectGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateDirectConnectGatewayCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

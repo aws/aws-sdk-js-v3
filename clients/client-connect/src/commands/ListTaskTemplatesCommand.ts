@@ -65,8 +65,8 @@ export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesRespons
  *
  * ```
  *
- * @param ListTaskTemplatesCommandInput - {@link ListTaskTemplatesCommandInput}
- * @returns {@link ListTaskTemplatesCommandOutput}
+ * @param ListTaskTemplatesRequest - {@link ListTaskTemplatesRequest}
+ * @returns {@link ListTaskTemplatesResponse}
  * @see {@link ListTaskTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListTaskTemplatesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

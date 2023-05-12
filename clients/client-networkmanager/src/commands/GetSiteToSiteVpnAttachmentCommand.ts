@@ -82,8 +82,8 @@ export interface GetSiteToSiteVpnAttachmentCommandOutput extends GetSiteToSiteVp
  *
  * ```
  *
- * @param GetSiteToSiteVpnAttachmentCommandInput - {@link GetSiteToSiteVpnAttachmentCommandInput}
- * @returns {@link GetSiteToSiteVpnAttachmentCommandOutput}
+ * @param GetSiteToSiteVpnAttachmentRequest - {@link GetSiteToSiteVpnAttachmentRequest}
+ * @returns {@link GetSiteToSiteVpnAttachmentResponse}
  * @see {@link GetSiteToSiteVpnAttachmentCommandInput} for command's `input` shape.
  * @see {@link GetSiteToSiteVpnAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

@@ -55,8 +55,8 @@ export interface DisassociateTimeSeriesFromAssetPropertyCommandOutput extends __
  *
  * ```
  *
- * @param DisassociateTimeSeriesFromAssetPropertyCommandInput - {@link DisassociateTimeSeriesFromAssetPropertyCommandInput}
- * @returns {@link DisassociateTimeSeriesFromAssetPropertyCommandOutput}
+ * @param DisassociateTimeSeriesFromAssetPropertyRequest - {@link DisassociateTimeSeriesFromAssetPropertyRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateTimeSeriesFromAssetPropertyCommandInput} for command's `input` shape.
  * @see {@link DisassociateTimeSeriesFromAssetPropertyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

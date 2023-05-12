@@ -94,8 +94,8 @@ export interface CreateDeliverabilityTestReportCommandOutput
  *
  * ```
  *
- * @param CreateDeliverabilityTestReportCommandInput - {@link CreateDeliverabilityTestReportCommandInput}
- * @returns {@link CreateDeliverabilityTestReportCommandOutput}
+ * @param CreateDeliverabilityTestReportRequest - {@link CreateDeliverabilityTestReportRequest}
+ * @returns {@link CreateDeliverabilityTestReportResponse}
  * @see {@link CreateDeliverabilityTestReportCommandInput} for command's `input` shape.
  * @see {@link CreateDeliverabilityTestReportCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

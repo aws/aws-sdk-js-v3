@@ -92,8 +92,8 @@ export interface ListDataQualityRulesetEvaluationRunsCommandOutput
  *
  * ```
  *
- * @param ListDataQualityRulesetEvaluationRunsCommandInput - {@link ListDataQualityRulesetEvaluationRunsCommandInput}
- * @returns {@link ListDataQualityRulesetEvaluationRunsCommandOutput}
+ * @param ListDataQualityRulesetEvaluationRunsRequest - {@link ListDataQualityRulesetEvaluationRunsRequest}
+ * @returns {@link ListDataQualityRulesetEvaluationRunsResponse}
  * @see {@link ListDataQualityRulesetEvaluationRunsCommandInput} for command's `input` shape.
  * @see {@link ListDataQualityRulesetEvaluationRunsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

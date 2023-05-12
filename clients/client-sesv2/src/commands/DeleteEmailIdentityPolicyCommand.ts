@@ -60,8 +60,8 @@ export interface DeleteEmailIdentityPolicyCommandOutput extends DeleteEmailIdent
  *
  * ```
  *
- * @param DeleteEmailIdentityPolicyCommandInput - {@link DeleteEmailIdentityPolicyCommandInput}
- * @returns {@link DeleteEmailIdentityPolicyCommandOutput}
+ * @param DeleteEmailIdentityPolicyRequest - {@link DeleteEmailIdentityPolicyRequest}
+ * @returns {@link DeleteEmailIdentityPolicyResponse}
  * @see {@link DeleteEmailIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

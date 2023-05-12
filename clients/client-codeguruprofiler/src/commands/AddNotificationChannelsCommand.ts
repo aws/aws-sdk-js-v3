@@ -69,8 +69,8 @@ export interface AddNotificationChannelsCommandOutput extends AddNotificationCha
  *
  * ```
  *
- * @param AddNotificationChannelsCommandInput - {@link AddNotificationChannelsCommandInput}
- * @returns {@link AddNotificationChannelsCommandOutput}
+ * @param AddNotificationChannelsRequest - {@link AddNotificationChannelsRequest}
+ * @returns {@link AddNotificationChannelsResponse}
  * @see {@link AddNotificationChannelsCommandInput} for command's `input` shape.
  * @see {@link AddNotificationChannelsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

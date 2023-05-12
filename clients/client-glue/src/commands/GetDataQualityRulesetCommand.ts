@@ -59,8 +59,8 @@ export interface GetDataQualityRulesetCommandOutput extends GetDataQualityRulese
  *
  * ```
  *
- * @param GetDataQualityRulesetCommandInput - {@link GetDataQualityRulesetCommandInput}
- * @returns {@link GetDataQualityRulesetCommandOutput}
+ * @param GetDataQualityRulesetRequest - {@link GetDataQualityRulesetRequest}
+ * @returns {@link GetDataQualityRulesetResponse}
  * @see {@link GetDataQualityRulesetCommandInput} for command's `input` shape.
  * @see {@link GetDataQualityRulesetCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

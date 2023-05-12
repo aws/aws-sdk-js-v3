@@ -78,8 +78,8 @@ export interface DeletePermissionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeletePermissionCommandInput - {@link DeletePermissionCommandInput}
- * @returns {@link DeletePermissionCommandOutput}
+ * @param DeletePermissionRequest - {@link DeletePermissionRequest}
+ * @returns {@link Unit}
  * @see {@link DeletePermissionCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

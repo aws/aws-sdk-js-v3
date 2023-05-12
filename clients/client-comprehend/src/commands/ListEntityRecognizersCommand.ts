@@ -147,8 +147,8 @@ export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizer
  *
  * ```
  *
- * @param ListEntityRecognizersCommandInput - {@link ListEntityRecognizersCommandInput}
- * @returns {@link ListEntityRecognizersCommandOutput}
+ * @param ListEntityRecognizersRequest - {@link ListEntityRecognizersRequest}
+ * @returns {@link ListEntityRecognizersResponse}
  * @see {@link ListEntityRecognizersCommandInput} for command's `input` shape.
  * @see {@link ListEntityRecognizersCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

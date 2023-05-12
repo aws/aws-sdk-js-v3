@@ -49,8 +49,8 @@ export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcesso
  *
  * ```
  *
- * @param DeleteStreamProcessorCommandInput - {@link DeleteStreamProcessorCommandInput}
- * @returns {@link DeleteStreamProcessorCommandOutput}
+ * @param DeleteStreamProcessorRequest - {@link DeleteStreamProcessorRequest}
+ * @returns {@link DeleteStreamProcessorResponse}
  * @see {@link DeleteStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamProcessorCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

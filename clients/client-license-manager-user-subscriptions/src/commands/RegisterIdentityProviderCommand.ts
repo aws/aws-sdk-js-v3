@@ -80,8 +80,8 @@ export interface RegisterIdentityProviderCommandOutput extends RegisterIdentityP
  *
  * ```
  *
- * @param RegisterIdentityProviderCommandInput - {@link RegisterIdentityProviderCommandInput}
- * @returns {@link RegisterIdentityProviderCommandOutput}
+ * @param RegisterIdentityProviderRequest - {@link RegisterIdentityProviderRequest}
+ * @returns {@link RegisterIdentityProviderResponse}
  * @see {@link RegisterIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link RegisterIdentityProviderCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.

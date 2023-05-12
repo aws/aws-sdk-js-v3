@@ -93,8 +93,8 @@ export interface BatchGetFrameMetricDataCommandOutput extends BatchGetFrameMetri
  *
  * ```
  *
- * @param BatchGetFrameMetricDataCommandInput - {@link BatchGetFrameMetricDataCommandInput}
- * @returns {@link BatchGetFrameMetricDataCommandOutput}
+ * @param BatchGetFrameMetricDataRequest - {@link BatchGetFrameMetricDataRequest}
+ * @returns {@link BatchGetFrameMetricDataResponse}
  * @see {@link BatchGetFrameMetricDataCommandInput} for command's `input` shape.
  * @see {@link BatchGetFrameMetricDataCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

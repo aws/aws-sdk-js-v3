@@ -51,8 +51,8 @@ export interface GetNotificationChannelCommandOutput extends GetNotificationChan
  *
  * ```
  *
- * @param GetNotificationChannelCommandInput - {@link GetNotificationChannelCommandInput}
- * @returns {@link GetNotificationChannelCommandOutput}
+ * @param GetNotificationChannelRequest - {@link GetNotificationChannelRequest}
+ * @returns {@link GetNotificationChannelResponse}
  * @see {@link GetNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link GetNotificationChannelCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

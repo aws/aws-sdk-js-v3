@@ -58,8 +58,8 @@ export interface UpdateServerConfigCommandOutput extends UpdateServerConfigRespo
  *
  * ```
  *
- * @param UpdateServerConfigCommandInput - {@link UpdateServerConfigCommandInput}
- * @returns {@link UpdateServerConfigCommandOutput}
+ * @param UpdateServerConfigRequest - {@link UpdateServerConfigRequest}
+ * @returns {@link UpdateServerConfigResponse}
  * @see {@link UpdateServerConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateServerConfigCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

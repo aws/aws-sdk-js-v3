@@ -51,8 +51,8 @@ export interface DeleteAnalyzerCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAnalyzerCommandInput - {@link DeleteAnalyzerCommandInput}
- * @returns {@link DeleteAnalyzerCommandOutput}
+ * @param DeleteAnalyzerRequest - {@link DeleteAnalyzerRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAnalyzerCommandInput} for command's `input` shape.
  * @see {@link DeleteAnalyzerCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  *
  * ```
  *
- * @param DeleteAnomalyDetectorCommandInput - {@link DeleteAnomalyDetectorCommandInput}
- * @returns {@link DeleteAnomalyDetectorCommandOutput}
+ * @param DeleteAnomalyDetectorRequest - {@link DeleteAnomalyDetectorRequest}
+ * @returns {@link DeleteAnomalyDetectorResponse}
  * @see {@link DeleteAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link DeleteAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

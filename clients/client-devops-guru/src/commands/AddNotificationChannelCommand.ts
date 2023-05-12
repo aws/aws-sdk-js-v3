@@ -71,8 +71,8 @@ export interface AddNotificationChannelCommandOutput extends AddNotificationChan
  *
  * ```
  *
- * @param AddNotificationChannelCommandInput - {@link AddNotificationChannelCommandInput}
- * @returns {@link AddNotificationChannelCommandOutput}
+ * @param AddNotificationChannelRequest - {@link AddNotificationChannelRequest}
+ * @returns {@link AddNotificationChannelResponse}
  * @see {@link AddNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link AddNotificationChannelCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

@@ -172,8 +172,8 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  *
  * ```
  *
- * @param SimulatePrincipalPolicyCommandInput - {@link SimulatePrincipalPolicyCommandInput}
- * @returns {@link SimulatePrincipalPolicyCommandOutput}
+ * @param SimulatePrincipalPolicyRequest - {@link SimulatePrincipalPolicyRequest}
+ * @returns {@link SimulatePolicyResponse}
  * @see {@link SimulatePrincipalPolicyCommandInput} for command's `input` shape.
  * @see {@link SimulatePrincipalPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

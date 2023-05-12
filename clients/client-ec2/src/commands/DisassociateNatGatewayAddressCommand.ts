@@ -75,8 +75,8 @@ export interface DisassociateNatGatewayAddressCommandOutput
  *
  * ```
  *
- * @param DisassociateNatGatewayAddressCommandInput - {@link DisassociateNatGatewayAddressCommandInput}
- * @returns {@link DisassociateNatGatewayAddressCommandOutput}
+ * @param DisassociateNatGatewayAddressRequest - {@link DisassociateNatGatewayAddressRequest}
+ * @returns {@link DisassociateNatGatewayAddressResult}
  * @see {@link DisassociateNatGatewayAddressCommandInput} for command's `input` shape.
  * @see {@link DisassociateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

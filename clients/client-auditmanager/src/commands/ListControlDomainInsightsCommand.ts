@@ -72,8 +72,8 @@ export interface ListControlDomainInsightsCommandOutput extends ListControlDomai
  *
  * ```
  *
- * @param ListControlDomainInsightsCommandInput - {@link ListControlDomainInsightsCommandInput}
- * @returns {@link ListControlDomainInsightsCommandOutput}
+ * @param ListControlDomainInsightsRequest - {@link ListControlDomainInsightsRequest}
+ * @returns {@link ListControlDomainInsightsResponse}
  * @see {@link ListControlDomainInsightsCommandInput} for command's `input` shape.
  * @see {@link ListControlDomainInsightsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

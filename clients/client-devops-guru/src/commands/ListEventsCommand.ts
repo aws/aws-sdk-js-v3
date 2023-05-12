@@ -110,8 +110,8 @@ export interface ListEventsCommandOutput extends ListEventsResponse, __MetadataB
  *
  * ```
  *
- * @param ListEventsCommandInput - {@link ListEventsCommandInput}
- * @returns {@link ListEventsCommandOutput}
+ * @param ListEventsRequest - {@link ListEventsRequest}
+ * @returns {@link ListEventsResponse}
  * @see {@link ListEventsCommandInput} for command's `input` shape.
  * @see {@link ListEventsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

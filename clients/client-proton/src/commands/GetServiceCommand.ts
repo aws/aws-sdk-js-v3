@@ -75,8 +75,8 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  *
  * ```
  *
- * @param GetServiceCommandInput - {@link GetServiceCommandInput}
- * @returns {@link GetServiceCommandOutput}
+ * @param GetServiceInput - {@link GetServiceInput}
+ * @returns {@link GetServiceOutput}
  * @see {@link GetServiceCommandInput} for command's `input` shape.
  * @see {@link GetServiceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

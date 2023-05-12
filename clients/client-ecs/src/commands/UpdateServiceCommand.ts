@@ -501,8 +501,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *
  * ```
  *
- * @param UpdateServiceCommandInput - {@link UpdateServiceCommandInput}
- * @returns {@link UpdateServiceCommandOutput}
+ * @param UpdateServiceRequest - {@link UpdateServiceRequest}
+ * @returns {@link UpdateServiceResponse}
  * @see {@link UpdateServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

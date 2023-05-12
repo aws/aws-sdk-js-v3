@@ -179,8 +179,8 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  *
  * ```
  *
- * @param DescribeReplicationGroupsCommandInput - {@link DescribeReplicationGroupsCommandInput}
- * @returns {@link DescribeReplicationGroupsCommandOutput}
+ * @param DescribeReplicationGroupsMessage - {@link DescribeReplicationGroupsMessage}
+ * @returns {@link ReplicationGroupMessage}
  * @see {@link DescribeReplicationGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

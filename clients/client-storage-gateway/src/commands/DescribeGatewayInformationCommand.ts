@@ -85,8 +85,8 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  *
  * ```
  *
- * @param DescribeGatewayInformationCommandInput - {@link DescribeGatewayInformationCommandInput}
- * @returns {@link DescribeGatewayInformationCommandOutput}
+ * @param DescribeGatewayInformationInput - {@link DescribeGatewayInformationInput}
+ * @returns {@link DescribeGatewayInformationOutput}
  * @see {@link DescribeGatewayInformationCommandInput} for command's `input` shape.
  * @see {@link DescribeGatewayInformationCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

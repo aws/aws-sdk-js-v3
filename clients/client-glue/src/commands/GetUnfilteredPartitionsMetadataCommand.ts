@@ -152,8 +152,8 @@ export interface GetUnfilteredPartitionsMetadataCommandOutput
  *
  * ```
  *
- * @param GetUnfilteredPartitionsMetadataCommandInput - {@link GetUnfilteredPartitionsMetadataCommandInput}
- * @returns {@link GetUnfilteredPartitionsMetadataCommandOutput}
+ * @param GetUnfilteredPartitionsMetadataRequest - {@link GetUnfilteredPartitionsMetadataRequest}
+ * @returns {@link GetUnfilteredPartitionsMetadataResponse}
  * @see {@link GetUnfilteredPartitionsMetadataCommandInput} for command's `input` shape.
  * @see {@link GetUnfilteredPartitionsMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

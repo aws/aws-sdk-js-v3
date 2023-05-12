@@ -75,8 +75,8 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  *
  * ```
  *
- * @param ListSessionsCommandInput - {@link ListSessionsCommandInput}
- * @returns {@link ListSessionsCommandOutput}
+ * @param ListSessionsRequest - {@link ListSessionsRequest}
+ * @returns {@link ListSessionsResponse}
  * @see {@link ListSessionsCommandInput} for command's `input` shape.
  * @see {@link ListSessionsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

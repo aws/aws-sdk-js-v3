@@ -49,8 +49,8 @@ export interface RemoveSourceServerActionCommandOutput extends RemoveSourceServe
  *
  * ```
  *
- * @param RemoveSourceServerActionCommandInput - {@link RemoveSourceServerActionCommandInput}
- * @returns {@link RemoveSourceServerActionCommandOutput}
+ * @param RemoveSourceServerActionRequest - {@link RemoveSourceServerActionRequest}
+ * @returns {@link RemoveSourceServerActionResponse}
  * @see {@link RemoveSourceServerActionCommandInput} for command's `input` shape.
  * @see {@link RemoveSourceServerActionCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

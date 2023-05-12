@@ -70,8 +70,8 @@ export interface DescribeLanguageModelCommandOutput extends DescribeLanguageMode
  *
  * ```
  *
- * @param DescribeLanguageModelCommandInput - {@link DescribeLanguageModelCommandInput}
- * @returns {@link DescribeLanguageModelCommandOutput}
+ * @param DescribeLanguageModelRequest - {@link DescribeLanguageModelRequest}
+ * @returns {@link DescribeLanguageModelResponse}
  * @see {@link DescribeLanguageModelCommandInput} for command's `input` shape.
  * @see {@link DescribeLanguageModelCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

@@ -71,8 +71,8 @@ export interface ListDevicePositionsCommandOutput extends ListDevicePositionsRes
  *
  * ```
  *
- * @param ListDevicePositionsCommandInput - {@link ListDevicePositionsCommandInput}
- * @returns {@link ListDevicePositionsCommandOutput}
+ * @param ListDevicePositionsRequest - {@link ListDevicePositionsRequest}
+ * @returns {@link ListDevicePositionsResponse}
  * @see {@link ListDevicePositionsCommandInput} for command's `input` shape.
  * @see {@link ListDevicePositionsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

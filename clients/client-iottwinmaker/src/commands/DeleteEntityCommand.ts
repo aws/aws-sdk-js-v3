@@ -52,8 +52,8 @@ export interface DeleteEntityCommandOutput extends DeleteEntityResponse, __Metad
  *
  * ```
  *
- * @param DeleteEntityCommandInput - {@link DeleteEntityCommandInput}
- * @returns {@link DeleteEntityCommandOutput}
+ * @param DeleteEntityRequest - {@link DeleteEntityRequest}
+ * @returns {@link DeleteEntityResponse}
  * @see {@link DeleteEntityCommandInput} for command's `input` shape.
  * @see {@link DeleteEntityCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

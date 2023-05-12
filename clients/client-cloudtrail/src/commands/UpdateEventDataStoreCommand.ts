@@ -127,8 +127,8 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  *
  * ```
  *
- * @param UpdateEventDataStoreCommandInput - {@link UpdateEventDataStoreCommandInput}
- * @returns {@link UpdateEventDataStoreCommandOutput}
+ * @param UpdateEventDataStoreRequest - {@link UpdateEventDataStoreRequest}
+ * @returns {@link UpdateEventDataStoreResponse}
  * @see {@link UpdateEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link UpdateEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

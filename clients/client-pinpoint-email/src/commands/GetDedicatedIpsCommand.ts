@@ -61,8 +61,8 @@ export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, _
  *
  * ```
  *
- * @param GetDedicatedIpsCommandInput - {@link GetDedicatedIpsCommandInput}
- * @returns {@link GetDedicatedIpsCommandOutput}
+ * @param GetDedicatedIpsRequest - {@link GetDedicatedIpsRequest}
+ * @returns {@link GetDedicatedIpsResponse}
  * @see {@link GetDedicatedIpsCommandInput} for command's `input` shape.
  * @see {@link GetDedicatedIpsCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

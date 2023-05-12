@@ -76,8 +76,8 @@ export interface UpdateAlertCommandOutput extends UpdateAlertResponse, __Metadat
  *
  * ```
  *
- * @param UpdateAlertCommandInput - {@link UpdateAlertCommandInput}
- * @returns {@link UpdateAlertCommandOutput}
+ * @param UpdateAlertRequest - {@link UpdateAlertRequest}
+ * @returns {@link UpdateAlertResponse}
  * @see {@link UpdateAlertCommandInput} for command's `input` shape.
  * @see {@link UpdateAlertCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

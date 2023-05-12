@@ -72,8 +72,8 @@ export interface DeleteEnvironmentAccountConnectionCommandOutput
  *
  * ```
  *
- * @param DeleteEnvironmentAccountConnectionCommandInput - {@link DeleteEnvironmentAccountConnectionCommandInput}
- * @returns {@link DeleteEnvironmentAccountConnectionCommandOutput}
+ * @param DeleteEnvironmentAccountConnectionInput - {@link DeleteEnvironmentAccountConnectionInput}
+ * @returns {@link DeleteEnvironmentAccountConnectionOutput}
  * @see {@link DeleteEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

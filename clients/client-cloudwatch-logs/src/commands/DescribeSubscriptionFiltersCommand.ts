@@ -67,8 +67,8 @@ export interface DescribeSubscriptionFiltersCommandOutput
  *
  * ```
  *
- * @param DescribeSubscriptionFiltersCommandInput - {@link DescribeSubscriptionFiltersCommandInput}
- * @returns {@link DescribeSubscriptionFiltersCommandOutput}
+ * @param DescribeSubscriptionFiltersRequest - {@link DescribeSubscriptionFiltersRequest}
+ * @returns {@link DescribeSubscriptionFiltersResponse}
  * @see {@link DescribeSubscriptionFiltersCommandInput} for command's `input` shape.
  * @see {@link DescribeSubscriptionFiltersCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

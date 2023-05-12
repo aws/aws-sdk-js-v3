@@ -56,8 +56,8 @@ export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AttachPrincipalPolicyCommandInput - {@link AttachPrincipalPolicyCommandInput}
- * @returns {@link AttachPrincipalPolicyCommandOutput}
+ * @param AttachPrincipalPolicyRequest - {@link AttachPrincipalPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link AttachPrincipalPolicyCommandInput} for command's `input` shape.
  * @see {@link AttachPrincipalPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

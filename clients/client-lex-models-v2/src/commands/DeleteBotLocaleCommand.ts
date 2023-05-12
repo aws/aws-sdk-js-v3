@@ -57,8 +57,8 @@ export interface DeleteBotLocaleCommandOutput extends DeleteBotLocaleResponse, _
  *
  * ```
  *
- * @param DeleteBotLocaleCommandInput - {@link DeleteBotLocaleCommandInput}
- * @returns {@link DeleteBotLocaleCommandOutput}
+ * @param DeleteBotLocaleRequest - {@link DeleteBotLocaleRequest}
+ * @returns {@link DeleteBotLocaleResponse}
  * @see {@link DeleteBotLocaleCommandInput} for command's `input` shape.
  * @see {@link DeleteBotLocaleCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

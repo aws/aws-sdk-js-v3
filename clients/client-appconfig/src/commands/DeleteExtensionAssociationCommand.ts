@@ -49,8 +49,8 @@ export interface DeleteExtensionAssociationCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DeleteExtensionAssociationCommandInput - {@link DeleteExtensionAssociationCommandInput}
- * @returns {@link DeleteExtensionAssociationCommandOutput}
+ * @param DeleteExtensionAssociationRequest - {@link DeleteExtensionAssociationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteExtensionAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteExtensionAssociationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

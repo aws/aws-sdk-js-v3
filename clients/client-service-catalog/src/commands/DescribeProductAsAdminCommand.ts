@@ -119,8 +119,8 @@ export interface DescribeProductAsAdminCommandOutput extends DescribeProductAsAd
  *
  * ```
  *
- * @param DescribeProductAsAdminCommandInput - {@link DescribeProductAsAdminCommandInput}
- * @returns {@link DescribeProductAsAdminCommandOutput}
+ * @param DescribeProductAsAdminInput - {@link DescribeProductAsAdminInput}
+ * @returns {@link DescribeProductAsAdminOutput}
  * @see {@link DescribeProductAsAdminCommandInput} for command's `input` shape.
  * @see {@link DescribeProductAsAdminCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

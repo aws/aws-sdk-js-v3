@@ -60,8 +60,8 @@ export interface SetIdentityNotificationTopicCommandOutput
  *
  * ```
  *
- * @param SetIdentityNotificationTopicCommandInput - {@link SetIdentityNotificationTopicCommandInput}
- * @returns {@link SetIdentityNotificationTopicCommandOutput}
+ * @param SetIdentityNotificationTopicRequest - {@link SetIdentityNotificationTopicRequest}
+ * @returns {@link SetIdentityNotificationTopicResponse}
  * @see {@link SetIdentityNotificationTopicCommandInput} for command's `input` shape.
  * @see {@link SetIdentityNotificationTopicCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

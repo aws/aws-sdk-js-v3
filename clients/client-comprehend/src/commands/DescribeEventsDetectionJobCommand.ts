@@ -78,8 +78,8 @@ export interface DescribeEventsDetectionJobCommandOutput extends DescribeEventsD
  *
  * ```
  *
- * @param DescribeEventsDetectionJobCommandInput - {@link DescribeEventsDetectionJobCommandInput}
- * @returns {@link DescribeEventsDetectionJobCommandOutput}
+ * @param DescribeEventsDetectionJobRequest - {@link DescribeEventsDetectionJobRequest}
+ * @returns {@link DescribeEventsDetectionJobResponse}
  * @see {@link DescribeEventsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

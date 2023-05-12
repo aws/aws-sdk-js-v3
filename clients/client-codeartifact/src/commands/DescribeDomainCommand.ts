@@ -65,8 +65,8 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResult, __Met
  *
  * ```
  *
- * @param DescribeDomainCommandInput - {@link DescribeDomainCommandInput}
- * @returns {@link DescribeDomainCommandOutput}
+ * @param DescribeDomainRequest - {@link DescribeDomainRequest}
+ * @returns {@link DescribeDomainResult}
  * @see {@link DescribeDomainCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

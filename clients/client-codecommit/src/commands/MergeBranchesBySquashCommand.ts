@@ -81,8 +81,8 @@ export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquas
  *
  * ```
  *
- * @param MergeBranchesBySquashCommandInput - {@link MergeBranchesBySquashCommandInput}
- * @returns {@link MergeBranchesBySquashCommandOutput}
+ * @param MergeBranchesBySquashInput - {@link MergeBranchesBySquashInput}
+ * @returns {@link MergeBranchesBySquashOutput}
  * @see {@link MergeBranchesBySquashCommandInput} for command's `input` shape.
  * @see {@link MergeBranchesBySquashCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

@@ -59,8 +59,8 @@ export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersRes
  *
  * ```
  *
- * @param GetBootstrapBrokersCommandInput - {@link GetBootstrapBrokersCommandInput}
- * @returns {@link GetBootstrapBrokersCommandOutput}
+ * @param GetBootstrapBrokersRequest - {@link GetBootstrapBrokersRequest}
+ * @returns {@link GetBootstrapBrokersResponse}
  * @see {@link GetBootstrapBrokersCommandInput} for command's `input` shape.
  * @see {@link GetBootstrapBrokersCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

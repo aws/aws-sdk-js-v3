@@ -97,8 +97,8 @@ export interface DeleteMultiplexProgramCommandOutput extends DeleteMultiplexProg
  *
  * ```
  *
- * @param DeleteMultiplexProgramCommandInput - {@link DeleteMultiplexProgramCommandInput}
- * @returns {@link DeleteMultiplexProgramCommandOutput}
+ * @param DeleteMultiplexProgramRequest - {@link DeleteMultiplexProgramRequest}
+ * @returns {@link DeleteMultiplexProgramResponse}
  * @see {@link DeleteMultiplexProgramCommandInput} for command's `input` shape.
  * @see {@link DeleteMultiplexProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

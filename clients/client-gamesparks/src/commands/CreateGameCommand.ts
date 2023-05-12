@@ -69,8 +69,8 @@ export interface CreateGameCommandOutput extends CreateGameResult, __MetadataBea
  *
  * ```
  *
- * @param CreateGameCommandInput - {@link CreateGameCommandInput}
- * @returns {@link CreateGameCommandOutput}
+ * @param CreateGameRequest - {@link CreateGameRequest}
+ * @returns {@link CreateGameResult}
  * @see {@link CreateGameCommandInput} for command's `input` shape.
  * @see {@link CreateGameCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

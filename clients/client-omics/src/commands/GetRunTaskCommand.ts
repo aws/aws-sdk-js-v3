@@ -61,8 +61,8 @@ export interface GetRunTaskCommandOutput extends GetRunTaskResponse, __MetadataB
  *
  * ```
  *
- * @param GetRunTaskCommandInput - {@link GetRunTaskCommandInput}
- * @returns {@link GetRunTaskCommandOutput}
+ * @param GetRunTaskRequest - {@link GetRunTaskRequest}
+ * @returns {@link GetRunTaskResponse}
  * @see {@link GetRunTaskCommandInput} for command's `input` shape.
  * @see {@link GetRunTaskCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

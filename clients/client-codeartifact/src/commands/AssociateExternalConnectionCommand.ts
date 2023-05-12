@@ -80,8 +80,8 @@ export interface AssociateExternalConnectionCommandOutput extends AssociateExter
  *
  * ```
  *
- * @param AssociateExternalConnectionCommandInput - {@link AssociateExternalConnectionCommandInput}
- * @returns {@link AssociateExternalConnectionCommandOutput}
+ * @param AssociateExternalConnectionRequest - {@link AssociateExternalConnectionRequest}
+ * @returns {@link AssociateExternalConnectionResult}
  * @see {@link AssociateExternalConnectionCommandInput} for command's `input` shape.
  * @see {@link AssociateExternalConnectionCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

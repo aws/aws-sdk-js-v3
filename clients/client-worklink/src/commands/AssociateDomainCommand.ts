@@ -53,8 +53,8 @@ export interface AssociateDomainCommandOutput extends AssociateDomainResponse, _
  *
  * ```
  *
- * @param AssociateDomainCommandInput - {@link AssociateDomainCommandInput}
- * @returns {@link AssociateDomainCommandOutput}
+ * @param AssociateDomainRequest - {@link AssociateDomainRequest}
+ * @returns {@link AssociateDomainResponse}
  * @see {@link AssociateDomainCommandInput} for command's `input` shape.
  * @see {@link AssociateDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

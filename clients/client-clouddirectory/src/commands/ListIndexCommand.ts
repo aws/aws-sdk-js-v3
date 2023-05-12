@@ -104,8 +104,8 @@ export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBea
  *
  * ```
  *
- * @param ListIndexCommandInput - {@link ListIndexCommandInput}
- * @returns {@link ListIndexCommandOutput}
+ * @param ListIndexRequest - {@link ListIndexRequest}
+ * @returns {@link ListIndexResponse}
  * @see {@link ListIndexCommandInput} for command's `input` shape.
  * @see {@link ListIndexCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

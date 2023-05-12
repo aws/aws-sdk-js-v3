@@ -117,8 +117,8 @@ export interface ListBucketMetricsConfigurationsCommandOutput
  *
  * ```
  *
- * @param ListBucketMetricsConfigurationsCommandInput - {@link ListBucketMetricsConfigurationsCommandInput}
- * @returns {@link ListBucketMetricsConfigurationsCommandOutput}
+ * @param ListBucketMetricsConfigurationsRequest - {@link ListBucketMetricsConfigurationsRequest}
+ * @returns {@link ListBucketMetricsConfigurationsOutput}
  * @see {@link ListBucketMetricsConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListBucketMetricsConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

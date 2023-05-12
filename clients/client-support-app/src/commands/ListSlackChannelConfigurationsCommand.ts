@@ -67,8 +67,8 @@ export interface ListSlackChannelConfigurationsCommandOutput
  *
  * ```
  *
- * @param ListSlackChannelConfigurationsCommandInput - {@link ListSlackChannelConfigurationsCommandInput}
- * @returns {@link ListSlackChannelConfigurationsCommandOutput}
+ * @param ListSlackChannelConfigurationsRequest - {@link ListSlackChannelConfigurationsRequest}
+ * @returns {@link ListSlackChannelConfigurationsResult}
  * @see {@link ListSlackChannelConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListSlackChannelConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.

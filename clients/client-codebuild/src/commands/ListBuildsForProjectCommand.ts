@@ -56,8 +56,8 @@ export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectO
  *
  * ```
  *
- * @param ListBuildsForProjectCommandInput - {@link ListBuildsForProjectCommandInput}
- * @returns {@link ListBuildsForProjectCommandOutput}
+ * @param ListBuildsForProjectInput - {@link ListBuildsForProjectInput}
+ * @returns {@link ListBuildsForProjectOutput}
  * @see {@link ListBuildsForProjectCommandInput} for command's `input` shape.
  * @see {@link ListBuildsForProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

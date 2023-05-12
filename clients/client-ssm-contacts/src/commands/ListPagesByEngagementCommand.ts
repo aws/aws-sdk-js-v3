@@ -64,8 +64,8 @@ export interface ListPagesByEngagementCommandOutput extends ListPagesByEngagemen
  *
  * ```
  *
- * @param ListPagesByEngagementCommandInput - {@link ListPagesByEngagementCommandInput}
- * @returns {@link ListPagesByEngagementCommandOutput}
+ * @param ListPagesByEngagementRequest - {@link ListPagesByEngagementRequest}
+ * @returns {@link ListPagesByEngagementResult}
  * @see {@link ListPagesByEngagementCommandInput} for command's `input` shape.
  * @see {@link ListPagesByEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

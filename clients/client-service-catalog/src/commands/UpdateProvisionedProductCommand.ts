@@ -114,8 +114,8 @@ export interface UpdateProvisionedProductCommandOutput extends UpdateProvisioned
  *
  * ```
  *
- * @param UpdateProvisionedProductCommandInput - {@link UpdateProvisionedProductCommandInput}
- * @returns {@link UpdateProvisionedProductCommandOutput}
+ * @param UpdateProvisionedProductInput - {@link UpdateProvisionedProductInput}
+ * @returns {@link UpdateProvisionedProductOutput}
  * @see {@link UpdateProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link UpdateProvisionedProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

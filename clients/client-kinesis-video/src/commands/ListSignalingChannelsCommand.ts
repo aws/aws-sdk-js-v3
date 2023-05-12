@@ -70,8 +70,8 @@ export interface ListSignalingChannelsCommandOutput extends ListSignalingChannel
  *
  * ```
  *
- * @param ListSignalingChannelsCommandInput - {@link ListSignalingChannelsCommandInput}
- * @returns {@link ListSignalingChannelsCommandOutput}
+ * @param ListSignalingChannelsInput - {@link ListSignalingChannelsInput}
+ * @returns {@link ListSignalingChannelsOutput}
  * @see {@link ListSignalingChannelsCommandInput} for command's `input` shape.
  * @see {@link ListSignalingChannelsCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

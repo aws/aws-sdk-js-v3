@@ -68,8 +68,8 @@ export interface UpdateUserHierarchyStructureCommandOutput extends __MetadataBea
  *
  * ```
  *
- * @param UpdateUserHierarchyStructureCommandInput - {@link UpdateUserHierarchyStructureCommandInput}
- * @returns {@link UpdateUserHierarchyStructureCommandOutput}
+ * @param UpdateUserHierarchyStructureRequest - {@link UpdateUserHierarchyStructureRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateUserHierarchyStructureCommandInput} for command's `input` shape.
  * @see {@link UpdateUserHierarchyStructureCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

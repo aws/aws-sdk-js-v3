@@ -106,8 +106,8 @@ export interface GetClipCommandOutput extends __WithSdkStreamMixin<GetClipOutput
  *
  * ```
  *
- * @param GetClipCommandInput - {@link GetClipCommandInput}
- * @returns {@link GetClipCommandOutput}
+ * @param GetClipInput - {@link GetClipInput}
+ * @returns {@link GetClipOutput}
  * @see {@link GetClipCommandInput} for command's `input` shape.
  * @see {@link GetClipCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.

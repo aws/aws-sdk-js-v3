@@ -102,8 +102,8 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *
  * ```
  *
- * @param StartJobRunCommandInput - {@link StartJobRunCommandInput}
- * @returns {@link StartJobRunCommandOutput}
+ * @param StartJobRunRequest - {@link StartJobRunRequest}
+ * @returns {@link StartJobRunResponse}
  * @see {@link StartJobRunCommandInput} for command's `input` shape.
  * @see {@link StartJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.

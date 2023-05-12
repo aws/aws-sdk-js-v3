@@ -55,8 +55,8 @@ export interface ActivateEvaluationFormCommandOutput extends ActivateEvaluationF
  *
  * ```
  *
- * @param ActivateEvaluationFormCommandInput - {@link ActivateEvaluationFormCommandInput}
- * @returns {@link ActivateEvaluationFormCommandOutput}
+ * @param ActivateEvaluationFormRequest - {@link ActivateEvaluationFormRequest}
+ * @returns {@link ActivateEvaluationFormResponse}
  * @see {@link ActivateEvaluationFormCommandInput} for command's `input` shape.
  * @see {@link ActivateEvaluationFormCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

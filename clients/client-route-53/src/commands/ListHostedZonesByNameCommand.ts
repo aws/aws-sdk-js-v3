@@ -129,8 +129,8 @@ export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNam
  *
  * ```
  *
- * @param ListHostedZonesByNameCommandInput - {@link ListHostedZonesByNameCommandInput}
- * @returns {@link ListHostedZonesByNameCommandOutput}
+ * @param ListHostedZonesByNameRequest - {@link ListHostedZonesByNameRequest}
+ * @returns {@link ListHostedZonesByNameResponse}
  * @see {@link ListHostedZonesByNameCommandInput} for command's `input` shape.
  * @see {@link ListHostedZonesByNameCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

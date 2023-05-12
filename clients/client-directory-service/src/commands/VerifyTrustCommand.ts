@@ -53,8 +53,8 @@ export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataB
  *
  * ```
  *
- * @param VerifyTrustCommandInput - {@link VerifyTrustCommandInput}
- * @returns {@link VerifyTrustCommandOutput}
+ * @param VerifyTrustRequest - {@link VerifyTrustRequest}
+ * @returns {@link VerifyTrustResult}
  * @see {@link VerifyTrustCommandInput} for command's `input` shape.
  * @see {@link VerifyTrustCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

@@ -51,8 +51,8 @@ export interface DeleteProductCommandOutput extends DeleteProductOutput, __Metad
  *
  * ```
  *
- * @param DeleteProductCommandInput - {@link DeleteProductCommandInput}
- * @returns {@link DeleteProductCommandOutput}
+ * @param DeleteProductInput - {@link DeleteProductInput}
+ * @returns {@link DeleteProductOutput}
  * @see {@link DeleteProductCommandInput} for command's `input` shape.
  * @see {@link DeleteProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

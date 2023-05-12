@@ -62,8 +62,8 @@ export interface ListOrganizationAdminAccountsCommandOutput
  *
  * ```
  *
- * @param ListOrganizationAdminAccountsCommandInput - {@link ListOrganizationAdminAccountsCommandInput}
- * @returns {@link ListOrganizationAdminAccountsCommandOutput}
+ * @param ListOrganizationAdminAccountsRequest - {@link ListOrganizationAdminAccountsRequest}
+ * @returns {@link ListOrganizationAdminAccountsResponse}
  * @see {@link ListOrganizationAdminAccountsCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationAdminAccountsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

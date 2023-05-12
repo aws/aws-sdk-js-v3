@@ -70,8 +70,8 @@ export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMat
  *
  * ```
  *
- * @param GetSqlInjectionMatchSetCommandInput - {@link GetSqlInjectionMatchSetCommandInput}
- * @returns {@link GetSqlInjectionMatchSetCommandOutput}
+ * @param GetSqlInjectionMatchSetRequest - {@link GetSqlInjectionMatchSetRequest}
+ * @returns {@link GetSqlInjectionMatchSetResponse}
  * @see {@link GetSqlInjectionMatchSetCommandInput} for command's `input` shape.
  * @see {@link GetSqlInjectionMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

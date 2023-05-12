@@ -60,8 +60,8 @@ export interface DeleteFleetAdvisorDatabasesCommandOutput
  *
  * ```
  *
- * @param DeleteFleetAdvisorDatabasesCommandInput - {@link DeleteFleetAdvisorDatabasesCommandInput}
- * @returns {@link DeleteFleetAdvisorDatabasesCommandOutput}
+ * @param DeleteFleetAdvisorDatabasesRequest - {@link DeleteFleetAdvisorDatabasesRequest}
+ * @returns {@link DeleteFleetAdvisorDatabasesResponse}
  * @see {@link DeleteFleetAdvisorDatabasesCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetAdvisorDatabasesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

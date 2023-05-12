@@ -55,8 +55,8 @@ export interface AssociateApplicationToEntitlementCommandOutput
  *
  * ```
  *
- * @param AssociateApplicationToEntitlementCommandInput - {@link AssociateApplicationToEntitlementCommandInput}
- * @returns {@link AssociateApplicationToEntitlementCommandOutput}
+ * @param AssociateApplicationToEntitlementRequest - {@link AssociateApplicationToEntitlementRequest}
+ * @returns {@link AssociateApplicationToEntitlementResult}
  * @see {@link AssociateApplicationToEntitlementCommandInput} for command's `input` shape.
  * @see {@link AssociateApplicationToEntitlementCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

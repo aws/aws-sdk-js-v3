@@ -58,8 +58,8 @@ export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataB
  *
  * ```
  *
- * @param ListSamplesCommandInput - {@link ListSamplesCommandInput}
- * @returns {@link ListSamplesCommandOutput}
+ * @param ListSamplesRequest - {@link ListSamplesRequest}
+ * @returns {@link ListSamplesResult}
  * @see {@link ListSamplesCommandInput} for command's `input` shape.
  * @see {@link ListSamplesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

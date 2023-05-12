@@ -64,8 +64,8 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  *
  * ```
  *
- * @param DescribeQueriesCommandInput - {@link DescribeQueriesCommandInput}
- * @returns {@link DescribeQueriesCommandOutput}
+ * @param DescribeQueriesRequest - {@link DescribeQueriesRequest}
+ * @returns {@link DescribeQueriesResponse}
  * @see {@link DescribeQueriesCommandInput} for command's `input` shape.
  * @see {@link DescribeQueriesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

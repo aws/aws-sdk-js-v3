@@ -68,8 +68,8 @@ export interface DeleteUserGroupCommandOutput extends UserGroup, __MetadataBeare
  *
  * ```
  *
- * @param DeleteUserGroupCommandInput - {@link DeleteUserGroupCommandInput}
- * @returns {@link DeleteUserGroupCommandOutput}
+ * @param DeleteUserGroupMessage - {@link DeleteUserGroupMessage}
+ * @returns {@link UserGroup}
  * @see {@link DeleteUserGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteUserGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

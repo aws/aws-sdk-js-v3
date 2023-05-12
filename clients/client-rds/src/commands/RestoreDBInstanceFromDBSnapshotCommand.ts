@@ -326,8 +326,8 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *
  * ```
  *
- * @param RestoreDBInstanceFromDBSnapshotCommandInput - {@link RestoreDBInstanceFromDBSnapshotCommandInput}
- * @returns {@link RestoreDBInstanceFromDBSnapshotCommandOutput}
+ * @param RestoreDBInstanceFromDBSnapshotMessage - {@link RestoreDBInstanceFromDBSnapshotMessage}
+ * @returns {@link RestoreDBInstanceFromDBSnapshotResult}
  * @see {@link RestoreDBInstanceFromDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreDBInstanceFromDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

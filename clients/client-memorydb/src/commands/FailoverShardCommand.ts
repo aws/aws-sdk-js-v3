@@ -121,8 +121,8 @@ export interface FailoverShardCommandOutput extends FailoverShardResponse, __Met
  *
  * ```
  *
- * @param FailoverShardCommandInput - {@link FailoverShardCommandInput}
- * @returns {@link FailoverShardCommandOutput}
+ * @param FailoverShardRequest - {@link FailoverShardRequest}
+ * @returns {@link FailoverShardResponse}
  * @see {@link FailoverShardCommandInput} for command's `input` shape.
  * @see {@link FailoverShardCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

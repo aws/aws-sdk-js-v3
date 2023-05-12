@@ -78,8 +78,8 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanRespons
  *
  * ```
  *
- * @param UpdatePricingPlanCommandInput - {@link UpdatePricingPlanCommandInput}
- * @returns {@link UpdatePricingPlanCommandOutput}
+ * @param UpdatePricingPlanRequest - {@link UpdatePricingPlanRequest}
+ * @returns {@link UpdatePricingPlanResponse}
  * @see {@link UpdatePricingPlanCommandInput} for command's `input` shape.
  * @see {@link UpdatePricingPlanCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

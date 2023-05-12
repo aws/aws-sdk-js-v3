@@ -192,8 +192,8 @@ export interface UpdateBudgetActionCommandOutput extends UpdateBudgetActionRespo
  *
  * ```
  *
- * @param UpdateBudgetActionCommandInput - {@link UpdateBudgetActionCommandInput}
- * @returns {@link UpdateBudgetActionCommandOutput}
+ * @param UpdateBudgetActionRequest - {@link UpdateBudgetActionRequest}
+ * @returns {@link UpdateBudgetActionResponse}
  * @see {@link UpdateBudgetActionCommandInput} for command's `input` shape.
  * @see {@link UpdateBudgetActionCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

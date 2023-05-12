@@ -65,8 +65,8 @@ export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput,
  *
  * ```
  *
- * @param ListProposalVotesCommandInput - {@link ListProposalVotesCommandInput}
- * @returns {@link ListProposalVotesCommandOutput}
+ * @param ListProposalVotesInput - {@link ListProposalVotesInput}
+ * @returns {@link ListProposalVotesOutput}
  * @see {@link ListProposalVotesCommandInput} for command's `input` shape.
  * @see {@link ListProposalVotesCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

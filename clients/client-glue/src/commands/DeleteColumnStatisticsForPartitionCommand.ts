@@ -63,8 +63,8 @@ export interface DeleteColumnStatisticsForPartitionCommandOutput
  *
  * ```
  *
- * @param DeleteColumnStatisticsForPartitionCommandInput - {@link DeleteColumnStatisticsForPartitionCommandInput}
- * @returns {@link DeleteColumnStatisticsForPartitionCommandOutput}
+ * @param DeleteColumnStatisticsForPartitionRequest - {@link DeleteColumnStatisticsForPartitionRequest}
+ * @returns {@link DeleteColumnStatisticsForPartitionResponse}
  * @see {@link DeleteColumnStatisticsForPartitionCommandInput} for command's `input` shape.
  * @see {@link DeleteColumnStatisticsForPartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

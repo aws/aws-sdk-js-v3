@@ -67,8 +67,8 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
  *
  * ```
  *
- * @param ListDashboardsCommandInput - {@link ListDashboardsCommandInput}
- * @returns {@link ListDashboardsCommandOutput}
+ * @param ListDashboardsInput - {@link ListDashboardsInput}
+ * @returns {@link ListDashboardsOutput}
  * @see {@link ListDashboardsCommandInput} for command's `input` shape.
  * @see {@link ListDashboardsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

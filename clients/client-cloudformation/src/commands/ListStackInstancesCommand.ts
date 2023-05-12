@@ -79,8 +79,8 @@ export interface ListStackInstancesCommandOutput extends ListStackInstancesOutpu
  *
  * ```
  *
- * @param ListStackInstancesCommandInput - {@link ListStackInstancesCommandInput}
- * @returns {@link ListStackInstancesCommandOutput}
+ * @param ListStackInstancesInput - {@link ListStackInstancesInput}
+ * @returns {@link ListStackInstancesOutput}
  * @see {@link ListStackInstancesCommandInput} for command's `input` shape.
  * @see {@link ListStackInstancesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

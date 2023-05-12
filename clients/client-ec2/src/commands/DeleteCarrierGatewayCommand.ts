@@ -67,8 +67,8 @@ export interface DeleteCarrierGatewayCommandOutput extends DeleteCarrierGatewayR
  *
  * ```
  *
- * @param DeleteCarrierGatewayCommandInput - {@link DeleteCarrierGatewayCommandInput}
- * @returns {@link DeleteCarrierGatewayCommandOutput}
+ * @param DeleteCarrierGatewayRequest - {@link DeleteCarrierGatewayRequest}
+ * @returns {@link DeleteCarrierGatewayResult}
  * @see {@link DeleteCarrierGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteCarrierGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

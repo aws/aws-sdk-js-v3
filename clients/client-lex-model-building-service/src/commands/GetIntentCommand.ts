@@ -160,8 +160,8 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  *
  * ```
  *
- * @param GetIntentCommandInput - {@link GetIntentCommandInput}
- * @returns {@link GetIntentCommandOutput}
+ * @param GetIntentRequest - {@link GetIntentRequest}
+ * @returns {@link GetIntentResponse}
  * @see {@link GetIntentCommandInput} for command's `input` shape.
  * @see {@link GetIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

@@ -78,8 +78,8 @@ export interface GetTransitGatewayRouteTableAssociationsCommandOutput
  *
  * ```
  *
- * @param GetTransitGatewayRouteTableAssociationsCommandInput - {@link GetTransitGatewayRouteTableAssociationsCommandInput}
- * @returns {@link GetTransitGatewayRouteTableAssociationsCommandOutput}
+ * @param GetTransitGatewayRouteTableAssociationsRequest - {@link GetTransitGatewayRouteTableAssociationsRequest}
+ * @returns {@link GetTransitGatewayRouteTableAssociationsResult}
  * @see {@link GetTransitGatewayRouteTableAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayRouteTableAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

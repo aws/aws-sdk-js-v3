@@ -76,8 +76,8 @@ export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, _
  *
  * ```
  *
- * @param UpdateDevicePoolCommandInput - {@link UpdateDevicePoolCommandInput}
- * @returns {@link UpdateDevicePoolCommandOutput}
+ * @param UpdateDevicePoolRequest - {@link UpdateDevicePoolRequest}
+ * @returns {@link UpdateDevicePoolResult}
  * @see {@link UpdateDevicePoolCommandInput} for command's `input` shape.
  * @see {@link UpdateDevicePoolCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

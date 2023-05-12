@@ -73,8 +73,8 @@ export interface ExportEarthObservationJobCommandOutput extends ExportEarthObser
  *
  * ```
  *
- * @param ExportEarthObservationJobCommandInput - {@link ExportEarthObservationJobCommandInput}
- * @returns {@link ExportEarthObservationJobCommandOutput}
+ * @param ExportEarthObservationJobInput - {@link ExportEarthObservationJobInput}
+ * @returns {@link ExportEarthObservationJobOutput}
  * @see {@link ExportEarthObservationJobCommandInput} for command's `input` shape.
  * @see {@link ExportEarthObservationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerGeospatialClientResolvedConfig | config} for SageMakerGeospatialClient's `config` shape.

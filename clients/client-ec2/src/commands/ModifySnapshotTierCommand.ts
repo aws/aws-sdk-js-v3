@@ -57,8 +57,8 @@ export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResul
  *
  * ```
  *
- * @param ModifySnapshotTierCommandInput - {@link ModifySnapshotTierCommandInput}
- * @returns {@link ModifySnapshotTierCommandOutput}
+ * @param ModifySnapshotTierRequest - {@link ModifySnapshotTierRequest}
+ * @returns {@link ModifySnapshotTierResult}
  * @see {@link ModifySnapshotTierCommandInput} for command's `input` shape.
  * @see {@link ModifySnapshotTierCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

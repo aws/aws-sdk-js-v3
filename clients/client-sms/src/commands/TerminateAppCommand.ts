@@ -48,8 +48,8 @@ export interface TerminateAppCommandOutput extends TerminateAppResponse, __Metad
  *
  * ```
  *
- * @param TerminateAppCommandInput - {@link TerminateAppCommandInput}
- * @returns {@link TerminateAppCommandOutput}
+ * @param TerminateAppRequest - {@link TerminateAppRequest}
+ * @returns {@link TerminateAppResponse}
  * @see {@link TerminateAppCommandInput} for command's `input` shape.
  * @see {@link TerminateAppCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

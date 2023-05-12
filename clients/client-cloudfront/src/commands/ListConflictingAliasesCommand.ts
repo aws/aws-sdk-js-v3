@@ -86,8 +86,8 @@ export interface ListConflictingAliasesCommandOutput extends ListConflictingAlia
  *
  * ```
  *
- * @param ListConflictingAliasesCommandInput - {@link ListConflictingAliasesCommandInput}
- * @returns {@link ListConflictingAliasesCommandOutput}
+ * @param ListConflictingAliasesRequest - {@link ListConflictingAliasesRequest}
+ * @returns {@link ListConflictingAliasesResult}
  * @see {@link ListConflictingAliasesCommandInput} for command's `input` shape.
  * @see {@link ListConflictingAliasesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

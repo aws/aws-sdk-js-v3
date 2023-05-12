@@ -74,8 +74,8 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  *
  * ```
  *
- * @param NotifyMigrationTaskStateCommandInput - {@link NotifyMigrationTaskStateCommandInput}
- * @returns {@link NotifyMigrationTaskStateCommandOutput}
+ * @param NotifyMigrationTaskStateRequest - {@link NotifyMigrationTaskStateRequest}
+ * @returns {@link NotifyMigrationTaskStateResult}
  * @see {@link NotifyMigrationTaskStateCommandInput} for command's `input` shape.
  * @see {@link NotifyMigrationTaskStateCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.

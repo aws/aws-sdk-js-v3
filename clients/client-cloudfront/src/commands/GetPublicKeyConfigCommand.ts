@@ -56,8 +56,8 @@ export interface GetPublicKeyConfigCommandOutput extends GetPublicKeyConfigResul
  *
  * ```
  *
- * @param GetPublicKeyConfigCommandInput - {@link GetPublicKeyConfigCommandInput}
- * @returns {@link GetPublicKeyConfigCommandOutput}
+ * @param GetPublicKeyConfigRequest - {@link GetPublicKeyConfigRequest}
+ * @returns {@link GetPublicKeyConfigResult}
  * @see {@link GetPublicKeyConfigCommandInput} for command's `input` shape.
  * @see {@link GetPublicKeyConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

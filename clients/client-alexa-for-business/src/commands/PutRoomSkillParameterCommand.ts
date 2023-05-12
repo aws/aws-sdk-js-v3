@@ -54,8 +54,8 @@ export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParamete
  *
  * ```
  *
- * @param PutRoomSkillParameterCommandInput - {@link PutRoomSkillParameterCommandInput}
- * @returns {@link PutRoomSkillParameterCommandOutput}
+ * @param PutRoomSkillParameterRequest - {@link PutRoomSkillParameterRequest}
+ * @returns {@link PutRoomSkillParameterResponse}
  * @see {@link PutRoomSkillParameterCommandInput} for command's `input` shape.
  * @see {@link PutRoomSkillParameterCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

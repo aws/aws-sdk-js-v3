@@ -89,8 +89,8 @@ export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataB
  *
  * ```
  *
- * @param RequestCancelWorkflowExecutionCommandInput - {@link RequestCancelWorkflowExecutionCommandInput}
- * @returns {@link RequestCancelWorkflowExecutionCommandOutput}
+ * @param RequestCancelWorkflowExecutionInput - {@link RequestCancelWorkflowExecutionInput}
+ * @returns {@link Unit}
  * @see {@link RequestCancelWorkflowExecutionCommandInput} for command's `input` shape.
  * @see {@link RequestCancelWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

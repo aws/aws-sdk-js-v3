@@ -52,8 +52,8 @@ export interface UpdateBlueprintCommandOutput extends UpdateBlueprintResponse, _
  *
  * ```
  *
- * @param UpdateBlueprintCommandInput - {@link UpdateBlueprintCommandInput}
- * @returns {@link UpdateBlueprintCommandOutput}
+ * @param UpdateBlueprintRequest - {@link UpdateBlueprintRequest}
+ * @returns {@link UpdateBlueprintResponse}
  * @see {@link UpdateBlueprintCommandInput} for command's `input` shape.
  * @see {@link UpdateBlueprintCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

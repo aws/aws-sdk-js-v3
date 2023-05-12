@@ -118,8 +118,8 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  *
  * ```
  *
- * @param UploadMultipartPartCommandInput - {@link UploadMultipartPartCommandInput}
- * @returns {@link UploadMultipartPartCommandOutput}
+ * @param UploadMultipartPartInput - {@link UploadMultipartPartInput}
+ * @returns {@link UploadMultipartPartOutput}
  * @see {@link UploadMultipartPartCommandInput} for command's `input` shape.
  * @see {@link UploadMultipartPartCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

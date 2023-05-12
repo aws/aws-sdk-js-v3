@@ -391,8 +391,8 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
  *
  * ```
  *
- * @param GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput - {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput}
- * @returns {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput}
+ * @param GetNetworkInsightsAccessScopeAnalysisFindingsRequest - {@link GetNetworkInsightsAccessScopeAnalysisFindingsRequest}
+ * @returns {@link GetNetworkInsightsAccessScopeAnalysisFindingsResult}
  * @see {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput} for command's `input` shape.
  * @see {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

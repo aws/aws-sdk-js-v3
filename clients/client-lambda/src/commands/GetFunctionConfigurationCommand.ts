@@ -150,8 +150,8 @@ export interface GetFunctionConfigurationCommandOutput extends FunctionConfigura
  *
  * ```
  *
- * @param GetFunctionConfigurationCommandInput - {@link GetFunctionConfigurationCommandInput}
- * @returns {@link GetFunctionConfigurationCommandOutput}
+ * @param GetFunctionConfigurationRequest - {@link GetFunctionConfigurationRequest}
+ * @returns {@link FunctionConfiguration}
  * @see {@link GetFunctionConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetFunctionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

@@ -94,8 +94,8 @@ export interface StartDominantLanguageDetectionJobCommandOutput
  *
  * ```
  *
- * @param StartDominantLanguageDetectionJobCommandInput - {@link StartDominantLanguageDetectionJobCommandInput}
- * @returns {@link StartDominantLanguageDetectionJobCommandOutput}
+ * @param StartDominantLanguageDetectionJobRequest - {@link StartDominantLanguageDetectionJobRequest}
+ * @returns {@link StartDominantLanguageDetectionJobResponse}
  * @see {@link StartDominantLanguageDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartDominantLanguageDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

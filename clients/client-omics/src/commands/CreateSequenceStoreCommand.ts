@@ -69,8 +69,8 @@ export interface CreateSequenceStoreCommandOutput extends CreateSequenceStoreRes
  *
  * ```
  *
- * @param CreateSequenceStoreCommandInput - {@link CreateSequenceStoreCommandInput}
- * @returns {@link CreateSequenceStoreCommandOutput}
+ * @param CreateSequenceStoreRequest - {@link CreateSequenceStoreRequest}
+ * @returns {@link CreateSequenceStoreResponse}
  * @see {@link CreateSequenceStoreCommandInput} for command's `input` shape.
  * @see {@link CreateSequenceStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

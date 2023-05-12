@@ -294,8 +294,8 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *
  * ```
  *
- * @param CreateTrainingJobCommandInput - {@link CreateTrainingJobCommandInput}
- * @returns {@link CreateTrainingJobCommandOutput}
+ * @param CreateTrainingJobRequest - {@link CreateTrainingJobRequest}
+ * @returns {@link CreateTrainingJobResponse}
  * @see {@link CreateTrainingJobCommandInput} for command's `input` shape.
  * @see {@link CreateTrainingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

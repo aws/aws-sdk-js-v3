@@ -64,8 +64,8 @@ export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateArchiveRuleCommandInput - {@link UpdateArchiveRuleCommandInput}
- * @returns {@link UpdateArchiveRuleCommandOutput}
+ * @param UpdateArchiveRuleRequest - {@link UpdateArchiveRuleRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateArchiveRuleCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

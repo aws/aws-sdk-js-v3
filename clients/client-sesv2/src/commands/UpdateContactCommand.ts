@@ -59,8 +59,8 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  *
  * ```
  *
- * @param UpdateContactCommandInput - {@link UpdateContactCommandInput}
- * @returns {@link UpdateContactCommandOutput}
+ * @param UpdateContactRequest - {@link UpdateContactRequest}
+ * @returns {@link UpdateContactResponse}
  * @see {@link UpdateContactCommandInput} for command's `input` shape.
  * @see {@link UpdateContactCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

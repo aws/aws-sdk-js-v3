@@ -54,8 +54,8 @@ export interface CreateTagsCommandOutput extends CreateTagsResult, __MetadataBea
  *
  * ```
  *
- * @param CreateTagsCommandInput - {@link CreateTagsCommandInput}
- * @returns {@link CreateTagsCommandOutput}
+ * @param CreateTagsRequest - {@link CreateTagsRequest}
+ * @returns {@link CreateTagsResult}
  * @see {@link CreateTagsCommandInput} for command's `input` shape.
  * @see {@link CreateTagsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

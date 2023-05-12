@@ -89,8 +89,8 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  *
  * ```
  *
- * @param CreateResolverRuleCommandInput - {@link CreateResolverRuleCommandInput}
- * @returns {@link CreateResolverRuleCommandOutput}
+ * @param CreateResolverRuleRequest - {@link CreateResolverRuleRequest}
+ * @returns {@link CreateResolverRuleResponse}
  * @see {@link CreateResolverRuleCommandInput} for command's `input` shape.
  * @see {@link CreateResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

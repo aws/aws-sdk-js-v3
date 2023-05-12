@@ -82,8 +82,8 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __Me
  *
  * ```
  *
- * @param BatchUpdateAttendeeCapabilitiesExceptCommandInput - {@link BatchUpdateAttendeeCapabilitiesExceptCommandInput}
- * @returns {@link BatchUpdateAttendeeCapabilitiesExceptCommandOutput}
+ * @param BatchUpdateAttendeeCapabilitiesExceptRequest - {@link BatchUpdateAttendeeCapabilitiesExceptRequest}
+ * @returns {@link Unit}
  * @see {@link BatchUpdateAttendeeCapabilitiesExceptCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateAttendeeCapabilitiesExceptCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.

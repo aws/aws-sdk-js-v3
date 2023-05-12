@@ -62,8 +62,8 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
  *
  * ```
  *
- * @param CreateSystemTemplateCommandInput - {@link CreateSystemTemplateCommandInput}
- * @returns {@link CreateSystemTemplateCommandOutput}
+ * @param CreateSystemTemplateRequest - {@link CreateSystemTemplateRequest}
+ * @returns {@link CreateSystemTemplateResponse}
  * @see {@link CreateSystemTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateSystemTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

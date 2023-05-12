@@ -128,8 +128,8 @@ export interface GetColumnStatisticsForPartitionCommandOutput
  *
  * ```
  *
- * @param GetColumnStatisticsForPartitionCommandInput - {@link GetColumnStatisticsForPartitionCommandInput}
- * @returns {@link GetColumnStatisticsForPartitionCommandOutput}
+ * @param GetColumnStatisticsForPartitionRequest - {@link GetColumnStatisticsForPartitionRequest}
+ * @returns {@link GetColumnStatisticsForPartitionResponse}
  * @see {@link GetColumnStatisticsForPartitionCommandInput} for command's `input` shape.
  * @see {@link GetColumnStatisticsForPartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

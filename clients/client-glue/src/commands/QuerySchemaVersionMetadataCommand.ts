@@ -80,8 +80,8 @@ export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVers
  *
  * ```
  *
- * @param QuerySchemaVersionMetadataCommandInput - {@link QuerySchemaVersionMetadataCommandInput}
- * @returns {@link QuerySchemaVersionMetadataCommandOutput}
+ * @param QuerySchemaVersionMetadataInput - {@link QuerySchemaVersionMetadataInput}
+ * @returns {@link QuerySchemaVersionMetadataResponse}
  * @see {@link QuerySchemaVersionMetadataCommandInput} for command's `input` shape.
  * @see {@link QuerySchemaVersionMetadataCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

@@ -392,8 +392,8 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  *
  * ```
  *
- * @param UpdateProjectCommandInput - {@link UpdateProjectCommandInput}
- * @returns {@link UpdateProjectCommandOutput}
+ * @param UpdateProjectInput - {@link UpdateProjectInput}
+ * @returns {@link UpdateProjectOutput}
  * @see {@link UpdateProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

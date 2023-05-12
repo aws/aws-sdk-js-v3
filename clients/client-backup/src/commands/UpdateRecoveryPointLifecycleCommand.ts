@@ -81,8 +81,8 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  *
  * ```
  *
- * @param UpdateRecoveryPointLifecycleCommandInput - {@link UpdateRecoveryPointLifecycleCommandInput}
- * @returns {@link UpdateRecoveryPointLifecycleCommandOutput}
+ * @param UpdateRecoveryPointLifecycleInput - {@link UpdateRecoveryPointLifecycleInput}
+ * @returns {@link UpdateRecoveryPointLifecycleOutput}
  * @see {@link UpdateRecoveryPointLifecycleCommandInput} for command's `input` shape.
  * @see {@link UpdateRecoveryPointLifecycleCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

@@ -90,8 +90,8 @@ export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectio
  *
  * ```
  *
- * @param StartSegmentDetectionCommandInput - {@link StartSegmentDetectionCommandInput}
- * @returns {@link StartSegmentDetectionCommandOutput}
+ * @param StartSegmentDetectionRequest - {@link StartSegmentDetectionRequest}
+ * @returns {@link StartSegmentDetectionResponse}
  * @see {@link StartSegmentDetectionCommandInput} for command's `input` shape.
  * @see {@link StartSegmentDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

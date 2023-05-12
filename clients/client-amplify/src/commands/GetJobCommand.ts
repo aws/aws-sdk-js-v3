@@ -81,8 +81,8 @@ export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
  *
  * ```
  *
- * @param GetJobCommandInput - {@link GetJobCommandInput}
- * @returns {@link GetJobCommandOutput}
+ * @param GetJobRequest - {@link GetJobRequest}
+ * @returns {@link GetJobResult}
  * @see {@link GetJobCommandInput} for command's `input` shape.
  * @see {@link GetJobCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

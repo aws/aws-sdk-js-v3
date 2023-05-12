@@ -130,8 +130,8 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  *
  * ```
  *
- * @param CreateLayerCommandInput - {@link CreateLayerCommandInput}
- * @returns {@link CreateLayerCommandOutput}
+ * @param CreateLayerRequest - {@link CreateLayerRequest}
+ * @returns {@link CreateLayerResult}
  * @see {@link CreateLayerCommandInput} for command's `input` shape.
  * @see {@link CreateLayerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

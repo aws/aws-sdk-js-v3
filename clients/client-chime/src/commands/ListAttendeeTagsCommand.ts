@@ -60,8 +60,8 @@ export interface ListAttendeeTagsCommandOutput extends ListAttendeeTagsResponse,
  *
  * ```
  *
- * @param ListAttendeeTagsCommandInput - {@link ListAttendeeTagsCommandInput}
- * @returns {@link ListAttendeeTagsCommandOutput}
+ * @param ListAttendeeTagsRequest - {@link ListAttendeeTagsRequest}
+ * @returns {@link ListAttendeeTagsResponse}
  * @see {@link ListAttendeeTagsCommandInput} for command's `input` shape.
  * @see {@link ListAttendeeTagsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

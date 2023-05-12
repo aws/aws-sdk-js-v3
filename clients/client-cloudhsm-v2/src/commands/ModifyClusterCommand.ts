@@ -97,8 +97,8 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  *
  * ```
  *
- * @param ModifyClusterCommandInput - {@link ModifyClusterCommandInput}
- * @returns {@link ModifyClusterCommandOutput}
+ * @param ModifyClusterRequest - {@link ModifyClusterRequest}
+ * @returns {@link ModifyClusterResponse}
  * @see {@link ModifyClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.

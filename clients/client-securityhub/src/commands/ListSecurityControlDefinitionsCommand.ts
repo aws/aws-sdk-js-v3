@@ -69,8 +69,8 @@ export interface ListSecurityControlDefinitionsCommandOutput
  *
  * ```
  *
- * @param ListSecurityControlDefinitionsCommandInput - {@link ListSecurityControlDefinitionsCommandInput}
- * @returns {@link ListSecurityControlDefinitionsCommandOutput}
+ * @param ListSecurityControlDefinitionsRequest - {@link ListSecurityControlDefinitionsRequest}
+ * @returns {@link ListSecurityControlDefinitionsResponse}
  * @see {@link ListSecurityControlDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListSecurityControlDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

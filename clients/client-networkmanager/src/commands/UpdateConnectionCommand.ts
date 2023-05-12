@@ -72,8 +72,8 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  *
  * ```
  *
- * @param UpdateConnectionCommandInput - {@link UpdateConnectionCommandInput}
- * @returns {@link UpdateConnectionCommandOutput}
+ * @param UpdateConnectionRequest - {@link UpdateConnectionRequest}
+ * @returns {@link UpdateConnectionResponse}
  * @see {@link UpdateConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

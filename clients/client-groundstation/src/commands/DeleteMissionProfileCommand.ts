@@ -50,8 +50,8 @@ export interface DeleteMissionProfileCommandOutput extends MissionProfileIdRespo
  *
  * ```
  *
- * @param DeleteMissionProfileCommandInput - {@link DeleteMissionProfileCommandInput}
- * @returns {@link DeleteMissionProfileCommandOutput}
+ * @param DeleteMissionProfileRequest - {@link DeleteMissionProfileRequest}
+ * @returns {@link MissionProfileIdResponse}
  * @see {@link DeleteMissionProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteMissionProfileCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

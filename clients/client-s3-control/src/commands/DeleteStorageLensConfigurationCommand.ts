@@ -61,8 +61,8 @@ export interface DeleteStorageLensConfigurationCommandOutput extends __MetadataB
  *
  * ```
  *
- * @param DeleteStorageLensConfigurationCommandInput - {@link DeleteStorageLensConfigurationCommandInput}
- * @returns {@link DeleteStorageLensConfigurationCommandOutput}
+ * @param DeleteStorageLensConfigurationRequest - {@link DeleteStorageLensConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteStorageLensConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteStorageLensConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

@@ -90,8 +90,8 @@ export interface DescribeAssociationExecutionsCommandOutput
  *
  * ```
  *
- * @param DescribeAssociationExecutionsCommandInput - {@link DescribeAssociationExecutionsCommandInput}
- * @returns {@link DescribeAssociationExecutionsCommandOutput}
+ * @param DescribeAssociationExecutionsRequest - {@link DescribeAssociationExecutionsRequest}
+ * @returns {@link DescribeAssociationExecutionsResult}
  * @see {@link DescribeAssociationExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAssociationExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

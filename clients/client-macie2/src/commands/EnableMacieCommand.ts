@@ -50,8 +50,8 @@ export interface EnableMacieCommandOutput extends EnableMacieResponse, __Metadat
  *
  * ```
  *
- * @param EnableMacieCommandInput - {@link EnableMacieCommandInput}
- * @returns {@link EnableMacieCommandOutput}
+ * @param EnableMacieRequest - {@link EnableMacieRequest}
+ * @returns {@link EnableMacieResponse}
  * @see {@link EnableMacieCommandInput} for command's `input` shape.
  * @see {@link EnableMacieCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

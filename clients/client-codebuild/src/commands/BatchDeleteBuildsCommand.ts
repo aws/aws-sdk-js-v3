@@ -60,8 +60,8 @@ export interface BatchDeleteBuildsCommandOutput extends BatchDeleteBuildsOutput,
  *
  * ```
  *
- * @param BatchDeleteBuildsCommandInput - {@link BatchDeleteBuildsCommandInput}
- * @returns {@link BatchDeleteBuildsCommandOutput}
+ * @param BatchDeleteBuildsInput - {@link BatchDeleteBuildsInput}
+ * @returns {@link BatchDeleteBuildsOutput}
  * @see {@link BatchDeleteBuildsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteBuildsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

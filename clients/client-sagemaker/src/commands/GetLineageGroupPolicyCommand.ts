@@ -51,8 +51,8 @@ export interface GetLineageGroupPolicyCommandOutput extends GetLineageGroupPolic
  *
  * ```
  *
- * @param GetLineageGroupPolicyCommandInput - {@link GetLineageGroupPolicyCommandInput}
- * @returns {@link GetLineageGroupPolicyCommandOutput}
+ * @param GetLineageGroupPolicyRequest - {@link GetLineageGroupPolicyRequest}
+ * @returns {@link GetLineageGroupPolicyResponse}
  * @see {@link GetLineageGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link GetLineageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

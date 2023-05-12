@@ -57,8 +57,8 @@ export interface AddAssociationCommandOutput extends AddAssociationResponse, __M
  *
  * ```
  *
- * @param AddAssociationCommandInput - {@link AddAssociationCommandInput}
- * @returns {@link AddAssociationCommandOutput}
+ * @param AddAssociationRequest - {@link AddAssociationRequest}
+ * @returns {@link AddAssociationResponse}
  * @see {@link AddAssociationCommandInput} for command's `input` shape.
  * @see {@link AddAssociationCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -61,8 +61,8 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  *
  * ```
  *
- * @param ListSecurityProfilesCommandInput - {@link ListSecurityProfilesCommandInput}
- * @returns {@link ListSecurityProfilesCommandOutput}
+ * @param ListSecurityProfilesRequest - {@link ListSecurityProfilesRequest}
+ * @returns {@link ListSecurityProfilesResponse}
  * @see {@link ListSecurityProfilesCommandInput} for command's `input` shape.
  * @see {@link ListSecurityProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

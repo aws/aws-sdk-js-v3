@@ -48,8 +48,8 @@ export interface DeleteFunctionConcurrencyCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param DeleteFunctionConcurrencyCommandInput - {@link DeleteFunctionConcurrencyCommandInput}
- * @returns {@link DeleteFunctionConcurrencyCommandOutput}
+ * @param DeleteFunctionConcurrencyRequest - {@link DeleteFunctionConcurrencyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteFunctionConcurrencyCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionConcurrencyCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

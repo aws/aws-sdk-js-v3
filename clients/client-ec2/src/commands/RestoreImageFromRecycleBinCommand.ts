@@ -51,8 +51,8 @@ export interface RestoreImageFromRecycleBinCommandOutput extends RestoreImageFro
  *
  * ```
  *
- * @param RestoreImageFromRecycleBinCommandInput - {@link RestoreImageFromRecycleBinCommandInput}
- * @returns {@link RestoreImageFromRecycleBinCommandOutput}
+ * @param RestoreImageFromRecycleBinRequest - {@link RestoreImageFromRecycleBinRequest}
+ * @returns {@link RestoreImageFromRecycleBinResult}
  * @see {@link RestoreImageFromRecycleBinCommandInput} for command's `input` shape.
  * @see {@link RestoreImageFromRecycleBinCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

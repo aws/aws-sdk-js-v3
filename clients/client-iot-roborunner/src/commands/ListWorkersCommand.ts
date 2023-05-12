@@ -82,8 +82,8 @@ export interface ListWorkersCommandOutput extends ListWorkersResponse, __Metadat
  *
  * ```
  *
- * @param ListWorkersCommandInput - {@link ListWorkersCommandInput}
- * @returns {@link ListWorkersCommandOutput}
+ * @param ListWorkersRequest - {@link ListWorkersRequest}
+ * @returns {@link ListWorkersResponse}
  * @see {@link ListWorkersCommandInput} for command's `input` shape.
  * @see {@link ListWorkersCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

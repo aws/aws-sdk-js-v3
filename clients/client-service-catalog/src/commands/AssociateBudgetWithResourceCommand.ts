@@ -49,8 +49,8 @@ export interface AssociateBudgetWithResourceCommandOutput extends AssociateBudge
  *
  * ```
  *
- * @param AssociateBudgetWithResourceCommandInput - {@link AssociateBudgetWithResourceCommandInput}
- * @returns {@link AssociateBudgetWithResourceCommandOutput}
+ * @param AssociateBudgetWithResourceInput - {@link AssociateBudgetWithResourceInput}
+ * @returns {@link AssociateBudgetWithResourceOutput}
  * @see {@link AssociateBudgetWithResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateBudgetWithResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

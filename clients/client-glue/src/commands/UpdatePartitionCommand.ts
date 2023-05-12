@@ -119,8 +119,8 @@ export interface UpdatePartitionCommandOutput extends UpdatePartitionResponse, _
  *
  * ```
  *
- * @param UpdatePartitionCommandInput - {@link UpdatePartitionCommandInput}
- * @returns {@link UpdatePartitionCommandOutput}
+ * @param UpdatePartitionRequest - {@link UpdatePartitionRequest}
+ * @returns {@link UpdatePartitionResponse}
  * @see {@link UpdatePartitionCommandInput} for command's `input` shape.
  * @see {@link UpdatePartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

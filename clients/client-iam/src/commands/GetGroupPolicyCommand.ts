@@ -67,8 +67,8 @@ export interface GetGroupPolicyCommandOutput extends GetGroupPolicyResponse, __M
  *
  * ```
  *
- * @param GetGroupPolicyCommandInput - {@link GetGroupPolicyCommandInput}
- * @returns {@link GetGroupPolicyCommandOutput}
+ * @param GetGroupPolicyRequest - {@link GetGroupPolicyRequest}
+ * @returns {@link GetGroupPolicyResponse}
  * @see {@link GetGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link GetGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

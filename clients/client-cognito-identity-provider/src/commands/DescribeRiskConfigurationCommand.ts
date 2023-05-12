@@ -117,8 +117,8 @@ export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConf
  *
  * ```
  *
- * @param DescribeRiskConfigurationCommandInput - {@link DescribeRiskConfigurationCommandInput}
- * @returns {@link DescribeRiskConfigurationCommandOutput}
+ * @param DescribeRiskConfigurationRequest - {@link DescribeRiskConfigurationRequest}
+ * @returns {@link DescribeRiskConfigurationResponse}
  * @see {@link DescribeRiskConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeRiskConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

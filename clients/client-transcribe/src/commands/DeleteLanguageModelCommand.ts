@@ -50,8 +50,8 @@ export interface DeleteLanguageModelCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteLanguageModelCommandInput - {@link DeleteLanguageModelCommandInput}
- * @returns {@link DeleteLanguageModelCommandOutput}
+ * @param DeleteLanguageModelRequest - {@link DeleteLanguageModelRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteLanguageModelCommandInput} for command's `input` shape.
  * @see {@link DeleteLanguageModelCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

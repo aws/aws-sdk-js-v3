@@ -147,8 +147,8 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  *
  * ```
  *
- * @param CreateGlobalTableCommandInput - {@link CreateGlobalTableCommandInput}
- * @returns {@link CreateGlobalTableCommandOutput}
+ * @param CreateGlobalTableInput - {@link CreateGlobalTableInput}
+ * @returns {@link CreateGlobalTableOutput}
  * @see {@link CreateGlobalTableCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

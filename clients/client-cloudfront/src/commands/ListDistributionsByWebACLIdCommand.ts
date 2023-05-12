@@ -353,8 +353,8 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  *
  * ```
  *
- * @param ListDistributionsByWebACLIdCommandInput - {@link ListDistributionsByWebACLIdCommandInput}
- * @returns {@link ListDistributionsByWebACLIdCommandOutput}
+ * @param ListDistributionsByWebACLIdRequest - {@link ListDistributionsByWebACLIdRequest}
+ * @returns {@link ListDistributionsByWebACLIdResult}
  * @see {@link ListDistributionsByWebACLIdCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByWebACLIdCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

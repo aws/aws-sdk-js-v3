@@ -75,8 +75,8 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  *
  * ```
  *
- * @param GetKnowledgeBaseCommandInput - {@link GetKnowledgeBaseCommandInput}
- * @returns {@link GetKnowledgeBaseCommandOutput}
+ * @param GetKnowledgeBaseRequest - {@link GetKnowledgeBaseRequest}
+ * @returns {@link GetKnowledgeBaseResponse}
  * @see {@link GetKnowledgeBaseCommandInput} for command's `input` shape.
  * @see {@link GetKnowledgeBaseCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

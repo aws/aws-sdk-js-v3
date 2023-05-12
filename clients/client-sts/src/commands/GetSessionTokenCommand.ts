@@ -114,8 +114,8 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *
  * ```
  *
- * @param GetSessionTokenCommandInput - {@link GetSessionTokenCommandInput}
- * @returns {@link GetSessionTokenCommandOutput}
+ * @param GetSessionTokenRequest - {@link GetSessionTokenRequest}
+ * @returns {@link GetSessionTokenResponse}
  * @see {@link GetSessionTokenCommandInput} for command's `input` shape.
  * @see {@link GetSessionTokenCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.

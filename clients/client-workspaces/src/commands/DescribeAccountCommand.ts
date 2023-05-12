@@ -50,8 +50,8 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResult, __M
  *
  * ```
  *
- * @param DescribeAccountCommandInput - {@link DescribeAccountCommandInput}
- * @returns {@link DescribeAccountCommandOutput}
+ * @param DescribeAccountRequest - {@link DescribeAccountRequest}
+ * @returns {@link DescribeAccountResult}
  * @see {@link DescribeAccountCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

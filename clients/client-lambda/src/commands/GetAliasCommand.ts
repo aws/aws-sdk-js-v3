@@ -60,8 +60,8 @@ export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBea
  *
  * ```
  *
- * @param GetAliasCommandInput - {@link GetAliasCommandInput}
- * @returns {@link GetAliasCommandOutput}
+ * @param GetAliasRequest - {@link GetAliasRequest}
+ * @returns {@link AliasConfiguration}
  * @see {@link GetAliasCommandInput} for command's `input` shape.
  * @see {@link GetAliasCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

@@ -73,8 +73,8 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  *
  * ```
  *
- * @param ModifyMountTargetSecurityGroupsCommandInput - {@link ModifyMountTargetSecurityGroupsCommandInput}
- * @returns {@link ModifyMountTargetSecurityGroupsCommandOutput}
+ * @param ModifyMountTargetSecurityGroupsRequest - {@link ModifyMountTargetSecurityGroupsRequest}
+ * @returns {@link Unit}
  * @see {@link ModifyMountTargetSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link ModifyMountTargetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

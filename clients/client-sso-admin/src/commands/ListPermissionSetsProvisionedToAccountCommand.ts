@@ -66,8 +66,8 @@ export interface ListPermissionSetsProvisionedToAccountCommandOutput
  *
  * ```
  *
- * @param ListPermissionSetsProvisionedToAccountCommandInput - {@link ListPermissionSetsProvisionedToAccountCommandInput}
- * @returns {@link ListPermissionSetsProvisionedToAccountCommandOutput}
+ * @param ListPermissionSetsProvisionedToAccountRequest - {@link ListPermissionSetsProvisionedToAccountRequest}
+ * @returns {@link ListPermissionSetsProvisionedToAccountResponse}
  * @see {@link ListPermissionSetsProvisionedToAccountCommandInput} for command's `input` shape.
  * @see {@link ListPermissionSetsProvisionedToAccountCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

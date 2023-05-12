@@ -76,8 +76,8 @@ export interface UpdateRoleDescriptionCommandOutput extends UpdateRoleDescriptio
  *
  * ```
  *
- * @param UpdateRoleDescriptionCommandInput - {@link UpdateRoleDescriptionCommandInput}
- * @returns {@link UpdateRoleDescriptionCommandOutput}
+ * @param UpdateRoleDescriptionRequest - {@link UpdateRoleDescriptionRequest}
+ * @returns {@link UpdateRoleDescriptionResponse}
  * @see {@link UpdateRoleDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateRoleDescriptionCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

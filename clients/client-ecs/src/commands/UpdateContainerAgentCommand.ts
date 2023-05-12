@@ -148,8 +148,8 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  *
  * ```
  *
- * @param UpdateContainerAgentCommandInput - {@link UpdateContainerAgentCommandInput}
- * @returns {@link UpdateContainerAgentCommandOutput}
+ * @param UpdateContainerAgentRequest - {@link UpdateContainerAgentRequest}
+ * @returns {@link UpdateContainerAgentResponse}
  * @see {@link UpdateContainerAgentCommandInput} for command's `input` shape.
  * @see {@link UpdateContainerAgentCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

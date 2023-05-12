@@ -81,8 +81,8 @@ export interface GetPhoneNumberCommandOutput extends GetPhoneNumberResponse, __M
  *
  * ```
  *
- * @param GetPhoneNumberCommandInput - {@link GetPhoneNumberCommandInput}
- * @returns {@link GetPhoneNumberCommandOutput}
+ * @param GetPhoneNumberRequest - {@link GetPhoneNumberRequest}
+ * @returns {@link GetPhoneNumberResponse}
  * @see {@link GetPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link GetPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

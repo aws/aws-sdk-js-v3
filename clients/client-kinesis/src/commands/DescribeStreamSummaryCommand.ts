@@ -82,8 +82,8 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  *
  * ```
  *
- * @param DescribeStreamSummaryCommandInput - {@link DescribeStreamSummaryCommandInput}
- * @returns {@link DescribeStreamSummaryCommandOutput}
+ * @param DescribeStreamSummaryInput - {@link DescribeStreamSummaryInput}
+ * @returns {@link DescribeStreamSummaryOutput}
  * @see {@link DescribeStreamSummaryCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamSummaryCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

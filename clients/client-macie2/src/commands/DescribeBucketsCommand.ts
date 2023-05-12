@@ -161,8 +161,8 @@ export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, _
  *
  * ```
  *
- * @param DescribeBucketsCommandInput - {@link DescribeBucketsCommandInput}
- * @returns {@link DescribeBucketsCommandOutput}
+ * @param DescribeBucketsRequest - {@link DescribeBucketsRequest}
+ * @returns {@link DescribeBucketsResponse}
  * @see {@link DescribeBucketsCommandInput} for command's `input` shape.
  * @see {@link DescribeBucketsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

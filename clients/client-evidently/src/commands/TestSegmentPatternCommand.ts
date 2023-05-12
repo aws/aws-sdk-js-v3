@@ -52,8 +52,8 @@ export interface TestSegmentPatternCommandOutput extends TestSegmentPatternRespo
  *
  * ```
  *
- * @param TestSegmentPatternCommandInput - {@link TestSegmentPatternCommandInput}
- * @returns {@link TestSegmentPatternCommandOutput}
+ * @param TestSegmentPatternRequest - {@link TestSegmentPatternRequest}
+ * @returns {@link TestSegmentPatternResponse}
  * @see {@link TestSegmentPatternCommandInput} for command's `input` shape.
  * @see {@link TestSegmentPatternCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

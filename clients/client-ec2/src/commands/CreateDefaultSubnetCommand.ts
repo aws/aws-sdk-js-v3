@@ -95,8 +95,8 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
  *
  * ```
  *
- * @param CreateDefaultSubnetCommandInput - {@link CreateDefaultSubnetCommandInput}
- * @returns {@link CreateDefaultSubnetCommandOutput}
+ * @param CreateDefaultSubnetRequest - {@link CreateDefaultSubnetRequest}
+ * @returns {@link CreateDefaultSubnetResult}
  * @see {@link CreateDefaultSubnetCommandInput} for command's `input` shape.
  * @see {@link CreateDefaultSubnetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -69,8 +69,8 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  *
  * ```
  *
- * @param SetSecurityTokenServicePreferencesCommandInput - {@link SetSecurityTokenServicePreferencesCommandInput}
- * @returns {@link SetSecurityTokenServicePreferencesCommandOutput}
+ * @param SetSecurityTokenServicePreferencesRequest - {@link SetSecurityTokenServicePreferencesRequest}
+ * @returns {@link Unit}
  * @see {@link SetSecurityTokenServicePreferencesCommandInput} for command's `input` shape.
  * @see {@link SetSecurityTokenServicePreferencesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

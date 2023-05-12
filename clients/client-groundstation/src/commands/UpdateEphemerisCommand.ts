@@ -53,8 +53,8 @@ export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  *
  * ```
  *
- * @param UpdateEphemerisCommandInput - {@link UpdateEphemerisCommandInput}
- * @returns {@link UpdateEphemerisCommandOutput}
+ * @param UpdateEphemerisRequest - {@link UpdateEphemerisRequest}
+ * @returns {@link EphemerisIdResponse}
  * @see {@link UpdateEphemerisCommandInput} for command's `input` shape.
  * @see {@link UpdateEphemerisCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

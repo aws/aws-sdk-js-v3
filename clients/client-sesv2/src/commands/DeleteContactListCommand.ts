@@ -48,8 +48,8 @@ export interface DeleteContactListCommandOutput extends DeleteContactListRespons
  *
  * ```
  *
- * @param DeleteContactListCommandInput - {@link DeleteContactListCommandInput}
- * @returns {@link DeleteContactListCommandOutput}
+ * @param DeleteContactListRequest - {@link DeleteContactListRequest}
+ * @returns {@link DeleteContactListResponse}
  * @see {@link DeleteContactListCommandInput} for command's `input` shape.
  * @see {@link DeleteContactListCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

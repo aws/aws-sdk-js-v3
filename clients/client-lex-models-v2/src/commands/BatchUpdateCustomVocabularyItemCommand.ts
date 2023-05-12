@@ -83,8 +83,8 @@ export interface BatchUpdateCustomVocabularyItemCommandOutput
  *
  * ```
  *
- * @param BatchUpdateCustomVocabularyItemCommandInput - {@link BatchUpdateCustomVocabularyItemCommandInput}
- * @returns {@link BatchUpdateCustomVocabularyItemCommandOutput}
+ * @param BatchUpdateCustomVocabularyItemRequest - {@link BatchUpdateCustomVocabularyItemRequest}
+ * @returns {@link BatchUpdateCustomVocabularyItemResponse}
  * @see {@link BatchUpdateCustomVocabularyItemCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateCustomVocabularyItemCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

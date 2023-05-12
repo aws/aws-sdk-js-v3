@@ -61,8 +61,8 @@ export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmaking
  *
  * ```
  *
- * @param DeleteMatchmakingRuleSetCommandInput - {@link DeleteMatchmakingRuleSetCommandInput}
- * @returns {@link DeleteMatchmakingRuleSetCommandOutput}
+ * @param DeleteMatchmakingRuleSetInput - {@link DeleteMatchmakingRuleSetInput}
+ * @returns {@link DeleteMatchmakingRuleSetOutput}
  * @see {@link DeleteMatchmakingRuleSetCommandInput} for command's `input` shape.
  * @see {@link DeleteMatchmakingRuleSetCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

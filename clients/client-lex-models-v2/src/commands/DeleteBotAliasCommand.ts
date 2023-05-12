@@ -54,8 +54,8 @@ export interface DeleteBotAliasCommandOutput extends DeleteBotAliasResponse, __M
  *
  * ```
  *
- * @param DeleteBotAliasCommandInput - {@link DeleteBotAliasCommandInput}
- * @returns {@link DeleteBotAliasCommandOutput}
+ * @param DeleteBotAliasRequest - {@link DeleteBotAliasRequest}
+ * @returns {@link DeleteBotAliasResponse}
  * @see {@link DeleteBotAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

@@ -60,8 +60,8 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  *
  * ```
  *
- * @param ListReportsCommandInput - {@link ListReportsCommandInput}
- * @returns {@link ListReportsCommandOutput}
+ * @param ListReportsInput - {@link ListReportsInput}
+ * @returns {@link ListReportsOutput}
  * @see {@link ListReportsCommandInput} for command's `input` shape.
  * @see {@link ListReportsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

@@ -66,8 +66,8 @@ export interface DefineExpressionCommandOutput extends DefineExpressionResponse,
  *
  * ```
  *
- * @param DefineExpressionCommandInput - {@link DefineExpressionCommandInput}
- * @returns {@link DefineExpressionCommandOutput}
+ * @param DefineExpressionRequest - {@link DefineExpressionRequest}
+ * @returns {@link DefineExpressionResponse}
  * @see {@link DefineExpressionCommandInput} for command's `input` shape.
  * @see {@link DefineExpressionCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

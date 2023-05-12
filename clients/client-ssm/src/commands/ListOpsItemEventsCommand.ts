@@ -74,8 +74,8 @@ export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsRespons
  *
  * ```
  *
- * @param ListOpsItemEventsCommandInput - {@link ListOpsItemEventsCommandInput}
- * @returns {@link ListOpsItemEventsCommandOutput}
+ * @param ListOpsItemEventsRequest - {@link ListOpsItemEventsRequest}
+ * @returns {@link ListOpsItemEventsResponse}
  * @see {@link ListOpsItemEventsCommandInput} for command's `input` shape.
  * @see {@link ListOpsItemEventsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

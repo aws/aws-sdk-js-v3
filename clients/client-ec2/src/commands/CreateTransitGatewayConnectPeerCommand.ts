@@ -106,8 +106,8 @@ export interface CreateTransitGatewayConnectPeerCommandOutput
  *
  * ```
  *
- * @param CreateTransitGatewayConnectPeerCommandInput - {@link CreateTransitGatewayConnectPeerCommandInput}
- * @returns {@link CreateTransitGatewayConnectPeerCommandOutput}
+ * @param CreateTransitGatewayConnectPeerRequest - {@link CreateTransitGatewayConnectPeerRequest}
+ * @returns {@link CreateTransitGatewayConnectPeerResult}
  * @see {@link CreateTransitGatewayConnectPeerCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -56,8 +56,8 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  *
  * ```
  *
- * @param CancelJobCommandInput - {@link CancelJobCommandInput}
- * @returns {@link CancelJobCommandOutput}
+ * @param CancelJobRequest - {@link CancelJobRequest}
+ * @returns {@link CancelJobResponse}
  * @see {@link CancelJobCommandInput} for command's `input` shape.
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

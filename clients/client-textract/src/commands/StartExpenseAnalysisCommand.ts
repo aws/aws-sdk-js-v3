@@ -81,8 +81,8 @@ export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisR
  *
  * ```
  *
- * @param StartExpenseAnalysisCommandInput - {@link StartExpenseAnalysisCommandInput}
- * @returns {@link StartExpenseAnalysisCommandOutput}
+ * @param StartExpenseAnalysisRequest - {@link StartExpenseAnalysisRequest}
+ * @returns {@link StartExpenseAnalysisResponse}
  * @see {@link StartExpenseAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartExpenseAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.

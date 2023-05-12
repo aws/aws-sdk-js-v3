@@ -88,8 +88,8 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  *
  * ```
  *
- * @param CreateRepositoryCommandInput - {@link CreateRepositoryCommandInput}
- * @returns {@link CreateRepositoryCommandOutput}
+ * @param CreateRepositoryRequest - {@link CreateRepositoryRequest}
+ * @returns {@link CreateRepositoryResponse}
  * @see {@link CreateRepositoryCommandInput} for command's `input` shape.
  * @see {@link CreateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.

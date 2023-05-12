@@ -79,8 +79,8 @@ export interface DescribeOrganizationConformancePackStatusesCommandOutput
  *
  * ```
  *
- * @param DescribeOrganizationConformancePackStatusesCommandInput - {@link DescribeOrganizationConformancePackStatusesCommandInput}
- * @returns {@link DescribeOrganizationConformancePackStatusesCommandOutput}
+ * @param DescribeOrganizationConformancePackStatusesRequest - {@link DescribeOrganizationConformancePackStatusesRequest}
+ * @returns {@link DescribeOrganizationConformancePackStatusesResponse}
  * @see {@link DescribeOrganizationConformancePackStatusesCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConformancePackStatusesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

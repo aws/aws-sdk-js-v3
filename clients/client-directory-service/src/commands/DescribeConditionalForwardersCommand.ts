@@ -68,8 +68,8 @@ export interface DescribeConditionalForwardersCommandOutput
  *
  * ```
  *
- * @param DescribeConditionalForwardersCommandInput - {@link DescribeConditionalForwardersCommandInput}
- * @returns {@link DescribeConditionalForwardersCommandOutput}
+ * @param DescribeConditionalForwardersRequest - {@link DescribeConditionalForwardersRequest}
+ * @returns {@link DescribeConditionalForwardersResult}
  * @see {@link DescribeConditionalForwardersCommandInput} for command's `input` shape.
  * @see {@link DescribeConditionalForwardersCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

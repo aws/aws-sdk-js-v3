@@ -67,8 +67,8 @@ export interface CreateVariantStoreCommandOutput extends CreateVariantStoreRespo
  *
  * ```
  *
- * @param CreateVariantStoreCommandInput - {@link CreateVariantStoreCommandInput}
- * @returns {@link CreateVariantStoreCommandOutput}
+ * @param CreateVariantStoreRequest - {@link CreateVariantStoreRequest}
+ * @returns {@link CreateVariantStoreResponse}
  * @see {@link CreateVariantStoreCommandInput} for command's `input` shape.
  * @see {@link CreateVariantStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

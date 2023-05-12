@@ -77,8 +77,8 @@ export interface DescribeDashboardPermissionsCommandOutput
  *
  * ```
  *
- * @param DescribeDashboardPermissionsCommandInput - {@link DescribeDashboardPermissionsCommandInput}
- * @returns {@link DescribeDashboardPermissionsCommandOutput}
+ * @param DescribeDashboardPermissionsRequest - {@link DescribeDashboardPermissionsRequest}
+ * @returns {@link DescribeDashboardPermissionsResponse}
  * @see {@link DescribeDashboardPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDashboardPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

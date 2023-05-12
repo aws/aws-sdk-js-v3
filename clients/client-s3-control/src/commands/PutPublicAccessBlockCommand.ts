@@ -71,8 +71,8 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutPublicAccessBlockCommandInput - {@link PutPublicAccessBlockCommandInput}
- * @returns {@link PutPublicAccessBlockCommandOutput}
+ * @param PutPublicAccessBlockRequest - {@link PutPublicAccessBlockRequest}
+ * @returns {@link Unit}
  * @see {@link PutPublicAccessBlockCommandInput} for command's `input` shape.
  * @see {@link PutPublicAccessBlockCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

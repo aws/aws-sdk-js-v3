@@ -282,8 +282,8 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  *
  * ```
  *
- * @param GetObjectCommandInput - {@link GetObjectCommandInput}
- * @returns {@link GetObjectCommandOutput}
+ * @param GetObjectRequest - {@link GetObjectRequest}
+ * @returns {@link GetObjectOutput}
  * @see {@link GetObjectCommandInput} for command's `input` shape.
  * @see {@link GetObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

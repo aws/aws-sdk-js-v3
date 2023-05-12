@@ -73,8 +73,8 @@ export interface ListDelegatedAdministratorsCommandOutput
  *
  * ```
  *
- * @param ListDelegatedAdministratorsCommandInput - {@link ListDelegatedAdministratorsCommandInput}
- * @returns {@link ListDelegatedAdministratorsCommandOutput}
+ * @param ListDelegatedAdministratorsRequest - {@link ListDelegatedAdministratorsRequest}
+ * @returns {@link ListDelegatedAdministratorsResponse}
  * @see {@link ListDelegatedAdministratorsCommandInput} for command's `input` shape.
  * @see {@link ListDelegatedAdministratorsCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

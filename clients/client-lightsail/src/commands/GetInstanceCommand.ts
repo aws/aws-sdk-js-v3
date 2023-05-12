@@ -168,8 +168,8 @@ export interface GetInstanceCommandOutput extends GetInstanceResult, __MetadataB
  *
  * ```
  *
- * @param GetInstanceCommandInput - {@link GetInstanceCommandInput}
- * @returns {@link GetInstanceCommandOutput}
+ * @param GetInstanceRequest - {@link GetInstanceRequest}
+ * @returns {@link GetInstanceResult}
  * @see {@link GetInstanceCommandInput} for command's `input` shape.
  * @see {@link GetInstanceCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

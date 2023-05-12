@@ -59,8 +59,8 @@ export interface ListGroundStationsCommandOutput extends ListGroundStationsRespo
  *
  * ```
  *
- * @param ListGroundStationsCommandInput - {@link ListGroundStationsCommandInput}
- * @returns {@link ListGroundStationsCommandOutput}
+ * @param ListGroundStationsRequest - {@link ListGroundStationsRequest}
+ * @returns {@link ListGroundStationsResponse}
  * @see {@link ListGroundStationsCommandInput} for command's `input` shape.
  * @see {@link ListGroundStationsCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

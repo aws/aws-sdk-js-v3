@@ -54,8 +54,8 @@ export interface StopRxNormInferenceJobCommandOutput extends StopRxNormInference
  *
  * ```
  *
- * @param StopRxNormInferenceJobCommandInput - {@link StopRxNormInferenceJobCommandInput}
- * @returns {@link StopRxNormInferenceJobCommandOutput}
+ * @param StopRxNormInferenceJobRequest - {@link StopRxNormInferenceJobRequest}
+ * @returns {@link StopRxNormInferenceJobResponse}
  * @see {@link StopRxNormInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StopRxNormInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

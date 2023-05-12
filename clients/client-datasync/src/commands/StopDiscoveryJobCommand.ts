@@ -51,8 +51,8 @@ export interface StopDiscoveryJobCommandOutput extends StopDiscoveryJobResponse,
  *
  * ```
  *
- * @param StopDiscoveryJobCommandInput - {@link StopDiscoveryJobCommandInput}
- * @returns {@link StopDiscoveryJobCommandOutput}
+ * @param StopDiscoveryJobRequest - {@link StopDiscoveryJobRequest}
+ * @returns {@link StopDiscoveryJobResponse}
  * @see {@link StopDiscoveryJobCommandInput} for command's `input` shape.
  * @see {@link StopDiscoveryJobCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

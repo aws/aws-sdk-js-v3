@@ -133,8 +133,8 @@ export interface UpdateDatasetCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateDatasetCommandInput - {@link UpdateDatasetCommandInput}
- * @returns {@link UpdateDatasetCommandOutput}
+ * @param UpdateDatasetRequest - {@link UpdateDatasetRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateDatasetCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasetCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

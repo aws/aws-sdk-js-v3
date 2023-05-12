@@ -78,8 +78,8 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  *
  * ```
  *
- * @param ListFHIRDatastoresCommandInput - {@link ListFHIRDatastoresCommandInput}
- * @returns {@link ListFHIRDatastoresCommandOutput}
+ * @param ListFHIRDatastoresRequest - {@link ListFHIRDatastoresRequest}
+ * @returns {@link ListFHIRDatastoresResponse}
  * @see {@link ListFHIRDatastoresCommandInput} for command's `input` shape.
  * @see {@link ListFHIRDatastoresCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSetting
  *
  * ```
  *
- * @param DeleteBrowserSettingsCommandInput - {@link DeleteBrowserSettingsCommandInput}
- * @returns {@link DeleteBrowserSettingsCommandOutput}
+ * @param DeleteBrowserSettingsRequest - {@link DeleteBrowserSettingsRequest}
+ * @returns {@link DeleteBrowserSettingsResponse}
  * @see {@link DeleteBrowserSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteBrowserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

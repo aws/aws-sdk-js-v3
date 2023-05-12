@@ -283,8 +283,8 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *
  * ```
  *
- * @param UpdateConnectorProfileCommandInput - {@link UpdateConnectorProfileCommandInput}
- * @returns {@link UpdateConnectorProfileCommandOutput}
+ * @param UpdateConnectorProfileRequest - {@link UpdateConnectorProfileRequest}
+ * @returns {@link UpdateConnectorProfileResponse}
  * @see {@link UpdateConnectorProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectorProfileCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.

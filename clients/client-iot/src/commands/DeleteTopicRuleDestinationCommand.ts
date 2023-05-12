@@ -49,8 +49,8 @@ export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRule
  *
  * ```
  *
- * @param DeleteTopicRuleDestinationCommandInput - {@link DeleteTopicRuleDestinationCommandInput}
- * @returns {@link DeleteTopicRuleDestinationCommandOutput}
+ * @param DeleteTopicRuleDestinationRequest - {@link DeleteTopicRuleDestinationRequest}
+ * @returns {@link DeleteTopicRuleDestinationResponse}
  * @see {@link DeleteTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -61,8 +61,8 @@ export interface CreateProvisioningClaimCommandOutput extends CreateProvisioning
  *
  * ```
  *
- * @param CreateProvisioningClaimCommandInput - {@link CreateProvisioningClaimCommandInput}
- * @returns {@link CreateProvisioningClaimCommandOutput}
+ * @param CreateProvisioningClaimRequest - {@link CreateProvisioningClaimRequest}
+ * @returns {@link CreateProvisioningClaimResponse}
  * @see {@link CreateProvisioningClaimCommandInput} for command's `input` shape.
  * @see {@link CreateProvisioningClaimCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

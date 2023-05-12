@@ -71,8 +71,8 @@ export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLev
  *
  * ```
  *
- * @param DescribeSeverityLevelsCommandInput - {@link DescribeSeverityLevelsCommandInput}
- * @returns {@link DescribeSeverityLevelsCommandOutput}
+ * @param DescribeSeverityLevelsRequest - {@link DescribeSeverityLevelsRequest}
+ * @returns {@link DescribeSeverityLevelsResponse}
  * @see {@link DescribeSeverityLevelsCommandInput} for command's `input` shape.
  * @see {@link DescribeSeverityLevelsCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.

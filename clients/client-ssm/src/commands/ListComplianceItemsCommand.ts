@@ -87,8 +87,8 @@ export interface ListComplianceItemsCommandOutput extends ListComplianceItemsRes
  *
  * ```
  *
- * @param ListComplianceItemsCommandInput - {@link ListComplianceItemsCommandInput}
- * @returns {@link ListComplianceItemsCommandOutput}
+ * @param ListComplianceItemsRequest - {@link ListComplianceItemsRequest}
+ * @returns {@link ListComplianceItemsResult}
  * @see {@link ListComplianceItemsCommandInput} for command's `input` shape.
  * @see {@link ListComplianceItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

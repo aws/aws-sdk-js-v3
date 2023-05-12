@@ -74,8 +74,8 @@ export interface GetFolderCommandOutput extends GetFolderResponse, __MetadataBea
  *
  * ```
  *
- * @param GetFolderCommandInput - {@link GetFolderCommandInput}
- * @returns {@link GetFolderCommandOutput}
+ * @param GetFolderRequest - {@link GetFolderRequest}
+ * @returns {@link GetFolderResponse}
  * @see {@link GetFolderCommandInput} for command's `input` shape.
  * @see {@link GetFolderCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

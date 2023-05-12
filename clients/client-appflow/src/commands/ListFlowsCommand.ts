@@ -67,7 +67,7 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * //       lastRunExecutionDetails: { // ExecutionDetails
  * //         mostRecentExecutionMessage: "STRING_VALUE",
  * //         mostRecentExecutionTime: new Date("TIMESTAMP"),
- * //         mostRecentExecutionStatus: "InProgress" || "Successful" || "Error",
+ * //         mostRecentExecutionStatus: "InProgress" || "Successful" || "Error" || "CancelStarted" || "Canceled",
  * //       },
  * //     },
  * //   ],
@@ -76,8 +76,8 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  *
  * ```
  *
- * @param ListFlowsCommandInput - {@link ListFlowsCommandInput}
- * @returns {@link ListFlowsCommandOutput}
+ * @param ListFlowsRequest - {@link ListFlowsRequest}
+ * @returns {@link ListFlowsResponse}
  * @see {@link ListFlowsCommandInput} for command's `input` shape.
  * @see {@link ListFlowsCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.

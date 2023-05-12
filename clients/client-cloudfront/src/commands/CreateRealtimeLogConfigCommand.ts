@@ -83,8 +83,8 @@ export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogC
  *
  * ```
  *
- * @param CreateRealtimeLogConfigCommandInput - {@link CreateRealtimeLogConfigCommandInput}
- * @returns {@link CreateRealtimeLogConfigCommandOutput}
+ * @param CreateRealtimeLogConfigRequest - {@link CreateRealtimeLogConfigRequest}
+ * @returns {@link CreateRealtimeLogConfigResult}
  * @see {@link CreateRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link CreateRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

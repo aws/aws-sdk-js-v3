@@ -57,8 +57,8 @@ export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __Metad
  *
  * ```
  *
- * @param GetRepositoryCommandInput - {@link GetRepositoryCommandInput}
- * @returns {@link GetRepositoryCommandOutput}
+ * @param GetRepositoryInput - {@link GetRepositoryInput}
+ * @returns {@link GetRepositoryOutput}
  * @see {@link GetRepositoryCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

@@ -114,8 +114,8 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  *
  * ```
  *
- * @param UpdateStackSetCommandInput - {@link UpdateStackSetCommandInput}
- * @returns {@link UpdateStackSetCommandOutput}
+ * @param UpdateStackSetInput - {@link UpdateStackSetInput}
+ * @returns {@link UpdateStackSetOutput}
  * @see {@link UpdateStackSetCommandInput} for command's `input` shape.
  * @see {@link UpdateStackSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

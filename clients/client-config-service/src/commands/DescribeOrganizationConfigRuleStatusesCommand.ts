@@ -79,8 +79,8 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  *
  * ```
  *
- * @param DescribeOrganizationConfigRuleStatusesCommandInput - {@link DescribeOrganizationConfigRuleStatusesCommandInput}
- * @returns {@link DescribeOrganizationConfigRuleStatusesCommandOutput}
+ * @param DescribeOrganizationConfigRuleStatusesRequest - {@link DescribeOrganizationConfigRuleStatusesRequest}
+ * @returns {@link DescribeOrganizationConfigRuleStatusesResponse}
  * @see {@link DescribeOrganizationConfigRuleStatusesCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConfigRuleStatusesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

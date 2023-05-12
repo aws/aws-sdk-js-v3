@@ -75,8 +75,8 @@ export interface EnableApplicationLayerAutomaticResponseCommandOutput
  *
  * ```
  *
- * @param EnableApplicationLayerAutomaticResponseCommandInput - {@link EnableApplicationLayerAutomaticResponseCommandInput}
- * @returns {@link EnableApplicationLayerAutomaticResponseCommandOutput}
+ * @param EnableApplicationLayerAutomaticResponseRequest - {@link EnableApplicationLayerAutomaticResponseRequest}
+ * @returns {@link EnableApplicationLayerAutomaticResponseResponse}
  * @see {@link EnableApplicationLayerAutomaticResponseCommandInput} for command's `input` shape.
  * @see {@link EnableApplicationLayerAutomaticResponseCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

@@ -72,8 +72,8 @@ export interface GetBatchImportJobsCommandOutput extends GetBatchImportJobsResul
  *
  * ```
  *
- * @param GetBatchImportJobsCommandInput - {@link GetBatchImportJobsCommandInput}
- * @returns {@link GetBatchImportJobsCommandOutput}
+ * @param GetBatchImportJobsRequest - {@link GetBatchImportJobsRequest}
+ * @returns {@link GetBatchImportJobsResult}
  * @see {@link GetBatchImportJobsCommandInput} for command's `input` shape.
  * @see {@link GetBatchImportJobsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

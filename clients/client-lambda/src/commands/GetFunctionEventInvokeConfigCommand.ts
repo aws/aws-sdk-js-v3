@@ -66,8 +66,8 @@ export interface GetFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  *
  * ```
  *
- * @param GetFunctionEventInvokeConfigCommandInput - {@link GetFunctionEventInvokeConfigCommandInput}
- * @returns {@link GetFunctionEventInvokeConfigCommandOutput}
+ * @param GetFunctionEventInvokeConfigRequest - {@link GetFunctionEventInvokeConfigRequest}
+ * @returns {@link FunctionEventInvokeConfig}
  * @see {@link GetFunctionEventInvokeConfigCommandInput} for command's `input` shape.
  * @see {@link GetFunctionEventInvokeConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

@@ -103,8 +103,8 @@ export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigu
  *
  * ```
  *
- * @param DescribeLaunchConfigurationsCommandInput - {@link DescribeLaunchConfigurationsCommandInput}
- * @returns {@link DescribeLaunchConfigurationsCommandOutput}
+ * @param LaunchConfigurationNamesType - {@link LaunchConfigurationNamesType}
+ * @returns {@link LaunchConfigurationsType}
  * @see {@link DescribeLaunchConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeLaunchConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

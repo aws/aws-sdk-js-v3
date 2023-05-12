@@ -104,8 +104,8 @@ export interface ListAppComponentRecommendationsCommandOutput
  *
  * ```
  *
- * @param ListAppComponentRecommendationsCommandInput - {@link ListAppComponentRecommendationsCommandInput}
- * @returns {@link ListAppComponentRecommendationsCommandOutput}
+ * @param ListAppComponentRecommendationsRequest - {@link ListAppComponentRecommendationsRequest}
+ * @returns {@link ListAppComponentRecommendationsResponse}
  * @see {@link ListAppComponentRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ListAppComponentRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

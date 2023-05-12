@@ -77,8 +77,8 @@ export interface ListBulkDeploymentDetailedReportsCommandOutput
  *
  * ```
  *
- * @param ListBulkDeploymentDetailedReportsCommandInput - {@link ListBulkDeploymentDetailedReportsCommandInput}
- * @returns {@link ListBulkDeploymentDetailedReportsCommandOutput}
+ * @param ListBulkDeploymentDetailedReportsRequest - {@link ListBulkDeploymentDetailedReportsRequest}
+ * @returns {@link ListBulkDeploymentDetailedReportsResponse}
  * @see {@link ListBulkDeploymentDetailedReportsCommandInput} for command's `input` shape.
  * @see {@link ListBulkDeploymentDetailedReportsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

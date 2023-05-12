@@ -74,8 +74,8 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  *
  * ```
  *
- * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
- * @returns {@link DeleteRuleCommandOutput}
+ * @param DeleteRuleRequest - {@link DeleteRuleRequest}
+ * @returns {@link DeleteRuleResponse}
  * @see {@link DeleteRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

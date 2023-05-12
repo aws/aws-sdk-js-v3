@@ -107,8 +107,8 @@ export interface StartSpeakerEnrollmentJobCommandOutput extends StartSpeakerEnro
  *
  * ```
  *
- * @param StartSpeakerEnrollmentJobCommandInput - {@link StartSpeakerEnrollmentJobCommandInput}
- * @returns {@link StartSpeakerEnrollmentJobCommandOutput}
+ * @param StartSpeakerEnrollmentJobRequest - {@link StartSpeakerEnrollmentJobRequest}
+ * @returns {@link StartSpeakerEnrollmentJobResponse}
  * @see {@link StartSpeakerEnrollmentJobCommandInput} for command's `input` shape.
  * @see {@link StartSpeakerEnrollmentJobCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

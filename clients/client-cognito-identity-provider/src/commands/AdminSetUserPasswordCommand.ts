@@ -69,8 +69,8 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  *
  * ```
  *
- * @param AdminSetUserPasswordCommandInput - {@link AdminSetUserPasswordCommandInput}
- * @returns {@link AdminSetUserPasswordCommandOutput}
+ * @param AdminSetUserPasswordRequest - {@link AdminSetUserPasswordRequest}
+ * @returns {@link AdminSetUserPasswordResponse}
  * @see {@link AdminSetUserPasswordCommandInput} for command's `input` shape.
  * @see {@link AdminSetUserPasswordCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

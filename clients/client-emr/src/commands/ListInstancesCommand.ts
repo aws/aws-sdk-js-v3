@@ -95,8 +95,8 @@ export interface ListInstancesCommandOutput extends ListInstancesOutput, __Metad
  *
  * ```
  *
- * @param ListInstancesCommandInput - {@link ListInstancesCommandInput}
- * @returns {@link ListInstancesCommandOutput}
+ * @param ListInstancesInput - {@link ListInstancesInput}
+ * @returns {@link ListInstancesOutput}
  * @see {@link ListInstancesCommandInput} for command's `input` shape.
  * @see {@link ListInstancesCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

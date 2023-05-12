@@ -72,8 +72,8 @@ export interface DescribeProductViewCommandOutput extends DescribeProductViewOut
  *
  * ```
  *
- * @param DescribeProductViewCommandInput - {@link DescribeProductViewCommandInput}
- * @returns {@link DescribeProductViewCommandOutput}
+ * @param DescribeProductViewInput - {@link DescribeProductViewInput}
+ * @returns {@link DescribeProductViewOutput}
  * @see {@link DescribeProductViewCommandInput} for command's `input` shape.
  * @see {@link DescribeProductViewCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

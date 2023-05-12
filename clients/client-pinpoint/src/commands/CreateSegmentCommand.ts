@@ -338,8 +338,8 @@ export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __Met
  *
  * ```
  *
- * @param CreateSegmentCommandInput - {@link CreateSegmentCommandInput}
- * @returns {@link CreateSegmentCommandOutput}
+ * @param CreateSegmentRequest - {@link CreateSegmentRequest}
+ * @returns {@link CreateSegmentResponse}
  * @see {@link CreateSegmentCommandInput} for command's `input` shape.
  * @see {@link CreateSegmentCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

@@ -209,8 +209,8 @@ export interface GetSegmentsCommandOutput extends GetSegmentsResponse, __Metadat
  *
  * ```
  *
- * @param GetSegmentsCommandInput - {@link GetSegmentsCommandInput}
- * @returns {@link GetSegmentsCommandOutput}
+ * @param GetSegmentsRequest - {@link GetSegmentsRequest}
+ * @returns {@link GetSegmentsResponse}
  * @see {@link GetSegmentsCommandInput} for command's `input` shape.
  * @see {@link GetSegmentsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

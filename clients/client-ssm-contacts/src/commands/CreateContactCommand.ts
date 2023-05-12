@@ -83,8 +83,8 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  *
  * ```
  *
- * @param CreateContactCommandInput - {@link CreateContactCommandInput}
- * @returns {@link CreateContactCommandOutput}
+ * @param CreateContactRequest - {@link CreateContactRequest}
+ * @returns {@link CreateContactResult}
  * @see {@link CreateContactCommandInput} for command's `input` shape.
  * @see {@link CreateContactCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

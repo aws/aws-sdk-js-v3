@@ -74,8 +74,8 @@ export interface DetachCertificateFromDistributionCommandOutput
  *
  * ```
  *
- * @param DetachCertificateFromDistributionCommandInput - {@link DetachCertificateFromDistributionCommandInput}
- * @returns {@link DetachCertificateFromDistributionCommandOutput}
+ * @param DetachCertificateFromDistributionRequest - {@link DetachCertificateFromDistributionRequest}
+ * @returns {@link DetachCertificateFromDistributionResult}
  * @see {@link DetachCertificateFromDistributionCommandInput} for command's `input` shape.
  * @see {@link DetachCertificateFromDistributionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

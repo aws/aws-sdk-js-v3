@@ -126,8 +126,8 @@ export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailRespo
  *
  * ```
  *
- * @param SendTemplatedEmailCommandInput - {@link SendTemplatedEmailCommandInput}
- * @returns {@link SendTemplatedEmailCommandOutput}
+ * @param SendTemplatedEmailRequest - {@link SendTemplatedEmailRequest}
+ * @returns {@link SendTemplatedEmailResponse}
  * @see {@link SendTemplatedEmailCommandInput} for command's `input` shape.
  * @see {@link SendTemplatedEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

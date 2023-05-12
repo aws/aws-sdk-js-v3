@@ -59,8 +59,8 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  *
  * ```
  *
- * @param UpdateTrafficDistributionCommandInput - {@link UpdateTrafficDistributionCommandInput}
- * @returns {@link UpdateTrafficDistributionCommandOutput}
+ * @param UpdateTrafficDistributionRequest - {@link UpdateTrafficDistributionRequest}
+ * @returns {@link UpdateTrafficDistributionResponse}
  * @see {@link UpdateTrafficDistributionCommandInput} for command's `input` shape.
  * @see {@link UpdateTrafficDistributionCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

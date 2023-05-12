@@ -106,8 +106,8 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  *
  * ```
  *
- * @param DescribeVirtualInterfacesCommandInput - {@link DescribeVirtualInterfacesCommandInput}
- * @returns {@link DescribeVirtualInterfacesCommandOutput}
+ * @param DescribeVirtualInterfacesRequest - {@link DescribeVirtualInterfacesRequest}
+ * @returns {@link VirtualInterfaces}
  * @see {@link DescribeVirtualInterfacesCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualInterfacesCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

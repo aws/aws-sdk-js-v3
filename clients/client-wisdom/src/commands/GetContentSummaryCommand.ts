@@ -67,8 +67,8 @@ export interface GetContentSummaryCommandOutput extends GetContentSummaryRespons
  *
  * ```
  *
- * @param GetContentSummaryCommandInput - {@link GetContentSummaryCommandInput}
- * @returns {@link GetContentSummaryCommandOutput}
+ * @param GetContentSummaryRequest - {@link GetContentSummaryRequest}
+ * @returns {@link GetContentSummaryResponse}
  * @see {@link GetContentSummaryCommandInput} for command's `input` shape.
  * @see {@link GetContentSummaryCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

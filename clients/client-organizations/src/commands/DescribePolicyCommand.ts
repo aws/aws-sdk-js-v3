@@ -62,8 +62,8 @@ export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __M
  *
  * ```
  *
- * @param DescribePolicyCommandInput - {@link DescribePolicyCommandInput}
- * @returns {@link DescribePolicyCommandOutput}
+ * @param DescribePolicyRequest - {@link DescribePolicyRequest}
+ * @returns {@link DescribePolicyResponse}
  * @see {@link DescribePolicyCommandInput} for command's `input` shape.
  * @see {@link DescribePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

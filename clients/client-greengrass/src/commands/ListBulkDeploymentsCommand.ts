@@ -58,8 +58,8 @@ export interface ListBulkDeploymentsCommandOutput extends ListBulkDeploymentsRes
  *
  * ```
  *
- * @param ListBulkDeploymentsCommandInput - {@link ListBulkDeploymentsCommandInput}
- * @returns {@link ListBulkDeploymentsCommandOutput}
+ * @param ListBulkDeploymentsRequest - {@link ListBulkDeploymentsRequest}
+ * @returns {@link ListBulkDeploymentsResponse}
  * @see {@link ListBulkDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListBulkDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

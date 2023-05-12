@@ -74,8 +74,8 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  *
  * ```
  *
- * @param CreatePartnerEventSourceCommandInput - {@link CreatePartnerEventSourceCommandInput}
- * @returns {@link CreatePartnerEventSourceCommandOutput}
+ * @param CreatePartnerEventSourceRequest - {@link CreatePartnerEventSourceRequest}
+ * @returns {@link CreatePartnerEventSourceResponse}
  * @see {@link CreatePartnerEventSourceCommandInput} for command's `input` shape.
  * @see {@link CreatePartnerEventSourceCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

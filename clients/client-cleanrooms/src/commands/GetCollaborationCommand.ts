@@ -69,8 +69,8 @@ export interface GetCollaborationCommandOutput extends GetCollaborationOutput, _
  *
  * ```
  *
- * @param GetCollaborationCommandInput - {@link GetCollaborationCommandInput}
- * @returns {@link GetCollaborationCommandOutput}
+ * @param GetCollaborationInput - {@link GetCollaborationInput}
+ * @returns {@link GetCollaborationOutput}
  * @see {@link GetCollaborationCommandInput} for command's `input` shape.
  * @see {@link GetCollaborationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

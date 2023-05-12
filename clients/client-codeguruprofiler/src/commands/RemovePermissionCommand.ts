@@ -61,8 +61,8 @@ export interface RemovePermissionCommandOutput extends RemovePermissionResponse,
  *
  * ```
  *
- * @param RemovePermissionCommandInput - {@link RemovePermissionCommandInput}
- * @returns {@link RemovePermissionCommandOutput}
+ * @param RemovePermissionRequest - {@link RemovePermissionRequest}
+ * @returns {@link RemovePermissionResponse}
  * @see {@link RemovePermissionCommandInput} for command's `input` shape.
  * @see {@link RemovePermissionCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

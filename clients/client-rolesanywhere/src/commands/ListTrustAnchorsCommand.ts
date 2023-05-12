@@ -72,8 +72,8 @@ export interface ListTrustAnchorsCommandOutput extends ListTrustAnchorsResponse,
  *
  * ```
  *
- * @param ListTrustAnchorsCommandInput - {@link ListTrustAnchorsCommandInput}
- * @returns {@link ListTrustAnchorsCommandOutput}
+ * @param ListRequest - {@link ListRequest}
+ * @returns {@link ListTrustAnchorsResponse}
  * @see {@link ListTrustAnchorsCommandInput} for command's `input` shape.
  * @see {@link ListTrustAnchorsCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

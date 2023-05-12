@@ -74,8 +74,8 @@ export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, _
  *
  * ```
  *
- * @param DeleteJobTaggingCommandInput - {@link DeleteJobTaggingCommandInput}
- * @returns {@link DeleteJobTaggingCommandOutput}
+ * @param DeleteJobTaggingRequest - {@link DeleteJobTaggingRequest}
+ * @returns {@link DeleteJobTaggingResult}
  * @see {@link DeleteJobTaggingCommandInput} for command's `input` shape.
  * @see {@link DeleteJobTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

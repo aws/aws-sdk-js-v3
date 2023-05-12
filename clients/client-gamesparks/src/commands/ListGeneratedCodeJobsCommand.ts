@@ -62,8 +62,8 @@ export interface ListGeneratedCodeJobsCommandOutput extends ListGeneratedCodeJob
  *
  * ```
  *
- * @param ListGeneratedCodeJobsCommandInput - {@link ListGeneratedCodeJobsCommandInput}
- * @returns {@link ListGeneratedCodeJobsCommandOutput}
+ * @param ListGeneratedCodeJobsRequest - {@link ListGeneratedCodeJobsRequest}
+ * @returns {@link ListGeneratedCodeJobsResult}
  * @see {@link ListGeneratedCodeJobsCommandInput} for command's `input` shape.
  * @see {@link ListGeneratedCodeJobsCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

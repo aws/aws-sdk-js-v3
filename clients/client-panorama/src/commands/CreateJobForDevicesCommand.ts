@@ -64,8 +64,8 @@ export interface CreateJobForDevicesCommandOutput extends CreateJobForDevicesRes
  *
  * ```
  *
- * @param CreateJobForDevicesCommandInput - {@link CreateJobForDevicesCommandInput}
- * @returns {@link CreateJobForDevicesCommandOutput}
+ * @param CreateJobForDevicesRequest - {@link CreateJobForDevicesRequest}
+ * @returns {@link CreateJobForDevicesResponse}
  * @see {@link CreateJobForDevicesCommandInput} for command's `input` shape.
  * @see {@link CreateJobForDevicesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

@@ -70,8 +70,8 @@ export interface CreateNetworkCommandOutput extends CreateNetworkResponse, __Met
  *
  * ```
  *
- * @param CreateNetworkCommandInput - {@link CreateNetworkCommandInput}
- * @returns {@link CreateNetworkCommandOutput}
+ * @param CreateNetworkRequest - {@link CreateNetworkRequest}
+ * @returns {@link CreateNetworkResponse}
  * @see {@link CreateNetworkCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

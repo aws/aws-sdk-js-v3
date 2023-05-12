@@ -172,8 +172,8 @@ export interface DescribeWorkflowCommandOutput extends DescribeWorkflowResponse,
  *
  * ```
  *
- * @param DescribeWorkflowCommandInput - {@link DescribeWorkflowCommandInput}
- * @returns {@link DescribeWorkflowCommandOutput}
+ * @param DescribeWorkflowRequest - {@link DescribeWorkflowRequest}
+ * @returns {@link DescribeWorkflowResponse}
  * @see {@link DescribeWorkflowCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkflowCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

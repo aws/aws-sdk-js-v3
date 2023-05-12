@@ -93,8 +93,8 @@ export interface GetLinkAttributesCommandOutput extends GetLinkAttributesRespons
  *
  * ```
  *
- * @param GetLinkAttributesCommandInput - {@link GetLinkAttributesCommandInput}
- * @returns {@link GetLinkAttributesCommandOutput}
+ * @param GetLinkAttributesRequest - {@link GetLinkAttributesRequest}
+ * @returns {@link GetLinkAttributesResponse}
  * @see {@link GetLinkAttributesCommandInput} for command's `input` shape.
  * @see {@link GetLinkAttributesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

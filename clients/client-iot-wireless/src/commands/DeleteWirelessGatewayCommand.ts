@@ -48,8 +48,8 @@ export interface DeleteWirelessGatewayCommandOutput extends DeleteWirelessGatewa
  *
  * ```
  *
- * @param DeleteWirelessGatewayCommandInput - {@link DeleteWirelessGatewayCommandInput}
- * @returns {@link DeleteWirelessGatewayCommandOutput}
+ * @param DeleteWirelessGatewayRequest - {@link DeleteWirelessGatewayRequest}
+ * @returns {@link DeleteWirelessGatewayResponse}
  * @see {@link DeleteWirelessGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteWirelessGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

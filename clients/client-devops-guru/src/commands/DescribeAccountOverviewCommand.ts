@@ -55,8 +55,8 @@ export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOve
  *
  * ```
  *
- * @param DescribeAccountOverviewCommandInput - {@link DescribeAccountOverviewCommandInput}
- * @returns {@link DescribeAccountOverviewCommandOutput}
+ * @param DescribeAccountOverviewRequest - {@link DescribeAccountOverviewRequest}
+ * @returns {@link DescribeAccountOverviewResponse}
  * @see {@link DescribeAccountOverviewCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountOverviewCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

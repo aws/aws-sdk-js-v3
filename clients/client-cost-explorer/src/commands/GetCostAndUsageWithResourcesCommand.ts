@@ -189,8 +189,8 @@ export interface GetCostAndUsageWithResourcesCommandOutput
  *
  * ```
  *
- * @param GetCostAndUsageWithResourcesCommandInput - {@link GetCostAndUsageWithResourcesCommandInput}
- * @returns {@link GetCostAndUsageWithResourcesCommandOutput}
+ * @param GetCostAndUsageWithResourcesRequest - {@link GetCostAndUsageWithResourcesRequest}
+ * @returns {@link GetCostAndUsageWithResourcesResponse}
  * @see {@link GetCostAndUsageWithResourcesCommandInput} for command's `input` shape.
  * @see {@link GetCostAndUsageWithResourcesCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

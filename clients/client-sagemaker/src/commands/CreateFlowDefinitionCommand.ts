@@ -88,8 +88,8 @@ export interface CreateFlowDefinitionCommandOutput extends CreateFlowDefinitionR
  *
  * ```
  *
- * @param CreateFlowDefinitionCommandInput - {@link CreateFlowDefinitionCommandInput}
- * @returns {@link CreateFlowDefinitionCommandOutput}
+ * @param CreateFlowDefinitionRequest - {@link CreateFlowDefinitionRequest}
+ * @returns {@link CreateFlowDefinitionResponse}
  * @see {@link CreateFlowDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateFlowDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

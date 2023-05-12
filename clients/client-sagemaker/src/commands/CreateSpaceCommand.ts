@@ -93,8 +93,8 @@ export interface CreateSpaceCommandOutput extends CreateSpaceResponse, __Metadat
  *
  * ```
  *
- * @param CreateSpaceCommandInput - {@link CreateSpaceCommandInput}
- * @returns {@link CreateSpaceCommandOutput}
+ * @param CreateSpaceRequest - {@link CreateSpaceRequest}
+ * @returns {@link CreateSpaceResponse}
  * @see {@link CreateSpaceCommandInput} for command's `input` shape.
  * @see {@link CreateSpaceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

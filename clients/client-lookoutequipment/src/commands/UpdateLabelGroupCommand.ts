@@ -53,8 +53,8 @@ export interface UpdateLabelGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateLabelGroupCommandInput - {@link UpdateLabelGroupCommandInput}
- * @returns {@link UpdateLabelGroupCommandOutput}
+ * @param UpdateLabelGroupRequest - {@link UpdateLabelGroupRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateLabelGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateLabelGroupCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

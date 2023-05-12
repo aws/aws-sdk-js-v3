@@ -55,8 +55,8 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  *
  * ```
  *
- * @param TestEventPatternCommandInput - {@link TestEventPatternCommandInput}
- * @returns {@link TestEventPatternCommandOutput}
+ * @param TestEventPatternRequest - {@link TestEventPatternRequest}
+ * @returns {@link TestEventPatternResponse}
  * @see {@link TestEventPatternCommandInput} for command's `input` shape.
  * @see {@link TestEventPatternCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

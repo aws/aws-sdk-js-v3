@@ -190,8 +190,8 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  *
  * ```
  *
- * @param ExecuteStatementCommandInput - {@link ExecuteStatementCommandInput}
- * @returns {@link ExecuteStatementCommandOutput}
+ * @param ExecuteStatementRequest - {@link ExecuteStatementRequest}
+ * @returns {@link ExecuteStatementResponse}
  * @see {@link ExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link ExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.

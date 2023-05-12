@@ -60,8 +60,8 @@ export interface StartReportCreationCommandOutput extends StartReportCreationOut
  *
  * ```
  *
- * @param StartReportCreationCommandInput - {@link StartReportCreationCommandInput}
- * @returns {@link StartReportCreationCommandOutput}
+ * @param StartReportCreationInput - {@link StartReportCreationInput}
+ * @returns {@link StartReportCreationOutput}
  * @see {@link StartReportCreationCommandInput} for command's `input` shape.
  * @see {@link StartReportCreationCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.

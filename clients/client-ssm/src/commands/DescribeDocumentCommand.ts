@@ -118,8 +118,8 @@ export interface DescribeDocumentCommandOutput extends DescribeDocumentResult, _
  *
  * ```
  *
- * @param DescribeDocumentCommandInput - {@link DescribeDocumentCommandInput}
- * @returns {@link DescribeDocumentCommandOutput}
+ * @param DescribeDocumentRequest - {@link DescribeDocumentRequest}
+ * @returns {@link DescribeDocumentResult}
  * @see {@link DescribeDocumentCommandInput} for command's `input` shape.
  * @see {@link DescribeDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

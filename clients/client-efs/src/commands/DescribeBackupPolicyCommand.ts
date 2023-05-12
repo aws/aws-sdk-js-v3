@@ -52,8 +52,8 @@ export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescripti
  *
  * ```
  *
- * @param DescribeBackupPolicyCommandInput - {@link DescribeBackupPolicyCommandInput}
- * @returns {@link DescribeBackupPolicyCommandOutput}
+ * @param DescribeBackupPolicyRequest - {@link DescribeBackupPolicyRequest}
+ * @returns {@link BackupPolicyDescription}
  * @see {@link DescribeBackupPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

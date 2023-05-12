@@ -76,8 +76,8 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  *
  * ```
  *
- * @param RemoveSourceIdentifierFromSubscriptionCommandInput - {@link RemoveSourceIdentifierFromSubscriptionCommandInput}
- * @returns {@link RemoveSourceIdentifierFromSubscriptionCommandOutput}
+ * @param RemoveSourceIdentifierFromSubscriptionMessage - {@link RemoveSourceIdentifierFromSubscriptionMessage}
+ * @returns {@link RemoveSourceIdentifierFromSubscriptionResult}
  * @see {@link RemoveSourceIdentifierFromSubscriptionCommandInput} for command's `input` shape.
  * @see {@link RemoveSourceIdentifierFromSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

@@ -51,8 +51,8 @@ export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeRespons
  *
  * ```
  *
- * @param DeleteImageRecipeCommandInput - {@link DeleteImageRecipeCommandInput}
- * @returns {@link DeleteImageRecipeCommandOutput}
+ * @param DeleteImageRecipeRequest - {@link DeleteImageRecipeRequest}
+ * @returns {@link DeleteImageRecipeResponse}
  * @see {@link DeleteImageRecipeCommandInput} for command's `input` shape.
  * @see {@link DeleteImageRecipeCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

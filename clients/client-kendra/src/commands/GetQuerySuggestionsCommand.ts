@@ -171,14 +171,35 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
  * //           ],
  * //         },
  * //       },
+ * //       SourceDocuments: [ // SourceDocuments
+ * //         { // SourceDocument
+ * //           DocumentId: "STRING_VALUE",
+ * //           SuggestionAttributes: [ // DocumentAttributeKeyList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           AdditionalAttributes: [ // DocumentAttributeList
+ * //             { // DocumentAttribute
+ * //               Key: "STRING_VALUE", // required
+ * //               Value: { // DocumentAttributeValue
+ * //                 StringValue: "STRING_VALUE",
+ * //                 StringListValue: [ // DocumentAttributeStringListValue
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 LongValue: Number("long"),
+ * //                 DateValue: new Date("TIMESTAMP"),
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param GetQuerySuggestionsCommandInput - {@link GetQuerySuggestionsCommandInput}
- * @returns {@link GetQuerySuggestionsCommandOutput}
+ * @param GetQuerySuggestionsRequest - {@link GetQuerySuggestionsRequest}
+ * @returns {@link GetQuerySuggestionsResponse}
  * @see {@link GetQuerySuggestionsCommandInput} for command's `input` shape.
  * @see {@link GetQuerySuggestionsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

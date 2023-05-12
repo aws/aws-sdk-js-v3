@@ -57,8 +57,8 @@ export interface ListResourcesCommandOutput extends ListResourcesResult, __Metad
  *
  * ```
  *
- * @param ListResourcesCommandInput - {@link ListResourcesCommandInput}
- * @returns {@link ListResourcesCommandOutput}
+ * @param ListResourcesRequest - {@link ListResourcesRequest}
+ * @returns {@link ListResourcesResult}
  * @see {@link ListResourcesCommandInput} for command's `input` shape.
  * @see {@link ListResourcesCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.

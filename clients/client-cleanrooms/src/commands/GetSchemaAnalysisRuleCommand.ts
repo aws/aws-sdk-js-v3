@@ -97,8 +97,8 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  *
  * ```
  *
- * @param GetSchemaAnalysisRuleCommandInput - {@link GetSchemaAnalysisRuleCommandInput}
- * @returns {@link GetSchemaAnalysisRuleCommandOutput}
+ * @param GetSchemaAnalysisRuleInput - {@link GetSchemaAnalysisRuleInput}
+ * @returns {@link GetSchemaAnalysisRuleOutput}
  * @see {@link GetSchemaAnalysisRuleCommandInput} for command's `input` shape.
  * @see {@link GetSchemaAnalysisRuleCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

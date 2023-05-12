@@ -531,8 +531,8 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  *
  * ```
  *
- * @param CreateVolumeFromBackupCommandInput - {@link CreateVolumeFromBackupCommandInput}
- * @returns {@link CreateVolumeFromBackupCommandOutput}
+ * @param CreateVolumeFromBackupRequest - {@link CreateVolumeFromBackupRequest}
+ * @returns {@link CreateVolumeFromBackupResponse}
  * @see {@link CreateVolumeFromBackupCommandInput} for command's `input` shape.
  * @see {@link CreateVolumeFromBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

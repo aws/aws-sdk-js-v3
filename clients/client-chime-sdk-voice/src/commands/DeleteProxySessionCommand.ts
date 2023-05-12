@@ -50,8 +50,8 @@ export interface DeleteProxySessionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteProxySessionCommandInput - {@link DeleteProxySessionCommandInput}
- * @returns {@link DeleteProxySessionCommandOutput}
+ * @param DeleteProxySessionRequest - {@link DeleteProxySessionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteProxySessionCommandInput} for command's `input` shape.
  * @see {@link DeleteProxySessionCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

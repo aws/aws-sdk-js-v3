@@ -64,8 +64,8 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *
  * ```
  *
- * @param CreateGatewayCommandInput - {@link CreateGatewayCommandInput}
- * @returns {@link CreateGatewayCommandOutput}
+ * @param CreateGatewayRequest - {@link CreateGatewayRequest}
+ * @returns {@link CreateGatewayResponse}
  * @see {@link CreateGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

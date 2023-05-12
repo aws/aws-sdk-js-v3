@@ -116,8 +116,8 @@ export interface GetServiceInstanceSyncStatusCommandOutput
  *
  * ```
  *
- * @param GetServiceInstanceSyncStatusCommandInput - {@link GetServiceInstanceSyncStatusCommandInput}
- * @returns {@link GetServiceInstanceSyncStatusCommandOutput}
+ * @param GetServiceInstanceSyncStatusInput - {@link GetServiceInstanceSyncStatusInput}
+ * @returns {@link GetServiceInstanceSyncStatusOutput}
  * @see {@link GetServiceInstanceSyncStatusCommandInput} for command's `input` shape.
  * @see {@link GetServiceInstanceSyncStatusCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

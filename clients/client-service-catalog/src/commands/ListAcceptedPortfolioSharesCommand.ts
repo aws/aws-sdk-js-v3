@@ -65,8 +65,8 @@ export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPo
  *
  * ```
  *
- * @param ListAcceptedPortfolioSharesCommandInput - {@link ListAcceptedPortfolioSharesCommandInput}
- * @returns {@link ListAcceptedPortfolioSharesCommandOutput}
+ * @param ListAcceptedPortfolioSharesInput - {@link ListAcceptedPortfolioSharesInput}
+ * @returns {@link ListAcceptedPortfolioSharesOutput}
  * @see {@link ListAcceptedPortfolioSharesCommandInput} for command's `input` shape.
  * @see {@link ListAcceptedPortfolioSharesCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

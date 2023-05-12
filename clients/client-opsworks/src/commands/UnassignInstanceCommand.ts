@@ -56,8 +56,8 @@ export interface UnassignInstanceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UnassignInstanceCommandInput - {@link UnassignInstanceCommandInput}
- * @returns {@link UnassignInstanceCommandOutput}
+ * @param UnassignInstanceRequest - {@link UnassignInstanceRequest}
+ * @returns {@link Unit}
  * @see {@link UnassignInstanceCommandInput} for command's `input` shape.
  * @see {@link UnassignInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

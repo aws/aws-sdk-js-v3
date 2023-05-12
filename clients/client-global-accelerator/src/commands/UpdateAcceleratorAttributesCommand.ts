@@ -63,8 +63,8 @@ export interface UpdateAcceleratorAttributesCommandOutput
  *
  * ```
  *
- * @param UpdateAcceleratorAttributesCommandInput - {@link UpdateAcceleratorAttributesCommandInput}
- * @returns {@link UpdateAcceleratorAttributesCommandOutput}
+ * @param UpdateAcceleratorAttributesRequest - {@link UpdateAcceleratorAttributesRequest}
+ * @returns {@link UpdateAcceleratorAttributesResponse}
  * @see {@link UpdateAcceleratorAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateAcceleratorAttributesCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

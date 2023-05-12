@@ -64,8 +64,8 @@ export interface RejectVpcEndpointConnectionsCommandOutput
  *
  * ```
  *
- * @param RejectVpcEndpointConnectionsCommandInput - {@link RejectVpcEndpointConnectionsCommandInput}
- * @returns {@link RejectVpcEndpointConnectionsCommandOutput}
+ * @param RejectVpcEndpointConnectionsRequest - {@link RejectVpcEndpointConnectionsRequest}
+ * @returns {@link RejectVpcEndpointConnectionsResult}
  * @see {@link RejectVpcEndpointConnectionsCommandInput} for command's `input` shape.
  * @see {@link RejectVpcEndpointConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

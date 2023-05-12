@@ -59,8 +59,8 @@ export interface ListDeviceProfilesCommandOutput extends ListDeviceProfilesRespo
  *
  * ```
  *
- * @param ListDeviceProfilesCommandInput - {@link ListDeviceProfilesCommandInput}
- * @returns {@link ListDeviceProfilesCommandOutput}
+ * @param ListDeviceProfilesRequest - {@link ListDeviceProfilesRequest}
+ * @returns {@link ListDeviceProfilesResponse}
  * @see {@link ListDeviceProfilesCommandInput} for command's `input` shape.
  * @see {@link ListDeviceProfilesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

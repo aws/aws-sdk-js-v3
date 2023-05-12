@@ -51,8 +51,8 @@ export interface UpdateStandardsControlCommandOutput extends UpdateStandardsCont
  *
  * ```
  *
- * @param UpdateStandardsControlCommandInput - {@link UpdateStandardsControlCommandInput}
- * @returns {@link UpdateStandardsControlCommandOutput}
+ * @param UpdateStandardsControlRequest - {@link UpdateStandardsControlRequest}
+ * @returns {@link UpdateStandardsControlResponse}
  * @see {@link UpdateStandardsControlCommandInput} for command's `input` shape.
  * @see {@link UpdateStandardsControlCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

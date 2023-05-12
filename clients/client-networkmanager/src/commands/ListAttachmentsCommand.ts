@@ -87,8 +87,8 @@ export interface ListAttachmentsCommandOutput extends ListAttachmentsResponse, _
  *
  * ```
  *
- * @param ListAttachmentsCommandInput - {@link ListAttachmentsCommandInput}
- * @returns {@link ListAttachmentsCommandOutput}
+ * @param ListAttachmentsRequest - {@link ListAttachmentsRequest}
+ * @returns {@link ListAttachmentsResponse}
  * @see {@link ListAttachmentsCommandInput} for command's `input` shape.
  * @see {@link ListAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

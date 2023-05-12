@@ -185,8 +185,8 @@ export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountR
  *
  * ```
  *
- * @param IncreaseReplicaCountCommandInput - {@link IncreaseReplicaCountCommandInput}
- * @returns {@link IncreaseReplicaCountCommandOutput}
+ * @param IncreaseReplicaCountMessage - {@link IncreaseReplicaCountMessage}
+ * @returns {@link IncreaseReplicaCountResult}
  * @see {@link IncreaseReplicaCountCommandInput} for command's `input` shape.
  * @see {@link IncreaseReplicaCountCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

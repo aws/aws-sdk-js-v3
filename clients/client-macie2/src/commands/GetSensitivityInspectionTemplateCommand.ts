@@ -73,8 +73,8 @@ export interface GetSensitivityInspectionTemplateCommandOutput
  *
  * ```
  *
- * @param GetSensitivityInspectionTemplateCommandInput - {@link GetSensitivityInspectionTemplateCommandInput}
- * @returns {@link GetSensitivityInspectionTemplateCommandOutput}
+ * @param GetSensitivityInspectionTemplateRequest - {@link GetSensitivityInspectionTemplateRequest}
+ * @returns {@link GetSensitivityInspectionTemplateResponse}
  * @see {@link GetSensitivityInspectionTemplateCommandInput} for command's `input` shape.
  * @see {@link GetSensitivityInspectionTemplateCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

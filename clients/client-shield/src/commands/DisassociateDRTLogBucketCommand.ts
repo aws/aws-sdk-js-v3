@@ -48,8 +48,8 @@ export interface DisassociateDRTLogBucketCommandOutput extends DisassociateDRTLo
  *
  * ```
  *
- * @param DisassociateDRTLogBucketCommandInput - {@link DisassociateDRTLogBucketCommandInput}
- * @returns {@link DisassociateDRTLogBucketCommandOutput}
+ * @param DisassociateDRTLogBucketRequest - {@link DisassociateDRTLogBucketRequest}
+ * @returns {@link DisassociateDRTLogBucketResponse}
  * @see {@link DisassociateDRTLogBucketCommandInput} for command's `input` shape.
  * @see {@link DisassociateDRTLogBucketCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

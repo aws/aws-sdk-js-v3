@@ -86,8 +86,8 @@ export interface GetFeatureCommandOutput extends GetFeatureResponse, __MetadataB
  *
  * ```
  *
- * @param GetFeatureCommandInput - {@link GetFeatureCommandInput}
- * @returns {@link GetFeatureCommandOutput}
+ * @param GetFeatureRequest - {@link GetFeatureRequest}
+ * @returns {@link GetFeatureResponse}
  * @see {@link GetFeatureCommandInput} for command's `input` shape.
  * @see {@link GetFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

@@ -51,8 +51,8 @@ export interface SetCognitoEventsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetCognitoEventsCommandInput - {@link SetCognitoEventsCommandInput}
- * @returns {@link SetCognitoEventsCommandOutput}
+ * @param SetCognitoEventsRequest - {@link SetCognitoEventsRequest}
+ * @returns {@link Unit}
  * @see {@link SetCognitoEventsCommandInput} for command's `input` shape.
  * @see {@link SetCognitoEventsCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.

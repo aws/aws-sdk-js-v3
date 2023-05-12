@@ -70,8 +70,8 @@ export interface ListSequenceStoresCommandOutput extends ListSequenceStoresRespo
  *
  * ```
  *
- * @param ListSequenceStoresCommandInput - {@link ListSequenceStoresCommandInput}
- * @returns {@link ListSequenceStoresCommandOutput}
+ * @param ListSequenceStoresRequest - {@link ListSequenceStoresRequest}
+ * @returns {@link ListSequenceStoresResponse}
  * @see {@link ListSequenceStoresCommandInput} for command's `input` shape.
  * @see {@link ListSequenceStoresCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

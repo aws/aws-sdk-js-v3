@@ -109,8 +109,8 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  *
  * ```
  *
- * @param ScheduleKeyDeletionCommandInput - {@link ScheduleKeyDeletionCommandInput}
- * @returns {@link ScheduleKeyDeletionCommandOutput}
+ * @param ScheduleKeyDeletionRequest - {@link ScheduleKeyDeletionRequest}
+ * @returns {@link ScheduleKeyDeletionResponse}
  * @see {@link ScheduleKeyDeletionCommandInput} for command's `input` shape.
  * @see {@link ScheduleKeyDeletionCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

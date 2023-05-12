@@ -55,8 +55,8 @@ export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param UnassignPrivateIpAddressesCommandInput - {@link UnassignPrivateIpAddressesCommandInput}
- * @returns {@link UnassignPrivateIpAddressesCommandOutput}
+ * @param UnassignPrivateIpAddressesRequest - {@link UnassignPrivateIpAddressesRequest}
+ * @returns {@link Unit}
  * @see {@link UnassignPrivateIpAddressesCommandInput} for command's `input` shape.
  * @see {@link UnassignPrivateIpAddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

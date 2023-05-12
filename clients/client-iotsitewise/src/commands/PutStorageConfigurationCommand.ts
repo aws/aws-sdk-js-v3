@@ -79,8 +79,8 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  *
  * ```
  *
- * @param PutStorageConfigurationCommandInput - {@link PutStorageConfigurationCommandInput}
- * @returns {@link PutStorageConfigurationCommandOutput}
+ * @param PutStorageConfigurationRequest - {@link PutStorageConfigurationRequest}
+ * @returns {@link PutStorageConfigurationResponse}
  * @see {@link PutStorageConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutStorageConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

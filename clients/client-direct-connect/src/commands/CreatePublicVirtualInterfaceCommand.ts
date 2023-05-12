@@ -123,8 +123,8 @@ export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterf
  *
  * ```
  *
- * @param CreatePublicVirtualInterfaceCommandInput - {@link CreatePublicVirtualInterfaceCommandInput}
- * @returns {@link CreatePublicVirtualInterfaceCommandOutput}
+ * @param CreatePublicVirtualInterfaceRequest - {@link CreatePublicVirtualInterfaceRequest}
+ * @returns {@link VirtualInterface}
  * @see {@link CreatePublicVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link CreatePublicVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

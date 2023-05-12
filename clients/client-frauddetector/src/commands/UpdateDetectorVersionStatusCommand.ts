@@ -51,8 +51,8 @@ export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetector
  *
  * ```
  *
- * @param UpdateDetectorVersionStatusCommandInput - {@link UpdateDetectorVersionStatusCommandInput}
- * @returns {@link UpdateDetectorVersionStatusCommandOutput}
+ * @param UpdateDetectorVersionStatusRequest - {@link UpdateDetectorVersionStatusRequest}
+ * @returns {@link UpdateDetectorVersionStatusResult}
  * @see {@link UpdateDetectorVersionStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorVersionStatusCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

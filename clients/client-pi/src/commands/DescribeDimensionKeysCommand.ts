@@ -105,8 +105,8 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  *
  * ```
  *
- * @param DescribeDimensionKeysCommandInput - {@link DescribeDimensionKeysCommandInput}
- * @returns {@link DescribeDimensionKeysCommandOutput}
+ * @param DescribeDimensionKeysRequest - {@link DescribeDimensionKeysRequest}
+ * @returns {@link DescribeDimensionKeysResponse}
  * @see {@link DescribeDimensionKeysCommandInput} for command's `input` shape.
  * @see {@link DescribeDimensionKeysCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.

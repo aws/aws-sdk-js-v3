@@ -58,8 +58,8 @@ export interface DisassociateTrackerConsumerCommandOutput
  *
  * ```
  *
- * @param DisassociateTrackerConsumerCommandInput - {@link DisassociateTrackerConsumerCommandInput}
- * @returns {@link DisassociateTrackerConsumerCommandOutput}
+ * @param DisassociateTrackerConsumerRequest - {@link DisassociateTrackerConsumerRequest}
+ * @returns {@link DisassociateTrackerConsumerResponse}
  * @see {@link DisassociateTrackerConsumerCommandInput} for command's `input` shape.
  * @see {@link DisassociateTrackerConsumerCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

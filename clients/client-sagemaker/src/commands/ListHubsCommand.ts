@@ -75,8 +75,8 @@ export interface ListHubsCommandOutput extends ListHubsResponse, __MetadataBeare
  *
  * ```
  *
- * @param ListHubsCommandInput - {@link ListHubsCommandInput}
- * @returns {@link ListHubsCommandOutput}
+ * @param ListHubsRequest - {@link ListHubsRequest}
+ * @returns {@link ListHubsResponse}
  * @see {@link ListHubsCommandInput} for command's `input` shape.
  * @see {@link ListHubsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

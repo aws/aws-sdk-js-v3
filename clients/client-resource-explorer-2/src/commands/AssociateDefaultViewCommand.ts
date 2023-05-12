@@ -60,8 +60,8 @@ export interface AssociateDefaultViewCommandOutput extends AssociateDefaultViewO
  *
  * ```
  *
- * @param AssociateDefaultViewCommandInput - {@link AssociateDefaultViewCommandInput}
- * @returns {@link AssociateDefaultViewCommandOutput}
+ * @param AssociateDefaultViewInput - {@link AssociateDefaultViewInput}
+ * @returns {@link AssociateDefaultViewOutput}
  * @see {@link AssociateDefaultViewCommandInput} for command's `input` shape.
  * @see {@link AssociateDefaultViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

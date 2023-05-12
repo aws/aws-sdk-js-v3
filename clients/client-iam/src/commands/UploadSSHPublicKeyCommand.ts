@@ -62,8 +62,8 @@ export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyRespo
  *
  * ```
  *
- * @param UploadSSHPublicKeyCommandInput - {@link UploadSSHPublicKeyCommandInput}
- * @returns {@link UploadSSHPublicKeyCommandOutput}
+ * @param UploadSSHPublicKeyRequest - {@link UploadSSHPublicKeyRequest}
+ * @returns {@link UploadSSHPublicKeyResponse}
  * @see {@link UploadSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link UploadSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -96,8 +96,8 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  *
  * ```
  *
- * @param BatchUpdateDevicePositionCommandInput - {@link BatchUpdateDevicePositionCommandInput}
- * @returns {@link BatchUpdateDevicePositionCommandOutput}
+ * @param BatchUpdateDevicePositionRequest - {@link BatchUpdateDevicePositionRequest}
+ * @returns {@link BatchUpdateDevicePositionResponse}
  * @see {@link BatchUpdateDevicePositionCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateDevicePositionCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

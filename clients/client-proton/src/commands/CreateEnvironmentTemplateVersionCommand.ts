@@ -89,8 +89,8 @@ export interface CreateEnvironmentTemplateVersionCommandOutput
  *
  * ```
  *
- * @param CreateEnvironmentTemplateVersionCommandInput - {@link CreateEnvironmentTemplateVersionCommandInput}
- * @returns {@link CreateEnvironmentTemplateVersionCommandOutput}
+ * @param CreateEnvironmentTemplateVersionInput - {@link CreateEnvironmentTemplateVersionInput}
+ * @returns {@link CreateEnvironmentTemplateVersionOutput}
  * @see {@link CreateEnvironmentTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

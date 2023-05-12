@@ -56,8 +56,8 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  *
  * ```
  *
- * @param UpdateServiceSpecificCredentialCommandInput - {@link UpdateServiceSpecificCredentialCommandInput}
- * @returns {@link UpdateServiceSpecificCredentialCommandOutput}
+ * @param UpdateServiceSpecificCredentialRequest - {@link UpdateServiceSpecificCredentialRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateServiceSpecificCredentialCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceSpecificCredentialCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

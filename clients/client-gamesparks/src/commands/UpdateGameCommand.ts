@@ -62,8 +62,8 @@ export interface UpdateGameCommandOutput extends UpdateGameResult, __MetadataBea
  *
  * ```
  *
- * @param UpdateGameCommandInput - {@link UpdateGameCommandInput}
- * @returns {@link UpdateGameCommandOutput}
+ * @param UpdateGameRequest - {@link UpdateGameRequest}
+ * @returns {@link UpdateGameResult}
  * @see {@link UpdateGameCommandInput} for command's `input` shape.
  * @see {@link UpdateGameCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

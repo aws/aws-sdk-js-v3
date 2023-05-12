@@ -79,8 +79,8 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  *
  * ```
  *
- * @param UpdateClassifierCommandInput - {@link UpdateClassifierCommandInput}
- * @returns {@link UpdateClassifierCommandOutput}
+ * @param UpdateClassifierRequest - {@link UpdateClassifierRequest}
+ * @returns {@link UpdateClassifierResponse}
  * @see {@link UpdateClassifierCommandInput} for command's `input` shape.
  * @see {@link UpdateClassifierCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

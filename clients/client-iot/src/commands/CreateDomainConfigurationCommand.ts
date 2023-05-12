@@ -71,8 +71,8 @@ export interface CreateDomainConfigurationCommandOutput extends CreateDomainConf
  *
  * ```
  *
- * @param CreateDomainConfigurationCommandInput - {@link CreateDomainConfigurationCommandInput}
- * @returns {@link CreateDomainConfigurationCommandOutput}
+ * @param CreateDomainConfigurationRequest - {@link CreateDomainConfigurationRequest}
+ * @returns {@link CreateDomainConfigurationResponse}
  * @see {@link CreateDomainConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateDomainConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

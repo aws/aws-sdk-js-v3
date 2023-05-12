@@ -102,8 +102,8 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  *
  * ```
  *
- * @param CreateCertificateFromCsrCommandInput - {@link CreateCertificateFromCsrCommandInput}
- * @returns {@link CreateCertificateFromCsrCommandOutput}
+ * @param CreateCertificateFromCsrRequest - {@link CreateCertificateFromCsrRequest}
+ * @returns {@link CreateCertificateFromCsrResponse}
  * @see {@link CreateCertificateFromCsrCommandInput} for command's `input` shape.
  * @see {@link CreateCertificateFromCsrCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

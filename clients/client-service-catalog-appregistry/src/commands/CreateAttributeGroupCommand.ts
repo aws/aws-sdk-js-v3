@@ -73,8 +73,8 @@ export interface CreateAttributeGroupCommandOutput extends CreateAttributeGroupR
  *
  * ```
  *
- * @param CreateAttributeGroupCommandInput - {@link CreateAttributeGroupCommandInput}
- * @returns {@link CreateAttributeGroupCommandOutput}
+ * @param CreateAttributeGroupRequest - {@link CreateAttributeGroupRequest}
+ * @returns {@link CreateAttributeGroupResponse}
  * @see {@link CreateAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link CreateAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.

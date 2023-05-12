@@ -52,8 +52,8 @@ export interface CreateUserCommandOutput extends CreateUserResult, __MetadataBea
  *
  * ```
  *
- * @param CreateUserCommandInput - {@link CreateUserCommandInput}
- * @returns {@link CreateUserCommandOutput}
+ * @param CreateUserRequest - {@link CreateUserRequest}
+ * @returns {@link CreateUserResult}
  * @see {@link CreateUserCommandInput} for command's `input` shape.
  * @see {@link CreateUserCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

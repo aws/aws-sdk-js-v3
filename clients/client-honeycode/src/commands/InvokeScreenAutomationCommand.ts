@@ -68,8 +68,8 @@ export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomat
  *
  * ```
  *
- * @param InvokeScreenAutomationCommandInput - {@link InvokeScreenAutomationCommandInput}
- * @returns {@link InvokeScreenAutomationCommandOutput}
+ * @param InvokeScreenAutomationRequest - {@link InvokeScreenAutomationRequest}
+ * @returns {@link InvokeScreenAutomationResult}
  * @see {@link InvokeScreenAutomationCommandInput} for command's `input` shape.
  * @see {@link InvokeScreenAutomationCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.

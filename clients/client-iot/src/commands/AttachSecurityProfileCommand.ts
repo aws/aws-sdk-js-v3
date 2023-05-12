@@ -51,8 +51,8 @@ export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfil
  *
  * ```
  *
- * @param AttachSecurityProfileCommandInput - {@link AttachSecurityProfileCommandInput}
- * @returns {@link AttachSecurityProfileCommandOutput}
+ * @param AttachSecurityProfileRequest - {@link AttachSecurityProfileRequest}
+ * @returns {@link AttachSecurityProfileResponse}
  * @see {@link AttachSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link AttachSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

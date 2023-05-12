@@ -73,8 +73,8 @@ export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupR
  *
  * ```
  *
- * @param UpdateProfilingGroupCommandInput - {@link UpdateProfilingGroupCommandInput}
- * @returns {@link UpdateProfilingGroupCommandOutput}
+ * @param UpdateProfilingGroupRequest - {@link UpdateProfilingGroupRequest}
+ * @returns {@link UpdateProfilingGroupResponse}
  * @see {@link UpdateProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateProfilingGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

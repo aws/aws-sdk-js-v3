@@ -48,8 +48,8 @@ export interface StopFailbackCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopFailbackCommandInput - {@link StopFailbackCommandInput}
- * @returns {@link StopFailbackCommandOutput}
+ * @param StopFailbackRequest - {@link StopFailbackRequest}
+ * @returns {@link Unit}
  * @see {@link StopFailbackCommandInput} for command's `input` shape.
  * @see {@link StopFailbackCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

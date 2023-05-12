@@ -117,8 +117,8 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  *
  * ```
  *
- * @param ListRetirableGrantsCommandInput - {@link ListRetirableGrantsCommandInput}
- * @returns {@link ListRetirableGrantsCommandOutput}
+ * @param ListRetirableGrantsRequest - {@link ListRetirableGrantsRequest}
+ * @returns {@link ListGrantsResponse}
  * @see {@link ListRetirableGrantsCommandInput} for command's `input` shape.
  * @see {@link ListRetirableGrantsCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

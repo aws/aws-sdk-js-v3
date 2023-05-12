@@ -49,8 +49,8 @@ export interface RejectClientVpcConnectionCommandOutput extends RejectClientVpcC
  *
  * ```
  *
- * @param RejectClientVpcConnectionCommandInput - {@link RejectClientVpcConnectionCommandInput}
- * @returns {@link RejectClientVpcConnectionCommandOutput}
+ * @param RejectClientVpcConnectionRequest - {@link RejectClientVpcConnectionRequest}
+ * @returns {@link RejectClientVpcConnectionResponse}
  * @see {@link RejectClientVpcConnectionCommandInput} for command's `input` shape.
  * @see {@link RejectClientVpcConnectionCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

@@ -59,8 +59,8 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  *
  * ```
  *
- * @param ModifyDocumentPermissionCommandInput - {@link ModifyDocumentPermissionCommandInput}
- * @returns {@link ModifyDocumentPermissionCommandOutput}
+ * @param ModifyDocumentPermissionRequest - {@link ModifyDocumentPermissionRequest}
+ * @returns {@link ModifyDocumentPermissionResponse}
  * @see {@link ModifyDocumentPermissionCommandInput} for command's `input` shape.
  * @see {@link ModifyDocumentPermissionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

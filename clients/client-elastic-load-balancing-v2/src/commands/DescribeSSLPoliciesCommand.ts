@@ -78,8 +78,8 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  *
  * ```
  *
- * @param DescribeSSLPoliciesCommandInput - {@link DescribeSSLPoliciesCommandInput}
- * @returns {@link DescribeSSLPoliciesCommandOutput}
+ * @param DescribeSSLPoliciesInput - {@link DescribeSSLPoliciesInput}
+ * @returns {@link DescribeSSLPoliciesOutput}
  * @see {@link DescribeSSLPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeSSLPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

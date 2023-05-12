@@ -58,8 +58,8 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  *
  * ```
  *
- * @param PutConfigurationSetTrackingOptionsCommandInput - {@link PutConfigurationSetTrackingOptionsCommandInput}
- * @returns {@link PutConfigurationSetTrackingOptionsCommandOutput}
+ * @param PutConfigurationSetTrackingOptionsRequest - {@link PutConfigurationSetTrackingOptionsRequest}
+ * @returns {@link PutConfigurationSetTrackingOptionsResponse}
  * @see {@link PutConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

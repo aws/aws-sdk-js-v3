@@ -67,8 +67,8 @@ export interface UpdateEnvironmentTemplateCommandOutput extends UpdateEnvironmen
  *
  * ```
  *
- * @param UpdateEnvironmentTemplateCommandInput - {@link UpdateEnvironmentTemplateCommandInput}
- * @returns {@link UpdateEnvironmentTemplateCommandOutput}
+ * @param UpdateEnvironmentTemplateInput - {@link UpdateEnvironmentTemplateInput}
+ * @returns {@link UpdateEnvironmentTemplateOutput}
  * @see {@link UpdateEnvironmentTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

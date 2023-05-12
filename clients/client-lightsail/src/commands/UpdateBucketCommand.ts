@@ -126,8 +126,8 @@ export interface UpdateBucketCommandOutput extends UpdateBucketResult, __Metadat
  *
  * ```
  *
- * @param UpdateBucketCommandInput - {@link UpdateBucketCommandInput}
- * @returns {@link UpdateBucketCommandOutput}
+ * @param UpdateBucketRequest - {@link UpdateBucketRequest}
+ * @returns {@link UpdateBucketResult}
  * @see {@link UpdateBucketCommandInput} for command's `input` shape.
  * @see {@link UpdateBucketCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -101,8 +101,8 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  *
  * ```
  *
- * @param UntagResourcesCommandInput - {@link UntagResourcesCommandInput}
- * @returns {@link UntagResourcesCommandOutput}
+ * @param UntagResourcesInput - {@link UntagResourcesInput}
+ * @returns {@link UntagResourcesOutput}
  * @see {@link UntagResourcesCommandInput} for command's `input` shape.
  * @see {@link UntagResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.

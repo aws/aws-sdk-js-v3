@@ -64,8 +64,8 @@ export interface UpdateGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateGroupCommandInput - {@link UpdateGroupCommandInput}
- * @returns {@link UpdateGroupCommandOutput}
+ * @param UpdateGroupRequest - {@link UpdateGroupRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

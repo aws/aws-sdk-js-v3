@@ -63,8 +63,8 @@ export interface CreateSmsTemplateCommandOutput extends CreateSmsTemplateRespons
  *
  * ```
  *
- * @param CreateSmsTemplateCommandInput - {@link CreateSmsTemplateCommandInput}
- * @returns {@link CreateSmsTemplateCommandOutput}
+ * @param CreateSmsTemplateRequest - {@link CreateSmsTemplateRequest}
+ * @returns {@link CreateSmsTemplateResponse}
  * @see {@link CreateSmsTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateSmsTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

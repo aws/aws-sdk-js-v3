@@ -68,8 +68,8 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  *
  * ```
  *
- * @param RegisterTargetsCommandInput - {@link RegisterTargetsCommandInput}
- * @returns {@link RegisterTargetsCommandOutput}
+ * @param RegisterTargetsInput - {@link RegisterTargetsInput}
+ * @returns {@link RegisterTargetsOutput}
  * @see {@link RegisterTargetsCommandInput} for command's `input` shape.
  * @see {@link RegisterTargetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

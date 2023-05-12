@@ -60,8 +60,8 @@ export interface AssociateDeviceWithPlacementCommandOutput
  *
  * ```
  *
- * @param AssociateDeviceWithPlacementCommandInput - {@link AssociateDeviceWithPlacementCommandInput}
- * @returns {@link AssociateDeviceWithPlacementCommandOutput}
+ * @param AssociateDeviceWithPlacementRequest - {@link AssociateDeviceWithPlacementRequest}
+ * @returns {@link AssociateDeviceWithPlacementResponse}
  * @see {@link AssociateDeviceWithPlacementCommandInput} for command's `input` shape.
  * @see {@link AssociateDeviceWithPlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.

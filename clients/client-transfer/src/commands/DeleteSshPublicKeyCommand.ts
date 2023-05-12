@@ -50,8 +50,8 @@ export interface DeleteSshPublicKeyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteSshPublicKeyCommandInput - {@link DeleteSshPublicKeyCommandInput}
- * @returns {@link DeleteSshPublicKeyCommandOutput}
+ * @param DeleteSshPublicKeyRequest - {@link DeleteSshPublicKeyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteSshPublicKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteSshPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

@@ -68,8 +68,8 @@ export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterR
  *
  * ```
  *
- * @param CreateVirtualClusterCommandInput - {@link CreateVirtualClusterCommandInput}
- * @returns {@link CreateVirtualClusterCommandOutput}
+ * @param CreateVirtualClusterRequest - {@link CreateVirtualClusterRequest}
+ * @returns {@link CreateVirtualClusterResponse}
  * @see {@link CreateVirtualClusterCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualClusterCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.

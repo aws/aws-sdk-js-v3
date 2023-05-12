@@ -59,8 +59,8 @@ export interface DisassociateApplicationFromEntitlementCommandOutput
  *
  * ```
  *
- * @param DisassociateApplicationFromEntitlementCommandInput - {@link DisassociateApplicationFromEntitlementCommandInput}
- * @returns {@link DisassociateApplicationFromEntitlementCommandOutput}
+ * @param DisassociateApplicationFromEntitlementRequest - {@link DisassociateApplicationFromEntitlementRequest}
+ * @returns {@link DisassociateApplicationFromEntitlementResult}
  * @see {@link DisassociateApplicationFromEntitlementCommandInput} for command's `input` shape.
  * @see {@link DisassociateApplicationFromEntitlementCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

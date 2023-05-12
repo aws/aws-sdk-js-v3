@@ -71,8 +71,8 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  *
  * ```
  *
- * @param DeleteDomainCommandInput - {@link DeleteDomainCommandInput}
- * @returns {@link DeleteDomainCommandOutput}
+ * @param DeleteDomainRequest - {@link DeleteDomainRequest}
+ * @returns {@link DeleteDomainResponse}
  * @see {@link DeleteDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

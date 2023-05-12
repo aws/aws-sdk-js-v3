@@ -67,8 +67,8 @@ export interface CreateDeviceDefinitionVersionCommandOutput
  *
  * ```
  *
- * @param CreateDeviceDefinitionVersionCommandInput - {@link CreateDeviceDefinitionVersionCommandInput}
- * @returns {@link CreateDeviceDefinitionVersionCommandOutput}
+ * @param CreateDeviceDefinitionVersionRequest - {@link CreateDeviceDefinitionVersionRequest}
+ * @returns {@link CreateDeviceDefinitionVersionResponse}
  * @see {@link CreateDeviceDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

@@ -73,8 +73,8 @@ export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __M
  *
  * ```
  *
- * @param ExecuteCommandCommandInput - {@link ExecuteCommandCommandInput}
- * @returns {@link ExecuteCommandCommandOutput}
+ * @param ExecuteCommandRequest - {@link ExecuteCommandRequest}
+ * @returns {@link ExecuteCommandResponse}
  * @see {@link ExecuteCommandCommandInput} for command's `input` shape.
  * @see {@link ExecuteCommandCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

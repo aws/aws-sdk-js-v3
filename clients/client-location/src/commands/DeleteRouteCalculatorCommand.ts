@@ -51,8 +51,8 @@ export interface DeleteRouteCalculatorCommandOutput extends DeleteRouteCalculato
  *
  * ```
  *
- * @param DeleteRouteCalculatorCommandInput - {@link DeleteRouteCalculatorCommandInput}
- * @returns {@link DeleteRouteCalculatorCommandOutput}
+ * @param DeleteRouteCalculatorRequest - {@link DeleteRouteCalculatorRequest}
+ * @returns {@link DeleteRouteCalculatorResponse}
  * @see {@link DeleteRouteCalculatorCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteCalculatorCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

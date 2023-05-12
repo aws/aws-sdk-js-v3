@@ -74,8 +74,8 @@ export interface CreateStreamCommandOutput extends CreateStreamResponse, __Metad
  *
  * ```
  *
- * @param CreateStreamCommandInput - {@link CreateStreamCommandInput}
- * @returns {@link CreateStreamCommandOutput}
+ * @param CreateStreamRequest - {@link CreateStreamRequest}
+ * @returns {@link CreateStreamResponse}
  * @see {@link CreateStreamCommandInput} for command's `input` shape.
  * @see {@link CreateStreamCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

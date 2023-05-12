@@ -117,8 +117,8 @@ export interface ConfigureAccessPointCommandOutput extends ConfigureAccessPointR
  *
  * ```
  *
- * @param ConfigureAccessPointCommandInput - {@link ConfigureAccessPointCommandInput}
- * @returns {@link ConfigureAccessPointCommandOutput}
+ * @param ConfigureAccessPointRequest - {@link ConfigureAccessPointRequest}
+ * @returns {@link ConfigureAccessPointResponse}
  * @see {@link ConfigureAccessPointCommandInput} for command's `input` shape.
  * @see {@link ConfigureAccessPointCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

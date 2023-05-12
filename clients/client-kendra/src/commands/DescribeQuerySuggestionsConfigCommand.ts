@@ -64,12 +64,21 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
  * //   LastSuggestionsBuildTime: new Date("TIMESTAMP"),
  * //   LastClearTime: new Date("TIMESTAMP"),
  * //   TotalSuggestionsCount: Number("int"),
+ * //   AttributeSuggestionsConfig: { // AttributeSuggestionsDescribeConfig
+ * //     SuggestableConfigList: [ // SuggestableConfigList
+ * //       { // SuggestableConfig
+ * //         AttributeName: "STRING_VALUE",
+ * //         Suggestable: true || false,
+ * //       },
+ * //     ],
+ * //     AttributeSuggestionsMode: "ACTIVE" || "INACTIVE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param DescribeQuerySuggestionsConfigCommandInput - {@link DescribeQuerySuggestionsConfigCommandInput}
- * @returns {@link DescribeQuerySuggestionsConfigCommandOutput}
+ * @param DescribeQuerySuggestionsConfigRequest - {@link DescribeQuerySuggestionsConfigRequest}
+ * @returns {@link DescribeQuerySuggestionsConfigResponse}
  * @see {@link DescribeQuerySuggestionsConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeQuerySuggestionsConfigCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

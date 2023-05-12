@@ -89,8 +89,8 @@ export interface CreateApplicationVersionCommandOutput extends CreateApplication
  *
  * ```
  *
- * @param CreateApplicationVersionCommandInput - {@link CreateApplicationVersionCommandInput}
- * @returns {@link CreateApplicationVersionCommandOutput}
+ * @param CreateApplicationVersionRequest - {@link CreateApplicationVersionRequest}
+ * @returns {@link CreateApplicationVersionResponse}
  * @see {@link CreateApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.

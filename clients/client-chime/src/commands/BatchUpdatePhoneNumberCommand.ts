@@ -68,8 +68,8 @@ export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNum
  *
  * ```
  *
- * @param BatchUpdatePhoneNumberCommandInput - {@link BatchUpdatePhoneNumberCommandInput}
- * @returns {@link BatchUpdatePhoneNumberCommandOutput}
+ * @param BatchUpdatePhoneNumberRequest - {@link BatchUpdatePhoneNumberRequest}
+ * @returns {@link BatchUpdatePhoneNumberResponse}
  * @see {@link BatchUpdatePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link BatchUpdatePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

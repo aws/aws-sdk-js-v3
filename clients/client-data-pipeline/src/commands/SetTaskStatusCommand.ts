@@ -82,8 +82,8 @@ export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __Metad
  *
  * ```
  *
- * @param SetTaskStatusCommandInput - {@link SetTaskStatusCommandInput}
- * @returns {@link SetTaskStatusCommandOutput}
+ * @param SetTaskStatusInput - {@link SetTaskStatusInput}
+ * @returns {@link SetTaskStatusOutput}
  * @see {@link SetTaskStatusCommandInput} for command's `input` shape.
  * @see {@link SetTaskStatusCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.

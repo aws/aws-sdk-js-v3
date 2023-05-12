@@ -74,8 +74,8 @@ export interface CreateTrialCommandOutput extends CreateTrialResponse, __Metadat
  *
  * ```
  *
- * @param CreateTrialCommandInput - {@link CreateTrialCommandInput}
- * @returns {@link CreateTrialCommandOutput}
+ * @param CreateTrialRequest - {@link CreateTrialRequest}
+ * @returns {@link CreateTrialResponse}
  * @see {@link CreateTrialCommandInput} for command's `input` shape.
  * @see {@link CreateTrialCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

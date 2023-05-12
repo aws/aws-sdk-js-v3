@@ -49,8 +49,8 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
  *
  * ```
  *
- * @param DeleteServiceActionCommandInput - {@link DeleteServiceActionCommandInput}
- * @returns {@link DeleteServiceActionCommandOutput}
+ * @param DeleteServiceActionInput - {@link DeleteServiceActionInput}
+ * @returns {@link DeleteServiceActionOutput}
  * @see {@link DeleteServiceActionCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

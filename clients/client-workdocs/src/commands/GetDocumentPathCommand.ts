@@ -71,8 +71,8 @@ export interface GetDocumentPathCommandOutput extends GetDocumentPathResponse, _
  *
  * ```
  *
- * @param GetDocumentPathCommandInput - {@link GetDocumentPathCommandInput}
- * @returns {@link GetDocumentPathCommandOutput}
+ * @param GetDocumentPathRequest - {@link GetDocumentPathRequest}
+ * @returns {@link GetDocumentPathResponse}
  * @see {@link GetDocumentPathCommandInput} for command's `input` shape.
  * @see {@link GetDocumentPathCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

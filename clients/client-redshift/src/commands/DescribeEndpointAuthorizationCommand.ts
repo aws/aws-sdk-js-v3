@@ -72,8 +72,8 @@ export interface DescribeEndpointAuthorizationCommandOutput extends EndpointAuth
  *
  * ```
  *
- * @param DescribeEndpointAuthorizationCommandInput - {@link DescribeEndpointAuthorizationCommandInput}
- * @returns {@link DescribeEndpointAuthorizationCommandOutput}
+ * @param DescribeEndpointAuthorizationMessage - {@link DescribeEndpointAuthorizationMessage}
+ * @returns {@link EndpointAuthorizationList}
  * @see {@link DescribeEndpointAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

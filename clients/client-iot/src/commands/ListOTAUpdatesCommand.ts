@@ -60,8 +60,8 @@ export interface ListOTAUpdatesCommandOutput extends ListOTAUpdatesResponse, __M
  *
  * ```
  *
- * @param ListOTAUpdatesCommandInput - {@link ListOTAUpdatesCommandInput}
- * @returns {@link ListOTAUpdatesCommandOutput}
+ * @param ListOTAUpdatesRequest - {@link ListOTAUpdatesRequest}
+ * @returns {@link ListOTAUpdatesResponse}
  * @see {@link ListOTAUpdatesCommandInput} for command's `input` shape.
  * @see {@link ListOTAUpdatesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

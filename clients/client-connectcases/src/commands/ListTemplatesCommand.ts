@@ -64,8 +64,8 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  *
  * ```
  *
- * @param ListTemplatesCommandInput - {@link ListTemplatesCommandInput}
- * @returns {@link ListTemplatesCommandOutput}
+ * @param ListTemplatesRequest - {@link ListTemplatesRequest}
+ * @returns {@link ListTemplatesResponse}
  * @see {@link ListTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListTemplatesCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

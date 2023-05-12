@@ -85,8 +85,8 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  *
  * ```
  *
- * @param UpdateAuthorizerCommandInput - {@link UpdateAuthorizerCommandInput}
- * @returns {@link UpdateAuthorizerCommandOutput}
+ * @param UpdateAuthorizerRequest - {@link UpdateAuthorizerRequest}
+ * @returns {@link UpdateAuthorizerResponse}
  * @see {@link UpdateAuthorizerCommandInput} for command's `input` shape.
  * @see {@link UpdateAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

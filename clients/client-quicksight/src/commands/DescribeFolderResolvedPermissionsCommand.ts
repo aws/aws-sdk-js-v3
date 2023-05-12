@@ -70,8 +70,8 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
  *
  * ```
  *
- * @param DescribeFolderResolvedPermissionsCommandInput - {@link DescribeFolderResolvedPermissionsCommandInput}
- * @returns {@link DescribeFolderResolvedPermissionsCommandOutput}
+ * @param DescribeFolderResolvedPermissionsRequest - {@link DescribeFolderResolvedPermissionsRequest}
+ * @returns {@link DescribeFolderResolvedPermissionsResponse}
  * @see {@link DescribeFolderResolvedPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeFolderResolvedPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

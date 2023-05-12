@@ -56,8 +56,8 @@ export interface DeregisterEcsClusterCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeregisterEcsClusterCommandInput - {@link DeregisterEcsClusterCommandInput}
- * @returns {@link DeregisterEcsClusterCommandOutput}
+ * @param DeregisterEcsClusterRequest - {@link DeregisterEcsClusterRequest}
+ * @returns {@link Unit}
  * @see {@link DeregisterEcsClusterCommandInput} for command's `input` shape.
  * @see {@link DeregisterEcsClusterCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

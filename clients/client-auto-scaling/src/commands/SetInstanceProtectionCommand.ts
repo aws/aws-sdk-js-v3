@@ -59,8 +59,8 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
  *
  * ```
  *
- * @param SetInstanceProtectionCommandInput - {@link SetInstanceProtectionCommandInput}
- * @returns {@link SetInstanceProtectionCommandOutput}
+ * @param SetInstanceProtectionQuery - {@link SetInstanceProtectionQuery}
+ * @returns {@link SetInstanceProtectionAnswer}
  * @see {@link SetInstanceProtectionCommandInput} for command's `input` shape.
  * @see {@link SetInstanceProtectionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

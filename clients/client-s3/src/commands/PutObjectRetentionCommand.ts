@@ -66,8 +66,8 @@ export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutpu
  *
  * ```
  *
- * @param PutObjectRetentionCommandInput - {@link PutObjectRetentionCommandInput}
- * @returns {@link PutObjectRetentionCommandOutput}
+ * @param PutObjectRetentionRequest - {@link PutObjectRetentionRequest}
+ * @returns {@link PutObjectRetentionOutput}
  * @see {@link PutObjectRetentionCommandInput} for command's `input` shape.
  * @see {@link PutObjectRetentionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

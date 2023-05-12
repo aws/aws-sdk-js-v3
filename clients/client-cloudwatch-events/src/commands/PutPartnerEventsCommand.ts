@@ -68,8 +68,8 @@ export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse,
  *
  * ```
  *
- * @param PutPartnerEventsCommandInput - {@link PutPartnerEventsCommandInput}
- * @returns {@link PutPartnerEventsCommandOutput}
+ * @param PutPartnerEventsRequest - {@link PutPartnerEventsRequest}
+ * @returns {@link PutPartnerEventsResponse}
  * @see {@link PutPartnerEventsCommandInput} for command's `input` shape.
  * @see {@link PutPartnerEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

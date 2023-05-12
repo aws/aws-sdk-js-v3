@@ -50,8 +50,8 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DeleteOrganizationalUnitCommandInput - {@link DeleteOrganizationalUnitCommandInput}
- * @returns {@link DeleteOrganizationalUnitCommandOutput}
+ * @param DeleteOrganizationalUnitRequest - {@link DeleteOrganizationalUnitRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteOrganizationalUnitCommandInput} for command's `input` shape.
  * @see {@link DeleteOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

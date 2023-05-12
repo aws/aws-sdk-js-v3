@@ -74,8 +74,8 @@ export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __M
  *
  * ```
  *
- * @param SearchAnalysesCommandInput - {@link SearchAnalysesCommandInput}
- * @returns {@link SearchAnalysesCommandOutput}
+ * @param SearchAnalysesRequest - {@link SearchAnalysesRequest}
+ * @returns {@link SearchAnalysesResponse}
  * @see {@link SearchAnalysesCommandInput} for command's `input` shape.
  * @see {@link SearchAnalysesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

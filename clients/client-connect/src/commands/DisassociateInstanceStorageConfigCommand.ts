@@ -55,8 +55,8 @@ export interface DisassociateInstanceStorageConfigCommandOutput extends __Metada
  *
  * ```
  *
- * @param DisassociateInstanceStorageConfigCommandInput - {@link DisassociateInstanceStorageConfigCommandInput}
- * @returns {@link DisassociateInstanceStorageConfigCommandOutput}
+ * @param DisassociateInstanceStorageConfigRequest - {@link DisassociateInstanceStorageConfigRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link DisassociateInstanceStorageConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

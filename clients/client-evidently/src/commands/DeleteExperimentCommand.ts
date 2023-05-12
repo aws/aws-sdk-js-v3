@@ -50,8 +50,8 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  *
  * ```
  *
- * @param DeleteExperimentCommandInput - {@link DeleteExperimentCommandInput}
- * @returns {@link DeleteExperimentCommandOutput}
+ * @param DeleteExperimentRequest - {@link DeleteExperimentRequest}
+ * @returns {@link DeleteExperimentResponse}
  * @see {@link DeleteExperimentCommandInput} for command's `input` shape.
  * @see {@link DeleteExperimentCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

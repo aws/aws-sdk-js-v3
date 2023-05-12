@@ -223,8 +223,8 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param ScanCommandInput - {@link ScanCommandInput}
- * @returns {@link ScanCommandOutput}
+ * @param ScanInput - {@link ScanInput}
+ * @returns {@link ScanOutput}
  * @see {@link ScanCommandInput} for command's `input` shape.
  * @see {@link ScanCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

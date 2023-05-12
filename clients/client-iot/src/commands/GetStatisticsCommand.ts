@@ -65,8 +65,8 @@ export interface GetStatisticsCommandOutput extends GetStatisticsResponse, __Met
  *
  * ```
  *
- * @param GetStatisticsCommandInput - {@link GetStatisticsCommandInput}
- * @returns {@link GetStatisticsCommandOutput}
+ * @param GetStatisticsRequest - {@link GetStatisticsRequest}
+ * @returns {@link GetStatisticsResponse}
  * @see {@link GetStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetStatisticsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

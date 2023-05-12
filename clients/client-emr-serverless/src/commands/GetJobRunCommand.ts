@@ -129,8 +129,8 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  *
  * ```
  *
- * @param GetJobRunCommandInput - {@link GetJobRunCommandInput}
- * @returns {@link GetJobRunCommandOutput}
+ * @param GetJobRunRequest - {@link GetJobRunRequest}
+ * @returns {@link GetJobRunResponse}
  * @see {@link GetJobRunCommandInput} for command's `input` shape.
  * @see {@link GetJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.

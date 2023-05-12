@@ -56,8 +56,8 @@ export interface UpdateThingRuntimeConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateThingRuntimeConfigurationCommandInput - {@link UpdateThingRuntimeConfigurationCommandInput}
- * @returns {@link UpdateThingRuntimeConfigurationCommandOutput}
+ * @param UpdateThingRuntimeConfigurationRequest - {@link UpdateThingRuntimeConfigurationRequest}
+ * @returns {@link UpdateThingRuntimeConfigurationResponse}
  * @see {@link UpdateThingRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateThingRuntimeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

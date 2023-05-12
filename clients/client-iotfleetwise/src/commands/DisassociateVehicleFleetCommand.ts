@@ -54,8 +54,8 @@ export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehic
  *
  * ```
  *
- * @param DisassociateVehicleFleetCommandInput - {@link DisassociateVehicleFleetCommandInput}
- * @returns {@link DisassociateVehicleFleetCommandOutput}
+ * @param DisassociateVehicleFleetRequest - {@link DisassociateVehicleFleetRequest}
+ * @returns {@link DisassociateVehicleFleetResponse}
  * @see {@link DisassociateVehicleFleetCommandInput} for command's `input` shape.
  * @see {@link DisassociateVehicleFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

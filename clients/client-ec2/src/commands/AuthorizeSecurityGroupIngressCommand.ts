@@ -149,8 +149,8 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  *
  * ```
  *
- * @param AuthorizeSecurityGroupIngressCommandInput - {@link AuthorizeSecurityGroupIngressCommandInput}
- * @returns {@link AuthorizeSecurityGroupIngressCommandOutput}
+ * @param AuthorizeSecurityGroupIngressRequest - {@link AuthorizeSecurityGroupIngressRequest}
+ * @returns {@link AuthorizeSecurityGroupIngressResult}
  * @see {@link AuthorizeSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link AuthorizeSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

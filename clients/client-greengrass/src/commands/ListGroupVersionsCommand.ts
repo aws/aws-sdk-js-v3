@@ -60,8 +60,8 @@ export interface ListGroupVersionsCommandOutput extends ListGroupVersionsRespons
  *
  * ```
  *
- * @param ListGroupVersionsCommandInput - {@link ListGroupVersionsCommandInput}
- * @returns {@link ListGroupVersionsCommandOutput}
+ * @param ListGroupVersionsRequest - {@link ListGroupVersionsRequest}
+ * @returns {@link ListGroupVersionsResponse}
  * @see {@link ListGroupVersionsCommandInput} for command's `input` shape.
  * @see {@link ListGroupVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

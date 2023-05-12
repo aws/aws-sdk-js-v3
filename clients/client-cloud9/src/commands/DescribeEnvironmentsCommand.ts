@@ -72,8 +72,8 @@ export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsR
  *
  * ```
  *
- * @param DescribeEnvironmentsCommandInput - {@link DescribeEnvironmentsCommandInput}
- * @returns {@link DescribeEnvironmentsCommandOutput}
+ * @param DescribeEnvironmentsRequest - {@link DescribeEnvironmentsRequest}
+ * @returns {@link DescribeEnvironmentsResult}
  * @see {@link DescribeEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.

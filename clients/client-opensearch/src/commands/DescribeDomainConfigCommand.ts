@@ -254,8 +254,8 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  *
  * ```
  *
- * @param DescribeDomainConfigCommandInput - {@link DescribeDomainConfigCommandInput}
- * @returns {@link DescribeDomainConfigCommandOutput}
+ * @param DescribeDomainConfigRequest - {@link DescribeDomainConfigRequest}
+ * @returns {@link DescribeDomainConfigResponse}
  * @see {@link DescribeDomainConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainConfigCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

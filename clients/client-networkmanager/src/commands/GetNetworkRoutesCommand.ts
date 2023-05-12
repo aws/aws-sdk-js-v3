@@ -109,8 +109,8 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  *
  * ```
  *
- * @param GetNetworkRoutesCommandInput - {@link GetNetworkRoutesCommandInput}
- * @returns {@link GetNetworkRoutesCommandOutput}
+ * @param GetNetworkRoutesRequest - {@link GetNetworkRoutesRequest}
+ * @returns {@link GetNetworkRoutesResponse}
  * @see {@link GetNetworkRoutesCommandInput} for command's `input` shape.
  * @see {@link GetNetworkRoutesCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

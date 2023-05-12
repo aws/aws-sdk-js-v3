@@ -49,8 +49,8 @@ export interface DeleteVpcCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteVpcCommandInput - {@link DeleteVpcCommandInput}
- * @returns {@link DeleteVpcCommandOutput}
+ * @param DeleteVpcRequest - {@link DeleteVpcRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVpcCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

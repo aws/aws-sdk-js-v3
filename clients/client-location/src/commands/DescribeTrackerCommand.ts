@@ -61,8 +61,8 @@ export interface DescribeTrackerCommandOutput extends DescribeTrackerResponse, _
  *
  * ```
  *
- * @param DescribeTrackerCommandInput - {@link DescribeTrackerCommandInput}
- * @returns {@link DescribeTrackerCommandOutput}
+ * @param DescribeTrackerRequest - {@link DescribeTrackerRequest}
+ * @returns {@link DescribeTrackerResponse}
  * @see {@link DescribeTrackerCommandInput} for command's `input` shape.
  * @see {@link DescribeTrackerCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

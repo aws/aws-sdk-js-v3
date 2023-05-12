@@ -181,8 +181,8 @@ export interface UpdateColumnStatisticsForPartitionCommandOutput
  *
  * ```
  *
- * @param UpdateColumnStatisticsForPartitionCommandInput - {@link UpdateColumnStatisticsForPartitionCommandInput}
- * @returns {@link UpdateColumnStatisticsForPartitionCommandOutput}
+ * @param UpdateColumnStatisticsForPartitionRequest - {@link UpdateColumnStatisticsForPartitionRequest}
+ * @returns {@link UpdateColumnStatisticsForPartitionResponse}
  * @see {@link UpdateColumnStatisticsForPartitionCommandInput} for command's `input` shape.
  * @see {@link UpdateColumnStatisticsForPartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

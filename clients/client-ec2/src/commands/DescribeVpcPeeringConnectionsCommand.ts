@@ -123,8 +123,8 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
  *
  * ```
  *
- * @param DescribeVpcPeeringConnectionsCommandInput - {@link DescribeVpcPeeringConnectionsCommandInput}
- * @returns {@link DescribeVpcPeeringConnectionsCommandOutput}
+ * @param DescribeVpcPeeringConnectionsRequest - {@link DescribeVpcPeeringConnectionsRequest}
+ * @returns {@link DescribeVpcPeeringConnectionsResult}
  * @see {@link DescribeVpcPeeringConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcPeeringConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

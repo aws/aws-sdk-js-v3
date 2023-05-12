@@ -60,8 +60,8 @@ export interface UpdateRoutingControlCommandOutput extends UpdateRoutingControlR
  *
  * ```
  *
- * @param UpdateRoutingControlCommandInput - {@link UpdateRoutingControlCommandInput}
- * @returns {@link UpdateRoutingControlCommandOutput}
+ * @param UpdateRoutingControlRequest - {@link UpdateRoutingControlRequest}
+ * @returns {@link UpdateRoutingControlResponse}
  * @see {@link UpdateRoutingControlCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingControlCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.

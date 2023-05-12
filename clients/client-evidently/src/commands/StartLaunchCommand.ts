@@ -109,8 +109,8 @@ export interface StartLaunchCommandOutput extends StartLaunchResponse, __Metadat
  *
  * ```
  *
- * @param StartLaunchCommandInput - {@link StartLaunchCommandInput}
- * @returns {@link StartLaunchCommandOutput}
+ * @param StartLaunchRequest - {@link StartLaunchRequest}
+ * @returns {@link StartLaunchResponse}
  * @see {@link StartLaunchCommandInput} for command's `input` shape.
  * @see {@link StartLaunchCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

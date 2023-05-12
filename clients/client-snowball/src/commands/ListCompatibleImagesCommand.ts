@@ -60,8 +60,8 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  *
  * ```
  *
- * @param ListCompatibleImagesCommandInput - {@link ListCompatibleImagesCommandInput}
- * @returns {@link ListCompatibleImagesCommandOutput}
+ * @param ListCompatibleImagesRequest - {@link ListCompatibleImagesRequest}
+ * @returns {@link ListCompatibleImagesResult}
  * @see {@link ListCompatibleImagesCommandInput} for command's `input` shape.
  * @see {@link ListCompatibleImagesCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

@@ -88,8 +88,8 @@ export interface RegisterGameServerCommandOutput extends RegisterGameServerOutpu
  *
  * ```
  *
- * @param RegisterGameServerCommandInput - {@link RegisterGameServerCommandInput}
- * @returns {@link RegisterGameServerCommandOutput}
+ * @param RegisterGameServerInput - {@link RegisterGameServerInput}
+ * @returns {@link RegisterGameServerOutput}
  * @see {@link RegisterGameServerCommandInput} for command's `input` shape.
  * @see {@link RegisterGameServerCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

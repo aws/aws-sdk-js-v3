@@ -69,8 +69,8 @@ export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConne
  *
  * ```
  *
- * @param UpdateVoiceConnectorGroupCommandInput - {@link UpdateVoiceConnectorGroupCommandInput}
- * @returns {@link UpdateVoiceConnectorGroupCommandOutput}
+ * @param UpdateVoiceConnectorGroupRequest - {@link UpdateVoiceConnectorGroupRequest}
+ * @returns {@link UpdateVoiceConnectorGroupResponse}
  * @see {@link UpdateVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateVoiceConnectorGroupCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

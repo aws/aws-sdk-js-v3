@@ -58,8 +58,8 @@ export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKe
  *
  * ```
  *
- * @param ActivateKeySigningKeyCommandInput - {@link ActivateKeySigningKeyCommandInput}
- * @returns {@link ActivateKeySigningKeyCommandOutput}
+ * @param ActivateKeySigningKeyRequest - {@link ActivateKeySigningKeyRequest}
+ * @returns {@link ActivateKeySigningKeyResponse}
  * @see {@link ActivateKeySigningKeyCommandInput} for command's `input` shape.
  * @see {@link ActivateKeySigningKeyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

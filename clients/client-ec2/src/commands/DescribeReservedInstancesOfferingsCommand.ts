@@ -113,8 +113,8 @@ export interface DescribeReservedInstancesOfferingsCommandOutput
  *
  * ```
  *
- * @param DescribeReservedInstancesOfferingsCommandInput - {@link DescribeReservedInstancesOfferingsCommandInput}
- * @returns {@link DescribeReservedInstancesOfferingsCommandOutput}
+ * @param DescribeReservedInstancesOfferingsRequest - {@link DescribeReservedInstancesOfferingsRequest}
+ * @returns {@link DescribeReservedInstancesOfferingsResult}
  * @see {@link DescribeReservedInstancesOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedInstancesOfferingsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

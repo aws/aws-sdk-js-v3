@@ -86,8 +86,8 @@ export interface DeleteVpcIngressConnectionCommandOutput extends DeleteVpcIngres
  *
  * ```
  *
- * @param DeleteVpcIngressConnectionCommandInput - {@link DeleteVpcIngressConnectionCommandInput}
- * @returns {@link DeleteVpcIngressConnectionCommandOutput}
+ * @param DeleteVpcIngressConnectionRequest - {@link DeleteVpcIngressConnectionRequest}
+ * @returns {@link DeleteVpcIngressConnectionResponse}
  * @see {@link DeleteVpcIngressConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcIngressConnectionCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

@@ -77,8 +77,8 @@ export interface CreateRulesetCommandOutput extends CreateRulesetResponse, __Met
  *
  * ```
  *
- * @param CreateRulesetCommandInput - {@link CreateRulesetCommandInput}
- * @returns {@link CreateRulesetCommandOutput}
+ * @param CreateRulesetRequest - {@link CreateRulesetRequest}
+ * @returns {@link CreateRulesetResponse}
  * @see {@link CreateRulesetCommandInput} for command's `input` shape.
  * @see {@link CreateRulesetCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

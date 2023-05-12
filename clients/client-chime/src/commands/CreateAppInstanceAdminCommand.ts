@@ -71,8 +71,8 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
  *
  * ```
  *
- * @param CreateAppInstanceAdminCommandInput - {@link CreateAppInstanceAdminCommandInput}
- * @returns {@link CreateAppInstanceAdminCommandOutput}
+ * @param CreateAppInstanceAdminRequest - {@link CreateAppInstanceAdminRequest}
+ * @returns {@link CreateAppInstanceAdminResponse}
  * @see {@link CreateAppInstanceAdminCommandInput} for command's `input` shape.
  * @see {@link CreateAppInstanceAdminCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

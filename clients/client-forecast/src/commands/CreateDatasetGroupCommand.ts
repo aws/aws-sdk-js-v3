@@ -73,8 +73,8 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  *
  * ```
  *
- * @param CreateDatasetGroupCommandInput - {@link CreateDatasetGroupCommandInput}
- * @returns {@link CreateDatasetGroupCommandOutput}
+ * @param CreateDatasetGroupRequest - {@link CreateDatasetGroupRequest}
+ * @returns {@link CreateDatasetGroupResponse}
  * @see {@link CreateDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetGroupCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

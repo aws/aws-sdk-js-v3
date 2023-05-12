@@ -51,8 +51,8 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  *
  * ```
  *
- * @param DeleteComponentCommandInput - {@link DeleteComponentCommandInput}
- * @returns {@link DeleteComponentCommandOutput}
+ * @param DeleteComponentRequest - {@link DeleteComponentRequest}
+ * @returns {@link DeleteComponentResponse}
  * @see {@link DeleteComponentCommandInput} for command's `input` shape.
  * @see {@link DeleteComponentCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

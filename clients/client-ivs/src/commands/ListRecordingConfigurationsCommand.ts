@@ -72,8 +72,8 @@ export interface ListRecordingConfigurationsCommandOutput
  *
  * ```
  *
- * @param ListRecordingConfigurationsCommandInput - {@link ListRecordingConfigurationsCommandInput}
- * @returns {@link ListRecordingConfigurationsCommandOutput}
+ * @param ListRecordingConfigurationsRequest - {@link ListRecordingConfigurationsRequest}
+ * @returns {@link ListRecordingConfigurationsResponse}
  * @see {@link ListRecordingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListRecordingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

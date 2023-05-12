@@ -88,8 +88,8 @@ export interface CancelReservedInstancesListingCommandOutput
  *
  * ```
  *
- * @param CancelReservedInstancesListingCommandInput - {@link CancelReservedInstancesListingCommandInput}
- * @returns {@link CancelReservedInstancesListingCommandOutput}
+ * @param CancelReservedInstancesListingRequest - {@link CancelReservedInstancesListingRequest}
+ * @returns {@link CancelReservedInstancesListingResult}
  * @see {@link CancelReservedInstancesListingCommandInput} for command's `input` shape.
  * @see {@link CancelReservedInstancesListingCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

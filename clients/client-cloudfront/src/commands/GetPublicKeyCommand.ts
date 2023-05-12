@@ -60,8 +60,8 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResult, __Metadat
  *
  * ```
  *
- * @param GetPublicKeyCommandInput - {@link GetPublicKeyCommandInput}
- * @returns {@link GetPublicKeyCommandOutput}
+ * @param GetPublicKeyRequest - {@link GetPublicKeyRequest}
+ * @returns {@link GetPublicKeyResult}
  * @see {@link GetPublicKeyCommandInput} for command's `input` shape.
  * @see {@link GetPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

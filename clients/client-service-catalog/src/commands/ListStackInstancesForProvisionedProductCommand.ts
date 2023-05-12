@@ -69,8 +69,8 @@ export interface ListStackInstancesForProvisionedProductCommandOutput
  *
  * ```
  *
- * @param ListStackInstancesForProvisionedProductCommandInput - {@link ListStackInstancesForProvisionedProductCommandInput}
- * @returns {@link ListStackInstancesForProvisionedProductCommandOutput}
+ * @param ListStackInstancesForProvisionedProductInput - {@link ListStackInstancesForProvisionedProductInput}
+ * @returns {@link ListStackInstancesForProvisionedProductOutput}
  * @see {@link ListStackInstancesForProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link ListStackInstancesForProvisionedProductCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

@@ -98,8 +98,8 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  *
  * ```
  *
- * @param CreateNetworkCommandInput - {@link CreateNetworkCommandInput}
- * @returns {@link CreateNetworkCommandOutput}
+ * @param CreateNetworkInput - {@link CreateNetworkInput}
+ * @returns {@link CreateNetworkOutput}
  * @see {@link CreateNetworkCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

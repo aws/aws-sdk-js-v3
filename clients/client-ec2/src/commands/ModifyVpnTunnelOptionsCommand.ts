@@ -217,8 +217,8 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  *
  * ```
  *
- * @param ModifyVpnTunnelOptionsCommandInput - {@link ModifyVpnTunnelOptionsCommandInput}
- * @returns {@link ModifyVpnTunnelOptionsCommandOutput}
+ * @param ModifyVpnTunnelOptionsRequest - {@link ModifyVpnTunnelOptionsRequest}
+ * @returns {@link ModifyVpnTunnelOptionsResult}
  * @see {@link ModifyVpnTunnelOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyVpnTunnelOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -71,8 +71,8 @@ export interface BatchGetVariableCommandOutput extends BatchGetVariableResult, _
  *
  * ```
  *
- * @param BatchGetVariableCommandInput - {@link BatchGetVariableCommandInput}
- * @returns {@link BatchGetVariableCommandOutput}
+ * @param BatchGetVariableRequest - {@link BatchGetVariableRequest}
+ * @returns {@link BatchGetVariableResult}
  * @see {@link BatchGetVariableCommandInput} for command's `input` shape.
  * @see {@link BatchGetVariableCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

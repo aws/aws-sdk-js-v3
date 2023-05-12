@@ -81,8 +81,8 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  *
  * ```
  *
- * @param DescribeInternetGatewaysCommandInput - {@link DescribeInternetGatewaysCommandInput}
- * @returns {@link DescribeInternetGatewaysCommandOutput}
+ * @param DescribeInternetGatewaysRequest - {@link DescribeInternetGatewaysRequest}
+ * @returns {@link DescribeInternetGatewaysResult}
  * @see {@link DescribeInternetGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeInternetGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

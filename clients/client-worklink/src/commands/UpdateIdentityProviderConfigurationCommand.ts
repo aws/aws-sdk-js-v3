@@ -60,8 +60,8 @@ export interface UpdateIdentityProviderConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateIdentityProviderConfigurationCommandInput - {@link UpdateIdentityProviderConfigurationCommandInput}
- * @returns {@link UpdateIdentityProviderConfigurationCommandOutput}
+ * @param UpdateIdentityProviderConfigurationRequest - {@link UpdateIdentityProviderConfigurationRequest}
+ * @returns {@link UpdateIdentityProviderConfigurationResponse}
  * @see {@link UpdateIdentityProviderConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateIdentityProviderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

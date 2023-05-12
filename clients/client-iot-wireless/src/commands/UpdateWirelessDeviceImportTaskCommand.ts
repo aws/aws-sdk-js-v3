@@ -56,8 +56,8 @@ export interface UpdateWirelessDeviceImportTaskCommandOutput
  *
  * ```
  *
- * @param UpdateWirelessDeviceImportTaskCommandInput - {@link UpdateWirelessDeviceImportTaskCommandInput}
- * @returns {@link UpdateWirelessDeviceImportTaskCommandOutput}
+ * @param UpdateWirelessDeviceImportTaskRequest - {@link UpdateWirelessDeviceImportTaskRequest}
+ * @returns {@link UpdateWirelessDeviceImportTaskResponse}
  * @see {@link UpdateWirelessDeviceImportTaskCommandInput} for command's `input` shape.
  * @see {@link UpdateWirelessDeviceImportTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

@@ -59,8 +59,8 @@ export interface GetNetworkResourceCountsCommandOutput extends GetNetworkResourc
  *
  * ```
  *
- * @param GetNetworkResourceCountsCommandInput - {@link GetNetworkResourceCountsCommandInput}
- * @returns {@link GetNetworkResourceCountsCommandOutput}
+ * @param GetNetworkResourceCountsRequest - {@link GetNetworkResourceCountsRequest}
+ * @returns {@link GetNetworkResourceCountsResponse}
  * @see {@link GetNetworkResourceCountsCommandInput} for command's `input` shape.
  * @see {@link GetNetworkResourceCountsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

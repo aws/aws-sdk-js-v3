@@ -62,8 +62,8 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  *
  * ```
  *
- * @param InviteMembersCommandInput - {@link InviteMembersCommandInput}
- * @returns {@link InviteMembersCommandOutput}
+ * @param InviteMembersRequest - {@link InviteMembersRequest}
+ * @returns {@link InviteMembersResponse}
  * @see {@link InviteMembersCommandInput} for command's `input` shape.
  * @see {@link InviteMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

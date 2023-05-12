@@ -53,8 +53,8 @@ export interface UpdateCertificateCommandOutput extends UpdateCertificateRespons
  *
  * ```
  *
- * @param UpdateCertificateCommandInput - {@link UpdateCertificateCommandInput}
- * @returns {@link UpdateCertificateCommandOutput}
+ * @param UpdateCertificateRequest - {@link UpdateCertificateRequest}
+ * @returns {@link UpdateCertificateResponse}
  * @see {@link UpdateCertificateCommandInput} for command's `input` shape.
  * @see {@link UpdateCertificateCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

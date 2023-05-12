@@ -73,8 +73,8 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  *
  * ```
  *
- * @param RemoveFromGlobalClusterCommandInput - {@link RemoveFromGlobalClusterCommandInput}
- * @returns {@link RemoveFromGlobalClusterCommandOutput}
+ * @param RemoveFromGlobalClusterMessage - {@link RemoveFromGlobalClusterMessage}
+ * @returns {@link RemoveFromGlobalClusterResult}
  * @see {@link RemoveFromGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link RemoveFromGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

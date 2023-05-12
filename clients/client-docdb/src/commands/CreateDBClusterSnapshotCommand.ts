@@ -77,8 +77,8 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  *
  * ```
  *
- * @param CreateDBClusterSnapshotCommandInput - {@link CreateDBClusterSnapshotCommandInput}
- * @returns {@link CreateDBClusterSnapshotCommandOutput}
+ * @param CreateDBClusterSnapshotMessage - {@link CreateDBClusterSnapshotMessage}
+ * @returns {@link CreateDBClusterSnapshotResult}
  * @see {@link CreateDBClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

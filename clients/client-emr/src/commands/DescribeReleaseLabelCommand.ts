@@ -66,8 +66,8 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
  *
  * ```
  *
- * @param DescribeReleaseLabelCommandInput - {@link DescribeReleaseLabelCommandInput}
- * @returns {@link DescribeReleaseLabelCommandOutput}
+ * @param DescribeReleaseLabelInput - {@link DescribeReleaseLabelInput}
+ * @returns {@link DescribeReleaseLabelOutput}
  * @see {@link DescribeReleaseLabelCommandInput} for command's `input` shape.
  * @see {@link DescribeReleaseLabelCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

@@ -83,8 +83,8 @@ export interface GetMemberCommandOutput extends GetMemberOutput, __MetadataBeare
  *
  * ```
  *
- * @param GetMemberCommandInput - {@link GetMemberCommandInput}
- * @returns {@link GetMemberCommandOutput}
+ * @param GetMemberInput - {@link GetMemberInput}
+ * @returns {@link GetMemberOutput}
  * @see {@link GetMemberCommandInput} for command's `input` shape.
  * @see {@link GetMemberCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

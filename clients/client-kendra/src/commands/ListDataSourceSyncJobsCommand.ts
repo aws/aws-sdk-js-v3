@@ -76,8 +76,8 @@ export interface ListDataSourceSyncJobsCommandOutput extends ListDataSourceSyncJ
  *
  * ```
  *
- * @param ListDataSourceSyncJobsCommandInput - {@link ListDataSourceSyncJobsCommandInput}
- * @returns {@link ListDataSourceSyncJobsCommandOutput}
+ * @param ListDataSourceSyncJobsRequest - {@link ListDataSourceSyncJobsRequest}
+ * @returns {@link ListDataSourceSyncJobsResponse}
  * @see {@link ListDataSourceSyncJobsCommandInput} for command's `input` shape.
  * @see {@link ListDataSourceSyncJobsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

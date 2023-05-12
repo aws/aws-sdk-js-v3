@@ -132,8 +132,8 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  *
  * ```
  *
- * @param CreateVpcEndpointCommandInput - {@link CreateVpcEndpointCommandInput}
- * @returns {@link CreateVpcEndpointCommandOutput}
+ * @param CreateVpcEndpointRequest - {@link CreateVpcEndpointRequest}
+ * @returns {@link CreateVpcEndpointResult}
  * @see {@link CreateVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

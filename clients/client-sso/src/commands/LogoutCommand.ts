@@ -63,8 +63,8 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param LogoutCommandInput - {@link LogoutCommandInput}
- * @returns {@link LogoutCommandOutput}
+ * @param LogoutRequest - {@link LogoutRequest}
+ * @returns {@link Unit}
  * @see {@link LogoutCommandInput} for command's `input` shape.
  * @see {@link LogoutCommandOutput} for command's `response` shape.
  * @see {@link SSOClientResolvedConfig | config} for SSOClient's `config` shape.

@@ -59,8 +59,8 @@ export interface ListInstanceAttributesCommandOutput extends ListInstanceAttribu
  *
  * ```
  *
- * @param ListInstanceAttributesCommandInput - {@link ListInstanceAttributesCommandInput}
- * @returns {@link ListInstanceAttributesCommandOutput}
+ * @param ListInstanceAttributesRequest - {@link ListInstanceAttributesRequest}
+ * @returns {@link ListInstanceAttributesResponse}
  * @see {@link ListInstanceAttributesCommandInput} for command's `input` shape.
  * @see {@link ListInstanceAttributesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

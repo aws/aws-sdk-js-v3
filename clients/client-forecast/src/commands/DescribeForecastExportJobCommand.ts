@@ -88,8 +88,8 @@ export interface DescribeForecastExportJobCommandOutput extends DescribeForecast
  *
  * ```
  *
- * @param DescribeForecastExportJobCommandInput - {@link DescribeForecastExportJobCommandInput}
- * @returns {@link DescribeForecastExportJobCommandOutput}
+ * @param DescribeForecastExportJobRequest - {@link DescribeForecastExportJobRequest}
+ * @returns {@link DescribeForecastExportJobResponse}
  * @see {@link DescribeForecastExportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeForecastExportJobCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

@@ -189,8 +189,8 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  *
  * ```
  *
- * @param DescribeAssetPropertyCommandInput - {@link DescribeAssetPropertyCommandInput}
- * @returns {@link DescribeAssetPropertyCommandOutput}
+ * @param DescribeAssetPropertyRequest - {@link DescribeAssetPropertyRequest}
+ * @returns {@link DescribeAssetPropertyResponse}
  * @see {@link DescribeAssetPropertyCommandInput} for command's `input` shape.
  * @see {@link DescribeAssetPropertyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

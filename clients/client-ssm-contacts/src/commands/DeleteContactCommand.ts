@@ -51,8 +51,8 @@ export interface DeleteContactCommandOutput extends DeleteContactResult, __Metad
  *
  * ```
  *
- * @param DeleteContactCommandInput - {@link DeleteContactCommandInput}
- * @returns {@link DeleteContactCommandOutput}
+ * @param DeleteContactRequest - {@link DeleteContactRequest}
+ * @returns {@link DeleteContactResult}
  * @see {@link DeleteContactCommandInput} for command's `input` shape.
  * @see {@link DeleteContactCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

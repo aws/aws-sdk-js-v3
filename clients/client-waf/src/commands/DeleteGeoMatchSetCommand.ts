@@ -74,8 +74,8 @@ export interface DeleteGeoMatchSetCommandOutput extends DeleteGeoMatchSetRespons
  *
  * ```
  *
- * @param DeleteGeoMatchSetCommandInput - {@link DeleteGeoMatchSetCommandInput}
- * @returns {@link DeleteGeoMatchSetCommandOutput}
+ * @param DeleteGeoMatchSetRequest - {@link DeleteGeoMatchSetRequest}
+ * @returns {@link DeleteGeoMatchSetResponse}
  * @see {@link DeleteGeoMatchSetCommandInput} for command's `input` shape.
  * @see {@link DeleteGeoMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

@@ -65,8 +65,8 @@ export interface ListDetectorModelVersionsCommandOutput extends ListDetectorMode
  *
  * ```
  *
- * @param ListDetectorModelVersionsCommandInput - {@link ListDetectorModelVersionsCommandInput}
- * @returns {@link ListDetectorModelVersionsCommandOutput}
+ * @param ListDetectorModelVersionsRequest - {@link ListDetectorModelVersionsRequest}
+ * @returns {@link ListDetectorModelVersionsResponse}
  * @see {@link ListDetectorModelVersionsCommandInput} for command's `input` shape.
  * @see {@link ListDetectorModelVersionsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.

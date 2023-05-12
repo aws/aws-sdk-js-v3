@@ -68,8 +68,8 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *
  * ```
  *
- * @param DescribeEventsCommandInput - {@link DescribeEventsCommandInput}
- * @returns {@link DescribeEventsCommandOutput}
+ * @param DescribeEventsRequest - {@link DescribeEventsRequest}
+ * @returns {@link DescribeEventsResponse}
  * @see {@link DescribeEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.

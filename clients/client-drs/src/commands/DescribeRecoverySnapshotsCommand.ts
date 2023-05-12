@@ -68,8 +68,8 @@ export interface DescribeRecoverySnapshotsCommandOutput extends DescribeRecovery
  *
  * ```
  *
- * @param DescribeRecoverySnapshotsCommandInput - {@link DescribeRecoverySnapshotsCommandInput}
- * @returns {@link DescribeRecoverySnapshotsCommandOutput}
+ * @param DescribeRecoverySnapshotsRequest - {@link DescribeRecoverySnapshotsRequest}
+ * @returns {@link DescribeRecoverySnapshotsResponse}
  * @see {@link DescribeRecoverySnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeRecoverySnapshotsCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

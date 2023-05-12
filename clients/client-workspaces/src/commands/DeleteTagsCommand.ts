@@ -51,8 +51,8 @@ export interface DeleteTagsCommandOutput extends DeleteTagsResult, __MetadataBea
  *
  * ```
  *
- * @param DeleteTagsCommandInput - {@link DeleteTagsCommandInput}
- * @returns {@link DeleteTagsCommandOutput}
+ * @param DeleteTagsRequest - {@link DeleteTagsRequest}
+ * @returns {@link DeleteTagsResult}
  * @see {@link DeleteTagsCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

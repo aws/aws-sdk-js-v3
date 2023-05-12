@@ -48,8 +48,8 @@ export interface DeleteIncidentRecordCommandOutput extends DeleteIncidentRecordO
  *
  * ```
  *
- * @param DeleteIncidentRecordCommandInput - {@link DeleteIncidentRecordCommandInput}
- * @returns {@link DeleteIncidentRecordCommandOutput}
+ * @param DeleteIncidentRecordInput - {@link DeleteIncidentRecordInput}
+ * @returns {@link DeleteIncidentRecordOutput}
  * @see {@link DeleteIncidentRecordCommandInput} for command's `input` shape.
  * @see {@link DeleteIncidentRecordCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

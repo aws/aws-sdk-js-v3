@@ -61,8 +61,8 @@ export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __Metad
  *
  * ```
  *
- * @param UpdateLedgerCommandInput - {@link UpdateLedgerCommandInput}
- * @returns {@link UpdateLedgerCommandOutput}
+ * @param UpdateLedgerRequest - {@link UpdateLedgerRequest}
+ * @returns {@link UpdateLedgerResponse}
  * @see {@link UpdateLedgerCommandInput} for command's `input` shape.
  * @see {@link UpdateLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.

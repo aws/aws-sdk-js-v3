@@ -72,8 +72,8 @@ export interface DeleteInstanceSnapshotCommandOutput extends DeleteInstanceSnaps
  *
  * ```
  *
- * @param DeleteInstanceSnapshotCommandInput - {@link DeleteInstanceSnapshotCommandInput}
- * @returns {@link DeleteInstanceSnapshotCommandOutput}
+ * @param DeleteInstanceSnapshotRequest - {@link DeleteInstanceSnapshotRequest}
+ * @returns {@link DeleteInstanceSnapshotResult}
  * @see {@link DeleteInstanceSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

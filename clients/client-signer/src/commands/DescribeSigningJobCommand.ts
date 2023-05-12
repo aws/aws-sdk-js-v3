@@ -95,8 +95,8 @@ export interface DescribeSigningJobCommandOutput extends DescribeSigningJobRespo
  *
  * ```
  *
- * @param DescribeSigningJobCommandInput - {@link DescribeSigningJobCommandInput}
- * @returns {@link DescribeSigningJobCommandOutput}
+ * @param DescribeSigningJobRequest - {@link DescribeSigningJobRequest}
+ * @returns {@link DescribeSigningJobResponse}
  * @see {@link DescribeSigningJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSigningJobCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.

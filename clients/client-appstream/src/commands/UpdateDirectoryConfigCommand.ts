@@ -80,8 +80,8 @@ export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfi
  *
  * ```
  *
- * @param UpdateDirectoryConfigCommandInput - {@link UpdateDirectoryConfigCommandInput}
- * @returns {@link UpdateDirectoryConfigCommandOutput}
+ * @param UpdateDirectoryConfigRequest - {@link UpdateDirectoryConfigRequest}
+ * @returns {@link UpdateDirectoryConfigResult}
  * @see {@link UpdateDirectoryConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateDirectoryConfigCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

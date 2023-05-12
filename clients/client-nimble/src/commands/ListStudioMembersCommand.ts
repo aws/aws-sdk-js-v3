@@ -64,8 +64,8 @@ export interface ListStudioMembersCommandOutput extends ListStudioMembersRespons
  *
  * ```
  *
- * @param ListStudioMembersCommandInput - {@link ListStudioMembersCommandInput}
- * @returns {@link ListStudioMembersCommandOutput}
+ * @param ListStudioMembersRequest - {@link ListStudioMembersRequest}
+ * @returns {@link ListStudioMembersResponse}
  * @see {@link ListStudioMembersCommandInput} for command's `input` shape.
  * @see {@link ListStudioMembersCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

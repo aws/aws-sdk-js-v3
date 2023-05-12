@@ -56,8 +56,8 @@ export interface UpdateRevealConfigurationCommandOutput extends UpdateRevealConf
  *
  * ```
  *
- * @param UpdateRevealConfigurationCommandInput - {@link UpdateRevealConfigurationCommandInput}
- * @returns {@link UpdateRevealConfigurationCommandOutput}
+ * @param UpdateRevealConfigurationRequest - {@link UpdateRevealConfigurationRequest}
+ * @returns {@link UpdateRevealConfigurationResponse}
  * @see {@link UpdateRevealConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateRevealConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

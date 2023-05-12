@@ -63,8 +63,8 @@ export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAlia
  *
  * ```
  *
- * @param DeleteConnectionAliasCommandInput - {@link DeleteConnectionAliasCommandInput}
- * @returns {@link DeleteConnectionAliasCommandOutput}
+ * @param DeleteConnectionAliasRequest - {@link DeleteConnectionAliasRequest}
+ * @returns {@link DeleteConnectionAliasResult}
  * @see {@link DeleteConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectionAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

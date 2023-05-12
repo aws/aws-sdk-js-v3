@@ -86,8 +86,8 @@ export interface PostCommentForPullRequestCommandOutput extends PostCommentForPu
  *
  * ```
  *
- * @param PostCommentForPullRequestCommandInput - {@link PostCommentForPullRequestCommandInput}
- * @returns {@link PostCommentForPullRequestCommandOutput}
+ * @param PostCommentForPullRequestInput - {@link PostCommentForPullRequestInput}
+ * @returns {@link PostCommentForPullRequestOutput}
  * @see {@link PostCommentForPullRequestCommandInput} for command's `input` shape.
  * @see {@link PostCommentForPullRequestCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

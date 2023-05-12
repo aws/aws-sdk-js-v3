@@ -58,8 +58,8 @@ export interface StopTrainingEntityRecognizerCommandOutput
  *
  * ```
  *
- * @param StopTrainingEntityRecognizerCommandInput - {@link StopTrainingEntityRecognizerCommandInput}
- * @returns {@link StopTrainingEntityRecognizerCommandOutput}
+ * @param StopTrainingEntityRecognizerRequest - {@link StopTrainingEntityRecognizerRequest}
+ * @returns {@link StopTrainingEntityRecognizerResponse}
  * @see {@link StopTrainingEntityRecognizerCommandInput} for command's `input` shape.
  * @see {@link StopTrainingEntityRecognizerCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

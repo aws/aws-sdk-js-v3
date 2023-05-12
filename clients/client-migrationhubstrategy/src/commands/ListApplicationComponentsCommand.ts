@@ -142,8 +142,8 @@ export interface ListApplicationComponentsCommandOutput extends ListApplicationC
  *
  * ```
  *
- * @param ListApplicationComponentsCommandInput - {@link ListApplicationComponentsCommandInput}
- * @returns {@link ListApplicationComponentsCommandOutput}
+ * @param ListApplicationComponentsRequest - {@link ListApplicationComponentsRequest}
+ * @returns {@link ListApplicationComponentsResponse}
  * @see {@link ListApplicationComponentsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationComponentsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

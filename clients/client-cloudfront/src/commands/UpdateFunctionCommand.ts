@@ -79,8 +79,8 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  *
  * ```
  *
- * @param UpdateFunctionCommandInput - {@link UpdateFunctionCommandInput}
- * @returns {@link UpdateFunctionCommandOutput}
+ * @param UpdateFunctionRequest - {@link UpdateFunctionRequest}
+ * @returns {@link UpdateFunctionResult}
  * @see {@link UpdateFunctionCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

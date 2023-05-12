@@ -56,8 +56,8 @@ export interface PutDetectorCommandOutput extends PutDetectorResult, __MetadataB
  *
  * ```
  *
- * @param PutDetectorCommandInput - {@link PutDetectorCommandInput}
- * @returns {@link PutDetectorCommandOutput}
+ * @param PutDetectorRequest - {@link PutDetectorRequest}
+ * @returns {@link PutDetectorResult}
  * @see {@link PutDetectorCommandInput} for command's `input` shape.
  * @see {@link PutDetectorCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

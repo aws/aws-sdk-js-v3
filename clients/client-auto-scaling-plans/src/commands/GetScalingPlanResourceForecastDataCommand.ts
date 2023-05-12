@@ -73,8 +73,8 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  *
  * ```
  *
- * @param GetScalingPlanResourceForecastDataCommandInput - {@link GetScalingPlanResourceForecastDataCommandInput}
- * @returns {@link GetScalingPlanResourceForecastDataCommandOutput}
+ * @param GetScalingPlanResourceForecastDataRequest - {@link GetScalingPlanResourceForecastDataRequest}
+ * @returns {@link GetScalingPlanResourceForecastDataResponse}
  * @see {@link GetScalingPlanResourceForecastDataCommandInput} for command's `input` shape.
  * @see {@link GetScalingPlanResourceForecastDataCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.

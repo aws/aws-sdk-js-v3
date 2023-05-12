@@ -87,8 +87,8 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  *
  * ```
  *
- * @param ListCustomLineItemVersionsCommandInput - {@link ListCustomLineItemVersionsCommandInput}
- * @returns {@link ListCustomLineItemVersionsCommandOutput}
+ * @param ListCustomLineItemVersionsInput - {@link ListCustomLineItemVersionsInput}
+ * @returns {@link ListCustomLineItemVersionsOutput}
  * @see {@link ListCustomLineItemVersionsCommandInput} for command's `input` shape.
  * @see {@link ListCustomLineItemVersionsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

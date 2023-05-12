@@ -63,8 +63,8 @@ export interface GetApnsVoipSandboxChannelCommandOutput extends GetApnsVoipSandb
  *
  * ```
  *
- * @param GetApnsVoipSandboxChannelCommandInput - {@link GetApnsVoipSandboxChannelCommandInput}
- * @returns {@link GetApnsVoipSandboxChannelCommandOutput}
+ * @param GetApnsVoipSandboxChannelRequest - {@link GetApnsVoipSandboxChannelRequest}
+ * @returns {@link GetApnsVoipSandboxChannelResponse}
  * @see {@link GetApnsVoipSandboxChannelCommandInput} for command's `input` shape.
  * @see {@link GetApnsVoipSandboxChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

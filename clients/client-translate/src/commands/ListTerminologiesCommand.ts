@@ -74,8 +74,8 @@ export interface ListTerminologiesCommandOutput extends ListTerminologiesRespons
  *
  * ```
  *
- * @param ListTerminologiesCommandInput - {@link ListTerminologiesCommandInput}
- * @returns {@link ListTerminologiesCommandOutput}
+ * @param ListTerminologiesRequest - {@link ListTerminologiesRequest}
+ * @returns {@link ListTerminologiesResponse}
  * @see {@link ListTerminologiesCommandInput} for command's `input` shape.
  * @see {@link ListTerminologiesCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.

@@ -84,8 +84,8 @@ export interface GetNetworkCommandOutput extends GetNetworkOutput, __MetadataBea
  *
  * ```
  *
- * @param GetNetworkCommandInput - {@link GetNetworkCommandInput}
- * @returns {@link GetNetworkCommandOutput}
+ * @param GetNetworkInput - {@link GetNetworkInput}
+ * @returns {@link GetNetworkOutput}
  * @see {@link GetNetworkCommandInput} for command's `input` shape.
  * @see {@link GetNetworkCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

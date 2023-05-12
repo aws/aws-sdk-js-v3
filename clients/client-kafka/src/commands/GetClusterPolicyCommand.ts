@@ -51,8 +51,8 @@ export interface GetClusterPolicyCommandOutput extends GetClusterPolicyResponse,
  *
  * ```
  *
- * @param GetClusterPolicyCommandInput - {@link GetClusterPolicyCommandInput}
- * @returns {@link GetClusterPolicyCommandOutput}
+ * @param GetClusterPolicyRequest - {@link GetClusterPolicyRequest}
+ * @returns {@link GetClusterPolicyResponse}
  * @see {@link GetClusterPolicyCommandInput} for command's `input` shape.
  * @see {@link GetClusterPolicyCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

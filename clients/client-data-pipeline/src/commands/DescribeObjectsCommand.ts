@@ -127,8 +127,8 @@ export interface DescribeObjectsCommandOutput extends DescribeObjectsOutput, __M
  *
  * ```
  *
- * @param DescribeObjectsCommandInput - {@link DescribeObjectsCommandInput}
- * @returns {@link DescribeObjectsCommandOutput}
+ * @param DescribeObjectsInput - {@link DescribeObjectsInput}
+ * @returns {@link DescribeObjectsOutput}
  * @see {@link DescribeObjectsCommandInput} for command's `input` shape.
  * @see {@link DescribeObjectsCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.

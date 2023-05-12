@@ -71,8 +71,8 @@ export interface GetSolNetworkInstanceCommandOutput extends GetSolNetworkInstanc
  *
  * ```
  *
- * @param GetSolNetworkInstanceCommandInput - {@link GetSolNetworkInstanceCommandInput}
- * @returns {@link GetSolNetworkInstanceCommandOutput}
+ * @param GetSolNetworkInstanceInput - {@link GetSolNetworkInstanceInput}
+ * @returns {@link GetSolNetworkInstanceOutput}
  * @see {@link GetSolNetworkInstanceCommandInput} for command's `input` shape.
  * @see {@link GetSolNetworkInstanceCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

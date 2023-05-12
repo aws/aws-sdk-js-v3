@@ -51,8 +51,8 @@ export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param EnableVgwRoutePropagationCommandInput - {@link EnableVgwRoutePropagationCommandInput}
- * @returns {@link EnableVgwRoutePropagationCommandOutput}
+ * @param EnableVgwRoutePropagationRequest - {@link EnableVgwRoutePropagationRequest}
+ * @returns {@link Unit}
  * @see {@link EnableVgwRoutePropagationCommandInput} for command's `input` shape.
  * @see {@link EnableVgwRoutePropagationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

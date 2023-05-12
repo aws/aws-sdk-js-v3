@@ -57,8 +57,8 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  *
  * ```
  *
- * @param GetApplicationCommandInput - {@link GetApplicationCommandInput}
- * @returns {@link GetApplicationCommandOutput}
+ * @param GetApplicationInput - {@link GetApplicationInput}
+ * @returns {@link GetApplicationOutput}
  * @see {@link GetApplicationCommandInput} for command's `input` shape.
  * @see {@link GetApplicationCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

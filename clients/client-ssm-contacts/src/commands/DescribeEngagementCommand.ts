@@ -60,8 +60,8 @@ export interface DescribeEngagementCommandOutput extends DescribeEngagementResul
  *
  * ```
  *
- * @param DescribeEngagementCommandInput - {@link DescribeEngagementCommandInput}
- * @returns {@link DescribeEngagementCommandOutput}
+ * @param DescribeEngagementRequest - {@link DescribeEngagementRequest}
+ * @returns {@link DescribeEngagementResult}
  * @see {@link DescribeEngagementCommandInput} for command's `input` shape.
  * @see {@link DescribeEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

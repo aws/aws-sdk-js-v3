@@ -97,8 +97,8 @@ export interface CreateWorkflowStepCommandOutput extends CreateWorkflowStepRespo
  *
  * ```
  *
- * @param CreateWorkflowStepCommandInput - {@link CreateWorkflowStepCommandInput}
- * @returns {@link CreateWorkflowStepCommandOutput}
+ * @param CreateWorkflowStepRequest - {@link CreateWorkflowStepRequest}
+ * @returns {@link CreateWorkflowStepResponse}
  * @see {@link CreateWorkflowStepCommandInput} for command's `input` shape.
  * @see {@link CreateWorkflowStepCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.

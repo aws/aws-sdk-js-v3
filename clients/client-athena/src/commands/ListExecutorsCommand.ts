@@ -66,8 +66,8 @@ export interface ListExecutorsCommandOutput extends ListExecutorsResponse, __Met
  *
  * ```
  *
- * @param ListExecutorsCommandInput - {@link ListExecutorsCommandInput}
- * @returns {@link ListExecutorsCommandOutput}
+ * @param ListExecutorsRequest - {@link ListExecutorsRequest}
+ * @returns {@link ListExecutorsResponse}
  * @see {@link ListExecutorsCommandInput} for command's `input` shape.
  * @see {@link ListExecutorsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

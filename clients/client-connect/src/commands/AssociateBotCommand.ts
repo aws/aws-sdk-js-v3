@@ -57,8 +57,8 @@ export interface AssociateBotCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AssociateBotCommandInput - {@link AssociateBotCommandInput}
- * @returns {@link AssociateBotCommandOutput}
+ * @param AssociateBotRequest - {@link AssociateBotRequest}
+ * @returns {@link Unit}
  * @see {@link AssociateBotCommandInput} for command's `input` shape.
  * @see {@link AssociateBotCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

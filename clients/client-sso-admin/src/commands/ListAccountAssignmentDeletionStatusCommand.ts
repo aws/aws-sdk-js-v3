@@ -71,8 +71,8 @@ export interface ListAccountAssignmentDeletionStatusCommandOutput
  *
  * ```
  *
- * @param ListAccountAssignmentDeletionStatusCommandInput - {@link ListAccountAssignmentDeletionStatusCommandInput}
- * @returns {@link ListAccountAssignmentDeletionStatusCommandOutput}
+ * @param ListAccountAssignmentDeletionStatusRequest - {@link ListAccountAssignmentDeletionStatusRequest}
+ * @returns {@link ListAccountAssignmentDeletionStatusResponse}
  * @see {@link ListAccountAssignmentDeletionStatusCommandInput} for command's `input` shape.
  * @see {@link ListAccountAssignmentDeletionStatusCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

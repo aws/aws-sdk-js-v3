@@ -50,8 +50,8 @@ export interface DeleteBridgeCommandOutput extends DeleteBridgeResponse, __Metad
  *
  * ```
  *
- * @param DeleteBridgeCommandInput - {@link DeleteBridgeCommandInput}
- * @returns {@link DeleteBridgeCommandOutput}
+ * @param DeleteBridgeRequest - {@link DeleteBridgeRequest}
+ * @returns {@link DeleteBridgeResponse}
  * @see {@link DeleteBridgeCommandInput} for command's `input` shape.
  * @see {@link DeleteBridgeCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

@@ -66,8 +66,8 @@ export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageR
  *
  * ```
  *
- * @param ImportWorkspaceImageCommandInput - {@link ImportWorkspaceImageCommandInput}
- * @returns {@link ImportWorkspaceImageCommandOutput}
+ * @param ImportWorkspaceImageRequest - {@link ImportWorkspaceImageRequest}
+ * @returns {@link ImportWorkspaceImageResult}
  * @see {@link ImportWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link ImportWorkspaceImageCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

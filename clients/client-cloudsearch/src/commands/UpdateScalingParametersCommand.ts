@@ -68,8 +68,8 @@ export interface UpdateScalingParametersCommandOutput extends UpdateScalingParam
  *
  * ```
  *
- * @param UpdateScalingParametersCommandInput - {@link UpdateScalingParametersCommandInput}
- * @returns {@link UpdateScalingParametersCommandOutput}
+ * @param UpdateScalingParametersRequest - {@link UpdateScalingParametersRequest}
+ * @returns {@link UpdateScalingParametersResponse}
  * @see {@link UpdateScalingParametersCommandInput} for command's `input` shape.
  * @see {@link UpdateScalingParametersCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

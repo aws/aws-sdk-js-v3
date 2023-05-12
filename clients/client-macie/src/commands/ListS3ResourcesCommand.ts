@@ -66,8 +66,8 @@ export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __M
  *
  * ```
  *
- * @param ListS3ResourcesCommandInput - {@link ListS3ResourcesCommandInput}
- * @returns {@link ListS3ResourcesCommandOutput}
+ * @param ListS3ResourcesRequest - {@link ListS3ResourcesRequest}
+ * @returns {@link ListS3ResourcesResult}
  * @see {@link ListS3ResourcesCommandInput} for command's `input` shape.
  * @see {@link ListS3ResourcesCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.

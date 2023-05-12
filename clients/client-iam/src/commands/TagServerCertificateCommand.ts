@@ -101,8 +101,8 @@ export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param TagServerCertificateCommandInput - {@link TagServerCertificateCommandInput}
- * @returns {@link TagServerCertificateCommandOutput}
+ * @param TagServerCertificateRequest - {@link TagServerCertificateRequest}
+ * @returns {@link Unit}
  * @see {@link TagServerCertificateCommandInput} for command's `input` shape.
  * @see {@link TagServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

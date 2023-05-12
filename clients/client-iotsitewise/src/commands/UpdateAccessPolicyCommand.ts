@@ -73,8 +73,8 @@ export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyRespo
  *
  * ```
  *
- * @param UpdateAccessPolicyCommandInput - {@link UpdateAccessPolicyCommandInput}
- * @returns {@link UpdateAccessPolicyCommandOutput}
+ * @param UpdateAccessPolicyRequest - {@link UpdateAccessPolicyRequest}
+ * @returns {@link UpdateAccessPolicyResponse}
  * @see {@link UpdateAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

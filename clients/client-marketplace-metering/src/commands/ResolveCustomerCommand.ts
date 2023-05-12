@@ -69,8 +69,8 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  *
  * ```
  *
- * @param ResolveCustomerCommandInput - {@link ResolveCustomerCommandInput}
- * @returns {@link ResolveCustomerCommandOutput}
+ * @param ResolveCustomerRequest - {@link ResolveCustomerRequest}
+ * @returns {@link ResolveCustomerResult}
  * @see {@link ResolveCustomerCommandInput} for command's `input` shape.
  * @see {@link ResolveCustomerCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.

@@ -137,8 +137,8 @@ export interface BatchGetPartitionCommandOutput extends BatchGetPartitionRespons
  *
  * ```
  *
- * @param BatchGetPartitionCommandInput - {@link BatchGetPartitionCommandInput}
- * @returns {@link BatchGetPartitionCommandOutput}
+ * @param BatchGetPartitionRequest - {@link BatchGetPartitionRequest}
+ * @returns {@link BatchGetPartitionResponse}
  * @see {@link BatchGetPartitionCommandInput} for command's `input` shape.
  * @see {@link BatchGetPartitionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

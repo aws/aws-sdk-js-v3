@@ -70,8 +70,8 @@ export interface ListGroupMembershipsForMemberCommandOutput
  *
  * ```
  *
- * @param ListGroupMembershipsForMemberCommandInput - {@link ListGroupMembershipsForMemberCommandInput}
- * @returns {@link ListGroupMembershipsForMemberCommandOutput}
+ * @param ListGroupMembershipsForMemberRequest - {@link ListGroupMembershipsForMemberRequest}
+ * @returns {@link ListGroupMembershipsForMemberResponse}
  * @see {@link ListGroupMembershipsForMemberCommandInput} for command's `input` shape.
  * @see {@link ListGroupMembershipsForMemberCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.

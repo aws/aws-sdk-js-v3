@@ -102,8 +102,8 @@ export interface SearchTablesByLFTagsCommandOutput extends SearchTablesByLFTagsR
  *
  * ```
  *
- * @param SearchTablesByLFTagsCommandInput - {@link SearchTablesByLFTagsCommandInput}
- * @returns {@link SearchTablesByLFTagsCommandOutput}
+ * @param SearchTablesByLFTagsRequest - {@link SearchTablesByLFTagsRequest}
+ * @returns {@link SearchTablesByLFTagsResponse}
  * @see {@link SearchTablesByLFTagsCommandInput} for command's `input` shape.
  * @see {@link SearchTablesByLFTagsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

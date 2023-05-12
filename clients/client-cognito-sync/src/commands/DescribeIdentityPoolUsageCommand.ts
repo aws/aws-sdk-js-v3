@@ -103,8 +103,8 @@ export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentity
  *
  * ```
  *
- * @param DescribeIdentityPoolUsageCommandInput - {@link DescribeIdentityPoolUsageCommandInput}
- * @returns {@link DescribeIdentityPoolUsageCommandOutput}
+ * @param DescribeIdentityPoolUsageRequest - {@link DescribeIdentityPoolUsageRequest}
+ * @returns {@link DescribeIdentityPoolUsageResponse}
  * @see {@link DescribeIdentityPoolUsageCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityPoolUsageCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.

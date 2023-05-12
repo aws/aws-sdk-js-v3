@@ -93,8 +93,8 @@ export interface CreateBackendAPICommandOutput extends CreateBackendAPIResponse,
  *
  * ```
  *
- * @param CreateBackendAPICommandInput - {@link CreateBackendAPICommandInput}
- * @returns {@link CreateBackendAPICommandOutput}
+ * @param CreateBackendAPIRequest - {@link CreateBackendAPIRequest}
+ * @returns {@link CreateBackendAPIResponse}
  * @see {@link CreateBackendAPICommandInput} for command's `input` shape.
  * @see {@link CreateBackendAPICommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

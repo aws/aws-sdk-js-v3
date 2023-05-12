@@ -61,8 +61,8 @@ export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Resul
  *
  * ```
  *
- * @param ListOutpostsWithS3CommandInput - {@link ListOutpostsWithS3CommandInput}
- * @returns {@link ListOutpostsWithS3CommandOutput}
+ * @param ListOutpostsWithS3Request - {@link ListOutpostsWithS3Request}
+ * @returns {@link ListOutpostsWithS3Result}
  * @see {@link ListOutpostsWithS3CommandInput} for command's `input` shape.
  * @see {@link ListOutpostsWithS3CommandOutput} for command's `response` shape.
  * @see {@link S3OutpostsClientResolvedConfig | config} for S3OutpostsClient's `config` shape.

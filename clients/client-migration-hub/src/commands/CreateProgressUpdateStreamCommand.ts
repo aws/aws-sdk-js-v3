@@ -53,8 +53,8 @@ export interface CreateProgressUpdateStreamCommandOutput extends CreateProgressU
  *
  * ```
  *
- * @param CreateProgressUpdateStreamCommandInput - {@link CreateProgressUpdateStreamCommandInput}
- * @returns {@link CreateProgressUpdateStreamCommandOutput}
+ * @param CreateProgressUpdateStreamRequest - {@link CreateProgressUpdateStreamRequest}
+ * @returns {@link CreateProgressUpdateStreamResult}
  * @see {@link CreateProgressUpdateStreamCommandInput} for command's `input` shape.
  * @see {@link CreateProgressUpdateStreamCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.

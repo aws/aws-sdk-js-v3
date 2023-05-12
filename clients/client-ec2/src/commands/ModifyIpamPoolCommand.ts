@@ -105,8 +105,8 @@ export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __Met
  *
  * ```
  *
- * @param ModifyIpamPoolCommandInput - {@link ModifyIpamPoolCommandInput}
- * @returns {@link ModifyIpamPoolCommandOutput}
+ * @param ModifyIpamPoolRequest - {@link ModifyIpamPoolRequest}
+ * @returns {@link ModifyIpamPoolResult}
  * @see {@link ModifyIpamPoolCommandInput} for command's `input` shape.
  * @see {@link ModifyIpamPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -61,8 +61,8 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  *
  * ```
  *
- * @param BeginTransactionCommandInput - {@link BeginTransactionCommandInput}
- * @returns {@link BeginTransactionCommandOutput}
+ * @param BeginTransactionRequest - {@link BeginTransactionRequest}
+ * @returns {@link BeginTransactionResponse}
  * @see {@link BeginTransactionCommandInput} for command's `input` shape.
  * @see {@link BeginTransactionCommandOutput} for command's `response` shape.
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.

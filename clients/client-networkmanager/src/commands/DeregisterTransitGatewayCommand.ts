@@ -59,8 +59,8 @@ export interface DeregisterTransitGatewayCommandOutput extends DeregisterTransit
  *
  * ```
  *
- * @param DeregisterTransitGatewayCommandInput - {@link DeregisterTransitGatewayCommandInput}
- * @returns {@link DeregisterTransitGatewayCommandOutput}
+ * @param DeregisterTransitGatewayRequest - {@link DeregisterTransitGatewayRequest}
+ * @returns {@link DeregisterTransitGatewayResponse}
  * @see {@link DeregisterTransitGatewayCommandInput} for command's `input` shape.
  * @see {@link DeregisterTransitGatewayCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

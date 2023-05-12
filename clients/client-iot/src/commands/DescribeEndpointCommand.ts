@@ -51,8 +51,8 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  *
  * ```
  *
- * @param DescribeEndpointCommandInput - {@link DescribeEndpointCommandInput}
- * @returns {@link DescribeEndpointCommandOutput}
+ * @param DescribeEndpointRequest - {@link DescribeEndpointRequest}
+ * @returns {@link DescribeEndpointResponse}
  * @see {@link DescribeEndpointCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

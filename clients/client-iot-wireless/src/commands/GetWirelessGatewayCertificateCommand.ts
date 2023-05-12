@@ -56,8 +56,8 @@ export interface GetWirelessGatewayCertificateCommandOutput
  *
  * ```
  *
- * @param GetWirelessGatewayCertificateCommandInput - {@link GetWirelessGatewayCertificateCommandInput}
- * @returns {@link GetWirelessGatewayCertificateCommandOutput}
+ * @param GetWirelessGatewayCertificateRequest - {@link GetWirelessGatewayCertificateRequest}
+ * @returns {@link GetWirelessGatewayCertificateResponse}
  * @see {@link GetWirelessGatewayCertificateCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayCertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

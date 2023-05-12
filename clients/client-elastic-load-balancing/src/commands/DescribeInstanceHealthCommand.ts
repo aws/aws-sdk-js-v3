@@ -66,8 +66,8 @@ export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointSta
  *
  * ```
  *
- * @param DescribeInstanceHealthCommandInput - {@link DescribeInstanceHealthCommandInput}
- * @returns {@link DescribeInstanceHealthCommandOutput}
+ * @param DescribeEndPointStateInput - {@link DescribeEndPointStateInput}
+ * @returns {@link DescribeEndPointStateOutput}
  * @see {@link DescribeInstanceHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

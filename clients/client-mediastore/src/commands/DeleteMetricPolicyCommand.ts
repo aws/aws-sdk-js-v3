@@ -48,8 +48,8 @@ export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutpu
  *
  * ```
  *
- * @param DeleteMetricPolicyCommandInput - {@link DeleteMetricPolicyCommandInput}
- * @returns {@link DeleteMetricPolicyCommandOutput}
+ * @param DeleteMetricPolicyInput - {@link DeleteMetricPolicyInput}
+ * @returns {@link DeleteMetricPolicyOutput}
  * @see {@link DeleteMetricPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteMetricPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.

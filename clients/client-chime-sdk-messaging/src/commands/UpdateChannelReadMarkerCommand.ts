@@ -60,8 +60,8 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
  *
  * ```
  *
- * @param UpdateChannelReadMarkerCommandInput - {@link UpdateChannelReadMarkerCommandInput}
- * @returns {@link UpdateChannelReadMarkerCommandOutput}
+ * @param UpdateChannelReadMarkerRequest - {@link UpdateChannelReadMarkerRequest}
+ * @returns {@link UpdateChannelReadMarkerResponse}
  * @see {@link UpdateChannelReadMarkerCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelReadMarkerCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

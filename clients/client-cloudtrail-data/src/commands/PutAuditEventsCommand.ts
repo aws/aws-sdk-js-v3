@@ -74,8 +74,8 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  *
  * ```
  *
- * @param PutAuditEventsCommandInput - {@link PutAuditEventsCommandInput}
- * @returns {@link PutAuditEventsCommandOutput}
+ * @param PutAuditEventsRequest - {@link PutAuditEventsRequest}
+ * @returns {@link PutAuditEventsResponse}
  * @see {@link PutAuditEventsCommandInput} for command's `input` shape.
  * @see {@link PutAuditEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailDataClientResolvedConfig | config} for CloudTrailDataClient's `config` shape.

@@ -80,8 +80,8 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  *
  * ```
  *
- * @param ModifyReplicationSubnetGroupCommandInput - {@link ModifyReplicationSubnetGroupCommandInput}
- * @returns {@link ModifyReplicationSubnetGroupCommandOutput}
+ * @param ModifyReplicationSubnetGroupMessage - {@link ModifyReplicationSubnetGroupMessage}
+ * @returns {@link ModifyReplicationSubnetGroupResponse}
  * @see {@link ModifyReplicationSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

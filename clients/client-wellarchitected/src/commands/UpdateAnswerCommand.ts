@@ -117,8 +117,8 @@ export interface UpdateAnswerCommandOutput extends UpdateAnswerOutput, __Metadat
  *
  * ```
  *
- * @param UpdateAnswerCommandInput - {@link UpdateAnswerCommandInput}
- * @returns {@link UpdateAnswerCommandOutput}
+ * @param UpdateAnswerInput - {@link UpdateAnswerInput}
+ * @returns {@link UpdateAnswerOutput}
  * @see {@link UpdateAnswerCommandInput} for command's `input` shape.
  * @see {@link UpdateAnswerCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

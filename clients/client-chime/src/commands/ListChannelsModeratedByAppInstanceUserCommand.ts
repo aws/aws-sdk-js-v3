@@ -81,8 +81,8 @@ export interface ListChannelsModeratedByAppInstanceUserCommandOutput
  *
  * ```
  *
- * @param ListChannelsModeratedByAppInstanceUserCommandInput - {@link ListChannelsModeratedByAppInstanceUserCommandInput}
- * @returns {@link ListChannelsModeratedByAppInstanceUserCommandOutput}
+ * @param ListChannelsModeratedByAppInstanceUserRequest - {@link ListChannelsModeratedByAppInstanceUserRequest}
+ * @returns {@link ListChannelsModeratedByAppInstanceUserResponse}
  * @see {@link ListChannelsModeratedByAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link ListChannelsModeratedByAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

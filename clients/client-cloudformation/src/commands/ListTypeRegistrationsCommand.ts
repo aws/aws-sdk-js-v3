@@ -58,8 +58,8 @@ export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistration
  *
  * ```
  *
- * @param ListTypeRegistrationsCommandInput - {@link ListTypeRegistrationsCommandInput}
- * @returns {@link ListTypeRegistrationsCommandOutput}
+ * @param ListTypeRegistrationsInput - {@link ListTypeRegistrationsInput}
+ * @returns {@link ListTypeRegistrationsOutput}
  * @see {@link ListTypeRegistrationsCommandInput} for command's `input` shape.
  * @see {@link ListTypeRegistrationsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

@@ -58,8 +58,8 @@ export interface ListAccessTokensCommandOutput extends ListAccessTokensResponse,
  *
  * ```
  *
- * @param ListAccessTokensCommandInput - {@link ListAccessTokensCommandInput}
- * @returns {@link ListAccessTokensCommandOutput}
+ * @param ListAccessTokensRequest - {@link ListAccessTokensRequest}
+ * @returns {@link ListAccessTokensResponse}
  * @see {@link ListAccessTokensCommandInput} for command's `input` shape.
  * @see {@link ListAccessTokensCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

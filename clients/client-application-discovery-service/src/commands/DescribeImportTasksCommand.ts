@@ -81,8 +81,8 @@ export interface DescribeImportTasksCommandOutput extends DescribeImportTasksRes
  *
  * ```
  *
- * @param DescribeImportTasksCommandInput - {@link DescribeImportTasksCommandInput}
- * @returns {@link DescribeImportTasksCommandOutput}
+ * @param DescribeImportTasksRequest - {@link DescribeImportTasksRequest}
+ * @returns {@link DescribeImportTasksResponse}
  * @see {@link DescribeImportTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeImportTasksCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

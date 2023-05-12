@@ -68,8 +68,8 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  *
  * ```
  *
- * @param CopyWorkspaceImageCommandInput - {@link CopyWorkspaceImageCommandInput}
- * @returns {@link CopyWorkspaceImageCommandOutput}
+ * @param CopyWorkspaceImageRequest - {@link CopyWorkspaceImageRequest}
+ * @returns {@link CopyWorkspaceImageResult}
  * @see {@link CopyWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link CopyWorkspaceImageCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

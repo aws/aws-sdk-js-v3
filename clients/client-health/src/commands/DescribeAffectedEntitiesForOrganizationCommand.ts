@@ -107,8 +107,8 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  *
  * ```
  *
- * @param DescribeAffectedEntitiesForOrganizationCommandInput - {@link DescribeAffectedEntitiesForOrganizationCommandInput}
- * @returns {@link DescribeAffectedEntitiesForOrganizationCommandOutput}
+ * @param DescribeAffectedEntitiesForOrganizationRequest - {@link DescribeAffectedEntitiesForOrganizationRequest}
+ * @returns {@link DescribeAffectedEntitiesForOrganizationResponse}
  * @see {@link DescribeAffectedEntitiesForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeAffectedEntitiesForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.

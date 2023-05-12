@@ -58,8 +58,8 @@ export interface DeleteProvisioningTemplateVersionCommandOutput
  *
  * ```
  *
- * @param DeleteProvisioningTemplateVersionCommandInput - {@link DeleteProvisioningTemplateVersionCommandInput}
- * @returns {@link DeleteProvisioningTemplateVersionCommandOutput}
+ * @param DeleteProvisioningTemplateVersionRequest - {@link DeleteProvisioningTemplateVersionRequest}
+ * @returns {@link DeleteProvisioningTemplateVersionResponse}
  * @see {@link DeleteProvisioningTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisioningTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

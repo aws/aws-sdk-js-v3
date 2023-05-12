@@ -51,8 +51,8 @@ export interface StartReportJobCommandOutput extends StartReportJobOutput, __Met
  *
  * ```
  *
- * @param StartReportJobCommandInput - {@link StartReportJobCommandInput}
- * @returns {@link StartReportJobCommandOutput}
+ * @param StartReportJobInput - {@link StartReportJobInput}
+ * @returns {@link StartReportJobOutput}
  * @see {@link StartReportJobCommandInput} for command's `input` shape.
  * @see {@link StartReportJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

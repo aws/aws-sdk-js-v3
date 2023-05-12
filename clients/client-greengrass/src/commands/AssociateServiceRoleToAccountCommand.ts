@@ -55,8 +55,8 @@ export interface AssociateServiceRoleToAccountCommandOutput
  *
  * ```
  *
- * @param AssociateServiceRoleToAccountCommandInput - {@link AssociateServiceRoleToAccountCommandInput}
- * @returns {@link AssociateServiceRoleToAccountCommandOutput}
+ * @param AssociateServiceRoleToAccountRequest - {@link AssociateServiceRoleToAccountRequest}
+ * @returns {@link AssociateServiceRoleToAccountResponse}
  * @see {@link AssociateServiceRoleToAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateServiceRoleToAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

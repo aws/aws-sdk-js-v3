@@ -64,8 +64,8 @@ export interface BatchEnableAlarmCommandOutput extends BatchEnableAlarmResponse,
  *
  * ```
  *
- * @param BatchEnableAlarmCommandInput - {@link BatchEnableAlarmCommandInput}
- * @returns {@link BatchEnableAlarmCommandOutput}
+ * @param BatchEnableAlarmRequest - {@link BatchEnableAlarmRequest}
+ * @returns {@link BatchEnableAlarmResponse}
  * @see {@link BatchEnableAlarmCommandInput} for command's `input` shape.
  * @see {@link BatchEnableAlarmCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.

@@ -55,8 +55,8 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResponse, _
  *
  * ```
  *
- * @param StartDeploymentCommandInput - {@link StartDeploymentCommandInput}
- * @returns {@link StartDeploymentCommandOutput}
+ * @param StartDeploymentRequest - {@link StartDeploymentRequest}
+ * @returns {@link StartDeploymentResponse}
  * @see {@link StartDeploymentCommandInput} for command's `input` shape.
  * @see {@link StartDeploymentCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

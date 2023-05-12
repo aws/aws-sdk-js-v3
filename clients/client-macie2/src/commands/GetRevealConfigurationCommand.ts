@@ -51,8 +51,8 @@ export interface GetRevealConfigurationCommandOutput extends GetRevealConfigurat
  *
  * ```
  *
- * @param GetRevealConfigurationCommandInput - {@link GetRevealConfigurationCommandInput}
- * @returns {@link GetRevealConfigurationCommandOutput}
+ * @param GetRevealConfigurationRequest - {@link GetRevealConfigurationRequest}
+ * @returns {@link GetRevealConfigurationResponse}
  * @see {@link GetRevealConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetRevealConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

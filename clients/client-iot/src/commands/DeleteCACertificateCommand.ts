@@ -49,8 +49,8 @@ export interface DeleteCACertificateCommandOutput extends DeleteCACertificateRes
  *
  * ```
  *
- * @param DeleteCACertificateCommandInput - {@link DeleteCACertificateCommandInput}
- * @returns {@link DeleteCACertificateCommandOutput}
+ * @param DeleteCACertificateRequest - {@link DeleteCACertificateRequest}
+ * @returns {@link DeleteCACertificateResponse}
  * @see {@link DeleteCACertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteCACertificateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

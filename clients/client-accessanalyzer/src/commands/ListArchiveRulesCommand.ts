@@ -73,8 +73,8 @@ export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse,
  *
  * ```
  *
- * @param ListArchiveRulesCommandInput - {@link ListArchiveRulesCommandInput}
- * @returns {@link ListArchiveRulesCommandOutput}
+ * @param ListArchiveRulesRequest - {@link ListArchiveRulesRequest}
+ * @returns {@link ListArchiveRulesResponse}
  * @see {@link ListArchiveRulesCommandInput} for command's `input` shape.
  * @see {@link ListArchiveRulesCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

@@ -62,8 +62,8 @@ export interface ListAppsCommandOutput extends ListAppsOutput, __MetadataBearer 
  *
  * ```
  *
- * @param ListAppsCommandInput - {@link ListAppsCommandInput}
- * @returns {@link ListAppsCommandOutput}
+ * @param ListAppsInput - {@link ListAppsInput}
+ * @returns {@link ListAppsOutput}
  * @see {@link ListAppsCommandInput} for command's `input` shape.
  * @see {@link ListAppsCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.

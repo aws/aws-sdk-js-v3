@@ -64,8 +64,8 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  *
  * ```
  *
- * @param ListDatasetEntriesCommandInput - {@link ListDatasetEntriesCommandInput}
- * @returns {@link ListDatasetEntriesCommandOutput}
+ * @param ListDatasetEntriesRequest - {@link ListDatasetEntriesRequest}
+ * @returns {@link ListDatasetEntriesResponse}
  * @see {@link ListDatasetEntriesCommandInput} for command's `input` shape.
  * @see {@link ListDatasetEntriesCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.

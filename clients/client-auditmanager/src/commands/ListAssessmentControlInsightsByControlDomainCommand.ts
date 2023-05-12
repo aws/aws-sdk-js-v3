@@ -82,8 +82,8 @@ export interface ListAssessmentControlInsightsByControlDomainCommandOutput
  *
  * ```
  *
- * @param ListAssessmentControlInsightsByControlDomainCommandInput - {@link ListAssessmentControlInsightsByControlDomainCommandInput}
- * @returns {@link ListAssessmentControlInsightsByControlDomainCommandOutput}
+ * @param ListAssessmentControlInsightsByControlDomainRequest - {@link ListAssessmentControlInsightsByControlDomainRequest}
+ * @returns {@link ListAssessmentControlInsightsByControlDomainResponse}
  * @see {@link ListAssessmentControlInsightsByControlDomainCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentControlInsightsByControlDomainCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

@@ -80,8 +80,8 @@ export interface GetEvidenceFoldersByAssessmentCommandOutput
  *
  * ```
  *
- * @param GetEvidenceFoldersByAssessmentCommandInput - {@link GetEvidenceFoldersByAssessmentCommandInput}
- * @returns {@link GetEvidenceFoldersByAssessmentCommandOutput}
+ * @param GetEvidenceFoldersByAssessmentRequest - {@link GetEvidenceFoldersByAssessmentRequest}
+ * @returns {@link GetEvidenceFoldersByAssessmentResponse}
  * @see {@link GetEvidenceFoldersByAssessmentCommandInput} for command's `input` shape.
  * @see {@link GetEvidenceFoldersByAssessmentCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

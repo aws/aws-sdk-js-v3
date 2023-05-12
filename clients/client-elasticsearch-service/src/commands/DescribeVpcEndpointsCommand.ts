@@ -83,8 +83,8 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  *
  * ```
  *
- * @param DescribeVpcEndpointsCommandInput - {@link DescribeVpcEndpointsCommandInput}
- * @returns {@link DescribeVpcEndpointsCommandOutput}
+ * @param DescribeVpcEndpointsRequest - {@link DescribeVpcEndpointsRequest}
+ * @returns {@link DescribeVpcEndpointsResponse}
  * @see {@link DescribeVpcEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

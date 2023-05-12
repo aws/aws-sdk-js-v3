@@ -103,8 +103,8 @@ export interface GetApplicationRevisionCommandOutput extends GetApplicationRevis
  *
  * ```
  *
- * @param GetApplicationRevisionCommandInput - {@link GetApplicationRevisionCommandInput}
- * @returns {@link GetApplicationRevisionCommandOutput}
+ * @param GetApplicationRevisionInput - {@link GetApplicationRevisionInput}
+ * @returns {@link GetApplicationRevisionOutput}
  * @see {@link GetApplicationRevisionCommandInput} for command's `input` shape.
  * @see {@link GetApplicationRevisionCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

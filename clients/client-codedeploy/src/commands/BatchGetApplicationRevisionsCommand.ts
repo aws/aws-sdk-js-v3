@@ -116,8 +116,8 @@ export interface BatchGetApplicationRevisionsCommandOutput
  *
  * ```
  *
- * @param BatchGetApplicationRevisionsCommandInput - {@link BatchGetApplicationRevisionsCommandInput}
- * @returns {@link BatchGetApplicationRevisionsCommandOutput}
+ * @param BatchGetApplicationRevisionsInput - {@link BatchGetApplicationRevisionsInput}
+ * @returns {@link BatchGetApplicationRevisionsOutput}
  * @see {@link BatchGetApplicationRevisionsCommandInput} for command's `input` shape.
  * @see {@link BatchGetApplicationRevisionsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

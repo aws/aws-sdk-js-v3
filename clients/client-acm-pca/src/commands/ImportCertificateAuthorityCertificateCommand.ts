@@ -181,8 +181,8 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  *
  * ```
  *
- * @param ImportCertificateAuthorityCertificateCommandInput - {@link ImportCertificateAuthorityCertificateCommandInput}
- * @returns {@link ImportCertificateAuthorityCertificateCommandOutput}
+ * @param ImportCertificateAuthorityCertificateRequest - {@link ImportCertificateAuthorityCertificateRequest}
+ * @returns {@link Unit}
  * @see {@link ImportCertificateAuthorityCertificateCommandInput} for command's `input` shape.
  * @see {@link ImportCertificateAuthorityCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

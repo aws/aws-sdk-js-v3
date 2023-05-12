@@ -65,8 +65,8 @@ export interface ListResourceDefinitionVersionsCommandOutput
  *
  * ```
  *
- * @param ListResourceDefinitionVersionsCommandInput - {@link ListResourceDefinitionVersionsCommandInput}
- * @returns {@link ListResourceDefinitionVersionsCommandOutput}
+ * @param ListResourceDefinitionVersionsRequest - {@link ListResourceDefinitionVersionsRequest}
+ * @returns {@link ListResourceDefinitionVersionsResponse}
  * @see {@link ListResourceDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListResourceDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

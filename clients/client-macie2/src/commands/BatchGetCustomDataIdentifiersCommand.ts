@@ -69,8 +69,8 @@ export interface BatchGetCustomDataIdentifiersCommandOutput
  *
  * ```
  *
- * @param BatchGetCustomDataIdentifiersCommandInput - {@link BatchGetCustomDataIdentifiersCommandInput}
- * @returns {@link BatchGetCustomDataIdentifiersCommandOutput}
+ * @param BatchGetCustomDataIdentifiersRequest - {@link BatchGetCustomDataIdentifiersRequest}
+ * @returns {@link BatchGetCustomDataIdentifiersResponse}
  * @see {@link BatchGetCustomDataIdentifiersCommandInput} for command's `input` shape.
  * @see {@link BatchGetCustomDataIdentifiersCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

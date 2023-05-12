@@ -66,8 +66,8 @@ export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancer
  *
  * ```
  *
- * @param GetLoadBalancerTlsPoliciesCommandInput - {@link GetLoadBalancerTlsPoliciesCommandInput}
- * @returns {@link GetLoadBalancerTlsPoliciesCommandOutput}
+ * @param GetLoadBalancerTlsPoliciesRequest - {@link GetLoadBalancerTlsPoliciesRequest}
+ * @returns {@link GetLoadBalancerTlsPoliciesResult}
  * @see {@link GetLoadBalancerTlsPoliciesCommandInput} for command's `input` shape.
  * @see {@link GetLoadBalancerTlsPoliciesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

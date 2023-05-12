@@ -66,8 +66,8 @@ export interface DescribeAccountModificationsCommandOutput
  *
  * ```
  *
- * @param DescribeAccountModificationsCommandInput - {@link DescribeAccountModificationsCommandInput}
- * @returns {@link DescribeAccountModificationsCommandOutput}
+ * @param DescribeAccountModificationsRequest - {@link DescribeAccountModificationsRequest}
+ * @returns {@link DescribeAccountModificationsResult}
  * @see {@link DescribeAccountModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountModificationsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

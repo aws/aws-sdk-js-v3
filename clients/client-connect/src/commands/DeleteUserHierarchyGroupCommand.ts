@@ -50,8 +50,8 @@ export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DeleteUserHierarchyGroupCommandInput - {@link DeleteUserHierarchyGroupCommandInput}
- * @returns {@link DeleteUserHierarchyGroupCommandOutput}
+ * @param DeleteUserHierarchyGroupRequest - {@link DeleteUserHierarchyGroupRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteUserHierarchyGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteUserHierarchyGroupCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

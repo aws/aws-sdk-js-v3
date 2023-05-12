@@ -110,8 +110,8 @@ export interface UpdateServicePipelineCommandOutput extends UpdateServicePipelin
  *
  * ```
  *
- * @param UpdateServicePipelineCommandInput - {@link UpdateServicePipelineCommandInput}
- * @returns {@link UpdateServicePipelineCommandOutput}
+ * @param UpdateServicePipelineInput - {@link UpdateServicePipelineInput}
+ * @returns {@link UpdateServicePipelineOutput}
  * @see {@link UpdateServicePipelineCommandInput} for command's `input` shape.
  * @see {@link UpdateServicePipelineCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

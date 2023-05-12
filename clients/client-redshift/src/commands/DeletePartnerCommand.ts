@@ -54,8 +54,8 @@ export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMess
  *
  * ```
  *
- * @param DeletePartnerCommandInput - {@link DeletePartnerCommandInput}
- * @returns {@link DeletePartnerCommandOutput}
+ * @param PartnerIntegrationInputMessage - {@link PartnerIntegrationInputMessage}
+ * @returns {@link PartnerIntegrationOutputMessage}
  * @see {@link DeletePartnerCommandInput} for command's `input` shape.
  * @see {@link DeletePartnerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

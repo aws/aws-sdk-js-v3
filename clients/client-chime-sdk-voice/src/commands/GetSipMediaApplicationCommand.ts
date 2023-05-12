@@ -67,8 +67,8 @@ export interface GetSipMediaApplicationCommandOutput extends GetSipMediaApplicat
  *
  * ```
  *
- * @param GetSipMediaApplicationCommandInput - {@link GetSipMediaApplicationCommandInput}
- * @returns {@link GetSipMediaApplicationCommandOutput}
+ * @param GetSipMediaApplicationRequest - {@link GetSipMediaApplicationRequest}
+ * @returns {@link GetSipMediaApplicationResponse}
  * @see {@link GetSipMediaApplicationCommandInput} for command's `input` shape.
  * @see {@link GetSipMediaApplicationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

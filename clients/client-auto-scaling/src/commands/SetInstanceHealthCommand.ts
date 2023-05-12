@@ -52,8 +52,8 @@ export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetInstanceHealthCommandInput - {@link SetInstanceHealthCommandInput}
- * @returns {@link SetInstanceHealthCommandOutput}
+ * @param SetInstanceHealthQuery - {@link SetInstanceHealthQuery}
+ * @returns {@link Unit}
  * @see {@link SetInstanceHealthCommandInput} for command's `input` shape.
  * @see {@link SetInstanceHealthCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

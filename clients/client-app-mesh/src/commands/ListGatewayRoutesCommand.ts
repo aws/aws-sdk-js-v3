@@ -68,8 +68,8 @@ export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput,
  *
  * ```
  *
- * @param ListGatewayRoutesCommandInput - {@link ListGatewayRoutesCommandInput}
- * @returns {@link ListGatewayRoutesCommandOutput}
+ * @param ListGatewayRoutesInput - {@link ListGatewayRoutesInput}
+ * @returns {@link ListGatewayRoutesOutput}
  * @see {@link ListGatewayRoutesCommandInput} for command's `input` shape.
  * @see {@link ListGatewayRoutesCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

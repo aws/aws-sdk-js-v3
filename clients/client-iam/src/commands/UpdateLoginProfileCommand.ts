@@ -56,8 +56,8 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateLoginProfileCommandInput - {@link UpdateLoginProfileCommandInput}
- * @returns {@link UpdateLoginProfileCommandOutput}
+ * @param UpdateLoginProfileRequest - {@link UpdateLoginProfileRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateLoginProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

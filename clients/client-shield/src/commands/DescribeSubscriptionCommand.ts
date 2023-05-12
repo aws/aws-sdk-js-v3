@@ -79,8 +79,8 @@ export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionR
  *
  * ```
  *
- * @param DescribeSubscriptionCommandInput - {@link DescribeSubscriptionCommandInput}
- * @returns {@link DescribeSubscriptionCommandOutput}
+ * @param DescribeSubscriptionRequest - {@link DescribeSubscriptionRequest}
+ * @returns {@link DescribeSubscriptionResponse}
  * @see {@link DescribeSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DescribeSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

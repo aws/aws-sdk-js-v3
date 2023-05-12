@@ -77,8 +77,8 @@ export interface DeleteTransitGatewayVpcAttachmentCommandOutput
  *
  * ```
  *
- * @param DeleteTransitGatewayVpcAttachmentCommandInput - {@link DeleteTransitGatewayVpcAttachmentCommandInput}
- * @returns {@link DeleteTransitGatewayVpcAttachmentCommandOutput}
+ * @param DeleteTransitGatewayVpcAttachmentRequest - {@link DeleteTransitGatewayVpcAttachmentRequest}
+ * @returns {@link DeleteTransitGatewayVpcAttachmentResult}
  * @see {@link DeleteTransitGatewayVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayVpcAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

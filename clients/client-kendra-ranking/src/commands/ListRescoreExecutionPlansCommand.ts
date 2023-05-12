@@ -62,8 +62,8 @@ export interface ListRescoreExecutionPlansCommandOutput extends ListRescoreExecu
  *
  * ```
  *
- * @param ListRescoreExecutionPlansCommandInput - {@link ListRescoreExecutionPlansCommandInput}
- * @returns {@link ListRescoreExecutionPlansCommandOutput}
+ * @param ListRescoreExecutionPlansRequest - {@link ListRescoreExecutionPlansRequest}
+ * @returns {@link ListRescoreExecutionPlansResponse}
  * @see {@link ListRescoreExecutionPlansCommandInput} for command's `input` shape.
  * @see {@link ListRescoreExecutionPlansCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.

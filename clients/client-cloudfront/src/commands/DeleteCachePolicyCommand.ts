@@ -55,8 +55,8 @@ export interface DeleteCachePolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteCachePolicyCommandInput - {@link DeleteCachePolicyCommandInput}
- * @returns {@link DeleteCachePolicyCommandOutput}
+ * @param DeleteCachePolicyRequest - {@link DeleteCachePolicyRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteCachePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteCachePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

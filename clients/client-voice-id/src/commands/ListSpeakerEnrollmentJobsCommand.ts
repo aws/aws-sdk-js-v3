@@ -76,8 +76,8 @@ export interface ListSpeakerEnrollmentJobsCommandOutput extends ListSpeakerEnrol
  *
  * ```
  *
- * @param ListSpeakerEnrollmentJobsCommandInput - {@link ListSpeakerEnrollmentJobsCommandInput}
- * @returns {@link ListSpeakerEnrollmentJobsCommandOutput}
+ * @param ListSpeakerEnrollmentJobsRequest - {@link ListSpeakerEnrollmentJobsRequest}
+ * @returns {@link ListSpeakerEnrollmentJobsResponse}
  * @see {@link ListSpeakerEnrollmentJobsCommandInput} for command's `input` shape.
  * @see {@link ListSpeakerEnrollmentJobsCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

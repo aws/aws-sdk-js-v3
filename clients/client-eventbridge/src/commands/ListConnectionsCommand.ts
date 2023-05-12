@@ -65,8 +65,8 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  *
  * ```
  *
- * @param ListConnectionsCommandInput - {@link ListConnectionsCommandInput}
- * @returns {@link ListConnectionsCommandOutput}
+ * @param ListConnectionsRequest - {@link ListConnectionsRequest}
+ * @returns {@link ListConnectionsResponse}
  * @see {@link ListConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

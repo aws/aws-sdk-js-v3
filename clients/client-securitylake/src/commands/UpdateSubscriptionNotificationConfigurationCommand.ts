@@ -66,8 +66,8 @@ export interface UpdateSubscriptionNotificationConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateSubscriptionNotificationConfigurationCommandInput - {@link UpdateSubscriptionNotificationConfigurationCommandInput}
- * @returns {@link UpdateSubscriptionNotificationConfigurationCommandOutput}
+ * @param UpdateSubscriptionNotificationConfigurationRequest - {@link UpdateSubscriptionNotificationConfigurationRequest}
+ * @returns {@link UpdateSubscriptionNotificationConfigurationResponse}
  * @see {@link UpdateSubscriptionNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateSubscriptionNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

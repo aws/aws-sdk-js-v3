@@ -67,8 +67,8 @@ export interface GetResolverQueryLogConfigAssociationCommandOutput
  *
  * ```
  *
- * @param GetResolverQueryLogConfigAssociationCommandInput - {@link GetResolverQueryLogConfigAssociationCommandInput}
- * @returns {@link GetResolverQueryLogConfigAssociationCommandOutput}
+ * @param GetResolverQueryLogConfigAssociationRequest - {@link GetResolverQueryLogConfigAssociationRequest}
+ * @returns {@link GetResolverQueryLogConfigAssociationResponse}
  * @see {@link GetResolverQueryLogConfigAssociationCommandInput} for command's `input` shape.
  * @see {@link GetResolverQueryLogConfigAssociationCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

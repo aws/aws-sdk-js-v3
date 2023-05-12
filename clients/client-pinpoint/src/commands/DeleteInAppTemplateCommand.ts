@@ -54,8 +54,8 @@ export interface DeleteInAppTemplateCommandOutput extends DeleteInAppTemplateRes
  *
  * ```
  *
- * @param DeleteInAppTemplateCommandInput - {@link DeleteInAppTemplateCommandInput}
- * @returns {@link DeleteInAppTemplateCommandOutput}
+ * @param DeleteInAppTemplateRequest - {@link DeleteInAppTemplateRequest}
+ * @returns {@link DeleteInAppTemplateResponse}
  * @see {@link DeleteInAppTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteInAppTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

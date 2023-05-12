@@ -70,8 +70,8 @@ export interface UpdateServiceNetworkVpcAssociationCommandOutput
  *
  * ```
  *
- * @param UpdateServiceNetworkVpcAssociationCommandInput - {@link UpdateServiceNetworkVpcAssociationCommandInput}
- * @returns {@link UpdateServiceNetworkVpcAssociationCommandOutput}
+ * @param UpdateServiceNetworkVpcAssociationRequest - {@link UpdateServiceNetworkVpcAssociationRequest}
+ * @returns {@link UpdateServiceNetworkVpcAssociationResponse}
  * @see {@link UpdateServiceNetworkVpcAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceNetworkVpcAssociationCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

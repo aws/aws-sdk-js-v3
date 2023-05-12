@@ -70,8 +70,8 @@ export interface AssociateDelegationSignerToDomainCommandOutput
  *
  * ```
  *
- * @param AssociateDelegationSignerToDomainCommandInput - {@link AssociateDelegationSignerToDomainCommandInput}
- * @returns {@link AssociateDelegationSignerToDomainCommandOutput}
+ * @param AssociateDelegationSignerToDomainRequest - {@link AssociateDelegationSignerToDomainRequest}
+ * @returns {@link AssociateDelegationSignerToDomainResponse}
  * @see {@link AssociateDelegationSignerToDomainCommandInput} for command's `input` shape.
  * @see {@link AssociateDelegationSignerToDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

@@ -101,8 +101,8 @@ export interface AssociateIdentityProviderConfigCommandOutput
  *
  * ```
  *
- * @param AssociateIdentityProviderConfigCommandInput - {@link AssociateIdentityProviderConfigCommandInput}
- * @returns {@link AssociateIdentityProviderConfigCommandOutput}
+ * @param AssociateIdentityProviderConfigRequest - {@link AssociateIdentityProviderConfigRequest}
+ * @returns {@link AssociateIdentityProviderConfigResponse}
  * @see {@link AssociateIdentityProviderConfigCommandInput} for command's `input` shape.
  * @see {@link AssociateIdentityProviderConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

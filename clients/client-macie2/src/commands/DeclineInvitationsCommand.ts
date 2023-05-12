@@ -58,8 +58,8 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  *
  * ```
  *
- * @param DeclineInvitationsCommandInput - {@link DeclineInvitationsCommandInput}
- * @returns {@link DeclineInvitationsCommandOutput}
+ * @param DeclineInvitationsRequest - {@link DeclineInvitationsRequest}
+ * @returns {@link DeclineInvitationsResponse}
  * @see {@link DeclineInvitationsCommandInput} for command's `input` shape.
  * @see {@link DeclineInvitationsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

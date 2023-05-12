@@ -54,8 +54,8 @@ export interface ListAdminsManagingAccountCommandOutput extends ListAdminsManagi
  *
  * ```
  *
- * @param ListAdminsManagingAccountCommandInput - {@link ListAdminsManagingAccountCommandInput}
- * @returns {@link ListAdminsManagingAccountCommandOutput}
+ * @param ListAdminsManagingAccountRequest - {@link ListAdminsManagingAccountRequest}
+ * @returns {@link ListAdminsManagingAccountResponse}
  * @see {@link ListAdminsManagingAccountCommandInput} for command's `input` shape.
  * @see {@link ListAdminsManagingAccountCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

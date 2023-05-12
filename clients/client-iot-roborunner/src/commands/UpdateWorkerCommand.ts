@@ -91,8 +91,8 @@ export interface UpdateWorkerCommandOutput extends UpdateWorkerResponse, __Metad
  *
  * ```
  *
- * @param UpdateWorkerCommandInput - {@link UpdateWorkerCommandInput}
- * @returns {@link UpdateWorkerCommandOutput}
+ * @param UpdateWorkerRequest - {@link UpdateWorkerRequest}
+ * @returns {@link UpdateWorkerResponse}
  * @see {@link UpdateWorkerCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkerCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

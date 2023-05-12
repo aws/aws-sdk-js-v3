@@ -327,8 +327,8 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetImageCommandInput - {@link GetImageCommandInput}
- * @returns {@link GetImageCommandOutput}
+ * @param GetImageRequest - {@link GetImageRequest}
+ * @returns {@link GetImageResponse}
  * @see {@link GetImageCommandInput} for command's `input` shape.
  * @see {@link GetImageCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

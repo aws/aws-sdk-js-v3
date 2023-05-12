@@ -63,8 +63,8 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  *
  * ```
  *
- * @param GetLoginProfileCommandInput - {@link GetLoginProfileCommandInput}
- * @returns {@link GetLoginProfileCommandOutput}
+ * @param GetLoginProfileRequest - {@link GetLoginProfileRequest}
+ * @returns {@link GetLoginProfileResponse}
  * @see {@link GetLoginProfileCommandInput} for command's `input` shape.
  * @see {@link GetLoginProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -72,8 +72,8 @@ export interface DescribeChannelBanCommandOutput extends DescribeChannelBanRespo
  *
  * ```
  *
- * @param DescribeChannelBanCommandInput - {@link DescribeChannelBanCommandInput}
- * @returns {@link DescribeChannelBanCommandOutput}
+ * @param DescribeChannelBanRequest - {@link DescribeChannelBanRequest}
+ * @returns {@link DescribeChannelBanResponse}
  * @see {@link DescribeChannelBanCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelBanCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

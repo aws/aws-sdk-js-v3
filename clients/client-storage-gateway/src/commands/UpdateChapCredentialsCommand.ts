@@ -66,8 +66,8 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  *
  * ```
  *
- * @param UpdateChapCredentialsCommandInput - {@link UpdateChapCredentialsCommandInput}
- * @returns {@link UpdateChapCredentialsCommandOutput}
+ * @param UpdateChapCredentialsInput - {@link UpdateChapCredentialsInput}
+ * @returns {@link UpdateChapCredentialsOutput}
  * @see {@link UpdateChapCredentialsCommandInput} for command's `input` shape.
  * @see {@link UpdateChapCredentialsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

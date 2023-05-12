@@ -82,8 +82,8 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  *
  * ```
  *
- * @param CreateDBParameterGroupCommandInput - {@link CreateDBParameterGroupCommandInput}
- * @returns {@link CreateDBParameterGroupCommandOutput}
+ * @param CreateDBParameterGroupMessage - {@link CreateDBParameterGroupMessage}
+ * @returns {@link CreateDBParameterGroupResult}
  * @see {@link CreateDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

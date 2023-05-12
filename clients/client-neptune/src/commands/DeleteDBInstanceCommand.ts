@@ -200,8 +200,8 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  *
  * ```
  *
- * @param DeleteDBInstanceCommandInput - {@link DeleteDBInstanceCommandInput}
- * @returns {@link DeleteDBInstanceCommandOutput}
+ * @param DeleteDBInstanceMessage - {@link DeleteDBInstanceMessage}
+ * @returns {@link DeleteDBInstanceResult}
  * @see {@link DeleteDBInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

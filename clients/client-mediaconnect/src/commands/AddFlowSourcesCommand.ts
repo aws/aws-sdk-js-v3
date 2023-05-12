@@ -165,8 +165,8 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  *
  * ```
  *
- * @param AddFlowSourcesCommandInput - {@link AddFlowSourcesCommandInput}
- * @returns {@link AddFlowSourcesCommandOutput}
+ * @param AddFlowSourcesRequest - {@link AddFlowSourcesRequest}
+ * @returns {@link AddFlowSourcesResponse}
  * @see {@link AddFlowSourcesCommandInput} for command's `input` shape.
  * @see {@link AddFlowSourcesCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

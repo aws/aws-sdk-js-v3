@@ -59,8 +59,8 @@ export interface CreateHumanTaskUiCommandOutput extends CreateHumanTaskUiRespons
  *
  * ```
  *
- * @param CreateHumanTaskUiCommandInput - {@link CreateHumanTaskUiCommandInput}
- * @returns {@link CreateHumanTaskUiCommandOutput}
+ * @param CreateHumanTaskUiRequest - {@link CreateHumanTaskUiRequest}
+ * @returns {@link CreateHumanTaskUiResponse}
  * @see {@link CreateHumanTaskUiCommandInput} for command's `input` shape.
  * @see {@link CreateHumanTaskUiCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

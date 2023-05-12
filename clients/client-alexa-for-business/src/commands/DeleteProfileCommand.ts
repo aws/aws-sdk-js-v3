@@ -48,8 +48,8 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
  *
  * ```
  *
- * @param DeleteProfileCommandInput - {@link DeleteProfileCommandInput}
- * @returns {@link DeleteProfileCommandOutput}
+ * @param DeleteProfileRequest - {@link DeleteProfileRequest}
+ * @returns {@link DeleteProfileResponse}
  * @see {@link DeleteProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

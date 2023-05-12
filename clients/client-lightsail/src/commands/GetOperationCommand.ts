@@ -67,8 +67,8 @@ export interface GetOperationCommandOutput extends GetOperationResult, __Metadat
  *
  * ```
  *
- * @param GetOperationCommandInput - {@link GetOperationCommandInput}
- * @returns {@link GetOperationCommandOutput}
+ * @param GetOperationRequest - {@link GetOperationRequest}
+ * @returns {@link GetOperationResult}
  * @see {@link GetOperationCommandInput} for command's `input` shape.
  * @see {@link GetOperationCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

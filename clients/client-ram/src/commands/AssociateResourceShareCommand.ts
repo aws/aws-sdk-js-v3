@@ -72,8 +72,8 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
  *
  * ```
  *
- * @param AssociateResourceShareCommandInput - {@link AssociateResourceShareCommandInput}
- * @returns {@link AssociateResourceShareCommandOutput}
+ * @param AssociateResourceShareRequest - {@link AssociateResourceShareRequest}
+ * @returns {@link AssociateResourceShareResponse}
  * @see {@link AssociateResourceShareCommandInput} for command's `input` shape.
  * @see {@link AssociateResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

@@ -52,8 +52,8 @@ export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAg
  *
  * ```
  *
- * @param ConfirmCustomerAgreementCommandInput - {@link ConfirmCustomerAgreementCommandInput}
- * @returns {@link ConfirmCustomerAgreementCommandOutput}
+ * @param ConfirmCustomerAgreementRequest - {@link ConfirmCustomerAgreementRequest}
+ * @returns {@link ConfirmCustomerAgreementResponse}
  * @see {@link ConfirmCustomerAgreementCommandInput} for command's `input` shape.
  * @see {@link ConfirmCustomerAgreementCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

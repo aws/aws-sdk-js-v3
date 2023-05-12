@@ -96,8 +96,8 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  *
  * ```
  *
- * @param UpdateConfigurationTemplateCommandInput - {@link UpdateConfigurationTemplateCommandInput}
- * @returns {@link UpdateConfigurationTemplateCommandOutput}
+ * @param UpdateConfigurationTemplateMessage - {@link UpdateConfigurationTemplateMessage}
+ * @returns {@link ConfigurationSettingsDescription}
  * @see {@link UpdateConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

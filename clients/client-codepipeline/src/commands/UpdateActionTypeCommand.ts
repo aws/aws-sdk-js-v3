@@ -106,8 +106,8 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateActionTypeCommandInput - {@link UpdateActionTypeCommandInput}
- * @returns {@link UpdateActionTypeCommandOutput}
+ * @param UpdateActionTypeInput - {@link UpdateActionTypeInput}
+ * @returns {@link Unit}
  * @see {@link UpdateActionTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateActionTypeCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

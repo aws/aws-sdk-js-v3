@@ -76,8 +76,8 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  *
  * ```
  *
- * @param UpdateRoomCommandInput - {@link UpdateRoomCommandInput}
- * @returns {@link UpdateRoomCommandOutput}
+ * @param UpdateRoomRequest - {@link UpdateRoomRequest}
+ * @returns {@link UpdateRoomResponse}
  * @see {@link UpdateRoomCommandInput} for command's `input` shape.
  * @see {@link UpdateRoomCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.

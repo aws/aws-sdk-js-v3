@@ -96,8 +96,8 @@ export interface DescribeInstanceCreditSpecificationsCommandOutput
  *
  * ```
  *
- * @param DescribeInstanceCreditSpecificationsCommandInput - {@link DescribeInstanceCreditSpecificationsCommandInput}
- * @returns {@link DescribeInstanceCreditSpecificationsCommandOutput}
+ * @param DescribeInstanceCreditSpecificationsRequest - {@link DescribeInstanceCreditSpecificationsRequest}
+ * @returns {@link DescribeInstanceCreditSpecificationsResult}
  * @see {@link DescribeInstanceCreditSpecificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceCreditSpecificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

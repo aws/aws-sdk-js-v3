@@ -97,8 +97,8 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  *
  * ```
  *
- * @param GetPlanCommandInput - {@link GetPlanCommandInput}
- * @returns {@link GetPlanCommandOutput}
+ * @param GetPlanRequest - {@link GetPlanRequest}
+ * @returns {@link GetPlanResponse}
  * @see {@link GetPlanCommandInput} for command's `input` shape.
  * @see {@link GetPlanCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

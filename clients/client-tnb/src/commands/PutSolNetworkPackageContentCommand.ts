@@ -73,8 +73,8 @@ export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkP
  *
  * ```
  *
- * @param PutSolNetworkPackageContentCommandInput - {@link PutSolNetworkPackageContentCommandInput}
- * @returns {@link PutSolNetworkPackageContentCommandOutput}
+ * @param PutSolNetworkPackageContentInput - {@link PutSolNetworkPackageContentInput}
+ * @returns {@link PutSolNetworkPackageContentOutput}
  * @see {@link PutSolNetworkPackageContentCommandInput} for command's `input` shape.
  * @see {@link PutSolNetworkPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

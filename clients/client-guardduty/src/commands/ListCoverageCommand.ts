@@ -96,8 +96,8 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *
  * ```
  *
- * @param ListCoverageCommandInput - {@link ListCoverageCommandInput}
- * @returns {@link ListCoverageCommandOutput}
+ * @param ListCoverageRequest - {@link ListCoverageRequest}
+ * @returns {@link ListCoverageResponse}
  * @see {@link ListCoverageCommandInput} for command's `input` shape.
  * @see {@link ListCoverageCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

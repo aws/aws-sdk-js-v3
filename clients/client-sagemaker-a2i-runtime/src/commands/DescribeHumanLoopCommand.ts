@@ -64,8 +64,8 @@ export interface DescribeHumanLoopCommandOutput extends DescribeHumanLoopRespons
  *
  * ```
  *
- * @param DescribeHumanLoopCommandInput - {@link DescribeHumanLoopCommandInput}
- * @returns {@link DescribeHumanLoopCommandOutput}
+ * @param DescribeHumanLoopRequest - {@link DescribeHumanLoopRequest}
+ * @returns {@link DescribeHumanLoopResponse}
  * @see {@link DescribeHumanLoopCommandInput} for command's `input` shape.
  * @see {@link DescribeHumanLoopCommandOutput} for command's `response` shape.
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.

@@ -224,8 +224,8 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
  *
  * ```
  *
- * @param DisableSnapshotCopyCommandInput - {@link DisableSnapshotCopyCommandInput}
- * @returns {@link DisableSnapshotCopyCommandOutput}
+ * @param DisableSnapshotCopyMessage - {@link DisableSnapshotCopyMessage}
+ * @returns {@link DisableSnapshotCopyResult}
  * @see {@link DisableSnapshotCopyCommandInput} for command's `input` shape.
  * @see {@link DisableSnapshotCopyCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

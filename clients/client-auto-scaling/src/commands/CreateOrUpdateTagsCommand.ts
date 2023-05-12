@@ -60,8 +60,8 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CreateOrUpdateTagsCommandInput - {@link CreateOrUpdateTagsCommandInput}
- * @returns {@link CreateOrUpdateTagsCommandOutput}
+ * @param CreateOrUpdateTagsType - {@link CreateOrUpdateTagsType}
+ * @returns {@link Unit}
  * @see {@link CreateOrUpdateTagsCommandInput} for command's `input` shape.
  * @see {@link CreateOrUpdateTagsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

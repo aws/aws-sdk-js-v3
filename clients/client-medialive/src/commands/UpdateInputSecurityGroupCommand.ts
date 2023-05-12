@@ -73,8 +73,8 @@ export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecuri
  *
  * ```
  *
- * @param UpdateInputSecurityGroupCommandInput - {@link UpdateInputSecurityGroupCommandInput}
- * @returns {@link UpdateInputSecurityGroupCommandOutput}
+ * @param UpdateInputSecurityGroupRequest - {@link UpdateInputSecurityGroupRequest}
+ * @returns {@link UpdateInputSecurityGroupResponse}
  * @see {@link UpdateInputSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateInputSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

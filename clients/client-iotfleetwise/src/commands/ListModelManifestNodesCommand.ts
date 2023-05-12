@@ -99,8 +99,8 @@ export interface ListModelManifestNodesCommandOutput extends ListModelManifestNo
  *
  * ```
  *
- * @param ListModelManifestNodesCommandInput - {@link ListModelManifestNodesCommandInput}
- * @returns {@link ListModelManifestNodesCommandOutput}
+ * @param ListModelManifestNodesRequest - {@link ListModelManifestNodesRequest}
+ * @returns {@link ListModelManifestNodesResponse}
  * @see {@link ListModelManifestNodesCommandInput} for command's `input` shape.
  * @see {@link ListModelManifestNodesCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

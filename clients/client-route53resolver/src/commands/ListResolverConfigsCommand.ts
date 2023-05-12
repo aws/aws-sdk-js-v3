@@ -60,8 +60,8 @@ export interface ListResolverConfigsCommandOutput extends ListResolverConfigsRes
  *
  * ```
  *
- * @param ListResolverConfigsCommandInput - {@link ListResolverConfigsCommandInput}
- * @returns {@link ListResolverConfigsCommandOutput}
+ * @param ListResolverConfigsRequest - {@link ListResolverConfigsRequest}
+ * @returns {@link ListResolverConfigsResponse}
  * @see {@link ListResolverConfigsCommandInput} for command's `input` shape.
  * @see {@link ListResolverConfigsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

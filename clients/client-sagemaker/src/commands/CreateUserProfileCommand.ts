@@ -147,8 +147,8 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  *
  * ```
  *
- * @param CreateUserProfileCommandInput - {@link CreateUserProfileCommandInput}
- * @returns {@link CreateUserProfileCommandOutput}
+ * @param CreateUserProfileRequest - {@link CreateUserProfileRequest}
+ * @returns {@link CreateUserProfileResponse}
  * @see {@link CreateUserProfileCommandInput} for command's `input` shape.
  * @see {@link CreateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

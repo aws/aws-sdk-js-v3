@@ -82,8 +82,8 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  *
  * ```
  *
- * @param FailoverGlobalClusterCommandInput - {@link FailoverGlobalClusterCommandInput}
- * @returns {@link FailoverGlobalClusterCommandOutput}
+ * @param FailoverGlobalClusterMessage - {@link FailoverGlobalClusterMessage}
+ * @returns {@link FailoverGlobalClusterResult}
  * @see {@link FailoverGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link FailoverGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

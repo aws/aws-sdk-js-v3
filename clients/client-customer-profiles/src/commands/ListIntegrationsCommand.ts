@@ -70,8 +70,8 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse,
  *
  * ```
  *
- * @param ListIntegrationsCommandInput - {@link ListIntegrationsCommandInput}
- * @returns {@link ListIntegrationsCommandOutput}
+ * @param ListIntegrationsRequest - {@link ListIntegrationsRequest}
+ * @returns {@link ListIntegrationsResponse}
  * @see {@link ListIntegrationsCommandInput} for command's `input` shape.
  * @see {@link ListIntegrationsCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

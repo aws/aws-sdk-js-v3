@@ -70,8 +70,8 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  *
  * ```
  *
- * @param CreateBillingGroupCommandInput - {@link CreateBillingGroupCommandInput}
- * @returns {@link CreateBillingGroupCommandOutput}
+ * @param CreateBillingGroupInput - {@link CreateBillingGroupInput}
+ * @returns {@link CreateBillingGroupOutput}
  * @see {@link CreateBillingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

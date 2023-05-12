@@ -48,8 +48,8 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  *
  * ```
  *
- * @param DeleteRemoteAccessSessionCommandInput - {@link DeleteRemoteAccessSessionCommandInput}
- * @returns {@link DeleteRemoteAccessSessionCommandOutput}
+ * @param DeleteRemoteAccessSessionRequest - {@link DeleteRemoteAccessSessionRequest}
+ * @returns {@link DeleteRemoteAccessSessionResult}
  * @see {@link DeleteRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link DeleteRemoteAccessSessionCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

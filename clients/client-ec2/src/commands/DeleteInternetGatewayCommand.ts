@@ -50,8 +50,8 @@ export interface DeleteInternetGatewayCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteInternetGatewayCommandInput - {@link DeleteInternetGatewayCommandInput}
- * @returns {@link DeleteInternetGatewayCommandOutput}
+ * @param DeleteInternetGatewayRequest - {@link DeleteInternetGatewayRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

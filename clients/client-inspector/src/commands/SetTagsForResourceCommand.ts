@@ -55,8 +55,8 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetTagsForResourceCommandInput - {@link SetTagsForResourceCommandInput}
- * @returns {@link SetTagsForResourceCommandOutput}
+ * @param SetTagsForResourceRequest - {@link SetTagsForResourceRequest}
+ * @returns {@link Unit}
  * @see {@link SetTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link SetTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

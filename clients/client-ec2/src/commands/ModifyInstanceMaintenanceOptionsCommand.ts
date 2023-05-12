@@ -61,8 +61,8 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
  *
  * ```
  *
- * @param ModifyInstanceMaintenanceOptionsCommandInput - {@link ModifyInstanceMaintenanceOptionsCommandInput}
- * @returns {@link ModifyInstanceMaintenanceOptionsCommandOutput}
+ * @param ModifyInstanceMaintenanceOptionsRequest - {@link ModifyInstanceMaintenanceOptionsRequest}
+ * @returns {@link ModifyInstanceMaintenanceOptionsResult}
  * @see {@link ModifyInstanceMaintenanceOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceMaintenanceOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

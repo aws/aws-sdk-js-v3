@@ -70,8 +70,8 @@ export interface AssociateOriginationIdentityCommandOutput
  *
  * ```
  *
- * @param AssociateOriginationIdentityCommandInput - {@link AssociateOriginationIdentityCommandInput}
- * @returns {@link AssociateOriginationIdentityCommandOutput}
+ * @param AssociateOriginationIdentityRequest - {@link AssociateOriginationIdentityRequest}
+ * @returns {@link AssociateOriginationIdentityResult}
  * @see {@link AssociateOriginationIdentityCommandInput} for command's `input` shape.
  * @see {@link AssociateOriginationIdentityCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

@@ -99,8 +99,8 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
  *
  * ```
  *
- * @param DescribeReplicationTaskAssessmentRunsCommandInput - {@link DescribeReplicationTaskAssessmentRunsCommandInput}
- * @returns {@link DescribeReplicationTaskAssessmentRunsCommandOutput}
+ * @param DescribeReplicationTaskAssessmentRunsMessage - {@link DescribeReplicationTaskAssessmentRunsMessage}
+ * @returns {@link DescribeReplicationTaskAssessmentRunsResponse}
  * @see {@link DescribeReplicationTaskAssessmentRunsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationTaskAssessmentRunsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

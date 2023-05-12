@@ -49,8 +49,8 @@ export interface StopSpeakerSearchTaskCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopSpeakerSearchTaskCommandInput - {@link StopSpeakerSearchTaskCommandInput}
- * @returns {@link StopSpeakerSearchTaskCommandOutput}
+ * @param StopSpeakerSearchTaskRequest - {@link StopSpeakerSearchTaskRequest}
+ * @returns {@link Unit}
  * @see {@link StopSpeakerSearchTaskCommandInput} for command's `input` shape.
  * @see {@link StopSpeakerSearchTaskCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

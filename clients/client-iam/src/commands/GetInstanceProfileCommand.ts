@@ -91,8 +91,8 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileRespo
  *
  * ```
  *
- * @param GetInstanceProfileCommandInput - {@link GetInstanceProfileCommandInput}
- * @returns {@link GetInstanceProfileCommandOutput}
+ * @param GetInstanceProfileRequest - {@link GetInstanceProfileRequest}
+ * @returns {@link GetInstanceProfileResponse}
  * @see {@link GetInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link GetInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -60,8 +60,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *
  * ```
  *
- * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
- * @returns {@link CreateApplicationCommandOutput}
+ * @param CreateApplicationRequest - {@link CreateApplicationRequest}
+ * @returns {@link CreateApplicationResponse}
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetHubClientResolvedConfig | config} for IoTFleetHubClient's `config` shape.

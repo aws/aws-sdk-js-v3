@@ -66,8 +66,8 @@ export interface GetStaticIpsCommandOutput extends GetStaticIpsResult, __Metadat
  *
  * ```
  *
- * @param GetStaticIpsCommandInput - {@link GetStaticIpsCommandInput}
- * @returns {@link GetStaticIpsCommandOutput}
+ * @param GetStaticIpsRequest - {@link GetStaticIpsRequest}
+ * @returns {@link GetStaticIpsResult}
  * @see {@link GetStaticIpsCommandInput} for command's `input` shape.
  * @see {@link GetStaticIpsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

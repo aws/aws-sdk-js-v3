@@ -80,8 +80,8 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  *
  * ```
  *
- * @param GetSecretValueCommandInput - {@link GetSecretValueCommandInput}
- * @returns {@link GetSecretValueCommandOutput}
+ * @param GetSecretValueRequest - {@link GetSecretValueRequest}
+ * @returns {@link GetSecretValueResponse}
  * @see {@link GetSecretValueCommandInput} for command's `input` shape.
  * @see {@link GetSecretValueCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

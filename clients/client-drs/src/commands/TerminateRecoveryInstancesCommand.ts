@@ -74,8 +74,8 @@ export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecove
  *
  * ```
  *
- * @param TerminateRecoveryInstancesCommandInput - {@link TerminateRecoveryInstancesCommandInput}
- * @returns {@link TerminateRecoveryInstancesCommandOutput}
+ * @param TerminateRecoveryInstancesRequest - {@link TerminateRecoveryInstancesRequest}
+ * @returns {@link TerminateRecoveryInstancesResponse}
  * @see {@link TerminateRecoveryInstancesCommandInput} for command's `input` shape.
  * @see {@link TerminateRecoveryInstancesCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

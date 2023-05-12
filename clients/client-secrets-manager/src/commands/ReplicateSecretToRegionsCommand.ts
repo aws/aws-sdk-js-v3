@@ -73,8 +73,8 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  *
  * ```
  *
- * @param ReplicateSecretToRegionsCommandInput - {@link ReplicateSecretToRegionsCommandInput}
- * @returns {@link ReplicateSecretToRegionsCommandOutput}
+ * @param ReplicateSecretToRegionsRequest - {@link ReplicateSecretToRegionsRequest}
+ * @returns {@link ReplicateSecretToRegionsResponse}
  * @see {@link ReplicateSecretToRegionsCommandInput} for command's `input` shape.
  * @see {@link ReplicateSecretToRegionsCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

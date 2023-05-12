@@ -128,8 +128,8 @@ export interface DescribeDocumentClassifierCommandOutput extends DescribeDocumen
  *
  * ```
  *
- * @param DescribeDocumentClassifierCommandInput - {@link DescribeDocumentClassifierCommandInput}
- * @returns {@link DescribeDocumentClassifierCommandOutput}
+ * @param DescribeDocumentClassifierRequest - {@link DescribeDocumentClassifierRequest}
+ * @returns {@link DescribeDocumentClassifierResponse}
  * @see {@link DescribeDocumentClassifierCommandInput} for command's `input` shape.
  * @see {@link DescribeDocumentClassifierCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

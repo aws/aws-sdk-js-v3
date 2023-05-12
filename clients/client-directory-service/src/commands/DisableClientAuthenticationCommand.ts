@@ -49,8 +49,8 @@ export interface DisableClientAuthenticationCommandOutput extends DisableClientA
  *
  * ```
  *
- * @param DisableClientAuthenticationCommandInput - {@link DisableClientAuthenticationCommandInput}
- * @returns {@link DisableClientAuthenticationCommandOutput}
+ * @param DisableClientAuthenticationRequest - {@link DisableClientAuthenticationRequest}
+ * @returns {@link DisableClientAuthenticationResult}
  * @see {@link DisableClientAuthenticationCommandInput} for command's `input` shape.
  * @see {@link DisableClientAuthenticationCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

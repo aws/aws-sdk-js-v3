@@ -84,8 +84,8 @@ export interface DeleteBlueGreenDeploymentCommandOutput extends DeleteBlueGreenD
  *
  * ```
  *
- * @param DeleteBlueGreenDeploymentCommandInput - {@link DeleteBlueGreenDeploymentCommandInput}
- * @returns {@link DeleteBlueGreenDeploymentCommandOutput}
+ * @param DeleteBlueGreenDeploymentRequest - {@link DeleteBlueGreenDeploymentRequest}
+ * @returns {@link DeleteBlueGreenDeploymentResponse}
  * @see {@link DeleteBlueGreenDeploymentCommandInput} for command's `input` shape.
  * @see {@link DeleteBlueGreenDeploymentCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

@@ -510,8 +510,8 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  *
  * ```
  *
- * @param UpdateSnapshotCommandInput - {@link UpdateSnapshotCommandInput}
- * @returns {@link UpdateSnapshotCommandOutput}
+ * @param UpdateSnapshotRequest - {@link UpdateSnapshotRequest}
+ * @returns {@link UpdateSnapshotResponse}
  * @see {@link UpdateSnapshotCommandInput} for command's `input` shape.
  * @see {@link UpdateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

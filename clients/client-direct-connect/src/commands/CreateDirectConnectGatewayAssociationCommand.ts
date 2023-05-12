@@ -87,8 +87,8 @@ export interface CreateDirectConnectGatewayAssociationCommandOutput
  *
  * ```
  *
- * @param CreateDirectConnectGatewayAssociationCommandInput - {@link CreateDirectConnectGatewayAssociationCommandInput}
- * @returns {@link CreateDirectConnectGatewayAssociationCommandOutput}
+ * @param CreateDirectConnectGatewayAssociationRequest - {@link CreateDirectConnectGatewayAssociationRequest}
+ * @returns {@link CreateDirectConnectGatewayAssociationResult}
  * @see {@link CreateDirectConnectGatewayAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateDirectConnectGatewayAssociationCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

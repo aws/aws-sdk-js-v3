@@ -244,8 +244,8 @@ export interface GetExpenseAnalysisCommandOutput extends GetExpenseAnalysisRespo
  *
  * ```
  *
- * @param GetExpenseAnalysisCommandInput - {@link GetExpenseAnalysisCommandInput}
- * @returns {@link GetExpenseAnalysisCommandOutput}
+ * @param GetExpenseAnalysisRequest - {@link GetExpenseAnalysisRequest}
+ * @returns {@link GetExpenseAnalysisResponse}
  * @see {@link GetExpenseAnalysisCommandInput} for command's `input` shape.
  * @see {@link GetExpenseAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.

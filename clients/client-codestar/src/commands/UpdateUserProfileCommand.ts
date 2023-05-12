@@ -65,8 +65,8 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult,
  *
  * ```
  *
- * @param UpdateUserProfileCommandInput - {@link UpdateUserProfileCommandInput}
- * @returns {@link UpdateUserProfileCommandOutput}
+ * @param UpdateUserProfileRequest - {@link UpdateUserProfileRequest}
+ * @returns {@link UpdateUserProfileResult}
  * @see {@link UpdateUserProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.

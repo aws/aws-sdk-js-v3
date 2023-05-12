@@ -60,8 +60,8 @@ export interface ListServiceActionsCommandOutput extends ListServiceActionsOutpu
  *
  * ```
  *
- * @param ListServiceActionsCommandInput - {@link ListServiceActionsCommandInput}
- * @returns {@link ListServiceActionsCommandOutput}
+ * @param ListServiceActionsInput - {@link ListServiceActionsInput}
+ * @returns {@link ListServiceActionsOutput}
  * @see {@link ListServiceActionsCommandInput} for command's `input` shape.
  * @see {@link ListServiceActionsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

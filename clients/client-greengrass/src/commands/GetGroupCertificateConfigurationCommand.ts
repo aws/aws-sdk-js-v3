@@ -57,8 +57,8 @@ export interface GetGroupCertificateConfigurationCommandOutput
  *
  * ```
  *
- * @param GetGroupCertificateConfigurationCommandInput - {@link GetGroupCertificateConfigurationCommandInput}
- * @returns {@link GetGroupCertificateConfigurationCommandOutput}
+ * @param GetGroupCertificateConfigurationRequest - {@link GetGroupCertificateConfigurationRequest}
+ * @returns {@link GetGroupCertificateConfigurationResponse}
  * @see {@link GetGroupCertificateConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetGroupCertificateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

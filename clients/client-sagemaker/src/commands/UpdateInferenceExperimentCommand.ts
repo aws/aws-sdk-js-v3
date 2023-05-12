@@ -93,8 +93,8 @@ export interface UpdateInferenceExperimentCommandOutput extends UpdateInferenceE
  *
  * ```
  *
- * @param UpdateInferenceExperimentCommandInput - {@link UpdateInferenceExperimentCommandInput}
- * @returns {@link UpdateInferenceExperimentCommandOutput}
+ * @param UpdateInferenceExperimentRequest - {@link UpdateInferenceExperimentRequest}
+ * @returns {@link UpdateInferenceExperimentResponse}
  * @see {@link UpdateInferenceExperimentCommandInput} for command's `input` shape.
  * @see {@link UpdateInferenceExperimentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

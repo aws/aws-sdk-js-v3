@@ -69,8 +69,8 @@ export interface ListNodesCommandOutput extends ListNodesOutput, __MetadataBeare
  *
  * ```
  *
- * @param ListNodesCommandInput - {@link ListNodesCommandInput}
- * @returns {@link ListNodesCommandOutput}
+ * @param ListNodesInput - {@link ListNodesInput}
+ * @returns {@link ListNodesOutput}
  * @see {@link ListNodesCommandInput} for command's `input` shape.
  * @see {@link ListNodesCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.

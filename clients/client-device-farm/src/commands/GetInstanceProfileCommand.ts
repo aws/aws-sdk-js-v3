@@ -59,8 +59,8 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileResul
  *
  * ```
  *
- * @param GetInstanceProfileCommandInput - {@link GetInstanceProfileCommandInput}
- * @returns {@link GetInstanceProfileCommandOutput}
+ * @param GetInstanceProfileRequest - {@link GetInstanceProfileRequest}
+ * @returns {@link GetInstanceProfileResult}
  * @see {@link GetInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link GetInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

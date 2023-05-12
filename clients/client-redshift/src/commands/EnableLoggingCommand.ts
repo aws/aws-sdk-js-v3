@@ -66,8 +66,8 @@ export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBea
  *
  * ```
  *
- * @param EnableLoggingCommandInput - {@link EnableLoggingCommandInput}
- * @returns {@link EnableLoggingCommandOutput}
+ * @param EnableLoggingMessage - {@link EnableLoggingMessage}
+ * @returns {@link LoggingStatus}
  * @see {@link EnableLoggingCommandInput} for command's `input` shape.
  * @see {@link EnableLoggingCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

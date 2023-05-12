@@ -67,8 +67,8 @@ export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __Met
  *
  * ```
  *
- * @param SearchSchemasCommandInput - {@link SearchSchemasCommandInput}
- * @returns {@link SearchSchemasCommandOutput}
+ * @param SearchSchemasRequest - {@link SearchSchemasRequest}
+ * @returns {@link SearchSchemasResponse}
  * @see {@link SearchSchemasCommandInput} for command's `input` shape.
  * @see {@link SearchSchemasCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

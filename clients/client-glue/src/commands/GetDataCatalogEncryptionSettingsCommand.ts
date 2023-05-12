@@ -64,8 +64,8 @@ export interface GetDataCatalogEncryptionSettingsCommandOutput
  *
  * ```
  *
- * @param GetDataCatalogEncryptionSettingsCommandInput - {@link GetDataCatalogEncryptionSettingsCommandInput}
- * @returns {@link GetDataCatalogEncryptionSettingsCommandOutput}
+ * @param GetDataCatalogEncryptionSettingsRequest - {@link GetDataCatalogEncryptionSettingsRequest}
+ * @returns {@link GetDataCatalogEncryptionSettingsResponse}
  * @see {@link GetDataCatalogEncryptionSettingsCommandInput} for command's `input` shape.
  * @see {@link GetDataCatalogEncryptionSettingsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

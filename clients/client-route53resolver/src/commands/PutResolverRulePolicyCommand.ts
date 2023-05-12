@@ -52,8 +52,8 @@ export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolic
  *
  * ```
  *
- * @param PutResolverRulePolicyCommandInput - {@link PutResolverRulePolicyCommandInput}
- * @returns {@link PutResolverRulePolicyCommandOutput}
+ * @param PutResolverRulePolicyRequest - {@link PutResolverRulePolicyRequest}
+ * @returns {@link PutResolverRulePolicyResponse}
  * @see {@link PutResolverRulePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResolverRulePolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

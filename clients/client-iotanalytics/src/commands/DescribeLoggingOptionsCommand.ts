@@ -52,8 +52,8 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  *
  * ```
  *
- * @param DescribeLoggingOptionsCommandInput - {@link DescribeLoggingOptionsCommandInput}
- * @returns {@link DescribeLoggingOptionsCommandOutput}
+ * @param DescribeLoggingOptionsRequest - {@link DescribeLoggingOptionsRequest}
+ * @returns {@link DescribeLoggingOptionsResponse}
  * @see {@link DescribeLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

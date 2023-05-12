@@ -64,8 +64,8 @@ export interface BatchDeleteTableRowsCommandOutput extends BatchDeleteTableRowsR
  *
  * ```
  *
- * @param BatchDeleteTableRowsCommandInput - {@link BatchDeleteTableRowsCommandInput}
- * @returns {@link BatchDeleteTableRowsCommandOutput}
+ * @param BatchDeleteTableRowsRequest - {@link BatchDeleteTableRowsRequest}
+ * @returns {@link BatchDeleteTableRowsResult}
  * @see {@link BatchDeleteTableRowsCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteTableRowsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.

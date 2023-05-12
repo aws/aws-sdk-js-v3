@@ -60,8 +60,8 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  *
  * ```
  *
- * @param DeleteSessionCommandInput - {@link DeleteSessionCommandInput}
- * @returns {@link DeleteSessionCommandOutput}
+ * @param DeleteSessionRequest - {@link DeleteSessionRequest}
+ * @returns {@link DeleteSessionResponse}
  * @see {@link DeleteSessionCommandInput} for command's `input` shape.
  * @see {@link DeleteSessionCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.

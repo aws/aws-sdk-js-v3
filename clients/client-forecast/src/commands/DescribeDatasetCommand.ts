@@ -88,8 +88,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  *
  * ```
  *
- * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
- * @returns {@link DescribeDatasetCommandOutput}
+ * @param DescribeDatasetRequest - {@link DescribeDatasetRequest}
+ * @returns {@link DescribeDatasetResponse}
  * @see {@link DescribeDatasetCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

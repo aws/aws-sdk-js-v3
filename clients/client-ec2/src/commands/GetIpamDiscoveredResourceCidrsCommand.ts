@@ -86,8 +86,8 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
  *
  * ```
  *
- * @param GetIpamDiscoveredResourceCidrsCommandInput - {@link GetIpamDiscoveredResourceCidrsCommandInput}
- * @returns {@link GetIpamDiscoveredResourceCidrsCommandOutput}
+ * @param GetIpamDiscoveredResourceCidrsRequest - {@link GetIpamDiscoveredResourceCidrsRequest}
+ * @returns {@link GetIpamDiscoveredResourceCidrsResult}
  * @see {@link GetIpamDiscoveredResourceCidrsCommandInput} for command's `input` shape.
  * @see {@link GetIpamDiscoveredResourceCidrsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -57,8 +57,8 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  *
  * ```
  *
- * @param DeleteOrganizationConformancePackCommandInput - {@link DeleteOrganizationConformancePackCommandInput}
- * @returns {@link DeleteOrganizationConformancePackCommandOutput}
+ * @param DeleteOrganizationConformancePackRequest - {@link DeleteOrganizationConformancePackRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteOrganizationConformancePackCommandInput} for command's `input` shape.
  * @see {@link DeleteOrganizationConformancePackCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

@@ -101,8 +101,8 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  *
  * ```
  *
- * @param PublishBatchCommandInput - {@link PublishBatchCommandInput}
- * @returns {@link PublishBatchCommandOutput}
+ * @param PublishBatchInput - {@link PublishBatchInput}
+ * @returns {@link PublishBatchResponse}
  * @see {@link PublishBatchCommandInput} for command's `input` shape.
  * @see {@link PublishBatchCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

@@ -133,8 +133,8 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  *
  * ```
  *
- * @param RegisterImageCommandInput - {@link RegisterImageCommandInput}
- * @returns {@link RegisterImageCommandOutput}
+ * @param RegisterImageRequest - {@link RegisterImageRequest}
+ * @returns {@link RegisterImageResult}
  * @see {@link RegisterImageCommandInput} for command's `input` shape.
  * @see {@link RegisterImageCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

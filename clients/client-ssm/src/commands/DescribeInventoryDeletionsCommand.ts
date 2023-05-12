@@ -73,8 +73,8 @@ export interface DescribeInventoryDeletionsCommandOutput extends DescribeInvento
  *
  * ```
  *
- * @param DescribeInventoryDeletionsCommandInput - {@link DescribeInventoryDeletionsCommandInput}
- * @returns {@link DescribeInventoryDeletionsCommandOutput}
+ * @param DescribeInventoryDeletionsRequest - {@link DescribeInventoryDeletionsRequest}
+ * @returns {@link DescribeInventoryDeletionsResult}
  * @see {@link DescribeInventoryDeletionsCommandInput} for command's `input` shape.
  * @see {@link DescribeInventoryDeletionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

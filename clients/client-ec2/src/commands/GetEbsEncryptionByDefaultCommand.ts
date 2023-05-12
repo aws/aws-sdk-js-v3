@@ -53,8 +53,8 @@ export interface GetEbsEncryptionByDefaultCommandOutput extends GetEbsEncryption
  *
  * ```
  *
- * @param GetEbsEncryptionByDefaultCommandInput - {@link GetEbsEncryptionByDefaultCommandInput}
- * @returns {@link GetEbsEncryptionByDefaultCommandOutput}
+ * @param GetEbsEncryptionByDefaultRequest - {@link GetEbsEncryptionByDefaultRequest}
+ * @returns {@link GetEbsEncryptionByDefaultResult}
  * @see {@link GetEbsEncryptionByDefaultCommandInput} for command's `input` shape.
  * @see {@link GetEbsEncryptionByDefaultCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -98,8 +98,8 @@ export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOu
  *
  * ```
  *
- * @param GetJobOutputCommandInput - {@link GetJobOutputCommandInput}
- * @returns {@link GetJobOutputCommandOutput}
+ * @param GetJobOutputInput - {@link GetJobOutputInput}
+ * @returns {@link GetJobOutputOutput}
  * @see {@link GetJobOutputCommandInput} for command's `input` shape.
  * @see {@link GetJobOutputCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

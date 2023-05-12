@@ -103,8 +103,8 @@ export interface GetSuiteRunCommandOutput extends GetSuiteRunResponse, __Metadat
  *
  * ```
  *
- * @param GetSuiteRunCommandInput - {@link GetSuiteRunCommandInput}
- * @returns {@link GetSuiteRunCommandOutput}
+ * @param GetSuiteRunRequest - {@link GetSuiteRunRequest}
+ * @returns {@link GetSuiteRunResponse}
  * @see {@link GetSuiteRunCommandInput} for command's `input` shape.
  * @see {@link GetSuiteRunCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.

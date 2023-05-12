@@ -87,8 +87,8 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  *
  * ```
  *
- * @param ResolveComponentCandidatesCommandInput - {@link ResolveComponentCandidatesCommandInput}
- * @returns {@link ResolveComponentCandidatesCommandOutput}
+ * @param ResolveComponentCandidatesRequest - {@link ResolveComponentCandidatesRequest}
+ * @returns {@link ResolveComponentCandidatesResponse}
  * @see {@link ResolveComponentCandidatesCommandInput} for command's `input` shape.
  * @see {@link ResolveComponentCandidatesCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

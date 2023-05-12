@@ -59,8 +59,8 @@ export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVe
  *
  * ```
  *
- * @param UnlabelParameterVersionCommandInput - {@link UnlabelParameterVersionCommandInput}
- * @returns {@link UnlabelParameterVersionCommandOutput}
+ * @param UnlabelParameterVersionRequest - {@link UnlabelParameterVersionRequest}
+ * @returns {@link UnlabelParameterVersionResult}
  * @see {@link UnlabelParameterVersionCommandInput} for command's `input` shape.
  * @see {@link UnlabelParameterVersionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

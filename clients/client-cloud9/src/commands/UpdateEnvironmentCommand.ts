@@ -55,8 +55,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResult,
  *
  * ```
  *
- * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
- * @returns {@link UpdateEnvironmentCommandOutput}
+ * @param UpdateEnvironmentRequest - {@link UpdateEnvironmentRequest}
+ * @returns {@link UpdateEnvironmentResult}
  * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.

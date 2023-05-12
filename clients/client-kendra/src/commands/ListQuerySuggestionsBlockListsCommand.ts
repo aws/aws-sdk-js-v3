@@ -73,8 +73,8 @@ export interface ListQuerySuggestionsBlockListsCommandOutput
  *
  * ```
  *
- * @param ListQuerySuggestionsBlockListsCommandInput - {@link ListQuerySuggestionsBlockListsCommandInput}
- * @returns {@link ListQuerySuggestionsBlockListsCommandOutput}
+ * @param ListQuerySuggestionsBlockListsRequest - {@link ListQuerySuggestionsBlockListsRequest}
+ * @returns {@link ListQuerySuggestionsBlockListsResponse}
  * @see {@link ListQuerySuggestionsBlockListsCommandInput} for command's `input` shape.
  * @see {@link ListQuerySuggestionsBlockListsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

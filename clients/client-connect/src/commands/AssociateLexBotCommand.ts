@@ -54,8 +54,8 @@ export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AssociateLexBotCommandInput - {@link AssociateLexBotCommandInput}
- * @returns {@link AssociateLexBotCommandOutput}
+ * @param AssociateLexBotRequest - {@link AssociateLexBotRequest}
+ * @returns {@link Unit}
  * @see {@link AssociateLexBotCommandInput} for command's `input` shape.
  * @see {@link AssociateLexBotCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

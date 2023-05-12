@@ -57,8 +57,8 @@ export interface StartProjectSessionCommandOutput extends StartProjectSessionRes
  *
  * ```
  *
- * @param StartProjectSessionCommandInput - {@link StartProjectSessionCommandInput}
- * @returns {@link StartProjectSessionCommandOutput}
+ * @param StartProjectSessionRequest - {@link StartProjectSessionRequest}
+ * @returns {@link StartProjectSessionResponse}
  * @see {@link StartProjectSessionCommandInput} for command's `input` shape.
  * @see {@link StartProjectSessionCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

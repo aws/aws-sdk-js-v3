@@ -108,8 +108,8 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionRespons
  *
  * ```
  *
- * @param DescribeExecutionCommandInput - {@link DescribeExecutionCommandInput}
- * @returns {@link DescribeExecutionCommandOutput}
+ * @param DescribeExecutionRequest - {@link DescribeExecutionRequest}
+ * @returns {@link DescribeExecutionResponse}
  * @see {@link DescribeExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeExecutionCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

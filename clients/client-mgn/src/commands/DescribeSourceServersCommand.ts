@@ -186,8 +186,8 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  *
  * ```
  *
- * @param DescribeSourceServersCommandInput - {@link DescribeSourceServersCommandInput}
- * @returns {@link DescribeSourceServersCommandOutput}
+ * @param DescribeSourceServersRequest - {@link DescribeSourceServersRequest}
+ * @returns {@link DescribeSourceServersResponse}
  * @see {@link DescribeSourceServersCommandInput} for command's `input` shape.
  * @see {@link DescribeSourceServersCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

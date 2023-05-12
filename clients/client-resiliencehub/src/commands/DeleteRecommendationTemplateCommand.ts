@@ -58,8 +58,8 @@ export interface DeleteRecommendationTemplateCommandOutput
  *
  * ```
  *
- * @param DeleteRecommendationTemplateCommandInput - {@link DeleteRecommendationTemplateCommandInput}
- * @returns {@link DeleteRecommendationTemplateCommandOutput}
+ * @param DeleteRecommendationTemplateRequest - {@link DeleteRecommendationTemplateRequest}
+ * @returns {@link DeleteRecommendationTemplateResponse}
  * @see {@link DeleteRecommendationTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteRecommendationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

@@ -71,8 +71,8 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  *
  * ```
  *
- * @param DeregisterInstancesFromLoadBalancerCommandInput - {@link DeregisterInstancesFromLoadBalancerCommandInput}
- * @returns {@link DeregisterInstancesFromLoadBalancerCommandOutput}
+ * @param DeregisterEndPointsInput - {@link DeregisterEndPointsInput}
+ * @returns {@link DeregisterEndPointsOutput}
  * @see {@link DeregisterInstancesFromLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DeregisterInstancesFromLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

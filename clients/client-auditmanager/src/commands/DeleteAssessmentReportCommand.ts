@@ -70,8 +70,8 @@ export interface DeleteAssessmentReportCommandOutput extends DeleteAssessmentRep
  *
  * ```
  *
- * @param DeleteAssessmentReportCommandInput - {@link DeleteAssessmentReportCommandInput}
- * @returns {@link DeleteAssessmentReportCommandOutput}
+ * @param DeleteAssessmentReportRequest - {@link DeleteAssessmentReportRequest}
+ * @returns {@link DeleteAssessmentReportResponse}
  * @see {@link DeleteAssessmentReportCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentReportCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

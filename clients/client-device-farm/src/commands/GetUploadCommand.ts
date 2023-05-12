@@ -61,8 +61,8 @@ export interface GetUploadCommandOutput extends GetUploadResult, __MetadataBeare
  *
  * ```
  *
- * @param GetUploadCommandInput - {@link GetUploadCommandInput}
- * @returns {@link GetUploadCommandOutput}
+ * @param GetUploadRequest - {@link GetUploadRequest}
+ * @returns {@link GetUploadResult}
  * @see {@link GetUploadCommandInput} for command's `input` shape.
  * @see {@link GetUploadCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

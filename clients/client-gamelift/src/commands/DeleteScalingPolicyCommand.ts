@@ -53,8 +53,8 @@ export interface DeleteScalingPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteScalingPolicyCommandInput - {@link DeleteScalingPolicyCommandInput}
- * @returns {@link DeleteScalingPolicyCommandOutput}
+ * @param DeleteScalingPolicyInput - {@link DeleteScalingPolicyInput}
+ * @returns {@link Unit}
  * @see {@link DeleteScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

@@ -88,8 +88,8 @@ export interface DescribeGlobalReplicationGroupsCommandOutput
  *
  * ```
  *
- * @param DescribeGlobalReplicationGroupsCommandInput - {@link DescribeGlobalReplicationGroupsCommandInput}
- * @returns {@link DescribeGlobalReplicationGroupsCommandOutput}
+ * @param DescribeGlobalReplicationGroupsMessage - {@link DescribeGlobalReplicationGroupsMessage}
+ * @returns {@link DescribeGlobalReplicationGroupsResult}
  * @see {@link DescribeGlobalReplicationGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalReplicationGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

@@ -75,8 +75,8 @@ export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjec
  *
  * ```
  *
- * @param UpdateTestGridProjectCommandInput - {@link UpdateTestGridProjectCommandInput}
- * @returns {@link UpdateTestGridProjectCommandOutput}
+ * @param UpdateTestGridProjectRequest - {@link UpdateTestGridProjectRequest}
+ * @returns {@link UpdateTestGridProjectResult}
  * @see {@link UpdateTestGridProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateTestGridProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

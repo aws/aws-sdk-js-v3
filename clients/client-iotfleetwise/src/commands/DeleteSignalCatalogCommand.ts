@@ -55,8 +55,8 @@ export interface DeleteSignalCatalogCommandOutput extends DeleteSignalCatalogRes
  *
  * ```
  *
- * @param DeleteSignalCatalogCommandInput - {@link DeleteSignalCatalogCommandInput}
- * @returns {@link DeleteSignalCatalogCommandOutput}
+ * @param DeleteSignalCatalogRequest - {@link DeleteSignalCatalogRequest}
+ * @returns {@link DeleteSignalCatalogResponse}
  * @see {@link DeleteSignalCatalogCommandInput} for command's `input` shape.
  * @see {@link DeleteSignalCatalogCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

@@ -53,8 +53,8 @@ export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryO
  *
  * ```
  *
- * @param UpdateCodeRepositoryCommandInput - {@link UpdateCodeRepositoryCommandInput}
- * @returns {@link UpdateCodeRepositoryCommandOutput}
+ * @param UpdateCodeRepositoryInput - {@link UpdateCodeRepositoryInput}
+ * @returns {@link UpdateCodeRepositoryOutput}
  * @see {@link UpdateCodeRepositoryCommandInput} for command's `input` shape.
  * @see {@link UpdateCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

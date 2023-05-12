@@ -50,8 +50,8 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutCommentReactionCommandInput - {@link PutCommentReactionCommandInput}
- * @returns {@link PutCommentReactionCommandOutput}
+ * @param PutCommentReactionInput - {@link PutCommentReactionInput}
+ * @returns {@link Unit}
  * @see {@link PutCommentReactionCommandInput} for command's `input` shape.
  * @see {@link PutCommentReactionCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

@@ -51,8 +51,8 @@ export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateR
  *
  * ```
  *
- * @param DeleteSystemTemplateCommandInput - {@link DeleteSystemTemplateCommandInput}
- * @returns {@link DeleteSystemTemplateCommandOutput}
+ * @param DeleteSystemTemplateRequest - {@link DeleteSystemTemplateRequest}
+ * @returns {@link DeleteSystemTemplateResponse}
  * @see {@link DeleteSystemTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteSystemTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

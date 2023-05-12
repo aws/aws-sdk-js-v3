@@ -78,8 +78,8 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
  *
  * ```
  *
- * @param UpdateLogLevelsByResourceTypesCommandInput - {@link UpdateLogLevelsByResourceTypesCommandInput}
- * @returns {@link UpdateLogLevelsByResourceTypesCommandOutput}
+ * @param UpdateLogLevelsByResourceTypesRequest - {@link UpdateLogLevelsByResourceTypesRequest}
+ * @returns {@link UpdateLogLevelsByResourceTypesResponse}
  * @see {@link UpdateLogLevelsByResourceTypesCommandInput} for command's `input` shape.
  * @see {@link UpdateLogLevelsByResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

@@ -86,8 +86,8 @@ export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfig
  *
  * ```
  *
- * @param GetIndexingConfigurationCommandInput - {@link GetIndexingConfigurationCommandInput}
- * @returns {@link GetIndexingConfigurationCommandOutput}
+ * @param GetIndexingConfigurationRequest - {@link GetIndexingConfigurationRequest}
+ * @returns {@link GetIndexingConfigurationResponse}
  * @see {@link GetIndexingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetIndexingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

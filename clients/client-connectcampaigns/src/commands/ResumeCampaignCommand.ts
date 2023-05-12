@@ -48,8 +48,8 @@ export interface ResumeCampaignCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ResumeCampaignCommandInput - {@link ResumeCampaignCommandInput}
- * @returns {@link ResumeCampaignCommandOutput}
+ * @param ResumeCampaignRequest - {@link ResumeCampaignRequest}
+ * @returns {@link Unit}
  * @see {@link ResumeCampaignCommandInput} for command's `input` shape.
  * @see {@link ResumeCampaignCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

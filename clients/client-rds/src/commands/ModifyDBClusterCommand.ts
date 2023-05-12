@@ -264,8 +264,8 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *
  * ```
  *
- * @param ModifyDBClusterCommandInput - {@link ModifyDBClusterCommandInput}
- * @returns {@link ModifyDBClusterCommandOutput}
+ * @param ModifyDBClusterMessage - {@link ModifyDBClusterMessage}
+ * @returns {@link ModifyDBClusterResult}
  * @see {@link ModifyDBClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

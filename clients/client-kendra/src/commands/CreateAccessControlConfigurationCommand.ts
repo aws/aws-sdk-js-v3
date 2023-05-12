@@ -96,8 +96,8 @@ export interface CreateAccessControlConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateAccessControlConfigurationCommandInput - {@link CreateAccessControlConfigurationCommandInput}
- * @returns {@link CreateAccessControlConfigurationCommandOutput}
+ * @param CreateAccessControlConfigurationRequest - {@link CreateAccessControlConfigurationRequest}
+ * @returns {@link CreateAccessControlConfigurationResponse}
  * @see {@link CreateAccessControlConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateAccessControlConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

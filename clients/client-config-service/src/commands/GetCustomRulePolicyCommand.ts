@@ -50,8 +50,8 @@ export interface GetCustomRulePolicyCommandOutput extends GetCustomRulePolicyRes
  *
  * ```
  *
- * @param GetCustomRulePolicyCommandInput - {@link GetCustomRulePolicyCommandInput}
- * @returns {@link GetCustomRulePolicyCommandOutput}
+ * @param GetCustomRulePolicyRequest - {@link GetCustomRulePolicyRequest}
+ * @returns {@link GetCustomRulePolicyResponse}
  * @see {@link GetCustomRulePolicyCommandInput} for command's `input` shape.
  * @see {@link GetCustomRulePolicyCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

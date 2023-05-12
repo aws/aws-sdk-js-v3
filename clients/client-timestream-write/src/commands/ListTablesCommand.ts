@@ -80,8 +80,8 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  *
  * ```
  *
- * @param ListTablesCommandInput - {@link ListTablesCommandInput}
- * @returns {@link ListTablesCommandOutput}
+ * @param ListTablesRequest - {@link ListTablesRequest}
+ * @returns {@link ListTablesResponse}
  * @see {@link ListTablesCommandInput} for command's `input` shape.
  * @see {@link ListTablesCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.

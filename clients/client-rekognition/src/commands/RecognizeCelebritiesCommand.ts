@@ -168,8 +168,8 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  *
  * ```
  *
- * @param RecognizeCelebritiesCommandInput - {@link RecognizeCelebritiesCommandInput}
- * @returns {@link RecognizeCelebritiesCommandOutput}
+ * @param RecognizeCelebritiesRequest - {@link RecognizeCelebritiesRequest}
+ * @returns {@link RecognizeCelebritiesResponse}
  * @see {@link RecognizeCelebritiesCommandInput} for command's `input` shape.
  * @see {@link RecognizeCelebritiesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

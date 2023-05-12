@@ -74,8 +74,8 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  *
  * ```
  *
- * @param CreateCollectionCommandInput - {@link CreateCollectionCommandInput}
- * @returns {@link CreateCollectionCommandOutput}
+ * @param CreateCollectionRequest - {@link CreateCollectionRequest}
+ * @returns {@link CreateCollectionResponse}
  * @see {@link CreateCollectionCommandInput} for command's `input` shape.
  * @see {@link CreateCollectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

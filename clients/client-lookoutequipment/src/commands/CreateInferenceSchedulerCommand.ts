@@ -86,8 +86,8 @@ export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSc
  *
  * ```
  *
- * @param CreateInferenceSchedulerCommandInput - {@link CreateInferenceSchedulerCommandInput}
- * @returns {@link CreateInferenceSchedulerCommandOutput}
+ * @param CreateInferenceSchedulerRequest - {@link CreateInferenceSchedulerRequest}
+ * @returns {@link CreateInferenceSchedulerResponse}
  * @see {@link CreateInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link CreateInferenceSchedulerCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

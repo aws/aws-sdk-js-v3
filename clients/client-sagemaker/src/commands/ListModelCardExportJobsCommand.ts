@@ -70,8 +70,8 @@ export interface ListModelCardExportJobsCommandOutput extends ListModelCardExpor
  *
  * ```
  *
- * @param ListModelCardExportJobsCommandInput - {@link ListModelCardExportJobsCommandInput}
- * @returns {@link ListModelCardExportJobsCommandOutput}
+ * @param ListModelCardExportJobsRequest - {@link ListModelCardExportJobsRequest}
+ * @returns {@link ListModelCardExportJobsResponse}
  * @see {@link ListModelCardExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListModelCardExportJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

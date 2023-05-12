@@ -56,8 +56,8 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  *
  * ```
  *
- * @param GetRoomCommandInput - {@link GetRoomCommandInput}
- * @returns {@link GetRoomCommandOutput}
+ * @param GetRoomRequest - {@link GetRoomRequest}
+ * @returns {@link GetRoomResponse}
  * @see {@link GetRoomCommandInput} for command's `input` shape.
  * @see {@link GetRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

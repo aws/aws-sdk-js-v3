@@ -50,8 +50,8 @@ export interface DeleteSecurityProfileCommandOutput extends DeleteSecurityProfil
  *
  * ```
  *
- * @param DeleteSecurityProfileCommandInput - {@link DeleteSecurityProfileCommandInput}
- * @returns {@link DeleteSecurityProfileCommandOutput}
+ * @param DeleteSecurityProfileRequest - {@link DeleteSecurityProfileRequest}
+ * @returns {@link DeleteSecurityProfileResponse}
  * @see {@link DeleteSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

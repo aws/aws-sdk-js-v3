@@ -548,8 +548,8 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  *
  * ```
  *
- * @param UpdateVolumeCommandInput - {@link UpdateVolumeCommandInput}
- * @returns {@link UpdateVolumeCommandOutput}
+ * @param UpdateVolumeRequest - {@link UpdateVolumeRequest}
+ * @returns {@link UpdateVolumeResponse}
  * @see {@link UpdateVolumeCommandInput} for command's `input` shape.
  * @see {@link UpdateVolumeCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

@@ -170,8 +170,8 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *
  * ```
  *
- * @param SearchGameSessionsCommandInput - {@link SearchGameSessionsCommandInput}
- * @returns {@link SearchGameSessionsCommandOutput}
+ * @param SearchGameSessionsInput - {@link SearchGameSessionsInput}
+ * @returns {@link SearchGameSessionsOutput}
  * @see {@link SearchGameSessionsCommandInput} for command's `input` shape.
  * @see {@link SearchGameSessionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

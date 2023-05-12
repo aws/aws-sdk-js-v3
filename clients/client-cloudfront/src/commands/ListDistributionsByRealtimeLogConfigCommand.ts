@@ -368,8 +368,8 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  *
  * ```
  *
- * @param ListDistributionsByRealtimeLogConfigCommandInput - {@link ListDistributionsByRealtimeLogConfigCommandInput}
- * @returns {@link ListDistributionsByRealtimeLogConfigCommandOutput}
+ * @param ListDistributionsByRealtimeLogConfigRequest - {@link ListDistributionsByRealtimeLogConfigRequest}
+ * @returns {@link ListDistributionsByRealtimeLogConfigResult}
  * @see {@link ListDistributionsByRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByRealtimeLogConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

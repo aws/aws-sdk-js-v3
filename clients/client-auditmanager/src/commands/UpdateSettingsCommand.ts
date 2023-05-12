@@ -88,8 +88,8 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  *
  * ```
  *
- * @param UpdateSettingsCommandInput - {@link UpdateSettingsCommandInput}
- * @returns {@link UpdateSettingsCommandOutput}
+ * @param UpdateSettingsRequest - {@link UpdateSettingsRequest}
+ * @returns {@link UpdateSettingsResponse}
  * @see {@link UpdateSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateSettingsCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

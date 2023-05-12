@@ -48,8 +48,8 @@ export interface DeleteServiceProfileCommandOutput extends DeleteServiceProfileR
  *
  * ```
  *
- * @param DeleteServiceProfileCommandInput - {@link DeleteServiceProfileCommandInput}
- * @returns {@link DeleteServiceProfileCommandOutput}
+ * @param DeleteServiceProfileRequest - {@link DeleteServiceProfileRequest}
+ * @returns {@link DeleteServiceProfileResponse}
  * @see {@link DeleteServiceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceProfileCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

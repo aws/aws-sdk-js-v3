@@ -78,8 +78,8 @@ export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBea
  *
  * ```
  *
- * @param CreateACLCommandInput - {@link CreateACLCommandInput}
- * @returns {@link CreateACLCommandOutput}
+ * @param CreateACLRequest - {@link CreateACLRequest}
+ * @returns {@link CreateACLResponse}
  * @see {@link CreateACLCommandInput} for command's `input` shape.
  * @see {@link CreateACLCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

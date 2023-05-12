@@ -50,8 +50,8 @@ export interface GetCampaignStateCommandOutput extends GetCampaignStateResponse,
  *
  * ```
  *
- * @param GetCampaignStateCommandInput - {@link GetCampaignStateCommandInput}
- * @returns {@link GetCampaignStateCommandOutput}
+ * @param GetCampaignStateRequest - {@link GetCampaignStateRequest}
+ * @returns {@link GetCampaignStateResponse}
  * @see {@link GetCampaignStateCommandInput} for command's `input` shape.
  * @see {@link GetCampaignStateCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

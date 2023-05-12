@@ -132,8 +132,8 @@ export interface DescribeReplicationInstancesCommandOutput
  *
  * ```
  *
- * @param DescribeReplicationInstancesCommandInput - {@link DescribeReplicationInstancesCommandInput}
- * @returns {@link DescribeReplicationInstancesCommandOutput}
+ * @param DescribeReplicationInstancesMessage - {@link DescribeReplicationInstancesMessage}
+ * @returns {@link DescribeReplicationInstancesResponse}
  * @see {@link DescribeReplicationInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationInstancesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

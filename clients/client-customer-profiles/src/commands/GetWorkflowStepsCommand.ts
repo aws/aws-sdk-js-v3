@@ -69,8 +69,8 @@ export interface GetWorkflowStepsCommandOutput extends GetWorkflowStepsResponse,
  *
  * ```
  *
- * @param GetWorkflowStepsCommandInput - {@link GetWorkflowStepsCommandInput}
- * @returns {@link GetWorkflowStepsCommandOutput}
+ * @param GetWorkflowStepsRequest - {@link GetWorkflowStepsRequest}
+ * @returns {@link GetWorkflowStepsResponse}
  * @see {@link GetWorkflowStepsCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowStepsCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

@@ -60,8 +60,8 @@ export interface ModifyVerifiedAccessGroupPolicyCommandOutput
  *
  * ```
  *
- * @param ModifyVerifiedAccessGroupPolicyCommandInput - {@link ModifyVerifiedAccessGroupPolicyCommandInput}
- * @returns {@link ModifyVerifiedAccessGroupPolicyCommandOutput}
+ * @param ModifyVerifiedAccessGroupPolicyRequest - {@link ModifyVerifiedAccessGroupPolicyRequest}
+ * @returns {@link ModifyVerifiedAccessGroupPolicyResult}
  * @see {@link ModifyVerifiedAccessGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link ModifyVerifiedAccessGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

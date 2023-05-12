@@ -79,8 +79,8 @@ export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOn
  *
  * ```
  *
- * @param CreateLocationFsxOntapCommandInput - {@link CreateLocationFsxOntapCommandInput}
- * @returns {@link CreateLocationFsxOntapCommandOutput}
+ * @param CreateLocationFsxOntapRequest - {@link CreateLocationFsxOntapRequest}
+ * @returns {@link CreateLocationFsxOntapResponse}
  * @see {@link CreateLocationFsxOntapCommandInput} for command's `input` shape.
  * @see {@link CreateLocationFsxOntapCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

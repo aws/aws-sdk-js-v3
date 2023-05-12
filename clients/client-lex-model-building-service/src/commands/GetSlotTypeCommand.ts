@@ -81,8 +81,8 @@ export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __Metadat
  *
  * ```
  *
- * @param GetSlotTypeCommandInput - {@link GetSlotTypeCommandInput}
- * @returns {@link GetSlotTypeCommandOutput}
+ * @param GetSlotTypeRequest - {@link GetSlotTypeRequest}
+ * @returns {@link GetSlotTypeResponse}
  * @see {@link GetSlotTypeCommandInput} for command's `input` shape.
  * @see {@link GetSlotTypeCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

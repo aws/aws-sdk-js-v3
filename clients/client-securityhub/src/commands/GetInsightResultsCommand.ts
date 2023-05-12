@@ -59,8 +59,8 @@ export interface GetInsightResultsCommandOutput extends GetInsightResultsRespons
  *
  * ```
  *
- * @param GetInsightResultsCommandInput - {@link GetInsightResultsCommandInput}
- * @returns {@link GetInsightResultsCommandOutput}
+ * @param GetInsightResultsRequest - {@link GetInsightResultsRequest}
+ * @returns {@link GetInsightResultsResponse}
  * @see {@link GetInsightResultsCommandInput} for command's `input` shape.
  * @see {@link GetInsightResultsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

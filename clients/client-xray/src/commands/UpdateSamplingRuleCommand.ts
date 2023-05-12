@@ -85,8 +85,8 @@ export interface UpdateSamplingRuleCommandOutput extends UpdateSamplingRuleResul
  *
  * ```
  *
- * @param UpdateSamplingRuleCommandInput - {@link UpdateSamplingRuleCommandInput}
- * @returns {@link UpdateSamplingRuleCommandOutput}
+ * @param UpdateSamplingRuleRequest - {@link UpdateSamplingRuleRequest}
+ * @returns {@link UpdateSamplingRuleResult}
  * @see {@link UpdateSamplingRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateSamplingRuleCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

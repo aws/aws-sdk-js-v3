@@ -114,8 +114,8 @@ export interface CreateResourceCommandOutput extends Resource, __MetadataBearer 
  *
  * ```
  *
- * @param CreateResourceCommandInput - {@link CreateResourceCommandInput}
- * @returns {@link CreateResourceCommandOutput}
+ * @param CreateResourceRequest - {@link CreateResourceRequest}
+ * @returns {@link Resource}
  * @see {@link CreateResourceCommandInput} for command's `input` shape.
  * @see {@link CreateResourceCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

@@ -70,8 +70,8 @@ export interface GetContainerLogCommandOutput extends GetContainerLogResult, __M
  *
  * ```
  *
- * @param GetContainerLogCommandInput - {@link GetContainerLogCommandInput}
- * @returns {@link GetContainerLogCommandOutput}
+ * @param GetContainerLogRequest - {@link GetContainerLogRequest}
+ * @returns {@link GetContainerLogResult}
  * @see {@link GetContainerLogCommandInput} for command's `input` shape.
  * @see {@link GetContainerLogCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

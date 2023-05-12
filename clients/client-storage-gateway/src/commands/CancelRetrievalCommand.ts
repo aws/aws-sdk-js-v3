@@ -53,8 +53,8 @@ export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __M
  *
  * ```
  *
- * @param CancelRetrievalCommandInput - {@link CancelRetrievalCommandInput}
- * @returns {@link CancelRetrievalCommandOutput}
+ * @param CancelRetrievalInput - {@link CancelRetrievalInput}
+ * @returns {@link CancelRetrievalOutput}
  * @see {@link CancelRetrievalCommandInput} for command's `input` shape.
  * @see {@link CancelRetrievalCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

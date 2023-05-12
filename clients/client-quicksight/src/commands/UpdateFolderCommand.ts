@@ -55,8 +55,8 @@ export interface UpdateFolderCommandOutput extends UpdateFolderResponse, __Metad
  *
  * ```
  *
- * @param UpdateFolderCommandInput - {@link UpdateFolderCommandInput}
- * @returns {@link UpdateFolderCommandOutput}
+ * @param UpdateFolderRequest - {@link UpdateFolderRequest}
+ * @returns {@link UpdateFolderResponse}
  * @see {@link UpdateFolderCommandInput} for command's `input` shape.
  * @see {@link UpdateFolderCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

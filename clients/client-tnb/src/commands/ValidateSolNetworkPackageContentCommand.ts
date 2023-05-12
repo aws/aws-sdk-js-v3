@@ -75,8 +75,8 @@ export interface ValidateSolNetworkPackageContentCommandOutput
  *
  * ```
  *
- * @param ValidateSolNetworkPackageContentCommandInput - {@link ValidateSolNetworkPackageContentCommandInput}
- * @returns {@link ValidateSolNetworkPackageContentCommandOutput}
+ * @param ValidateSolNetworkPackageContentInput - {@link ValidateSolNetworkPackageContentInput}
+ * @returns {@link ValidateSolNetworkPackageContentOutput}
  * @see {@link ValidateSolNetworkPackageContentCommandInput} for command's `input` shape.
  * @see {@link ValidateSolNetworkPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

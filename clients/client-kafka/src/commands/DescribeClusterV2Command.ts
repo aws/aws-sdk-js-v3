@@ -191,8 +191,8 @@ export interface DescribeClusterV2CommandOutput extends DescribeClusterV2Respons
  *
  * ```
  *
- * @param DescribeClusterV2CommandInput - {@link DescribeClusterV2CommandInput}
- * @returns {@link DescribeClusterV2CommandOutput}
+ * @param DescribeClusterV2Request - {@link DescribeClusterV2Request}
+ * @returns {@link DescribeClusterV2Response}
  * @see {@link DescribeClusterV2CommandInput} for command's `input` shape.
  * @see {@link DescribeClusterV2CommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

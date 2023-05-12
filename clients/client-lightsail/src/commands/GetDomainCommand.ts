@@ -88,8 +88,8 @@ export interface GetDomainCommandOutput extends GetDomainResult, __MetadataBeare
  *
  * ```
  *
- * @param GetDomainCommandInput - {@link GetDomainCommandInput}
- * @returns {@link GetDomainCommandOutput}
+ * @param GetDomainRequest - {@link GetDomainRequest}
+ * @returns {@link GetDomainResult}
  * @see {@link GetDomainCommandInput} for command's `input` shape.
  * @see {@link GetDomainCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

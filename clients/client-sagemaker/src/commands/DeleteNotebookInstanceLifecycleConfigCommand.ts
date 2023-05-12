@@ -51,8 +51,8 @@ export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __Me
  *
  * ```
  *
- * @param DeleteNotebookInstanceLifecycleConfigCommandInput - {@link DeleteNotebookInstanceLifecycleConfigCommandInput}
- * @returns {@link DeleteNotebookInstanceLifecycleConfigCommandOutput}
+ * @param DeleteNotebookInstanceLifecycleConfigInput - {@link DeleteNotebookInstanceLifecycleConfigInput}
+ * @returns {@link Unit}
  * @see {@link DeleteNotebookInstanceLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

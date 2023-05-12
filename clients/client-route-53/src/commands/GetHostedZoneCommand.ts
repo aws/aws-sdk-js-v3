@@ -78,8 +78,8 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
  *
  * ```
  *
- * @param GetHostedZoneCommandInput - {@link GetHostedZoneCommandInput}
- * @returns {@link GetHostedZoneCommandOutput}
+ * @param GetHostedZoneRequest - {@link GetHostedZoneRequest}
+ * @returns {@link GetHostedZoneResponse}
  * @see {@link GetHostedZoneCommandInput} for command's `input` shape.
  * @see {@link GetHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

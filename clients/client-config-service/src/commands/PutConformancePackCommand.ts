@@ -73,8 +73,8 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  *
  * ```
  *
- * @param PutConformancePackCommandInput - {@link PutConformancePackCommandInput}
- * @returns {@link PutConformancePackCommandOutput}
+ * @param PutConformancePackRequest - {@link PutConformancePackRequest}
+ * @returns {@link PutConformancePackResponse}
  * @see {@link PutConformancePackCommandInput} for command's `input` shape.
  * @see {@link PutConformancePackCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

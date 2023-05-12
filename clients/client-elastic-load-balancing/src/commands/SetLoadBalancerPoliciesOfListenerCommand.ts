@@ -67,8 +67,8 @@ export interface SetLoadBalancerPoliciesOfListenerCommandOutput
  *
  * ```
  *
- * @param SetLoadBalancerPoliciesOfListenerCommandInput - {@link SetLoadBalancerPoliciesOfListenerCommandInput}
- * @returns {@link SetLoadBalancerPoliciesOfListenerCommandOutput}
+ * @param SetLoadBalancerPoliciesOfListenerInput - {@link SetLoadBalancerPoliciesOfListenerInput}
+ * @returns {@link SetLoadBalancerPoliciesOfListenerOutput}
  * @see {@link SetLoadBalancerPoliciesOfListenerCommandInput} for command's `input` shape.
  * @see {@link SetLoadBalancerPoliciesOfListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

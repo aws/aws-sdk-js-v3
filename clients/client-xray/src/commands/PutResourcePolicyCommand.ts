@@ -63,8 +63,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult,
  *
  * ```
  *
- * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
- * @returns {@link PutResourcePolicyCommandOutput}
+ * @param PutResourcePolicyRequest - {@link PutResourcePolicyRequest}
+ * @returns {@link PutResourcePolicyResult}
  * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.

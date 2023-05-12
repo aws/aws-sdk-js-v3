@@ -58,8 +58,8 @@ export interface CreateEnvironmentMembershipCommandOutput extends CreateEnvironm
  *
  * ```
  *
- * @param CreateEnvironmentMembershipCommandInput - {@link CreateEnvironmentMembershipCommandInput}
- * @returns {@link CreateEnvironmentMembershipCommandOutput}
+ * @param CreateEnvironmentMembershipRequest - {@link CreateEnvironmentMembershipRequest}
+ * @returns {@link CreateEnvironmentMembershipResult}
  * @see {@link CreateEnvironmentMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentMembershipCommandOutput} for command's `response` shape.
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.

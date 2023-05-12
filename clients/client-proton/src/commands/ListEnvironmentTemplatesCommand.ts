@@ -67,8 +67,8 @@ export interface ListEnvironmentTemplatesCommandOutput extends ListEnvironmentTe
  *
  * ```
  *
- * @param ListEnvironmentTemplatesCommandInput - {@link ListEnvironmentTemplatesCommandInput}
- * @returns {@link ListEnvironmentTemplatesCommandOutput}
+ * @param ListEnvironmentTemplatesInput - {@link ListEnvironmentTemplatesInput}
+ * @returns {@link ListEnvironmentTemplatesOutput}
  * @see {@link ListEnvironmentTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentTemplatesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

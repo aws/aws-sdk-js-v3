@@ -63,8 +63,8 @@ export interface CreateAllowListCommandOutput extends CreateAllowListResponse, _
  *
  * ```
  *
- * @param CreateAllowListCommandInput - {@link CreateAllowListCommandInput}
- * @returns {@link CreateAllowListCommandOutput}
+ * @param CreateAllowListRequest - {@link CreateAllowListRequest}
+ * @returns {@link CreateAllowListResponse}
  * @see {@link CreateAllowListCommandInput} for command's `input` shape.
  * @see {@link CreateAllowListCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

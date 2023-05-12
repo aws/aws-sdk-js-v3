@@ -83,8 +83,8 @@ export interface GetEventTypesCommandOutput extends GetEventTypesResult, __Metad
  *
  * ```
  *
- * @param GetEventTypesCommandInput - {@link GetEventTypesCommandInput}
- * @returns {@link GetEventTypesCommandOutput}
+ * @param GetEventTypesRequest - {@link GetEventTypesRequest}
+ * @returns {@link GetEventTypesResult}
  * @see {@link GetEventTypesCommandInput} for command's `input` shape.
  * @see {@link GetEventTypesCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

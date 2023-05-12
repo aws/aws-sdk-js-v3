@@ -73,8 +73,8 @@ export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param JoinStorageSessionCommandInput - {@link JoinStorageSessionCommandInput}
- * @returns {@link JoinStorageSessionCommandOutput}
+ * @param JoinStorageSessionInput - {@link JoinStorageSessionInput}
+ * @returns {@link Unit}
  * @see {@link JoinStorageSessionCommandInput} for command's `input` shape.
  * @see {@link JoinStorageSessionCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoWebRTCStorageClientResolvedConfig | config} for KinesisVideoWebRTCStorageClient's `config` shape.

@@ -92,8 +92,8 @@ export interface DescribeDominantLanguageDetectionJobCommandOutput
  *
  * ```
  *
- * @param DescribeDominantLanguageDetectionJobCommandInput - {@link DescribeDominantLanguageDetectionJobCommandInput}
- * @returns {@link DescribeDominantLanguageDetectionJobCommandOutput}
+ * @param DescribeDominantLanguageDetectionJobRequest - {@link DescribeDominantLanguageDetectionJobRequest}
+ * @returns {@link DescribeDominantLanguageDetectionJobResponse}
  * @see {@link DescribeDominantLanguageDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDominantLanguageDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

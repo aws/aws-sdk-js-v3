@@ -72,8 +72,8 @@ export interface ReleasePhoneNumberCommandOutput extends ReleasePhoneNumberResul
  *
  * ```
  *
- * @param ReleasePhoneNumberCommandInput - {@link ReleasePhoneNumberCommandInput}
- * @returns {@link ReleasePhoneNumberCommandOutput}
+ * @param ReleasePhoneNumberRequest - {@link ReleasePhoneNumberRequest}
+ * @returns {@link ReleasePhoneNumberResult}
  * @see {@link ReleasePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link ReleasePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

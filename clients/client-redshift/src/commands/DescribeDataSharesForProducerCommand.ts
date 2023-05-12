@@ -75,8 +75,8 @@ export interface DescribeDataSharesForProducerCommandOutput
  *
  * ```
  *
- * @param DescribeDataSharesForProducerCommandInput - {@link DescribeDataSharesForProducerCommandInput}
- * @returns {@link DescribeDataSharesForProducerCommandOutput}
+ * @param DescribeDataSharesForProducerMessage - {@link DescribeDataSharesForProducerMessage}
+ * @returns {@link DescribeDataSharesForProducerResult}
  * @see {@link DescribeDataSharesForProducerCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSharesForProducerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

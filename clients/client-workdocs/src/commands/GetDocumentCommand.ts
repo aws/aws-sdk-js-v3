@@ -89,8 +89,8 @@ export interface GetDocumentCommandOutput extends GetDocumentResponse, __Metadat
  *
  * ```
  *
- * @param GetDocumentCommandInput - {@link GetDocumentCommandInput}
- * @returns {@link GetDocumentCommandOutput}
+ * @param GetDocumentRequest - {@link GetDocumentRequest}
+ * @returns {@link GetDocumentResponse}
  * @see {@link GetDocumentCommandInput} for command's `input` shape.
  * @see {@link GetDocumentCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

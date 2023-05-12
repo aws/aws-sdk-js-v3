@@ -74,8 +74,8 @@ export interface ListTopicRuleDestinationsCommandOutput extends ListTopicRuleDes
  *
  * ```
  *
- * @param ListTopicRuleDestinationsCommandInput - {@link ListTopicRuleDestinationsCommandInput}
- * @returns {@link ListTopicRuleDestinationsCommandOutput}
+ * @param ListTopicRuleDestinationsRequest - {@link ListTopicRuleDestinationsRequest}
+ * @returns {@link ListTopicRuleDestinationsResponse}
  * @see {@link ListTopicRuleDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListTopicRuleDestinationsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

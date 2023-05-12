@@ -86,8 +86,8 @@ export interface DeleteBucketMetricsConfigurationCommandOutput extends __Metadat
  *
  * ```
  *
- * @param DeleteBucketMetricsConfigurationCommandInput - {@link DeleteBucketMetricsConfigurationCommandInput}
- * @returns {@link DeleteBucketMetricsConfigurationCommandOutput}
+ * @param DeleteBucketMetricsConfigurationRequest - {@link DeleteBucketMetricsConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteBucketMetricsConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketMetricsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

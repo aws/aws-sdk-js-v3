@@ -58,8 +58,8 @@ export interface GetLensReviewReportCommandOutput extends GetLensReviewReportOut
  *
  * ```
  *
- * @param GetLensReviewReportCommandInput - {@link GetLensReviewReportCommandInput}
- * @returns {@link GetLensReviewReportCommandOutput}
+ * @param GetLensReviewReportInput - {@link GetLensReviewReportInput}
+ * @returns {@link GetLensReviewReportOutput}
  * @see {@link GetLensReviewReportCommandInput} for command's `input` shape.
  * @see {@link GetLensReviewReportCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

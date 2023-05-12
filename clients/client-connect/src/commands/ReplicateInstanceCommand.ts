@@ -61,8 +61,8 @@ export interface ReplicateInstanceCommandOutput extends ReplicateInstanceRespons
  *
  * ```
  *
- * @param ReplicateInstanceCommandInput - {@link ReplicateInstanceCommandInput}
- * @returns {@link ReplicateInstanceCommandOutput}
+ * @param ReplicateInstanceRequest - {@link ReplicateInstanceRequest}
+ * @returns {@link ReplicateInstanceResponse}
  * @see {@link ReplicateInstanceCommandInput} for command's `input` shape.
  * @see {@link ReplicateInstanceCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

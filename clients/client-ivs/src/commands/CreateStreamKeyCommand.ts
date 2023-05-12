@@ -67,8 +67,8 @@ export interface CreateStreamKeyCommandOutput extends CreateStreamKeyResponse, _
  *
  * ```
  *
- * @param CreateStreamKeyCommandInput - {@link CreateStreamKeyCommandInput}
- * @returns {@link CreateStreamKeyCommandOutput}
+ * @param CreateStreamKeyRequest - {@link CreateStreamKeyRequest}
+ * @returns {@link CreateStreamKeyResponse}
  * @see {@link CreateStreamKeyCommandInput} for command's `input` shape.
  * @see {@link CreateStreamKeyCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

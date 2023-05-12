@@ -117,8 +117,8 @@ export interface ActivateNetworkSiteCommandOutput extends ActivateNetworkSiteRes
  *
  * ```
  *
- * @param ActivateNetworkSiteCommandInput - {@link ActivateNetworkSiteCommandInput}
- * @returns {@link ActivateNetworkSiteCommandOutput}
+ * @param ActivateNetworkSiteRequest - {@link ActivateNetworkSiteRequest}
+ * @returns {@link ActivateNetworkSiteResponse}
  * @see {@link ActivateNetworkSiteCommandInput} for command's `input` shape.
  * @see {@link ActivateNetworkSiteCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.

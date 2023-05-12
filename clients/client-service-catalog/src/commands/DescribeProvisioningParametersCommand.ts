@@ -127,8 +127,8 @@ export interface DescribeProvisioningParametersCommandOutput
  *
  * ```
  *
- * @param DescribeProvisioningParametersCommandInput - {@link DescribeProvisioningParametersCommandInput}
- * @returns {@link DescribeProvisioningParametersCommandOutput}
+ * @param DescribeProvisioningParametersInput - {@link DescribeProvisioningParametersInput}
+ * @returns {@link DescribeProvisioningParametersOutput}
  * @see {@link DescribeProvisioningParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisioningParametersCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

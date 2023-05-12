@@ -75,8 +75,8 @@ export interface ListDocumentMetadataHistoryCommandOutput
  *
  * ```
  *
- * @param ListDocumentMetadataHistoryCommandInput - {@link ListDocumentMetadataHistoryCommandInput}
- * @returns {@link ListDocumentMetadataHistoryCommandOutput}
+ * @param ListDocumentMetadataHistoryRequest - {@link ListDocumentMetadataHistoryRequest}
+ * @returns {@link ListDocumentMetadataHistoryResponse}
  * @see {@link ListDocumentMetadataHistoryCommandInput} for command's `input` shape.
  * @see {@link ListDocumentMetadataHistoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

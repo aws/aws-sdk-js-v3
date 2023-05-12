@@ -65,8 +65,8 @@ export interface BatchDisassociateScramSecretCommandOutput
  *
  * ```
  *
- * @param BatchDisassociateScramSecretCommandInput - {@link BatchDisassociateScramSecretCommandInput}
- * @returns {@link BatchDisassociateScramSecretCommandOutput}
+ * @param BatchDisassociateScramSecretRequest - {@link BatchDisassociateScramSecretRequest}
+ * @returns {@link BatchDisassociateScramSecretResponse}
  * @see {@link BatchDisassociateScramSecretCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateScramSecretCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

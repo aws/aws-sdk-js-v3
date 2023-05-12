@@ -57,8 +57,8 @@ export interface PutLaunchProfileMembersCommandOutput extends PutLaunchProfileMe
  *
  * ```
  *
- * @param PutLaunchProfileMembersCommandInput - {@link PutLaunchProfileMembersCommandInput}
- * @returns {@link PutLaunchProfileMembersCommandOutput}
+ * @param PutLaunchProfileMembersRequest - {@link PutLaunchProfileMembersRequest}
+ * @returns {@link PutLaunchProfileMembersResponse}
  * @see {@link PutLaunchProfileMembersCommandInput} for command's `input` shape.
  * @see {@link PutLaunchProfileMembersCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

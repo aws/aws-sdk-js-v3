@@ -54,8 +54,8 @@ export interface GetScheduleGroupCommandOutput extends GetScheduleGroupOutput, _
  *
  * ```
  *
- * @param GetScheduleGroupCommandInput - {@link GetScheduleGroupCommandInput}
- * @returns {@link GetScheduleGroupCommandOutput}
+ * @param GetScheduleGroupInput - {@link GetScheduleGroupInput}
+ * @returns {@link GetScheduleGroupOutput}
  * @see {@link GetScheduleGroupCommandInput} for command's `input` shape.
  * @see {@link GetScheduleGroupCommandOutput} for command's `response` shape.
  * @see {@link SchedulerClientResolvedConfig | config} for SchedulerClient's `config` shape.

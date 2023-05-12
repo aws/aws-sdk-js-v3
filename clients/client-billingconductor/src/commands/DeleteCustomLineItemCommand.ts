@@ -56,8 +56,8 @@ export interface DeleteCustomLineItemCommandOutput extends DeleteCustomLineItemO
  *
  * ```
  *
- * @param DeleteCustomLineItemCommandInput - {@link DeleteCustomLineItemCommandInput}
- * @returns {@link DeleteCustomLineItemCommandOutput}
+ * @param DeleteCustomLineItemInput - {@link DeleteCustomLineItemInput}
+ * @returns {@link DeleteCustomLineItemOutput}
  * @see {@link DeleteCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

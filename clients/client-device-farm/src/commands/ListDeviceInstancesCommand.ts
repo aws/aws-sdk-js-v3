@@ -73,8 +73,8 @@ export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesRes
  *
  * ```
  *
- * @param ListDeviceInstancesCommandInput - {@link ListDeviceInstancesCommandInput}
- * @returns {@link ListDeviceInstancesCommandOutput}
+ * @param ListDeviceInstancesRequest - {@link ListDeviceInstancesRequest}
+ * @returns {@link ListDeviceInstancesResult}
  * @see {@link ListDeviceInstancesCommandInput} for command's `input` shape.
  * @see {@link ListDeviceInstancesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

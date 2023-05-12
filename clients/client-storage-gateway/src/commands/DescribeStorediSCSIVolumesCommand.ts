@@ -78,8 +78,8 @@ export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStoredi
  *
  * ```
  *
- * @param DescribeStorediSCSIVolumesCommandInput - {@link DescribeStorediSCSIVolumesCommandInput}
- * @returns {@link DescribeStorediSCSIVolumesCommandOutput}
+ * @param DescribeStorediSCSIVolumesInput - {@link DescribeStorediSCSIVolumesInput}
+ * @returns {@link DescribeStorediSCSIVolumesOutput}
  * @see {@link DescribeStorediSCSIVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeStorediSCSIVolumesCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

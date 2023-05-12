@@ -73,8 +73,8 @@ export interface CreateVocabularyFilterCommandOutput extends CreateVocabularyFil
  *
  * ```
  *
- * @param CreateVocabularyFilterCommandInput - {@link CreateVocabularyFilterCommandInput}
- * @returns {@link CreateVocabularyFilterCommandOutput}
+ * @param CreateVocabularyFilterRequest - {@link CreateVocabularyFilterRequest}
+ * @returns {@link CreateVocabularyFilterResponse}
  * @see {@link CreateVocabularyFilterCommandInput} for command's `input` shape.
  * @see {@link CreateVocabularyFilterCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

@@ -117,8 +117,8 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  *
  * ```
  *
- * @param DescribeRouteTablesCommandInput - {@link DescribeRouteTablesCommandInput}
- * @returns {@link DescribeRouteTablesCommandOutput}
+ * @param DescribeRouteTablesRequest - {@link DescribeRouteTablesRequest}
+ * @returns {@link DescribeRouteTablesResult}
  * @see {@link DescribeRouteTablesCommandInput} for command's `input` shape.
  * @see {@link DescribeRouteTablesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

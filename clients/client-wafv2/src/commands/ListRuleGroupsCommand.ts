@@ -62,8 +62,8 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  *
  * ```
  *
- * @param ListRuleGroupsCommandInput - {@link ListRuleGroupsCommandInput}
- * @returns {@link ListRuleGroupsCommandOutput}
+ * @param ListRuleGroupsRequest - {@link ListRuleGroupsRequest}
+ * @returns {@link ListRuleGroupsResponse}
  * @see {@link ListRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

@@ -64,8 +64,8 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  *
  * ```
  *
- * @param ImportHostKeyCommandInput - {@link ImportHostKeyCommandInput}
- * @returns {@link ImportHostKeyCommandOutput}
+ * @param ImportHostKeyRequest - {@link ImportHostKeyRequest}
+ * @returns {@link ImportHostKeyResponse}
  * @see {@link ImportHostKeyCommandInput} for command's `input` shape.
  * @see {@link ImportHostKeyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

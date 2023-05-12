@@ -50,8 +50,8 @@ export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ResetImageAttributeCommandInput - {@link ResetImageAttributeCommandInput}
- * @returns {@link ResetImageAttributeCommandOutput}
+ * @param ResetImageAttributeRequest - {@link ResetImageAttributeRequest}
+ * @returns {@link Unit}
  * @see {@link ResetImageAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

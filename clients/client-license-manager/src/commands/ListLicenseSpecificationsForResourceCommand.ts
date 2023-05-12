@@ -66,8 +66,8 @@ export interface ListLicenseSpecificationsForResourceCommandOutput
  *
  * ```
  *
- * @param ListLicenseSpecificationsForResourceCommandInput - {@link ListLicenseSpecificationsForResourceCommandInput}
- * @returns {@link ListLicenseSpecificationsForResourceCommandOutput}
+ * @param ListLicenseSpecificationsForResourceRequest - {@link ListLicenseSpecificationsForResourceRequest}
+ * @returns {@link ListLicenseSpecificationsForResourceResponse}
  * @see {@link ListLicenseSpecificationsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListLicenseSpecificationsForResourceCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

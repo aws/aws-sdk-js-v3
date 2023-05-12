@@ -68,8 +68,8 @@ export interface GetPositionCommandOutput extends GetPositionResponse, __Metadat
  *
  * ```
  *
- * @param GetPositionCommandInput - {@link GetPositionCommandInput}
- * @returns {@link GetPositionCommandOutput}
+ * @param GetPositionRequest - {@link GetPositionRequest}
+ * @returns {@link GetPositionResponse}
  * @see {@link GetPositionCommandInput} for command's `input` shape.
  * @see {@link GetPositionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

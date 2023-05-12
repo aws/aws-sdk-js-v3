@@ -73,8 +73,8 @@ export interface ModifyDefaultCreditSpecificationCommandOutput
  *
  * ```
  *
- * @param ModifyDefaultCreditSpecificationCommandInput - {@link ModifyDefaultCreditSpecificationCommandInput}
- * @returns {@link ModifyDefaultCreditSpecificationCommandOutput}
+ * @param ModifyDefaultCreditSpecificationRequest - {@link ModifyDefaultCreditSpecificationRequest}
+ * @returns {@link ModifyDefaultCreditSpecificationResult}
  * @see {@link ModifyDefaultCreditSpecificationCommandInput} for command's `input` shape.
  * @see {@link ModifyDefaultCreditSpecificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

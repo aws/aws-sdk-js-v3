@@ -65,8 +65,8 @@ export interface ListInvalidationsCommandOutput extends ListInvalidationsResult,
  *
  * ```
  *
- * @param ListInvalidationsCommandInput - {@link ListInvalidationsCommandInput}
- * @returns {@link ListInvalidationsCommandOutput}
+ * @param ListInvalidationsRequest - {@link ListInvalidationsRequest}
+ * @returns {@link ListInvalidationsResult}
  * @see {@link ListInvalidationsCommandInput} for command's `input` shape.
  * @see {@link ListInvalidationsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

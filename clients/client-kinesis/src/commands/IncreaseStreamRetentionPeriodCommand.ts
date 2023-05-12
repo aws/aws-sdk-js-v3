@@ -65,8 +65,8 @@ export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  *
  * ```
  *
- * @param IncreaseStreamRetentionPeriodCommandInput - {@link IncreaseStreamRetentionPeriodCommandInput}
- * @returns {@link IncreaseStreamRetentionPeriodCommandOutput}
+ * @param IncreaseStreamRetentionPeriodInput - {@link IncreaseStreamRetentionPeriodInput}
+ * @returns {@link Unit}
  * @see {@link IncreaseStreamRetentionPeriodCommandInput} for command's `input` shape.
  * @see {@link IncreaseStreamRetentionPeriodCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

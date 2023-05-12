@@ -63,8 +63,8 @@ export interface ListResourceProfileArtifactsCommandOutput
  *
  * ```
  *
- * @param ListResourceProfileArtifactsCommandInput - {@link ListResourceProfileArtifactsCommandInput}
- * @returns {@link ListResourceProfileArtifactsCommandOutput}
+ * @param ListResourceProfileArtifactsRequest - {@link ListResourceProfileArtifactsRequest}
+ * @returns {@link ListResourceProfileArtifactsResponse}
  * @see {@link ListResourceProfileArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListResourceProfileArtifactsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

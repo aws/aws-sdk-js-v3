@@ -109,8 +109,8 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param LeaveOrganizationCommandInput - {@link LeaveOrganizationCommandInput}
- * @returns {@link LeaveOrganizationCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link Unit}
  * @see {@link LeaveOrganizationCommandInput} for command's `input` shape.
  * @see {@link LeaveOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

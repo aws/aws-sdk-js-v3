@@ -64,8 +64,8 @@ export interface GetManagedPrefixListAssociationsCommandOutput
  *
  * ```
  *
- * @param GetManagedPrefixListAssociationsCommandInput - {@link GetManagedPrefixListAssociationsCommandInput}
- * @returns {@link GetManagedPrefixListAssociationsCommandOutput}
+ * @param GetManagedPrefixListAssociationsRequest - {@link GetManagedPrefixListAssociationsRequest}
+ * @returns {@link GetManagedPrefixListAssociationsResult}
  * @see {@link GetManagedPrefixListAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetManagedPrefixListAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

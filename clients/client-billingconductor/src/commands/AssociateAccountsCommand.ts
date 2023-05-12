@@ -56,8 +56,8 @@ export interface AssociateAccountsCommandOutput extends AssociateAccountsOutput,
  *
  * ```
  *
- * @param AssociateAccountsCommandInput - {@link AssociateAccountsCommandInput}
- * @returns {@link AssociateAccountsCommandOutput}
+ * @param AssociateAccountsInput - {@link AssociateAccountsInput}
+ * @returns {@link AssociateAccountsOutput}
  * @see {@link AssociateAccountsCommandInput} for command's `input` shape.
  * @see {@link AssociateAccountsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

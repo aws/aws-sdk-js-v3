@@ -57,8 +57,8 @@ export interface AssignVolumeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AssignVolumeCommandInput - {@link AssignVolumeCommandInput}
- * @returns {@link AssignVolumeCommandOutput}
+ * @param AssignVolumeRequest - {@link AssignVolumeRequest}
+ * @returns {@link Unit}
  * @see {@link AssignVolumeCommandInput} for command's `input` shape.
  * @see {@link AssignVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

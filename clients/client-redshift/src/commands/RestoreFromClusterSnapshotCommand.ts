@@ -269,8 +269,8 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  *
  * ```
  *
- * @param RestoreFromClusterSnapshotCommandInput - {@link RestoreFromClusterSnapshotCommandInput}
- * @returns {@link RestoreFromClusterSnapshotCommandOutput}
+ * @param RestoreFromClusterSnapshotMessage - {@link RestoreFromClusterSnapshotMessage}
+ * @returns {@link RestoreFromClusterSnapshotResult}
  * @see {@link RestoreFromClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreFromClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

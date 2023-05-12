@@ -63,8 +63,8 @@ export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
  *
  * ```
  *
- * @param EnableReachabilityAnalyzerOrganizationSharingCommandInput - {@link EnableReachabilityAnalyzerOrganizationSharingCommandInput}
- * @returns {@link EnableReachabilityAnalyzerOrganizationSharingCommandOutput}
+ * @param EnableReachabilityAnalyzerOrganizationSharingRequest - {@link EnableReachabilityAnalyzerOrganizationSharingRequest}
+ * @returns {@link EnableReachabilityAnalyzerOrganizationSharingResult}
  * @see {@link EnableReachabilityAnalyzerOrganizationSharingCommandInput} for command's `input` shape.
  * @see {@link EnableReachabilityAnalyzerOrganizationSharingCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

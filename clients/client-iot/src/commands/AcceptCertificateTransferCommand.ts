@@ -53,8 +53,8 @@ export interface AcceptCertificateTransferCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param AcceptCertificateTransferCommandInput - {@link AcceptCertificateTransferCommandInput}
- * @returns {@link AcceptCertificateTransferCommandOutput}
+ * @param AcceptCertificateTransferRequest - {@link AcceptCertificateTransferRequest}
+ * @returns {@link Unit}
  * @see {@link AcceptCertificateTransferCommandInput} for command's `input` shape.
  * @see {@link AcceptCertificateTransferCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

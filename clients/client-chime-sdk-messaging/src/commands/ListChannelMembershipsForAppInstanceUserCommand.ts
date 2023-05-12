@@ -91,8 +91,8 @@ export interface ListChannelMembershipsForAppInstanceUserCommandOutput
  *
  * ```
  *
- * @param ListChannelMembershipsForAppInstanceUserCommandInput - {@link ListChannelMembershipsForAppInstanceUserCommandInput}
- * @returns {@link ListChannelMembershipsForAppInstanceUserCommandOutput}
+ * @param ListChannelMembershipsForAppInstanceUserRequest - {@link ListChannelMembershipsForAppInstanceUserRequest}
+ * @returns {@link ListChannelMembershipsForAppInstanceUserResponse}
  * @see {@link ListChannelMembershipsForAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link ListChannelMembershipsForAppInstanceUserCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

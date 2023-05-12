@@ -68,8 +68,8 @@ export interface DescribeAppVersionAppComponentCommandOutput
  *
  * ```
  *
- * @param DescribeAppVersionAppComponentCommandInput - {@link DescribeAppVersionAppComponentCommandInput}
- * @returns {@link DescribeAppVersionAppComponentCommandOutput}
+ * @param DescribeAppVersionAppComponentRequest - {@link DescribeAppVersionAppComponentRequest}
+ * @returns {@link DescribeAppVersionAppComponentResponse}
  * @see {@link DescribeAppVersionAppComponentCommandInput} for command's `input` shape.
  * @see {@link DescribeAppVersionAppComponentCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

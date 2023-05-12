@@ -75,8 +75,8 @@ export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBea
  *
  * ```
  *
- * @param UpdateACLCommandInput - {@link UpdateACLCommandInput}
- * @returns {@link UpdateACLCommandOutput}
+ * @param UpdateACLRequest - {@link UpdateACLRequest}
+ * @returns {@link UpdateACLResponse}
  * @see {@link UpdateACLCommandInput} for command's `input` shape.
  * @see {@link UpdateACLCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

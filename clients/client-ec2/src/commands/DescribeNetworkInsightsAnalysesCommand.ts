@@ -787,8 +787,8 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  *
  * ```
  *
- * @param DescribeNetworkInsightsAnalysesCommandInput - {@link DescribeNetworkInsightsAnalysesCommandInput}
- * @returns {@link DescribeNetworkInsightsAnalysesCommandOutput}
+ * @param DescribeNetworkInsightsAnalysesRequest - {@link DescribeNetworkInsightsAnalysesRequest}
+ * @returns {@link DescribeNetworkInsightsAnalysesResult}
  * @see {@link DescribeNetworkInsightsAnalysesCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInsightsAnalysesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

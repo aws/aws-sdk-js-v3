@@ -71,8 +71,8 @@ export interface ImportHubContentCommandOutput extends ImportHubContentResponse,
  *
  * ```
  *
- * @param ImportHubContentCommandInput - {@link ImportHubContentCommandInput}
- * @returns {@link ImportHubContentCommandOutput}
+ * @param ImportHubContentRequest - {@link ImportHubContentRequest}
+ * @returns {@link ImportHubContentResponse}
  * @see {@link ImportHubContentCommandInput} for command's `input` shape.
  * @see {@link ImportHubContentCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -69,8 +69,8 @@ export interface CreateRefreshScheduleCommandOutput extends CreateRefreshSchedul
  *
  * ```
  *
- * @param CreateRefreshScheduleCommandInput - {@link CreateRefreshScheduleCommandInput}
- * @returns {@link CreateRefreshScheduleCommandOutput}
+ * @param CreateRefreshScheduleRequest - {@link CreateRefreshScheduleRequest}
+ * @returns {@link CreateRefreshScheduleResponse}
  * @see {@link CreateRefreshScheduleCommandInput} for command's `input` shape.
  * @see {@link CreateRefreshScheduleCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

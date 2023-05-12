@@ -785,8 +785,8 @@ export interface StartNetworkInsightsAnalysisCommandOutput
  *
  * ```
  *
- * @param StartNetworkInsightsAnalysisCommandInput - {@link StartNetworkInsightsAnalysisCommandInput}
- * @returns {@link StartNetworkInsightsAnalysisCommandOutput}
+ * @param StartNetworkInsightsAnalysisRequest - {@link StartNetworkInsightsAnalysisRequest}
+ * @returns {@link StartNetworkInsightsAnalysisResult}
  * @see {@link StartNetworkInsightsAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartNetworkInsightsAnalysisCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

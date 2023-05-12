@@ -66,8 +66,8 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  *
  * ```
  *
- * @param PutEmailIdentityFeedbackAttributesCommandInput - {@link PutEmailIdentityFeedbackAttributesCommandInput}
- * @returns {@link PutEmailIdentityFeedbackAttributesCommandOutput}
+ * @param PutEmailIdentityFeedbackAttributesRequest - {@link PutEmailIdentityFeedbackAttributesRequest}
+ * @returns {@link PutEmailIdentityFeedbackAttributesResponse}
  * @see {@link PutEmailIdentityFeedbackAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityFeedbackAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

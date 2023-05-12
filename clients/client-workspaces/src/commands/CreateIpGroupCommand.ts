@@ -71,8 +71,8 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  *
  * ```
  *
- * @param CreateIpGroupCommandInput - {@link CreateIpGroupCommandInput}
- * @returns {@link CreateIpGroupCommandOutput}
+ * @param CreateIpGroupRequest - {@link CreateIpGroupRequest}
+ * @returns {@link CreateIpGroupResult}
  * @see {@link CreateIpGroupCommandInput} for command's `input` shape.
  * @see {@link CreateIpGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

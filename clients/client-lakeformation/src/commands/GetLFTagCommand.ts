@@ -55,8 +55,8 @@ export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetLFTagCommandInput - {@link GetLFTagCommandInput}
- * @returns {@link GetLFTagCommandOutput}
+ * @param GetLFTagRequest - {@link GetLFTagRequest}
+ * @returns {@link GetLFTagResponse}
  * @see {@link GetLFTagCommandInput} for command's `input` shape.
  * @see {@link GetLFTagCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

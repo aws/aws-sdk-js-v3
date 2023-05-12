@@ -60,8 +60,8 @@ export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyR
  *
  * ```
  *
- * @param DeleteIdentityPolicyCommandInput - {@link DeleteIdentityPolicyCommandInput}
- * @returns {@link DeleteIdentityPolicyCommandOutput}
+ * @param DeleteIdentityPolicyRequest - {@link DeleteIdentityPolicyRequest}
+ * @returns {@link DeleteIdentityPolicyResponse}
  * @see {@link DeleteIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

@@ -69,8 +69,8 @@ export interface GetPipelineExecutionCommandOutput extends GetPipelineExecutionO
  *
  * ```
  *
- * @param GetPipelineExecutionCommandInput - {@link GetPipelineExecutionCommandInput}
- * @returns {@link GetPipelineExecutionCommandOutput}
+ * @param GetPipelineExecutionInput - {@link GetPipelineExecutionInput}
+ * @returns {@link GetPipelineExecutionOutput}
  * @see {@link GetPipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link GetPipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

@@ -88,8 +88,8 @@ export interface GetDeliverabilityTestReportCommandOutput
  *
  * ```
  *
- * @param GetDeliverabilityTestReportCommandInput - {@link GetDeliverabilityTestReportCommandInput}
- * @returns {@link GetDeliverabilityTestReportCommandOutput}
+ * @param GetDeliverabilityTestReportRequest - {@link GetDeliverabilityTestReportRequest}
+ * @returns {@link GetDeliverabilityTestReportResponse}
  * @see {@link GetDeliverabilityTestReportCommandInput} for command's `input` shape.
  * @see {@link GetDeliverabilityTestReportCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

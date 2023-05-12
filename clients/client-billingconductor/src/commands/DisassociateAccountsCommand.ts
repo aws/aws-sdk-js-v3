@@ -53,8 +53,8 @@ export interface DisassociateAccountsCommandOutput extends DisassociateAccountsO
  *
  * ```
  *
- * @param DisassociateAccountsCommandInput - {@link DisassociateAccountsCommandInput}
- * @returns {@link DisassociateAccountsCommandOutput}
+ * @param DisassociateAccountsInput - {@link DisassociateAccountsInput}
+ * @returns {@link DisassociateAccountsOutput}
  * @see {@link DisassociateAccountsCommandInput} for command's `input` shape.
  * @see {@link DisassociateAccountsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

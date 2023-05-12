@@ -118,8 +118,8 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  *
  * ```
  *
- * @param GetContentModerationCommandInput - {@link GetContentModerationCommandInput}
- * @returns {@link GetContentModerationCommandOutput}
+ * @param GetContentModerationRequest - {@link GetContentModerationRequest}
+ * @returns {@link GetContentModerationResponse}
  * @see {@link GetContentModerationCommandInput} for command's `input` shape.
  * @see {@link GetContentModerationCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

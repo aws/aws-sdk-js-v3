@@ -118,8 +118,8 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  *
  * ```
  *
- * @param DescribeServerCommandInput - {@link DescribeServerCommandInput}
- * @returns {@link DescribeServerCommandOutput}
+ * @param DescribeServerRequest - {@link DescribeServerRequest}
+ * @returns {@link DescribeServerResponse}
  * @see {@link DescribeServerCommandInput} for command's `input` shape.
  * @see {@link DescribeServerCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

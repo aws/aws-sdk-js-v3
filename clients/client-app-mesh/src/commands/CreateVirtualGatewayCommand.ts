@@ -319,8 +319,8 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  *
  * ```
  *
- * @param CreateVirtualGatewayCommandInput - {@link CreateVirtualGatewayCommandInput}
- * @returns {@link CreateVirtualGatewayCommandOutput}
+ * @param CreateVirtualGatewayInput - {@link CreateVirtualGatewayInput}
+ * @returns {@link CreateVirtualGatewayOutput}
  * @see {@link CreateVirtualGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualGatewayCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

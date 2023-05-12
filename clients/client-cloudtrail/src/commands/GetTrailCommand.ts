@@ -67,8 +67,8 @@ export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetTrailCommandInput - {@link GetTrailCommandInput}
- * @returns {@link GetTrailCommandOutput}
+ * @param GetTrailRequest - {@link GetTrailRequest}
+ * @returns {@link GetTrailResponse}
  * @see {@link GetTrailCommandInput} for command's `input` shape.
  * @see {@link GetTrailCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

@@ -66,8 +66,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
+ * @param TagResourceInput - {@link TagResourceInput}
+ * @returns {@link TagResourceResponse}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.

@@ -50,8 +50,8 @@ export interface DeleteEventTypeCommandOutput extends DeleteEventTypeResult, __M
  *
  * ```
  *
- * @param DeleteEventTypeCommandInput - {@link DeleteEventTypeCommandInput}
- * @returns {@link DeleteEventTypeCommandOutput}
+ * @param DeleteEventTypeRequest - {@link DeleteEventTypeRequest}
+ * @returns {@link DeleteEventTypeResult}
  * @see {@link DeleteEventTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteEventTypeCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

@@ -99,8 +99,8 @@ export interface CreateSourceLocationCommandOutput extends CreateSourceLocationR
  *
  * ```
  *
- * @param CreateSourceLocationCommandInput - {@link CreateSourceLocationCommandInput}
- * @returns {@link CreateSourceLocationCommandOutput}
+ * @param CreateSourceLocationRequest - {@link CreateSourceLocationRequest}
+ * @returns {@link CreateSourceLocationResponse}
  * @see {@link CreateSourceLocationCommandInput} for command's `input` shape.
  * @see {@link CreateSourceLocationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

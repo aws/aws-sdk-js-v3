@@ -54,8 +54,8 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateStreamModeCommandInput - {@link UpdateStreamModeCommandInput}
- * @returns {@link UpdateStreamModeCommandOutput}
+ * @param UpdateStreamModeInput - {@link UpdateStreamModeInput}
+ * @returns {@link Unit}
  * @see {@link UpdateStreamModeCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamModeCommandOutput} for command's `response` shape.
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.

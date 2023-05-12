@@ -48,8 +48,8 @@ export interface StopMonitoringScheduleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopMonitoringScheduleCommandInput - {@link StopMonitoringScheduleCommandInput}
- * @returns {@link StopMonitoringScheduleCommandOutput}
+ * @param StopMonitoringScheduleRequest - {@link StopMonitoringScheduleRequest}
+ * @returns {@link Unit}
  * @see {@link StopMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link StopMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

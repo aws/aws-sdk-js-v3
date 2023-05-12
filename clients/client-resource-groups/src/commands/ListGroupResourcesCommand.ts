@@ -111,8 +111,8 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutpu
  *
  * ```
  *
- * @param ListGroupResourcesCommandInput - {@link ListGroupResourcesCommandInput}
- * @returns {@link ListGroupResourcesCommandOutput}
+ * @param ListGroupResourcesInput - {@link ListGroupResourcesInput}
+ * @returns {@link ListGroupResourcesOutput}
  * @see {@link ListGroupResourcesCommandInput} for command's `input` shape.
  * @see {@link ListGroupResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

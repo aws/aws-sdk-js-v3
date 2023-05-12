@@ -50,8 +50,8 @@ export interface DeleteExtensionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteExtensionCommandInput - {@link DeleteExtensionCommandInput}
- * @returns {@link DeleteExtensionCommandOutput}
+ * @param DeleteExtensionRequest - {@link DeleteExtensionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteExtensionCommandInput} for command's `input` shape.
  * @see {@link DeleteExtensionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

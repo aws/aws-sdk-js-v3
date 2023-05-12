@@ -67,8 +67,8 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse,
  *
  * ```
  *
- * @param CreateTrustStoreCommandInput - {@link CreateTrustStoreCommandInput}
- * @returns {@link CreateTrustStoreCommandOutput}
+ * @param CreateTrustStoreRequest - {@link CreateTrustStoreRequest}
+ * @returns {@link CreateTrustStoreResponse}
  * @see {@link CreateTrustStoreCommandInput} for command's `input` shape.
  * @see {@link CreateTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

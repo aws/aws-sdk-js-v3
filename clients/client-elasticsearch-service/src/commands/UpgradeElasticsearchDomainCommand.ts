@@ -62,8 +62,8 @@ export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElastics
  *
  * ```
  *
- * @param UpgradeElasticsearchDomainCommandInput - {@link UpgradeElasticsearchDomainCommandInput}
- * @returns {@link UpgradeElasticsearchDomainCommandOutput}
+ * @param UpgradeElasticsearchDomainRequest - {@link UpgradeElasticsearchDomainRequest}
+ * @returns {@link UpgradeElasticsearchDomainResponse}
  * @see {@link UpgradeElasticsearchDomainCommandInput} for command's `input` shape.
  * @see {@link UpgradeElasticsearchDomainCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

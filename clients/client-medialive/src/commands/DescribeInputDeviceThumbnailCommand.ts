@@ -67,8 +67,8 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  *
  * ```
  *
- * @param DescribeInputDeviceThumbnailCommandInput - {@link DescribeInputDeviceThumbnailCommandInput}
- * @returns {@link DescribeInputDeviceThumbnailCommandOutput}
+ * @param DescribeInputDeviceThumbnailRequest - {@link DescribeInputDeviceThumbnailRequest}
+ * @returns {@link DescribeInputDeviceThumbnailResponse}
  * @see {@link DescribeInputDeviceThumbnailCommandInput} for command's `input` shape.
  * @see {@link DescribeInputDeviceThumbnailCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

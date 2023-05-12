@@ -76,8 +76,8 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  *
  * ```
  *
- * @param DescribePackagesCommandInput - {@link DescribePackagesCommandInput}
- * @returns {@link DescribePackagesCommandOutput}
+ * @param DescribePackagesRequest - {@link DescribePackagesRequest}
+ * @returns {@link DescribePackagesResponse}
  * @see {@link DescribePackagesCommandInput} for command's `input` shape.
  * @see {@link DescribePackagesCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

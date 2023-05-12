@@ -68,8 +68,8 @@ export interface ListNetworkProfilesCommandOutput extends ListNetworkProfilesRes
  *
  * ```
  *
- * @param ListNetworkProfilesCommandInput - {@link ListNetworkProfilesCommandInput}
- * @returns {@link ListNetworkProfilesCommandOutput}
+ * @param ListNetworkProfilesRequest - {@link ListNetworkProfilesRequest}
+ * @returns {@link ListNetworkProfilesResult}
  * @see {@link ListNetworkProfilesCommandInput} for command's `input` shape.
  * @see {@link ListNetworkProfilesCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

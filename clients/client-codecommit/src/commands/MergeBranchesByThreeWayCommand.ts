@@ -81,8 +81,8 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
  *
  * ```
  *
- * @param MergeBranchesByThreeWayCommandInput - {@link MergeBranchesByThreeWayCommandInput}
- * @returns {@link MergeBranchesByThreeWayCommandOutput}
+ * @param MergeBranchesByThreeWayInput - {@link MergeBranchesByThreeWayInput}
+ * @returns {@link MergeBranchesByThreeWayOutput}
  * @see {@link MergeBranchesByThreeWayCommandInput} for command's `input` shape.
  * @see {@link MergeBranchesByThreeWayCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

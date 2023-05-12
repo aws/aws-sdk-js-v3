@@ -48,8 +48,8 @@ export interface DisassociateApiCommandOutput extends DisassociateApiResponse, _
  *
  * ```
  *
- * @param DisassociateApiCommandInput - {@link DisassociateApiCommandInput}
- * @returns {@link DisassociateApiCommandOutput}
+ * @param DisassociateApiRequest - {@link DisassociateApiRequest}
+ * @returns {@link DisassociateApiResponse}
  * @see {@link DisassociateApiCommandInput} for command's `input` shape.
  * @see {@link DisassociateApiCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

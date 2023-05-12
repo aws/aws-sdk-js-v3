@@ -71,8 +71,8 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  *
  * ```
  *
- * @param EnableSecurityHubCommandInput - {@link EnableSecurityHubCommandInput}
- * @returns {@link EnableSecurityHubCommandOutput}
+ * @param EnableSecurityHubRequest - {@link EnableSecurityHubRequest}
+ * @returns {@link EnableSecurityHubResponse}
  * @see {@link EnableSecurityHubCommandInput} for command's `input` shape.
  * @see {@link EnableSecurityHubCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

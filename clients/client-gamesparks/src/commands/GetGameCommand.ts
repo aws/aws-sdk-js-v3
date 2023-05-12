@@ -61,8 +61,8 @@ export interface GetGameCommandOutput extends GetGameResult, __MetadataBearer {}
  *
  * ```
  *
- * @param GetGameCommandInput - {@link GetGameCommandInput}
- * @returns {@link GetGameCommandOutput}
+ * @param GetGameRequest - {@link GetGameRequest}
+ * @returns {@link GetGameResult}
  * @see {@link GetGameCommandInput} for command's `input` shape.
  * @see {@link GetGameCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

@@ -90,8 +90,8 @@ export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput
  *
  * ```
  *
- * @param ListTrafficPolicyInstancesByHostedZoneCommandInput - {@link ListTrafficPolicyInstancesByHostedZoneCommandInput}
- * @returns {@link ListTrafficPolicyInstancesByHostedZoneCommandOutput}
+ * @param ListTrafficPolicyInstancesByHostedZoneRequest - {@link ListTrafficPolicyInstancesByHostedZoneRequest}
+ * @returns {@link ListTrafficPolicyInstancesByHostedZoneResponse}
  * @see {@link ListTrafficPolicyInstancesByHostedZoneCommandInput} for command's `input` shape.
  * @see {@link ListTrafficPolicyInstancesByHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

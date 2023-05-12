@@ -121,8 +121,8 @@ export interface DescribeFileCachesCommandOutput extends DescribeFileCachesRespo
  *
  * ```
  *
- * @param DescribeFileCachesCommandInput - {@link DescribeFileCachesCommandInput}
- * @returns {@link DescribeFileCachesCommandOutput}
+ * @param DescribeFileCachesRequest - {@link DescribeFileCachesRequest}
+ * @returns {@link DescribeFileCachesResponse}
  * @see {@link DescribeFileCachesCommandInput} for command's `input` shape.
  * @see {@link DescribeFileCachesCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

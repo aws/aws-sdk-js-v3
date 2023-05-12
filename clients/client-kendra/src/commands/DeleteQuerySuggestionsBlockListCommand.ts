@@ -58,8 +58,8 @@ export interface DeleteQuerySuggestionsBlockListCommandOutput extends __Metadata
  *
  * ```
  *
- * @param DeleteQuerySuggestionsBlockListCommandInput - {@link DeleteQuerySuggestionsBlockListCommandInput}
- * @returns {@link DeleteQuerySuggestionsBlockListCommandOutput}
+ * @param DeleteQuerySuggestionsBlockListRequest - {@link DeleteQuerySuggestionsBlockListRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteQuerySuggestionsBlockListCommandInput} for command's `input` shape.
  * @see {@link DeleteQuerySuggestionsBlockListCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

@@ -104,8 +104,8 @@ export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __Metad
  *
  * ```
  *
- * @param GetBackupPlanCommandInput - {@link GetBackupPlanCommandInput}
- * @returns {@link GetBackupPlanCommandOutput}
+ * @param GetBackupPlanInput - {@link GetBackupPlanInput}
+ * @returns {@link GetBackupPlanOutput}
  * @see {@link GetBackupPlanCommandInput} for command's `input` shape.
  * @see {@link GetBackupPlanCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

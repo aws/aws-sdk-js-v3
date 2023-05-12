@@ -53,8 +53,8 @@ export interface GetWorkflowRunPropertiesCommandOutput extends GetWorkflowRunPro
  *
  * ```
  *
- * @param GetWorkflowRunPropertiesCommandInput - {@link GetWorkflowRunPropertiesCommandInput}
- * @returns {@link GetWorkflowRunPropertiesCommandOutput}
+ * @param GetWorkflowRunPropertiesRequest - {@link GetWorkflowRunPropertiesRequest}
+ * @returns {@link GetWorkflowRunPropertiesResponse}
  * @see {@link GetWorkflowRunPropertiesCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowRunPropertiesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

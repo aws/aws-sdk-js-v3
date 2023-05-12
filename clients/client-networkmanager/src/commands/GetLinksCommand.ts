@@ -82,8 +82,8 @@ export interface GetLinksCommandOutput extends GetLinksResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetLinksCommandInput - {@link GetLinksCommandInput}
- * @returns {@link GetLinksCommandOutput}
+ * @param GetLinksRequest - {@link GetLinksRequest}
+ * @returns {@link GetLinksResponse}
  * @see {@link GetLinksCommandInput} for command's `input` shape.
  * @see {@link GetLinksCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

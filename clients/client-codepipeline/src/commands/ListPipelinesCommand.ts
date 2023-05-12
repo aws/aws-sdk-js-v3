@@ -59,8 +59,8 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  *
  * ```
  *
- * @param ListPipelinesCommandInput - {@link ListPipelinesCommandInput}
- * @returns {@link ListPipelinesCommandOutput}
+ * @param ListPipelinesInput - {@link ListPipelinesInput}
+ * @returns {@link ListPipelinesOutput}
  * @see {@link ListPipelinesCommandInput} for command's `input` shape.
  * @see {@link ListPipelinesCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

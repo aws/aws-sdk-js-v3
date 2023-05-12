@@ -70,8 +70,8 @@ export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __M
  *
  * ```
  *
- * @param ListImportJobsCommandInput - {@link ListImportJobsCommandInput}
- * @returns {@link ListImportJobsCommandOutput}
+ * @param ListImportJobsRequest - {@link ListImportJobsRequest}
+ * @returns {@link ListImportJobsResponse}
  * @see {@link ListImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListImportJobsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

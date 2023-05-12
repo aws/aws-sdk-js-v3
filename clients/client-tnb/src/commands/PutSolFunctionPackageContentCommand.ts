@@ -72,8 +72,8 @@ export interface PutSolFunctionPackageContentCommandOutput
  *
  * ```
  *
- * @param PutSolFunctionPackageContentCommandInput - {@link PutSolFunctionPackageContentCommandInput}
- * @returns {@link PutSolFunctionPackageContentCommandOutput}
+ * @param PutSolFunctionPackageContentInput - {@link PutSolFunctionPackageContentInput}
+ * @returns {@link PutSolFunctionPackageContentOutput}
  * @see {@link PutSolFunctionPackageContentCommandInput} for command's `input` shape.
  * @see {@link PutSolFunctionPackageContentCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

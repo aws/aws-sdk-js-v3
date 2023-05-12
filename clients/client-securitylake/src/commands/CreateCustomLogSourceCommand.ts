@@ -62,8 +62,8 @@ export interface CreateCustomLogSourceCommandOutput extends CreateCustomLogSourc
  *
  * ```
  *
- * @param CreateCustomLogSourceCommandInput - {@link CreateCustomLogSourceCommandInput}
- * @returns {@link CreateCustomLogSourceCommandOutput}
+ * @param CreateCustomLogSourceRequest - {@link CreateCustomLogSourceRequest}
+ * @returns {@link CreateCustomLogSourceResponse}
  * @see {@link CreateCustomLogSourceCommandInput} for command's `input` shape.
  * @see {@link CreateCustomLogSourceCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

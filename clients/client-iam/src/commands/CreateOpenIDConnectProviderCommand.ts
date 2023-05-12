@@ -111,8 +111,8 @@ export interface CreateOpenIDConnectProviderCommandOutput
  *
  * ```
  *
- * @param CreateOpenIDConnectProviderCommandInput - {@link CreateOpenIDConnectProviderCommandInput}
- * @returns {@link CreateOpenIDConnectProviderCommandOutput}
+ * @param CreateOpenIDConnectProviderRequest - {@link CreateOpenIDConnectProviderRequest}
+ * @returns {@link CreateOpenIDConnectProviderResponse}
  * @see {@link CreateOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link CreateOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

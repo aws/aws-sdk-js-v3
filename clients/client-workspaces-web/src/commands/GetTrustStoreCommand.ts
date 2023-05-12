@@ -55,8 +55,8 @@ export interface GetTrustStoreCommandOutput extends GetTrustStoreResponse, __Met
  *
  * ```
  *
- * @param GetTrustStoreCommandInput - {@link GetTrustStoreCommandInput}
- * @returns {@link GetTrustStoreCommandOutput}
+ * @param GetTrustStoreRequest - {@link GetTrustStoreRequest}
+ * @returns {@link GetTrustStoreResponse}
  * @see {@link GetTrustStoreCommandInput} for command's `input` shape.
  * @see {@link GetTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

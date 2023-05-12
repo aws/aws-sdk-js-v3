@@ -105,8 +105,8 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  *
  * ```
  *
- * @param CreateWorkforceCommandInput - {@link CreateWorkforceCommandInput}
- * @returns {@link CreateWorkforceCommandOutput}
+ * @param CreateWorkforceRequest - {@link CreateWorkforceRequest}
+ * @returns {@link CreateWorkforceResponse}
  * @see {@link CreateWorkforceCommandInput} for command's `input` shape.
  * @see {@link CreateWorkforceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

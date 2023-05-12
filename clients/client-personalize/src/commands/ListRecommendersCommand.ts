@@ -72,8 +72,8 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  *
  * ```
  *
- * @param ListRecommendersCommandInput - {@link ListRecommendersCommandInput}
- * @returns {@link ListRecommendersCommandOutput}
+ * @param ListRecommendersRequest - {@link ListRecommendersRequest}
+ * @returns {@link ListRecommendersResponse}
  * @see {@link ListRecommendersCommandInput} for command's `input` shape.
  * @see {@link ListRecommendersCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

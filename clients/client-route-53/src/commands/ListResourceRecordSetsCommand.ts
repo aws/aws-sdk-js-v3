@@ -162,8 +162,8 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  *
  * ```
  *
- * @param ListResourceRecordSetsCommandInput - {@link ListResourceRecordSetsCommandInput}
- * @returns {@link ListResourceRecordSetsCommandOutput}
+ * @param ListResourceRecordSetsRequest - {@link ListResourceRecordSetsRequest}
+ * @returns {@link ListResourceRecordSetsResponse}
  * @see {@link ListResourceRecordSetsCommandInput} for command's `input` shape.
  * @see {@link ListResourceRecordSetsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

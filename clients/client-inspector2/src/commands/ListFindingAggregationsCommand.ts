@@ -273,8 +273,8 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  *
  * ```
  *
- * @param ListFindingAggregationsCommandInput - {@link ListFindingAggregationsCommandInput}
- * @returns {@link ListFindingAggregationsCommandOutput}
+ * @param ListFindingAggregationsRequest - {@link ListFindingAggregationsRequest}
+ * @returns {@link ListFindingAggregationsResponse}
  * @see {@link ListFindingAggregationsCommandInput} for command's `input` shape.
  * @see {@link ListFindingAggregationsCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

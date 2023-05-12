@@ -70,8 +70,8 @@ export interface GetTableRestoreStatusCommandOutput extends GetTableRestoreStatu
  *
  * ```
  *
- * @param GetTableRestoreStatusCommandInput - {@link GetTableRestoreStatusCommandInput}
- * @returns {@link GetTableRestoreStatusCommandOutput}
+ * @param GetTableRestoreStatusRequest - {@link GetTableRestoreStatusRequest}
+ * @returns {@link GetTableRestoreStatusResponse}
  * @see {@link GetTableRestoreStatusCommandInput} for command's `input` shape.
  * @see {@link GetTableRestoreStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

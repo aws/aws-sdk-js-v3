@@ -57,8 +57,8 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
  *
  * ```
  *
- * @param UpdateSignalingChannelCommandInput - {@link UpdateSignalingChannelCommandInput}
- * @returns {@link UpdateSignalingChannelCommandOutput}
+ * @param UpdateSignalingChannelInput - {@link UpdateSignalingChannelInput}
+ * @returns {@link UpdateSignalingChannelOutput}
  * @see {@link UpdateSignalingChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateSignalingChannelCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

@@ -69,8 +69,8 @@ export interface ListContactEvaluationsCommandOutput extends ListContactEvaluati
  *
  * ```
  *
- * @param ListContactEvaluationsCommandInput - {@link ListContactEvaluationsCommandInput}
- * @returns {@link ListContactEvaluationsCommandOutput}
+ * @param ListContactEvaluationsRequest - {@link ListContactEvaluationsRequest}
+ * @returns {@link ListContactEvaluationsResponse}
  * @see {@link ListContactEvaluationsCommandInput} for command's `input` shape.
  * @see {@link ListContactEvaluationsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

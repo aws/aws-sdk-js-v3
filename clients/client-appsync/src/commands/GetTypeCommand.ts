@@ -58,8 +58,8 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  *
  * ```
  *
- * @param GetTypeCommandInput - {@link GetTypeCommandInput}
- * @returns {@link GetTypeCommandOutput}
+ * @param GetTypeRequest - {@link GetTypeRequest}
+ * @returns {@link GetTypeResponse}
  * @see {@link GetTypeCommandInput} for command's `input` shape.
  * @see {@link GetTypeCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

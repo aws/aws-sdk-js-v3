@@ -173,8 +173,8 @@ export interface RegisterContainerInstanceCommandOutput extends RegisterContaine
  *
  * ```
  *
- * @param RegisterContainerInstanceCommandInput - {@link RegisterContainerInstanceCommandInput}
- * @returns {@link RegisterContainerInstanceCommandOutput}
+ * @param RegisterContainerInstanceRequest - {@link RegisterContainerInstanceRequest}
+ * @returns {@link RegisterContainerInstanceResponse}
  * @see {@link RegisterContainerInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterContainerInstanceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

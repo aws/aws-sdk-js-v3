@@ -63,8 +63,8 @@ export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, _
  *
  * ```
  *
- * @param RebootWorkspacesCommandInput - {@link RebootWorkspacesCommandInput}
- * @returns {@link RebootWorkspacesCommandOutput}
+ * @param RebootWorkspacesRequest - {@link RebootWorkspacesRequest}
+ * @returns {@link RebootWorkspacesResult}
  * @see {@link RebootWorkspacesCommandInput} for command's `input` shape.
  * @see {@link RebootWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

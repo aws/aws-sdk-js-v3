@@ -75,8 +75,8 @@ export interface AttachDiskCommandOutput extends AttachDiskResult, __MetadataBea
  *
  * ```
  *
- * @param AttachDiskCommandInput - {@link AttachDiskCommandInput}
- * @returns {@link AttachDiskCommandOutput}
+ * @param AttachDiskRequest - {@link AttachDiskRequest}
+ * @returns {@link AttachDiskResult}
  * @see {@link AttachDiskCommandInput} for command's `input` shape.
  * @see {@link AttachDiskCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

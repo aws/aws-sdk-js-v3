@@ -51,8 +51,8 @@ export interface DeleteFleetMetricCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteFleetMetricCommandInput - {@link DeleteFleetMetricCommandInput}
- * @returns {@link DeleteFleetMetricCommandOutput}
+ * @param DeleteFleetMetricRequest - {@link DeleteFleetMetricRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteFleetMetricCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetMetricCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

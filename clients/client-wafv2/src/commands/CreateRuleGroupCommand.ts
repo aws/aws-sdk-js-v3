@@ -814,8 +814,8 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *
  * ```
  *
- * @param CreateRuleGroupCommandInput - {@link CreateRuleGroupCommandInput}
- * @returns {@link CreateRuleGroupCommandOutput}
+ * @param CreateRuleGroupRequest - {@link CreateRuleGroupRequest}
+ * @returns {@link CreateRuleGroupResponse}
  * @see {@link CreateRuleGroupCommandInput} for command's `input` shape.
  * @see {@link CreateRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

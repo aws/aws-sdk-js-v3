@@ -48,8 +48,8 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResult, __MetadataB
  *
  * ```
  *
- * @param DeleteFleetCommandInput - {@link DeleteFleetCommandInput}
- * @returns {@link DeleteFleetCommandOutput}
+ * @param DeleteFleetRequest - {@link DeleteFleetRequest}
+ * @returns {@link DeleteFleetResult}
  * @see {@link DeleteFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

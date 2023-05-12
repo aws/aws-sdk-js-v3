@@ -94,8 +94,8 @@ export interface CancelEnvironmentDeploymentCommandOutput extends CancelEnvironm
  *
  * ```
  *
- * @param CancelEnvironmentDeploymentCommandInput - {@link CancelEnvironmentDeploymentCommandInput}
- * @returns {@link CancelEnvironmentDeploymentCommandOutput}
+ * @param CancelEnvironmentDeploymentInput - {@link CancelEnvironmentDeploymentInput}
+ * @returns {@link CancelEnvironmentDeploymentOutput}
  * @see {@link CancelEnvironmentDeploymentCommandInput} for command's `input` shape.
  * @see {@link CancelEnvironmentDeploymentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

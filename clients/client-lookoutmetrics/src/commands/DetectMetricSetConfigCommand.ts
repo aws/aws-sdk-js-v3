@@ -166,8 +166,8 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  *
  * ```
  *
- * @param DetectMetricSetConfigCommandInput - {@link DetectMetricSetConfigCommandInput}
- * @returns {@link DetectMetricSetConfigCommandOutput}
+ * @param DetectMetricSetConfigRequest - {@link DetectMetricSetConfigRequest}
+ * @returns {@link DetectMetricSetConfigResponse}
  * @see {@link DetectMetricSetConfigCommandInput} for command's `input` shape.
  * @see {@link DetectMetricSetConfigCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

@@ -68,8 +68,8 @@ export interface UpdateDomainEndpointOptionsCommandOutput
  *
  * ```
  *
- * @param UpdateDomainEndpointOptionsCommandInput - {@link UpdateDomainEndpointOptionsCommandInput}
- * @returns {@link UpdateDomainEndpointOptionsCommandOutput}
+ * @param UpdateDomainEndpointOptionsRequest - {@link UpdateDomainEndpointOptionsRequest}
+ * @returns {@link UpdateDomainEndpointOptionsResponse}
  * @see {@link UpdateDomainEndpointOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainEndpointOptionsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

@@ -49,8 +49,8 @@ export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RemoveUserFromGroupCommandInput - {@link RemoveUserFromGroupCommandInput}
- * @returns {@link RemoveUserFromGroupCommandOutput}
+ * @param RemoveUserFromGroupRequest - {@link RemoveUserFromGroupRequest}
+ * @returns {@link Unit}
  * @see {@link RemoveUserFromGroupCommandInput} for command's `input` shape.
  * @see {@link RemoveUserFromGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -62,8 +62,8 @@ export interface ListTrustStoreCertificatesCommandOutput extends ListTrustStoreC
  *
  * ```
  *
- * @param ListTrustStoreCertificatesCommandInput - {@link ListTrustStoreCertificatesCommandInput}
- * @returns {@link ListTrustStoreCertificatesCommandOutput}
+ * @param ListTrustStoreCertificatesRequest - {@link ListTrustStoreCertificatesRequest}
+ * @returns {@link ListTrustStoreCertificatesResponse}
  * @see {@link ListTrustStoreCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListTrustStoreCertificatesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

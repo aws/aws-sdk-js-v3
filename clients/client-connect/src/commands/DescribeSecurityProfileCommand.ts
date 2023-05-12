@@ -67,8 +67,8 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  *
  * ```
  *
- * @param DescribeSecurityProfileCommandInput - {@link DescribeSecurityProfileCommandInput}
- * @returns {@link DescribeSecurityProfileCommandOutput}
+ * @param DescribeSecurityProfileRequest - {@link DescribeSecurityProfileRequest}
+ * @returns {@link DescribeSecurityProfileResponse}
  * @see {@link DescribeSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

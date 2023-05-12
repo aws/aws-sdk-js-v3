@@ -75,8 +75,8 @@ export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateInstanceAccessControlAttributeConfigurationCommandInput - {@link CreateInstanceAccessControlAttributeConfigurationCommandInput}
- * @returns {@link CreateInstanceAccessControlAttributeConfigurationCommandOutput}
+ * @param CreateInstanceAccessControlAttributeConfigurationRequest - {@link CreateInstanceAccessControlAttributeConfigurationRequest}
+ * @returns {@link CreateInstanceAccessControlAttributeConfigurationResponse}
  * @see {@link CreateInstanceAccessControlAttributeConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceAccessControlAttributeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

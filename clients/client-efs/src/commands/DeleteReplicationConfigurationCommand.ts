@@ -56,8 +56,8 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
  *
  * ```
  *
- * @param DeleteReplicationConfigurationCommandInput - {@link DeleteReplicationConfigurationCommandInput}
- * @returns {@link DeleteReplicationConfigurationCommandOutput}
+ * @param DeleteReplicationConfigurationRequest - {@link DeleteReplicationConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

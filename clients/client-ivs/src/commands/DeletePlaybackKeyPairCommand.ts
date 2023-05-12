@@ -50,8 +50,8 @@ export interface DeletePlaybackKeyPairCommandOutput extends DeletePlaybackKeyPai
  *
  * ```
  *
- * @param DeletePlaybackKeyPairCommandInput - {@link DeletePlaybackKeyPairCommandInput}
- * @returns {@link DeletePlaybackKeyPairCommandOutput}
+ * @param DeletePlaybackKeyPairRequest - {@link DeletePlaybackKeyPairRequest}
+ * @returns {@link DeletePlaybackKeyPairResponse}
  * @see {@link DeletePlaybackKeyPairCommandInput} for command's `input` shape.
  * @see {@link DeletePlaybackKeyPairCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.

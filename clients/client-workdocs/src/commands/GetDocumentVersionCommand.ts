@@ -80,8 +80,8 @@ export interface GetDocumentVersionCommandOutput extends GetDocumentVersionRespo
  *
  * ```
  *
- * @param GetDocumentVersionCommandInput - {@link GetDocumentVersionCommandInput}
- * @returns {@link GetDocumentVersionCommandOutput}
+ * @param GetDocumentVersionRequest - {@link GetDocumentVersionRequest}
+ * @returns {@link GetDocumentVersionResponse}
  * @see {@link GetDocumentVersionCommandInput} for command's `input` shape.
  * @see {@link GetDocumentVersionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

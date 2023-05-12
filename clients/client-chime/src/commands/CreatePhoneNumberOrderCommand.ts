@@ -71,8 +71,8 @@ export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOr
  *
  * ```
  *
- * @param CreatePhoneNumberOrderCommandInput - {@link CreatePhoneNumberOrderCommandInput}
- * @returns {@link CreatePhoneNumberOrderCommandOutput}
+ * @param CreatePhoneNumberOrderRequest - {@link CreatePhoneNumberOrderRequest}
+ * @returns {@link CreatePhoneNumberOrderResponse}
  * @see {@link CreatePhoneNumberOrderCommandInput} for command's `input` shape.
  * @see {@link CreatePhoneNumberOrderCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

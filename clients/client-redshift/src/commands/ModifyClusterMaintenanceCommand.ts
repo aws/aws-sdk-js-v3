@@ -225,8 +225,8 @@ export interface ModifyClusterMaintenanceCommandOutput extends ModifyClusterMain
  *
  * ```
  *
- * @param ModifyClusterMaintenanceCommandInput - {@link ModifyClusterMaintenanceCommandInput}
- * @returns {@link ModifyClusterMaintenanceCommandOutput}
+ * @param ModifyClusterMaintenanceMessage - {@link ModifyClusterMaintenanceMessage}
+ * @returns {@link ModifyClusterMaintenanceResult}
  * @see {@link ModifyClusterMaintenanceCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterMaintenanceCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

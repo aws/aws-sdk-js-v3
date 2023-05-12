@@ -149,8 +149,8 @@ export interface CreateModelExplainabilityJobDefinitionCommandOutput
  *
  * ```
  *
- * @param CreateModelExplainabilityJobDefinitionCommandInput - {@link CreateModelExplainabilityJobDefinitionCommandInput}
- * @returns {@link CreateModelExplainabilityJobDefinitionCommandOutput}
+ * @param CreateModelExplainabilityJobDefinitionRequest - {@link CreateModelExplainabilityJobDefinitionRequest}
+ * @returns {@link CreateModelExplainabilityJobDefinitionResponse}
  * @see {@link CreateModelExplainabilityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateModelExplainabilityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

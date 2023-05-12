@@ -52,8 +52,8 @@ export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param DeleteFleetAdvisorCollectorCommandInput - {@link DeleteFleetAdvisorCollectorCommandInput}
- * @returns {@link DeleteFleetAdvisorCollectorCommandOutput}
+ * @param DeleteCollectorRequest - {@link DeleteCollectorRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteFleetAdvisorCollectorCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetAdvisorCollectorCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

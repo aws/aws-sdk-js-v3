@@ -71,8 +71,8 @@ export interface UpdateVoiceProfileCommandOutput extends UpdateVoiceProfileRespo
  *
  * ```
  *
- * @param UpdateVoiceProfileCommandInput - {@link UpdateVoiceProfileCommandInput}
- * @returns {@link UpdateVoiceProfileCommandOutput}
+ * @param UpdateVoiceProfileRequest - {@link UpdateVoiceProfileRequest}
+ * @returns {@link UpdateVoiceProfileResponse}
  * @see {@link UpdateVoiceProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateVoiceProfileCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

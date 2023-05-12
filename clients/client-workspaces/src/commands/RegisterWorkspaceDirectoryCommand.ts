@@ -64,8 +64,8 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  *
  * ```
  *
- * @param RegisterWorkspaceDirectoryCommandInput - {@link RegisterWorkspaceDirectoryCommandInput}
- * @returns {@link RegisterWorkspaceDirectoryCommandOutput}
+ * @param RegisterWorkspaceDirectoryRequest - {@link RegisterWorkspaceDirectoryRequest}
+ * @returns {@link RegisterWorkspaceDirectoryResult}
  * @see {@link RegisterWorkspaceDirectoryCommandInput} for command's `input` shape.
  * @see {@link RegisterWorkspaceDirectoryCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

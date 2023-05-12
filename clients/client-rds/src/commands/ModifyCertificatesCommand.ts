@@ -84,8 +84,8 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  *
  * ```
  *
- * @param ModifyCertificatesCommandInput - {@link ModifyCertificatesCommandInput}
- * @returns {@link ModifyCertificatesCommandOutput}
+ * @param ModifyCertificatesMessage - {@link ModifyCertificatesMessage}
+ * @returns {@link ModifyCertificatesResult}
  * @see {@link ModifyCertificatesCommandInput} for command's `input` shape.
  * @see {@link ModifyCertificatesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

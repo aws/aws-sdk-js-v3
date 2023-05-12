@@ -62,8 +62,8 @@ export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AbortVaultLockCommandInput - {@link AbortVaultLockCommandInput}
- * @returns {@link AbortVaultLockCommandOutput}
+ * @param AbortVaultLockInput - {@link AbortVaultLockInput}
+ * @returns {@link Unit}
  * @see {@link AbortVaultLockCommandInput} for command's `input` shape.
  * @see {@link AbortVaultLockCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

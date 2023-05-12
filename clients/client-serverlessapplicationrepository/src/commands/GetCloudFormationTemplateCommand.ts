@@ -61,8 +61,8 @@ export interface GetCloudFormationTemplateCommandOutput extends GetCloudFormatio
  *
  * ```
  *
- * @param GetCloudFormationTemplateCommandInput - {@link GetCloudFormationTemplateCommandInput}
- * @returns {@link GetCloudFormationTemplateCommandOutput}
+ * @param GetCloudFormationTemplateRequest - {@link GetCloudFormationTemplateRequest}
+ * @returns {@link GetCloudFormationTemplateResponse}
  * @see {@link GetCloudFormationTemplateCommandInput} for command's `input` shape.
  * @see {@link GetCloudFormationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.

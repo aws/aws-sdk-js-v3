@@ -75,8 +75,8 @@ export interface PutRepositoryCatalogDataCommandOutput extends PutRepositoryCata
  *
  * ```
  *
- * @param PutRepositoryCatalogDataCommandInput - {@link PutRepositoryCatalogDataCommandInput}
- * @returns {@link PutRepositoryCatalogDataCommandOutput}
+ * @param PutRepositoryCatalogDataRequest - {@link PutRepositoryCatalogDataRequest}
+ * @returns {@link PutRepositoryCatalogDataResponse}
  * @see {@link PutRepositoryCatalogDataCommandInput} for command's `input` shape.
  * @see {@link PutRepositoryCatalogDataCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.

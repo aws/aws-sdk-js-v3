@@ -182,8 +182,8 @@ export interface GetPersonTrackingCommandOutput extends GetPersonTrackingRespons
  *
  * ```
  *
- * @param GetPersonTrackingCommandInput - {@link GetPersonTrackingCommandInput}
- * @returns {@link GetPersonTrackingCommandOutput}
+ * @param GetPersonTrackingRequest - {@link GetPersonTrackingRequest}
+ * @returns {@link GetPersonTrackingResponse}
  * @see {@link GetPersonTrackingCommandInput} for command's `input` shape.
  * @see {@link GetPersonTrackingCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

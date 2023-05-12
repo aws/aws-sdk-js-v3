@@ -51,8 +51,8 @@ export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsR
  *
  * ```
  *
- * @param DisassociateIpGroupsCommandInput - {@link DisassociateIpGroupsCommandInput}
- * @returns {@link DisassociateIpGroupsCommandOutput}
+ * @param DisassociateIpGroupsRequest - {@link DisassociateIpGroupsRequest}
+ * @returns {@link DisassociateIpGroupsResult}
  * @see {@link DisassociateIpGroupsCommandInput} for command's `input` shape.
  * @see {@link DisassociateIpGroupsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

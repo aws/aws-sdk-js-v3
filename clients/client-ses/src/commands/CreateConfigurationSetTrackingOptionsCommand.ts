@@ -64,8 +64,8 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput
  *
  * ```
  *
- * @param CreateConfigurationSetTrackingOptionsCommandInput - {@link CreateConfigurationSetTrackingOptionsCommandInput}
- * @returns {@link CreateConfigurationSetTrackingOptionsCommandOutput}
+ * @param CreateConfigurationSetTrackingOptionsRequest - {@link CreateConfigurationSetTrackingOptionsRequest}
+ * @returns {@link CreateConfigurationSetTrackingOptionsResponse}
  * @see {@link CreateConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

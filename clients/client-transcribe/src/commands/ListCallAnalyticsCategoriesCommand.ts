@@ -139,8 +139,8 @@ export interface ListCallAnalyticsCategoriesCommandOutput
  *
  * ```
  *
- * @param ListCallAnalyticsCategoriesCommandInput - {@link ListCallAnalyticsCategoriesCommandInput}
- * @returns {@link ListCallAnalyticsCategoriesCommandOutput}
+ * @param ListCallAnalyticsCategoriesRequest - {@link ListCallAnalyticsCategoriesRequest}
+ * @returns {@link ListCallAnalyticsCategoriesResponse}
  * @see {@link ListCallAnalyticsCategoriesCommandInput} for command's `input` shape.
  * @see {@link ListCallAnalyticsCategoriesCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

@@ -232,8 +232,8 @@ export interface RetryBuildCommandOutput extends RetryBuildOutput, __MetadataBea
  *
  * ```
  *
- * @param RetryBuildCommandInput - {@link RetryBuildCommandInput}
- * @returns {@link RetryBuildCommandOutput}
+ * @param RetryBuildInput - {@link RetryBuildInput}
+ * @returns {@link RetryBuildOutput}
  * @see {@link RetryBuildCommandInput} for command's `input` shape.
  * @see {@link RetryBuildCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

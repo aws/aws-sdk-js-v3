@@ -82,8 +82,8 @@ export interface ListAccessControlRulesCommandOutput extends ListAccessControlRu
  *
  * ```
  *
- * @param ListAccessControlRulesCommandInput - {@link ListAccessControlRulesCommandInput}
- * @returns {@link ListAccessControlRulesCommandOutput}
+ * @param ListAccessControlRulesRequest - {@link ListAccessControlRulesRequest}
+ * @returns {@link ListAccessControlRulesResponse}
  * @see {@link ListAccessControlRulesCommandInput} for command's `input` shape.
  * @see {@link ListAccessControlRulesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

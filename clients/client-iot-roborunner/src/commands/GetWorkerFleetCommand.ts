@@ -56,8 +56,8 @@ export interface GetWorkerFleetCommandOutput extends GetWorkerFleetResponse, __M
  *
  * ```
  *
- * @param GetWorkerFleetCommandInput - {@link GetWorkerFleetCommandInput}
- * @returns {@link GetWorkerFleetCommandOutput}
+ * @param GetWorkerFleetRequest - {@link GetWorkerFleetRequest}
+ * @returns {@link GetWorkerFleetResponse}
  * @see {@link GetWorkerFleetCommandInput} for command's `input` shape.
  * @see {@link GetWorkerFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

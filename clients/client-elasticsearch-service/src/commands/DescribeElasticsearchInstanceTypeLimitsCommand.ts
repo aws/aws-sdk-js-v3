@@ -103,8 +103,8 @@ export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
  *
  * ```
  *
- * @param DescribeElasticsearchInstanceTypeLimitsCommandInput - {@link DescribeElasticsearchInstanceTypeLimitsCommandInput}
- * @returns {@link DescribeElasticsearchInstanceTypeLimitsCommandOutput}
+ * @param DescribeElasticsearchInstanceTypeLimitsRequest - {@link DescribeElasticsearchInstanceTypeLimitsRequest}
+ * @returns {@link DescribeElasticsearchInstanceTypeLimitsResponse}
  * @see {@link DescribeElasticsearchInstanceTypeLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticsearchInstanceTypeLimitsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

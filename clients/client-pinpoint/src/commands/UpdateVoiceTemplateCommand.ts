@@ -65,8 +65,8 @@ export interface UpdateVoiceTemplateCommandOutput extends UpdateVoiceTemplateRes
  *
  * ```
  *
- * @param UpdateVoiceTemplateCommandInput - {@link UpdateVoiceTemplateCommandInput}
- * @returns {@link UpdateVoiceTemplateCommandOutput}
+ * @param UpdateVoiceTemplateRequest - {@link UpdateVoiceTemplateRequest}
+ * @returns {@link UpdateVoiceTemplateResponse}
  * @see {@link UpdateVoiceTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateVoiceTemplateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

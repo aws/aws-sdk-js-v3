@@ -57,8 +57,8 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  *
  * ```
  *
- * @param AssociateWebACLCommandInput - {@link AssociateWebACLCommandInput}
- * @returns {@link AssociateWebACLCommandOutput}
+ * @param AssociateWebACLRequest - {@link AssociateWebACLRequest}
+ * @returns {@link AssociateWebACLResponse}
  * @see {@link AssociateWebACLCommandInput} for command's `input` shape.
  * @see {@link AssociateWebACLCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

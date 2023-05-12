@@ -59,8 +59,8 @@ export interface AssociateAliasCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AssociateAliasCommandInput - {@link AssociateAliasCommandInput}
- * @returns {@link AssociateAliasCommandOutput}
+ * @param AssociateAliasRequest - {@link AssociateAliasRequest}
+ * @returns {@link Unit}
  * @see {@link AssociateAliasCommandInput} for command's `input` shape.
  * @see {@link AssociateAliasCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

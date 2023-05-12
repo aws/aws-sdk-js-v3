@@ -56,8 +56,8 @@ export interface EnableSagemakerServicecatalogPortfolioCommandOutput
  *
  * ```
  *
- * @param EnableSagemakerServicecatalogPortfolioCommandInput - {@link EnableSagemakerServicecatalogPortfolioCommandInput}
- * @returns {@link EnableSagemakerServicecatalogPortfolioCommandOutput}
+ * @param EnableSagemakerServicecatalogPortfolioInput - {@link EnableSagemakerServicecatalogPortfolioInput}
+ * @returns {@link EnableSagemakerServicecatalogPortfolioOutput}
  * @see {@link EnableSagemakerServicecatalogPortfolioCommandInput} for command's `input` shape.
  * @see {@link EnableSagemakerServicecatalogPortfolioCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

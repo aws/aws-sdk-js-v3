@@ -74,8 +74,8 @@ export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetRespo
  *
  * ```
  *
- * @param DeleteByteMatchSetCommandInput - {@link DeleteByteMatchSetCommandInput}
- * @returns {@link DeleteByteMatchSetCommandOutput}
+ * @param DeleteByteMatchSetRequest - {@link DeleteByteMatchSetRequest}
+ * @returns {@link DeleteByteMatchSetResponse}
  * @see {@link DeleteByteMatchSetCommandInput} for command's `input` shape.
  * @see {@link DeleteByteMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

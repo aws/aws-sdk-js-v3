@@ -165,8 +165,8 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  *
  * ```
  *
- * @param CreateMetricSetCommandInput - {@link CreateMetricSetCommandInput}
- * @returns {@link CreateMetricSetCommandOutput}
+ * @param CreateMetricSetRequest - {@link CreateMetricSetRequest}
+ * @returns {@link CreateMetricSetResponse}
  * @see {@link CreateMetricSetCommandInput} for command's `input` shape.
  * @see {@link CreateMetricSetCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

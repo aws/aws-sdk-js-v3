@@ -50,8 +50,8 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  *
  * ```
  *
- * @param RemoveNotificationChannelCommandInput - {@link RemoveNotificationChannelCommandInput}
- * @returns {@link RemoveNotificationChannelCommandOutput}
+ * @param RemoveNotificationChannelRequest - {@link RemoveNotificationChannelRequest}
+ * @returns {@link RemoveNotificationChannelResponse}
  * @see {@link RemoveNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link RemoveNotificationChannelCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

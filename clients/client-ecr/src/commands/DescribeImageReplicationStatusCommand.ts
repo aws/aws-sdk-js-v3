@@ -72,8 +72,8 @@ export interface DescribeImageReplicationStatusCommandOutput
  *
  * ```
  *
- * @param DescribeImageReplicationStatusCommandInput - {@link DescribeImageReplicationStatusCommandInput}
- * @returns {@link DescribeImageReplicationStatusCommandOutput}
+ * @param DescribeImageReplicationStatusRequest - {@link DescribeImageReplicationStatusRequest}
+ * @returns {@link DescribeImageReplicationStatusResponse}
  * @see {@link DescribeImageReplicationStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeImageReplicationStatusCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

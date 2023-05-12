@@ -64,8 +64,8 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResult, __Met
  *
  * ```
  *
- * @param UpdateSnapshotCommandInput - {@link UpdateSnapshotCommandInput}
- * @returns {@link UpdateSnapshotCommandOutput}
+ * @param UpdateSnapshotRequest - {@link UpdateSnapshotRequest}
+ * @returns {@link UpdateSnapshotResult}
  * @see {@link UpdateSnapshotCommandInput} for command's `input` shape.
  * @see {@link UpdateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

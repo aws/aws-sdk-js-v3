@@ -65,8 +65,8 @@ export interface GetReusableDelegationSetLimitCommandOutput
  *
  * ```
  *
- * @param GetReusableDelegationSetLimitCommandInput - {@link GetReusableDelegationSetLimitCommandInput}
- * @returns {@link GetReusableDelegationSetLimitCommandOutput}
+ * @param GetReusableDelegationSetLimitRequest - {@link GetReusableDelegationSetLimitRequest}
+ * @returns {@link GetReusableDelegationSetLimitResponse}
  * @see {@link GetReusableDelegationSetLimitCommandInput} for command's `input` shape.
  * @see {@link GetReusableDelegationSetLimitCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

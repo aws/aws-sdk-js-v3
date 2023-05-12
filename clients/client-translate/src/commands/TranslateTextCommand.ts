@@ -77,8 +77,8 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  *
  * ```
  *
- * @param TranslateTextCommandInput - {@link TranslateTextCommandInput}
- * @returns {@link TranslateTextCommandOutput}
+ * @param TranslateTextRequest - {@link TranslateTextRequest}
+ * @returns {@link TranslateTextResponse}
  * @see {@link TranslateTextCommandInput} for command's `input` shape.
  * @see {@link TranslateTextCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.

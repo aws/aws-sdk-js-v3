@@ -85,8 +85,8 @@ export interface PutChannelExpirationSettingsCommandOutput
  *
  * ```
  *
- * @param PutChannelExpirationSettingsCommandInput - {@link PutChannelExpirationSettingsCommandInput}
- * @returns {@link PutChannelExpirationSettingsCommandOutput}
+ * @param PutChannelExpirationSettingsRequest - {@link PutChannelExpirationSettingsRequest}
+ * @returns {@link PutChannelExpirationSettingsResponse}
  * @see {@link PutChannelExpirationSettingsCommandInput} for command's `input` shape.
  * @see {@link PutChannelExpirationSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

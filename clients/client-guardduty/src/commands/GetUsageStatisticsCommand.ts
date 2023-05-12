@@ -118,8 +118,8 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  *
  * ```
  *
- * @param GetUsageStatisticsCommandInput - {@link GetUsageStatisticsCommandInput}
- * @returns {@link GetUsageStatisticsCommandOutput}
+ * @param GetUsageStatisticsRequest - {@link GetUsageStatisticsRequest}
+ * @returns {@link GetUsageStatisticsResponse}
  * @see {@link GetUsageStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetUsageStatisticsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

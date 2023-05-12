@@ -50,8 +50,8 @@ export interface DeleteHoursOfOperationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteHoursOfOperationCommandInput - {@link DeleteHoursOfOperationCommandInput}
- * @returns {@link DeleteHoursOfOperationCommandOutput}
+ * @param DeleteHoursOfOperationRequest - {@link DeleteHoursOfOperationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteHoursOfOperationCommandInput} for command's `input` shape.
  * @see {@link DeleteHoursOfOperationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

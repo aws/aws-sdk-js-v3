@@ -52,8 +52,8 @@ export interface AssociateSkillGroupWithRoomCommandOutput
  *
  * ```
  *
- * @param AssociateSkillGroupWithRoomCommandInput - {@link AssociateSkillGroupWithRoomCommandInput}
- * @returns {@link AssociateSkillGroupWithRoomCommandOutput}
+ * @param AssociateSkillGroupWithRoomRequest - {@link AssociateSkillGroupWithRoomRequest}
+ * @returns {@link AssociateSkillGroupWithRoomResponse}
  * @see {@link AssociateSkillGroupWithRoomCommandInput} for command's `input` shape.
  * @see {@link AssociateSkillGroupWithRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

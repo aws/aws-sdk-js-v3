@@ -56,8 +56,8 @@ export interface DeleteBackendStorageCommandOutput extends DeleteBackendStorageR
  *
  * ```
  *
- * @param DeleteBackendStorageCommandInput - {@link DeleteBackendStorageCommandInput}
- * @returns {@link DeleteBackendStorageCommandOutput}
+ * @param DeleteBackendStorageRequest - {@link DeleteBackendStorageRequest}
+ * @returns {@link DeleteBackendStorageResponse}
  * @see {@link DeleteBackendStorageCommandInput} for command's `input` shape.
  * @see {@link DeleteBackendStorageCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

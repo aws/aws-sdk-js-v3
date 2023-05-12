@@ -55,8 +55,8 @@ export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParamete
  *
  * ```
  *
- * @param GetRoomSkillParameterCommandInput - {@link GetRoomSkillParameterCommandInput}
- * @returns {@link GetRoomSkillParameterCommandOutput}
+ * @param GetRoomSkillParameterRequest - {@link GetRoomSkillParameterRequest}
+ * @returns {@link GetRoomSkillParameterResponse}
  * @see {@link GetRoomSkillParameterCommandInput} for command's `input` shape.
  * @see {@link GetRoomSkillParameterCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

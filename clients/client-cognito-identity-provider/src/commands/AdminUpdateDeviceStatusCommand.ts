@@ -61,8 +61,8 @@ export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceS
  *
  * ```
  *
- * @param AdminUpdateDeviceStatusCommandInput - {@link AdminUpdateDeviceStatusCommandInput}
- * @returns {@link AdminUpdateDeviceStatusCommandOutput}
+ * @param AdminUpdateDeviceStatusRequest - {@link AdminUpdateDeviceStatusRequest}
+ * @returns {@link AdminUpdateDeviceStatusResponse}
  * @see {@link AdminUpdateDeviceStatusCommandInput} for command's `input` shape.
  * @see {@link AdminUpdateDeviceStatusCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

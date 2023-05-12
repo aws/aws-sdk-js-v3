@@ -67,8 +67,8 @@ export interface StartJobCommandOutput extends StartJobResult, __MetadataBearer 
  *
  * ```
  *
- * @param StartJobCommandInput - {@link StartJobCommandInput}
- * @returns {@link StartJobCommandOutput}
+ * @param StartJobRequest - {@link StartJobRequest}
+ * @returns {@link StartJobResult}
  * @see {@link StartJobCommandInput} for command's `input` shape.
  * @see {@link StartJobCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

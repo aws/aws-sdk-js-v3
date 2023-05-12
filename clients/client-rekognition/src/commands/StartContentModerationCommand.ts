@@ -73,8 +73,8 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  *
  * ```
  *
- * @param StartContentModerationCommandInput - {@link StartContentModerationCommandInput}
- * @returns {@link StartContentModerationCommandOutput}
+ * @param StartContentModerationRequest - {@link StartContentModerationRequest}
+ * @returns {@link StartContentModerationResponse}
  * @see {@link StartContentModerationCommandInput} for command's `input` shape.
  * @see {@link StartContentModerationCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

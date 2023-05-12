@@ -129,8 +129,8 @@ export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInter
  *
  * ```
  *
- * @param CreatePrivateVirtualInterfaceCommandInput - {@link CreatePrivateVirtualInterfaceCommandInput}
- * @returns {@link CreatePrivateVirtualInterfaceCommandOutput}
+ * @param CreatePrivateVirtualInterfaceRequest - {@link CreatePrivateVirtualInterfaceRequest}
+ * @returns {@link VirtualInterface}
  * @see {@link CreatePrivateVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link CreatePrivateVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

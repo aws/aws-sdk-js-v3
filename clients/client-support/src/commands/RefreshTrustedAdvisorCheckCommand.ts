@@ -79,8 +79,8 @@ export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedA
  *
  * ```
  *
- * @param RefreshTrustedAdvisorCheckCommandInput - {@link RefreshTrustedAdvisorCheckCommandInput}
- * @returns {@link RefreshTrustedAdvisorCheckCommandOutput}
+ * @param RefreshTrustedAdvisorCheckRequest - {@link RefreshTrustedAdvisorCheckRequest}
+ * @returns {@link RefreshTrustedAdvisorCheckResponse}
  * @see {@link RefreshTrustedAdvisorCheckCommandInput} for command's `input` shape.
  * @see {@link RefreshTrustedAdvisorCheckCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.

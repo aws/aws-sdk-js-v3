@@ -59,8 +59,8 @@ export interface GetDistributionBundlesCommandOutput extends GetDistributionBund
  *
  * ```
  *
- * @param GetDistributionBundlesCommandInput - {@link GetDistributionBundlesCommandInput}
- * @returns {@link GetDistributionBundlesCommandOutput}
+ * @param GetDistributionBundlesRequest - {@link GetDistributionBundlesRequest}
+ * @returns {@link GetDistributionBundlesResult}
  * @see {@link GetDistributionBundlesCommandInput} for command's `input` shape.
  * @see {@link GetDistributionBundlesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -60,8 +60,8 @@ export interface UpdateDashboardPublishedVersionCommandOutput
  *
  * ```
  *
- * @param UpdateDashboardPublishedVersionCommandInput - {@link UpdateDashboardPublishedVersionCommandInput}
- * @returns {@link UpdateDashboardPublishedVersionCommandOutput}
+ * @param UpdateDashboardPublishedVersionRequest - {@link UpdateDashboardPublishedVersionRequest}
+ * @returns {@link UpdateDashboardPublishedVersionResponse}
  * @see {@link UpdateDashboardPublishedVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateDashboardPublishedVersionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

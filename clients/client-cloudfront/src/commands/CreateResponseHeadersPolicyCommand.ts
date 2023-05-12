@@ -233,8 +233,8 @@ export interface CreateResponseHeadersPolicyCommandOutput extends CreateResponse
  *
  * ```
  *
- * @param CreateResponseHeadersPolicyCommandInput - {@link CreateResponseHeadersPolicyCommandInput}
- * @returns {@link CreateResponseHeadersPolicyCommandOutput}
+ * @param CreateResponseHeadersPolicyRequest - {@link CreateResponseHeadersPolicyRequest}
+ * @returns {@link CreateResponseHeadersPolicyResult}
  * @see {@link CreateResponseHeadersPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateResponseHeadersPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

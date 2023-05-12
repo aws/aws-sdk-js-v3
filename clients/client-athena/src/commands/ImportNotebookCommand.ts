@@ -56,8 +56,8 @@ export interface ImportNotebookCommandOutput extends ImportNotebookOutput, __Met
  *
  * ```
  *
- * @param ImportNotebookCommandInput - {@link ImportNotebookCommandInput}
- * @returns {@link ImportNotebookCommandOutput}
+ * @param ImportNotebookInput - {@link ImportNotebookInput}
+ * @returns {@link ImportNotebookOutput}
  * @see {@link ImportNotebookCommandInput} for command's `input` shape.
  * @see {@link ImportNotebookCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

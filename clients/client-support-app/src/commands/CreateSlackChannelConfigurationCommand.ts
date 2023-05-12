@@ -80,8 +80,8 @@ export interface CreateSlackChannelConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateSlackChannelConfigurationCommandInput - {@link CreateSlackChannelConfigurationCommandInput}
- * @returns {@link CreateSlackChannelConfigurationCommandOutput}
+ * @param CreateSlackChannelConfigurationRequest - {@link CreateSlackChannelConfigurationRequest}
+ * @returns {@link CreateSlackChannelConfigurationResult}
  * @see {@link CreateSlackChannelConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateSlackChannelConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.

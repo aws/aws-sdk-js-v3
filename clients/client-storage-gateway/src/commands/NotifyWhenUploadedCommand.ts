@@ -63,8 +63,8 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  *
  * ```
  *
- * @param NotifyWhenUploadedCommandInput - {@link NotifyWhenUploadedCommandInput}
- * @returns {@link NotifyWhenUploadedCommandOutput}
+ * @param NotifyWhenUploadedInput - {@link NotifyWhenUploadedInput}
+ * @returns {@link NotifyWhenUploadedOutput}
  * @see {@link NotifyWhenUploadedCommandInput} for command's `input` shape.
  * @see {@link NotifyWhenUploadedCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

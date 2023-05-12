@@ -78,8 +78,8 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  *
  * ```
  *
- * @param ListSecretVersionIdsCommandInput - {@link ListSecretVersionIdsCommandInput}
- * @returns {@link ListSecretVersionIdsCommandOutput}
+ * @param ListSecretVersionIdsRequest - {@link ListSecretVersionIdsRequest}
+ * @returns {@link ListSecretVersionIdsResponse}
  * @see {@link ListSecretVersionIdsCommandInput} for command's `input` shape.
  * @see {@link ListSecretVersionIdsCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

@@ -82,8 +82,8 @@ export interface StartTableDataImportJobCommandOutput extends StartTableDataImpo
  *
  * ```
  *
- * @param StartTableDataImportJobCommandInput - {@link StartTableDataImportJobCommandInput}
- * @returns {@link StartTableDataImportJobCommandOutput}
+ * @param StartTableDataImportJobRequest - {@link StartTableDataImportJobRequest}
+ * @returns {@link StartTableDataImportJobResult}
  * @see {@link StartTableDataImportJobCommandInput} for command's `input` shape.
  * @see {@link StartTableDataImportJobCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.

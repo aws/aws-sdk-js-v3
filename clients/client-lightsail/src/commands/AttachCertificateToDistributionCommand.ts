@@ -84,8 +84,8 @@ export interface AttachCertificateToDistributionCommandOutput
  *
  * ```
  *
- * @param AttachCertificateToDistributionCommandInput - {@link AttachCertificateToDistributionCommandInput}
- * @returns {@link AttachCertificateToDistributionCommandOutput}
+ * @param AttachCertificateToDistributionRequest - {@link AttachCertificateToDistributionRequest}
+ * @returns {@link AttachCertificateToDistributionResult}
  * @see {@link AttachCertificateToDistributionCommandInput} for command's `input` shape.
  * @see {@link AttachCertificateToDistributionCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -50,8 +50,8 @@ export interface DeregisterManagedInstanceCommandOutput extends DeregisterManage
  *
  * ```
  *
- * @param DeregisterManagedInstanceCommandInput - {@link DeregisterManagedInstanceCommandInput}
- * @returns {@link DeregisterManagedInstanceCommandOutput}
+ * @param DeregisterManagedInstanceRequest - {@link DeregisterManagedInstanceRequest}
+ * @returns {@link DeregisterManagedInstanceResult}
  * @see {@link DeregisterManagedInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterManagedInstanceCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

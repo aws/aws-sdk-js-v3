@@ -71,8 +71,8 @@ export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsRes
  *
  * ```
  *
- * @param DescribePatchGroupsCommandInput - {@link DescribePatchGroupsCommandInput}
- * @returns {@link DescribePatchGroupsCommandOutput}
+ * @param DescribePatchGroupsRequest - {@link DescribePatchGroupsRequest}
+ * @returns {@link DescribePatchGroupsResult}
  * @see {@link DescribePatchGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribePatchGroupsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

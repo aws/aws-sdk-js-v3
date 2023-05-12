@@ -271,8 +271,8 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  *
  * ```
  *
- * @param DescribeEndpointCommandInput - {@link DescribeEndpointCommandInput}
- * @returns {@link DescribeEndpointCommandOutput}
+ * @param DescribeEndpointInput - {@link DescribeEndpointInput}
+ * @returns {@link DescribeEndpointOutput}
  * @see {@link DescribeEndpointCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

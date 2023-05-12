@@ -71,8 +71,8 @@ export interface DeleteProfileCommandOutput extends ProfileDetailResponse, __Met
  *
  * ```
  *
- * @param DeleteProfileCommandInput - {@link DeleteProfileCommandInput}
- * @returns {@link DeleteProfileCommandOutput}
+ * @param ScalarProfileRequest - {@link ScalarProfileRequest}
+ * @returns {@link ProfileDetailResponse}
  * @see {@link DeleteProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

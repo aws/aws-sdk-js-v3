@@ -57,8 +57,8 @@ export interface RevokeTokenCommandOutput extends RevokeTokenResponse, __Metadat
  *
  * ```
  *
- * @param RevokeTokenCommandInput - {@link RevokeTokenCommandInput}
- * @returns {@link RevokeTokenCommandOutput}
+ * @param RevokeTokenRequest - {@link RevokeTokenRequest}
+ * @returns {@link RevokeTokenResponse}
  * @see {@link RevokeTokenCommandInput} for command's `input` shape.
  * @see {@link RevokeTokenCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

@@ -110,8 +110,8 @@ export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutp
  *
  * ```
  *
- * @param GetMediaCommandInput - {@link GetMediaCommandInput}
- * @returns {@link GetMediaCommandOutput}
+ * @param GetMediaInput - {@link GetMediaInput}
+ * @returns {@link GetMediaOutput}
  * @see {@link GetMediaCommandInput} for command's `input` shape.
  * @see {@link GetMediaCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoMediaClientResolvedConfig | config} for KinesisVideoMediaClient's `config` shape.

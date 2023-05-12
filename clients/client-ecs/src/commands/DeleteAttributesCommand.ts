@@ -65,8 +65,8 @@ export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse,
  *
  * ```
  *
- * @param DeleteAttributesCommandInput - {@link DeleteAttributesCommandInput}
- * @returns {@link DeleteAttributesCommandOutput}
+ * @param DeleteAttributesRequest - {@link DeleteAttributesRequest}
+ * @returns {@link DeleteAttributesResponse}
  * @see {@link DeleteAttributesCommandInput} for command's `input` shape.
  * @see {@link DeleteAttributesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

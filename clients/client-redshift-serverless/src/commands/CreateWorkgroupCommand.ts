@@ -118,8 +118,8 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  *
  * ```
  *
- * @param CreateWorkgroupCommandInput - {@link CreateWorkgroupCommandInput}
- * @returns {@link CreateWorkgroupCommandOutput}
+ * @param CreateWorkgroupRequest - {@link CreateWorkgroupRequest}
+ * @returns {@link CreateWorkgroupResponse}
  * @see {@link CreateWorkgroupCommandInput} for command's `input` shape.
  * @see {@link CreateWorkgroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

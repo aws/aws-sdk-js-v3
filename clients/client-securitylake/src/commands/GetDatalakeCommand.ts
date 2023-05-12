@@ -76,8 +76,8 @@ export interface GetDatalakeCommandOutput extends GetDatalakeResponse, __Metadat
  *
  * ```
  *
- * @param GetDatalakeCommandInput - {@link GetDatalakeCommandInput}
- * @returns {@link GetDatalakeCommandOutput}
+ * @param GetDatalakeRequest - {@link GetDatalakeRequest}
+ * @returns {@link GetDatalakeResponse}
  * @see {@link GetDatalakeCommandInput} for command's `input` shape.
  * @see {@link GetDatalakeCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

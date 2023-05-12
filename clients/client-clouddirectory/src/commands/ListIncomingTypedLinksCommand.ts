@@ -111,8 +111,8 @@ export interface ListIncomingTypedLinksCommandOutput extends ListIncomingTypedLi
  *
  * ```
  *
- * @param ListIncomingTypedLinksCommandInput - {@link ListIncomingTypedLinksCommandInput}
- * @returns {@link ListIncomingTypedLinksCommandOutput}
+ * @param ListIncomingTypedLinksRequest - {@link ListIncomingTypedLinksRequest}
+ * @returns {@link ListIncomingTypedLinksResponse}
  * @see {@link ListIncomingTypedLinksCommandInput} for command's `input` shape.
  * @see {@link ListIncomingTypedLinksCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

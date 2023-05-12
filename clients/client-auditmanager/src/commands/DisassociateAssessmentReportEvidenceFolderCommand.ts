@@ -58,8 +58,8 @@ export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
  *
  * ```
  *
- * @param DisassociateAssessmentReportEvidenceFolderCommandInput - {@link DisassociateAssessmentReportEvidenceFolderCommandInput}
- * @returns {@link DisassociateAssessmentReportEvidenceFolderCommandOutput}
+ * @param DisassociateAssessmentReportEvidenceFolderRequest - {@link DisassociateAssessmentReportEvidenceFolderRequest}
+ * @returns {@link DisassociateAssessmentReportEvidenceFolderResponse}
  * @see {@link DisassociateAssessmentReportEvidenceFolderCommandInput} for command's `input` shape.
  * @see {@link DisassociateAssessmentReportEvidenceFolderCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

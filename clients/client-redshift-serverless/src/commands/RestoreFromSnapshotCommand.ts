@@ -80,8 +80,8 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  *
  * ```
  *
- * @param RestoreFromSnapshotCommandInput - {@link RestoreFromSnapshotCommandInput}
- * @returns {@link RestoreFromSnapshotCommandOutput}
+ * @param RestoreFromSnapshotRequest - {@link RestoreFromSnapshotRequest}
+ * @returns {@link RestoreFromSnapshotResponse}
  * @see {@link RestoreFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

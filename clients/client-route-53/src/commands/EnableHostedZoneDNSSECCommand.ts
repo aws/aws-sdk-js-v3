@@ -56,8 +56,8 @@ export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNS
  *
  * ```
  *
- * @param EnableHostedZoneDNSSECCommandInput - {@link EnableHostedZoneDNSSECCommandInput}
- * @returns {@link EnableHostedZoneDNSSECCommandOutput}
+ * @param EnableHostedZoneDNSSECRequest - {@link EnableHostedZoneDNSSECRequest}
+ * @returns {@link EnableHostedZoneDNSSECResponse}
  * @see {@link EnableHostedZoneDNSSECCommandInput} for command's `input` shape.
  * @see {@link EnableHostedZoneDNSSECCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

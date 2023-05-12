@@ -76,8 +76,8 @@ export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer 
  *
  * ```
  *
- * @param TestTypeCommandInput - {@link TestTypeCommandInput}
- * @returns {@link TestTypeCommandOutput}
+ * @param TestTypeInput - {@link TestTypeInput}
+ * @returns {@link TestTypeOutput}
  * @see {@link TestTypeCommandInput} for command's `input` shape.
  * @see {@link TestTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

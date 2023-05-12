@@ -54,8 +54,8 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeletePolicyCommandInput - {@link DeletePolicyCommandInput}
- * @returns {@link DeletePolicyCommandOutput}
+ * @param DeletePolicyType - {@link DeletePolicyType}
+ * @returns {@link Unit}
  * @see {@link DeletePolicyCommandInput} for command's `input` shape.
  * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

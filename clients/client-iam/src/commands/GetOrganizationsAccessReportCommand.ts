@@ -93,8 +93,8 @@ export interface GetOrganizationsAccessReportCommandOutput
  *
  * ```
  *
- * @param GetOrganizationsAccessReportCommandInput - {@link GetOrganizationsAccessReportCommandInput}
- * @returns {@link GetOrganizationsAccessReportCommandOutput}
+ * @param GetOrganizationsAccessReportRequest - {@link GetOrganizationsAccessReportRequest}
+ * @returns {@link GetOrganizationsAccessReportResponse}
  * @see {@link GetOrganizationsAccessReportCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationsAccessReportCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

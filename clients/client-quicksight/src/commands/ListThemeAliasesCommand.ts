@@ -62,8 +62,8 @@ export interface ListThemeAliasesCommandOutput extends ListThemeAliasesResponse,
  *
  * ```
  *
- * @param ListThemeAliasesCommandInput - {@link ListThemeAliasesCommandInput}
- * @returns {@link ListThemeAliasesCommandOutput}
+ * @param ListThemeAliasesRequest - {@link ListThemeAliasesRequest}
+ * @returns {@link ListThemeAliasesResponse}
  * @see {@link ListThemeAliasesCommandInput} for command's `input` shape.
  * @see {@link ListThemeAliasesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

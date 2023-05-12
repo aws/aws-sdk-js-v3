@@ -65,8 +65,8 @@ export interface CreateNotificationSubscriptionCommandOutput
  *
  * ```
  *
- * @param CreateNotificationSubscriptionCommandInput - {@link CreateNotificationSubscriptionCommandInput}
- * @returns {@link CreateNotificationSubscriptionCommandOutput}
+ * @param CreateNotificationSubscriptionRequest - {@link CreateNotificationSubscriptionRequest}
+ * @returns {@link CreateNotificationSubscriptionResponse}
  * @see {@link CreateNotificationSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateNotificationSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

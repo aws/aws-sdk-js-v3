@@ -74,8 +74,8 @@ export interface ListUserImportJobsCommandOutput extends ListUserImportJobsRespo
  *
  * ```
  *
- * @param ListUserImportJobsCommandInput - {@link ListUserImportJobsCommandInput}
- * @returns {@link ListUserImportJobsCommandOutput}
+ * @param ListUserImportJobsRequest - {@link ListUserImportJobsRequest}
+ * @returns {@link ListUserImportJobsResponse}
  * @see {@link ListUserImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListUserImportJobsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

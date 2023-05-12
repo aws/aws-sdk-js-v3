@@ -53,8 +53,8 @@ export interface SetEndpointAttributesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetEndpointAttributesCommandInput - {@link SetEndpointAttributesCommandInput}
- * @returns {@link SetEndpointAttributesCommandOutput}
+ * @param SetEndpointAttributesInput - {@link SetEndpointAttributesInput}
+ * @returns {@link Unit}
  * @see {@link SetEndpointAttributesCommandInput} for command's `input` shape.
  * @see {@link SetEndpointAttributesCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

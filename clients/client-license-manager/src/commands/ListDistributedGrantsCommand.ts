@@ -81,8 +81,8 @@ export interface ListDistributedGrantsCommandOutput extends ListDistributedGrant
  *
  * ```
  *
- * @param ListDistributedGrantsCommandInput - {@link ListDistributedGrantsCommandInput}
- * @returns {@link ListDistributedGrantsCommandOutput}
+ * @param ListDistributedGrantsRequest - {@link ListDistributedGrantsRequest}
+ * @returns {@link ListDistributedGrantsResponse}
  * @see {@link ListDistributedGrantsCommandInput} for command's `input` shape.
  * @see {@link ListDistributedGrantsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

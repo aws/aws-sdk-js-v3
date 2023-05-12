@@ -56,8 +56,8 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  *
  * ```
  *
- * @param CreateComponentCommandInput - {@link CreateComponentCommandInput}
- * @returns {@link CreateComponentCommandOutput}
+ * @param CreateComponentRequest - {@link CreateComponentRequest}
+ * @returns {@link CreateComponentResponse}
  * @see {@link CreateComponentCommandInput} for command's `input` shape.
  * @see {@link CreateComponentCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.

@@ -180,8 +180,8 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  *
  * ```
  *
- * @param DescribeImageScanFindingsCommandInput - {@link DescribeImageScanFindingsCommandInput}
- * @returns {@link DescribeImageScanFindingsCommandOutput}
+ * @param DescribeImageScanFindingsRequest - {@link DescribeImageScanFindingsRequest}
+ * @returns {@link DescribeImageScanFindingsResponse}
  * @see {@link DescribeImageScanFindingsCommandInput} for command's `input` shape.
  * @see {@link DescribeImageScanFindingsCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

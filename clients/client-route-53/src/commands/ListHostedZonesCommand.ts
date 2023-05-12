@@ -77,8 +77,8 @@ export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, _
  *
  * ```
  *
- * @param ListHostedZonesCommandInput - {@link ListHostedZonesCommandInput}
- * @returns {@link ListHostedZonesCommandOutput}
+ * @param ListHostedZonesRequest - {@link ListHostedZonesRequest}
+ * @returns {@link ListHostedZonesResponse}
  * @see {@link ListHostedZonesCommandInput} for command's `input` shape.
  * @see {@link ListHostedZonesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

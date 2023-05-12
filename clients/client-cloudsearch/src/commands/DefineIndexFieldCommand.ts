@@ -232,8 +232,8 @@ export interface DefineIndexFieldCommandOutput extends DefineIndexFieldResponse,
  *
  * ```
  *
- * @param DefineIndexFieldCommandInput - {@link DefineIndexFieldCommandInput}
- * @returns {@link DefineIndexFieldCommandOutput}
+ * @param DefineIndexFieldRequest - {@link DefineIndexFieldRequest}
+ * @returns {@link DefineIndexFieldResponse}
  * @see {@link DefineIndexFieldCommandInput} for command's `input` shape.
  * @see {@link DefineIndexFieldCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

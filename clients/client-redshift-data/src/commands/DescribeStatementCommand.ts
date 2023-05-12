@@ -92,8 +92,8 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  *
  * ```
  *
- * @param DescribeStatementCommandInput - {@link DescribeStatementCommandInput}
- * @returns {@link DescribeStatementCommandOutput}
+ * @param DescribeStatementRequest - {@link DescribeStatementRequest}
+ * @returns {@link DescribeStatementResponse}
  * @see {@link DescribeStatementCommandInput} for command's `input` shape.
  * @see {@link DescribeStatementCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.

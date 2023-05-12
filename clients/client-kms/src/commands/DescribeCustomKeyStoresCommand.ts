@@ -135,8 +135,8 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  *
  * ```
  *
- * @param DescribeCustomKeyStoresCommandInput - {@link DescribeCustomKeyStoresCommandInput}
- * @returns {@link DescribeCustomKeyStoresCommandOutput}
+ * @param DescribeCustomKeyStoresRequest - {@link DescribeCustomKeyStoresRequest}
+ * @returns {@link DescribeCustomKeyStoresResponse}
  * @see {@link DescribeCustomKeyStoresCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomKeyStoresCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

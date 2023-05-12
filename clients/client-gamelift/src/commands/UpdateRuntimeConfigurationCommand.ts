@@ -89,8 +89,8 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  *
  * ```
  *
- * @param UpdateRuntimeConfigurationCommandInput - {@link UpdateRuntimeConfigurationCommandInput}
- * @returns {@link UpdateRuntimeConfigurationCommandOutput}
+ * @param UpdateRuntimeConfigurationInput - {@link UpdateRuntimeConfigurationInput}
+ * @returns {@link UpdateRuntimeConfigurationOutput}
  * @see {@link UpdateRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateRuntimeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

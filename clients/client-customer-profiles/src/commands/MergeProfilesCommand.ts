@@ -121,8 +121,8 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  *
  * ```
  *
- * @param MergeProfilesCommandInput - {@link MergeProfilesCommandInput}
- * @returns {@link MergeProfilesCommandOutput}
+ * @param MergeProfilesRequest - {@link MergeProfilesRequest}
+ * @returns {@link MergeProfilesResponse}
  * @see {@link MergeProfilesCommandInput} for command's `input` shape.
  * @see {@link MergeProfilesCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

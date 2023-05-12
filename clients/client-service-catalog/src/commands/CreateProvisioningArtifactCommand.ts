@@ -78,8 +78,8 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  *
  * ```
  *
- * @param CreateProvisioningArtifactCommandInput - {@link CreateProvisioningArtifactCommandInput}
- * @returns {@link CreateProvisioningArtifactCommandOutput}
+ * @param CreateProvisioningArtifactInput - {@link CreateProvisioningArtifactInput}
+ * @returns {@link CreateProvisioningArtifactOutput}
  * @see {@link CreateProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link CreateProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

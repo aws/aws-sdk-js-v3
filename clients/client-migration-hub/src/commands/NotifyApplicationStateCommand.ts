@@ -54,8 +54,8 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  *
  * ```
  *
- * @param NotifyApplicationStateCommandInput - {@link NotifyApplicationStateCommandInput}
- * @returns {@link NotifyApplicationStateCommandOutput}
+ * @param NotifyApplicationStateRequest - {@link NotifyApplicationStateRequest}
+ * @returns {@link NotifyApplicationStateResult}
  * @see {@link NotifyApplicationStateCommandInput} for command's `input` shape.
  * @see {@link NotifyApplicationStateCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.

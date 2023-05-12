@@ -57,8 +57,8 @@ export interface CreateImageBuilderStreamingURLCommandOutput
  *
  * ```
  *
- * @param CreateImageBuilderStreamingURLCommandInput - {@link CreateImageBuilderStreamingURLCommandInput}
- * @returns {@link CreateImageBuilderStreamingURLCommandOutput}
+ * @param CreateImageBuilderStreamingURLRequest - {@link CreateImageBuilderStreamingURLRequest}
+ * @returns {@link CreateImageBuilderStreamingURLResult}
  * @see {@link CreateImageBuilderStreamingURLCommandInput} for command's `input` shape.
  * @see {@link CreateImageBuilderStreamingURLCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

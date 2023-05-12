@@ -95,8 +95,8 @@ export interface DescribeVpcEndpointConnectionsCommandOutput
  *
  * ```
  *
- * @param DescribeVpcEndpointConnectionsCommandInput - {@link DescribeVpcEndpointConnectionsCommandInput}
- * @returns {@link DescribeVpcEndpointConnectionsCommandOutput}
+ * @param DescribeVpcEndpointConnectionsRequest - {@link DescribeVpcEndpointConnectionsRequest}
+ * @returns {@link DescribeVpcEndpointConnectionsResult}
  * @see {@link DescribeVpcEndpointConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointConnectionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

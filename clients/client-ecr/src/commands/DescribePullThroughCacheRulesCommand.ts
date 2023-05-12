@@ -68,8 +68,8 @@ export interface DescribePullThroughCacheRulesCommandOutput
  *
  * ```
  *
- * @param DescribePullThroughCacheRulesCommandInput - {@link DescribePullThroughCacheRulesCommandInput}
- * @returns {@link DescribePullThroughCacheRulesCommandOutput}
+ * @param DescribePullThroughCacheRulesRequest - {@link DescribePullThroughCacheRulesRequest}
+ * @returns {@link DescribePullThroughCacheRulesResponse}
  * @see {@link DescribePullThroughCacheRulesCommandInput} for command's `input` shape.
  * @see {@link DescribePullThroughCacheRulesCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

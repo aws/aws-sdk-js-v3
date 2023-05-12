@@ -69,8 +69,8 @@ export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSetting
  *
  * ```
  *
- * @param CreateNetworkSettingsCommandInput - {@link CreateNetworkSettingsCommandInput}
- * @returns {@link CreateNetworkSettingsCommandOutput}
+ * @param CreateNetworkSettingsRequest - {@link CreateNetworkSettingsRequest}
+ * @returns {@link CreateNetworkSettingsResponse}
  * @see {@link CreateNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

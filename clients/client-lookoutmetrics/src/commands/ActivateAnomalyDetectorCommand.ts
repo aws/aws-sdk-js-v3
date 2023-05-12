@@ -48,8 +48,8 @@ export interface ActivateAnomalyDetectorCommandOutput extends ActivateAnomalyDet
  *
  * ```
  *
- * @param ActivateAnomalyDetectorCommandInput - {@link ActivateAnomalyDetectorCommandInput}
- * @returns {@link ActivateAnomalyDetectorCommandOutput}
+ * @param ActivateAnomalyDetectorRequest - {@link ActivateAnomalyDetectorRequest}
+ * @returns {@link ActivateAnomalyDetectorResponse}
  * @see {@link ActivateAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link ActivateAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

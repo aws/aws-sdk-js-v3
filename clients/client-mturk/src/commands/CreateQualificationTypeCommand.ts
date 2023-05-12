@@ -79,8 +79,8 @@ export interface CreateQualificationTypeCommandOutput extends CreateQualificatio
  *
  * ```
  *
- * @param CreateQualificationTypeCommandInput - {@link CreateQualificationTypeCommandInput}
- * @returns {@link CreateQualificationTypeCommandOutput}
+ * @param CreateQualificationTypeRequest - {@link CreateQualificationTypeRequest}
+ * @returns {@link CreateQualificationTypeResponse}
  * @see {@link CreateQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link CreateQualificationTypeCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

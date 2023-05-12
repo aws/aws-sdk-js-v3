@@ -50,8 +50,8 @@ export interface SetStackPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetStackPolicyCommandInput - {@link SetStackPolicyCommandInput}
- * @returns {@link SetStackPolicyCommandOutput}
+ * @param SetStackPolicyInput - {@link SetStackPolicyInput}
+ * @returns {@link Unit}
  * @see {@link SetStackPolicyCommandInput} for command's `input` shape.
  * @see {@link SetStackPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

@@ -63,8 +63,8 @@ export interface ListEventSourcesCommandOutput extends ListEventSourcesResponse,
  *
  * ```
  *
- * @param ListEventSourcesCommandInput - {@link ListEventSourcesCommandInput}
- * @returns {@link ListEventSourcesCommandOutput}
+ * @param ListEventSourcesRequest - {@link ListEventSourcesRequest}
+ * @returns {@link ListEventSourcesResponse}
  * @see {@link ListEventSourcesCommandInput} for command's `input` shape.
  * @see {@link ListEventSourcesCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

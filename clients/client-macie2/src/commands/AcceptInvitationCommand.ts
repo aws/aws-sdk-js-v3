@@ -50,8 +50,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  *
  * ```
  *
- * @param AcceptInvitationCommandInput - {@link AcceptInvitationCommandInput}
- * @returns {@link AcceptInvitationCommandOutput}
+ * @param AcceptInvitationRequest - {@link AcceptInvitationRequest}
+ * @returns {@link AcceptInvitationResponse}
  * @see {@link AcceptInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptInvitationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

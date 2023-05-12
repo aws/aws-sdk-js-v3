@@ -95,8 +95,8 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  *
  * ```
  *
- * @param DeleteWorkgroupCommandInput - {@link DeleteWorkgroupCommandInput}
- * @returns {@link DeleteWorkgroupCommandOutput}
+ * @param DeleteWorkgroupRequest - {@link DeleteWorkgroupRequest}
+ * @returns {@link DeleteWorkgroupResponse}
  * @see {@link DeleteWorkgroupCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkgroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

@@ -54,8 +54,8 @@ export interface GetThingShadowCommandOutput extends GetThingShadowResponse, __M
  *
  * ```
  *
- * @param GetThingShadowCommandInput - {@link GetThingShadowCommandInput}
- * @returns {@link GetThingShadowCommandOutput}
+ * @param GetThingShadowRequest - {@link GetThingShadowRequest}
+ * @returns {@link GetThingShadowResponse}
  * @see {@link GetThingShadowCommandInput} for command's `input` shape.
  * @see {@link GetThingShadowCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.

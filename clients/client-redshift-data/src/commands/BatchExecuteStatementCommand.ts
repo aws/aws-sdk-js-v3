@@ -102,8 +102,8 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  *
  * ```
  *
- * @param BatchExecuteStatementCommandInput - {@link BatchExecuteStatementCommandInput}
- * @returns {@link BatchExecuteStatementCommandOutput}
+ * @param BatchExecuteStatementInput - {@link BatchExecuteStatementInput}
+ * @returns {@link BatchExecuteStatementOutput}
  * @see {@link BatchExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link BatchExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.

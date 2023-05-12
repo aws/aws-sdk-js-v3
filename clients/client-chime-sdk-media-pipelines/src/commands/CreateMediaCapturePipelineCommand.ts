@@ -149,8 +149,8 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  *
  * ```
  *
- * @param CreateMediaCapturePipelineCommandInput - {@link CreateMediaCapturePipelineCommandInput}
- * @returns {@link CreateMediaCapturePipelineCommandOutput}
+ * @param CreateMediaCapturePipelineRequest - {@link CreateMediaCapturePipelineRequest}
+ * @returns {@link CreateMediaCapturePipelineResponse}
  * @see {@link CreateMediaCapturePipelineCommandInput} for command's `input` shape.
  * @see {@link CreateMediaCapturePipelineCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.

@@ -215,8 +215,8 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *
  * ```
  *
- * @param UploadPartCommandInput - {@link UploadPartCommandInput}
- * @returns {@link UploadPartCommandOutput}
+ * @param UploadPartRequest - {@link UploadPartRequest}
+ * @returns {@link UploadPartOutput}
  * @see {@link UploadPartCommandInput} for command's `input` shape.
  * @see {@link UploadPartCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

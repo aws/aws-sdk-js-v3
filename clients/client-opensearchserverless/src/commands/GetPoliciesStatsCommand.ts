@@ -63,8 +63,8 @@ export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse,
  *
  * ```
  *
- * @param GetPoliciesStatsCommandInput - {@link GetPoliciesStatsCommandInput}
- * @returns {@link GetPoliciesStatsCommandOutput}
+ * @param GetPoliciesStatsRequest - {@link GetPoliciesStatsRequest}
+ * @returns {@link GetPoliciesStatsResponse}
  * @see {@link GetPoliciesStatsCommandInput} for command's `input` shape.
  * @see {@link GetPoliciesStatsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

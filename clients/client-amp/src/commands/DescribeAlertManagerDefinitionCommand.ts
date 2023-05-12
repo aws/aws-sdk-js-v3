@@ -63,8 +63,8 @@ export interface DescribeAlertManagerDefinitionCommandOutput
  *
  * ```
  *
- * @param DescribeAlertManagerDefinitionCommandInput - {@link DescribeAlertManagerDefinitionCommandInput}
- * @returns {@link DescribeAlertManagerDefinitionCommandOutput}
+ * @param DescribeAlertManagerDefinitionRequest - {@link DescribeAlertManagerDefinitionRequest}
+ * @returns {@link DescribeAlertManagerDefinitionResponse}
  * @see {@link DescribeAlertManagerDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeAlertManagerDefinitionCommandOutput} for command's `response` shape.
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.

@@ -57,8 +57,8 @@ export interface RevokeClientVpnIngressCommandOutput extends RevokeClientVpnIngr
  *
  * ```
  *
- * @param RevokeClientVpnIngressCommandInput - {@link RevokeClientVpnIngressCommandInput}
- * @returns {@link RevokeClientVpnIngressCommandOutput}
+ * @param RevokeClientVpnIngressRequest - {@link RevokeClientVpnIngressRequest}
+ * @returns {@link RevokeClientVpnIngressResult}
  * @see {@link RevokeClientVpnIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeClientVpnIngressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

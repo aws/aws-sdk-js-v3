@@ -303,8 +303,8 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  *
  * ```
  *
- * @param DescribeTopicCommandInput - {@link DescribeTopicCommandInput}
- * @returns {@link DescribeTopicCommandOutput}
+ * @param DescribeTopicRequest - {@link DescribeTopicRequest}
+ * @returns {@link DescribeTopicResponse}
  * @see {@link DescribeTopicCommandInput} for command's `input` shape.
  * @see {@link DescribeTopicCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

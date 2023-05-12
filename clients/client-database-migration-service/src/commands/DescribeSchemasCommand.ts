@@ -60,8 +60,8 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  *
  * ```
  *
- * @param DescribeSchemasCommandInput - {@link DescribeSchemasCommandInput}
- * @returns {@link DescribeSchemasCommandOutput}
+ * @param DescribeSchemasMessage - {@link DescribeSchemasMessage}
+ * @returns {@link DescribeSchemasResponse}
  * @see {@link DescribeSchemasCommandInput} for command's `input` shape.
  * @see {@link DescribeSchemasCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

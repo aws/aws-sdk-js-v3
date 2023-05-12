@@ -77,8 +77,8 @@ export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrase
  *
  * ```
  *
- * @param BatchDetectKeyPhrasesCommandInput - {@link BatchDetectKeyPhrasesCommandInput}
- * @returns {@link BatchDetectKeyPhrasesCommandOutput}
+ * @param BatchDetectKeyPhrasesRequest - {@link BatchDetectKeyPhrasesRequest}
+ * @returns {@link BatchDetectKeyPhrasesResponse}
  * @see {@link BatchDetectKeyPhrasesCommandInput} for command's `input` shape.
  * @see {@link BatchDetectKeyPhrasesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

@@ -68,8 +68,8 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  *
  * ```
  *
- * @param DeleteEventSubscriptionCommandInput - {@link DeleteEventSubscriptionCommandInput}
- * @returns {@link DeleteEventSubscriptionCommandOutput}
+ * @param DeleteEventSubscriptionMessage - {@link DeleteEventSubscriptionMessage}
+ * @returns {@link DeleteEventSubscriptionResponse}
  * @see {@link DeleteEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

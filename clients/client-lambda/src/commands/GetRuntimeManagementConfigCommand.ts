@@ -55,8 +55,8 @@ export interface GetRuntimeManagementConfigCommandOutput extends GetRuntimeManag
  *
  * ```
  *
- * @param GetRuntimeManagementConfigCommandInput - {@link GetRuntimeManagementConfigCommandInput}
- * @returns {@link GetRuntimeManagementConfigCommandOutput}
+ * @param GetRuntimeManagementConfigRequest - {@link GetRuntimeManagementConfigRequest}
+ * @returns {@link GetRuntimeManagementConfigResponse}
  * @see {@link GetRuntimeManagementConfigCommandInput} for command's `input` shape.
  * @see {@link GetRuntimeManagementConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

@@ -70,8 +70,8 @@ export interface ListOrganizationServiceAccessStatusCommandOutput
  *
  * ```
  *
- * @param ListOrganizationServiceAccessStatusCommandInput - {@link ListOrganizationServiceAccessStatusCommandInput}
- * @returns {@link ListOrganizationServiceAccessStatusCommandOutput}
+ * @param ListOrganizationServiceAccessStatusRequest - {@link ListOrganizationServiceAccessStatusRequest}
+ * @returns {@link ListOrganizationServiceAccessStatusResponse}
  * @see {@link ListOrganizationServiceAccessStatusCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationServiceAccessStatusCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

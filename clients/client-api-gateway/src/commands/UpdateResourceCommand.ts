@@ -121,8 +121,8 @@ export interface UpdateResourceCommandOutput extends Resource, __MetadataBearer 
  *
  * ```
  *
- * @param UpdateResourceCommandInput - {@link UpdateResourceCommandInput}
- * @returns {@link UpdateResourceCommandOutput}
+ * @param UpdateResourceRequest - {@link UpdateResourceRequest}
+ * @returns {@link Resource}
  * @see {@link UpdateResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

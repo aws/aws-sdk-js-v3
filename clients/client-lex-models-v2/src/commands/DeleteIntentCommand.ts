@@ -53,8 +53,8 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteIntentCommandInput - {@link DeleteIntentCommandInput}
- * @returns {@link DeleteIntentCommandOutput}
+ * @param DeleteIntentRequest - {@link DeleteIntentRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteIntentCommandInput} for command's `input` shape.
  * @see {@link DeleteIntentCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

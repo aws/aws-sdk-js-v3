@@ -67,8 +67,8 @@ export interface CreateBackendStorageCommandOutput extends CreateBackendStorageR
  *
  * ```
  *
- * @param CreateBackendStorageCommandInput - {@link CreateBackendStorageCommandInput}
- * @returns {@link CreateBackendStorageCommandOutput}
+ * @param CreateBackendStorageRequest - {@link CreateBackendStorageRequest}
+ * @returns {@link CreateBackendStorageResponse}
  * @see {@link CreateBackendStorageCommandInput} for command's `input` shape.
  * @see {@link CreateBackendStorageCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

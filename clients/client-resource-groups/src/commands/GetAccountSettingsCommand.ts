@@ -52,8 +52,8 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  *
  * ```
  *
- * @param GetAccountSettingsCommandInput - {@link GetAccountSettingsCommandInput}
- * @returns {@link GetAccountSettingsCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetAccountSettingsOutput}
  * @see {@link GetAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link GetAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

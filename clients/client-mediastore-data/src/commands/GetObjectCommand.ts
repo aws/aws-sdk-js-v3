@@ -61,8 +61,8 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectRe
  *
  * ```
  *
- * @param GetObjectCommandInput - {@link GetObjectCommandInput}
- * @returns {@link GetObjectCommandOutput}
+ * @param GetObjectRequest - {@link GetObjectRequest}
+ * @returns {@link GetObjectResponse}
  * @see {@link GetObjectCommandInput} for command's `input` shape.
  * @see {@link GetObjectCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.

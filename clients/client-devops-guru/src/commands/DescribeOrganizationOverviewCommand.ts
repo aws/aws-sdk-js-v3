@@ -64,8 +64,8 @@ export interface DescribeOrganizationOverviewCommandOutput
  *
  * ```
  *
- * @param DescribeOrganizationOverviewCommandInput - {@link DescribeOrganizationOverviewCommandInput}
- * @returns {@link DescribeOrganizationOverviewCommandOutput}
+ * @param DescribeOrganizationOverviewRequest - {@link DescribeOrganizationOverviewRequest}
+ * @returns {@link DescribeOrganizationOverviewResponse}
  * @see {@link DescribeOrganizationOverviewCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationOverviewCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

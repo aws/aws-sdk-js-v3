@@ -108,8 +108,8 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  *
  * ```
  *
- * @param DescribeInsightCommandInput - {@link DescribeInsightCommandInput}
- * @returns {@link DescribeInsightCommandOutput}
+ * @param DescribeInsightRequest - {@link DescribeInsightRequest}
+ * @returns {@link DescribeInsightResponse}
  * @see {@link DescribeInsightCommandInput} for command's `input` shape.
  * @see {@link DescribeInsightCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

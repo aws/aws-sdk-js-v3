@@ -126,8 +126,8 @@ export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, 
  *
  * ```
  *
- * @param UpdateEnvironmentCommandInput - {@link UpdateEnvironmentCommandInput}
- * @returns {@link UpdateEnvironmentCommandOutput}
+ * @param UpdateEnvironmentMessage - {@link UpdateEnvironmentMessage}
+ * @returns {@link EnvironmentDescription}
  * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

@@ -95,8 +95,8 @@ export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __M
  *
  * ```
  *
- * @param SearchResourcesCommandInput - {@link SearchResourcesCommandInput}
- * @returns {@link SearchResourcesCommandOutput}
+ * @param SearchResourcesInput - {@link SearchResourcesInput}
+ * @returns {@link SearchResourcesOutput}
  * @see {@link SearchResourcesCommandInput} for command's `input` shape.
  * @see {@link SearchResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

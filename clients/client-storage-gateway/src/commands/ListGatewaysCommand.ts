@@ -74,8 +74,8 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  *
  * ```
  *
- * @param ListGatewaysCommandInput - {@link ListGatewaysCommandInput}
- * @returns {@link ListGatewaysCommandOutput}
+ * @param ListGatewaysInput - {@link ListGatewaysInput}
+ * @returns {@link ListGatewaysOutput}
  * @see {@link ListGatewaysCommandInput} for command's `input` shape.
  * @see {@link ListGatewaysCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

@@ -134,8 +134,8 @@ export interface GetPartitionsCommandOutput extends GetPartitionsResponse, __Met
  *
  * ```
  *
- * @param GetPartitionsCommandInput - {@link GetPartitionsCommandInput}
- * @returns {@link GetPartitionsCommandOutput}
+ * @param GetPartitionsRequest - {@link GetPartitionsRequest}
+ * @returns {@link GetPartitionsResponse}
  * @see {@link GetPartitionsCommandInput} for command's `input` shape.
  * @see {@link GetPartitionsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

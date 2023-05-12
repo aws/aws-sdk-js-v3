@@ -52,8 +52,8 @@ export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutpu
  *
  * ```
  *
- * @param DeactivatePipelineCommandInput - {@link DeactivatePipelineCommandInput}
- * @returns {@link DeactivatePipelineCommandOutput}
+ * @param DeactivatePipelineInput - {@link DeactivatePipelineInput}
+ * @returns {@link DeactivatePipelineOutput}
  * @see {@link DeactivatePipelineCommandInput} for command's `input` shape.
  * @see {@link DeactivatePipelineCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.

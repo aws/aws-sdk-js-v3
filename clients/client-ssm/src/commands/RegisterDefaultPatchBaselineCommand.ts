@@ -59,8 +59,8 @@ export interface RegisterDefaultPatchBaselineCommandOutput
  *
  * ```
  *
- * @param RegisterDefaultPatchBaselineCommandInput - {@link RegisterDefaultPatchBaselineCommandInput}
- * @returns {@link RegisterDefaultPatchBaselineCommandOutput}
+ * @param RegisterDefaultPatchBaselineRequest - {@link RegisterDefaultPatchBaselineRequest}
+ * @returns {@link RegisterDefaultPatchBaselineResult}
  * @see {@link RegisterDefaultPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link RegisterDefaultPatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

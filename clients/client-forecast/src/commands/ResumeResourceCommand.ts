@@ -48,8 +48,8 @@ export interface ResumeResourceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ResumeResourceCommandInput - {@link ResumeResourceCommandInput}
- * @returns {@link ResumeResourceCommandOutput}
+ * @param ResumeResourceRequest - {@link ResumeResourceRequest}
+ * @returns {@link Unit}
  * @see {@link ResumeResourceCommandInput} for command's `input` shape.
  * @see {@link ResumeResourceCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

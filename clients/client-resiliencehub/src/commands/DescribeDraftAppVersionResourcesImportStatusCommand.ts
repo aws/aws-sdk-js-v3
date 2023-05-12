@@ -70,8 +70,8 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
  *
  * ```
  *
- * @param DescribeDraftAppVersionResourcesImportStatusCommandInput - {@link DescribeDraftAppVersionResourcesImportStatusCommandInput}
- * @returns {@link DescribeDraftAppVersionResourcesImportStatusCommandOutput}
+ * @param DescribeDraftAppVersionResourcesImportStatusRequest - {@link DescribeDraftAppVersionResourcesImportStatusRequest}
+ * @returns {@link DescribeDraftAppVersionResourcesImportStatusResponse}
  * @see {@link DescribeDraftAppVersionResourcesImportStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeDraftAppVersionResourcesImportStatusCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

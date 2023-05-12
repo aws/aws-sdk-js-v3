@@ -112,8 +112,8 @@ export interface RevokePermissionsCommandOutput extends RevokePermissionsRespons
  *
  * ```
  *
- * @param RevokePermissionsCommandInput - {@link RevokePermissionsCommandInput}
- * @returns {@link RevokePermissionsCommandOutput}
+ * @param RevokePermissionsRequest - {@link RevokePermissionsRequest}
+ * @returns {@link RevokePermissionsResponse}
  * @see {@link RevokePermissionsCommandInput} for command's `input` shape.
  * @see {@link RevokePermissionsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

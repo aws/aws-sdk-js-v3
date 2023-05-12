@@ -67,8 +67,8 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param PredictCommandInput - {@link PredictCommandInput}
- * @returns {@link PredictCommandOutput}
+ * @param PredictInput - {@link PredictInput}
+ * @returns {@link PredictOutput}
  * @see {@link PredictCommandInput} for command's `input` shape.
  * @see {@link PredictCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

@@ -49,8 +49,8 @@ export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, _
  *
  * ```
  *
- * @param CancelAuditTaskCommandInput - {@link CancelAuditTaskCommandInput}
- * @returns {@link CancelAuditTaskCommandOutput}
+ * @param CancelAuditTaskRequest - {@link CancelAuditTaskRequest}
+ * @returns {@link CancelAuditTaskResponse}
  * @see {@link CancelAuditTaskCommandInput} for command's `input` shape.
  * @see {@link CancelAuditTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

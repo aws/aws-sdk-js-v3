@@ -70,8 +70,8 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  *
  * ```
  *
- * @param CreatePackageCommandInput - {@link CreatePackageCommandInput}
- * @returns {@link CreatePackageCommandOutput}
+ * @param CreatePackageRequest - {@link CreatePackageRequest}
+ * @returns {@link CreatePackageResponse}
  * @see {@link CreatePackageCommandInput} for command's `input` shape.
  * @see {@link CreatePackageCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

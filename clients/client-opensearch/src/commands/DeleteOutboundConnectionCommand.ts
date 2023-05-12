@@ -77,8 +77,8 @@ export interface DeleteOutboundConnectionCommandOutput extends DeleteOutboundCon
  *
  * ```
  *
- * @param DeleteOutboundConnectionCommandInput - {@link DeleteOutboundConnectionCommandInput}
- * @returns {@link DeleteOutboundConnectionCommandOutput}
+ * @param DeleteOutboundConnectionRequest - {@link DeleteOutboundConnectionRequest}
+ * @returns {@link DeleteOutboundConnectionResponse}
  * @see {@link DeleteOutboundConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteOutboundConnectionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

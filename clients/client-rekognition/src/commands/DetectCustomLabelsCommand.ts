@@ -110,8 +110,8 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  *
  * ```
  *
- * @param DetectCustomLabelsCommandInput - {@link DetectCustomLabelsCommandInput}
- * @returns {@link DetectCustomLabelsCommandOutput}
+ * @param DetectCustomLabelsRequest - {@link DetectCustomLabelsRequest}
+ * @returns {@link DetectCustomLabelsResponse}
  * @see {@link DetectCustomLabelsCommandInput} for command's `input` shape.
  * @see {@link DetectCustomLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

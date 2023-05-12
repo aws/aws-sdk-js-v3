@@ -84,8 +84,8 @@ export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRule
  *
  * ```
  *
- * @param CreateTopicRuleDestinationCommandInput - {@link CreateTopicRuleDestinationCommandInput}
- * @returns {@link CreateTopicRuleDestinationCommandOutput}
+ * @param CreateTopicRuleDestinationRequest - {@link CreateTopicRuleDestinationRequest}
+ * @returns {@link CreateTopicRuleDestinationResponse}
  * @see {@link CreateTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

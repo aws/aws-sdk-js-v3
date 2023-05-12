@@ -73,8 +73,8 @@ export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsRes
  *
  * ```
  *
- * @param ListWorldExportJobsCommandInput - {@link ListWorldExportJobsCommandInput}
- * @returns {@link ListWorldExportJobsCommandOutput}
+ * @param ListWorldExportJobsRequest - {@link ListWorldExportJobsRequest}
+ * @returns {@link ListWorldExportJobsResponse}
  * @see {@link ListWorldExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListWorldExportJobsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

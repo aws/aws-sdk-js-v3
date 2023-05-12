@@ -53,8 +53,8 @@ export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProd
  *
  * ```
  *
- * @param DescribeCopyProductStatusCommandInput - {@link DescribeCopyProductStatusCommandInput}
- * @returns {@link DescribeCopyProductStatusCommandOutput}
+ * @param DescribeCopyProductStatusInput - {@link DescribeCopyProductStatusInput}
+ * @returns {@link DescribeCopyProductStatusOutput}
  * @see {@link DescribeCopyProductStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeCopyProductStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

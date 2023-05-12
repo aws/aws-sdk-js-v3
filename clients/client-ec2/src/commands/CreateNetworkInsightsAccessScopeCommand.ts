@@ -282,8 +282,8 @@ export interface CreateNetworkInsightsAccessScopeCommandOutput
  *
  * ```
  *
- * @param CreateNetworkInsightsAccessScopeCommandInput - {@link CreateNetworkInsightsAccessScopeCommandInput}
- * @returns {@link CreateNetworkInsightsAccessScopeCommandOutput}
+ * @param CreateNetworkInsightsAccessScopeRequest - {@link CreateNetworkInsightsAccessScopeRequest}
+ * @returns {@link CreateNetworkInsightsAccessScopeResult}
  * @see {@link CreateNetworkInsightsAccessScopeCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkInsightsAccessScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

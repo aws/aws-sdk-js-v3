@@ -65,8 +65,8 @@ export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBea
  *
  * ```
  *
- * @param ListOrdersCommandInput - {@link ListOrdersCommandInput}
- * @returns {@link ListOrdersCommandOutput}
+ * @param ListOrdersInput - {@link ListOrdersInput}
+ * @returns {@link ListOrdersOutput}
  * @see {@link ListOrdersCommandInput} for command's `input` shape.
  * @see {@link ListOrdersCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

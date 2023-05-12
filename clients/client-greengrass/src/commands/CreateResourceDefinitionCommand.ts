@@ -107,8 +107,8 @@ export interface CreateResourceDefinitionCommandOutput extends CreateResourceDef
  *
  * ```
  *
- * @param CreateResourceDefinitionCommandInput - {@link CreateResourceDefinitionCommandInput}
- * @returns {@link CreateResourceDefinitionCommandOutput}
+ * @param CreateResourceDefinitionRequest - {@link CreateResourceDefinitionRequest}
+ * @returns {@link CreateResourceDefinitionResponse}
  * @see {@link CreateResourceDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateResourceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

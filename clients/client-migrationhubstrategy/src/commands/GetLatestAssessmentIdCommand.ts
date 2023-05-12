@@ -52,8 +52,8 @@ export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentI
  *
  * ```
  *
- * @param GetLatestAssessmentIdCommandInput - {@link GetLatestAssessmentIdCommandInput}
- * @returns {@link GetLatestAssessmentIdCommandOutput}
+ * @param GetLatestAssessmentIdRequest - {@link GetLatestAssessmentIdRequest}
+ * @returns {@link GetLatestAssessmentIdResponse}
  * @see {@link GetLatestAssessmentIdCommandInput} for command's `input` shape.
  * @see {@link GetLatestAssessmentIdCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

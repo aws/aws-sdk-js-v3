@@ -51,8 +51,8 @@ export interface UpdateFieldCommandOutput extends UpdateFieldResponse, __Metadat
  *
  * ```
  *
- * @param UpdateFieldCommandInput - {@link UpdateFieldCommandInput}
- * @returns {@link UpdateFieldCommandOutput}
+ * @param UpdateFieldRequest - {@link UpdateFieldRequest}
+ * @returns {@link UpdateFieldResponse}
  * @see {@link UpdateFieldCommandInput} for command's `input` shape.
  * @see {@link UpdateFieldCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.

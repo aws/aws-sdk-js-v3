@@ -298,8 +298,8 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  *
  * ```
  *
- * @param GetLaunchTemplateDataCommandInput - {@link GetLaunchTemplateDataCommandInput}
- * @returns {@link GetLaunchTemplateDataCommandOutput}
+ * @param GetLaunchTemplateDataRequest - {@link GetLaunchTemplateDataRequest}
+ * @returns {@link GetLaunchTemplateDataResult}
  * @see {@link GetLaunchTemplateDataCommandInput} for command's `input` shape.
  * @see {@link GetLaunchTemplateDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

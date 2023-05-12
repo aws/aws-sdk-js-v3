@@ -52,8 +52,8 @@ export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateDefaultBranchCommandInput - {@link UpdateDefaultBranchCommandInput}
- * @returns {@link UpdateDefaultBranchCommandOutput}
+ * @param UpdateDefaultBranchInput - {@link UpdateDefaultBranchInput}
+ * @returns {@link Unit}
  * @see {@link UpdateDefaultBranchCommandInput} for command's `input` shape.
  * @see {@link UpdateDefaultBranchCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

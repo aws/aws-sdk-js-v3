@@ -69,8 +69,8 @@ export interface ListChangedBlocksCommandOutput extends ListChangedBlocksRespons
  *
  * ```
  *
- * @param ListChangedBlocksCommandInput - {@link ListChangedBlocksCommandInput}
- * @returns {@link ListChangedBlocksCommandOutput}
+ * @param ListChangedBlocksRequest - {@link ListChangedBlocksRequest}
+ * @returns {@link ListChangedBlocksResponse}
  * @see {@link ListChangedBlocksCommandInput} for command's `input` shape.
  * @see {@link ListChangedBlocksCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.

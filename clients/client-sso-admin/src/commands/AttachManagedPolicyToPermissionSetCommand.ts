@@ -66,8 +66,8 @@ export interface AttachManagedPolicyToPermissionSetCommandOutput
  *
  * ```
  *
- * @param AttachManagedPolicyToPermissionSetCommandInput - {@link AttachManagedPolicyToPermissionSetCommandInput}
- * @returns {@link AttachManagedPolicyToPermissionSetCommandOutput}
+ * @param AttachManagedPolicyToPermissionSetRequest - {@link AttachManagedPolicyToPermissionSetRequest}
+ * @returns {@link AttachManagedPolicyToPermissionSetResponse}
  * @see {@link AttachManagedPolicyToPermissionSetCommandInput} for command's `input` shape.
  * @see {@link AttachManagedPolicyToPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

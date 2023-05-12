@@ -68,8 +68,8 @@ export interface GetDatalakeStatusCommandOutput extends GetDatalakeStatusRespons
  *
  * ```
  *
- * @param GetDatalakeStatusCommandInput - {@link GetDatalakeStatusCommandInput}
- * @returns {@link GetDatalakeStatusCommandOutput}
+ * @param GetDatalakeStatusRequest - {@link GetDatalakeStatusRequest}
+ * @returns {@link GetDatalakeStatusResponse}
  * @see {@link GetDatalakeStatusCommandInput} for command's `input` shape.
  * @see {@link GetDatalakeStatusCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

@@ -51,8 +51,8 @@ export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __M
  *
  * ```
  *
- * @param CancelLegalHoldCommandInput - {@link CancelLegalHoldCommandInput}
- * @returns {@link CancelLegalHoldCommandOutput}
+ * @param CancelLegalHoldInput - {@link CancelLegalHoldInput}
+ * @returns {@link CancelLegalHoldOutput}
  * @see {@link CancelLegalHoldCommandInput} for command's `input` shape.
  * @see {@link CancelLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

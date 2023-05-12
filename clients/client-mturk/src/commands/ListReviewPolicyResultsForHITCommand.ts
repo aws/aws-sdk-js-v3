@@ -155,8 +155,8 @@ export interface ListReviewPolicyResultsForHITCommandOutput
  *
  * ```
  *
- * @param ListReviewPolicyResultsForHITCommandInput - {@link ListReviewPolicyResultsForHITCommandInput}
- * @returns {@link ListReviewPolicyResultsForHITCommandOutput}
+ * @param ListReviewPolicyResultsForHITRequest - {@link ListReviewPolicyResultsForHITRequest}
+ * @returns {@link ListReviewPolicyResultsForHITResponse}
  * @see {@link ListReviewPolicyResultsForHITCommandInput} for command's `input` shape.
  * @see {@link ListReviewPolicyResultsForHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

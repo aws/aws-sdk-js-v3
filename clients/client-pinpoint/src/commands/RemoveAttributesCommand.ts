@@ -62,8 +62,8 @@ export interface RemoveAttributesCommandOutput extends RemoveAttributesResponse,
  *
  * ```
  *
- * @param RemoveAttributesCommandInput - {@link RemoveAttributesCommandInput}
- * @returns {@link RemoveAttributesCommandOutput}
+ * @param RemoveAttributesRequest - {@link RemoveAttributesRequest}
+ * @returns {@link RemoveAttributesResponse}
  * @see {@link RemoveAttributesCommandInput} for command's `input` shape.
  * @see {@link RemoveAttributesCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

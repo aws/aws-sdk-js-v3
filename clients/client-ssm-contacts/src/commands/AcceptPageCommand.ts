@@ -53,8 +53,8 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  *
  * ```
  *
- * @param AcceptPageCommandInput - {@link AcceptPageCommandInput}
- * @returns {@link AcceptPageCommandOutput}
+ * @param AcceptPageRequest - {@link AcceptPageRequest}
+ * @returns {@link AcceptPageResult}
  * @see {@link AcceptPageCommandInput} for command's `input` shape.
  * @see {@link AcceptPageCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

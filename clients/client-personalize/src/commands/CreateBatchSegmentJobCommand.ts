@@ -74,8 +74,8 @@ export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJo
  *
  * ```
  *
- * @param CreateBatchSegmentJobCommandInput - {@link CreateBatchSegmentJobCommandInput}
- * @returns {@link CreateBatchSegmentJobCommandOutput}
+ * @param CreateBatchSegmentJobRequest - {@link CreateBatchSegmentJobRequest}
+ * @returns {@link CreateBatchSegmentJobResponse}
  * @see {@link CreateBatchSegmentJobCommandInput} for command's `input` shape.
  * @see {@link CreateBatchSegmentJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

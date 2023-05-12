@@ -71,8 +71,8 @@ export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitio
  *
  * ```
  *
- * @param CreateSuiteDefinitionCommandInput - {@link CreateSuiteDefinitionCommandInput}
- * @returns {@link CreateSuiteDefinitionCommandOutput}
+ * @param CreateSuiteDefinitionRequest - {@link CreateSuiteDefinitionRequest}
+ * @returns {@link CreateSuiteDefinitionResponse}
  * @see {@link CreateSuiteDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateSuiteDefinitionCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.

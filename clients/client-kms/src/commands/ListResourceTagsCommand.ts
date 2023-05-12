@@ -92,8 +92,8 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  *
  * ```
  *
- * @param ListResourceTagsCommandInput - {@link ListResourceTagsCommandInput}
- * @returns {@link ListResourceTagsCommandOutput}
+ * @param ListResourceTagsRequest - {@link ListResourceTagsRequest}
+ * @returns {@link ListResourceTagsResponse}
  * @see {@link ListResourceTagsCommandInput} for command's `input` shape.
  * @see {@link ListResourceTagsCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

@@ -72,8 +72,8 @@ export interface CreateHsmClientCertificateCommandOutput extends CreateHsmClient
  *
  * ```
  *
- * @param CreateHsmClientCertificateCommandInput - {@link CreateHsmClientCertificateCommandInput}
- * @returns {@link CreateHsmClientCertificateCommandOutput}
+ * @param CreateHsmClientCertificateMessage - {@link CreateHsmClientCertificateMessage}
+ * @returns {@link CreateHsmClientCertificateResult}
  * @see {@link CreateHsmClientCertificateCommandInput} for command's `input` shape.
  * @see {@link CreateHsmClientCertificateCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

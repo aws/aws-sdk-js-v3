@@ -59,8 +59,8 @@ export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetad
  *
  * ```
  *
- * @param UpdateDocumentMetadataCommandInput - {@link UpdateDocumentMetadataCommandInput}
- * @returns {@link UpdateDocumentMetadataCommandOutput}
+ * @param UpdateDocumentMetadataRequest - {@link UpdateDocumentMetadataRequest}
+ * @returns {@link UpdateDocumentMetadataResponse}
  * @see {@link UpdateDocumentMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

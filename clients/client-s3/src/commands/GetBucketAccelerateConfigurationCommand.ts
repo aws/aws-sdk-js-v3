@@ -80,8 +80,8 @@ export interface GetBucketAccelerateConfigurationCommandOutput
  *
  * ```
  *
- * @param GetBucketAccelerateConfigurationCommandInput - {@link GetBucketAccelerateConfigurationCommandInput}
- * @returns {@link GetBucketAccelerateConfigurationCommandOutput}
+ * @param GetBucketAccelerateConfigurationRequest - {@link GetBucketAccelerateConfigurationRequest}
+ * @returns {@link GetBucketAccelerateConfigurationOutput}
  * @see {@link GetBucketAccelerateConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketAccelerateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

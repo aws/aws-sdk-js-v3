@@ -74,8 +74,8 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AttachPolicyCommandInput - {@link AttachPolicyCommandInput}
- * @returns {@link AttachPolicyCommandOutput}
+ * @param AttachPolicyRequest - {@link AttachPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link AttachPolicyCommandInput} for command's `input` shape.
  * @see {@link AttachPolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

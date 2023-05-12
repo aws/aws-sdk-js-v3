@@ -80,8 +80,8 @@ export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
  *
  * ```
  *
- * @param DeleteDirectConnectGatewayAssociationProposalCommandInput - {@link DeleteDirectConnectGatewayAssociationProposalCommandInput}
- * @returns {@link DeleteDirectConnectGatewayAssociationProposalCommandOutput}
+ * @param DeleteDirectConnectGatewayAssociationProposalRequest - {@link DeleteDirectConnectGatewayAssociationProposalRequest}
+ * @returns {@link DeleteDirectConnectGatewayAssociationProposalResult}
  * @see {@link DeleteDirectConnectGatewayAssociationProposalCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectConnectGatewayAssociationProposalCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

@@ -66,8 +66,8 @@ export interface ListPipelineParametersForExecutionCommandOutput
  *
  * ```
  *
- * @param ListPipelineParametersForExecutionCommandInput - {@link ListPipelineParametersForExecutionCommandInput}
- * @returns {@link ListPipelineParametersForExecutionCommandOutput}
+ * @param ListPipelineParametersForExecutionRequest - {@link ListPipelineParametersForExecutionRequest}
+ * @returns {@link ListPipelineParametersForExecutionResponse}
  * @see {@link ListPipelineParametersForExecutionCommandInput} for command's `input` shape.
  * @see {@link ListPipelineParametersForExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

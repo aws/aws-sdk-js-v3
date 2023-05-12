@@ -72,8 +72,8 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
  *
  * ```
  *
- * @param CreateLensShareCommandInput - {@link CreateLensShareCommandInput}
- * @returns {@link CreateLensShareCommandOutput}
+ * @param CreateLensShareInput - {@link CreateLensShareInput}
+ * @returns {@link CreateLensShareOutput}
  * @see {@link CreateLensShareCommandInput} for command's `input` shape.
  * @see {@link CreateLensShareCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

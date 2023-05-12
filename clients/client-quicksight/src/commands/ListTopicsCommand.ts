@@ -61,8 +61,8 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  *
  * ```
  *
- * @param ListTopicsCommandInput - {@link ListTopicsCommandInput}
- * @returns {@link ListTopicsCommandOutput}
+ * @param ListTopicsRequest - {@link ListTopicsRequest}
+ * @returns {@link ListTopicsResponse}
  * @see {@link ListTopicsCommandInput} for command's `input` shape.
  * @see {@link ListTopicsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

@@ -154,8 +154,8 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  *
  * ```
  *
- * @param GetTablesCommandInput - {@link GetTablesCommandInput}
- * @returns {@link GetTablesCommandOutput}
+ * @param GetTablesRequest - {@link GetTablesRequest}
+ * @returns {@link GetTablesResponse}
  * @see {@link GetTablesCommandInput} for command's `input` shape.
  * @see {@link GetTablesCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

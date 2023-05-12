@@ -81,8 +81,8 @@ export interface CreateDomainEntryCommandOutput extends CreateDomainEntryResult,
  *
  * ```
  *
- * @param CreateDomainEntryCommandInput - {@link CreateDomainEntryCommandInput}
- * @returns {@link CreateDomainEntryCommandOutput}
+ * @param CreateDomainEntryRequest - {@link CreateDomainEntryRequest}
+ * @returns {@link CreateDomainEntryResult}
  * @see {@link CreateDomainEntryCommandInput} for command's `input` shape.
  * @see {@link CreateDomainEntryCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -135,8 +135,8 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  *
  * ```
  *
- * @param UpdateStackCommandInput - {@link UpdateStackCommandInput}
- * @returns {@link UpdateStackCommandOutput}
+ * @param UpdateStackRequest - {@link UpdateStackRequest}
+ * @returns {@link UpdateStackResult}
  * @see {@link UpdateStackCommandInput} for command's `input` shape.
  * @see {@link UpdateStackCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

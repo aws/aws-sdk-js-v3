@@ -128,8 +128,8 @@ export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromR
  *
  * ```
  *
- * @param RemoveLFTagsFromResourceCommandInput - {@link RemoveLFTagsFromResourceCommandInput}
- * @returns {@link RemoveLFTagsFromResourceCommandOutput}
+ * @param RemoveLFTagsFromResourceRequest - {@link RemoveLFTagsFromResourceRequest}
+ * @returns {@link RemoveLFTagsFromResourceResponse}
  * @see {@link RemoveLFTagsFromResourceCommandInput} for command's `input` shape.
  * @see {@link RemoveLFTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

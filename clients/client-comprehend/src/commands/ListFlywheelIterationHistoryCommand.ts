@@ -88,8 +88,8 @@ export interface ListFlywheelIterationHistoryCommandOutput
  *
  * ```
  *
- * @param ListFlywheelIterationHistoryCommandInput - {@link ListFlywheelIterationHistoryCommandInput}
- * @returns {@link ListFlywheelIterationHistoryCommandOutput}
+ * @param ListFlywheelIterationHistoryRequest - {@link ListFlywheelIterationHistoryRequest}
+ * @returns {@link ListFlywheelIterationHistoryResponse}
  * @see {@link ListFlywheelIterationHistoryCommandInput} for command's `input` shape.
  * @see {@link ListFlywheelIterationHistoryCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

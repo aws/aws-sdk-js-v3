@@ -50,8 +50,8 @@ export interface DeleteStudioMemberCommandOutput extends DeleteStudioMemberRespo
  *
  * ```
  *
- * @param DeleteStudioMemberCommandInput - {@link DeleteStudioMemberCommandInput}
- * @returns {@link DeleteStudioMemberCommandOutput}
+ * @param DeleteStudioMemberRequest - {@link DeleteStudioMemberRequest}
+ * @returns {@link DeleteStudioMemberResponse}
  * @see {@link DeleteStudioMemberCommandInput} for command's `input` shape.
  * @see {@link DeleteStudioMemberCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

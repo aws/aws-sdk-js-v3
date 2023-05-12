@@ -102,8 +102,8 @@ export interface DescribeVerifiedAccessTrustProvidersCommandOutput
  *
  * ```
  *
- * @param DescribeVerifiedAccessTrustProvidersCommandInput - {@link DescribeVerifiedAccessTrustProvidersCommandInput}
- * @returns {@link DescribeVerifiedAccessTrustProvidersCommandOutput}
+ * @param DescribeVerifiedAccessTrustProvidersRequest - {@link DescribeVerifiedAccessTrustProvidersRequest}
+ * @returns {@link DescribeVerifiedAccessTrustProvidersResult}
  * @see {@link DescribeVerifiedAccessTrustProvidersCommandInput} for command's `input` shape.
  * @see {@link DescribeVerifiedAccessTrustProvidersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

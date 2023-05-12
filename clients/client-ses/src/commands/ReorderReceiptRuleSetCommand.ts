@@ -58,8 +58,8 @@ export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSe
  *
  * ```
  *
- * @param ReorderReceiptRuleSetCommandInput - {@link ReorderReceiptRuleSetCommandInput}
- * @returns {@link ReorderReceiptRuleSetCommandOutput}
+ * @param ReorderReceiptRuleSetRequest - {@link ReorderReceiptRuleSetRequest}
+ * @returns {@link ReorderReceiptRuleSetResponse}
  * @see {@link ReorderReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link ReorderReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteConnectorDefinitionCommandOutput extends DeleteConnectorD
  *
  * ```
  *
- * @param DeleteConnectorDefinitionCommandInput - {@link DeleteConnectorDefinitionCommandInput}
- * @returns {@link DeleteConnectorDefinitionCommandOutput}
+ * @param DeleteConnectorDefinitionRequest - {@link DeleteConnectorDefinitionRequest}
+ * @returns {@link DeleteConnectorDefinitionResponse}
  * @see {@link DeleteConnectorDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectorDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

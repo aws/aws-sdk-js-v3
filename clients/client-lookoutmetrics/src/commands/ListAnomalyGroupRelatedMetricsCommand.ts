@@ -68,8 +68,8 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  *
  * ```
  *
- * @param ListAnomalyGroupRelatedMetricsCommandInput - {@link ListAnomalyGroupRelatedMetricsCommandInput}
- * @returns {@link ListAnomalyGroupRelatedMetricsCommandOutput}
+ * @param ListAnomalyGroupRelatedMetricsRequest - {@link ListAnomalyGroupRelatedMetricsRequest}
+ * @returns {@link ListAnomalyGroupRelatedMetricsResponse}
  * @see {@link ListAnomalyGroupRelatedMetricsCommandInput} for command's `input` shape.
  * @see {@link ListAnomalyGroupRelatedMetricsCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

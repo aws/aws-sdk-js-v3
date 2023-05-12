@@ -90,8 +90,8 @@ export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse,
  *
  * ```
  *
- * @param BatchPutGeofenceCommandInput - {@link BatchPutGeofenceCommandInput}
- * @returns {@link BatchPutGeofenceCommandOutput}
+ * @param BatchPutGeofenceRequest - {@link BatchPutGeofenceRequest}
+ * @returns {@link BatchPutGeofenceResponse}
  * @see {@link BatchPutGeofenceCommandInput} for command's `input` shape.
  * @see {@link BatchPutGeofenceCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

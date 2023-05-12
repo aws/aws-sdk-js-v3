@@ -55,8 +55,8 @@ export interface EnableDomainAutoRenewCommandOutput extends EnableDomainAutoRene
  *
  * ```
  *
- * @param EnableDomainAutoRenewCommandInput - {@link EnableDomainAutoRenewCommandInput}
- * @returns {@link EnableDomainAutoRenewCommandOutput}
+ * @param EnableDomainAutoRenewRequest - {@link EnableDomainAutoRenewRequest}
+ * @returns {@link EnableDomainAutoRenewResponse}
  * @see {@link EnableDomainAutoRenewCommandInput} for command's `input` shape.
  * @see {@link EnableDomainAutoRenewCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

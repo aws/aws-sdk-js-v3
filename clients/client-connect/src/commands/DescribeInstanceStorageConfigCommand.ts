@@ -84,8 +84,8 @@ export interface DescribeInstanceStorageConfigCommandOutput
  *
  * ```
  *
- * @param DescribeInstanceStorageConfigCommandInput - {@link DescribeInstanceStorageConfigCommandInput}
- * @returns {@link DescribeInstanceStorageConfigCommandOutput}
+ * @param DescribeInstanceStorageConfigRequest - {@link DescribeInstanceStorageConfigRequest}
+ * @returns {@link DescribeInstanceStorageConfigResponse}
  * @see {@link DescribeInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceStorageConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

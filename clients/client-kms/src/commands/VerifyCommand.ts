@@ -94,8 +94,8 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  *
  * ```
  *
- * @param VerifyCommandInput - {@link VerifyCommandInput}
- * @returns {@link VerifyCommandOutput}
+ * @param VerifyRequest - {@link VerifyRequest}
+ * @returns {@link VerifyResponse}
  * @see {@link VerifyCommandInput} for command's `input` shape.
  * @see {@link VerifyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

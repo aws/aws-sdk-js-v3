@@ -62,8 +62,8 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResult, _
  *
  * ```
  *
- * @param DescribeDetectorCommandInput - {@link DescribeDetectorCommandInput}
- * @returns {@link DescribeDetectorCommandOutput}
+ * @param DescribeDetectorRequest - {@link DescribeDetectorRequest}
+ * @returns {@link DescribeDetectorResult}
  * @see {@link DescribeDetectorCommandInput} for command's `input` shape.
  * @see {@link DescribeDetectorCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

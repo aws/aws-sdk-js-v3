@@ -58,8 +58,8 @@ export interface CreateCoipCidrCommandOutput extends CreateCoipCidrResult, __Met
  *
  * ```
  *
- * @param CreateCoipCidrCommandInput - {@link CreateCoipCidrCommandInput}
- * @returns {@link CreateCoipCidrCommandOutput}
+ * @param CreateCoipCidrRequest - {@link CreateCoipCidrRequest}
+ * @returns {@link CreateCoipCidrResult}
  * @see {@link CreateCoipCidrCommandInput} for command's `input` shape.
  * @see {@link CreateCoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

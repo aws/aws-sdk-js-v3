@@ -77,8 +77,8 @@ export interface DescribeVirtualRouterCommandOutput extends DescribeVirtualRoute
  *
  * ```
  *
- * @param DescribeVirtualRouterCommandInput - {@link DescribeVirtualRouterCommandInput}
- * @returns {@link DescribeVirtualRouterCommandOutput}
+ * @param DescribeVirtualRouterInput - {@link DescribeVirtualRouterInput}
+ * @returns {@link DescribeVirtualRouterOutput}
  * @see {@link DescribeVirtualRouterCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualRouterCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

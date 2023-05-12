@@ -60,8 +60,8 @@ export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, _
  *
  * ```
  *
- * @param MoveAddressToVpcCommandInput - {@link MoveAddressToVpcCommandInput}
- * @returns {@link MoveAddressToVpcCommandOutput}
+ * @param MoveAddressToVpcRequest - {@link MoveAddressToVpcRequest}
+ * @returns {@link MoveAddressToVpcResult}
  * @see {@link MoveAddressToVpcCommandInput} for command's `input` shape.
  * @see {@link MoveAddressToVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

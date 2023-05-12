@@ -110,8 +110,8 @@ export interface StartAssessmentFrameworkShareCommandOutput
  *
  * ```
  *
- * @param StartAssessmentFrameworkShareCommandInput - {@link StartAssessmentFrameworkShareCommandInput}
- * @returns {@link StartAssessmentFrameworkShareCommandOutput}
+ * @param StartAssessmentFrameworkShareRequest - {@link StartAssessmentFrameworkShareRequest}
+ * @returns {@link StartAssessmentFrameworkShareResponse}
  * @see {@link StartAssessmentFrameworkShareCommandInput} for command's `input` shape.
  * @see {@link StartAssessmentFrameworkShareCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

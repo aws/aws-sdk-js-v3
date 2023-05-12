@@ -55,8 +55,8 @@ export interface DeleteVoiceConnectorTerminationCommandOutput extends __Metadata
  *
  * ```
  *
- * @param DeleteVoiceConnectorTerminationCommandInput - {@link DeleteVoiceConnectorTerminationCommandInput}
- * @returns {@link DeleteVoiceConnectorTerminationCommandOutput}
+ * @param DeleteVoiceConnectorTerminationRequest - {@link DeleteVoiceConnectorTerminationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVoiceConnectorTerminationCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorTerminationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

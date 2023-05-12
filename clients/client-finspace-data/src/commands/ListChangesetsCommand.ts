@@ -76,8 +76,8 @@ export interface ListChangesetsCommandOutput extends ListChangesetsResponse, __M
  *
  * ```
  *
- * @param ListChangesetsCommandInput - {@link ListChangesetsCommandInput}
- * @returns {@link ListChangesetsCommandOutput}
+ * @param ListChangesetsRequest - {@link ListChangesetsRequest}
+ * @returns {@link ListChangesetsResponse}
  * @see {@link ListChangesetsCommandInput} for command's `input` shape.
  * @see {@link ListChangesetsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

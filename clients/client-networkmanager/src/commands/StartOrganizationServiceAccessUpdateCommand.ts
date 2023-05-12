@@ -68,8 +68,8 @@ export interface StartOrganizationServiceAccessUpdateCommandOutput
  *
  * ```
  *
- * @param StartOrganizationServiceAccessUpdateCommandInput - {@link StartOrganizationServiceAccessUpdateCommandInput}
- * @returns {@link StartOrganizationServiceAccessUpdateCommandOutput}
+ * @param StartOrganizationServiceAccessUpdateRequest - {@link StartOrganizationServiceAccessUpdateRequest}
+ * @returns {@link StartOrganizationServiceAccessUpdateResponse}
  * @see {@link StartOrganizationServiceAccessUpdateCommandInput} for command's `input` shape.
  * @see {@link StartOrganizationServiceAccessUpdateCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

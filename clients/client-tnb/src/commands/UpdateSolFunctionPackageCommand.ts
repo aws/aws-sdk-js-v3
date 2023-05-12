@@ -52,8 +52,8 @@ export interface UpdateSolFunctionPackageCommandOutput extends UpdateSolFunction
  *
  * ```
  *
- * @param UpdateSolFunctionPackageCommandInput - {@link UpdateSolFunctionPackageCommandInput}
- * @returns {@link UpdateSolFunctionPackageCommandOutput}
+ * @param UpdateSolFunctionPackageInput - {@link UpdateSolFunctionPackageInput}
+ * @returns {@link UpdateSolFunctionPackageOutput}
  * @see {@link UpdateSolFunctionPackageCommandInput} for command's `input` shape.
  * @see {@link UpdateSolFunctionPackageCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

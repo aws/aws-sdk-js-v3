@@ -68,8 +68,8 @@ export interface ReleaseStaticIpCommandOutput extends ReleaseStaticIpResult, __M
  *
  * ```
  *
- * @param ReleaseStaticIpCommandInput - {@link ReleaseStaticIpCommandInput}
- * @returns {@link ReleaseStaticIpCommandOutput}
+ * @param ReleaseStaticIpRequest - {@link ReleaseStaticIpRequest}
+ * @returns {@link ReleaseStaticIpResult}
  * @see {@link ReleaseStaticIpCommandInput} for command's `input` shape.
  * @see {@link ReleaseStaticIpCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

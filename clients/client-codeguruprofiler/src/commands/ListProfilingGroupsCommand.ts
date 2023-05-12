@@ -84,8 +84,8 @@ export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsRes
  *
  * ```
  *
- * @param ListProfilingGroupsCommandInput - {@link ListProfilingGroupsCommandInput}
- * @returns {@link ListProfilingGroupsCommandOutput}
+ * @param ListProfilingGroupsRequest - {@link ListProfilingGroupsRequest}
+ * @returns {@link ListProfilingGroupsResponse}
  * @see {@link ListProfilingGroupsCommandInput} for command's `input` shape.
  * @see {@link ListProfilingGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

@@ -56,8 +56,8 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  *
  * ```
  *
- * @param DescribeOrganizationalUnitCommandInput - {@link DescribeOrganizationalUnitCommandInput}
- * @returns {@link DescribeOrganizationalUnitCommandOutput}
+ * @param DescribeOrganizationalUnitRequest - {@link DescribeOrganizationalUnitRequest}
+ * @returns {@link DescribeOrganizationalUnitResponse}
  * @see {@link DescribeOrganizationalUnitCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationalUnitCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

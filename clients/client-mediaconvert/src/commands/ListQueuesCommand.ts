@@ -75,8 +75,8 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  *
  * ```
  *
- * @param ListQueuesCommandInput - {@link ListQueuesCommandInput}
- * @returns {@link ListQueuesCommandOutput}
+ * @param ListQueuesRequest - {@link ListQueuesRequest}
+ * @returns {@link ListQueuesResponse}
  * @see {@link ListQueuesCommandInput} for command's `input` shape.
  * @see {@link ListQueuesCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.

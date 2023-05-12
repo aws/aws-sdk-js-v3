@@ -49,8 +49,8 @@ export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityRes
  *
  * ```
  *
- * @param DeleteEmailIdentityCommandInput - {@link DeleteEmailIdentityCommandInput}
- * @returns {@link DeleteEmailIdentityCommandOutput}
+ * @param DeleteEmailIdentityRequest - {@link DeleteEmailIdentityRequest}
+ * @returns {@link DeleteEmailIdentityResponse}
  * @see {@link DeleteEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.

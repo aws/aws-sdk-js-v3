@@ -98,8 +98,8 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  *
  * ```
  *
- * @param ListVirtualMFADevicesCommandInput - {@link ListVirtualMFADevicesCommandInput}
- * @returns {@link ListVirtualMFADevicesCommandOutput}
+ * @param ListVirtualMFADevicesRequest - {@link ListVirtualMFADevicesRequest}
+ * @returns {@link ListVirtualMFADevicesResponse}
  * @see {@link ListVirtualMFADevicesCommandInput} for command's `input` shape.
  * @see {@link ListVirtualMFADevicesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

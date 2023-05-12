@@ -72,8 +72,8 @@ export interface UnlockRuleCommandOutput extends UnlockRuleResponse, __MetadataB
  *
  * ```
  *
- * @param UnlockRuleCommandInput - {@link UnlockRuleCommandInput}
- * @returns {@link UnlockRuleCommandOutput}
+ * @param UnlockRuleRequest - {@link UnlockRuleRequest}
+ * @returns {@link UnlockRuleResponse}
  * @see {@link UnlockRuleCommandInput} for command's `input` shape.
  * @see {@link UnlockRuleCommandOutput} for command's `response` shape.
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.

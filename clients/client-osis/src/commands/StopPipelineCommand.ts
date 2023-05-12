@@ -85,8 +85,8 @@ export interface StopPipelineCommandOutput extends StopPipelineResponse, __Metad
  *
  * ```
  *
- * @param StopPipelineCommandInput - {@link StopPipelineCommandInput}
- * @returns {@link StopPipelineCommandOutput}
+ * @param StopPipelineRequest - {@link StopPipelineRequest}
+ * @returns {@link StopPipelineResponse}
  * @see {@link StopPipelineCommandInput} for command's `input` shape.
  * @see {@link StopPipelineCommandOutput} for command's `response` shape.
  * @see {@link OSISClientResolvedConfig | config} for OSISClient's `config` shape.

@@ -60,8 +60,8 @@ export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsRes
  *
  * ```
  *
- * @param DescribeLocationNfsCommandInput - {@link DescribeLocationNfsCommandInput}
- * @returns {@link DescribeLocationNfsCommandOutput}
+ * @param DescribeLocationNfsRequest - {@link DescribeLocationNfsRequest}
+ * @returns {@link DescribeLocationNfsResponse}
  * @see {@link DescribeLocationNfsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationNfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

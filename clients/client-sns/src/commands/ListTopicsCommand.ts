@@ -59,8 +59,8 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  *
  * ```
  *
- * @param ListTopicsCommandInput - {@link ListTopicsCommandInput}
- * @returns {@link ListTopicsCommandOutput}
+ * @param ListTopicsInput - {@link ListTopicsInput}
+ * @returns {@link ListTopicsResponse}
  * @see {@link ListTopicsCommandInput} for command's `input` shape.
  * @see {@link ListTopicsCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

@@ -66,8 +66,8 @@ export interface ListAPIKeysCommandOutput extends ListAPIKeysResponse, __Metadat
  *
  * ```
  *
- * @param ListAPIKeysCommandInput - {@link ListAPIKeysCommandInput}
- * @returns {@link ListAPIKeysCommandOutput}
+ * @param ListAPIKeysRequest - {@link ListAPIKeysRequest}
+ * @returns {@link ListAPIKeysResponse}
  * @see {@link ListAPIKeysCommandInput} for command's `input` shape.
  * @see {@link ListAPIKeysCommandOutput} for command's `response` shape.
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.

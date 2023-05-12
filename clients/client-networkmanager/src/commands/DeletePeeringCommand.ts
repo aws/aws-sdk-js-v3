@@ -66,8 +66,8 @@ export interface DeletePeeringCommandOutput extends DeletePeeringResponse, __Met
  *
  * ```
  *
- * @param DeletePeeringCommandInput - {@link DeletePeeringCommandInput}
- * @returns {@link DeletePeeringCommandOutput}
+ * @param DeletePeeringRequest - {@link DeletePeeringRequest}
+ * @returns {@link DeletePeeringResponse}
  * @see {@link DeletePeeringCommandInput} for command's `input` shape.
  * @see {@link DeletePeeringCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

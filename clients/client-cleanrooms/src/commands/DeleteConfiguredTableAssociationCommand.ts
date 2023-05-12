@@ -54,8 +54,8 @@ export interface DeleteConfiguredTableAssociationCommandOutput
  *
  * ```
  *
- * @param DeleteConfiguredTableAssociationCommandInput - {@link DeleteConfiguredTableAssociationCommandInput}
- * @returns {@link DeleteConfiguredTableAssociationCommandOutput}
+ * @param DeleteConfiguredTableAssociationInput - {@link DeleteConfiguredTableAssociationInput}
+ * @returns {@link DeleteConfiguredTableAssociationOutput}
  * @see {@link DeleteConfiguredTableAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteConfiguredTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

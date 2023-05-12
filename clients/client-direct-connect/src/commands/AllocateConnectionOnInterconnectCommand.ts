@@ -97,8 +97,8 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  *
  * ```
  *
- * @param AllocateConnectionOnInterconnectCommandInput - {@link AllocateConnectionOnInterconnectCommandInput}
- * @returns {@link AllocateConnectionOnInterconnectCommandOutput}
+ * @param AllocateConnectionOnInterconnectRequest - {@link AllocateConnectionOnInterconnectRequest}
+ * @returns {@link Connection}
  * @see {@link AllocateConnectionOnInterconnectCommandInput} for command's `input` shape.
  * @see {@link AllocateConnectionOnInterconnectCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

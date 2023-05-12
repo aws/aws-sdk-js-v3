@@ -111,8 +111,8 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  *
  * ```
  *
- * @param CreateVolumeCommandInput - {@link CreateVolumeCommandInput}
- * @returns {@link CreateVolumeCommandOutput}
+ * @param CreateVolumeRequest - {@link CreateVolumeRequest}
+ * @returns {@link Volume}
  * @see {@link CreateVolumeCommandInput} for command's `input` shape.
  * @see {@link CreateVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

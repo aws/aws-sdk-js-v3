@@ -180,8 +180,8 @@ export interface DescribeStorageSystemResourcesCommandOutput
  *
  * ```
  *
- * @param DescribeStorageSystemResourcesCommandInput - {@link DescribeStorageSystemResourcesCommandInput}
- * @returns {@link DescribeStorageSystemResourcesCommandOutput}
+ * @param DescribeStorageSystemResourcesRequest - {@link DescribeStorageSystemResourcesRequest}
+ * @returns {@link DescribeStorageSystemResourcesResponse}
  * @see {@link DescribeStorageSystemResourcesCommandInput} for command's `input` shape.
  * @see {@link DescribeStorageSystemResourcesCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

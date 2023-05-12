@@ -90,8 +90,8 @@ export interface TagMFADeviceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param TagMFADeviceCommandInput - {@link TagMFADeviceCommandInput}
- * @returns {@link TagMFADeviceCommandOutput}
+ * @param TagMFADeviceRequest - {@link TagMFADeviceRequest}
+ * @returns {@link Unit}
  * @see {@link TagMFADeviceCommandInput} for command's `input` shape.
  * @see {@link TagMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

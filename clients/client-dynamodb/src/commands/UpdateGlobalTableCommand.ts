@@ -132,8 +132,8 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  *
  * ```
  *
- * @param UpdateGlobalTableCommandInput - {@link UpdateGlobalTableCommandInput}
- * @returns {@link UpdateGlobalTableCommandOutput}
+ * @param UpdateGlobalTableInput - {@link UpdateGlobalTableInput}
+ * @returns {@link UpdateGlobalTableOutput}
  * @see {@link UpdateGlobalTableCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

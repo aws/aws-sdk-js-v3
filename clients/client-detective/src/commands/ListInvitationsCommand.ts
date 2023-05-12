@@ -83,8 +83,8 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  *
  * ```
  *
- * @param ListInvitationsCommandInput - {@link ListInvitationsCommandInput}
- * @returns {@link ListInvitationsCommandOutput}
+ * @param ListInvitationsRequest - {@link ListInvitationsRequest}
+ * @returns {@link ListInvitationsResponse}
  * @see {@link ListInvitationsCommandInput} for command's `input` shape.
  * @see {@link ListInvitationsCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

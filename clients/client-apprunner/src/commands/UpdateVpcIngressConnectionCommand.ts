@@ -84,8 +84,8 @@ export interface UpdateVpcIngressConnectionCommandOutput extends UpdateVpcIngres
  *
  * ```
  *
- * @param UpdateVpcIngressConnectionCommandInput - {@link UpdateVpcIngressConnectionCommandInput}
- * @returns {@link UpdateVpcIngressConnectionCommandOutput}
+ * @param UpdateVpcIngressConnectionRequest - {@link UpdateVpcIngressConnectionRequest}
+ * @returns {@link UpdateVpcIngressConnectionResponse}
  * @see {@link UpdateVpcIngressConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateVpcIngressConnectionCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

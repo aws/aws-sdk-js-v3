@@ -73,8 +73,8 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  *
  * ```
  *
- * @param PutEventsCommandInput - {@link PutEventsCommandInput}
- * @returns {@link PutEventsCommandOutput}
+ * @param PutEventsRequest - {@link PutEventsRequest}
+ * @returns {@link PutEventsResponse}
  * @see {@link PutEventsCommandInput} for command's `input` shape.
  * @see {@link PutEventsCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

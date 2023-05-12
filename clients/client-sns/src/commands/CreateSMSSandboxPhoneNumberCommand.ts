@@ -58,8 +58,8 @@ export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandb
  *
  * ```
  *
- * @param CreateSMSSandboxPhoneNumberCommandInput - {@link CreateSMSSandboxPhoneNumberCommandInput}
- * @returns {@link CreateSMSSandboxPhoneNumberCommandOutput}
+ * @param CreateSMSSandboxPhoneNumberInput - {@link CreateSMSSandboxPhoneNumberInput}
+ * @returns {@link CreateSMSSandboxPhoneNumberResult}
  * @see {@link CreateSMSSandboxPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link CreateSMSSandboxPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

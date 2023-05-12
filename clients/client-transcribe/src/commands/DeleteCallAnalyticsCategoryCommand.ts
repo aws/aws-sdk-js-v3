@@ -52,8 +52,8 @@ export interface DeleteCallAnalyticsCategoryCommandOutput
  *
  * ```
  *
- * @param DeleteCallAnalyticsCategoryCommandInput - {@link DeleteCallAnalyticsCategoryCommandInput}
- * @returns {@link DeleteCallAnalyticsCategoryCommandOutput}
+ * @param DeleteCallAnalyticsCategoryRequest - {@link DeleteCallAnalyticsCategoryRequest}
+ * @returns {@link DeleteCallAnalyticsCategoryResponse}
  * @see {@link DeleteCallAnalyticsCategoryCommandInput} for command's `input` shape.
  * @see {@link DeleteCallAnalyticsCategoryCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

@@ -71,8 +71,8 @@ export interface ListAccountAssignmentCreationStatusCommandOutput
  *
  * ```
  *
- * @param ListAccountAssignmentCreationStatusCommandInput - {@link ListAccountAssignmentCreationStatusCommandInput}
- * @returns {@link ListAccountAssignmentCreationStatusCommandOutput}
+ * @param ListAccountAssignmentCreationStatusRequest - {@link ListAccountAssignmentCreationStatusRequest}
+ * @returns {@link ListAccountAssignmentCreationStatusResponse}
  * @see {@link ListAccountAssignmentCreationStatusCommandInput} for command's `input` shape.
  * @see {@link ListAccountAssignmentCreationStatusCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

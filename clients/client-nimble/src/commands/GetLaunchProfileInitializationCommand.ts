@@ -108,8 +108,8 @@ export interface GetLaunchProfileInitializationCommandOutput
  *
  * ```
  *
- * @param GetLaunchProfileInitializationCommandInput - {@link GetLaunchProfileInitializationCommandInput}
- * @returns {@link GetLaunchProfileInitializationCommandOutput}
+ * @param GetLaunchProfileInitializationRequest - {@link GetLaunchProfileInitializationRequest}
+ * @returns {@link GetLaunchProfileInitializationResponse}
  * @see {@link GetLaunchProfileInitializationCommandInput} for command's `input` shape.
  * @see {@link GetLaunchProfileInitializationCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

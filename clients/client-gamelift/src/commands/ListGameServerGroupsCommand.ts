@@ -74,8 +74,8 @@ export interface ListGameServerGroupsCommandOutput extends ListGameServerGroupsO
  *
  * ```
  *
- * @param ListGameServerGroupsCommandInput - {@link ListGameServerGroupsCommandInput}
- * @returns {@link ListGameServerGroupsCommandOutput}
+ * @param ListGameServerGroupsInput - {@link ListGameServerGroupsInput}
+ * @returns {@link ListGameServerGroupsOutput}
  * @see {@link ListGameServerGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGameServerGroupsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

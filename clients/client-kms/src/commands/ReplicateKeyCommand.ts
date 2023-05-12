@@ -194,8 +194,8 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *
  * ```
  *
- * @param ReplicateKeyCommandInput - {@link ReplicateKeyCommandInput}
- * @returns {@link ReplicateKeyCommandOutput}
+ * @param ReplicateKeyRequest - {@link ReplicateKeyRequest}
+ * @returns {@link ReplicateKeyResponse}
  * @see {@link ReplicateKeyCommandInput} for command's `input` shape.
  * @see {@link ReplicateKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

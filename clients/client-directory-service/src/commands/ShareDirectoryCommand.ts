@@ -72,8 +72,8 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  *
  * ```
  *
- * @param ShareDirectoryCommandInput - {@link ShareDirectoryCommandInput}
- * @returns {@link ShareDirectoryCommandOutput}
+ * @param ShareDirectoryRequest - {@link ShareDirectoryRequest}
+ * @returns {@link ShareDirectoryResult}
  * @see {@link ShareDirectoryCommandInput} for command's `input` shape.
  * @see {@link ShareDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

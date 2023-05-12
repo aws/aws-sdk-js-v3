@@ -57,8 +57,8 @@ export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOut
  *
  * ```
  *
- * @param SetSMBGuestPasswordCommandInput - {@link SetSMBGuestPasswordCommandInput}
- * @returns {@link SetSMBGuestPasswordCommandOutput}
+ * @param SetSMBGuestPasswordInput - {@link SetSMBGuestPasswordInput}
+ * @returns {@link SetSMBGuestPasswordOutput}
  * @see {@link SetSMBGuestPasswordCommandInput} for command's `input` shape.
  * @see {@link SetSMBGuestPasswordCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

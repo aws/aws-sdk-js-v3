@@ -107,8 +107,8 @@ export interface InitiateDocumentVersionUploadCommandOutput
  *
  * ```
  *
- * @param InitiateDocumentVersionUploadCommandInput - {@link InitiateDocumentVersionUploadCommandInput}
- * @returns {@link InitiateDocumentVersionUploadCommandOutput}
+ * @param InitiateDocumentVersionUploadRequest - {@link InitiateDocumentVersionUploadRequest}
+ * @returns {@link InitiateDocumentVersionUploadResponse}
  * @see {@link InitiateDocumentVersionUploadCommandInput} for command's `input` shape.
  * @see {@link InitiateDocumentVersionUploadCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

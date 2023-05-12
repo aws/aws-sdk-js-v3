@@ -162,8 +162,8 @@ export interface ListSlotsCommandOutput extends ListSlotsResponse, __MetadataBea
  *
  * ```
  *
- * @param ListSlotsCommandInput - {@link ListSlotsCommandInput}
- * @returns {@link ListSlotsCommandOutput}
+ * @param ListSlotsRequest - {@link ListSlotsRequest}
+ * @returns {@link ListSlotsResponse}
  * @see {@link ListSlotsCommandInput} for command's `input` shape.
  * @see {@link ListSlotsCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

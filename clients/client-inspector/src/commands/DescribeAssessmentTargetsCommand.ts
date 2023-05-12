@@ -67,8 +67,8 @@ export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessme
  *
  * ```
  *
- * @param DescribeAssessmentTargetsCommandInput - {@link DescribeAssessmentTargetsCommandInput}
- * @returns {@link DescribeAssessmentTargetsCommandOutput}
+ * @param DescribeAssessmentTargetsRequest - {@link DescribeAssessmentTargetsRequest}
+ * @returns {@link DescribeAssessmentTargetsResponse}
  * @see {@link DescribeAssessmentTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeAssessmentTargetsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

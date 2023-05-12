@@ -64,8 +64,8 @@ export interface GetConnectPeerAssociationsCommandOutput extends GetConnectPeerA
  *
  * ```
  *
- * @param GetConnectPeerAssociationsCommandInput - {@link GetConnectPeerAssociationsCommandInput}
- * @returns {@link GetConnectPeerAssociationsCommandOutput}
+ * @param GetConnectPeerAssociationsRequest - {@link GetConnectPeerAssociationsRequest}
+ * @returns {@link GetConnectPeerAssociationsResponse}
  * @see {@link GetConnectPeerAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetConnectPeerAssociationsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

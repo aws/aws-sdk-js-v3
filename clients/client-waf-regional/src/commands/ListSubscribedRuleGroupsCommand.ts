@@ -66,8 +66,8 @@ export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRul
  *
  * ```
  *
- * @param ListSubscribedRuleGroupsCommandInput - {@link ListSubscribedRuleGroupsCommandInput}
- * @returns {@link ListSubscribedRuleGroupsCommandOutput}
+ * @param ListSubscribedRuleGroupsRequest - {@link ListSubscribedRuleGroupsRequest}
+ * @returns {@link ListSubscribedRuleGroupsResponse}
  * @see {@link ListSubscribedRuleGroupsCommandInput} for command's `input` shape.
  * @see {@link ListSubscribedRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

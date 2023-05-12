@@ -88,8 +88,8 @@ export interface GetParallelDataCommandOutput extends GetParallelDataResponse, _
  *
  * ```
  *
- * @param GetParallelDataCommandInput - {@link GetParallelDataCommandInput}
- * @returns {@link GetParallelDataCommandOutput}
+ * @param GetParallelDataRequest - {@link GetParallelDataRequest}
+ * @returns {@link GetParallelDataResponse}
  * @see {@link GetParallelDataCommandInput} for command's `input` shape.
  * @see {@link GetParallelDataCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.

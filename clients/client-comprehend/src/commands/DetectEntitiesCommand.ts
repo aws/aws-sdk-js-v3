@@ -154,8 +154,8 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  *
  * ```
  *
- * @param DetectEntitiesCommandInput - {@link DetectEntitiesCommandInput}
- * @returns {@link DetectEntitiesCommandOutput}
+ * @param DetectEntitiesRequest - {@link DetectEntitiesRequest}
+ * @returns {@link DetectEntitiesResponse}
  * @see {@link DetectEntitiesCommandInput} for command's `input` shape.
  * @see {@link DetectEntitiesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

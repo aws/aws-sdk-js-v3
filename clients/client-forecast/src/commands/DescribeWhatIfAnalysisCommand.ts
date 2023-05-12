@@ -99,8 +99,8 @@ export interface DescribeWhatIfAnalysisCommandOutput extends DescribeWhatIfAnaly
  *
  * ```
  *
- * @param DescribeWhatIfAnalysisCommandInput - {@link DescribeWhatIfAnalysisCommandInput}
- * @returns {@link DescribeWhatIfAnalysisCommandOutput}
+ * @param DescribeWhatIfAnalysisRequest - {@link DescribeWhatIfAnalysisRequest}
+ * @returns {@link DescribeWhatIfAnalysisResponse}
  * @see {@link DescribeWhatIfAnalysisCommandInput} for command's `input` shape.
  * @see {@link DescribeWhatIfAnalysisCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

@@ -59,8 +59,8 @@ export interface DeregisterScalableTargetCommandOutput extends DeregisterScalabl
  *
  * ```
  *
- * @param DeregisterScalableTargetCommandInput - {@link DeregisterScalableTargetCommandInput}
- * @returns {@link DeregisterScalableTargetCommandOutput}
+ * @param DeregisterScalableTargetRequest - {@link DeregisterScalableTargetRequest}
+ * @returns {@link DeregisterScalableTargetResponse}
  * @see {@link DeregisterScalableTargetCommandInput} for command's `input` shape.
  * @see {@link DeregisterScalableTargetCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.

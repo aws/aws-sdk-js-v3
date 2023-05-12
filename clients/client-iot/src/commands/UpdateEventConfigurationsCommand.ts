@@ -53,8 +53,8 @@ export interface UpdateEventConfigurationsCommandOutput extends UpdateEventConfi
  *
  * ```
  *
- * @param UpdateEventConfigurationsCommandInput - {@link UpdateEventConfigurationsCommandInput}
- * @returns {@link UpdateEventConfigurationsCommandOutput}
+ * @param UpdateEventConfigurationsRequest - {@link UpdateEventConfigurationsRequest}
+ * @returns {@link UpdateEventConfigurationsResponse}
  * @see {@link UpdateEventConfigurationsCommandInput} for command's `input` shape.
  * @see {@link UpdateEventConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

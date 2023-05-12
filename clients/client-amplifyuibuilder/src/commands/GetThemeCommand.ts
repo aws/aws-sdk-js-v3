@@ -80,8 +80,8 @@ export interface GetThemeCommandOutput extends GetThemeResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetThemeCommandInput - {@link GetThemeCommandInput}
- * @returns {@link GetThemeCommandOutput}
+ * @param GetThemeRequest - {@link GetThemeRequest}
+ * @returns {@link GetThemeResponse}
  * @see {@link GetThemeCommandInput} for command's `input` shape.
  * @see {@link GetThemeCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

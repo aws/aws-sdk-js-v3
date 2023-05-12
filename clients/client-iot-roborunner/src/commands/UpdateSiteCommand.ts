@@ -58,8 +58,8 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  *
  * ```
  *
- * @param UpdateSiteCommandInput - {@link UpdateSiteCommandInput}
- * @returns {@link UpdateSiteCommandOutput}
+ * @param UpdateSiteRequest - {@link UpdateSiteRequest}
+ * @returns {@link UpdateSiteResponse}
  * @see {@link UpdateSiteCommandInput} for command's `input` shape.
  * @see {@link UpdateSiteCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

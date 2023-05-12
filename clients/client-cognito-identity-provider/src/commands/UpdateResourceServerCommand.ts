@@ -77,8 +77,8 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
  *
  * ```
  *
- * @param UpdateResourceServerCommandInput - {@link UpdateResourceServerCommandInput}
- * @returns {@link UpdateResourceServerCommandOutput}
+ * @param UpdateResourceServerRequest - {@link UpdateResourceServerRequest}
+ * @returns {@link UpdateResourceServerResponse}
  * @see {@link UpdateResourceServerCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceServerCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

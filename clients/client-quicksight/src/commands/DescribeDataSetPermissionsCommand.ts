@@ -63,8 +63,8 @@ export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSet
  *
  * ```
  *
- * @param DescribeDataSetPermissionsCommandInput - {@link DescribeDataSetPermissionsCommandInput}
- * @returns {@link DescribeDataSetPermissionsCommandOutput}
+ * @param DescribeDataSetPermissionsRequest - {@link DescribeDataSetPermissionsRequest}
+ * @returns {@link DescribeDataSetPermissionsResponse}
  * @see {@link DescribeDataSetPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSetPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

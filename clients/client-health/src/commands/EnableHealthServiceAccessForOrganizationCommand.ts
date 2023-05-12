@@ -70,8 +70,8 @@ export interface EnableHealthServiceAccessForOrganizationCommandOutput extends _
  *
  * ```
  *
- * @param EnableHealthServiceAccessForOrganizationCommandInput - {@link EnableHealthServiceAccessForOrganizationCommandInput}
- * @returns {@link EnableHealthServiceAccessForOrganizationCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link Unit}
  * @see {@link EnableHealthServiceAccessForOrganizationCommandInput} for command's `input` shape.
  * @see {@link EnableHealthServiceAccessForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.

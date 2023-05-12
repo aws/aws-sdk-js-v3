@@ -64,8 +64,8 @@ export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __Metad
  *
  * ```
  *
- * @param SendApiAssetCommandInput - {@link SendApiAssetCommandInput}
- * @returns {@link SendApiAssetCommandOutput}
+ * @param SendApiAssetRequest - {@link SendApiAssetRequest}
+ * @returns {@link SendApiAssetResponse}
  * @see {@link SendApiAssetCommandInput} for command's `input` shape.
  * @see {@link SendApiAssetCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

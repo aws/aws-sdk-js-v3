@@ -60,8 +60,8 @@ export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse,
  *
  * ```
  *
- * @param GetVehicleStatusCommandInput - {@link GetVehicleStatusCommandInput}
- * @returns {@link GetVehicleStatusCommandOutput}
+ * @param GetVehicleStatusRequest - {@link GetVehicleStatusRequest}
+ * @returns {@link GetVehicleStatusResponse}
  * @see {@link GetVehicleStatusCommandInput} for command's `input` shape.
  * @see {@link GetVehicleStatusCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

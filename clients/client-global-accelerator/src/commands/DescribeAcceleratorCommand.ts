@@ -79,8 +79,8 @@ export interface DescribeAcceleratorCommandOutput extends DescribeAcceleratorRes
  *
  * ```
  *
- * @param DescribeAcceleratorCommandInput - {@link DescribeAcceleratorCommandInput}
- * @returns {@link DescribeAcceleratorCommandOutput}
+ * @param DescribeAcceleratorRequest - {@link DescribeAcceleratorRequest}
+ * @returns {@link DescribeAcceleratorResponse}
  * @see {@link DescribeAcceleratorCommandInput} for command's `input` shape.
  * @see {@link DescribeAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

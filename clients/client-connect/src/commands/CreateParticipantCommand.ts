@@ -61,8 +61,8 @@ export interface CreateParticipantCommandOutput extends CreateParticipantRespons
  *
  * ```
  *
- * @param CreateParticipantCommandInput - {@link CreateParticipantCommandInput}
- * @returns {@link CreateParticipantCommandOutput}
+ * @param CreateParticipantRequest - {@link CreateParticipantRequest}
+ * @returns {@link CreateParticipantResponse}
  * @see {@link CreateParticipantCommandInput} for command's `input` shape.
  * @see {@link CreateParticipantCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -65,8 +65,8 @@ export interface DenyCustomRoutingTrafficCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param DenyCustomRoutingTrafficCommandInput - {@link DenyCustomRoutingTrafficCommandInput}
- * @returns {@link DenyCustomRoutingTrafficCommandOutput}
+ * @param DenyCustomRoutingTrafficRequest - {@link DenyCustomRoutingTrafficRequest}
+ * @returns {@link Unit}
  * @see {@link DenyCustomRoutingTrafficCommandInput} for command's `input` shape.
  * @see {@link DenyCustomRoutingTrafficCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

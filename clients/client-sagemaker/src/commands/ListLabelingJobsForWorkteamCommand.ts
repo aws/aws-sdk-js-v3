@@ -73,8 +73,8 @@ export interface ListLabelingJobsForWorkteamCommandOutput
  *
  * ```
  *
- * @param ListLabelingJobsForWorkteamCommandInput - {@link ListLabelingJobsForWorkteamCommandInput}
- * @returns {@link ListLabelingJobsForWorkteamCommandOutput}
+ * @param ListLabelingJobsForWorkteamRequest - {@link ListLabelingJobsForWorkteamRequest}
+ * @returns {@link ListLabelingJobsForWorkteamResponse}
  * @see {@link ListLabelingJobsForWorkteamCommandInput} for command's `input` shape.
  * @see {@link ListLabelingJobsForWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

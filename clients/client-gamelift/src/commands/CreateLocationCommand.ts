@@ -59,8 +59,8 @@ export interface CreateLocationCommandOutput extends CreateLocationOutput, __Met
  *
  * ```
  *
- * @param CreateLocationCommandInput - {@link CreateLocationCommandInput}
- * @returns {@link CreateLocationCommandOutput}
+ * @param CreateLocationInput - {@link CreateLocationInput}
+ * @returns {@link CreateLocationOutput}
  * @see {@link CreateLocationCommandInput} for command's `input` shape.
  * @see {@link CreateLocationCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

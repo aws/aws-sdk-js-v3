@@ -54,8 +54,8 @@ export interface DeleteSecurityPolicyCommandOutput extends DeleteSecurityPolicyR
  *
  * ```
  *
- * @param DeleteSecurityPolicyCommandInput - {@link DeleteSecurityPolicyCommandInput}
- * @returns {@link DeleteSecurityPolicyCommandOutput}
+ * @param DeleteSecurityPolicyRequest - {@link DeleteSecurityPolicyRequest}
+ * @returns {@link DeleteSecurityPolicyResponse}
  * @see {@link DeleteSecurityPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityPolicyCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

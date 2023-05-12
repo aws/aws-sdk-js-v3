@@ -58,8 +58,8 @@ export interface UpdatePositionCommandOutput extends UpdatePositionResponse, __M
  *
  * ```
  *
- * @param UpdatePositionCommandInput - {@link UpdatePositionCommandInput}
- * @returns {@link UpdatePositionCommandOutput}
+ * @param UpdatePositionRequest - {@link UpdatePositionRequest}
+ * @returns {@link UpdatePositionResponse}
  * @see {@link UpdatePositionCommandInput} for command's `input` shape.
  * @see {@link UpdatePositionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

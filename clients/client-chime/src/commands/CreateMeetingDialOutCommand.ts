@@ -60,8 +60,8 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  *
  * ```
  *
- * @param CreateMeetingDialOutCommandInput - {@link CreateMeetingDialOutCommandInput}
- * @returns {@link CreateMeetingDialOutCommandOutput}
+ * @param CreateMeetingDialOutRequest - {@link CreateMeetingDialOutRequest}
+ * @returns {@link CreateMeetingDialOutResponse}
  * @see {@link CreateMeetingDialOutCommandInput} for command's `input` shape.
  * @see {@link CreateMeetingDialOutCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

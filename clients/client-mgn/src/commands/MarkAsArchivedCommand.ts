@@ -161,8 +161,8 @@ export interface MarkAsArchivedCommandOutput extends SourceServer, __MetadataBea
  *
  * ```
  *
- * @param MarkAsArchivedCommandInput - {@link MarkAsArchivedCommandInput}
- * @returns {@link MarkAsArchivedCommandOutput}
+ * @param MarkAsArchivedRequest - {@link MarkAsArchivedRequest}
+ * @returns {@link SourceServer}
  * @see {@link MarkAsArchivedCommandInput} for command's `input` shape.
  * @see {@link MarkAsArchivedCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

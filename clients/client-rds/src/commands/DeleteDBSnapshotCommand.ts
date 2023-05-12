@@ -98,8 +98,8 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  *
  * ```
  *
- * @param DeleteDBSnapshotCommandInput - {@link DeleteDBSnapshotCommandInput}
- * @returns {@link DeleteDBSnapshotCommandOutput}
+ * @param DeleteDBSnapshotMessage - {@link DeleteDBSnapshotMessage}
+ * @returns {@link DeleteDBSnapshotResult}
  * @see {@link DeleteDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

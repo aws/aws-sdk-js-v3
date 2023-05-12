@@ -67,8 +67,8 @@ export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
  *
  * ```
  *
- * @param DescribeAppVersionResourcesResolutionStatusCommandInput - {@link DescribeAppVersionResourcesResolutionStatusCommandInput}
- * @returns {@link DescribeAppVersionResourcesResolutionStatusCommandOutput}
+ * @param DescribeAppVersionResourcesResolutionStatusRequest - {@link DescribeAppVersionResourcesResolutionStatusRequest}
+ * @returns {@link DescribeAppVersionResourcesResolutionStatusResponse}
  * @see {@link DescribeAppVersionResourcesResolutionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeAppVersionResourcesResolutionStatusCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

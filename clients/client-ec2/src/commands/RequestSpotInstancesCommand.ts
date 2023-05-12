@@ -296,8 +296,8 @@ export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesR
  *
  * ```
  *
- * @param RequestSpotInstancesCommandInput - {@link RequestSpotInstancesCommandInput}
- * @returns {@link RequestSpotInstancesCommandOutput}
+ * @param RequestSpotInstancesRequest - {@link RequestSpotInstancesRequest}
+ * @returns {@link RequestSpotInstancesResult}
  * @see {@link RequestSpotInstancesCommandInput} for command's `input` shape.
  * @see {@link RequestSpotInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

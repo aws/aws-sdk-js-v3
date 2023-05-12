@@ -60,8 +60,8 @@ export interface ListGroupCertificateAuthoritiesCommandOutput
  *
  * ```
  *
- * @param ListGroupCertificateAuthoritiesCommandInput - {@link ListGroupCertificateAuthoritiesCommandInput}
- * @returns {@link ListGroupCertificateAuthoritiesCommandOutput}
+ * @param ListGroupCertificateAuthoritiesRequest - {@link ListGroupCertificateAuthoritiesRequest}
+ * @returns {@link ListGroupCertificateAuthoritiesResponse}
  * @see {@link ListGroupCertificateAuthoritiesCommandInput} for command's `input` shape.
  * @see {@link ListGroupCertificateAuthoritiesCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

@@ -89,8 +89,8 @@ export interface DetectStackResourceDriftCommandOutput extends DetectStackResour
  *
  * ```
  *
- * @param DetectStackResourceDriftCommandInput - {@link DetectStackResourceDriftCommandInput}
- * @returns {@link DetectStackResourceDriftCommandOutput}
+ * @param DetectStackResourceDriftInput - {@link DetectStackResourceDriftInput}
+ * @returns {@link DetectStackResourceDriftOutput}
  * @see {@link DetectStackResourceDriftCommandInput} for command's `input` shape.
  * @see {@link DetectStackResourceDriftCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

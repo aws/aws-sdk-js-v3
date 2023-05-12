@@ -78,8 +78,8 @@ export interface GetExportJobsCommandOutput extends GetExportJobsResponse, __Met
  *
  * ```
  *
- * @param GetExportJobsCommandInput - {@link GetExportJobsCommandInput}
- * @returns {@link GetExportJobsCommandOutput}
+ * @param GetExportJobsRequest - {@link GetExportJobsRequest}
+ * @returns {@link GetExportJobsResponse}
  * @see {@link GetExportJobsCommandInput} for command's `input` shape.
  * @see {@link GetExportJobsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

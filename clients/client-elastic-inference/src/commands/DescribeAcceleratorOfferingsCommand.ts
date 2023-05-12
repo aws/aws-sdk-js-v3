@@ -71,8 +71,8 @@ export interface DescribeAcceleratorOfferingsCommandOutput
  *
  * ```
  *
- * @param DescribeAcceleratorOfferingsCommandInput - {@link DescribeAcceleratorOfferingsCommandInput}
- * @returns {@link DescribeAcceleratorOfferingsCommandOutput}
+ * @param DescribeAcceleratorOfferingsRequest - {@link DescribeAcceleratorOfferingsRequest}
+ * @returns {@link DescribeAcceleratorOfferingsResponse}
  * @see {@link DescribeAcceleratorOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeAcceleratorOfferingsCommandOutput} for command's `response` shape.
  * @see {@link ElasticInferenceClientResolvedConfig | config} for ElasticInferenceClient's `config` shape.

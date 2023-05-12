@@ -121,8 +121,8 @@ export interface UpdateServicePrimaryTaskSetCommandOutput
  *
  * ```
  *
- * @param UpdateServicePrimaryTaskSetCommandInput - {@link UpdateServicePrimaryTaskSetCommandInput}
- * @returns {@link UpdateServicePrimaryTaskSetCommandOutput}
+ * @param UpdateServicePrimaryTaskSetRequest - {@link UpdateServicePrimaryTaskSetRequest}
+ * @returns {@link UpdateServicePrimaryTaskSetResponse}
  * @see {@link UpdateServicePrimaryTaskSetCommandInput} for command's `input` shape.
  * @see {@link UpdateServicePrimaryTaskSetCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

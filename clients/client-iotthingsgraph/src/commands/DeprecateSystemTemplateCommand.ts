@@ -50,8 +50,8 @@ export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTem
  *
  * ```
  *
- * @param DeprecateSystemTemplateCommandInput - {@link DeprecateSystemTemplateCommandInput}
- * @returns {@link DeprecateSystemTemplateCommandOutput}
+ * @param DeprecateSystemTemplateRequest - {@link DeprecateSystemTemplateRequest}
+ * @returns {@link DeprecateSystemTemplateResponse}
  * @see {@link DeprecateSystemTemplateCommandInput} for command's `input` shape.
  * @see {@link DeprecateSystemTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

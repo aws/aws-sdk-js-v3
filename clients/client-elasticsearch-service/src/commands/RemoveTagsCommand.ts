@@ -55,8 +55,8 @@ export interface RemoveTagsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RemoveTagsCommandInput - {@link RemoveTagsCommandInput}
- * @returns {@link RemoveTagsCommandOutput}
+ * @param RemoveTagsRequest - {@link RemoveTagsRequest}
+ * @returns {@link Unit}
  * @see {@link RemoveTagsCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

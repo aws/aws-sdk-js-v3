@@ -65,8 +65,8 @@ export interface ListByteMatchSetsCommandOutput extends ListByteMatchSetsRespons
  *
  * ```
  *
- * @param ListByteMatchSetsCommandInput - {@link ListByteMatchSetsCommandInput}
- * @returns {@link ListByteMatchSetsCommandOutput}
+ * @param ListByteMatchSetsRequest - {@link ListByteMatchSetsRequest}
+ * @returns {@link ListByteMatchSetsResponse}
  * @see {@link ListByteMatchSetsCommandInput} for command's `input` shape.
  * @see {@link ListByteMatchSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

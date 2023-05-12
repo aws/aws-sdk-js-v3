@@ -133,8 +133,8 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  *
  * ```
  *
- * @param UpdateUserProfileCommandInput - {@link UpdateUserProfileCommandInput}
- * @returns {@link UpdateUserProfileCommandOutput}
+ * @param UpdateUserProfileRequest - {@link UpdateUserProfileRequest}
+ * @returns {@link UpdateUserProfileResponse}
  * @see {@link UpdateUserProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

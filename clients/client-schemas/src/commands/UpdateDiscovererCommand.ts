@@ -60,8 +60,8 @@ export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse,
  *
  * ```
  *
- * @param UpdateDiscovererCommandInput - {@link UpdateDiscovererCommandInput}
- * @returns {@link UpdateDiscovererCommandOutput}
+ * @param UpdateDiscovererRequest - {@link UpdateDiscovererRequest}
+ * @returns {@link UpdateDiscovererResponse}
  * @see {@link UpdateDiscovererCommandInput} for command's `input` shape.
  * @see {@link UpdateDiscovererCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

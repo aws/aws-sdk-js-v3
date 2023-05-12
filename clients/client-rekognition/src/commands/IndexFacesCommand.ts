@@ -323,8 +323,8 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  *
  * ```
  *
- * @param IndexFacesCommandInput - {@link IndexFacesCommandInput}
- * @returns {@link IndexFacesCommandOutput}
+ * @param IndexFacesRequest - {@link IndexFacesRequest}
+ * @returns {@link IndexFacesResponse}
  * @see {@link IndexFacesCommandInput} for command's `input` shape.
  * @see {@link IndexFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

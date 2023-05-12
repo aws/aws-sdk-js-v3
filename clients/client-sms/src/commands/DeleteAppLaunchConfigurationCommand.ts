@@ -53,8 +53,8 @@ export interface DeleteAppLaunchConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteAppLaunchConfigurationCommandInput - {@link DeleteAppLaunchConfigurationCommandInput}
- * @returns {@link DeleteAppLaunchConfigurationCommandOutput}
+ * @param DeleteAppLaunchConfigurationRequest - {@link DeleteAppLaunchConfigurationRequest}
+ * @returns {@link DeleteAppLaunchConfigurationResponse}
  * @see {@link DeleteAppLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAppLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

@@ -58,8 +58,8 @@ export interface DeleteVoiceConnectorTerminationCredentialsCommandOutput extends
  *
  * ```
  *
- * @param DeleteVoiceConnectorTerminationCredentialsCommandInput - {@link DeleteVoiceConnectorTerminationCredentialsCommandInput}
- * @returns {@link DeleteVoiceConnectorTerminationCredentialsCommandOutput}
+ * @param DeleteVoiceConnectorTerminationCredentialsRequest - {@link DeleteVoiceConnectorTerminationCredentialsRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVoiceConnectorTerminationCredentialsCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorTerminationCredentialsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

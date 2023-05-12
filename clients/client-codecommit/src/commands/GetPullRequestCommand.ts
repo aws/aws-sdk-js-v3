@@ -91,8 +91,8 @@ export interface GetPullRequestCommandOutput extends GetPullRequestOutput, __Met
  *
  * ```
  *
- * @param GetPullRequestCommandInput - {@link GetPullRequestCommandInput}
- * @returns {@link GetPullRequestCommandOutput}
+ * @param GetPullRequestInput - {@link GetPullRequestInput}
+ * @returns {@link GetPullRequestOutput}
  * @see {@link GetPullRequestCommandInput} for command's `input` shape.
  * @see {@link GetPullRequestCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

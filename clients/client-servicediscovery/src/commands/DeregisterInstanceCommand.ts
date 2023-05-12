@@ -52,8 +52,8 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  *
  * ```
  *
- * @param DeregisterInstanceCommandInput - {@link DeregisterInstanceCommandInput}
- * @returns {@link DeregisterInstanceCommandOutput}
+ * @param DeregisterInstanceRequest - {@link DeregisterInstanceRequest}
+ * @returns {@link DeregisterInstanceResponse}
  * @see {@link DeregisterInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterInstanceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.

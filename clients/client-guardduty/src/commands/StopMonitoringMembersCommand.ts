@@ -63,8 +63,8 @@ export interface StopMonitoringMembersCommandOutput extends StopMonitoringMember
  *
  * ```
  *
- * @param StopMonitoringMembersCommandInput - {@link StopMonitoringMembersCommandInput}
- * @returns {@link StopMonitoringMembersCommandOutput}
+ * @param StopMonitoringMembersRequest - {@link StopMonitoringMembersRequest}
+ * @returns {@link StopMonitoringMembersResponse}
  * @see {@link StopMonitoringMembersCommandInput} for command's `input` shape.
  * @see {@link StopMonitoringMembersCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

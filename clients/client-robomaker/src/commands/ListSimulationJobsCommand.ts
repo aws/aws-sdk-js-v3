@@ -78,8 +78,8 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
  *
  * ```
  *
- * @param ListSimulationJobsCommandInput - {@link ListSimulationJobsCommandInput}
- * @returns {@link ListSimulationJobsCommandOutput}
+ * @param ListSimulationJobsRequest - {@link ListSimulationJobsRequest}
+ * @returns {@link ListSimulationJobsResponse}
  * @see {@link ListSimulationJobsCommandInput} for command's `input` shape.
  * @see {@link ListSimulationJobsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

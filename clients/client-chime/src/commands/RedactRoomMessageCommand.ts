@@ -50,8 +50,8 @@ export interface RedactRoomMessageCommandOutput extends RedactRoomMessageRespons
  *
  * ```
  *
- * @param RedactRoomMessageCommandInput - {@link RedactRoomMessageCommandInput}
- * @returns {@link RedactRoomMessageCommandOutput}
+ * @param RedactRoomMessageRequest - {@link RedactRoomMessageRequest}
+ * @returns {@link RedactRoomMessageResponse}
  * @see {@link RedactRoomMessageCommandInput} for command's `input` shape.
  * @see {@link RedactRoomMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

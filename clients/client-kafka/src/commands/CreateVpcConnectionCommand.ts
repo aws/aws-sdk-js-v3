@@ -74,8 +74,8 @@ export interface CreateVpcConnectionCommandOutput extends CreateVpcConnectionRes
  *
  * ```
  *
- * @param CreateVpcConnectionCommandInput - {@link CreateVpcConnectionCommandInput}
- * @returns {@link CreateVpcConnectionCommandOutput}
+ * @param CreateVpcConnectionRequest - {@link CreateVpcConnectionRequest}
+ * @returns {@link CreateVpcConnectionResponse}
  * @see {@link CreateVpcConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateVpcConnectionCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

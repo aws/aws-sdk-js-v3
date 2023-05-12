@@ -67,8 +67,8 @@ export interface UpdateGatewayResponseCommandOutput extends GatewayResponse, __M
  *
  * ```
  *
- * @param UpdateGatewayResponseCommandInput - {@link UpdateGatewayResponseCommandInput}
- * @returns {@link UpdateGatewayResponseCommandOutput}
+ * @param UpdateGatewayResponseRequest - {@link UpdateGatewayResponseRequest}
+ * @returns {@link GatewayResponse}
  * @see {@link UpdateGatewayResponseCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayResponseCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

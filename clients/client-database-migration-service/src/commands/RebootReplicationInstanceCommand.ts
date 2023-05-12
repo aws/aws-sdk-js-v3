@@ -117,8 +117,8 @@ export interface RebootReplicationInstanceCommandOutput extends RebootReplicatio
  *
  * ```
  *
- * @param RebootReplicationInstanceCommandInput - {@link RebootReplicationInstanceCommandInput}
- * @returns {@link RebootReplicationInstanceCommandOutput}
+ * @param RebootReplicationInstanceMessage - {@link RebootReplicationInstanceMessage}
+ * @returns {@link RebootReplicationInstanceResponse}
  * @see {@link RebootReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

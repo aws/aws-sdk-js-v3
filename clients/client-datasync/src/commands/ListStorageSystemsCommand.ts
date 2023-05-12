@@ -57,8 +57,8 @@ export interface ListStorageSystemsCommandOutput extends ListStorageSystemsRespo
  *
  * ```
  *
- * @param ListStorageSystemsCommandInput - {@link ListStorageSystemsCommandInput}
- * @returns {@link ListStorageSystemsCommandOutput}
+ * @param ListStorageSystemsRequest - {@link ListStorageSystemsRequest}
+ * @returns {@link ListStorageSystemsResponse}
  * @see {@link ListStorageSystemsCommandInput} for command's `input` shape.
  * @see {@link ListStorageSystemsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

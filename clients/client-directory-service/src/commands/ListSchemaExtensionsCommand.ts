@@ -63,8 +63,8 @@ export interface ListSchemaExtensionsCommandOutput extends ListSchemaExtensionsR
  *
  * ```
  *
- * @param ListSchemaExtensionsCommandInput - {@link ListSchemaExtensionsCommandInput}
- * @returns {@link ListSchemaExtensionsCommandOutput}
+ * @param ListSchemaExtensionsRequest - {@link ListSchemaExtensionsRequest}
+ * @returns {@link ListSchemaExtensionsResult}
  * @see {@link ListSchemaExtensionsCommandInput} for command's `input` shape.
  * @see {@link ListSchemaExtensionsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

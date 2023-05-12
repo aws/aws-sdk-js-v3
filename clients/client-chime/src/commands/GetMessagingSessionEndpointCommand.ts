@@ -55,8 +55,8 @@ export interface GetMessagingSessionEndpointCommandOutput
  *
  * ```
  *
- * @param GetMessagingSessionEndpointCommandInput - {@link GetMessagingSessionEndpointCommandInput}
- * @returns {@link GetMessagingSessionEndpointCommandOutput}
+ * @param GetMessagingSessionEndpointRequest - {@link GetMessagingSessionEndpointRequest}
+ * @returns {@link GetMessagingSessionEndpointResponse}
  * @see {@link GetMessagingSessionEndpointCommandInput} for command's `input` shape.
  * @see {@link GetMessagingSessionEndpointCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

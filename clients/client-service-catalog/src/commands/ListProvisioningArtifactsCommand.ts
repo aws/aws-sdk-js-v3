@@ -63,8 +63,8 @@ export interface ListProvisioningArtifactsCommandOutput extends ListProvisioning
  *
  * ```
  *
- * @param ListProvisioningArtifactsCommandInput - {@link ListProvisioningArtifactsCommandInput}
- * @returns {@link ListProvisioningArtifactsCommandOutput}
+ * @param ListProvisioningArtifactsInput - {@link ListProvisioningArtifactsInput}
+ * @returns {@link ListProvisioningArtifactsOutput}
  * @see {@link ListProvisioningArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListProvisioningArtifactsCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

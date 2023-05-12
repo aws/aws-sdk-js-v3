@@ -62,8 +62,8 @@ export interface GetBlueprintRunCommandOutput extends GetBlueprintRunResponse, _
  *
  * ```
  *
- * @param GetBlueprintRunCommandInput - {@link GetBlueprintRunCommandInput}
- * @returns {@link GetBlueprintRunCommandOutput}
+ * @param GetBlueprintRunRequest - {@link GetBlueprintRunRequest}
+ * @returns {@link GetBlueprintRunResponse}
  * @see {@link GetBlueprintRunCommandInput} for command's `input` shape.
  * @see {@link GetBlueprintRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

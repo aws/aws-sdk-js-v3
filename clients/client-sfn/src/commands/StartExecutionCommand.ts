@@ -67,8 +67,8 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  *
  * ```
  *
- * @param StartExecutionCommandInput - {@link StartExecutionCommandInput}
- * @returns {@link StartExecutionCommandOutput}
+ * @param StartExecutionInput - {@link StartExecutionInput}
+ * @returns {@link StartExecutionOutput}
  * @see {@link StartExecutionCommandInput} for command's `input` shape.
  * @see {@link StartExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

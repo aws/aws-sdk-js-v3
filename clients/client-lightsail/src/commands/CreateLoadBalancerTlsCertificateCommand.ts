@@ -88,8 +88,8 @@ export interface CreateLoadBalancerTlsCertificateCommandOutput
  *
  * ```
  *
- * @param CreateLoadBalancerTlsCertificateCommandInput - {@link CreateLoadBalancerTlsCertificateCommandInput}
- * @returns {@link CreateLoadBalancerTlsCertificateCommandOutput}
+ * @param CreateLoadBalancerTlsCertificateRequest - {@link CreateLoadBalancerTlsCertificateRequest}
+ * @returns {@link CreateLoadBalancerTlsCertificateResult}
  * @see {@link CreateLoadBalancerTlsCertificateCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerTlsCertificateCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

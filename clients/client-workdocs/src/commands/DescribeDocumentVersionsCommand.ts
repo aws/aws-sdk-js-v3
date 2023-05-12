@@ -82,8 +82,8 @@ export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentV
  *
  * ```
  *
- * @param DescribeDocumentVersionsCommandInput - {@link DescribeDocumentVersionsCommandInput}
- * @returns {@link DescribeDocumentVersionsCommandOutput}
+ * @param DescribeDocumentVersionsRequest - {@link DescribeDocumentVersionsRequest}
+ * @returns {@link DescribeDocumentVersionsResponse}
  * @see {@link DescribeDocumentVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDocumentVersionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

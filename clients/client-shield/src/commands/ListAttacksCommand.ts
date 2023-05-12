@@ -76,8 +76,8 @@ export interface ListAttacksCommandOutput extends ListAttacksResponse, __Metadat
  *
  * ```
  *
- * @param ListAttacksCommandInput - {@link ListAttacksCommandInput}
- * @returns {@link ListAttacksCommandOutput}
+ * @param ListAttacksRequest - {@link ListAttacksRequest}
+ * @returns {@link ListAttacksResponse}
  * @see {@link ListAttacksCommandInput} for command's `input` shape.
  * @see {@link ListAttacksCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

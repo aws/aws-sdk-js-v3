@@ -64,8 +64,8 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  *
  * ```
  *
- * @param AssociateResourceCommandInput - {@link AssociateResourceCommandInput}
- * @returns {@link AssociateResourceCommandOutput}
+ * @param AssociateResourceRequest - {@link AssociateResourceRequest}
+ * @returns {@link AssociateResourceResponse}
  * @see {@link AssociateResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.

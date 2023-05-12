@@ -131,8 +131,8 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  *
  * ```
  *
- * @param ListConnectorsCommandInput - {@link ListConnectorsCommandInput}
- * @returns {@link ListConnectorsCommandOutput}
+ * @param ListConnectorsRequest - {@link ListConnectorsRequest}
+ * @returns {@link ListConnectorsResponse}
  * @see {@link ListConnectorsCommandInput} for command's `input` shape.
  * @see {@link ListConnectorsCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.

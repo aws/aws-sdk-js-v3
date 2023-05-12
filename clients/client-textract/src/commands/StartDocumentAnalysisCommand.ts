@@ -97,8 +97,8 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  *
  * ```
  *
- * @param StartDocumentAnalysisCommandInput - {@link StartDocumentAnalysisCommandInput}
- * @returns {@link StartDocumentAnalysisCommandOutput}
+ * @param StartDocumentAnalysisRequest - {@link StartDocumentAnalysisRequest}
+ * @returns {@link StartDocumentAnalysisResponse}
  * @see {@link StartDocumentAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartDocumentAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.

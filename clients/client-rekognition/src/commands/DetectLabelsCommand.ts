@@ -270,8 +270,8 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *
  * ```
  *
- * @param DetectLabelsCommandInput - {@link DetectLabelsCommandInput}
- * @returns {@link DetectLabelsCommandOutput}
+ * @param DetectLabelsRequest - {@link DetectLabelsRequest}
+ * @returns {@link DetectLabelsResponse}
  * @see {@link DetectLabelsCommandInput} for command's `input` shape.
  * @see {@link DetectLabelsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

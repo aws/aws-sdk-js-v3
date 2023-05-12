@@ -53,8 +53,8 @@ export interface ReplaceVpnTunnelCommandOutput extends ReplaceVpnTunnelResult, _
  *
  * ```
  *
- * @param ReplaceVpnTunnelCommandInput - {@link ReplaceVpnTunnelCommandInput}
- * @returns {@link ReplaceVpnTunnelCommandOutput}
+ * @param ReplaceVpnTunnelRequest - {@link ReplaceVpnTunnelRequest}
+ * @returns {@link ReplaceVpnTunnelResult}
  * @see {@link ReplaceVpnTunnelCommandInput} for command's `input` shape.
  * @see {@link ReplaceVpnTunnelCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

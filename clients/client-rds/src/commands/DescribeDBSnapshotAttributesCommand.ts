@@ -69,8 +69,8 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  *
  * ```
  *
- * @param DescribeDBSnapshotAttributesCommandInput - {@link DescribeDBSnapshotAttributesCommandInput}
- * @returns {@link DescribeDBSnapshotAttributesCommandOutput}
+ * @param DescribeDBSnapshotAttributesMessage - {@link DescribeDBSnapshotAttributesMessage}
+ * @returns {@link DescribeDBSnapshotAttributesResult}
  * @see {@link DescribeDBSnapshotAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBSnapshotAttributesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

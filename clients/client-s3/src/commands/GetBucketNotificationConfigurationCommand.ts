@@ -133,8 +133,8 @@ export interface GetBucketNotificationConfigurationCommandOutput extends Notific
  *
  * ```
  *
- * @param GetBucketNotificationConfigurationCommandInput - {@link GetBucketNotificationConfigurationCommandInput}
- * @returns {@link GetBucketNotificationConfigurationCommandOutput}
+ * @param GetBucketNotificationConfigurationRequest - {@link GetBucketNotificationConfigurationRequest}
+ * @returns {@link NotificationConfiguration}
  * @see {@link GetBucketNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetBucketNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

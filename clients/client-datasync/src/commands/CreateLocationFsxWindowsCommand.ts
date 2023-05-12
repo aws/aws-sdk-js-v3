@@ -67,8 +67,8 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
  *
  * ```
  *
- * @param CreateLocationFsxWindowsCommandInput - {@link CreateLocationFsxWindowsCommandInput}
- * @returns {@link CreateLocationFsxWindowsCommandOutput}
+ * @param CreateLocationFsxWindowsRequest - {@link CreateLocationFsxWindowsRequest}
+ * @returns {@link CreateLocationFsxWindowsResponse}
  * @see {@link CreateLocationFsxWindowsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationFsxWindowsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

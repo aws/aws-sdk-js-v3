@@ -52,8 +52,8 @@ export interface DeleteServiceNetworkCommandOutput extends DeleteServiceNetworkR
  *
  * ```
  *
- * @param DeleteServiceNetworkCommandInput - {@link DeleteServiceNetworkCommandInput}
- * @returns {@link DeleteServiceNetworkCommandOutput}
+ * @param DeleteServiceNetworkRequest - {@link DeleteServiceNetworkRequest}
+ * @returns {@link DeleteServiceNetworkResponse}
  * @see {@link DeleteServiceNetworkCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceNetworkCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

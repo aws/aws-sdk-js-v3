@@ -326,8 +326,8 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *
  * ```
  *
- * @param CopyObjectCommandInput - {@link CopyObjectCommandInput}
- * @returns {@link CopyObjectCommandOutput}
+ * @param CopyObjectRequest - {@link CopyObjectRequest}
+ * @returns {@link CopyObjectOutput}
  * @see {@link CopyObjectCommandInput} for command's `input` shape.
  * @see {@link CopyObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

@@ -58,8 +58,8 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutpu
  *
  * ```
  *
- * @param ListEngineVersionsCommandInput - {@link ListEngineVersionsCommandInput}
- * @returns {@link ListEngineVersionsCommandOutput}
+ * @param ListEngineVersionsInput - {@link ListEngineVersionsInput}
+ * @returns {@link ListEngineVersionsOutput}
  * @see {@link ListEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link ListEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

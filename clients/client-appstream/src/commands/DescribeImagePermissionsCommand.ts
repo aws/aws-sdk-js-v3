@@ -65,8 +65,8 @@ export interface DescribeImagePermissionsCommandOutput extends DescribeImagePerm
  *
  * ```
  *
- * @param DescribeImagePermissionsCommandInput - {@link DescribeImagePermissionsCommandInput}
- * @returns {@link DescribeImagePermissionsCommandOutput}
+ * @param DescribeImagePermissionsRequest - {@link DescribeImagePermissionsRequest}
+ * @returns {@link DescribeImagePermissionsResult}
  * @see {@link DescribeImagePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeImagePermissionsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

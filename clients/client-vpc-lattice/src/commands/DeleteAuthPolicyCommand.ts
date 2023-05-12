@@ -51,8 +51,8 @@ export interface DeleteAuthPolicyCommandOutput extends DeleteAuthPolicyResponse,
  *
  * ```
  *
- * @param DeleteAuthPolicyCommandInput - {@link DeleteAuthPolicyCommandInput}
- * @returns {@link DeleteAuthPolicyCommandOutput}
+ * @param DeleteAuthPolicyRequest - {@link DeleteAuthPolicyRequest}
+ * @returns {@link DeleteAuthPolicyResponse}
  * @see {@link DeleteAuthPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteAuthPolicyCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

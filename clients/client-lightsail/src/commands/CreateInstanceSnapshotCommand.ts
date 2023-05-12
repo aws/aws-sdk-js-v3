@@ -78,8 +78,8 @@ export interface CreateInstanceSnapshotCommandOutput extends CreateInstanceSnaps
  *
  * ```
  *
- * @param CreateInstanceSnapshotCommandInput - {@link CreateInstanceSnapshotCommandInput}
- * @returns {@link CreateInstanceSnapshotCommandOutput}
+ * @param CreateInstanceSnapshotRequest - {@link CreateInstanceSnapshotRequest}
+ * @returns {@link CreateInstanceSnapshotResult}
  * @see {@link CreateInstanceSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

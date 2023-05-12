@@ -124,8 +124,8 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  *
  * ```
  *
- * @param DescribeCasesCommandInput - {@link DescribeCasesCommandInput}
- * @returns {@link DescribeCasesCommandOutput}
+ * @param DescribeCasesRequest - {@link DescribeCasesRequest}
+ * @returns {@link DescribeCasesResponse}
  * @see {@link DescribeCasesCommandInput} for command's `input` shape.
  * @see {@link DescribeCasesCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.

@@ -129,8 +129,8 @@ export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamin
  *
  * ```
  *
- * @param UpdateStreamingDistributionCommandInput - {@link UpdateStreamingDistributionCommandInput}
- * @returns {@link UpdateStreamingDistributionCommandOutput}
+ * @param UpdateStreamingDistributionRequest - {@link UpdateStreamingDistributionRequest}
+ * @returns {@link UpdateStreamingDistributionResult}
  * @see {@link UpdateStreamingDistributionCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamingDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

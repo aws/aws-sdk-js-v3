@@ -180,8 +180,8 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *
  * ```
  *
- * @param SubmitJobCommandInput - {@link SubmitJobCommandInput}
- * @returns {@link SubmitJobCommandOutput}
+ * @param SubmitJobRequest - {@link SubmitJobRequest}
+ * @returns {@link SubmitJobResponse}
  * @see {@link SubmitJobCommandInput} for command's `input` shape.
  * @see {@link SubmitJobCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.

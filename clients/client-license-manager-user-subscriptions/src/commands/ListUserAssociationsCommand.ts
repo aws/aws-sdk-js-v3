@@ -84,8 +84,8 @@ export interface ListUserAssociationsCommandOutput extends ListUserAssociationsR
  *
  * ```
  *
- * @param ListUserAssociationsCommandInput - {@link ListUserAssociationsCommandInput}
- * @returns {@link ListUserAssociationsCommandOutput}
+ * @param ListUserAssociationsRequest - {@link ListUserAssociationsRequest}
+ * @returns {@link ListUserAssociationsResponse}
  * @see {@link ListUserAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListUserAssociationsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.

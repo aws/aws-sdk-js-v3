@@ -70,8 +70,8 @@ export interface EnableTransitGatewayRouteTablePropagationCommandOutput
  *
  * ```
  *
- * @param EnableTransitGatewayRouteTablePropagationCommandInput - {@link EnableTransitGatewayRouteTablePropagationCommandInput}
- * @returns {@link EnableTransitGatewayRouteTablePropagationCommandOutput}
+ * @param EnableTransitGatewayRouteTablePropagationRequest - {@link EnableTransitGatewayRouteTablePropagationRequest}
+ * @returns {@link EnableTransitGatewayRouteTablePropagationResult}
  * @see {@link EnableTransitGatewayRouteTablePropagationCommandInput} for command's `input` shape.
  * @see {@link EnableTransitGatewayRouteTablePropagationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

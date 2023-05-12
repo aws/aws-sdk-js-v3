@@ -49,8 +49,8 @@ export interface AssociateVehicleFleetCommandOutput extends AssociateVehicleFlee
  *
  * ```
  *
- * @param AssociateVehicleFleetCommandInput - {@link AssociateVehicleFleetCommandInput}
- * @returns {@link AssociateVehicleFleetCommandOutput}
+ * @param AssociateVehicleFleetRequest - {@link AssociateVehicleFleetRequest}
+ * @returns {@link AssociateVehicleFleetResponse}
  * @see {@link AssociateVehicleFleetCommandInput} for command's `input` shape.
  * @see {@link AssociateVehicleFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

@@ -67,8 +67,8 @@ export interface CreateRevisionCommandOutput extends CreateRevisionResponse, __M
  *
  * ```
  *
- * @param CreateRevisionCommandInput - {@link CreateRevisionCommandInput}
- * @returns {@link CreateRevisionCommandOutput}
+ * @param CreateRevisionRequest - {@link CreateRevisionRequest}
+ * @returns {@link CreateRevisionResponse}
  * @see {@link CreateRevisionCommandInput} for command's `input` shape.
  * @see {@link CreateRevisionCommandOutput} for command's `response` shape.
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.

@@ -73,8 +73,8 @@ export interface ListComplianceStatusCommandOutput extends ListComplianceStatusR
  *
  * ```
  *
- * @param ListComplianceStatusCommandInput - {@link ListComplianceStatusCommandInput}
- * @returns {@link ListComplianceStatusCommandOutput}
+ * @param ListComplianceStatusRequest - {@link ListComplianceStatusRequest}
+ * @returns {@link ListComplianceStatusResponse}
  * @see {@link ListComplianceStatusCommandInput} for command's `input` shape.
  * @see {@link ListComplianceStatusCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

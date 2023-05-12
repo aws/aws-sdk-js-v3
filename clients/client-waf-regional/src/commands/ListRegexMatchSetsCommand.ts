@@ -65,8 +65,8 @@ export interface ListRegexMatchSetsCommandOutput extends ListRegexMatchSetsRespo
  *
  * ```
  *
- * @param ListRegexMatchSetsCommandInput - {@link ListRegexMatchSetsCommandInput}
- * @returns {@link ListRegexMatchSetsCommandOutput}
+ * @param ListRegexMatchSetsRequest - {@link ListRegexMatchSetsRequest}
+ * @returns {@link ListRegexMatchSetsResponse}
  * @see {@link ListRegexMatchSetsCommandInput} for command's `input` shape.
  * @see {@link ListRegexMatchSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

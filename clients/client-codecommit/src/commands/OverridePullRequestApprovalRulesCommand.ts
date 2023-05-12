@@ -53,8 +53,8 @@ export interface OverridePullRequestApprovalRulesCommandOutput extends __Metadat
  *
  * ```
  *
- * @param OverridePullRequestApprovalRulesCommandInput - {@link OverridePullRequestApprovalRulesCommandInput}
- * @returns {@link OverridePullRequestApprovalRulesCommandOutput}
+ * @param OverridePullRequestApprovalRulesInput - {@link OverridePullRequestApprovalRulesInput}
+ * @returns {@link Unit}
  * @see {@link OverridePullRequestApprovalRulesCommandInput} for command's `input` shape.
  * @see {@link OverridePullRequestApprovalRulesCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

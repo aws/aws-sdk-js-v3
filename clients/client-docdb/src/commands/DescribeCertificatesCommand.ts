@@ -70,8 +70,8 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  *
  * ```
  *
- * @param DescribeCertificatesCommandInput - {@link DescribeCertificatesCommandInput}
- * @returns {@link DescribeCertificatesCommandOutput}
+ * @param DescribeCertificatesMessage - {@link DescribeCertificatesMessage}
+ * @returns {@link CertificateMessage}
  * @see {@link DescribeCertificatesCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificatesCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

@@ -56,8 +56,8 @@ export interface GetFunctionCodeSigningConfigCommandOutput
  *
  * ```
  *
- * @param GetFunctionCodeSigningConfigCommandInput - {@link GetFunctionCodeSigningConfigCommandInput}
- * @returns {@link GetFunctionCodeSigningConfigCommandOutput}
+ * @param GetFunctionCodeSigningConfigRequest - {@link GetFunctionCodeSigningConfigRequest}
+ * @returns {@link GetFunctionCodeSigningConfigResponse}
  * @see {@link GetFunctionCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link GetFunctionCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

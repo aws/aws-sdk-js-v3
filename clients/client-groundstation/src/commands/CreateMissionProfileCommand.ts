@@ -70,8 +70,8 @@ export interface CreateMissionProfileCommandOutput extends MissionProfileIdRespo
  *
  * ```
  *
- * @param CreateMissionProfileCommandInput - {@link CreateMissionProfileCommandInput}
- * @returns {@link CreateMissionProfileCommandOutput}
+ * @param CreateMissionProfileRequest - {@link CreateMissionProfileRequest}
+ * @returns {@link MissionProfileIdResponse}
  * @see {@link CreateMissionProfileCommandInput} for command's `input` shape.
  * @see {@link CreateMissionProfileCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

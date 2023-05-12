@@ -58,8 +58,8 @@ export interface StopTrainingDocumentClassifierCommandOutput
  *
  * ```
  *
- * @param StopTrainingDocumentClassifierCommandInput - {@link StopTrainingDocumentClassifierCommandInput}
- * @returns {@link StopTrainingDocumentClassifierCommandOutput}
+ * @param StopTrainingDocumentClassifierRequest - {@link StopTrainingDocumentClassifierRequest}
+ * @returns {@link StopTrainingDocumentClassifierResponse}
  * @see {@link StopTrainingDocumentClassifierCommandInput} for command's `input` shape.
  * @see {@link StopTrainingDocumentClassifierCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

@@ -61,8 +61,8 @@ export interface GetLensCommandOutput extends GetLensOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param GetLensCommandInput - {@link GetLensCommandInput}
- * @returns {@link GetLensCommandOutput}
+ * @param GetLensInput - {@link GetLensInput}
+ * @returns {@link GetLensOutput}
  * @see {@link GetLensCommandInput} for command's `input` shape.
  * @see {@link GetLensCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

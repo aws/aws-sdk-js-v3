@@ -57,8 +57,8 @@ export interface DisassociateTrunkInterfaceCommandOutput extends DisassociateTru
  *
  * ```
  *
- * @param DisassociateTrunkInterfaceCommandInput - {@link DisassociateTrunkInterfaceCommandInput}
- * @returns {@link DisassociateTrunkInterfaceCommandOutput}
+ * @param DisassociateTrunkInterfaceRequest - {@link DisassociateTrunkInterfaceRequest}
+ * @returns {@link DisassociateTrunkInterfaceResult}
  * @see {@link DisassociateTrunkInterfaceCommandInput} for command's `input` shape.
  * @see {@link DisassociateTrunkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

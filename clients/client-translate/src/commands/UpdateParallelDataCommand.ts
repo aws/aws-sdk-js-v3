@@ -60,8 +60,8 @@ export interface UpdateParallelDataCommandOutput extends UpdateParallelDataRespo
  *
  * ```
  *
- * @param UpdateParallelDataCommandInput - {@link UpdateParallelDataCommandInput}
- * @returns {@link UpdateParallelDataCommandOutput}
+ * @param UpdateParallelDataRequest - {@link UpdateParallelDataRequest}
+ * @returns {@link UpdateParallelDataResponse}
  * @see {@link UpdateParallelDataCommandInput} for command's `input` shape.
  * @see {@link UpdateParallelDataCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.

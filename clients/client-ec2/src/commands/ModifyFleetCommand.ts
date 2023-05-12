@@ -180,8 +180,8 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  *
  * ```
  *
- * @param ModifyFleetCommandInput - {@link ModifyFleetCommandInput}
- * @returns {@link ModifyFleetCommandOutput}
+ * @param ModifyFleetRequest - {@link ModifyFleetRequest}
+ * @returns {@link ModifyFleetResult}
  * @see {@link ModifyFleetCommandInput} for command's `input` shape.
  * @see {@link ModifyFleetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

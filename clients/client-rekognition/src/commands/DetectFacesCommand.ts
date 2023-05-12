@@ -151,8 +151,8 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  *
  * ```
  *
- * @param DetectFacesCommandInput - {@link DetectFacesCommandInput}
- * @returns {@link DetectFacesCommandOutput}
+ * @param DetectFacesRequest - {@link DetectFacesRequest}
+ * @returns {@link DetectFacesResponse}
  * @see {@link DetectFacesCommandInput} for command's `input` shape.
  * @see {@link DetectFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

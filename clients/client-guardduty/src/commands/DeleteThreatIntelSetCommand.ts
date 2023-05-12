@@ -49,8 +49,8 @@ export interface DeleteThreatIntelSetCommandOutput extends DeleteThreatIntelSetR
  *
  * ```
  *
- * @param DeleteThreatIntelSetCommandInput - {@link DeleteThreatIntelSetCommandInput}
- * @returns {@link DeleteThreatIntelSetCommandOutput}
+ * @param DeleteThreatIntelSetRequest - {@link DeleteThreatIntelSetRequest}
+ * @returns {@link DeleteThreatIntelSetResponse}
  * @see {@link DeleteThreatIntelSetCommandInput} for command's `input` shape.
  * @see {@link DeleteThreatIntelSetCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

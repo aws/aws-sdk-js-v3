@@ -73,8 +73,8 @@ export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataB
  *
  * ```
  *
- * @param ExitStandbyCommandInput - {@link ExitStandbyCommandInput}
- * @returns {@link ExitStandbyCommandOutput}
+ * @param ExitStandbyQuery - {@link ExitStandbyQuery}
+ * @returns {@link ExitStandbyAnswer}
  * @see {@link ExitStandbyCommandInput} for command's `input` shape.
  * @see {@link ExitStandbyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

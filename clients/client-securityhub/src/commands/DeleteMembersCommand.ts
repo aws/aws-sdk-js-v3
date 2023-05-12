@@ -59,8 +59,8 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  *
  * ```
  *
- * @param DeleteMembersCommandInput - {@link DeleteMembersCommandInput}
- * @returns {@link DeleteMembersCommandOutput}
+ * @param DeleteMembersRequest - {@link DeleteMembersRequest}
+ * @returns {@link DeleteMembersResponse}
  * @see {@link DeleteMembersCommandInput} for command's `input` shape.
  * @see {@link DeleteMembersCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

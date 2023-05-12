@@ -113,8 +113,8 @@ export interface GetInstanceSnapshotCommandOutput extends GetInstanceSnapshotRes
  *
  * ```
  *
- * @param GetInstanceSnapshotCommandInput - {@link GetInstanceSnapshotCommandInput}
- * @returns {@link GetInstanceSnapshotCommandOutput}
+ * @param GetInstanceSnapshotRequest - {@link GetInstanceSnapshotRequest}
+ * @returns {@link GetInstanceSnapshotResult}
  * @see {@link GetInstanceSnapshotCommandInput} for command's `input` shape.
  * @see {@link GetInstanceSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -51,8 +51,8 @@ export interface PutConferencePreferenceCommandOutput extends PutConferencePrefe
  *
  * ```
  *
- * @param PutConferencePreferenceCommandInput - {@link PutConferencePreferenceCommandInput}
- * @returns {@link PutConferencePreferenceCommandOutput}
+ * @param PutConferencePreferenceRequest - {@link PutConferencePreferenceRequest}
+ * @returns {@link PutConferencePreferenceResponse}
  * @see {@link PutConferencePreferenceCommandInput} for command's `input` shape.
  * @see {@link PutConferencePreferenceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

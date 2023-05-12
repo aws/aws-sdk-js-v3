@@ -84,8 +84,8 @@ export interface ListProductSubscriptionsCommandOutput extends ListProductSubscr
  *
  * ```
  *
- * @param ListProductSubscriptionsCommandInput - {@link ListProductSubscriptionsCommandInput}
- * @returns {@link ListProductSubscriptionsCommandOutput}
+ * @param ListProductSubscriptionsRequest - {@link ListProductSubscriptionsRequest}
+ * @returns {@link ListProductSubscriptionsResponse}
  * @see {@link ListProductSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListProductSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.

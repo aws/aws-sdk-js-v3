@@ -106,8 +106,8 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  *
  * ```
  *
- * @param StartLabelDetectionCommandInput - {@link StartLabelDetectionCommandInput}
- * @returns {@link StartLabelDetectionCommandOutput}
+ * @param StartLabelDetectionRequest - {@link StartLabelDetectionRequest}
+ * @returns {@link StartLabelDetectionResponse}
  * @see {@link StartLabelDetectionCommandInput} for command's `input` shape.
  * @see {@link StartLabelDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

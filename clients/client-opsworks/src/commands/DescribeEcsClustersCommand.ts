@@ -72,8 +72,8 @@ export interface DescribeEcsClustersCommandOutput extends DescribeEcsClustersRes
  *
  * ```
  *
- * @param DescribeEcsClustersCommandInput - {@link DescribeEcsClustersCommandInput}
- * @returns {@link DescribeEcsClustersCommandOutput}
+ * @param DescribeEcsClustersRequest - {@link DescribeEcsClustersRequest}
+ * @returns {@link DescribeEcsClustersResult}
  * @see {@link DescribeEcsClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeEcsClustersCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

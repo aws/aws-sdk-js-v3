@@ -49,8 +49,8 @@ export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetO
  *
  * ```
  *
- * @param DeleteReplicationSetCommandInput - {@link DeleteReplicationSetCommandInput}
- * @returns {@link DeleteReplicationSetCommandOutput}
+ * @param DeleteReplicationSetInput - {@link DeleteReplicationSetInput}
+ * @returns {@link DeleteReplicationSetOutput}
  * @see {@link DeleteReplicationSetCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationSetCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

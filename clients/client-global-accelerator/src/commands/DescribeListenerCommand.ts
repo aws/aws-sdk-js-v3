@@ -64,8 +64,8 @@ export interface DescribeListenerCommandOutput extends DescribeListenerResponse,
  *
  * ```
  *
- * @param DescribeListenerCommandInput - {@link DescribeListenerCommandInput}
- * @returns {@link DescribeListenerCommandOutput}
+ * @param DescribeListenerRequest - {@link DescribeListenerRequest}
+ * @returns {@link DescribeListenerResponse}
  * @see {@link DescribeListenerCommandInput} for command's `input` shape.
  * @see {@link DescribeListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

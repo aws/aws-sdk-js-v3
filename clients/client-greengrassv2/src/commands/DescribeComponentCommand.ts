@@ -75,8 +75,8 @@ export interface DescribeComponentCommandOutput extends DescribeComponentRespons
  *
  * ```
  *
- * @param DescribeComponentCommandInput - {@link DescribeComponentCommandInput}
- * @returns {@link DescribeComponentCommandOutput}
+ * @param DescribeComponentRequest - {@link DescribeComponentRequest}
+ * @returns {@link DescribeComponentResponse}
  * @see {@link DescribeComponentCommandInput} for command's `input` shape.
  * @see {@link DescribeComponentCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

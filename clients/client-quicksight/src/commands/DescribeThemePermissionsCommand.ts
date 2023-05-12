@@ -62,8 +62,8 @@ export interface DescribeThemePermissionsCommandOutput extends DescribeThemePerm
  *
  * ```
  *
- * @param DescribeThemePermissionsCommandInput - {@link DescribeThemePermissionsCommandInput}
- * @returns {@link DescribeThemePermissionsCommandOutput}
+ * @param DescribeThemePermissionsRequest - {@link DescribeThemePermissionsRequest}
+ * @returns {@link DescribeThemePermissionsResponse}
  * @see {@link DescribeThemePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeThemePermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

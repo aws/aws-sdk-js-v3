@@ -72,8 +72,8 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  *
  * ```
  *
- * @param CreateBotLocaleCommandInput - {@link CreateBotLocaleCommandInput}
- * @returns {@link CreateBotLocaleCommandOutput}
+ * @param CreateBotLocaleRequest - {@link CreateBotLocaleRequest}
+ * @returns {@link CreateBotLocaleResponse}
  * @see {@link CreateBotLocaleCommandInput} for command's `input` shape.
  * @see {@link CreateBotLocaleCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

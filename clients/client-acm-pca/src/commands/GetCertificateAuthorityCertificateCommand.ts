@@ -62,8 +62,8 @@ export interface GetCertificateAuthorityCertificateCommandOutput
  *
  * ```
  *
- * @param GetCertificateAuthorityCertificateCommandInput - {@link GetCertificateAuthorityCertificateCommandInput}
- * @returns {@link GetCertificateAuthorityCertificateCommandOutput}
+ * @param GetCertificateAuthorityCertificateRequest - {@link GetCertificateAuthorityCertificateRequest}
+ * @returns {@link GetCertificateAuthorityCertificateResponse}
  * @see {@link GetCertificateAuthorityCertificateCommandInput} for command's `input` shape.
  * @see {@link GetCertificateAuthorityCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.

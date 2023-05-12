@@ -51,8 +51,8 @@ export interface UpgradeLensReviewCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpgradeLensReviewCommandInput - {@link UpgradeLensReviewCommandInput}
- * @returns {@link UpgradeLensReviewCommandOutput}
+ * @param UpgradeLensReviewInput - {@link UpgradeLensReviewInput}
+ * @returns {@link Unit}
  * @see {@link UpgradeLensReviewCommandInput} for command's `input` shape.
  * @see {@link UpgradeLensReviewCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.

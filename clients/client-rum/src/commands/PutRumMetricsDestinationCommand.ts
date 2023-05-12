@@ -53,8 +53,8 @@ export interface PutRumMetricsDestinationCommandOutput extends PutRumMetricsDest
  *
  * ```
  *
- * @param PutRumMetricsDestinationCommandInput - {@link PutRumMetricsDestinationCommandInput}
- * @returns {@link PutRumMetricsDestinationCommandOutput}
+ * @param PutRumMetricsDestinationRequest - {@link PutRumMetricsDestinationRequest}
+ * @returns {@link PutRumMetricsDestinationResponse}
  * @see {@link PutRumMetricsDestinationCommandInput} for command's `input` shape.
  * @see {@link PutRumMetricsDestinationCommandOutput} for command's `response` shape.
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.

@@ -4348,8 +4348,8 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  *
  * ```
  *
- * @param DescribeAnalysisDefinitionCommandInput - {@link DescribeAnalysisDefinitionCommandInput}
- * @returns {@link DescribeAnalysisDefinitionCommandOutput}
+ * @param DescribeAnalysisDefinitionRequest - {@link DescribeAnalysisDefinitionRequest}
+ * @returns {@link DescribeAnalysisDefinitionResponse}
  * @see {@link DescribeAnalysisDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeAnalysisDefinitionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

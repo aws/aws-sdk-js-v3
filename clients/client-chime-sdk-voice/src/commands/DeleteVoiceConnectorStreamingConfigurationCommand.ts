@@ -52,8 +52,8 @@ export interface DeleteVoiceConnectorStreamingConfigurationCommandOutput extends
  *
  * ```
  *
- * @param DeleteVoiceConnectorStreamingConfigurationCommandInput - {@link DeleteVoiceConnectorStreamingConfigurationCommandInput}
- * @returns {@link DeleteVoiceConnectorStreamingConfigurationCommandOutput}
+ * @param DeleteVoiceConnectorStreamingConfigurationRequest - {@link DeleteVoiceConnectorStreamingConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVoiceConnectorStreamingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorStreamingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

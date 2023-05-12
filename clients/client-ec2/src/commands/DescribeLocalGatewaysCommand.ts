@@ -78,8 +78,8 @@ export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGateway
  *
  * ```
  *
- * @param DescribeLocalGatewaysCommandInput - {@link DescribeLocalGatewaysCommandInput}
- * @returns {@link DescribeLocalGatewaysCommandOutput}
+ * @param DescribeLocalGatewaysRequest - {@link DescribeLocalGatewaysRequest}
+ * @returns {@link DescribeLocalGatewaysResult}
  * @see {@link DescribeLocalGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeLocalGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

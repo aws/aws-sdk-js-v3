@@ -62,8 +62,8 @@ export interface DisableVpcClassicLinkDnsSupportCommandOutput
  *
  * ```
  *
- * @param DisableVpcClassicLinkDnsSupportCommandInput - {@link DisableVpcClassicLinkDnsSupportCommandInput}
- * @returns {@link DisableVpcClassicLinkDnsSupportCommandOutput}
+ * @param DisableVpcClassicLinkDnsSupportRequest - {@link DisableVpcClassicLinkDnsSupportRequest}
+ * @returns {@link DisableVpcClassicLinkDnsSupportResult}
  * @see {@link DisableVpcClassicLinkDnsSupportCommandInput} for command's `input` shape.
  * @see {@link DisableVpcClassicLinkDnsSupportCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

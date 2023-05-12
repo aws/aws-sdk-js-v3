@@ -73,8 +73,8 @@ export interface SetResourceAccessForBucketCommandOutput extends SetResourceAcce
  *
  * ```
  *
- * @param SetResourceAccessForBucketCommandInput - {@link SetResourceAccessForBucketCommandInput}
- * @returns {@link SetResourceAccessForBucketCommandOutput}
+ * @param SetResourceAccessForBucketRequest - {@link SetResourceAccessForBucketRequest}
+ * @returns {@link SetResourceAccessForBucketResult}
  * @see {@link SetResourceAccessForBucketCommandInput} for command's `input` shape.
  * @see {@link SetResourceAccessForBucketCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

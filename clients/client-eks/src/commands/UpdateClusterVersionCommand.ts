@@ -81,8 +81,8 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  *
  * ```
  *
- * @param UpdateClusterVersionCommandInput - {@link UpdateClusterVersionCommandInput}
- * @returns {@link UpdateClusterVersionCommandOutput}
+ * @param UpdateClusterVersionRequest - {@link UpdateClusterVersionRequest}
+ * @returns {@link UpdateClusterVersionResponse}
  * @see {@link UpdateClusterVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterVersionCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

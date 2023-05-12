@@ -62,8 +62,8 @@ export interface EnableOrganizationAdminAccountCommandOutput extends __MetadataB
  *
  * ```
  *
- * @param EnableOrganizationAdminAccountCommandInput - {@link EnableOrganizationAdminAccountCommandInput}
- * @returns {@link EnableOrganizationAdminAccountCommandOutput}
+ * @param EnableOrganizationAdminAccountRequest - {@link EnableOrganizationAdminAccountRequest}
+ * @returns {@link Unit}
  * @see {@link EnableOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link EnableOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

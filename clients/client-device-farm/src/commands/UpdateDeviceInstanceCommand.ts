@@ -72,8 +72,8 @@ export interface UpdateDeviceInstanceCommandOutput extends UpdateDeviceInstanceR
  *
  * ```
  *
- * @param UpdateDeviceInstanceCommandInput - {@link UpdateDeviceInstanceCommandInput}
- * @returns {@link UpdateDeviceInstanceCommandOutput}
+ * @param UpdateDeviceInstanceRequest - {@link UpdateDeviceInstanceRequest}
+ * @returns {@link UpdateDeviceInstanceResult}
  * @see {@link UpdateDeviceInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceInstanceCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

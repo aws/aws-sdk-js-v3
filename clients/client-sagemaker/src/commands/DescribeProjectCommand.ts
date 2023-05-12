@@ -91,8 +91,8 @@ export interface DescribeProjectCommandOutput extends DescribeProjectOutput, __M
  *
  * ```
  *
- * @param DescribeProjectCommandInput - {@link DescribeProjectCommandInput}
- * @returns {@link DescribeProjectCommandOutput}
+ * @param DescribeProjectInput - {@link DescribeProjectInput}
+ * @returns {@link DescribeProjectOutput}
  * @see {@link DescribeProjectCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

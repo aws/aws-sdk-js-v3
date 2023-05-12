@@ -56,8 +56,8 @@ export interface RejectCertificateTransferCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param RejectCertificateTransferCommandInput - {@link RejectCertificateTransferCommandInput}
- * @returns {@link RejectCertificateTransferCommandOutput}
+ * @param RejectCertificateTransferRequest - {@link RejectCertificateTransferRequest}
+ * @returns {@link Unit}
  * @see {@link RejectCertificateTransferCommandInput} for command's `input` shape.
  * @see {@link RejectCertificateTransferCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

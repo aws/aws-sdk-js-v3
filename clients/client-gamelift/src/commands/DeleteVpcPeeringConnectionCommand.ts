@@ -59,8 +59,8 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  *
  * ```
  *
- * @param DeleteVpcPeeringConnectionCommandInput - {@link DeleteVpcPeeringConnectionCommandInput}
- * @returns {@link DeleteVpcPeeringConnectionCommandOutput}
+ * @param DeleteVpcPeeringConnectionInput - {@link DeleteVpcPeeringConnectionInput}
+ * @returns {@link DeleteVpcPeeringConnectionOutput}
  * @see {@link DeleteVpcPeeringConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcPeeringConnectionCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

@@ -76,8 +76,8 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  *
  * ```
  *
- * @param BatchCheckLayerAvailabilityCommandInput - {@link BatchCheckLayerAvailabilityCommandInput}
- * @returns {@link BatchCheckLayerAvailabilityCommandOutput}
+ * @param BatchCheckLayerAvailabilityRequest - {@link BatchCheckLayerAvailabilityRequest}
+ * @returns {@link BatchCheckLayerAvailabilityResponse}
  * @see {@link BatchCheckLayerAvailabilityCommandInput} for command's `input` shape.
  * @see {@link BatchCheckLayerAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.

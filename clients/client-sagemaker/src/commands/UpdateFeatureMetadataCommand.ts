@@ -59,8 +59,8 @@ export interface UpdateFeatureMetadataCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateFeatureMetadataCommandInput - {@link UpdateFeatureMetadataCommandInput}
- * @returns {@link UpdateFeatureMetadataCommandOutput}
+ * @param UpdateFeatureMetadataRequest - {@link UpdateFeatureMetadataRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateFeatureMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateFeatureMetadataCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

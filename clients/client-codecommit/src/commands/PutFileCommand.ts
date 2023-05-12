@@ -60,8 +60,8 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param PutFileCommandInput - {@link PutFileCommandInput}
- * @returns {@link PutFileCommandOutput}
+ * @param PutFileInput - {@link PutFileInput}
+ * @returns {@link PutFileOutput}
  * @see {@link PutFileCommandInput} for command's `input` shape.
  * @see {@link PutFileCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

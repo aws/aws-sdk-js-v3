@@ -64,8 +64,8 @@ export interface SearchThingsCommandOutput extends SearchThingsResponse, __Metad
  *
  * ```
  *
- * @param SearchThingsCommandInput - {@link SearchThingsCommandInput}
- * @returns {@link SearchThingsCommandOutput}
+ * @param SearchThingsRequest - {@link SearchThingsRequest}
+ * @returns {@link SearchThingsResponse}
  * @see {@link SearchThingsCommandInput} for command's `input` shape.
  * @see {@link SearchThingsCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

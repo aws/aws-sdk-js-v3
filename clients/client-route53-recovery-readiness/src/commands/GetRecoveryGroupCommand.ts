@@ -61,8 +61,8 @@ export interface GetRecoveryGroupCommandOutput extends GetRecoveryGroupResponse,
  *
  * ```
  *
- * @param GetRecoveryGroupCommandInput - {@link GetRecoveryGroupCommandInput}
- * @returns {@link GetRecoveryGroupCommandOutput}
+ * @param GetRecoveryGroupRequest - {@link GetRecoveryGroupRequest}
+ * @returns {@link GetRecoveryGroupResponse}
  * @see {@link GetRecoveryGroupCommandInput} for command's `input` shape.
  * @see {@link GetRecoveryGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

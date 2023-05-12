@@ -54,8 +54,8 @@ export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataB
  *
  * ```
  *
- * @param RemoveTagsCommandInput - {@link RemoveTagsCommandInput}
- * @returns {@link RemoveTagsCommandOutput}
+ * @param RemoveTagsRequest - {@link RemoveTagsRequest}
+ * @returns {@link RemoveTagsResponse}
  * @see {@link RemoveTagsCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

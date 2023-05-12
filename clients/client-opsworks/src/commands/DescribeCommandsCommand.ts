@@ -75,8 +75,8 @@ export interface DescribeCommandsCommandOutput extends DescribeCommandsResult, _
  *
  * ```
  *
- * @param DescribeCommandsCommandInput - {@link DescribeCommandsCommandInput}
- * @returns {@link DescribeCommandsCommandOutput}
+ * @param DescribeCommandsRequest - {@link DescribeCommandsRequest}
+ * @returns {@link DescribeCommandsResult}
  * @see {@link DescribeCommandsCommandInput} for command's `input` shape.
  * @see {@link DescribeCommandsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

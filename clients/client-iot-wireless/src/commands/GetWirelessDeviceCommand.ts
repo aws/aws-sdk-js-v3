@@ -129,8 +129,8 @@ export interface GetWirelessDeviceCommandOutput extends GetWirelessDeviceRespons
  *
  * ```
  *
- * @param GetWirelessDeviceCommandInput - {@link GetWirelessDeviceCommandInput}
- * @returns {@link GetWirelessDeviceCommandOutput}
+ * @param GetWirelessDeviceRequest - {@link GetWirelessDeviceRequest}
+ * @returns {@link GetWirelessDeviceResponse}
  * @see {@link GetWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link GetWirelessDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

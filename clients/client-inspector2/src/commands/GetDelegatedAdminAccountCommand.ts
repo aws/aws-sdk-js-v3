@@ -52,8 +52,8 @@ export interface GetDelegatedAdminAccountCommandOutput extends GetDelegatedAdmin
  *
  * ```
  *
- * @param GetDelegatedAdminAccountCommandInput - {@link GetDelegatedAdminAccountCommandInput}
- * @returns {@link GetDelegatedAdminAccountCommandOutput}
+ * @param GetDelegatedAdminAccountRequest - {@link GetDelegatedAdminAccountRequest}
+ * @returns {@link GetDelegatedAdminAccountResponse}
  * @see {@link GetDelegatedAdminAccountCommandInput} for command's `input` shape.
  * @see {@link GetDelegatedAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

@@ -92,8 +92,8 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput
  *
  * ```
  *
- * @param ModifyTrafficMirrorFilterRuleCommandInput - {@link ModifyTrafficMirrorFilterRuleCommandInput}
- * @returns {@link ModifyTrafficMirrorFilterRuleCommandOutput}
+ * @param ModifyTrafficMirrorFilterRuleRequest - {@link ModifyTrafficMirrorFilterRuleRequest}
+ * @returns {@link ModifyTrafficMirrorFilterRuleResult}
  * @see {@link ModifyTrafficMirrorFilterRuleCommandInput} for command's `input` shape.
  * @see {@link ModifyTrafficMirrorFilterRuleCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

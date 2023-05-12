@@ -72,8 +72,8 @@ export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessC
  *
  * ```
  *
- * @param ListOriginAccessControlsCommandInput - {@link ListOriginAccessControlsCommandInput}
- * @returns {@link ListOriginAccessControlsCommandOutput}
+ * @param ListOriginAccessControlsRequest - {@link ListOriginAccessControlsRequest}
+ * @returns {@link ListOriginAccessControlsResult}
  * @see {@link ListOriginAccessControlsCommandInput} for command's `input` shape.
  * @see {@link ListOriginAccessControlsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

@@ -118,8 +118,8 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  *
  * ```
  *
- * @param GetRecommendationsCommandInput - {@link GetRecommendationsCommandInput}
- * @returns {@link GetRecommendationsCommandOutput}
+ * @param GetRecommendationsRequest - {@link GetRecommendationsRequest}
+ * @returns {@link GetRecommendationsResponse}
  * @see {@link GetRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

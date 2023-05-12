@@ -71,8 +71,8 @@ export interface GetRulesCommandOutput extends GetRulesResult, __MetadataBearer 
  *
  * ```
  *
- * @param GetRulesCommandInput - {@link GetRulesCommandInput}
- * @returns {@link GetRulesCommandOutput}
+ * @param GetRulesRequest - {@link GetRulesRequest}
+ * @returns {@link GetRulesResult}
  * @see {@link GetRulesCommandInput} for command's `input` shape.
  * @see {@link GetRulesCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

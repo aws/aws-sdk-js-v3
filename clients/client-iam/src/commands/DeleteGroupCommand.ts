@@ -49,8 +49,8 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteGroupCommandInput - {@link DeleteGroupCommandInput}
- * @returns {@link DeleteGroupCommandOutput}
+ * @param DeleteGroupRequest - {@link DeleteGroupRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGroupCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -56,8 +56,8 @@ export interface UpdateHITTypeOfHITCommandOutput extends UpdateHITTypeOfHITRespo
  *
  * ```
  *
- * @param UpdateHITTypeOfHITCommandInput - {@link UpdateHITTypeOfHITCommandInput}
- * @returns {@link UpdateHITTypeOfHITCommandOutput}
+ * @param UpdateHITTypeOfHITRequest - {@link UpdateHITTypeOfHITRequest}
+ * @returns {@link UpdateHITTypeOfHITResponse}
  * @see {@link UpdateHITTypeOfHITCommandInput} for command's `input` shape.
  * @see {@link UpdateHITTypeOfHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

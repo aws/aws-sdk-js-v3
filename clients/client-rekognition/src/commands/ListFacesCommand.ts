@@ -73,8 +73,8 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  *
  * ```
  *
- * @param ListFacesCommandInput - {@link ListFacesCommandInput}
- * @returns {@link ListFacesCommandOutput}
+ * @param ListFacesRequest - {@link ListFacesRequest}
+ * @returns {@link ListFacesResponse}
  * @see {@link ListFacesCommandInput} for command's `input` shape.
  * @see {@link ListFacesCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

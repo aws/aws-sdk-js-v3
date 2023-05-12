@@ -69,8 +69,8 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrRespo
  *
  * ```
  *
- * @param AdvertiseByoipCidrCommandInput - {@link AdvertiseByoipCidrCommandInput}
- * @returns {@link AdvertiseByoipCidrCommandOutput}
+ * @param AdvertiseByoipCidrRequest - {@link AdvertiseByoipCidrRequest}
+ * @returns {@link AdvertiseByoipCidrResponse}
  * @see {@link AdvertiseByoipCidrCommandInput} for command's `input` shape.
  * @see {@link AdvertiseByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

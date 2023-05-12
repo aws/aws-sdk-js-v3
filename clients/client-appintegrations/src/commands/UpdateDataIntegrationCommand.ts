@@ -55,8 +55,8 @@ export interface UpdateDataIntegrationCommandOutput extends UpdateDataIntegratio
  *
  * ```
  *
- * @param UpdateDataIntegrationCommandInput - {@link UpdateDataIntegrationCommandInput}
- * @returns {@link UpdateDataIntegrationCommandOutput}
+ * @param UpdateDataIntegrationRequest - {@link UpdateDataIntegrationRequest}
+ * @returns {@link UpdateDataIntegrationResponse}
  * @see {@link UpdateDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link UpdateDataIntegrationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.

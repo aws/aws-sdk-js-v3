@@ -75,8 +75,8 @@ export interface GetCommandInvocationCommandOutput extends GetCommandInvocationR
  *
  * ```
  *
- * @param GetCommandInvocationCommandInput - {@link GetCommandInvocationCommandInput}
- * @returns {@link GetCommandInvocationCommandOutput}
+ * @param GetCommandInvocationRequest - {@link GetCommandInvocationRequest}
+ * @returns {@link GetCommandInvocationResult}
  * @see {@link GetCommandInvocationCommandInput} for command's `input` shape.
  * @see {@link GetCommandInvocationCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

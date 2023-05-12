@@ -295,8 +295,8 @@ export interface RollbackApplicationCommandOutput extends RollbackApplicationRes
  *
  * ```
  *
- * @param RollbackApplicationCommandInput - {@link RollbackApplicationCommandInput}
- * @returns {@link RollbackApplicationCommandOutput}
+ * @param RollbackApplicationRequest - {@link RollbackApplicationRequest}
+ * @returns {@link RollbackApplicationResponse}
  * @see {@link RollbackApplicationCommandInput} for command's `input` shape.
  * @see {@link RollbackApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.

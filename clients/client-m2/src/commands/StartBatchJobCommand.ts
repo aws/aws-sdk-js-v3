@@ -63,8 +63,8 @@ export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __Met
  *
  * ```
  *
- * @param StartBatchJobCommandInput - {@link StartBatchJobCommandInput}
- * @returns {@link StartBatchJobCommandOutput}
+ * @param StartBatchJobRequest - {@link StartBatchJobRequest}
+ * @returns {@link StartBatchJobResponse}
  * @see {@link StartBatchJobCommandInput} for command's `input` shape.
  * @see {@link StartBatchJobCommandOutput} for command's `response` shape.
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.

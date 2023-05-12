@@ -74,8 +74,8 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  *
  * ```
  *
- * @param GetImagesCommandInput - {@link GetImagesCommandInput}
- * @returns {@link GetImagesCommandOutput}
+ * @param GetImagesInput - {@link GetImagesInput}
+ * @returns {@link GetImagesOutput}
  * @see {@link GetImagesCommandInput} for command's `input` shape.
  * @see {@link GetImagesCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.

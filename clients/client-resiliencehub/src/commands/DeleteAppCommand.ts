@@ -53,8 +53,8 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  *
  * ```
  *
- * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
- * @returns {@link DeleteAppCommandOutput}
+ * @param DeleteAppRequest - {@link DeleteAppRequest}
+ * @returns {@link DeleteAppResponse}
  * @see {@link DeleteAppCommandInput} for command's `input` shape.
  * @see {@link DeleteAppCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

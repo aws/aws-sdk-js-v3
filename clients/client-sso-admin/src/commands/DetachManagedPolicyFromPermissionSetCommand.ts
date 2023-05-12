@@ -58,8 +58,8 @@ export interface DetachManagedPolicyFromPermissionSetCommandOutput
  *
  * ```
  *
- * @param DetachManagedPolicyFromPermissionSetCommandInput - {@link DetachManagedPolicyFromPermissionSetCommandInput}
- * @returns {@link DetachManagedPolicyFromPermissionSetCommandOutput}
+ * @param DetachManagedPolicyFromPermissionSetRequest - {@link DetachManagedPolicyFromPermissionSetRequest}
+ * @returns {@link DetachManagedPolicyFromPermissionSetResponse}
  * @see {@link DetachManagedPolicyFromPermissionSetCommandInput} for command's `input` shape.
  * @see {@link DetachManagedPolicyFromPermissionSetCommandOutput} for command's `response` shape.
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.

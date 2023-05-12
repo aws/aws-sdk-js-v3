@@ -70,8 +70,8 @@ export interface ListServiceSpecificCredentialsCommandOutput
  *
  * ```
  *
- * @param ListServiceSpecificCredentialsCommandInput - {@link ListServiceSpecificCredentialsCommandInput}
- * @returns {@link ListServiceSpecificCredentialsCommandOutput}
+ * @param ListServiceSpecificCredentialsRequest - {@link ListServiceSpecificCredentialsRequest}
+ * @returns {@link ListServiceSpecificCredentialsResponse}
  * @see {@link ListServiceSpecificCredentialsCommandInput} for command's `input` shape.
  * @see {@link ListServiceSpecificCredentialsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

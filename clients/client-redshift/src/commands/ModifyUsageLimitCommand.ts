@@ -66,8 +66,8 @@ export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  *
  * ```
  *
- * @param ModifyUsageLimitCommandInput - {@link ModifyUsageLimitCommandInput}
- * @returns {@link ModifyUsageLimitCommandOutput}
+ * @param ModifyUsageLimitMessage - {@link ModifyUsageLimitMessage}
+ * @returns {@link UsageLimit}
  * @see {@link ModifyUsageLimitCommandInput} for command's `input` shape.
  * @see {@link ModifyUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

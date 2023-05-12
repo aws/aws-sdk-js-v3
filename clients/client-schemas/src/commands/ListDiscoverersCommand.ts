@@ -65,8 +65,8 @@ export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, _
  *
  * ```
  *
- * @param ListDiscoverersCommandInput - {@link ListDiscoverersCommandInput}
- * @returns {@link ListDiscoverersCommandOutput}
+ * @param ListDiscoverersRequest - {@link ListDiscoverersRequest}
+ * @returns {@link ListDiscoverersResponse}
  * @see {@link ListDiscoverersCommandInput} for command's `input` shape.
  * @see {@link ListDiscoverersCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.

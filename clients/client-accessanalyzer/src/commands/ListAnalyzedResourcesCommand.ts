@@ -61,8 +61,8 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  *
  * ```
  *
- * @param ListAnalyzedResourcesCommandInput - {@link ListAnalyzedResourcesCommandInput}
- * @returns {@link ListAnalyzedResourcesCommandOutput}
+ * @param ListAnalyzedResourcesRequest - {@link ListAnalyzedResourcesRequest}
+ * @returns {@link ListAnalyzedResourcesResponse}
  * @see {@link ListAnalyzedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListAnalyzedResourcesCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

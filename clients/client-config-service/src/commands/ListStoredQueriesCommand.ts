@@ -59,8 +59,8 @@ export interface ListStoredQueriesCommandOutput extends ListStoredQueriesRespons
  *
  * ```
  *
- * @param ListStoredQueriesCommandInput - {@link ListStoredQueriesCommandInput}
- * @returns {@link ListStoredQueriesCommandOutput}
+ * @param ListStoredQueriesRequest - {@link ListStoredQueriesRequest}
+ * @returns {@link ListStoredQueriesResponse}
  * @see {@link ListStoredQueriesCommandInput} for command's `input` shape.
  * @see {@link ListStoredQueriesCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

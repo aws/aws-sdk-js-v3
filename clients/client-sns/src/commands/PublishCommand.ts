@@ -82,8 +82,8 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  *
  * ```
  *
- * @param PublishCommandInput - {@link PublishCommandInput}
- * @returns {@link PublishCommandOutput}
+ * @param PublishInput - {@link PublishInput}
+ * @returns {@link PublishResponse}
  * @see {@link PublishCommandInput} for command's `input` shape.
  * @see {@link PublishCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

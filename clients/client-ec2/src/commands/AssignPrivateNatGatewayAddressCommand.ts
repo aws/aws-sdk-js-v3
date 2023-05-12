@@ -72,8 +72,8 @@ export interface AssignPrivateNatGatewayAddressCommandOutput
  *
  * ```
  *
- * @param AssignPrivateNatGatewayAddressCommandInput - {@link AssignPrivateNatGatewayAddressCommandInput}
- * @returns {@link AssignPrivateNatGatewayAddressCommandOutput}
+ * @param AssignPrivateNatGatewayAddressRequest - {@link AssignPrivateNatGatewayAddressRequest}
+ * @returns {@link AssignPrivateNatGatewayAddressResult}
  * @see {@link AssignPrivateNatGatewayAddressCommandInput} for command's `input` shape.
  * @see {@link AssignPrivateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

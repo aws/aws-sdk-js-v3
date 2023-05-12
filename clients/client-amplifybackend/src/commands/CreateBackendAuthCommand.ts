@@ -140,8 +140,8 @@ export interface CreateBackendAuthCommandOutput extends CreateBackendAuthRespons
  *
  * ```
  *
- * @param CreateBackendAuthCommandInput - {@link CreateBackendAuthCommandInput}
- * @returns {@link CreateBackendAuthCommandOutput}
+ * @param CreateBackendAuthRequest - {@link CreateBackendAuthRequest}
+ * @returns {@link CreateBackendAuthResponse}
  * @see {@link CreateBackendAuthCommandInput} for command's `input` shape.
  * @see {@link CreateBackendAuthCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

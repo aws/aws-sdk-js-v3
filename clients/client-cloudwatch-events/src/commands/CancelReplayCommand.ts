@@ -52,8 +52,8 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  *
  * ```
  *
- * @param CancelReplayCommandInput - {@link CancelReplayCommandInput}
- * @returns {@link CancelReplayCommandOutput}
+ * @param CancelReplayRequest - {@link CancelReplayRequest}
+ * @returns {@link CancelReplayResponse}
  * @see {@link CancelReplayCommandInput} for command's `input` shape.
  * @see {@link CancelReplayCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

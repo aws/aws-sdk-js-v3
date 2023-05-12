@@ -56,8 +56,8 @@ export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregat
  *
  * ```
  *
- * @param ListFindingAggregatorsCommandInput - {@link ListFindingAggregatorsCommandInput}
- * @returns {@link ListFindingAggregatorsCommandOutput}
+ * @param ListFindingAggregatorsRequest - {@link ListFindingAggregatorsRequest}
+ * @returns {@link ListFindingAggregatorsResponse}
  * @see {@link ListFindingAggregatorsCommandInput} for command's `input` shape.
  * @see {@link ListFindingAggregatorsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

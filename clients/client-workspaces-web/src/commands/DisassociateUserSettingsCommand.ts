@@ -48,8 +48,8 @@ export interface DisassociateUserSettingsCommandOutput extends DisassociateUserS
  *
  * ```
  *
- * @param DisassociateUserSettingsCommandInput - {@link DisassociateUserSettingsCommandInput}
- * @returns {@link DisassociateUserSettingsCommandOutput}
+ * @param DisassociateUserSettingsRequest - {@link DisassociateUserSettingsRequest}
+ * @returns {@link DisassociateUserSettingsResponse}
  * @see {@link DisassociateUserSettingsCommandInput} for command's `input` shape.
  * @see {@link DisassociateUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

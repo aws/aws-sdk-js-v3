@@ -89,8 +89,8 @@ export interface GetAppReplicationConfigurationCommandOutput
  *
  * ```
  *
- * @param GetAppReplicationConfigurationCommandInput - {@link GetAppReplicationConfigurationCommandInput}
- * @returns {@link GetAppReplicationConfigurationCommandOutput}
+ * @param GetAppReplicationConfigurationRequest - {@link GetAppReplicationConfigurationRequest}
+ * @returns {@link GetAppReplicationConfigurationResponse}
  * @see {@link GetAppReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAppReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

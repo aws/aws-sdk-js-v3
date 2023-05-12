@@ -49,8 +49,8 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  *
  * ```
  *
- * @param GetServiceRoleForAccountCommandInput - {@link GetServiceRoleForAccountCommandInput}
- * @returns {@link GetServiceRoleForAccountCommandOutput}
+ * @param GetServiceRoleForAccountRequest - {@link GetServiceRoleForAccountRequest}
+ * @returns {@link GetServiceRoleForAccountResponse}
  * @see {@link GetServiceRoleForAccountCommandInput} for command's `input` shape.
  * @see {@link GetServiceRoleForAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

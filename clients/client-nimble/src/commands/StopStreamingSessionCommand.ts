@@ -89,8 +89,8 @@ export interface StopStreamingSessionCommandOutput extends StopStreamingSessionR
  *
  * ```
  *
- * @param StopStreamingSessionCommandInput - {@link StopStreamingSessionCommandInput}
- * @returns {@link StopStreamingSessionCommandOutput}
+ * @param StopStreamingSessionRequest - {@link StopStreamingSessionRequest}
+ * @returns {@link StopStreamingSessionResponse}
  * @see {@link StopStreamingSessionCommandInput} for command's `input` shape.
  * @see {@link StopStreamingSessionCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

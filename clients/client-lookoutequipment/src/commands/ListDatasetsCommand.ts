@@ -61,8 +61,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  *
  * ```
  *
- * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
- * @returns {@link ListDatasetsCommandOutput}
+ * @param ListDatasetsRequest - {@link ListDatasetsRequest}
+ * @returns {@link ListDatasetsResponse}
  * @see {@link ListDatasetsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

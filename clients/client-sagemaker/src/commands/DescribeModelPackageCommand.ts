@@ -290,8 +290,8 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  *
  * ```
  *
- * @param DescribeModelPackageCommandInput - {@link DescribeModelPackageCommandInput}
- * @returns {@link DescribeModelPackageCommandOutput}
+ * @param DescribeModelPackageInput - {@link DescribeModelPackageInput}
+ * @returns {@link DescribeModelPackageOutput}
  * @see {@link DescribeModelPackageCommandInput} for command's `input` shape.
  * @see {@link DescribeModelPackageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

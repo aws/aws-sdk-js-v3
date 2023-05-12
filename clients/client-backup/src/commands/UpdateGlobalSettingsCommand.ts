@@ -52,8 +52,8 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateGlobalSettingsCommandInput - {@link UpdateGlobalSettingsCommandInput}
- * @returns {@link UpdateGlobalSettingsCommandOutput}
+ * @param UpdateGlobalSettingsInput - {@link UpdateGlobalSettingsInput}
+ * @returns {@link Unit}
  * @see {@link UpdateGlobalSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalSettingsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

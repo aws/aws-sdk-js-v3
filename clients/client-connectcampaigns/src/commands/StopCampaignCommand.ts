@@ -48,8 +48,8 @@ export interface StopCampaignCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopCampaignCommandInput - {@link StopCampaignCommandInput}
- * @returns {@link StopCampaignCommandOutput}
+ * @param StopCampaignRequest - {@link StopCampaignRequest}
+ * @returns {@link Unit}
  * @see {@link StopCampaignCommandInput} for command's `input` shape.
  * @see {@link StopCampaignCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

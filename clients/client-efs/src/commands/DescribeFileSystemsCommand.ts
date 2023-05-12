@@ -104,8 +104,8 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  *
  * ```
  *
- * @param DescribeFileSystemsCommandInput - {@link DescribeFileSystemsCommandInput}
- * @returns {@link DescribeFileSystemsCommandOutput}
+ * @param DescribeFileSystemsRequest - {@link DescribeFileSystemsRequest}
+ * @returns {@link DescribeFileSystemsResponse}
  * @see {@link DescribeFileSystemsCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

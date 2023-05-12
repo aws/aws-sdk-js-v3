@@ -61,8 +61,8 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  *
  * ```
  *
- * @param DescribeAccountAttributesCommandInput - {@link DescribeAccountAttributesCommandInput}
- * @returns {@link DescribeAccountAttributesCommandOutput}
+ * @param DescribeAccountAttributesMessage - {@link DescribeAccountAttributesMessage}
+ * @returns {@link AccountAttributeList}
  * @see {@link DescribeAccountAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

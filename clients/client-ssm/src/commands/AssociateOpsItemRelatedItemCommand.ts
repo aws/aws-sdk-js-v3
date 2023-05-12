@@ -57,8 +57,8 @@ export interface AssociateOpsItemRelatedItemCommandOutput
  *
  * ```
  *
- * @param AssociateOpsItemRelatedItemCommandInput - {@link AssociateOpsItemRelatedItemCommandInput}
- * @returns {@link AssociateOpsItemRelatedItemCommandOutput}
+ * @param AssociateOpsItemRelatedItemRequest - {@link AssociateOpsItemRelatedItemRequest}
+ * @returns {@link AssociateOpsItemRelatedItemResponse}
  * @see {@link AssociateOpsItemRelatedItemCommandInput} for command's `input` shape.
  * @see {@link AssociateOpsItemRelatedItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

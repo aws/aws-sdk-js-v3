@@ -48,8 +48,8 @@ export interface VerifySessionCommandOutput extends VerifySessionResponse, __Met
  *
  * ```
  *
- * @param VerifySessionCommandInput - {@link VerifySessionCommandInput}
- * @returns {@link VerifySessionCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link VerifySessionResponse}
  * @see {@link VerifySessionCommandInput} for command's `input` shape.
  * @see {@link VerifySessionCommandOutput} for command's `response` shape.
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.

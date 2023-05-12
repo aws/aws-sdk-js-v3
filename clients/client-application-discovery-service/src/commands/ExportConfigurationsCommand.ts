@@ -59,8 +59,8 @@ export interface ExportConfigurationsCommandOutput extends ExportConfigurationsR
  *
  * ```
  *
- * @param ExportConfigurationsCommandInput - {@link ExportConfigurationsCommandInput}
- * @returns {@link ExportConfigurationsCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link ExportConfigurationsResponse}
  * @see {@link ExportConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ExportConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

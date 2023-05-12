@@ -58,8 +58,8 @@ export interface DisassociateWirelessDeviceFromFuotaTaskCommandOutput
  *
  * ```
  *
- * @param DisassociateWirelessDeviceFromFuotaTaskCommandInput - {@link DisassociateWirelessDeviceFromFuotaTaskCommandInput}
- * @returns {@link DisassociateWirelessDeviceFromFuotaTaskCommandOutput}
+ * @param DisassociateWirelessDeviceFromFuotaTaskRequest - {@link DisassociateWirelessDeviceFromFuotaTaskRequest}
+ * @returns {@link DisassociateWirelessDeviceFromFuotaTaskResponse}
  * @see {@link DisassociateWirelessDeviceFromFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessDeviceFromFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

@@ -79,8 +79,8 @@ export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput,
  *
  * ```
  *
- * @param ListTableMetadataCommandInput - {@link ListTableMetadataCommandInput}
- * @returns {@link ListTableMetadataCommandOutput}
+ * @param ListTableMetadataInput - {@link ListTableMetadataInput}
+ * @returns {@link ListTableMetadataOutput}
  * @see {@link ListTableMetadataCommandInput} for command's `input` shape.
  * @see {@link ListTableMetadataCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

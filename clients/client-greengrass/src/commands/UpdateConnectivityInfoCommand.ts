@@ -59,8 +59,8 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  *
  * ```
  *
- * @param UpdateConnectivityInfoCommandInput - {@link UpdateConnectivityInfoCommandInput}
- * @returns {@link UpdateConnectivityInfoCommandOutput}
+ * @param UpdateConnectivityInfoRequest - {@link UpdateConnectivityInfoRequest}
+ * @returns {@link UpdateConnectivityInfoResponse}
  * @see {@link UpdateConnectivityInfoCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectivityInfoCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

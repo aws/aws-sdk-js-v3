@@ -59,8 +59,8 @@ export interface MoveByoipCidrToIpamCommandOutput extends MoveByoipCidrToIpamRes
  *
  * ```
  *
- * @param MoveByoipCidrToIpamCommandInput - {@link MoveByoipCidrToIpamCommandInput}
- * @returns {@link MoveByoipCidrToIpamCommandOutput}
+ * @param MoveByoipCidrToIpamRequest - {@link MoveByoipCidrToIpamRequest}
+ * @returns {@link MoveByoipCidrToIpamResult}
  * @see {@link MoveByoipCidrToIpamCommandInput} for command's `input` shape.
  * @see {@link MoveByoipCidrToIpamCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

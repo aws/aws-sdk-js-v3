@@ -71,8 +71,8 @@ export interface DescribeFleetInstancesCommandOutput extends DescribeFleetInstan
  *
  * ```
  *
- * @param DescribeFleetInstancesCommandInput - {@link DescribeFleetInstancesCommandInput}
- * @returns {@link DescribeFleetInstancesCommandOutput}
+ * @param DescribeFleetInstancesRequest - {@link DescribeFleetInstancesRequest}
+ * @returns {@link DescribeFleetInstancesResult}
  * @see {@link DescribeFleetInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

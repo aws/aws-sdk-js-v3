@@ -71,8 +71,8 @@ export interface RebootRelationalDatabaseCommandOutput extends RebootRelationalD
  *
  * ```
  *
- * @param RebootRelationalDatabaseCommandInput - {@link RebootRelationalDatabaseCommandInput}
- * @returns {@link RebootRelationalDatabaseCommandOutput}
+ * @param RebootRelationalDatabaseRequest - {@link RebootRelationalDatabaseRequest}
+ * @returns {@link RebootRelationalDatabaseResult}
  * @see {@link RebootRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link RebootRelationalDatabaseCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

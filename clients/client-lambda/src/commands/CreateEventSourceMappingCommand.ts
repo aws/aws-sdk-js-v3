@@ -291,8 +291,8 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *
  * ```
  *
- * @param CreateEventSourceMappingCommandInput - {@link CreateEventSourceMappingCommandInput}
- * @returns {@link CreateEventSourceMappingCommandOutput}
+ * @param CreateEventSourceMappingRequest - {@link CreateEventSourceMappingRequest}
+ * @returns {@link EventSourceMappingConfiguration}
  * @see {@link CreateEventSourceMappingCommandInput} for command's `input` shape.
  * @see {@link CreateEventSourceMappingCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

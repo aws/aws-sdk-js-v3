@@ -850,8 +850,8 @@ export interface CreateSlotCommandOutput extends CreateSlotResponse, __MetadataB
  *
  * ```
  *
- * @param CreateSlotCommandInput - {@link CreateSlotCommandInput}
- * @returns {@link CreateSlotCommandOutput}
+ * @param CreateSlotRequest - {@link CreateSlotRequest}
+ * @returns {@link CreateSlotResponse}
  * @see {@link CreateSlotCommandInput} for command's `input` shape.
  * @see {@link CreateSlotCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

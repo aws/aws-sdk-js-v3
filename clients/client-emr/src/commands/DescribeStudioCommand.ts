@@ -76,8 +76,8 @@ export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __Met
  *
  * ```
  *
- * @param DescribeStudioCommandInput - {@link DescribeStudioCommandInput}
- * @returns {@link DescribeStudioCommandOutput}
+ * @param DescribeStudioInput - {@link DescribeStudioInput}
+ * @returns {@link DescribeStudioOutput}
  * @see {@link DescribeStudioCommandInput} for command's `input` shape.
  * @see {@link DescribeStudioCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

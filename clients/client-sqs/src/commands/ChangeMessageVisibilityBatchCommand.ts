@@ -85,8 +85,8 @@ export interface ChangeMessageVisibilityBatchCommandOutput
  *
  * ```
  *
- * @param ChangeMessageVisibilityBatchCommandInput - {@link ChangeMessageVisibilityBatchCommandInput}
- * @returns {@link ChangeMessageVisibilityBatchCommandOutput}
+ * @param ChangeMessageVisibilityBatchRequest - {@link ChangeMessageVisibilityBatchRequest}
+ * @returns {@link ChangeMessageVisibilityBatchResult}
  * @see {@link ChangeMessageVisibilityBatchCommandInput} for command's `input` shape.
  * @see {@link ChangeMessageVisibilityBatchCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.

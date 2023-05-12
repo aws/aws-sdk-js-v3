@@ -110,8 +110,8 @@ export interface PromotePermissionCreatedFromPolicyCommandOutput
  *
  * ```
  *
- * @param PromotePermissionCreatedFromPolicyCommandInput - {@link PromotePermissionCreatedFromPolicyCommandInput}
- * @returns {@link PromotePermissionCreatedFromPolicyCommandOutput}
+ * @param PromotePermissionCreatedFromPolicyRequest - {@link PromotePermissionCreatedFromPolicyRequest}
+ * @returns {@link PromotePermissionCreatedFromPolicyResponse}
  * @see {@link PromotePermissionCreatedFromPolicyCommandInput} for command's `input` shape.
  * @see {@link PromotePermissionCreatedFromPolicyCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

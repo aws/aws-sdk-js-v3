@@ -57,8 +57,8 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
  *
  * ```
  *
- * @param ListProvisionedCapacityCommandInput - {@link ListProvisionedCapacityCommandInput}
- * @returns {@link ListProvisionedCapacityCommandOutput}
+ * @param ListProvisionedCapacityInput - {@link ListProvisionedCapacityInput}
+ * @returns {@link ListProvisionedCapacityOutput}
  * @see {@link ListProvisionedCapacityCommandInput} for command's `input` shape.
  * @see {@link ListProvisionedCapacityCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.

@@ -55,8 +55,8 @@ export interface DeleteDatalakeDelegatedAdminCommandOutput
  *
  * ```
  *
- * @param DeleteDatalakeDelegatedAdminCommandInput - {@link DeleteDatalakeDelegatedAdminCommandInput}
- * @returns {@link DeleteDatalakeDelegatedAdminCommandOutput}
+ * @param DeleteDatalakeDelegatedAdminRequest - {@link DeleteDatalakeDelegatedAdminRequest}
+ * @returns {@link DeleteDatalakeDelegatedAdminResponse}
  * @see {@link DeleteDatalakeDelegatedAdminCommandInput} for command's `input` shape.
  * @see {@link DeleteDatalakeDelegatedAdminCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

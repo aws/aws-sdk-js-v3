@@ -54,8 +54,8 @@ export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse,
  *
  * ```
  *
- * @param DeleteLogPatternCommandInput - {@link DeleteLogPatternCommandInput}
- * @returns {@link DeleteLogPatternCommandOutput}
+ * @param DeleteLogPatternRequest - {@link DeleteLogPatternRequest}
+ * @returns {@link DeleteLogPatternResponse}
  * @see {@link DeleteLogPatternCommandInput} for command's `input` shape.
  * @see {@link DeleteLogPatternCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.

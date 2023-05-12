@@ -66,8 +66,8 @@ export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigR
  *
  * ```
  *
- * @param GetUserPoolMfaConfigCommandInput - {@link GetUserPoolMfaConfigCommandInput}
- * @returns {@link GetUserPoolMfaConfigCommandOutput}
+ * @param GetUserPoolMfaConfigRequest - {@link GetUserPoolMfaConfigRequest}
+ * @returns {@link GetUserPoolMfaConfigResponse}
  * @see {@link GetUserPoolMfaConfigCommandInput} for command's `input` shape.
  * @see {@link GetUserPoolMfaConfigCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

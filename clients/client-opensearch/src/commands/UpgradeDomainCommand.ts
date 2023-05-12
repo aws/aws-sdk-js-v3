@@ -66,8 +66,8 @@ export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __Met
  *
  * ```
  *
- * @param UpgradeDomainCommandInput - {@link UpgradeDomainCommandInput}
- * @returns {@link UpgradeDomainCommandOutput}
+ * @param UpgradeDomainRequest - {@link UpgradeDomainRequest}
+ * @returns {@link UpgradeDomainResponse}
  * @see {@link UpgradeDomainCommandInput} for command's `input` shape.
  * @see {@link UpgradeDomainCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

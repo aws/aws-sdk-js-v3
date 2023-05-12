@@ -78,8 +78,8 @@ export interface DescribeAppInstanceUserEndpointCommandOutput
  *
  * ```
  *
- * @param DescribeAppInstanceUserEndpointCommandInput - {@link DescribeAppInstanceUserEndpointCommandInput}
- * @returns {@link DescribeAppInstanceUserEndpointCommandOutput}
+ * @param DescribeAppInstanceUserEndpointRequest - {@link DescribeAppInstanceUserEndpointRequest}
+ * @returns {@link DescribeAppInstanceUserEndpointResponse}
  * @see {@link DescribeAppInstanceUserEndpointCommandInput} for command's `input` shape.
  * @see {@link DescribeAppInstanceUserEndpointCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.

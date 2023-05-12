@@ -61,8 +61,8 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  *
  * ```
  *
- * @param DescribeMaintenanceStartTimeCommandInput - {@link DescribeMaintenanceStartTimeCommandInput}
- * @returns {@link DescribeMaintenanceStartTimeCommandOutput}
+ * @param DescribeMaintenanceStartTimeInput - {@link DescribeMaintenanceStartTimeInput}
+ * @returns {@link DescribeMaintenanceStartTimeOutput}
  * @see {@link DescribeMaintenanceStartTimeCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceStartTimeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

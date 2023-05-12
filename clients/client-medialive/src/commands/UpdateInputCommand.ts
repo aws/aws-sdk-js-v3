@@ -126,8 +126,8 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  *
  * ```
  *
- * @param UpdateInputCommandInput - {@link UpdateInputCommandInput}
- * @returns {@link UpdateInputCommandOutput}
+ * @param UpdateInputRequest - {@link UpdateInputRequest}
+ * @returns {@link UpdateInputResponse}
  * @see {@link UpdateInputCommandInput} for command's `input` shape.
  * @see {@link UpdateInputCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

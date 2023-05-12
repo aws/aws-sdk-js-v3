@@ -66,8 +66,8 @@ export interface UpdateServiceActionCommandOutput extends UpdateServiceActionOut
  *
  * ```
  *
- * @param UpdateServiceActionCommandInput - {@link UpdateServiceActionCommandInput}
- * @returns {@link UpdateServiceActionCommandOutput}
+ * @param UpdateServiceActionInput - {@link UpdateServiceActionInput}
+ * @returns {@link UpdateServiceActionOutput}
  * @see {@link UpdateServiceActionCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

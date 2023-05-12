@@ -48,8 +48,8 @@ export interface DeleteWorkerFleetCommandOutput extends DeleteWorkerFleetRespons
  *
  * ```
  *
- * @param DeleteWorkerFleetCommandInput - {@link DeleteWorkerFleetCommandInput}
- * @returns {@link DeleteWorkerFleetCommandOutput}
+ * @param DeleteWorkerFleetRequest - {@link DeleteWorkerFleetRequest}
+ * @returns {@link DeleteWorkerFleetResponse}
  * @see {@link DeleteWorkerFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkerFleetCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

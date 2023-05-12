@@ -74,8 +74,8 @@ export interface GetSuiteCommandOutput extends GetSuiteResult, __MetadataBearer 
  *
  * ```
  *
- * @param GetSuiteCommandInput - {@link GetSuiteCommandInput}
- * @returns {@link GetSuiteCommandOutput}
+ * @param GetSuiteRequest - {@link GetSuiteRequest}
+ * @returns {@link GetSuiteResult}
  * @see {@link GetSuiteCommandInput} for command's `input` shape.
  * @see {@link GetSuiteCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

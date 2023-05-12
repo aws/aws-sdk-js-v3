@@ -52,8 +52,8 @@ export interface UntagPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UntagPolicyCommandInput - {@link UntagPolicyCommandInput}
- * @returns {@link UntagPolicyCommandOutput}
+ * @param UntagPolicyRequest - {@link UntagPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link UntagPolicyCommandInput} for command's `input` shape.
  * @see {@link UntagPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

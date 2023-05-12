@@ -136,8 +136,8 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  *
  * ```
  *
- * @param DescribeVolumeStatusCommandInput - {@link DescribeVolumeStatusCommandInput}
- * @returns {@link DescribeVolumeStatusCommandOutput}
+ * @param DescribeVolumeStatusRequest - {@link DescribeVolumeStatusRequest}
+ * @returns {@link DescribeVolumeStatusResult}
  * @see {@link DescribeVolumeStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumeStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

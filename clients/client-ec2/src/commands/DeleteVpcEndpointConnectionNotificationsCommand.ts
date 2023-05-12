@@ -70,8 +70,8 @@ export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
  *
  * ```
  *
- * @param DeleteVpcEndpointConnectionNotificationsCommandInput - {@link DeleteVpcEndpointConnectionNotificationsCommandInput}
- * @returns {@link DeleteVpcEndpointConnectionNotificationsCommandOutput}
+ * @param DeleteVpcEndpointConnectionNotificationsRequest - {@link DeleteVpcEndpointConnectionNotificationsRequest}
+ * @returns {@link DeleteVpcEndpointConnectionNotificationsResult}
  * @see {@link DeleteVpcEndpointConnectionNotificationsCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcEndpointConnectionNotificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

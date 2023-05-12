@@ -97,8 +97,8 @@ export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult,
  *
  * ```
  *
- * @param GetOfferingStatusCommandInput - {@link GetOfferingStatusCommandInput}
- * @returns {@link GetOfferingStatusCommandOutput}
+ * @param GetOfferingStatusRequest - {@link GetOfferingStatusRequest}
+ * @returns {@link GetOfferingStatusResult}
  * @see {@link GetOfferingStatusCommandInput} for command's `input` shape.
  * @see {@link GetOfferingStatusCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

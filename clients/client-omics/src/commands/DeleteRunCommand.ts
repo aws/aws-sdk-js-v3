@@ -48,8 +48,8 @@ export interface DeleteRunCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRunCommandInput - {@link DeleteRunCommandInput}
- * @returns {@link DeleteRunCommandOutput}
+ * @param DeleteRunRequest - {@link DeleteRunRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRunCommandInput} for command's `input` shape.
  * @see {@link DeleteRunCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

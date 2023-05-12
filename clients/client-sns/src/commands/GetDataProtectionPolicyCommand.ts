@@ -51,8 +51,8 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  *
  * ```
  *
- * @param GetDataProtectionPolicyCommandInput - {@link GetDataProtectionPolicyCommandInput}
- * @returns {@link GetDataProtectionPolicyCommandOutput}
+ * @param GetDataProtectionPolicyInput - {@link GetDataProtectionPolicyInput}
+ * @returns {@link GetDataProtectionPolicyResponse}
  * @see {@link GetDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

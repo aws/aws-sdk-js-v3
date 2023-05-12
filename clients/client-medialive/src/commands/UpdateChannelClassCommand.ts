@@ -1078,8 +1078,8 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  *
  * ```
  *
- * @param UpdateChannelClassCommandInput - {@link UpdateChannelClassCommandInput}
- * @returns {@link UpdateChannelClassCommandOutput}
+ * @param UpdateChannelClassRequest - {@link UpdateChannelClassRequest}
+ * @returns {@link UpdateChannelClassResponse}
  * @see {@link UpdateChannelClassCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelClassCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.

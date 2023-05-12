@@ -84,8 +84,8 @@ export interface DescribeElasticLoadBalancersCommandOutput
  *
  * ```
  *
- * @param DescribeElasticLoadBalancersCommandInput - {@link DescribeElasticLoadBalancersCommandInput}
- * @returns {@link DescribeElasticLoadBalancersCommandOutput}
+ * @param DescribeElasticLoadBalancersRequest - {@link DescribeElasticLoadBalancersRequest}
+ * @returns {@link DescribeElasticLoadBalancersResult}
  * @see {@link DescribeElasticLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

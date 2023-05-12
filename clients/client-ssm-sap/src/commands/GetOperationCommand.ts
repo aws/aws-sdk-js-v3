@@ -64,8 +64,8 @@ export interface GetOperationCommandOutput extends GetOperationOutput, __Metadat
  *
  * ```
  *
- * @param GetOperationCommandInput - {@link GetOperationCommandInput}
- * @returns {@link GetOperationCommandOutput}
+ * @param GetOperationInput - {@link GetOperationInput}
+ * @returns {@link GetOperationOutput}
  * @see {@link GetOperationCommandInput} for command's `input` shape.
  * @see {@link GetOperationCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.

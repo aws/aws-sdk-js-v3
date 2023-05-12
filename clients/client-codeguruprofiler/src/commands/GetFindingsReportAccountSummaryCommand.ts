@@ -72,8 +72,8 @@ export interface GetFindingsReportAccountSummaryCommandOutput
  *
  * ```
  *
- * @param GetFindingsReportAccountSummaryCommandInput - {@link GetFindingsReportAccountSummaryCommandInput}
- * @returns {@link GetFindingsReportAccountSummaryCommandOutput}
+ * @param GetFindingsReportAccountSummaryRequest - {@link GetFindingsReportAccountSummaryRequest}
+ * @returns {@link GetFindingsReportAccountSummaryResponse}
  * @see {@link GetFindingsReportAccountSummaryCommandInput} for command's `input` shape.
  * @see {@link GetFindingsReportAccountSummaryCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.

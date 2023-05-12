@@ -52,8 +52,8 @@ export interface DeregisterGatewayInstanceCommandOutput extends DeregisterGatewa
  *
  * ```
  *
- * @param DeregisterGatewayInstanceCommandInput - {@link DeregisterGatewayInstanceCommandInput}
- * @returns {@link DeregisterGatewayInstanceCommandOutput}
+ * @param DeregisterGatewayInstanceRequest - {@link DeregisterGatewayInstanceRequest}
+ * @returns {@link DeregisterGatewayInstanceResponse}
  * @see {@link DeregisterGatewayInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterGatewayInstanceCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

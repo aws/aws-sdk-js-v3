@@ -140,8 +140,8 @@ export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __Metad
  *
  * ```
  *
- * @param WriteRecordsCommandInput - {@link WriteRecordsCommandInput}
- * @returns {@link WriteRecordsCommandOutput}
+ * @param WriteRecordsRequest - {@link WriteRecordsRequest}
+ * @returns {@link WriteRecordsResponse}
  * @see {@link WriteRecordsCommandInput} for command's `input` shape.
  * @see {@link WriteRecordsCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.

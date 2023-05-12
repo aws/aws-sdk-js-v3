@@ -74,8 +74,8 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  *
  * ```
  *
- * @param CreateAnalyzerCommandInput - {@link CreateAnalyzerCommandInput}
- * @returns {@link CreateAnalyzerCommandOutput}
+ * @param CreateAnalyzerRequest - {@link CreateAnalyzerRequest}
+ * @returns {@link CreateAnalyzerResponse}
  * @see {@link CreateAnalyzerCommandInput} for command's `input` shape.
  * @see {@link CreateAnalyzerCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

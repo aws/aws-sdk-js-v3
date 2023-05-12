@@ -50,8 +50,8 @@ export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCreden
  *
  * ```
  *
- * @param DeleteSourceCredentialsCommandInput - {@link DeleteSourceCredentialsCommandInput}
- * @returns {@link DeleteSourceCredentialsCommandOutput}
+ * @param DeleteSourceCredentialsInput - {@link DeleteSourceCredentialsInput}
+ * @returns {@link DeleteSourceCredentialsOutput}
  * @see {@link DeleteSourceCredentialsCommandInput} for command's `input` shape.
  * @see {@link DeleteSourceCredentialsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

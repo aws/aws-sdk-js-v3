@@ -87,8 +87,8 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput
  *
  * ```
  *
- * @param DescribeReplaceRootVolumeTasksCommandInput - {@link DescribeReplaceRootVolumeTasksCommandInput}
- * @returns {@link DescribeReplaceRootVolumeTasksCommandOutput}
+ * @param DescribeReplaceRootVolumeTasksRequest - {@link DescribeReplaceRootVolumeTasksRequest}
+ * @returns {@link DescribeReplaceRootVolumeTasksResult}
  * @see {@link DescribeReplaceRootVolumeTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeReplaceRootVolumeTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

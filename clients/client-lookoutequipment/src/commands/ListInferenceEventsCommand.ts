@@ -65,8 +65,8 @@ export interface ListInferenceEventsCommandOutput extends ListInferenceEventsRes
  *
  * ```
  *
- * @param ListInferenceEventsCommandInput - {@link ListInferenceEventsCommandInput}
- * @returns {@link ListInferenceEventsCommandOutput}
+ * @param ListInferenceEventsRequest - {@link ListInferenceEventsRequest}
+ * @returns {@link ListInferenceEventsResponse}
  * @see {@link ListInferenceEventsCommandInput} for command's `input` shape.
  * @see {@link ListInferenceEventsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

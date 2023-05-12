@@ -102,8 +102,8 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  *
  * ```
  *
- * @param CreateDBSnapshotCommandInput - {@link CreateDBSnapshotCommandInput}
- * @returns {@link CreateDBSnapshotCommandOutput}
+ * @param CreateDBSnapshotMessage - {@link CreateDBSnapshotMessage}
+ * @returns {@link CreateDBSnapshotResult}
  * @see {@link CreateDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

@@ -76,8 +76,8 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutPermissionCommandInput - {@link PutPermissionCommandInput}
- * @returns {@link PutPermissionCommandOutput}
+ * @param PutPermissionRequest - {@link PutPermissionRequest}
+ * @returns {@link Unit}
  * @see {@link PutPermissionCommandInput} for command's `input` shape.
  * @see {@link PutPermissionCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

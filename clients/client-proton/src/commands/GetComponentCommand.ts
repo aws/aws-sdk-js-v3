@@ -68,8 +68,8 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  *
  * ```
  *
- * @param GetComponentCommandInput - {@link GetComponentCommandInput}
- * @returns {@link GetComponentCommandOutput}
+ * @param GetComponentInput - {@link GetComponentInput}
+ * @returns {@link GetComponentOutput}
  * @see {@link GetComponentCommandInput} for command's `input` shape.
  * @see {@link GetComponentCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

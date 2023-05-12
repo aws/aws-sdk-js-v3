@@ -66,8 +66,8 @@ export interface ListAnomalyDetectorsCommandOutput extends ListAnomalyDetectorsR
  *
  * ```
  *
- * @param ListAnomalyDetectorsCommandInput - {@link ListAnomalyDetectorsCommandInput}
- * @returns {@link ListAnomalyDetectorsCommandOutput}
+ * @param ListAnomalyDetectorsRequest - {@link ListAnomalyDetectorsRequest}
+ * @returns {@link ListAnomalyDetectorsResponse}
  * @see {@link ListAnomalyDetectorsCommandInput} for command's `input` shape.
  * @see {@link ListAnomalyDetectorsCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.

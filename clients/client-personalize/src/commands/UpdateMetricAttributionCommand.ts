@@ -67,8 +67,8 @@ export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttrib
  *
  * ```
  *
- * @param UpdateMetricAttributionCommandInput - {@link UpdateMetricAttributionCommandInput}
- * @returns {@link UpdateMetricAttributionCommandOutput}
+ * @param UpdateMetricAttributionRequest - {@link UpdateMetricAttributionRequest}
+ * @returns {@link UpdateMetricAttributionResponse}
  * @see {@link UpdateMetricAttributionCommandInput} for command's `input` shape.
  * @see {@link UpdateMetricAttributionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

@@ -87,8 +87,8 @@ export interface ListRolesCommandOutput extends ListRolesResponse, __MetadataBea
  *
  * ```
  *
- * @param ListRolesCommandInput - {@link ListRolesCommandInput}
- * @returns {@link ListRolesCommandOutput}
+ * @param ListRolesRequest - {@link ListRolesRequest}
+ * @returns {@link ListRolesResponse}
  * @see {@link ListRolesCommandInput} for command's `input` shape.
  * @see {@link ListRolesCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

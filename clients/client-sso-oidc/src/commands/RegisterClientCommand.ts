@@ -60,8 +60,8 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  *
  * ```
  *
- * @param RegisterClientCommandInput - {@link RegisterClientCommandInput}
- * @returns {@link RegisterClientCommandOutput}
+ * @param RegisterClientRequest - {@link RegisterClientRequest}
+ * @returns {@link RegisterClientResponse}
  * @see {@link RegisterClientCommandInput} for command's `input` shape.
  * @see {@link RegisterClientCommandOutput} for command's `response` shape.
  * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.

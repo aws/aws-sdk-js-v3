@@ -72,8 +72,8 @@ export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaAp
  *
  * ```
  *
- * @param UpdateSipMediaApplicationCommandInput - {@link UpdateSipMediaApplicationCommandInput}
- * @returns {@link UpdateSipMediaApplicationCommandOutput}
+ * @param UpdateSipMediaApplicationRequest - {@link UpdateSipMediaApplicationRequest}
+ * @returns {@link UpdateSipMediaApplicationResponse}
  * @see {@link UpdateSipMediaApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateSipMediaApplicationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

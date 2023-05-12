@@ -72,8 +72,8 @@ export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __Met
  *
  * ```
  *
- * @param DescribeTrustsCommandInput - {@link DescribeTrustsCommandInput}
- * @returns {@link DescribeTrustsCommandOutput}
+ * @param DescribeTrustsRequest - {@link DescribeTrustsRequest}
+ * @returns {@link DescribeTrustsResult}
  * @see {@link DescribeTrustsCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

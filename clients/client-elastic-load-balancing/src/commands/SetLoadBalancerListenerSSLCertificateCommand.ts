@@ -66,8 +66,8 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
  *
  * ```
  *
- * @param SetLoadBalancerListenerSSLCertificateCommandInput - {@link SetLoadBalancerListenerSSLCertificateCommandInput}
- * @returns {@link SetLoadBalancerListenerSSLCertificateCommandOutput}
+ * @param SetLoadBalancerListenerSSLCertificateInput - {@link SetLoadBalancerListenerSSLCertificateInput}
+ * @returns {@link SetLoadBalancerListenerSSLCertificateOutput}
  * @see {@link SetLoadBalancerListenerSSLCertificateCommandInput} for command's `input` shape.
  * @see {@link SetLoadBalancerListenerSSLCertificateCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

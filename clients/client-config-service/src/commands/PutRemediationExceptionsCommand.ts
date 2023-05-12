@@ -88,8 +88,8 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  *
  * ```
  *
- * @param PutRemediationExceptionsCommandInput - {@link PutRemediationExceptionsCommandInput}
- * @returns {@link PutRemediationExceptionsCommandOutput}
+ * @param PutRemediationExceptionsRequest - {@link PutRemediationExceptionsRequest}
+ * @returns {@link PutRemediationExceptionsResponse}
  * @see {@link PutRemediationExceptionsCommandInput} for command's `input` shape.
  * @see {@link PutRemediationExceptionsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

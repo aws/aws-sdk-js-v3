@@ -71,8 +71,8 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput
  *
  * ```
  *
- * @param AssociateTransitGatewayConnectPeerCommandInput - {@link AssociateTransitGatewayConnectPeerCommandInput}
- * @returns {@link AssociateTransitGatewayConnectPeerCommandOutput}
+ * @param AssociateTransitGatewayConnectPeerRequest - {@link AssociateTransitGatewayConnectPeerRequest}
+ * @returns {@link AssociateTransitGatewayConnectPeerResponse}
  * @see {@link AssociateTransitGatewayConnectPeerCommandInput} for command's `input` shape.
  * @see {@link AssociateTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

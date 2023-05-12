@@ -66,8 +66,8 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  *
  * ```
  *
- * @param UpdateAssetCommandInput - {@link UpdateAssetCommandInput}
- * @returns {@link UpdateAssetCommandOutput}
+ * @param UpdateAssetRequest - {@link UpdateAssetRequest}
+ * @returns {@link UpdateAssetResponse}
  * @see {@link UpdateAssetCommandInput} for command's `input` shape.
  * @see {@link UpdateAssetCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

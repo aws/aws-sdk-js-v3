@@ -67,8 +67,8 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, _
  *
  * ```
  *
- * @param SendVoiceMessageCommandInput - {@link SendVoiceMessageCommandInput}
- * @returns {@link SendVoiceMessageCommandOutput}
+ * @param SendVoiceMessageRequest - {@link SendVoiceMessageRequest}
+ * @returns {@link SendVoiceMessageResult}
  * @see {@link SendVoiceMessageCommandInput} for command's `input` shape.
  * @see {@link SendVoiceMessageCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

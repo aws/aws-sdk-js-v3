@@ -62,8 +62,8 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  *
  * ```
  *
- * @param ListTaskDefinitionFamiliesCommandInput - {@link ListTaskDefinitionFamiliesCommandInput}
- * @returns {@link ListTaskDefinitionFamiliesCommandOutput}
+ * @param ListTaskDefinitionFamiliesRequest - {@link ListTaskDefinitionFamiliesRequest}
+ * @returns {@link ListTaskDefinitionFamiliesResponse}
  * @see {@link ListTaskDefinitionFamiliesCommandInput} for command's `input` shape.
  * @see {@link ListTaskDefinitionFamiliesCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

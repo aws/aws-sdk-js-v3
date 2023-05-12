@@ -1014,8 +1014,8 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *
  * ```
  *
- * @param UpdateJobCommandInput - {@link UpdateJobCommandInput}
- * @returns {@link UpdateJobCommandOutput}
+ * @param UpdateJobRequest - {@link UpdateJobRequest}
+ * @returns {@link UpdateJobResponse}
  * @see {@link UpdateJobCommandInput} for command's `input` shape.
  * @see {@link UpdateJobCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

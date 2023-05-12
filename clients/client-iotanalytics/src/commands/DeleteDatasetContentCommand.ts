@@ -49,8 +49,8 @@ export interface DeleteDatasetContentCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDatasetContentCommandInput - {@link DeleteDatasetContentCommandInput}
- * @returns {@link DeleteDatasetContentCommandOutput}
+ * @param DeleteDatasetContentRequest - {@link DeleteDatasetContentRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDatasetContentCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetContentCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

@@ -76,8 +76,8 @@ export interface DescribeReservedNodeExchangeStatusCommandOutput
  *
  * ```
  *
- * @param DescribeReservedNodeExchangeStatusCommandInput - {@link DescribeReservedNodeExchangeStatusCommandInput}
- * @returns {@link DescribeReservedNodeExchangeStatusCommandOutput}
+ * @param DescribeReservedNodeExchangeStatusInputMessage - {@link DescribeReservedNodeExchangeStatusInputMessage}
+ * @returns {@link DescribeReservedNodeExchangeStatusOutputMessage}
  * @see {@link DescribeReservedNodeExchangeStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedNodeExchangeStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

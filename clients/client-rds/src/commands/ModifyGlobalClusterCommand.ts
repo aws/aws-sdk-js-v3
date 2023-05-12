@@ -85,8 +85,8 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  *
  * ```
  *
- * @param ModifyGlobalClusterCommandInput - {@link ModifyGlobalClusterCommandInput}
- * @returns {@link ModifyGlobalClusterCommandOutput}
+ * @param ModifyGlobalClusterMessage - {@link ModifyGlobalClusterMessage}
+ * @returns {@link ModifyGlobalClusterResult}
  * @see {@link ModifyGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

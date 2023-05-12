@@ -141,8 +141,8 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  *
  * ```
  *
- * @param SearchResourcesCommandInput - {@link SearchResourcesCommandInput}
- * @returns {@link SearchResourcesCommandOutput}
+ * @param SearchResourcesRequest - {@link SearchResourcesRequest}
+ * @returns {@link SearchResourcesResponse}
  * @see {@link SearchResourcesCommandInput} for command's `input` shape.
  * @see {@link SearchResourcesCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

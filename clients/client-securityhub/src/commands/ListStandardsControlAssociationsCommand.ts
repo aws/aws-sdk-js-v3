@@ -74,8 +74,8 @@ export interface ListStandardsControlAssociationsCommandOutput
  *
  * ```
  *
- * @param ListStandardsControlAssociationsCommandInput - {@link ListStandardsControlAssociationsCommandInput}
- * @returns {@link ListStandardsControlAssociationsCommandOutput}
+ * @param ListStandardsControlAssociationsRequest - {@link ListStandardsControlAssociationsRequest}
+ * @returns {@link ListStandardsControlAssociationsResponse}
  * @see {@link ListStandardsControlAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListStandardsControlAssociationsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

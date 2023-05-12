@@ -48,8 +48,8 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationResult,
  *
  * ```
  *
- * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
- * @returns {@link DeleteApplicationCommandOutput}
+ * @param DeleteApplicationRequest - {@link DeleteApplicationRequest}
+ * @returns {@link DeleteApplicationResult}
  * @see {@link DeleteApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

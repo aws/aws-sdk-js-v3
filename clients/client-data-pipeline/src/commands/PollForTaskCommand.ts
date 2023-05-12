@@ -150,8 +150,8 @@ export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataB
  *
  * ```
  *
- * @param PollForTaskCommandInput - {@link PollForTaskCommandInput}
- * @returns {@link PollForTaskCommandOutput}
+ * @param PollForTaskInput - {@link PollForTaskInput}
+ * @returns {@link PollForTaskOutput}
  * @see {@link PollForTaskCommandInput} for command's `input` shape.
  * @see {@link PollForTaskCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.

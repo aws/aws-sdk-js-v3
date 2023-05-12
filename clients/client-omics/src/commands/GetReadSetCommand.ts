@@ -58,8 +58,8 @@ export interface GetReadSetCommandOutput
  *
  * ```
  *
- * @param GetReadSetCommandInput - {@link GetReadSetCommandInput}
- * @returns {@link GetReadSetCommandOutput}
+ * @param GetReadSetRequest - {@link GetReadSetRequest}
+ * @returns {@link GetReadSetResponse}
  * @see {@link GetReadSetCommandInput} for command's `input` shape.
  * @see {@link GetReadSetCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

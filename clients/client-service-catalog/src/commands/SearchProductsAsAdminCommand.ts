@@ -99,8 +99,8 @@ export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdmi
  *
  * ```
  *
- * @param SearchProductsAsAdminCommandInput - {@link SearchProductsAsAdminCommandInput}
- * @returns {@link SearchProductsAsAdminCommandOutput}
+ * @param SearchProductsAsAdminInput - {@link SearchProductsAsAdminInput}
+ * @returns {@link SearchProductsAsAdminOutput}
  * @see {@link SearchProductsAsAdminCommandInput} for command's `input` shape.
  * @see {@link SearchProductsAsAdminCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

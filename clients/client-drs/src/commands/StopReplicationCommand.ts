@@ -154,8 +154,8 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  *
  * ```
  *
- * @param StopReplicationCommandInput - {@link StopReplicationCommandInput}
- * @returns {@link StopReplicationCommandOutput}
+ * @param StopReplicationRequest - {@link StopReplicationRequest}
+ * @returns {@link StopReplicationResponse}
  * @see {@link StopReplicationCommandInput} for command's `input` shape.
  * @see {@link StopReplicationCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

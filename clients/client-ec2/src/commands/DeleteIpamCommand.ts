@@ -78,8 +78,8 @@ export interface DeleteIpamCommandOutput extends DeleteIpamResult, __MetadataBea
  *
  * ```
  *
- * @param DeleteIpamCommandInput - {@link DeleteIpamCommandInput}
- * @returns {@link DeleteIpamCommandOutput}
+ * @param DeleteIpamRequest - {@link DeleteIpamRequest}
+ * @returns {@link DeleteIpamResult}
  * @see {@link DeleteIpamCommandInput} for command's `input` shape.
  * @see {@link DeleteIpamCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

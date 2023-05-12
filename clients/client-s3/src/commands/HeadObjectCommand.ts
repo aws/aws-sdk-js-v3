@@ -217,8 +217,8 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *
  * ```
  *
- * @param HeadObjectCommandInput - {@link HeadObjectCommandInput}
- * @returns {@link HeadObjectCommandOutput}
+ * @param HeadObjectRequest - {@link HeadObjectRequest}
+ * @returns {@link HeadObjectOutput}
  * @see {@link HeadObjectCommandInput} for command's `input` shape.
  * @see {@link HeadObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

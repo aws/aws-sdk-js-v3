@@ -52,8 +52,8 @@ export interface DeleteListenerCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteListenerCommandInput - {@link DeleteListenerCommandInput}
- * @returns {@link DeleteListenerCommandOutput}
+ * @param DeleteListenerRequest - {@link DeleteListenerRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteListenerCommandInput} for command's `input` shape.
  * @see {@link DeleteListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

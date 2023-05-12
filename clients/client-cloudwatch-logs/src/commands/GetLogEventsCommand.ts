@@ -76,8 +76,8 @@ export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __Metad
  *
  * ```
  *
- * @param GetLogEventsCommandInput - {@link GetLogEventsCommandInput}
- * @returns {@link GetLogEventsCommandOutput}
+ * @param GetLogEventsRequest - {@link GetLogEventsRequest}
+ * @returns {@link GetLogEventsResponse}
  * @see {@link GetLogEventsCommandInput} for command's `input` shape.
  * @see {@link GetLogEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

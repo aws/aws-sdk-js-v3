@@ -57,8 +57,8 @@ export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsRes
  *
  * ```
  *
- * @param ListLambdaFunctionsCommandInput - {@link ListLambdaFunctionsCommandInput}
- * @returns {@link ListLambdaFunctionsCommandOutput}
+ * @param ListLambdaFunctionsRequest - {@link ListLambdaFunctionsRequest}
+ * @returns {@link ListLambdaFunctionsResponse}
  * @see {@link ListLambdaFunctionsCommandInput} for command's `input` shape.
  * @see {@link ListLambdaFunctionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

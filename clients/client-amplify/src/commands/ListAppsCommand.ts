@@ -110,8 +110,8 @@ export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer 
  *
  * ```
  *
- * @param ListAppsCommandInput - {@link ListAppsCommandInput}
- * @returns {@link ListAppsCommandOutput}
+ * @param ListAppsRequest - {@link ListAppsRequest}
+ * @returns {@link ListAppsResult}
  * @see {@link ListAppsCommandInput} for command's `input` shape.
  * @see {@link ListAppsCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

@@ -62,8 +62,8 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResponse, __M
  *
  * ```
  *
- * @param GetDeploymentsCommandInput - {@link GetDeploymentsCommandInput}
- * @returns {@link GetDeploymentsCommandOutput}
+ * @param GetDeploymentsRequest - {@link GetDeploymentsRequest}
+ * @returns {@link GetDeploymentsResponse}
  * @see {@link GetDeploymentsCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

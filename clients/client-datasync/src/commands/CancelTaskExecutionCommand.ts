@@ -54,8 +54,8 @@ export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionRes
  *
  * ```
  *
- * @param CancelTaskExecutionCommandInput - {@link CancelTaskExecutionCommandInput}
- * @returns {@link CancelTaskExecutionCommandOutput}
+ * @param CancelTaskExecutionRequest - {@link CancelTaskExecutionRequest}
+ * @returns {@link CancelTaskExecutionResponse}
  * @see {@link CancelTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link CancelTaskExecutionCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

@@ -51,8 +51,8 @@ export interface GetWorldTemplateBodyCommandOutput extends GetWorldTemplateBodyR
  *
  * ```
  *
- * @param GetWorldTemplateBodyCommandInput - {@link GetWorldTemplateBodyCommandInput}
- * @returns {@link GetWorldTemplateBodyCommandOutput}
+ * @param GetWorldTemplateBodyRequest - {@link GetWorldTemplateBodyRequest}
+ * @returns {@link GetWorldTemplateBodyResponse}
  * @see {@link GetWorldTemplateBodyCommandInput} for command's `input` shape.
  * @see {@link GetWorldTemplateBodyCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

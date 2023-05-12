@@ -112,8 +112,8 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  *
  * ```
  *
- * @param CreateDocumentClassifierCommandInput - {@link CreateDocumentClassifierCommandInput}
- * @returns {@link CreateDocumentClassifierCommandOutput}
+ * @param CreateDocumentClassifierRequest - {@link CreateDocumentClassifierRequest}
+ * @returns {@link CreateDocumentClassifierResponse}
  * @see {@link CreateDocumentClassifierCommandInput} for command's `input` shape.
  * @see {@link CreateDocumentClassifierCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

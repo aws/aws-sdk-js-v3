@@ -81,8 +81,8 @@ export interface GetSnapshotCommandOutput extends GetSnapshotResponse, __Metadat
  *
  * ```
  *
- * @param GetSnapshotCommandInput - {@link GetSnapshotCommandInput}
- * @returns {@link GetSnapshotCommandOutput}
+ * @param GetSnapshotRequest - {@link GetSnapshotRequest}
+ * @returns {@link GetSnapshotResponse}
  * @see {@link GetSnapshotCommandInput} for command's `input` shape.
  * @see {@link GetSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

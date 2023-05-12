@@ -74,8 +74,8 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  *
  * ```
  *
- * @param ListAssetModelsCommandInput - {@link ListAssetModelsCommandInput}
- * @returns {@link ListAssetModelsCommandOutput}
+ * @param ListAssetModelsRequest - {@link ListAssetModelsRequest}
+ * @returns {@link ListAssetModelsResponse}
  * @see {@link ListAssetModelsCommandInput} for command's `input` shape.
  * @see {@link ListAssetModelsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

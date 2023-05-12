@@ -63,8 +63,8 @@ export interface ListSpeakersCommandOutput extends ListSpeakersResponse, __Metad
  *
  * ```
  *
- * @param ListSpeakersCommandInput - {@link ListSpeakersCommandInput}
- * @returns {@link ListSpeakersCommandOutput}
+ * @param ListSpeakersRequest - {@link ListSpeakersRequest}
+ * @returns {@link ListSpeakersResponse}
  * @see {@link ListSpeakersCommandInput} for command's `input` shape.
  * @see {@link ListSpeakersCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

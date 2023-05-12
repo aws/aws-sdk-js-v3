@@ -66,8 +66,8 @@ export interface DescribeImageTagsCommandOutput extends DescribeImageTagsRespons
  *
  * ```
  *
- * @param DescribeImageTagsCommandInput - {@link DescribeImageTagsCommandInput}
- * @returns {@link DescribeImageTagsCommandOutput}
+ * @param DescribeImageTagsRequest - {@link DescribeImageTagsRequest}
+ * @returns {@link DescribeImageTagsResponse}
  * @see {@link DescribeImageTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeImageTagsCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.

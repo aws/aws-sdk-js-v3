@@ -72,8 +72,8 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  *
  * ```
  *
- * @param ListCollectionsCommandInput - {@link ListCollectionsCommandInput}
- * @returns {@link ListCollectionsCommandOutput}
+ * @param ListCollectionsRequest - {@link ListCollectionsRequest}
+ * @returns {@link ListCollectionsResponse}
  * @see {@link ListCollectionsCommandInput} for command's `input` shape.
  * @see {@link ListCollectionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

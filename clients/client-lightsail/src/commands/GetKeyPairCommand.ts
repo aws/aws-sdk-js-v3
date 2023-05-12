@@ -67,8 +67,8 @@ export interface GetKeyPairCommandOutput extends GetKeyPairResult, __MetadataBea
  *
  * ```
  *
- * @param GetKeyPairCommandInput - {@link GetKeyPairCommandInput}
- * @returns {@link GetKeyPairCommandOutput}
+ * @param GetKeyPairRequest - {@link GetKeyPairRequest}
+ * @returns {@link GetKeyPairResult}
  * @see {@link GetKeyPairCommandInput} for command's `input` shape.
  * @see {@link GetKeyPairCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

@@ -96,8 +96,8 @@ export interface DescribeReservedInstancesCommandOutput extends DescribeReserved
  *
  * ```
  *
- * @param DescribeReservedInstancesCommandInput - {@link DescribeReservedInstancesCommandInput}
- * @returns {@link DescribeReservedInstancesCommandOutput}
+ * @param DescribeReservedInstancesRequest - {@link DescribeReservedInstancesRequest}
+ * @returns {@link DescribeReservedInstancesResult}
  * @see {@link DescribeReservedInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

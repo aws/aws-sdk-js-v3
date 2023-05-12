@@ -78,8 +78,8 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  *
  * ```
  *
- * @param ImportCertificateCommandInput - {@link ImportCertificateCommandInput}
- * @returns {@link ImportCertificateCommandOutput}
+ * @param ImportCertificateMessage - {@link ImportCertificateMessage}
+ * @returns {@link ImportCertificateResponse}
  * @see {@link ImportCertificateCommandInput} for command's `input` shape.
  * @see {@link ImportCertificateCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

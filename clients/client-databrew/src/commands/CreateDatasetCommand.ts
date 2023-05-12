@@ -133,8 +133,8 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *
  * ```
  *
- * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
- * @returns {@link CreateDatasetCommandOutput}
+ * @param CreateDatasetRequest - {@link CreateDatasetRequest}
+ * @returns {@link CreateDatasetResponse}
  * @see {@link CreateDatasetCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

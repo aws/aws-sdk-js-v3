@@ -76,8 +76,8 @@ export interface GetServiceNetworkServiceAssociationCommandOutput
  *
  * ```
  *
- * @param GetServiceNetworkServiceAssociationCommandInput - {@link GetServiceNetworkServiceAssociationCommandInput}
- * @returns {@link GetServiceNetworkServiceAssociationCommandOutput}
+ * @param GetServiceNetworkServiceAssociationRequest - {@link GetServiceNetworkServiceAssociationRequest}
+ * @returns {@link GetServiceNetworkServiceAssociationResponse}
  * @see {@link GetServiceNetworkServiceAssociationCommandInput} for command's `input` shape.
  * @see {@link GetServiceNetworkServiceAssociationCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.

@@ -136,8 +136,8 @@ export interface DescribeBatchLoadTaskCommandOutput extends DescribeBatchLoadTas
  *
  * ```
  *
- * @param DescribeBatchLoadTaskCommandInput - {@link DescribeBatchLoadTaskCommandInput}
- * @returns {@link DescribeBatchLoadTaskCommandOutput}
+ * @param DescribeBatchLoadTaskRequest - {@link DescribeBatchLoadTaskRequest}
+ * @returns {@link DescribeBatchLoadTaskResponse}
  * @see {@link DescribeBatchLoadTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeBatchLoadTaskCommandOutput} for command's `response` shape.
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.

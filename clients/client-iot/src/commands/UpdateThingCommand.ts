@@ -58,8 +58,8 @@ export interface UpdateThingCommandOutput extends UpdateThingResponse, __Metadat
  *
  * ```
  *
- * @param UpdateThingCommandInput - {@link UpdateThingCommandInput}
- * @returns {@link UpdateThingCommandOutput}
+ * @param UpdateThingRequest - {@link UpdateThingRequest}
+ * @returns {@link UpdateThingResponse}
  * @see {@link UpdateThingCommandInput} for command's `input` shape.
  * @see {@link UpdateThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

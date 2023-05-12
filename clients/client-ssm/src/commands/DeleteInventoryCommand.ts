@@ -66,8 +66,8 @@ export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __M
  *
  * ```
  *
- * @param DeleteInventoryCommandInput - {@link DeleteInventoryCommandInput}
- * @returns {@link DeleteInventoryCommandOutput}
+ * @param DeleteInventoryRequest - {@link DeleteInventoryRequest}
+ * @returns {@link DeleteInventoryResult}
  * @see {@link DeleteInventoryCommandInput} for command's `input` shape.
  * @see {@link DeleteInventoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

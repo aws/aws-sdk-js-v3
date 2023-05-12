@@ -50,8 +50,8 @@ export interface DeleteLedgerCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteLedgerCommandInput - {@link DeleteLedgerCommandInput}
- * @returns {@link DeleteLedgerCommandOutput}
+ * @param DeleteLedgerRequest - {@link DeleteLedgerRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteLedgerCommandInput} for command's `input` shape.
  * @see {@link DeleteLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.

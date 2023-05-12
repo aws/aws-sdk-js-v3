@@ -53,8 +53,8 @@ export interface DisableImageDeprecationCommandOutput extends DisableImageDeprec
  *
  * ```
  *
- * @param DisableImageDeprecationCommandInput - {@link DisableImageDeprecationCommandInput}
- * @returns {@link DisableImageDeprecationCommandOutput}
+ * @param DisableImageDeprecationRequest - {@link DisableImageDeprecationRequest}
+ * @returns {@link DisableImageDeprecationResult}
  * @see {@link DisableImageDeprecationCommandInput} for command's `input` shape.
  * @see {@link DisableImageDeprecationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

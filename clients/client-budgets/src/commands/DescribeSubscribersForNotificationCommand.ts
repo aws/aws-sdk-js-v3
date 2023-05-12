@@ -75,8 +75,8 @@ export interface DescribeSubscribersForNotificationCommandOutput
  *
  * ```
  *
- * @param DescribeSubscribersForNotificationCommandInput - {@link DescribeSubscribersForNotificationCommandInput}
- * @returns {@link DescribeSubscribersForNotificationCommandOutput}
+ * @param DescribeSubscribersForNotificationRequest - {@link DescribeSubscribersForNotificationRequest}
+ * @returns {@link DescribeSubscribersForNotificationResponse}
  * @see {@link DescribeSubscribersForNotificationCommandInput} for command's `input` shape.
  * @see {@link DescribeSubscribersForNotificationCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

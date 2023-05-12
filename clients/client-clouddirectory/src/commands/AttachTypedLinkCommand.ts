@@ -95,8 +95,8 @@ export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, _
  *
  * ```
  *
- * @param AttachTypedLinkCommandInput - {@link AttachTypedLinkCommandInput}
- * @returns {@link AttachTypedLinkCommandOutput}
+ * @param AttachTypedLinkRequest - {@link AttachTypedLinkRequest}
+ * @returns {@link AttachTypedLinkResponse}
  * @see {@link AttachTypedLinkCommandInput} for command's `input` shape.
  * @see {@link AttachTypedLinkCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

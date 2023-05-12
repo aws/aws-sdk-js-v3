@@ -48,8 +48,8 @@ export interface DeleteAppBlockCommandOutput extends DeleteAppBlockResult, __Met
  *
  * ```
  *
- * @param DeleteAppBlockCommandInput - {@link DeleteAppBlockCommandInput}
- * @returns {@link DeleteAppBlockCommandOutput}
+ * @param DeleteAppBlockRequest - {@link DeleteAppBlockRequest}
+ * @returns {@link DeleteAppBlockResult}
  * @see {@link DeleteAppBlockCommandInput} for command's `input` shape.
  * @see {@link DeleteAppBlockCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

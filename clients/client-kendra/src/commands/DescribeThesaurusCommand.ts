@@ -66,8 +66,8 @@ export interface DescribeThesaurusCommandOutput extends DescribeThesaurusRespons
  *
  * ```
  *
- * @param DescribeThesaurusCommandInput - {@link DescribeThesaurusCommandInput}
- * @returns {@link DescribeThesaurusCommandOutput}
+ * @param DescribeThesaurusRequest - {@link DescribeThesaurusRequest}
+ * @returns {@link DescribeThesaurusResponse}
  * @see {@link DescribeThesaurusCommandInput} for command's `input` shape.
  * @see {@link DescribeThesaurusCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

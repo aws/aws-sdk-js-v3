@@ -58,8 +58,8 @@ export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __Metad
  *
  * ```
  *
- * @param UpdateApiKeyCommandInput - {@link UpdateApiKeyCommandInput}
- * @returns {@link UpdateApiKeyCommandOutput}
+ * @param UpdateApiKeyRequest - {@link UpdateApiKeyRequest}
+ * @returns {@link UpdateApiKeyResponse}
  * @see {@link UpdateApiKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateApiKeyCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

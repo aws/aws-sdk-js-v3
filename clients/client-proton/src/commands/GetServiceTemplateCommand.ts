@@ -64,8 +64,8 @@ export interface GetServiceTemplateCommandOutput extends GetServiceTemplateOutpu
  *
  * ```
  *
- * @param GetServiceTemplateCommandInput - {@link GetServiceTemplateCommandInput}
- * @returns {@link GetServiceTemplateCommandOutput}
+ * @param GetServiceTemplateInput - {@link GetServiceTemplateInput}
+ * @returns {@link GetServiceTemplateOutput}
  * @see {@link GetServiceTemplateCommandInput} for command's `input` shape.
  * @see {@link GetServiceTemplateCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

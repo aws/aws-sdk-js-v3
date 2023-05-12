@@ -139,8 +139,8 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  *
  * ```
  *
- * @param CreateRecommenderCommandInput - {@link CreateRecommenderCommandInput}
- * @returns {@link CreateRecommenderCommandOutput}
+ * @param CreateRecommenderRequest - {@link CreateRecommenderRequest}
+ * @returns {@link CreateRecommenderResponse}
  * @see {@link CreateRecommenderCommandInput} for command's `input` shape.
  * @see {@link CreateRecommenderCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

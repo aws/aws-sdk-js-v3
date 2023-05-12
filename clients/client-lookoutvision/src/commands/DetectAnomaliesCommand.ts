@@ -96,8 +96,8 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
  *
  * ```
  *
- * @param DetectAnomaliesCommandInput - {@link DetectAnomaliesCommandInput}
- * @returns {@link DetectAnomaliesCommandOutput}
+ * @param DetectAnomaliesRequest - {@link DetectAnomaliesRequest}
+ * @returns {@link DetectAnomaliesResponse}
  * @see {@link DetectAnomaliesCommandInput} for command's `input` shape.
  * @see {@link DetectAnomaliesCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.

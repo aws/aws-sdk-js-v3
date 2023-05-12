@@ -63,8 +63,8 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  *
  * ```
  *
- * @param CreateConfigurationCommandInput - {@link CreateConfigurationCommandInput}
- * @returns {@link CreateConfigurationCommandOutput}
+ * @param CreateConfigurationRequest - {@link CreateConfigurationRequest}
+ * @returns {@link CreateConfigurationResponse}
  * @see {@link CreateConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

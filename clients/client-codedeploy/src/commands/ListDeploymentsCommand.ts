@@ -64,8 +64,8 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  *
  * ```
  *
- * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
- * @returns {@link ListDeploymentsCommandOutput}
+ * @param ListDeploymentsInput - {@link ListDeploymentsInput}
+ * @returns {@link ListDeploymentsOutput}
  * @see {@link ListDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

@@ -164,8 +164,8 @@ export interface TransferDomainCommandOutput extends TransferDomainResponse, __M
  *
  * ```
  *
- * @param TransferDomainCommandInput - {@link TransferDomainCommandInput}
- * @returns {@link TransferDomainCommandOutput}
+ * @param TransferDomainRequest - {@link TransferDomainRequest}
+ * @returns {@link TransferDomainResponse}
  * @see {@link TransferDomainCommandInput} for command's `input` shape.
  * @see {@link TransferDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

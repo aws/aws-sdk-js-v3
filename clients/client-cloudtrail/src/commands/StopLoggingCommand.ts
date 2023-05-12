@@ -54,8 +54,8 @@ export interface StopLoggingCommandOutput extends StopLoggingResponse, __Metadat
  *
  * ```
  *
- * @param StopLoggingCommandInput - {@link StopLoggingCommandInput}
- * @returns {@link StopLoggingCommandOutput}
+ * @param StopLoggingRequest - {@link StopLoggingRequest}
+ * @returns {@link StopLoggingResponse}
  * @see {@link StopLoggingCommandInput} for command's `input` shape.
  * @see {@link StopLoggingCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

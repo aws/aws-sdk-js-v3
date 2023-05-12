@@ -85,8 +85,8 @@ export interface DescribeFileSystemAssociationsCommandOutput
  *
  * ```
  *
- * @param DescribeFileSystemAssociationsCommandInput - {@link DescribeFileSystemAssociationsCommandInput}
- * @returns {@link DescribeFileSystemAssociationsCommandOutput}
+ * @param DescribeFileSystemAssociationsInput - {@link DescribeFileSystemAssociationsInput}
+ * @returns {@link DescribeFileSystemAssociationsOutput}
  * @see {@link DescribeFileSystemAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemAssociationsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

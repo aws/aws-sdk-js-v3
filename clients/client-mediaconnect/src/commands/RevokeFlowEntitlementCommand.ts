@@ -52,8 +52,8 @@ export interface RevokeFlowEntitlementCommandOutput extends RevokeFlowEntitlemen
  *
  * ```
  *
- * @param RevokeFlowEntitlementCommandInput - {@link RevokeFlowEntitlementCommandInput}
- * @returns {@link RevokeFlowEntitlementCommandOutput}
+ * @param RevokeFlowEntitlementRequest - {@link RevokeFlowEntitlementRequest}
+ * @returns {@link RevokeFlowEntitlementResponse}
  * @see {@link RevokeFlowEntitlementCommandInput} for command's `input` shape.
  * @see {@link RevokeFlowEntitlementCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

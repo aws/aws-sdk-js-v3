@@ -57,8 +57,8 @@ export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscri
  *
  * ```
  *
- * @param DescribeSubscribedWorkteamCommandInput - {@link DescribeSubscribedWorkteamCommandInput}
- * @returns {@link DescribeSubscribedWorkteamCommandOutput}
+ * @param DescribeSubscribedWorkteamRequest - {@link DescribeSubscribedWorkteamRequest}
+ * @returns {@link DescribeSubscribedWorkteamResponse}
  * @see {@link DescribeSubscribedWorkteamCommandInput} for command's `input` shape.
  * @see {@link DescribeSubscribedWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

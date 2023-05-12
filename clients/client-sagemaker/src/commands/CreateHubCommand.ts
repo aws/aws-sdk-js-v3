@@ -67,8 +67,8 @@ export interface CreateHubCommandOutput extends CreateHubResponse, __MetadataBea
  *
  * ```
  *
- * @param CreateHubCommandInput - {@link CreateHubCommandInput}
- * @returns {@link CreateHubCommandOutput}
+ * @param CreateHubRequest - {@link CreateHubRequest}
+ * @returns {@link CreateHubResponse}
  * @see {@link CreateHubCommandInput} for command's `input` shape.
  * @see {@link CreateHubCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

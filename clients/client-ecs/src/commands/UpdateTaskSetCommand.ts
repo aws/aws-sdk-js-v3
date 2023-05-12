@@ -121,8 +121,8 @@ export interface UpdateTaskSetCommandOutput extends UpdateTaskSetResponse, __Met
  *
  * ```
  *
- * @param UpdateTaskSetCommandInput - {@link UpdateTaskSetCommandInput}
- * @returns {@link UpdateTaskSetCommandOutput}
+ * @param UpdateTaskSetRequest - {@link UpdateTaskSetRequest}
+ * @returns {@link UpdateTaskSetResponse}
  * @see {@link UpdateTaskSetCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskSetCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

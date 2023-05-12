@@ -58,8 +58,8 @@ export interface DeletePullRequestApprovalRuleCommandOutput
  *
  * ```
  *
- * @param DeletePullRequestApprovalRuleCommandInput - {@link DeletePullRequestApprovalRuleCommandInput}
- * @returns {@link DeletePullRequestApprovalRuleCommandOutput}
+ * @param DeletePullRequestApprovalRuleInput - {@link DeletePullRequestApprovalRuleInput}
+ * @returns {@link DeletePullRequestApprovalRuleOutput}
  * @see {@link DeletePullRequestApprovalRuleCommandInput} for command's `input` shape.
  * @see {@link DeletePullRequestApprovalRuleCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

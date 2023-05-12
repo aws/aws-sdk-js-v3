@@ -59,8 +59,8 @@ export interface ListSitesCommandOutput extends ListSitesResponse, __MetadataBea
  *
  * ```
  *
- * @param ListSitesCommandInput - {@link ListSitesCommandInput}
- * @returns {@link ListSitesCommandOutput}
+ * @param ListSitesRequest - {@link ListSitesRequest}
+ * @returns {@link ListSitesResponse}
  * @see {@link ListSitesCommandInput} for command's `input` shape.
  * @see {@link ListSitesCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

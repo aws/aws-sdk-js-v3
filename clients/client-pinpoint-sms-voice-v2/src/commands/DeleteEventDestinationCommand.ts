@@ -78,8 +78,8 @@ export interface DeleteEventDestinationCommandOutput extends DeleteEventDestinat
  *
  * ```
  *
- * @param DeleteEventDestinationCommandInput - {@link DeleteEventDestinationCommandInput}
- * @returns {@link DeleteEventDestinationCommandOutput}
+ * @param DeleteEventDestinationRequest - {@link DeleteEventDestinationRequest}
+ * @returns {@link DeleteEventDestinationResult}
  * @see {@link DeleteEventDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

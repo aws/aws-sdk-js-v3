@@ -86,8 +86,8 @@ export interface DeleteReplicationTaskCommandOutput extends DeleteReplicationTas
  *
  * ```
  *
- * @param DeleteReplicationTaskCommandInput - {@link DeleteReplicationTaskCommandInput}
- * @returns {@link DeleteReplicationTaskCommandOutput}
+ * @param DeleteReplicationTaskMessage - {@link DeleteReplicationTaskMessage}
+ * @returns {@link DeleteReplicationTaskResponse}
  * @see {@link DeleteReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

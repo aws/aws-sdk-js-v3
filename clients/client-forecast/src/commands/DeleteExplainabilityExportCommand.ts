@@ -48,8 +48,8 @@ export interface DeleteExplainabilityExportCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DeleteExplainabilityExportCommandInput - {@link DeleteExplainabilityExportCommandInput}
- * @returns {@link DeleteExplainabilityExportCommandOutput}
+ * @param DeleteExplainabilityExportRequest - {@link DeleteExplainabilityExportRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteExplainabilityExportCommandInput} for command's `input` shape.
  * @see {@link DeleteExplainabilityExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

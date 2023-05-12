@@ -84,8 +84,8 @@ export interface DescribeInstanceTypeLimitsCommandOutput extends DescribeInstanc
  *
  * ```
  *
- * @param DescribeInstanceTypeLimitsCommandInput - {@link DescribeInstanceTypeLimitsCommandInput}
- * @returns {@link DescribeInstanceTypeLimitsCommandOutput}
+ * @param DescribeInstanceTypeLimitsRequest - {@link DescribeInstanceTypeLimitsRequest}
+ * @returns {@link DescribeInstanceTypeLimitsResponse}
  * @see {@link DescribeInstanceTypeLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceTypeLimitsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

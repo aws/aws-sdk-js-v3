@@ -51,8 +51,8 @@ export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param UpdateDatasourcePackagesCommandInput - {@link UpdateDatasourcePackagesCommandInput}
- * @returns {@link UpdateDatasourcePackagesCommandOutput}
+ * @param UpdateDatasourcePackagesRequest - {@link UpdateDatasourcePackagesRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateDatasourcePackagesCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasourcePackagesCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

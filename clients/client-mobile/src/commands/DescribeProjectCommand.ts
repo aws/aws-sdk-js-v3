@@ -72,8 +72,8 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  *
  * ```
  *
- * @param DescribeProjectCommandInput - {@link DescribeProjectCommandInput}
- * @returns {@link DescribeProjectCommandOutput}
+ * @param DescribeProjectRequest - {@link DescribeProjectRequest}
+ * @returns {@link DescribeProjectResult}
  * @see {@link DescribeProjectCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.

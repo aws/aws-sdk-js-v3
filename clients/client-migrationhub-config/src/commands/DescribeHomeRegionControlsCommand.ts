@@ -73,8 +73,8 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  *
  * ```
  *
- * @param DescribeHomeRegionControlsCommandInput - {@link DescribeHomeRegionControlsCommandInput}
- * @returns {@link DescribeHomeRegionControlsCommandOutput}
+ * @param DescribeHomeRegionControlsRequest - {@link DescribeHomeRegionControlsRequest}
+ * @returns {@link DescribeHomeRegionControlsResult}
  * @see {@link DescribeHomeRegionControlsCommandInput} for command's `input` shape.
  * @see {@link DescribeHomeRegionControlsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubConfigClientResolvedConfig | config} for MigrationHubConfigClient's `config` shape.

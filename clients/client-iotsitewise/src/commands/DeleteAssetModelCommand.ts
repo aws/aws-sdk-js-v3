@@ -67,8 +67,8 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  *
  * ```
  *
- * @param DeleteAssetModelCommandInput - {@link DeleteAssetModelCommandInput}
- * @returns {@link DeleteAssetModelCommandOutput}
+ * @param DeleteAssetModelRequest - {@link DeleteAssetModelRequest}
+ * @returns {@link DeleteAssetModelResponse}
  * @see {@link DeleteAssetModelCommandInput} for command's `input` shape.
  * @see {@link DeleteAssetModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

@@ -71,8 +71,8 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
  *
  * ```
  *
- * @param CreatePlaceIndexCommandInput - {@link CreatePlaceIndexCommandInput}
- * @returns {@link CreatePlaceIndexCommandOutput}
+ * @param CreatePlaceIndexRequest - {@link CreatePlaceIndexRequest}
+ * @returns {@link CreatePlaceIndexResponse}
  * @see {@link CreatePlaceIndexCommandInput} for command's `input` shape.
  * @see {@link CreatePlaceIndexCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

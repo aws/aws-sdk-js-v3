@@ -62,8 +62,8 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  *
  * ```
  *
- * @param DeleteConnectionCommandInput - {@link DeleteConnectionCommandInput}
- * @returns {@link DeleteConnectionCommandOutput}
+ * @param DeleteConnectionMessage - {@link DeleteConnectionMessage}
+ * @returns {@link DeleteConnectionResponse}
  * @see {@link DeleteConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

@@ -90,8 +90,8 @@ export interface DeleteTransitGatewayPeeringAttachmentCommandOutput
  *
  * ```
  *
- * @param DeleteTransitGatewayPeeringAttachmentCommandInput - {@link DeleteTransitGatewayPeeringAttachmentCommandInput}
- * @returns {@link DeleteTransitGatewayPeeringAttachmentCommandOutput}
+ * @param DeleteTransitGatewayPeeringAttachmentRequest - {@link DeleteTransitGatewayPeeringAttachmentRequest}
+ * @returns {@link DeleteTransitGatewayPeeringAttachmentResult}
  * @see {@link DeleteTransitGatewayPeeringAttachmentCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayPeeringAttachmentCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

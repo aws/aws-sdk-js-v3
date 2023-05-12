@@ -76,8 +76,8 @@ export interface DeleteDiskSnapshotCommandOutput extends DeleteDiskSnapshotResul
  *
  * ```
  *
- * @param DeleteDiskSnapshotCommandInput - {@link DeleteDiskSnapshotCommandInput}
- * @returns {@link DeleteDiskSnapshotCommandOutput}
+ * @param DeleteDiskSnapshotRequest - {@link DeleteDiskSnapshotRequest}
+ * @returns {@link DeleteDiskSnapshotResult}
  * @see {@link DeleteDiskSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteDiskSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

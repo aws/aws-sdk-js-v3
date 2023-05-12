@@ -72,8 +72,8 @@ export interface GetStudioCommandOutput extends GetStudioResponse, __MetadataBea
  *
  * ```
  *
- * @param GetStudioCommandInput - {@link GetStudioCommandInput}
- * @returns {@link GetStudioCommandOutput}
+ * @param GetStudioRequest - {@link GetStudioRequest}
+ * @returns {@link GetStudioResponse}
  * @see {@link GetStudioCommandInput} for command's `input` shape.
  * @see {@link GetStudioCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

@@ -73,8 +73,8 @@ export interface StartStageDeploymentCommandOutput extends StartStageDeploymentR
  *
  * ```
  *
- * @param StartStageDeploymentCommandInput - {@link StartStageDeploymentCommandInput}
- * @returns {@link StartStageDeploymentCommandOutput}
+ * @param StartStageDeploymentRequest - {@link StartStageDeploymentRequest}
+ * @returns {@link StartStageDeploymentResult}
  * @see {@link StartStageDeploymentCommandInput} for command's `input` shape.
  * @see {@link StartStageDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

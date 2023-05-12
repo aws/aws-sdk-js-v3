@@ -51,8 +51,8 @@ export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __Metad
  *
  * ```
  *
- * @param GetSendQuotaCommandInput - {@link GetSendQuotaCommandInput}
- * @returns {@link GetSendQuotaCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetSendQuotaResponse}
  * @see {@link GetSendQuotaCommandInput} for command's `input` shape.
  * @see {@link GetSendQuotaCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

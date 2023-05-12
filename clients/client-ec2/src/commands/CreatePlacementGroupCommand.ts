@@ -88,8 +88,8 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  *
  * ```
  *
- * @param CreatePlacementGroupCommandInput - {@link CreatePlacementGroupCommandInput}
- * @returns {@link CreatePlacementGroupCommandOutput}
+ * @param CreatePlacementGroupRequest - {@link CreatePlacementGroupRequest}
+ * @returns {@link CreatePlacementGroupResult}
  * @see {@link CreatePlacementGroupCommandInput} for command's `input` shape.
  * @see {@link CreatePlacementGroupCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -126,8 +126,8 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
  *
  * ```
  *
- * @param CreateEnvironmentCommandInput - {@link CreateEnvironmentCommandInput}
- * @returns {@link CreateEnvironmentCommandOutput}
+ * @param CreateEnvironmentMessage - {@link CreateEnvironmentMessage}
+ * @returns {@link EnvironmentDescription}
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

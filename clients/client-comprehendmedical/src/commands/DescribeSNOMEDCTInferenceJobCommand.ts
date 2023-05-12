@@ -82,8 +82,8 @@ export interface DescribeSNOMEDCTInferenceJobCommandOutput
  *
  * ```
  *
- * @param DescribeSNOMEDCTInferenceJobCommandInput - {@link DescribeSNOMEDCTInferenceJobCommandInput}
- * @returns {@link DescribeSNOMEDCTInferenceJobCommandOutput}
+ * @param DescribeSNOMEDCTInferenceJobRequest - {@link DescribeSNOMEDCTInferenceJobRequest}
+ * @returns {@link DescribeSNOMEDCTInferenceJobResponse}
  * @see {@link DescribeSNOMEDCTInferenceJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSNOMEDCTInferenceJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

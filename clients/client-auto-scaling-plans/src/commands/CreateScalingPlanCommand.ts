@@ -117,8 +117,8 @@ export interface CreateScalingPlanCommandOutput extends CreateScalingPlanRespons
  *
  * ```
  *
- * @param CreateScalingPlanCommandInput - {@link CreateScalingPlanCommandInput}
- * @returns {@link CreateScalingPlanCommandOutput}
+ * @param CreateScalingPlanRequest - {@link CreateScalingPlanRequest}
+ * @returns {@link CreateScalingPlanResponse}
  * @see {@link CreateScalingPlanCommandInput} for command's `input` shape.
  * @see {@link CreateScalingPlanCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.

@@ -90,8 +90,8 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  *
  * ```
  *
- * @param DescribeCapacityProvidersCommandInput - {@link DescribeCapacityProvidersCommandInput}
- * @returns {@link DescribeCapacityProvidersCommandOutput}
+ * @param DescribeCapacityProvidersRequest - {@link DescribeCapacityProvidersRequest}
+ * @returns {@link DescribeCapacityProvidersResponse}
  * @see {@link DescribeCapacityProvidersCommandInput} for command's `input` shape.
  * @see {@link DescribeCapacityProvidersCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

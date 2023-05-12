@@ -52,8 +52,8 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
  *
  * ```
  *
- * @param GetMailboxDetailsCommandInput - {@link GetMailboxDetailsCommandInput}
- * @returns {@link GetMailboxDetailsCommandOutput}
+ * @param GetMailboxDetailsRequest - {@link GetMailboxDetailsRequest}
+ * @returns {@link GetMailboxDetailsResponse}
  * @see {@link GetMailboxDetailsCommandInput} for command's `input` shape.
  * @see {@link GetMailboxDetailsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

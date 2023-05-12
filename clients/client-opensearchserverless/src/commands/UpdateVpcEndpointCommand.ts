@@ -79,8 +79,8 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  *
  * ```
  *
- * @param UpdateVpcEndpointCommandInput - {@link UpdateVpcEndpointCommandInput}
- * @returns {@link UpdateVpcEndpointCommandOutput}
+ * @param UpdateVpcEndpointRequest - {@link UpdateVpcEndpointRequest}
+ * @returns {@link UpdateVpcEndpointResponse}
  * @see {@link UpdateVpcEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateVpcEndpointCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

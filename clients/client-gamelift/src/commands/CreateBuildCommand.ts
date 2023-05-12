@@ -128,8 +128,8 @@ export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataB
  *
  * ```
  *
- * @param CreateBuildCommandInput - {@link CreateBuildCommandInput}
- * @returns {@link CreateBuildCommandOutput}
+ * @param CreateBuildInput - {@link CreateBuildInput}
+ * @returns {@link CreateBuildOutput}
  * @see {@link CreateBuildCommandInput} for command's `input` shape.
  * @see {@link CreateBuildCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

@@ -70,8 +70,8 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CreateNetworkAclEntryCommandInput - {@link CreateNetworkAclEntryCommandInput}
- * @returns {@link CreateNetworkAclEntryCommandOutput}
+ * @param CreateNetworkAclEntryRequest - {@link CreateNetworkAclEntryRequest}
+ * @returns {@link Unit}
  * @see {@link CreateNetworkAclEntryCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkAclEntryCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

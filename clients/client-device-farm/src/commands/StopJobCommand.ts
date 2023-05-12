@@ -130,8 +130,8 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  *
  * ```
  *
- * @param StopJobCommandInput - {@link StopJobCommandInput}
- * @returns {@link StopJobCommandOutput}
+ * @param StopJobRequest - {@link StopJobRequest}
+ * @returns {@link StopJobResult}
  * @see {@link StopJobCommandInput} for command's `input` shape.
  * @see {@link StopJobCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

@@ -64,8 +64,8 @@ export interface ListBuiltInSlotTypesCommandOutput extends ListBuiltInSlotTypesR
  *
  * ```
  *
- * @param ListBuiltInSlotTypesCommandInput - {@link ListBuiltInSlotTypesCommandInput}
- * @returns {@link ListBuiltInSlotTypesCommandOutput}
+ * @param ListBuiltInSlotTypesRequest - {@link ListBuiltInSlotTypesRequest}
+ * @returns {@link ListBuiltInSlotTypesResponse}
  * @see {@link ListBuiltInSlotTypesCommandInput} for command's `input` shape.
  * @see {@link ListBuiltInSlotTypesCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

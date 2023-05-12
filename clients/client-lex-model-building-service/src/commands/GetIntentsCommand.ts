@@ -79,8 +79,8 @@ export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataB
  *
  * ```
  *
- * @param GetIntentsCommandInput - {@link GetIntentsCommandInput}
- * @returns {@link GetIntentsCommandOutput}
+ * @param GetIntentsRequest - {@link GetIntentsRequest}
+ * @returns {@link GetIntentsResponse}
  * @see {@link GetIntentsCommandInput} for command's `input` shape.
  * @see {@link GetIntentsCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

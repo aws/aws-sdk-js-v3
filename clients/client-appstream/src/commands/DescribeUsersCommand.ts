@@ -64,8 +64,8 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  *
  * ```
  *
- * @param DescribeUsersCommandInput - {@link DescribeUsersCommandInput}
- * @returns {@link DescribeUsersCommandOutput}
+ * @param DescribeUsersRequest - {@link DescribeUsersRequest}
+ * @returns {@link DescribeUsersResult}
  * @see {@link DescribeUsersCommandInput} for command's `input` shape.
  * @see {@link DescribeUsersCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

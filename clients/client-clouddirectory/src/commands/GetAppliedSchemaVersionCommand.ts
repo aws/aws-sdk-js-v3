@@ -50,8 +50,8 @@ export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVe
  *
  * ```
  *
- * @param GetAppliedSchemaVersionCommandInput - {@link GetAppliedSchemaVersionCommandInput}
- * @returns {@link GetAppliedSchemaVersionCommandOutput}
+ * @param GetAppliedSchemaVersionRequest - {@link GetAppliedSchemaVersionRequest}
+ * @returns {@link GetAppliedSchemaVersionResponse}
  * @see {@link GetAppliedSchemaVersionCommandInput} for command's `input` shape.
  * @see {@link GetAppliedSchemaVersionCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

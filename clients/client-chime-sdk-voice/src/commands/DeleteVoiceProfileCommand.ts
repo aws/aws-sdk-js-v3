@@ -48,8 +48,8 @@ export interface DeleteVoiceProfileCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteVoiceProfileCommandInput - {@link DeleteVoiceProfileCommandInput}
- * @returns {@link DeleteVoiceProfileCommandOutput}
+ * @param DeleteVoiceProfileRequest - {@link DeleteVoiceProfileRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVoiceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceProfileCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

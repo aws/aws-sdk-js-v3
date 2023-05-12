@@ -48,8 +48,8 @@ export interface StartClockCommandOutput extends StartClockOutput, __MetadataBea
  *
  * ```
  *
- * @param StartClockCommandInput - {@link StartClockCommandInput}
- * @returns {@link StartClockCommandOutput}
+ * @param StartClockInput - {@link StartClockInput}
+ * @returns {@link StartClockOutput}
  * @see {@link StartClockCommandInput} for command's `input` shape.
  * @see {@link StartClockCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.

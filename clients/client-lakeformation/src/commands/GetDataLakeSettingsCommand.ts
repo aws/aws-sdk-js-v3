@@ -91,8 +91,8 @@ export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsRes
  *
  * ```
  *
- * @param GetDataLakeSettingsCommandInput - {@link GetDataLakeSettingsCommandInput}
- * @returns {@link GetDataLakeSettingsCommandOutput}
+ * @param GetDataLakeSettingsRequest - {@link GetDataLakeSettingsRequest}
+ * @returns {@link GetDataLakeSettingsResponse}
  * @see {@link GetDataLakeSettingsCommandInput} for command's `input` shape.
  * @see {@link GetDataLakeSettingsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

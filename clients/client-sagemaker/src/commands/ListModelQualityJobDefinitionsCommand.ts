@@ -70,8 +70,8 @@ export interface ListModelQualityJobDefinitionsCommandOutput
  *
  * ```
  *
- * @param ListModelQualityJobDefinitionsCommandInput - {@link ListModelQualityJobDefinitionsCommandInput}
- * @returns {@link ListModelQualityJobDefinitionsCommandOutput}
+ * @param ListModelQualityJobDefinitionsRequest - {@link ListModelQualityJobDefinitionsRequest}
+ * @returns {@link ListModelQualityJobDefinitionsResponse}
  * @see {@link ListModelQualityJobDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListModelQualityJobDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

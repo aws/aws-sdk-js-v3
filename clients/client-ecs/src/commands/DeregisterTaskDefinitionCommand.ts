@@ -327,8 +327,8 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  *
  * ```
  *
- * @param DeregisterTaskDefinitionCommandInput - {@link DeregisterTaskDefinitionCommandInput}
- * @returns {@link DeregisterTaskDefinitionCommandOutput}
+ * @param DeregisterTaskDefinitionRequest - {@link DeregisterTaskDefinitionRequest}
+ * @returns {@link DeregisterTaskDefinitionResponse}
  * @see {@link DeregisterTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeregisterTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

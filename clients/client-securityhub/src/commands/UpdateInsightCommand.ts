@@ -301,8 +301,8 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *
  * ```
  *
- * @param UpdateInsightCommandInput - {@link UpdateInsightCommandInput}
- * @returns {@link UpdateInsightCommandOutput}
+ * @param UpdateInsightRequest - {@link UpdateInsightRequest}
+ * @returns {@link UpdateInsightResponse}
  * @see {@link UpdateInsightCommandInput} for command's `input` shape.
  * @see {@link UpdateInsightCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

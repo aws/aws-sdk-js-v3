@@ -48,8 +48,8 @@ export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutpu
  *
  * ```
  *
- * @param StartAccessLoggingCommandInput - {@link StartAccessLoggingCommandInput}
- * @returns {@link StartAccessLoggingCommandOutput}
+ * @param StartAccessLoggingInput - {@link StartAccessLoggingInput}
+ * @returns {@link StartAccessLoggingOutput}
  * @see {@link StartAccessLoggingCommandInput} for command's `input` shape.
  * @see {@link StartAccessLoggingCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.

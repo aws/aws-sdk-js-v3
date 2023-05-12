@@ -97,8 +97,8 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutBucketVersioningCommandInput - {@link PutBucketVersioningCommandInput}
- * @returns {@link PutBucketVersioningCommandOutput}
+ * @param PutBucketVersioningRequest - {@link PutBucketVersioningRequest}
+ * @returns {@link Unit}
  * @see {@link PutBucketVersioningCommandInput} for command's `input` shape.
  * @see {@link PutBucketVersioningCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

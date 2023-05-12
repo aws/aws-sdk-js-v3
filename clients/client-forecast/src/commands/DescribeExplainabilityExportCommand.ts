@@ -69,8 +69,8 @@ export interface DescribeExplainabilityExportCommandOutput
  *
  * ```
  *
- * @param DescribeExplainabilityExportCommandInput - {@link DescribeExplainabilityExportCommandInput}
- * @returns {@link DescribeExplainabilityExportCommandOutput}
+ * @param DescribeExplainabilityExportRequest - {@link DescribeExplainabilityExportRequest}
+ * @returns {@link DescribeExplainabilityExportResponse}
  * @see {@link DescribeExplainabilityExportCommandInput} for command's `input` shape.
  * @see {@link DescribeExplainabilityExportCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

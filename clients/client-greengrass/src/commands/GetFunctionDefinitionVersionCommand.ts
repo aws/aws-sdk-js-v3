@@ -106,8 +106,8 @@ export interface GetFunctionDefinitionVersionCommandOutput
  *
  * ```
  *
- * @param GetFunctionDefinitionVersionCommandInput - {@link GetFunctionDefinitionVersionCommandInput}
- * @returns {@link GetFunctionDefinitionVersionCommandOutput}
+ * @param GetFunctionDefinitionVersionRequest - {@link GetFunctionDefinitionVersionRequest}
+ * @returns {@link GetFunctionDefinitionVersionResponse}
  * @see {@link GetFunctionDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link GetFunctionDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

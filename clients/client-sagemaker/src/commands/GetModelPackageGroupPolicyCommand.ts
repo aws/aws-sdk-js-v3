@@ -53,8 +53,8 @@ export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackage
  *
  * ```
  *
- * @param GetModelPackageGroupPolicyCommandInput - {@link GetModelPackageGroupPolicyCommandInput}
- * @returns {@link GetModelPackageGroupPolicyCommandOutput}
+ * @param GetModelPackageGroupPolicyInput - {@link GetModelPackageGroupPolicyInput}
+ * @returns {@link GetModelPackageGroupPolicyOutput}
  * @see {@link GetModelPackageGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link GetModelPackageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

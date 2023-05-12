@@ -77,8 +77,8 @@ export interface RestoreFromRecoveryPointCommandOutput extends RestoreFromRecove
  *
  * ```
  *
- * @param RestoreFromRecoveryPointCommandInput - {@link RestoreFromRecoveryPointCommandInput}
- * @returns {@link RestoreFromRecoveryPointCommandOutput}
+ * @param RestoreFromRecoveryPointRequest - {@link RestoreFromRecoveryPointRequest}
+ * @returns {@link RestoreFromRecoveryPointResponse}
  * @see {@link RestoreFromRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link RestoreFromRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

@@ -57,8 +57,8 @@ export interface ClearQuerySuggestionsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ClearQuerySuggestionsCommandInput - {@link ClearQuerySuggestionsCommandInput}
- * @returns {@link ClearQuerySuggestionsCommandOutput}
+ * @param ClearQuerySuggestionsRequest - {@link ClearQuerySuggestionsRequest}
+ * @returns {@link Unit}
  * @see {@link ClearQuerySuggestionsCommandInput} for command's `input` shape.
  * @see {@link ClearQuerySuggestionsCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

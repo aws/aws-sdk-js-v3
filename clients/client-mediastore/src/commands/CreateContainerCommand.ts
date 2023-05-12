@@ -64,8 +64,8 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  *
  * ```
  *
- * @param CreateContainerCommandInput - {@link CreateContainerCommandInput}
- * @returns {@link CreateContainerCommandOutput}
+ * @param CreateContainerInput - {@link CreateContainerInput}
+ * @returns {@link CreateContainerOutput}
  * @see {@link CreateContainerCommandInput} for command's `input` shape.
  * @see {@link CreateContainerCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.

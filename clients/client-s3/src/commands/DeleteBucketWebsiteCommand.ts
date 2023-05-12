@@ -72,8 +72,8 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteBucketWebsiteCommandInput - {@link DeleteBucketWebsiteCommandInput}
- * @returns {@link DeleteBucketWebsiteCommandOutput}
+ * @param DeleteBucketWebsiteRequest - {@link DeleteBucketWebsiteRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteBucketWebsiteCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketWebsiteCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

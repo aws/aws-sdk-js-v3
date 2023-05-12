@@ -61,8 +61,8 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  *
  * ```
  *
- * @param DescribeVpcAttributeCommandInput - {@link DescribeVpcAttributeCommandInput}
- * @returns {@link DescribeVpcAttributeCommandOutput}
+ * @param DescribeVpcAttributeRequest - {@link DescribeVpcAttributeRequest}
+ * @returns {@link DescribeVpcAttributeResult}
  * @see {@link DescribeVpcAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

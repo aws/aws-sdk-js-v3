@@ -52,8 +52,8 @@ export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __Met
  *
  * ```
  *
- * @param StopHumanLoopCommandInput - {@link StopHumanLoopCommandInput}
- * @returns {@link StopHumanLoopCommandOutput}
+ * @param StopHumanLoopRequest - {@link StopHumanLoopRequest}
+ * @returns {@link StopHumanLoopResponse}
  * @see {@link StopHumanLoopCommandInput} for command's `input` shape.
  * @see {@link StopHumanLoopCommandOutput} for command's `response` shape.
  * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.

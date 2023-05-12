@@ -66,8 +66,8 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
  *
  * ```
  *
- * @param DescribeInputCommandInput - {@link DescribeInputCommandInput}
- * @returns {@link DescribeInputCommandOutput}
+ * @param DescribeInputRequest - {@link DescribeInputRequest}
+ * @returns {@link DescribeInputResponse}
  * @see {@link DescribeInputCommandInput} for command's `input` shape.
  * @see {@link DescribeInputCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.

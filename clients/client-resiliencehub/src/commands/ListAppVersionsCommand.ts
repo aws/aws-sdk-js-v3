@@ -57,8 +57,8 @@ export interface ListAppVersionsCommandOutput extends ListAppVersionsResponse, _
  *
  * ```
  *
- * @param ListAppVersionsCommandInput - {@link ListAppVersionsCommandInput}
- * @returns {@link ListAppVersionsCommandOutput}
+ * @param ListAppVersionsRequest - {@link ListAppVersionsRequest}
+ * @returns {@link ListAppVersionsResponse}
  * @see {@link ListAppVersionsCommandInput} for command's `input` shape.
  * @see {@link ListAppVersionsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

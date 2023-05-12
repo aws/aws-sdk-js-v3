@@ -67,8 +67,8 @@ export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributi
  *
  * ```
  *
- * @param ListDistributionsByKeyGroupCommandInput - {@link ListDistributionsByKeyGroupCommandInput}
- * @returns {@link ListDistributionsByKeyGroupCommandOutput}
+ * @param ListDistributionsByKeyGroupRequest - {@link ListDistributionsByKeyGroupRequest}
+ * @returns {@link ListDistributionsByKeyGroupResult}
  * @see {@link ListDistributionsByKeyGroupCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

@@ -107,8 +107,8 @@ export interface UpdateFeatureCommandOutput extends UpdateFeatureResponse, __Met
  *
  * ```
  *
- * @param UpdateFeatureCommandInput - {@link UpdateFeatureCommandInput}
- * @returns {@link UpdateFeatureCommandOutput}
+ * @param UpdateFeatureRequest - {@link UpdateFeatureRequest}
+ * @returns {@link UpdateFeatureResponse}
  * @see {@link UpdateFeatureCommandInput} for command's `input` shape.
  * @see {@link UpdateFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

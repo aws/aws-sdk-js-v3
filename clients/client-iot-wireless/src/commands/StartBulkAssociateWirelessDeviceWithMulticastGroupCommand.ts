@@ -64,8 +64,8 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput
  *
  * ```
  *
- * @param StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput - {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput}
- * @returns {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput}
+ * @param StartBulkAssociateWirelessDeviceWithMulticastGroupRequest - {@link StartBulkAssociateWirelessDeviceWithMulticastGroupRequest}
+ * @returns {@link StartBulkAssociateWirelessDeviceWithMulticastGroupResponse}
  * @see {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

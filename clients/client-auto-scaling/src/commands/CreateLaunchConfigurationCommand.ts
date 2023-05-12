@@ -103,8 +103,8 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param CreateLaunchConfigurationCommandInput - {@link CreateLaunchConfigurationCommandInput}
- * @returns {@link CreateLaunchConfigurationCommandOutput}
+ * @param CreateLaunchConfigurationType - {@link CreateLaunchConfigurationType}
+ * @returns {@link Unit}
  * @see {@link CreateLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

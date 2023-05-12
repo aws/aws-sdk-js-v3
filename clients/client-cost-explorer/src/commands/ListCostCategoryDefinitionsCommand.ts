@@ -79,8 +79,8 @@ export interface ListCostCategoryDefinitionsCommandOutput
  *
  * ```
  *
- * @param ListCostCategoryDefinitionsCommandInput - {@link ListCostCategoryDefinitionsCommandInput}
- * @returns {@link ListCostCategoryDefinitionsCommandOutput}
+ * @param ListCostCategoryDefinitionsRequest - {@link ListCostCategoryDefinitionsRequest}
+ * @returns {@link ListCostCategoryDefinitionsResponse}
  * @see {@link ListCostCategoryDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListCostCategoryDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

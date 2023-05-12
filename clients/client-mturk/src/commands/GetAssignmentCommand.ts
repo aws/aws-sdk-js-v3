@@ -104,8 +104,8 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  *
  * ```
  *
- * @param GetAssignmentCommandInput - {@link GetAssignmentCommandInput}
- * @returns {@link GetAssignmentCommandOutput}
+ * @param GetAssignmentRequest - {@link GetAssignmentRequest}
+ * @returns {@link GetAssignmentResponse}
  * @see {@link GetAssignmentCommandInput} for command's `input` shape.
  * @see {@link GetAssignmentCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

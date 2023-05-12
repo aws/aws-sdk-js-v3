@@ -49,8 +49,8 @@ export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __M
  *
  * ```
  *
- * @param DeleteTagOptionCommandInput - {@link DeleteTagOptionCommandInput}
- * @returns {@link DeleteTagOptionCommandOutput}
+ * @param DeleteTagOptionInput - {@link DeleteTagOptionInput}
+ * @returns {@link DeleteTagOptionOutput}
  * @see {@link DeleteTagOptionCommandInput} for command's `input` shape.
  * @see {@link DeleteTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

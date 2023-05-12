@@ -79,8 +79,8 @@ export interface DescribeNodeConfigurationOptionsCommandOutput
  *
  * ```
  *
- * @param DescribeNodeConfigurationOptionsCommandInput - {@link DescribeNodeConfigurationOptionsCommandInput}
- * @returns {@link DescribeNodeConfigurationOptionsCommandOutput}
+ * @param DescribeNodeConfigurationOptionsMessage - {@link DescribeNodeConfigurationOptionsMessage}
+ * @returns {@link NodeConfigurationOptionsMessage}
  * @see {@link DescribeNodeConfigurationOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeNodeConfigurationOptionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

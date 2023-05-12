@@ -84,8 +84,8 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
  *
  * ```
  *
- * @param ListUnsupportedAppVersionResourcesCommandInput - {@link ListUnsupportedAppVersionResourcesCommandInput}
- * @returns {@link ListUnsupportedAppVersionResourcesCommandOutput}
+ * @param ListUnsupportedAppVersionResourcesRequest - {@link ListUnsupportedAppVersionResourcesRequest}
+ * @returns {@link ListUnsupportedAppVersionResourcesResponse}
  * @see {@link ListUnsupportedAppVersionResourcesCommandInput} for command's `input` shape.
  * @see {@link ListUnsupportedAppVersionResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

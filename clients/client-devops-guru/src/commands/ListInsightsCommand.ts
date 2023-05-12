@@ -146,8 +146,8 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  *
  * ```
  *
- * @param ListInsightsCommandInput - {@link ListInsightsCommandInput}
- * @returns {@link ListInsightsCommandOutput}
+ * @param ListInsightsRequest - {@link ListInsightsRequest}
+ * @returns {@link ListInsightsResponse}
  * @see {@link ListInsightsCommandInput} for command's `input` shape.
  * @see {@link ListInsightsCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

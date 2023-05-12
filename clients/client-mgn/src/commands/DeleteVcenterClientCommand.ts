@@ -48,8 +48,8 @@ export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteVcenterClientCommandInput - {@link DeleteVcenterClientCommandInput}
- * @returns {@link DeleteVcenterClientCommandOutput}
+ * @param DeleteVcenterClientRequest - {@link DeleteVcenterClientRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteVcenterClientCommandInput} for command's `input` shape.
  * @see {@link DeleteVcenterClientCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

@@ -51,8 +51,8 @@ export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __Met
  *
  * ```
  *
- * @param GetArtifactUrlCommandInput - {@link GetArtifactUrlCommandInput}
- * @returns {@link GetArtifactUrlCommandOutput}
+ * @param GetArtifactUrlRequest - {@link GetArtifactUrlRequest}
+ * @returns {@link GetArtifactUrlResult}
  * @see {@link GetArtifactUrlCommandInput} for command's `input` shape.
  * @see {@link GetArtifactUrlCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

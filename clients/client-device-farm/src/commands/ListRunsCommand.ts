@@ -150,8 +150,8 @@ export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer 
  *
  * ```
  *
- * @param ListRunsCommandInput - {@link ListRunsCommandInput}
- * @returns {@link ListRunsCommandOutput}
+ * @param ListRunsRequest - {@link ListRunsRequest}
+ * @returns {@link ListRunsResult}
  * @see {@link ListRunsCommandInput} for command's `input` shape.
  * @see {@link ListRunsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

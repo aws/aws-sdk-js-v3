@@ -54,8 +54,8 @@ export interface EnableDomainTransferLockCommandOutput extends EnableDomainTrans
  *
  * ```
  *
- * @param EnableDomainTransferLockCommandInput - {@link EnableDomainTransferLockCommandInput}
- * @returns {@link EnableDomainTransferLockCommandOutput}
+ * @param EnableDomainTransferLockRequest - {@link EnableDomainTransferLockRequest}
+ * @returns {@link EnableDomainTransferLockResponse}
  * @see {@link EnableDomainTransferLockCommandInput} for command's `input` shape.
  * @see {@link EnableDomainTransferLockCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

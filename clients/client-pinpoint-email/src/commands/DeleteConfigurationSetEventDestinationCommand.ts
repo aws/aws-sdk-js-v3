@@ -63,8 +63,8 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  *
  * ```
  *
- * @param DeleteConfigurationSetEventDestinationCommandInput - {@link DeleteConfigurationSetEventDestinationCommandInput}
- * @returns {@link DeleteConfigurationSetEventDestinationCommandOutput}
+ * @param DeleteConfigurationSetEventDestinationRequest - {@link DeleteConfigurationSetEventDestinationRequest}
+ * @returns {@link DeleteConfigurationSetEventDestinationResponse}
  * @see {@link DeleteConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

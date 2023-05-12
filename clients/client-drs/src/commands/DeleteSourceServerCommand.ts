@@ -48,8 +48,8 @@ export interface DeleteSourceServerCommandOutput extends DeleteSourceServerRespo
  *
  * ```
  *
- * @param DeleteSourceServerCommandInput - {@link DeleteSourceServerCommandInput}
- * @returns {@link DeleteSourceServerCommandOutput}
+ * @param DeleteSourceServerRequest - {@link DeleteSourceServerRequest}
+ * @returns {@link DeleteSourceServerResponse}
  * @see {@link DeleteSourceServerCommandInput} for command's `input` shape.
  * @see {@link DeleteSourceServerCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

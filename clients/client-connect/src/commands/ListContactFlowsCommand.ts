@@ -68,8 +68,8 @@ export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse,
  *
  * ```
  *
- * @param ListContactFlowsCommandInput - {@link ListContactFlowsCommandInput}
- * @returns {@link ListContactFlowsCommandOutput}
+ * @param ListContactFlowsRequest - {@link ListContactFlowsRequest}
+ * @returns {@link ListContactFlowsResponse}
  * @see {@link ListContactFlowsCommandInput} for command's `input` shape.
  * @see {@link ListContactFlowsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

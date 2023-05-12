@@ -65,8 +65,8 @@ export interface UpdateApprovalRuleTemplateNameCommandOutput
  *
  * ```
  *
- * @param UpdateApprovalRuleTemplateNameCommandInput - {@link UpdateApprovalRuleTemplateNameCommandInput}
- * @returns {@link UpdateApprovalRuleTemplateNameCommandOutput}
+ * @param UpdateApprovalRuleTemplateNameInput - {@link UpdateApprovalRuleTemplateNameInput}
+ * @returns {@link UpdateApprovalRuleTemplateNameOutput}
  * @see {@link UpdateApprovalRuleTemplateNameCommandInput} for command's `input` shape.
  * @see {@link UpdateApprovalRuleTemplateNameCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

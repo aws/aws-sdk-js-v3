@@ -84,8 +84,8 @@ export interface GetECSServiceRecommendationProjectedMetricsCommandOutput
  *
  * ```
  *
- * @param GetECSServiceRecommendationProjectedMetricsCommandInput - {@link GetECSServiceRecommendationProjectedMetricsCommandInput}
- * @returns {@link GetECSServiceRecommendationProjectedMetricsCommandOutput}
+ * @param GetECSServiceRecommendationProjectedMetricsRequest - {@link GetECSServiceRecommendationProjectedMetricsRequest}
+ * @returns {@link GetECSServiceRecommendationProjectedMetricsResponse}
  * @see {@link GetECSServiceRecommendationProjectedMetricsCommandInput} for command's `input` shape.
  * @see {@link GetECSServiceRecommendationProjectedMetricsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

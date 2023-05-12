@@ -88,8 +88,8 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  *
  * ```
  *
- * @param GetObjectTaggingCommandInput - {@link GetObjectTaggingCommandInput}
- * @returns {@link GetObjectTaggingCommandOutput}
+ * @param GetObjectTaggingRequest - {@link GetObjectTaggingRequest}
+ * @returns {@link GetObjectTaggingOutput}
  * @see {@link GetObjectTaggingCommandInput} for command's `input` shape.
  * @see {@link GetObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

@@ -138,8 +138,8 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  *
  * ```
  *
- * @param DescribeScalingPoliciesCommandInput - {@link DescribeScalingPoliciesCommandInput}
- * @returns {@link DescribeScalingPoliciesCommandOutput}
+ * @param DescribeScalingPoliciesRequest - {@link DescribeScalingPoliciesRequest}
+ * @returns {@link DescribeScalingPoliciesResponse}
  * @see {@link DescribeScalingPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.

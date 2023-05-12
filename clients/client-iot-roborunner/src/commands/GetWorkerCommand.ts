@@ -74,8 +74,8 @@ export interface GetWorkerCommandOutput extends GetWorkerResponse, __MetadataBea
  *
  * ```
  *
- * @param GetWorkerCommandInput - {@link GetWorkerCommandInput}
- * @returns {@link GetWorkerCommandOutput}
+ * @param GetWorkerRequest - {@link GetWorkerRequest}
+ * @returns {@link GetWorkerResponse}
  * @see {@link GetWorkerCommandInput} for command's `input` shape.
  * @see {@link GetWorkerCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

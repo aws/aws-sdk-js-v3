@@ -170,8 +170,8 @@ export interface CreateStudioComponentCommandOutput extends CreateStudioComponen
  *
  * ```
  *
- * @param CreateStudioComponentCommandInput - {@link CreateStudioComponentCommandInput}
- * @returns {@link CreateStudioComponentCommandOutput}
+ * @param CreateStudioComponentRequest - {@link CreateStudioComponentRequest}
+ * @returns {@link CreateStudioComponentResponse}
  * @see {@link CreateStudioComponentCommandInput} for command's `input` shape.
  * @see {@link CreateStudioComponentCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

@@ -67,8 +67,8 @@ export interface ListServiceTemplatesCommandOutput extends ListServiceTemplatesO
  *
  * ```
  *
- * @param ListServiceTemplatesCommandInput - {@link ListServiceTemplatesCommandInput}
- * @returns {@link ListServiceTemplatesCommandOutput}
+ * @param ListServiceTemplatesInput - {@link ListServiceTemplatesInput}
+ * @returns {@link ListServiceTemplatesOutput}
  * @see {@link ListServiceTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListServiceTemplatesCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

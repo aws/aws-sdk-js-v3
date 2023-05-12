@@ -58,8 +58,8 @@ export interface DisassociateRoutingProfileQueuesCommandOutput extends __Metadat
  *
  * ```
  *
- * @param DisassociateRoutingProfileQueuesCommandInput - {@link DisassociateRoutingProfileQueuesCommandInput}
- * @returns {@link DisassociateRoutingProfileQueuesCommandOutput}
+ * @param DisassociateRoutingProfileQueuesRequest - {@link DisassociateRoutingProfileQueuesRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateRoutingProfileQueuesCommandInput} for command's `input` shape.
  * @see {@link DisassociateRoutingProfileQueuesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

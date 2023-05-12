@@ -70,8 +70,8 @@ export interface DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
  *
  * ```
  *
- * @param DeregisterTransitGatewayMulticastGroupSourcesCommandInput - {@link DeregisterTransitGatewayMulticastGroupSourcesCommandInput}
- * @returns {@link DeregisterTransitGatewayMulticastGroupSourcesCommandOutput}
+ * @param DeregisterTransitGatewayMulticastGroupSourcesRequest - {@link DeregisterTransitGatewayMulticastGroupSourcesRequest}
+ * @returns {@link DeregisterTransitGatewayMulticastGroupSourcesResult}
  * @see {@link DeregisterTransitGatewayMulticastGroupSourcesCommandInput} for command's `input` shape.
  * @see {@link DeregisterTransitGatewayMulticastGroupSourcesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

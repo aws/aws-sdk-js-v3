@@ -53,8 +53,8 @@ export interface DeleteAppValidationConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteAppValidationConfigurationCommandInput - {@link DeleteAppValidationConfigurationCommandInput}
- * @returns {@link DeleteAppValidationConfigurationCommandOutput}
+ * @param DeleteAppValidationConfigurationRequest - {@link DeleteAppValidationConfigurationRequest}
+ * @returns {@link DeleteAppValidationConfigurationResponse}
  * @see {@link DeleteAppValidationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAppValidationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

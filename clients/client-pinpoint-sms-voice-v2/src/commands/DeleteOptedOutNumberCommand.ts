@@ -63,8 +63,8 @@ export interface DeleteOptedOutNumberCommandOutput extends DeleteOptedOutNumberR
  *
  * ```
  *
- * @param DeleteOptedOutNumberCommandInput - {@link DeleteOptedOutNumberCommandInput}
- * @returns {@link DeleteOptedOutNumberCommandOutput}
+ * @param DeleteOptedOutNumberRequest - {@link DeleteOptedOutNumberRequest}
+ * @returns {@link DeleteOptedOutNumberResult}
  * @see {@link DeleteOptedOutNumberCommandInput} for command's `input` shape.
  * @see {@link DeleteOptedOutNumberCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

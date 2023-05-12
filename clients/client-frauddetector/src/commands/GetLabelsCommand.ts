@@ -66,8 +66,8 @@ export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBeare
  *
  * ```
  *
- * @param GetLabelsCommandInput - {@link GetLabelsCommandInput}
- * @returns {@link GetLabelsCommandOutput}
+ * @param GetLabelsRequest - {@link GetLabelsRequest}
+ * @returns {@link GetLabelsResult}
  * @see {@link GetLabelsCommandInput} for command's `input` shape.
  * @see {@link GetLabelsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

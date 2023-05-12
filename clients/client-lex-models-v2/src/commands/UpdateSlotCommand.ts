@@ -848,8 +848,8 @@ export interface UpdateSlotCommandOutput extends UpdateSlotResponse, __MetadataB
  *
  * ```
  *
- * @param UpdateSlotCommandInput - {@link UpdateSlotCommandInput}
- * @returns {@link UpdateSlotCommandOutput}
+ * @param UpdateSlotRequest - {@link UpdateSlotRequest}
+ * @returns {@link UpdateSlotResponse}
  * @see {@link UpdateSlotCommandInput} for command's `input` shape.
  * @see {@link UpdateSlotCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

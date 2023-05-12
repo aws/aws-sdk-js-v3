@@ -70,8 +70,8 @@ export interface ListSubscriptionDefinitionsCommandOutput
  *
  * ```
  *
- * @param ListSubscriptionDefinitionsCommandInput - {@link ListSubscriptionDefinitionsCommandInput}
- * @returns {@link ListSubscriptionDefinitionsCommandOutput}
+ * @param ListSubscriptionDefinitionsRequest - {@link ListSubscriptionDefinitionsRequest}
+ * @returns {@link ListSubscriptionDefinitionsResponse}
  * @see {@link ListSubscriptionDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListSubscriptionDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

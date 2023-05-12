@@ -51,8 +51,8 @@ export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __Metad
  *
  * ```
  *
- * @param DeleteLexiconCommandInput - {@link DeleteLexiconCommandInput}
- * @returns {@link DeleteLexiconCommandOutput}
+ * @param DeleteLexiconInput - {@link DeleteLexiconInput}
+ * @returns {@link DeleteLexiconOutput}
  * @see {@link DeleteLexiconCommandInput} for command's `input` shape.
  * @see {@link DeleteLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.

@@ -51,8 +51,8 @@ export interface UpdateTopicRuleDestinationCommandOutput extends UpdateTopicRule
  *
  * ```
  *
- * @param UpdateTopicRuleDestinationCommandInput - {@link UpdateTopicRuleDestinationCommandInput}
- * @returns {@link UpdateTopicRuleDestinationCommandOutput}
+ * @param UpdateTopicRuleDestinationRequest - {@link UpdateTopicRuleDestinationRequest}
+ * @returns {@link UpdateTopicRuleDestinationResponse}
  * @see {@link UpdateTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateTopicRuleDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

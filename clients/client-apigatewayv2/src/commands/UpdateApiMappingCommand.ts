@@ -57,8 +57,8 @@ export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse,
  *
  * ```
  *
- * @param UpdateApiMappingCommandInput - {@link UpdateApiMappingCommandInput}
- * @returns {@link UpdateApiMappingCommandOutput}
+ * @param UpdateApiMappingRequest - {@link UpdateApiMappingRequest}
+ * @returns {@link UpdateApiMappingResponse}
  * @see {@link UpdateApiMappingCommandInput} for command's `input` shape.
  * @see {@link UpdateApiMappingCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

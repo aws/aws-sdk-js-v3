@@ -75,8 +75,8 @@ export interface ListResourcesAssociatedToCustomLineItemCommandOutput
  *
  * ```
  *
- * @param ListResourcesAssociatedToCustomLineItemCommandInput - {@link ListResourcesAssociatedToCustomLineItemCommandInput}
- * @returns {@link ListResourcesAssociatedToCustomLineItemCommandOutput}
+ * @param ListResourcesAssociatedToCustomLineItemInput - {@link ListResourcesAssociatedToCustomLineItemInput}
+ * @returns {@link ListResourcesAssociatedToCustomLineItemOutput}
  * @see {@link ListResourcesAssociatedToCustomLineItemCommandInput} for command's `input` shape.
  * @see {@link ListResourcesAssociatedToCustomLineItemCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

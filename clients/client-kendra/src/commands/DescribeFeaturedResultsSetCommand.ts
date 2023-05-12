@@ -73,8 +73,8 @@ export interface DescribeFeaturedResultsSetCommandOutput extends DescribeFeature
  *
  * ```
  *
- * @param DescribeFeaturedResultsSetCommandInput - {@link DescribeFeaturedResultsSetCommandInput}
- * @returns {@link DescribeFeaturedResultsSetCommandOutput}
+ * @param DescribeFeaturedResultsSetRequest - {@link DescribeFeaturedResultsSetRequest}
+ * @returns {@link DescribeFeaturedResultsSetResponse}
  * @see {@link DescribeFeaturedResultsSetCommandInput} for command's `input` shape.
  * @see {@link DescribeFeaturedResultsSetCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

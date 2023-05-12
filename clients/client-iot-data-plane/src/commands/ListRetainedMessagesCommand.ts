@@ -68,8 +68,8 @@ export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesR
  *
  * ```
  *
- * @param ListRetainedMessagesCommandInput - {@link ListRetainedMessagesCommandInput}
- * @returns {@link ListRetainedMessagesCommandOutput}
+ * @param ListRetainedMessagesRequest - {@link ListRetainedMessagesRequest}
+ * @returns {@link ListRetainedMessagesResponse}
  * @see {@link ListRetainedMessagesCommandInput} for command's `input` shape.
  * @see {@link ListRetainedMessagesCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.

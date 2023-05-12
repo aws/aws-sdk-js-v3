@@ -48,8 +48,8 @@ export interface DeleteGraphqlApiCommandOutput extends DeleteGraphqlApiResponse,
  *
  * ```
  *
- * @param DeleteGraphqlApiCommandInput - {@link DeleteGraphqlApiCommandInput}
- * @returns {@link DeleteGraphqlApiCommandOutput}
+ * @param DeleteGraphqlApiRequest - {@link DeleteGraphqlApiRequest}
+ * @returns {@link DeleteGraphqlApiResponse}
  * @see {@link DeleteGraphqlApiCommandInput} for command's `input` shape.
  * @see {@link DeleteGraphqlApiCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

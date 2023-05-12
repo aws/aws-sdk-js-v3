@@ -99,8 +99,8 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *
  * ```
  *
- * @param CreateEventSubscriptionCommandInput - {@link CreateEventSubscriptionCommandInput}
- * @returns {@link CreateEventSubscriptionCommandOutput}
+ * @param CreateEventSubscriptionMessage - {@link CreateEventSubscriptionMessage}
+ * @returns {@link CreateEventSubscriptionResponse}
  * @see {@link CreateEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

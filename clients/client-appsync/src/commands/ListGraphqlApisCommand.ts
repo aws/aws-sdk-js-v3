@@ -114,8 +114,8 @@ export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, _
  *
  * ```
  *
- * @param ListGraphqlApisCommandInput - {@link ListGraphqlApisCommandInput}
- * @returns {@link ListGraphqlApisCommandOutput}
+ * @param ListGraphqlApisRequest - {@link ListGraphqlApisRequest}
+ * @returns {@link ListGraphqlApisResponse}
  * @see {@link ListGraphqlApisCommandInput} for command's `input` shape.
  * @see {@link ListGraphqlApisCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

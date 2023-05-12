@@ -76,8 +76,8 @@ export interface ListPackagesCommandOutput extends ListPackagesResult, __Metadat
  *
  * ```
  *
- * @param ListPackagesCommandInput - {@link ListPackagesCommandInput}
- * @returns {@link ListPackagesCommandOutput}
+ * @param ListPackagesRequest - {@link ListPackagesRequest}
+ * @returns {@link ListPackagesResult}
  * @see {@link ListPackagesCommandInput} for command's `input` shape.
  * @see {@link ListPackagesCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

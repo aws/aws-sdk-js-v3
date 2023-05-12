@@ -69,8 +69,8 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  *
  * ```
  *
- * @param ListSecurityPoliciesCommandInput - {@link ListSecurityPoliciesCommandInput}
- * @returns {@link ListSecurityPoliciesCommandOutput}
+ * @param ListSecurityPoliciesRequest - {@link ListSecurityPoliciesRequest}
+ * @returns {@link ListSecurityPoliciesResponse}
  * @see {@link ListSecurityPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListSecurityPoliciesCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.

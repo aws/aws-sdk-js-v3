@@ -72,8 +72,8 @@ export interface DeleteTransitGatewayPrefixListReferenceCommandOutput
  *
  * ```
  *
- * @param DeleteTransitGatewayPrefixListReferenceCommandInput - {@link DeleteTransitGatewayPrefixListReferenceCommandInput}
- * @returns {@link DeleteTransitGatewayPrefixListReferenceCommandOutput}
+ * @param DeleteTransitGatewayPrefixListReferenceRequest - {@link DeleteTransitGatewayPrefixListReferenceRequest}
+ * @returns {@link DeleteTransitGatewayPrefixListReferenceResult}
  * @see {@link DeleteTransitGatewayPrefixListReferenceCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayPrefixListReferenceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

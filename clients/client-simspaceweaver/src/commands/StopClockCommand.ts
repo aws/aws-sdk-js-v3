@@ -48,8 +48,8 @@ export interface StopClockCommandOutput extends StopClockOutput, __MetadataBeare
  *
  * ```
  *
- * @param StopClockCommandInput - {@link StopClockCommandInput}
- * @returns {@link StopClockCommandOutput}
+ * @param StopClockInput - {@link StopClockInput}
+ * @returns {@link StopClockOutput}
  * @see {@link StopClockCommandInput} for command's `input` shape.
  * @see {@link StopClockCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.

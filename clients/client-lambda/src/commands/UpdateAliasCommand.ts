@@ -68,8 +68,8 @@ export interface UpdateAliasCommandOutput extends AliasConfiguration, __Metadata
  *
  * ```
  *
- * @param UpdateAliasCommandInput - {@link UpdateAliasCommandInput}
- * @returns {@link UpdateAliasCommandOutput}
+ * @param UpdateAliasRequest - {@link UpdateAliasRequest}
+ * @returns {@link AliasConfiguration}
  * @see {@link UpdateAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateAliasCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

@@ -52,8 +52,8 @@ export interface DeleteOriginAccessControlCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param DeleteOriginAccessControlCommandInput - {@link DeleteOriginAccessControlCommandInput}
- * @returns {@link DeleteOriginAccessControlCommandOutput}
+ * @param DeleteOriginAccessControlRequest - {@link DeleteOriginAccessControlRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteOriginAccessControlCommandInput} for command's `input` shape.
  * @see {@link DeleteOriginAccessControlCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

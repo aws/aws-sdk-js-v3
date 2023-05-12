@@ -52,8 +52,8 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  *
  * ```
  *
- * @param RemoveTagsFromResourceCommandInput - {@link RemoveTagsFromResourceCommandInput}
- * @returns {@link RemoveTagsFromResourceCommandOutput}
+ * @param RemoveTagsFromResourceRequest - {@link RemoveTagsFromResourceRequest}
+ * @returns {@link RemoveTagsFromResourceResult}
  * @see {@link RemoveTagsFromResourceCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

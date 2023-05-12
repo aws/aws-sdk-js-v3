@@ -58,8 +58,8 @@ export interface CreateResourceGroupCommandOutput extends CreateResourceGroupRes
  *
  * ```
  *
- * @param CreateResourceGroupCommandInput - {@link CreateResourceGroupCommandInput}
- * @returns {@link CreateResourceGroupCommandOutput}
+ * @param CreateResourceGroupRequest - {@link CreateResourceGroupRequest}
+ * @returns {@link CreateResourceGroupResponse}
  * @see {@link CreateResourceGroupCommandInput} for command's `input` shape.
  * @see {@link CreateResourceGroupCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

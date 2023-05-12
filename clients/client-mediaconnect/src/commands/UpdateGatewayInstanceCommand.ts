@@ -52,8 +52,8 @@ export interface UpdateGatewayInstanceCommandOutput extends UpdateGatewayInstanc
  *
  * ```
  *
- * @param UpdateGatewayInstanceCommandInput - {@link UpdateGatewayInstanceCommandInput}
- * @returns {@link UpdateGatewayInstanceCommandOutput}
+ * @param UpdateGatewayInstanceRequest - {@link UpdateGatewayInstanceRequest}
+ * @returns {@link UpdateGatewayInstanceResponse}
  * @see {@link UpdateGatewayInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayInstanceCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

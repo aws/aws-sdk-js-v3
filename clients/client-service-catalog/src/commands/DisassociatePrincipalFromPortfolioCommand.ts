@@ -64,8 +64,8 @@ export interface DisassociatePrincipalFromPortfolioCommandOutput
  *
  * ```
  *
- * @param DisassociatePrincipalFromPortfolioCommandInput - {@link DisassociatePrincipalFromPortfolioCommandInput}
- * @returns {@link DisassociatePrincipalFromPortfolioCommandOutput}
+ * @param DisassociatePrincipalFromPortfolioInput - {@link DisassociatePrincipalFromPortfolioInput}
+ * @returns {@link DisassociatePrincipalFromPortfolioOutput}
  * @see {@link DisassociatePrincipalFromPortfolioCommandInput} for command's `input` shape.
  * @see {@link DisassociatePrincipalFromPortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

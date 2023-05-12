@@ -114,8 +114,8 @@ export interface InferSNOMEDCTCommandOutput extends InferSNOMEDCTResponse, __Met
  *
  * ```
  *
- * @param InferSNOMEDCTCommandInput - {@link InferSNOMEDCTCommandInput}
- * @returns {@link InferSNOMEDCTCommandOutput}
+ * @param InferSNOMEDCTRequest - {@link InferSNOMEDCTRequest}
+ * @returns {@link InferSNOMEDCTResponse}
  * @see {@link InferSNOMEDCTCommandInput} for command's `input` shape.
  * @see {@link InferSNOMEDCTCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.

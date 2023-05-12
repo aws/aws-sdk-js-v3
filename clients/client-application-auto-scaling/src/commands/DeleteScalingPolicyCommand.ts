@@ -60,8 +60,8 @@ export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyRes
  *
  * ```
  *
- * @param DeleteScalingPolicyCommandInput - {@link DeleteScalingPolicyCommandInput}
- * @returns {@link DeleteScalingPolicyCommandOutput}
+ * @param DeleteScalingPolicyRequest - {@link DeleteScalingPolicyRequest}
+ * @returns {@link DeleteScalingPolicyResponse}
  * @see {@link DeleteScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteScalingPolicyCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.

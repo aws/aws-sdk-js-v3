@@ -68,8 +68,8 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  *
  * ```
  *
- * @param ListImagesCommandInput - {@link ListImagesCommandInput}
- * @returns {@link ListImagesCommandOutput}
+ * @param ListImagesRequest - {@link ListImagesRequest}
+ * @returns {@link ListImagesResponse}
  * @see {@link ListImagesCommandInput} for command's `input` shape.
  * @see {@link ListImagesCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

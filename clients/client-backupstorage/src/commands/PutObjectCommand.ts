@@ -71,8 +71,8 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *
  * ```
  *
- * @param PutObjectCommandInput - {@link PutObjectCommandInput}
- * @returns {@link PutObjectCommandOutput}
+ * @param PutObjectInput - {@link PutObjectInput}
+ * @returns {@link PutObjectOutput}
  * @see {@link PutObjectCommandInput} for command's `input` shape.
  * @see {@link PutObjectCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.

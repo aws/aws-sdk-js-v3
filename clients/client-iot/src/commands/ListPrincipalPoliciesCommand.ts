@@ -66,8 +66,8 @@ export interface ListPrincipalPoliciesCommandOutput extends ListPrincipalPolicie
  *
  * ```
  *
- * @param ListPrincipalPoliciesCommandInput - {@link ListPrincipalPoliciesCommandInput}
- * @returns {@link ListPrincipalPoliciesCommandOutput}
+ * @param ListPrincipalPoliciesRequest - {@link ListPrincipalPoliciesRequest}
+ * @returns {@link ListPrincipalPoliciesResponse}
  * @see {@link ListPrincipalPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListPrincipalPoliciesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -55,8 +55,8 @@ export interface StopContinuousExportCommandOutput extends StopContinuousExportR
  *
  * ```
  *
- * @param StopContinuousExportCommandInput - {@link StopContinuousExportCommandInput}
- * @returns {@link StopContinuousExportCommandOutput}
+ * @param StopContinuousExportRequest - {@link StopContinuousExportRequest}
+ * @returns {@link StopContinuousExportResponse}
  * @see {@link StopContinuousExportCommandInput} for command's `input` shape.
  * @see {@link StopContinuousExportCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

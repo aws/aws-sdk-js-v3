@@ -67,8 +67,8 @@ export interface GetGrantCommandOutput extends GetGrantResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetGrantCommandInput - {@link GetGrantCommandInput}
- * @returns {@link GetGrantCommandOutput}
+ * @param GetGrantRequest - {@link GetGrantRequest}
+ * @returns {@link GetGrantResponse}
  * @see {@link GetGrantCommandInput} for command's `input` shape.
  * @see {@link GetGrantCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

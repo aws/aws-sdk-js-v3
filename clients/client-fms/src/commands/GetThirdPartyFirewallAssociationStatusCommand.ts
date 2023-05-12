@@ -60,8 +60,8 @@ export interface GetThirdPartyFirewallAssociationStatusCommandOutput
  *
  * ```
  *
- * @param GetThirdPartyFirewallAssociationStatusCommandInput - {@link GetThirdPartyFirewallAssociationStatusCommandInput}
- * @returns {@link GetThirdPartyFirewallAssociationStatusCommandOutput}
+ * @param GetThirdPartyFirewallAssociationStatusRequest - {@link GetThirdPartyFirewallAssociationStatusRequest}
+ * @returns {@link GetThirdPartyFirewallAssociationStatusResponse}
  * @see {@link GetThirdPartyFirewallAssociationStatusCommandInput} for command's `input` shape.
  * @see {@link GetThirdPartyFirewallAssociationStatusCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

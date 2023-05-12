@@ -70,8 +70,8 @@ export interface StartUserImportJobCommandOutput extends StartUserImportJobRespo
  *
  * ```
  *
- * @param StartUserImportJobCommandInput - {@link StartUserImportJobCommandInput}
- * @returns {@link StartUserImportJobCommandOutput}
+ * @param StartUserImportJobRequest - {@link StartUserImportJobRequest}
+ * @returns {@link StartUserImportJobResponse}
  * @see {@link StartUserImportJobCommandInput} for command's `input` shape.
  * @see {@link StartUserImportJobCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

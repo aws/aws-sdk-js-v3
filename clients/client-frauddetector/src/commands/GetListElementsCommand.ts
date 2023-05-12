@@ -61,8 +61,8 @@ export interface GetListElementsCommandOutput extends GetListElementsResult, __M
  *
  * ```
  *
- * @param GetListElementsCommandInput - {@link GetListElementsCommandInput}
- * @returns {@link GetListElementsCommandOutput}
+ * @param GetListElementsRequest - {@link GetListElementsRequest}
+ * @returns {@link GetListElementsResult}
  * @see {@link GetListElementsCommandInput} for command's `input` shape.
  * @see {@link GetListElementsCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

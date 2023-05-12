@@ -57,8 +57,8 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
  *
  * ```
  *
- * @param DetachTrafficSourcesCommandInput - {@link DetachTrafficSourcesCommandInput}
- * @returns {@link DetachTrafficSourcesCommandOutput}
+ * @param DetachTrafficSourcesType - {@link DetachTrafficSourcesType}
+ * @returns {@link DetachTrafficSourcesResultType}
  * @see {@link DetachTrafficSourcesCommandInput} for command's `input` shape.
  * @see {@link DetachTrafficSourcesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

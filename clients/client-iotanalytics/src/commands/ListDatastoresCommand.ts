@@ -88,8 +88,8 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  *
  * ```
  *
- * @param ListDatastoresCommandInput - {@link ListDatastoresCommandInput}
- * @returns {@link ListDatastoresCommandOutput}
+ * @param ListDatastoresRequest - {@link ListDatastoresRequest}
+ * @returns {@link ListDatastoresResponse}
  * @see {@link ListDatastoresCommandInput} for command's `input` shape.
  * @see {@link ListDatastoresCommandOutput} for command's `response` shape.
  * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.

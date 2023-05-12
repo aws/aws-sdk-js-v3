@@ -67,8 +67,8 @@ export interface GetCoreNetworkPolicyCommandOutput extends GetCoreNetworkPolicyR
  *
  * ```
  *
- * @param GetCoreNetworkPolicyCommandInput - {@link GetCoreNetworkPolicyCommandInput}
- * @returns {@link GetCoreNetworkPolicyCommandOutput}
+ * @param GetCoreNetworkPolicyRequest - {@link GetCoreNetworkPolicyRequest}
+ * @returns {@link GetCoreNetworkPolicyResponse}
  * @see {@link GetCoreNetworkPolicyCommandInput} for command's `input` shape.
  * @see {@link GetCoreNetworkPolicyCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

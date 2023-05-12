@@ -98,8 +98,8 @@ export interface ListInstalledComponentsCommandOutput extends ListInstalledCompo
  *
  * ```
  *
- * @param ListInstalledComponentsCommandInput - {@link ListInstalledComponentsCommandInput}
- * @returns {@link ListInstalledComponentsCommandOutput}
+ * @param ListInstalledComponentsRequest - {@link ListInstalledComponentsRequest}
+ * @returns {@link ListInstalledComponentsResponse}
  * @see {@link ListInstalledComponentsCommandInput} for command's `input` shape.
  * @see {@link ListInstalledComponentsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

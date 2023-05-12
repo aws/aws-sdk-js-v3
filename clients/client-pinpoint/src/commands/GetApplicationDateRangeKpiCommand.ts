@@ -81,8 +81,8 @@ export interface GetApplicationDateRangeKpiCommandOutput extends GetApplicationD
  *
  * ```
  *
- * @param GetApplicationDateRangeKpiCommandInput - {@link GetApplicationDateRangeKpiCommandInput}
- * @returns {@link GetApplicationDateRangeKpiCommandOutput}
+ * @param GetApplicationDateRangeKpiRequest - {@link GetApplicationDateRangeKpiRequest}
+ * @returns {@link GetApplicationDateRangeKpiResponse}
  * @see {@link GetApplicationDateRangeKpiCommandInput} for command's `input` shape.
  * @see {@link GetApplicationDateRangeKpiCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

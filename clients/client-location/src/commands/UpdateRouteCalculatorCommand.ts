@@ -54,8 +54,8 @@ export interface UpdateRouteCalculatorCommandOutput extends UpdateRouteCalculato
  *
  * ```
  *
- * @param UpdateRouteCalculatorCommandInput - {@link UpdateRouteCalculatorCommandInput}
- * @returns {@link UpdateRouteCalculatorCommandOutput}
+ * @param UpdateRouteCalculatorRequest - {@link UpdateRouteCalculatorRequest}
+ * @returns {@link UpdateRouteCalculatorResponse}
  * @see {@link UpdateRouteCalculatorCommandInput} for command's `input` shape.
  * @see {@link UpdateRouteCalculatorCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

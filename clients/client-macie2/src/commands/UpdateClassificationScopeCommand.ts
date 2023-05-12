@@ -56,8 +56,8 @@ export interface UpdateClassificationScopeCommandOutput extends UpdateClassifica
  *
  * ```
  *
- * @param UpdateClassificationScopeCommandInput - {@link UpdateClassificationScopeCommandInput}
- * @returns {@link UpdateClassificationScopeCommandOutput}
+ * @param UpdateClassificationScopeRequest - {@link UpdateClassificationScopeRequest}
+ * @returns {@link UpdateClassificationScopeResponse}
  * @see {@link UpdateClassificationScopeCommandInput} for command's `input` shape.
  * @see {@link UpdateClassificationScopeCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.

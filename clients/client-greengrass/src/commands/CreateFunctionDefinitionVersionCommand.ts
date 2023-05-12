@@ -102,8 +102,8 @@ export interface CreateFunctionDefinitionVersionCommandOutput
  *
  * ```
  *
- * @param CreateFunctionDefinitionVersionCommandInput - {@link CreateFunctionDefinitionVersionCommandInput}
- * @returns {@link CreateFunctionDefinitionVersionCommandOutput}
+ * @param CreateFunctionDefinitionVersionRequest - {@link CreateFunctionDefinitionVersionRequest}
+ * @returns {@link CreateFunctionDefinitionVersionResponse}
  * @see {@link CreateFunctionDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

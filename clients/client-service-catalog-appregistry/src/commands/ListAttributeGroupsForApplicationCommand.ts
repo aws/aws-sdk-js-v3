@@ -72,8 +72,8 @@ export interface ListAttributeGroupsForApplicationCommandOutput
  *
  * ```
  *
- * @param ListAttributeGroupsForApplicationCommandInput - {@link ListAttributeGroupsForApplicationCommandInput}
- * @returns {@link ListAttributeGroupsForApplicationCommandOutput}
+ * @param ListAttributeGroupsForApplicationRequest - {@link ListAttributeGroupsForApplicationRequest}
+ * @returns {@link ListAttributeGroupsForApplicationResponse}
  * @see {@link ListAttributeGroupsForApplicationCommandInput} for command's `input` shape.
  * @see {@link ListAttributeGroupsForApplicationCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.

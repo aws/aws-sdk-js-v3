@@ -67,8 +67,8 @@ export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __Met
  *
  * ```
  *
- * @param GetUserPolicyCommandInput - {@link GetUserPolicyCommandInput}
- * @returns {@link GetUserPolicyCommandOutput}
+ * @param GetUserPolicyRequest - {@link GetUserPolicyRequest}
+ * @returns {@link GetUserPolicyResponse}
  * @see {@link GetUserPolicyCommandInput} for command's `input` shape.
  * @see {@link GetUserPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -73,8 +73,8 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  *
  * ```
  *
- * @param CreateSnapshotCopyGrantCommandInput - {@link CreateSnapshotCopyGrantCommandInput}
- * @returns {@link CreateSnapshotCopyGrantCommandOutput}
+ * @param CreateSnapshotCopyGrantMessage - {@link CreateSnapshotCopyGrantMessage}
+ * @returns {@link CreateSnapshotCopyGrantResult}
  * @see {@link CreateSnapshotCopyGrantCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCopyGrantCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

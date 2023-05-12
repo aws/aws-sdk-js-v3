@@ -64,8 +64,8 @@ export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsFo
  *
  * ```
  *
- * @param GetCredentialsForIdentityCommandInput - {@link GetCredentialsForIdentityCommandInput}
- * @returns {@link GetCredentialsForIdentityCommandOutput}
+ * @param GetCredentialsForIdentityInput - {@link GetCredentialsForIdentityInput}
+ * @returns {@link GetCredentialsForIdentityResponse}
  * @see {@link GetCredentialsForIdentityCommandInput} for command's `input` shape.
  * @see {@link GetCredentialsForIdentityCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.

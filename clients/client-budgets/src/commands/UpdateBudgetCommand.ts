@@ -107,8 +107,8 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  *
  * ```
  *
- * @param UpdateBudgetCommandInput - {@link UpdateBudgetCommandInput}
- * @returns {@link UpdateBudgetCommandOutput}
+ * @param UpdateBudgetRequest - {@link UpdateBudgetRequest}
+ * @returns {@link UpdateBudgetResponse}
  * @see {@link UpdateBudgetCommandInput} for command's `input` shape.
  * @see {@link UpdateBudgetCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

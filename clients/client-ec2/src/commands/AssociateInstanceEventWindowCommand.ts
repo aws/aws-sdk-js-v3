@@ -103,8 +103,8 @@ export interface AssociateInstanceEventWindowCommandOutput
  *
  * ```
  *
- * @param AssociateInstanceEventWindowCommandInput - {@link AssociateInstanceEventWindowCommandInput}
- * @returns {@link AssociateInstanceEventWindowCommandOutput}
+ * @param AssociateInstanceEventWindowRequest - {@link AssociateInstanceEventWindowRequest}
+ * @returns {@link AssociateInstanceEventWindowResult}
  * @see {@link AssociateInstanceEventWindowCommandInput} for command's `input` shape.
  * @see {@link AssociateInstanceEventWindowCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -53,8 +53,8 @@ export interface RunFleetAdvisorLsaAnalysisCommandOutput extends RunFleetAdvisor
  *
  * ```
  *
- * @param RunFleetAdvisorLsaAnalysisCommandInput - {@link RunFleetAdvisorLsaAnalysisCommandInput}
- * @returns {@link RunFleetAdvisorLsaAnalysisCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link RunFleetAdvisorLsaAnalysisResponse}
  * @see {@link RunFleetAdvisorLsaAnalysisCommandInput} for command's `input` shape.
  * @see {@link RunFleetAdvisorLsaAnalysisCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

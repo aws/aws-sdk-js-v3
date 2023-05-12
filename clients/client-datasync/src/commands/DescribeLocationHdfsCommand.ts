@@ -72,8 +72,8 @@ export interface DescribeLocationHdfsCommandOutput extends DescribeLocationHdfsR
  *
  * ```
  *
- * @param DescribeLocationHdfsCommandInput - {@link DescribeLocationHdfsCommandInput}
- * @returns {@link DescribeLocationHdfsCommandOutput}
+ * @param DescribeLocationHdfsRequest - {@link DescribeLocationHdfsRequest}
+ * @returns {@link DescribeLocationHdfsResponse}
  * @see {@link DescribeLocationHdfsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationHdfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

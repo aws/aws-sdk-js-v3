@@ -70,8 +70,8 @@ export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccoun
  *
  * ```
  *
- * @param GetRegisterAccountStatusCommandInput - {@link GetRegisterAccountStatusCommandInput}
- * @returns {@link GetRegisterAccountStatusCommandOutput}
+ * @param GetRegisterAccountStatusRequest - {@link GetRegisterAccountStatusRequest}
+ * @returns {@link GetRegisterAccountStatusResponse}
  * @see {@link GetRegisterAccountStatusCommandInput} for command's `input` shape.
  * @see {@link GetRegisterAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

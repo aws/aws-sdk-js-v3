@@ -73,8 +73,8 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerResul
  *
  * ```
  *
- * @param DeleteLoadBalancerCommandInput - {@link DeleteLoadBalancerCommandInput}
- * @returns {@link DeleteLoadBalancerCommandOutput}
+ * @param DeleteLoadBalancerRequest - {@link DeleteLoadBalancerRequest}
+ * @returns {@link DeleteLoadBalancerResult}
  * @see {@link DeleteLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DeleteLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

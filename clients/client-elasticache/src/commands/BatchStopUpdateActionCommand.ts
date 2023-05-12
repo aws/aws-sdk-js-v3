@@ -72,8 +72,8 @@ export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsM
  *
  * ```
  *
- * @param BatchStopUpdateActionCommandInput - {@link BatchStopUpdateActionCommandInput}
- * @returns {@link BatchStopUpdateActionCommandOutput}
+ * @param BatchStopUpdateActionMessage - {@link BatchStopUpdateActionMessage}
+ * @returns {@link UpdateActionResultsMessage}
  * @see {@link BatchStopUpdateActionCommandInput} for command's `input` shape.
  * @see {@link BatchStopUpdateActionCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

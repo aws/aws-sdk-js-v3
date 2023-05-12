@@ -64,8 +64,8 @@ export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetIm
  *
  * ```
  *
- * @param DescribeDatasetImportJobCommandInput - {@link DescribeDatasetImportJobCommandInput}
- * @returns {@link DescribeDatasetImportJobCommandOutput}
+ * @param DescribeDatasetImportJobRequest - {@link DescribeDatasetImportJobRequest}
+ * @returns {@link DescribeDatasetImportJobResponse}
  * @see {@link DescribeDatasetImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetImportJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

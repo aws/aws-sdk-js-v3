@@ -70,8 +70,8 @@ export interface GetConfiguredTableCommandOutput extends GetConfiguredTableOutpu
  *
  * ```
  *
- * @param GetConfiguredTableCommandInput - {@link GetConfiguredTableCommandInput}
- * @returns {@link GetConfiguredTableCommandOutput}
+ * @param GetConfiguredTableInput - {@link GetConfiguredTableInput}
+ * @returns {@link GetConfiguredTableOutput}
  * @see {@link GetConfiguredTableCommandInput} for command's `input` shape.
  * @see {@link GetConfiguredTableCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

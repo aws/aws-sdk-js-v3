@@ -82,8 +82,8 @@ export interface ListSourceLocationsCommandOutput extends ListSourceLocationsRes
  *
  * ```
  *
- * @param ListSourceLocationsCommandInput - {@link ListSourceLocationsCommandInput}
- * @returns {@link ListSourceLocationsCommandOutput}
+ * @param ListSourceLocationsRequest - {@link ListSourceLocationsRequest}
+ * @returns {@link ListSourceLocationsResponse}
  * @see {@link ListSourceLocationsCommandInput} for command's `input` shape.
  * @see {@link ListSourceLocationsCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

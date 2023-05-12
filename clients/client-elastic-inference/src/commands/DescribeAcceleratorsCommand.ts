@@ -80,8 +80,8 @@ export interface DescribeAcceleratorsCommandOutput extends DescribeAcceleratorsR
  *
  * ```
  *
- * @param DescribeAcceleratorsCommandInput - {@link DescribeAcceleratorsCommandInput}
- * @returns {@link DescribeAcceleratorsCommandOutput}
+ * @param DescribeAcceleratorsRequest - {@link DescribeAcceleratorsRequest}
+ * @returns {@link DescribeAcceleratorsResponse}
  * @see {@link DescribeAcceleratorsCommandInput} for command's `input` shape.
  * @see {@link DescribeAcceleratorsCommandOutput} for command's `response` shape.
  * @see {@link ElasticInferenceClientResolvedConfig | config} for ElasticInferenceClient's `config` shape.

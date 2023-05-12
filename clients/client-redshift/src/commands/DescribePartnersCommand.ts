@@ -62,8 +62,8 @@ export interface DescribePartnersCommandOutput extends DescribePartnersOutputMes
  *
  * ```
  *
- * @param DescribePartnersCommandInput - {@link DescribePartnersCommandInput}
- * @returns {@link DescribePartnersCommandOutput}
+ * @param DescribePartnersInputMessage - {@link DescribePartnersInputMessage}
+ * @returns {@link DescribePartnersOutputMessage}
  * @see {@link DescribePartnersCommandInput} for command's `input` shape.
  * @see {@link DescribePartnersCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

@@ -92,8 +92,8 @@ export interface TerminateWorkflowExecutionCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param TerminateWorkflowExecutionCommandInput - {@link TerminateWorkflowExecutionCommandInput}
- * @returns {@link TerminateWorkflowExecutionCommandOutput}
+ * @param TerminateWorkflowExecutionInput - {@link TerminateWorkflowExecutionInput}
+ * @returns {@link Unit}
  * @see {@link TerminateWorkflowExecutionCommandInput} for command's `input` shape.
  * @see {@link TerminateWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

@@ -78,8 +78,8 @@ export interface RemoveDraftAppVersionResourceMappingsCommandOutput
  *
  * ```
  *
- * @param RemoveDraftAppVersionResourceMappingsCommandInput - {@link RemoveDraftAppVersionResourceMappingsCommandInput}
- * @returns {@link RemoveDraftAppVersionResourceMappingsCommandOutput}
+ * @param RemoveDraftAppVersionResourceMappingsRequest - {@link RemoveDraftAppVersionResourceMappingsRequest}
+ * @returns {@link RemoveDraftAppVersionResourceMappingsResponse}
  * @see {@link RemoveDraftAppVersionResourceMappingsCommandInput} for command's `input` shape.
  * @see {@link RemoveDraftAppVersionResourceMappingsCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

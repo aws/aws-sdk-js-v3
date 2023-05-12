@@ -86,8 +86,8 @@ export interface GetResourceEventConfigurationCommandOutput
  *
  * ```
  *
- * @param GetResourceEventConfigurationCommandInput - {@link GetResourceEventConfigurationCommandInput}
- * @returns {@link GetResourceEventConfigurationCommandOutput}
+ * @param GetResourceEventConfigurationRequest - {@link GetResourceEventConfigurationRequest}
+ * @returns {@link GetResourceEventConfigurationResponse}
  * @see {@link GetResourceEventConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetResourceEventConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

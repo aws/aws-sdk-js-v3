@@ -75,8 +75,8 @@ export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageR
  *
  * ```
  *
- * @param UpdateChannelMessageCommandInput - {@link UpdateChannelMessageCommandInput}
- * @returns {@link UpdateChannelMessageCommandOutput}
+ * @param UpdateChannelMessageRequest - {@link UpdateChannelMessageRequest}
+ * @returns {@link UpdateChannelMessageResponse}
  * @see {@link UpdateChannelMessageCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

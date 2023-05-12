@@ -74,8 +74,8 @@ export interface SearchAddressBooksCommandOutput extends SearchAddressBooksRespo
  *
  * ```
  *
- * @param SearchAddressBooksCommandInput - {@link SearchAddressBooksCommandInput}
- * @returns {@link SearchAddressBooksCommandOutput}
+ * @param SearchAddressBooksRequest - {@link SearchAddressBooksRequest}
+ * @returns {@link SearchAddressBooksResponse}
  * @see {@link SearchAddressBooksCommandInput} for command's `input` shape.
  * @see {@link SearchAddressBooksCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

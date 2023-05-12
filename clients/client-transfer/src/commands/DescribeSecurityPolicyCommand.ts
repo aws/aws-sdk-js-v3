@@ -68,8 +68,8 @@ export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPol
  *
  * ```
  *
- * @param DescribeSecurityPolicyCommandInput - {@link DescribeSecurityPolicyCommandInput}
- * @returns {@link DescribeSecurityPolicyCommandOutput}
+ * @param DescribeSecurityPolicyRequest - {@link DescribeSecurityPolicyRequest}
+ * @returns {@link DescribeSecurityPolicyResponse}
  * @see {@link DescribeSecurityPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityPolicyCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

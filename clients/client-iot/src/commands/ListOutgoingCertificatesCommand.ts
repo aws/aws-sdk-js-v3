@@ -63,8 +63,8 @@ export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCerti
  *
  * ```
  *
- * @param ListOutgoingCertificatesCommandInput - {@link ListOutgoingCertificatesCommandInput}
- * @returns {@link ListOutgoingCertificatesCommandOutput}
+ * @param ListOutgoingCertificatesRequest - {@link ListOutgoingCertificatesRequest}
+ * @returns {@link ListOutgoingCertificatesResponse}
  * @see {@link ListOutgoingCertificatesCommandInput} for command's `input` shape.
  * @see {@link ListOutgoingCertificatesCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

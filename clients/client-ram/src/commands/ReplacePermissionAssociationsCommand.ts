@@ -83,8 +83,8 @@ export interface ReplacePermissionAssociationsCommandOutput
  *
  * ```
  *
- * @param ReplacePermissionAssociationsCommandInput - {@link ReplacePermissionAssociationsCommandInput}
- * @returns {@link ReplacePermissionAssociationsCommandOutput}
+ * @param ReplacePermissionAssociationsRequest - {@link ReplacePermissionAssociationsRequest}
+ * @returns {@link ReplacePermissionAssociationsResponse}
  * @see {@link ReplacePermissionAssociationsCommandInput} for command's `input` shape.
  * @see {@link ReplacePermissionAssociationsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

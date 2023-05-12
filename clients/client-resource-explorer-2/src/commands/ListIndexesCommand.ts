@@ -67,8 +67,8 @@ export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataB
  *
  * ```
  *
- * @param ListIndexesCommandInput - {@link ListIndexesCommandInput}
- * @returns {@link ListIndexesCommandOutput}
+ * @param ListIndexesInput - {@link ListIndexesInput}
+ * @returns {@link ListIndexesOutput}
  * @see {@link ListIndexesCommandInput} for command's `input` shape.
  * @see {@link ListIndexesCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

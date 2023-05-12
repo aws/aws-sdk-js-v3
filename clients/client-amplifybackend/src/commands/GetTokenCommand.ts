@@ -54,8 +54,8 @@ export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBeare
  *
  * ```
  *
- * @param GetTokenCommandInput - {@link GetTokenCommandInput}
- * @returns {@link GetTokenCommandOutput}
+ * @param GetTokenRequest - {@link GetTokenRequest}
+ * @returns {@link GetTokenResponse}
  * @see {@link GetTokenCommandInput} for command's `input` shape.
  * @see {@link GetTokenCommandOutput} for command's `response` shape.
  * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.

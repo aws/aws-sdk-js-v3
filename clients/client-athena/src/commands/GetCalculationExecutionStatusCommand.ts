@@ -64,8 +64,8 @@ export interface GetCalculationExecutionStatusCommandOutput
  *
  * ```
  *
- * @param GetCalculationExecutionStatusCommandInput - {@link GetCalculationExecutionStatusCommandInput}
- * @returns {@link GetCalculationExecutionStatusCommandOutput}
+ * @param GetCalculationExecutionStatusRequest - {@link GetCalculationExecutionStatusRequest}
+ * @returns {@link GetCalculationExecutionStatusResponse}
  * @see {@link GetCalculationExecutionStatusCommandInput} for command's `input` shape.
  * @see {@link GetCalculationExecutionStatusCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

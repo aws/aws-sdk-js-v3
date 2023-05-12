@@ -54,8 +54,8 @@ export interface StopTrainingJobCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopTrainingJobCommandInput - {@link StopTrainingJobCommandInput}
- * @returns {@link StopTrainingJobCommandOutput}
+ * @param StopTrainingJobRequest - {@link StopTrainingJobRequest}
+ * @returns {@link Unit}
  * @see {@link StopTrainingJobCommandInput} for command's `input` shape.
  * @see {@link StopTrainingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

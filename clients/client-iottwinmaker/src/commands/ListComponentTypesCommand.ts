@@ -78,8 +78,8 @@ export interface ListComponentTypesCommandOutput extends ListComponentTypesRespo
  *
  * ```
  *
- * @param ListComponentTypesCommandInput - {@link ListComponentTypesCommandInput}
- * @returns {@link ListComponentTypesCommandOutput}
+ * @param ListComponentTypesRequest - {@link ListComponentTypesRequest}
+ * @returns {@link ListComponentTypesResponse}
  * @see {@link ListComponentTypesCommandInput} for command's `input` shape.
  * @see {@link ListComponentTypesCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

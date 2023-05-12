@@ -71,8 +71,8 @@ export interface CancelResizeCommandOutput extends ResizeProgressMessage, __Meta
  *
  * ```
  *
- * @param CancelResizeCommandInput - {@link CancelResizeCommandInput}
- * @returns {@link CancelResizeCommandOutput}
+ * @param CancelResizeMessage - {@link CancelResizeMessage}
+ * @returns {@link ResizeProgressMessage}
  * @see {@link CancelResizeCommandInput} for command's `input` shape.
  * @see {@link CancelResizeCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

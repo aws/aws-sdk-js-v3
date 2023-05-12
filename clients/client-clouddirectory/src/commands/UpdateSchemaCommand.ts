@@ -52,8 +52,8 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  *
  * ```
  *
- * @param UpdateSchemaCommandInput - {@link UpdateSchemaCommandInput}
- * @returns {@link UpdateSchemaCommandOutput}
+ * @param UpdateSchemaRequest - {@link UpdateSchemaRequest}
+ * @returns {@link UpdateSchemaResponse}
  * @see {@link UpdateSchemaCommandInput} for command's `input` shape.
  * @see {@link UpdateSchemaCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

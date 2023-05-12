@@ -229,8 +229,8 @@ export interface DescribeGatewayRouteCommandOutput extends DescribeGatewayRouteO
  *
  * ```
  *
- * @param DescribeGatewayRouteCommandInput - {@link DescribeGatewayRouteCommandInput}
- * @returns {@link DescribeGatewayRouteCommandOutput}
+ * @param DescribeGatewayRouteInput - {@link DescribeGatewayRouteInput}
+ * @returns {@link DescribeGatewayRouteOutput}
  * @see {@link DescribeGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link DescribeGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

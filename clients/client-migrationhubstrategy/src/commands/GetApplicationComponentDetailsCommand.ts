@@ -144,8 +144,8 @@ export interface GetApplicationComponentDetailsCommandOutput
  *
  * ```
  *
- * @param GetApplicationComponentDetailsCommandInput - {@link GetApplicationComponentDetailsCommandInput}
- * @returns {@link GetApplicationComponentDetailsCommandOutput}
+ * @param GetApplicationComponentDetailsRequest - {@link GetApplicationComponentDetailsRequest}
+ * @returns {@link GetApplicationComponentDetailsResponse}
  * @see {@link GetApplicationComponentDetailsCommandInput} for command's `input` shape.
  * @see {@link GetApplicationComponentDetailsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

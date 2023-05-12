@@ -88,8 +88,8 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResult, __Met
  *
  * ```
  *
- * @param CreateInstanceCommandInput - {@link CreateInstanceCommandInput}
- * @returns {@link CreateInstanceCommandOutput}
+ * @param CreateInstanceRequest - {@link CreateInstanceRequest}
+ * @returns {@link CreateInstanceResult}
  * @see {@link CreateInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

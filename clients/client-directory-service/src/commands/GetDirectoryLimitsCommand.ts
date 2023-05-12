@@ -58,8 +58,8 @@ export interface GetDirectoryLimitsCommandOutput extends GetDirectoryLimitsResul
  *
  * ```
  *
- * @param GetDirectoryLimitsCommandInput - {@link GetDirectoryLimitsCommandInput}
- * @returns {@link GetDirectoryLimitsCommandOutput}
+ * @param GetDirectoryLimitsRequest - {@link GetDirectoryLimitsRequest}
+ * @returns {@link GetDirectoryLimitsResult}
  * @see {@link GetDirectoryLimitsCommandInput} for command's `input` shape.
  * @see {@link GetDirectoryLimitsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

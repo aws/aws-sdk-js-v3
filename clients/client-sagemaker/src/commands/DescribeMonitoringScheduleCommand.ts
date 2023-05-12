@@ -174,8 +174,8 @@ export interface DescribeMonitoringScheduleCommandOutput extends DescribeMonitor
  *
  * ```
  *
- * @param DescribeMonitoringScheduleCommandInput - {@link DescribeMonitoringScheduleCommandInput}
- * @returns {@link DescribeMonitoringScheduleCommandOutput}
+ * @param DescribeMonitoringScheduleRequest - {@link DescribeMonitoringScheduleRequest}
+ * @returns {@link DescribeMonitoringScheduleResponse}
  * @see {@link DescribeMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeMonitoringScheduleCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

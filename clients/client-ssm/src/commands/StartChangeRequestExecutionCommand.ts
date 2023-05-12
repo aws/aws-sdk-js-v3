@@ -120,8 +120,8 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  *
  * ```
  *
- * @param StartChangeRequestExecutionCommandInput - {@link StartChangeRequestExecutionCommandInput}
- * @returns {@link StartChangeRequestExecutionCommandOutput}
+ * @param StartChangeRequestExecutionRequest - {@link StartChangeRequestExecutionRequest}
+ * @returns {@link StartChangeRequestExecutionResult}
  * @see {@link StartChangeRequestExecutionCommandInput} for command's `input` shape.
  * @see {@link StartChangeRequestExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

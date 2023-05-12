@@ -193,8 +193,8 @@ export interface GetLabelDetectionCommandOutput extends GetLabelDetectionRespons
  *
  * ```
  *
- * @param GetLabelDetectionCommandInput - {@link GetLabelDetectionCommandInput}
- * @returns {@link GetLabelDetectionCommandOutput}
+ * @param GetLabelDetectionRequest - {@link GetLabelDetectionRequest}
+ * @returns {@link GetLabelDetectionResponse}
  * @see {@link GetLabelDetectionCommandInput} for command's `input` shape.
  * @see {@link GetLabelDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

@@ -125,8 +125,8 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  *
  * ```
  *
- * @param DescribeGameSessionsCommandInput - {@link DescribeGameSessionsCommandInput}
- * @returns {@link DescribeGameSessionsCommandOutput}
+ * @param DescribeGameSessionsInput - {@link DescribeGameSessionsInput}
+ * @returns {@link DescribeGameSessionsOutput}
  * @see {@link DescribeGameSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeGameSessionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

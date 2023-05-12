@@ -51,8 +51,8 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  *
  * ```
  *
- * @param PutFeedbackCommandInput - {@link PutFeedbackCommandInput}
- * @returns {@link PutFeedbackCommandOutput}
+ * @param PutFeedbackRequest - {@link PutFeedbackRequest}
+ * @returns {@link PutFeedbackResponse}
  * @see {@link PutFeedbackCommandInput} for command's `input` shape.
  * @see {@link PutFeedbackCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

@@ -78,8 +78,8 @@ export interface UpdateConnectionAliasPermissionCommandOutput
  *
  * ```
  *
- * @param UpdateConnectionAliasPermissionCommandInput - {@link UpdateConnectionAliasPermissionCommandInput}
- * @returns {@link UpdateConnectionAliasPermissionCommandOutput}
+ * @param UpdateConnectionAliasPermissionRequest - {@link UpdateConnectionAliasPermissionRequest}
+ * @returns {@link UpdateConnectionAliasPermissionResult}
  * @see {@link UpdateConnectionAliasPermissionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionAliasPermissionCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

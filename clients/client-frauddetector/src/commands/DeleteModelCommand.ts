@@ -51,8 +51,8 @@ export interface DeleteModelCommandOutput extends DeleteModelResult, __MetadataB
  *
  * ```
  *
- * @param DeleteModelCommandInput - {@link DeleteModelCommandInput}
- * @returns {@link DeleteModelCommandOutput}
+ * @param DeleteModelRequest - {@link DeleteModelRequest}
+ * @returns {@link DeleteModelResult}
  * @see {@link DeleteModelCommandInput} for command's `input` shape.
  * @see {@link DeleteModelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

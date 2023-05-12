@@ -83,8 +83,8 @@ export interface GetFilterCommandOutput extends GetFilterResponse, __MetadataBea
  *
  * ```
  *
- * @param GetFilterCommandInput - {@link GetFilterCommandInput}
- * @returns {@link GetFilterCommandOutput}
+ * @param GetFilterRequest - {@link GetFilterRequest}
+ * @returns {@link GetFilterResponse}
  * @see {@link GetFilterCommandInput} for command's `input` shape.
  * @see {@link GetFilterCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

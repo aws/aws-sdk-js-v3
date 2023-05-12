@@ -56,8 +56,8 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  *
  * ```
  *
- * @param GetQueueUrlCommandInput - {@link GetQueueUrlCommandInput}
- * @returns {@link GetQueueUrlCommandOutput}
+ * @param GetQueueUrlRequest - {@link GetQueueUrlRequest}
+ * @returns {@link GetQueueUrlResult}
  * @see {@link GetQueueUrlCommandInput} for command's `input` shape.
  * @see {@link GetQueueUrlCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.

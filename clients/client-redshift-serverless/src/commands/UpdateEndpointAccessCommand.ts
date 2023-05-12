@@ -86,8 +86,8 @@ export interface UpdateEndpointAccessCommandOutput extends UpdateEndpointAccessR
  *
  * ```
  *
- * @param UpdateEndpointAccessCommandInput - {@link UpdateEndpointAccessCommandInput}
- * @returns {@link UpdateEndpointAccessCommandOutput}
+ * @param UpdateEndpointAccessRequest - {@link UpdateEndpointAccessRequest}
+ * @returns {@link UpdateEndpointAccessResponse}
  * @see {@link UpdateEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

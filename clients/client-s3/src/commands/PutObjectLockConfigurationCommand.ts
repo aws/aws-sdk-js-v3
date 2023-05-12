@@ -85,8 +85,8 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  *
  * ```
  *
- * @param PutObjectLockConfigurationCommandInput - {@link PutObjectLockConfigurationCommandInput}
- * @returns {@link PutObjectLockConfigurationCommandOutput}
+ * @param PutObjectLockConfigurationRequest - {@link PutObjectLockConfigurationRequest}
+ * @returns {@link PutObjectLockConfigurationOutput}
  * @see {@link PutObjectLockConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutObjectLockConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

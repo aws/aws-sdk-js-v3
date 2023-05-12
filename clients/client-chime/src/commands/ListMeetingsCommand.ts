@@ -71,8 +71,8 @@ export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __Metad
  *
  * ```
  *
- * @param ListMeetingsCommandInput - {@link ListMeetingsCommandInput}
- * @returns {@link ListMeetingsCommandOutput}
+ * @param ListMeetingsRequest - {@link ListMeetingsRequest}
+ * @returns {@link ListMeetingsResponse}
  * @see {@link ListMeetingsCommandInput} for command's `input` shape.
  * @see {@link ListMeetingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

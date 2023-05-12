@@ -57,8 +57,8 @@ export interface ListNetworkSettingsCommandOutput extends ListNetworkSettingsRes
  *
  * ```
  *
- * @param ListNetworkSettingsCommandInput - {@link ListNetworkSettingsCommandInput}
- * @returns {@link ListNetworkSettingsCommandOutput}
+ * @param ListNetworkSettingsRequest - {@link ListNetworkSettingsRequest}
+ * @returns {@link ListNetworkSettingsResponse}
  * @see {@link ListNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link ListNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

@@ -61,8 +61,8 @@ export interface ListClustersCommandOutput extends ListClustersResult, __Metadat
  *
  * ```
  *
- * @param ListClustersCommandInput - {@link ListClustersCommandInput}
- * @returns {@link ListClustersCommandOutput}
+ * @param ListClustersRequest - {@link ListClustersRequest}
+ * @returns {@link ListClustersResult}
  * @see {@link ListClustersCommandInput} for command's `input` shape.
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

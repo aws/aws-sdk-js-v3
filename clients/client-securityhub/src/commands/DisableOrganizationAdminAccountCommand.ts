@@ -54,8 +54,8 @@ export interface DisableOrganizationAdminAccountCommandOutput
  *
  * ```
  *
- * @param DisableOrganizationAdminAccountCommandInput - {@link DisableOrganizationAdminAccountCommandInput}
- * @returns {@link DisableOrganizationAdminAccountCommandOutput}
+ * @param DisableOrganizationAdminAccountRequest - {@link DisableOrganizationAdminAccountRequest}
+ * @returns {@link DisableOrganizationAdminAccountResponse}
  * @see {@link DisableOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DisableOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

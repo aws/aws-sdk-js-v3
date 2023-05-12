@@ -446,8 +446,8 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  *
  * ```
  *
- * @param StartConversationCommandInput - {@link StartConversationCommandInput}
- * @returns {@link StartConversationCommandOutput}
+ * @param StartConversationRequest - {@link StartConversationRequest}
+ * @returns {@link StartConversationResponse}
  * @see {@link StartConversationCommandInput} for command's `input` shape.
  * @see {@link StartConversationCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.

@@ -71,8 +71,8 @@ export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResul
  *
  * ```
  *
- * @param UpdateModelVersionCommandInput - {@link UpdateModelVersionCommandInput}
- * @returns {@link UpdateModelVersionCommandOutput}
+ * @param UpdateModelVersionRequest - {@link UpdateModelVersionRequest}
+ * @returns {@link UpdateModelVersionResult}
  * @see {@link UpdateModelVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateModelVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

@@ -53,8 +53,8 @@ export interface DisableOrganizationAdminAccountCommandOutput extends __Metadata
  *
  * ```
  *
- * @param DisableOrganizationAdminAccountCommandInput - {@link DisableOrganizationAdminAccountCommandInput}
- * @returns {@link DisableOrganizationAdminAccountCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link Unit}
  * @see {@link DisableOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DisableOrganizationAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

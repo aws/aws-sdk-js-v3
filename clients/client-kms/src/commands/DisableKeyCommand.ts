@@ -62,8 +62,8 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DisableKeyCommandInput - {@link DisableKeyCommandInput}
- * @returns {@link DisableKeyCommandOutput}
+ * @param DisableKeyRequest - {@link DisableKeyRequest}
+ * @returns {@link Unit}
  * @see {@link DisableKeyCommandInput} for command's `input` shape.
  * @see {@link DisableKeyCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

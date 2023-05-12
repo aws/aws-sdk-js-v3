@@ -56,8 +56,8 @@ export interface UpdateCampaignOutboundCallConfigCommandOutput extends __Metadat
  *
  * ```
  *
- * @param UpdateCampaignOutboundCallConfigCommandInput - {@link UpdateCampaignOutboundCallConfigCommandInput}
- * @returns {@link UpdateCampaignOutboundCallConfigCommandOutput}
+ * @param UpdateCampaignOutboundCallConfigRequest - {@link UpdateCampaignOutboundCallConfigRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateCampaignOutboundCallConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateCampaignOutboundCallConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

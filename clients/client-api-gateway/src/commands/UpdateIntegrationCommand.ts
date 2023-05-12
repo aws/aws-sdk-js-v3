@@ -94,8 +94,8 @@ export interface UpdateIntegrationCommandOutput extends Integration, __MetadataB
  *
  * ```
  *
- * @param UpdateIntegrationCommandInput - {@link UpdateIntegrationCommandInput}
- * @returns {@link UpdateIntegrationCommandOutput}
+ * @param UpdateIntegrationRequest - {@link UpdateIntegrationRequest}
+ * @returns {@link Integration}
  * @see {@link UpdateIntegrationCommandInput} for command's `input` shape.
  * @see {@link UpdateIntegrationCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

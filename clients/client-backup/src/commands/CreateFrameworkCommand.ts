@@ -81,8 +81,8 @@ export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __M
  *
  * ```
  *
- * @param CreateFrameworkCommandInput - {@link CreateFrameworkCommandInput}
- * @returns {@link CreateFrameworkCommandOutput}
+ * @param CreateFrameworkInput - {@link CreateFrameworkInput}
+ * @returns {@link CreateFrameworkOutput}
  * @see {@link CreateFrameworkCommandInput} for command's `input` shape.
  * @see {@link CreateFrameworkCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

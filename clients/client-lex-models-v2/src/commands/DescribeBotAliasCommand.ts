@@ -110,8 +110,8 @@ export interface DescribeBotAliasCommandOutput extends DescribeBotAliasResponse,
  *
  * ```
  *
- * @param DescribeBotAliasCommandInput - {@link DescribeBotAliasCommandInput}
- * @returns {@link DescribeBotAliasCommandOutput}
+ * @param DescribeBotAliasRequest - {@link DescribeBotAliasRequest}
+ * @returns {@link DescribeBotAliasResponse}
  * @see {@link DescribeBotAliasCommandInput} for command's `input` shape.
  * @see {@link DescribeBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

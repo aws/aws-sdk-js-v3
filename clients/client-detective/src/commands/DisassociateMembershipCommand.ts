@@ -54,8 +54,8 @@ export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DisassociateMembershipCommandInput - {@link DisassociateMembershipCommandInput}
- * @returns {@link DisassociateMembershipCommandOutput}
+ * @param DisassociateMembershipRequest - {@link DisassociateMembershipRequest}
+ * @returns {@link Unit}
  * @see {@link DisassociateMembershipCommandInput} for command's `input` shape.
  * @see {@link DisassociateMembershipCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

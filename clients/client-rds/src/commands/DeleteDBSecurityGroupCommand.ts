@@ -56,8 +56,8 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDBSecurityGroupCommandInput - {@link DeleteDBSecurityGroupCommandInput}
- * @returns {@link DeleteDBSecurityGroupCommandOutput}
+ * @param DeleteDBSecurityGroupMessage - {@link DeleteDBSecurityGroupMessage}
+ * @returns {@link Unit}
  * @see {@link DeleteDBSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

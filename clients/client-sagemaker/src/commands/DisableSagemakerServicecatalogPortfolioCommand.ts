@@ -56,8 +56,8 @@ export interface DisableSagemakerServicecatalogPortfolioCommandOutput
  *
  * ```
  *
- * @param DisableSagemakerServicecatalogPortfolioCommandInput - {@link DisableSagemakerServicecatalogPortfolioCommandInput}
- * @returns {@link DisableSagemakerServicecatalogPortfolioCommandOutput}
+ * @param DisableSagemakerServicecatalogPortfolioInput - {@link DisableSagemakerServicecatalogPortfolioInput}
+ * @returns {@link DisableSagemakerServicecatalogPortfolioOutput}
  * @see {@link DisableSagemakerServicecatalogPortfolioCommandInput} for command's `input` shape.
  * @see {@link DisableSagemakerServicecatalogPortfolioCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

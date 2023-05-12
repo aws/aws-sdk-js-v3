@@ -72,8 +72,8 @@ export interface RegisterTargetWithMaintenanceWindowCommandOutput
  *
  * ```
  *
- * @param RegisterTargetWithMaintenanceWindowCommandInput - {@link RegisterTargetWithMaintenanceWindowCommandInput}
- * @returns {@link RegisterTargetWithMaintenanceWindowCommandOutput}
+ * @param RegisterTargetWithMaintenanceWindowRequest - {@link RegisterTargetWithMaintenanceWindowRequest}
+ * @returns {@link RegisterTargetWithMaintenanceWindowResult}
  * @see {@link RegisterTargetWithMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link RegisterTargetWithMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

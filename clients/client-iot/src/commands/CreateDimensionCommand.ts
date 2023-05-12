@@ -64,8 +64,8 @@ export interface CreateDimensionCommandOutput extends CreateDimensionResponse, _
  *
  * ```
  *
- * @param CreateDimensionCommandInput - {@link CreateDimensionCommandInput}
- * @returns {@link CreateDimensionCommandOutput}
+ * @param CreateDimensionRequest - {@link CreateDimensionRequest}
+ * @returns {@link CreateDimensionResponse}
  * @see {@link CreateDimensionCommandInput} for command's `input` shape.
  * @see {@link CreateDimensionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -61,8 +61,8 @@ export interface GetPlayerConnectionStatusCommandOutput extends GetPlayerConnect
  *
  * ```
  *
- * @param GetPlayerConnectionStatusCommandInput - {@link GetPlayerConnectionStatusCommandInput}
- * @returns {@link GetPlayerConnectionStatusCommandOutput}
+ * @param GetPlayerConnectionStatusRequest - {@link GetPlayerConnectionStatusRequest}
+ * @returns {@link GetPlayerConnectionStatusResult}
  * @see {@link GetPlayerConnectionStatusCommandInput} for command's `input` shape.
  * @see {@link GetPlayerConnectionStatusCommandOutput} for command's `response` shape.
  * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.

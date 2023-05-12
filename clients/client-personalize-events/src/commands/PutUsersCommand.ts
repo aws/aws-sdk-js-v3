@@ -59,8 +59,8 @@ export interface PutUsersCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutUsersCommandInput - {@link PutUsersCommandInput}
- * @returns {@link PutUsersCommandOutput}
+ * @param PutUsersRequest - {@link PutUsersRequest}
+ * @returns {@link Unit}
  * @see {@link PutUsersCommandInput} for command's `input` shape.
  * @see {@link PutUsersCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeEventsClientResolvedConfig | config} for PersonalizeEventsClient's `config` shape.

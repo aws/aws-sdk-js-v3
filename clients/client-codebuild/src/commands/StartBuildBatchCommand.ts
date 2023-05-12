@@ -384,8 +384,8 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  *
  * ```
  *
- * @param StartBuildBatchCommandInput - {@link StartBuildBatchCommandInput}
- * @returns {@link StartBuildBatchCommandOutput}
+ * @param StartBuildBatchInput - {@link StartBuildBatchInput}
+ * @returns {@link StartBuildBatchOutput}
  * @see {@link StartBuildBatchCommandInput} for command's `input` shape.
  * @see {@link StartBuildBatchCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

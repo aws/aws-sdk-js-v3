@@ -51,8 +51,8 @@ export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurre
  *
  * ```
  *
- * @param GetFunctionConcurrencyCommandInput - {@link GetFunctionConcurrencyCommandInput}
- * @returns {@link GetFunctionConcurrencyCommandOutput}
+ * @param GetFunctionConcurrencyRequest - {@link GetFunctionConcurrencyRequest}
+ * @returns {@link GetFunctionConcurrencyResponse}
  * @see {@link GetFunctionConcurrencyCommandInput} for command's `input` shape.
  * @see {@link GetFunctionConcurrencyCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

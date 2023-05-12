@@ -60,8 +60,8 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateAccessKeyCommandInput - {@link UpdateAccessKeyCommandInput}
- * @returns {@link UpdateAccessKeyCommandOutput}
+ * @param UpdateAccessKeyRequest - {@link UpdateAccessKeyRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateAccessKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessKeyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

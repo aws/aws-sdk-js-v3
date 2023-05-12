@@ -70,8 +70,8 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
  *
  * ```
  *
- * @param ListWebsiteAuthorizationProvidersCommandInput - {@link ListWebsiteAuthorizationProvidersCommandInput}
- * @returns {@link ListWebsiteAuthorizationProvidersCommandOutput}
+ * @param ListWebsiteAuthorizationProvidersRequest - {@link ListWebsiteAuthorizationProvidersRequest}
+ * @returns {@link ListWebsiteAuthorizationProvidersResponse}
  * @see {@link ListWebsiteAuthorizationProvidersCommandInput} for command's `input` shape.
  * @see {@link ListWebsiteAuthorizationProvidersCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

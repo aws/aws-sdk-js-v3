@@ -82,8 +82,8 @@ export interface CreateRecommenderConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateRecommenderConfigurationCommandInput - {@link CreateRecommenderConfigurationCommandInput}
- * @returns {@link CreateRecommenderConfigurationCommandOutput}
+ * @param CreateRecommenderConfigurationRequest - {@link CreateRecommenderConfigurationRequest}
+ * @returns {@link CreateRecommenderConfigurationResponse}
  * @see {@link CreateRecommenderConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateRecommenderConfigurationCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

@@ -60,8 +60,8 @@ export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __M
  *
  * ```
  *
- * @param DeleteArtifactCommandInput - {@link DeleteArtifactCommandInput}
- * @returns {@link DeleteArtifactCommandOutput}
+ * @param DeleteArtifactRequest - {@link DeleteArtifactRequest}
+ * @returns {@link DeleteArtifactResponse}
  * @see {@link DeleteArtifactCommandInput} for command's `input` shape.
  * @see {@link DeleteArtifactCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -83,8 +83,8 @@ export interface ListInstanceStorageConfigsCommandOutput extends ListInstanceSto
  *
  * ```
  *
- * @param ListInstanceStorageConfigsCommandInput - {@link ListInstanceStorageConfigsCommandInput}
- * @returns {@link ListInstanceStorageConfigsCommandOutput}
+ * @param ListInstanceStorageConfigsRequest - {@link ListInstanceStorageConfigsRequest}
+ * @returns {@link ListInstanceStorageConfigsResponse}
  * @see {@link ListInstanceStorageConfigsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceStorageConfigsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

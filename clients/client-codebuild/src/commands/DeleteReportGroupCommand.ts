@@ -49,8 +49,8 @@ export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput,
  *
  * ```
  *
- * @param DeleteReportGroupCommandInput - {@link DeleteReportGroupCommandInput}
- * @returns {@link DeleteReportGroupCommandOutput}
+ * @param DeleteReportGroupInput - {@link DeleteReportGroupInput}
+ * @returns {@link DeleteReportGroupOutput}
  * @see {@link DeleteReportGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteReportGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

@@ -51,8 +51,8 @@ export interface DeleteIndexCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteIndexCommandInput - {@link DeleteIndexCommandInput}
- * @returns {@link DeleteIndexCommandOutput}
+ * @param DeleteIndexRequest - {@link DeleteIndexRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteIndexCommandInput} for command's `input` shape.
  * @see {@link DeleteIndexCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

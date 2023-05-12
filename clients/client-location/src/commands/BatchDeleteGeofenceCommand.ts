@@ -64,8 +64,8 @@ export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceRes
  *
  * ```
  *
- * @param BatchDeleteGeofenceCommandInput - {@link BatchDeleteGeofenceCommandInput}
- * @returns {@link BatchDeleteGeofenceCommandOutput}
+ * @param BatchDeleteGeofenceRequest - {@link BatchDeleteGeofenceRequest}
+ * @returns {@link BatchDeleteGeofenceResponse}
  * @see {@link BatchDeleteGeofenceCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteGeofenceCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

@@ -72,8 +72,8 @@ export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssoci
  *
  * ```
  *
- * @param DeleteDomainAssociationCommandInput - {@link DeleteDomainAssociationCommandInput}
- * @returns {@link DeleteDomainAssociationCommandOutput}
+ * @param DeleteDomainAssociationRequest - {@link DeleteDomainAssociationRequest}
+ * @returns {@link DeleteDomainAssociationResult}
  * @see {@link DeleteDomainAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainAssociationCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

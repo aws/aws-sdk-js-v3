@@ -61,8 +61,8 @@ export interface ListMediaPipelinesCommandOutput extends ListMediaPipelinesRespo
  *
  * ```
  *
- * @param ListMediaPipelinesCommandInput - {@link ListMediaPipelinesCommandInput}
- * @returns {@link ListMediaPipelinesCommandOutput}
+ * @param ListMediaPipelinesRequest - {@link ListMediaPipelinesRequest}
+ * @returns {@link ListMediaPipelinesResponse}
  * @see {@link ListMediaPipelinesCommandInput} for command's `input` shape.
  * @see {@link ListMediaPipelinesCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.

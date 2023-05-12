@@ -72,8 +72,8 @@ export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteTimeSeriesCommandInput - {@link DeleteTimeSeriesCommandInput}
- * @returns {@link DeleteTimeSeriesCommandOutput}
+ * @param DeleteTimeSeriesRequest - {@link DeleteTimeSeriesRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteTimeSeriesCommandInput} for command's `input` shape.
  * @see {@link DeleteTimeSeriesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

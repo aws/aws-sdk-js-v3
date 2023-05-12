@@ -64,8 +64,8 @@ export interface CreateCustomMetricCommandOutput extends CreateCustomMetricRespo
  *
  * ```
  *
- * @param CreateCustomMetricCommandInput - {@link CreateCustomMetricCommandInput}
- * @returns {@link CreateCustomMetricCommandOutput}
+ * @param CreateCustomMetricRequest - {@link CreateCustomMetricRequest}
+ * @returns {@link CreateCustomMetricResponse}
  * @see {@link CreateCustomMetricCommandInput} for command's `input` shape.
  * @see {@link CreateCustomMetricCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

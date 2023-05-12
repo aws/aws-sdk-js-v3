@@ -48,8 +48,8 @@ export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreRes
  *
  * ```
  *
- * @param DeleteSequenceStoreCommandInput - {@link DeleteSequenceStoreCommandInput}
- * @returns {@link DeleteSequenceStoreCommandOutput}
+ * @param DeleteSequenceStoreRequest - {@link DeleteSequenceStoreRequest}
+ * @returns {@link DeleteSequenceStoreResponse}
  * @see {@link DeleteSequenceStoreCommandInput} for command's `input` shape.
  * @see {@link DeleteSequenceStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

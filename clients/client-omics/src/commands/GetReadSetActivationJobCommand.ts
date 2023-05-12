@@ -63,8 +63,8 @@ export interface GetReadSetActivationJobCommandOutput extends GetReadSetActivati
  *
  * ```
  *
- * @param GetReadSetActivationJobCommandInput - {@link GetReadSetActivationJobCommandInput}
- * @returns {@link GetReadSetActivationJobCommandOutput}
+ * @param GetReadSetActivationJobRequest - {@link GetReadSetActivationJobRequest}
+ * @returns {@link GetReadSetActivationJobResponse}
  * @see {@link GetReadSetActivationJobCommandInput} for command's `input` shape.
  * @see {@link GetReadSetActivationJobCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

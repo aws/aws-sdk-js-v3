@@ -91,8 +91,8 @@ export interface PurchaseScheduledInstancesCommandOutput extends PurchaseSchedul
  *
  * ```
  *
- * @param PurchaseScheduledInstancesCommandInput - {@link PurchaseScheduledInstancesCommandInput}
- * @returns {@link PurchaseScheduledInstancesCommandOutput}
+ * @param PurchaseScheduledInstancesRequest - {@link PurchaseScheduledInstancesRequest}
+ * @returns {@link PurchaseScheduledInstancesResult}
  * @see {@link PurchaseScheduledInstancesCommandInput} for command's `input` shape.
  * @see {@link PurchaseScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

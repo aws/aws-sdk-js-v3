@@ -63,8 +63,8 @@ export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissi
  *
  * ```
  *
- * @param ListMailboxPermissionsCommandInput - {@link ListMailboxPermissionsCommandInput}
- * @returns {@link ListMailboxPermissionsCommandOutput}
+ * @param ListMailboxPermissionsRequest - {@link ListMailboxPermissionsRequest}
+ * @returns {@link ListMailboxPermissionsResponse}
  * @see {@link ListMailboxPermissionsCommandInput} for command's `input` shape.
  * @see {@link ListMailboxPermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

@@ -53,8 +53,8 @@ export interface StopExecutionCommandOutput extends StopExecutionOutput, __Metad
  *
  * ```
  *
- * @param StopExecutionCommandInput - {@link StopExecutionCommandInput}
- * @returns {@link StopExecutionCommandOutput}
+ * @param StopExecutionInput - {@link StopExecutionInput}
+ * @returns {@link StopExecutionOutput}
  * @see {@link StopExecutionCommandInput} for command's `input` shape.
  * @see {@link StopExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

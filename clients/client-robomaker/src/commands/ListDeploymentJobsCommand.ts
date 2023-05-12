@@ -99,8 +99,8 @@ export interface ListDeploymentJobsCommandOutput extends ListDeploymentJobsRespo
  *
  * ```
  *
- * @param ListDeploymentJobsCommandInput - {@link ListDeploymentJobsCommandInput}
- * @returns {@link ListDeploymentJobsCommandOutput}
+ * @param ListDeploymentJobsRequest - {@link ListDeploymentJobsRequest}
+ * @returns {@link ListDeploymentJobsResponse}
  * @see {@link ListDeploymentJobsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentJobsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

@@ -60,8 +60,8 @@ export interface GenerateClientCertificateCommandOutput extends ClientCertificat
  *
  * ```
  *
- * @param GenerateClientCertificateCommandInput - {@link GenerateClientCertificateCommandInput}
- * @returns {@link GenerateClientCertificateCommandOutput}
+ * @param GenerateClientCertificateRequest - {@link GenerateClientCertificateRequest}
+ * @returns {@link ClientCertificate}
  * @see {@link GenerateClientCertificateCommandInput} for command's `input` shape.
  * @see {@link GenerateClientCertificateCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

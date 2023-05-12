@@ -56,8 +56,8 @@ export interface DescribeIpRestrictionCommandOutput extends DescribeIpRestrictio
  *
  * ```
  *
- * @param DescribeIpRestrictionCommandInput - {@link DescribeIpRestrictionCommandInput}
- * @returns {@link DescribeIpRestrictionCommandOutput}
+ * @param DescribeIpRestrictionRequest - {@link DescribeIpRestrictionRequest}
+ * @returns {@link DescribeIpRestrictionResponse}
  * @see {@link DescribeIpRestrictionCommandInput} for command's `input` shape.
  * @see {@link DescribeIpRestrictionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

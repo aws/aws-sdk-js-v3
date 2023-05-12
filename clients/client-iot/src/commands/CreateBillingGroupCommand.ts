@@ -62,8 +62,8 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupRespo
  *
  * ```
  *
- * @param CreateBillingGroupCommandInput - {@link CreateBillingGroupCommandInput}
- * @returns {@link CreateBillingGroupCommandOutput}
+ * @param CreateBillingGroupRequest - {@link CreateBillingGroupRequest}
+ * @returns {@link CreateBillingGroupResponse}
  * @see {@link CreateBillingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

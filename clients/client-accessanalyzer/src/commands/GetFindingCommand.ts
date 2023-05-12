@@ -80,8 +80,8 @@ export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataB
  *
  * ```
  *
- * @param GetFindingCommandInput - {@link GetFindingCommandInput}
- * @returns {@link GetFindingCommandOutput}
+ * @param GetFindingRequest - {@link GetFindingRequest}
+ * @returns {@link GetFindingResponse}
  * @see {@link GetFindingCommandInput} for command's `input` shape.
  * @see {@link GetFindingCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

@@ -72,8 +72,8 @@ export interface ModifyInstanceMetadataOptionsCommandOutput
  *
  * ```
  *
- * @param ModifyInstanceMetadataOptionsCommandInput - {@link ModifyInstanceMetadataOptionsCommandInput}
- * @returns {@link ModifyInstanceMetadataOptionsCommandOutput}
+ * @param ModifyInstanceMetadataOptionsRequest - {@link ModifyInstanceMetadataOptionsRequest}
+ * @returns {@link ModifyInstanceMetadataOptionsResult}
  * @see {@link ModifyInstanceMetadataOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceMetadataOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

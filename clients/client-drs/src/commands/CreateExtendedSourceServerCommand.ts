@@ -158,8 +158,8 @@ export interface CreateExtendedSourceServerCommandOutput extends CreateExtendedS
  *
  * ```
  *
- * @param CreateExtendedSourceServerCommandInput - {@link CreateExtendedSourceServerCommandInput}
- * @returns {@link CreateExtendedSourceServerCommandOutput}
+ * @param CreateExtendedSourceServerRequest - {@link CreateExtendedSourceServerRequest}
+ * @returns {@link CreateExtendedSourceServerResponse}
  * @see {@link CreateExtendedSourceServerCommandInput} for command's `input` shape.
  * @see {@link CreateExtendedSourceServerCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

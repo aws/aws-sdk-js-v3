@@ -69,8 +69,8 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ReplaceRouteCommandInput - {@link ReplaceRouteCommandInput}
- * @returns {@link ReplaceRouteCommandOutput}
+ * @param ReplaceRouteRequest - {@link ReplaceRouteRequest}
+ * @returns {@link Unit}
  * @see {@link ReplaceRouteCommandInput} for command's `input` shape.
  * @see {@link ReplaceRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

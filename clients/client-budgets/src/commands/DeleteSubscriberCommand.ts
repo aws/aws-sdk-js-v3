@@ -67,8 +67,8 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  *
  * ```
  *
- * @param DeleteSubscriberCommandInput - {@link DeleteSubscriberCommandInput}
- * @returns {@link DeleteSubscriberCommandOutput}
+ * @param DeleteSubscriberRequest - {@link DeleteSubscriberRequest}
+ * @returns {@link DeleteSubscriberResponse}
  * @see {@link DeleteSubscriberCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriberCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

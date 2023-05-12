@@ -58,8 +58,8 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  *
  * ```
  *
- * @param StartEngagementCommandInput - {@link StartEngagementCommandInput}
- * @returns {@link StartEngagementCommandOutput}
+ * @param StartEngagementRequest - {@link StartEngagementRequest}
+ * @returns {@link StartEngagementResult}
  * @see {@link StartEngagementCommandInput} for command's `input` shape.
  * @see {@link StartEngagementCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

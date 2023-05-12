@@ -59,8 +59,8 @@ export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsR
  *
  * ```
  *
- * @param ListLogSubscriptionsCommandInput - {@link ListLogSubscriptionsCommandInput}
- * @returns {@link ListLogSubscriptionsCommandOutput}
+ * @param ListLogSubscriptionsRequest - {@link ListLogSubscriptionsRequest}
+ * @returns {@link ListLogSubscriptionsResult}
  * @see {@link ListLogSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link ListLogSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

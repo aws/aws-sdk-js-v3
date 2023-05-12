@@ -92,8 +92,8 @@ export interface CreateDBClusterParameterGroupCommandOutput
  *
  * ```
  *
- * @param CreateDBClusterParameterGroupCommandInput - {@link CreateDBClusterParameterGroupCommandInput}
- * @returns {@link CreateDBClusterParameterGroupCommandOutput}
+ * @param CreateDBClusterParameterGroupMessage - {@link CreateDBClusterParameterGroupMessage}
+ * @returns {@link CreateDBClusterParameterGroupResult}
  * @see {@link CreateDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

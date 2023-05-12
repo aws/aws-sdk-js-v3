@@ -60,8 +60,8 @@ export interface DescribeConstraintCommandOutput extends DescribeConstraintOutpu
  *
  * ```
  *
- * @param DescribeConstraintCommandInput - {@link DescribeConstraintCommandInput}
- * @returns {@link DescribeConstraintCommandOutput}
+ * @param DescribeConstraintInput - {@link DescribeConstraintInput}
+ * @returns {@link DescribeConstraintOutput}
  * @see {@link DescribeConstraintCommandInput} for command's `input` shape.
  * @see {@link DescribeConstraintCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

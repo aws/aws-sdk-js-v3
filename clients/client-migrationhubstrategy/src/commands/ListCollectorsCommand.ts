@@ -96,8 +96,8 @@ export interface ListCollectorsCommandOutput extends ListCollectorsResponse, __M
  *
  * ```
  *
- * @param ListCollectorsCommandInput - {@link ListCollectorsCommandInput}
- * @returns {@link ListCollectorsCommandOutput}
+ * @param ListCollectorsRequest - {@link ListCollectorsRequest}
+ * @returns {@link ListCollectorsResponse}
  * @see {@link ListCollectorsCommandInput} for command's `input` shape.
  * @see {@link ListCollectorsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

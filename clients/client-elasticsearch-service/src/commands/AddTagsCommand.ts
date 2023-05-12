@@ -59,8 +59,8 @@ export interface AddTagsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AddTagsCommandInput - {@link AddTagsCommandInput}
- * @returns {@link AddTagsCommandOutput}
+ * @param AddTagsRequest - {@link AddTagsRequest}
+ * @returns {@link Unit}
  * @see {@link AddTagsCommandInput} for command's `input` shape.
  * @see {@link AddTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

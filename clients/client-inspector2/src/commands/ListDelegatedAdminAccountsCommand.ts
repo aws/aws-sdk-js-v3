@@ -58,8 +58,8 @@ export interface ListDelegatedAdminAccountsCommandOutput extends ListDelegatedAd
  *
  * ```
  *
- * @param ListDelegatedAdminAccountsCommandInput - {@link ListDelegatedAdminAccountsCommandInput}
- * @returns {@link ListDelegatedAdminAccountsCommandOutput}
+ * @param ListDelegatedAdminAccountsRequest - {@link ListDelegatedAdminAccountsRequest}
+ * @returns {@link ListDelegatedAdminAccountsResponse}
  * @see {@link ListDelegatedAdminAccountsCommandInput} for command's `input` shape.
  * @see {@link ListDelegatedAdminAccountsCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

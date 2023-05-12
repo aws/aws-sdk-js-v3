@@ -61,8 +61,8 @@ export interface CreatePublicIpv4PoolCommandOutput extends CreatePublicIpv4PoolR
  *
  * ```
  *
- * @param CreatePublicIpv4PoolCommandInput - {@link CreatePublicIpv4PoolCommandInput}
- * @returns {@link CreatePublicIpv4PoolCommandOutput}
+ * @param CreatePublicIpv4PoolRequest - {@link CreatePublicIpv4PoolRequest}
+ * @returns {@link CreatePublicIpv4PoolResult}
  * @see {@link CreatePublicIpv4PoolCommandInput} for command's `input` shape.
  * @see {@link CreatePublicIpv4PoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

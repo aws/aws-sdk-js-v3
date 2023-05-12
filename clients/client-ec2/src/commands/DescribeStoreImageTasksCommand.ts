@@ -85,8 +85,8 @@ export interface DescribeStoreImageTasksCommandOutput extends DescribeStoreImage
  *
  * ```
  *
- * @param DescribeStoreImageTasksCommandInput - {@link DescribeStoreImageTasksCommandInput}
- * @returns {@link DescribeStoreImageTasksCommandOutput}
+ * @param DescribeStoreImageTasksRequest - {@link DescribeStoreImageTasksRequest}
+ * @returns {@link DescribeStoreImageTasksResult}
  * @see {@link DescribeStoreImageTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeStoreImageTasksCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

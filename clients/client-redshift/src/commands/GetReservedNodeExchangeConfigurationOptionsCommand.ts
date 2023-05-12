@@ -106,8 +106,8 @@ export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
  *
  * ```
  *
- * @param GetReservedNodeExchangeConfigurationOptionsCommandInput - {@link GetReservedNodeExchangeConfigurationOptionsCommandInput}
- * @returns {@link GetReservedNodeExchangeConfigurationOptionsCommandOutput}
+ * @param GetReservedNodeExchangeConfigurationOptionsInputMessage - {@link GetReservedNodeExchangeConfigurationOptionsInputMessage}
+ * @returns {@link GetReservedNodeExchangeConfigurationOptionsOutputMessage}
  * @see {@link GetReservedNodeExchangeConfigurationOptionsCommandInput} for command's `input` shape.
  * @see {@link GetReservedNodeExchangeConfigurationOptionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

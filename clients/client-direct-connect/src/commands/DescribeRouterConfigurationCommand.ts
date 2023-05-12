@@ -65,8 +65,8 @@ export interface DescribeRouterConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeRouterConfigurationCommandInput - {@link DescribeRouterConfigurationCommandInput}
- * @returns {@link DescribeRouterConfigurationCommandOutput}
+ * @param DescribeRouterConfigurationRequest - {@link DescribeRouterConfigurationRequest}
+ * @returns {@link DescribeRouterConfigurationResponse}
  * @see {@link DescribeRouterConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeRouterConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

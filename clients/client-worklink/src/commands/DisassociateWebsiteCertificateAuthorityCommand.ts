@@ -60,8 +60,8 @@ export interface DisassociateWebsiteCertificateAuthorityCommandOutput
  *
  * ```
  *
- * @param DisassociateWebsiteCertificateAuthorityCommandInput - {@link DisassociateWebsiteCertificateAuthorityCommandInput}
- * @returns {@link DisassociateWebsiteCertificateAuthorityCommandOutput}
+ * @param DisassociateWebsiteCertificateAuthorityRequest - {@link DisassociateWebsiteCertificateAuthorityRequest}
+ * @returns {@link DisassociateWebsiteCertificateAuthorityResponse}
  * @see {@link DisassociateWebsiteCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link DisassociateWebsiteCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

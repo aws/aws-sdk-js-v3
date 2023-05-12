@@ -112,8 +112,8 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
  *
  * ```
  *
- * @param DescribeStaleSecurityGroupsCommandInput - {@link DescribeStaleSecurityGroupsCommandInput}
- * @returns {@link DescribeStaleSecurityGroupsCommandOutput}
+ * @param DescribeStaleSecurityGroupsRequest - {@link DescribeStaleSecurityGroupsRequest}
+ * @returns {@link DescribeStaleSecurityGroupsResult}
  * @see {@link DescribeStaleSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeStaleSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

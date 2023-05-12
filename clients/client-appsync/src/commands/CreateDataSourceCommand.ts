@@ -150,8 +150,8 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *
  * ```
  *
- * @param CreateDataSourceCommandInput - {@link CreateDataSourceCommandInput}
- * @returns {@link CreateDataSourceCommandOutput}
+ * @param CreateDataSourceRequest - {@link CreateDataSourceRequest}
+ * @returns {@link CreateDataSourceResponse}
  * @see {@link CreateDataSourceCommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

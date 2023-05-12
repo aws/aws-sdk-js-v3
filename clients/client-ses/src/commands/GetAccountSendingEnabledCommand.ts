@@ -49,8 +49,8 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  *
  * ```
  *
- * @param GetAccountSendingEnabledCommandInput - {@link GetAccountSendingEnabledCommandInput}
- * @returns {@link GetAccountSendingEnabledCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetAccountSendingEnabledResponse}
  * @see {@link GetAccountSendingEnabledCommandInput} for command's `input` shape.
  * @see {@link GetAccountSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

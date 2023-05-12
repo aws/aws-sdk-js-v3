@@ -85,8 +85,8 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  *
  * ```
  *
- * @param UpdateStateMachineCommandInput - {@link UpdateStateMachineCommandInput}
- * @returns {@link UpdateStateMachineCommandOutput}
+ * @param UpdateStateMachineInput - {@link UpdateStateMachineInput}
+ * @returns {@link UpdateStateMachineOutput}
  * @see {@link UpdateStateMachineCommandInput} for command's `input` shape.
  * @see {@link UpdateStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

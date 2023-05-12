@@ -64,8 +64,8 @@ export interface GetImportFileTaskCommandOutput extends GetImportFileTaskRespons
  *
  * ```
  *
- * @param GetImportFileTaskCommandInput - {@link GetImportFileTaskCommandInput}
- * @returns {@link GetImportFileTaskCommandOutput}
+ * @param GetImportFileTaskRequest - {@link GetImportFileTaskRequest}
+ * @returns {@link GetImportFileTaskResponse}
  * @see {@link GetImportFileTaskCommandInput} for command's `input` shape.
  * @see {@link GetImportFileTaskCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

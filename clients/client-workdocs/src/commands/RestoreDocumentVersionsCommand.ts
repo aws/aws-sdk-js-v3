@@ -49,8 +49,8 @@ export interface RestoreDocumentVersionsCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param RestoreDocumentVersionsCommandInput - {@link RestoreDocumentVersionsCommandInput}
- * @returns {@link RestoreDocumentVersionsCommandOutput}
+ * @param RestoreDocumentVersionsRequest - {@link RestoreDocumentVersionsRequest}
+ * @returns {@link Unit}
  * @see {@link RestoreDocumentVersionsCommandInput} for command's `input` shape.
  * @see {@link RestoreDocumentVersionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

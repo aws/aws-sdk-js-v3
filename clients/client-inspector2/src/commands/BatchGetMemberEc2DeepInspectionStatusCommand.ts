@@ -74,8 +74,8 @@ export interface BatchGetMemberEc2DeepInspectionStatusCommandOutput
  *
  * ```
  *
- * @param BatchGetMemberEc2DeepInspectionStatusCommandInput - {@link BatchGetMemberEc2DeepInspectionStatusCommandInput}
- * @returns {@link BatchGetMemberEc2DeepInspectionStatusCommandOutput}
+ * @param BatchGetMemberEc2DeepInspectionStatusRequest - {@link BatchGetMemberEc2DeepInspectionStatusRequest}
+ * @returns {@link BatchGetMemberEc2DeepInspectionStatusResponse}
  * @see {@link BatchGetMemberEc2DeepInspectionStatusCommandInput} for command's `input` shape.
  * @see {@link BatchGetMemberEc2DeepInspectionStatusCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.

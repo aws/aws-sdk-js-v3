@@ -98,8 +98,8 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  *
  * ```
  *
- * @param CreateChannelFlowCommandInput - {@link CreateChannelFlowCommandInput}
- * @returns {@link CreateChannelFlowCommandOutput}
+ * @param CreateChannelFlowRequest - {@link CreateChannelFlowRequest}
+ * @returns {@link CreateChannelFlowResponse}
  * @see {@link CreateChannelFlowCommandInput} for command's `input` shape.
  * @see {@link CreateChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

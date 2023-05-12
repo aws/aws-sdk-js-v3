@@ -61,8 +61,8 @@ export interface UpdateApplicationLayerAutomaticResponseCommandOutput
  *
  * ```
  *
- * @param UpdateApplicationLayerAutomaticResponseCommandInput - {@link UpdateApplicationLayerAutomaticResponseCommandInput}
- * @returns {@link UpdateApplicationLayerAutomaticResponseCommandOutput}
+ * @param UpdateApplicationLayerAutomaticResponseRequest - {@link UpdateApplicationLayerAutomaticResponseRequest}
+ * @returns {@link UpdateApplicationLayerAutomaticResponseResponse}
  * @see {@link UpdateApplicationLayerAutomaticResponseCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationLayerAutomaticResponseCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.

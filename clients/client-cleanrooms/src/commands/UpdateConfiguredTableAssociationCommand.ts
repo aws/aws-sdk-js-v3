@@ -70,8 +70,8 @@ export interface UpdateConfiguredTableAssociationCommandOutput
  *
  * ```
  *
- * @param UpdateConfiguredTableAssociationCommandInput - {@link UpdateConfiguredTableAssociationCommandInput}
- * @returns {@link UpdateConfiguredTableAssociationCommandOutput}
+ * @param UpdateConfiguredTableAssociationInput - {@link UpdateConfiguredTableAssociationInput}
+ * @returns {@link UpdateConfiguredTableAssociationOutput}
  * @see {@link UpdateConfiguredTableAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateConfiguredTableAssociationCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

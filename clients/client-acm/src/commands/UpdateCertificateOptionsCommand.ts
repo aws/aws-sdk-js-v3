@@ -54,8 +54,8 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  *
  * ```
  *
- * @param UpdateCertificateOptionsCommandInput - {@link UpdateCertificateOptionsCommandInput}
- * @returns {@link UpdateCertificateOptionsCommandOutput}
+ * @param UpdateCertificateOptionsRequest - {@link UpdateCertificateOptionsRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateCertificateOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateCertificateOptionsCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.

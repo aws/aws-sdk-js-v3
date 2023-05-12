@@ -121,8 +121,8 @@ export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __M
  *
  * ```
  *
- * @param DescribeJobRunCommandInput - {@link DescribeJobRunCommandInput}
- * @returns {@link DescribeJobRunCommandOutput}
+ * @param DescribeJobRunRequest - {@link DescribeJobRunRequest}
+ * @returns {@link DescribeJobRunResponse}
  * @see {@link DescribeJobRunCommandInput} for command's `input` shape.
  * @see {@link DescribeJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.

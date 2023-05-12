@@ -49,8 +49,8 @@ export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse,
  *
  * ```
  *
- * @param DeleteAuthorizerCommandInput - {@link DeleteAuthorizerCommandInput}
- * @returns {@link DeleteAuthorizerCommandOutput}
+ * @param DeleteAuthorizerRequest - {@link DeleteAuthorizerRequest}
+ * @returns {@link DeleteAuthorizerResponse}
  * @see {@link DeleteAuthorizerCommandInput} for command's `input` shape.
  * @see {@link DeleteAuthorizerCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

@@ -52,8 +52,8 @@ export interface DisassociateMemberFromGroupCommandOutput
  *
  * ```
  *
- * @param DisassociateMemberFromGroupCommandInput - {@link DisassociateMemberFromGroupCommandInput}
- * @returns {@link DisassociateMemberFromGroupCommandOutput}
+ * @param DisassociateMemberFromGroupRequest - {@link DisassociateMemberFromGroupRequest}
+ * @returns {@link DisassociateMemberFromGroupResponse}
  * @see {@link DisassociateMemberFromGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateMemberFromGroupCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

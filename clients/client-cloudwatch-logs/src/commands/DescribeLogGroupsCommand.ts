@@ -80,8 +80,8 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  *
  * ```
  *
- * @param DescribeLogGroupsCommandInput - {@link DescribeLogGroupsCommandInput}
- * @returns {@link DescribeLogGroupsCommandOutput}
+ * @param DescribeLogGroupsRequest - {@link DescribeLogGroupsRequest}
+ * @returns {@link DescribeLogGroupsResponse}
  * @see {@link DescribeLogGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeLogGroupsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

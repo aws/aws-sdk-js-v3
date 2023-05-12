@@ -73,8 +73,8 @@ export interface DeleteResolverRuleCommandOutput extends DeleteResolverRuleRespo
  *
  * ```
  *
- * @param DeleteResolverRuleCommandInput - {@link DeleteResolverRuleCommandInput}
- * @returns {@link DeleteResolverRuleCommandOutput}
+ * @param DeleteResolverRuleRequest - {@link DeleteResolverRuleRequest}
+ * @returns {@link DeleteResolverRuleResponse}
  * @see {@link DeleteResolverRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

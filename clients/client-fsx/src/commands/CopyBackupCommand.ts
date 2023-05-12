@@ -563,8 +563,8 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  *
  * ```
  *
- * @param CopyBackupCommandInput - {@link CopyBackupCommandInput}
- * @returns {@link CopyBackupCommandOutput}
+ * @param CopyBackupRequest - {@link CopyBackupRequest}
+ * @returns {@link CopyBackupResponse}
  * @see {@link CopyBackupCommandInput} for command's `input` shape.
  * @see {@link CopyBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.

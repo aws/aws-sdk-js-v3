@@ -81,8 +81,8 @@ export interface GetBucketPolicyStatusCommandOutput extends GetBucketPolicyStatu
  *
  * ```
  *
- * @param GetBucketPolicyStatusCommandInput - {@link GetBucketPolicyStatusCommandInput}
- * @returns {@link GetBucketPolicyStatusCommandOutput}
+ * @param GetBucketPolicyStatusRequest - {@link GetBucketPolicyStatusRequest}
+ * @returns {@link GetBucketPolicyStatusOutput}
  * @see {@link GetBucketPolicyStatusCommandInput} for command's `input` shape.
  * @see {@link GetBucketPolicyStatusCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

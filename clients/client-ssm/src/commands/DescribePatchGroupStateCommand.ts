@@ -61,8 +61,8 @@ export interface DescribePatchGroupStateCommandOutput extends DescribePatchGroup
  *
  * ```
  *
- * @param DescribePatchGroupStateCommandInput - {@link DescribePatchGroupStateCommandInput}
- * @returns {@link DescribePatchGroupStateCommandOutput}
+ * @param DescribePatchGroupStateRequest - {@link DescribePatchGroupStateRequest}
+ * @returns {@link DescribePatchGroupStateResult}
  * @see {@link DescribePatchGroupStateCommandInput} for command's `input` shape.
  * @see {@link DescribePatchGroupStateCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

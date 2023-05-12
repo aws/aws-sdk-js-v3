@@ -72,8 +72,8 @@ export interface DescribeStorageConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeStorageConfigurationCommandInput - {@link DescribeStorageConfigurationCommandInput}
- * @returns {@link DescribeStorageConfigurationCommandOutput}
+ * @param DescribeStorageConfigurationRequest - {@link DescribeStorageConfigurationRequest}
+ * @returns {@link DescribeStorageConfigurationResponse}
  * @see {@link DescribeStorageConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeStorageConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

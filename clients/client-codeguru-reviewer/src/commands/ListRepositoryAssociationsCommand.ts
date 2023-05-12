@@ -76,8 +76,8 @@ export interface ListRepositoryAssociationsCommandOutput extends ListRepositoryA
  *
  * ```
  *
- * @param ListRepositoryAssociationsCommandInput - {@link ListRepositoryAssociationsCommandInput}
- * @returns {@link ListRepositoryAssociationsCommandOutput}
+ * @param ListRepositoryAssociationsRequest - {@link ListRepositoryAssociationsRequest}
+ * @returns {@link ListRepositoryAssociationsResponse}
  * @see {@link ListRepositoryAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListRepositoryAssociationsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.

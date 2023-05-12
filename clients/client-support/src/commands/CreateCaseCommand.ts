@@ -92,8 +92,8 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  *
  * ```
  *
- * @param CreateCaseCommandInput - {@link CreateCaseCommandInput}
- * @returns {@link CreateCaseCommandOutput}
+ * @param CreateCaseRequest - {@link CreateCaseRequest}
+ * @returns {@link CreateCaseResponse}
  * @see {@link CreateCaseCommandInput} for command's `input` shape.
  * @see {@link CreateCaseCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.

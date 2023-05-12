@@ -46,8 +46,8 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
- * @returns {@link DeleteResourcePolicyCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link Unit}
  * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

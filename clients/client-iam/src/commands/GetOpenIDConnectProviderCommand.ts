@@ -64,8 +64,8 @@ export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectP
  *
  * ```
  *
- * @param GetOpenIDConnectProviderCommandInput - {@link GetOpenIDConnectProviderCommandInput}
- * @returns {@link GetOpenIDConnectProviderCommandOutput}
+ * @param GetOpenIDConnectProviderRequest - {@link GetOpenIDConnectProviderRequest}
+ * @returns {@link GetOpenIDConnectProviderResponse}
  * @see {@link GetOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link GetOpenIDConnectProviderCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

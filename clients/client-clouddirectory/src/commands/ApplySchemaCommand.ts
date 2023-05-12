@@ -53,8 +53,8 @@ export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __Metadat
  *
  * ```
  *
- * @param ApplySchemaCommandInput - {@link ApplySchemaCommandInput}
- * @returns {@link ApplySchemaCommandOutput}
+ * @param ApplySchemaRequest - {@link ApplySchemaRequest}
+ * @returns {@link ApplySchemaResponse}
  * @see {@link ApplySchemaCommandInput} for command's `input` shape.
  * @see {@link ApplySchemaCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

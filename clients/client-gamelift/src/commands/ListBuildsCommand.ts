@@ -81,8 +81,8 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  *
  * ```
  *
- * @param ListBuildsCommandInput - {@link ListBuildsCommandInput}
- * @returns {@link ListBuildsCommandOutput}
+ * @param ListBuildsInput - {@link ListBuildsInput}
+ * @returns {@link ListBuildsOutput}
  * @see {@link ListBuildsCommandInput} for command's `input` shape.
  * @see {@link ListBuildsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

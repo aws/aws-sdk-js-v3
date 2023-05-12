@@ -54,8 +54,8 @@ export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __M
  *
  * ```
  *
- * @param PutImagePolicyCommandInput - {@link PutImagePolicyCommandInput}
- * @returns {@link PutImagePolicyCommandOutput}
+ * @param PutImagePolicyRequest - {@link PutImagePolicyRequest}
+ * @returns {@link PutImagePolicyResponse}
  * @see {@link PutImagePolicyCommandInput} for command's `input` shape.
  * @see {@link PutImagePolicyCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

@@ -77,8 +77,8 @@ export interface CreateTypedLinkFacetCommandOutput extends CreateTypedLinkFacetR
  *
  * ```
  *
- * @param CreateTypedLinkFacetCommandInput - {@link CreateTypedLinkFacetCommandInput}
- * @returns {@link CreateTypedLinkFacetCommandOutput}
+ * @param CreateTypedLinkFacetRequest - {@link CreateTypedLinkFacetRequest}
+ * @returns {@link CreateTypedLinkFacetResponse}
  * @see {@link CreateTypedLinkFacetCommandInput} for command's `input` shape.
  * @see {@link CreateTypedLinkFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

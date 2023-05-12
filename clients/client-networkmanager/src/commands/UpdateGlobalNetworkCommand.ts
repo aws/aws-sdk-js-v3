@@ -64,8 +64,8 @@ export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkRes
  *
  * ```
  *
- * @param UpdateGlobalNetworkCommandInput - {@link UpdateGlobalNetworkCommandInput}
- * @returns {@link UpdateGlobalNetworkCommandOutput}
+ * @param UpdateGlobalNetworkRequest - {@link UpdateGlobalNetworkRequest}
+ * @returns {@link UpdateGlobalNetworkResponse}
  * @see {@link UpdateGlobalNetworkCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

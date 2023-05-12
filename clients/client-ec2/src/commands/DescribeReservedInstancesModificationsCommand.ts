@@ -99,8 +99,8 @@ export interface DescribeReservedInstancesModificationsCommandOutput
  *
  * ```
  *
- * @param DescribeReservedInstancesModificationsCommandInput - {@link DescribeReservedInstancesModificationsCommandInput}
- * @returns {@link DescribeReservedInstancesModificationsCommandOutput}
+ * @param DescribeReservedInstancesModificationsRequest - {@link DescribeReservedInstancesModificationsRequest}
+ * @returns {@link DescribeReservedInstancesModificationsResult}
  * @see {@link DescribeReservedInstancesModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedInstancesModificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

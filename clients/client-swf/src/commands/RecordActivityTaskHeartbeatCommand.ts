@@ -98,8 +98,8 @@ export interface RecordActivityTaskHeartbeatCommandOutput extends ActivityTaskSt
  *
  * ```
  *
- * @param RecordActivityTaskHeartbeatCommandInput - {@link RecordActivityTaskHeartbeatCommandInput}
- * @returns {@link RecordActivityTaskHeartbeatCommandOutput}
+ * @param RecordActivityTaskHeartbeatInput - {@link RecordActivityTaskHeartbeatInput}
+ * @returns {@link ActivityTaskStatus}
  * @see {@link RecordActivityTaskHeartbeatCommandInput} for command's `input` shape.
  * @see {@link RecordActivityTaskHeartbeatCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.

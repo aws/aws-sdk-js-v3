@@ -71,8 +71,8 @@ export interface GetStatementCommandOutput extends GetStatementResponse, __Metad
  *
  * ```
  *
- * @param GetStatementCommandInput - {@link GetStatementCommandInput}
- * @returns {@link GetStatementCommandOutput}
+ * @param GetStatementRequest - {@link GetStatementRequest}
+ * @returns {@link GetStatementResponse}
  * @see {@link GetStatementCommandInput} for command's `input` shape.
  * @see {@link GetStatementCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

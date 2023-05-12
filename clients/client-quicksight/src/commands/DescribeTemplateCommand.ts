@@ -110,8 +110,8 @@ export interface DescribeTemplateCommandOutput extends DescribeTemplateResponse,
  *
  * ```
  *
- * @param DescribeTemplateCommandInput - {@link DescribeTemplateCommandInput}
- * @returns {@link DescribeTemplateCommandOutput}
+ * @param DescribeTemplateRequest - {@link DescribeTemplateRequest}
+ * @returns {@link DescribeTemplateResponse}
  * @see {@link DescribeTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeTemplateCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

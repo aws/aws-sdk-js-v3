@@ -114,8 +114,8 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  *
  * ```
  *
- * @param GetCanaryCommandInput - {@link GetCanaryCommandInput}
- * @returns {@link GetCanaryCommandOutput}
+ * @param GetCanaryRequest - {@link GetCanaryRequest}
+ * @returns {@link GetCanaryResponse}
  * @see {@link GetCanaryCommandInput} for command's `input` shape.
  * @see {@link GetCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.

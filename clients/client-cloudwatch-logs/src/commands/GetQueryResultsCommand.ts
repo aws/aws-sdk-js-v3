@@ -75,8 +75,8 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  *
  * ```
  *
- * @param GetQueryResultsCommandInput - {@link GetQueryResultsCommandInput}
- * @returns {@link GetQueryResultsCommandOutput}
+ * @param GetQueryResultsRequest - {@link GetQueryResultsRequest}
+ * @returns {@link GetQueryResultsResponse}
  * @see {@link GetQueryResultsCommandInput} for command's `input` shape.
  * @see {@link GetQueryResultsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

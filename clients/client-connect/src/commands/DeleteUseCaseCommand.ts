@@ -50,8 +50,8 @@ export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteUseCaseCommandInput - {@link DeleteUseCaseCommandInput}
- * @returns {@link DeleteUseCaseCommandOutput}
+ * @param DeleteUseCaseRequest - {@link DeleteUseCaseRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteUseCaseCommandInput} for command's `input` shape.
  * @see {@link DeleteUseCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

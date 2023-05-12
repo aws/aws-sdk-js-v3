@@ -101,8 +101,8 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput
  *
  * ```
  *
- * @param ListRealtimeContactAnalysisSegmentsCommandInput - {@link ListRealtimeContactAnalysisSegmentsCommandInput}
- * @returns {@link ListRealtimeContactAnalysisSegmentsCommandOutput}
+ * @param ListRealtimeContactAnalysisSegmentsRequest - {@link ListRealtimeContactAnalysisSegmentsRequest}
+ * @returns {@link ListRealtimeContactAnalysisSegmentsResponse}
  * @see {@link ListRealtimeContactAnalysisSegmentsCommandInput} for command's `input` shape.
  * @see {@link ListRealtimeContactAnalysisSegmentsCommandOutput} for command's `response` shape.
  * @see {@link ConnectContactLensClientResolvedConfig | config} for ConnectContactLensClient's `config` shape.

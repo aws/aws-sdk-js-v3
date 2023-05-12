@@ -88,8 +88,8 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutBucketPolicyCommandInput - {@link PutBucketPolicyCommandInput}
- * @returns {@link PutBucketPolicyCommandOutput}
+ * @param PutBucketPolicyRequest - {@link PutBucketPolicyRequest}
+ * @returns {@link Unit}
  * @see {@link PutBucketPolicyCommandInput} for command's `input` shape.
  * @see {@link PutBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

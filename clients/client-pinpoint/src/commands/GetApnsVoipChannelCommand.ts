@@ -63,8 +63,8 @@ export interface GetApnsVoipChannelCommandOutput extends GetApnsVoipChannelRespo
  *
  * ```
  *
- * @param GetApnsVoipChannelCommandInput - {@link GetApnsVoipChannelCommandInput}
- * @returns {@link GetApnsVoipChannelCommandOutput}
+ * @param GetApnsVoipChannelRequest - {@link GetApnsVoipChannelRequest}
+ * @returns {@link GetApnsVoipChannelResponse}
  * @see {@link GetApnsVoipChannelCommandInput} for command's `input` shape.
  * @see {@link GetApnsVoipChannelCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

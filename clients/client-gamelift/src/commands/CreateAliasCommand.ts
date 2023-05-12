@@ -93,8 +93,8 @@ export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataB
  *
  * ```
  *
- * @param CreateAliasCommandInput - {@link CreateAliasCommandInput}
- * @returns {@link CreateAliasCommandOutput}
+ * @param CreateAliasInput - {@link CreateAliasInput}
+ * @returns {@link CreateAliasOutput}
  * @see {@link CreateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

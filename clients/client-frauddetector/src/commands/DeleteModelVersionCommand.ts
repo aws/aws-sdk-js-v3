@@ -52,8 +52,8 @@ export interface DeleteModelVersionCommandOutput extends DeleteModelVersionResul
  *
  * ```
  *
- * @param DeleteModelVersionCommandInput - {@link DeleteModelVersionCommandInput}
- * @returns {@link DeleteModelVersionCommandOutput}
+ * @param DeleteModelVersionRequest - {@link DeleteModelVersionRequest}
+ * @returns {@link DeleteModelVersionResult}
  * @see {@link DeleteModelVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteModelVersionCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

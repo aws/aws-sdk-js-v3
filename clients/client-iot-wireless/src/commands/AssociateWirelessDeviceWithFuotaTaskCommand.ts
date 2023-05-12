@@ -57,8 +57,8 @@ export interface AssociateWirelessDeviceWithFuotaTaskCommandOutput
  *
  * ```
  *
- * @param AssociateWirelessDeviceWithFuotaTaskCommandInput - {@link AssociateWirelessDeviceWithFuotaTaskCommandInput}
- * @returns {@link AssociateWirelessDeviceWithFuotaTaskCommandOutput}
+ * @param AssociateWirelessDeviceWithFuotaTaskRequest - {@link AssociateWirelessDeviceWithFuotaTaskRequest}
+ * @returns {@link AssociateWirelessDeviceWithFuotaTaskResponse}
  * @see {@link AssociateWirelessDeviceWithFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link AssociateWirelessDeviceWithFuotaTaskCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

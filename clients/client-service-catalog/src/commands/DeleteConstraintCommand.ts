@@ -50,8 +50,8 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
  *
  * ```
  *
- * @param DeleteConstraintCommandInput - {@link DeleteConstraintCommandInput}
- * @returns {@link DeleteConstraintCommandOutput}
+ * @param DeleteConstraintInput - {@link DeleteConstraintInput}
+ * @returns {@link DeleteConstraintOutput}
  * @see {@link DeleteConstraintCommandInput} for command's `input` shape.
  * @see {@link DeleteConstraintCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

@@ -78,8 +78,8 @@ export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataB
  *
  * ```
  *
- * @param UpdateAliasCommandInput - {@link UpdateAliasCommandInput}
- * @returns {@link UpdateAliasCommandOutput}
+ * @param UpdateAliasInput - {@link UpdateAliasInput}
+ * @returns {@link UpdateAliasOutput}
  * @see {@link UpdateAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateAliasCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

@@ -109,8 +109,8 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  *
  * ```
  *
- * @param UpdateBranchCommandInput - {@link UpdateBranchCommandInput}
- * @returns {@link UpdateBranchCommandOutput}
+ * @param UpdateBranchRequest - {@link UpdateBranchRequest}
+ * @returns {@link UpdateBranchResult}
  * @see {@link UpdateBranchCommandInput} for command's `input` shape.
  * @see {@link UpdateBranchCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

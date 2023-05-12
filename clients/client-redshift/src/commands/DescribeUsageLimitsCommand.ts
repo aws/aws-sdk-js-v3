@@ -96,8 +96,8 @@ export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __Meta
  *
  * ```
  *
- * @param DescribeUsageLimitsCommandInput - {@link DescribeUsageLimitsCommandInput}
- * @returns {@link DescribeUsageLimitsCommandOutput}
+ * @param DescribeUsageLimitsMessage - {@link DescribeUsageLimitsMessage}
+ * @returns {@link UsageLimitList}
  * @see {@link DescribeUsageLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeUsageLimitsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

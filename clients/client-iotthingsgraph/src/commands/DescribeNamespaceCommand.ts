@@ -56,8 +56,8 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  *
  * ```
  *
- * @param DescribeNamespaceCommandInput - {@link DescribeNamespaceCommandInput}
- * @returns {@link DescribeNamespaceCommandOutput}
+ * @param DescribeNamespaceRequest - {@link DescribeNamespaceRequest}
+ * @returns {@link DescribeNamespaceResponse}
  * @see {@link DescribeNamespaceCommandInput} for command's `input` shape.
  * @see {@link DescribeNamespaceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

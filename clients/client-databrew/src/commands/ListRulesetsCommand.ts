@@ -70,8 +70,8 @@ export interface ListRulesetsCommandOutput extends ListRulesetsResponse, __Metad
  *
  * ```
  *
- * @param ListRulesetsCommandInput - {@link ListRulesetsCommandInput}
- * @returns {@link ListRulesetsCommandOutput}
+ * @param ListRulesetsRequest - {@link ListRulesetsRequest}
+ * @returns {@link ListRulesetsResponse}
  * @see {@link ListRulesetsCommandInput} for command's `input` shape.
  * @see {@link ListRulesetsCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.

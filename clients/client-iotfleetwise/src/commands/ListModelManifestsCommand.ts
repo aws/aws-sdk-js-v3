@@ -66,8 +66,8 @@ export interface ListModelManifestsCommandOutput extends ListModelManifestsRespo
  *
  * ```
  *
- * @param ListModelManifestsCommandInput - {@link ListModelManifestsCommandInput}
- * @returns {@link ListModelManifestsCommandOutput}
+ * @param ListModelManifestsRequest - {@link ListModelManifestsRequest}
+ * @returns {@link ListModelManifestsResponse}
  * @see {@link ListModelManifestsCommandInput} for command's `input` shape.
  * @see {@link ListModelManifestsCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

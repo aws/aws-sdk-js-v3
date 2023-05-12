@@ -98,8 +98,8 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  *
  * ```
  *
- * @param CreateFeatureGroupCommandInput - {@link CreateFeatureGroupCommandInput}
- * @returns {@link CreateFeatureGroupCommandOutput}
+ * @param CreateFeatureGroupRequest - {@link CreateFeatureGroupRequest}
+ * @returns {@link CreateFeatureGroupResponse}
  * @see {@link CreateFeatureGroupCommandInput} for command's `input` shape.
  * @see {@link CreateFeatureGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

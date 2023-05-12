@@ -57,8 +57,8 @@ export interface GetClientCertificateCommandOutput extends ClientCertificate, __
  *
  * ```
  *
- * @param GetClientCertificateCommandInput - {@link GetClientCertificateCommandInput}
- * @returns {@link GetClientCertificateCommandOutput}
+ * @param GetClientCertificateRequest - {@link GetClientCertificateRequest}
+ * @returns {@link ClientCertificate}
  * @see {@link GetClientCertificateCommandInput} for command's `input` shape.
  * @see {@link GetClientCertificateCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

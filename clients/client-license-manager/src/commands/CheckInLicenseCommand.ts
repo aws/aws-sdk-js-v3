@@ -49,8 +49,8 @@ export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __M
  *
  * ```
  *
- * @param CheckInLicenseCommandInput - {@link CheckInLicenseCommandInput}
- * @returns {@link CheckInLicenseCommandOutput}
+ * @param CheckInLicenseRequest - {@link CheckInLicenseRequest}
+ * @returns {@link CheckInLicenseResponse}
  * @see {@link CheckInLicenseCommandInput} for command's `input` shape.
  * @see {@link CheckInLicenseCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

@@ -95,8 +95,8 @@ export interface CreateSiteToSiteVpnAttachmentCommandOutput
  *
  * ```
  *
- * @param CreateSiteToSiteVpnAttachmentCommandInput - {@link CreateSiteToSiteVpnAttachmentCommandInput}
- * @returns {@link CreateSiteToSiteVpnAttachmentCommandOutput}
+ * @param CreateSiteToSiteVpnAttachmentRequest - {@link CreateSiteToSiteVpnAttachmentRequest}
+ * @returns {@link CreateSiteToSiteVpnAttachmentResponse}
  * @see {@link CreateSiteToSiteVpnAttachmentCommandInput} for command's `input` shape.
  * @see {@link CreateSiteToSiteVpnAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

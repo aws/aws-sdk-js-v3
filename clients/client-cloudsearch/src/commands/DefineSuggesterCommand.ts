@@ -74,8 +74,8 @@ export interface DefineSuggesterCommandOutput extends DefineSuggesterResponse, _
  *
  * ```
  *
- * @param DefineSuggesterCommandInput - {@link DefineSuggesterCommandInput}
- * @returns {@link DefineSuggesterCommandOutput}
+ * @param DefineSuggesterRequest - {@link DefineSuggesterRequest}
+ * @returns {@link DefineSuggesterResponse}
  * @see {@link DefineSuggesterCommandInput} for command's `input` shape.
  * @see {@link DefineSuggesterCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

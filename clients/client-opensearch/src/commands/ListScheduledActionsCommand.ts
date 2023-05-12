@@ -68,8 +68,8 @@ export interface ListScheduledActionsCommandOutput extends ListScheduledActionsR
  *
  * ```
  *
- * @param ListScheduledActionsCommandInput - {@link ListScheduledActionsCommandInput}
- * @returns {@link ListScheduledActionsCommandOutput}
+ * @param ListScheduledActionsRequest - {@link ListScheduledActionsRequest}
+ * @returns {@link ListScheduledActionsResponse}
  * @see {@link ListScheduledActionsCommandInput} for command's `input` shape.
  * @see {@link ListScheduledActionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

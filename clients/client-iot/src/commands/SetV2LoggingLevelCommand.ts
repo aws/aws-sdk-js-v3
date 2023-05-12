@@ -53,8 +53,8 @@ export interface SetV2LoggingLevelCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param SetV2LoggingLevelCommandInput - {@link SetV2LoggingLevelCommandInput}
- * @returns {@link SetV2LoggingLevelCommandOutput}
+ * @param SetV2LoggingLevelRequest - {@link SetV2LoggingLevelRequest}
+ * @returns {@link Unit}
  * @see {@link SetV2LoggingLevelCommandInput} for command's `input` shape.
  * @see {@link SetV2LoggingLevelCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

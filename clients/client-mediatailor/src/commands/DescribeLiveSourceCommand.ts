@@ -65,8 +65,8 @@ export interface DescribeLiveSourceCommandOutput extends DescribeLiveSourceRespo
  *
  * ```
  *
- * @param DescribeLiveSourceCommandInput - {@link DescribeLiveSourceCommandInput}
- * @returns {@link DescribeLiveSourceCommandOutput}
+ * @param DescribeLiveSourceRequest - {@link DescribeLiveSourceRequest}
+ * @returns {@link DescribeLiveSourceResponse}
  * @see {@link DescribeLiveSourceCommandInput} for command's `input` shape.
  * @see {@link DescribeLiveSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.

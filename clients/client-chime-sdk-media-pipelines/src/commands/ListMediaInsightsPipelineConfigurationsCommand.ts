@@ -72,8 +72,8 @@ export interface ListMediaInsightsPipelineConfigurationsCommandOutput
  *
  * ```
  *
- * @param ListMediaInsightsPipelineConfigurationsCommandInput - {@link ListMediaInsightsPipelineConfigurationsCommandInput}
- * @returns {@link ListMediaInsightsPipelineConfigurationsCommandOutput}
+ * @param ListMediaInsightsPipelineConfigurationsRequest - {@link ListMediaInsightsPipelineConfigurationsRequest}
+ * @returns {@link ListMediaInsightsPipelineConfigurationsResponse}
  * @see {@link ListMediaInsightsPipelineConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListMediaInsightsPipelineConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.

@@ -63,8 +63,8 @@ export interface ModifyVerifiedAccessEndpointPolicyCommandOutput
  *
  * ```
  *
- * @param ModifyVerifiedAccessEndpointPolicyCommandInput - {@link ModifyVerifiedAccessEndpointPolicyCommandInput}
- * @returns {@link ModifyVerifiedAccessEndpointPolicyCommandOutput}
+ * @param ModifyVerifiedAccessEndpointPolicyRequest - {@link ModifyVerifiedAccessEndpointPolicyRequest}
+ * @returns {@link ModifyVerifiedAccessEndpointPolicyResult}
  * @see {@link ModifyVerifiedAccessEndpointPolicyCommandInput} for command's `input` shape.
  * @see {@link ModifyVerifiedAccessEndpointPolicyCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

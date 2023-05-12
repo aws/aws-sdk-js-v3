@@ -65,8 +65,8 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  *
  * ```
  *
- * @param SendEventCommandInput - {@link SendEventCommandInput}
- * @returns {@link SendEventCommandOutput}
+ * @param SendEventRequest - {@link SendEventRequest}
+ * @returns {@link SendEventResponse}
  * @see {@link SendEventCommandInput} for command's `input` shape.
  * @see {@link SendEventCommandOutput} for command's `response` shape.
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.

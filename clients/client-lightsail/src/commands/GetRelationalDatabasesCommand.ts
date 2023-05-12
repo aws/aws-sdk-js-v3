@@ -105,8 +105,8 @@ export interface GetRelationalDatabasesCommandOutput extends GetRelationalDataba
  *
  * ```
  *
- * @param GetRelationalDatabasesCommandInput - {@link GetRelationalDatabasesCommandInput}
- * @returns {@link GetRelationalDatabasesCommandOutput}
+ * @param GetRelationalDatabasesRequest - {@link GetRelationalDatabasesRequest}
+ * @returns {@link GetRelationalDatabasesResult}
  * @see {@link GetRelationalDatabasesCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabasesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

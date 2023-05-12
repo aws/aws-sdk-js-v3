@@ -69,8 +69,8 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  *
  * ```
  *
- * @param CreateClusterSnapshotCommandInput - {@link CreateClusterSnapshotCommandInput}
- * @returns {@link CreateClusterSnapshotCommandOutput}
+ * @param CreateClusterSnapshotInput - {@link CreateClusterSnapshotInput}
+ * @returns {@link CreateClusterSnapshotOutput}
  * @see {@link CreateClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.

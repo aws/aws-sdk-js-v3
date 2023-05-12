@@ -65,8 +65,8 @@ export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer
  *
  * ```
  *
- * @param AllowCustomRoutingTrafficCommandInput - {@link AllowCustomRoutingTrafficCommandInput}
- * @returns {@link AllowCustomRoutingTrafficCommandOutput}
+ * @param AllowCustomRoutingTrafficRequest - {@link AllowCustomRoutingTrafficRequest}
+ * @returns {@link Unit}
  * @see {@link AllowCustomRoutingTrafficCommandInput} for command's `input` shape.
  * @see {@link AllowCustomRoutingTrafficCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

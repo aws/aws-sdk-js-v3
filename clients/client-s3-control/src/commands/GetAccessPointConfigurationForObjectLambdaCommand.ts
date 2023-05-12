@@ -89,8 +89,8 @@ export interface GetAccessPointConfigurationForObjectLambdaCommandOutput
  *
  * ```
  *
- * @param GetAccessPointConfigurationForObjectLambdaCommandInput - {@link GetAccessPointConfigurationForObjectLambdaCommandInput}
- * @returns {@link GetAccessPointConfigurationForObjectLambdaCommandOutput}
+ * @param GetAccessPointConfigurationForObjectLambdaRequest - {@link GetAccessPointConfigurationForObjectLambdaRequest}
+ * @returns {@link GetAccessPointConfigurationForObjectLambdaResult}
  * @see {@link GetAccessPointConfigurationForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointConfigurationForObjectLambdaCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

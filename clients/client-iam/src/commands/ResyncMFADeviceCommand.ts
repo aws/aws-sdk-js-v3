@@ -54,8 +54,8 @@ export interface ResyncMFADeviceCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ResyncMFADeviceCommandInput - {@link ResyncMFADeviceCommandInput}
- * @returns {@link ResyncMFADeviceCommandOutput}
+ * @param ResyncMFADeviceRequest - {@link ResyncMFADeviceRequest}
+ * @returns {@link Unit}
  * @see {@link ResyncMFADeviceCommandInput} for command's `input` shape.
  * @see {@link ResyncMFADeviceCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

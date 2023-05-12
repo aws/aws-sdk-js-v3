@@ -67,8 +67,8 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  *
  * ```
  *
- * @param BatchDeleteDocumentCommandInput - {@link BatchDeleteDocumentCommandInput}
- * @returns {@link BatchDeleteDocumentCommandOutput}
+ * @param BatchDeleteDocumentRequest - {@link BatchDeleteDocumentRequest}
+ * @returns {@link BatchDeleteDocumentResponse}
  * @see {@link BatchDeleteDocumentCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteDocumentCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

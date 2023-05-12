@@ -99,8 +99,8 @@ export interface ListRotationsCommandOutput extends ListRotationsResult, __Metad
  *
  * ```
  *
- * @param ListRotationsCommandInput - {@link ListRotationsCommandInput}
- * @returns {@link ListRotationsCommandOutput}
+ * @param ListRotationsRequest - {@link ListRotationsRequest}
+ * @returns {@link ListRotationsResult}
  * @see {@link ListRotationsCommandInput} for command's `input` shape.
  * @see {@link ListRotationsCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

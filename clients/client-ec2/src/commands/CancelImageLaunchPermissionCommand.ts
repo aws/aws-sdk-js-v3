@@ -54,8 +54,8 @@ export interface CancelImageLaunchPermissionCommandOutput extends CancelImageLau
  *
  * ```
  *
- * @param CancelImageLaunchPermissionCommandInput - {@link CancelImageLaunchPermissionCommandInput}
- * @returns {@link CancelImageLaunchPermissionCommandOutput}
+ * @param CancelImageLaunchPermissionRequest - {@link CancelImageLaunchPermissionRequest}
+ * @returns {@link CancelImageLaunchPermissionResult}
  * @see {@link CancelImageLaunchPermissionCommandInput} for command's `input` shape.
  * @see {@link CancelImageLaunchPermissionCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

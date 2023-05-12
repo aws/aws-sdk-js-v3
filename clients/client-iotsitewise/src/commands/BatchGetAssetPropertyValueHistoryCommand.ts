@@ -111,8 +111,8 @@ export interface BatchGetAssetPropertyValueHistoryCommandOutput
  *
  * ```
  *
- * @param BatchGetAssetPropertyValueHistoryCommandInput - {@link BatchGetAssetPropertyValueHistoryCommandInput}
- * @returns {@link BatchGetAssetPropertyValueHistoryCommandOutput}
+ * @param BatchGetAssetPropertyValueHistoryRequest - {@link BatchGetAssetPropertyValueHistoryRequest}
+ * @returns {@link BatchGetAssetPropertyValueHistoryResponse}
  * @see {@link BatchGetAssetPropertyValueHistoryCommandInput} for command's `input` shape.
  * @see {@link BatchGetAssetPropertyValueHistoryCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

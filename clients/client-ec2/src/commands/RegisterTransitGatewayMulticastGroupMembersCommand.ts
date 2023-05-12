@@ -75,8 +75,8 @@ export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
  *
  * ```
  *
- * @param RegisterTransitGatewayMulticastGroupMembersCommandInput - {@link RegisterTransitGatewayMulticastGroupMembersCommandInput}
- * @returns {@link RegisterTransitGatewayMulticastGroupMembersCommandOutput}
+ * @param RegisterTransitGatewayMulticastGroupMembersRequest - {@link RegisterTransitGatewayMulticastGroupMembersRequest}
+ * @returns {@link RegisterTransitGatewayMulticastGroupMembersResult}
  * @see {@link RegisterTransitGatewayMulticastGroupMembersCommandInput} for command's `input` shape.
  * @see {@link RegisterTransitGatewayMulticastGroupMembersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -59,8 +59,8 @@ export interface DescribeWorkspaceSnapshotsCommandOutput extends DescribeWorkspa
  *
  * ```
  *
- * @param DescribeWorkspaceSnapshotsCommandInput - {@link DescribeWorkspaceSnapshotsCommandInput}
- * @returns {@link DescribeWorkspaceSnapshotsCommandOutput}
+ * @param DescribeWorkspaceSnapshotsRequest - {@link DescribeWorkspaceSnapshotsRequest}
+ * @returns {@link DescribeWorkspaceSnapshotsResult}
  * @see {@link DescribeWorkspaceSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

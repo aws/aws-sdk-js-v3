@@ -70,8 +70,8 @@ export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __M
  *
  * ```
  *
- * @param ListPrincipalsCommandInput - {@link ListPrincipalsCommandInput}
- * @returns {@link ListPrincipalsCommandOutput}
+ * @param ListPrincipalsRequest - {@link ListPrincipalsRequest}
+ * @returns {@link ListPrincipalsResponse}
  * @see {@link ListPrincipalsCommandInput} for command's `input` shape.
  * @see {@link ListPrincipalsCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

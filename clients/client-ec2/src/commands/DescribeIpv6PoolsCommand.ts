@@ -80,8 +80,8 @@ export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult,
  *
  * ```
  *
- * @param DescribeIpv6PoolsCommandInput - {@link DescribeIpv6PoolsCommandInput}
- * @returns {@link DescribeIpv6PoolsCommandOutput}
+ * @param DescribeIpv6PoolsRequest - {@link DescribeIpv6PoolsRequest}
+ * @returns {@link DescribeIpv6PoolsResult}
  * @see {@link DescribeIpv6PoolsCommandInput} for command's `input` shape.
  * @see {@link DescribeIpv6PoolsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

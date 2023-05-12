@@ -85,8 +85,8 @@ export interface CreateLocalGatewayRouteTableCommandOutput
  *
  * ```
  *
- * @param CreateLocalGatewayRouteTableCommandInput - {@link CreateLocalGatewayRouteTableCommandInput}
- * @returns {@link CreateLocalGatewayRouteTableCommandOutput}
+ * @param CreateLocalGatewayRouteTableRequest - {@link CreateLocalGatewayRouteTableRequest}
+ * @returns {@link CreateLocalGatewayRouteTableResult}
  * @see {@link CreateLocalGatewayRouteTableCommandInput} for command's `input` shape.
  * @see {@link CreateLocalGatewayRouteTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

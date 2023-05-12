@@ -231,8 +231,8 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  *
  * ```
  *
- * @param TestFailoverCommandInput - {@link TestFailoverCommandInput}
- * @returns {@link TestFailoverCommandOutput}
+ * @param TestFailoverMessage - {@link TestFailoverMessage}
+ * @returns {@link TestFailoverResult}
  * @see {@link TestFailoverCommandInput} for command's `input` shape.
  * @see {@link TestFailoverCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

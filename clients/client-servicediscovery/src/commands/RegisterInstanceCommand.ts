@@ -98,8 +98,8 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  *
  * ```
  *
- * @param RegisterInstanceCommandInput - {@link RegisterInstanceCommandInput}
- * @returns {@link RegisterInstanceCommandOutput}
+ * @param RegisterInstanceRequest - {@link RegisterInstanceRequest}
+ * @returns {@link RegisterInstanceResponse}
  * @see {@link RegisterInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterInstanceCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.

@@ -141,8 +141,8 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  *
  * ```
  *
- * @param CreateTLSInspectionConfigurationCommandInput - {@link CreateTLSInspectionConfigurationCommandInput}
- * @returns {@link CreateTLSInspectionConfigurationCommandOutput}
+ * @param CreateTLSInspectionConfigurationRequest - {@link CreateTLSInspectionConfigurationRequest}
+ * @returns {@link CreateTLSInspectionConfigurationResponse}
  * @see {@link CreateTLSInspectionConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateTLSInspectionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

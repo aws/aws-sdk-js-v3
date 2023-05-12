@@ -48,8 +48,8 @@ export interface DeleteAppImageConfigCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAppImageConfigCommandInput - {@link DeleteAppImageConfigCommandInput}
- * @returns {@link DeleteAppImageConfigCommandOutput}
+ * @param DeleteAppImageConfigRequest - {@link DeleteAppImageConfigRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAppImageConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteAppImageConfigCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

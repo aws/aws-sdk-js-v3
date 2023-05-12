@@ -57,8 +57,8 @@ export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param EnableMetricsCollectionCommandInput - {@link EnableMetricsCollectionCommandInput}
- * @returns {@link EnableMetricsCollectionCommandOutput}
+ * @param EnableMetricsCollectionQuery - {@link EnableMetricsCollectionQuery}
+ * @returns {@link Unit}
  * @see {@link EnableMetricsCollectionCommandInput} for command's `input` shape.
  * @see {@link EnableMetricsCollectionCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

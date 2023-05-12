@@ -73,8 +73,8 @@ export interface DescribeMeshCommandOutput extends DescribeMeshOutput, __Metadat
  *
  * ```
  *
- * @param DescribeMeshCommandInput - {@link DescribeMeshCommandInput}
- * @returns {@link DescribeMeshCommandOutput}
+ * @param DescribeMeshInput - {@link DescribeMeshInput}
+ * @returns {@link DescribeMeshOutput}
  * @see {@link DescribeMeshCommandInput} for command's `input` shape.
  * @see {@link DescribeMeshCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

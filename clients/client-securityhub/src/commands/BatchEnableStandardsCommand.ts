@@ -73,8 +73,8 @@ export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsR
  *
  * ```
  *
- * @param BatchEnableStandardsCommandInput - {@link BatchEnableStandardsCommandInput}
- * @returns {@link BatchEnableStandardsCommandOutput}
+ * @param BatchEnableStandardsRequest - {@link BatchEnableStandardsRequest}
+ * @returns {@link BatchEnableStandardsResponse}
  * @see {@link BatchEnableStandardsCommandInput} for command's `input` shape.
  * @see {@link BatchEnableStandardsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

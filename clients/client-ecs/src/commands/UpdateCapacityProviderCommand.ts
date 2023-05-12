@@ -83,8 +83,8 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  *
  * ```
  *
- * @param UpdateCapacityProviderCommandInput - {@link UpdateCapacityProviderCommandInput}
- * @returns {@link UpdateCapacityProviderCommandOutput}
+ * @param UpdateCapacityProviderRequest - {@link UpdateCapacityProviderRequest}
+ * @returns {@link UpdateCapacityProviderResponse}
  * @see {@link UpdateCapacityProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateCapacityProviderCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

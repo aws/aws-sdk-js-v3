@@ -77,8 +77,8 @@ export interface PutAdminAccountCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutAdminAccountCommandInput - {@link PutAdminAccountCommandInput}
- * @returns {@link PutAdminAccountCommandOutput}
+ * @param PutAdminAccountRequest - {@link PutAdminAccountRequest}
+ * @returns {@link Unit}
  * @see {@link PutAdminAccountCommandInput} for command's `input` shape.
  * @see {@link PutAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

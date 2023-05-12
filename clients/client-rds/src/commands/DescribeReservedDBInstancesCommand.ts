@@ -92,8 +92,8 @@ export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInst
  *
  * ```
  *
- * @param DescribeReservedDBInstancesCommandInput - {@link DescribeReservedDBInstancesCommandInput}
- * @returns {@link DescribeReservedDBInstancesCommandOutput}
+ * @param DescribeReservedDBInstancesMessage - {@link DescribeReservedDBInstancesMessage}
+ * @returns {@link ReservedDBInstanceMessage}
  * @see {@link DescribeReservedDBInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedDBInstancesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

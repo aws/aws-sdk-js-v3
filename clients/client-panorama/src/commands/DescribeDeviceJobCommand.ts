@@ -58,8 +58,8 @@ export interface DescribeDeviceJobCommandOutput extends DescribeDeviceJobRespons
  *
  * ```
  *
- * @param DescribeDeviceJobCommandInput - {@link DescribeDeviceJobCommandInput}
- * @returns {@link DescribeDeviceJobCommandOutput}
+ * @param DescribeDeviceJobRequest - {@link DescribeDeviceJobRequest}
+ * @returns {@link DescribeDeviceJobResponse}
  * @see {@link DescribeDeviceJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDeviceJobCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

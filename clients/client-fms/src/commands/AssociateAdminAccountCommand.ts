@@ -49,8 +49,8 @@ export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AssociateAdminAccountCommandInput - {@link AssociateAdminAccountCommandInput}
- * @returns {@link AssociateAdminAccountCommandOutput}
+ * @param AssociateAdminAccountRequest - {@link AssociateAdminAccountRequest}
+ * @returns {@link Unit}
  * @see {@link AssociateAdminAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

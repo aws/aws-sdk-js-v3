@@ -82,8 +82,8 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  *
  * ```
  *
- * @param GetConnectionsCommandInput - {@link GetConnectionsCommandInput}
- * @returns {@link GetConnectionsCommandOutput}
+ * @param GetConnectionsRequest - {@link GetConnectionsRequest}
+ * @returns {@link GetConnectionsResponse}
  * @see {@link GetConnectionsCommandInput} for command's `input` shape.
  * @see {@link GetConnectionsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

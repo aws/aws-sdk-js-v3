@@ -92,8 +92,8 @@ export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailable
  *
  * ```
  *
- * @param DescribeAvailablePatchesCommandInput - {@link DescribeAvailablePatchesCommandInput}
- * @returns {@link DescribeAvailablePatchesCommandOutput}
+ * @param DescribeAvailablePatchesRequest - {@link DescribeAvailablePatchesRequest}
+ * @returns {@link DescribeAvailablePatchesResult}
  * @see {@link DescribeAvailablePatchesCommandInput} for command's `input` shape.
  * @see {@link DescribeAvailablePatchesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

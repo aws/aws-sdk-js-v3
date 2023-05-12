@@ -85,8 +85,8 @@ export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult,
  *
  * ```
  *
- * @param DescribeSenderIdsCommandInput - {@link DescribeSenderIdsCommandInput}
- * @returns {@link DescribeSenderIdsCommandOutput}
+ * @param DescribeSenderIdsRequest - {@link DescribeSenderIdsRequest}
+ * @returns {@link DescribeSenderIdsResult}
  * @see {@link DescribeSenderIdsCommandInput} for command's `input` shape.
  * @see {@link DescribeSenderIdsCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

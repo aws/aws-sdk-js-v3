@@ -65,8 +65,8 @@ export interface GetMembershipCommandOutput extends GetMembershipOutput, __Metad
  *
  * ```
  *
- * @param GetMembershipCommandInput - {@link GetMembershipCommandInput}
- * @returns {@link GetMembershipCommandOutput}
+ * @param GetMembershipInput - {@link GetMembershipInput}
+ * @returns {@link GetMembershipOutput}
  * @see {@link GetMembershipCommandInput} for command's `input` shape.
  * @see {@link GetMembershipCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

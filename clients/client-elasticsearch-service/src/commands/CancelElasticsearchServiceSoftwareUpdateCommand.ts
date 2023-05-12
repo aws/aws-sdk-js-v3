@@ -72,8 +72,8 @@ export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
  *
  * ```
  *
- * @param CancelElasticsearchServiceSoftwareUpdateCommandInput - {@link CancelElasticsearchServiceSoftwareUpdateCommandInput}
- * @returns {@link CancelElasticsearchServiceSoftwareUpdateCommandOutput}
+ * @param CancelElasticsearchServiceSoftwareUpdateRequest - {@link CancelElasticsearchServiceSoftwareUpdateRequest}
+ * @returns {@link CancelElasticsearchServiceSoftwareUpdateResponse}
  * @see {@link CancelElasticsearchServiceSoftwareUpdateCommandInput} for command's `input` shape.
  * @see {@link CancelElasticsearchServiceSoftwareUpdateCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

@@ -65,8 +65,8 @@ export interface ListFunctionDefinitionVersionsCommandOutput
  *
  * ```
  *
- * @param ListFunctionDefinitionVersionsCommandInput - {@link ListFunctionDefinitionVersionsCommandInput}
- * @returns {@link ListFunctionDefinitionVersionsCommandOutput}
+ * @param ListFunctionDefinitionVersionsRequest - {@link ListFunctionDefinitionVersionsRequest}
+ * @returns {@link ListFunctionDefinitionVersionsResponse}
  * @see {@link ListFunctionDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

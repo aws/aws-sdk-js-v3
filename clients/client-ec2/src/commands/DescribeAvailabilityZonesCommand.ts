@@ -88,8 +88,8 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  *
  * ```
  *
- * @param DescribeAvailabilityZonesCommandInput - {@link DescribeAvailabilityZonesCommandInput}
- * @returns {@link DescribeAvailabilityZonesCommandOutput}
+ * @param DescribeAvailabilityZonesRequest - {@link DescribeAvailabilityZonesRequest}
+ * @returns {@link DescribeAvailabilityZonesResult}
  * @see {@link DescribeAvailabilityZonesCommandInput} for command's `input` shape.
  * @see {@link DescribeAvailabilityZonesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -64,8 +64,8 @@ export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __Metadat
  *
  * ```
  *
- * @param GetAttendeeCommandInput - {@link GetAttendeeCommandInput}
- * @returns {@link GetAttendeeCommandOutput}
+ * @param GetAttendeeRequest - {@link GetAttendeeRequest}
+ * @returns {@link GetAttendeeResponse}
  * @see {@link GetAttendeeCommandInput} for command's `input` shape.
  * @see {@link GetAttendeeCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.

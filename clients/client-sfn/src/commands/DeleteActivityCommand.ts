@@ -48,8 +48,8 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
  *
  * ```
  *
- * @param DeleteActivityCommandInput - {@link DeleteActivityCommandInput}
- * @returns {@link DeleteActivityCommandOutput}
+ * @param DeleteActivityInput - {@link DeleteActivityInput}
+ * @returns {@link DeleteActivityOutput}
  * @see {@link DeleteActivityCommandInput} for command's `input` shape.
  * @see {@link DeleteActivityCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.

@@ -52,8 +52,8 @@ export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreRes
  *
  * ```
  *
- * @param AssociateTrustStoreCommandInput - {@link AssociateTrustStoreCommandInput}
- * @returns {@link AssociateTrustStoreCommandOutput}
+ * @param AssociateTrustStoreRequest - {@link AssociateTrustStoreRequest}
+ * @returns {@link AssociateTrustStoreResponse}
  * @see {@link AssociateTrustStoreCommandInput} for command's `input` shape.
  * @see {@link AssociateTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

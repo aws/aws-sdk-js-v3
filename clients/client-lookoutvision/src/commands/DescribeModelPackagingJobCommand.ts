@@ -98,8 +98,8 @@ export interface DescribeModelPackagingJobCommandOutput extends DescribeModelPac
  *
  * ```
  *
- * @param DescribeModelPackagingJobCommandInput - {@link DescribeModelPackagingJobCommandInput}
- * @returns {@link DescribeModelPackagingJobCommandOutput}
+ * @param DescribeModelPackagingJobRequest - {@link DescribeModelPackagingJobRequest}
+ * @returns {@link DescribeModelPackagingJobResponse}
  * @see {@link DescribeModelPackagingJobCommandInput} for command's `input` shape.
  * @see {@link DescribeModelPackagingJobCommandOutput} for command's `response` shape.
  * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.

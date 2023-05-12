@@ -88,8 +88,8 @@ export interface StartStudioSSOConfigurationRepairCommandOutput
  *
  * ```
  *
- * @param StartStudioSSOConfigurationRepairCommandInput - {@link StartStudioSSOConfigurationRepairCommandInput}
- * @returns {@link StartStudioSSOConfigurationRepairCommandOutput}
+ * @param StartStudioSSOConfigurationRepairRequest - {@link StartStudioSSOConfigurationRepairRequest}
+ * @returns {@link StartStudioSSOConfigurationRepairResponse}
  * @see {@link StartStudioSSOConfigurationRepairCommandInput} for command's `input` shape.
  * @see {@link StartStudioSSOConfigurationRepairCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteMetricAttributionCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DeleteMetricAttributionCommandInput - {@link DeleteMetricAttributionCommandInput}
- * @returns {@link DeleteMetricAttributionCommandOutput}
+ * @param DeleteMetricAttributionRequest - {@link DeleteMetricAttributionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteMetricAttributionCommandInput} for command's `input` shape.
  * @see {@link DeleteMetricAttributionCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

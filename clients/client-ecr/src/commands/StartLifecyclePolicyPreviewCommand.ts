@@ -58,8 +58,8 @@ export interface StartLifecyclePolicyPreviewCommandOutput
  *
  * ```
  *
- * @param StartLifecyclePolicyPreviewCommandInput - {@link StartLifecyclePolicyPreviewCommandInput}
- * @returns {@link StartLifecyclePolicyPreviewCommandOutput}
+ * @param StartLifecyclePolicyPreviewRequest - {@link StartLifecyclePolicyPreviewRequest}
+ * @returns {@link StartLifecyclePolicyPreviewResponse}
  * @see {@link StartLifecyclePolicyPreviewCommandInput} for command's `input` shape.
  * @see {@link StartLifecyclePolicyPreviewCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

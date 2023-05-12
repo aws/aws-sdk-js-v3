@@ -68,8 +68,8 @@ export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorPr
  *
  * ```
  *
- * @param PutVoiceConnectorProxyCommandInput - {@link PutVoiceConnectorProxyCommandInput}
- * @returns {@link PutVoiceConnectorProxyCommandOutput}
+ * @param PutVoiceConnectorProxyRequest - {@link PutVoiceConnectorProxyRequest}
+ * @returns {@link PutVoiceConnectorProxyResponse}
  * @see {@link PutVoiceConnectorProxyCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorProxyCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

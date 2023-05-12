@@ -92,8 +92,8 @@ export interface BatchGetDevEndpointsCommandOutput extends BatchGetDevEndpointsR
  *
  * ```
  *
- * @param BatchGetDevEndpointsCommandInput - {@link BatchGetDevEndpointsCommandInput}
- * @returns {@link BatchGetDevEndpointsCommandOutput}
+ * @param BatchGetDevEndpointsRequest - {@link BatchGetDevEndpointsRequest}
+ * @returns {@link BatchGetDevEndpointsResponse}
  * @see {@link BatchGetDevEndpointsCommandInput} for command's `input` shape.
  * @see {@link BatchGetDevEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

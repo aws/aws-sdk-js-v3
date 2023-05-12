@@ -54,8 +54,8 @@ export interface CancelImageCreationCommandOutput extends CancelImageCreationRes
  *
  * ```
  *
- * @param CancelImageCreationCommandInput - {@link CancelImageCreationCommandInput}
- * @returns {@link CancelImageCreationCommandOutput}
+ * @param CancelImageCreationRequest - {@link CancelImageCreationRequest}
+ * @returns {@link CancelImageCreationResponse}
  * @see {@link CancelImageCreationCommandInput} for command's `input` shape.
  * @see {@link CancelImageCreationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

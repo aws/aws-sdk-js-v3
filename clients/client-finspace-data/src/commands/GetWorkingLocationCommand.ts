@@ -53,8 +53,8 @@ export interface GetWorkingLocationCommandOutput extends GetWorkingLocationRespo
  *
  * ```
  *
- * @param GetWorkingLocationCommandInput - {@link GetWorkingLocationCommandInput}
- * @returns {@link GetWorkingLocationCommandOutput}
+ * @param GetWorkingLocationRequest - {@link GetWorkingLocationRequest}
+ * @returns {@link GetWorkingLocationResponse}
  * @see {@link GetWorkingLocationCommandInput} for command's `input` shape.
  * @see {@link GetWorkingLocationCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

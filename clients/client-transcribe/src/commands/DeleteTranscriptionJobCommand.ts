@@ -50,8 +50,8 @@ export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteTranscriptionJobCommandInput - {@link DeleteTranscriptionJobCommandInput}
- * @returns {@link DeleteTranscriptionJobCommandOutput}
+ * @param DeleteTranscriptionJobRequest - {@link DeleteTranscriptionJobRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link DeleteTranscriptionJobCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

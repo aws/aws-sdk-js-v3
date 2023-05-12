@@ -55,8 +55,8 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  *
  * ```
  *
- * @param DeleteRepositoryCommandInput - {@link DeleteRepositoryCommandInput}
- * @returns {@link DeleteRepositoryCommandOutput}
+ * @param DeleteRepositoryInput - {@link DeleteRepositoryInput}
+ * @returns {@link DeleteRepositoryOutput}
  * @see {@link DeleteRepositoryCommandInput} for command's `input` shape.
  * @see {@link DeleteRepositoryCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

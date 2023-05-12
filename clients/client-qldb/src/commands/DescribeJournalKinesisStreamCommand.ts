@@ -76,8 +76,8 @@ export interface DescribeJournalKinesisStreamCommandOutput
  *
  * ```
  *
- * @param DescribeJournalKinesisStreamCommandInput - {@link DescribeJournalKinesisStreamCommandInput}
- * @returns {@link DescribeJournalKinesisStreamCommandOutput}
+ * @param DescribeJournalKinesisStreamRequest - {@link DescribeJournalKinesisStreamRequest}
+ * @returns {@link DescribeJournalKinesisStreamResponse}
  * @see {@link DescribeJournalKinesisStreamCommandInput} for command's `input` shape.
  * @see {@link DescribeJournalKinesisStreamCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.

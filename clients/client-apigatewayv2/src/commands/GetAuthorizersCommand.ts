@@ -74,8 +74,8 @@ export interface GetAuthorizersCommandOutput extends GetAuthorizersResponse, __M
  *
  * ```
  *
- * @param GetAuthorizersCommandInput - {@link GetAuthorizersCommandInput}
- * @returns {@link GetAuthorizersCommandOutput}
+ * @param GetAuthorizersRequest - {@link GetAuthorizersRequest}
+ * @returns {@link GetAuthorizersResponse}
  * @see {@link GetAuthorizersCommandInput} for command's `input` shape.
  * @see {@link GetAuthorizersCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

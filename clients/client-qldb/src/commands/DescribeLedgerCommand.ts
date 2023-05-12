@@ -61,8 +61,8 @@ export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __M
  *
  * ```
  *
- * @param DescribeLedgerCommandInput - {@link DescribeLedgerCommandInput}
- * @returns {@link DescribeLedgerCommandOutput}
+ * @param DescribeLedgerRequest - {@link DescribeLedgerRequest}
+ * @returns {@link DescribeLedgerResponse}
  * @see {@link DescribeLedgerCommandInput} for command's `input` shape.
  * @see {@link DescribeLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.

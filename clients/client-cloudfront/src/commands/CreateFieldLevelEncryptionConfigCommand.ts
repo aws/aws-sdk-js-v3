@@ -117,8 +117,8 @@ export interface CreateFieldLevelEncryptionConfigCommandOutput
  *
  * ```
  *
- * @param CreateFieldLevelEncryptionConfigCommandInput - {@link CreateFieldLevelEncryptionConfigCommandInput}
- * @returns {@link CreateFieldLevelEncryptionConfigCommandOutput}
+ * @param CreateFieldLevelEncryptionConfigRequest - {@link CreateFieldLevelEncryptionConfigRequest}
+ * @returns {@link CreateFieldLevelEncryptionConfigResult}
  * @see {@link CreateFieldLevelEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link CreateFieldLevelEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

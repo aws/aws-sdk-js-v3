@@ -79,8 +79,8 @@ export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __Met
  *
  * ```
  *
- * @param DeleteDBProxyCommandInput - {@link DeleteDBProxyCommandInput}
- * @returns {@link DeleteDBProxyCommandOutput}
+ * @param DeleteDBProxyRequest - {@link DeleteDBProxyRequest}
+ * @returns {@link DeleteDBProxyResponse}
  * @see {@link DeleteDBProxyCommandInput} for command's `input` shape.
  * @see {@link DeleteDBProxyCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

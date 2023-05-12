@@ -69,8 +69,8 @@ export interface DeleteAutoSnapshotCommandOutput extends DeleteAutoSnapshotResul
  *
  * ```
  *
- * @param DeleteAutoSnapshotCommandInput - {@link DeleteAutoSnapshotCommandInput}
- * @returns {@link DeleteAutoSnapshotCommandOutput}
+ * @param DeleteAutoSnapshotRequest - {@link DeleteAutoSnapshotRequest}
+ * @returns {@link DeleteAutoSnapshotResult}
  * @see {@link DeleteAutoSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteAutoSnapshotCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

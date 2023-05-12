@@ -62,8 +62,8 @@ export interface UpdateTableStorageOptimizerCommandOutput
  *
  * ```
  *
- * @param UpdateTableStorageOptimizerCommandInput - {@link UpdateTableStorageOptimizerCommandInput}
- * @returns {@link UpdateTableStorageOptimizerCommandOutput}
+ * @param UpdateTableStorageOptimizerRequest - {@link UpdateTableStorageOptimizerRequest}
+ * @returns {@link UpdateTableStorageOptimizerResponse}
  * @see {@link UpdateTableStorageOptimizerCommandInput} for command's `input` shape.
  * @see {@link UpdateTableStorageOptimizerCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

@@ -83,8 +83,8 @@ export interface DescribeStepCommandOutput extends DescribeStepOutput, __Metadat
  *
  * ```
  *
- * @param DescribeStepCommandInput - {@link DescribeStepCommandInput}
- * @returns {@link DescribeStepCommandOutput}
+ * @param DescribeStepInput - {@link DescribeStepInput}
+ * @returns {@link DescribeStepOutput}
  * @see {@link DescribeStepCommandInput} for command's `input` shape.
  * @see {@link DescribeStepCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

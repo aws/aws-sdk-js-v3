@@ -93,8 +93,8 @@ export interface ExportAutoScalingGroupRecommendationsCommandOutput
  *
  * ```
  *
- * @param ExportAutoScalingGroupRecommendationsCommandInput - {@link ExportAutoScalingGroupRecommendationsCommandInput}
- * @returns {@link ExportAutoScalingGroupRecommendationsCommandOutput}
+ * @param ExportAutoScalingGroupRecommendationsRequest - {@link ExportAutoScalingGroupRecommendationsRequest}
+ * @returns {@link ExportAutoScalingGroupRecommendationsResponse}
  * @see {@link ExportAutoScalingGroupRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ExportAutoScalingGroupRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

@@ -68,8 +68,8 @@ export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataB
  *
  * ```
  *
- * @param DeleteCustomRoutingAcceleratorCommandInput - {@link DeleteCustomRoutingAcceleratorCommandInput}
- * @returns {@link DeleteCustomRoutingAcceleratorCommandOutput}
+ * @param DeleteCustomRoutingAcceleratorRequest - {@link DeleteCustomRoutingAcceleratorRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteCustomRoutingAcceleratorCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

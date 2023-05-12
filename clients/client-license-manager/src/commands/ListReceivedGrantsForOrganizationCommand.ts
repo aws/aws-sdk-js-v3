@@ -87,8 +87,8 @@ export interface ListReceivedGrantsForOrganizationCommandOutput
  *
  * ```
  *
- * @param ListReceivedGrantsForOrganizationCommandInput - {@link ListReceivedGrantsForOrganizationCommandInput}
- * @returns {@link ListReceivedGrantsForOrganizationCommandOutput}
+ * @param ListReceivedGrantsForOrganizationRequest - {@link ListReceivedGrantsForOrganizationRequest}
+ * @returns {@link ListReceivedGrantsForOrganizationResponse}
  * @see {@link ListReceivedGrantsForOrganizationCommandInput} for command's `input` shape.
  * @see {@link ListReceivedGrantsForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

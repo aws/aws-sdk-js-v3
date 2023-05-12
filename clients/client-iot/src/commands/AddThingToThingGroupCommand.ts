@@ -53,8 +53,8 @@ export interface AddThingToThingGroupCommandOutput extends AddThingToThingGroupR
  *
  * ```
  *
- * @param AddThingToThingGroupCommandInput - {@link AddThingToThingGroupCommandInput}
- * @returns {@link AddThingToThingGroupCommandOutput}
+ * @param AddThingToThingGroupRequest - {@link AddThingToThingGroupRequest}
+ * @returns {@link AddThingToThingGroupResponse}
  * @see {@link AddThingToThingGroupCommandInput} for command's `input` shape.
  * @see {@link AddThingToThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

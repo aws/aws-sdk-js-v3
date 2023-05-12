@@ -103,8 +103,8 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  *
  * ```
  *
- * @param SearchPlaceIndexForSuggestionsCommandInput - {@link SearchPlaceIndexForSuggestionsCommandInput}
- * @returns {@link SearchPlaceIndexForSuggestionsCommandOutput}
+ * @param SearchPlaceIndexForSuggestionsRequest - {@link SearchPlaceIndexForSuggestionsRequest}
+ * @returns {@link SearchPlaceIndexForSuggestionsResponse}
  * @see {@link SearchPlaceIndexForSuggestionsCommandInput} for command's `input` shape.
  * @see {@link SearchPlaceIndexForSuggestionsCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

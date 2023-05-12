@@ -62,8 +62,8 @@ export interface ListTLSInspectionConfigurationsCommandOutput
  *
  * ```
  *
- * @param ListTLSInspectionConfigurationsCommandInput - {@link ListTLSInspectionConfigurationsCommandInput}
- * @returns {@link ListTLSInspectionConfigurationsCommandOutput}
+ * @param ListTLSInspectionConfigurationsRequest - {@link ListTLSInspectionConfigurationsRequest}
+ * @returns {@link ListTLSInspectionConfigurationsResponse}
  * @see {@link ListTLSInspectionConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListTLSInspectionConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

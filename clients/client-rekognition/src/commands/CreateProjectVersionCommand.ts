@@ -115,8 +115,8 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  *
  * ```
  *
- * @param CreateProjectVersionCommandInput - {@link CreateProjectVersionCommandInput}
- * @returns {@link CreateProjectVersionCommandOutput}
+ * @param CreateProjectVersionRequest - {@link CreateProjectVersionRequest}
+ * @returns {@link CreateProjectVersionResponse}
  * @see {@link CreateProjectVersionCommandInput} for command's `input` shape.
  * @see {@link CreateProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

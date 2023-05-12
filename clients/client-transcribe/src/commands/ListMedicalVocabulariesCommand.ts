@@ -64,8 +64,8 @@ export interface ListMedicalVocabulariesCommandOutput extends ListMedicalVocabul
  *
  * ```
  *
- * @param ListMedicalVocabulariesCommandInput - {@link ListMedicalVocabulariesCommandInput}
- * @returns {@link ListMedicalVocabulariesCommandOutput}
+ * @param ListMedicalVocabulariesRequest - {@link ListMedicalVocabulariesRequest}
+ * @returns {@link ListMedicalVocabulariesResponse}
  * @see {@link ListMedicalVocabulariesCommandInput} for command's `input` shape.
  * @see {@link ListMedicalVocabulariesCommandOutput} for command's `response` shape.
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.

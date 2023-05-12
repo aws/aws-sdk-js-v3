@@ -59,8 +59,8 @@ export interface GetResourceDefinitionCommandOutput extends GetResourceDefinitio
  *
  * ```
  *
- * @param GetResourceDefinitionCommandInput - {@link GetResourceDefinitionCommandInput}
- * @returns {@link GetResourceDefinitionCommandOutput}
+ * @param GetResourceDefinitionRequest - {@link GetResourceDefinitionRequest}
+ * @returns {@link GetResourceDefinitionResponse}
  * @see {@link GetResourceDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetResourceDefinitionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

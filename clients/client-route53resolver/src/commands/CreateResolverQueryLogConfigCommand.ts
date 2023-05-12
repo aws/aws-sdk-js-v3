@@ -80,8 +80,8 @@ export interface CreateResolverQueryLogConfigCommandOutput
  *
  * ```
  *
- * @param CreateResolverQueryLogConfigCommandInput - {@link CreateResolverQueryLogConfigCommandInput}
- * @returns {@link CreateResolverQueryLogConfigCommandOutput}
+ * @param CreateResolverQueryLogConfigRequest - {@link CreateResolverQueryLogConfigRequest}
+ * @returns {@link CreateResolverQueryLogConfigResponse}
  * @see {@link CreateResolverQueryLogConfigCommandInput} for command's `input` shape.
  * @see {@link CreateResolverQueryLogConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

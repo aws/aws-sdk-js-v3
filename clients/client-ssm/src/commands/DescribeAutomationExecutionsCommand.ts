@@ -181,8 +181,8 @@ export interface DescribeAutomationExecutionsCommandOutput
  *
  * ```
  *
- * @param DescribeAutomationExecutionsCommandInput - {@link DescribeAutomationExecutionsCommandInput}
- * @returns {@link DescribeAutomationExecutionsCommandOutput}
+ * @param DescribeAutomationExecutionsRequest - {@link DescribeAutomationExecutionsRequest}
+ * @returns {@link DescribeAutomationExecutionsResult}
  * @see {@link DescribeAutomationExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAutomationExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

@@ -59,8 +59,8 @@ export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __Metad
  *
  * ```
  *
- * @param GetCSVHeaderCommandInput - {@link GetCSVHeaderCommandInput}
- * @returns {@link GetCSVHeaderCommandOutput}
+ * @param GetCSVHeaderRequest - {@link GetCSVHeaderRequest}
+ * @returns {@link GetCSVHeaderResponse}
  * @see {@link GetCSVHeaderCommandInput} for command's `input` shape.
  * @see {@link GetCSVHeaderCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

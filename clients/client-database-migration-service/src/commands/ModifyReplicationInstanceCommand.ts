@@ -130,8 +130,8 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  *
  * ```
  *
- * @param ModifyReplicationInstanceCommandInput - {@link ModifyReplicationInstanceCommandInput}
- * @returns {@link ModifyReplicationInstanceCommandOutput}
+ * @param ModifyReplicationInstanceMessage - {@link ModifyReplicationInstanceMessage}
+ * @returns {@link ModifyReplicationInstanceResponse}
  * @see {@link ModifyReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

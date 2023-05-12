@@ -68,8 +68,8 @@ export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemp
  *
  * ```
  *
- * @param ListAssessmentTemplatesCommandInput - {@link ListAssessmentTemplatesCommandInput}
- * @returns {@link ListAssessmentTemplatesCommandOutput}
+ * @param ListAssessmentTemplatesRequest - {@link ListAssessmentTemplatesRequest}
+ * @returns {@link ListAssessmentTemplatesResponse}
  * @see {@link ListAssessmentTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentTemplatesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

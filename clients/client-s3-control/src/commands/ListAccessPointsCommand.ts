@@ -94,8 +94,8 @@ export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, _
  *
  * ```
  *
- * @param ListAccessPointsCommandInput - {@link ListAccessPointsCommandInput}
- * @returns {@link ListAccessPointsCommandOutput}
+ * @param ListAccessPointsRequest - {@link ListAccessPointsRequest}
+ * @returns {@link ListAccessPointsResult}
  * @see {@link ListAccessPointsCommandInput} for command's `input` shape.
  * @see {@link ListAccessPointsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

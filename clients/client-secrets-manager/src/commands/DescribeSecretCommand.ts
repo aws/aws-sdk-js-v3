@@ -96,8 +96,8 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  *
  * ```
  *
- * @param DescribeSecretCommandInput - {@link DescribeSecretCommandInput}
- * @returns {@link DescribeSecretCommandOutput}
+ * @param DescribeSecretRequest - {@link DescribeSecretRequest}
+ * @returns {@link DescribeSecretResponse}
  * @see {@link DescribeSecretCommandInput} for command's `input` shape.
  * @see {@link DescribeSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

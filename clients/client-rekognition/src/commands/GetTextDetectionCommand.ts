@@ -117,8 +117,8 @@ export interface GetTextDetectionCommandOutput extends GetTextDetectionResponse,
  *
  * ```
  *
- * @param GetTextDetectionCommandInput - {@link GetTextDetectionCommandInput}
- * @returns {@link GetTextDetectionCommandOutput}
+ * @param GetTextDetectionRequest - {@link GetTextDetectionRequest}
+ * @returns {@link GetTextDetectionResponse}
  * @see {@link GetTextDetectionCommandInput} for command's `input` shape.
  * @see {@link GetTextDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

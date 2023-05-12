@@ -52,8 +52,8 @@ export interface DeleteActionTargetCommandOutput extends DeleteActionTargetRespo
  *
  * ```
  *
- * @param DeleteActionTargetCommandInput - {@link DeleteActionTargetCommandInput}
- * @returns {@link DeleteActionTargetCommandOutput}
+ * @param DeleteActionTargetRequest - {@link DeleteActionTargetRequest}
+ * @returns {@link DeleteActionTargetResponse}
  * @see {@link DeleteActionTargetCommandInput} for command's `input` shape.
  * @see {@link DeleteActionTargetCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

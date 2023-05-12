@@ -83,8 +83,8 @@ export interface DeleteHITCommandOutput extends DeleteHITResponse, __MetadataBea
  *
  * ```
  *
- * @param DeleteHITCommandInput - {@link DeleteHITCommandInput}
- * @returns {@link DeleteHITCommandOutput}
+ * @param DeleteHITRequest - {@link DeleteHITRequest}
+ * @returns {@link DeleteHITResponse}
  * @see {@link DeleteHITCommandInput} for command's `input` shape.
  * @see {@link DeleteHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

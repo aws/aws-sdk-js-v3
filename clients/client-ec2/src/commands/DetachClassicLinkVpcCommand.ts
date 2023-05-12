@@ -55,8 +55,8 @@ export interface DetachClassicLinkVpcCommandOutput extends DetachClassicLinkVpcR
  *
  * ```
  *
- * @param DetachClassicLinkVpcCommandInput - {@link DetachClassicLinkVpcCommandInput}
- * @returns {@link DetachClassicLinkVpcCommandOutput}
+ * @param DetachClassicLinkVpcRequest - {@link DetachClassicLinkVpcRequest}
+ * @returns {@link DetachClassicLinkVpcResult}
  * @see {@link DetachClassicLinkVpcCommandInput} for command's `input` shape.
  * @see {@link DetachClassicLinkVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

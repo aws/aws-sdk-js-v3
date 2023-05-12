@@ -79,8 +79,8 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  *
  * ```
  *
- * @param DescribePackagesCommandInput - {@link DescribePackagesCommandInput}
- * @returns {@link DescribePackagesCommandOutput}
+ * @param DescribePackagesRequest - {@link DescribePackagesRequest}
+ * @returns {@link DescribePackagesResponse}
  * @see {@link DescribePackagesCommandInput} for command's `input` shape.
  * @see {@link DescribePackagesCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

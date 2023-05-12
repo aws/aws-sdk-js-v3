@@ -60,8 +60,8 @@ export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitRespo
  *
  * ```
  *
- * @param GetHostedZoneLimitCommandInput - {@link GetHostedZoneLimitCommandInput}
- * @returns {@link GetHostedZoneLimitCommandOutput}
+ * @param GetHostedZoneLimitRequest - {@link GetHostedZoneLimitRequest}
+ * @returns {@link GetHostedZoneLimitResponse}
  * @see {@link GetHostedZoneLimitCommandInput} for command's `input` shape.
  * @see {@link GetHostedZoneLimitCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

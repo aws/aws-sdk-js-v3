@@ -69,8 +69,8 @@ export interface ListJobExecutionsForThingCommandOutput extends ListJobExecution
  *
  * ```
  *
- * @param ListJobExecutionsForThingCommandInput - {@link ListJobExecutionsForThingCommandInput}
- * @returns {@link ListJobExecutionsForThingCommandOutput}
+ * @param ListJobExecutionsForThingRequest - {@link ListJobExecutionsForThingRequest}
+ * @returns {@link ListJobExecutionsForThingResponse}
  * @see {@link ListJobExecutionsForThingCommandInput} for command's `input` shape.
  * @see {@link ListJobExecutionsForThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

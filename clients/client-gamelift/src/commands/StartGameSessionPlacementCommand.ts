@@ -147,8 +147,8 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  *
  * ```
  *
- * @param StartGameSessionPlacementCommandInput - {@link StartGameSessionPlacementCommandInput}
- * @returns {@link StartGameSessionPlacementCommandOutput}
+ * @param StartGameSessionPlacementInput - {@link StartGameSessionPlacementInput}
+ * @returns {@link StartGameSessionPlacementOutput}
  * @see {@link StartGameSessionPlacementCommandInput} for command's `input` shape.
  * @see {@link StartGameSessionPlacementCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

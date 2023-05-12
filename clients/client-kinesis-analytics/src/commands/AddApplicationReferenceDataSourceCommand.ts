@@ -100,8 +100,8 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  *
  * ```
  *
- * @param AddApplicationReferenceDataSourceCommandInput - {@link AddApplicationReferenceDataSourceCommandInput}
- * @returns {@link AddApplicationReferenceDataSourceCommandOutput}
+ * @param AddApplicationReferenceDataSourceRequest - {@link AddApplicationReferenceDataSourceRequest}
+ * @returns {@link AddApplicationReferenceDataSourceResponse}
  * @see {@link AddApplicationReferenceDataSourceCommandInput} for command's `input` shape.
  * @see {@link AddApplicationReferenceDataSourceCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.

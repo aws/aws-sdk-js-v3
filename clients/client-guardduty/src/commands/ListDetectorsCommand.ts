@@ -54,8 +54,8 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  *
  * ```
  *
- * @param ListDetectorsCommandInput - {@link ListDetectorsCommandInput}
- * @returns {@link ListDetectorsCommandOutput}
+ * @param ListDetectorsRequest - {@link ListDetectorsRequest}
+ * @returns {@link ListDetectorsResponse}
  * @see {@link ListDetectorsCommandInput} for command's `input` shape.
  * @see {@link ListDetectorsCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.

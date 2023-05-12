@@ -91,8 +91,8 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
  *
  * ```
  *
- * @param RestoreTableFromClusterSnapshotCommandInput - {@link RestoreTableFromClusterSnapshotCommandInput}
- * @returns {@link RestoreTableFromClusterSnapshotCommandOutput}
+ * @param RestoreTableFromClusterSnapshotMessage - {@link RestoreTableFromClusterSnapshotMessage}
+ * @returns {@link RestoreTableFromClusterSnapshotResult}
  * @see {@link RestoreTableFromClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreTableFromClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

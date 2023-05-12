@@ -90,8 +90,8 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  *
  * ```
  *
- * @param GetDataSourceCommandInput - {@link GetDataSourceCommandInput}
- * @returns {@link GetDataSourceCommandOutput}
+ * @param GetDataSourceInput - {@link GetDataSourceInput}
+ * @returns {@link GetDataSourceOutput}
  * @see {@link GetDataSourceCommandInput} for command's `input` shape.
  * @see {@link GetDataSourceCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

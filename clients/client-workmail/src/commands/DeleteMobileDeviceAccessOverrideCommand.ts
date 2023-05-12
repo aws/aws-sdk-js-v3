@@ -58,8 +58,8 @@ export interface DeleteMobileDeviceAccessOverrideCommandOutput
  *
  * ```
  *
- * @param DeleteMobileDeviceAccessOverrideCommandInput - {@link DeleteMobileDeviceAccessOverrideCommandInput}
- * @returns {@link DeleteMobileDeviceAccessOverrideCommandOutput}
+ * @param DeleteMobileDeviceAccessOverrideRequest - {@link DeleteMobileDeviceAccessOverrideRequest}
+ * @returns {@link DeleteMobileDeviceAccessOverrideResponse}
  * @see {@link DeleteMobileDeviceAccessOverrideCommandInput} for command's `input` shape.
  * @see {@link DeleteMobileDeviceAccessOverrideCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

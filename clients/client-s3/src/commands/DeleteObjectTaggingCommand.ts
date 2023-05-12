@@ -72,8 +72,8 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  *
  * ```
  *
- * @param DeleteObjectTaggingCommandInput - {@link DeleteObjectTaggingCommandInput}
- * @returns {@link DeleteObjectTaggingCommandOutput}
+ * @param DeleteObjectTaggingRequest - {@link DeleteObjectTaggingRequest}
+ * @returns {@link DeleteObjectTaggingOutput}
  * @see {@link DeleteObjectTaggingCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

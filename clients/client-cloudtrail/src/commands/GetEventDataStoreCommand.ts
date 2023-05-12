@@ -86,8 +86,8 @@ export interface GetEventDataStoreCommandOutput extends GetEventDataStoreRespons
  *
  * ```
  *
- * @param GetEventDataStoreCommandInput - {@link GetEventDataStoreCommandInput}
- * @returns {@link GetEventDataStoreCommandOutput}
+ * @param GetEventDataStoreRequest - {@link GetEventDataStoreRequest}
+ * @returns {@link GetEventDataStoreResponse}
  * @see {@link GetEventDataStoreCommandInput} for command's `input` shape.
  * @see {@link GetEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.

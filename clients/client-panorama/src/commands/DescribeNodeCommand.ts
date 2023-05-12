@@ -81,8 +81,8 @@ export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __Metad
  *
  * ```
  *
- * @param DescribeNodeCommandInput - {@link DescribeNodeCommandInput}
- * @returns {@link DescribeNodeCommandOutput}
+ * @param DescribeNodeRequest - {@link DescribeNodeRequest}
+ * @returns {@link DescribeNodeResponse}
  * @see {@link DescribeNodeCommandInput} for command's `input` shape.
  * @see {@link DescribeNodeCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

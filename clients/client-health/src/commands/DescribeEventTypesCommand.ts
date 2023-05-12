@@ -76,8 +76,8 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  *
  * ```
  *
- * @param DescribeEventTypesCommandInput - {@link DescribeEventTypesCommandInput}
- * @returns {@link DescribeEventTypesCommandOutput}
+ * @param DescribeEventTypesRequest - {@link DescribeEventTypesRequest}
+ * @returns {@link DescribeEventTypesResponse}
  * @see {@link DescribeEventTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventTypesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.

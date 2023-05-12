@@ -192,8 +192,8 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  *
  * ```
  *
- * @param DescribeContactCommandInput - {@link DescribeContactCommandInput}
- * @returns {@link DescribeContactCommandOutput}
+ * @param DescribeContactRequest - {@link DescribeContactRequest}
+ * @returns {@link DescribeContactResponse}
  * @see {@link DescribeContactCommandInput} for command's `input` shape.
  * @see {@link DescribeContactCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.

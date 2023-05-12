@@ -52,8 +52,8 @@ export interface AssociateUserSettingsCommandOutput extends AssociateUserSetting
  *
  * ```
  *
- * @param AssociateUserSettingsCommandInput - {@link AssociateUserSettingsCommandInput}
- * @returns {@link AssociateUserSettingsCommandOutput}
+ * @param AssociateUserSettingsRequest - {@link AssociateUserSettingsRequest}
+ * @returns {@link AssociateUserSettingsResponse}
  * @see {@link AssociateUserSettingsCommandInput} for command's `input` shape.
  * @see {@link AssociateUserSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

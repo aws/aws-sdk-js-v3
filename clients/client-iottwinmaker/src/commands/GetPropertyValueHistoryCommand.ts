@@ -165,8 +165,8 @@ export interface GetPropertyValueHistoryCommandOutput extends GetPropertyValueHi
  *
  * ```
  *
- * @param GetPropertyValueHistoryCommandInput - {@link GetPropertyValueHistoryCommandInput}
- * @returns {@link GetPropertyValueHistoryCommandOutput}
+ * @param GetPropertyValueHistoryRequest - {@link GetPropertyValueHistoryRequest}
+ * @returns {@link GetPropertyValueHistoryResponse}
  * @see {@link GetPropertyValueHistoryCommandInput} for command's `input` shape.
  * @see {@link GetPropertyValueHistoryCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

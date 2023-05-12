@@ -108,8 +108,8 @@ export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataB
  *
  * ```
  *
- * @param DeleteImageCommandInput - {@link DeleteImageCommandInput}
- * @returns {@link DeleteImageCommandOutput}
+ * @param DeleteImageRequest - {@link DeleteImageRequest}
+ * @returns {@link DeleteImageResult}
  * @see {@link DeleteImageCommandInput} for command's `input` shape.
  * @see {@link DeleteImageCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

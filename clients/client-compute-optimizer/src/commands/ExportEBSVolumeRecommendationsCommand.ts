@@ -84,8 +84,8 @@ export interface ExportEBSVolumeRecommendationsCommandOutput
  *
  * ```
  *
- * @param ExportEBSVolumeRecommendationsCommandInput - {@link ExportEBSVolumeRecommendationsCommandInput}
- * @returns {@link ExportEBSVolumeRecommendationsCommandOutput}
+ * @param ExportEBSVolumeRecommendationsRequest - {@link ExportEBSVolumeRecommendationsRequest}
+ * @returns {@link ExportEBSVolumeRecommendationsResponse}
  * @see {@link ExportEBSVolumeRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ExportEBSVolumeRecommendationsCommandOutput} for command's `response` shape.
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.

@@ -65,8 +65,8 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  *
  * ```
  *
- * @param PutQueryDefinitionCommandInput - {@link PutQueryDefinitionCommandInput}
- * @returns {@link PutQueryDefinitionCommandOutput}
+ * @param PutQueryDefinitionRequest - {@link PutQueryDefinitionRequest}
+ * @returns {@link PutQueryDefinitionResponse}
  * @see {@link PutQueryDefinitionCommandInput} for command's `input` shape.
  * @see {@link PutQueryDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

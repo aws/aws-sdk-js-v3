@@ -60,8 +60,8 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
- * @returns {@link DeleteRuleCommandOutput}
+ * @param DeleteRuleRequest - {@link DeleteRuleRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

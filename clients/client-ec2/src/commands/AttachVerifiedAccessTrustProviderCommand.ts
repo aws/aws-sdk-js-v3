@@ -110,8 +110,8 @@ export interface AttachVerifiedAccessTrustProviderCommandOutput
  *
  * ```
  *
- * @param AttachVerifiedAccessTrustProviderCommandInput - {@link AttachVerifiedAccessTrustProviderCommandInput}
- * @returns {@link AttachVerifiedAccessTrustProviderCommandOutput}
+ * @param AttachVerifiedAccessTrustProviderRequest - {@link AttachVerifiedAccessTrustProviderRequest}
+ * @returns {@link AttachVerifiedAccessTrustProviderResult}
  * @see {@link AttachVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
  * @see {@link AttachVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -79,8 +79,8 @@ export interface DescribeTimeSeriesCommandOutput extends DescribeTimeSeriesRespo
  *
  * ```
  *
- * @param DescribeTimeSeriesCommandInput - {@link DescribeTimeSeriesCommandInput}
- * @returns {@link DescribeTimeSeriesCommandOutput}
+ * @param DescribeTimeSeriesRequest - {@link DescribeTimeSeriesRequest}
+ * @returns {@link DescribeTimeSeriesResponse}
  * @see {@link DescribeTimeSeriesCommandInput} for command's `input` shape.
  * @see {@link DescribeTimeSeriesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

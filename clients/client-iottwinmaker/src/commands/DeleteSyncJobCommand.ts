@@ -51,8 +51,8 @@ export interface DeleteSyncJobCommandOutput extends DeleteSyncJobResponse, __Met
  *
  * ```
  *
- * @param DeleteSyncJobCommandInput - {@link DeleteSyncJobCommandInput}
- * @returns {@link DeleteSyncJobCommandOutput}
+ * @param DeleteSyncJobRequest - {@link DeleteSyncJobRequest}
+ * @returns {@link DeleteSyncJobResponse}
  * @see {@link DeleteSyncJobCommandInput} for command's `input` shape.
  * @see {@link DeleteSyncJobCommandOutput} for command's `response` shape.
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.

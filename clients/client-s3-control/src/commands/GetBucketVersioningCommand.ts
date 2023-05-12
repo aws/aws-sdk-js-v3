@@ -90,8 +90,8 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningRes
  *
  * ```
  *
- * @param GetBucketVersioningCommandInput - {@link GetBucketVersioningCommandInput}
- * @returns {@link GetBucketVersioningCommandOutput}
+ * @param GetBucketVersioningRequest - {@link GetBucketVersioningRequest}
+ * @returns {@link GetBucketVersioningResult}
  * @see {@link GetBucketVersioningCommandInput} for command's `input` shape.
  * @see {@link GetBucketVersioningCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

@@ -91,8 +91,8 @@ export interface AssociateHostedConnectionCommandOutput extends Connection, __Me
  *
  * ```
  *
- * @param AssociateHostedConnectionCommandInput - {@link AssociateHostedConnectionCommandInput}
- * @returns {@link AssociateHostedConnectionCommandOutput}
+ * @param AssociateHostedConnectionRequest - {@link AssociateHostedConnectionRequest}
+ * @returns {@link Connection}
  * @see {@link AssociateHostedConnectionCommandInput} for command's `input` shape.
  * @see {@link AssociateHostedConnectionCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

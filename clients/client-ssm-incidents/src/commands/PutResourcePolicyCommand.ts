@@ -53,8 +53,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  *
  * ```
  *
- * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
- * @returns {@link PutResourcePolicyCommandOutput}
+ * @param PutResourcePolicyInput - {@link PutResourcePolicyInput}
+ * @returns {@link PutResourcePolicyOutput}
  * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

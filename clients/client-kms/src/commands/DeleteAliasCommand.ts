@@ -95,8 +95,8 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteAliasCommandInput - {@link DeleteAliasCommandInput}
- * @returns {@link DeleteAliasCommandOutput}
+ * @param DeleteAliasRequest - {@link DeleteAliasRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAliasCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

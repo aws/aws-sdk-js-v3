@@ -58,8 +58,8 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
  *
  * ```
  *
- * @param GetPermissionPolicyCommandInput - {@link GetPermissionPolicyCommandInput}
- * @returns {@link GetPermissionPolicyCommandOutput}
+ * @param GetPermissionPolicyRequest - {@link GetPermissionPolicyRequest}
+ * @returns {@link GetPermissionPolicyResponse}
  * @see {@link GetPermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetPermissionPolicyCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

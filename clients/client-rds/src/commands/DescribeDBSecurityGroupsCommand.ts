@@ -91,8 +91,8 @@ export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMe
  *
  * ```
  *
- * @param DescribeDBSecurityGroupsCommandInput - {@link DescribeDBSecurityGroupsCommandInput}
- * @returns {@link DescribeDBSecurityGroupsCommandOutput}
+ * @param DescribeDBSecurityGroupsMessage - {@link DescribeDBSecurityGroupsMessage}
+ * @returns {@link DBSecurityGroupMessage}
  * @see {@link DescribeDBSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

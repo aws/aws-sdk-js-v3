@@ -82,8 +82,8 @@ export interface GetCloudFormationStackRecordsCommandOutput
  *
  * ```
  *
- * @param GetCloudFormationStackRecordsCommandInput - {@link GetCloudFormationStackRecordsCommandInput}
- * @returns {@link GetCloudFormationStackRecordsCommandOutput}
+ * @param GetCloudFormationStackRecordsRequest - {@link GetCloudFormationStackRecordsRequest}
+ * @returns {@link GetCloudFormationStackRecordsResult}
  * @see {@link GetCloudFormationStackRecordsCommandInput} for command's `input` shape.
  * @see {@link GetCloudFormationStackRecordsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

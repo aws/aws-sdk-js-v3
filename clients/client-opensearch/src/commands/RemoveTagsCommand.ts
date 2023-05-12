@@ -52,8 +52,8 @@ export interface RemoveTagsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RemoveTagsCommandInput - {@link RemoveTagsCommandInput}
- * @returns {@link RemoveTagsCommandOutput}
+ * @param RemoveTagsRequest - {@link RemoveTagsRequest}
+ * @returns {@link Unit}
  * @see {@link RemoveTagsCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

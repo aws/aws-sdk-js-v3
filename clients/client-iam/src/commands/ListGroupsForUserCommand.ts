@@ -64,8 +64,8 @@ export interface ListGroupsForUserCommandOutput extends ListGroupsForUserRespons
  *
  * ```
  *
- * @param ListGroupsForUserCommandInput - {@link ListGroupsForUserCommandInput}
- * @returns {@link ListGroupsForUserCommandOutput}
+ * @param ListGroupsForUserRequest - {@link ListGroupsForUserRequest}
+ * @returns {@link ListGroupsForUserResponse}
  * @see {@link ListGroupsForUserCommandInput} for command's `input` shape.
  * @see {@link ListGroupsForUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

@@ -51,8 +51,8 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  *
  * ```
  *
- * @param DeregisterOnPremisesInstanceCommandInput - {@link DeregisterOnPremisesInstanceCommandInput}
- * @returns {@link DeregisterOnPremisesInstanceCommandOutput}
+ * @param DeregisterOnPremisesInstanceInput - {@link DeregisterOnPremisesInstanceInput}
+ * @returns {@link Unit}
  * @see {@link DeregisterOnPremisesInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterOnPremisesInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

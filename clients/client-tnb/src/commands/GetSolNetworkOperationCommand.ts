@@ -85,8 +85,8 @@ export interface GetSolNetworkOperationCommandOutput extends GetSolNetworkOperat
  *
  * ```
  *
- * @param GetSolNetworkOperationCommandInput - {@link GetSolNetworkOperationCommandInput}
- * @returns {@link GetSolNetworkOperationCommandOutput}
+ * @param GetSolNetworkOperationInput - {@link GetSolNetworkOperationInput}
+ * @returns {@link GetSolNetworkOperationOutput}
  * @see {@link GetSolNetworkOperationCommandInput} for command's `input` shape.
  * @see {@link GetSolNetworkOperationCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

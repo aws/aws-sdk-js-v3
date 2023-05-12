@@ -51,8 +51,8 @@ export interface DeleteDataCellsFilterCommandOutput extends DeleteDataCellsFilte
  *
  * ```
  *
- * @param DeleteDataCellsFilterCommandInput - {@link DeleteDataCellsFilterCommandInput}
- * @returns {@link DeleteDataCellsFilterCommandOutput}
+ * @param DeleteDataCellsFilterRequest - {@link DeleteDataCellsFilterRequest}
+ * @returns {@link DeleteDataCellsFilterResponse}
  * @see {@link DeleteDataCellsFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteDataCellsFilterCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

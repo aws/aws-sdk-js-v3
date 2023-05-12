@@ -75,8 +75,8 @@ export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResul
  *
  * ```
  *
- * @param ListMigrationTasksCommandInput - {@link ListMigrationTasksCommandInput}
- * @returns {@link ListMigrationTasksCommandOutput}
+ * @param ListMigrationTasksRequest - {@link ListMigrationTasksRequest}
+ * @returns {@link ListMigrationTasksResult}
  * @see {@link ListMigrationTasksCommandInput} for command's `input` shape.
  * @see {@link ListMigrationTasksCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.

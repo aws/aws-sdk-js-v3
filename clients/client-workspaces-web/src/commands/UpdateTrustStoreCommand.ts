@@ -57,8 +57,8 @@ export interface UpdateTrustStoreCommandOutput extends UpdateTrustStoreResponse,
  *
  * ```
  *
- * @param UpdateTrustStoreCommandInput - {@link UpdateTrustStoreCommandInput}
- * @returns {@link UpdateTrustStoreCommandOutput}
+ * @param UpdateTrustStoreRequest - {@link UpdateTrustStoreRequest}
+ * @returns {@link UpdateTrustStoreResponse}
  * @see {@link UpdateTrustStoreCommandInput} for command's `input` shape.
  * @see {@link UpdateTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

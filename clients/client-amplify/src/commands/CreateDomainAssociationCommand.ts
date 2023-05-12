@@ -84,8 +84,8 @@ export interface CreateDomainAssociationCommandOutput extends CreateDomainAssoci
  *
  * ```
  *
- * @param CreateDomainAssociationCommandInput - {@link CreateDomainAssociationCommandInput}
- * @returns {@link CreateDomainAssociationCommandOutput}
+ * @param CreateDomainAssociationRequest - {@link CreateDomainAssociationRequest}
+ * @returns {@link CreateDomainAssociationResult}
  * @see {@link CreateDomainAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateDomainAssociationCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

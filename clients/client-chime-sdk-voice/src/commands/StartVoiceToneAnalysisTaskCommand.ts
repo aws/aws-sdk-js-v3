@@ -71,8 +71,8 @@ export interface StartVoiceToneAnalysisTaskCommandOutput extends StartVoiceToneA
  *
  * ```
  *
- * @param StartVoiceToneAnalysisTaskCommandInput - {@link StartVoiceToneAnalysisTaskCommandInput}
- * @returns {@link StartVoiceToneAnalysisTaskCommandOutput}
+ * @param StartVoiceToneAnalysisTaskRequest - {@link StartVoiceToneAnalysisTaskRequest}
+ * @returns {@link StartVoiceToneAnalysisTaskResponse}
  * @see {@link StartVoiceToneAnalysisTaskCommandInput} for command's `input` shape.
  * @see {@link StartVoiceToneAnalysisTaskCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

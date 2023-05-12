@@ -56,8 +56,8 @@ export interface ListStagingAccountsCommandOutput extends ListStagingAccountsRes
  *
  * ```
  *
- * @param ListStagingAccountsCommandInput - {@link ListStagingAccountsCommandInput}
- * @returns {@link ListStagingAccountsCommandOutput}
+ * @param ListStagingAccountsRequest - {@link ListStagingAccountsRequest}
+ * @returns {@link ListStagingAccountsResponse}
  * @see {@link ListStagingAccountsCommandInput} for command's `input` shape.
  * @see {@link ListStagingAccountsCommandOutput} for command's `response` shape.
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.

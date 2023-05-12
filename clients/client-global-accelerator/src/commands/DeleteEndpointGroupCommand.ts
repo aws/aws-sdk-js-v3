@@ -52,8 +52,8 @@ export interface DeleteEndpointGroupCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteEndpointGroupCommandInput - {@link DeleteEndpointGroupCommandInput}
- * @returns {@link DeleteEndpointGroupCommandOutput}
+ * @param DeleteEndpointGroupRequest - {@link DeleteEndpointGroupRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

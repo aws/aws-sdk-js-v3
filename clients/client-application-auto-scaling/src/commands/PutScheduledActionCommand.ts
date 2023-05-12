@@ -77,8 +77,8 @@ export interface PutScheduledActionCommandOutput extends PutScheduledActionRespo
  *
  * ```
  *
- * @param PutScheduledActionCommandInput - {@link PutScheduledActionCommandInput}
- * @returns {@link PutScheduledActionCommandOutput}
+ * @param PutScheduledActionRequest - {@link PutScheduledActionRequest}
+ * @returns {@link PutScheduledActionResponse}
  * @see {@link PutScheduledActionCommandInput} for command's `input` shape.
  * @see {@link PutScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.

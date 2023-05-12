@@ -90,8 +90,8 @@ export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlC
  *
  * ```
  *
- * @param CreateFunctionUrlConfigCommandInput - {@link CreateFunctionUrlConfigCommandInput}
- * @returns {@link CreateFunctionUrlConfigCommandOutput}
+ * @param CreateFunctionUrlConfigRequest - {@link CreateFunctionUrlConfigRequest}
+ * @returns {@link CreateFunctionUrlConfigResponse}
  * @see {@link CreateFunctionUrlConfigCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionUrlConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

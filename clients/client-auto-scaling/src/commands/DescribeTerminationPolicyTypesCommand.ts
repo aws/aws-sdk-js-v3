@@ -58,8 +58,8 @@ export interface DescribeTerminationPolicyTypesCommandOutput
  *
  * ```
  *
- * @param DescribeTerminationPolicyTypesCommandInput - {@link DescribeTerminationPolicyTypesCommandInput}
- * @returns {@link DescribeTerminationPolicyTypesCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link DescribeTerminationPolicyTypesAnswer}
  * @see {@link DescribeTerminationPolicyTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeTerminationPolicyTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

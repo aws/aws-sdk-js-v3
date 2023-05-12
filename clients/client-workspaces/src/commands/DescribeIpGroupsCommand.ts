@@ -67,8 +67,8 @@ export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, _
  *
  * ```
  *
- * @param DescribeIpGroupsCommandInput - {@link DescribeIpGroupsCommandInput}
- * @returns {@link DescribeIpGroupsCommandOutput}
+ * @param DescribeIpGroupsRequest - {@link DescribeIpGroupsRequest}
+ * @returns {@link DescribeIpGroupsResult}
  * @see {@link DescribeIpGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeIpGroupsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

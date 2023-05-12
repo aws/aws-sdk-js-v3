@@ -80,8 +80,8 @@ export interface CreateMultipartReadSetUploadCommandOutput
  *
  * ```
  *
- * @param CreateMultipartReadSetUploadCommandInput - {@link CreateMultipartReadSetUploadCommandInput}
- * @returns {@link CreateMultipartReadSetUploadCommandOutput}
+ * @param CreateMultipartReadSetUploadRequest - {@link CreateMultipartReadSetUploadRequest}
+ * @returns {@link CreateMultipartReadSetUploadResponse}
  * @see {@link CreateMultipartReadSetUploadCommandInput} for command's `input` shape.
  * @see {@link CreateMultipartReadSetUploadCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

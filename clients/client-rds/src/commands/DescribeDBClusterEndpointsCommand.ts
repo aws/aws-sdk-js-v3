@@ -82,8 +82,8 @@ export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpoi
  *
  * ```
  *
- * @param DescribeDBClusterEndpointsCommandInput - {@link DescribeDBClusterEndpointsCommandInput}
- * @returns {@link DescribeDBClusterEndpointsCommandOutput}
+ * @param DescribeDBClusterEndpointsMessage - {@link DescribeDBClusterEndpointsMessage}
+ * @returns {@link DBClusterEndpointMessage}
  * @see {@link DescribeDBClusterEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterEndpointsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

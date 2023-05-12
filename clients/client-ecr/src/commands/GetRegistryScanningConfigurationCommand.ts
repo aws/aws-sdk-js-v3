@@ -67,8 +67,8 @@ export interface GetRegistryScanningConfigurationCommandOutput
  *
  * ```
  *
- * @param GetRegistryScanningConfigurationCommandInput - {@link GetRegistryScanningConfigurationCommandInput}
- * @returns {@link GetRegistryScanningConfigurationCommandOutput}
+ * @param GetRegistryScanningConfigurationRequest - {@link GetRegistryScanningConfigurationRequest}
+ * @returns {@link GetRegistryScanningConfigurationResponse}
  * @see {@link GetRegistryScanningConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetRegistryScanningConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

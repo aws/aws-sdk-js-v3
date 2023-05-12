@@ -79,8 +79,8 @@ export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput,
  *
  * ```
  *
- * @param DescribePortfolioCommandInput - {@link DescribePortfolioCommandInput}
- * @returns {@link DescribePortfolioCommandOutput}
+ * @param DescribePortfolioInput - {@link DescribePortfolioInput}
+ * @returns {@link DescribePortfolioOutput}
  * @see {@link DescribePortfolioCommandInput} for command's `input` shape.
  * @see {@link DescribePortfolioCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

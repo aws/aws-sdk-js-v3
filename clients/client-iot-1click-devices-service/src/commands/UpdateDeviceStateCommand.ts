@@ -54,8 +54,8 @@ export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateRespons
  *
  * ```
  *
- * @param UpdateDeviceStateCommandInput - {@link UpdateDeviceStateCommandInput}
- * @returns {@link UpdateDeviceStateCommandOutput}
+ * @param UpdateDeviceStateRequest - {@link UpdateDeviceStateRequest}
+ * @returns {@link UpdateDeviceStateResponse}
  * @see {@link UpdateDeviceStateCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceStateCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.

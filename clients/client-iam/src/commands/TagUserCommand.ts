@@ -97,8 +97,8 @@ export interface TagUserCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param TagUserCommandInput - {@link TagUserCommandInput}
- * @returns {@link TagUserCommandOutput}
+ * @param TagUserRequest - {@link TagUserRequest}
+ * @returns {@link Unit}
  * @see {@link TagUserCommandInput} for command's `input` shape.
  * @see {@link TagUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

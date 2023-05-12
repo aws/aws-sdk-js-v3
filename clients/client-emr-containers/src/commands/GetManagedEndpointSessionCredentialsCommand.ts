@@ -69,8 +69,8 @@ export interface GetManagedEndpointSessionCredentialsCommandOutput
  *
  * ```
  *
- * @param GetManagedEndpointSessionCredentialsCommandInput - {@link GetManagedEndpointSessionCredentialsCommandInput}
- * @returns {@link GetManagedEndpointSessionCredentialsCommandOutput}
+ * @param GetManagedEndpointSessionCredentialsRequest - {@link GetManagedEndpointSessionCredentialsRequest}
+ * @returns {@link GetManagedEndpointSessionCredentialsResponse}
  * @see {@link GetManagedEndpointSessionCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetManagedEndpointSessionCredentialsCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.

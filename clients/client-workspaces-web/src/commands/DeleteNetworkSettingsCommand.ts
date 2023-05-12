@@ -48,8 +48,8 @@ export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSetting
  *
  * ```
  *
- * @param DeleteNetworkSettingsCommandInput - {@link DeleteNetworkSettingsCommandInput}
- * @returns {@link DeleteNetworkSettingsCommandOutput}
+ * @param DeleteNetworkSettingsRequest - {@link DeleteNetworkSettingsRequest}
+ * @returns {@link DeleteNetworkSettingsResponse}
  * @see {@link DeleteNetworkSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkSettingsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

@@ -60,8 +60,8 @@ export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSetting
  *
  * ```
  *
- * @param DescribeLDAPSSettingsCommandInput - {@link DescribeLDAPSSettingsCommandInput}
- * @returns {@link DescribeLDAPSSettingsCommandOutput}
+ * @param DescribeLDAPSSettingsRequest - {@link DescribeLDAPSSettingsRequest}
+ * @returns {@link DescribeLDAPSSettingsResult}
  * @see {@link DescribeLDAPSSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeLDAPSSettingsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

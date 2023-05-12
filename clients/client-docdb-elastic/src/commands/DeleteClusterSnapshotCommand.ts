@@ -65,8 +65,8 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  *
  * ```
  *
- * @param DeleteClusterSnapshotCommandInput - {@link DeleteClusterSnapshotCommandInput}
- * @returns {@link DeleteClusterSnapshotCommandOutput}
+ * @param DeleteClusterSnapshotInput - {@link DeleteClusterSnapshotInput}
+ * @returns {@link DeleteClusterSnapshotOutput}
  * @see {@link DeleteClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.

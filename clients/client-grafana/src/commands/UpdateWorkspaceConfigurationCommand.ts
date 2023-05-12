@@ -54,8 +54,8 @@ export interface UpdateWorkspaceConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateWorkspaceConfigurationCommandInput - {@link UpdateWorkspaceConfigurationCommandInput}
- * @returns {@link UpdateWorkspaceConfigurationCommandOutput}
+ * @param UpdateWorkspaceConfigurationRequest - {@link UpdateWorkspaceConfigurationRequest}
+ * @returns {@link UpdateWorkspaceConfigurationResponse}
  * @see {@link UpdateWorkspaceConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.

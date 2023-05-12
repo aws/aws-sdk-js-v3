@@ -53,8 +53,8 @@ export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AssociateDhcpOptionsCommandInput - {@link AssociateDhcpOptionsCommandInput}
- * @returns {@link AssociateDhcpOptionsCommandOutput}
+ * @param AssociateDhcpOptionsRequest - {@link AssociateDhcpOptionsRequest}
+ * @returns {@link Unit}
  * @see {@link AssociateDhcpOptionsCommandInput} for command's `input` shape.
  * @see {@link AssociateDhcpOptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

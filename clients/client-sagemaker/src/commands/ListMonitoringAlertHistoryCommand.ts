@@ -66,8 +66,8 @@ export interface ListMonitoringAlertHistoryCommandOutput extends ListMonitoringA
  *
  * ```
  *
- * @param ListMonitoringAlertHistoryCommandInput - {@link ListMonitoringAlertHistoryCommandInput}
- * @returns {@link ListMonitoringAlertHistoryCommandOutput}
+ * @param ListMonitoringAlertHistoryRequest - {@link ListMonitoringAlertHistoryRequest}
+ * @returns {@link ListMonitoringAlertHistoryResponse}
  * @see {@link ListMonitoringAlertHistoryCommandInput} for command's `input` shape.
  * @see {@link ListMonitoringAlertHistoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

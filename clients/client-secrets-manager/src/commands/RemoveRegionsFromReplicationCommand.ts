@@ -74,8 +74,8 @@ export interface RemoveRegionsFromReplicationCommandOutput
  *
  * ```
  *
- * @param RemoveRegionsFromReplicationCommandInput - {@link RemoveRegionsFromReplicationCommandInput}
- * @returns {@link RemoveRegionsFromReplicationCommandOutput}
+ * @param RemoveRegionsFromReplicationRequest - {@link RemoveRegionsFromReplicationRequest}
+ * @returns {@link RemoveRegionsFromReplicationResponse}
  * @see {@link RemoveRegionsFromReplicationCommandInput} for command's `input` shape.
  * @see {@link RemoveRegionsFromReplicationCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.

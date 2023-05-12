@@ -54,8 +54,8 @@ export interface GetCustomEntityTypeCommandOutput extends GetCustomEntityTypeRes
  *
  * ```
  *
- * @param GetCustomEntityTypeCommandInput - {@link GetCustomEntityTypeCommandInput}
- * @returns {@link GetCustomEntityTypeCommandOutput}
+ * @param GetCustomEntityTypeRequest - {@link GetCustomEntityTypeRequest}
+ * @returns {@link GetCustomEntityTypeResponse}
  * @see {@link GetCustomEntityTypeCommandInput} for command's `input` shape.
  * @see {@link GetCustomEntityTypeCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

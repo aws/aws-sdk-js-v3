@@ -54,8 +54,8 @@ export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainR
  *
  * ```
  *
- * @param DeleteUserPoolDomainCommandInput - {@link DeleteUserPoolDomainCommandInput}
- * @returns {@link DeleteUserPoolDomainCommandOutput}
+ * @param DeleteUserPoolDomainRequest - {@link DeleteUserPoolDomainRequest}
+ * @returns {@link DeleteUserPoolDomainResponse}
  * @see {@link DeleteUserPoolDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteUserPoolDomainCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

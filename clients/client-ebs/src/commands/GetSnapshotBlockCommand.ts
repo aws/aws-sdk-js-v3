@@ -64,8 +64,8 @@ export interface GetSnapshotBlockCommandOutput
  *
  * ```
  *
- * @param GetSnapshotBlockCommandInput - {@link GetSnapshotBlockCommandInput}
- * @returns {@link GetSnapshotBlockCommandOutput}
+ * @param GetSnapshotBlockRequest - {@link GetSnapshotBlockRequest}
+ * @returns {@link GetSnapshotBlockResponse}
  * @see {@link GetSnapshotBlockCommandInput} for command's `input` shape.
  * @see {@link GetSnapshotBlockCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.

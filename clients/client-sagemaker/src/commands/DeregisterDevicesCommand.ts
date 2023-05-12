@@ -51,8 +51,8 @@ export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeregisterDevicesCommandInput - {@link DeregisterDevicesCommandInput}
- * @returns {@link DeregisterDevicesCommandOutput}
+ * @param DeregisterDevicesRequest - {@link DeregisterDevicesRequest}
+ * @returns {@link Unit}
  * @see {@link DeregisterDevicesCommandInput} for command's `input` shape.
  * @see {@link DeregisterDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

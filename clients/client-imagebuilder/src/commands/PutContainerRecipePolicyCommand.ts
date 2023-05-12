@@ -59,8 +59,8 @@ export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecip
  *
  * ```
  *
- * @param PutContainerRecipePolicyCommandInput - {@link PutContainerRecipePolicyCommandInput}
- * @returns {@link PutContainerRecipePolicyCommandOutput}
+ * @param PutContainerRecipePolicyRequest - {@link PutContainerRecipePolicyRequest}
+ * @returns {@link PutContainerRecipePolicyResponse}
  * @see {@link PutContainerRecipePolicyCommandInput} for command's `input` shape.
  * @see {@link PutContainerRecipePolicyCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

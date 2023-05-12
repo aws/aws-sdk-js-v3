@@ -51,8 +51,8 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  *
  * ```
  *
- * @param PutContactPolicyCommandInput - {@link PutContactPolicyCommandInput}
- * @returns {@link PutContactPolicyCommandOutput}
+ * @param PutContactPolicyRequest - {@link PutContactPolicyRequest}
+ * @returns {@link PutContactPolicyResult}
  * @see {@link PutContactPolicyCommandInput} for command's `input` shape.
  * @see {@link PutContactPolicyCommandOutput} for command's `response` shape.
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.

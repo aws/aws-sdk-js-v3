@@ -50,8 +50,8 @@ export interface DeleteThemeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteThemeCommandInput - {@link DeleteThemeCommandInput}
- * @returns {@link DeleteThemeCommandOutput}
+ * @param DeleteThemeRequest - {@link DeleteThemeRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteThemeCommandInput} for command's `input` shape.
  * @see {@link DeleteThemeCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

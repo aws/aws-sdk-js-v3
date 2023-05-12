@@ -140,8 +140,8 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *
  * ```
  *
- * @param BatchMeterUsageCommandInput - {@link BatchMeterUsageCommandInput}
- * @returns {@link BatchMeterUsageCommandOutput}
+ * @param BatchMeterUsageRequest - {@link BatchMeterUsageRequest}
+ * @returns {@link BatchMeterUsageResult}
  * @see {@link BatchMeterUsageCommandInput} for command's `input` shape.
  * @see {@link BatchMeterUsageCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.

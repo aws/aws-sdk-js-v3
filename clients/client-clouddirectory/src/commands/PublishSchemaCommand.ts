@@ -53,8 +53,8 @@ export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __Met
  *
  * ```
  *
- * @param PublishSchemaCommandInput - {@link PublishSchemaCommandInput}
- * @returns {@link PublishSchemaCommandOutput}
+ * @param PublishSchemaRequest - {@link PublishSchemaRequest}
+ * @returns {@link PublishSchemaResponse}
  * @see {@link PublishSchemaCommandInput} for command's `input` shape.
  * @see {@link PublishSchemaCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

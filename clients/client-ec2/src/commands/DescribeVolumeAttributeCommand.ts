@@ -64,8 +64,8 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  *
  * ```
  *
- * @param DescribeVolumeAttributeCommandInput - {@link DescribeVolumeAttributeCommandInput}
- * @returns {@link DescribeVolumeAttributeCommandOutput}
+ * @param DescribeVolumeAttributeRequest - {@link DescribeVolumeAttributeRequest}
+ * @returns {@link DescribeVolumeAttributeResult}
  * @see {@link DescribeVolumeAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumeAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

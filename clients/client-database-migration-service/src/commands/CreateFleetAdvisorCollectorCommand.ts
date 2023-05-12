@@ -63,8 +63,8 @@ export interface CreateFleetAdvisorCollectorCommandOutput
  *
  * ```
  *
- * @param CreateFleetAdvisorCollectorCommandInput - {@link CreateFleetAdvisorCollectorCommandInput}
- * @returns {@link CreateFleetAdvisorCollectorCommandOutput}
+ * @param CreateFleetAdvisorCollectorRequest - {@link CreateFleetAdvisorCollectorRequest}
+ * @returns {@link CreateFleetAdvisorCollectorResponse}
  * @see {@link CreateFleetAdvisorCollectorCommandInput} for command's `input` shape.
  * @see {@link CreateFleetAdvisorCollectorCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

@@ -76,8 +76,8 @@ export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConv
  *
  * ```
  *
- * @param ListLicenseConversionTasksCommandInput - {@link ListLicenseConversionTasksCommandInput}
- * @returns {@link ListLicenseConversionTasksCommandOutput}
+ * @param ListLicenseConversionTasksRequest - {@link ListLicenseConversionTasksRequest}
+ * @returns {@link ListLicenseConversionTasksResponse}
  * @see {@link ListLicenseConversionTasksCommandInput} for command's `input` shape.
  * @see {@link ListLicenseConversionTasksCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

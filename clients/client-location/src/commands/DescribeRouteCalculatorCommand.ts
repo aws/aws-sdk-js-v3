@@ -59,8 +59,8 @@ export interface DescribeRouteCalculatorCommandOutput extends DescribeRouteCalcu
  *
  * ```
  *
- * @param DescribeRouteCalculatorCommandInput - {@link DescribeRouteCalculatorCommandInput}
- * @returns {@link DescribeRouteCalculatorCommandOutput}
+ * @param DescribeRouteCalculatorRequest - {@link DescribeRouteCalculatorRequest}
+ * @returns {@link DescribeRouteCalculatorResponse}
  * @see {@link DescribeRouteCalculatorCommandInput} for command's `input` shape.
  * @see {@link DescribeRouteCalculatorCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

@@ -61,8 +61,8 @@ export interface ListImpersonationRolesCommandOutput extends ListImpersonationRo
  *
  * ```
  *
- * @param ListImpersonationRolesCommandInput - {@link ListImpersonationRolesCommandInput}
- * @returns {@link ListImpersonationRolesCommandOutput}
+ * @param ListImpersonationRolesRequest - {@link ListImpersonationRolesRequest}
+ * @returns {@link ListImpersonationRolesResponse}
  * @see {@link ListImpersonationRolesCommandInput} for command's `input` shape.
  * @see {@link ListImpersonationRolesCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.

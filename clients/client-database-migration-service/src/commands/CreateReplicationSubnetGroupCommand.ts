@@ -89,8 +89,8 @@ export interface CreateReplicationSubnetGroupCommandOutput
  *
  * ```
  *
- * @param CreateReplicationSubnetGroupCommandInput - {@link CreateReplicationSubnetGroupCommandInput}
- * @returns {@link CreateReplicationSubnetGroupCommandOutput}
+ * @param CreateReplicationSubnetGroupMessage - {@link CreateReplicationSubnetGroupMessage}
+ * @returns {@link CreateReplicationSubnetGroupResponse}
  * @see {@link CreateReplicationSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

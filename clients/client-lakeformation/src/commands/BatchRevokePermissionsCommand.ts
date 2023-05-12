@@ -193,8 +193,8 @@ export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissi
  *
  * ```
  *
- * @param BatchRevokePermissionsCommandInput - {@link BatchRevokePermissionsCommandInput}
- * @returns {@link BatchRevokePermissionsCommandOutput}
+ * @param BatchRevokePermissionsRequest - {@link BatchRevokePermissionsRequest}
+ * @returns {@link BatchRevokePermissionsResponse}
  * @see {@link BatchRevokePermissionsCommandInput} for command's `input` shape.
  * @see {@link BatchRevokePermissionsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

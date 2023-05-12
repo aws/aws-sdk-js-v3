@@ -94,8 +94,8 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  *
  * ```
  *
- * @param GetChannelMessageCommandInput - {@link GetChannelMessageCommandInput}
- * @returns {@link GetChannelMessageCommandOutput}
+ * @param GetChannelMessageRequest - {@link GetChannelMessageRequest}
+ * @returns {@link GetChannelMessageResponse}
  * @see {@link GetChannelMessageCommandInput} for command's `input` shape.
  * @see {@link GetChannelMessageCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.

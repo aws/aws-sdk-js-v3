@@ -58,8 +58,8 @@ export interface DescribeLabelGroupCommandOutput extends DescribeLabelGroupRespo
  *
  * ```
  *
- * @param DescribeLabelGroupCommandInput - {@link DescribeLabelGroupCommandInput}
- * @returns {@link DescribeLabelGroupCommandOutput}
+ * @param DescribeLabelGroupRequest - {@link DescribeLabelGroupRequest}
+ * @returns {@link DescribeLabelGroupResponse}
  * @see {@link DescribeLabelGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeLabelGroupCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

@@ -56,8 +56,8 @@ export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestio
  *
  * ```
  *
- * @param GetHostnameSuggestionCommandInput - {@link GetHostnameSuggestionCommandInput}
- * @returns {@link GetHostnameSuggestionCommandOutput}
+ * @param GetHostnameSuggestionRequest - {@link GetHostnameSuggestionRequest}
+ * @returns {@link GetHostnameSuggestionResult}
  * @see {@link GetHostnameSuggestionCommandInput} for command's `input` shape.
  * @see {@link GetHostnameSuggestionCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

@@ -127,8 +127,8 @@ export interface ListBucketInventoryConfigurationsCommandOutput
  *
  * ```
  *
- * @param ListBucketInventoryConfigurationsCommandInput - {@link ListBucketInventoryConfigurationsCommandInput}
- * @returns {@link ListBucketInventoryConfigurationsCommandOutput}
+ * @param ListBucketInventoryConfigurationsRequest - {@link ListBucketInventoryConfigurationsRequest}
+ * @returns {@link ListBucketInventoryConfigurationsOutput}
  * @see {@link ListBucketInventoryConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListBucketInventoryConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

@@ -53,8 +53,8 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  *
  * ```
  *
- * @param DeleteAccountCustomizationCommandInput - {@link DeleteAccountCustomizationCommandInput}
- * @returns {@link DeleteAccountCustomizationCommandOutput}
+ * @param DeleteAccountCustomizationRequest - {@link DeleteAccountCustomizationRequest}
+ * @returns {@link DeleteAccountCustomizationResponse}
  * @see {@link DeleteAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountCustomizationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

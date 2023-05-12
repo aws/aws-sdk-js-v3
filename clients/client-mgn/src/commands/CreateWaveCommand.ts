@@ -75,8 +75,8 @@ export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
  *
  * ```
  *
- * @param CreateWaveCommandInput - {@link CreateWaveCommandInput}
- * @returns {@link CreateWaveCommandOutput}
+ * @param CreateWaveRequest - {@link CreateWaveRequest}
+ * @returns {@link Wave}
  * @see {@link CreateWaveCommandInput} for command's `input` shape.
  * @see {@link CreateWaveCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

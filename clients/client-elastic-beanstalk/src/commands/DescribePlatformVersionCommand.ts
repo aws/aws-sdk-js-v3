@@ -94,8 +94,8 @@ export interface DescribePlatformVersionCommandOutput extends DescribePlatformVe
  *
  * ```
  *
- * @param DescribePlatformVersionCommandInput - {@link DescribePlatformVersionCommandInput}
- * @returns {@link DescribePlatformVersionCommandOutput}
+ * @param DescribePlatformVersionRequest - {@link DescribePlatformVersionRequest}
+ * @returns {@link DescribePlatformVersionResult}
  * @see {@link DescribePlatformVersionCommandInput} for command's `input` shape.
  * @see {@link DescribePlatformVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

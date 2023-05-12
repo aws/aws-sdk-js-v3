@@ -91,8 +91,8 @@ export interface DescribeVolumesModificationsCommandOutput
  *
  * ```
  *
- * @param DescribeVolumesModificationsCommandInput - {@link DescribeVolumesModificationsCommandInput}
- * @returns {@link DescribeVolumesModificationsCommandOutput}
+ * @param DescribeVolumesModificationsRequest - {@link DescribeVolumesModificationsRequest}
+ * @returns {@link DescribeVolumesModificationsResult}
  * @see {@link DescribeVolumesModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumesModificationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

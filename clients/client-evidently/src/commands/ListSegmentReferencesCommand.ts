@@ -64,8 +64,8 @@ export interface ListSegmentReferencesCommandOutput extends ListSegmentReference
  *
  * ```
  *
- * @param ListSegmentReferencesCommandInput - {@link ListSegmentReferencesCommandInput}
- * @returns {@link ListSegmentReferencesCommandOutput}
+ * @param ListSegmentReferencesRequest - {@link ListSegmentReferencesRequest}
+ * @returns {@link ListSegmentReferencesResponse}
  * @see {@link ListSegmentReferencesCommandInput} for command's `input` shape.
  * @see {@link ListSegmentReferencesCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

@@ -82,8 +82,8 @@ export interface ListWirelessGatewaysCommandOutput extends ListWirelessGatewaysR
  *
  * ```
  *
- * @param ListWirelessGatewaysCommandInput - {@link ListWirelessGatewaysCommandInput}
- * @returns {@link ListWirelessGatewaysCommandOutput}
+ * @param ListWirelessGatewaysRequest - {@link ListWirelessGatewaysRequest}
+ * @returns {@link ListWirelessGatewaysResponse}
  * @see {@link ListWirelessGatewaysCommandInput} for command's `input` shape.
  * @see {@link ListWirelessGatewaysCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

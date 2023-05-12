@@ -56,8 +56,8 @@ export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param UpdateCampaignDialerConfigCommandInput - {@link UpdateCampaignDialerConfigCommandInput}
- * @returns {@link UpdateCampaignDialerConfigCommandOutput}
+ * @param UpdateCampaignDialerConfigRequest - {@link UpdateCampaignDialerConfigRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateCampaignDialerConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateCampaignDialerConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

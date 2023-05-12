@@ -108,8 +108,8 @@ export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicat
  *
  * ```
  *
- * @param IncreaseReplicationFactorCommandInput - {@link IncreaseReplicationFactorCommandInput}
- * @returns {@link IncreaseReplicationFactorCommandOutput}
+ * @param IncreaseReplicationFactorRequest - {@link IncreaseReplicationFactorRequest}
+ * @returns {@link IncreaseReplicationFactorResponse}
  * @see {@link IncreaseReplicationFactorCommandInput} for command's `input` shape.
  * @see {@link IncreaseReplicationFactorCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.

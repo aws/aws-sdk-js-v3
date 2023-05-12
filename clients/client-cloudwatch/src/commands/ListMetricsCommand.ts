@@ -88,8 +88,8 @@ export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataB
  *
  * ```
  *
- * @param ListMetricsCommandInput - {@link ListMetricsCommandInput}
- * @returns {@link ListMetricsCommandOutput}
+ * @param ListMetricsInput - {@link ListMetricsInput}
+ * @returns {@link ListMetricsOutput}
  * @see {@link ListMetricsCommandInput} for command's `input` shape.
  * @see {@link ListMetricsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

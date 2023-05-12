@@ -76,8 +76,8 @@ export interface PutDialRequestBatchCommandOutput extends PutDialRequestBatchRes
  *
  * ```
  *
- * @param PutDialRequestBatchCommandInput - {@link PutDialRequestBatchCommandInput}
- * @returns {@link PutDialRequestBatchCommandOutput}
+ * @param PutDialRequestBatchRequest - {@link PutDialRequestBatchRequest}
+ * @returns {@link PutDialRequestBatchResponse}
  * @see {@link PutDialRequestBatchCommandInput} for command's `input` shape.
  * @see {@link PutDialRequestBatchCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

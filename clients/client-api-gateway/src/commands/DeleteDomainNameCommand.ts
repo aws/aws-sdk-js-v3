@@ -48,8 +48,8 @@ export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteDomainNameCommandInput - {@link DeleteDomainNameCommandInput}
- * @returns {@link DeleteDomainNameCommandOutput}
+ * @param DeleteDomainNameRequest - {@link DeleteDomainNameRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteDomainNameCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainNameCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

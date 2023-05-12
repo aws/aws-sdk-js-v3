@@ -73,8 +73,8 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
  *
  * ```
  *
- * @param ListIAMPolicyAssignmentsForUserCommandInput - {@link ListIAMPolicyAssignmentsForUserCommandInput}
- * @returns {@link ListIAMPolicyAssignmentsForUserCommandOutput}
+ * @param ListIAMPolicyAssignmentsForUserRequest - {@link ListIAMPolicyAssignmentsForUserRequest}
+ * @returns {@link ListIAMPolicyAssignmentsForUserResponse}
  * @see {@link ListIAMPolicyAssignmentsForUserCommandInput} for command's `input` shape.
  * @see {@link ListIAMPolicyAssignmentsForUserCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

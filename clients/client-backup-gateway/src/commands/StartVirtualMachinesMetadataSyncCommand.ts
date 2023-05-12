@@ -55,8 +55,8 @@ export interface StartVirtualMachinesMetadataSyncCommandOutput
  *
  * ```
  *
- * @param StartVirtualMachinesMetadataSyncCommandInput - {@link StartVirtualMachinesMetadataSyncCommandInput}
- * @returns {@link StartVirtualMachinesMetadataSyncCommandOutput}
+ * @param StartVirtualMachinesMetadataSyncInput - {@link StartVirtualMachinesMetadataSyncInput}
+ * @returns {@link StartVirtualMachinesMetadataSyncOutput}
  * @see {@link StartVirtualMachinesMetadataSyncCommandInput} for command's `input` shape.
  * @see {@link StartVirtualMachinesMetadataSyncCommandOutput} for command's `response` shape.
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.

@@ -74,8 +74,8 @@ export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __Metad
  *
  * ```
  *
- * @param ListPeeringsCommandInput - {@link ListPeeringsCommandInput}
- * @returns {@link ListPeeringsCommandOutput}
+ * @param ListPeeringsRequest - {@link ListPeeringsRequest}
+ * @returns {@link ListPeeringsResponse}
  * @see {@link ListPeeringsCommandInput} for command's `input` shape.
  * @see {@link ListPeeringsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

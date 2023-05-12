@@ -71,8 +71,8 @@ export interface AssociateEntitiesToExperienceCommandOutput
  *
  * ```
  *
- * @param AssociateEntitiesToExperienceCommandInput - {@link AssociateEntitiesToExperienceCommandInput}
- * @returns {@link AssociateEntitiesToExperienceCommandOutput}
+ * @param AssociateEntitiesToExperienceRequest - {@link AssociateEntitiesToExperienceRequest}
+ * @returns {@link AssociateEntitiesToExperienceResponse}
  * @see {@link AssociateEntitiesToExperienceCommandInput} for command's `input` shape.
  * @see {@link AssociateEntitiesToExperienceCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

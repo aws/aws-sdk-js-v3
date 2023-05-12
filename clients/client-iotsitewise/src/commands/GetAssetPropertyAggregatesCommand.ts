@@ -89,8 +89,8 @@ export interface GetAssetPropertyAggregatesCommandOutput extends GetAssetPropert
  *
  * ```
  *
- * @param GetAssetPropertyAggregatesCommandInput - {@link GetAssetPropertyAggregatesCommandInput}
- * @returns {@link GetAssetPropertyAggregatesCommandOutput}
+ * @param GetAssetPropertyAggregatesRequest - {@link GetAssetPropertyAggregatesRequest}
+ * @returns {@link GetAssetPropertyAggregatesResponse}
  * @see {@link GetAssetPropertyAggregatesCommandInput} for command's `input` shape.
  * @see {@link GetAssetPropertyAggregatesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

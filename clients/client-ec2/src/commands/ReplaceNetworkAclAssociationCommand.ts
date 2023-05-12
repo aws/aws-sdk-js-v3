@@ -58,8 +58,8 @@ export interface ReplaceNetworkAclAssociationCommandOutput
  *
  * ```
  *
- * @param ReplaceNetworkAclAssociationCommandInput - {@link ReplaceNetworkAclAssociationCommandInput}
- * @returns {@link ReplaceNetworkAclAssociationCommandOutput}
+ * @param ReplaceNetworkAclAssociationRequest - {@link ReplaceNetworkAclAssociationRequest}
+ * @returns {@link ReplaceNetworkAclAssociationResult}
  * @see {@link ReplaceNetworkAclAssociationCommandInput} for command's `input` shape.
  * @see {@link ReplaceNetworkAclAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

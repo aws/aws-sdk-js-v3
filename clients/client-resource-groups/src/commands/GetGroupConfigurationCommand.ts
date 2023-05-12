@@ -91,8 +91,8 @@ export interface GetGroupConfigurationCommandOutput extends GetGroupConfiguratio
  *
  * ```
  *
- * @param GetGroupConfigurationCommandInput - {@link GetGroupConfigurationCommandInput}
- * @returns {@link GetGroupConfigurationCommandOutput}
+ * @param GetGroupConfigurationInput - {@link GetGroupConfigurationInput}
+ * @returns {@link GetGroupConfigurationOutput}
  * @see {@link GetGroupConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetGroupConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.

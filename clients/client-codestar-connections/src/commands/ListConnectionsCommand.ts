@@ -67,8 +67,8 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  *
  * ```
  *
- * @param ListConnectionsCommandInput - {@link ListConnectionsCommandInput}
- * @returns {@link ListConnectionsCommandOutput}
+ * @param ListConnectionsInput - {@link ListConnectionsInput}
+ * @returns {@link ListConnectionsOutput}
  * @see {@link ListConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.

@@ -69,8 +69,8 @@ export interface DescribeFHIRImportJobCommandOutput extends DescribeFHIRImportJo
  *
  * ```
  *
- * @param DescribeFHIRImportJobCommandInput - {@link DescribeFHIRImportJobCommandInput}
- * @returns {@link DescribeFHIRImportJobCommandOutput}
+ * @param DescribeFHIRImportJobRequest - {@link DescribeFHIRImportJobRequest}
+ * @returns {@link DescribeFHIRImportJobResponse}
  * @see {@link DescribeFHIRImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeFHIRImportJobCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.

@@ -92,8 +92,8 @@ export interface DescribeIpamsCommandOutput extends DescribeIpamsResult, __Metad
  *
  * ```
  *
- * @param DescribeIpamsCommandInput - {@link DescribeIpamsCommandInput}
- * @returns {@link DescribeIpamsCommandOutput}
+ * @param DescribeIpamsRequest - {@link DescribeIpamsRequest}
+ * @returns {@link DescribeIpamsResult}
  * @see {@link DescribeIpamsCommandInput} for command's `input` shape.
  * @see {@link DescribeIpamsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

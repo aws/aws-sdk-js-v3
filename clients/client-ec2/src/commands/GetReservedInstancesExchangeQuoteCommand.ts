@@ -103,8 +103,8 @@ export interface GetReservedInstancesExchangeQuoteCommandOutput
  *
  * ```
  *
- * @param GetReservedInstancesExchangeQuoteCommandInput - {@link GetReservedInstancesExchangeQuoteCommandInput}
- * @returns {@link GetReservedInstancesExchangeQuoteCommandOutput}
+ * @param GetReservedInstancesExchangeQuoteRequest - {@link GetReservedInstancesExchangeQuoteRequest}
+ * @returns {@link GetReservedInstancesExchangeQuoteResult}
  * @see {@link GetReservedInstancesExchangeQuoteCommandInput} for command's `input` shape.
  * @see {@link GetReservedInstancesExchangeQuoteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

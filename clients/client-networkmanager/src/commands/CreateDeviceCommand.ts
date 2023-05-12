@@ -104,8 +104,8 @@ export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __Metad
  *
  * ```
  *
- * @param CreateDeviceCommandInput - {@link CreateDeviceCommandInput}
- * @returns {@link CreateDeviceCommandOutput}
+ * @param CreateDeviceRequest - {@link CreateDeviceRequest}
+ * @returns {@link CreateDeviceResponse}
  * @see {@link CreateDeviceCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

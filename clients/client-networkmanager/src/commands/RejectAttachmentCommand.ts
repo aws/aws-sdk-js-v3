@@ -79,8 +79,8 @@ export interface RejectAttachmentCommandOutput extends RejectAttachmentResponse,
  *
  * ```
  *
- * @param RejectAttachmentCommandInput - {@link RejectAttachmentCommandInput}
- * @returns {@link RejectAttachmentCommandOutput}
+ * @param RejectAttachmentRequest - {@link RejectAttachmentRequest}
+ * @returns {@link RejectAttachmentResponse}
  * @see {@link RejectAttachmentCommandInput} for command's `input` shape.
  * @see {@link RejectAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

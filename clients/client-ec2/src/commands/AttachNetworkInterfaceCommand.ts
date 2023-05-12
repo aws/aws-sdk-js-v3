@@ -61,8 +61,8 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  *
  * ```
  *
- * @param AttachNetworkInterfaceCommandInput - {@link AttachNetworkInterfaceCommandInput}
- * @returns {@link AttachNetworkInterfaceCommandOutput}
+ * @param AttachNetworkInterfaceRequest - {@link AttachNetworkInterfaceRequest}
+ * @returns {@link AttachNetworkInterfaceResult}
  * @see {@link AttachNetworkInterfaceCommandInput} for command's `input` shape.
  * @see {@link AttachNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

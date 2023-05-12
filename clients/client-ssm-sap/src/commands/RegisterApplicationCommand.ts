@@ -89,8 +89,8 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  *
  * ```
  *
- * @param RegisterApplicationCommandInput - {@link RegisterApplicationCommandInput}
- * @returns {@link RegisterApplicationCommandOutput}
+ * @param RegisterApplicationInput - {@link RegisterApplicationInput}
+ * @returns {@link RegisterApplicationOutput}
  * @see {@link RegisterApplicationCommandInput} for command's `input` shape.
  * @see {@link RegisterApplicationCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.

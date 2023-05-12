@@ -75,8 +75,8 @@ export interface ListStackSetOperationResultsCommandOutput
  *
  * ```
  *
- * @param ListStackSetOperationResultsCommandInput - {@link ListStackSetOperationResultsCommandInput}
- * @returns {@link ListStackSetOperationResultsCommandOutput}
+ * @param ListStackSetOperationResultsInput - {@link ListStackSetOperationResultsInput}
+ * @returns {@link ListStackSetOperationResultsOutput}
  * @see {@link ListStackSetOperationResultsCommandInput} for command's `input` shape.
  * @see {@link ListStackSetOperationResultsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

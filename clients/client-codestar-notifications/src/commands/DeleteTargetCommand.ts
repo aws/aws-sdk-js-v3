@@ -53,8 +53,8 @@ export interface DeleteTargetCommandOutput extends DeleteTargetResult, __Metadat
  *
  * ```
  *
- * @param DeleteTargetCommandInput - {@link DeleteTargetCommandInput}
- * @returns {@link DeleteTargetCommandOutput}
+ * @param DeleteTargetRequest - {@link DeleteTargetRequest}
+ * @returns {@link DeleteTargetResult}
  * @see {@link DeleteTargetCommandInput} for command's `input` shape.
  * @see {@link DeleteTargetCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.

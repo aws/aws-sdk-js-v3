@@ -78,8 +78,8 @@ export interface DescribeIdentityProviderConfigCommandOutput
  *
  * ```
  *
- * @param DescribeIdentityProviderConfigCommandInput - {@link DescribeIdentityProviderConfigCommandInput}
- * @returns {@link DescribeIdentityProviderConfigCommandOutput}
+ * @param DescribeIdentityProviderConfigRequest - {@link DescribeIdentityProviderConfigRequest}
+ * @returns {@link DescribeIdentityProviderConfigResponse}
  * @see {@link DescribeIdentityProviderConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityProviderConfigCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

@@ -84,8 +84,8 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutMetricFilterCommandInput - {@link PutMetricFilterCommandInput}
- * @returns {@link PutMetricFilterCommandOutput}
+ * @param PutMetricFilterRequest - {@link PutMetricFilterRequest}
+ * @returns {@link Unit}
  * @see {@link PutMetricFilterCommandInput} for command's `input` shape.
  * @see {@link PutMetricFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

@@ -54,8 +54,8 @@ export interface StartFlywheelIterationCommandOutput extends StartFlywheelIterat
  *
  * ```
  *
- * @param StartFlywheelIterationCommandInput - {@link StartFlywheelIterationCommandInput}
- * @returns {@link StartFlywheelIterationCommandOutput}
+ * @param StartFlywheelIterationRequest - {@link StartFlywheelIterationRequest}
+ * @returns {@link StartFlywheelIterationResponse}
  * @see {@link StartFlywheelIterationCommandInput} for command's `input` shape.
  * @see {@link StartFlywheelIterationCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

@@ -57,8 +57,8 @@ export interface GetDestinationCommandOutput extends GetDestinationResponse, __M
  *
  * ```
  *
- * @param GetDestinationCommandInput - {@link GetDestinationCommandInput}
- * @returns {@link GetDestinationCommandOutput}
+ * @param GetDestinationRequest - {@link GetDestinationRequest}
+ * @returns {@link GetDestinationResponse}
  * @see {@link GetDestinationCommandInput} for command's `input` shape.
  * @see {@link GetDestinationCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.

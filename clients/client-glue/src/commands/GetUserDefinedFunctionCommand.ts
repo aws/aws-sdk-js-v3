@@ -66,8 +66,8 @@ export interface GetUserDefinedFunctionCommandOutput extends GetUserDefinedFunct
  *
  * ```
  *
- * @param GetUserDefinedFunctionCommandInput - {@link GetUserDefinedFunctionCommandInput}
- * @returns {@link GetUserDefinedFunctionCommandOutput}
+ * @param GetUserDefinedFunctionRequest - {@link GetUserDefinedFunctionRequest}
+ * @returns {@link GetUserDefinedFunctionResponse}
  * @see {@link GetUserDefinedFunctionCommandInput} for command's `input` shape.
  * @see {@link GetUserDefinedFunctionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

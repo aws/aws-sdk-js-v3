@@ -226,8 +226,8 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *
  * ```
  *
- * @param SelectObjectContentCommandInput - {@link SelectObjectContentCommandInput}
- * @returns {@link SelectObjectContentCommandOutput}
+ * @param SelectObjectContentRequest - {@link SelectObjectContentRequest}
+ * @returns {@link SelectObjectContentOutput}
  * @see {@link SelectObjectContentCommandInput} for command's `input` shape.
  * @see {@link SelectObjectContentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

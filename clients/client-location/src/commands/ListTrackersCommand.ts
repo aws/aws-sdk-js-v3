@@ -61,8 +61,8 @@ export interface ListTrackersCommandOutput extends ListTrackersResponse, __Metad
  *
  * ```
  *
- * @param ListTrackersCommandInput - {@link ListTrackersCommandInput}
- * @returns {@link ListTrackersCommandOutput}
+ * @param ListTrackersRequest - {@link ListTrackersRequest}
+ * @returns {@link ListTrackersResponse}
  * @see {@link ListTrackersCommandInput} for command's `input` shape.
  * @see {@link ListTrackersCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

@@ -431,8 +431,8 @@ export interface UpdateJourneyStateCommandOutput extends UpdateJourneyStateRespo
  *
  * ```
  *
- * @param UpdateJourneyStateCommandInput - {@link UpdateJourneyStateCommandInput}
- * @returns {@link UpdateJourneyStateCommandOutput}
+ * @param UpdateJourneyStateRequest - {@link UpdateJourneyStateRequest}
+ * @returns {@link UpdateJourneyStateResponse}
  * @see {@link UpdateJourneyStateCommandInput} for command's `input` shape.
  * @see {@link UpdateJourneyStateCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

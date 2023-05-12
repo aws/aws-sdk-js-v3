@@ -106,8 +106,8 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  *
  * ```
  *
- * @param DeleteSnapshotCommandInput - {@link DeleteSnapshotCommandInput}
- * @returns {@link DeleteSnapshotCommandOutput}
+ * @param DeleteSnapshotMessage - {@link DeleteSnapshotMessage}
+ * @returns {@link DeleteSnapshotResult}
  * @see {@link DeleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

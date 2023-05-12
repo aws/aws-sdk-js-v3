@@ -51,8 +51,8 @@ export interface UpdateVariableCommandOutput extends UpdateVariableResult, __Met
  *
  * ```
  *
- * @param UpdateVariableCommandInput - {@link UpdateVariableCommandInput}
- * @returns {@link UpdateVariableCommandOutput}
+ * @param UpdateVariableRequest - {@link UpdateVariableRequest}
+ * @returns {@link UpdateVariableResult}
  * @see {@link UpdateVariableCommandInput} for command's `input` shape.
  * @see {@link UpdateVariableCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

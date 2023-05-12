@@ -68,8 +68,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  *
  * ```
  *
- * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
- * @returns {@link DescribeTagsCommandOutput}
+ * @param DescribeTagsInput - {@link DescribeTagsInput}
+ * @returns {@link DescribeTagsOutput}
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

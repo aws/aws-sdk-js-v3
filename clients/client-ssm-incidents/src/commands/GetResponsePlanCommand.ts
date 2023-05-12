@@ -106,8 +106,8 @@ export interface GetResponsePlanCommandOutput extends GetResponsePlanOutput, __M
  *
  * ```
  *
- * @param GetResponsePlanCommandInput - {@link GetResponsePlanCommandInput}
- * @returns {@link GetResponsePlanCommandOutput}
+ * @param GetResponsePlanInput - {@link GetResponsePlanInput}
+ * @returns {@link GetResponsePlanOutput}
  * @see {@link GetResponsePlanCommandInput} for command's `input` shape.
  * @see {@link GetResponsePlanCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

@@ -62,8 +62,8 @@ export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPe
  *
  * ```
  *
- * @param DescribeFolderPermissionsCommandInput - {@link DescribeFolderPermissionsCommandInput}
- * @returns {@link DescribeFolderPermissionsCommandOutput}
+ * @param DescribeFolderPermissionsRequest - {@link DescribeFolderPermissionsRequest}
+ * @returns {@link DescribeFolderPermissionsResponse}
  * @see {@link DescribeFolderPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeFolderPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

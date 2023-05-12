@@ -56,8 +56,8 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  *
  * ```
  *
- * @param CreatePullThroughCacheRuleCommandInput - {@link CreatePullThroughCacheRuleCommandInput}
- * @returns {@link CreatePullThroughCacheRuleCommandOutput}
+ * @param CreatePullThroughCacheRuleRequest - {@link CreatePullThroughCacheRuleRequest}
+ * @returns {@link CreatePullThroughCacheRuleResponse}
  * @see {@link CreatePullThroughCacheRuleCommandInput} for command's `input` shape.
  * @see {@link CreatePullThroughCacheRuleCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.

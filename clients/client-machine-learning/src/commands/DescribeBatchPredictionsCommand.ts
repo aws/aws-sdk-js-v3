@@ -80,8 +80,8 @@ export interface DescribeBatchPredictionsCommandOutput extends DescribeBatchPred
  *
  * ```
  *
- * @param DescribeBatchPredictionsCommandInput - {@link DescribeBatchPredictionsCommandInput}
- * @returns {@link DescribeBatchPredictionsCommandOutput}
+ * @param DescribeBatchPredictionsInput - {@link DescribeBatchPredictionsInput}
+ * @returns {@link DescribeBatchPredictionsOutput}
  * @see {@link DescribeBatchPredictionsCommandInput} for command's `input` shape.
  * @see {@link DescribeBatchPredictionsCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.

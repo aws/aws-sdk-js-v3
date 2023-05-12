@@ -50,8 +50,8 @@ export interface StopSuiteRunCommandOutput extends StopSuiteRunResponse, __Metad
  *
  * ```
  *
- * @param StopSuiteRunCommandInput - {@link StopSuiteRunCommandInput}
- * @returns {@link StopSuiteRunCommandOutput}
+ * @param StopSuiteRunRequest - {@link StopSuiteRunRequest}
+ * @returns {@link StopSuiteRunResponse}
  * @see {@link StopSuiteRunCommandInput} for command's `input` shape.
  * @see {@link StopSuiteRunCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.

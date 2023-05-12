@@ -106,8 +106,8 @@ export interface UpdateAssessmentControlSetStatusCommandOutput
  *
  * ```
  *
- * @param UpdateAssessmentControlSetStatusCommandInput - {@link UpdateAssessmentControlSetStatusCommandInput}
- * @returns {@link UpdateAssessmentControlSetStatusCommandOutput}
+ * @param UpdateAssessmentControlSetStatusRequest - {@link UpdateAssessmentControlSetStatusRequest}
+ * @returns {@link UpdateAssessmentControlSetStatusResponse}
  * @see {@link UpdateAssessmentControlSetStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateAssessmentControlSetStatusCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

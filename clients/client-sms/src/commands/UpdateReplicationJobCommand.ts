@@ -56,8 +56,8 @@ export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobR
  *
  * ```
  *
- * @param UpdateReplicationJobCommandInput - {@link UpdateReplicationJobCommandInput}
- * @returns {@link UpdateReplicationJobCommandOutput}
+ * @param UpdateReplicationJobRequest - {@link UpdateReplicationJobRequest}
+ * @returns {@link UpdateReplicationJobResponse}
  * @see {@link UpdateReplicationJobCommandInput} for command's `input` shape.
  * @see {@link UpdateReplicationJobCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.

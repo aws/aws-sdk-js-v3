@@ -56,8 +56,8 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  *
  * ```
  *
- * @param GetGatewayCommandInput - {@link GetGatewayCommandInput}
- * @returns {@link GetGatewayCommandOutput}
+ * @param GetGatewayRequest - {@link GetGatewayRequest}
+ * @returns {@link GetGatewayResponse}
  * @see {@link GetGatewayCommandInput} for command's `input` shape.
  * @see {@link GetGatewayCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

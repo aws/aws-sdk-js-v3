@@ -223,8 +223,8 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  *
  * ```
  *
- * @param CreateCacheClusterCommandInput - {@link CreateCacheClusterCommandInput}
- * @returns {@link CreateCacheClusterCommandOutput}
+ * @param CreateCacheClusterMessage - {@link CreateCacheClusterMessage}
+ * @returns {@link CreateCacheClusterResult}
  * @see {@link CreateCacheClusterCommandInput} for command's `input` shape.
  * @see {@link CreateCacheClusterCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

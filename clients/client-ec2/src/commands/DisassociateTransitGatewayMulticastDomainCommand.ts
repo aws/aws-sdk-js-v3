@@ -76,8 +76,8 @@ export interface DisassociateTransitGatewayMulticastDomainCommandOutput
  *
  * ```
  *
- * @param DisassociateTransitGatewayMulticastDomainCommandInput - {@link DisassociateTransitGatewayMulticastDomainCommandInput}
- * @returns {@link DisassociateTransitGatewayMulticastDomainCommandOutput}
+ * @param DisassociateTransitGatewayMulticastDomainRequest - {@link DisassociateTransitGatewayMulticastDomainRequest}
+ * @returns {@link DisassociateTransitGatewayMulticastDomainResult}
  * @see {@link DisassociateTransitGatewayMulticastDomainCommandInput} for command's `input` shape.
  * @see {@link DisassociateTransitGatewayMulticastDomainCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

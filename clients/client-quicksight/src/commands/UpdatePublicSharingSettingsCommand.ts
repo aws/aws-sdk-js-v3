@@ -65,8 +65,8 @@ export interface UpdatePublicSharingSettingsCommandOutput
  *
  * ```
  *
- * @param UpdatePublicSharingSettingsCommandInput - {@link UpdatePublicSharingSettingsCommandInput}
- * @returns {@link UpdatePublicSharingSettingsCommandOutput}
+ * @param UpdatePublicSharingSettingsRequest - {@link UpdatePublicSharingSettingsRequest}
+ * @returns {@link UpdatePublicSharingSettingsResponse}
  * @see {@link UpdatePublicSharingSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdatePublicSharingSettingsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

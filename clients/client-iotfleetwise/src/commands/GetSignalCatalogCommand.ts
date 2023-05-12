@@ -61,8 +61,8 @@ export interface GetSignalCatalogCommandOutput extends GetSignalCatalogResponse,
  *
  * ```
  *
- * @param GetSignalCatalogCommandInput - {@link GetSignalCatalogCommandInput}
- * @returns {@link GetSignalCatalogCommandOutput}
+ * @param GetSignalCatalogRequest - {@link GetSignalCatalogRequest}
+ * @returns {@link GetSignalCatalogResponse}
  * @see {@link GetSignalCatalogCommandInput} for command's `input` shape.
  * @see {@link GetSignalCatalogCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

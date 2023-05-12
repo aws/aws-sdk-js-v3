@@ -49,8 +49,8 @@ export interface DeleteFaqCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteFaqCommandInput - {@link DeleteFaqCommandInput}
- * @returns {@link DeleteFaqCommandOutput}
+ * @param DeleteFaqRequest - {@link DeleteFaqRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteFaqCommandInput} for command's `input` shape.
  * @see {@link DeleteFaqCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

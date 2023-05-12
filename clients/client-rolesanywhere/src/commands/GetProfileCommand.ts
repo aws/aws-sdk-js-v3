@@ -71,8 +71,8 @@ export interface GetProfileCommandOutput extends ProfileDetailResponse, __Metada
  *
  * ```
  *
- * @param GetProfileCommandInput - {@link GetProfileCommandInput}
- * @returns {@link GetProfileCommandOutput}
+ * @param ScalarProfileRequest - {@link ScalarProfileRequest}
+ * @returns {@link ProfileDetailResponse}
  * @see {@link GetProfileCommandInput} for command's `input` shape.
  * @see {@link GetProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

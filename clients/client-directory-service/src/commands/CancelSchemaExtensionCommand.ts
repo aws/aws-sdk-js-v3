@@ -53,8 +53,8 @@ export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensio
  *
  * ```
  *
- * @param CancelSchemaExtensionCommandInput - {@link CancelSchemaExtensionCommandInput}
- * @returns {@link CancelSchemaExtensionCommandOutput}
+ * @param CancelSchemaExtensionRequest - {@link CancelSchemaExtensionRequest}
+ * @returns {@link CancelSchemaExtensionResult}
  * @see {@link CancelSchemaExtensionCommandInput} for command's `input` shape.
  * @see {@link CancelSchemaExtensionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.

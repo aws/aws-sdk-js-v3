@@ -59,8 +59,8 @@ export interface DescribeRoleAliasCommandOutput extends DescribeRoleAliasRespons
  *
  * ```
  *
- * @param DescribeRoleAliasCommandInput - {@link DescribeRoleAliasCommandInput}
- * @returns {@link DescribeRoleAliasCommandOutput}
+ * @param DescribeRoleAliasRequest - {@link DescribeRoleAliasRequest}
+ * @returns {@link DescribeRoleAliasResponse}
  * @see {@link DescribeRoleAliasCommandInput} for command's `input` shape.
  * @see {@link DescribeRoleAliasCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

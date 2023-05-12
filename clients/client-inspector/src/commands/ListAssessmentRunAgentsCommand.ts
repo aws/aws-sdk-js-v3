@@ -78,8 +78,8 @@ export interface ListAssessmentRunAgentsCommandOutput extends ListAssessmentRunA
  *
  * ```
  *
- * @param ListAssessmentRunAgentsCommandInput - {@link ListAssessmentRunAgentsCommandInput}
- * @returns {@link ListAssessmentRunAgentsCommandOutput}
+ * @param ListAssessmentRunAgentsRequest - {@link ListAssessmentRunAgentsRequest}
+ * @returns {@link ListAssessmentRunAgentsResponse}
  * @see {@link ListAssessmentRunAgentsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentRunAgentsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.

@@ -74,8 +74,8 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  *
  * ```
  *
- * @param GetChangeTokenStatusCommandInput - {@link GetChangeTokenStatusCommandInput}
- * @returns {@link GetChangeTokenStatusCommandOutput}
+ * @param GetChangeTokenStatusRequest - {@link GetChangeTokenStatusRequest}
+ * @returns {@link GetChangeTokenStatusResponse}
  * @see {@link GetChangeTokenStatusCommandInput} for command's `input` shape.
  * @see {@link GetChangeTokenStatusCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

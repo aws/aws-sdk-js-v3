@@ -55,8 +55,8 @@ export interface DeletePipeCommandOutput extends DeletePipeResponse, __MetadataB
  *
  * ```
  *
- * @param DeletePipeCommandInput - {@link DeletePipeCommandInput}
- * @returns {@link DeletePipeCommandOutput}
+ * @param DeletePipeRequest - {@link DeletePipeRequest}
+ * @returns {@link DeletePipeResponse}
  * @see {@link DeletePipeCommandInput} for command's `input` shape.
  * @see {@link DeletePipeCommandOutput} for command's `response` shape.
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.

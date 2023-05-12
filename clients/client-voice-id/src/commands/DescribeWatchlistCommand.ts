@@ -63,8 +63,8 @@ export interface DescribeWatchlistCommandOutput extends DescribeWatchlistRespons
  *
  * ```
  *
- * @param DescribeWatchlistCommandInput - {@link DescribeWatchlistCommandInput}
- * @returns {@link DescribeWatchlistCommandOutput}
+ * @param DescribeWatchlistRequest - {@link DescribeWatchlistRequest}
+ * @returns {@link DescribeWatchlistResponse}
  * @see {@link DescribeWatchlistCommandInput} for command's `input` shape.
  * @see {@link DescribeWatchlistCommandOutput} for command's `response` shape.
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.

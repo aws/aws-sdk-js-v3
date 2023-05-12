@@ -59,8 +59,8 @@ export interface BatchDeleteReadSetCommandOutput extends BatchDeleteReadSetRespo
  *
  * ```
  *
- * @param BatchDeleteReadSetCommandInput - {@link BatchDeleteReadSetCommandInput}
- * @returns {@link BatchDeleteReadSetCommandOutput}
+ * @param BatchDeleteReadSetRequest - {@link BatchDeleteReadSetRequest}
+ * @returns {@link BatchDeleteReadSetResponse}
  * @see {@link BatchDeleteReadSetCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteReadSetCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

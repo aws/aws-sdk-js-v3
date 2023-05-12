@@ -72,8 +72,8 @@ export interface GetRegionsCommandOutput extends GetRegionsResult, __MetadataBea
  *
  * ```
  *
- * @param GetRegionsCommandInput - {@link GetRegionsCommandInput}
- * @returns {@link GetRegionsCommandOutput}
+ * @param GetRegionsRequest - {@link GetRegionsRequest}
+ * @returns {@link GetRegionsResult}
  * @see {@link GetRegionsCommandInput} for command's `input` shape.
  * @see {@link GetRegionsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

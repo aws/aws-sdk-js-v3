@@ -79,8 +79,8 @@ export interface RestoreClusterFromSnapshotCommandOutput extends RestoreClusterF
  *
  * ```
  *
- * @param RestoreClusterFromSnapshotCommandInput - {@link RestoreClusterFromSnapshotCommandInput}
- * @returns {@link RestoreClusterFromSnapshotCommandOutput}
+ * @param RestoreClusterFromSnapshotInput - {@link RestoreClusterFromSnapshotInput}
+ * @returns {@link RestoreClusterFromSnapshotOutput}
  * @see {@link RestoreClusterFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreClusterFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.

@@ -186,8 +186,8 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  *
  * ```
  *
- * @param PutBucketAnalyticsConfigurationCommandInput - {@link PutBucketAnalyticsConfigurationCommandInput}
- * @returns {@link PutBucketAnalyticsConfigurationCommandOutput}
+ * @param PutBucketAnalyticsConfigurationRequest - {@link PutBucketAnalyticsConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link PutBucketAnalyticsConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketAnalyticsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

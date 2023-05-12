@@ -86,8 +86,8 @@ export interface CreateVerifiedAccessInstanceCommandOutput
  *
  * ```
  *
- * @param CreateVerifiedAccessInstanceCommandInput - {@link CreateVerifiedAccessInstanceCommandInput}
- * @returns {@link CreateVerifiedAccessInstanceCommandOutput}
+ * @param CreateVerifiedAccessInstanceRequest - {@link CreateVerifiedAccessInstanceRequest}
+ * @returns {@link CreateVerifiedAccessInstanceResult}
  * @see {@link CreateVerifiedAccessInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateVerifiedAccessInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -53,8 +53,8 @@ export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param ContinueDeploymentCommandInput - {@link ContinueDeploymentCommandInput}
- * @returns {@link ContinueDeploymentCommandOutput}
+ * @param ContinueDeploymentInput - {@link ContinueDeploymentInput}
+ * @returns {@link Unit}
  * @see {@link ContinueDeploymentCommandInput} for command's `input` shape.
  * @see {@link ContinueDeploymentCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

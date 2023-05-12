@@ -55,8 +55,8 @@ export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param PutBackupVaultNotificationsCommandInput - {@link PutBackupVaultNotificationsCommandInput}
- * @returns {@link PutBackupVaultNotificationsCommandOutput}
+ * @param PutBackupVaultNotificationsInput - {@link PutBackupVaultNotificationsInput}
+ * @returns {@link Unit}
  * @see {@link PutBackupVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link PutBackupVaultNotificationsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

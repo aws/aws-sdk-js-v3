@@ -60,8 +60,8 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  *
  * ```
  *
- * @param ListEventBusesCommandInput - {@link ListEventBusesCommandInput}
- * @returns {@link ListEventBusesCommandOutput}
+ * @param ListEventBusesRequest - {@link ListEventBusesRequest}
+ * @returns {@link ListEventBusesResponse}
  * @see {@link ListEventBusesCommandInput} for command's `input` shape.
  * @see {@link ListEventBusesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

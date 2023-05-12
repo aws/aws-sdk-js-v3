@@ -59,8 +59,8 @@ export interface DetectPiiEntitiesCommandOutput extends DetectPiiEntitiesRespons
  *
  * ```
  *
- * @param DetectPiiEntitiesCommandInput - {@link DetectPiiEntitiesCommandInput}
- * @returns {@link DetectPiiEntitiesCommandOutput}
+ * @param DetectPiiEntitiesRequest - {@link DetectPiiEntitiesRequest}
+ * @returns {@link DetectPiiEntitiesResponse}
  * @see {@link DetectPiiEntitiesCommandInput} for command's `input` shape.
  * @see {@link DetectPiiEntitiesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

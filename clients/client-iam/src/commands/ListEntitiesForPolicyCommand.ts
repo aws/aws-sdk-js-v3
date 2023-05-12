@@ -81,8 +81,8 @@ export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolic
  *
  * ```
  *
- * @param ListEntitiesForPolicyCommandInput - {@link ListEntitiesForPolicyCommandInput}
- * @returns {@link ListEntitiesForPolicyCommandOutput}
+ * @param ListEntitiesForPolicyRequest - {@link ListEntitiesForPolicyRequest}
+ * @returns {@link ListEntitiesForPolicyResponse}
  * @see {@link ListEntitiesForPolicyCommandInput} for command's `input` shape.
  * @see {@link ListEntitiesForPolicyCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

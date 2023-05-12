@@ -69,8 +69,8 @@ export interface ListReferenceStoresCommandOutput extends ListReferenceStoresRes
  *
  * ```
  *
- * @param ListReferenceStoresCommandInput - {@link ListReferenceStoresCommandInput}
- * @returns {@link ListReferenceStoresCommandOutput}
+ * @param ListReferenceStoresRequest - {@link ListReferenceStoresRequest}
+ * @returns {@link ListReferenceStoresResponse}
  * @see {@link ListReferenceStoresCommandInput} for command's `input` shape.
  * @see {@link ListReferenceStoresCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

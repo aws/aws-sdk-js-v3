@@ -66,8 +66,8 @@ export interface DescribeWorldExportJobCommandOutput extends DescribeWorldExport
  *
  * ```
  *
- * @param DescribeWorldExportJobCommandInput - {@link DescribeWorldExportJobCommandInput}
- * @returns {@link DescribeWorldExportJobCommandOutput}
+ * @param DescribeWorldExportJobRequest - {@link DescribeWorldExportJobRequest}
+ * @returns {@link DescribeWorldExportJobResponse}
  * @see {@link DescribeWorldExportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeWorldExportJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

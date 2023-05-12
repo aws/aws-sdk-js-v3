@@ -59,8 +59,8 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  *
  * ```
  *
- * @param GetResourcePoliciesCommandInput - {@link GetResourcePoliciesCommandInput}
- * @returns {@link GetResourcePoliciesCommandOutput}
+ * @param GetResourcePoliciesRequest - {@link GetResourcePoliciesRequest}
+ * @returns {@link GetResourcePoliciesResponse}
  * @see {@link GetResourcePoliciesCommandInput} for command's `input` shape.
  * @see {@link GetResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.

@@ -84,8 +84,8 @@ export interface GetAwsNetworkPerformanceDataCommandOutput
  *
  * ```
  *
- * @param GetAwsNetworkPerformanceDataCommandInput - {@link GetAwsNetworkPerformanceDataCommandInput}
- * @returns {@link GetAwsNetworkPerformanceDataCommandOutput}
+ * @param GetAwsNetworkPerformanceDataRequest - {@link GetAwsNetworkPerformanceDataRequest}
+ * @returns {@link GetAwsNetworkPerformanceDataResult}
  * @see {@link GetAwsNetworkPerformanceDataCommandInput} for command's `input` shape.
  * @see {@link GetAwsNetworkPerformanceDataCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

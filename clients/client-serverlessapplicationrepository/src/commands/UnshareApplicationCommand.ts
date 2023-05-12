@@ -53,8 +53,8 @@ export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UnshareApplicationCommandInput - {@link UnshareApplicationCommandInput}
- * @returns {@link UnshareApplicationCommandOutput}
+ * @param UnshareApplicationRequest - {@link UnshareApplicationRequest}
+ * @returns {@link Unit}
  * @see {@link UnshareApplicationCommandInput} for command's `input` shape.
  * @see {@link UnshareApplicationCommandOutput} for command's `response` shape.
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.

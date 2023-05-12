@@ -58,8 +58,8 @@ export interface PutFunctionCodeSigningConfigCommandOutput
  *
  * ```
  *
- * @param PutFunctionCodeSigningConfigCommandInput - {@link PutFunctionCodeSigningConfigCommandInput}
- * @returns {@link PutFunctionCodeSigningConfigCommandOutput}
+ * @param PutFunctionCodeSigningConfigRequest - {@link PutFunctionCodeSigningConfigRequest}
+ * @returns {@link PutFunctionCodeSigningConfigResponse}
  * @see {@link PutFunctionCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link PutFunctionCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.

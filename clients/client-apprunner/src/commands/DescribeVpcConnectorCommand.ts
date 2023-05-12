@@ -63,8 +63,8 @@ export interface DescribeVpcConnectorCommandOutput extends DescribeVpcConnectorR
  *
  * ```
  *
- * @param DescribeVpcConnectorCommandInput - {@link DescribeVpcConnectorCommandInput}
- * @returns {@link DescribeVpcConnectorCommandOutput}
+ * @param DescribeVpcConnectorRequest - {@link DescribeVpcConnectorRequest}
+ * @returns {@link DescribeVpcConnectorResponse}
  * @see {@link DescribeVpcConnectorCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcConnectorCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

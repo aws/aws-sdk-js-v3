@@ -68,8 +68,8 @@ export interface GetMaintenanceWindowCommandOutput extends GetMaintenanceWindowR
  *
  * ```
  *
- * @param GetMaintenanceWindowCommandInput - {@link GetMaintenanceWindowCommandInput}
- * @returns {@link GetMaintenanceWindowCommandOutput}
+ * @param GetMaintenanceWindowRequest - {@link GetMaintenanceWindowRequest}
+ * @returns {@link GetMaintenanceWindowResult}
  * @see {@link GetMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link GetMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

@@ -194,8 +194,8 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  *
  * ```
  *
- * @param CreateExperimentTemplateCommandInput - {@link CreateExperimentTemplateCommandInput}
- * @returns {@link CreateExperimentTemplateCommandOutput}
+ * @param CreateExperimentTemplateRequest - {@link CreateExperimentTemplateRequest}
+ * @returns {@link CreateExperimentTemplateResponse}
  * @see {@link CreateExperimentTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateExperimentTemplateCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.

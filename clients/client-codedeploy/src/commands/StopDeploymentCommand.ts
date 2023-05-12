@@ -52,8 +52,8 @@ export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __Met
  *
  * ```
  *
- * @param StopDeploymentCommandInput - {@link StopDeploymentCommandInput}
- * @returns {@link StopDeploymentCommandOutput}
+ * @param StopDeploymentInput - {@link StopDeploymentInput}
+ * @returns {@link StopDeploymentOutput}
  * @see {@link StopDeploymentCommandInput} for command's `input` shape.
  * @see {@link StopDeploymentCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

@@ -121,8 +121,8 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  *
  * ```
  *
- * @param ListGrantsCommandInput - {@link ListGrantsCommandInput}
- * @returns {@link ListGrantsCommandOutput}
+ * @param ListGrantsRequest - {@link ListGrantsRequest}
+ * @returns {@link ListGrantsResponse}
  * @see {@link ListGrantsCommandInput} for command's `input` shape.
  * @see {@link ListGrantsCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

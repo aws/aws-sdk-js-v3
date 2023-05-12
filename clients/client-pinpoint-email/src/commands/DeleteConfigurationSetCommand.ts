@@ -53,8 +53,8 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  *
  * ```
  *
- * @param DeleteConfigurationSetCommandInput - {@link DeleteConfigurationSetCommandInput}
- * @returns {@link DeleteConfigurationSetCommandOutput}
+ * @param DeleteConfigurationSetRequest - {@link DeleteConfigurationSetRequest}
+ * @returns {@link DeleteConfigurationSetResponse}
  * @see {@link DeleteConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetCommandOutput} for command's `response` shape.
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.

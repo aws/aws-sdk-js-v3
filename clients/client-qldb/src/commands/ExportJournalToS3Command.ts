@@ -71,8 +71,8 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  *
  * ```
  *
- * @param ExportJournalToS3CommandInput - {@link ExportJournalToS3CommandInput}
- * @returns {@link ExportJournalToS3CommandOutput}
+ * @param ExportJournalToS3Request - {@link ExportJournalToS3Request}
+ * @returns {@link ExportJournalToS3Response}
  * @see {@link ExportJournalToS3CommandInput} for command's `input` shape.
  * @see {@link ExportJournalToS3CommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.

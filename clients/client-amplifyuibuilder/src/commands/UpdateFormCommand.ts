@@ -360,8 +360,8 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  *
  * ```
  *
- * @param UpdateFormCommandInput - {@link UpdateFormCommandInput}
- * @returns {@link UpdateFormCommandOutput}
+ * @param UpdateFormRequest - {@link UpdateFormRequest}
+ * @returns {@link UpdateFormResponse}
  * @see {@link UpdateFormCommandInput} for command's `input` shape.
  * @see {@link UpdateFormCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

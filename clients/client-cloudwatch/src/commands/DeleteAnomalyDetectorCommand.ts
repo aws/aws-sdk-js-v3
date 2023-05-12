@@ -97,8 +97,8 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  *
  * ```
  *
- * @param DeleteAnomalyDetectorCommandInput - {@link DeleteAnomalyDetectorCommandInput}
- * @returns {@link DeleteAnomalyDetectorCommandOutput}
+ * @param DeleteAnomalyDetectorInput - {@link DeleteAnomalyDetectorInput}
+ * @returns {@link DeleteAnomalyDetectorOutput}
  * @see {@link DeleteAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link DeleteAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

@@ -89,8 +89,8 @@ export interface StartPiiEntitiesDetectionJobCommandOutput
  *
  * ```
  *
- * @param StartPiiEntitiesDetectionJobCommandInput - {@link StartPiiEntitiesDetectionJobCommandInput}
- * @returns {@link StartPiiEntitiesDetectionJobCommandOutput}
+ * @param StartPiiEntitiesDetectionJobRequest - {@link StartPiiEntitiesDetectionJobRequest}
+ * @returns {@link StartPiiEntitiesDetectionJobResponse}
  * @see {@link StartPiiEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartPiiEntitiesDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

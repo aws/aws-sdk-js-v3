@@ -61,8 +61,8 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  *
  * ```
  *
- * @param ListIndicesCommandInput - {@link ListIndicesCommandInput}
- * @returns {@link ListIndicesCommandOutput}
+ * @param ListIndicesRequest - {@link ListIndicesRequest}
+ * @returns {@link ListIndicesResponse}
  * @see {@link ListIndicesCommandInput} for command's `input` shape.
  * @see {@link ListIndicesCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

@@ -93,8 +93,8 @@ export interface TerminateEnvironmentCommandOutput extends EnvironmentDescriptio
  *
  * ```
  *
- * @param TerminateEnvironmentCommandInput - {@link TerminateEnvironmentCommandInput}
- * @returns {@link TerminateEnvironmentCommandOutput}
+ * @param TerminateEnvironmentMessage - {@link TerminateEnvironmentMessage}
+ * @returns {@link EnvironmentDescription}
  * @see {@link TerminateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link TerminateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.

@@ -54,8 +54,8 @@ export interface StartFileTransferCommandOutput extends StartFileTransferRespons
  *
  * ```
  *
- * @param StartFileTransferCommandInput - {@link StartFileTransferCommandInput}
- * @returns {@link StartFileTransferCommandOutput}
+ * @param StartFileTransferRequest - {@link StartFileTransferRequest}
+ * @returns {@link StartFileTransferResponse}
  * @see {@link StartFileTransferCommandInput} for command's `input` shape.
  * @see {@link StartFileTransferCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.

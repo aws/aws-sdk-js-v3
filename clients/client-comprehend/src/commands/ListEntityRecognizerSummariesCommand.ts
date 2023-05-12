@@ -65,8 +65,8 @@ export interface ListEntityRecognizerSummariesCommandOutput
  *
  * ```
  *
- * @param ListEntityRecognizerSummariesCommandInput - {@link ListEntityRecognizerSummariesCommandInput}
- * @returns {@link ListEntityRecognizerSummariesCommandOutput}
+ * @param ListEntityRecognizerSummariesRequest - {@link ListEntityRecognizerSummariesRequest}
+ * @returns {@link ListEntityRecognizerSummariesResponse}
  * @see {@link ListEntityRecognizerSummariesCommandInput} for command's `input` shape.
  * @see {@link ListEntityRecognizerSummariesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

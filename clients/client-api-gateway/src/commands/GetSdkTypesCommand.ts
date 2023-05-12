@@ -66,8 +66,8 @@ export interface GetSdkTypesCommandOutput extends SdkTypes, __MetadataBearer {}
  *
  * ```
  *
- * @param GetSdkTypesCommandInput - {@link GetSdkTypesCommandInput}
- * @returns {@link GetSdkTypesCommandOutput}
+ * @param GetSdkTypesRequest - {@link GetSdkTypesRequest}
+ * @returns {@link SdkTypes}
  * @see {@link GetSdkTypesCommandInput} for command's `input` shape.
  * @see {@link GetSdkTypesCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

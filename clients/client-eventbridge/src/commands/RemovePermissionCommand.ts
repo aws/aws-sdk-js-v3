@@ -53,8 +53,8 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RemovePermissionCommandInput - {@link RemovePermissionCommandInput}
- * @returns {@link RemovePermissionCommandOutput}
+ * @param RemovePermissionRequest - {@link RemovePermissionRequest}
+ * @returns {@link Unit}
  * @see {@link RemovePermissionCommandInput} for command's `input` shape.
  * @see {@link RemovePermissionCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.

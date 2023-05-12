@@ -73,8 +73,8 @@ export interface BatchAssociateAssessmentReportEvidenceCommandOutput
  *
  * ```
  *
- * @param BatchAssociateAssessmentReportEvidenceCommandInput - {@link BatchAssociateAssessmentReportEvidenceCommandInput}
- * @returns {@link BatchAssociateAssessmentReportEvidenceCommandOutput}
+ * @param BatchAssociateAssessmentReportEvidenceRequest - {@link BatchAssociateAssessmentReportEvidenceRequest}
+ * @returns {@link BatchAssociateAssessmentReportEvidenceResponse}
  * @see {@link BatchAssociateAssessmentReportEvidenceCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateAssessmentReportEvidenceCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.

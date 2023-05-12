@@ -286,8 +286,8 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *
  * ```
  *
- * @param BatchWriteItemCommandInput - {@link BatchWriteItemCommandInput}
- * @returns {@link BatchWriteItemCommandOutput}
+ * @param BatchWriteItemInput - {@link BatchWriteItemInput}
+ * @returns {@link BatchWriteItemOutput}
  * @see {@link BatchWriteItemCommandInput} for command's `input` shape.
  * @see {@link BatchWriteItemCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

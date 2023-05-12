@@ -78,8 +78,8 @@ export interface UpdateTypedLinkFacetCommandOutput extends UpdateTypedLinkFacetR
  *
  * ```
  *
- * @param UpdateTypedLinkFacetCommandInput - {@link UpdateTypedLinkFacetCommandInput}
- * @returns {@link UpdateTypedLinkFacetCommandOutput}
+ * @param UpdateTypedLinkFacetRequest - {@link UpdateTypedLinkFacetRequest}
+ * @returns {@link UpdateTypedLinkFacetResponse}
  * @see {@link UpdateTypedLinkFacetCommandInput} for command's `input` shape.
  * @see {@link UpdateTypedLinkFacetCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

@@ -62,8 +62,8 @@ export interface GetFirewallRuleGroupCommandOutput extends GetFirewallRuleGroupR
  *
  * ```
  *
- * @param GetFirewallRuleGroupCommandInput - {@link GetFirewallRuleGroupCommandInput}
- * @returns {@link GetFirewallRuleGroupCommandOutput}
+ * @param GetFirewallRuleGroupRequest - {@link GetFirewallRuleGroupRequest}
+ * @returns {@link GetFirewallRuleGroupResponse}
  * @see {@link GetFirewallRuleGroupCommandInput} for command's `input` shape.
  * @see {@link GetFirewallRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

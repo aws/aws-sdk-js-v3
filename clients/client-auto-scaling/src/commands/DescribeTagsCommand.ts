@@ -76,8 +76,8 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  *
  * ```
  *
- * @param DescribeTagsCommandInput - {@link DescribeTagsCommandInput}
- * @returns {@link DescribeTagsCommandOutput}
+ * @param DescribeTagsType - {@link DescribeTagsType}
+ * @returns {@link TagsType}
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

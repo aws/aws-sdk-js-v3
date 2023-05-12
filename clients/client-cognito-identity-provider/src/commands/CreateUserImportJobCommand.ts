@@ -71,8 +71,8 @@ export interface CreateUserImportJobCommandOutput extends CreateUserImportJobRes
  *
  * ```
  *
- * @param CreateUserImportJobCommandInput - {@link CreateUserImportJobCommandInput}
- * @returns {@link CreateUserImportJobCommandOutput}
+ * @param CreateUserImportJobRequest - {@link CreateUserImportJobRequest}
+ * @returns {@link CreateUserImportJobResponse}
  * @see {@link CreateUserImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateUserImportJobCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

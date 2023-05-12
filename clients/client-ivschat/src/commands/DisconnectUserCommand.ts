@@ -52,8 +52,8 @@ export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __M
  *
  * ```
  *
- * @param DisconnectUserCommandInput - {@link DisconnectUserCommandInput}
- * @returns {@link DisconnectUserCommandOutput}
+ * @param DisconnectUserRequest - {@link DisconnectUserRequest}
+ * @returns {@link DisconnectUserResponse}
  * @see {@link DisconnectUserCommandInput} for command's `input` shape.
  * @see {@link DisconnectUserCommandOutput} for command's `response` shape.
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.

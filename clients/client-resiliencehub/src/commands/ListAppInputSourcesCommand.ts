@@ -70,8 +70,8 @@ export interface ListAppInputSourcesCommandOutput extends ListAppInputSourcesRes
  *
  * ```
  *
- * @param ListAppInputSourcesCommandInput - {@link ListAppInputSourcesCommandInput}
- * @returns {@link ListAppInputSourcesCommandOutput}
+ * @param ListAppInputSourcesRequest - {@link ListAppInputSourcesRequest}
+ * @returns {@link ListAppInputSourcesResponse}
  * @see {@link ListAppInputSourcesCommandInput} for command's `input` shape.
  * @see {@link ListAppInputSourcesCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

@@ -64,8 +64,8 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  *
  * ```
  *
- * @param DescribeDocumentPermissionCommandInput - {@link DescribeDocumentPermissionCommandInput}
- * @returns {@link DescribeDocumentPermissionCommandOutput}
+ * @param DescribeDocumentPermissionRequest - {@link DescribeDocumentPermissionRequest}
+ * @returns {@link DescribeDocumentPermissionResponse}
  * @see {@link DescribeDocumentPermissionCommandInput} for command's `input` shape.
  * @see {@link DescribeDocumentPermissionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

@@ -119,8 +119,8 @@ export interface PutSessionCommandOutput
  *
  * ```
  *
- * @param PutSessionCommandInput - {@link PutSessionCommandInput}
- * @returns {@link PutSessionCommandOutput}
+ * @param PutSessionRequest - {@link PutSessionRequest}
+ * @returns {@link PutSessionResponse}
  * @see {@link PutSessionCommandInput} for command's `input` shape.
  * @see {@link PutSessionCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.

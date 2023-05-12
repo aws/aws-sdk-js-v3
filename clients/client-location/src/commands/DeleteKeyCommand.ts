@@ -49,8 +49,8 @@ export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBea
  *
  * ```
  *
- * @param DeleteKeyCommandInput - {@link DeleteKeyCommandInput}
- * @returns {@link DeleteKeyCommandOutput}
+ * @param DeleteKeyRequest - {@link DeleteKeyRequest}
+ * @returns {@link DeleteKeyResponse}
  * @see {@link DeleteKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

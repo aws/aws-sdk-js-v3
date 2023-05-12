@@ -87,8 +87,8 @@ export interface PutOrganizationConformancePackCommandOutput
  *
  * ```
  *
- * @param PutOrganizationConformancePackCommandInput - {@link PutOrganizationConformancePackCommandInput}
- * @returns {@link PutOrganizationConformancePackCommandOutput}
+ * @param PutOrganizationConformancePackRequest - {@link PutOrganizationConformancePackRequest}
+ * @returns {@link PutOrganizationConformancePackResponse}
  * @see {@link PutOrganizationConformancePackCommandInput} for command's `input` shape.
  * @see {@link PutOrganizationConformancePackCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

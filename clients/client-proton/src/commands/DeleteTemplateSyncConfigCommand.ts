@@ -58,8 +58,8 @@ export interface DeleteTemplateSyncConfigCommandOutput extends DeleteTemplateSyn
  *
  * ```
  *
- * @param DeleteTemplateSyncConfigCommandInput - {@link DeleteTemplateSyncConfigCommandInput}
- * @returns {@link DeleteTemplateSyncConfigCommandOutput}
+ * @param DeleteTemplateSyncConfigInput - {@link DeleteTemplateSyncConfigInput}
+ * @returns {@link DeleteTemplateSyncConfigOutput}
  * @see {@link DeleteTemplateSyncConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteTemplateSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

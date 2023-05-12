@@ -67,8 +67,8 @@ export interface BatchDisableStandardsCommandOutput extends BatchDisableStandard
  *
  * ```
  *
- * @param BatchDisableStandardsCommandInput - {@link BatchDisableStandardsCommandInput}
- * @returns {@link BatchDisableStandardsCommandOutput}
+ * @param BatchDisableStandardsRequest - {@link BatchDisableStandardsRequest}
+ * @returns {@link BatchDisableStandardsResponse}
  * @see {@link BatchDisableStandardsCommandInput} for command's `input` shape.
  * @see {@link BatchDisableStandardsCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.

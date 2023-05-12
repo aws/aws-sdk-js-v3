@@ -210,8 +210,8 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  *
  * ```
  *
- * @param ModifyListenerCommandInput - {@link ModifyListenerCommandInput}
- * @returns {@link ModifyListenerCommandOutput}
+ * @param ModifyListenerInput - {@link ModifyListenerInput}
+ * @returns {@link ModifyListenerOutput}
  * @see {@link ModifyListenerCommandInput} for command's `input` shape.
  * @see {@link ModifyListenerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

@@ -48,8 +48,8 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  *
  * ```
  *
- * @param DeleteLifecyclePolicyCommandInput - {@link DeleteLifecyclePolicyCommandInput}
- * @returns {@link DeleteLifecyclePolicyCommandOutput}
+ * @param DeleteLifecyclePolicyInput - {@link DeleteLifecyclePolicyInput}
+ * @returns {@link DeleteLifecyclePolicyOutput}
  * @see {@link DeleteLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.

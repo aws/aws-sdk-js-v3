@@ -73,8 +73,8 @@ export interface ListAssociationsForLicenseConfigurationCommandOutput
  *
  * ```
  *
- * @param ListAssociationsForLicenseConfigurationCommandInput - {@link ListAssociationsForLicenseConfigurationCommandInput}
- * @returns {@link ListAssociationsForLicenseConfigurationCommandOutput}
+ * @param ListAssociationsForLicenseConfigurationRequest - {@link ListAssociationsForLicenseConfigurationRequest}
+ * @returns {@link ListAssociationsForLicenseConfigurationResponse}
  * @see {@link ListAssociationsForLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link ListAssociationsForLicenseConfigurationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.

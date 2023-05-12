@@ -66,8 +66,8 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  *
  * ```
  *
- * @param PutBackupVaultLockConfigurationCommandInput - {@link PutBackupVaultLockConfigurationCommandInput}
- * @returns {@link PutBackupVaultLockConfigurationCommandOutput}
+ * @param PutBackupVaultLockConfigurationInput - {@link PutBackupVaultLockConfigurationInput}
+ * @returns {@link Unit}
  * @see {@link PutBackupVaultLockConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBackupVaultLockConfigurationCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

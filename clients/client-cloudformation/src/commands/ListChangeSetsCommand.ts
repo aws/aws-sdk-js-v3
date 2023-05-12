@@ -68,8 +68,8 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __Met
  *
  * ```
  *
- * @param ListChangeSetsCommandInput - {@link ListChangeSetsCommandInput}
- * @returns {@link ListChangeSetsCommandOutput}
+ * @param ListChangeSetsInput - {@link ListChangeSetsInput}
+ * @returns {@link ListChangeSetsOutput}
  * @see {@link ListChangeSetsCommandInput} for command's `input` shape.
  * @see {@link ListChangeSetsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

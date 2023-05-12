@@ -63,8 +63,8 @@ export interface DisableCrlCommandOutput extends CrlDetailResponse, __MetadataBe
  *
  * ```
  *
- * @param DisableCrlCommandInput - {@link DisableCrlCommandInput}
- * @returns {@link DisableCrlCommandOutput}
+ * @param ScalarCrlRequest - {@link ScalarCrlRequest}
+ * @returns {@link CrlDetailResponse}
  * @see {@link DisableCrlCommandInput} for command's `input` shape.
  * @see {@link DisableCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

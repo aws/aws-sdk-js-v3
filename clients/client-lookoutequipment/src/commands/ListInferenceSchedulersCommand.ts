@@ -67,8 +67,8 @@ export interface ListInferenceSchedulersCommandOutput extends ListInferenceSched
  *
  * ```
  *
- * @param ListInferenceSchedulersCommandInput - {@link ListInferenceSchedulersCommandInput}
- * @returns {@link ListInferenceSchedulersCommandOutput}
+ * @param ListInferenceSchedulersRequest - {@link ListInferenceSchedulersRequest}
+ * @returns {@link ListInferenceSchedulersResponse}
  * @see {@link ListInferenceSchedulersCommandInput} for command's `input` shape.
  * @see {@link ListInferenceSchedulersCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.

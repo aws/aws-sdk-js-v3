@@ -67,8 +67,8 @@ export interface CreateRouteCalculatorCommandOutput extends CreateRouteCalculato
  *
  * ```
  *
- * @param CreateRouteCalculatorCommandInput - {@link CreateRouteCalculatorCommandInput}
- * @returns {@link CreateRouteCalculatorCommandOutput}
+ * @param CreateRouteCalculatorRequest - {@link CreateRouteCalculatorRequest}
+ * @returns {@link CreateRouteCalculatorResponse}
  * @see {@link CreateRouteCalculatorCommandInput} for command's `input` shape.
  * @see {@link CreateRouteCalculatorCommandOutput} for command's `response` shape.
  * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.

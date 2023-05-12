@@ -93,8 +93,8 @@ export interface CreateWhatIfAnalysisCommandOutput extends CreateWhatIfAnalysisR
  *
  * ```
  *
- * @param CreateWhatIfAnalysisCommandInput - {@link CreateWhatIfAnalysisCommandInput}
- * @returns {@link CreateWhatIfAnalysisCommandOutput}
+ * @param CreateWhatIfAnalysisRequest - {@link CreateWhatIfAnalysisRequest}
+ * @returns {@link CreateWhatIfAnalysisResponse}
  * @see {@link CreateWhatIfAnalysisCommandInput} for command's `input` shape.
  * @see {@link CreateWhatIfAnalysisCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.

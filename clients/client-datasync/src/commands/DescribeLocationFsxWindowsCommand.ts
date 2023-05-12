@@ -58,8 +58,8 @@ export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocatio
  *
  * ```
  *
- * @param DescribeLocationFsxWindowsCommandInput - {@link DescribeLocationFsxWindowsCommandInput}
- * @returns {@link DescribeLocationFsxWindowsCommandOutput}
+ * @param DescribeLocationFsxWindowsRequest - {@link DescribeLocationFsxWindowsRequest}
+ * @returns {@link DescribeLocationFsxWindowsResponse}
  * @see {@link DescribeLocationFsxWindowsCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationFsxWindowsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

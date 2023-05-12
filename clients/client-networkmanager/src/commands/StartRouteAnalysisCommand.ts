@@ -125,8 +125,8 @@ export interface StartRouteAnalysisCommandOutput extends StartRouteAnalysisRespo
  *
  * ```
  *
- * @param StartRouteAnalysisCommandInput - {@link StartRouteAnalysisCommandInput}
- * @returns {@link StartRouteAnalysisCommandOutput}
+ * @param StartRouteAnalysisRequest - {@link StartRouteAnalysisRequest}
+ * @returns {@link StartRouteAnalysisResponse}
  * @see {@link StartRouteAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartRouteAnalysisCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

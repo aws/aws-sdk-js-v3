@@ -65,8 +65,8 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateUserIdentityInfoCommandInput - {@link UpdateUserIdentityInfoCommandInput}
- * @returns {@link UpdateUserIdentityInfoCommandOutput}
+ * @param UpdateUserIdentityInfoRequest - {@link UpdateUserIdentityInfoRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateUserIdentityInfoCommandInput} for command's `input` shape.
  * @see {@link UpdateUserIdentityInfoCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

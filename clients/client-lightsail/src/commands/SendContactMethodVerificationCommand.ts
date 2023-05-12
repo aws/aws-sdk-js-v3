@@ -85,8 +85,8 @@ export interface SendContactMethodVerificationCommandOutput
  *
  * ```
  *
- * @param SendContactMethodVerificationCommandInput - {@link SendContactMethodVerificationCommandInput}
- * @returns {@link SendContactMethodVerificationCommandOutput}
+ * @param SendContactMethodVerificationRequest - {@link SendContactMethodVerificationRequest}
+ * @returns {@link SendContactMethodVerificationResult}
  * @see {@link SendContactMethodVerificationCommandInput} for command's `input` shape.
  * @see {@link SendContactMethodVerificationCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

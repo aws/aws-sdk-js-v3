@@ -66,8 +66,8 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, _
  *
  * ```
  *
- * @param UpdateMembershipCommandInput - {@link UpdateMembershipCommandInput}
- * @returns {@link UpdateMembershipCommandOutput}
+ * @param UpdateMembershipInput - {@link UpdateMembershipInput}
+ * @returns {@link UpdateMembershipOutput}
  * @see {@link UpdateMembershipCommandInput} for command's `input` shape.
  * @see {@link UpdateMembershipCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.

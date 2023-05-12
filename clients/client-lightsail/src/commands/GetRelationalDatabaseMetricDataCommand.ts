@@ -77,8 +77,8 @@ export interface GetRelationalDatabaseMetricDataCommandOutput
  *
  * ```
  *
- * @param GetRelationalDatabaseMetricDataCommandInput - {@link GetRelationalDatabaseMetricDataCommandInput}
- * @returns {@link GetRelationalDatabaseMetricDataCommandOutput}
+ * @param GetRelationalDatabaseMetricDataRequest - {@link GetRelationalDatabaseMetricDataRequest}
+ * @returns {@link GetRelationalDatabaseMetricDataResult}
  * @see {@link GetRelationalDatabaseMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseMetricDataCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

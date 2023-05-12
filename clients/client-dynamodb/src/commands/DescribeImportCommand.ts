@@ -126,8 +126,8 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  *
  * ```
  *
- * @param DescribeImportCommandInput - {@link DescribeImportCommandInput}
- * @returns {@link DescribeImportCommandOutput}
+ * @param DescribeImportInput - {@link DescribeImportInput}
+ * @returns {@link DescribeImportOutput}
  * @see {@link DescribeImportCommandInput} for command's `input` shape.
  * @see {@link DescribeImportCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

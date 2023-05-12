@@ -152,8 +152,8 @@ export interface GetContainerServicesCommandOutput extends ContainerServicesList
  *
  * ```
  *
- * @param GetContainerServicesCommandInput - {@link GetContainerServicesCommandInput}
- * @returns {@link GetContainerServicesCommandOutput}
+ * @param GetContainerServicesRequest - {@link GetContainerServicesRequest}
+ * @returns {@link ContainerServicesListResult}
  * @see {@link GetContainerServicesCommandInput} for command's `input` shape.
  * @see {@link GetContainerServicesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

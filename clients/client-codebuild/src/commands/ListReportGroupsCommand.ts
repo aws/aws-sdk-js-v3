@@ -58,8 +58,8 @@ export interface ListReportGroupsCommandOutput extends ListReportGroupsOutput, _
  *
  * ```
  *
- * @param ListReportGroupsCommandInput - {@link ListReportGroupsCommandInput}
- * @returns {@link ListReportGroupsCommandOutput}
+ * @param ListReportGroupsInput - {@link ListReportGroupsInput}
+ * @returns {@link ListReportGroupsOutput}
  * @see {@link ListReportGroupsCommandInput} for command's `input` shape.
  * @see {@link ListReportGroupsCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.

@@ -65,8 +65,8 @@ export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefini
  *
  * ```
  *
- * @param ListFunctionDefinitionsCommandInput - {@link ListFunctionDefinitionsCommandInput}
- * @returns {@link ListFunctionDefinitionsCommandOutput}
+ * @param ListFunctionDefinitionsRequest - {@link ListFunctionDefinitionsRequest}
+ * @returns {@link ListFunctionDefinitionsResponse}
  * @see {@link ListFunctionDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

@@ -66,8 +66,8 @@ export interface StartExportCommandOutput extends StartExportResponse, __Metadat
  *
  * ```
  *
- * @param StartExportCommandInput - {@link StartExportCommandInput}
- * @returns {@link StartExportCommandOutput}
+ * @param StartExportRequest - {@link StartExportRequest}
+ * @returns {@link StartExportResponse}
  * @see {@link StartExportCommandInput} for command's `input` shape.
  * @see {@link StartExportCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

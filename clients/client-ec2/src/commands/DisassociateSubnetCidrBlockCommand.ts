@@ -58,8 +58,8 @@ export interface DisassociateSubnetCidrBlockCommandOutput extends DisassociateSu
  *
  * ```
  *
- * @param DisassociateSubnetCidrBlockCommandInput - {@link DisassociateSubnetCidrBlockCommandInput}
- * @returns {@link DisassociateSubnetCidrBlockCommandOutput}
+ * @param DisassociateSubnetCidrBlockRequest - {@link DisassociateSubnetCidrBlockRequest}
+ * @returns {@link DisassociateSubnetCidrBlockResult}
  * @see {@link DisassociateSubnetCidrBlockCommandInput} for command's `input` shape.
  * @see {@link DisassociateSubnetCidrBlockCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

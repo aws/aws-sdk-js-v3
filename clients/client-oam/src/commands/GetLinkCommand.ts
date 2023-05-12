@@ -61,8 +61,8 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  *
  * ```
  *
- * @param GetLinkCommandInput - {@link GetLinkCommandInput}
- * @returns {@link GetLinkCommandOutput}
+ * @param GetLinkInput - {@link GetLinkInput}
+ * @returns {@link GetLinkOutput}
  * @see {@link GetLinkCommandInput} for command's `input` shape.
  * @see {@link GetLinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.

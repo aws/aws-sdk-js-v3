@@ -63,8 +63,8 @@ export interface DisableAWSOrganizationsAccessCommandOutput
  *
  * ```
  *
- * @param DisableAWSOrganizationsAccessCommandInput - {@link DisableAWSOrganizationsAccessCommandInput}
- * @returns {@link DisableAWSOrganizationsAccessCommandOutput}
+ * @param DisableAWSOrganizationsAccessInput - {@link DisableAWSOrganizationsAccessInput}
+ * @returns {@link DisableAWSOrganizationsAccessOutput}
  * @see {@link DisableAWSOrganizationsAccessCommandInput} for command's `input` shape.
  * @see {@link DisableAWSOrganizationsAccessCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

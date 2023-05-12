@@ -58,8 +58,8 @@ export interface GetPreparedStatementCommandOutput extends GetPreparedStatementO
  *
  * ```
  *
- * @param GetPreparedStatementCommandInput - {@link GetPreparedStatementCommandInput}
- * @returns {@link GetPreparedStatementCommandOutput}
+ * @param GetPreparedStatementInput - {@link GetPreparedStatementInput}
+ * @returns {@link GetPreparedStatementOutput}
  * @see {@link GetPreparedStatementCommandInput} for command's `input` shape.
  * @see {@link GetPreparedStatementCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

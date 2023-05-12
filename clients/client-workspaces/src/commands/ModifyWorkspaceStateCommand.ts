@@ -54,8 +54,8 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  *
  * ```
  *
- * @param ModifyWorkspaceStateCommandInput - {@link ModifyWorkspaceStateCommandInput}
- * @returns {@link ModifyWorkspaceStateCommandOutput}
+ * @param ModifyWorkspaceStateRequest - {@link ModifyWorkspaceStateRequest}
+ * @returns {@link ModifyWorkspaceStateResult}
  * @see {@link ModifyWorkspaceStateCommandInput} for command's `input` shape.
  * @see {@link ModifyWorkspaceStateCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

@@ -53,8 +53,8 @@ export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackage
  *
  * ```
  *
- * @param PutModelPackageGroupPolicyCommandInput - {@link PutModelPackageGroupPolicyCommandInput}
- * @returns {@link PutModelPackageGroupPolicyCommandOutput}
+ * @param PutModelPackageGroupPolicyInput - {@link PutModelPackageGroupPolicyInput}
+ * @returns {@link PutModelPackageGroupPolicyOutput}
  * @see {@link PutModelPackageGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link PutModelPackageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

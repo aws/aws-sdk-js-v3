@@ -77,8 +77,8 @@ export interface CreateEntitlementCommandOutput extends CreateEntitlementResult,
  *
  * ```
  *
- * @param CreateEntitlementCommandInput - {@link CreateEntitlementCommandInput}
- * @returns {@link CreateEntitlementCommandOutput}
+ * @param CreateEntitlementRequest - {@link CreateEntitlementRequest}
+ * @returns {@link CreateEntitlementResult}
  * @see {@link CreateEntitlementCommandInput} for command's `input` shape.
  * @see {@link CreateEntitlementCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

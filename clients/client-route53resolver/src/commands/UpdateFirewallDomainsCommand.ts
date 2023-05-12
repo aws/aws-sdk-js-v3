@@ -57,8 +57,8 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
  *
  * ```
  *
- * @param UpdateFirewallDomainsCommandInput - {@link UpdateFirewallDomainsCommandInput}
- * @returns {@link UpdateFirewallDomainsCommandOutput}
+ * @param UpdateFirewallDomainsRequest - {@link UpdateFirewallDomainsRequest}
+ * @returns {@link UpdateFirewallDomainsResponse}
  * @see {@link UpdateFirewallDomainsCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallDomainsCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.

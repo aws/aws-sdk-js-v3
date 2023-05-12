@@ -77,8 +77,8 @@ export interface SearchRoomsCommandOutput extends SearchRoomsResponse, __Metadat
  *
  * ```
  *
- * @param SearchRoomsCommandInput - {@link SearchRoomsCommandInput}
- * @returns {@link SearchRoomsCommandOutput}
+ * @param SearchRoomsRequest - {@link SearchRoomsRequest}
+ * @returns {@link SearchRoomsResponse}
  * @see {@link SearchRoomsCommandInput} for command's `input` shape.
  * @see {@link SearchRoomsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

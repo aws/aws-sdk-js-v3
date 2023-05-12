@@ -69,8 +69,8 @@ export interface ListPricingRulesAssociatedToPricingPlanCommandOutput
  *
  * ```
  *
- * @param ListPricingRulesAssociatedToPricingPlanCommandInput - {@link ListPricingRulesAssociatedToPricingPlanCommandInput}
- * @returns {@link ListPricingRulesAssociatedToPricingPlanCommandOutput}
+ * @param ListPricingRulesAssociatedToPricingPlanInput - {@link ListPricingRulesAssociatedToPricingPlanInput}
+ * @returns {@link ListPricingRulesAssociatedToPricingPlanOutput}
  * @see {@link ListPricingRulesAssociatedToPricingPlanCommandInput} for command's `input` shape.
  * @see {@link ListPricingRulesAssociatedToPricingPlanCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.

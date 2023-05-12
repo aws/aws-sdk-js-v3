@@ -53,8 +53,8 @@ export interface DeleteTapeCommandOutput extends DeleteTapeOutput, __MetadataBea
  *
  * ```
  *
- * @param DeleteTapeCommandInput - {@link DeleteTapeCommandInput}
- * @returns {@link DeleteTapeCommandOutput}
+ * @param DeleteTapeInput - {@link DeleteTapeInput}
+ * @returns {@link DeleteTapeOutput}
  * @see {@link DeleteTapeCommandInput} for command's `input` shape.
  * @see {@link DeleteTapeCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

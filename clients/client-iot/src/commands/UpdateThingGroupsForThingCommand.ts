@@ -56,8 +56,8 @@ export interface UpdateThingGroupsForThingCommandOutput extends UpdateThingGroup
  *
  * ```
  *
- * @param UpdateThingGroupsForThingCommandInput - {@link UpdateThingGroupsForThingCommandInput}
- * @returns {@link UpdateThingGroupsForThingCommandOutput}
+ * @param UpdateThingGroupsForThingRequest - {@link UpdateThingGroupsForThingRequest}
+ * @returns {@link UpdateThingGroupsForThingResponse}
  * @see {@link UpdateThingGroupsForThingCommandInput} for command's `input` shape.
  * @see {@link UpdateThingGroupsForThingCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

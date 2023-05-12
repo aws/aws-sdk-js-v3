@@ -63,8 +63,8 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  *
  * ```
  *
- * @param EvaluateMappingTemplateCommandInput - {@link EvaluateMappingTemplateCommandInput}
- * @returns {@link EvaluateMappingTemplateCommandOutput}
+ * @param EvaluateMappingTemplateRequest - {@link EvaluateMappingTemplateRequest}
+ * @returns {@link EvaluateMappingTemplateResponse}
  * @see {@link EvaluateMappingTemplateCommandInput} for command's `input` shape.
  * @see {@link EvaluateMappingTemplateCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.

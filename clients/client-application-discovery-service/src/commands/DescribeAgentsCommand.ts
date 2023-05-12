@@ -88,8 +88,8 @@ export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __M
  *
  * ```
  *
- * @param DescribeAgentsCommandInput - {@link DescribeAgentsCommandInput}
- * @returns {@link DescribeAgentsCommandOutput}
+ * @param DescribeAgentsRequest - {@link DescribeAgentsRequest}
+ * @returns {@link DescribeAgentsResponse}
  * @see {@link DescribeAgentsCommandInput} for command's `input` shape.
  * @see {@link DescribeAgentsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.

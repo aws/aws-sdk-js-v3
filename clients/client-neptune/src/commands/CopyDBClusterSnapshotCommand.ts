@@ -87,8 +87,8 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  *
  * ```
  *
- * @param CopyDBClusterSnapshotCommandInput - {@link CopyDBClusterSnapshotCommandInput}
- * @returns {@link CopyDBClusterSnapshotCommandOutput}
+ * @param CopyDBClusterSnapshotMessage - {@link CopyDBClusterSnapshotMessage}
+ * @returns {@link CopyDBClusterSnapshotResult}
  * @see {@link CopyDBClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CopyDBClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.

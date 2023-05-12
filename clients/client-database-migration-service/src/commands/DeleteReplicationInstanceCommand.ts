@@ -119,8 +119,8 @@ export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicatio
  *
  * ```
  *
- * @param DeleteReplicationInstanceCommandInput - {@link DeleteReplicationInstanceCommandInput}
- * @returns {@link DeleteReplicationInstanceCommandOutput}
+ * @param DeleteReplicationInstanceMessage - {@link DeleteReplicationInstanceMessage}
+ * @returns {@link DeleteReplicationInstanceResponse}
  * @see {@link DeleteReplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

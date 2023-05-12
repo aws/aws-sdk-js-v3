@@ -65,8 +65,8 @@ export interface UpdateTemplateSyncConfigCommandOutput extends UpdateTemplateSyn
  *
  * ```
  *
- * @param UpdateTemplateSyncConfigCommandInput - {@link UpdateTemplateSyncConfigCommandInput}
- * @returns {@link UpdateTemplateSyncConfigCommandOutput}
+ * @param UpdateTemplateSyncConfigInput - {@link UpdateTemplateSyncConfigInput}
+ * @returns {@link UpdateTemplateSyncConfigOutput}
  * @see {@link UpdateTemplateSyncConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateTemplateSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

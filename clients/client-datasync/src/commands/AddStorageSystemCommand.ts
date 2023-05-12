@@ -75,8 +75,8 @@ export interface AddStorageSystemCommandOutput extends AddStorageSystemResponse,
  *
  * ```
  *
- * @param AddStorageSystemCommandInput - {@link AddStorageSystemCommandInput}
- * @returns {@link AddStorageSystemCommandOutput}
+ * @param AddStorageSystemRequest - {@link AddStorageSystemRequest}
+ * @returns {@link AddStorageSystemResponse}
  * @see {@link AddStorageSystemCommandInput} for command's `input` shape.
  * @see {@link AddStorageSystemCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.

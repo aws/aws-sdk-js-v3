@@ -62,8 +62,8 @@ export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse,
  *
  * ```
  *
- * @param GetCelebrityInfoCommandInput - {@link GetCelebrityInfoCommandInput}
- * @returns {@link GetCelebrityInfoCommandOutput}
+ * @param GetCelebrityInfoRequest - {@link GetCelebrityInfoRequest}
+ * @returns {@link GetCelebrityInfoResponse}
  * @see {@link GetCelebrityInfoCommandInput} for command's `input` shape.
  * @see {@link GetCelebrityInfoCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

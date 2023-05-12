@@ -117,8 +117,8 @@ export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQu
  *
  * ```
  *
- * @param UpdateGameSessionQueueCommandInput - {@link UpdateGameSessionQueueCommandInput}
- * @returns {@link UpdateGameSessionQueueCommandOutput}
+ * @param UpdateGameSessionQueueInput - {@link UpdateGameSessionQueueInput}
+ * @returns {@link UpdateGameSessionQueueOutput}
  * @see {@link UpdateGameSessionQueueCommandInput} for command's `input` shape.
  * @see {@link UpdateGameSessionQueueCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

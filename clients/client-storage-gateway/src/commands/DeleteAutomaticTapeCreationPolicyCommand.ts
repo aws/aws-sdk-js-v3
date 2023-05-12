@@ -57,8 +57,8 @@ export interface DeleteAutomaticTapeCreationPolicyCommandOutput
  *
  * ```
  *
- * @param DeleteAutomaticTapeCreationPolicyCommandInput - {@link DeleteAutomaticTapeCreationPolicyCommandInput}
- * @returns {@link DeleteAutomaticTapeCreationPolicyCommandOutput}
+ * @param DeleteAutomaticTapeCreationPolicyInput - {@link DeleteAutomaticTapeCreationPolicyInput}
+ * @returns {@link DeleteAutomaticTapeCreationPolicyOutput}
  * @see {@link DeleteAutomaticTapeCreationPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteAutomaticTapeCreationPolicyCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

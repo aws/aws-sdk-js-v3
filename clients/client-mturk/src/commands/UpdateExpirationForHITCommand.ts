@@ -52,8 +52,8 @@ export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationFor
  *
  * ```
  *
- * @param UpdateExpirationForHITCommandInput - {@link UpdateExpirationForHITCommandInput}
- * @returns {@link UpdateExpirationForHITCommandOutput}
+ * @param UpdateExpirationForHITRequest - {@link UpdateExpirationForHITRequest}
+ * @returns {@link UpdateExpirationForHITResponse}
  * @see {@link UpdateExpirationForHITCommandInput} for command's `input` shape.
  * @see {@link UpdateExpirationForHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

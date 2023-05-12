@@ -57,8 +57,8 @@ export interface DescribeServiceIntegrationCommandOutput extends DescribeService
  *
  * ```
  *
- * @param DescribeServiceIntegrationCommandInput - {@link DescribeServiceIntegrationCommandInput}
- * @returns {@link DescribeServiceIntegrationCommandOutput}
+ * @param DescribeServiceIntegrationRequest - {@link DescribeServiceIntegrationRequest}
+ * @returns {@link DescribeServiceIntegrationResponse}
  * @see {@link DescribeServiceIntegrationCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceIntegrationCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.

@@ -116,8 +116,8 @@ export interface GetServerDetailsCommandOutput extends GetServerDetailsResponse,
  *
  * ```
  *
- * @param GetServerDetailsCommandInput - {@link GetServerDetailsCommandInput}
- * @returns {@link GetServerDetailsCommandOutput}
+ * @param GetServerDetailsRequest - {@link GetServerDetailsRequest}
+ * @returns {@link GetServerDetailsResponse}
  * @see {@link GetServerDetailsCommandInput} for command's `input` shape.
  * @see {@link GetServerDetailsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.

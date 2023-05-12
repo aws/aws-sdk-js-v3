@@ -63,8 +63,8 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
  *
  * ```
  *
- * @param DeleteGlobalNetworkCommandInput - {@link DeleteGlobalNetworkCommandInput}
- * @returns {@link DeleteGlobalNetworkCommandOutput}
+ * @param DeleteGlobalNetworkRequest - {@link DeleteGlobalNetworkRequest}
+ * @returns {@link DeleteGlobalNetworkResponse}
  * @see {@link DeleteGlobalNetworkCommandInput} for command's `input` shape.
  * @see {@link DeleteGlobalNetworkCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

@@ -67,8 +67,8 @@ export interface ListProvisionedProductPlansCommandOutput extends ListProvisione
  *
  * ```
  *
- * @param ListProvisionedProductPlansCommandInput - {@link ListProvisionedProductPlansCommandInput}
- * @returns {@link ListProvisionedProductPlansCommandOutput}
+ * @param ListProvisionedProductPlansInput - {@link ListProvisionedProductPlansInput}
+ * @returns {@link ListProvisionedProductPlansOutput}
  * @see {@link ListProvisionedProductPlansCommandInput} for command's `input` shape.
  * @see {@link ListProvisionedProductPlansCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.

@@ -72,8 +72,8 @@ export interface PutRawMessageContentCommandOutput extends PutRawMessageContentR
  *
  * ```
  *
- * @param PutRawMessageContentCommandInput - {@link PutRawMessageContentCommandInput}
- * @returns {@link PutRawMessageContentCommandOutput}
+ * @param PutRawMessageContentRequest - {@link PutRawMessageContentRequest}
+ * @returns {@link PutRawMessageContentResponse}
  * @see {@link PutRawMessageContentCommandInput} for command's `input` shape.
  * @see {@link PutRawMessageContentCommandOutput} for command's `response` shape.
  * @see {@link WorkMailMessageFlowClientResolvedConfig | config} for WorkMailMessageFlowClient's `config` shape.

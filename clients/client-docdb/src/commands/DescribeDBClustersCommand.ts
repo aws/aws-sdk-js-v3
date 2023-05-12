@@ -124,8 +124,8 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  *
  * ```
  *
- * @param DescribeDBClustersCommandInput - {@link DescribeDBClustersCommandInput}
- * @returns {@link DescribeDBClustersCommandOutput}
+ * @param DescribeDBClustersMessage - {@link DescribeDBClustersMessage}
+ * @returns {@link DBClusterMessage}
  * @see {@link DescribeDBClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClustersCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.

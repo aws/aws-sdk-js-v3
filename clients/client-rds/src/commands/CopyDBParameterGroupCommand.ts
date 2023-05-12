@@ -63,8 +63,8 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  *
  * ```
  *
- * @param CopyDBParameterGroupCommandInput - {@link CopyDBParameterGroupCommandInput}
- * @returns {@link CopyDBParameterGroupCommandOutput}
+ * @param CopyDBParameterGroupMessage - {@link CopyDBParameterGroupMessage}
+ * @returns {@link CopyDBParameterGroupResult}
  * @see {@link CopyDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CopyDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

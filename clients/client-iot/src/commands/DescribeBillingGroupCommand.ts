@@ -60,8 +60,8 @@ export interface DescribeBillingGroupCommandOutput extends DescribeBillingGroupR
  *
  * ```
  *
- * @param DescribeBillingGroupCommandInput - {@link DescribeBillingGroupCommandInput}
- * @returns {@link DescribeBillingGroupCommandOutput}
+ * @param DescribeBillingGroupRequest - {@link DescribeBillingGroupRequest}
+ * @returns {@link DescribeBillingGroupResponse}
  * @see {@link DescribeBillingGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

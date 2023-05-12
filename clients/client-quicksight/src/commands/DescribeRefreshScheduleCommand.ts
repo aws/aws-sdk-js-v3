@@ -69,8 +69,8 @@ export interface DescribeRefreshScheduleCommandOutput extends DescribeRefreshSch
  *
  * ```
  *
- * @param DescribeRefreshScheduleCommandInput - {@link DescribeRefreshScheduleCommandInput}
- * @returns {@link DescribeRefreshScheduleCommandOutput}
+ * @param DescribeRefreshScheduleRequest - {@link DescribeRefreshScheduleRequest}
+ * @returns {@link DescribeRefreshScheduleResponse}
  * @see {@link DescribeRefreshScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeRefreshScheduleCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

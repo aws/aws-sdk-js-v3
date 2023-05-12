@@ -86,8 +86,8 @@ export interface GetIdentityResolutionJobCommandOutput extends GetIdentityResolu
  *
  * ```
  *
- * @param GetIdentityResolutionJobCommandInput - {@link GetIdentityResolutionJobCommandInput}
- * @returns {@link GetIdentityResolutionJobCommandOutput}
+ * @param GetIdentityResolutionJobRequest - {@link GetIdentityResolutionJobRequest}
+ * @returns {@link GetIdentityResolutionJobResponse}
  * @see {@link GetIdentityResolutionJobCommandInput} for command's `input` shape.
  * @see {@link GetIdentityResolutionJobCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

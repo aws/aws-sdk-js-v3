@@ -69,8 +69,8 @@ export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckO
  *
  * ```
  *
- * @param ConfigureHealthCheckCommandInput - {@link ConfigureHealthCheckCommandInput}
- * @returns {@link ConfigureHealthCheckCommandOutput}
+ * @param ConfigureHealthCheckInput - {@link ConfigureHealthCheckInput}
+ * @returns {@link ConfigureHealthCheckOutput}
  * @see {@link ConfigureHealthCheckCommandInput} for command's `input` shape.
  * @see {@link ConfigureHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.

@@ -64,10 +64,16 @@ export interface CancelFlowExecutionsCommandOutput extends CancelFlowExecutionsR
  * };
  * const command = new CancelFlowExecutionsCommand(input);
  * const response = await client.send(command);
+ * // { // CancelFlowExecutionsResponse
+ * //   invalidExecutions: [ // ExecutionIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
- * @param CancelFlowExecutionsCommandInput - {@link CancelFlowExecutionsCommandInput}
- * @returns {@link CancelFlowExecutionsCommandOutput}
+ * @param CancelFlowExecutionsRequest - {@link CancelFlowExecutionsRequest}
+ * @returns {@link CancelFlowExecutionsResponse}
  * @see {@link CancelFlowExecutionsCommandInput} for command's `input` shape.
  * @see {@link CancelFlowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
@@ -90,6 +96,8 @@ export interface CancelFlowExecutionsCommandOutput extends CancelFlowExecutionsR
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
+ * @throws {@link AppflowServiceException}
+ * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
 export class CancelFlowExecutionsCommand extends $Command<

@@ -62,8 +62,8 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
  *
  * ```
  *
- * @param DisassociateWebsiteAuthorizationProviderCommandInput - {@link DisassociateWebsiteAuthorizationProviderCommandInput}
- * @returns {@link DisassociateWebsiteAuthorizationProviderCommandOutput}
+ * @param DisassociateWebsiteAuthorizationProviderRequest - {@link DisassociateWebsiteAuthorizationProviderRequest}
+ * @returns {@link DisassociateWebsiteAuthorizationProviderResponse}
  * @see {@link DisassociateWebsiteAuthorizationProviderCommandInput} for command's `input` shape.
  * @see {@link DisassociateWebsiteAuthorizationProviderCommandOutput} for command's `response` shape.
  * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.

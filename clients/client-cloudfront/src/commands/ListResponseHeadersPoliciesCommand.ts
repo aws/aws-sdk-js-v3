@@ -156,8 +156,8 @@ export interface ListResponseHeadersPoliciesCommandOutput extends ListResponseHe
  *
  * ```
  *
- * @param ListResponseHeadersPoliciesCommandInput - {@link ListResponseHeadersPoliciesCommandInput}
- * @returns {@link ListResponseHeadersPoliciesCommandOutput}
+ * @param ListResponseHeadersPoliciesRequest - {@link ListResponseHeadersPoliciesRequest}
+ * @returns {@link ListResponseHeadersPoliciesResult}
  * @see {@link ListResponseHeadersPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListResponseHeadersPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

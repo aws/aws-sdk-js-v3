@@ -50,8 +50,8 @@ export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterf
  *
  * ```
  *
- * @param DeleteVirtualInterfaceCommandInput - {@link DeleteVirtualInterfaceCommandInput}
- * @returns {@link DeleteVirtualInterfaceCommandOutput}
+ * @param DeleteVirtualInterfaceRequest - {@link DeleteVirtualInterfaceRequest}
+ * @returns {@link DeleteVirtualInterfaceResponse}
  * @see {@link DeleteVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

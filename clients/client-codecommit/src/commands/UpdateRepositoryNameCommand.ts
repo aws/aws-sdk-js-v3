@@ -53,8 +53,8 @@ export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateRepositoryNameCommandInput - {@link UpdateRepositoryNameCommandInput}
- * @returns {@link UpdateRepositoryNameCommandOutput}
+ * @param UpdateRepositoryNameInput - {@link UpdateRepositoryNameInput}
+ * @returns {@link Unit}
  * @see {@link UpdateRepositoryNameCommandInput} for command's `input` shape.
  * @see {@link UpdateRepositoryNameCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.

@@ -49,8 +49,8 @@ export interface DeleteFeatureCommandOutput extends DeleteFeatureResponse, __Met
  *
  * ```
  *
- * @param DeleteFeatureCommandInput - {@link DeleteFeatureCommandInput}
- * @returns {@link DeleteFeatureCommandOutput}
+ * @param DeleteFeatureRequest - {@link DeleteFeatureRequest}
+ * @returns {@link DeleteFeatureResponse}
  * @see {@link DeleteFeatureCommandInput} for command's `input` shape.
  * @see {@link DeleteFeatureCommandOutput} for command's `response` shape.
  * @see {@link EvidentlyClientResolvedConfig | config} for EvidentlyClient's `config` shape.

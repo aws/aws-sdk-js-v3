@@ -60,8 +60,8 @@ export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGrou
  *
  * ```
  *
- * @param UpdatePermissionGroupCommandInput - {@link UpdatePermissionGroupCommandInput}
- * @returns {@link UpdatePermissionGroupCommandOutput}
+ * @param UpdatePermissionGroupRequest - {@link UpdatePermissionGroupRequest}
+ * @returns {@link UpdatePermissionGroupResponse}
  * @see {@link UpdatePermissionGroupCommandInput} for command's `input` shape.
  * @see {@link UpdatePermissionGroupCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

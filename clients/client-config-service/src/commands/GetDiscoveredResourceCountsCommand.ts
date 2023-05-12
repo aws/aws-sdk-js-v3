@@ -120,8 +120,8 @@ export interface GetDiscoveredResourceCountsCommandOutput
  *
  * ```
  *
- * @param GetDiscoveredResourceCountsCommandInput - {@link GetDiscoveredResourceCountsCommandInput}
- * @returns {@link GetDiscoveredResourceCountsCommandOutput}
+ * @param GetDiscoveredResourceCountsRequest - {@link GetDiscoveredResourceCountsRequest}
+ * @returns {@link GetDiscoveredResourceCountsResponse}
  * @see {@link GetDiscoveredResourceCountsCommandInput} for command's `input` shape.
  * @see {@link GetDiscoveredResourceCountsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

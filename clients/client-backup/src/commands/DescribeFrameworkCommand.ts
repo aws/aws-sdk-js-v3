@@ -78,8 +78,8 @@ export interface DescribeFrameworkCommandOutput extends DescribeFrameworkOutput,
  *
  * ```
  *
- * @param DescribeFrameworkCommandInput - {@link DescribeFrameworkCommandInput}
- * @returns {@link DescribeFrameworkCommandOutput}
+ * @param DescribeFrameworkInput - {@link DescribeFrameworkInput}
+ * @returns {@link DescribeFrameworkOutput}
  * @see {@link DescribeFrameworkCommandInput} for command's `input` shape.
  * @see {@link DescribeFrameworkCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

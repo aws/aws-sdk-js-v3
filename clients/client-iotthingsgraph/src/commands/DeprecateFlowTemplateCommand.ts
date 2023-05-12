@@ -50,8 +50,8 @@ export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplat
  *
  * ```
  *
- * @param DeprecateFlowTemplateCommandInput - {@link DeprecateFlowTemplateCommandInput}
- * @returns {@link DeprecateFlowTemplateCommandOutput}
+ * @param DeprecateFlowTemplateRequest - {@link DeprecateFlowTemplateRequest}
+ * @returns {@link DeprecateFlowTemplateResponse}
  * @see {@link DeprecateFlowTemplateCommandInput} for command's `input` shape.
  * @see {@link DeprecateFlowTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

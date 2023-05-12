@@ -2784,8 +2784,8 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  *
  * ```
  *
- * @param UpdateJobTemplateCommandInput - {@link UpdateJobTemplateCommandInput}
- * @returns {@link UpdateJobTemplateCommandOutput}
+ * @param UpdateJobTemplateRequest - {@link UpdateJobTemplateRequest}
+ * @returns {@link UpdateJobTemplateResponse}
  * @see {@link UpdateJobTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.

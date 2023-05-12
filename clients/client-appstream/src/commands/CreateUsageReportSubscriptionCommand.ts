@@ -54,8 +54,8 @@ export interface CreateUsageReportSubscriptionCommandOutput
  *
  * ```
  *
- * @param CreateUsageReportSubscriptionCommandInput - {@link CreateUsageReportSubscriptionCommandInput}
- * @returns {@link CreateUsageReportSubscriptionCommandOutput}
+ * @param CreateUsageReportSubscriptionRequest - {@link CreateUsageReportSubscriptionRequest}
+ * @returns {@link CreateUsageReportSubscriptionResult}
  * @see {@link CreateUsageReportSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateUsageReportSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

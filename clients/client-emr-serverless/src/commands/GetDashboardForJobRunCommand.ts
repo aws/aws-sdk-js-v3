@@ -52,8 +52,8 @@ export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRu
  *
  * ```
  *
- * @param GetDashboardForJobRunCommandInput - {@link GetDashboardForJobRunCommandInput}
- * @returns {@link GetDashboardForJobRunCommandOutput}
+ * @param GetDashboardForJobRunRequest - {@link GetDashboardForJobRunRequest}
+ * @returns {@link GetDashboardForJobRunResponse}
  * @see {@link GetDashboardForJobRunCommandInput} for command's `input` shape.
  * @see {@link GetDashboardForJobRunCommandOutput} for command's `response` shape.
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.

@@ -140,8 +140,8 @@ export interface DescribeEventsForOrganizationCommandOutput
  *
  * ```
  *
- * @param DescribeEventsForOrganizationCommandInput - {@link DescribeEventsForOrganizationCommandInput}
- * @returns {@link DescribeEventsForOrganizationCommandOutput}
+ * @param DescribeEventsForOrganizationRequest - {@link DescribeEventsForOrganizationRequest}
+ * @returns {@link DescribeEventsForOrganizationResponse}
  * @see {@link DescribeEventsForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.

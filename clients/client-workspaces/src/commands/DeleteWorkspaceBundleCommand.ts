@@ -50,8 +50,8 @@ export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundl
  *
  * ```
  *
- * @param DeleteWorkspaceBundleCommandInput - {@link DeleteWorkspaceBundleCommandInput}
- * @returns {@link DeleteWorkspaceBundleCommandOutput}
+ * @param DeleteWorkspaceBundleRequest - {@link DeleteWorkspaceBundleRequest}
+ * @returns {@link DeleteWorkspaceBundleResult}
  * @see {@link DeleteWorkspaceBundleCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceBundleCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

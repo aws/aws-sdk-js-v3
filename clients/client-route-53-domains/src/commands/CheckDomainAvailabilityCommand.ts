@@ -53,8 +53,8 @@ export interface CheckDomainAvailabilityCommandOutput extends CheckDomainAvailab
  *
  * ```
  *
- * @param CheckDomainAvailabilityCommandInput - {@link CheckDomainAvailabilityCommandInput}
- * @returns {@link CheckDomainAvailabilityCommandOutput}
+ * @param CheckDomainAvailabilityRequest - {@link CheckDomainAvailabilityRequest}
+ * @returns {@link CheckDomainAvailabilityResponse}
  * @see {@link CheckDomainAvailabilityCommandInput} for command's `input` shape.
  * @see {@link CheckDomainAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.

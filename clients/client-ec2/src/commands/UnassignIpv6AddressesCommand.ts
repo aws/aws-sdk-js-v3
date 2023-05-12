@@ -62,8 +62,8 @@ export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6Addresse
  *
  * ```
  *
- * @param UnassignIpv6AddressesCommandInput - {@link UnassignIpv6AddressesCommandInput}
- * @returns {@link UnassignIpv6AddressesCommandOutput}
+ * @param UnassignIpv6AddressesRequest - {@link UnassignIpv6AddressesRequest}
+ * @returns {@link UnassignIpv6AddressesResult}
  * @see {@link UnassignIpv6AddressesCommandInput} for command's `input` shape.
  * @see {@link UnassignIpv6AddressesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -104,8 +104,8 @@ export interface DescribeServersCommandOutput extends DescribeServersResponse, _
  *
  * ```
  *
- * @param DescribeServersCommandInput - {@link DescribeServersCommandInput}
- * @returns {@link DescribeServersCommandOutput}
+ * @param DescribeServersRequest - {@link DescribeServersRequest}
+ * @returns {@link DescribeServersResponse}
  * @see {@link DescribeServersCommandInput} for command's `input` shape.
  * @see {@link DescribeServersCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.

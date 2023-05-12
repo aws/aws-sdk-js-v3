@@ -89,8 +89,8 @@ export interface StartStreamingSessionCommandOutput extends StartStreamingSessio
  *
  * ```
  *
- * @param StartStreamingSessionCommandInput - {@link StartStreamingSessionCommandInput}
- * @returns {@link StartStreamingSessionCommandOutput}
+ * @param StartStreamingSessionRequest - {@link StartStreamingSessionRequest}
+ * @returns {@link StartStreamingSessionResponse}
  * @see {@link StartStreamingSessionCommandInput} for command's `input` shape.
  * @see {@link StartStreamingSessionCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

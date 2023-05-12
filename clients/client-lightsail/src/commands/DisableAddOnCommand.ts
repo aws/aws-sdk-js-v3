@@ -69,8 +69,8 @@ export interface DisableAddOnCommandOutput extends DisableAddOnResult, __Metadat
  *
  * ```
  *
- * @param DisableAddOnCommandInput - {@link DisableAddOnCommandInput}
- * @returns {@link DisableAddOnCommandOutput}
+ * @param DisableAddOnRequest - {@link DisableAddOnRequest}
+ * @returns {@link DisableAddOnResult}
  * @see {@link DisableAddOnCommandInput} for command's `input` shape.
  * @see {@link DisableAddOnCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

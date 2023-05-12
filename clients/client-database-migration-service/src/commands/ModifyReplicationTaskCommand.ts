@@ -97,8 +97,8 @@ export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTas
  *
  * ```
  *
- * @param ModifyReplicationTaskCommandInput - {@link ModifyReplicationTaskCommandInput}
- * @returns {@link ModifyReplicationTaskCommandOutput}
+ * @param ModifyReplicationTaskMessage - {@link ModifyReplicationTaskMessage}
+ * @returns {@link ModifyReplicationTaskResponse}
  * @see {@link ModifyReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationTaskCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.

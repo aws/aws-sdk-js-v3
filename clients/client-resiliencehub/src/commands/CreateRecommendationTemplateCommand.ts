@@ -97,8 +97,8 @@ export interface CreateRecommendationTemplateCommandOutput
  *
  * ```
  *
- * @param CreateRecommendationTemplateCommandInput - {@link CreateRecommendationTemplateCommandInput}
- * @returns {@link CreateRecommendationTemplateCommandOutput}
+ * @param CreateRecommendationTemplateRequest - {@link CreateRecommendationTemplateRequest}
+ * @returns {@link CreateRecommendationTemplateResponse}
  * @see {@link CreateRecommendationTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateRecommendationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.

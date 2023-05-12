@@ -50,8 +50,8 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateGlobalSettingsCommandInput - {@link UpdateGlobalSettingsCommandInput}
- * @returns {@link UpdateGlobalSettingsCommandOutput}
+ * @param UpdateGlobalSettingsRequest - {@link UpdateGlobalSettingsRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateGlobalSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

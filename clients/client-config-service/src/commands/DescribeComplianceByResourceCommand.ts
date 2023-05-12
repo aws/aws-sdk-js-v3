@@ -106,8 +106,8 @@ export interface DescribeComplianceByResourceCommandOutput
  *
  * ```
  *
- * @param DescribeComplianceByResourceCommandInput - {@link DescribeComplianceByResourceCommandInput}
- * @returns {@link DescribeComplianceByResourceCommandOutput}
+ * @param DescribeComplianceByResourceRequest - {@link DescribeComplianceByResourceRequest}
+ * @returns {@link DescribeComplianceByResourceResponse}
  * @see {@link DescribeComplianceByResourceCommandInput} for command's `input` shape.
  * @see {@link DescribeComplianceByResourceCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

@@ -51,8 +51,8 @@ export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnc
  *
  * ```
  *
- * @param StartAssociationsOnceCommandInput - {@link StartAssociationsOnceCommandInput}
- * @returns {@link StartAssociationsOnceCommandOutput}
+ * @param StartAssociationsOnceRequest - {@link StartAssociationsOnceRequest}
+ * @returns {@link StartAssociationsOnceResult}
  * @see {@link StartAssociationsOnceCommandInput} for command's `input` shape.
  * @see {@link StartAssociationsOnceCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

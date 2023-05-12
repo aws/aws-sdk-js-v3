@@ -74,8 +74,8 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  *
  * ```
  *
- * @param DeleteRuleGroupCommandInput - {@link DeleteRuleGroupCommandInput}
- * @returns {@link DeleteRuleGroupCommandOutput}
+ * @param DeleteRuleGroupRequest - {@link DeleteRuleGroupRequest}
+ * @returns {@link DeleteRuleGroupResponse}
  * @see {@link DeleteRuleGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

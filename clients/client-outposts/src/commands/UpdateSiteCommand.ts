@@ -77,8 +77,8 @@ export interface UpdateSiteCommandOutput extends UpdateSiteOutput, __MetadataBea
  *
  * ```
  *
- * @param UpdateSiteCommandInput - {@link UpdateSiteCommandInput}
- * @returns {@link UpdateSiteCommandOutput}
+ * @param UpdateSiteInput - {@link UpdateSiteInput}
+ * @returns {@link UpdateSiteOutput}
  * @see {@link UpdateSiteCommandInput} for command's `input` shape.
  * @see {@link UpdateSiteCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

@@ -50,8 +50,8 @@ export interface DeleteDynamicThingGroupCommandOutput extends DeleteDynamicThing
  *
  * ```
  *
- * @param DeleteDynamicThingGroupCommandInput - {@link DeleteDynamicThingGroupCommandInput}
- * @returns {@link DeleteDynamicThingGroupCommandOutput}
+ * @param DeleteDynamicThingGroupRequest - {@link DeleteDynamicThingGroupRequest}
+ * @returns {@link DeleteDynamicThingGroupResponse}
  * @see {@link DeleteDynamicThingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDynamicThingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

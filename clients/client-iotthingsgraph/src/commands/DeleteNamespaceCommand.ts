@@ -52,8 +52,8 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  *
  * ```
  *
- * @param DeleteNamespaceCommandInput - {@link DeleteNamespaceCommandInput}
- * @returns {@link DeleteNamespaceCommandOutput}
+ * @param DeleteNamespaceRequest - {@link DeleteNamespaceRequest}
+ * @returns {@link DeleteNamespaceResponse}
  * @see {@link DeleteNamespaceCommandInput} for command's `input` shape.
  * @see {@link DeleteNamespaceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.

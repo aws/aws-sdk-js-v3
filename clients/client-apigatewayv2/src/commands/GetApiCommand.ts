@@ -86,8 +86,8 @@ export interface GetApiCommandOutput extends GetApiResponse, __MetadataBearer {}
  *
  * ```
  *
- * @param GetApiCommandInput - {@link GetApiCommandInput}
- * @returns {@link GetApiCommandOutput}
+ * @param GetApiRequest - {@link GetApiRequest}
+ * @returns {@link GetApiResponse}
  * @see {@link GetApiCommandInput} for command's `input` shape.
  * @see {@link GetApiCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

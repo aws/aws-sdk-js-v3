@@ -113,8 +113,8 @@ export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, _
  *
  * ```
  *
- * @param DescribeBudgetsCommandInput - {@link DescribeBudgetsCommandInput}
- * @returns {@link DescribeBudgetsCommandOutput}
+ * @param DescribeBudgetsRequest - {@link DescribeBudgetsRequest}
+ * @returns {@link DescribeBudgetsResponse}
  * @see {@link DescribeBudgetsCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetsCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.

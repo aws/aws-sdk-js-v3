@@ -78,8 +78,8 @@ export interface DescribeEndpointGroupCommandOutput extends DescribeEndpointGrou
  *
  * ```
  *
- * @param DescribeEndpointGroupCommandInput - {@link DescribeEndpointGroupCommandInput}
- * @returns {@link DescribeEndpointGroupCommandOutput}
+ * @param DescribeEndpointGroupRequest - {@link DescribeEndpointGroupRequest}
+ * @returns {@link DescribeEndpointGroupResponse}
  * @see {@link DescribeEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.

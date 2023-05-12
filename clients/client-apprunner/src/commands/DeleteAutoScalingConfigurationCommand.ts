@@ -67,8 +67,8 @@ export interface DeleteAutoScalingConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteAutoScalingConfigurationCommandInput - {@link DeleteAutoScalingConfigurationCommandInput}
- * @returns {@link DeleteAutoScalingConfigurationCommandOutput}
+ * @param DeleteAutoScalingConfigurationRequest - {@link DeleteAutoScalingConfigurationRequest}
+ * @returns {@link DeleteAutoScalingConfigurationResponse}
  * @see {@link DeleteAutoScalingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAutoScalingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.

@@ -115,8 +115,8 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  *
  * ```
  *
- * @param GetResourcesCommandInput - {@link GetResourcesCommandInput}
- * @returns {@link GetResourcesCommandOutput}
+ * @param GetResourcesInput - {@link GetResourcesInput}
+ * @returns {@link GetResourcesOutput}
  * @see {@link GetResourcesCommandInput} for command's `input` shape.
  * @see {@link GetResourcesCommandOutput} for command's `response` shape.
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.

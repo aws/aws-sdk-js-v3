@@ -50,8 +50,8 @@ export interface GetKMSEncryptionKeyCommandOutput extends GetKMSEncryptionKeyRes
  *
  * ```
  *
- * @param GetKMSEncryptionKeyCommandInput - {@link GetKMSEncryptionKeyCommandInput}
- * @returns {@link GetKMSEncryptionKeyCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetKMSEncryptionKeyResult}
  * @see {@link GetKMSEncryptionKeyCommandInput} for command's `input` shape.
  * @see {@link GetKMSEncryptionKeyCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

@@ -127,8 +127,8 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
  *
  * ```
  *
- * @param UpdateWorkspaceAuthenticationCommandInput - {@link UpdateWorkspaceAuthenticationCommandInput}
- * @returns {@link UpdateWorkspaceAuthenticationCommandOutput}
+ * @param UpdateWorkspaceAuthenticationRequest - {@link UpdateWorkspaceAuthenticationRequest}
+ * @returns {@link UpdateWorkspaceAuthenticationResponse}
  * @see {@link UpdateWorkspaceAuthenticationCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceAuthenticationCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.

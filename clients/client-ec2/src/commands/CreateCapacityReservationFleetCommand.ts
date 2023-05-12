@@ -113,8 +113,8 @@ export interface CreateCapacityReservationFleetCommandOutput
  *
  * ```
  *
- * @param CreateCapacityReservationFleetCommandInput - {@link CreateCapacityReservationFleetCommandInput}
- * @returns {@link CreateCapacityReservationFleetCommandOutput}
+ * @param CreateCapacityReservationFleetRequest - {@link CreateCapacityReservationFleetRequest}
+ * @returns {@link CreateCapacityReservationFleetResult}
  * @see {@link CreateCapacityReservationFleetCommandInput} for command's `input` shape.
  * @see {@link CreateCapacityReservationFleetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

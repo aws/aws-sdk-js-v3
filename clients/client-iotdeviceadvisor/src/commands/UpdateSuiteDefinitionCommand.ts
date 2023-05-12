@@ -71,8 +71,8 @@ export interface UpdateSuiteDefinitionCommandOutput extends UpdateSuiteDefinitio
  *
  * ```
  *
- * @param UpdateSuiteDefinitionCommandInput - {@link UpdateSuiteDefinitionCommandInput}
- * @returns {@link UpdateSuiteDefinitionCommandOutput}
+ * @param UpdateSuiteDefinitionRequest - {@link UpdateSuiteDefinitionRequest}
+ * @returns {@link UpdateSuiteDefinitionResponse}
  * @see {@link UpdateSuiteDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateSuiteDefinitionCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.

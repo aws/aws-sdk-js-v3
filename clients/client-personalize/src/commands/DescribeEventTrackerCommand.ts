@@ -61,8 +61,8 @@ export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerR
  *
  * ```
  *
- * @param DescribeEventTrackerCommandInput - {@link DescribeEventTrackerCommandInput}
- * @returns {@link DescribeEventTrackerCommandOutput}
+ * @param DescribeEventTrackerRequest - {@link DescribeEventTrackerRequest}
+ * @returns {@link DescribeEventTrackerResponse}
  * @see {@link DescribeEventTrackerCommandInput} for command's `input` shape.
  * @see {@link DescribeEventTrackerCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.

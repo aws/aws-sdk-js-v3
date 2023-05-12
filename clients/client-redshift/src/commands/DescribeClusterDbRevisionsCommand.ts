@@ -66,8 +66,8 @@ export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisi
  *
  * ```
  *
- * @param DescribeClusterDbRevisionsCommandInput - {@link DescribeClusterDbRevisionsCommandInput}
- * @returns {@link DescribeClusterDbRevisionsCommandOutput}
+ * @param DescribeClusterDbRevisionsMessage - {@link DescribeClusterDbRevisionsMessage}
+ * @returns {@link ClusterDbRevisionsMessage}
  * @see {@link DescribeClusterDbRevisionsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterDbRevisionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

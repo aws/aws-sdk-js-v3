@@ -99,8 +99,8 @@ export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNo
  *
  * ```
  *
- * @param ListSignalCatalogNodesCommandInput - {@link ListSignalCatalogNodesCommandInput}
- * @returns {@link ListSignalCatalogNodesCommandOutput}
+ * @param ListSignalCatalogNodesRequest - {@link ListSignalCatalogNodesRequest}
+ * @returns {@link ListSignalCatalogNodesResponse}
  * @see {@link ListSignalCatalogNodesCommandInput} for command's `input` shape.
  * @see {@link ListSignalCatalogNodesCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

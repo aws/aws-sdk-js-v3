@@ -54,8 +54,8 @@ export interface DeleteSimulationApplicationCommandOutput
  *
  * ```
  *
- * @param DeleteSimulationApplicationCommandInput - {@link DeleteSimulationApplicationCommandInput}
- * @returns {@link DeleteSimulationApplicationCommandOutput}
+ * @param DeleteSimulationApplicationRequest - {@link DeleteSimulationApplicationRequest}
+ * @returns {@link DeleteSimulationApplicationResponse}
  * @see {@link DeleteSimulationApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteSimulationApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

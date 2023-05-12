@@ -57,8 +57,8 @@ export interface UpdateContactFlowModuleMetadataCommandOutput
  *
  * ```
  *
- * @param UpdateContactFlowModuleMetadataCommandInput - {@link UpdateContactFlowModuleMetadataCommandInput}
- * @returns {@link UpdateContactFlowModuleMetadataCommandOutput}
+ * @param UpdateContactFlowModuleMetadataRequest - {@link UpdateContactFlowModuleMetadataRequest}
+ * @returns {@link UpdateContactFlowModuleMetadataResponse}
  * @see {@link UpdateContactFlowModuleMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateContactFlowModuleMetadataCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

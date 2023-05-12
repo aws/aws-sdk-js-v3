@@ -60,8 +60,8 @@ export interface ListAuthorizersCommandOutput extends ListAuthorizersResponse, _
  *
  * ```
  *
- * @param ListAuthorizersCommandInput - {@link ListAuthorizersCommandInput}
- * @returns {@link ListAuthorizersCommandOutput}
+ * @param ListAuthorizersRequest - {@link ListAuthorizersRequest}
+ * @returns {@link ListAuthorizersResponse}
  * @see {@link ListAuthorizersCommandInput} for command's `input` shape.
  * @see {@link ListAuthorizersCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

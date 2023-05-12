@@ -104,8 +104,8 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  *
  * ```
  *
- * @param AddApplicationOutputCommandInput - {@link AddApplicationOutputCommandInput}
- * @returns {@link AddApplicationOutputCommandOutput}
+ * @param AddApplicationOutputRequest - {@link AddApplicationOutputRequest}
+ * @returns {@link AddApplicationOutputResponse}
  * @see {@link AddApplicationOutputCommandInput} for command's `input` shape.
  * @see {@link AddApplicationOutputCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.

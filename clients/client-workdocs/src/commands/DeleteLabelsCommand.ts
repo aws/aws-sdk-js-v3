@@ -53,8 +53,8 @@ export interface DeleteLabelsCommandOutput extends DeleteLabelsResponse, __Metad
  *
  * ```
  *
- * @param DeleteLabelsCommandInput - {@link DeleteLabelsCommandInput}
- * @returns {@link DeleteLabelsCommandOutput}
+ * @param DeleteLabelsRequest - {@link DeleteLabelsRequest}
+ * @returns {@link DeleteLabelsResponse}
  * @see {@link DeleteLabelsCommandInput} for command's `input` shape.
  * @see {@link DeleteLabelsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

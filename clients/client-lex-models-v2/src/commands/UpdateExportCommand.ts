@@ -75,8 +75,8 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  *
  * ```
  *
- * @param UpdateExportCommandInput - {@link UpdateExportCommandInput}
- * @returns {@link UpdateExportCommandOutput}
+ * @param UpdateExportRequest - {@link UpdateExportRequest}
+ * @returns {@link UpdateExportResponse}
  * @see {@link UpdateExportCommandInput} for command's `input` shape.
  * @see {@link UpdateExportCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.

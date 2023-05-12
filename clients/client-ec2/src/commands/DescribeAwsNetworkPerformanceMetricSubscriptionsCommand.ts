@@ -78,8 +78,8 @@ export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput
  *
  * ```
  *
- * @param DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput - {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput}
- * @returns {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput}
+ * @param DescribeAwsNetworkPerformanceMetricSubscriptionsRequest - {@link DescribeAwsNetworkPerformanceMetricSubscriptionsRequest}
+ * @returns {@link DescribeAwsNetworkPerformanceMetricSubscriptionsResult}
  * @see {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

@@ -54,8 +54,8 @@ export interface UpdateElasticIpCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateElasticIpCommandInput - {@link UpdateElasticIpCommandInput}
- * @returns {@link UpdateElasticIpCommandOutput}
+ * @param UpdateElasticIpRequest - {@link UpdateElasticIpRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateElasticIpCommandInput} for command's `input` shape.
  * @see {@link UpdateElasticIpCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

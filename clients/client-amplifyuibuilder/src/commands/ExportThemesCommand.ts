@@ -83,8 +83,8 @@ export interface ExportThemesCommandOutput extends ExportThemesResponse, __Metad
  *
  * ```
  *
- * @param ExportThemesCommandInput - {@link ExportThemesCommandInput}
- * @returns {@link ExportThemesCommandOutput}
+ * @param ExportThemesRequest - {@link ExportThemesRequest}
+ * @returns {@link ExportThemesResponse}
  * @see {@link ExportThemesCommandInput} for command's `input` shape.
  * @see {@link ExportThemesCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.

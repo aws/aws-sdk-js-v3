@@ -77,8 +77,8 @@ export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesRes
  *
  * ```
  *
- * @param ListAttachedIndicesCommandInput - {@link ListAttachedIndicesCommandInput}
- * @returns {@link ListAttachedIndicesCommandOutput}
+ * @param ListAttachedIndicesRequest - {@link ListAttachedIndicesRequest}
+ * @returns {@link ListAttachedIndicesResponse}
  * @see {@link ListAttachedIndicesCommandInput} for command's `input` shape.
  * @see {@link ListAttachedIndicesCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.

@@ -183,8 +183,8 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  *
  * ```
  *
- * @param CreateEvaluationFormCommandInput - {@link CreateEvaluationFormCommandInput}
- * @returns {@link CreateEvaluationFormCommandOutput}
+ * @param CreateEvaluationFormRequest - {@link CreateEvaluationFormRequest}
+ * @returns {@link CreateEvaluationFormResponse}
  * @see {@link CreateEvaluationFormCommandInput} for command's `input` shape.
  * @see {@link CreateEvaluationFormCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

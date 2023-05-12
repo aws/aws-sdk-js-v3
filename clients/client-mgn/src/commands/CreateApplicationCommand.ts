@@ -75,8 +75,8 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  *
  * ```
  *
- * @param CreateApplicationCommandInput - {@link CreateApplicationCommandInput}
- * @returns {@link CreateApplicationCommandOutput}
+ * @param CreateApplicationRequest - {@link CreateApplicationRequest}
+ * @returns {@link Application}
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.

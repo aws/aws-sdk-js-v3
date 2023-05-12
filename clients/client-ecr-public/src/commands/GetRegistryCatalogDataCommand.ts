@@ -50,8 +50,8 @@ export interface GetRegistryCatalogDataCommandOutput extends GetRegistryCatalogD
  *
  * ```
  *
- * @param GetRegistryCatalogDataCommandInput - {@link GetRegistryCatalogDataCommandInput}
- * @returns {@link GetRegistryCatalogDataCommandOutput}
+ * @param GetRegistryCatalogDataRequest - {@link GetRegistryCatalogDataRequest}
+ * @returns {@link GetRegistryCatalogDataResponse}
  * @see {@link GetRegistryCatalogDataCommandInput} for command's `input` shape.
  * @see {@link GetRegistryCatalogDataCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.

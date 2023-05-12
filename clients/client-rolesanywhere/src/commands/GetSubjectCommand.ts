@@ -81,8 +81,8 @@ export interface GetSubjectCommandOutput extends SubjectDetailResponse, __Metada
  *
  * ```
  *
- * @param GetSubjectCommandInput - {@link GetSubjectCommandInput}
- * @returns {@link GetSubjectCommandOutput}
+ * @param ScalarSubjectRequest - {@link ScalarSubjectRequest}
+ * @returns {@link SubjectDetailResponse}
  * @see {@link GetSubjectCommandInput} for command's `input` shape.
  * @see {@link GetSubjectCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

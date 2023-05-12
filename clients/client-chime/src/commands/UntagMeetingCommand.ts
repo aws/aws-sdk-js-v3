@@ -51,8 +51,8 @@ export interface UntagMeetingCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UntagMeetingCommandInput - {@link UntagMeetingCommandInput}
- * @returns {@link UntagMeetingCommandOutput}
+ * @param UntagMeetingRequest - {@link UntagMeetingRequest}
+ * @returns {@link Unit}
  * @see {@link UntagMeetingCommandInput} for command's `input` shape.
  * @see {@link UntagMeetingCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

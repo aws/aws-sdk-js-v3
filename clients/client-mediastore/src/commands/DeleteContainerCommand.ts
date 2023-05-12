@@ -50,8 +50,8 @@ export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __M
  *
  * ```
  *
- * @param DeleteContainerCommandInput - {@link DeleteContainerCommandInput}
- * @returns {@link DeleteContainerCommandOutput}
+ * @param DeleteContainerInput - {@link DeleteContainerInput}
+ * @returns {@link DeleteContainerOutput}
  * @see {@link DeleteContainerCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.

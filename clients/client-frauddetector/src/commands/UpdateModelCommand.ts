@@ -50,8 +50,8 @@ export interface UpdateModelCommandOutput extends UpdateModelResult, __MetadataB
  *
  * ```
  *
- * @param UpdateModelCommandInput - {@link UpdateModelCommandInput}
- * @returns {@link UpdateModelCommandOutput}
+ * @param UpdateModelRequest - {@link UpdateModelRequest}
+ * @returns {@link UpdateModelResult}
  * @see {@link UpdateModelCommandInput} for command's `input` shape.
  * @see {@link UpdateModelCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

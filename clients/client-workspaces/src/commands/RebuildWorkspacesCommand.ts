@@ -68,8 +68,8 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  *
  * ```
  *
- * @param RebuildWorkspacesCommandInput - {@link RebuildWorkspacesCommandInput}
- * @returns {@link RebuildWorkspacesCommandOutput}
+ * @param RebuildWorkspacesRequest - {@link RebuildWorkspacesRequest}
+ * @returns {@link RebuildWorkspacesResult}
  * @see {@link RebuildWorkspacesCommandInput} for command's `input` shape.
  * @see {@link RebuildWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

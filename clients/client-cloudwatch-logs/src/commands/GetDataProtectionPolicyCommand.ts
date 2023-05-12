@@ -52,8 +52,8 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  *
  * ```
  *
- * @param GetDataProtectionPolicyCommandInput - {@link GetDataProtectionPolicyCommandInput}
- * @returns {@link GetDataProtectionPolicyCommandOutput}
+ * @param GetDataProtectionPolicyRequest - {@link GetDataProtectionPolicyRequest}
+ * @returns {@link GetDataProtectionPolicyResponse}
  * @see {@link GetDataProtectionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.

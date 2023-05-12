@@ -93,8 +93,8 @@ export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExp
  *
  * ```
  *
- * @param CreateInstanceExportTaskCommandInput - {@link CreateInstanceExportTaskCommandInput}
- * @returns {@link CreateInstanceExportTaskCommandOutput}
+ * @param CreateInstanceExportTaskRequest - {@link CreateInstanceExportTaskRequest}
+ * @returns {@link CreateInstanceExportTaskResult}
  * @see {@link CreateInstanceExportTaskCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceExportTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

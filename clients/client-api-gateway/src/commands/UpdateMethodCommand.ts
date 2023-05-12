@@ -114,8 +114,8 @@ export interface UpdateMethodCommandOutput extends Method, __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateMethodCommandInput - {@link UpdateMethodCommandInput}
- * @returns {@link UpdateMethodCommandOutput}
+ * @param UpdateMethodRequest - {@link UpdateMethodRequest}
+ * @returns {@link Method}
  * @see {@link UpdateMethodCommandInput} for command's `input` shape.
  * @see {@link UpdateMethodCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

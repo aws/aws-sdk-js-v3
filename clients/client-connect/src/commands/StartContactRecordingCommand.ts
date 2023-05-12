@@ -71,8 +71,8 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  *
  * ```
  *
- * @param StartContactRecordingCommandInput - {@link StartContactRecordingCommandInput}
- * @returns {@link StartContactRecordingCommandOutput}
+ * @param StartContactRecordingRequest - {@link StartContactRecordingRequest}
+ * @returns {@link StartContactRecordingResponse}
  * @see {@link StartContactRecordingCommandInput} for command's `input` shape.
  * @see {@link StartContactRecordingCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

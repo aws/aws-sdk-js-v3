@@ -97,8 +97,8 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  *
  * ```
  *
- * @param DescribeLoadBalancersCommandInput - {@link DescribeLoadBalancersCommandInput}
- * @returns {@link DescribeLoadBalancersCommandOutput}
+ * @param DescribeLoadBalancersInput - {@link DescribeLoadBalancersInput}
+ * @returns {@link DescribeLoadBalancersOutput}
  * @see {@link DescribeLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancersCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

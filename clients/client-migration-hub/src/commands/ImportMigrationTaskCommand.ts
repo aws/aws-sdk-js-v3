@@ -53,8 +53,8 @@ export interface ImportMigrationTaskCommandOutput extends ImportMigrationTaskRes
  *
  * ```
  *
- * @param ImportMigrationTaskCommandInput - {@link ImportMigrationTaskCommandInput}
- * @returns {@link ImportMigrationTaskCommandOutput}
+ * @param ImportMigrationTaskRequest - {@link ImportMigrationTaskRequest}
+ * @returns {@link ImportMigrationTaskResult}
  * @see {@link ImportMigrationTaskCommandInput} for command's `input` shape.
  * @see {@link ImportMigrationTaskCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.

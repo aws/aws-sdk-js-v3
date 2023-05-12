@@ -55,8 +55,8 @@ export interface UpdatePipelineExecutionCommandOutput extends UpdatePipelineExec
  *
  * ```
  *
- * @param UpdatePipelineExecutionCommandInput - {@link UpdatePipelineExecutionCommandInput}
- * @returns {@link UpdatePipelineExecutionCommandOutput}
+ * @param UpdatePipelineExecutionRequest - {@link UpdatePipelineExecutionRequest}
+ * @returns {@link UpdatePipelineExecutionResponse}
  * @see {@link UpdatePipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

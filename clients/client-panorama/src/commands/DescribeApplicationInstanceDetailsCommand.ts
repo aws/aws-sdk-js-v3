@@ -69,8 +69,8 @@ export interface DescribeApplicationInstanceDetailsCommandOutput
  *
  * ```
  *
- * @param DescribeApplicationInstanceDetailsCommandInput - {@link DescribeApplicationInstanceDetailsCommandInput}
- * @returns {@link DescribeApplicationInstanceDetailsCommandOutput}
+ * @param DescribeApplicationInstanceDetailsRequest - {@link DescribeApplicationInstanceDetailsRequest}
+ * @returns {@link DescribeApplicationInstanceDetailsResponse}
  * @see {@link DescribeApplicationInstanceDetailsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationInstanceDetailsCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.

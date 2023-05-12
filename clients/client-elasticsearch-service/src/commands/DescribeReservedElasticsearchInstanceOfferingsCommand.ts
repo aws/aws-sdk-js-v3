@@ -82,8 +82,8 @@ export interface DescribeReservedElasticsearchInstanceOfferingsCommandOutput
  *
  * ```
  *
- * @param DescribeReservedElasticsearchInstanceOfferingsCommandInput - {@link DescribeReservedElasticsearchInstanceOfferingsCommandInput}
- * @returns {@link DescribeReservedElasticsearchInstanceOfferingsCommandOutput}
+ * @param DescribeReservedElasticsearchInstanceOfferingsRequest - {@link DescribeReservedElasticsearchInstanceOfferingsRequest}
+ * @returns {@link DescribeReservedElasticsearchInstanceOfferingsResponse}
  * @see {@link DescribeReservedElasticsearchInstanceOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedElasticsearchInstanceOfferingsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

@@ -48,8 +48,8 @@ export interface StopEdgePackagingJobCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param StopEdgePackagingJobCommandInput - {@link StopEdgePackagingJobCommandInput}
- * @returns {@link StopEdgePackagingJobCommandOutput}
+ * @param StopEdgePackagingJobRequest - {@link StopEdgePackagingJobRequest}
+ * @returns {@link Unit}
  * @see {@link StopEdgePackagingJobCommandInput} for command's `input` shape.
  * @see {@link StopEdgePackagingJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -75,8 +75,8 @@ export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResul
  *
  * ```
  *
- * @param DescribeUserGroupsCommandInput - {@link DescribeUserGroupsCommandInput}
- * @returns {@link DescribeUserGroupsCommandOutput}
+ * @param DescribeUserGroupsMessage - {@link DescribeUserGroupsMessage}
+ * @returns {@link DescribeUserGroupsResult}
  * @see {@link DescribeUserGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeUserGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

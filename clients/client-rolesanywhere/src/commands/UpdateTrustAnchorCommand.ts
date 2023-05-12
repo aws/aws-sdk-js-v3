@@ -76,8 +76,8 @@ export interface UpdateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  *
  * ```
  *
- * @param UpdateTrustAnchorCommandInput - {@link UpdateTrustAnchorCommandInput}
- * @returns {@link UpdateTrustAnchorCommandOutput}
+ * @param UpdateTrustAnchorRequest - {@link UpdateTrustAnchorRequest}
+ * @returns {@link TrustAnchorDetailResponse}
  * @see {@link UpdateTrustAnchorCommandInput} for command's `input` shape.
  * @see {@link UpdateTrustAnchorCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

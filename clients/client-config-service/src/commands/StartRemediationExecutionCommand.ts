@@ -63,8 +63,8 @@ export interface StartRemediationExecutionCommandOutput extends StartRemediation
  *
  * ```
  *
- * @param StartRemediationExecutionCommandInput - {@link StartRemediationExecutionCommandInput}
- * @returns {@link StartRemediationExecutionCommandOutput}
+ * @param StartRemediationExecutionRequest - {@link StartRemediationExecutionRequest}
+ * @returns {@link StartRemediationExecutionResponse}
  * @see {@link StartRemediationExecutionCommandInput} for command's `input` shape.
  * @see {@link StartRemediationExecutionCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

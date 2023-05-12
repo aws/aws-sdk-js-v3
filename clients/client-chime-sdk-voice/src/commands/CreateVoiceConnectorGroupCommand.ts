@@ -73,8 +73,8 @@ export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConne
  *
  * ```
  *
- * @param CreateVoiceConnectorGroupCommandInput - {@link CreateVoiceConnectorGroupCommandInput}
- * @returns {@link CreateVoiceConnectorGroupCommandOutput}
+ * @param CreateVoiceConnectorGroupRequest - {@link CreateVoiceConnectorGroupRequest}
+ * @returns {@link CreateVoiceConnectorGroupResponse}
  * @see {@link CreateVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link CreateVoiceConnectorGroupCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

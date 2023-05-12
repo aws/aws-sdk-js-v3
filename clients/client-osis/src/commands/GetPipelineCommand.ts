@@ -85,8 +85,8 @@ export interface GetPipelineCommandOutput extends GetPipelineResponse, __Metadat
  *
  * ```
  *
- * @param GetPipelineCommandInput - {@link GetPipelineCommandInput}
- * @returns {@link GetPipelineCommandOutput}
+ * @param GetPipelineRequest - {@link GetPipelineRequest}
+ * @returns {@link GetPipelineResponse}
  * @see {@link GetPipelineCommandInput} for command's `input` shape.
  * @see {@link GetPipelineCommandOutput} for command's `response` shape.
  * @see {@link OSISClientResolvedConfig | config} for OSISClient's `config` shape.

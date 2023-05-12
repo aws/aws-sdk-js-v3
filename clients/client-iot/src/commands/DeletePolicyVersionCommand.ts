@@ -52,8 +52,8 @@ export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeletePolicyVersionCommandInput - {@link DeletePolicyVersionCommandInput}
- * @returns {@link DeletePolicyVersionCommandOutput}
+ * @param DeletePolicyVersionRequest - {@link DeletePolicyVersionRequest}
+ * @returns {@link Unit}
  * @see {@link DeletePolicyVersionCommandInput} for command's `input` shape.
  * @see {@link DeletePolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

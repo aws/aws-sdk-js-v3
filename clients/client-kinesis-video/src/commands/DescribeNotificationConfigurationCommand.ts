@@ -61,8 +61,8 @@ export interface DescribeNotificationConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeNotificationConfigurationCommandInput - {@link DescribeNotificationConfigurationCommandInput}
- * @returns {@link DescribeNotificationConfigurationCommandOutput}
+ * @param DescribeNotificationConfigurationInput - {@link DescribeNotificationConfigurationInput}
+ * @returns {@link DescribeNotificationConfigurationOutput}
  * @see {@link DescribeNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.

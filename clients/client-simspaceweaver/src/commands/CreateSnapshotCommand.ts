@@ -107,8 +107,8 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  *
  * ```
  *
- * @param CreateSnapshotCommandInput - {@link CreateSnapshotCommandInput}
- * @returns {@link CreateSnapshotCommandOutput}
+ * @param CreateSnapshotInput - {@link CreateSnapshotInput}
+ * @returns {@link CreateSnapshotOutput}
  * @see {@link CreateSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.

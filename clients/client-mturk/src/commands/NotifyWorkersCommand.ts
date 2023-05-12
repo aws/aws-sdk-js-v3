@@ -69,8 +69,8 @@ export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __Met
  *
  * ```
  *
- * @param NotifyWorkersCommandInput - {@link NotifyWorkersCommandInput}
- * @returns {@link NotifyWorkersCommandOutput}
+ * @param NotifyWorkersRequest - {@link NotifyWorkersRequest}
+ * @returns {@link NotifyWorkersResponse}
  * @see {@link NotifyWorkersCommandInput} for command's `input` shape.
  * @see {@link NotifyWorkersCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.

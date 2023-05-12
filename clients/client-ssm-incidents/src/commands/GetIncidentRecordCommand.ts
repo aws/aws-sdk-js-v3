@@ -83,8 +83,8 @@ export interface GetIncidentRecordCommandOutput extends GetIncidentRecordOutput,
  *
  * ```
  *
- * @param GetIncidentRecordCommandInput - {@link GetIncidentRecordCommandInput}
- * @returns {@link GetIncidentRecordCommandOutput}
+ * @param GetIncidentRecordInput - {@link GetIncidentRecordInput}
+ * @returns {@link GetIncidentRecordOutput}
  * @see {@link GetIncidentRecordCommandInput} for command's `input` shape.
  * @see {@link GetIncidentRecordCommandOutput} for command's `response` shape.
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.

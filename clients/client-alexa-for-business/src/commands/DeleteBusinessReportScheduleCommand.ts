@@ -54,8 +54,8 @@ export interface DeleteBusinessReportScheduleCommandOutput
  *
  * ```
  *
- * @param DeleteBusinessReportScheduleCommandInput - {@link DeleteBusinessReportScheduleCommandInput}
- * @returns {@link DeleteBusinessReportScheduleCommandOutput}
+ * @param DeleteBusinessReportScheduleRequest - {@link DeleteBusinessReportScheduleRequest}
+ * @returns {@link DeleteBusinessReportScheduleResponse}
  * @see {@link DeleteBusinessReportScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteBusinessReportScheduleCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.

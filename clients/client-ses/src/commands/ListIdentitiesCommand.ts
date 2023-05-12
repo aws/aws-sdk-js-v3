@@ -57,8 +57,8 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  *
  * ```
  *
- * @param ListIdentitiesCommandInput - {@link ListIdentitiesCommandInput}
- * @returns {@link ListIdentitiesCommandOutput}
+ * @param ListIdentitiesRequest - {@link ListIdentitiesRequest}
+ * @returns {@link ListIdentitiesResponse}
  * @see {@link ListIdentitiesCommandInput} for command's `input` shape.
  * @see {@link ListIdentitiesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

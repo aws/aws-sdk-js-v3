@@ -51,8 +51,8 @@ export interface AssociateIpGroupsCommandOutput extends AssociateIpGroupsResult,
  *
  * ```
  *
- * @param AssociateIpGroupsCommandInput - {@link AssociateIpGroupsCommandInput}
- * @returns {@link AssociateIpGroupsCommandOutput}
+ * @param AssociateIpGroupsRequest - {@link AssociateIpGroupsRequest}
+ * @returns {@link AssociateIpGroupsResult}
  * @see {@link AssociateIpGroupsCommandInput} for command's `input` shape.
  * @see {@link AssociateIpGroupsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

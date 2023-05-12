@@ -117,8 +117,8 @@ export interface GetLoadBalancerTlsCertificatesCommandOutput
  *
  * ```
  *
- * @param GetLoadBalancerTlsCertificatesCommandInput - {@link GetLoadBalancerTlsCertificatesCommandInput}
- * @returns {@link GetLoadBalancerTlsCertificatesCommandOutput}
+ * @param GetLoadBalancerTlsCertificatesRequest - {@link GetLoadBalancerTlsCertificatesRequest}
+ * @returns {@link GetLoadBalancerTlsCertificatesResult}
  * @see {@link GetLoadBalancerTlsCertificatesCommandInput} for command's `input` shape.
  * @see {@link GetLoadBalancerTlsCertificatesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

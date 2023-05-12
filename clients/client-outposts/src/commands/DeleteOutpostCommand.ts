@@ -48,8 +48,8 @@ export interface DeleteOutpostCommandOutput extends DeleteOutpostOutput, __Metad
  *
  * ```
  *
- * @param DeleteOutpostCommandInput - {@link DeleteOutpostCommandInput}
- * @returns {@link DeleteOutpostCommandOutput}
+ * @param DeleteOutpostInput - {@link DeleteOutpostInput}
+ * @returns {@link DeleteOutpostOutput}
  * @see {@link DeleteOutpostCommandInput} for command's `input` shape.
  * @see {@link DeleteOutpostCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.

@@ -69,8 +69,8 @@ export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecu
  *
  * ```
  *
- * @param GetPendingJobExecutionsCommandInput - {@link GetPendingJobExecutionsCommandInput}
- * @returns {@link GetPendingJobExecutionsCommandOutput}
+ * @param GetPendingJobExecutionsRequest - {@link GetPendingJobExecutionsRequest}
+ * @returns {@link GetPendingJobExecutionsResponse}
  * @see {@link GetPendingJobExecutionsCommandInput} for command's `input` shape.
  * @see {@link GetPendingJobExecutionsCommandOutput} for command's `response` shape.
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.

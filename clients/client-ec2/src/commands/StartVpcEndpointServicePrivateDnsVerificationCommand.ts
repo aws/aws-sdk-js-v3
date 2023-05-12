@@ -63,8 +63,8 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
  *
  * ```
  *
- * @param StartVpcEndpointServicePrivateDnsVerificationCommandInput - {@link StartVpcEndpointServicePrivateDnsVerificationCommandInput}
- * @returns {@link StartVpcEndpointServicePrivateDnsVerificationCommandOutput}
+ * @param StartVpcEndpointServicePrivateDnsVerificationRequest - {@link StartVpcEndpointServicePrivateDnsVerificationRequest}
+ * @returns {@link StartVpcEndpointServicePrivateDnsVerificationResult}
  * @see {@link StartVpcEndpointServicePrivateDnsVerificationCommandInput} for command's `input` shape.
  * @see {@link StartVpcEndpointServicePrivateDnsVerificationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

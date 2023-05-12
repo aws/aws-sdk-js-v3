@@ -64,8 +64,8 @@ export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationsh
  *
  * ```
  *
- * @param ListAssetRelationshipsCommandInput - {@link ListAssetRelationshipsCommandInput}
- * @returns {@link ListAssetRelationshipsCommandOutput}
+ * @param ListAssetRelationshipsRequest - {@link ListAssetRelationshipsRequest}
+ * @returns {@link ListAssetRelationshipsResponse}
  * @see {@link ListAssetRelationshipsCommandInput} for command's `input` shape.
  * @see {@link ListAssetRelationshipsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

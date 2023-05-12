@@ -51,8 +51,8 @@ export interface DeleteResourceDataSyncCommandOutput extends DeleteResourceDataS
  *
  * ```
  *
- * @param DeleteResourceDataSyncCommandInput - {@link DeleteResourceDataSyncCommandInput}
- * @returns {@link DeleteResourceDataSyncCommandOutput}
+ * @param DeleteResourceDataSyncRequest - {@link DeleteResourceDataSyncRequest}
+ * @returns {@link DeleteResourceDataSyncResult}
  * @see {@link DeleteResourceDataSyncCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceDataSyncCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

@@ -68,8 +68,8 @@ export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __M
  *
  * ```
  *
- * @param UpdatePublicKeyCommandInput - {@link UpdatePublicKeyCommandInput}
- * @returns {@link UpdatePublicKeyCommandOutput}
+ * @param UpdatePublicKeyRequest - {@link UpdatePublicKeyRequest}
+ * @returns {@link UpdatePublicKeyResult}
  * @see {@link UpdatePublicKeyCommandInput} for command's `input` shape.
  * @see {@link UpdatePublicKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

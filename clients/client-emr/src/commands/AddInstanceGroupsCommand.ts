@@ -134,8 +134,8 @@ export interface AddInstanceGroupsCommandOutput extends AddInstanceGroupsOutput,
  *
  * ```
  *
- * @param AddInstanceGroupsCommandInput - {@link AddInstanceGroupsCommandInput}
- * @returns {@link AddInstanceGroupsCommandOutput}
+ * @param AddInstanceGroupsInput - {@link AddInstanceGroupsInput}
+ * @returns {@link AddInstanceGroupsOutput}
  * @see {@link AddInstanceGroupsCommandInput} for command's `input` shape.
  * @see {@link AddInstanceGroupsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

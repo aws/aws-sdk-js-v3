@@ -131,8 +131,8 @@ export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionRes
  *
  * ```
  *
- * @param GetSegmentDetectionCommandInput - {@link GetSegmentDetectionCommandInput}
- * @returns {@link GetSegmentDetectionCommandOutput}
+ * @param GetSegmentDetectionRequest - {@link GetSegmentDetectionRequest}
+ * @returns {@link GetSegmentDetectionResponse}
  * @see {@link GetSegmentDetectionCommandInput} for command's `input` shape.
  * @see {@link GetSegmentDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

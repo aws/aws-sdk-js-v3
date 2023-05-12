@@ -229,8 +229,8 @@ export interface DeleteGatewayRouteCommandOutput extends DeleteGatewayRouteOutpu
  *
  * ```
  *
- * @param DeleteGatewayRouteCommandInput - {@link DeleteGatewayRouteCommandInput}
- * @returns {@link DeleteGatewayRouteCommandOutput}
+ * @param DeleteGatewayRouteInput - {@link DeleteGatewayRouteInput}
+ * @returns {@link DeleteGatewayRouteOutput}
  * @see {@link DeleteGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

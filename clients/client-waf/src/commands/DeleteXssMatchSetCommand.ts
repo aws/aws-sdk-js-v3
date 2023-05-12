@@ -75,8 +75,8 @@ export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetRespons
  *
  * ```
  *
- * @param DeleteXssMatchSetCommandInput - {@link DeleteXssMatchSetCommandInput}
- * @returns {@link DeleteXssMatchSetCommandOutput}
+ * @param DeleteXssMatchSetRequest - {@link DeleteXssMatchSetRequest}
+ * @returns {@link DeleteXssMatchSetResponse}
  * @see {@link DeleteXssMatchSetCommandInput} for command's `input` shape.
  * @see {@link DeleteXssMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.

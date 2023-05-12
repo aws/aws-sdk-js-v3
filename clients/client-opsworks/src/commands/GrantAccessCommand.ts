@@ -59,8 +59,8 @@ export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataB
  *
  * ```
  *
- * @param GrantAccessCommandInput - {@link GrantAccessCommandInput}
- * @returns {@link GrantAccessCommandOutput}
+ * @param GrantAccessRequest - {@link GrantAccessRequest}
+ * @returns {@link GrantAccessResult}
  * @see {@link GrantAccessCommandInput} for command's `input` shape.
  * @see {@link GrantAccessCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.

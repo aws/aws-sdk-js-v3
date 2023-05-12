@@ -69,8 +69,8 @@ export interface ListUsersByPermissionGroupCommandOutput extends ListUsersByPerm
  *
  * ```
  *
- * @param ListUsersByPermissionGroupCommandInput - {@link ListUsersByPermissionGroupCommandInput}
- * @returns {@link ListUsersByPermissionGroupCommandOutput}
+ * @param ListUsersByPermissionGroupRequest - {@link ListUsersByPermissionGroupRequest}
+ * @returns {@link ListUsersByPermissionGroupResponse}
  * @see {@link ListUsersByPermissionGroupCommandInput} for command's `input` shape.
  * @see {@link ListUsersByPermissionGroupCommandOutput} for command's `response` shape.
  * @see {@link FinspaceDataClientResolvedConfig | config} for FinspaceDataClient's `config` shape.

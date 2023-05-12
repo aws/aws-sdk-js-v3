@@ -71,8 +71,8 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  *
  * ```
  *
- * @param AddListenerCertificatesCommandInput - {@link AddListenerCertificatesCommandInput}
- * @returns {@link AddListenerCertificatesCommandOutput}
+ * @param AddListenerCertificatesInput - {@link AddListenerCertificatesInput}
+ * @returns {@link AddListenerCertificatesOutput}
  * @see {@link AddListenerCertificatesCommandInput} for command's `input` shape.
  * @see {@link AddListenerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

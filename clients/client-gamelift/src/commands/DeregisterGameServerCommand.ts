@@ -64,8 +64,8 @@ export interface DeregisterGameServerCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeregisterGameServerCommandInput - {@link DeregisterGameServerCommandInput}
- * @returns {@link DeregisterGameServerCommandOutput}
+ * @param DeregisterGameServerInput - {@link DeregisterGameServerInput}
+ * @returns {@link Unit}
  * @see {@link DeregisterGameServerCommandInput} for command's `input` shape.
  * @see {@link DeregisterGameServerCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.

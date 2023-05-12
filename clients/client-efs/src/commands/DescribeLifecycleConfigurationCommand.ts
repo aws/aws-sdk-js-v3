@@ -68,8 +68,8 @@ export interface DescribeLifecycleConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeLifecycleConfigurationCommandInput - {@link DescribeLifecycleConfigurationCommandInput}
- * @returns {@link DescribeLifecycleConfigurationCommandOutput}
+ * @param DescribeLifecycleConfigurationRequest - {@link DescribeLifecycleConfigurationRequest}
+ * @returns {@link LifecycleConfigurationDescription}
  * @see {@link DescribeLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeLifecycleConfigurationCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

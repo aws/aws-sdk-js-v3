@@ -55,8 +55,8 @@ export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBea
  *
  * ```
  *
- * @param PutOutcomeCommandInput - {@link PutOutcomeCommandInput}
- * @returns {@link PutOutcomeCommandOutput}
+ * @param PutOutcomeRequest - {@link PutOutcomeRequest}
+ * @returns {@link PutOutcomeResult}
  * @see {@link PutOutcomeCommandInput} for command's `input` shape.
  * @see {@link PutOutcomeCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

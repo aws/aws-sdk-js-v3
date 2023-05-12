@@ -425,8 +425,8 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *
  * ```
  *
- * @param StartDetectorModelAnalysisCommandInput - {@link StartDetectorModelAnalysisCommandInput}
- * @returns {@link StartDetectorModelAnalysisCommandOutput}
+ * @param StartDetectorModelAnalysisRequest - {@link StartDetectorModelAnalysisRequest}
+ * @returns {@link StartDetectorModelAnalysisResponse}
  * @see {@link StartDetectorModelAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartDetectorModelAnalysisCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.

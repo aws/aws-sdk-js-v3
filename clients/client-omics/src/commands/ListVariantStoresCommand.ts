@@ -77,8 +77,8 @@ export interface ListVariantStoresCommandOutput extends ListVariantStoresRespons
  *
  * ```
  *
- * @param ListVariantStoresCommandInput - {@link ListVariantStoresCommandInput}
- * @returns {@link ListVariantStoresCommandOutput}
+ * @param ListVariantStoresRequest - {@link ListVariantStoresRequest}
+ * @returns {@link ListVariantStoresResponse}
  * @see {@link ListVariantStoresCommandInput} for command's `input` shape.
  * @see {@link ListVariantStoresCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

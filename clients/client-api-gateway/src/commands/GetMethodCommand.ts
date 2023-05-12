@@ -106,8 +106,8 @@ export interface GetMethodCommandOutput extends Method, __MetadataBearer {}
  *
  * ```
  *
- * @param GetMethodCommandInput - {@link GetMethodCommandInput}
- * @returns {@link GetMethodCommandOutput}
+ * @param GetMethodRequest - {@link GetMethodRequest}
+ * @returns {@link Method}
  * @see {@link GetMethodCommandInput} for command's `input` shape.
  * @see {@link GetMethodCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.

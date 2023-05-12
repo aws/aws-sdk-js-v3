@@ -84,8 +84,8 @@ export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunner
  *
  * ```
  *
- * @param ReportTaskRunnerHeartbeatCommandInput - {@link ReportTaskRunnerHeartbeatCommandInput}
- * @returns {@link ReportTaskRunnerHeartbeatCommandOutput}
+ * @param ReportTaskRunnerHeartbeatInput - {@link ReportTaskRunnerHeartbeatInput}
+ * @returns {@link ReportTaskRunnerHeartbeatOutput}
  * @see {@link ReportTaskRunnerHeartbeatCommandInput} for command's `input` shape.
  * @see {@link ReportTaskRunnerHeartbeatCommandOutput} for command's `response` shape.
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.

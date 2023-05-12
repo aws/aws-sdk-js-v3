@@ -116,8 +116,8 @@ export interface DescribeFolderContentsCommandOutput extends DescribeFolderConte
  *
  * ```
  *
- * @param DescribeFolderContentsCommandInput - {@link DescribeFolderContentsCommandInput}
- * @returns {@link DescribeFolderContentsCommandOutput}
+ * @param DescribeFolderContentsRequest - {@link DescribeFolderContentsRequest}
+ * @returns {@link DescribeFolderContentsResponse}
  * @see {@link DescribeFolderContentsCommandInput} for command's `input` shape.
  * @see {@link DescribeFolderContentsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

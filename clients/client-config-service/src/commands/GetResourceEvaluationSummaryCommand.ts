@@ -77,8 +77,8 @@ export interface GetResourceEvaluationSummaryCommandOutput
  *
  * ```
  *
- * @param GetResourceEvaluationSummaryCommandInput - {@link GetResourceEvaluationSummaryCommandInput}
- * @returns {@link GetResourceEvaluationSummaryCommandOutput}
+ * @param GetResourceEvaluationSummaryRequest - {@link GetResourceEvaluationSummaryRequest}
+ * @returns {@link GetResourceEvaluationSummaryResponse}
  * @see {@link GetResourceEvaluationSummaryCommandInput} for command's `input` shape.
  * @see {@link GetResourceEvaluationSummaryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

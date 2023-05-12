@@ -54,8 +54,8 @@ export interface DeleteRemediationConfigurationCommandOutput
  *
  * ```
  *
- * @param DeleteRemediationConfigurationCommandInput - {@link DeleteRemediationConfigurationCommandInput}
- * @returns {@link DeleteRemediationConfigurationCommandOutput}
+ * @param DeleteRemediationConfigurationRequest - {@link DeleteRemediationConfigurationRequest}
+ * @returns {@link DeleteRemediationConfigurationResponse}
  * @see {@link DeleteRemediationConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteRemediationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.

@@ -73,8 +73,8 @@ export interface UpdatePoolCommandOutput extends UpdatePoolResult, __MetadataBea
  *
  * ```
  *
- * @param UpdatePoolCommandInput - {@link UpdatePoolCommandInput}
- * @returns {@link UpdatePoolCommandOutput}
+ * @param UpdatePoolRequest - {@link UpdatePoolRequest}
+ * @returns {@link UpdatePoolResult}
  * @see {@link UpdatePoolCommandInput} for command's `input` shape.
  * @see {@link UpdatePoolCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.

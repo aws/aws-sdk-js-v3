@@ -63,8 +63,8 @@ export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __Met
  *
  * ```
  *
- * @param ListFirewallsCommandInput - {@link ListFirewallsCommandInput}
- * @returns {@link ListFirewallsCommandOutput}
+ * @param ListFirewallsRequest - {@link ListFirewallsRequest}
+ * @returns {@link ListFirewallsResponse}
  * @see {@link ListFirewallsCommandInput} for command's `input` shape.
  * @see {@link ListFirewallsCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.

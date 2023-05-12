@@ -62,8 +62,8 @@ export interface GetOriginAccessControlConfigCommandOutput
  *
  * ```
  *
- * @param GetOriginAccessControlConfigCommandInput - {@link GetOriginAccessControlConfigCommandInput}
- * @returns {@link GetOriginAccessControlConfigCommandOutput}
+ * @param GetOriginAccessControlConfigRequest - {@link GetOriginAccessControlConfigRequest}
+ * @returns {@link GetOriginAccessControlConfigResult}
  * @see {@link GetOriginAccessControlConfigCommandInput} for command's `input` shape.
  * @see {@link GetOriginAccessControlConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

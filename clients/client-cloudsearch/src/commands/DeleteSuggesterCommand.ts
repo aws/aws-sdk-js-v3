@@ -67,8 +67,8 @@ export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, _
  *
  * ```
  *
- * @param DeleteSuggesterCommandInput - {@link DeleteSuggesterCommandInput}
- * @returns {@link DeleteSuggesterCommandOutput}
+ * @param DeleteSuggesterRequest - {@link DeleteSuggesterRequest}
+ * @returns {@link DeleteSuggesterResponse}
  * @see {@link DeleteSuggesterCommandInput} for command's `input` shape.
  * @see {@link DeleteSuggesterCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

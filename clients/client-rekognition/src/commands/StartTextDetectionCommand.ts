@@ -92,8 +92,8 @@ export interface StartTextDetectionCommandOutput extends StartTextDetectionRespo
  *
  * ```
  *
- * @param StartTextDetectionCommandInput - {@link StartTextDetectionCommandInput}
- * @returns {@link StartTextDetectionCommandOutput}
+ * @param StartTextDetectionRequest - {@link StartTextDetectionRequest}
+ * @returns {@link StartTextDetectionResponse}
  * @see {@link StartTextDetectionCommandInput} for command's `input` shape.
  * @see {@link StartTextDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

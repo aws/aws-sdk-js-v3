@@ -63,8 +63,8 @@ export interface ListWorkGroupsCommandOutput extends ListWorkGroupsOutput, __Met
  *
  * ```
  *
- * @param ListWorkGroupsCommandInput - {@link ListWorkGroupsCommandInput}
- * @returns {@link ListWorkGroupsCommandOutput}
+ * @param ListWorkGroupsInput - {@link ListWorkGroupsInput}
+ * @returns {@link ListWorkGroupsOutput}
  * @see {@link ListWorkGroupsCommandInput} for command's `input` shape.
  * @see {@link ListWorkGroupsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

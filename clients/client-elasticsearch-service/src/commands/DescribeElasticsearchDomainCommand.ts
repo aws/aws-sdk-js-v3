@@ -175,8 +175,8 @@ export interface DescribeElasticsearchDomainCommandOutput
  *
  * ```
  *
- * @param DescribeElasticsearchDomainCommandInput - {@link DescribeElasticsearchDomainCommandInput}
- * @returns {@link DescribeElasticsearchDomainCommandOutput}
+ * @param DescribeElasticsearchDomainRequest - {@link DescribeElasticsearchDomainRequest}
+ * @returns {@link DescribeElasticsearchDomainResponse}
  * @see {@link DescribeElasticsearchDomainCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticsearchDomainCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.

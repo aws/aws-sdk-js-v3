@@ -62,8 +62,8 @@ export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse,
  *
  * ```
  *
- * @param ListDevEndpointsCommandInput - {@link ListDevEndpointsCommandInput}
- * @returns {@link ListDevEndpointsCommandOutput}
+ * @param ListDevEndpointsRequest - {@link ListDevEndpointsRequest}
+ * @returns {@link ListDevEndpointsResponse}
  * @see {@link ListDevEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListDevEndpointsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.

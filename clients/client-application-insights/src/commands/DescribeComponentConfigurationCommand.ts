@@ -62,8 +62,8 @@ export interface DescribeComponentConfigurationCommandOutput
  *
  * ```
  *
- * @param DescribeComponentConfigurationCommandInput - {@link DescribeComponentConfigurationCommandInput}
- * @returns {@link DescribeComponentConfigurationCommandOutput}
+ * @param DescribeComponentConfigurationRequest - {@link DescribeComponentConfigurationRequest}
+ * @returns {@link DescribeComponentConfigurationResponse}
  * @see {@link DescribeComponentConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeComponentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.

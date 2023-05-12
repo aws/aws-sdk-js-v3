@@ -69,8 +69,8 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  *
  * ```
  *
- * @param ListAnalyzersCommandInput - {@link ListAnalyzersCommandInput}
- * @returns {@link ListAnalyzersCommandOutput}
+ * @param ListAnalyzersRequest - {@link ListAnalyzersRequest}
+ * @returns {@link ListAnalyzersResponse}
  * @see {@link ListAnalyzersCommandInput} for command's `input` shape.
  * @see {@link ListAnalyzersCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.

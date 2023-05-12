@@ -61,8 +61,8 @@ export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, _
  *
  * ```
  *
- * @param ListDataCatalogsCommandInput - {@link ListDataCatalogsCommandInput}
- * @returns {@link ListDataCatalogsCommandOutput}
+ * @param ListDataCatalogsInput - {@link ListDataCatalogsInput}
+ * @returns {@link ListDataCatalogsOutput}
  * @see {@link ListDataCatalogsCommandInput} for command's `input` shape.
  * @see {@link ListDataCatalogsCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.

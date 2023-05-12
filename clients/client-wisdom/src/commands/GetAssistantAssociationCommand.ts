@@ -66,8 +66,8 @@ export interface GetAssistantAssociationCommandOutput extends GetAssistantAssoci
  *
  * ```
  *
- * @param GetAssistantAssociationCommandInput - {@link GetAssistantAssociationCommandInput}
- * @returns {@link GetAssistantAssociationCommandOutput}
+ * @param GetAssistantAssociationRequest - {@link GetAssistantAssociationRequest}
+ * @returns {@link GetAssistantAssociationResponse}
  * @see {@link GetAssistantAssociationCommandInput} for command's `input` shape.
  * @see {@link GetAssistantAssociationCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.

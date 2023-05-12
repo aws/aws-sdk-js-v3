@@ -60,8 +60,8 @@ export interface ConfirmPrivateVirtualInterfaceCommandOutput
  *
  * ```
  *
- * @param ConfirmPrivateVirtualInterfaceCommandInput - {@link ConfirmPrivateVirtualInterfaceCommandInput}
- * @returns {@link ConfirmPrivateVirtualInterfaceCommandOutput}
+ * @param ConfirmPrivateVirtualInterfaceRequest - {@link ConfirmPrivateVirtualInterfaceRequest}
+ * @returns {@link ConfirmPrivateVirtualInterfaceResponse}
  * @see {@link ConfirmPrivateVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link ConfirmPrivateVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.

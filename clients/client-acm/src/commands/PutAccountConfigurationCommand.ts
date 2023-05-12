@@ -56,8 +56,8 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param PutAccountConfigurationCommandInput - {@link PutAccountConfigurationCommandInput}
- * @returns {@link PutAccountConfigurationCommandOutput}
+ * @param PutAccountConfigurationRequest - {@link PutAccountConfigurationRequest}
+ * @returns {@link Unit}
  * @see {@link PutAccountConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutAccountConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.

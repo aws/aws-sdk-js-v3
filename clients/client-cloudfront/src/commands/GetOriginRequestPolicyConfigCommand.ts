@@ -92,8 +92,8 @@ export interface GetOriginRequestPolicyConfigCommandOutput
  *
  * ```
  *
- * @param GetOriginRequestPolicyConfigCommandInput - {@link GetOriginRequestPolicyConfigCommandInput}
- * @returns {@link GetOriginRequestPolicyConfigCommandOutput}
+ * @param GetOriginRequestPolicyConfigRequest - {@link GetOriginRequestPolicyConfigRequest}
+ * @returns {@link GetOriginRequestPolicyConfigResult}
  * @see {@link GetOriginRequestPolicyConfigCommandInput} for command's `input` shape.
  * @see {@link GetOriginRequestPolicyConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.

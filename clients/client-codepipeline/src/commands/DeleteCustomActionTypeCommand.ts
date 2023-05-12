@@ -58,8 +58,8 @@ export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteCustomActionTypeCommandInput - {@link DeleteCustomActionTypeCommandInput}
- * @returns {@link DeleteCustomActionTypeCommandOutput}
+ * @param DeleteCustomActionTypeInput - {@link DeleteCustomActionTypeInput}
+ * @returns {@link Unit}
  * @see {@link DeleteCustomActionTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomActionTypeCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.

@@ -76,8 +76,8 @@ export interface GetStreamingImageCommandOutput extends GetStreamingImageRespons
  *
  * ```
  *
- * @param GetStreamingImageCommandInput - {@link GetStreamingImageCommandInput}
- * @returns {@link GetStreamingImageCommandOutput}
+ * @param GetStreamingImageRequest - {@link GetStreamingImageRequest}
+ * @returns {@link GetStreamingImageResponse}
  * @see {@link GetStreamingImageCommandInput} for command's `input` shape.
  * @see {@link GetStreamingImageCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

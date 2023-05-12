@@ -77,8 +77,8 @@ export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStack
  *
  * ```
  *
- * @param ImportStacksToStackSetCommandInput - {@link ImportStacksToStackSetCommandInput}
- * @returns {@link ImportStacksToStackSetCommandOutput}
+ * @param ImportStacksToStackSetInput - {@link ImportStacksToStackSetInput}
+ * @returns {@link ImportStacksToStackSetOutput}
  * @see {@link ImportStacksToStackSetCommandInput} for command's `input` shape.
  * @see {@link ImportStacksToStackSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

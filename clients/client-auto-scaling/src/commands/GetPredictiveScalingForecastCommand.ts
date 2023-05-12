@@ -168,8 +168,8 @@ export interface GetPredictiveScalingForecastCommandOutput
  *
  * ```
  *
- * @param GetPredictiveScalingForecastCommandInput - {@link GetPredictiveScalingForecastCommandInput}
- * @returns {@link GetPredictiveScalingForecastCommandOutput}
+ * @param GetPredictiveScalingForecastType - {@link GetPredictiveScalingForecastType}
+ * @returns {@link GetPredictiveScalingForecastAnswer}
  * @see {@link GetPredictiveScalingForecastCommandInput} for command's `input` shape.
  * @see {@link GetPredictiveScalingForecastCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

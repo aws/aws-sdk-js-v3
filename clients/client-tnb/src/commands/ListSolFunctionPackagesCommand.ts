@@ -69,8 +69,8 @@ export interface ListSolFunctionPackagesCommandOutput extends ListSolFunctionPac
  *
  * ```
  *
- * @param ListSolFunctionPackagesCommandInput - {@link ListSolFunctionPackagesCommandInput}
- * @returns {@link ListSolFunctionPackagesCommandOutput}
+ * @param ListSolFunctionPackagesInput - {@link ListSolFunctionPackagesInput}
+ * @returns {@link ListSolFunctionPackagesOutput}
  * @see {@link ListSolFunctionPackagesCommandInput} for command's `input` shape.
  * @see {@link ListSolFunctionPackagesCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

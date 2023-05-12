@@ -83,8 +83,8 @@ export interface AdminGetUserCommandOutput extends AdminGetUserResponse, __Metad
  *
  * ```
  *
- * @param AdminGetUserCommandInput - {@link AdminGetUserCommandInput}
- * @returns {@link AdminGetUserCommandOutput}
+ * @param AdminGetUserRequest - {@link AdminGetUserRequest}
+ * @returns {@link AdminGetUserResponse}
  * @see {@link AdminGetUserCommandInput} for command's `input` shape.
  * @see {@link AdminGetUserCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

@@ -77,8 +77,8 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  *
  * ```
  *
- * @param DescribeUpdateCommandInput - {@link DescribeUpdateCommandInput}
- * @returns {@link DescribeUpdateCommandOutput}
+ * @param DescribeUpdateRequest - {@link DescribeUpdateRequest}
+ * @returns {@link DescribeUpdateResponse}
  * @see {@link DescribeUpdateCommandInput} for command's `input` shape.
  * @see {@link DescribeUpdateCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.

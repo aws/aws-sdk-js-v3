@@ -57,8 +57,8 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  *
  * ```
  *
- * @param DeleteDatasetCommandInput - {@link DeleteDatasetCommandInput}
- * @returns {@link DeleteDatasetCommandOutput}
+ * @param DeleteDatasetRequest - {@link DeleteDatasetRequest}
+ * @returns {@link DeleteDatasetResponse}
  * @see {@link DeleteDatasetCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

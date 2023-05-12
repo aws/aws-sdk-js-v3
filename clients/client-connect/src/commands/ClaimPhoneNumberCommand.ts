@@ -67,8 +67,8 @@ export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse,
  *
  * ```
  *
- * @param ClaimPhoneNumberCommandInput - {@link ClaimPhoneNumberCommandInput}
- * @returns {@link ClaimPhoneNumberCommandOutput}
+ * @param ClaimPhoneNumberRequest - {@link ClaimPhoneNumberRequest}
+ * @returns {@link ClaimPhoneNumberResponse}
  * @see {@link ClaimPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link ClaimPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

@@ -89,8 +89,8 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  *
  * ```
  *
- * @param CreateRouteCommandInput - {@link CreateRouteCommandInput}
- * @returns {@link CreateRouteCommandOutput}
+ * @param CreateRouteRequest - {@link CreateRouteRequest}
+ * @returns {@link CreateRouteResult}
  * @see {@link CreateRouteCommandInput} for command's `input` shape.
  * @see {@link CreateRouteCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

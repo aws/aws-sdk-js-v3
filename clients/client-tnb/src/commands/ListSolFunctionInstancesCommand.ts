@@ -69,8 +69,8 @@ export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionIn
  *
  * ```
  *
- * @param ListSolFunctionInstancesCommandInput - {@link ListSolFunctionInstancesCommandInput}
- * @returns {@link ListSolFunctionInstancesCommandOutput}
+ * @param ListSolFunctionInstancesInput - {@link ListSolFunctionInstancesInput}
+ * @returns {@link ListSolFunctionInstancesOutput}
  * @see {@link ListSolFunctionInstancesCommandInput} for command's `input` shape.
  * @see {@link ListSolFunctionInstancesCommandOutput} for command's `response` shape.
  * @see {@link TnbClientResolvedConfig | config} for TnbClient's `config` shape.

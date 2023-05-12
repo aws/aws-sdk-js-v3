@@ -51,8 +51,8 @@ export interface DeleteEventsByEventTypeCommandOutput extends DeleteEventsByEven
  *
  * ```
  *
- * @param DeleteEventsByEventTypeCommandInput - {@link DeleteEventsByEventTypeCommandInput}
- * @returns {@link DeleteEventsByEventTypeCommandOutput}
+ * @param DeleteEventsByEventTypeRequest - {@link DeleteEventsByEventTypeRequest}
+ * @returns {@link DeleteEventsByEventTypeResult}
  * @see {@link DeleteEventsByEventTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteEventsByEventTypeCommandOutput} for command's `response` shape.
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.

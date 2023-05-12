@@ -57,8 +57,8 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  *
  * ```
  *
- * @param ListAllowedNodeTypeUpdatesCommandInput - {@link ListAllowedNodeTypeUpdatesCommandInput}
- * @returns {@link ListAllowedNodeTypeUpdatesCommandOutput}
+ * @param ListAllowedNodeTypeUpdatesRequest - {@link ListAllowedNodeTypeUpdatesRequest}
+ * @returns {@link ListAllowedNodeTypeUpdatesResponse}
  * @see {@link ListAllowedNodeTypeUpdatesCommandInput} for command's `input` shape.
  * @see {@link ListAllowedNodeTypeUpdatesCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.

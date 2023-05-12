@@ -88,8 +88,8 @@ export interface GetParameterHistoryCommandOutput extends GetParameterHistoryRes
  *
  * ```
  *
- * @param GetParameterHistoryCommandInput - {@link GetParameterHistoryCommandInput}
- * @returns {@link GetParameterHistoryCommandOutput}
+ * @param GetParameterHistoryRequest - {@link GetParameterHistoryRequest}
+ * @returns {@link GetParameterHistoryResult}
  * @see {@link GetParameterHistoryCommandInput} for command's `input` shape.
  * @see {@link GetParameterHistoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

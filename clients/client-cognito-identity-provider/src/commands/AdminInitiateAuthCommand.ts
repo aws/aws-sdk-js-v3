@@ -118,8 +118,8 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  *
  * ```
  *
- * @param AdminInitiateAuthCommandInput - {@link AdminInitiateAuthCommandInput}
- * @returns {@link AdminInitiateAuthCommandOutput}
+ * @param AdminInitiateAuthRequest - {@link AdminInitiateAuthRequest}
+ * @returns {@link AdminInitiateAuthResponse}
  * @see {@link AdminInitiateAuthCommandInput} for command's `input` shape.
  * @see {@link AdminInitiateAuthCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.

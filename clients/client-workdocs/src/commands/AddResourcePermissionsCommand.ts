@@ -78,8 +78,8 @@ export interface AddResourcePermissionsCommandOutput extends AddResourcePermissi
  *
  * ```
  *
- * @param AddResourcePermissionsCommandInput - {@link AddResourcePermissionsCommandInput}
- * @returns {@link AddResourcePermissionsCommandOutput}
+ * @param AddResourcePermissionsRequest - {@link AddResourcePermissionsRequest}
+ * @returns {@link AddResourcePermissionsResponse}
  * @see {@link AddResourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link AddResourcePermissionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.

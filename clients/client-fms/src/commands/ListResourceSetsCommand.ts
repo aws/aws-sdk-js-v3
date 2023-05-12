@@ -60,8 +60,8 @@ export interface ListResourceSetsCommandOutput extends ListResourceSetsResponse,
  *
  * ```
  *
- * @param ListResourceSetsCommandInput - {@link ListResourceSetsCommandInput}
- * @returns {@link ListResourceSetsCommandOutput}
+ * @param ListResourceSetsRequest - {@link ListResourceSetsRequest}
+ * @returns {@link ListResourceSetsResponse}
  * @see {@link ListResourceSetsCommandInput} for command's `input` shape.
  * @see {@link ListResourceSetsCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.

@@ -80,8 +80,8 @@ export interface ListApplicationRevisionsCommandOutput extends ListApplicationRe
  *
  * ```
  *
- * @param ListApplicationRevisionsCommandInput - {@link ListApplicationRevisionsCommandInput}
- * @returns {@link ListApplicationRevisionsCommandOutput}
+ * @param ListApplicationRevisionsInput - {@link ListApplicationRevisionsInput}
+ * @returns {@link ListApplicationRevisionsOutput}
  * @see {@link ListApplicationRevisionsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationRevisionsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.

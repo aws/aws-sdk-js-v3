@@ -66,8 +66,8 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  *
  * ```
  *
- * @param PutParameterCommandInput - {@link PutParameterCommandInput}
- * @returns {@link PutParameterCommandOutput}
+ * @param PutParameterRequest - {@link PutParameterRequest}
+ * @returns {@link PutParameterResult}
  * @see {@link PutParameterCommandInput} for command's `input` shape.
  * @see {@link PutParameterCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.

@@ -61,8 +61,8 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param AddPermissionCommandInput - {@link AddPermissionCommandInput}
- * @returns {@link AddPermissionCommandOutput}
+ * @param AddPermissionInput - {@link AddPermissionInput}
+ * @returns {@link Unit}
  * @see {@link AddPermissionCommandInput} for command's `input` shape.
  * @see {@link AddPermissionCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.

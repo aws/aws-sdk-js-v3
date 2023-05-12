@@ -60,8 +60,8 @@ export interface ListGatewayInstancesCommandOutput extends ListGatewayInstancesR
  *
  * ```
  *
- * @param ListGatewayInstancesCommandInput - {@link ListGatewayInstancesCommandInput}
- * @returns {@link ListGatewayInstancesCommandOutput}
+ * @param ListGatewayInstancesRequest - {@link ListGatewayInstancesRequest}
+ * @returns {@link ListGatewayInstancesResponse}
  * @see {@link ListGatewayInstancesCommandInput} for command's `input` shape.
  * @see {@link ListGatewayInstancesCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

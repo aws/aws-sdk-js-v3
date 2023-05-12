@@ -78,8 +78,8 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  *
  * ```
  *
- * @param TerminateInstanceInAutoScalingGroupCommandInput - {@link TerminateInstanceInAutoScalingGroupCommandInput}
- * @returns {@link TerminateInstanceInAutoScalingGroupCommandOutput}
+ * @param TerminateInstanceInAutoScalingGroupType - {@link TerminateInstanceInAutoScalingGroupType}
+ * @returns {@link ActivityType}
  * @see {@link TerminateInstanceInAutoScalingGroupCommandInput} for command's `input` shape.
  * @see {@link TerminateInstanceInAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

@@ -75,8 +75,8 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  *
  * ```
  *
- * @param DescribeDBClusterSnapshotAttributesCommandInput - {@link DescribeDBClusterSnapshotAttributesCommandInput}
- * @returns {@link DescribeDBClusterSnapshotAttributesCommandOutput}
+ * @param DescribeDBClusterSnapshotAttributesMessage - {@link DescribeDBClusterSnapshotAttributesMessage}
+ * @returns {@link DescribeDBClusterSnapshotAttributesResult}
  * @see {@link DescribeDBClusterSnapshotAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterSnapshotAttributesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

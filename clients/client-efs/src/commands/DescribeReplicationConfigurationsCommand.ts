@@ -79,8 +79,8 @@ export interface DescribeReplicationConfigurationsCommandOutput
  *
  * ```
  *
- * @param DescribeReplicationConfigurationsCommandInput - {@link DescribeReplicationConfigurationsCommandInput}
- * @returns {@link DescribeReplicationConfigurationsCommandOutput}
+ * @param DescribeReplicationConfigurationsRequest - {@link DescribeReplicationConfigurationsRequest}
+ * @returns {@link DescribeReplicationConfigurationsResponse}
  * @see {@link DescribeReplicationConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.

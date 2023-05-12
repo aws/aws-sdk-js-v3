@@ -62,8 +62,8 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  *
  * ```
  *
- * @param ListManagedResourcesCommandInput - {@link ListManagedResourcesCommandInput}
- * @returns {@link ListManagedResourcesCommandOutput}
+ * @param ListManagedResourcesRequest - {@link ListManagedResourcesRequest}
+ * @returns {@link ListManagedResourcesResponse}
  * @see {@link ListManagedResourcesCommandInput} for command's `input` shape.
  * @see {@link ListManagedResourcesCommandOutput} for command's `response` shape.
  * @see {@link ARCZonalShiftClientResolvedConfig | config} for ARCZonalShiftClient's `config` shape.

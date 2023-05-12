@@ -78,8 +78,8 @@ export interface PutVoiceConnectorStreamingConfigurationCommandOutput
  *
  * ```
  *
- * @param PutVoiceConnectorStreamingConfigurationCommandInput - {@link PutVoiceConnectorStreamingConfigurationCommandInput}
- * @returns {@link PutVoiceConnectorStreamingConfigurationCommandOutput}
+ * @param PutVoiceConnectorStreamingConfigurationRequest - {@link PutVoiceConnectorStreamingConfigurationRequest}
+ * @returns {@link PutVoiceConnectorStreamingConfigurationResponse}
  * @see {@link PutVoiceConnectorStreamingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorStreamingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.

@@ -54,8 +54,8 @@ export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricin
  *
  * ```
  *
- * @param CreateLongTermPricingCommandInput - {@link CreateLongTermPricingCommandInput}
- * @returns {@link CreateLongTermPricingCommandOutput}
+ * @param CreateLongTermPricingRequest - {@link CreateLongTermPricingRequest}
+ * @returns {@link CreateLongTermPricingResult}
  * @see {@link CreateLongTermPricingCommandInput} for command's `input` shape.
  * @see {@link CreateLongTermPricingCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.

@@ -59,8 +59,8 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
  *
  * ```
  *
- * @param DeleteWorkforceCommandInput - {@link DeleteWorkforceCommandInput}
- * @returns {@link DeleteWorkforceCommandOutput}
+ * @param DeleteWorkforceRequest - {@link DeleteWorkforceRequest}
+ * @returns {@link DeleteWorkforceResponse}
  * @see {@link DeleteWorkforceCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkforceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

@@ -54,8 +54,8 @@ export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsO
  *
  * ```
  *
- * @param ListVolumeInitiatorsCommandInput - {@link ListVolumeInitiatorsCommandInput}
- * @returns {@link ListVolumeInitiatorsCommandOutput}
+ * @param ListVolumeInitiatorsInput - {@link ListVolumeInitiatorsInput}
+ * @returns {@link ListVolumeInitiatorsOutput}
  * @see {@link ListVolumeInitiatorsCommandInput} for command's `input` shape.
  * @see {@link ListVolumeInitiatorsCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.

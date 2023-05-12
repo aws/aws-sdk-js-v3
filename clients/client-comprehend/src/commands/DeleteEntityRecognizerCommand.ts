@@ -54,8 +54,8 @@ export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecogni
  *
  * ```
  *
- * @param DeleteEntityRecognizerCommandInput - {@link DeleteEntityRecognizerCommandInput}
- * @returns {@link DeleteEntityRecognizerCommandOutput}
+ * @param DeleteEntityRecognizerRequest - {@link DeleteEntityRecognizerRequest}
+ * @returns {@link DeleteEntityRecognizerResponse}
  * @see {@link DeleteEntityRecognizerCommandInput} for command's `input` shape.
  * @see {@link DeleteEntityRecognizerCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.

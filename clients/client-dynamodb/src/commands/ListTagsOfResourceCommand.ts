@@ -60,8 +60,8 @@ export interface ListTagsOfResourceCommandOutput extends ListTagsOfResourceOutpu
  *
  * ```
  *
- * @param ListTagsOfResourceCommandInput - {@link ListTagsOfResourceCommandInput}
- * @returns {@link ListTagsOfResourceCommandOutput}
+ * @param ListTagsOfResourceInput - {@link ListTagsOfResourceInput}
+ * @returns {@link ListTagsOfResourceOutput}
  * @see {@link ListTagsOfResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsOfResourceCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

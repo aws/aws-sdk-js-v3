@@ -54,8 +54,8 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param CancelUpdateStackCommandInput - {@link CancelUpdateStackCommandInput}
- * @returns {@link CancelUpdateStackCommandOutput}
+ * @param CancelUpdateStackInput - {@link CancelUpdateStackInput}
+ * @returns {@link Unit}
  * @see {@link CancelUpdateStackCommandInput} for command's `input` shape.
  * @see {@link CancelUpdateStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.

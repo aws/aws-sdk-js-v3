@@ -231,8 +231,8 @@ export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRole
  *
  * ```
  *
- * @param ModifyClusterIamRolesCommandInput - {@link ModifyClusterIamRolesCommandInput}
- * @returns {@link ModifyClusterIamRolesCommandOutput}
+ * @param ModifyClusterIamRolesMessage - {@link ModifyClusterIamRolesMessage}
+ * @returns {@link ModifyClusterIamRolesResult}
  * @see {@link ModifyClusterIamRolesCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterIamRolesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.

@@ -81,8 +81,8 @@ export interface UpdateFeaturedResultsSetCommandOutput extends UpdateFeaturedRes
  *
  * ```
  *
- * @param UpdateFeaturedResultsSetCommandInput - {@link UpdateFeaturedResultsSetCommandInput}
- * @returns {@link UpdateFeaturedResultsSetCommandOutput}
+ * @param UpdateFeaturedResultsSetRequest - {@link UpdateFeaturedResultsSetRequest}
+ * @returns {@link UpdateFeaturedResultsSetResponse}
  * @see {@link UpdateFeaturedResultsSetCommandInput} for command's `input` shape.
  * @see {@link UpdateFeaturedResultsSetCommandOutput} for command's `response` shape.
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.

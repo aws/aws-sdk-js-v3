@@ -91,8 +91,8 @@ export interface CreateProfileCommandOutput extends ProfileDetailResponse, __Met
  *
  * ```
  *
- * @param CreateProfileCommandInput - {@link CreateProfileCommandInput}
- * @returns {@link CreateProfileCommandOutput}
+ * @param CreateProfileRequest - {@link CreateProfileRequest}
+ * @returns {@link ProfileDetailResponse}
  * @see {@link CreateProfileCommandInput} for command's `input` shape.
  * @see {@link CreateProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

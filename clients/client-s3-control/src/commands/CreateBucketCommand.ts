@@ -117,8 +117,8 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  *
  * ```
  *
- * @param CreateBucketCommandInput - {@link CreateBucketCommandInput}
- * @returns {@link CreateBucketCommandOutput}
+ * @param CreateBucketRequest - {@link CreateBucketRequest}
+ * @returns {@link CreateBucketResult}
  * @see {@link CreateBucketCommandInput} for command's `input` shape.
  * @see {@link CreateBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.

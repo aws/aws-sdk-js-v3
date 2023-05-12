@@ -63,8 +63,8 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult,
  *
  * ```
  *
- * @param GetNetworkProfileCommandInput - {@link GetNetworkProfileCommandInput}
- * @returns {@link GetNetworkProfileCommandOutput}
+ * @param GetNetworkProfileRequest - {@link GetNetworkProfileRequest}
+ * @returns {@link GetNetworkProfileResult}
  * @see {@link GetNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link GetNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.

@@ -71,8 +71,8 @@ export interface ListReferencesCommandOutput extends ListReferencesResponse, __M
  *
  * ```
  *
- * @param ListReferencesCommandInput - {@link ListReferencesCommandInput}
- * @returns {@link ListReferencesCommandOutput}
+ * @param ListReferencesRequest - {@link ListReferencesRequest}
+ * @returns {@link ListReferencesResponse}
  * @see {@link ListReferencesCommandInput} for command's `input` shape.
  * @see {@link ListReferencesCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

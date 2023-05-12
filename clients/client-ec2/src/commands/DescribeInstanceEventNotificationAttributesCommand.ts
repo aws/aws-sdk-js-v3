@@ -65,8 +65,8 @@ export interface DescribeInstanceEventNotificationAttributesCommandOutput
  *
  * ```
  *
- * @param DescribeInstanceEventNotificationAttributesCommandInput - {@link DescribeInstanceEventNotificationAttributesCommandInput}
- * @returns {@link DescribeInstanceEventNotificationAttributesCommandOutput}
+ * @param DescribeInstanceEventNotificationAttributesRequest - {@link DescribeInstanceEventNotificationAttributesRequest}
+ * @returns {@link DescribeInstanceEventNotificationAttributesResult}
  * @see {@link DescribeInstanceEventNotificationAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceEventNotificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

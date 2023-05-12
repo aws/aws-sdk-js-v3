@@ -65,8 +65,8 @@ export interface ListRateBasedRulesCommandOutput extends ListRateBasedRulesRespo
  *
  * ```
  *
- * @param ListRateBasedRulesCommandInput - {@link ListRateBasedRulesCommandInput}
- * @returns {@link ListRateBasedRulesCommandOutput}
+ * @param ListRateBasedRulesRequest - {@link ListRateBasedRulesRequest}
+ * @returns {@link ListRateBasedRulesResponse}
  * @see {@link ListRateBasedRulesCommandInput} for command's `input` shape.
  * @see {@link ListRateBasedRulesCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

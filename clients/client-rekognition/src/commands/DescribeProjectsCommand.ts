@@ -72,8 +72,8 @@ export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse,
  *
  * ```
  *
- * @param DescribeProjectsCommandInput - {@link DescribeProjectsCommandInput}
- * @returns {@link DescribeProjectsCommandOutput}
+ * @param DescribeProjectsRequest - {@link DescribeProjectsRequest}
+ * @returns {@link DescribeProjectsResponse}
  * @see {@link DescribeProjectsCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.

@@ -84,8 +84,8 @@ export interface DescribeHostReservationOfferingsCommandOutput
  *
  * ```
  *
- * @param DescribeHostReservationOfferingsCommandInput - {@link DescribeHostReservationOfferingsCommandInput}
- * @returns {@link DescribeHostReservationOfferingsCommandOutput}
+ * @param DescribeHostReservationOfferingsRequest - {@link DescribeHostReservationOfferingsRequest}
+ * @returns {@link DescribeHostReservationOfferingsResult}
  * @see {@link DescribeHostReservationOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeHostReservationOfferingsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

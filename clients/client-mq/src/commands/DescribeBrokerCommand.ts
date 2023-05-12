@@ -155,8 +155,8 @@ export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __M
  *
  * ```
  *
- * @param DescribeBrokerCommandInput - {@link DescribeBrokerCommandInput}
- * @returns {@link DescribeBrokerCommandOutput}
+ * @param DescribeBrokerRequest - {@link DescribeBrokerRequest}
+ * @returns {@link DescribeBrokerResponse}
  * @see {@link DescribeBrokerCommandInput} for command's `input` shape.
  * @see {@link DescribeBrokerCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.

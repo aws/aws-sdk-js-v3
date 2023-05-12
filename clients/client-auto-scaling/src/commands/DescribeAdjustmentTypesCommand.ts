@@ -71,8 +71,8 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  *
  * ```
  *
- * @param DescribeAdjustmentTypesCommandInput - {@link DescribeAdjustmentTypesCommandInput}
- * @returns {@link DescribeAdjustmentTypesCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link DescribeAdjustmentTypesAnswer}
  * @see {@link DescribeAdjustmentTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeAdjustmentTypesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.

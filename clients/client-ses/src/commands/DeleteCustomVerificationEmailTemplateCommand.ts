@@ -55,8 +55,8 @@ export interface DeleteCustomVerificationEmailTemplateCommandOutput extends __Me
  *
  * ```
  *
- * @param DeleteCustomVerificationEmailTemplateCommandInput - {@link DeleteCustomVerificationEmailTemplateCommandInput}
- * @returns {@link DeleteCustomVerificationEmailTemplateCommandOutput}
+ * @param DeleteCustomVerificationEmailTemplateRequest - {@link DeleteCustomVerificationEmailTemplateRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteCustomVerificationEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

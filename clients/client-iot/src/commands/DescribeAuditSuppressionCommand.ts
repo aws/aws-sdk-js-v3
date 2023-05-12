@@ -93,8 +93,8 @@ export interface DescribeAuditSuppressionCommandOutput extends DescribeAuditSupp
  *
  * ```
  *
- * @param DescribeAuditSuppressionCommandInput - {@link DescribeAuditSuppressionCommandInput}
- * @returns {@link DescribeAuditSuppressionCommandOutput}
+ * @param DescribeAuditSuppressionRequest - {@link DescribeAuditSuppressionRequest}
+ * @returns {@link DescribeAuditSuppressionResponse}
  * @see {@link DescribeAuditSuppressionCommandInput} for command's `input` shape.
  * @see {@link DescribeAuditSuppressionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.

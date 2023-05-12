@@ -85,8 +85,8 @@ export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, _
  *
  * ```
  *
- * @param CancelHandshakeCommandInput - {@link CancelHandshakeCommandInput}
- * @returns {@link CancelHandshakeCommandOutput}
+ * @param CancelHandshakeRequest - {@link CancelHandshakeRequest}
+ * @returns {@link CancelHandshakeResponse}
  * @see {@link CancelHandshakeCommandInput} for command's `input` shape.
  * @see {@link CancelHandshakeCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

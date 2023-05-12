@@ -71,8 +71,8 @@ export interface GetServerCertificateCommandOutput extends GetServerCertificateR
  *
  * ```
  *
- * @param GetServerCertificateCommandInput - {@link GetServerCertificateCommandInput}
- * @returns {@link GetServerCertificateCommandOutput}
+ * @param GetServerCertificateRequest - {@link GetServerCertificateRequest}
+ * @returns {@link GetServerCertificateResponse}
  * @see {@link GetServerCertificateCommandInput} for command's `input` shape.
  * @see {@link GetServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

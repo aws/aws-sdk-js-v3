@@ -118,8 +118,8 @@ export interface GetLaunchProfileCommandOutput extends GetLaunchProfileResponse,
  *
  * ```
  *
- * @param GetLaunchProfileCommandInput - {@link GetLaunchProfileCommandInput}
- * @returns {@link GetLaunchProfileCommandOutput}
+ * @param GetLaunchProfileRequest - {@link GetLaunchProfileRequest}
+ * @returns {@link GetLaunchProfileResponse}
  * @see {@link GetLaunchProfileCommandInput} for command's `input` shape.
  * @see {@link GetLaunchProfileCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.

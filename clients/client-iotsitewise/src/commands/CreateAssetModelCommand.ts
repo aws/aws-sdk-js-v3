@@ -204,8 +204,8 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *
  * ```
  *
- * @param CreateAssetModelCommandInput - {@link CreateAssetModelCommandInput}
- * @returns {@link CreateAssetModelCommandOutput}
+ * @param CreateAssetModelRequest - {@link CreateAssetModelRequest}
+ * @returns {@link CreateAssetModelResponse}
  * @see {@link CreateAssetModelCommandInput} for command's `input` shape.
  * @see {@link CreateAssetModelCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

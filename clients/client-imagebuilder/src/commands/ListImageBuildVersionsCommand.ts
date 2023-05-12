@@ -105,8 +105,8 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  *
  * ```
  *
- * @param ListImageBuildVersionsCommandInput - {@link ListImageBuildVersionsCommandInput}
- * @returns {@link ListImageBuildVersionsCommandOutput}
+ * @param ListImageBuildVersionsRequest - {@link ListImageBuildVersionsRequest}
+ * @returns {@link ListImageBuildVersionsResponse}
  * @see {@link ListImageBuildVersionsCommandInput} for command's `input` shape.
  * @see {@link ListImageBuildVersionsCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.

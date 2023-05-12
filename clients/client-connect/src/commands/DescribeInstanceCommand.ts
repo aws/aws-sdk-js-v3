@@ -72,8 +72,8 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  *
  * ```
  *
- * @param DescribeInstanceCommandInput - {@link DescribeInstanceCommandInput}
- * @returns {@link DescribeInstanceCommandOutput}
+ * @param DescribeInstanceRequest - {@link DescribeInstanceRequest}
+ * @returns {@link DescribeInstanceResponse}
  * @see {@link DescribeInstanceCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.

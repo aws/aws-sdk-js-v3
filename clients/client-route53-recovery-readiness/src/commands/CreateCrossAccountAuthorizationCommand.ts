@@ -59,8 +59,8 @@ export interface CreateCrossAccountAuthorizationCommandOutput
  *
  * ```
  *
- * @param CreateCrossAccountAuthorizationCommandInput - {@link CreateCrossAccountAuthorizationCommandInput}
- * @returns {@link CreateCrossAccountAuthorizationCommandOutput}
+ * @param CreateCrossAccountAuthorizationRequest - {@link CreateCrossAccountAuthorizationRequest}
+ * @returns {@link CreateCrossAccountAuthorizationResponse}
  * @see {@link CreateCrossAccountAuthorizationCommandInput} for command's `input` shape.
  * @see {@link CreateCrossAccountAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.

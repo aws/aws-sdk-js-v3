@@ -86,8 +86,8 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  *
  * ```
  *
- * @param DeleteAwsLogSourceCommandInput - {@link DeleteAwsLogSourceCommandInput}
- * @returns {@link DeleteAwsLogSourceCommandOutput}
+ * @param DeleteAwsLogSourceRequest - {@link DeleteAwsLogSourceRequest}
+ * @returns {@link DeleteAwsLogSourceResponse}
  * @see {@link DeleteAwsLogSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteAwsLogSourceCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.

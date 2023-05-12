@@ -54,8 +54,8 @@ export interface DeleteHostedConfigurationVersionCommandOutput extends __Metadat
  *
  * ```
  *
- * @param DeleteHostedConfigurationVersionCommandInput - {@link DeleteHostedConfigurationVersionCommandInput}
- * @returns {@link DeleteHostedConfigurationVersionCommandOutput}
+ * @param DeleteHostedConfigurationVersionRequest - {@link DeleteHostedConfigurationVersionRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteHostedConfigurationVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteHostedConfigurationVersionCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

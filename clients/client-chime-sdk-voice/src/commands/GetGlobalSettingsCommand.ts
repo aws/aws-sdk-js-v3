@@ -50,8 +50,8 @@ export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsRespons
  *
  * ```
  *
- * @param GetGlobalSettingsCommandInput - {@link GetGlobalSettingsCommandInput}
- * @returns {@link GetGlobalSettingsCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link GetGlobalSettingsResponse}
  * @see {@link GetGlobalSettingsCommandInput} for command's `input` shape.
  * @see {@link GetGlobalSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.

@@ -122,8 +122,8 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *
  * ```
  *
- * @param CreateDecoderManifestCommandInput - {@link CreateDecoderManifestCommandInput}
- * @returns {@link CreateDecoderManifestCommandOutput}
+ * @param CreateDecoderManifestRequest - {@link CreateDecoderManifestRequest}
+ * @returns {@link CreateDecoderManifestResponse}
  * @see {@link CreateDecoderManifestCommandInput} for command's `input` shape.
  * @see {@link CreateDecoderManifestCommandOutput} for command's `response` shape.
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.

@@ -183,8 +183,8 @@ export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage,
  *
  * ```
  *
- * @param DescribeCacheClustersCommandInput - {@link DescribeCacheClustersCommandInput}
- * @returns {@link DescribeCacheClustersCommandOutput}
+ * @param DescribeCacheClustersMessage - {@link DescribeCacheClustersMessage}
+ * @returns {@link CacheClusterMessage}
  * @see {@link DescribeCacheClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheClustersCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

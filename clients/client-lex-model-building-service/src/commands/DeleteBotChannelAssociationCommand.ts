@@ -60,8 +60,8 @@ export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBear
  *
  * ```
  *
- * @param DeleteBotChannelAssociationCommandInput - {@link DeleteBotChannelAssociationCommandInput}
- * @returns {@link DeleteBotChannelAssociationCommandOutput}
+ * @param DeleteBotChannelAssociationRequest - {@link DeleteBotChannelAssociationRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteBotChannelAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteBotChannelAssociationCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

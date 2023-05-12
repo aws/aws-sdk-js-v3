@@ -49,8 +49,8 @@ export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __Metadat
  *
  * ```
  *
- * @param DeleteLFTagCommandInput - {@link DeleteLFTagCommandInput}
- * @returns {@link DeleteLFTagCommandOutput}
+ * @param DeleteLFTagRequest - {@link DeleteLFTagRequest}
+ * @returns {@link DeleteLFTagResponse}
  * @see {@link DeleteLFTagCommandInput} for command's `input` shape.
  * @see {@link DeleteLFTagCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.

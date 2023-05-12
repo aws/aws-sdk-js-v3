@@ -58,8 +58,8 @@ export interface DescribeImageCommandOutput extends DescribeImageResponse, __Met
  *
  * ```
  *
- * @param DescribeImageCommandInput - {@link DescribeImageCommandInput}
- * @returns {@link DescribeImageCommandOutput}
+ * @param DescribeImageRequest - {@link DescribeImageRequest}
+ * @returns {@link DescribeImageResponse}
  * @see {@link DescribeImageCommandInput} for command's `input` shape.
  * @see {@link DescribeImageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

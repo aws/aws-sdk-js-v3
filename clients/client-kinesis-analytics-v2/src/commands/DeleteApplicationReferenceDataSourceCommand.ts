@@ -67,8 +67,8 @@ export interface DeleteApplicationReferenceDataSourceCommandOutput
  *
  * ```
  *
- * @param DeleteApplicationReferenceDataSourceCommandInput - {@link DeleteApplicationReferenceDataSourceCommandInput}
- * @returns {@link DeleteApplicationReferenceDataSourceCommandOutput}
+ * @param DeleteApplicationReferenceDataSourceRequest - {@link DeleteApplicationReferenceDataSourceRequest}
+ * @returns {@link DeleteApplicationReferenceDataSourceResponse}
  * @see {@link DeleteApplicationReferenceDataSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationReferenceDataSourceCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.

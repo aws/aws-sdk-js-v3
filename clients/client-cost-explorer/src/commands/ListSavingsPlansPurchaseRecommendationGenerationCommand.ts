@@ -74,8 +74,8 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
  *
  * ```
  *
- * @param ListSavingsPlansPurchaseRecommendationGenerationCommandInput - {@link ListSavingsPlansPurchaseRecommendationGenerationCommandInput}
- * @returns {@link ListSavingsPlansPurchaseRecommendationGenerationCommandOutput}
+ * @param ListSavingsPlansPurchaseRecommendationGenerationRequest - {@link ListSavingsPlansPurchaseRecommendationGenerationRequest}
+ * @returns {@link ListSavingsPlansPurchaseRecommendationGenerationResponse}
  * @see {@link ListSavingsPlansPurchaseRecommendationGenerationCommandInput} for command's `input` shape.
  * @see {@link ListSavingsPlansPurchaseRecommendationGenerationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

@@ -62,8 +62,8 @@ export interface DescribeAvailabilityOptionsCommandOutput
  *
  * ```
  *
- * @param DescribeAvailabilityOptionsCommandInput - {@link DescribeAvailabilityOptionsCommandInput}
- * @returns {@link DescribeAvailabilityOptionsCommandOutput}
+ * @param DescribeAvailabilityOptionsRequest - {@link DescribeAvailabilityOptionsRequest}
+ * @returns {@link DescribeAvailabilityOptionsResponse}
  * @see {@link DescribeAvailabilityOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAvailabilityOptionsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.

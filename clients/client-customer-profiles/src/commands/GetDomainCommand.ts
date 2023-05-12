@@ -92,8 +92,8 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  *
  * ```
  *
- * @param GetDomainCommandInput - {@link GetDomainCommandInput}
- * @returns {@link GetDomainCommandOutput}
+ * @param GetDomainRequest - {@link GetDomainRequest}
+ * @returns {@link GetDomainResponse}
  * @see {@link GetDomainCommandInput} for command's `input` shape.
  * @see {@link GetDomainCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.

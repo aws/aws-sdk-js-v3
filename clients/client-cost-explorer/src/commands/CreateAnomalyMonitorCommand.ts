@@ -133,8 +133,8 @@ export interface CreateAnomalyMonitorCommandOutput extends CreateAnomalyMonitorR
  *
  * ```
  *
- * @param CreateAnomalyMonitorCommandInput - {@link CreateAnomalyMonitorCommandInput}
- * @returns {@link CreateAnomalyMonitorCommandOutput}
+ * @param CreateAnomalyMonitorRequest - {@link CreateAnomalyMonitorRequest}
+ * @returns {@link CreateAnomalyMonitorResponse}
  * @see {@link CreateAnomalyMonitorCommandInput} for command's `input` shape.
  * @see {@link CreateAnomalyMonitorCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.

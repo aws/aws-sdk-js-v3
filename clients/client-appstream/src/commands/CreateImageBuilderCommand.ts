@@ -126,8 +126,8 @@ export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResul
  *
  * ```
  *
- * @param CreateImageBuilderCommandInput - {@link CreateImageBuilderCommandInput}
- * @returns {@link CreateImageBuilderCommandOutput}
+ * @param CreateImageBuilderRequest - {@link CreateImageBuilderRequest}
+ * @returns {@link CreateImageBuilderResult}
  * @see {@link CreateImageBuilderCommandInput} for command's `input` shape.
  * @see {@link CreateImageBuilderCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.

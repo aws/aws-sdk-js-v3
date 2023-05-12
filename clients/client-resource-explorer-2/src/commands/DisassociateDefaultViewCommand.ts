@@ -54,8 +54,8 @@ export interface DisassociateDefaultViewCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param DisassociateDefaultViewCommandInput - {@link DisassociateDefaultViewCommandInput}
- * @returns {@link DisassociateDefaultViewCommandOutput}
+ * @param Unit - {@link Unit}
+ * @returns {@link Unit}
  * @see {@link DisassociateDefaultViewCommandInput} for command's `input` shape.
  * @see {@link DisassociateDefaultViewCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.

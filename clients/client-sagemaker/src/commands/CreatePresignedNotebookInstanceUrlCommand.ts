@@ -73,8 +73,8 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
  *
  * ```
  *
- * @param CreatePresignedNotebookInstanceUrlCommandInput - {@link CreatePresignedNotebookInstanceUrlCommandInput}
- * @returns {@link CreatePresignedNotebookInstanceUrlCommandOutput}
+ * @param CreatePresignedNotebookInstanceUrlInput - {@link CreatePresignedNotebookInstanceUrlInput}
+ * @returns {@link CreatePresignedNotebookInstanceUrlOutput}
  * @see {@link CreatePresignedNotebookInstanceUrlCommandInput} for command's `input` shape.
  * @see {@link CreatePresignedNotebookInstanceUrlCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

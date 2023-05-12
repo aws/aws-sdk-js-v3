@@ -77,8 +77,8 @@ export interface DeleteTransitGatewayMulticastDomainCommandOutput
  *
  * ```
  *
- * @param DeleteTransitGatewayMulticastDomainCommandInput - {@link DeleteTransitGatewayMulticastDomainCommandInput}
- * @returns {@link DeleteTransitGatewayMulticastDomainCommandOutput}
+ * @param DeleteTransitGatewayMulticastDomainRequest - {@link DeleteTransitGatewayMulticastDomainRequest}
+ * @returns {@link DeleteTransitGatewayMulticastDomainResult}
  * @see {@link DeleteTransitGatewayMulticastDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayMulticastDomainCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

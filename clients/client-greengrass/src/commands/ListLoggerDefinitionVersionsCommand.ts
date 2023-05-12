@@ -65,8 +65,8 @@ export interface ListLoggerDefinitionVersionsCommandOutput
  *
  * ```
  *
- * @param ListLoggerDefinitionVersionsCommandInput - {@link ListLoggerDefinitionVersionsCommandInput}
- * @returns {@link ListLoggerDefinitionVersionsCommandOutput}
+ * @param ListLoggerDefinitionVersionsRequest - {@link ListLoggerDefinitionVersionsRequest}
+ * @returns {@link ListLoggerDefinitionVersionsResponse}
  * @see {@link ListLoggerDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListLoggerDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.

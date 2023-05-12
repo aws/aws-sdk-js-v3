@@ -83,8 +83,8 @@ export interface GetSegmentImportJobsCommandOutput extends GetSegmentImportJobsR
  *
  * ```
  *
- * @param GetSegmentImportJobsCommandInput - {@link GetSegmentImportJobsCommandInput}
- * @returns {@link GetSegmentImportJobsCommandOutput}
+ * @param GetSegmentImportJobsRequest - {@link GetSegmentImportJobsRequest}
+ * @returns {@link GetSegmentImportJobsResponse}
  * @see {@link GetSegmentImportJobsCommandInput} for command's `input` shape.
  * @see {@link GetSegmentImportJobsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.

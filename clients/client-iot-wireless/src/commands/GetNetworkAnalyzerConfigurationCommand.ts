@@ -67,8 +67,8 @@ export interface GetNetworkAnalyzerConfigurationCommandOutput
  *
  * ```
  *
- * @param GetNetworkAnalyzerConfigurationCommandInput - {@link GetNetworkAnalyzerConfigurationCommandInput}
- * @returns {@link GetNetworkAnalyzerConfigurationCommandOutput}
+ * @param GetNetworkAnalyzerConfigurationRequest - {@link GetNetworkAnalyzerConfigurationRequest}
+ * @returns {@link GetNetworkAnalyzerConfigurationResponse}
  * @see {@link GetNetworkAnalyzerConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetNetworkAnalyzerConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.

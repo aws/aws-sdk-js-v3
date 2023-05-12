@@ -53,8 +53,8 @@ export interface CancelDeploymentJobCommandOutput extends CancelDeploymentJobRes
  *
  * ```
  *
- * @param CancelDeploymentJobCommandInput - {@link CancelDeploymentJobCommandInput}
- * @returns {@link CancelDeploymentJobCommandOutput}
+ * @param CancelDeploymentJobRequest - {@link CancelDeploymentJobRequest}
+ * @returns {@link CancelDeploymentJobResponse}
  * @see {@link CancelDeploymentJobCommandInput} for command's `input` shape.
  * @see {@link CancelDeploymentJobCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.

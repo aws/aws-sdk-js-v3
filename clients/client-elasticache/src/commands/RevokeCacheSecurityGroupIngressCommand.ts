@@ -71,8 +71,8 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  *
  * ```
  *
- * @param RevokeCacheSecurityGroupIngressCommandInput - {@link RevokeCacheSecurityGroupIngressCommandInput}
- * @returns {@link RevokeCacheSecurityGroupIngressCommandOutput}
+ * @param RevokeCacheSecurityGroupIngressMessage - {@link RevokeCacheSecurityGroupIngressMessage}
+ * @returns {@link RevokeCacheSecurityGroupIngressResult}
  * @see {@link RevokeCacheSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeCacheSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

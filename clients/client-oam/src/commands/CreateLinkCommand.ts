@@ -76,8 +76,8 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  *
  * ```
  *
- * @param CreateLinkCommandInput - {@link CreateLinkCommandInput}
- * @returns {@link CreateLinkCommandOutput}
+ * @param CreateLinkInput - {@link CreateLinkInput}
+ * @returns {@link CreateLinkOutput}
  * @see {@link CreateLinkCommandInput} for command's `input` shape.
  * @see {@link CreateLinkCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.

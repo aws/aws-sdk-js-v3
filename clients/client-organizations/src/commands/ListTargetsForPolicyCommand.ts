@@ -71,8 +71,8 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  *
  * ```
  *
- * @param ListTargetsForPolicyCommandInput - {@link ListTargetsForPolicyCommandInput}
- * @returns {@link ListTargetsForPolicyCommandOutput}
+ * @param ListTargetsForPolicyRequest - {@link ListTargetsForPolicyRequest}
+ * @returns {@link ListTargetsForPolicyResponse}
  * @see {@link ListTargetsForPolicyCommandInput} for command's `input` shape.
  * @see {@link ListTargetsForPolicyCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

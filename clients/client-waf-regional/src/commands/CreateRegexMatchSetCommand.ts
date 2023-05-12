@@ -96,8 +96,8 @@ export interface CreateRegexMatchSetCommandOutput extends CreateRegexMatchSetRes
  *
  * ```
  *
- * @param CreateRegexMatchSetCommandInput - {@link CreateRegexMatchSetCommandInput}
- * @returns {@link CreateRegexMatchSetCommandOutput}
+ * @param CreateRegexMatchSetRequest - {@link CreateRegexMatchSetRequest}
+ * @returns {@link CreateRegexMatchSetResponse}
  * @see {@link CreateRegexMatchSetCommandInput} for command's `input` shape.
  * @see {@link CreateRegexMatchSetCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.

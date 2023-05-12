@@ -104,8 +104,8 @@ export interface GetMediaForFragmentListCommandOutput
  *
  * ```
  *
- * @param GetMediaForFragmentListCommandInput - {@link GetMediaForFragmentListCommandInput}
- * @returns {@link GetMediaForFragmentListCommandOutput}
+ * @param GetMediaForFragmentListInput - {@link GetMediaForFragmentListInput}
+ * @returns {@link GetMediaForFragmentListOutput}
  * @see {@link GetMediaForFragmentListCommandInput} for command's `input` shape.
  * @see {@link GetMediaForFragmentListCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.

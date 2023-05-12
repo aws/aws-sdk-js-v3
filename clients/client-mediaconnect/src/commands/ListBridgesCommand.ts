@@ -61,8 +61,8 @@ export interface ListBridgesCommandOutput extends ListBridgesResponse, __Metadat
  *
  * ```
  *
- * @param ListBridgesCommandInput - {@link ListBridgesCommandInput}
- * @returns {@link ListBridgesCommandOutput}
+ * @param ListBridgesRequest - {@link ListBridgesRequest}
+ * @returns {@link ListBridgesResponse}
  * @see {@link ListBridgesCommandInput} for command's `input` shape.
  * @see {@link ListBridgesCommandOutput} for command's `response` shape.
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.

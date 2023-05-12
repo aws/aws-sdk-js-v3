@@ -76,8 +76,8 @@ export interface BatchGetGraphMemberDatasourcesCommandOutput
  *
  * ```
  *
- * @param BatchGetGraphMemberDatasourcesCommandInput - {@link BatchGetGraphMemberDatasourcesCommandInput}
- * @returns {@link BatchGetGraphMemberDatasourcesCommandOutput}
+ * @param BatchGetGraphMemberDatasourcesRequest - {@link BatchGetGraphMemberDatasourcesRequest}
+ * @returns {@link BatchGetGraphMemberDatasourcesResponse}
  * @see {@link BatchGetGraphMemberDatasourcesCommandInput} for command's `input` shape.
  * @see {@link BatchGetGraphMemberDatasourcesCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.

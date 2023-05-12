@@ -68,8 +68,8 @@ export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBeare
  *
  * ```
  *
- * @param ListHsmsCommandInput - {@link ListHsmsCommandInput}
- * @returns {@link ListHsmsCommandOutput}
+ * @param ListHsmsRequest - {@link ListHsmsRequest}
+ * @returns {@link ListHsmsResponse}
  * @see {@link ListHsmsCommandInput} for command's `input` shape.
  * @see {@link ListHsmsCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.

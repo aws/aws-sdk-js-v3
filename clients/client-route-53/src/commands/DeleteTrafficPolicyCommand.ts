@@ -65,8 +65,8 @@ export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyRes
  *
  * ```
  *
- * @param DeleteTrafficPolicyCommandInput - {@link DeleteTrafficPolicyCommandInput}
- * @returns {@link DeleteTrafficPolicyCommandOutput}
+ * @param DeleteTrafficPolicyRequest - {@link DeleteTrafficPolicyRequest}
+ * @returns {@link DeleteTrafficPolicyResponse}
  * @see {@link DeleteTrafficPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.

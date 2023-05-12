@@ -151,8 +151,8 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutBucketLoggingCommandInput - {@link PutBucketLoggingCommandInput}
- * @returns {@link PutBucketLoggingCommandOutput}
+ * @param PutBucketLoggingRequest - {@link PutBucketLoggingRequest}
+ * @returns {@link Unit}
  * @see {@link PutBucketLoggingCommandInput} for command's `input` shape.
  * @see {@link PutBucketLoggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.

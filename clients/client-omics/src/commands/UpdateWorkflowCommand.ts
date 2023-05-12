@@ -50,8 +50,8 @@ export interface UpdateWorkflowCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param UpdateWorkflowCommandInput - {@link UpdateWorkflowCommandInput}
- * @returns {@link UpdateWorkflowCommandOutput}
+ * @param UpdateWorkflowRequest - {@link UpdateWorkflowRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateWorkflowCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkflowCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.

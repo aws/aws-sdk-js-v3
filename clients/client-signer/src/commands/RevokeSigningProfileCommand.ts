@@ -53,8 +53,8 @@ export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param RevokeSigningProfileCommandInput - {@link RevokeSigningProfileCommandInput}
- * @returns {@link RevokeSigningProfileCommandOutput}
+ * @param RevokeSigningProfileRequest - {@link RevokeSigningProfileRequest}
+ * @returns {@link Unit}
  * @see {@link RevokeSigningProfileCommandInput} for command's `input` shape.
  * @see {@link RevokeSigningProfileCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.

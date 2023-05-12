@@ -117,8 +117,8 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param PutMetricDataCommandInput - {@link PutMetricDataCommandInput}
- * @returns {@link PutMetricDataCommandOutput}
+ * @param PutMetricDataInput - {@link PutMetricDataInput}
+ * @returns {@link Unit}
  * @see {@link PutMetricDataCommandInput} for command's `input` shape.
  * @see {@link PutMetricDataCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.

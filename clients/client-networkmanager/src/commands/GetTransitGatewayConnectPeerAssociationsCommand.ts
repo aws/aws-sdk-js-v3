@@ -73,8 +73,8 @@ export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
  *
  * ```
  *
- * @param GetTransitGatewayConnectPeerAssociationsCommandInput - {@link GetTransitGatewayConnectPeerAssociationsCommandInput}
- * @returns {@link GetTransitGatewayConnectPeerAssociationsCommandOutput}
+ * @param GetTransitGatewayConnectPeerAssociationsRequest - {@link GetTransitGatewayConnectPeerAssociationsRequest}
+ * @returns {@link GetTransitGatewayConnectPeerAssociationsResponse}
  * @see {@link GetTransitGatewayConnectPeerAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayConnectPeerAssociationsCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.

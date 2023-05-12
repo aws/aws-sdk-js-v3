@@ -50,8 +50,8 @@ export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBeare
  *
  * ```
  *
- * @param DeleteRescoreExecutionPlanCommandInput - {@link DeleteRescoreExecutionPlanCommandInput}
- * @returns {@link DeleteRescoreExecutionPlanCommandOutput}
+ * @param DeleteRescoreExecutionPlanRequest - {@link DeleteRescoreExecutionPlanRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRescoreExecutionPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteRescoreExecutionPlanCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.

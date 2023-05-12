@@ -88,8 +88,8 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  *
  * ```
  *
- * @param RemoveAccountFromOrganizationCommandInput - {@link RemoveAccountFromOrganizationCommandInput}
- * @returns {@link RemoveAccountFromOrganizationCommandOutput}
+ * @param RemoveAccountFromOrganizationRequest - {@link RemoveAccountFromOrganizationRequest}
+ * @returns {@link Unit}
  * @see {@link RemoveAccountFromOrganizationCommandInput} for command's `input` shape.
  * @see {@link RemoveAccountFromOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.

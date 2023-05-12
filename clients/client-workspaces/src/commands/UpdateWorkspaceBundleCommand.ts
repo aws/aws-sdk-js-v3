@@ -56,8 +56,8 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  *
  * ```
  *
- * @param UpdateWorkspaceBundleCommandInput - {@link UpdateWorkspaceBundleCommandInput}
- * @returns {@link UpdateWorkspaceBundleCommandOutput}
+ * @param UpdateWorkspaceBundleRequest - {@link UpdateWorkspaceBundleRequest}
+ * @returns {@link UpdateWorkspaceBundleResult}
  * @see {@link UpdateWorkspaceBundleCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceBundleCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.

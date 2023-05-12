@@ -48,8 +48,8 @@ export interface DisassociateTrustStoreCommandOutput extends DisassociateTrustSt
  *
  * ```
  *
- * @param DisassociateTrustStoreCommandInput - {@link DisassociateTrustStoreCommandInput}
- * @returns {@link DisassociateTrustStoreCommandOutput}
+ * @param DisassociateTrustStoreRequest - {@link DisassociateTrustStoreRequest}
+ * @returns {@link DisassociateTrustStoreResponse}
  * @see {@link DisassociateTrustStoreCommandInput} for command's `input` shape.
  * @see {@link DisassociateTrustStoreCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.

@@ -91,8 +91,8 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  *
  * ```
  *
- * @param GetBackupPlanFromTemplateCommandInput - {@link GetBackupPlanFromTemplateCommandInput}
- * @returns {@link GetBackupPlanFromTemplateCommandOutput}
+ * @param GetBackupPlanFromTemplateInput - {@link GetBackupPlanFromTemplateInput}
+ * @returns {@link GetBackupPlanFromTemplateOutput}
  * @see {@link GetBackupPlanFromTemplateCommandInput} for command's `input` shape.
  * @see {@link GetBackupPlanFromTemplateCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

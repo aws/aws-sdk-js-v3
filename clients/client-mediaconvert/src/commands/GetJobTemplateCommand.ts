@@ -1420,8 +1420,8 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  *
  * ```
  *
- * @param GetJobTemplateCommandInput - {@link GetJobTemplateCommandInput}
- * @returns {@link GetJobTemplateCommandOutput}
+ * @param GetJobTemplateRequest - {@link GetJobTemplateRequest}
+ * @returns {@link GetJobTemplateResponse}
  * @see {@link GetJobTemplateCommandInput} for command's `input` shape.
  * @see {@link GetJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.

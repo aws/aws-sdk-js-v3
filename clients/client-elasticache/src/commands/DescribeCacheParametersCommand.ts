@@ -85,8 +85,8 @@ export interface DescribeCacheParametersCommandOutput extends CacheParameterGrou
  *
  * ```
  *
- * @param DescribeCacheParametersCommandInput - {@link DescribeCacheParametersCommandInput}
- * @returns {@link DescribeCacheParametersCommandOutput}
+ * @param DescribeCacheParametersMessage - {@link DescribeCacheParametersMessage}
+ * @returns {@link CacheParameterGroupDetails}
  * @see {@link DescribeCacheParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheParametersCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.

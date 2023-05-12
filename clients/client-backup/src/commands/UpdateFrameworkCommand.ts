@@ -77,8 +77,8 @@ export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __M
  *
  * ```
  *
- * @param UpdateFrameworkCommandInput - {@link UpdateFrameworkCommandInput}
- * @returns {@link UpdateFrameworkCommandOutput}
+ * @param UpdateFrameworkInput - {@link UpdateFrameworkInput}
+ * @returns {@link UpdateFrameworkOutput}
  * @see {@link UpdateFrameworkCommandInput} for command's `input` shape.
  * @see {@link UpdateFrameworkCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.

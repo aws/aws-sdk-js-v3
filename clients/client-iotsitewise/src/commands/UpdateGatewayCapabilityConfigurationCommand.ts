@@ -65,8 +65,8 @@ export interface UpdateGatewayCapabilityConfigurationCommandOutput
  *
  * ```
  *
- * @param UpdateGatewayCapabilityConfigurationCommandInput - {@link UpdateGatewayCapabilityConfigurationCommandInput}
- * @returns {@link UpdateGatewayCapabilityConfigurationCommandOutput}
+ * @param UpdateGatewayCapabilityConfigurationRequest - {@link UpdateGatewayCapabilityConfigurationRequest}
+ * @returns {@link UpdateGatewayCapabilityConfigurationResponse}
  * @see {@link UpdateGatewayCapabilityConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayCapabilityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.

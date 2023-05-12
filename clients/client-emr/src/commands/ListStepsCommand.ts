@@ -96,8 +96,8 @@ export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBeare
  *
  * ```
  *
- * @param ListStepsCommandInput - {@link ListStepsCommandInput}
- * @returns {@link ListStepsCommandOutput}
+ * @param ListStepsInput - {@link ListStepsInput}
+ * @returns {@link ListStepsOutput}
  * @see {@link ListStepsCommandInput} for command's `input` shape.
  * @see {@link ListStepsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.

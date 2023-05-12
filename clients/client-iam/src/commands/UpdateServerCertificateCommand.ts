@@ -69,8 +69,8 @@ export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {
  *
  * ```
  *
- * @param UpdateServerCertificateCommandInput - {@link UpdateServerCertificateCommandInput}
- * @returns {@link UpdateServerCertificateCommandOutput}
+ * @param UpdateServerCertificateRequest - {@link UpdateServerCertificateRequest}
+ * @returns {@link Unit}
  * @see {@link UpdateServerCertificateCommandInput} for command's `input` shape.
  * @see {@link UpdateServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.

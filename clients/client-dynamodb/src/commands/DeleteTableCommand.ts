@@ -206,8 +206,8 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  *
  * ```
  *
- * @param DeleteTableCommandInput - {@link DeleteTableCommandInput}
- * @returns {@link DeleteTableCommandOutput}
+ * @param DeleteTableInput - {@link DeleteTableInput}
+ * @returns {@link DeleteTableOutput}
  * @see {@link DeleteTableCommandInput} for command's `input` shape.
  * @see {@link DeleteTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.

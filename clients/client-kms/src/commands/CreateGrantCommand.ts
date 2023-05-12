@@ -129,8 +129,8 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *
  * ```
  *
- * @param CreateGrantCommandInput - {@link CreateGrantCommandInput}
- * @returns {@link CreateGrantCommandOutput}
+ * @param CreateGrantRequest - {@link CreateGrantRequest}
+ * @returns {@link CreateGrantResponse}
  * @see {@link CreateGrantCommandInput} for command's `input` shape.
  * @see {@link CreateGrantCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.

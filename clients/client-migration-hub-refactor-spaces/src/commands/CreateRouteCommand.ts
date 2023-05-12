@@ -168,8 +168,8 @@ export interface CreateRouteCommandOutput extends CreateRouteResponse, __Metadat
  *
  * ```
  *
- * @param CreateRouteCommandInput - {@link CreateRouteCommandInput}
- * @returns {@link CreateRouteCommandOutput}
+ * @param CreateRouteRequest - {@link CreateRouteRequest}
+ * @returns {@link CreateRouteResponse}
  * @see {@link CreateRouteCommandInput} for command's `input` shape.
  * @see {@link CreateRouteCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.

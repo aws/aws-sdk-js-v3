@@ -52,8 +52,8 @@ export interface PutClusterPolicyCommandOutput extends PutClusterPolicyResponse,
  *
  * ```
  *
- * @param PutClusterPolicyCommandInput - {@link PutClusterPolicyCommandInput}
- * @returns {@link PutClusterPolicyCommandOutput}
+ * @param PutClusterPolicyRequest - {@link PutClusterPolicyRequest}
+ * @returns {@link PutClusterPolicyResponse}
  * @see {@link PutClusterPolicyCommandInput} for command's `input` shape.
  * @see {@link PutClusterPolicyCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.

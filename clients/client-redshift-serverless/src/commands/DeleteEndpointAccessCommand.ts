@@ -83,8 +83,8 @@ export interface DeleteEndpointAccessCommandOutput extends DeleteEndpointAccessR
  *
  * ```
  *
- * @param DeleteEndpointAccessCommandInput - {@link DeleteEndpointAccessCommandInput}
- * @returns {@link DeleteEndpointAccessCommandOutput}
+ * @param DeleteEndpointAccessRequest - {@link DeleteEndpointAccessRequest}
+ * @returns {@link DeleteEndpointAccessResponse}
  * @see {@link DeleteEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.

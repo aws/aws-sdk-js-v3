@@ -61,8 +61,8 @@ export interface DeleteBotAliasCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteBotAliasCommandInput - {@link DeleteBotAliasCommandInput}
- * @returns {@link DeleteBotAliasCommandOutput}
+ * @param DeleteBotAliasRequest - {@link DeleteBotAliasRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteBotAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.

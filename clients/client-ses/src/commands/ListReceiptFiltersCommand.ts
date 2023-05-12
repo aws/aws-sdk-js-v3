@@ -60,8 +60,8 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  *
  * ```
  *
- * @param ListReceiptFiltersCommandInput - {@link ListReceiptFiltersCommandInput}
- * @returns {@link ListReceiptFiltersCommandOutput}
+ * @param ListReceiptFiltersRequest - {@link ListReceiptFiltersRequest}
+ * @returns {@link ListReceiptFiltersResponse}
  * @see {@link ListReceiptFiltersCommandInput} for command's `input` shape.
  * @see {@link ListReceiptFiltersCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.

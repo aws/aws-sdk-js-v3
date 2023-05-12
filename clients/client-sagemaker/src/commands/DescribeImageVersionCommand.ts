@@ -67,8 +67,8 @@ export interface DescribeImageVersionCommandOutput extends DescribeImageVersionR
  *
  * ```
  *
- * @param DescribeImageVersionCommandInput - {@link DescribeImageVersionCommandInput}
- * @returns {@link DescribeImageVersionCommandOutput}
+ * @param DescribeImageVersionRequest - {@link DescribeImageVersionRequest}
+ * @returns {@link DescribeImageVersionResponse}
  * @see {@link DescribeImageVersionCommandInput} for command's `input` shape.
  * @see {@link DescribeImageVersionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

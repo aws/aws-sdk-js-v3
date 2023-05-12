@@ -107,8 +107,8 @@ export interface CreateServiceTemplateVersionCommandOutput
  *
  * ```
  *
- * @param CreateServiceTemplateVersionCommandInput - {@link CreateServiceTemplateVersionCommandInput}
- * @returns {@link CreateServiceTemplateVersionCommandOutput}
+ * @param CreateServiceTemplateVersionInput - {@link CreateServiceTemplateVersionInput}
+ * @returns {@link CreateServiceTemplateVersionOutput}
  * @see {@link CreateServiceTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link CreateServiceTemplateVersionCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.

@@ -308,8 +308,8 @@ export interface UpdateVirtualGatewayCommandOutput extends UpdateVirtualGatewayO
  *
  * ```
  *
- * @param UpdateVirtualGatewayCommandInput - {@link UpdateVirtualGatewayCommandInput}
- * @returns {@link UpdateVirtualGatewayCommandOutput}
+ * @param UpdateVirtualGatewayInput - {@link UpdateVirtualGatewayInput}
+ * @returns {@link UpdateVirtualGatewayOutput}
  * @see {@link UpdateVirtualGatewayCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualGatewayCommandOutput} for command's `response` shape.
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.

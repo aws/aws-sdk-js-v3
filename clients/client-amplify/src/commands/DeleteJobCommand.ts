@@ -62,8 +62,8 @@ export interface DeleteJobCommandOutput extends DeleteJobResult, __MetadataBeare
  *
  * ```
  *
- * @param DeleteJobCommandInput - {@link DeleteJobCommandInput}
- * @returns {@link DeleteJobCommandOutput}
+ * @param DeleteJobRequest - {@link DeleteJobRequest}
+ * @returns {@link DeleteJobResult}
  * @see {@link DeleteJobCommandInput} for command's `input` shape.
  * @see {@link DeleteJobCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.

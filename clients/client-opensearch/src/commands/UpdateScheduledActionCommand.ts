@@ -67,8 +67,8 @@ export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActio
  *
  * ```
  *
- * @param UpdateScheduledActionCommandInput - {@link UpdateScheduledActionCommandInput}
- * @returns {@link UpdateScheduledActionCommandOutput}
+ * @param UpdateScheduledActionRequest - {@link UpdateScheduledActionRequest}
+ * @returns {@link UpdateScheduledActionResponse}
  * @see {@link UpdateScheduledActionCommandInput} for command's `input` shape.
  * @see {@link UpdateScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.

@@ -64,8 +64,8 @@ export interface BatchResetAlarmCommandOutput extends BatchResetAlarmResponse, _
  *
  * ```
  *
- * @param BatchResetAlarmCommandInput - {@link BatchResetAlarmCommandInput}
- * @returns {@link BatchResetAlarmCommandOutput}
+ * @param BatchResetAlarmRequest - {@link BatchResetAlarmRequest}
+ * @returns {@link BatchResetAlarmResponse}
  * @see {@link BatchResetAlarmCommandInput} for command's `input` shape.
  * @see {@link BatchResetAlarmCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.

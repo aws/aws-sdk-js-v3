@@ -105,8 +105,8 @@ export interface RestoreServerCommandOutput extends RestoreServerResponse, __Met
  *
  * ```
  *
- * @param RestoreServerCommandInput - {@link RestoreServerCommandInput}
- * @returns {@link RestoreServerCommandOutput}
+ * @param RestoreServerRequest - {@link RestoreServerRequest}
+ * @returns {@link RestoreServerResponse}
  * @see {@link RestoreServerCommandInput} for command's `input` shape.
  * @see {@link RestoreServerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.

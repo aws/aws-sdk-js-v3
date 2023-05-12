@@ -78,8 +78,8 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  *
  * ```
  *
- * @param DescribeSavingsPlanRatesCommandInput - {@link DescribeSavingsPlanRatesCommandInput}
- * @returns {@link DescribeSavingsPlanRatesCommandOutput}
+ * @param DescribeSavingsPlanRatesRequest - {@link DescribeSavingsPlanRatesRequest}
+ * @returns {@link DescribeSavingsPlanRatesResponse}
  * @see {@link DescribeSavingsPlanRatesCommandInput} for command's `input` shape.
  * @see {@link DescribeSavingsPlanRatesCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.

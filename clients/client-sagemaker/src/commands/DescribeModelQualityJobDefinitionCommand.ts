@@ -155,8 +155,8 @@ export interface DescribeModelQualityJobDefinitionCommandOutput
  *
  * ```
  *
- * @param DescribeModelQualityJobDefinitionCommandInput - {@link DescribeModelQualityJobDefinitionCommandInput}
- * @returns {@link DescribeModelQualityJobDefinitionCommandOutput}
+ * @param DescribeModelQualityJobDefinitionRequest - {@link DescribeModelQualityJobDefinitionRequest}
+ * @returns {@link DescribeModelQualityJobDefinitionResponse}
  * @see {@link DescribeModelQualityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DescribeModelQualityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.

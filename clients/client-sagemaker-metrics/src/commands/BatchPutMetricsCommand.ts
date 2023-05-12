@@ -65,8 +65,8 @@ export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, _
  *
  * ```
  *
- * @param BatchPutMetricsCommandInput - {@link BatchPutMetricsCommandInput}
- * @returns {@link BatchPutMetricsCommandOutput}
+ * @param BatchPutMetricsRequest - {@link BatchPutMetricsRequest}
+ * @returns {@link BatchPutMetricsResponse}
  * @see {@link BatchPutMetricsCommandInput} for command's `input` shape.
  * @see {@link BatchPutMetricsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerMetricsClientResolvedConfig | config} for SageMakerMetricsClient's `config` shape.

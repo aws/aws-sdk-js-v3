@@ -94,8 +94,8 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  *
  * ```
  *
- * @param PublishPackageVersionCommandInput - {@link PublishPackageVersionCommandInput}
- * @returns {@link PublishPackageVersionCommandOutput}
+ * @param PublishPackageVersionRequest - {@link PublishPackageVersionRequest}
+ * @returns {@link PublishPackageVersionResult}
  * @see {@link PublishPackageVersionCommandInput} for command's `input` shape.
  * @see {@link PublishPackageVersionCommandOutput} for command's `response` shape.
  * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.

@@ -52,8 +52,8 @@ export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, _
  *
  * ```
  *
- * @param DeleteSimulationCommandInput - {@link DeleteSimulationCommandInput}
- * @returns {@link DeleteSimulationCommandOutput}
+ * @param DeleteSimulationInput - {@link DeleteSimulationInput}
+ * @returns {@link DeleteSimulationOutput}
  * @see {@link DeleteSimulationCommandInput} for command's `input` shape.
  * @see {@link DeleteSimulationCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.

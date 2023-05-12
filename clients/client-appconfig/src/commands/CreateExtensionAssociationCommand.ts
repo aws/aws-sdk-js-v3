@@ -77,8 +77,8 @@ export interface CreateExtensionAssociationCommandOutput extends ExtensionAssoci
  *
  * ```
  *
- * @param CreateExtensionAssociationCommandInput - {@link CreateExtensionAssociationCommandInput}
- * @returns {@link CreateExtensionAssociationCommandOutput}
+ * @param CreateExtensionAssociationRequest - {@link CreateExtensionAssociationRequest}
+ * @returns {@link ExtensionAssociation}
  * @see {@link CreateExtensionAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateExtensionAssociationCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.

@@ -104,8 +104,8 @@ export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __M
  *
  * ```
  *
- * @param CopyOptionGroupCommandInput - {@link CopyOptionGroupCommandInput}
- * @returns {@link CopyOptionGroupCommandOutput}
+ * @param CopyOptionGroupMessage - {@link CopyOptionGroupMessage}
+ * @returns {@link CopyOptionGroupResult}
  * @see {@link CopyOptionGroupCommandInput} for command's `input` shape.
  * @see {@link CopyOptionGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.

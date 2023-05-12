@@ -61,8 +61,8 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  *
  * ```
  *
- * @param CreateArchiveCommandInput - {@link CreateArchiveCommandInput}
- * @returns {@link CreateArchiveCommandOutput}
+ * @param CreateArchiveRequest - {@link CreateArchiveRequest}
+ * @returns {@link CreateArchiveResponse}
  * @see {@link CreateArchiveCommandInput} for command's `input` shape.
  * @see {@link CreateArchiveCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.

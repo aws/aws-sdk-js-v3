@@ -65,8 +65,8 @@ export interface UpdateCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  *
  * ```
  *
- * @param UpdateCrlCommandInput - {@link UpdateCrlCommandInput}
- * @returns {@link UpdateCrlCommandOutput}
+ * @param UpdateCrlRequest - {@link UpdateCrlRequest}
+ * @returns {@link CrlDetailResponse}
  * @see {@link UpdateCrlCommandInput} for command's `input` shape.
  * @see {@link UpdateCrlCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.

@@ -78,8 +78,8 @@ export interface AssociateTransitGatewayMulticastDomainCommandOutput
  *
  * ```
  *
- * @param AssociateTransitGatewayMulticastDomainCommandInput - {@link AssociateTransitGatewayMulticastDomainCommandInput}
- * @returns {@link AssociateTransitGatewayMulticastDomainCommandOutput}
+ * @param AssociateTransitGatewayMulticastDomainRequest - {@link AssociateTransitGatewayMulticastDomainRequest}
+ * @returns {@link AssociateTransitGatewayMulticastDomainResult}
  * @see {@link AssociateTransitGatewayMulticastDomainCommandInput} for command's `input` shape.
  * @see {@link AssociateTransitGatewayMulticastDomainCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.

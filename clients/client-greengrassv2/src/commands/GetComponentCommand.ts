@@ -55,8 +55,8 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  *
  * ```
  *
- * @param GetComponentCommandInput - {@link GetComponentCommandInput}
- * @returns {@link GetComponentCommandOutput}
+ * @param GetComponentRequest - {@link GetComponentRequest}
+ * @returns {@link GetComponentResponse}
  * @see {@link GetComponentCommandInput} for command's `input` shape.
  * @see {@link GetComponentCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.

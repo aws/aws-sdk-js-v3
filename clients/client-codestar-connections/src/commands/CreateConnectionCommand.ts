@@ -70,8 +70,8 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *
  * ```
  *
- * @param CreateConnectionCommandInput - {@link CreateConnectionCommandInput}
- * @returns {@link CreateConnectionCommandOutput}
+ * @param CreateConnectionInput - {@link CreateConnectionInput}
+ * @returns {@link CreateConnectionOutput}
  * @see {@link CreateConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateConnectionCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.

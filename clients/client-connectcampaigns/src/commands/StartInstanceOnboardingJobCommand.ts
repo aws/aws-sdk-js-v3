@@ -59,8 +59,8 @@ export interface StartInstanceOnboardingJobCommandOutput extends StartInstanceOn
  *
  * ```
  *
- * @param StartInstanceOnboardingJobCommandInput - {@link StartInstanceOnboardingJobCommandInput}
- * @returns {@link StartInstanceOnboardingJobCommandOutput}
+ * @param StartInstanceOnboardingJobRequest - {@link StartInstanceOnboardingJobRequest}
+ * @returns {@link StartInstanceOnboardingJobResponse}
  * @see {@link StartInstanceOnboardingJobCommandInput} for command's `input` shape.
  * @see {@link StartInstanceOnboardingJobCommandOutput} for command's `response` shape.
  * @see {@link ConnectCampaignsClientResolvedConfig | config} for ConnectCampaignsClient's `config` shape.

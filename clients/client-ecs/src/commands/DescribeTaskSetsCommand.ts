@@ -132,8 +132,8 @@ export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse,
  *
  * ```
  *
- * @param DescribeTaskSetsCommandInput - {@link DescribeTaskSetsCommandInput}
- * @returns {@link DescribeTaskSetsCommandOutput}
+ * @param DescribeTaskSetsRequest - {@link DescribeTaskSetsRequest}
+ * @returns {@link DescribeTaskSetsResponse}
  * @see {@link DescribeTaskSetsCommandInput} for command's `input` shape.
  * @see {@link DescribeTaskSetsCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.

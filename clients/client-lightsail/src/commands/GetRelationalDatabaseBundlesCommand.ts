@@ -72,8 +72,8 @@ export interface GetRelationalDatabaseBundlesCommandOutput
  *
  * ```
  *
- * @param GetRelationalDatabaseBundlesCommandInput - {@link GetRelationalDatabaseBundlesCommandInput}
- * @returns {@link GetRelationalDatabaseBundlesCommandOutput}
+ * @param GetRelationalDatabaseBundlesRequest - {@link GetRelationalDatabaseBundlesRequest}
+ * @returns {@link GetRelationalDatabaseBundlesResult}
  * @see {@link GetRelationalDatabaseBundlesCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseBundlesCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.

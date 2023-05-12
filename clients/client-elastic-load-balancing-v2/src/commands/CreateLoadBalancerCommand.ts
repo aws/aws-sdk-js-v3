@@ -136,8 +136,8 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  *
  * ```
  *
- * @param CreateLoadBalancerCommandInput - {@link CreateLoadBalancerCommandInput}
- * @returns {@link CreateLoadBalancerCommandOutput}
+ * @param CreateLoadBalancerInput - {@link CreateLoadBalancerInput}
+ * @returns {@link CreateLoadBalancerOutput}
  * @see {@link CreateLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.

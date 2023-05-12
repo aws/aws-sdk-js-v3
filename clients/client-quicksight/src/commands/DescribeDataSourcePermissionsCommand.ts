@@ -67,8 +67,8 @@ export interface DescribeDataSourcePermissionsCommandOutput
  *
  * ```
  *
- * @param DescribeDataSourcePermissionsCommandInput - {@link DescribeDataSourcePermissionsCommandInput}
- * @returns {@link DescribeDataSourcePermissionsCommandOutput}
+ * @param DescribeDataSourcePermissionsRequest - {@link DescribeDataSourcePermissionsRequest}
+ * @returns {@link DescribeDataSourcePermissionsResponse}
  * @see {@link DescribeDataSourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSourcePermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.

@@ -67,8 +67,8 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  *
  * ```
  *
- * @param UpdateJobExecutionCommandInput - {@link UpdateJobExecutionCommandInput}
- * @returns {@link UpdateJobExecutionCommandOutput}
+ * @param UpdateJobExecutionRequest - {@link UpdateJobExecutionRequest}
+ * @returns {@link UpdateJobExecutionResponse}
  * @see {@link UpdateJobExecutionCommandInput} for command's `input` shape.
  * @see {@link UpdateJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.

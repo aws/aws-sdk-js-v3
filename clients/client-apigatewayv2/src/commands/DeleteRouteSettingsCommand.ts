@@ -50,8 +50,8 @@ export interface DeleteRouteSettingsCommandOutput extends __MetadataBearer {}
  *
  * ```
  *
- * @param DeleteRouteSettingsCommandInput - {@link DeleteRouteSettingsCommandInput}
- * @returns {@link DeleteRouteSettingsCommandOutput}
+ * @param DeleteRouteSettingsRequest - {@link DeleteRouteSettingsRequest}
+ * @returns {@link Unit}
  * @see {@link DeleteRouteSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteSettingsCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.

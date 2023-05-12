@@ -104,8 +104,8 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  *
  * ```
  *
- * @param UpdateDashboardPermissionsCommandInput - {@link UpdateDashboardPermissionsCommandInput}
- * @returns {@link UpdateDashboardPermissionsCommandOutput}
+ * @param UpdateDashboardPermissionsRequest - {@link UpdateDashboardPermissionsRequest}
+ * @returns {@link UpdateDashboardPermissionsResponse}
  * @see {@link UpdateDashboardPermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateDashboardPermissionsCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
