@@ -106,6 +106,8 @@ export interface DeleteAppVersionResourceCommandOutput extends DeleteAppVersionR
  * //       ],
  * //     },
  * //     excluded: true || false,
+ * //     sourceType: "STRING_VALUE",
+ * //     parentResourceName: "STRING_VALUE",
  * //   },
  * // };
  *

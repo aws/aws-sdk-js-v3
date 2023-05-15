@@ -46,6 +46,8 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
  * };
  * const command = new QueryIdempotencyTokenAutoFillCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param QueryIdempotencyTokenAutoFillCommandInput - {@link QueryIdempotencyTokenAutoFillCommandInput}
@@ -54,6 +56,8 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
  * @see {@link QueryIdempotencyTokenAutoFillCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class QueryIdempotencyTokenAutoFillCommand extends $Command<

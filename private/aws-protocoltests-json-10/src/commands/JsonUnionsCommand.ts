@@ -60,6 +60,27 @@ export interface JsonUnionsCommandOutput extends JsonUnionsOutput, __MetadataBea
  * };
  * const command = new JsonUnionsCommand(input);
  * const response = await client.send(command);
+ * // { // JsonUnionsOutput
+ * //   contents: { // MyUnion Union: only one key present
+ * //     stringValue: "STRING_VALUE",
+ * //     booleanValue: true || false,
+ * //     numberValue: Number("int"),
+ * //     blobValue: "BLOB_VALUE",
+ * //     timestampValue: new Date("TIMESTAMP"),
+ * //     enumValue: "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //     intEnumValue: 1 || 2 || 3,
+ * //     listValue: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     mapValue: { // StringMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     structureValue: { // GreetingStruct
+ * //       hi: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param JsonUnionsCommandInput - {@link JsonUnionsCommandInput}
@@ -68,6 +89,8 @@ export interface JsonUnionsCommandOutput extends JsonUnionsOutput, __MetadataBea
  * @see {@link JsonUnionsCommandOutput} for command's `response` shape.
  * @see {@link JSONRPC10ClientResolvedConfig | config} for JSONRPC10Client's `config` shape.
  *
+ * @throws {@link JSONRPC10ServiceException}
+ * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
  *
  */
 export class JsonUnionsCommand extends $Command<

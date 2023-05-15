@@ -47,6 +47,14 @@ export interface XmlMapsCommandOutput extends XmlMapsInputOutput, __MetadataBear
  * };
  * const command = new XmlMapsCommand(input);
  * const response = await client.send(command);
+ * // { // XmlMapsInputOutput
+ * //   myMap: { // XmlMapsInputOutputMap
+ * //     "<keys>": { // GreetingStruct
+ * //       hi: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param XmlMapsCommandInput - {@link XmlMapsCommandInput}
@@ -55,6 +63,8 @@ export interface XmlMapsCommandOutput extends XmlMapsInputOutput, __MetadataBear
  * @see {@link XmlMapsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class XmlMapsCommand extends $Command<

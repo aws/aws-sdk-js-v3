@@ -46,6 +46,8 @@ export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ConstantQueryStringCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ConstantQueryStringCommandInput - {@link ConstantQueryStringCommandInput}
@@ -54,6 +56,8 @@ export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
  * @see {@link ConstantQueryStringCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class ConstantQueryStringCommand extends $Command<

@@ -46,6 +46,10 @@ export interface IgnoreQueryParamsInResponseCommandOutput extends IgnoreQueryPar
  * const input = {};
  * const command = new IgnoreQueryParamsInResponseCommand(input);
  * const response = await client.send(command);
+ * // { // IgnoreQueryParamsInResponseOutput
+ * //   baz: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param IgnoreQueryParamsInResponseCommandInput - {@link IgnoreQueryParamsInResponseCommandInput}
@@ -54,6 +58,8 @@ export interface IgnoreQueryParamsInResponseCommandOutput extends IgnoreQueryPar
  * @see {@link IgnoreQueryParamsInResponseCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class IgnoreQueryParamsInResponseCommand extends $Command<

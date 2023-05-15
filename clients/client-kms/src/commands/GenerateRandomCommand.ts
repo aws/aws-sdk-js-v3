@@ -75,6 +75,7 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * const response = await client.send(command);
  * // { // GenerateRandomResponse
  * //   Plaintext: "BLOB_VALUE",
+ * //   CiphertextForRecipient: "BLOB_VALUE",
  * // };
  *
  * ```
@@ -154,27 +155,6 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * }
  * *\/
  * // example id: to-generate-random-data-1
- * ```
- *
- * @example To generate random data
- * ```javascript
- * // The following example includes the Recipient parameter with a signed attestation document from an AWS Nitro enclave. Instead of returning a plaintext (unencrypted) byte string, GenerateRandom returns the byte string encrypted by the public key from the enclave's attestation document.
- * const input = {
- *   "NumberOfBytes": 1024,
- *   "Recipient": {
- *     "AttestationDocument": "<attestation document>",
- *     "KeyEncryptionAlgorithm": "RSAES_OAEP_SHA_256"
- *   }
- * };
- * const command = new GenerateRandomCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CiphertextForRecipient": "<binary data>",
- *   "Plaintext": ""
- * }
- * *\/
- * // example id: to-generate-random-data-2
  * ```
  *
  * @example To generate random data

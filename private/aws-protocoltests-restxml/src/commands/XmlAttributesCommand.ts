@@ -44,6 +44,11 @@ export interface XmlAttributesCommandOutput extends XmlAttributesInputOutput, __
  * };
  * const command = new XmlAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // XmlAttributesInputOutput
+ * //   foo: "STRING_VALUE",
+ * //   attr: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param XmlAttributesCommandInput - {@link XmlAttributesCommandInput}
@@ -52,6 +57,8 @@ export interface XmlAttributesCommandOutput extends XmlAttributesInputOutput, __
  * @see {@link XmlAttributesCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class XmlAttributesCommand extends $Command<

@@ -54,6 +54,21 @@ export interface JsonIntEnumsCommandOutput extends JsonIntEnumsInputOutput, __Me
  * };
  * const command = new JsonIntEnumsCommand(input);
  * const response = await client.send(command);
+ * // { // JsonIntEnumsInputOutput
+ * //   integerEnum1: 1 || 2 || 3,
+ * //   integerEnum2: 1 || 2 || 3,
+ * //   integerEnum3: 1 || 2 || 3,
+ * //   integerEnumList: [ // IntegerEnumList
+ * //     1 || 2 || 3,
+ * //   ],
+ * //   integerEnumSet: [ // IntegerEnumSet
+ * //     1 || 2 || 3,
+ * //   ],
+ * //   integerEnumMap: { // IntegerEnumMap
+ * //     "<keys>": 1 || 2 || 3,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param JsonIntEnumsCommandInput - {@link JsonIntEnumsCommandInput}
@@ -62,6 +77,8 @@ export interface JsonIntEnumsCommandOutput extends JsonIntEnumsInputOutput, __Me
  * @see {@link JsonIntEnumsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class JsonIntEnumsCommand extends $Command<

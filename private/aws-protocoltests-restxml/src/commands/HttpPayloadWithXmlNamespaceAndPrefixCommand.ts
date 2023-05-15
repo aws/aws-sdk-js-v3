@@ -51,6 +51,12 @@ export interface HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
  * };
  * const command = new HttpPayloadWithXmlNamespaceAndPrefixCommand(input);
  * const response = await client.send(command);
+ * // { // HttpPayloadWithXmlNamespaceAndPrefixInputOutput
+ * //   nested: { // PayloadWithXmlNamespaceAndPrefix
+ * //     name: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param HttpPayloadWithXmlNamespaceAndPrefixCommandInput - {@link HttpPayloadWithXmlNamespaceAndPrefixCommandInput}
@@ -59,6 +65,8 @@ export interface HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
  * @see {@link HttpPayloadWithXmlNamespaceAndPrefixCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command<

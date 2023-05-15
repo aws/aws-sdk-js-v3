@@ -71,6 +71,37 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  * };
  * const command = new InputAndOutputWithHeadersCommand(input);
  * const response = await client.send(command);
+ * // { // InputAndOutputWithHeadersIO
+ * //   headerString: "STRING_VALUE",
+ * //   headerByte: "BYTE_VALUE",
+ * //   headerShort: Number("short"),
+ * //   headerInteger: Number("int"),
+ * //   headerLong: Number("long"),
+ * //   headerFloat: Number("float"),
+ * //   headerDouble: Number("double"),
+ * //   headerTrueBool: true || false,
+ * //   headerFalseBool: true || false,
+ * //   headerStringList: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   headerStringSet: [ // StringSet
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   headerIntegerList: [ // IntegerList
+ * //     Number("int"),
+ * //   ],
+ * //   headerBooleanList: [ // BooleanList
+ * //     true || false,
+ * //   ],
+ * //   headerTimestampList: [ // TimestampList
+ * //     new Date("TIMESTAMP"),
+ * //   ],
+ * //   headerEnum: "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   headerEnumList: [ // FooEnumList
+ * //     "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param InputAndOutputWithHeadersCommandInput - {@link InputAndOutputWithHeadersCommandInput}
@@ -79,6 +110,8 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  * @see {@link InputAndOutputWithHeadersCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class InputAndOutputWithHeadersCommand extends $Command<

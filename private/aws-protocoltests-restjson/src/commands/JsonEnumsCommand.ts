@@ -54,6 +54,21 @@ export interface JsonEnumsCommandOutput extends JsonEnumsInputOutput, __Metadata
  * };
  * const command = new JsonEnumsCommand(input);
  * const response = await client.send(command);
+ * // { // JsonEnumsInputOutput
+ * //   fooEnum1: "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   fooEnum2: "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   fooEnum3: "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   fooEnumList: [ // FooEnumList
+ * //     "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   ],
+ * //   fooEnumSet: [ // FooEnumSet
+ * //     "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   ],
+ * //   fooEnumMap: { // FooEnumMap
+ * //     "<keys>": "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param JsonEnumsCommandInput - {@link JsonEnumsCommandInput}
@@ -62,6 +77,8 @@ export interface JsonEnumsCommandOutput extends JsonEnumsInputOutput, __Metadata
  * @see {@link JsonEnumsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class JsonEnumsCommand extends $Command<

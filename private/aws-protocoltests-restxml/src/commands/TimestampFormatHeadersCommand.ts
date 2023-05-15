@@ -49,6 +49,16 @@ export interface TimestampFormatHeadersCommandOutput extends TimestampFormatHead
  * };
  * const command = new TimestampFormatHeadersCommand(input);
  * const response = await client.send(command);
+ * // { // TimestampFormatHeadersIO
+ * //   memberEpochSeconds: new Date("TIMESTAMP"),
+ * //   memberHttpDate: new Date("TIMESTAMP"),
+ * //   memberDateTime: new Date("TIMESTAMP"),
+ * //   defaultFormat: new Date("TIMESTAMP"),
+ * //   targetEpochSeconds: new Date("TIMESTAMP"),
+ * //   targetHttpDate: new Date("TIMESTAMP"),
+ * //   targetDateTime: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param TimestampFormatHeadersCommandInput - {@link TimestampFormatHeadersCommandInput}
@@ -57,6 +67,8 @@ export interface TimestampFormatHeadersCommandOutput extends TimestampFormatHead
  * @see {@link TimestampFormatHeadersCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class TimestampFormatHeadersCommand extends $Command<

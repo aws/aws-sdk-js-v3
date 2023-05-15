@@ -43,6 +43,10 @@ export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlN
  * const input = {};
  * const command = new IgnoresWrappingXmlNameCommand(input);
  * const response = await client.send(command);
+ * // { // IgnoresWrappingXmlNameOutput
+ * //   foo: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param IgnoresWrappingXmlNameCommandInput - {@link IgnoresWrappingXmlNameCommandInput}
@@ -51,6 +55,8 @@ export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlN
  * @see {@link IgnoresWrappingXmlNameCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
+ * @throws {@link EC2ProtocolServiceException}
+ * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
  */
 export class IgnoresWrappingXmlNameCommand extends $Command<

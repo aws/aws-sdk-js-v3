@@ -43,6 +43,10 @@ export interface XmlEmptyBlobsCommandOutput extends XmlBlobsInputOutput, __Metad
  * };
  * const command = new XmlEmptyBlobsCommand(input);
  * const response = await client.send(command);
+ * // { // XmlBlobsInputOutput
+ * //   data: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param XmlEmptyBlobsCommandInput - {@link XmlEmptyBlobsCommandInput}
@@ -51,6 +55,8 @@ export interface XmlEmptyBlobsCommandOutput extends XmlBlobsInputOutput, __Metad
  * @see {@link XmlEmptyBlobsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class XmlEmptyBlobsCommand extends $Command<

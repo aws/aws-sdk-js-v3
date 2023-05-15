@@ -50,6 +50,11 @@ export interface HttpPayloadTraitsWithMediaTypeCommandOutput
  * };
  * const command = new HttpPayloadTraitsWithMediaTypeCommand(input);
  * const response = await client.send(command);
+ * // { // HttpPayloadTraitsWithMediaTypeInputOutput
+ * //   foo: "STRING_VALUE",
+ * //   blob: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param HttpPayloadTraitsWithMediaTypeCommandInput - {@link HttpPayloadTraitsWithMediaTypeCommandInput}
@@ -58,6 +63,8 @@ export interface HttpPayloadTraitsWithMediaTypeCommandOutput
  * @see {@link HttpPayloadTraitsWithMediaTypeCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<

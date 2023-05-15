@@ -41,6 +41,12 @@ export interface FlattenedXmlMapWithXmlNameCommandOutput extends FlattenedXmlMap
  * const input = {};
  * const command = new FlattenedXmlMapWithXmlNameCommand(input);
  * const response = await client.send(command);
+ * // { // FlattenedXmlMapWithXmlNameOutput
+ * //   myMap: { // FlattenedXmlMapWithXmlNameOutputMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param FlattenedXmlMapWithXmlNameCommandInput - {@link FlattenedXmlMapWithXmlNameCommandInput}
@@ -49,6 +55,8 @@ export interface FlattenedXmlMapWithXmlNameCommandOutput extends FlattenedXmlMap
  * @see {@link FlattenedXmlMapWithXmlNameCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class FlattenedXmlMapWithXmlNameCommand extends $Command<

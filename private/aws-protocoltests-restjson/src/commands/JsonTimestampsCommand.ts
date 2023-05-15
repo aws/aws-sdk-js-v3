@@ -51,6 +51,16 @@ export interface JsonTimestampsCommandOutput extends JsonTimestampsInputOutput, 
  * };
  * const command = new JsonTimestampsCommand(input);
  * const response = await client.send(command);
+ * // { // JsonTimestampsInputOutput
+ * //   normal: new Date("TIMESTAMP"),
+ * //   dateTime: new Date("TIMESTAMP"),
+ * //   dateTimeOnTarget: new Date("TIMESTAMP"),
+ * //   epochSeconds: new Date("TIMESTAMP"),
+ * //   epochSecondsOnTarget: new Date("TIMESTAMP"),
+ * //   httpDate: new Date("TIMESTAMP"),
+ * //   httpDateOnTarget: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param JsonTimestampsCommandInput - {@link JsonTimestampsCommandInput}
@@ -59,6 +69,8 @@ export interface JsonTimestampsCommandOutput extends JsonTimestampsInputOutput, 
  * @see {@link JsonTimestampsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class JsonTimestampsCommand extends $Command<

@@ -40,6 +40,8 @@ export interface UnitInputAndOutputCommandOutput extends __MetadataBearer {}
  * const input = {};
  * const command = new UnitInputAndOutputCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param UnitInputAndOutputCommandInput - {@link UnitInputAndOutputCommandInput}
@@ -48,6 +50,8 @@ export interface UnitInputAndOutputCommandOutput extends __MetadataBearer {}
  * @see {@link UnitInputAndOutputCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class UnitInputAndOutputCommand extends $Command<

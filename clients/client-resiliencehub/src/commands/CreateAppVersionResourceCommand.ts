@@ -120,6 +120,8 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  * //       ],
  * //     },
  * //     excluded: true || false,
+ * //     sourceType: "STRING_VALUE",
+ * //     parentResourceName: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -43,6 +43,10 @@ export interface XmlBlobsCommandOutput extends XmlBlobsInputOutput, __MetadataBe
  * };
  * const command = new XmlBlobsCommand(input);
  * const response = await client.send(command);
+ * // { // XmlBlobsInputOutput
+ * //   data: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param XmlBlobsCommandInput - {@link XmlBlobsCommandInput}
@@ -51,6 +55,8 @@ export interface XmlBlobsCommandOutput extends XmlBlobsInputOutput, __MetadataBe
  * @see {@link XmlBlobsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class XmlBlobsCommand extends $Command<

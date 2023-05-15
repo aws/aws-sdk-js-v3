@@ -41,6 +41,21 @@ export interface XmlEnumsCommandOutput extends XmlEnumsOutput, __MetadataBearer 
  * const input = {};
  * const command = new XmlEnumsCommand(input);
  * const response = await client.send(command);
+ * // { // XmlEnumsOutput
+ * //   fooEnum1: "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   fooEnum2: "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   fooEnum3: "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   fooEnumList: [ // FooEnumList
+ * //     "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   ],
+ * //   fooEnumSet: [ // FooEnumSet
+ * //     "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   ],
+ * //   fooEnumMap: { // FooEnumMap
+ * //     "<keys>": "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param XmlEnumsCommandInput - {@link XmlEnumsCommandInput}
@@ -49,6 +64,8 @@ export interface XmlEnumsCommandOutput extends XmlEnumsOutput, __MetadataBearer 
  * @see {@link XmlEnumsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
+ * @throws {@link EC2ProtocolServiceException}
+ * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
  */
 export class XmlEnumsCommand extends $Command<

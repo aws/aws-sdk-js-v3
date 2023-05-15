@@ -137,9 +137,15 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //         },
  * //       },
  * //       inferredWorkloadTypes: [ // InferredWorkloadTypes
- * //         "AmazonEmr" || "ApacheCassandra" || "ApacheHadoop" || "Memcached" || "Nginx" || "PostgreSql" || "Redis" || "Kafka",
+ * //         "AmazonEmr" || "ApacheCassandra" || "ApacheHadoop" || "Memcached" || "Nginx" || "PostgreSql" || "Redis" || "Kafka" || "SQLServer",
  * //       ],
  * //       instanceState: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
+ * //       tags: [ // Tags
+ * //         { // Tag
+ * //           key: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   errors: [ // GetRecommendationErrors

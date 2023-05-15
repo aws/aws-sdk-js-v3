@@ -48,6 +48,10 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * const input = {};
  * const command = new GreetingWithErrorsCommand(input);
  * const response = await client.send(command);
+ * // { // GreetingWithErrorsOutput
+ * //   greeting: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GreetingWithErrorsCommandInput - {@link GreetingWithErrorsCommandInput}
@@ -66,6 +70,8 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  *  This error has test cases that test some of the dark corners of Amazon service
  * framework history. It should only be implemented by clients.
  *
+ * @throws {@link JsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
  */
 export class GreetingWithErrorsCommand extends $Command<

@@ -80,6 +80,47 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
  * };
  * const command = new JsonMapsCommand(input);
  * const response = await client.send(command);
+ * // { // JsonMapsInputOutput
+ * //   denseStructMap: { // DenseStructMap
+ * //     "<keys>": { // GreetingStruct
+ * //       hi: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   sparseStructMap: { // SparseStructMap
+ * //     "<keys>": {
+ * //       hi: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   denseNumberMap: { // DenseNumberMap
+ * //     "<keys>": Number("int"),
+ * //   },
+ * //   denseBooleanMap: { // DenseBooleanMap
+ * //     "<keys>": true || false,
+ * //   },
+ * //   denseStringMap: { // DenseStringMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   sparseNumberMap: { // SparseNumberMap
+ * //     "<keys>": Number("int"),
+ * //   },
+ * //   sparseBooleanMap: { // SparseBooleanMap
+ * //     "<keys>": true || false,
+ * //   },
+ * //   sparseStringMap: { // SparseStringMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   denseSetMap: { // DenseSetMap
+ * //     "<keys>": [ // StringSet
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   sparseSetMap: { // SparseSetMap
+ * //     "<keys>": [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param JsonMapsCommandInput - {@link JsonMapsCommandInput}
@@ -88,6 +129,8 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
  * @see {@link JsonMapsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class JsonMapsCommand extends $Command<

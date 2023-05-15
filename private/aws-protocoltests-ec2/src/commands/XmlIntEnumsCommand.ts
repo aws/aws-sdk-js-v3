@@ -41,6 +41,21 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsOutput, __MetadataB
  * const input = {};
  * const command = new XmlIntEnumsCommand(input);
  * const response = await client.send(command);
+ * // { // XmlIntEnumsOutput
+ * //   intEnum1: 1 || 2 || 3,
+ * //   intEnum2: 1 || 2 || 3,
+ * //   intEnum3: 1 || 2 || 3,
+ * //   intEnumList: [ // IntegerEnumList
+ * //     1 || 2 || 3,
+ * //   ],
+ * //   intEnumSet: [ // IntegerEnumSet
+ * //     1 || 2 || 3,
+ * //   ],
+ * //   intEnumMap: { // IntegerEnumMap
+ * //     "<keys>": 1 || 2 || 3,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param XmlIntEnumsCommandInput - {@link XmlIntEnumsCommandInput}
@@ -49,6 +64,8 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsOutput, __MetadataB
  * @see {@link XmlIntEnumsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
+ * @throws {@link EC2ProtocolServiceException}
+ * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
  */
 export class XmlIntEnumsCommand extends $Command<

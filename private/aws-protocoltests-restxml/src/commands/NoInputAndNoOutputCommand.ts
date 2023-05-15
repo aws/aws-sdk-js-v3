@@ -42,6 +42,8 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  * const input = {};
  * const command = new NoInputAndNoOutputCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param NoInputAndNoOutputCommandInput - {@link NoInputAndNoOutputCommandInput}
@@ -50,6 +52,8 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  * @see {@link NoInputAndNoOutputCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class NoInputAndNoOutputCommand extends $Command<

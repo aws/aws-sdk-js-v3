@@ -41,6 +41,22 @@ export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutpu
  * const input = {};
  * const command = new RecursiveXmlShapesCommand(input);
  * const response = await client.send(command);
+ * // { // RecursiveXmlShapesOutput
+ * //   nested: { // RecursiveXmlShapesOutputNested1
+ * //     foo: "STRING_VALUE",
+ * //     nested: { // RecursiveXmlShapesOutputNested2
+ * //       bar: "STRING_VALUE",
+ * //       recursiveMember: {
+ * //         foo: "STRING_VALUE",
+ * //         nested: {
+ * //           bar: "STRING_VALUE",
+ * //           recursiveMember: "<RecursiveXmlShapesOutputNested1>",
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param RecursiveXmlShapesCommandInput - {@link RecursiveXmlShapesCommandInput}
@@ -49,6 +65,8 @@ export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutpu
  * @see {@link RecursiveXmlShapesCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
+ * @throws {@link EC2ProtocolServiceException}
+ * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
  */
 export class RecursiveXmlShapesCommand extends $Command<

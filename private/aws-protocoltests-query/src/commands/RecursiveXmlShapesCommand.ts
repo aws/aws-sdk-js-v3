@@ -41,6 +41,22 @@ export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutpu
  * const input = {};
  * const command = new RecursiveXmlShapesCommand(input);
  * const response = await client.send(command);
+ * // { // RecursiveXmlShapesOutput
+ * //   nested: { // RecursiveXmlShapesOutputNested1
+ * //     foo: "STRING_VALUE",
+ * //     nested: { // RecursiveXmlShapesOutputNested2
+ * //       bar: "STRING_VALUE",
+ * //       recursiveMember: {
+ * //         foo: "STRING_VALUE",
+ * //         nested: {
+ * //           bar: "STRING_VALUE",
+ * //           recursiveMember: "<RecursiveXmlShapesOutputNested1>",
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param RecursiveXmlShapesCommandInput - {@link RecursiveXmlShapesCommandInput}
@@ -49,6 +65,8 @@ export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutpu
  * @see {@link RecursiveXmlShapesCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class RecursiveXmlShapesCommand extends $Command<

@@ -44,6 +44,10 @@ export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlN
  * const input = {};
  * const command = new IgnoresWrappingXmlNameCommand(input);
  * const response = await client.send(command);
+ * // { // IgnoresWrappingXmlNameOutput
+ * //   foo: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param IgnoresWrappingXmlNameCommandInput - {@link IgnoresWrappingXmlNameCommandInput}
@@ -52,6 +56,8 @@ export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlN
  * @see {@link IgnoresWrappingXmlNameCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class IgnoresWrappingXmlNameCommand extends $Command<

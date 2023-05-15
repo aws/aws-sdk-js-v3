@@ -51,6 +51,8 @@ export interface NestedStructuresCommandOutput extends __MetadataBearer {}
  * };
  * const command = new NestedStructuresCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param NestedStructuresCommandInput - {@link NestedStructuresCommandInput}
@@ -59,6 +61,8 @@ export interface NestedStructuresCommandOutput extends __MetadataBearer {}
  * @see {@link NestedStructuresCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class NestedStructuresCommand extends $Command<

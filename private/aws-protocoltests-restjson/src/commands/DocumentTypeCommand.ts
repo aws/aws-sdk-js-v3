@@ -44,6 +44,11 @@ export interface DocumentTypeCommandOutput extends DocumentTypeInputOutput, __Me
  * };
  * const command = new DocumentTypeCommand(input);
  * const response = await client.send(command);
+ * // { // DocumentTypeInputOutput
+ * //   stringValue: "STRING_VALUE",
+ * //   documentValue: "DOCUMENT_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DocumentTypeCommandInput - {@link DocumentTypeCommandInput}
@@ -52,6 +57,8 @@ export interface DocumentTypeCommandOutput extends DocumentTypeInputOutput, __Me
  * @see {@link DocumentTypeCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class DocumentTypeCommand extends $Command<

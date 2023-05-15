@@ -41,6 +41,14 @@ export interface XmlMapsCommandOutput extends XmlMapsOutput, __MetadataBearer {}
  * const input = {};
  * const command = new XmlMapsCommand(input);
  * const response = await client.send(command);
+ * // { // XmlMapsOutput
+ * //   myMap: { // XmlMapsOutputMap
+ * //     "<keys>": { // GreetingStruct
+ * //       hi: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param XmlMapsCommandInput - {@link XmlMapsCommandInput}
@@ -49,6 +57,8 @@ export interface XmlMapsCommandOutput extends XmlMapsOutput, __MetadataBearer {}
  * @see {@link XmlMapsCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class XmlMapsCommand extends $Command<

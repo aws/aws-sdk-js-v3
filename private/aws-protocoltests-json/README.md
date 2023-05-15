@@ -2,9 +2,6 @@
 
 # @aws-sdk/aws-protocoltests-json
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-protocoltests-json/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-json)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-protocoltests-json.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-json)
-
 ## Description
 
 AWS SDK for JavaScript JsonProtocol Client for Node.js, Browser and React Native.

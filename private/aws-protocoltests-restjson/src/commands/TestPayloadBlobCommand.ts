@@ -51,6 +51,11 @@ export interface TestPayloadBlobCommandOutput extends TestPayloadBlobInputOutput
  * };
  * const command = new TestPayloadBlobCommand(input);
  * const response = await client.send(command);
+ * // { // TestPayloadBlobInputOutput
+ * //   contentType: "STRING_VALUE",
+ * //   data: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param TestPayloadBlobCommandInput - {@link TestPayloadBlobCommandInput}
@@ -59,6 +64,8 @@ export interface TestPayloadBlobCommandOutput extends TestPayloadBlobInputOutput
  * @see {@link TestPayloadBlobCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class TestPayloadBlobCommand extends $Command<

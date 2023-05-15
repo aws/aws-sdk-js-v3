@@ -84,6 +84,8 @@ export interface ListAppVersionResourcesCommandOutput extends ListAppVersionReso
  * //         ],
  * //       },
  * //       excluded: true || false,
+ * //       sourceType: "STRING_VALUE",
+ * //       parentResourceName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   resolutionId: "STRING_VALUE", // required

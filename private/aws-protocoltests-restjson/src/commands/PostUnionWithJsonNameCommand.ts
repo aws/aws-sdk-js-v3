@@ -47,6 +47,14 @@ export interface PostUnionWithJsonNameCommandOutput extends PostUnionWithJsonNam
  * };
  * const command = new PostUnionWithJsonNameCommand(input);
  * const response = await client.send(command);
+ * // { // PostUnionWithJsonNameOutput
+ * //   value: { // UnionWithJsonName Union: only one key present
+ * //     foo: "STRING_VALUE",
+ * //     bar: "STRING_VALUE",
+ * //     baz: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PostUnionWithJsonNameCommandInput - {@link PostUnionWithJsonNameCommandInput}
@@ -55,6 +63,8 @@ export interface PostUnionWithJsonNameCommandOutput extends PostUnionWithJsonNam
  * @see {@link PostUnionWithJsonNameCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class PostUnionWithJsonNameCommand extends $Command<

@@ -54,6 +54,21 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsInputOutput, __Meta
  * };
  * const command = new XmlIntEnumsCommand(input);
  * const response = await client.send(command);
+ * // { // XmlIntEnumsInputOutput
+ * //   intEnum1: 1 || 2 || 3,
+ * //   intEnum2: 1 || 2 || 3,
+ * //   intEnum3: 1 || 2 || 3,
+ * //   intEnumList: [ // IntegerEnumList
+ * //     1 || 2 || 3,
+ * //   ],
+ * //   intEnumSet: [ // IntegerEnumSet
+ * //     1 || 2 || 3,
+ * //   ],
+ * //   intEnumMap: { // IntegerEnumMap
+ * //     "<keys>": 1 || 2 || 3,
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param XmlIntEnumsCommandInput - {@link XmlIntEnumsCommandInput}
@@ -62,6 +77,8 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsInputOutput, __Meta
  * @see {@link XmlIntEnumsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class XmlIntEnumsCommand extends $Command<

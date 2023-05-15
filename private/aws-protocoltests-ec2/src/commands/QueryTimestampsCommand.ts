@@ -49,6 +49,8 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new QueryTimestampsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param QueryTimestampsCommandInput - {@link QueryTimestampsCommandInput}
@@ -57,6 +59,8 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  * @see {@link QueryTimestampsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
+ * @throws {@link EC2ProtocolServiceException}
+ * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
  */
 export class QueryTimestampsCommand extends $Command<

@@ -41,6 +41,10 @@ export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer 
  * const input = {};
  * const command = new XmlBlobsCommand(input);
  * const response = await client.send(command);
+ * // { // XmlBlobsOutput
+ * //   data: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param XmlBlobsCommandInput - {@link XmlBlobsCommandInput}
@@ -49,6 +53,8 @@ export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer 
  * @see {@link XmlBlobsCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class XmlBlobsCommand extends $Command<

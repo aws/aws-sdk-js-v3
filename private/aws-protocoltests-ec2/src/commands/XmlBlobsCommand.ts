@@ -41,6 +41,10 @@ export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer 
  * const input = {};
  * const command = new XmlBlobsCommand(input);
  * const response = await client.send(command);
+ * // { // XmlBlobsOutput
+ * //   data: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param XmlBlobsCommandInput - {@link XmlBlobsCommandInput}
@@ -49,6 +53,8 @@ export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer 
  * @see {@link XmlBlobsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
+ * @throws {@link EC2ProtocolServiceException}
+ * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
  */
 export class XmlBlobsCommand extends $Command<

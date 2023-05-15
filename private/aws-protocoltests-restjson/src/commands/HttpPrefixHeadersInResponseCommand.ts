@@ -44,6 +44,12 @@ export interface HttpPrefixHeadersInResponseCommandOutput extends HttpPrefixHead
  * const input = {};
  * const command = new HttpPrefixHeadersInResponseCommand(input);
  * const response = await client.send(command);
+ * // { // HttpPrefixHeadersInResponseOutput
+ * //   prefixHeaders: { // StringMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param HttpPrefixHeadersInResponseCommandInput - {@link HttpPrefixHeadersInResponseCommandInput}
@@ -52,6 +58,8 @@ export interface HttpPrefixHeadersInResponseCommandOutput extends HttpPrefixHead
  * @see {@link HttpPrefixHeadersInResponseCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class HttpPrefixHeadersInResponseCommand extends $Command<

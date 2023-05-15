@@ -45,6 +45,12 @@ export interface PostPlayerActionCommandOutput extends PostPlayerActionOutput, _
  * };
  * const command = new PostPlayerActionCommand(input);
  * const response = await client.send(command);
+ * // { // PostPlayerActionOutput
+ * //   action: { // PlayerAction Union: only one key present
+ * //     quit: {},
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param PostPlayerActionCommandInput - {@link PostPlayerActionCommandInput}
@@ -53,6 +59,8 @@ export interface PostPlayerActionCommandOutput extends PostPlayerActionOutput, _
  * @see {@link PostPlayerActionCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class PostPlayerActionCommand extends $Command<

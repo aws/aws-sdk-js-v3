@@ -44,6 +44,10 @@ export interface HttpChecksumRequiredCommandOutput extends HttpChecksumRequiredI
  * };
  * const command = new HttpChecksumRequiredCommand(input);
  * const response = await client.send(command);
+ * // { // HttpChecksumRequiredInputOutput
+ * //   foo: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param HttpChecksumRequiredCommandInput - {@link HttpChecksumRequiredCommandInput}
@@ -52,6 +56,8 @@ export interface HttpChecksumRequiredCommandOutput extends HttpChecksumRequiredI
  * @see {@link HttpChecksumRequiredCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class HttpChecksumRequiredCommand extends $Command<
