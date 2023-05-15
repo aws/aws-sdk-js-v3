@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.333.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.332.0...v3.333.0) (2023-05-15)
+
+
+### Features
+
+* **client-rekognition:** This release adds a new EyeDirection attribute in Amazon Rekognition DetectFaces and IndexFaces APIs which predicts the yaw and pitch angles of a person's eye gaze direction for each face detected in the image. ([beb1d38](https://github.com/aws/aws-sdk-js-v3/commit/beb1d383cdf3652aad2bb0330aa5f64dc9e5e54b))
+
+
+
+
+
 # [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
 
 **Note:** Version bump only for package @aws-sdk/client-rekognition

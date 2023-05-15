@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.333.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.332.0...v3.333.0) (2023-05-15)
+
+
+### Features
+
+* **client-athena:** You can now define custom spark properties at start of the session for use cases like cluster encryption, table formats, and general Spark tuning. ([f25e039](https://github.com/aws/aws-sdk-js-v3/commit/f25e039696d9cf38fc85f86a9618be21d256df37))
+
+
+
+
+
 # [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
 
 **Note:** Version bump only for package @aws-sdk/client-athena

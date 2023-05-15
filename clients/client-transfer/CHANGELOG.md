@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.333.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.332.0...v3.333.0) (2023-05-15)
+
+
+### Features
+
+* **client-transfer:** This release introduces the ability to require both password and SSH key when users authenticate to your Transfer Family servers that use the SFTP protocol. ([96f9884](https://github.com/aws/aws-sdk-js-v3/commit/96f98840131b6463aada6ac629d722cc87aa73b9))
+
+
+
+
+
 # [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer

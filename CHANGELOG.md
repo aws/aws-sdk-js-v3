@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.333.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.332.0...v3.333.0) (2023-05-15)
+
+
+### Features
+
+* **client-athena:** You can now define custom spark properties at start of the session for use cases like cluster encryption, table formats, and general Spark tuning. ([f25e039](https://github.com/aws/aws-sdk-js-v3/commit/f25e039696d9cf38fc85f86a9618be21d256df37))
+* **client-codecatalyst:** With this release, the users can list the active sessions connected to their Dev Environment on AWS CodeCatalyst ([22d0496](https://github.com/aws/aws-sdk-js-v3/commit/22d0496afd414449d28df8f8331dcd674bd6231f))
+* **client-kafka:** Added a fix to make clusterarn a required field in ListClientVpcConnections and RejectClientVpcConnection APIs ([060e2bd](https://github.com/aws/aws-sdk-js-v3/commit/060e2bdfaa59af59c346b4a7ae92e8005c783848))
+* **client-rekognition:** This release adds a new EyeDirection attribute in Amazon Rekognition DetectFaces and IndexFaces APIs which predicts the yaw and pitch angles of a person's eye gaze direction for each face detected in the image. ([beb1d38](https://github.com/aws/aws-sdk-js-v3/commit/beb1d383cdf3652aad2bb0330aa5f64dc9e5e54b))
+* **client-rolesanywhere:** Adds support for custom notification settings in a trust anchor. Introduces PutNotificationSettings and ResetNotificationSettings API's. Updates DurationSeconds max value to 3600. ([faf4b70](https://github.com/aws/aws-sdk-js-v3/commit/faf4b70930dca22a5679d83fb8696edfbe445514))
+* **client-transfer:** This release introduces the ability to require both password and SSH key when users authenticate to your Transfer Family servers that use the SFTP protocol. ([96f9884](https://github.com/aws/aws-sdk-js-v3/commit/96f98840131b6463aada6ac629d722cc87aa73b9))
+* **clients:** update client endpoints as of 2023-05-15 ([ec6e504](https://github.com/aws/aws-sdk-js-v3/commit/ec6e5041226d94baba79323743665b853f6a8be0))
+
+
+
+
+
 # [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
 
 

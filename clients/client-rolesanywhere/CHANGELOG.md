@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.333.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.332.0...v3.333.0) (2023-05-15)
+
+
+### Features
+
+* **client-rolesanywhere:** Adds support for custom notification settings in a trust anchor. Introduces PutNotificationSettings and ResetNotificationSettings API's. Updates DurationSeconds max value to 3600. ([faf4b70](https://github.com/aws/aws-sdk-js-v3/commit/faf4b70930dca22a5679d83fb8696edfbe445514))
+
+
+
+
+
 # [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
 
 **Note:** Version bump only for package @aws-sdk/client-rolesanywhere

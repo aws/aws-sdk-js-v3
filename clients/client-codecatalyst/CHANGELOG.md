@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.333.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.332.0...v3.333.0) (2023-05-15)
+
+
+### Features
+
+* **client-codecatalyst:** With this release, the users can list the active sessions connected to their Dev Environment on AWS CodeCatalyst ([22d0496](https://github.com/aws/aws-sdk-js-v3/commit/22d0496afd414449d28df8f8331dcd674bd6231f))
+
+
+
+
+
 # [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
 
 **Note:** Version bump only for package @aws-sdk/client-codecatalyst
