@@ -124,6 +124,7 @@ export const Attribute = {
   EMOTIONS: "EMOTIONS",
   EYEGLASSES: "EYEGLASSES",
   EYES_OPEN: "EYES_OPEN",
+  EYE_DIRECTION: "EYE_DIRECTION",
   FACE_OCCLUDED: "FACE_OCCLUDED",
   GENDER: "GENDER",
   MOUTH_OPEN: "MOUTH_OPEN",
@@ -680,6 +681,27 @@ export interface Celebrity {
 
 /**
  * @public
+ * <p>Indicates the direction the eyes are gazing in (independent of the head pose) as determined by its pitch and yaw. </p>
+ */
+export interface EyeDirection {
+  /**
+   * <p>Value representing eye direction on the yaw axis.</p>
+   */
+  Yaw?: number;
+
+  /**
+   * <p>Value representing eye direction on the pitch axis.</p>
+   */
+  Pitch?: number;
+
+  /**
+   * <p>The confidence that the service has in its predicted eye direction.</p>
+   */
+  Confidence?: number;
+}
+
+/**
+ * @public
  * <p>Indicates whether or not the face is wearing eye glasses, and the confidence level in
  *       the determination.</p>
  */
@@ -962,6 +984,11 @@ export interface FaceDetail {
    *       and others. </p>
    */
   FaceOccluded?: FaceOccluded;
+
+  /**
+   * <p>Indicates the direction the eyes are gazing in, as defined by pitch and yaw.</p>
+   */
+  EyeDirection?: EyeDirection;
 }
 
 /**
@@ -7401,22 +7428,6 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to
-   *       remove the tags from. </p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p> A list of the tags that you want to remove. </p>
-   */
-  TagKeys: string[] | undefined;
-}
 
 /**
  * @internal

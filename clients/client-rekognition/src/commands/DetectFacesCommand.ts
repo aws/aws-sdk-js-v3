@@ -67,7 +67,7 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  *     },
  *   },
  *   Attributes: [ // Attributes
- *     "DEFAULT" || "ALL" || "AGE_RANGE" || "BEARD" || "EMOTIONS" || "EYEGLASSES" || "EYES_OPEN" || "GENDER" || "MOUTH_OPEN" || "MUSTACHE" || "FACE_OCCLUDED" || "SMILE" || "SUNGLASSES",
+ *     "DEFAULT" || "ALL" || "AGE_RANGE" || "BEARD" || "EMOTIONS" || "EYE_DIRECTION" || "EYEGLASSES" || "EYES_OPEN" || "GENDER" || "MOUTH_OPEN" || "MUSTACHE" || "FACE_OCCLUDED" || "SMILE" || "SUNGLASSES",
  *   ],
  * };
  * const command = new DetectFacesCommand(input);
@@ -142,6 +142,11 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  * //       Confidence: Number("float"),
  * //       FaceOccluded: { // FaceOccluded
  * //         Value: true || false,
+ * //         Confidence: Number("float"),
+ * //       },
+ * //       EyeDirection: { // EyeDirection
+ * //         Yaw: Number("float"),
+ * //         Pitch: Number("float"),
  * //         Confidence: Number("float"),
  * //       },
  * //     },

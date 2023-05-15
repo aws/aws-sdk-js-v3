@@ -143,7 +143,7 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  *   },
  *   ExternalImageId: "STRING_VALUE",
  *   DetectionAttributes: [ // Attributes
- *     "DEFAULT" || "ALL" || "AGE_RANGE" || "BEARD" || "EMOTIONS" || "EYEGLASSES" || "EYES_OPEN" || "GENDER" || "MOUTH_OPEN" || "MUSTACHE" || "FACE_OCCLUDED" || "SMILE" || "SUNGLASSES",
+ *     "DEFAULT" || "ALL" || "AGE_RANGE" || "BEARD" || "EMOTIONS" || "EYE_DIRECTION" || "EYEGLASSES" || "EYES_OPEN" || "GENDER" || "MOUTH_OPEN" || "MUSTACHE" || "FACE_OCCLUDED" || "SMILE" || "SUNGLASSES",
  *   ],
  *   MaxFaces: Number("int"),
  *   QualityFilter: "NONE" || "AUTO" || "LOW" || "MEDIUM" || "HIGH",
@@ -236,6 +236,11 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * //           Value: true || false,
  * //           Confidence: Number("float"),
  * //         },
+ * //         EyeDirection: { // EyeDirection
+ * //           Yaw: Number("float"),
+ * //           Pitch: Number("float"),
+ * //           Confidence: Number("float"),
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -314,6 +319,11 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * //         Confidence: Number("float"),
  * //         FaceOccluded: {
  * //           Value: true || false,
+ * //           Confidence: Number("float"),
+ * //         },
+ * //         EyeDirection: {
+ * //           Yaw: Number("float"),
+ * //           Pitch: Number("float"),
  * //           Confidence: Number("float"),
  * //         },
  * //       },

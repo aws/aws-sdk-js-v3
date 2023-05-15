@@ -184,6 +184,11 @@ export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecogn
  * //             Value: true || false,
  * //             Confidence: Number("float"),
  * //           },
+ * //           EyeDirection: { // EyeDirection
+ * //             Yaw: Number("float"),
+ * //             Pitch: Number("float"),
+ * //             Confidence: Number("float"),
+ * //           },
  * //         },
  * //         KnownGender: { // KnownGender
  * //           Type: "Male" || "Female" || "Nonbinary" || "Unlisted",

@@ -253,6 +253,7 @@ import {
   Emotion,
   EquipmentDetection,
   EvaluationResult,
+  EyeDirection,
   Eyeglasses,
   EyeOpen,
   Face,
@@ -392,7 +393,6 @@ import {
   ThrottlingException,
   TrainingData,
   UnindexedFace,
-  UntagResourceRequest,
   Video,
   VideoMetadata,
   VideoTooLargeException,
@@ -400,6 +400,7 @@ import {
 import {
   StreamProcessorParameterToDelete,
   StreamProcessorSettingsForUpdate,
+  UntagResourceRequest,
   UpdateDatasetEntriesRequest,
   UpdateStreamProcessorRequest,
 } from "../models/models_1";
@@ -7101,6 +7102,17 @@ const de_EvaluationResult = (output: any, context: __SerdeContext): EvaluationRe
 };
 
 /**
+ * deserializeAws_json1_1EyeDirection
+ */
+const de_EyeDirection = (output: any, context: __SerdeContext): EyeDirection => {
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Pitch: __limitedParseFloat32,
+    Yaw: __limitedParseFloat32,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1Eyeglasses
  */
 const de_Eyeglasses = (output: any, context: __SerdeContext): Eyeglasses => {
@@ -7144,6 +7156,7 @@ const de_FaceDetail = (output: any, context: __SerdeContext): FaceDetail => {
     BoundingBox: (_: any) => de_BoundingBox(_, context),
     Confidence: __limitedParseFloat32,
     Emotions: (_: any) => de_Emotions(_, context),
+    EyeDirection: (_: any) => de_EyeDirection(_, context),
     Eyeglasses: (_: any) => de_Eyeglasses(_, context),
     EyesOpen: (_: any) => de_EyeOpen(_, context),
     FaceOccluded: (_: any) => de_FaceOccluded(_, context),

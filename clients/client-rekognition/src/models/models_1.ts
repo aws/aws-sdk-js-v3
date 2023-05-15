@@ -9,6 +9,22 @@ import {
 /**
  * @public
  */
+export interface UntagResourceRequest {
+  /**
+   * <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to
+   *       remove the tags from. </p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p> A list of the tags that you want to remove. </p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
 /**

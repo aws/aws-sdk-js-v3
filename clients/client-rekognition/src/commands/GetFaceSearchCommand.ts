@@ -169,6 +169,11 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  * //             Value: true || false,
  * //             Confidence: Number("float"),
  * //           },
+ * //           EyeDirection: { // EyeDirection
+ * //             Yaw: Number("float"),
+ * //             Pitch: Number("float"),
+ * //             Confidence: Number("float"),
+ * //           },
  * //         },
  * //       },
  * //       FaceMatches: [ // FaceMatchList

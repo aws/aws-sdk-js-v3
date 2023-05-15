@@ -165,6 +165,11 @@ export interface GetPersonTrackingCommandOutput extends GetPersonTrackingRespons
  * //             Value: true || false,
  * //             Confidence: Number("float"),
  * //           },
+ * //           EyeDirection: { // EyeDirection
+ * //             Yaw: Number("float"),
+ * //             Pitch: Number("float"),
+ * //             Confidence: Number("float"),
+ * //           },
  * //         },
  * //       },
  * //     },
