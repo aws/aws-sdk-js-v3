@@ -66,6 +66,11 @@ import {
   ListDevEnvironmentsCommandOutput,
 } from "./commands/ListDevEnvironmentsCommand";
 import {
+  ListDevEnvironmentSessionsCommand,
+  ListDevEnvironmentSessionsCommandInput,
+  ListDevEnvironmentSessionsCommandOutput,
+} from "./commands/ListDevEnvironmentSessionsCommand";
+import {
   ListEventLogsCommand,
   ListEventLogsCommandInput,
   ListEventLogsCommandOutput,
@@ -132,6 +137,7 @@ const commands = {
   GetUserDetailsCommand,
   ListAccessTokensCommand,
   ListDevEnvironmentsCommand,
+  ListDevEnvironmentSessionsCommand,
   ListEventLogsCommand,
   ListProjectsCommand,
   ListSourceRepositoriesCommand,
@@ -361,6 +367,23 @@ export interface CodeCatalyst {
   ): void;
 
   /**
+   * @see {@link ListDevEnvironmentSessionsCommand}
+   */
+  listDevEnvironmentSessions(
+    args: ListDevEnvironmentSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDevEnvironmentSessionsCommandOutput>;
+  listDevEnvironmentSessions(
+    args: ListDevEnvironmentSessionsCommandInput,
+    cb: (err: any, data?: ListDevEnvironmentSessionsCommandOutput) => void
+  ): void;
+  listDevEnvironmentSessions(
+    args: ListDevEnvironmentSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDevEnvironmentSessionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListEventLogsCommand}
    */
   listEventLogs(args: ListEventLogsCommandInput, options?: __HttpHandlerOptions): Promise<ListEventLogsCommandOutput>;
@@ -580,6 +603,10 @@ export interface CodeCatalyst {
  *             <li>
  *                <p>
  *                   <a>ListDevEnvironments</a>, which retrieves a list of Dev Environments in a project.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListDevEnvironmentSessions</a>, which retrieves a list of active Dev Environment sessions in a project.</p>
  *             </li>
  *             <li>
  *                <p>

@@ -63,6 +63,10 @@ and the billing plan for the space.</p>
 </li>
 <li>
 <p>
+<a>ListDevEnvironmentSessions</a>, which retrieves a list of active Dev Environment sessions in a project.</p>
+</li>
+<li>
+<p>
 <a>ListProjects</a>, which retrieves a list of projects in a space.</p>
 </li>
 <li>
@@ -428,6 +432,14 @@ ListDevEnvironments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/listdevenvironmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/listdevenvironmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/listdevenvironmentscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListDevEnvironmentSessions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/listdevenvironmentsessionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/listdevenvironmentsessionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/listdevenvironmentsessionscommandoutput.html)
 
 </details>
 <details>

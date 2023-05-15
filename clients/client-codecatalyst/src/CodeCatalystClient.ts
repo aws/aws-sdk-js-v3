@@ -72,6 +72,10 @@ import {
   ListDevEnvironmentsCommandInput,
   ListDevEnvironmentsCommandOutput,
 } from "./commands/ListDevEnvironmentsCommand";
+import {
+  ListDevEnvironmentSessionsCommandInput,
+  ListDevEnvironmentSessionsCommandOutput,
+} from "./commands/ListDevEnvironmentSessionsCommand";
 import { ListEventLogsCommandInput, ListEventLogsCommandOutput } from "./commands/ListEventLogsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
 import {
@@ -126,6 +130,7 @@ export type ServiceInputTypes =
   | GetSubscriptionCommandInput
   | GetUserDetailsCommandInput
   | ListAccessTokensCommandInput
+  | ListDevEnvironmentSessionsCommandInput
   | ListDevEnvironmentsCommandInput
   | ListEventLogsCommandInput
   | ListProjectsCommandInput
@@ -156,6 +161,7 @@ export type ServiceOutputTypes =
   | GetSubscriptionCommandOutput
   | GetUserDetailsCommandOutput
   | ListAccessTokensCommandOutput
+  | ListDevEnvironmentSessionsCommandOutput
   | ListDevEnvironmentsCommandOutput
   | ListEventLogsCommandOutput
   | ListProjectsCommandOutput
@@ -376,6 +382,10 @@ export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientReso
  *             <li>
  *                <p>
  *                   <a>ListDevEnvironments</a>, which retrieves a list of Dev Environments in a project.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListDevEnvironmentSessions</a>, which retrieves a list of active Dev Environment sessions in a project.</p>
  *             </li>
  *             <li>
  *                <p>

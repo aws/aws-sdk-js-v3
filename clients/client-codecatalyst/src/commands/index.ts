@@ -12,6 +12,7 @@ export * from "./GetSpaceCommand";
 export * from "./GetSubscriptionCommand";
 export * from "./GetUserDetailsCommand";
 export * from "./ListAccessTokensCommand";
+export * from "./ListDevEnvironmentSessionsCommand";
 export * from "./ListDevEnvironmentsCommand";
 export * from "./ListEventLogsCommand";
 export * from "./ListProjectsCommand";
