@@ -2389,6 +2389,11 @@ export interface EngineConfiguration {
    *                 Athena notebook ID.</p>
    */
   AdditionalConfigs?: Record<string, string>;
+
+  /**
+   * <p>Specifies custom jar files and Spark properties for use cases like cluster encryption, table formats, and general Spark tuning.</p>
+   */
+  SparkProperties?: Record<string, string>;
 }
 
 /**
