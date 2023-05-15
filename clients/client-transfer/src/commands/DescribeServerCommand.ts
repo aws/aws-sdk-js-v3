@@ -81,6 +81,7 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  * //       InvocationRole: "STRING_VALUE",
  * //       DirectoryId: "STRING_VALUE",
  * //       Function: "STRING_VALUE",
+ * //       SftpAuthenticationMethods: "PASSWORD" || "PUBLIC_KEY" || "PUBLIC_KEY_OR_PASSWORD" || "PUBLIC_KEY_AND_PASSWORD",
  * //     },
  * //     IdentityProviderType: "SERVICE_MANAGED" || "API_GATEWAY" || "AWS_DIRECTORY_SERVICE" || "AWS_LAMBDA",
  * //     LoggingRole: "STRING_VALUE",

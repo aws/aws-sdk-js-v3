@@ -32,7 +32,11 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
 
 /**
  * @public
- * <p>Lists all executions for the specified workflow.</p>
+ * <p>Lists all in-progress executions for the specified workflow.</p>
+ *          <note>
+ *             <p>If the specified workflow ID cannot be found, <code>ListExecutions</code> returns a
+ *         <code>ResourceNotFound</code> exception.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

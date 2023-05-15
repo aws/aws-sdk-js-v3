@@ -72,6 +72,7 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *     InvocationRole: "STRING_VALUE",
  *     DirectoryId: "STRING_VALUE",
  *     Function: "STRING_VALUE",
+ *     SftpAuthenticationMethods: "PASSWORD" || "PUBLIC_KEY" || "PUBLIC_KEY_OR_PASSWORD" || "PUBLIC_KEY_AND_PASSWORD",
  *   },
  *   LoggingRole: "STRING_VALUE",
  *   PostAuthenticationLoginBanner: "STRING_VALUE",

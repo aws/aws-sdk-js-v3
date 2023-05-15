@@ -32,7 +32,7 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
 
 /**
  * @public
- * <p>Lists all of your workflows.</p>
+ * <p>Lists all workflows associated with your Amazon Web Services account for your current region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

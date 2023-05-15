@@ -45,12 +45,21 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  *          <p>
  *       The <code>ServerId</code> and <code>UserName</code> parameters are required. The <code>ServerProtocol</code>, <code>SourceIp</code>, and <code>UserPassword</code> are all optional.
  *     </p>
- *          <note>
- *             <p>
- *         You cannot use <code>TestIdentityProvider</code> if the <code>IdentityProviderType</code> of your server is <code>SERVICE_MANAGED</code>.
- *       </p>
- *          </note>
+ *          <p>Note the following:</p>
  *          <ul>
+ *             <li>
+ *                <p> You cannot use <code>TestIdentityProvider</code> if the
+ *           <code>IdentityProviderType</code> of your server is <code>SERVICE_MANAGED</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>TestIdentityProvider</code> does not work with keys: it only accepts
+ *           passwords.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>TestIdentityProvider</code> can test the password operation for a custom Identity Provider that handles keys and passwords.</p>
+ *             </li>
  *             <li>
  *                <p>
  *         If you provide any incorrect values for any parameters, the <code>Response</code> field is empty.
@@ -71,8 +80,10 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  *           If you enter a Server ID for the <code>--server-id</code> parameter that does not identify an actual Transfer server, you receive the following error:
  *         </p>
  *                <p>
- *                   <code>An error occurred (ResourceNotFoundException) when calling the TestIdentityProvider operation: Unknown server</code>
- *                </p>
+ *                   <code>An error occurred (ResourceNotFoundException) when calling the TestIdentityProvider operation: Unknown server</code>.
+ *         </p>
+ *                <p>It is possible your sever is in a different region. You can specify a region by adding the following: <code>--region region-code</code>,
+ *           such as <code>--region us-east-2</code> to specify a server in <b>US East (Ohio)</b>.</p>
  *             </li>
  *          </ul>
  * @example

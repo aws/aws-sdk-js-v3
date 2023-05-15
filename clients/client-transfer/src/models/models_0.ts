@@ -350,19 +350,22 @@ export interface CopyStepDetails {
   Name?: string;
 
   /**
-   * <p>Specifies the location for the file being copied. Use <code>$\{Transfer:username\}</code> or <code>$\{Transfer:UploadDate\}</code> in this field to parametrize the destination
-   *       prefix by username or uploaded date.</p>
+   * <p>Specifies the location for the file being copied. Use <code>$\{Transfer:UserName\}</code> or
+   *         <code>$\{Transfer:UploadDate\}</code> in this field to parametrize the destination prefix by
+   *       username or uploaded date.</p>
    *          <ul>
    *             <li>
-   *                <p>Set the value of <code>DestinationFileLocation</code> to <code>$\{Transfer:username\}</code> to copy uploaded files to
-   *         an Amazon S3 bucket that is prefixed with the name of the Transfer Family user that uploaded the file.</p>
+   *                <p>Set the value of <code>DestinationFileLocation</code> to
+   *             <code>$\{Transfer:UserName\}</code> to copy uploaded files to an Amazon S3 bucket
+   *           that is prefixed with the name of the Transfer Family user that uploaded the
+   *           file.</p>
    *             </li>
    *             <li>
    *                <p>Set the value of <code>DestinationFileLocation</code> to <code>$\{Transfer:UploadDate\}</code> to copy uploaded files to
    *           an Amazon S3 bucket that is prefixed with the date of the upload.</p>
    *                <note>
    *                   <p>The system resolves <code>UploadDate</code> to a date format of <i>YYYY-MM-DD</i>, based on the date the file
-   *             is uploaded.</p>
+   *             is uploaded in UTC.</p>
    *                </note>
    *             </li>
    *          </ul>
@@ -372,6 +375,15 @@ export interface CopyStepDetails {
   /**
    * <p>A flag that indicates whether to overwrite an existing file of the same name.
    *       The default is <code>FALSE</code>.</p>
+   *          <p>If the workflow is processing a file that has the same name as an existing file, the behavior is as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If <code>OverwriteExisting</code> is <code>TRUE</code>, the existing file is replaced with the file being processed.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>OverwriteExisting</code> is <code>FALSE</code>, nothing happens, and the workflow processing stops.</p>
+   *             </li>
+   *          </ul>
    */
   OverwriteExisting?: OverwriteExisting | string;
 
@@ -1010,6 +1022,22 @@ export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
 /**
  * @public
+ * @enum
+ */
+export const SftpAuthenticationMethods = {
+  PASSWORD: "PASSWORD",
+  PUBLIC_KEY: "PUBLIC_KEY",
+  PUBLIC_KEY_AND_PASSWORD: "PUBLIC_KEY_AND_PASSWORD",
+  PUBLIC_KEY_OR_PASSWORD: "PUBLIC_KEY_OR_PASSWORD",
+} as const;
+
+/**
+ * @public
+ */
+export type SftpAuthenticationMethods = (typeof SftpAuthenticationMethods)[keyof typeof SftpAuthenticationMethods];
+
+/**
+ * @public
  * <p>Returns information related to the type of user authentication that is in use for a file
  *       transfer protocol-enabled server's users. A server can have only one method of
  *       authentication.</p>
@@ -1021,7 +1049,7 @@ export interface IdentityProviderDetails {
   Url?: string;
 
   /**
-   * <p>Provides the type of <code>InvocationRole</code> used to authenticate the user
+   * <p>This parameter is only applicable if your <code>IdentityProviderType</code> is <code>API_GATEWAY</code>. Provides the type of <code>InvocationRole</code> used to authenticate the user
    *       account.</p>
    */
   InvocationRole?: string;
@@ -1032,9 +1060,35 @@ export interface IdentityProviderDetails {
   DirectoryId?: string;
 
   /**
-   * <p>The ARN for a lambda function to use for the Identity provider.</p>
+   * <p>The ARN for a Lambda function to use for the Identity provider.</p>
    */
   Function?: string;
+
+  /**
+   * <p>For SFTP-enabled servers, and for custom identity providers <i>only</i>, you
+   *       can specify whether to authenticate using a password, SSH key pair, or both.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PASSWORD</code> - users must provide their password to connect.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PUBLIC_KEY</code> - users must provide their private key to connect.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PUBLIC_KEY_OR_PASSWORD</code> - users can authenticate with either their password or their key. This is the default value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PUBLIC_KEY_AND_PASSWORD</code> - users must provide both their private key and their password to connect.
+   *           The server checks the key first, and then if the key is valid, the system prompts for a password.
+   *           If the private key provided does not match the public key that is stored, authentication fails.</p>
+   *             </li>
+   *          </ul>
+   */
+  SftpAuthenticationMethods?: SftpAuthenticationMethods | string;
 }
 
 /**
@@ -1188,8 +1242,8 @@ export type Protocol = (typeof Protocol)[keyof typeof Protocol];
  * @public
  * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
  *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
- *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
- *     the session disconnects.</p>
+ *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when the server session disconnects
+ *     while the file is still being uploaded.</p>
  */
 export interface WorkflowDetail {
   /**
@@ -1334,7 +1388,7 @@ export interface CreateServerRequest {
 
   /**
    * <p>Required when <code>IdentityProviderType</code> is set to
-   *         <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>. Accepts an array containing
+   *         <code>AWS_DIRECTORY_SERVICE</code>, <code>Amazon Web Services_LAMBDA</code> or <code>API_GATEWAY</code>. Accepts an array containing
    *       all of the information required to use a directory in <code>AWS_DIRECTORY_SERVICE</code> or
    *       invoke a customer-supplied authentication API, including the API Gateway URL. Not required
    *       when <code>IdentityProviderType</code> is set to <code>SERVICE_MANAGED</code>.</p>
@@ -1354,7 +1408,7 @@ export interface CreateServerRequest {
    *       for authentication by using the <code>IdentityProviderDetails</code> parameter.</p>
    *          <p>Use the <code>AWS_LAMBDA</code> value to directly use an Lambda function as your identity provider.
    *       If you choose this value, you must specify the ARN for the Lambda function in the <code>Function</code> parameter
-   *       or the <code>IdentityProviderDetails</code> data type.</p>
+   *       for the <code>IdentityProviderDetails</code> data type.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 
@@ -1479,8 +1533,8 @@ export interface CreateServerRequest {
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
    *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
-   *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
-   *     the session disconnects.</p>
+   *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when the server session disconnects
+   *     while the file is still being uploaded.</p>
    */
   WorkflowDetails?: WorkflowDetails;
 }
@@ -1626,7 +1680,7 @@ export interface CreateUserResponse {
   ServerId: string | undefined;
 
   /**
-   * <p>A unique string that identifies a user account associated with a server.</p>
+   * <p>A unique string that identifies a Transfer Family user.</p>
    */
   UserName: string | undefined;
 }
@@ -1642,7 +1696,7 @@ export interface CustomStepDetails {
   Name?: string;
 
   /**
-   * <p>The ARN for the lambda function that is being called.</p>
+   * <p>The ARN for the Lambda function that is being called.</p>
    */
   Target?: string;
 
@@ -1715,11 +1769,38 @@ export interface DecryptStepDetails {
   /**
    * <p>A flag that indicates whether to overwrite an existing file of the same name.
    *       The default is <code>FALSE</code>.</p>
+   *          <p>If the workflow is processing a file that has the same name as an existing file, the behavior is as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If <code>OverwriteExisting</code> is <code>TRUE</code>, the existing file is replaced with the file being processed.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>OverwriteExisting</code> is <code>FALSE</code>, nothing happens, and the workflow processing stops.</p>
+   *             </li>
+   *          </ul>
    */
   OverwriteExisting?: OverwriteExisting | string;
 
   /**
-   * <p>Specifies the location for the file that's being processed.</p>
+   * <p>Specifies the location for the file being decrypted. Use <code>$\{Transfer:UserName\}</code> or
+   *       <code>$\{Transfer:UploadDate\}</code> in this field to parametrize the destination prefix by
+   *       username or uploaded date.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Set the value of <code>DestinationFileLocation</code> to
+   *           <code>$\{Transfer:UserName\}</code> to decrypt uploaded files to an Amazon S3 bucket
+   *           that is prefixed with the name of the Transfer Family user that uploaded the
+   *           file.</p>
+   *             </li>
+   *             <li>
+   *                <p>Set the value of <code>DestinationFileLocation</code> to <code>$\{Transfer:UploadDate\}</code> to decrypt uploaded files to
+   *           an Amazon S3 bucket that is prefixed with the date of the upload.</p>
+   *                <note>
+   *                   <p>The system resolves <code>UploadDate</code> to a date format of <i>YYYY-MM-DD</i>, based on the date the file
+   *             is uploaded in UTC.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
    */
   DestinationFileLocation: InputFileLocation | undefined;
 }
@@ -1983,8 +2064,8 @@ export interface CreateWorkflowRequest {
   /**
    * <p>Specifies the steps (actions) to take if errors are encountered during execution of the workflow.</p>
    *          <note>
-   *             <p>For custom steps, the lambda function needs to send <code>FAILURE</code> to the call
-   *         back API to kick off the exception steps. Additionally, if the lambda does not send
+   *             <p>For custom steps, the Lambda function needs to send <code>FAILURE</code> to the call
+   *         back API to kick off the exception steps. Additionally, if the Lambda does not send
    *           <code>SUCCESS</code> before it times out, the exception steps are executed.</p>
    *          </note>
    */
@@ -2756,7 +2837,7 @@ export interface ExecutionResults {
  */
 export interface UserDetails {
   /**
-   * <p>A unique string that identifies a user account associated with a server.</p>
+   * <p>A unique string that identifies a Transfer Family user associated with a server.</p>
    */
   UserName: string | undefined;
 
@@ -3115,7 +3196,7 @@ export interface DescribedServer {
    *       for authentication by using the <code>IdentityProviderDetails</code> parameter.</p>
    *          <p>Use the <code>AWS_LAMBDA</code> value to directly use an Lambda function as your identity provider.
    *       If you choose this value, you must specify the ARN for the Lambda function in the <code>Function</code> parameter
-   *       or the <code>IdentityProviderDetails</code> data type.</p>
+   *       for the <code>IdentityProviderDetails</code> data type.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 
@@ -3235,23 +3316,23 @@ export interface DescribedServer {
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
    *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
-   *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
-   *     the session disconnects.</p>
+   *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when the server session disconnects
+   *     while the file is still being uploaded.</p>
    */
   WorkflowDetails?: WorkflowDetails;
 }
 
 /**
  * @public
- * <p>Provides information about the public Secure Shell (SSH) key that is associated with a
- *       user account for the specific file transfer protocol-enabled server (as identified by
+ * <p>Provides information about the public Secure Shell (SSH) key that is associated with a Transfer Family
+ *       user for the specific file transfer protocol-enabled server (as identified by
  *         <code>ServerId</code>). The information returned includes the date the key was imported, the
  *       public key contents, and the public key ID. A user can store more than one SSH public key
  *       associated with their user name on a specific server.</p>
  */
 export interface SshPublicKey {
   /**
-   * <p>Specifies the date that the public key was added to the user account.</p>
+   * <p>Specifies the date that the public key was added to the Transfer Family user.</p>
    */
   DateImported: Date | undefined;
 
@@ -3533,7 +3614,7 @@ export interface DescribeUserResponse {
   ServerId: string | undefined;
 
   /**
-   * <p>An array containing the properties of the user account for the <code>ServerID</code> value
+   * <p>An array containing the properties of the Transfer Family user for the <code>ServerID</code> value
    *       that you specified.</p>
    */
   User: DescribedUser | undefined;
@@ -3689,7 +3770,7 @@ export interface ImportSshPublicKeyRequest {
   SshPublicKeyBody: string | undefined;
 
   /**
-   * <p>The name of the user account that is assigned to one or more servers.</p>
+   * <p>The name of the Transfer Family user that is assigned to one or more servers.</p>
    */
   UserName: string | undefined;
 }
@@ -4198,7 +4279,7 @@ export interface ListedServer {
    *       for authentication by using the <code>IdentityProviderDetails</code> parameter.</p>
    *          <p>Use the <code>AWS_LAMBDA</code> value to directly use an Lambda function as your identity provider.
    *       If you choose this value, you must specify the ARN for the Lambda function in the <code>Function</code> parameter
-   *       or the <code>IdentityProviderDetails</code> data type.</p>
+   *       for the <code>IdentityProviderDetails</code> data type.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 
@@ -4371,29 +4452,7 @@ export interface ListExecutionsResponse {
   WorkflowId: string | undefined;
 
   /**
-   * <p>Returns the details for each execution.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>NextToken</b>: returned from a call to several APIs,
-   *       you can use pass it to a subsequent command to continue listing additional executions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>StartTime</b>: timestamp indicating when the execution began.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Executions</b>: details of the execution, including the execution ID, initial file location,
-   *       and Service metadata.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Status</b>: one of the following values:
-   *         <code>IN_PROGRESS</code>, <code>COMPLETED</code>, <code>EXCEPTION</code>, <code>HANDLING_EXEPTION</code>.
-   *       </p>
-   *             </li>
-   *          </ul>
+   * <p>Returns the details for each execution, in a <code>ListedExecution</code> array.</p>
    */
   Executions: ListedExecution[] | undefined;
 }
@@ -4642,7 +4701,7 @@ export interface ListUsersResponse {
   ServerId: string | undefined;
 
   /**
-   * <p>Returns the user accounts and their properties for the <code>ServerId</code> value that
+   * <p>Returns the Transfer Family users and their properties for the <code>ServerId</code> value that
    *       you specify.</p>
    */
   Users: ListedUser[] | undefined;
@@ -4774,7 +4833,7 @@ export interface TagResourceRequest {
 
   /**
    * <p>Key-value pairs assigned to ARNs that you can use to group and search for resources by
-   *       type. You can attach this metadata to user accounts for any purpose.</p>
+   *       type. You can attach this metadata to resources (servers, users, workflows, and so on) for any purpose.</p>
    */
   Tags: Tag[] | undefined;
 }
@@ -4802,22 +4861,25 @@ export interface TestIdentityProviderRequest {
    *             <li>
    *                <p>File Transfer Protocol (FTP)</p>
    *             </li>
+   *             <li>
+   *                <p>Applicability Statement 2 (AS2)</p>
+   *             </li>
    *          </ul>
    */
   ServerProtocol?: Protocol | string;
 
   /**
-   * <p>The source IP address of the user account to be tested.</p>
+   * <p>The source IP address of the account to be tested.</p>
    */
   SourceIp?: string;
 
   /**
-   * <p>The name of the user account to be tested.</p>
+   * <p>The name of the account to be tested.</p>
    */
   UserName: string | undefined;
 
   /**
-   * <p>The password of the user account to be tested.</p>
+   * <p>The password of the account to be tested.</p>
    */
   UserPassword?: string;
 }
@@ -4827,12 +4889,12 @@ export interface TestIdentityProviderRequest {
  */
 export interface TestIdentityProviderResponse {
   /**
-   * <p>The response that is returned from your API Gateway.</p>
+   * <p>The response that is returned from your API Gateway or your Lambda function.</p>
    */
   Response?: string;
 
   /**
-   * <p>The HTTP status code that is the response from your API Gateway.</p>
+   * <p>The HTTP status code that is the response from your API Gateway or your Lambda function.</p>
    */
   StatusCode: number | undefined;
 
@@ -5411,7 +5473,7 @@ export interface UpdateServerRequest {
   SecurityPolicyName?: string;
 
   /**
-   * <p>A system-assigned unique identifier for a server instance that the user account is
+   * <p>A system-assigned unique identifier for a server instance that the Transfer Family user is
    *       assigned to.</p>
    */
   ServerId: string | undefined;
@@ -5419,8 +5481,8 @@ export interface UpdateServerRequest {
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
    *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
-   *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
-   *     the session disconnects.</p>
+   *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when the server session disconnects
+   *     while the file is still being uploaded.</p>
    *          <p>To remove an associated workflow from a server, you can provide an empty <code>OnUpload</code> object, as in the following example.</p>
    *          <p>
    *             <code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details '\{"OnUpload":[]\}'</code>
@@ -5434,7 +5496,7 @@ export interface UpdateServerRequest {
  */
 export interface UpdateServerResponse {
   /**
-   * <p>A system-assigned unique identifier for a server that the user account is assigned
+   * <p>A system-assigned unique identifier for a server that the Transfer Family user is assigned
    *       to.</p>
    */
   ServerId: string | undefined;
@@ -5517,7 +5579,7 @@ export interface UpdateUserRequest {
   Role?: string;
 
   /**
-   * <p>A system-assigned unique identifier for a server instance that the user account is
+   * <p>A system-assigned unique identifier for a Transfer Family server instance that the user is
    *       assigned to.</p>
    */
   ServerId: string | undefined;
@@ -5540,7 +5602,7 @@ export interface UpdateUserRequest {
  */
 export interface UpdateUserResponse {
   /**
-   * <p>A system-assigned unique identifier for a server instance that the user account is
+   * <p>A system-assigned unique identifier for a Transfer Family server instance that the account is
    *       assigned to.</p>
    */
   ServerId: string | undefined;
