@@ -32,7 +32,7 @@ export interface DisableTrustAnchorCommandOutput extends TrustAnchorDetailRespon
 
 /**
  * @public
- * <p>Disables a trust anchor. When disabled, <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> requests specifying this trust anchor are unauthorized.</p>
+ * <p>Disables a trust anchor. When disabled, temporary credential requests specifying this trust anchor are unauthorized.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>rolesanywhere:DisableTrustAnchor</code>.
@@ -63,6 +63,15 @@ export interface DisableTrustAnchorCommandOutput extends TrustAnchorDetailRespon
  * //     enabled: true || false,
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
+ * //     notificationSettings: [ // NotificationSettingDetails
+ * //       { // NotificationSettingDetail
+ * //         enabled: true || false, // required
+ * //         event: "STRING_VALUE", // required
+ * //         threshold: Number("int"),
+ * //         channel: "STRING_VALUE",
+ * //         configuredBy: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

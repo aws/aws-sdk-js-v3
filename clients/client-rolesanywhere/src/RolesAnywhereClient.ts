@@ -73,6 +73,14 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListTrustAnchorsCommandInput, ListTrustAnchorsCommandOutput } from "./commands/ListTrustAnchorsCommand";
+import {
+  PutNotificationSettingsCommandInput,
+  PutNotificationSettingsCommandOutput,
+} from "./commands/PutNotificationSettingsCommand";
+import {
+  ResetNotificationSettingsCommandInput,
+  ResetNotificationSettingsCommandOutput,
+} from "./commands/ResetNotificationSettingsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateCrlCommandInput, UpdateCrlCommandOutput } from "./commands/UpdateCrlCommand";
@@ -111,6 +119,8 @@ export type ServiceInputTypes =
   | ListSubjectsCommandInput
   | ListTagsForResourceCommandInput
   | ListTrustAnchorsCommandInput
+  | PutNotificationSettingsCommandInput
+  | ResetNotificationSettingsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateCrlCommandInput
@@ -142,6 +152,8 @@ export type ServiceOutputTypes =
   | ListSubjectsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTrustAnchorsCommandOutput
+  | PutNotificationSettingsCommandOutput
+  | ResetNotificationSettingsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateCrlCommandOutput
@@ -312,10 +324,21 @@ export interface RolesAnywhereClientResolvedConfig extends RolesAnywhereClientRe
 
 /**
  * @public
- * <p>AWS Identity and Access Management Roles Anywhere provides a secure way for your workloads such as servers, containers, and applications running outside of AWS to obtain Temporary AWS credentials. Your workloads can use the same IAM policies and roles that you have configured with native AWS applications to access AWS resources. Using IAM Roles Anywhere will eliminate the need to manage long term credentials for workloads running outside of AWS.</p>
- *          <p>To use IAM Roles Anywhere customer workloads will need to use X.509 certificates issued by their Certificate Authority (CA) . The Certificate Authority (CA) needs to be registered with IAM Roles Anywhere as a trust anchor to establish trust between customer PKI and IAM Roles Anywhere. Customers who do not manage their own PKI system can use AWS Certificate Manager Private Certificate Authority (ACM PCA) to create a Certificate Authority and use that to establish trust with IAM Roles Anywhere</p>
- *          <p>This guide describes the IAM rolesanywhere operations that you can call programmatically. For general information about IAM Roles Anywhere see <a href="https://docs.aws.amazon.com/">https://docs.aws.amazon.com/</a>
- *          </p>
+ * <p>Identity and Access Management Roles Anywhere provides a secure way for your workloads such as
+ *          servers, containers, and applications that run outside of Amazon Web Services to obtain
+ *          temporary Amazon Web Services credentials. Your workloads can use the same IAM policies and roles you have for native Amazon Web Services applications to access Amazon Web Services resources. Using IAM Roles Anywhere eliminates the need to
+ *          manage long-term credentials for workloads running outside of Amazon Web Services.</p>
+ *          <p>
+ *          To use IAM Roles Anywhere, your workloads must use X.509 certificates
+ *          issued by their certificate authority (CA). You register the CA with IAM
+ *          Roles Anywhere as a trust anchor to establish trust between your public key infrastructure
+ *          (PKI) and IAM Roles Anywhere. If you don't manage your own PKI system, you
+ *          can use Private Certificate Authority to create a CA and then use that to establish trust with
+ *          IAM Roles Anywhere.
+ *       </p>
+ *          <p>This guide describes the IAM Roles Anywhere operations that you can call
+ *          programmatically. For more information about IAM Roles Anywhere, see the
+ *             <a href="https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html">IAM Roles Anywhere User Guide</a>.</p>
  */
 export class RolesAnywhereClient extends __Client<
   __HttpHandlerOptions,

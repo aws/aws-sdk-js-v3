@@ -32,7 +32,7 @@ export interface DisableProfileCommandOutput extends ProfileDetailResponse, __Me
 
 /**
  * @public
- * <p>Disables a profile. When disabled, <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> requests with this profile fail.</p>
+ * <p>Disables a profile. When disabled, temporary credential requests with this profile fail.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>rolesanywhere:DisableProfile</code>.

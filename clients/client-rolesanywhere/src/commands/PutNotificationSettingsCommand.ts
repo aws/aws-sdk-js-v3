@@ -13,42 +13,52 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ScalarTrustAnchorRequest, TrustAnchorDetailResponse } from "../models/models_0";
-import { de_DeleteTrustAnchorCommand, se_DeleteTrustAnchorCommand } from "../protocols/Aws_restJson1";
+import { PutNotificationSettingsRequest, PutNotificationSettingsResponse } from "../models/models_0";
+import { de_PutNotificationSettingsCommand, se_PutNotificationSettingsCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
  * @public
  *
- * The input for {@link DeleteTrustAnchorCommand}.
+ * The input for {@link PutNotificationSettingsCommand}.
  */
-export interface DeleteTrustAnchorCommandInput extends ScalarTrustAnchorRequest {}
+export interface PutNotificationSettingsCommandInput extends PutNotificationSettingsRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteTrustAnchorCommand}.
+ * The output of {@link PutNotificationSettingsCommand}.
  */
-export interface DeleteTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
+export interface PutNotificationSettingsCommandOutput extends PutNotificationSettingsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes a trust anchor.</p>
+ * <p>Attaches a list of <i>notification settings</i> to a trust anchor.</p>
+ *          <p>A notification setting includes information such as event name, threshold, status of
+ *          the notification setting, and the channel to notify.</p>
  *          <p>
  *             <b>Required permissions: </b>
- *             <code>rolesanywhere:DeleteTrustAnchor</code>.
+ *             <code>rolesanywhere:PutNotificationSettings</code>.
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RolesAnywhereClient, DeleteTrustAnchorCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
- * // const { RolesAnywhereClient, DeleteTrustAnchorCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
+ * import { RolesAnywhereClient, PutNotificationSettingsCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
+ * // const { RolesAnywhereClient, PutNotificationSettingsCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
- * const input = { // ScalarTrustAnchorRequest
+ * const input = { // PutNotificationSettingsRequest
  *   trustAnchorId: "STRING_VALUE", // required
+ *   notificationSettings: [ // NotificationSettings // required
+ *     { // NotificationSetting
+ *       enabled: true || false, // required
+ *       event: "STRING_VALUE", // required
+ *       threshold: Number("int"),
+ *       channel: "STRING_VALUE",
+ *     },
+ *   ],
  * };
- * const command = new DeleteTrustAnchorCommand(input);
+ * const command = new PutNotificationSettingsCommand(input);
  * const response = await client.send(command);
- * // { // TrustAnchorDetailResponse
+ * // { // PutNotificationSettingsResponse
  * //   trustAnchor: { // TrustAnchorDetail
  * //     trustAnchorId: "STRING_VALUE",
  * //     trustAnchorArn: "STRING_VALUE",
@@ -77,10 +87,10 @@ export interface DeleteTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  *
  * ```
  *
- * @param DeleteTrustAnchorCommandInput - {@link DeleteTrustAnchorCommandInput}
- * @returns {@link DeleteTrustAnchorCommandOutput}
- * @see {@link DeleteTrustAnchorCommandInput} for command's `input` shape.
- * @see {@link DeleteTrustAnchorCommandOutput} for command's `response` shape.
+ * @param PutNotificationSettingsCommandInput - {@link PutNotificationSettingsCommandInput}
+ * @returns {@link PutNotificationSettingsCommandOutput}
+ * @see {@link PutNotificationSettingsCommandInput} for command's `input` shape.
+ * @see {@link PutNotificationSettingsCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -89,13 +99,16 @@ export interface DeleteTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validation exception error.</p>
+ *
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
  */
-export class DeleteTrustAnchorCommand extends $Command<
-  DeleteTrustAnchorCommandInput,
-  DeleteTrustAnchorCommandOutput,
+export class PutNotificationSettingsCommand extends $Command<
+  PutNotificationSettingsCommandInput,
+  PutNotificationSettingsCommandOutput,
   RolesAnywhereClientResolvedConfig
 > {
   // Start section: command_properties
@@ -113,7 +126,7 @@ export class DeleteTrustAnchorCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteTrustAnchorCommandInput) {
+  constructor(readonly input: PutNotificationSettingsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -126,17 +139,17 @@ export class DeleteTrustAnchorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RolesAnywhereClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteTrustAnchorCommandInput, DeleteTrustAnchorCommandOutput> {
+  ): Handler<PutNotificationSettingsCommandInput, PutNotificationSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteTrustAnchorCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, PutNotificationSettingsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RolesAnywhereClient";
-    const commandName = "DeleteTrustAnchorCommand";
+    const commandName = "PutNotificationSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -155,15 +168,15 @@ export class DeleteTrustAnchorCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteTrustAnchorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteTrustAnchorCommand(input, context);
+  private serialize(input: PutNotificationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_PutNotificationSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrustAnchorCommandOutput> {
-    return de_DeleteTrustAnchorCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutNotificationSettingsCommandOutput> {
+    return de_PutNotificationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -32,7 +32,10 @@ export interface GetSubjectCommandOutput extends SubjectDetailResponse, __Metada
 
 /**
  * @public
- * <p>Gets a Subject. A Subject associates a certificate identity with authentication attempts by CreateSession. The Subject resources stores audit information such as status of the last authentication attempt, the certificate data used in the attempt, and the last time the associated identity attempted authentication. </p>
+ * <p>Gets a <i>subject</i>, which associates a certificate identity with
+ *          authentication attempts. The subject stores auditing information such as the status
+ *          of the last authentication attempt, the certificate data used in the attempt, and the
+ *          last time the associated identity attempted authentication. </p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>rolesanywhere:GetSubject</code>.

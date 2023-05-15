@@ -36,7 +36,9 @@ export interface CreateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
 
 /**
  * @public
- * <p>Creates a trust anchor. You establish trust between IAM Roles Anywhere and your certificate authority (CA) by configuring a trust anchor. A Trust Anchor is defined either as a reference to a AWS Certificate Manager Private Certificate Authority (ACM PCA), or by uploading a Certificate Authority (CA) certificate. Your AWS workloads can authenticate with the trust anchor using certificates issued by the trusted Certificate Authority (CA) in exchange for temporary AWS credentials.</p>
+ * <p>Creates a trust anchor to establish trust between IAM Roles Anywhere and
+ *          your certificate authority (CA). You can define a trust anchor as a reference to an Private Certificate Authority (Private CA) or by uploading a CA certificate. Your Amazon Web Services workloads can authenticate with the trust anchor using certificates issued by
+ *          the CA in exchange for temporary Amazon Web Services credentials.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>rolesanywhere:CreateTrustAnchor</code>.
@@ -63,6 +65,14 @@ export interface CreateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   notificationSettings: [ // NotificationSettings
+ *     { // NotificationSetting
+ *       enabled: true || false, // required
+ *       event: "STRING_VALUE", // required
+ *       threshold: Number("int"),
+ *       channel: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateTrustAnchorCommand(input);
  * const response = await client.send(command);
@@ -81,6 +91,15 @@ export interface CreateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * //     enabled: true || false,
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
+ * //     notificationSettings: [ // NotificationSettingDetails
+ * //       { // NotificationSettingDetail
+ * //         enabled: true || false, // required
+ * //         event: "STRING_VALUE", // required
+ * //         threshold: Number("int"),
+ * //         channel: "STRING_VALUE",
+ * //         configuredBy: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

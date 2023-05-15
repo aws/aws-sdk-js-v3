@@ -32,7 +32,7 @@ export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBeare
 
 /**
  * @public
- * <p>Lists all Crls in the authenticated account and Amazon Web Services Region.</p>
+ * <p>Lists all certificate revocation lists (CRL) in the authenticated account and Amazon Web Services Region.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>rolesanywhere:ListCrls</code>.

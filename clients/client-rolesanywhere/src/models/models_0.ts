@@ -49,7 +49,7 @@ export interface CreateProfileRequest {
   name: string | undefined;
 
   /**
-   * <p>Specifies whether instance properties are required in <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> requests with this profile. </p>
+   * <p>Specifies whether instance properties are required in temporary credential requests with this profile. </p>
    */
   requireInstanceProperties?: boolean;
 
@@ -59,7 +59,7 @@ export interface CreateProfileRequest {
   sessionPolicy?: string;
 
   /**
-   * <p>A list of IAM roles that this profile can assume in a <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> operation.</p>
+   * <p>A list of IAM roles that this profile can assume in a temporary credential request.</p>
    */
   roleArns: string[] | undefined;
 
@@ -105,7 +105,7 @@ export interface ProfileDetail {
   name?: string;
 
   /**
-   * <p>Specifies whether instance properties are required in <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> requests with this profile. </p>
+   * <p>Specifies whether instance properties are required in temporary credential requests with this profile. </p>
    */
   requireInstanceProperties?: boolean;
 
@@ -125,7 +125,7 @@ export interface ProfileDetail {
   sessionPolicy?: string;
 
   /**
-   * <p>A list of IAM roles that this profile can assume in a <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> operation.</p>
+   * <p>A list of IAM roles that this profile can assume in a temporary credential request.</p>
    */
   roleArns?: string[];
 
@@ -182,6 +182,66 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const NotificationChannel = {
+  ALL: "ALL",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationChannel = (typeof NotificationChannel)[keyof typeof NotificationChannel];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotificationEvent = {
+  CA_CERTIFICATE_EXPIRY: "CA_CERTIFICATE_EXPIRY",
+  END_ENTITY_CERTIFICATE_EXPIRY: "END_ENTITY_CERTIFICATE_EXPIRY",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationEvent = (typeof NotificationEvent)[keyof typeof NotificationEvent];
+
+/**
+ * @public
+ * <p>
+ *          Customizable notification settings that will be applied to notification events.
+ *          IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge, and Health Dashboard.
+ *       </p>
+ */
+export interface NotificationSetting {
+  /**
+   * <p>Indicates whether the notification setting is enabled.</p>
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>The event to which this notification setting is applied.</p>
+   */
+  event: NotificationEvent | string | undefined;
+
+  /**
+   * <p>The number of days before a notification event. This value is required for a notification setting that is enabled.</p>
+   */
+  threshold?: number;
+
+  /**
+   * <p>The specified channel of notification.
+   *       IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.</p>
+   *          <note>
+   *             <p>In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.</p>
+   *          </note>
+   */
+  channel?: NotificationChannel | string;
+}
+
+/**
+ * @public
  * <p>The data field of the trust anchor depending on its type. </p>
  */
 export type SourceData = SourceData.AcmPcaArnMember | SourceData.X509CertificateDataMember | SourceData.$UnknownMember;
@@ -200,7 +260,10 @@ export namespace SourceData {
   }
 
   /**
-   * <p>The root certificate of the Certificate Manager Private Certificate Authority specified by this ARN is used in trust validation for <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> operations. Included for trust anchors of type <code>AWS_ACM_PCA</code>. </p>
+   * <p>
+   *          The root certificate of the Private Certificate Authority specified by this ARN is used in trust
+   *          validation for temporary credential requests. Included for trust anchors of type <code>AWS_ACM_PCA</code>.
+   *       </p>
    */
   export interface AcmPcaArnMember {
     x509CertificateData?: never;
@@ -281,6 +344,52 @@ export interface CreateTrustAnchorRequest {
    * <p>The tags to attach to the trust anchor.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>A list of notification settings to be associated to the trust anchor.</p>
+   */
+  notificationSettings?: NotificationSetting[];
+}
+
+/**
+ * @public
+ * <p>The state of a notification setting.</p>
+ *          <p>A notification setting includes information such as event name, threshold, status of
+ *          the notification setting, and the channel to notify.</p>
+ */
+export interface NotificationSettingDetail {
+  /**
+   * <p>Indicates whether the notification setting is enabled.</p>
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>The event to which this notification setting is applied.</p>
+   */
+  event: NotificationEvent | string | undefined;
+
+  /**
+   * <p>The number of days before a notification event.</p>
+   */
+  threshold?: number;
+
+  /**
+   * <p>The specified channel of notification.
+   *       IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.</p>
+   *          <note>
+   *             <p>In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.</p>
+   *          </note>
+   */
+  channel?: NotificationChannel | string;
+
+  /**
+   * <p>The principal that configured the notification setting.
+   *       For default settings configured by IAM Roles Anywhere,
+   *       the value is <code>rolesanywhere.amazonaws.com</code>, and
+   *       for customized notifications settings, it is the respective account ID.
+   *       </p>
+   */
+  configuredBy?: string;
 }
 
 /**
@@ -322,6 +431,11 @@ export interface TrustAnchorDetail {
    * <p>The ISO-8601 timestamp when the trust anchor was last updated. </p>
    */
   updatedAt?: Date;
+
+  /**
+   * <p>A list of notification settings to be associated to the trust anchor.</p>
+   */
+  notificationSettings?: NotificationSettingDetail[];
 }
 
 /**
@@ -336,11 +450,11 @@ export interface TrustAnchorDetailResponse {
 
 /**
  * @public
- * <p>A record of a presented X509 credential to <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a>. </p>
+ * <p>A record of a presented X509 credential from a temporary credential request. </p>
  */
 export interface CredentialSummary {
   /**
-   * <p>The ISO-8601 time stamp of when the certificate was last used in a <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> operation.</p>
+   * <p>The ISO-8601 time stamp of when the certificate was last used in a temporary credential request.</p>
    */
   seenAt?: Date;
 
@@ -365,7 +479,7 @@ export interface CredentialSummary {
   x509CertificateData?: string;
 
   /**
-   * <p>Indicates whether the <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> operation was successful. </p>
+   * <p>Indicates whether the temporary credential request was successful. </p>
    */
   failed?: boolean;
 }
@@ -466,7 +580,7 @@ export interface ImportCrlRequest {
   name: string | undefined;
 
   /**
-   * <p>The x509 v3 specified certificate revocation list</p>
+   * <p>The x509 v3 specified certificate revocation list (CRL).</p>
    */
   crlData: Uint8Array | undefined;
 
@@ -491,7 +605,7 @@ export interface ImportCrlRequest {
  */
 export interface ListCrlsResponse {
   /**
-   * <p>A token that indicates where the output should continue from, if a previous operation did not show all results. To get the next results, call the operation again with this value.</p>
+   * <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
    */
   nextToken?: string;
 
@@ -506,7 +620,7 @@ export interface ListCrlsResponse {
  */
 export interface ListRequest {
   /**
-   * <p>A token that indicates where the output should continue from, if a previous operation did not show all results. To get the next results, call the operation again with this value.</p>
+   * <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
    */
   nextToken?: string;
 
@@ -531,7 +645,7 @@ export interface UpdateCrlRequest {
   name?: string;
 
   /**
-   * <p>The x509 v3 specified certificate revocation list</p>
+   * <p>The x509 v3 specified certificate revocation list (CRL).</p>
    */
   crlData?: Uint8Array;
 }
@@ -572,7 +686,7 @@ export interface ScalarSubjectRequest {
  */
 export interface InstanceProperty {
   /**
-   * <p>The ISO-8601 time stamp of when the certificate was last used in a <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> operation.</p>
+   * <p>The ISO-8601 time stamp of when the certificate was last used in a temporary credential request.</p>
    */
   seenAt?: Date;
 
@@ -582,7 +696,7 @@ export interface InstanceProperty {
   properties?: Record<string, string>;
 
   /**
-   * <p>Indicates whether the <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> operation was successful. </p>
+   * <p>Indicates whether the temporary credential request was successful. </p>
    */
   failed?: boolean;
 }
@@ -613,7 +727,7 @@ export interface SubjectDetail {
   x509Subject?: string;
 
   /**
-   * <p>The ISO-8601 timestamp of the last time this Subject requested temporary session credentials.</p>
+   * <p>The ISO-8601 timestamp of the last time this subject requested temporary session credentials.</p>
    */
   lastSeenAt?: Date;
 
@@ -628,7 +742,7 @@ export interface SubjectDetail {
   updatedAt?: Date;
 
   /**
-   * <p>The temporary session credentials vended at the last authenticating call with this Subject.</p>
+   * <p>The temporary session credentials vended at the last authenticating call with this subject.</p>
    */
   credentials?: CredentialSummary[];
 
@@ -653,7 +767,7 @@ export interface SubjectDetailResponse {
  */
 export interface ListProfilesResponse {
   /**
-   * <p>A token that indicates where the output should continue from, if a previous operation did not show all results. To get the next results, call the operation again with this value.</p>
+   * <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
    */
   nextToken?: string;
 
@@ -665,7 +779,7 @@ export interface ListProfilesResponse {
 
 /**
  * @public
- * <p>A summary representation of Subject resources returned in read operations; primarily ListSubjects.</p>
+ * <p>A summary representation of subjects.</p>
  */
 export interface SubjectSummary {
   /**
@@ -679,7 +793,7 @@ export interface SubjectSummary {
   subjectId?: string;
 
   /**
-   * <p>The enabled status of the Subject. </p>
+   * <p>The enabled status of the subject. </p>
    */
   enabled?: boolean;
 
@@ -689,12 +803,12 @@ export interface SubjectSummary {
   x509Subject?: string;
 
   /**
-   * <p>The ISO-8601 time stamp of when the certificate was last used in a <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> operation.</p>
+   * <p>The ISO-8601 time stamp of when the certificate was last used in a temporary credential request.</p>
    */
   lastSeenAt?: Date;
 
   /**
-   * <p>The ISO-8601 time stamp of when the certificate was first used in a <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> operation.</p>
+   * <p>The ISO-8601 time stamp of when the certificate was first used in a temporary credential request.</p>
    */
   createdAt?: Date;
 
@@ -714,7 +828,7 @@ export interface ListSubjectsResponse {
   subjects?: SubjectSummary[];
 
   /**
-   * <p>A token that indicates where the output should continue from, if a previous operation did not show all results. To get the next results, call the operation again with this value.</p>
+   * <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
    */
   nextToken?: string;
 }
@@ -744,7 +858,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTrustAnchorsResponse {
   /**
-   * <p>A token that indicates where the output should continue from, if a previous operation did not show all results. To get the next results, call the operation again with this value.</p>
+   * <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
    */
   nextToken?: string;
 
@@ -752,6 +866,24 @@ export interface ListTrustAnchorsResponse {
    * <p>A list of trust anchors.</p>
    */
   trustAnchors?: TrustAnchorDetail[];
+}
+
+/**
+ * @public
+ * <p>A notification setting key to reset.
+ *          A notification setting key includes the event and the channel.
+ *       </p>
+ */
+export interface NotificationSettingKey {
+  /**
+   * <p>The notification setting event to reset.</p>
+   */
+  event: NotificationEvent | string | undefined;
+
+  /**
+   * <p>The specified channel of notification.</p>
+   */
+  channel?: NotificationChannel | string;
 }
 
 /**
@@ -774,7 +906,7 @@ export interface UpdateProfileRequest {
   sessionPolicy?: string;
 
   /**
-   * <p>A list of IAM roles that this profile can assume in a <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> operation.</p>
+   * <p>A list of IAM roles that this profile can assume in a temporary credential request.</p>
    */
   roleArns?: string[];
 
@@ -787,6 +919,58 @@ export interface UpdateProfileRequest {
    * <p> The number of seconds the vended session credentials are valid for. </p>
    */
   durationSeconds?: number;
+}
+
+/**
+ * @public
+ */
+export interface PutNotificationSettingsRequest {
+  /**
+   * <p>The unique identifier of the trust anchor.</p>
+   */
+  trustAnchorId: string | undefined;
+
+  /**
+   * <p>A list of notification settings to be associated to the trust anchor.</p>
+   */
+  notificationSettings: NotificationSetting[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutNotificationSettingsResponse {
+  /**
+   * <p>The state of the trust anchor after a read or write operation. </p>
+   */
+  trustAnchor: TrustAnchorDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetNotificationSettingsRequest {
+  /**
+   * <p>The unique identifier of the trust anchor.</p>
+   */
+  trustAnchorId: string | undefined;
+
+  /**
+   * <p>A list of notification setting keys to reset.
+   *          A notification setting key includes the event and the channel.
+   *       </p>
+   */
+  notificationSettingKeys: NotificationSettingKey[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetNotificationSettingsResponse {
+  /**
+   * <p>The state of the trust anchor after a read or write operation. </p>
+   */
+  trustAnchor: TrustAnchorDetail | undefined;
 }
 
 /**

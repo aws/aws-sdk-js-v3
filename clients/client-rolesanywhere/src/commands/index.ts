@@ -20,6 +20,8 @@ export * from "./ListProfilesCommand";
 export * from "./ListSubjectsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListTrustAnchorsCommand";
+export * from "./PutNotificationSettingsCommand";
+export * from "./ResetNotificationSettingsCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateCrlCommand";
