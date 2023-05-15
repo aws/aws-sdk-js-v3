@@ -63,6 +63,8 @@ export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBea
  * };
  * const command = new StreamingTraitsRequireLengthCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param StreamingTraitsRequireLengthCommandInput - {@link StreamingTraitsRequireLengthCommandInput}
@@ -71,6 +73,8 @@ export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBea
  * @see {@link StreamingTraitsRequireLengthCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class StreamingTraitsRequireLengthCommand extends $Command<

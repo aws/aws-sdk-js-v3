@@ -45,6 +45,10 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * const input = {};
  * const command = new GreetingWithErrorsCommand(input);
  * const response = await client.send(command);
+ * // { // GreetingWithErrorsOutput
+ * //   greeting: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GreetingWithErrorsCommandInput - {@link GreetingWithErrorsCommandInput}
@@ -61,6 +65,8 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * @throws {@link ComplexError} (client fault)
  *  This error is thrown when a request is invalid.
  *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class GreetingWithErrorsCommand extends $Command<

@@ -44,6 +44,8 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * const input = {};
  * const command = new NoInputAndOutputCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param NoInputAndOutputCommandInput - {@link NoInputAndOutputCommandInput}
@@ -52,6 +54,8 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * @see {@link NoInputAndOutputCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class NoInputAndOutputCommand extends $Command<

@@ -2,9 +2,6 @@
 
 # @aws-sdk/aws-protocoltests-json-10
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-protocoltests-json-10/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-json-10)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-protocoltests-json-10.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-json-10)
-
 ## Description
 
 AWS SDK for JavaScript JSONRPC10 Client for Node.js, Browser and React Native.

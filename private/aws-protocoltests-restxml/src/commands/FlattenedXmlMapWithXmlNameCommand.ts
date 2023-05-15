@@ -47,6 +47,12 @@ export interface FlattenedXmlMapWithXmlNameCommandOutput
  * };
  * const command = new FlattenedXmlMapWithXmlNameCommand(input);
  * const response = await client.send(command);
+ * // { // FlattenedXmlMapWithXmlNameInputOutput
+ * //   myMap: { // FlattenedXmlMapWithXmlNameInputOutputMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param FlattenedXmlMapWithXmlNameCommandInput - {@link FlattenedXmlMapWithXmlNameCommandInput}
@@ -55,6 +61,8 @@ export interface FlattenedXmlMapWithXmlNameCommandOutput
  * @see {@link FlattenedXmlMapWithXmlNameCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class FlattenedXmlMapWithXmlNameCommand extends $Command<

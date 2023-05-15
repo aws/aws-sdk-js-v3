@@ -49,6 +49,13 @@ export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithSt
  * };
  * const command = new HttpPayloadWithStructureCommand(input);
  * const response = await client.send(command);
+ * // { // HttpPayloadWithStructureInputOutput
+ * //   nested: { // NestedPayload
+ * //     greeting: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param HttpPayloadWithStructureCommandInput - {@link HttpPayloadWithStructureCommandInput}
@@ -57,6 +64,8 @@ export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithSt
  * @see {@link HttpPayloadWithStructureCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class HttpPayloadWithStructureCommand extends $Command<

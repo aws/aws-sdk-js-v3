@@ -61,6 +61,11 @@ export interface StreamingTraitsCommandOutput
  * };
  * const command = new StreamingTraitsCommand(input);
  * const response = await client.send(command);
+ * // { // StreamingTraitsInputOutput
+ * //   foo: "STRING_VALUE",
+ * //   blob: "STREAMING_BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param StreamingTraitsCommandInput - {@link StreamingTraitsCommandInput}
@@ -69,6 +74,8 @@ export interface StreamingTraitsCommandOutput
  * @see {@link StreamingTraitsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class StreamingTraitsCommand extends $Command<

@@ -44,6 +44,8 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * const input = {};
  * const command = new EmptyInputAndEmptyOutputCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param EmptyInputAndEmptyOutputCommandInput - {@link EmptyInputAndEmptyOutputCommandInput}
@@ -52,6 +54,8 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * @see {@link EmptyInputAndEmptyOutputCommandOutput} for command's `response` shape.
  * @see {@link JSONRPC10ClientResolvedConfig | config} for JSONRPC10Client's `config` shape.
  *
+ * @throws {@link JSONRPC10ServiceException}
+ * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
  *
  */
 export class EmptyInputAndEmptyOutputCommand extends $Command<

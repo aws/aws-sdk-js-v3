@@ -43,6 +43,10 @@ export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDo
  * };
  * const command = new PutAndGetInlineDocumentsCommand(input);
  * const response = await client.send(command);
+ * // { // PutAndGetInlineDocumentsInputOutput
+ * //   inlineDocument: "DOCUMENT_VALUE",
+ * // };
+ *
  * ```
  *
  * @param PutAndGetInlineDocumentsCommandInput - {@link PutAndGetInlineDocumentsCommandInput}
@@ -51,6 +55,8 @@ export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDo
  * @see {@link PutAndGetInlineDocumentsCommandOutput} for command's `response` shape.
  * @see {@link JsonProtocolClientResolvedConfig | config} for JsonProtocolClient's `config` shape.
  *
+ * @throws {@link JsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
  */
 export class PutAndGetInlineDocumentsCommand extends $Command<

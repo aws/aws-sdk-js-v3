@@ -141,6 +141,12 @@ export interface GetECSServiceRecommendationsCommandOutput
  * //         },
  * //       ],
  * //       currentPerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
+ * //       tags: [ // Tags
+ * //         { // Tag
+ * //           key: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   errors: [ // GetRecommendationErrors

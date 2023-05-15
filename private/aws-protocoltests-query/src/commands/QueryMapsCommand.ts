@@ -72,6 +72,8 @@ export interface QueryMapsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new QueryMapsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param QueryMapsCommandInput - {@link QueryMapsCommandInput}
@@ -80,6 +82,8 @@ export interface QueryMapsCommandOutput extends __MetadataBearer {}
  * @see {@link QueryMapsCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class QueryMapsCommand extends $Command<

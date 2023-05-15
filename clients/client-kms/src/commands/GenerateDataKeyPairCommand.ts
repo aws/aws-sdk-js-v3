@@ -144,6 +144,7 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  * //   PublicKey: "BLOB_VALUE",
  * //   KeyId: "STRING_VALUE",
  * //   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2",
+ * //   CiphertextForRecipient: "BLOB_VALUE",
  * // };
  *
  * ```
@@ -241,32 +242,6 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  * }
  * *\/
  * // example id: to-generate-an-rsa-key-pair-for-encryption-and-decryption-1
- * ```
- *
- * @example To generate a data key pair for a Nitro enclave
- * ```javascript
- * // The following example includes the Recipient parameter with a signed attestation document from an AWS Nitro enclave. Instead of returning a plaintext copy of the private data key, GenerateDataKeyPair returns a copy of the private data key encrypted by the public key from the attestation document (CiphertextForRecipient). It returns the public data key (PublicKey) and a copy of private data key encrypted under the specified KMS key (PrivateKeyCiphertextBlob), as usual, but plaintext private data key field (PrivateKeyPlaintext) is null or empty.
- * const input = {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeyPairSpec": "RSA_3072",
- *   "Recipient": {
- *     "AttestationDocument": "<attestation document>",
- *     "KeyEncryptionAlgorithm": "RSAES_OAEP_SHA_256"
- *   }
- * };
- * const command = new GenerateDataKeyPairCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CiphertextForRecipient": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeyPairSpec": "RSA_3072",
- *   "PrivateKeyCiphertextBlob": "<binary data>",
- *   "PrivateKeyPlaintext": "",
- *   "PublicKey": "<binary data>"
- * }
- * *\/
- * // example id: to-generate-a-data-key-pair-for-a-nitro-enclave-2
  * ```
  *
  * @example To generate a data key pair for a Nitro enclave

@@ -47,6 +47,8 @@ export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataB
  * };
  * const command = new OmitsNullSerializesEmptyStringCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param OmitsNullSerializesEmptyStringCommandInput - {@link OmitsNullSerializesEmptyStringCommandInput}
@@ -55,6 +57,8 @@ export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataB
  * @see {@link OmitsNullSerializesEmptyStringCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class OmitsNullSerializesEmptyStringCommand extends $Command<

@@ -47,6 +47,11 @@ export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsInputOu
  * };
  * const command = new HttpPayloadTraitsCommand(input);
  * const response = await client.send(command);
+ * // { // HttpPayloadTraitsInputOutput
+ * //   foo: "STRING_VALUE",
+ * //   blob: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param HttpPayloadTraitsCommandInput - {@link HttpPayloadTraitsCommandInput}
@@ -55,6 +60,8 @@ export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsInputOu
  * @see {@link HttpPayloadTraitsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class HttpPayloadTraitsCommand extends $Command<

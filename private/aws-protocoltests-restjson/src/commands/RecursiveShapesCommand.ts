@@ -55,6 +55,22 @@ export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput
  * };
  * const command = new RecursiveShapesCommand(input);
  * const response = await client.send(command);
+ * // { // RecursiveShapesInputOutput
+ * //   nested: { // RecursiveShapesInputOutputNested1
+ * //     foo: "STRING_VALUE",
+ * //     nested: { // RecursiveShapesInputOutputNested2
+ * //       bar: "STRING_VALUE",
+ * //       recursiveMember: {
+ * //         foo: "STRING_VALUE",
+ * //         nested: {
+ * //           bar: "STRING_VALUE",
+ * //           recursiveMember: "<RecursiveShapesInputOutputNested1>",
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param RecursiveShapesCommandInput - {@link RecursiveShapesCommandInput}
@@ -63,6 +79,8 @@ export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput
  * @see {@link RecursiveShapesCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class RecursiveShapesCommand extends $Command<

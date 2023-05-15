@@ -43,6 +43,10 @@ export interface JsonBlobsCommandOutput extends JsonBlobsInputOutput, __Metadata
  * };
  * const command = new JsonBlobsCommand(input);
  * const response = await client.send(command);
+ * // { // JsonBlobsInputOutput
+ * //   data: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
  * @param JsonBlobsCommandInput - {@link JsonBlobsCommandInput}
@@ -51,6 +55,8 @@ export interface JsonBlobsCommandOutput extends JsonBlobsInputOutput, __Metadata
  * @see {@link JsonBlobsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class JsonBlobsCommand extends $Command<

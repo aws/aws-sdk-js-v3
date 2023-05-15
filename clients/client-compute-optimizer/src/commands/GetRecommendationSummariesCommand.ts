@@ -103,6 +103,17 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * //         low: Number("long"),
  * //         veryLow: Number("long"),
  * //       },
+ * //       inferredWorkloadSavings: [ // InferredWorkloadSavings
+ * //         { // InferredWorkloadSaving
+ * //           inferredWorkloadTypes: [ // InferredWorkloadTypes
+ * //             "AmazonEmr" || "ApacheCassandra" || "ApacheHadoop" || "Memcached" || "Nginx" || "PostgreSql" || "Redis" || "Kafka" || "SQLServer",
+ * //           ],
+ * //           estimatedMonthlySavings: {
+ * //             currency: "USD" || "CNY",
+ * //             value: Number("double"),
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

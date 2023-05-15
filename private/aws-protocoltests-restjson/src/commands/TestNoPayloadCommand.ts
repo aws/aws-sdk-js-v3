@@ -48,6 +48,10 @@ export interface TestNoPayloadCommandOutput extends TestNoPayloadInputOutput, __
  * };
  * const command = new TestNoPayloadCommand(input);
  * const response = await client.send(command);
+ * // { // TestNoPayloadInputOutput
+ * //   testId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param TestNoPayloadCommandInput - {@link TestNoPayloadCommandInput}
@@ -56,6 +60,8 @@ export interface TestNoPayloadCommandOutput extends TestNoPayloadInputOutput, __
  * @see {@link TestNoPayloadCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class TestNoPayloadCommand extends $Command<

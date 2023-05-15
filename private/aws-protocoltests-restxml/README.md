@@ -2,9 +2,6 @@
 
 # @aws-sdk/aws-protocoltests-restxml
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-protocoltests-restxml/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-restxml)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-protocoltests-restxml.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-restxml)
-
 ## Description
 
 AWS SDK for JavaScript RestXmlProtocol Client for Node.js, Browser and React Native.

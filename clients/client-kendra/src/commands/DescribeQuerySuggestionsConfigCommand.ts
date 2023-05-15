@@ -64,6 +64,15 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
  * //   LastSuggestionsBuildTime: new Date("TIMESTAMP"),
  * //   LastClearTime: new Date("TIMESTAMP"),
  * //   TotalSuggestionsCount: Number("int"),
+ * //   AttributeSuggestionsConfig: { // AttributeSuggestionsDescribeConfig
+ * //     SuggestableConfigList: [ // SuggestableConfigList
+ * //       { // SuggestableConfig
+ * //         AttributeName: "STRING_VALUE",
+ * //         Suggestable: true || false,
+ * //       },
+ * //     ],
+ * //     AttributeSuggestionsMode: "ACTIVE" || "INACTIVE",
+ * //   },
  * // };
  *
  * ```

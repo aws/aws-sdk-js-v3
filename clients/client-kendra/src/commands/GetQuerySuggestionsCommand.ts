@@ -171,6 +171,27 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
  * //           ],
  * //         },
  * //       },
+ * //       SourceDocuments: [ // SourceDocuments
+ * //         { // SourceDocument
+ * //           DocumentId: "STRING_VALUE",
+ * //           SuggestionAttributes: [ // DocumentAttributeKeyList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           AdditionalAttributes: [ // DocumentAttributeList
+ * //             { // DocumentAttribute
+ * //               Key: "STRING_VALUE", // required
+ * //               Value: { // DocumentAttributeValue
+ * //                 StringValue: "STRING_VALUE",
+ * //                 StringListValue: [ // DocumentAttributeStringListValue
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 LongValue: Number("long"),
+ * //                 DateValue: new Date("TIMESTAMP"),
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

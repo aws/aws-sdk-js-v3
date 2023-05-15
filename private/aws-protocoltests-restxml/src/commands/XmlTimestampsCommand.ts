@@ -51,6 +51,16 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsInputOutput, __
  * };
  * const command = new XmlTimestampsCommand(input);
  * const response = await client.send(command);
+ * // { // XmlTimestampsInputOutput
+ * //   normal: new Date("TIMESTAMP"),
+ * //   dateTime: new Date("TIMESTAMP"),
+ * //   dateTimeOnTarget: new Date("TIMESTAMP"),
+ * //   epochSeconds: new Date("TIMESTAMP"),
+ * //   epochSecondsOnTarget: new Date("TIMESTAMP"),
+ * //   httpDate: new Date("TIMESTAMP"),
+ * //   httpDateOnTarget: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param XmlTimestampsCommandInput - {@link XmlTimestampsCommandInput}
@@ -59,6 +69,8 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsInputOutput, __
  * @see {@link XmlTimestampsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class XmlTimestampsCommand extends $Command<

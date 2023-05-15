@@ -50,6 +50,10 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * const input = {};
  * const command = new GreetingWithErrorsCommand(input);
  * const response = await client.send(command);
+ * // { // GreetingWithErrorsOutput
+ * //   greeting: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param GreetingWithErrorsCommandInput - {@link GreetingWithErrorsCommandInput}
@@ -68,6 +72,8 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * @throws {@link InvalidGreeting} (client fault)
  *  This error is thrown when an invalid greeting value is provided.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class GreetingWithErrorsCommand extends $Command<

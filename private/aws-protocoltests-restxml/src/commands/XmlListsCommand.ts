@@ -106,6 +106,62 @@ export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBe
  * };
  * const command = new XmlListsCommand(input);
  * const response = await client.send(command);
+ * // { // XmlListsInputOutput
+ * //   stringList: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   stringSet: [ // StringSet
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   integerList: [ // IntegerList
+ * //     Number("int"),
+ * //   ],
+ * //   booleanList: [ // BooleanList
+ * //     true || false,
+ * //   ],
+ * //   timestampList: [ // TimestampList
+ * //     new Date("TIMESTAMP"),
+ * //   ],
+ * //   enumList: [ // FooEnumList
+ * //     "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   ],
+ * //   intEnumList: [ // IntegerEnumList
+ * //     1 || 2 || 3,
+ * //   ],
+ * //   nestedStringList: [ // NestedStringList
+ * //     [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   ],
+ * //   renamedListMembers: [ // RenamedListMembers
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   flattenedList: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   flattenedList2: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   flattenedListWithMemberNamespace: [ // ListWithMemberNamespace
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   flattenedListWithNamespace: [ // ListWithNamespace
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   structureList: [ // StructureList
+ * //     { // StructureListMember
+ * //       a: "STRING_VALUE",
+ * //       b: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   flattenedStructureList: [
+ * //     {
+ * //       a: "STRING_VALUE",
+ * //       b: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param XmlListsCommandInput - {@link XmlListsCommandInput}
@@ -114,6 +170,8 @@ export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBe
  * @see {@link XmlListsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class XmlListsCommand extends $Command<

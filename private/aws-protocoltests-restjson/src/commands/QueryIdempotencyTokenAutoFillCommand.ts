@@ -46,6 +46,8 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
  * };
  * const command = new QueryIdempotencyTokenAutoFillCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param QueryIdempotencyTokenAutoFillCommandInput - {@link QueryIdempotencyTokenAutoFillCommandInput}
@@ -54,6 +56,8 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
  * @see {@link QueryIdempotencyTokenAutoFillCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class QueryIdempotencyTokenAutoFillCommand extends $Command<

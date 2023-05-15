@@ -2,9 +2,6 @@
 
 # @aws-sdk/aws-protocoltests-ec2
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-protocoltests-ec2/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-ec2)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-protocoltests-ec2.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-ec2)
-
 ## Description
 
 AWS SDK for JavaScript EC2Protocol Client for Node.js, Browser and React Native.

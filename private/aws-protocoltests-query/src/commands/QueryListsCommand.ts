@@ -64,6 +64,8 @@ export interface QueryListsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new QueryListsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param QueryListsCommandInput - {@link QueryListsCommandInput}
@@ -72,6 +74,8 @@ export interface QueryListsCommandOutput extends __MetadataBearer {}
  * @see {@link QueryListsCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class QueryListsCommand extends $Command<

@@ -49,6 +49,8 @@ export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataB
  * };
  * const command = new ConstantAndVariableQueryStringCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param ConstantAndVariableQueryStringCommandInput - {@link ConstantAndVariableQueryStringCommandInput}
@@ -57,6 +59,8 @@ export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataB
  * @see {@link ConstantAndVariableQueryStringCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class ConstantAndVariableQueryStringCommand extends $Command<

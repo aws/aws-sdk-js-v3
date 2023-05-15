@@ -59,6 +59,26 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
  * };
  * const command = new JsonUnionsCommand(input);
  * const response = await client.send(command);
+ * // { // UnionInputOutput
+ * //   contents: { // MyUnion Union: only one key present
+ * //     stringValue: "STRING_VALUE",
+ * //     booleanValue: true || false,
+ * //     numberValue: Number("int"),
+ * //     blobValue: "BLOB_VALUE",
+ * //     timestampValue: new Date("TIMESTAMP"),
+ * //     enumValue: "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //     listValue: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     mapValue: { // StringMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     structureValue: { // GreetingStruct
+ * //       hi: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param JsonUnionsCommandInput - {@link JsonUnionsCommandInput}
@@ -67,6 +87,8 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
  * @see {@link JsonUnionsCommandOutput} for command's `response` shape.
  * @see {@link JsonProtocolClientResolvedConfig | config} for JsonProtocolClient's `config` shape.
  *
+ * @throws {@link JsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
  */
 export class JsonUnionsCommand extends $Command<

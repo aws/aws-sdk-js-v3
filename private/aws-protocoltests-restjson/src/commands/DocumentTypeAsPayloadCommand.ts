@@ -43,6 +43,10 @@ export interface DocumentTypeAsPayloadCommandOutput extends DocumentTypeAsPayloa
  * };
  * const command = new DocumentTypeAsPayloadCommand(input);
  * const response = await client.send(command);
+ * // { // DocumentTypeAsPayloadInputOutput
+ * //   documentValue: "DOCUMENT_VALUE",
+ * // };
+ *
  * ```
  *
  * @param DocumentTypeAsPayloadCommandInput - {@link DocumentTypeAsPayloadCommandInput}
@@ -51,6 +55,8 @@ export interface DocumentTypeAsPayloadCommandOutput extends DocumentTypeAsPayloa
  * @see {@link DocumentTypeAsPayloadCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class DocumentTypeAsPayloadCommand extends $Command<

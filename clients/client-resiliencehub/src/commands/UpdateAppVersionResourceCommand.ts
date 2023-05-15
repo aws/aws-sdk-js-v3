@@ -116,6 +116,8 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  * //       ],
  * //     },
  * //     excluded: true || false,
+ * //     sourceType: "STRING_VALUE",
+ * //     parentResourceName: "STRING_VALUE",
  * //   },
  * // };
  *

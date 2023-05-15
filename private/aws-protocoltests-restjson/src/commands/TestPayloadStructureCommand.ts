@@ -50,6 +50,13 @@ export interface TestPayloadStructureCommandOutput extends TestPayloadStructureI
  * };
  * const command = new TestPayloadStructureCommand(input);
  * const response = await client.send(command);
+ * // { // TestPayloadStructureInputOutput
+ * //   testId: "STRING_VALUE",
+ * //   payloadConfig: { // PayloadConfig
+ * //     data: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param TestPayloadStructureCommandInput - {@link TestPayloadStructureCommandInput}
@@ -58,6 +65,8 @@ export interface TestPayloadStructureCommandOutput extends TestPayloadStructureI
  * @see {@link TestPayloadStructureCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class TestPayloadStructureCommand extends $Command<

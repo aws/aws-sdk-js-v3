@@ -46,6 +46,12 @@ export interface BodyWithXmlNameCommandOutput extends BodyWithXmlNameInputOutput
  * };
  * const command = new BodyWithXmlNameCommand(input);
  * const response = await client.send(command);
+ * // { // BodyWithXmlNameInputOutput
+ * //   nested: { // PayloadWithXmlName
+ * //     name: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param BodyWithXmlNameCommandInput - {@link BodyWithXmlNameCommandInput}
@@ -54,6 +60,8 @@ export interface BodyWithXmlNameCommandOutput extends BodyWithXmlNameInputOutput
  * @see {@link BodyWithXmlNameCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class BodyWithXmlNameCommand extends $Command<

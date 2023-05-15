@@ -51,6 +51,8 @@ export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new HttpRequestWithLabelsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param HttpRequestWithLabelsCommandInput - {@link HttpRequestWithLabelsCommandInput}
@@ -59,6 +61,8 @@ export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
  * @see {@link HttpRequestWithLabelsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class HttpRequestWithLabelsCommand extends $Command<

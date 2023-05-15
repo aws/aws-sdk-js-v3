@@ -44,6 +44,8 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * const input = {};
  * const command = new EmptyInputAndEmptyOutputCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param EmptyInputAndEmptyOutputCommandInput - {@link EmptyInputAndEmptyOutputCommandInput}
@@ -52,6 +54,8 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * @see {@link EmptyInputAndEmptyOutputCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
+ * @throws {@link EC2ProtocolServiceException}
+ * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
  */
 export class EmptyInputAndEmptyOutputCommand extends $Command<

@@ -51,6 +51,13 @@ export interface TestBodyStructureCommandOutput extends TestBodyStructureInputOu
  * };
  * const command = new TestBodyStructureCommand(input);
  * const response = await client.send(command);
+ * // { // TestBodyStructureInputOutput
+ * //   testId: "STRING_VALUE",
+ * //   testConfig: { // TestConfig
+ * //     timeout: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param TestBodyStructureCommandInput - {@link TestBodyStructureCommandInput}
@@ -59,6 +66,8 @@ export interface TestBodyStructureCommandOutput extends TestBodyStructureInputOu
  * @see {@link TestBodyStructureCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class TestBodyStructureCommand extends $Command<

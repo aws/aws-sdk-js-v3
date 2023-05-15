@@ -46,6 +46,12 @@ export interface HttpPayloadWithXmlNameCommandOutput extends HttpPayloadWithXmlN
  * };
  * const command = new HttpPayloadWithXmlNameCommand(input);
  * const response = await client.send(command);
+ * // { // HttpPayloadWithXmlNameInputOutput
+ * //   nested: { // PayloadWithXmlName
+ * //     name: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param HttpPayloadWithXmlNameCommandInput - {@link HttpPayloadWithXmlNameCommandInput}
@@ -54,6 +60,8 @@ export interface HttpPayloadWithXmlNameCommandOutput extends HttpPayloadWithXmlN
  * @see {@link HttpPayloadWithXmlNameCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class HttpPayloadWithXmlNameCommand extends $Command<

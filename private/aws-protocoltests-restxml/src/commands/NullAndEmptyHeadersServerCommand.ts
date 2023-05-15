@@ -47,6 +47,14 @@ export interface NullAndEmptyHeadersServerCommandOutput extends NullAndEmptyHead
  * };
  * const command = new NullAndEmptyHeadersServerCommand(input);
  * const response = await client.send(command);
+ * // { // NullAndEmptyHeadersIO
+ * //   a: "STRING_VALUE",
+ * //   b: "STRING_VALUE",
+ * //   c: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
  * @param NullAndEmptyHeadersServerCommandInput - {@link NullAndEmptyHeadersServerCommandInput}
@@ -55,6 +63,8 @@ export interface NullAndEmptyHeadersServerCommandOutput extends NullAndEmptyHead
  * @see {@link NullAndEmptyHeadersServerCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class NullAndEmptyHeadersServerCommand extends $Command<

@@ -61,6 +61,8 @@ export interface QueryListsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new QueryListsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param QueryListsCommandInput - {@link QueryListsCommandInput}
@@ -69,6 +71,8 @@ export interface QueryListsCommandOutput extends __MetadataBearer {}
  * @see {@link QueryListsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
+ * @throws {@link EC2ProtocolServiceException}
+ * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
  */
 export class QueryListsCommand extends $Command<

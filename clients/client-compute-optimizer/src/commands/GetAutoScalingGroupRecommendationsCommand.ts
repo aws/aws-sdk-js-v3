@@ -138,7 +138,7 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //         },
  * //       },
  * //       inferredWorkloadTypes: [ // InferredWorkloadTypes
- * //         "AmazonEmr" || "ApacheCassandra" || "ApacheHadoop" || "Memcached" || "Nginx" || "PostgreSql" || "Redis" || "Kafka",
+ * //         "AmazonEmr" || "ApacheCassandra" || "ApacheHadoop" || "Memcached" || "Nginx" || "PostgreSql" || "Redis" || "Kafka" || "SQLServer",
  * //       ],
  * //     },
  * //   ],

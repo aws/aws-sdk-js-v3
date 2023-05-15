@@ -43,6 +43,16 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsOutput, __Metad
  * const input = {};
  * const command = new XmlTimestampsCommand(input);
  * const response = await client.send(command);
+ * // { // XmlTimestampsOutput
+ * //   normal: new Date("TIMESTAMP"),
+ * //   dateTime: new Date("TIMESTAMP"),
+ * //   dateTimeOnTarget: new Date("TIMESTAMP"),
+ * //   epochSeconds: new Date("TIMESTAMP"),
+ * //   epochSecondsOnTarget: new Date("TIMESTAMP"),
+ * //   httpDate: new Date("TIMESTAMP"),
+ * //   httpDateOnTarget: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
  * @param XmlTimestampsCommandInput - {@link XmlTimestampsCommandInput}
@@ -51,6 +61,8 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsOutput, __Metad
  * @see {@link XmlTimestampsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
+ * @throws {@link EC2ProtocolServiceException}
+ * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
  */
 export class XmlTimestampsCommand extends $Command<

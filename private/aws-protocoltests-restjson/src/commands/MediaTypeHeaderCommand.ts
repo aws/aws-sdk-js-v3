@@ -43,6 +43,10 @@ export interface MediaTypeHeaderCommandOutput extends MediaTypeHeaderOutput, __M
  * };
  * const command = new MediaTypeHeaderCommand(input);
  * const response = await client.send(command);
+ * // { // MediaTypeHeaderOutput
+ * //   json: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
  * @param MediaTypeHeaderCommandInput - {@link MediaTypeHeaderCommandInput}
@@ -51,6 +55,8 @@ export interface MediaTypeHeaderCommandOutput extends MediaTypeHeaderOutput, __M
  * @see {@link MediaTypeHeaderCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class MediaTypeHeaderCommand extends $Command<

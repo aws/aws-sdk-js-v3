@@ -53,6 +53,8 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SimpleInputParamsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SimpleInputParamsCommandInput - {@link SimpleInputParamsCommandInput}
@@ -61,6 +63,8 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
  * @see {@link SimpleInputParamsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
+ * @throws {@link EC2ProtocolServiceException}
+ * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
  */
 export class SimpleInputParamsCommand extends $Command<

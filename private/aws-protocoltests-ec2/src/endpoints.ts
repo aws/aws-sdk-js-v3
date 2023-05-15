@@ -105,6 +105,20 @@ const partitionHash: PartitionHash = {
       },
     ],
   },
+  "aws-iso-e": {
+    regions: [],
+    regionRegex: "^eu\\-isoe\\-\\w+\\-\\d+$",
+    variants: [
+      {
+        hostname: "awsec2.{region}.cloud.adc-e.uk",
+        tags: [],
+      },
+      {
+        hostname: "awsec2-fips.{region}.cloud.adc-e.uk",
+        tags: ["fips"],
+      },
+    ],
+  },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",

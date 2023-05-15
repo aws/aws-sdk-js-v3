@@ -65,6 +65,8 @@ export interface OmitsSerializingEmptyListsCommandOutput extends __MetadataBeare
  * };
  * const command = new OmitsSerializingEmptyListsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param OmitsSerializingEmptyListsCommandInput - {@link OmitsSerializingEmptyListsCommandInput}
@@ -73,6 +75,8 @@ export interface OmitsSerializingEmptyListsCommandOutput extends __MetadataBeare
  * @see {@link OmitsSerializingEmptyListsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class OmitsSerializingEmptyListsCommand extends $Command<

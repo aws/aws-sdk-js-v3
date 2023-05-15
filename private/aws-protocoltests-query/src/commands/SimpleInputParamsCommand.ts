@@ -51,6 +51,8 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SimpleInputParamsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param SimpleInputParamsCommandInput - {@link SimpleInputParamsCommandInput}
@@ -59,6 +61,8 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
  * @see {@link SimpleInputParamsCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class SimpleInputParamsCommand extends $Command<

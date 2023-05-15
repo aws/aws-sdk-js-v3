@@ -49,6 +49,8 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new QueryTimestampsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param QueryTimestampsCommandInput - {@link QueryTimestampsCommandInput}
@@ -57,6 +59,8 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  * @see {@link QueryTimestampsCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class QueryTimestampsCommand extends $Command<

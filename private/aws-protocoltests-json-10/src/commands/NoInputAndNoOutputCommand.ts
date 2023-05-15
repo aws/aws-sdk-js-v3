@@ -42,6 +42,8 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  * const input = {};
  * const command = new NoInputAndNoOutputCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param NoInputAndNoOutputCommandInput - {@link NoInputAndNoOutputCommandInput}
@@ -50,6 +52,8 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  * @see {@link NoInputAndNoOutputCommandOutput} for command's `response` shape.
  * @see {@link JSONRPC10ClientResolvedConfig | config} for JSONRPC10Client's `config` shape.
  *
+ * @throws {@link JSONRPC10ServiceException}
+ * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
  *
  */
 export class NoInputAndNoOutputCommand extends $Command<

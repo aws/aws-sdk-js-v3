@@ -113,6 +113,12 @@ export interface GetEBSVolumeRecommendationsCommandOutput
  * //       ],
  * //       lastRefreshTimestamp: new Date("TIMESTAMP"),
  * //       currentPerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
+ * //       tags: [ // Tags
+ * //         { // Tag
+ * //           key: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   errors: [ // GetRecommendationErrors

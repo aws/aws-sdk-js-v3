@@ -85,6 +85,8 @@ export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AllQueryStringTypesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
  * @param AllQueryStringTypesCommandInput - {@link AllQueryStringTypesCommandInput}
@@ -93,6 +95,8 @@ export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
  * @see {@link AllQueryStringTypesCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class AllQueryStringTypesCommand extends $Command<

@@ -55,7 +55,7 @@ export interface DescribeFlowExecutionRecordsCommandOutput
  * //   flowExecutions: [ // FlowExecutionList
  * //     { // ExecutionRecord
  * //       executionId: "STRING_VALUE",
- * //       executionStatus: "InProgress" || "Successful" || "Error",
+ * //       executionStatus: "InProgress" || "Successful" || "Error" || "CancelStarted" || "Canceled",
  * //       executionResult: { // ExecutionResult
  * //         errorInfo: { // ErrorInfo
  * //           putFailuresCount: Number("long"),
@@ -76,12 +76,12 @@ export interface DescribeFlowExecutionRecordsCommandOutput
  * //           tableRegistrationOutput: { // RegistrationOutput
  * //             message: "STRING_VALUE",
  * //             result: "STRING_VALUE",
- * //             status: "InProgress" || "Successful" || "Error",
+ * //             status: "InProgress" || "Successful" || "Error" || "CancelStarted" || "Canceled",
  * //           },
  * //           partitionRegistrationOutput: {
  * //             message: "STRING_VALUE",
  * //             result: "STRING_VALUE",
- * //             status: "InProgress" || "Successful" || "Error",
+ * //             status: "InProgress" || "Successful" || "Error" || "CancelStarted" || "Canceled",
  * //           },
  * //         },
  * //       ],

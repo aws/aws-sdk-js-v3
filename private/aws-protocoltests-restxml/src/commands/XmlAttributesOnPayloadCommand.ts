@@ -46,6 +46,13 @@ export interface XmlAttributesOnPayloadCommandOutput extends XmlAttributesOnPayl
  * };
  * const command = new XmlAttributesOnPayloadCommand(input);
  * const response = await client.send(command);
+ * // { // XmlAttributesOnPayloadInputOutput
+ * //   payload: { // XmlAttributesInputOutput
+ * //     foo: "STRING_VALUE",
+ * //     attr: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
  * @param XmlAttributesOnPayloadCommandInput - {@link XmlAttributesOnPayloadCommandInput}
@@ -54,6 +61,8 @@ export interface XmlAttributesOnPayloadCommandOutput extends XmlAttributesOnPayl
  * @see {@link XmlAttributesOnPayloadCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class XmlAttributesOnPayloadCommand extends $Command<

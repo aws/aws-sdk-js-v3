@@ -113,6 +113,8 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
  * //       ],
  * //     },
  * //     excluded: true || false,
+ * //     sourceType: "STRING_VALUE",
+ * //     parentResourceName: "STRING_VALUE",
  * //   },
  * // };
  *
