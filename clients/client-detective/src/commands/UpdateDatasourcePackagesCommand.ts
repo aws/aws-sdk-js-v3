@@ -42,7 +42,7 @@ export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer 
  * const input = { // UpdateDatasourcePackagesRequest
  *   GraphArn: "STRING_VALUE", // required
  *   DatasourcePackages: [ // DatasourcePackageList // required
- *     "DETECTIVE_CORE" || "EKS_AUDIT",
+ *     "DETECTIVE_CORE" || "EKS_AUDIT" || "ASFF_SECURITYHUB_FINDING",
  *   ],
  * };
  * const command = new UpdateDatasourcePackagesCommand(input);

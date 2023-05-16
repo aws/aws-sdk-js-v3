@@ -239,6 +239,7 @@ export interface BatchGetGraphMemberDatasourcesRequest {
  * @enum
  */
 export const DatasourcePackage = {
+  ASFF_SECURITYHUB_FINDING: "ASFF_SECURITYHUB_FINDING",
   DETECTIVE_CORE: "DETECTIVE_CORE",
   EKS_AUDIT: "EKS_AUDIT",
 } as const;
