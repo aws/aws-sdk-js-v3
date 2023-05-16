@@ -260,6 +260,15 @@ import {
   PutPermissionPolicyRequest,
   QueryString,
   RateBasedStatement,
+  RateBasedStatementCustomKey,
+  RateLimitCookie,
+  RateLimitForwardedIP,
+  RateLimitHeader,
+  RateLimitHTTPMethod,
+  RateLimitIP,
+  RateLimitLabelNamespace,
+  RateLimitQueryArgument,
+  RateLimitQueryString,
   Regex,
   RegexMatchStatement,
   RegexPatternSetReferenceStatement,
@@ -315,6 +324,7 @@ import {
   WAFTagOperationException,
   WAFTagOperationInternalErrorException,
   WAFUnavailableEntityException,
+  WAFUnsupportedAggregateKeyTypeException,
   WebACL,
   XssMatchStatement,
 } from "../models/models_0";
@@ -2440,6 +2450,9 @@ const de_GetRateBasedStatementManagedKeysCommandError = async (
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafv2#WAFNonexistentItemException":
       throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
+    case "WAFUnsupportedAggregateKeyTypeException":
+    case "com.amazonaws.wafv2#WAFUnsupportedAggregateKeyTypeException":
+      throw await de_WAFUnsupportedAggregateKeyTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4298,6 +4311,22 @@ const de_WAFUnavailableEntityExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
+/**
+ * deserializeAws_json1_1WAFUnsupportedAggregateKeyTypeExceptionRes
+ */
+const de_WAFUnsupportedAggregateKeyTypeExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<WAFUnsupportedAggregateKeyTypeException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new WAFUnsupportedAggregateKeyTypeException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 // se_ActionCondition omitted.
 
 // se_All omitted.
@@ -4615,11 +4644,32 @@ const se_OrStatement = (input: OrStatement, context: __SerdeContext): any => {
 const se_RateBasedStatement = (input: RateBasedStatement, context: __SerdeContext): any => {
   return take(input, {
     AggregateKeyType: [],
+    CustomKeys: _json,
     ForwardedIPConfig: _json,
     Limit: [],
     ScopeDownStatement: (_) => se_Statement(_, context),
   });
 };
+
+// se_RateBasedStatementCustomKey omitted.
+
+// se_RateBasedStatementCustomKeys omitted.
+
+// se_RateLimitCookie omitted.
+
+// se_RateLimitForwardedIP omitted.
+
+// se_RateLimitHeader omitted.
+
+// se_RateLimitHTTPMethod omitted.
+
+// se_RateLimitIP omitted.
+
+// se_RateLimitLabelNamespace omitted.
+
+// se_RateLimitQueryArgument omitted.
+
+// se_RateLimitQueryString omitted.
 
 // se_RedactedFields omitted.
 
@@ -5351,13 +5401,34 @@ const de_PublishedVersions = (output: any, context: __SerdeContext): Record<stri
 const de_RateBasedStatement = (output: any, context: __SerdeContext): RateBasedStatement => {
   return take(output, {
     AggregateKeyType: __expectString,
+    CustomKeys: _json,
     ForwardedIPConfig: _json,
     Limit: __expectLong,
     ScopeDownStatement: (_: any) => de_Statement(_, context),
   }) as any;
 };
 
+// de_RateBasedStatementCustomKey omitted.
+
+// de_RateBasedStatementCustomKeys omitted.
+
 // de_RateBasedStatementManagedKeysIPSet omitted.
+
+// de_RateLimitCookie omitted.
+
+// de_RateLimitForwardedIP omitted.
+
+// de_RateLimitHeader omitted.
+
+// de_RateLimitHTTPMethod omitted.
+
+// de_RateLimitIP omitted.
+
+// de_RateLimitLabelNamespace omitted.
+
+// de_RateLimitQueryArgument omitted.
+
+// de_RateLimitQueryString omitted.
 
 // de_RedactedFields omitted.
 
@@ -5658,6 +5729,8 @@ const de_UpdateManagedRuleSetVersionExpiryDateResponse = (
 // de_WAFTagOperationInternalErrorException omitted.
 
 // de_WAFUnavailableEntityException omitted.
+
+// de_WAFUnsupportedAggregateKeyTypeException omitted.
 
 /**
  * deserializeAws_json1_1WebACL

@@ -730,8 +730,8 @@ export type TextTransformationType = (typeof TextTransformationType)[keyof typeo
  */
 export interface TextTransformation {
   /**
-   * <p>Sets the relative processing order for multiple transformations that are defined for a
-   *          rule statement. WAF processes all transformations, from lowest priority to highest,
+   * <p>Sets the relative processing order for multiple transformations.
+   *          WAF processes all transformations, from lowest priority to highest,
    *          before inspecting the transformed content. The priorities don't need to be consecutive, but
    *          they must all be different. </p>
    */
@@ -949,9 +949,7 @@ export interface ByteMatchStatement {
   FieldToMatch: FieldToMatch | undefined;
 
   /**
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-   *          If you specify one or more transformations in a rule statement, WAF performs all transformations on the
-   *          content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 
@@ -2090,6 +2088,8 @@ export interface RuleActionOverride {
  * @enum
  */
 export const RateBasedStatementAggregateKeyType = {
+  CONSTANT: "CONSTANT",
+  CUSTOM_KEYS: "CUSTOM_KEYS",
   FORWARDED_IP: "FORWARDED_IP",
   IP: "IP",
 } as const;
@@ -2099,6 +2099,179 @@ export const RateBasedStatementAggregateKeyType = {
  */
 export type RateBasedStatementAggregateKeyType =
   (typeof RateBasedStatementAggregateKeyType)[keyof typeof RateBasedStatementAggregateKeyType];
+
+/**
+ * @public
+ * <p>Specifies a cookie as an aggregate key for a rate-based rule. Each distinct value in the cookie contributes to the aggregation instance. If you use a single
+ *     cookie as your custom key, then each value fully defines an aggregation instance.  </p>
+ */
+export interface RateLimitCookie {
+  /**
+   * <p>The name of the cookie to use. </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   */
+  TextTransformations: TextTransformation[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule. Each distinct forwarded IP address contributes to the aggregation instance.</p>
+ *          <p>This setting is used only in the <code>RateBasedStatementCustomKey</code> specification of a rate-based rule statement.
+ *        When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use.
+ *        You can aggregate on only the forwarded IP address by specifying <code>FORWARDED_IP</code> in your rate-based statement's <code>AggregateKeyType</code>. </p>
+ *          <p>This data type supports using the forwarded IP address in the web request aggregation for a rate-based rule, in <code>RateBasedStatementCustomKey</code>. The JSON specification for using the forwarded IP address doesn't explicitly use this data type. </p>
+ *          <p>JSON specification: <code>"ForwardedIP": \{\}</code>
+ *          </p>
+ *          <p>When you use this specification, you must also configure the forwarded IP address in the rate-based statement's <code>ForwardedIPConfig</code>. </p>
+ */
+export interface RateLimitForwardedIP {}
+
+/**
+ * @public
+ * <p>Specifies a header as an aggregate key for a rate-based rule. Each distinct value in the header contributes to the aggregation instance. If you use a single
+ *       header as your custom key, then each value fully defines an aggregation instance.  </p>
+ */
+export interface RateLimitHeader {
+  /**
+   * <p>The name of the header to use. </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   */
+  TextTransformations: TextTransformation[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies the request's HTTP method as an aggregate key for a rate-based rule. Each distinct HTTP method contributes to the aggregation instance. If you use just the HTTP method
+ *     as your custom key, then each method fully defines an aggregation instance. </p>
+ *          <p>JSON specification: <code>"RateLimitHTTPMethod": \{\}</code>
+ *          </p>
+ */
+export interface RateLimitHTTPMethod {}
+
+/**
+ * @public
+ * <p>Specifies the IP address in the web request as an aggregate key for a rate-based rule. Each distinct IP address contributes to the aggregation instance. </p>
+ *          <p>This setting is used only in the <code>RateBasedStatementCustomKey</code> specification of a rate-based rule statement.
+ *        To use this in the custom key settings, you must specify at least one other key to use, along with the IP address.
+ *        To aggregate on only the IP address, in your rate-based statement's <code>AggregateKeyType</code>, specify <code>IP</code>.</p>
+ *          <p>JSON specification: <code>"RateLimitIP": \{\}</code>
+ *          </p>
+ */
+export interface RateLimitIP {}
+
+/**
+ * @public
+ * <p>Specifies a label namespace to use as an aggregate key for a rate-based rule. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.  </p>
+ *          <p>This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL. </p>
+ *          <p>For information about label namespaces and names, see
+ *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-label-requirements.html">Label syntax and naming requirements</a> in the <i>WAF Developer Guide</i>.</p>
+ */
+export interface RateLimitLabelNamespace {
+  /**
+   * <p>The namespace to use for aggregation. </p>
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies a query argument in the request as an aggregate key for a rate-based rule. Each distinct value for the named query argument contributes to the aggregation instance. If you
+ *       use a single query argument as your custom key, then each value fully defines an aggregation instance.  </p>
+ */
+export interface RateLimitQueryArgument {
+  /**
+   * <p>The name of the query argument to use. </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   */
+  TextTransformations: TextTransformation[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies the request's query string as an aggregate key for a rate-based rule. Each distinct string contributes to the aggregation instance. If you use just the
+ *     query string as your custom key, then each string fully defines an aggregation instance.  </p>
+ */
+export interface RateLimitQueryString {
+  /**
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   */
+  TextTransformations: TextTransformation[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies a single custom aggregate key for a rate-base rule. </p>
+ *          <note>
+ *             <p>Web requests that are missing any of the components specified in the aggregation keys
+ *                 are omitted from the rate-based rule evaluation and handling. </p>
+ *          </note>
+ */
+export interface RateBasedStatementCustomKey {
+  /**
+   * <p>Use the value of a header in the request as an aggregate key. Each distinct value in the header contributes to the aggregation instance. If you use a single
+   *       header as your custom key, then each value fully defines an aggregation instance. </p>
+   */
+  Header?: RateLimitHeader;
+
+  /**
+   * <p>Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single
+   *     cookie as your custom key, then each value fully defines an aggregation instance. </p>
+   */
+  Cookie?: RateLimitCookie;
+
+  /**
+   * <p>Use the specified query argument as an aggregate key. Each distinct value for the named query argument contributes to the aggregation instance. If you
+   *       use a single query argument as your custom key, then each value fully defines an aggregation instance.  </p>
+   */
+  QueryArgument?: RateLimitQueryArgument;
+
+  /**
+   * <p>Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the
+   *     query string as your custom key, then each string fully defines an aggregation instance.  </p>
+   */
+  QueryString?: RateLimitQueryString;
+
+  /**
+   * <p>Use the request's HTTP method as an aggregate key. Each distinct HTTP method contributes to the aggregation instance. If you use just the HTTP method
+   *     as your custom key, then each method fully defines an aggregation instance.  </p>
+   */
+  HTTPMethod?: RateLimitHTTPMethod;
+
+  /**
+   * <p>Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.</p>
+   *          <p>When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use.
+   *        You can aggregate on only the forwarded IP address by specifying <code>FORWARDED_IP</code> in your rate-based statement's <code>AggregateKeyType</code>. </p>
+   *          <p>With this option, you must specify the header to use in the rate-based rule's <code>ForwardedIPConfig</code> property. </p>
+   */
+  ForwardedIP?: RateLimitForwardedIP;
+
+  /**
+   * <p>Use the request's originating IP address as an aggregate key. Each distinct IP address contributes to the aggregation instance.</p>
+   *          <p>When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use.
+   *        You can aggregate on only the IP address by specifying <code>IP</code> in your rate-based statement's <code>AggregateKeyType</code>. </p>
+   */
+  IP?: RateLimitIP;
+
+  /**
+   * <p>Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.  </p>
+   *          <p>This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL. </p>
+   *          <p>For information about label namespaces and names, see
+   *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-label-requirements.html">Label syntax and naming requirements</a> in the <i>WAF Developer Guide</i>.</p>
+   */
+  LabelNamespace?: RateLimitLabelNamespace;
+}
 
 /**
  * @public
@@ -2116,9 +2289,7 @@ export interface RegexMatchStatement {
   FieldToMatch: FieldToMatch | undefined;
 
   /**
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-   *          If you specify one or more transformations in a rule statement, WAF performs all transformations on the
-   *          content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 }
@@ -2141,9 +2312,7 @@ export interface RegexPatternSetReferenceStatement {
   FieldToMatch: FieldToMatch | undefined;
 
   /**
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-   *          If you specify one or more transformations in a rule statement, WAF performs all transformations on the
-   *          content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 }
@@ -2216,9 +2385,7 @@ export interface SizeConstraintStatement {
   Size: number | undefined;
 
   /**
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-   *          If you specify one or more transformations in a rule statement, WAF performs all transformations on the
-   *          content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 }
@@ -2248,9 +2415,7 @@ export interface SqliMatchStatement {
   FieldToMatch: FieldToMatch | undefined;
 
   /**
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-   *          If you specify one or more transformations in a rule statement, WAF performs all transformations on the
-   *          content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 
@@ -2283,9 +2448,7 @@ export interface XssMatchStatement {
   FieldToMatch: FieldToMatch | undefined;
 
   /**
-   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-   *          If you specify one or more transformations in a rule statement, WAF performs all transformations on the
-   *          content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
    */
   TextTransformations: TextTransformation[] | undefined;
 }
@@ -2445,6 +2608,7 @@ export const ParameterExceptionField = {
   CHALLENGE_CONFIG: "CHALLENGE_CONFIG",
   CHANGE_PROPAGATION_STATUS: "CHANGE_PROPAGATION_STATUS",
   COOKIE_MATCH_PATTERN: "COOKIE_MATCH_PATTERN",
+  CUSTOM_KEYS: "CUSTOM_KEYS",
   CUSTOM_REQUEST_HANDLING: "CUSTOM_REQUEST_HANDLING",
   CUSTOM_RESPONSE: "CUSTOM_RESPONSE",
   CUSTOM_RESPONSE_BODY: "CUSTOM_RESPONSE_BODY",
@@ -2491,6 +2655,7 @@ export const ParameterExceptionField = {
   RULE_ACTION: "RULE_ACTION",
   RULE_GROUP: "RULE_GROUP",
   RULE_GROUP_REFERENCE_STATEMENT: "RULE_GROUP_REFERENCE_STATEMENT",
+  SCOPE_DOWN: "SCOPE_DOWN",
   SCOPE_VALUE: "SCOPE_VALUE",
   SINGLE_HEADER: "SINGLE_HEADER",
   SINGLE_QUERY_ARGUMENT: "SINGLE_QUERY_ARGUMENT",
@@ -4550,7 +4715,10 @@ export interface GetRateBasedStatementManagedKeysRequest {
 
 /**
  * @public
- * <p>The set of IP addresses that are currently blocked for a <a>RateBasedStatement</a>.</p>
+ * <p>The set of IP addresses that are currently blocked for a <a>RateBasedStatement</a>. This is only available for rate-based rules
+ *           that aggregate on just the IP address, with the <code>AggregateKeyType</code> set to <code>IP</code> or <code>FORWARDED_IP</code>.</p>
+ *          <p>A rate-based rule applies its rule action to requests from IP addresses that are in the rule's managed keys list and that match the rule's scope-down statement. When a rule has no scope-down statement, it applies the action to all requests from the IP addresses that are in the list. The rule applies its rule action to rate limit the matching requests. The action is usually Block but it can be any valid rule action except for Allow. </p>
+ *          <p>The maximum number of IP addresses that can be rate limited by a single rate-based rule instance is 10,000. If more than 10,000 addresses exceed the rate limit, WAF limits those with the highest rates. </p>
  */
 export interface RateBasedStatementManagedKeysIPSet {
   /**
@@ -4577,6 +4745,29 @@ export interface GetRateBasedStatementManagedKeysResponse {
    * <p>The keys that are of Internet Protocol version 6 (IPv6). </p>
    */
   ManagedKeysIPV6?: RateBasedStatementManagedKeysIPSet;
+}
+
+/**
+ * @public
+ * <p>The rule that you've named doesn't aggregate solely on the IP address or solely on the forwarded IP address. This call
+ *            is only available for rate-based rules with an <code>AggregateKeyType</code> setting of <code>IP</code> or <code>FORWARDED_IP</code>.</p>
+ */
+export class WAFUnsupportedAggregateKeyTypeException extends __BaseException {
+  readonly name: "WAFUnsupportedAggregateKeyTypeException" = "WAFUnsupportedAggregateKeyTypeException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFUnsupportedAggregateKeyTypeException, __BaseException>) {
+    super({
+      name: "WAFUnsupportedAggregateKeyTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFUnsupportedAggregateKeyTypeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -6409,20 +6600,72 @@ export interface Statement {
   RegexPatternSetReferenceStatement?: RegexPatternSetReferenceStatement;
 
   /**
-   * <p>A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span. You can use this to put a temporary block on requests from an IP address that is sending excessive requests. </p>
-   *          <p>WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by WAF. If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by WAF. </p>
-   *          <p>When the rule action triggers, WAF blocks additional requests from the IP address until the request rate falls below the limit.</p>
-   *          <p>You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts requests that match the nested statement. For example, based on recent requests that you have seen from an attacker, you might create a rate-based rule with a nested AND rule statement that contains the following nested statements:</p>
+   * <p>A rate-based rule counts incoming requests and rate limits requests when they are coming at too fast a rate. The rule categorizes requests according to your aggregation criteria, collects them into aggregation instances, and counts and rate limits the requests for each instance. </p>
+   *          <p>You can specify individual aggregation keys, like IP address or HTTP method. You can also specify aggregation key combinations, like IP address and HTTP method, or HTTP method, query argument, and cookie. </p>
+   *          <p>Each unique set of values for the aggregation keys that you specify is a separate aggregation instance, with the value from each key contributing to the aggregation instance definition. </p>
+   *          <p>For example, assume the rule evaluates web requests with the following IP address and HTTP method values: </p>
    *          <ul>
    *             <li>
-   *                <p>An IP match statement with an IP set that specifies the address 192.0.2.44.</p>
+   *                <p>IP address 10.1.1.1, HTTP method POST</p>
    *             </li>
    *             <li>
-   *                <p>A string match statement that searches in the User-Agent header for the string BadBot.</p>
+   *                <p>IP address 10.1.1.1, HTTP method GET</p>
+   *             </li>
+   *             <li>
+   *                <p>IP address 127.0.0.0, HTTP method POST</p>
+   *             </li>
+   *             <li>
+   *                <p>IP address 10.1.1.1, HTTP method GET</p>
    *             </li>
    *          </ul>
-   *          <p>In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet the criteria of both of the nested statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet the criteria of both of the nested statements are not counted towards the rate limit and are not affected by this rule.</p>
+   *          <p>The rule would create different aggregation instances according to your aggregation criteria, for example: </p>
+   *          <ul>
+   *             <li>
+   *                <p>If the aggregation criteria is just the IP address, then each individual address is an aggregation instance, and WAF counts requests separately for each. The aggregation instances and request counts for our example would be the following: </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>IP address 10.1.1.1: count 3</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>IP address 127.0.0.0: count 1</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>If the aggregation criteria is HTTP method, then each individual HTTP method is an aggregation instance. The aggregation instances and request counts for our example would be the following: </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>HTTP method POST: count 2</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>HTTP method GET: count 2</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>If the aggregation criteria is IP address and HTTP method, then each IP address and each HTTP method would contribute to the combined aggregation instance. The aggregation instances and request counts for our example would be the following: </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>IP address 10.1.1.1, HTTP method POST: count 1</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>IP address 10.1.1.1, HTTP method GET: count 2</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>IP address 127.0.0.0, HTTP method POST: count 1</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *          <p>For any n-tuple of aggregation keys, each unique combination of values for the keys defines a separate aggregation instance, which WAF counts and rate-limits individually. </p>
+   *          <p>You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts and rate limits requests that match the nested statement. You can use this nested scope-down statement in conjunction with your aggregation key specifications or you can just count and rate limit all requests that match the scope-down statement, without additional aggregation. When you choose to just manage all requests that match a scope-down statement, the aggregation instance is singular for the rule. </p>
    *          <p>You cannot nest a <code>RateBasedStatement</code> inside another statement, for example inside a <code>NotStatement</code> or <code>OrStatement</code>. You can define a <code>RateBasedStatement</code> inside a web ACL and inside a rule group. </p>
+   *          <p>For additional information about the options, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rate-based-rules.html">Rate limiting web requests using rate-based rules</a>
+   *     in the <i>WAF Developer Guide</i>. </p>
+   *          <p>If you only aggregate on the individual IP address or forwarded IP address, you can retrieve the list of IP addresses that WAF
+   *           is currently rate limiting for a rule through the API call <code>GetRateBasedStatementManagedKeys</code>. This option is not available
+   *       for other aggregation configurations.</p>
+   *          <p>WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by WAF. If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by WAF. </p>
    */
   RateBasedStatement?: RateBasedStatement;
 
@@ -6534,41 +6777,124 @@ export interface NotStatement {
 
 /**
  * @public
- * <p>A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any 5-minute time span. You can use this to put a temporary block on requests from an IP address that is sending excessive requests. </p>
- *          <p>WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by WAF. If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by WAF. </p>
- *          <p>When the rule action triggers, WAF blocks additional requests from the IP address until the request rate falls below the limit.</p>
- *          <p>You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts requests that match the nested statement. For example, based on recent requests that you have seen from an attacker, you might create a rate-based rule with a nested AND rule statement that contains the following nested statements:</p>
+ * <p>A rate-based rule counts incoming requests and rate limits requests when they are coming at too fast a rate. The rule categorizes requests according to your aggregation criteria, collects them into aggregation instances, and counts and rate limits the requests for each instance. </p>
+ *          <p>You can specify individual aggregation keys, like IP address or HTTP method. You can also specify aggregation key combinations, like IP address and HTTP method, or HTTP method, query argument, and cookie. </p>
+ *          <p>Each unique set of values for the aggregation keys that you specify is a separate aggregation instance, with the value from each key contributing to the aggregation instance definition. </p>
+ *          <p>For example, assume the rule evaluates web requests with the following IP address and HTTP method values: </p>
  *          <ul>
  *             <li>
- *                <p>An IP match statement with an IP set that specifies the address 192.0.2.44.</p>
+ *                <p>IP address 10.1.1.1, HTTP method POST</p>
  *             </li>
  *             <li>
- *                <p>A string match statement that searches in the User-Agent header for the string BadBot.</p>
+ *                <p>IP address 10.1.1.1, HTTP method GET</p>
+ *             </li>
+ *             <li>
+ *                <p>IP address 127.0.0.0, HTTP method POST</p>
+ *             </li>
+ *             <li>
+ *                <p>IP address 10.1.1.1, HTTP method GET</p>
  *             </li>
  *          </ul>
- *          <p>In this rate-based rule, you also define a rate limit. For this example, the rate limit is 1,000. Requests that meet the criteria of both of the nested statements are counted. If the count exceeds 1,000 requests per five minutes, the rule action triggers. Requests that do not meet the criteria of both of the nested statements are not counted towards the rate limit and are not affected by this rule.</p>
+ *          <p>The rule would create different aggregation instances according to your aggregation criteria, for example: </p>
+ *          <ul>
+ *             <li>
+ *                <p>If the aggregation criteria is just the IP address, then each individual address is an aggregation instance, and WAF counts requests separately for each. The aggregation instances and request counts for our example would be the following: </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>IP address 10.1.1.1: count 3</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>IP address 127.0.0.0: count 1</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>If the aggregation criteria is HTTP method, then each individual HTTP method is an aggregation instance. The aggregation instances and request counts for our example would be the following: </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>HTTP method POST: count 2</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>HTTP method GET: count 2</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>If the aggregation criteria is IP address and HTTP method, then each IP address and each HTTP method would contribute to the combined aggregation instance. The aggregation instances and request counts for our example would be the following: </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>IP address 10.1.1.1, HTTP method POST: count 1</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>IP address 10.1.1.1, HTTP method GET: count 2</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>IP address 127.0.0.0, HTTP method POST: count 1</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ *          <p>For any n-tuple of aggregation keys, each unique combination of values for the keys defines a separate aggregation instance, which WAF counts and rate-limits individually. </p>
+ *          <p>You can optionally nest another statement inside the rate-based statement, to narrow the scope of the rule so that it only counts and rate limits requests that match the nested statement. You can use this nested scope-down statement in conjunction with your aggregation key specifications or you can just count and rate limit all requests that match the scope-down statement, without additional aggregation. When you choose to just manage all requests that match a scope-down statement, the aggregation instance is singular for the rule. </p>
  *          <p>You cannot nest a <code>RateBasedStatement</code> inside another statement, for example inside a <code>NotStatement</code> or <code>OrStatement</code>. You can define a <code>RateBasedStatement</code> inside a web ACL and inside a rule group. </p>
+ *          <p>For additional information about the options, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rate-based-rules.html">Rate limiting web requests using rate-based rules</a>
+ *     in the <i>WAF Developer Guide</i>. </p>
+ *          <p>If you only aggregate on the individual IP address or forwarded IP address, you can retrieve the list of IP addresses that WAF
+ *           is currently rate limiting for a rule through the API call <code>GetRateBasedStatementManagedKeys</code>. This option is not available
+ *       for other aggregation configurations.</p>
+ *          <p>WAF tracks and manages web requests separately for each instance of a rate-based rule that you use. For example, if you provide the same rate-based rule settings in two web ACLs, each of the two rule statements represents a separate instance of the rate-based rule and gets its own tracking and management by WAF. If you define a rate-based rule inside a rule group, and then use that rule group in multiple places, each use creates a separate instance of the rate-based rule that gets its own tracking and management by WAF. </p>
  */
 export interface RateBasedStatement {
   /**
-   * <p>The limit on requests per 5-minute period for a single originating IP address. If the
-   *          statement includes a <code>ScopeDownStatement</code>, this limit is applied only to the
+   * <p>The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule.
+   *        If the rate-based statement includes a <code>ScopeDownStatement</code>, this limit is applied only to the
    *          requests that match the statement.</p>
+   *          <p>Examples: </p>
+   *          <ul>
+   *             <li>
+   *                <p>If you aggregate on just the IP address, this is the limit on requests from any single IP address. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you aggregate on the HTTP method and the query argument name "city", then this is the limit on
+   *              requests for any single method, city pair. </p>
+   *             </li>
+   *          </ul>
    */
   Limit: number | undefined;
 
   /**
-   * <p>Setting that indicates how to aggregate the request counts. The options are the
-   *          following:</p>
+   * <p>Setting that indicates how to aggregate the request counts. </p>
+   *          <note>
+   *             <p>Web requests that are missing any of the components specified in the aggregation keys
+   *                 are omitted from the rate-based rule evaluation and handling. </p>
+   *          </note>
    *          <ul>
    *             <li>
-   *                <p>IP - Aggregate the request counts on the IP address from the web request
-   *                origin.</p>
+   *                <p>
+   *                   <code>CONSTANT</code> - Count and limit the requests that match the rate-based rule's scope-down
+   *              statement. With this option, the counted requests aren't further aggregated. The scope-down statement
+   *                  is the only specification used. When the count of all requests that satisfy the scope-down statement
+   *                  goes over the limit, WAF applies the rule action to all requests that satisfy the scope-down statement. </p>
+   *                <p>With this option, you must configure the <code>ScopeDownStatement</code> property. </p>
    *             </li>
    *             <li>
-   *                <p>FORWARDED_IP - Aggregate the request counts on the first IP address in an
-   *                HTTP header. If you use this, configure the <code>ForwardedIPConfig</code>, to
-   *                specify the header to use. </p>
+   *                <p>
+   *                   <code>CUSTOM_KEYS</code> - Aggregate the request counts using one or more web request components as the aggregate keys.</p>
+   *                <p>With this option, you must specify the aggregate keys in the <code>CustomKeys</code> property. </p>
+   *                <p>To aggregate on only the IP address or only the forwarded IP address, don't use custom keys. Instead, set the aggregate
+   *                  key type to <code>IP</code> or <code>FORWARDED_IP</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FORWARDED_IP</code> - Aggregate the request counts on the first IP address in an HTTP header. </p>
+   *                <p>With this option, you must specify the header to use in the <code>ForwardedIPConfig</code> property. </p>
+   *                <p>To aggregate on a combination of the forwarded IP address with other aggregate keys, use <code>CUSTOM_KEYS</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IP</code> - Aggregate the request counts on the IP address from the web request
+   *                origin.</p>
+   *                <p>To aggregate on a combination of the IP address with other aggregate keys, use <code>CUSTOM_KEYS</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -6576,8 +6902,9 @@ export interface RateBasedStatement {
 
   /**
    * <p>An optional nested statement that narrows the scope of the web requests that are
-   *          evaluated by the rate-based statement. Requests are only tracked by the rate-based
-   *          statement if they match the scope-down statement. You can use any nestable <a>Statement</a> in the scope-down statement, and you can nest statements at any
+   *       evaluated and managed by the rate-based statement. When you use a scope-down statement,
+   *       the rate-based rule only tracks and rate limits
+   *       requests that match the scope-down statement. You can use any nestable <a>Statement</a> in the scope-down statement, and you can nest statements at any
    *          level, the same as you can for a rule statement. </p>
    */
   ScopeDownStatement?: Statement;
@@ -6587,10 +6914,14 @@ export interface RateBasedStatement {
    *          <note>
    *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
    *          </note>
-   *          <p>This is required if <code>AggregateKeyType</code> is set to
-   *          <code>FORWARDED_IP</code>.</p>
+   *          <p>This is required if you specify a forwarded IP in the rule's aggregate key settings. </p>
    */
   ForwardedIPConfig?: ForwardedIPConfig;
+
+  /**
+   * <p>Specifies the aggregate keys to use in a rate-base rule. </p>
+   */
+  CustomKeys?: RateBasedStatementCustomKey[];
 }
 
 /**

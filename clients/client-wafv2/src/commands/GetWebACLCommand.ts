@@ -443,7 +443,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //           },
  * //           RateBasedStatement: { // RateBasedStatement
  * //             Limit: Number("long"), // required
- * //             AggregateKeyType: "IP" || "FORWARDED_IP", // required
+ * //             AggregateKeyType: "IP" || "FORWARDED_IP" || "CUSTOM_KEYS" || "CONSTANT", // required
  * //             ScopeDownStatement: {
  * //               ByteMatchStatement: {
  * //                 SearchString: "BLOB_VALUE", // required
@@ -516,12 +516,37 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //               },
  * //               RateBasedStatement: {
  * //                 Limit: Number("long"), // required
- * //                 AggregateKeyType: "IP" || "FORWARDED_IP", // required
+ * //                 AggregateKeyType: "IP" || "FORWARDED_IP" || "CUSTOM_KEYS" || "CONSTANT", // required
  * //                 ScopeDownStatement: "<Statement>",
  * //                 ForwardedIPConfig: {
  * //                   HeaderName: "STRING_VALUE", // required
  * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //                 },
+ * //                 CustomKeys: [ // RateBasedStatementCustomKeys
+ * //                   { // RateBasedStatementCustomKey
+ * //                     Header: { // RateLimitHeader
+ * //                       Name: "STRING_VALUE", // required
+ * //                       TextTransformations: "<TextTransformations>", // required
+ * //                     },
+ * //                     Cookie: { // RateLimitCookie
+ * //                       Name: "STRING_VALUE", // required
+ * //                       TextTransformations: "<TextTransformations>", // required
+ * //                     },
+ * //                     QueryArgument: { // RateLimitQueryArgument
+ * //                       Name: "STRING_VALUE", // required
+ * //                       TextTransformations: "<TextTransformations>", // required
+ * //                     },
+ * //                     QueryString: { // RateLimitQueryString
+ * //                       TextTransformations: "<TextTransformations>", // required
+ * //                     },
+ * //                     HTTPMethod: {},
+ * //                     ForwardedIP: {},
+ * //                     IP: {},
+ * //                     LabelNamespace: { // RateLimitLabelNamespace
+ * //                       Namespace: "STRING_VALUE", // required
+ * //                     },
+ * //                   },
+ * //                 ],
  * //               },
  * //               AndStatement: { // AndStatement
  * //                 Statements: [ // Statements // required
@@ -642,6 +667,31 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //               HeaderName: "STRING_VALUE", // required
  * //               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //             },
+ * //             CustomKeys: [
+ * //               {
+ * //                 Header: {
+ * //                   Name: "STRING_VALUE", // required
+ * //                   TextTransformations: "<TextTransformations>", // required
+ * //                 },
+ * //                 Cookie: {
+ * //                   Name: "STRING_VALUE", // required
+ * //                   TextTransformations: "<TextTransformations>", // required
+ * //                 },
+ * //                 QueryArgument: {
+ * //                   Name: "STRING_VALUE", // required
+ * //                   TextTransformations: "<TextTransformations>", // required
+ * //                 },
+ * //                 QueryString: {
+ * //                   TextTransformations: "<TextTransformations>", // required
+ * //                 },
+ * //                 HTTPMethod: {},
+ * //                 ForwardedIP: {},
+ * //                 IP: {},
+ * //                 LabelNamespace: {
+ * //                   Namespace: "STRING_VALUE", // required
+ * //                 },
+ * //               },
+ * //             ],
  * //           },
  * //           AndStatement: {
  * //             Statements: [ // required
