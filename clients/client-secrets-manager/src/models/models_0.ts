@@ -599,6 +599,7 @@ export interface DeleteSecretRequest {
    *          <p>Secrets Manager performs the actual deletion with an asynchronous background process, so there might
    *       be a short delay before the secret is permanently deleted. If you delete a secret and then
    *       immediately create a secret with the same name, use appropriate back off and retry logic.</p>
+   *          <p>If you forcibly delete an already deleted or nonexistent secret, the operation does not return <code>ResourceNotFoundException</code>.</p>
    *          <important>
    *             <p>Use this parameter with caution. This parameter causes the operation to skip the normal
    *         recovery window before the permanent deletion that Secrets Manager would normally impose with the
@@ -771,7 +772,7 @@ export interface DescribeSecretResponse {
   DeletedDate?: Date;
 
   /**
-   * <p>The next date and time that Secrets Manager will rotate the secret, rounded to the nearest hour. If the secret isn't configured for rotation, Secrets Manager returns null.</p>
+   * <p>The next rotation is scheduled to occur on or before this date. If the secret isn't configured for rotation, Secrets Manager returns null.</p>
    */
   NextRotationDate?: Date;
 
@@ -1237,7 +1238,7 @@ export interface SecretListEntry {
   DeletedDate?: Date;
 
   /**
-   * <p>The next date and time that Secrets Manager will attempt to rotate the secret, rounded to the nearest hour. This value is null if the secret is not set up for rotation.</p>
+   * <p>The next rotation is scheduled to occur on or before this date. If the secret isn't configured for rotation, Secrets Manager returns null.</p>
    */
   NextRotationDate?: Date;
 
