@@ -1,5 +1,6 @@
 // smithy-typescript generated code
-import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provider } from "@aws-sdk/types";
+import { EndpointParameters as __EndpointParameters, EndpointV2 } from "@aws-sdk/types";
+import { Endpoint, Provider } from "@smithy/types";
 
 export interface ClientInputEndpointParameters {
   useFipsEndpoint?: boolean | Provider<boolean>;

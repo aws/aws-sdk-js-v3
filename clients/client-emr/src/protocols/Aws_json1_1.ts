@@ -1,5 +1,4 @@
 // smithy-typescript generated code
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   _json,
   decorateServiceException as __decorateServiceException,
@@ -16,12 +15,9 @@ import {
   take,
   withBaseException,
 } from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+import { HeaderBag as __HeaderBag, ResponseMetadata as __ResponseMetadata } from "@aws-sdk/types";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { AddInstanceFleetCommandInput, AddInstanceFleetCommandOutput } from "../commands/AddInstanceFleetCommand";
 import { AddInstanceGroupsCommandInput, AddInstanceGroupsCommandOutput } from "../commands/AddInstanceGroupsCommand";

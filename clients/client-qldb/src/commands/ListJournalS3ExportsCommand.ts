@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -10,8 +9,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 import { ListJournalS3ExportsRequest, ListJournalS3ExportsResponse } from "../models/models_0";
 import { de_ListJournalS3ExportsCommand, se_ListJournalS3ExportsCommand } from "../protocols/Aws_restJson1";

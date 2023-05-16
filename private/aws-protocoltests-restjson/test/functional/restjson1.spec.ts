@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
-import { Encoder as __Encoder } from "@aws-sdk/types";
 import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
+import { Encoder as __Encoder } from "@smithy/types";
 import { Readable } from "stream";
 
 import { AllQueryStringTypesCommand } from "../../src/commands/AllQueryStringTypesCommand";

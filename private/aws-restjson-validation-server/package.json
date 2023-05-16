@@ -29,7 +29,6 @@
     "@aws-sdk/middleware-serde": "*",
     "@aws-sdk/middleware-stack": "*",
     "@aws-sdk/node-http-handler": "*",
-    "@aws-sdk/protocol-http": "*",
     "@aws-sdk/smithy-client": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/url-parser": "*",
@@ -40,6 +39,8 @@
     "@aws-sdk/util-defaults-mode-node": "*",
     "@aws-sdk/util-utf8": "*",
     "@aws-smithy/server-common": "1.0.0-alpha.9",
+    "@smithy/protocol-http": "^1.0.1",
+    "@smithy/types": "^1.0.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

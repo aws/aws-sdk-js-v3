@@ -23,7 +23,6 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   DefaultsMode as __DefaultsMode,
@@ -34,21 +33,24 @@ import {
   BodyLengthCalculator as __BodyLengthCalculator,
   Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
-  Provider as __Provider,
   Provider,
   RegionInfoProvider,
   SdkStreamMixinInjector as __SdkStreamMixinInjector,
-  StreamCollector as __StreamCollector,
   StreamHasher as __StreamHasher,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
+import {
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+} from "@smithy/types";
 import { Readable } from "stream";
 
 import {
