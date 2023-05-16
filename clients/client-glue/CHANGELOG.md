@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.334.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.333.0...v3.334.0) (2023-05-16)
+
+
+### Features
+
+* **client-glue:** Add Support for Tags for Custom Entity Types ([7c99c1e](https://github.com/aws/aws-sdk-js-v3/commit/7c99c1e31557706980d20a0d4c9657b2f0faa86d))
+
+
+
+
+
 # [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

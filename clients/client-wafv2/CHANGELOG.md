@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.334.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.333.0...v3.334.0) (2023-05-16)
+
+
+### Features
+
+* **client-wafv2:** My AWS Service (placeholder) - You can now rate limit web requests based on aggregation keys other than IP addresses, and you can aggregate using combinations of keys. You can also rate limit all requests that match a scope-down statement, without further aggregation. ([d3d15cf](https://github.com/aws/aws-sdk-js-v3/commit/d3d15cf9b081f3e2e180d031265d059a95afae2c))
+
+
+
+
+
 # [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
 
 **Note:** Version bump only for package @aws-sdk/client-wafv2

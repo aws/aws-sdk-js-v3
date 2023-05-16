@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.334.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.333.0...v3.334.0) (2023-05-16)
+
+
+### Features
+
+* **client-detective:** Added and updated API operations in Detective to support the integration of ASFF Security Hub findings. ([602665d](https://github.com/aws/aws-sdk-js-v3/commit/602665d50b7bf18635c9429fc5ac863dbe5b479c))
+* **client-glue:** Add Support for Tags for Custom Entity Types ([7c99c1e](https://github.com/aws/aws-sdk-js-v3/commit/7c99c1e31557706980d20a0d4c9657b2f0faa86d))
+* **client-wafv2:** My AWS Service (placeholder) - You can now rate limit web requests based on aggregation keys other than IP addresses, and you can aggregate using combinations of keys. You can also rate limit all requests that match a scope-down statement, without further aggregation. ([d3d15cf](https://github.com/aws/aws-sdk-js-v3/commit/d3d15cf9b081f3e2e180d031265d059a95afae2c))
+* **clients:** update client endpoints as of 2023-05-16 ([f64ec40](https://github.com/aws/aws-sdk-js-v3/commit/f64ec403088ba850436c618fe884414c69950ed6))
+
+
+
+
+
 # [3.333.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.332.0...v3.333.0) (2023-05-15)
 
 

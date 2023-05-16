@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.334.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.333.0...v3.334.0) (2023-05-16)
+
+
+### Features
+
+* **client-detective:** Added and updated API operations in Detective to support the integration of ASFF Security Hub findings. ([602665d](https://github.com/aws/aws-sdk-js-v3/commit/602665d50b7bf18635c9429fc5ac863dbe5b479c))
+
+
+
+
+
 # [3.332.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.331.0...v3.332.0) (2023-05-11)
 
 **Note:** Version bump only for package @aws-sdk/client-detective
