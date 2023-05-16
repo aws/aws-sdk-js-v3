@@ -964,7 +964,7 @@ export interface VirtualInterface {
   customerRouterConfig?: string;
 
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500</p>
    */
   mtu?: number;
 
@@ -1114,7 +1114,7 @@ export interface NewTransitVirtualInterfaceAllocation {
   asn?: number;
 
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500. </p>
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500 </p>
    */
   mtu?: number;
 
