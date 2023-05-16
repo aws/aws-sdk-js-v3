@@ -22,7 +22,6 @@ import {
   EventStreamSerdeContext as __EventStreamSerdeContext,
   ResponseMetadata as __ResponseMetadata,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
 import {

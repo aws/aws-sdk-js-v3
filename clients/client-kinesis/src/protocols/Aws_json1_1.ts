@@ -16,7 +16,6 @@ import {
   EventStreamSerdeContext as __EventStreamSerdeContext,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";

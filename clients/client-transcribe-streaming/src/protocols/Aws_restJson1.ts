@@ -17,7 +17,6 @@ import {
   Message as __Message,
   MessageHeaders as __MessageHeaders,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
