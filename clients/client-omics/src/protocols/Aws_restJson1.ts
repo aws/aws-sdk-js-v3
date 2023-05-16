@@ -1,10 +1,5 @@
 // smithy-typescript generated code
 import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
-  isValidHostname as __isValidHostname,
-} from "@aws-sdk/protocol-http";
-import {
   _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
@@ -23,11 +18,15 @@ import {
 } from "@aws-sdk/smithy-client";
 import {
   DocumentType as __DocumentType,
-  Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@smithy/protocol-http";
+import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {

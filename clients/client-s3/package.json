@@ -55,7 +55,6 @@
     "@aws-sdk/middleware-user-agent": "*",
     "@aws-sdk/node-config-provider": "*",
     "@aws-sdk/node-http-handler": "*",
-    "@aws-sdk/protocol-http": "*",
     "@aws-sdk/signature-v4-multi-region": "*",
     "@aws-sdk/smithy-client": "*",
     "@aws-sdk/types": "*",
@@ -74,6 +73,8 @@
     "@aws-sdk/util-utf8": "*",
     "@aws-sdk/util-waiter": "*",
     "@aws-sdk/xml-builder": "*",
+    "@smithy/protocol-http": "^1.0.1",
+    "@smithy/types": "^1.0.0",
     "fast-xml-parser": "4.1.2",
     "tslib": "^2.5.0"
   },

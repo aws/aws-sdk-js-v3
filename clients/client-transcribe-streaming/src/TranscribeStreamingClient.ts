@@ -35,7 +35,6 @@ import {
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { resolveWebSocketConfig, WebSocketInputConfig, WebSocketResolvedConfig } from "@aws-sdk/middleware-websocket";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   DefaultsMode as __DefaultsMode,
@@ -47,8 +46,6 @@ import {
   Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Credentials as __Credentials,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
   EventStreamPayloadHandlerProvider as __EventStreamPayloadHandlerProvider,
   EventStreamSerdeProvider as __EventStreamSerdeProvider,
@@ -56,12 +53,17 @@ import {
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
-  Provider as __Provider,
   Provider,
-  StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
+import {
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  Provider as __Provider,
+  StreamCollector as __StreamCollector,
+} from "@smithy/types";
 
 import {
   StartCallAnalyticsStreamTranscriptionCommandInput,

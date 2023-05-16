@@ -1,5 +1,4 @@
 // smithy-typescript generated code
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   _json,
   dateToUtcString as __dateToUtcString,
@@ -31,12 +30,7 @@ import {
   strictParseShort as __strictParseShort,
   take,
 } from "@aws-sdk/smithy-client";
-import {
-  DocumentType as __DocumentType,
-  Endpoint as __Endpoint,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+import { DocumentType as __DocumentType, ResponseMetadata as __ResponseMetadata } from "@aws-sdk/types";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import {
   acceptMatches as __acceptMatches,
@@ -47,6 +41,8 @@ import {
   SmithyFrameworkException as __SmithyFrameworkException,
   UnsupportedMediaTypeException as __UnsupportedMediaTypeException,
 } from "@aws-smithy/server-common";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
 
 import {
   ComplexError,

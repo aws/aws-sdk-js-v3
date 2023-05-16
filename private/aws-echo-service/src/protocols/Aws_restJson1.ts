@@ -3,7 +3,6 @@ import { EchoCommandInput, EchoCommandOutput } from "../commands/EchoCommand";
 import { LengthCommandInput, LengthCommandOutput } from "../commands/LengthCommand";
 import { EchoServiceServiceException as __BaseException } from "../models/EchoServiceServiceException";
 import { PalindromeException } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
@@ -16,11 +15,9 @@ import {
   take,
   withBaseException,
 } from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+import { ResponseMetadata as __ResponseMetadata } from "@aws-sdk/types";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
 /**

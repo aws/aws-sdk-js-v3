@@ -37,7 +37,6 @@
     "@aws-sdk/middleware-user-agent": "*",
     "@aws-sdk/node-config-provider": "*",
     "@aws-sdk/node-http-handler": "*",
-    "@aws-sdk/protocol-http": "*",
     "@aws-sdk/querystring-builder": "*",
     "@aws-sdk/smithy-client": "*",
     "@aws-sdk/types": "*",
@@ -53,6 +52,8 @@
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
     "@aws-sdk/util-utf8": "*",
+    "@smithy/protocol-http": "^1.0.1",
+    "@smithy/types": "^1.0.0",
     "tslib": "^2.5.0",
     "uuid": "^8.3.2"
   },

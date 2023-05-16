@@ -1,10 +1,5 @@
 // smithy-typescript generated code
 import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
-  isValidHostname as __isValidHostname,
-} from "@aws-sdk/protocol-http";
-import {
   dateToUtcString as __dateToUtcString,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
@@ -24,13 +19,17 @@ import {
   withBaseException,
 } from "@aws-sdk/smithy-client";
 import {
-  Endpoint as __Endpoint,
   EventStreamSerdeContext as __EventStreamSerdeContext,
   ResponseMetadata as __ResponseMetadata,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@smithy/protocol-http";
+import { Endpoint as __Endpoint, SerdeContext as __SerdeContext } from "@smithy/types";
 import { XMLParser } from "fast-xml-parser";
 
 import {

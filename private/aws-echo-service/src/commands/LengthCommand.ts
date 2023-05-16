@@ -3,7 +3,6 @@ import { EchoServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import { LengthInput, LengthOutput } from "../models/models_0";
 import { de_LengthCommand, se_LengthCommand } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -12,8 +11,9 @@ import {
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { SerdeContext as __SerdeContext } from "@smithy/types";
 
 /**
  * @public

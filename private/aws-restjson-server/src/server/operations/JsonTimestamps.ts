@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8";
 import {
@@ -21,6 +20,7 @@ import {
   ValidationCustomizer as __ValidationCustomizer,
   ValidationFailure as __ValidationFailure,
 } from "@aws-smithy/server-common";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 
 import { JsonTimestampsInputOutput } from "../../models/models_0";
 import {
