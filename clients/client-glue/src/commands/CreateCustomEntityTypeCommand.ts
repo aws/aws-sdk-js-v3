@@ -46,6 +46,9 @@ export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityT
  *   ContextWords: [ // ContextWords
  *     "STRING_VALUE",
  *   ],
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateCustomEntityTypeCommand(input);
  * const response = await client.send(command);

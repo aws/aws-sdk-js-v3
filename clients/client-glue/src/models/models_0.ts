@@ -7395,6 +7395,11 @@ export interface CreateCustomEntityTypeRequest {
    *          <p>If no context words are passed only a regular expression is checked.</p>
    */
   ContextWords?: string[];
+
+  /**
+   * <p>A list of tags applied to the custom entity type.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
 /**

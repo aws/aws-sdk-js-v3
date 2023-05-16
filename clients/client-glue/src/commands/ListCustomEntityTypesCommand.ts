@@ -42,6 +42,9 @@ export interface ListCustomEntityTypesCommandOutput extends ListCustomEntityType
  * const input = { // ListCustomEntityTypesRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new ListCustomEntityTypesCommand(input);
  * const response = await client.send(command);

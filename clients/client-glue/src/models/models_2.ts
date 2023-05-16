@@ -568,6 +568,11 @@ export interface ListCustomEntityTypesRequest {
    * <p>The maximum number of results to return.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>A list of key-value pair tags.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
