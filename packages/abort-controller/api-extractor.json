@@ -1,0 +1,5 @@
+{
+  "extends": "../../api-extractor.packages.json",
+  "bundledPackages": ["@aws-sdk/types", "@aws-sdk/util-waiter", "@aws-sdk/smithy-client"],
+  "mainEntryPointFilePath": "./dist-types/index.d.ts"
+}
