@@ -146,6 +146,10 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       externalMetricStatus: { // ExternalMetricStatus
+ * //         statusCode: "NO_EXTERNAL_METRIC_SET" || "INTEGRATION_SUCCESS" || "DATADOG_INTEGRATION_ERROR" || "DYNATRACE_INTEGRATION_ERROR" || "NEWRELIC_INTEGRATION_ERROR" || "INSTANA_INTEGRATION_ERROR" || "INSUFFICIENT_DATADOG_METRICS" || "INSUFFICIENT_DYNATRACE_METRICS" || "INSUFFICIENT_NEWRELIC_METRICS" || "INSUFFICIENT_INSTANA_METRICS",
+ * //         statusReason: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   errors: [ // GetRecommendationErrors
